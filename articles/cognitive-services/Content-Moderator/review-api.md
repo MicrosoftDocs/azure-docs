@@ -14,9 +14,7 @@ ms.author: sajagtap
 
 # The Review API
 
-Use the [Review API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5 "Content Moderator Review API") to integrate your content with the review tool that in turn handles both automated moderation and human reviews.
-
-Also read: [How to authenticate your Review API calls](review-api-authentication.md).
+Use Content Moderators's review API [(See API reference)](api-reference.md "Content Moderator API Reference") to integrate your content with the review tool to get both automated moderation and human reviews.
 
 The Review API has a small set of operations that use the underlying moderation APIs to moderate your content and make the tagged images available within the review tool for human review.
 

@@ -23,16 +23,6 @@ ms.author: donnam
 # Azure Functions triggers and bindings concepts
 Azure Functions allows you to write code in response to events in Azure and other services, through *triggers* and *bindings*. This article is a conceptual overview of triggers and bindings for all supported programming languages. Features that are common to all bindings are described here.
 
-For details on a specific trigger or binding, see one of the following reference topics. 
-
-<!--TODO: remove this table -->
-| | | | |  
-| --- | --- | --- | --- |  
-| [HTTP/webhook](functions-bindings-http-webhook.md) | [Timer](functions-bindings-timer.md) | [Mobile Apps](functions-bindings-mobile-apps.md) | [Service Bus](functions-bindings-service-bus.md)  |  
-| [DocumentDB](functions-bindings-documentdb.md) |  [Storage Blob](functions-bindings-storage-blob.md) | [Storage Queue](functions-bindings-storage-queue.md) |  [Storage Table](functions-bindings-storage-table.md) |  
-| [Event Hubs](functions-bindings-event-hubs.md) | [Notification Hubs](functions-bindings-notification-hubs.md) | [SendGrid](functions-bindings-sendgrid.md) | [Twilio](functions-bindings-twilio.md) |   
-| | | | |  
-
 ## Overview
 
 Triggers and bindings are a declarative way to define how a function is invoked and what data it works with. A *trigger* defines how a function is invoked. A function must have exactly one trigger. Triggers have associated data, which is usually the payload that triggered the function. 
@@ -134,6 +124,14 @@ To view and edit the contents of *function.json* in the Azure portal, click the 
 
 For more code examples and details on integrating with Azure Storage, see [Azure Functions triggers and bindings for Azure Storage](functions-bindings-storage.md).
 
+### Binding direction
+
+All triggers and bindings have a `direction` property:
+
+- For triggers, the direction is always `in`
+- Input and output bindings use `in` and `out`
+- Some bindings support a special direction `inout`. If you use `inout`, only the **Advanced editor** is available in the **Integrate** tab.
+
 ## Using the function return type to return a single output
 
 The preceding example shows how to use the function return value to provide output to a binding, which is achieved by using the special name parameter `$return`. (This is only supported in languages that have a return value, such as C#, JavaScript, and F#.) If a function has multiple output bindings, use `$return` for only one of the output bindings. 
@@ -188,7 +186,7 @@ let Run(input: WorkItem, log: TraceWriter) =
 ```
 
 ## Resolving app settings
-As a best practice, secrets and connection strings should be managed using app settings, rather than configuration files. This limits access to these secrets and makes it safe to store `function.json` in a public source control repository.
+As a best practice, secrets and connection strings should be managed using app settings, rather than configuration files. This limits access to these secrets and makes it safe to store *function.json* in a public source control repository.
 
 App settings are also useful whenever you want to change configuration based on the environment. For example, in a test environment, you may want to monitor a different queue or blob storage container.
 
@@ -216,13 +214,13 @@ In addition to the data payload provided by a trigger (such as the queue message
 
 For example, a queue trigger supports the following properties:
 
-* **QueueTrigger** - triggering message content if a valid string
-* **DequeueCount**
-* **ExpirationTime**
-* **Id**
-* **InsertionTime**
-* **NextVisibleTime**
-* **PopReceipt**
+* QueueTrigger - triggering message content if a valid string
+* DequeueCount
+* ExpirationTime
+* Id
+* InsertionTime
+* NextVisibleTime
+* PopReceipt
 
 Details of metadata properties for each trigger are described in the corresponding reference topic. Documentation is also available in the **Integrate** tab of the portal, in the **Documentation** section below the binding configuration area.  
 
@@ -290,6 +288,19 @@ public static void Run(Stream image, string filename, Stream imageSmall, TraceWr
 
 <!--TODO: add JavaScript example -->
 <!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
+
+
+### Random GUIDs
+Azure Functions provides a convenience syntax for generating GUIDs in your bindings, through the `{rand-guid}` binding expression. The following example uses this to generate a unique blob name: 
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{rand-guid}"
+}
+```
 
 ## Bind to custom input properties in a binding expression
 
@@ -362,21 +373,19 @@ module.exports = function (context, info) {
 }
 ```
 
-### Random GUIDs
-Azure Functions provides a convenience syntax for generating GUIDs in your bindings, through the `{rand-guid}` binding expression. The following example uses this to generate a unique blob name: 
-
-```json
-{
-  "type": "blob",
-  "name": "blobOutput",
-  "direction": "out",
-  "path": "my-output-container/{rand-guid}"
-}
-```
-
 ## Next steps
-For more information, see the following resources:
+For more information on a specific binding, see the following articles:
 
-* [Testing a function](functions-test-a-function.md)
-* [Scale a function](functions-scale.md)
-
+- [HTTP and webhooks](functions-bindings-http-webhook.md)
+- [Timer](functions-bindings-timer.md)
+- [Queue storage](functions-bindings-storage-queue.md)
+- [Blob storage](functions-bindings-storage-blob.md)
+- [Table storage](functions-bindings-storage-table.md)
+- [Event Hub](functions-bindings-event-hubs.md)
+- [Service Bus](functions-bindings-service-bus.md)
+- [DocumentDB](functions-bindings-documentdb.md)
+- [SendGrid](functions-bindings-sendgrid.md)
+- [Twilio](functions-bindings-twilio.md)
+- [Notification Hubs](functions-bindings-notification-hubs.md)
+- [Mobile Apps](functions-bindings-mobile-apps.md)
+- [External file](functions-bindings-external-file.md)

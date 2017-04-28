@@ -19,7 +19,7 @@ ms.author: asteen
 
 # How to configure an Application Proxy application to use PingAccess
 
-Our collaboration with PingAccess now allows you to extend the benefits of Application Proxy to applications using header-based authentication. If your applications do not use headers, see our [Single Sign-On documentation](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-sso-using-kcd) for details on other options.
+Our collaboration with PingAccess now allows you to extend the benefits of Application Proxy to applications using header-based authentication. If your applications do not use headers, see our [Single Sign-On documentation](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) for details on other options.
 
 ## Overview of steps and recommended documents
 
@@ -33,4 +33,4 @@ To configure an application with PingAccess, there are four steps:
 
 4.  Configure Applications in PingAccess
 
-For details on each of these steps, see our [Single Sign-On with Headers documentation](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-ping-access).
+For details on each of these steps, see our [Single Sign-On with Headers documentation](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access).

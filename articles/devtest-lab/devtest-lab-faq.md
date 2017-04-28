@@ -224,7 +224,7 @@ Resource groups are created this way in order for Azure DevTest Labs to manage t
 There is no specific limit on the number of labs that can be created per subscription. However, the resources used are limited per subscription. You can read about the [limits and quotas imposed on Azure subscriptions](../azure-subscription-service-limits.md) and [how to increase these limits](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 ### How many VMs can I create per lab?
-There is no specific limit on the number of VMs that can be created per lab. However, currently the lab supports only about 40 VMs running at the same time in standard storage, and 25 VMs running concurrently in premium storage. We are currently working on increasing these limits.
+There is no specific limit on the number of VMs that can be created per lab. However, the resources used are limited per subscription (e.g. VM cores, public IPs, etc.). You can read about the [limits and quotas imposed on Azure subscriptions](../azure-subscription-service-limits.md) and [how to increase these limits](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 ### How do I share a direct link to my lab?
 To share a direct link to your lab users, you can perform the following procedure:

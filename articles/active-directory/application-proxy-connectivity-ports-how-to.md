@@ -19,7 +19,7 @@ ms.author: asteen
 
 # How to open the firewall ports required for an Application Proxy application
 
-To see a full list of the required ports and the function of each port, see the prerequisites section of the [Application Proxy documentation](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable). note that Application Proxy only uses outbound ports.
+To see a full list of the required ports and the function of each port, see the prerequisites section of the [Application Proxy documentation](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable). note that Application Proxy only uses outbound ports.
 
 You can also check whether you have all the required ports open by opening the [Connector Ports Test Tool](https://aadap-portcheck.connectorporttest.msappproxy.net/) from your on-prem network. More green checkmarks means greater resiliency. 
 

@@ -6,7 +6,7 @@
     href: app-service-web-overview.md
   - name: Compare hosting options
     href: choose-web-site-cloud-service-vm.md
-- name: Quickstart
+- name: Quickstarts
   expanded: true
   items:
   - name: Create .NET app
@@ -21,18 +21,22 @@
     href: app-service-web-get-started-python.md
   - name: Create static HTML site
     href: app-service-web-get-started-html.md
+- name: Tutorials
+  items:
+  - name: 1 - .NET with SQL DB
+    href: app-service-web-tutorial-dotnet-sqldatabase.md
+  - name: 1 - Node.js with MongoDB
+    href: app-service-web-tutorial-nodejs-mongodb-app.md
+  - name: 2 - Map Custom Domain
+    href: app-service-web-tutorial-custom-domain.md
+  - name: 3 - Bind SSL Certificate
+    href: app-service-web-tutorial-custom-ssl.md
 - name: Samples
   items:
   - name: Azure CLI
     href: app-service-cli-samples.md
   - name: PowerShell
     href: app-service-powershell-samples.md
-- name: Tutorials
-  items:
-  - name: .NET with SQL Database
-    href: app-service-web-tutorial-dotnet-sqldatabase.md
-  - name: Node.js with MongoDB
-    href: app-service-web-tutorial-nodejs-mongodb-app.md
 - name: Concepts
   items:
   - name: How App Service works
@@ -174,8 +178,6 @@
         href: web-sites-dotnet-entity-framework-row-level-security.md
     - name: Assign custom SSL
       items:
-      - name: Buy SSL cert
-        href: web-sites-purchase-ssl-web-site.md
       - name: Configure 3rd-party SSL cert
         href: web-sites-configure-ssl-certificate.md
     - name: Enforce HTTPS
