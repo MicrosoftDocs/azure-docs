@@ -57,7 +57,7 @@ For a script example, see [Configure auditing and threat detection using PowerSh
    ![Navigation pane][5]
 
 
-## Explore threat detection alers for your database in the Azure portal
+## Explore threat detection alerts for your database in the Azure portal
 
 SQL Database Threat Detection integrates its alerts with Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/). A live SQL security tile within the database blade in Azure portal tracks the status of active threats. 
 
