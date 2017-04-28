@@ -172,7 +172,7 @@ You can add storage accounts when you create an HDInsight cluster or after a clu
 For more information about secondary Azure Storage account, see [Using Azure Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md). For more information about secondary Data Lake Storage, see [Create HDInsight clusters with Data Lake Store using Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 
-#### <a name="use-hiveoozie-metastore></a>Hive/Oozie metastore
+#### <a name="use-hiveoozie-metastore"></a>Hive/Oozie metastore
 We recommend that you use a custom metastore if you want to retain your Hive tables after you delete your HDInsight cluster. You will be able to attach that metastore to another HDInsight cluster.
 
 > [!IMPORTANT]
@@ -189,7 +189,7 @@ Metastore configuration is not available for HBase cluster types.
 >
 >
 
-## HDInsight application
+## HDInsight applications
 
 An HDInsight application is an application that users can install on a Linux-based HDInsight cluster. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. For more information, see [Install third-party Hadoop applications on Azure HDInsight](hdinsight-apps-install-applications.md).
 
