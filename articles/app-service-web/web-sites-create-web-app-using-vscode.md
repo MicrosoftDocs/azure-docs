@@ -76,7 +76,7 @@ This section shows you how to scaffold a new app ASP.NET web app. You will use t
 Now that you have created the web app and retrieved all the NuGet packages for the app, you can run the web app locally.
 
 1. Run the app  (the `dotnet run` command will build the app when it's out of date):
-  ```terminal
+    ```terminal
     dotnet run
     ```
 2. Open a browser and navigate to the following URL.
