@@ -41,9 +41,9 @@ Until the LargeObject error is resolved, other attribute changes to the same obj
  * Reduce the number of certificate values on the on-premises AD object (15 or less) by removing values that are no longer in use by your organization. This is suitable if the attribute bloat is caused by expired or unused certificates. You can use the [PowerShell script available here](https://gallery.technet.microsoft.com/Remove-Expired-Certificates-0517e34f) to help find, backup, and delete expired certificates in your on-premises AD. Before deleting the certificates, it is recommended that you verify with the Public-Key-Infrastructure administrators in your organization.
 
  * Configure Azure AD Connect to exclude the userCertificate attribute from being exported to Azure AD. In general, we do not recommend this option since the attribute may be used by Microsoft Online Services to enable specific scenarios. In particular:
-    * The userCertificate attribute on the User object is used by Exchange Online and Outlook clients for message signing and encryption. To learn more about this feature, refer to article [S/MIME for message signing and encryption](https://technet.microsoft.com/en-us/library/dn626158(v=exchg.150).aspx).
+    * The userCertificate attribute on the User object is used by Exchange Online and Outlook clients for message signing and encryption. To learn more about this feature, refer to article [S/MIME for message signing and encryption](https://technet.microsoft.com/library/dn626158(v=exchg.150).aspx).
 
-    * The userCertificate attribute on the Computer object is used by Azure AD to allow Windows 10 domain-joined devices to connect to Azure AD. To learn more about this feature, please refer to article [Connect domain-joined devices to Azure AD for Windows 10 experiences](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy).
+    * The userCertificate attribute on the Computer object is used by Azure AD to allow Windows 10 on-premises domain-joined devices to connect to Azure AD. To learn more about this feature, please refer to article [Connect domain-joined devices to Azure AD for Windows 10 experiences](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy).
 
 ## Implementing sync rule to limit export of userCertificate attribute
 To resolve the LargeObject error caused by the userCertificate attribute, you can implement an outbound sync rule in Azure AD Connect that exports a **null value instead of the actual values for objects with more than 15 certificate values**. This section describes the steps required to implement the sync rule for **User** objects. The steps can be adapted for **Contact** and **Computer** objects.
@@ -173,5 +173,6 @@ Now that the issue is resolved, re-enable the built-in sync scheduler:
 > [!Note]
 > The preceding steps are only applicable to newer versions (1.1.xxx.x) of Azure AD Connect with the built-in scheduler. If you are using older versions (1.0.xxx.x) of Azure AD Connect that uses Windows Task Scheduler, or you are using your own custom scheduler (not common) to trigger periodic synchronization, you need to disable them accordingly.
 
-
+## Next steps
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
