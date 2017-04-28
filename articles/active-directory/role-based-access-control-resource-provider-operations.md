@@ -439,10 +439,10 @@ This provider is not a full ARM provider and does not provide any ARM operations
 |/virtualMachines/attachDisk/action|Attaches a data disk to a virtual machine.|
 |/virtualMachines/detachDisk/action|Detaches a data disk from virtual machine.|
 |/virtualMachines/downloadRemoteDesktopConnectionFile/action|Downloads the RDP file for virtual machine.|
-|/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/read|Gets the network security group associated with the network interface.|
-|/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/write|Adds a network security group associated with the network interface.|
-|/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/delete|Deletes the network security group associated with the network interface.|
-|/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/<br>operationStatuses/read|Reads the operation status for the virtual machines associated network security groups.|
+|/virtualMachines/networkInterfaces/<br>associatedNetworkSecurityGroups/read|Gets the network security group associated with the network interface.|
+|/virtualMachines/networkInterfaces/<br>associatedNetworkSecurityGroups/write|Adds a network security group associated with the network interface.|
+|/virtualMachines/networkInterfaces/<br>associatedNetworkSecurityGroups/delete|Deletes the network security group associated with the network interface.|
+|/virtualMachines/networkInterfaces/<br>associatedNetworkSecurityGroups/operationStatuses/read|Reads the operation status for the virtual machines associated network security groups.|
 |/virtualMachines/providers/Microsoft.Insights/metricDefinitions/read|Gets the metrics definitions.|
 |/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/read|Get the diagnostics settings.|
 |/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/write|Add or modify diagnostics settings.|
@@ -477,10 +477,10 @@ This provider is not a full ARM provider and does not provide any ARM operations
 |/virtualNetworks/join/action|Joins the virtual network.|
 |/virtualNetworks/checkIPAddressAvailability/action|Checks the availability of a given IP address in a virtual network.|
 |/virtualNetworks/capabilities/read|Shows the capabilities|
-|/virtualNetworks/subnets/associatedNetworkSecurityGroups/read|Gets the network security group associated with the subnet.|
-|/virtualNetworks/subnets/associatedNetworkSecurityGroups/write|Adds a network security group associated with the subnet.|
-|/virtualNetworks/subnets/associatedNetworkSecurityGroups/delete|Deletes the network security group associated with the subnet.|
-|/virtualNetworks/subnets/associatedNetworkSecurityGroups/operationStatuses/read|Reads the operation status for the virtual network subnet associeted network security group.|
+|/virtualNetworks/subnets/<br>associatedNetworkSecurityGroups/read|Gets the network security group associated with the subnet.|
+|/virtualNetworks/subnets/<br>associatedNetworkSecurityGroups/write|Adds a network security group associated with the subnet.|
+|/virtualNetworks/subnets/<br>associatedNetworkSecurityGroups/delete|Deletes the network security group associated with the subnet.|
+|/virtualNetworks/subnets/<br>associatedNetworkSecurityGroups/operationStatuses/read|Reads the operation status for the virtual network subnet associeted network security group.|
 |/virtualNetworks/operationStatuses/read|Reads the operation status for the virtual networks.|
 |/virtualNetworks/gateways/read|Gets the virtual network gateways.|
 |/virtualNetworks/gateways/write|Adds a virtual network gateway.|
@@ -1242,7 +1242,7 @@ This provider is not a full ARM provider and does not provide any ARM operations
 |/expressRouteCircuits/peerings/delete|Deletes an ExpressRouteCircuit Peering|
 |/expressRouteCircuits/peerings/arpTables/action|Gets an ExpressRouteCircuit Peering ArpTable|
 |/expressRouteCircuits/peerings/routeTables/action|Gets an ExpressRouteCircuit Peering RouteTable|
-|/expressRouteCircuits/peerings/routeTablesSummary/action|Gets an ExpressRouteCircuit Peering RouteTable Summary|
+|/expressRouteCircuits/peerings/<br>routeTablesSummary/action|Gets an ExpressRouteCircuit Peering RouteTable Summary|
 |/expressRouteCircuits/peerings/stats/read|Gets an ExpressRouteCircuit Peering Stat|
 |/expressRouteCircuits/authorizations/read|Gets an ExpressRouteCircuit Authorization|
 |/expressRouteCircuits/authorizations/write|Creates or updates an existing ExpressRouteCircuit Authorization|
@@ -1302,11 +1302,11 @@ This provider is not a full ARM provider and does not provide any ARM operations
 |/Namespaces/NotificationHubs/pnsCredentials/action|Get All Notification Hub PNS Credentials. This includes, WNS, MPNS, APNS, GCM and Baidu credentials|
 |/Namespaces/NotificationHubs/debugSend/action|Send a test push notification.|
 |/Namespaces/NotificationHubs/metricDefinitions/read|Get list of Namespace metrics Resource Descriptions|
-|/Namespaces/NotificationHubs/authorizationRules/write|Create Notification Hub Authorization Rules and Update its properties. The Authorization Rules Access Rights, the Primary and Secondary Keys can be updated.|
-|/Namespaces/NotificationHubs/authorizationRules/read|Get the list of Notification Hub Authorization Rules|
-|/Namespaces/NotificationHubs/authorizationRules/delete|Delete Notification Hub Authorization Rules|
-|/Namespaces/NotificationHubs/authorizationRules/listkeys/action|Get the Connection String to the Notification Hub|
-|/Namespaces/NotificationHubs/authorizationRules/regenerateKeys/action|Notification Hub Authorization Rule Regenerate Primary/SecondaryKey, Specify the Key that needs to be regenerated|
+|/Namespaces/NotificationHubs/<br>authorizationRules/write|Create Notification Hub Authorization Rules and Update its properties. The Authorization Rules Access Rights, the Primary and Secondary Keys can be updated.|
+|/Namespaces/NotificationHubs/<br>authorizationRules/read|Get the list of Notification Hub Authorization Rules|
+|/Namespaces/NotificationHubs/<br>authorizationRules/delete|Delete Notification Hub Authorization Rules|
+|/Namespaces/NotificationHubs/<br>authorizationRules/listkeys/action|Get the Connection String to the Notification Hub|
+|/Namespaces/NotificationHubs/<br>authorizationRules/regenerateKeys/action|Notification Hub Authorization Rule Regenerate Primary/SecondaryKey, Specify the Key that needs to be regenerated|
 
 ## Microsoft.OperationalInsights
 
@@ -1431,17 +1431,17 @@ This provider is not a full ARM provider and does not provide any ARM operations
 |/Vaults/backupProtectionContainers/read|Returns all containers belonging to the subscription|
 |/Vaults/backupFabrics/operationResults/read|Returns status of the operation|
 |/Vaults/backupFabrics/protectionContainers/read|Returns all registered containers|
-|/Vaults/backupFabrics/protectionContainers/operationResults/read|Gets result of Operation performed on Protection Container.|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/read|Returns object details of the Protected Item|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/write|Create a backup Protected Item|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/delete|Deletes Protected Item|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action|Performs Backup for Protected Item.|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/<br>operationResults/read|Gets Result of Operation Performed on Protected Items.|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/<br>operationStatus/read|Returns the status of Operation performed on Protected Items.|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/<br>recoveryPoints/read|Get Recovery Points for Protected Items.|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/<br>recoveryPoints/restore/action|Restore Recovery Points for Protected Items.|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/<br>recoveryPoints/provisionInstantItemRecovery/action|Provision Instant Item Recovery for Protected Item|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/<br>recoveryPoints/revokeInstantItemRecovery/action|Revoke Instant Item Recovery for Protected Item|
+|/Vaults/backupFabrics/protectionContainers/<br>operationResults/read|Gets result of Operation performed on Protection Container.|
+|/Vaults/backupFabrics/protectionContainers/<br>protectedItems/read|Returns object details of the Protected Item|
+|/Vaults/backupFabrics/protectionContainers/<br>protectedItems/write|Create a backup Protected Item|
+|/Vaults/backupFabrics/protectionContainers/<br>protectedItems/delete|Deletes Protected Item|
+|/Vaults/backupFabrics/protectionContainers/<br>protectedItems/backup/action|Performs Backup for Protected Item.|
+|/Vaults/backupFabrics/protectionContainers/<br>protectedItems/operationResults/read|Gets Result of Operation Performed on Protected Items.|
+|/Vaults/backupFabrics/protectionContainers/<br>protectedItems/operationStatus/read|Returns the status of Operation performed on Protected Items.|
+|/Vaults/backupFabrics/protectionContainers/<br>protectedItems/recoveryPoints/read|Get Recovery Points for Protected Items.|
+|/Vaults/backupFabrics/protectionContainers/<br>protectedItems/recoveryPoints/<br>restore/action|Restore Recovery Points for Protected Items.|
+|/Vaults/backupFabrics/protectionContainers/<br>protectedItems/recoveryPoints/<br>provisionInstantItemRecovery/action|Provision Instant Item Recovery for Protected Item|
+|/Vaults/backupFabrics/protectionContainers/<br>protectedItems/recoveryPoints/<br>revokeInstantItemRecovery/action|Revoke Instant Item Recovery for Protected Item|
 |/Vaults/usages/read|Returns usage details for a Recovery Services Vault.|
 |/vaults/usages/read|Read Any Vault Usages|
 |/Vaults/certificates/write|The Update Resource Certificate operation updates the resource/vault credential certificate.|
