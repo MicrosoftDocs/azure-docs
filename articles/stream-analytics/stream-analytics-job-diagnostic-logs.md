@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure Stream Analytics by using diagnostic logs | Microsoft Docs
-description: Learn how to analyze diagnostic logs from Stream Analytics jobs in Microsoft Azure.
+title: Troubleshoot Azure Stream Analytics with diagnostics logs | Microsoft Docs
+description: Learn how to analyze diagnostics logs from Stream Analytics jobs in Microsoft Azure.
 keywords:
 documentationcenter: ''
 services: stream-analytics
@@ -18,49 +18,49 @@ ms.date: 04/20/2017
 ms.author: jeffstok
 
 ---
-# Troubleshoot Azure Stream Analytics by using diagnostic logs
+# Troubleshoot Azure Stream Analytics by using diagnostics logs
 
-Occasionally, an Azure Stream Analytics job unexpectedly stops processing. It's important to be able to troubleshoot this kind of event. The event might be caused by an unexpected query result, by connectivity to devices, or by an unexpected service outage. The diagnostic logs in Stream Analytics can help you identify the cause of issues when they occur, and reduce recovery time.
+Occasionally, an Azure Stream Analytics job unexpectedly stops processing. It's important to be able to troubleshoot this kind of event. The event might be caused by an unexpected query result, by connectivity to devices, or by an unexpected service outage. The diagnostics logs in Stream Analytics can help you identify the cause of issues when they occur, and reduce recovery time.
 
 ## Log types
 
 Stream Analytics offers two types of logs: 
 * [Activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) (always on). Activity logs give insights into operations performed on jobs.
-* [Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (configurable). Diagnostic logs provide richer insights into everything that happens with a job. Diagnostic logs start when the job is created, and end when the job is deleted. They cover events when the job is updated and while it’s running.
+* [Diagnostics logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (configurable). Diagnostics logs provide richer insights into everything that happens with a job. Diagnostics logs start when the job is created, and end when the job is deleted. They cover events when the job is updated and while it’s running.
 
 > [!NOTE]
 > You can use services like Azure Storage, Azure Event Hubs, and Azure Log Analytics to analyze nonconforming data. You are charged based on the pricing model for those services.
 >
 
-## How to turn on diagnostic logs
+## Turn on diagnostics logs
 
-Diagnostics logs are **off** by default. To turn on diagnostic logs, complete these steps:
+Diagnostics logs are **off** by default. To turn on diagnostics logs, complete these steps:
 
-1.  Sign in to the Azure portal, and go to the streaming job blade. Under **Monitoring**, select the **Diagnostic logs** blade.
+1.  Sign in to the Azure portal, and go to the streaming job blade. Under **Monitoring**, select **Diagnostics logs**.
 
-    ![blade navigation to diagnostic logs](./media/stream-analytics-job-diagnostic-logs/image1.png)  
+    ![Blade navigation to diagnostics logs](./media/stream-analytics-job-diagnostic-logs/image1.png)  
 
 2.  Select **Turn on diagnostics**.
 
-    ![turn on diagnostic logs](./media/stream-analytics-job-diagnostic-logs/image2.png)
+    ![Turn on diagnostics logs](./media/stream-analytics-job-diagnostic-logs/image2.png)
 
 3.  On the **Diagnostics settings** page, for **Status**, select **On**.
 
-    ![change status diagnostic logs](./media/stream-analytics-job-diagnostic-logs/image3.png)
+    ![Change status for diagnostics logs](./media/stream-analytics-job-diagnostic-logs/image3.png)
 
 4.  Set up the archival target (storage account, event hub, Log Analytics) that you want. Then, select the categories of logs that you want to collect (Execution, Authoring). 
 
 5.  Save the new diagnostics configuration.
 
-The diagnostic configuration takes about 10 minutes to take effect. After that, the logs start appearing in the configured archival target (you can see these on the **Diagnostics logs** blade):
+The diagnostics configuration takes about 10 minutes to take effect. After that, the logs start appearing in the configured archival target (you can see these on the **Diagnostics logs** page):
 
-![blade navigation to diagnostic logs](./media/stream-analytics-job-diagnostic-logs/image4.png)
+![Blade navigation to diagnostics logs - archival targets](./media/stream-analytics-job-diagnostic-logs/image4.png)
 
-For more information about configuring diagnostics, see [Collect and consume diagnostic data from your Azure resources](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+For more information about configuring diagnostics, see [Collect and consume diagnostics data from your Azure resources](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
-## Diagnostic log categories
+## Diagnostics log categories
 
-Currently, we capture two categories of diagnostic logs:
+Currently, we capture two categories of diagnostics logs:
 
 * **Authoring**. Captures log events that are related to job authoring operations: job creation, adding and deleting inputs and outputs, adding and updating the query, starting and stopping the job.
 * **Execution**. Captures events that occur during job execution:
@@ -70,7 +70,7 @@ Currently, we capture two categories of diagnostic logs:
         * Expression evaluation errors
     * Other events and errors
 
-## Diagnostic logs schema
+## Diagnostics logs schema
 
 All logs are stored in JSON format. Each entry has the following common string fields:
 
@@ -116,8 +116,6 @@ Message| Log message.
 Type | Type of message. Maps to internal categorization of errors. For example, **JobValidationError** or **BlobOutputAdapterInitializationFailure**.
 Correlation ID | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) that uniquely identifies the job execution. All execution log entries from the time the job starts until the job stops have the same **Correlation ID** value.
 
-
-
 ## Next steps
 
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)
@@ -125,4 +123,3 @@ Correlation ID | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identif
 * [Scale Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
