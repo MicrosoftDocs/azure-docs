@@ -120,7 +120,7 @@ Learn how to use Devtest Labs to quickly create application test environments us
                 <div class="card">
                     <div class="cardText">
                         <h3>PowerShell</h3>
-                        <p><a href="devtest-lab/devtest-lab-use-arm-and-powershell-for-lab-resources">Create or modify labs automatically</a></p>
+                        <p><a href="/devtest-lab-use-arm-and-powershell-for-lab-resources">Create or modify labs automatically</a></p>
                     </div>
                 </div>
             </div>
