@@ -43,7 +43,7 @@ If your tenants want to create web, mobile, or API applications, you must add an
 
 ## Create an offer that includes App Service
 
-As an example, you can create an offer that lets users create DotNetNuke web content management systems. It requires the SQL Server service which you already enabled by installing the SQL Server resource provider.
+As an example, you can create an offer that lets users create DNN web content management systems. It requires the SQL Server service which you already enabled by installing the SQL Server resource provider.
 
 1.	[Set a quota](azure-stack-setting-quotas.md) and name it *AppServiceQuota*. Select **Microsoft.Web** for the **Namespace** field.
 2.	[Create a plan](azure-stack-create-plan.md). Name it *TestAppServicePlan*, select the the **Microsoft.SQL** service, and **AppService Quota** quota.
