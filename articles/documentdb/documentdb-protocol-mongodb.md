@@ -18,27 +18,27 @@ ms.date: 04/27/2017
 ms.author: anhoh
 
 ---
-# What is Cosmos DB: API for MongoDB?
+# What is Azure Cosmos DB: API for MongoDB?
 
-Cosmos DB databases can be used as the data store for apps written for MongoDB. This means that by using existing [drivers](https://docs.mongodb.org/ecosystem/drivers/) for MongoDB databases, your application written for MongoDB can now communicate with Cosmos DB and use Cosmos DB databases instead of MongoDB databases. In many cases, you can switch from using MongoDB to Cosmos DB by simply changing a connection string. Using this functionality, customers can easily build and run MongoDB database applications in the Azure cloud - leveraging Cosmos DB's fully managed and scalable NoSQL databases - while continuing to use familiar skills and tools for MongoDB.
+Azure Cosmos DB databases can be used as the data store for apps written for MongoDB. This means that by using existing [drivers](https://docs.mongodb.org/ecosystem/drivers/) for MongoDB databases, your application written for MongoDB can now communicate with Azure Cosmos DB and use Azure Cosmos DB databases instead of MongoDB databases. In many cases, you can switch from using MongoDB to AzureCosmos DB by simply changing a connection string. Using this functionality, customers can easily build and run MongoDB database applications in the Azure cloud - leveraging Azure Cosmos DB's fully managed and scalable NoSQL databases - while continuing to use familiar skills and tools for MongoDB.
 
-## What is the benefit of using Cosmos DB: API for MongoDB?
-**No Server Management** - Cosmos DB is a fully managed service, which means you do not have to manage any infrastructure or Virtual Machines yourself. Cosmos DB is available in 30+ [Azure Regions](https://azure.microsoft.com/regions/services/).
+## What is the benefit of using Azure Cosmos DB: API for MongoDB?
+**No Server Management** - Azure Cosmos DB is a fully managed service, which means you do not have to manage any infrastructure or Virtual Machines yourself. Azure Cosmos DB is available in 30+ [Azure Regions](https://azure.microsoft.com/regions/services/).
 
 **Limitless Scale** - You can scale throughput and storage independently and elastically. You can add capacity to serve millions of requests per second with ease.
 
-**Enterprise grade** - Cosmos DB supports multiple local replicas to deliver 99.99% availability and data protection in the face of local and regional failures. Cosmos DB has enterprise grade [compliance certifications](https://www.microsoft.com/trustcenter) and security features. 
+**Enterprise grade** - Azure Cosmos DB supports multiple local replicas to deliver 99.99% availability and data protection in the face of local and regional failures. Azure Cosmos DB has enterprise grade [compliance certifications](https://www.microsoft.com/trustcenter) and security features. 
 
-**MongoDB compatibility** - Cosmos DB: API for MongoDB is designed for compatability with MongoDB. You can use your existing code, applications, drivers, and tools to work with Cosmos DB. 
+**MongoDB compatibility** - Azure Cosmos DB: API for MongoDB is designed for compatability with MongoDB. You can use your existing code, applications, drivers, and tools to work with Azure Cosmos DB. 
 
-Learn more in this Azure Friday video with Scott Hanselman and Cosmos DB Principal Engineering Manager, Kirill Gavrylyuk.
+Learn more in this Azure Friday video with Scott Hanselman and Azure Cosmos DB Principal Engineering Manager, Kirill Gavrylyuk.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/DocumentDB-Database-as-a-Service-for-MongoDB-Developers/player]
 > 
 
 
 ## How to get started?
-Create a Cosmos DB: API for MongoDB account in the [Azure Portal](https://portal.azure.com) and swap the connection to your new account. 
+Create an Azure Cosmos DB: API for MongoDB account in the [Azure Portal](https://portal.azure.com) and swap the connection to your new account. 
 
 *And, that's it!*
 
@@ -46,9 +46,9 @@ For more detailed instructions, follow [create account](documentdb-create-mongod
 
 ## Next steps
 
-Information about Azure Cosmos DB: API for MongoDB is integrated into the overall Cosmos DB documentation, but here are a few pointers to get you started:
+Information about Azure Cosmos DB: API for MongoDB is integrated into the overall Azure Cosmos DB documentation, but here are a few pointers to get you started:
 * Follow the [Connect to a MongoDB account](documentdb-connect-mongodb-account.md) tutorial to learn how to get your account connection string information.
-* Follow the [Use MongoChef with DocumentDB](documentdb-mongodb-mongochef.md) tutorial to learn how to create a connection between your Cosmos DB database and MongoDB app in MongoChef.
+* Follow the [Use MongoChef with DocumentDB](documentdb-mongodb-mongochef.md) tutorial to learn how to create a connection between your Azure Cosmos DB database and MongoDB app in MongoChef.
 * Follow the [Migrate data to DocumentDB with protocol support for MongoDB](documentdb-mongodb-migrate.md) tutorial to import your data to an API for MongoDB database.
 * Build your first API for MongoDB app using [Node.js](documentdb-mongodb-samples.md).
 * Build your first API for MongoDB web app using .[NET](documentdb-mongodb-application.md).
