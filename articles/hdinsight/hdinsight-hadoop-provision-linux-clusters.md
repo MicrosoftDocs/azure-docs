@@ -33,7 +33,7 @@ From the [Azure portal](https://portal.azure.com), you can create a HDInsight cl
 - Advanced settings
 
   - [Script actions](#customize-clusters-using-script-action)
-  - [Virtual network](use-virtual-network)
+  - [Virtual network](#use-virtual-network)
 
 ### Subscription 
 Each HDInsight cluster is tied to one Azure subscription.
@@ -163,7 +163,7 @@ For more information on using Azure Storage account, see [Using Azure Storage wi
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 In addition to Azure Storage, you can use [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) as a default storage account for HBase cluster in HDInsight and as linked storage for all four HDInsight cluster types. For more information, see [Create an HDInsight cluster with Data Lake Store using Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
-#### Additional storage
+#### <a name="use-additional-storage"></a>Additional storage
 
 In some cases, you might add additional storage to the cluster. For example, you might have multiple Azure storage accounts for different geographical regions or different services, but you want to analyze them all with HDInsight.
 
@@ -172,7 +172,7 @@ You can add storage accounts when you create an HDInsight cluster or after a clu
 For more information about secondary Azure Storage account, see [Using Azure Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md). For more information about secondary Data Lake Storage, see [Create HDInsight clusters with Data Lake Store using Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 
-#### Hive/Oozie metastore
+#### <a name="use-hiveoozie-metastore></a>Hive/Oozie metastore
 We recommend that you use a custom metastore if you want to retain your Hive tables after you delete your HDInsight cluster. You will be able to attach that metastore to another HDInsight cluster.
 
 > [!IMPORTANT]
