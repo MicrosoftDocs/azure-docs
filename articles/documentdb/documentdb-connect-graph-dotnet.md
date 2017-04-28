@@ -7,7 +7,7 @@ author: mimig1
 manager: jhubbard
 editor: ''
 
-ms.assetid: 
+ms.assetid: daacbabf-1bb5-497f-92db-079910703046
 ms.service: documentdb
 ms.custom: quick start connect
 ms.workload: 
