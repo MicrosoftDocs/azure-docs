@@ -28,7 +28,15 @@ This script creates a resource group, two app service plans, two web apps, a tra
 
 [!code-azurecli[main](../../../cli_scripts/traffic-manager/direct-traffic-for-increased-application-availability/direct-traffic-for-increased-application-availability.sh "Route traffic for high availability")]
 
-[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
+
+## Clean up deployment 
+
+After the script sample has been run, the follow command can be used to remove the resource group, App Service app, and all related resources.
+
+```azurecli
+az group delete --name myResourceGroup1 --yes
+az group delete --name myResourceGroup2 --yes
+```
 
 ## Script explanation
 
