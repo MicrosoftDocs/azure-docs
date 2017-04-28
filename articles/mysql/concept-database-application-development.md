@@ -18,7 +18,7 @@ ms.date: 05/10/2017
 This article discusses design considerations that a developer should follow when writing application code to connect to Azure Database for MySQL 
 
 > [!TIP]
-> For a tutorial showing you how to create a server, create a server-based firewall, view server properties, create database, connect and query using workbench and mysql.exe, see [Design your first Azure MySQL database](tutorials-design-database-using-portal.md)
+> For a tutorial showing you how to create a server, create a server-based firewall, view server properties, create database, connect and query using workbench and mysql.exe, see [Design your first Azure MySQL database](tutorial-design-database-using-portal.md)
 
 ## Language and platform
 There are code samples available for various programming languages and platforms. You can find links to the code samples at: 

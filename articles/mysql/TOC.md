@@ -13,11 +13,11 @@
 
 # Tutorials
 ## Design a Database
-### [Azure portal](tutorial-design-database-using-azure-portal.md)
+### [Azure portal](tutorial-design-database-using-portal.md)
 
 # Concepts
 ## Development
-### [Connection libraries](concept-connection-libraries.md)
+### [Connection libraries](concept-connectivity-libraries.md)
 ### [Application development](concept-database-application-development.md)
 
 # Resources
