@@ -26,7 +26,7 @@ In this scenario you will create a resource group, two app service plans, two we
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/traffic-manager/direct-traffic-for-increased-application-availability "Route traffic for high availability")]
+[!code-azurecli[main](../../../cli_scripts/traffic-manager/direct-traffic-for-increased-application-availability/direct-traffic-for-increased-application-availability.sh "Route traffic for high availability")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
