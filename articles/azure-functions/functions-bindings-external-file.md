@@ -20,7 +20,7 @@ ms.author: alkarche
 # Azure Functions External File bindings (Preview)
 This article shows how to manipulate files from different SaaS providers (e.g. OneDrive, Dropbox) within your function utilizing built-in bindings. Azure functions supports trigger, input, and output bindings for external file.
 
-This binding creates new API connections to SaaS providers, or uses existing API connections from your Function App's resource group.
+This binding creates API connections to SaaS providers, or uses existing API connections from your Function App's resource group.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 

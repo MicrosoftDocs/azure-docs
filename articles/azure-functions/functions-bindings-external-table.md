@@ -18,9 +18,9 @@ ms.author: alkarche
 
 ---
 # Azure Functions External Table binding (Preview)
-This article shows how to manipulate tabular data on SaaS providers (e.g. Sharepoint, Dynamics) within your function utilizing built-in bindings. Azure functions supports input, and output bindings for external table.
+This article shows how to manipulate tabular data on SaaS providers (e.g. Sharepoint, Dynamics) within your function utilizing built-in bindings. Azure functions supports input, and output bindings for external tables.
 
-This binding creates new API connections to SaaS providers, or uses existing API connections from your Function App's resource group.
+This binding creates API connections to SaaS providers, or uses existing API connections from your Function App's resource group.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -51,8 +51,7 @@ This binding creates new API connections to SaaS providers, or uses existing API
 
 ## Usage
 
-For simplicity the example uses a manual trigger. The trigger’s input value is not used.
-The example assumes that the connector provides a Contact table with Id, LastName and FirstName columns. The code lists the Contact entities in the table and logs the first and last names.
+This example connects to a table named "Contact" with Id, LastName, and FirstName columns. The code lists the Contact entities in the table and logs the first and last names.
 
 ### Bindings
 ```json
@@ -78,18 +77,16 @@ The example assumes that the connector provides a Contact table with Id, LastNam
 ```
 `entityId` must be empty for table bindings.
 
-`ConnectionAppSettingsKey` identifies the app setting that stores the API connection string. This is created automatically when you add an API connection in the integrate UI.
+`ConnectionAppSettingsKey` identifies the app setting that stores the API connection string. The app setting is created automatically when you add an API connection in the integrate UI.
 
-A tabular connector provides data sets, and each data set contains tables. The name of the default data set is “default”. These are identified below:
-
+A tabular connector provides data sets, and each data set contains tables. The name of the default data set is “default.” The titles for a dataset and a table in various SaaS providers are listed below:
 
 |Connector|Dataset|Table|
 |:-----|:---|:---| 
 |**SharePoint**|Site|SharePoint List
-|**SQL**| 	Database| 	Table 
-|**Google Sheet**| 	Spreadsheet| 	Worksheet 
-|**Excel**| 	Excel file| 	Sheet 
-
+|**SQL**|Database|Table 
+|**Google Sheet**|Spreadsheet|Worksheet 
+|**Excel**|Excel file|Sheet 
 
 <!--
 See the language-specific sample that copies the input file to the output file.
@@ -177,11 +174,11 @@ GO
 ```
 
 ### Google Sheets
-In Google docs create a spreadsheet with a worksheet named `Contact`. The connector cannot use the spreadsheet display name. The internal name (in bold) needs to be used as dataSetName, for example: https://docs.google.com/spreadsheets/d/**1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0**
-Add the column names `Id`, `LastName`, `FirstName` to the first row, the populate with data on subsequent rows.
+In Google Docs, create a spreadsheet with a worksheet named `Contact`. The connector cannot use the spreadsheet display name. The internal name (in bold) needs to be used as dataSetName, for example: https://docs.google.com/spreadsheets/d/**1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0**
+Add the column names `Id`, `LastName`, `FirstName` to the first row, then populate data on subsequent rows.
 
 ### Salesforce
-dataSetName is “default”.
+dataSetName is “default.”
 
 ## Next steps
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
