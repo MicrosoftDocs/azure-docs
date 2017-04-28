@@ -51,13 +51,13 @@ Follow these steps to create an Azure Database for PostgreSQL server with defaul
 The Azure Database for PostgreSQL service creates a firewall at the server-level preventing external applications and tools from connecting to the server or any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. 
 
 1.	After the deployment completes, click **Azure Database for PostgreSQL** from the left-hand menu and click your newly created server, **mypgserver-20170401**. The **Overview** page for your server opens and provides options for further configuration.
-![Azure portal - your server > Overview: Resource group ](./media/tutorial-design-database-using-azure-portal/3-azure-portal-notifications.png)
+![Azure portal - your server > Overview: Resource group ](./media/tutorial-design-database-using-azure-portal/4-azure-portal-overview.png)
 
 2.	Navigate to the Settings blade of the server. In the Settings blade, select **Connection Security**.
 
 3.	Click in the text box under **Rule Name,** and add a new firewall rule to whitelist the IP range for connectivity. For this quick start let’s allow all IPs by typing in **Rule Name** = **AllowAllIps**, **Start IP** = **0.0.0.0** and **End IP** = **255.255.255.255** and then click Save. A server-level firewall rule is created for your specified IP address range.
  
-![Azure portal - your server > Overview: Resource group ](./media/tutorial-design-database-using-azure-portal/4-azure-portal-create-firewall-rule.png)
+![Azure portal - your server > Overview: Resource group ](./media/tutorial-design-database-using-azure-portal/5-azure-portal-create-firewall-rule.png)
  
 4.	Click **OK** and then click the **X** to close the **Connections Security** page.
 
@@ -68,13 +68,13 @@ The Azure Database for PostgreSQL service creates a firewall at the server-level
 When we created our PostgreSQL server, the default 'postgres' database also gets created. Let’s now use the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) command line utility to connect to the Azure Database for PostgreSQL server. To connect to your database server, you need to provide host information and access credentials.
 
 1.	Select your server’s **Properties** page. Make a note of the **Server name** and **Server admin login**.
- ![Azure portal - your server > Properties : Server Name](./media/tutorial-design-database-using-azure-portal/5-azure-portal-server-name.png)
+ ![Azure portal - your server > Properties : Server Name](./media/tutorial-design-database-using-azure-portal/6-azure-portal-server-name.png)
 
 2.	Launch the Azure Cloud Console via the terminal icon on the top navigation pane. 
-  ![Azure Portal - Cloud Console](./media/tutorial-design-database-using-azure-portal/6-azure-cloud-console-icon.png)
+  ![Azure Portal - Cloud Console](./media/tutorial-design-database-using-azure-portal/7-azure-cloud-console-icon.png)
 
 3.	This will enable a bash shell experience in your browser.
-  ![Azure Portal - Bash shell](./media/tutorial-design-database-using-azure-portal/7-azure-portal-bash.png)
+  ![Azure Portal - Bash shell](./media/tutorial-design-database-using-azure-portal/8-azure-portal-bash.png)
  
 4.	At the Cloud Console prompt, connect to your Azure Database for PostgreSQL server using the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) command line utility. Connect to the default database called **postgres** on your PostgreSQL server **mypgserver-20170401.postgres.database.azure.com** using access credentials:
 ```dos
@@ -138,14 +138,24 @@ SELECT * FROM inventory;
 Imagine you have accidentally deleted this table. This is something you cannot easily recover from. Azure Database for PostgreSQL allows you to go back to any point in time in the last up to 35 days and restore this point in time to a new server. You can use this new server to recover your deleted data. The following steps restore the sample server to a point before the table was added.
 
 1.	On the Azure Database for PostgreSQL page for your server, click **Restore** on the toolbar. The **Restore** page opens.
-  ![Azure portal - your PostgreSQL Server > Overview > Restore button](./media/tutorial-design-database-using-azure-portal/8-azure-portal-restore.png)
+  ![Azure portal - your PostgreSQL Server > Overview > Restore button](./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png)
  
 2.	Fill out the **Restore** form with the required information:
+<<<<<<< Updated upstream
   - **Restore point**: Select a point-in-time that occurs before the server was changed
   - **Target server**: Provide a new server name you want to restore to
   - **Location**: You cannot select the region, by default it is same as the source server
   - **Pricing tier**: You cannot change this value when restoring a server. It is same as the source server. 
   ![Azure Portal - Restore form options](./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png)
+=======
+- **Restore point**: Select a point-in-time that occurs before the server was changed
+- **Target server**: Provide a new server name you want to restore to
+- **Location**: You cannot select the region, by default it is same as the source server
+- **Pricing tier**: You cannot change this value when restoring a server. It is same as the source server. 
+
+  ![Azure Portal - Restore form options](./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png)
+ 
+>>>>>>> Stashed changes
 3.	Click **OK** to restore the server to [restore to a point in time](./howto-restore-server-portal.md)before the tables was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, provided that it is within the retention period for your [service tier](./concepts-service-tiers.md).
 
 ## Next Steps
