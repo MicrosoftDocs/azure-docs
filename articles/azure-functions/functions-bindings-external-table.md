@@ -53,11 +53,11 @@ When assigning a binding you can either create a new API connection or use an ex
 > [!NOTE]
 > External Table connections can also be used in [Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list)
 
-### Creating an API connnection: step by step
+### Creating an API connection: step by step
 
-1. Create a new function > create a custom function
+1. Create a function > custom function
 ![Create a custom function](./media/functions-bindings-storage-table/create-custom-function.jpg)
-1. Select scenario `Experimental` > Choose the `ExternalTable-CSharp` template > Create a new  `External Table connection`
+1. Scenario `Experimental` > `ExternalTable-CSharp` template > Create a new `External Table connection`
 ![Choose table input template](./media/functions-bindings-storage-table/create-template-table.jpg)
 1. Choose your SaaS provider > choose/create a connection
 ![Configure SaaS connection](./media/functions-bindings-storage-table/authorize-API-connection.jpg)
