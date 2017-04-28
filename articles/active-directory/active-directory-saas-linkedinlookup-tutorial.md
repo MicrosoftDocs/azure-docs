@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 4. In **Account Center**, click **Global Settings** under **Settings**. Also, select **Lookup** from the dropdown list.
 
-	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_LinkedIn_admin_01.png)
+	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_LinkedIn_admin_011.png)
 
 5. Click **OR Click Here to load and copy individual fields from the form** and copy **Entity Id** and **Assertion Consumer Access (ACS) Url**
 
@@ -202,9 +202,9 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating an LinkedIn Lookup test user
 
-Linked Sales Navigator Application supports Just in Time (JIT) user provisioning and after authentication users are created in the application automatically. Activate **Automatically assign licenses** to assign a license to the user.
+Linked Lookup Application supports Just in Time (JIT) user provisioning and after authentication users are created in the application automatically. Activate **Automatically assign licenses** to assign a license to the user.
    
-   ![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/LinkedInUserprovswitch.png)
+   ![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_linkedin_admin_license.png)
 
 ### Assigning the Azure AD test user
 
