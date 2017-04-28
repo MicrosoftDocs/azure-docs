@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/27/2017
+ms.date: 04/28/2017
 ms.author: jgao
 
 ---
@@ -26,13 +26,20 @@ A Hadoop cluster consists of several virtual machines (nodes) that are used for 
 
 ## Basic configurations
 
-From the Azure portal, you can create a cluster using *Quick create* or *Custom*.  The Custom option requires more advanced settings.  This section covers the basic configuration settings used in the Quick create option.
+From the [Azure portal](https://portal.azure.com), you can create a HDInsight cluster using *Quick create* or *Custom*. This section covers the basic configuration settings used in the Quick create option. The Custom option includes the following configurations:
+
+- [Applications (optional)](#hdinsight-applications)
+- [Cluster size](#cluster-size)
+- Advanced settings
+
+  - [Script actions](#customize-clusters-using-script-action)
+  - [Virtual network](use-virtual-netwrok)
 
 ### Subscription 
 Each HDInsight cluster is tied to one Azure subscription.
 
 ### Resource group name
-[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure resource group. You can deploy, update, monitor, or delete all of the resources for your application in a single coordinated operation.
+[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure resource group. You can deploy, update, monitor, or delete all the resources for your application in a single coordinated operation.
 
 ### Cluster name
 The cluster name is used to identify a cluster. The cluster name must be globally unique, and it must adhere to the following naming guidelines:
@@ -111,12 +118,12 @@ For more information on using an Azure virtual network with HDInsight, see [Exte
 For an example of using two cluster types within an Azure virtual network, see [Analyze sensor data with Storm and HBase](hdinsight-storm-sensor-data-analysis.md).
 
 ### Operating system
-You can create HDInsight clusters on either Linux or Windows.  For more information on the OS versions, see [Suported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
+You can create HDInsight clusters on either Linux or Windows.  For more information on the OS versions, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
 ### Version
-This option is used to determine the version of HDInsight needed for this cluster. For more information on the OS versions, see [Suported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
+This option is used to determine the version of HDInsight needed for this cluster. For more information on the OS versions, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
-### <a name="cluster-tier"></a>Cluster tier
+### <a name="cluster-tiers"></a>Cluster tier
 
 Azure HDInsight provides the big data cloud offerings in two categories: Standard and Premium.  For more information, see [HDInsight Standard and HDInsight Premium]](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).
 
@@ -140,7 +147,7 @@ The cluster uses this data source as the primary location for most data access, 
 
 ![HDInsight storage](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
 
-The original Hadoop Distributed File System (HDFS) uses many local disks on the cluster. HDInsight uses either blobs in [Azure Storage](hdinsight-hadoop-provision-linux-clusters.md#azure-storage) or [Azure Data Lake Store](hdinsight-hadoop-provision-linux-clusters.md#azure-data-lake-store). There are some specific requirements on using Data Lake sotres for HDInsight. For more information see the introduction section of [Create HDInsight clusters with Data Lake Store by using the Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+The original Hadoop Distributed File System (HDFS) uses many local disks on the cluster. HDInsight uses either blobs in [Azure Storage](hdinsight-hadoop-provision-linux-clusters.md#azure-storage) or [Azure Data Lake Store](hdinsight-hadoop-provision-linux-clusters.md#azure-data-lake-store). There are some specific requirements on using Data Lake stores for HDInsight. For more information see the introduction section of [Create HDInsight clusters with Data Lake Store by using the Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 #### <a name="azure-storage"></a>Azure Storage
 Azure Storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. Through an HDFS interface, the full set of components in HDInsight can operate directly on structured or unstructured data stored in blobs. Storing data in Azure Storage helps you safely delete the HDInsight clusters that are used for computation without losing user data. HDInsight only supports __General purpose__ Azure Storage accounts. It does not currently support the __Blob storage__ account type.
@@ -193,7 +200,7 @@ Bla, bla, bla ...
 ## Use edge node
 An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the head node. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. For more information, see [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md).
 
-## cluster size
+## Cluster size
 
 Customers are billed for the usage of those nodes for the duration of the cluster’s life. Billing starts when a cluster is created and stops when the cluster is deleted. Clusters can’t be de-allocated or put on hold.
 
@@ -258,7 +265,7 @@ Billing starts when a cluster is created, and stops when the cluster is deleted.
 
 
 
-## Use Azure virtual networks
+## Use virtual network
 With [Azure Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/), you can create a secure, persistent network that contains the resources that you need for your solution. With a virtual network, you can:
 
 * Connect cloud resources together in a private network (cloud-only).
@@ -309,7 +316,7 @@ Some native Java components, like Mahout and Cascading, can be run on the cluste
 > [!NOTE]
 > If you have issues deploying JAR files to HDInsight clusters, or calling JAR files on HDInsight clusters, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
 >
-> Cascading is not supported by HDInsight and is not eligible for Microsoft Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight?](hdinsight-component-versioning.md).
+> Cascading is not supported by HDInsight and is not eligible for Microsoft Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight](hdinsight-component-versioning.md).
 >
 >
 
