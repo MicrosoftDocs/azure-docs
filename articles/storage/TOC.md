@@ -4,6 +4,7 @@
 
 # Get Started
 
+## [Quick start guide](storage-getting-started-guide.md)
 ## [Create a storage account](storage-create-storage-account.md)
 
 ## Blob Storage
@@ -36,11 +37,20 @@
 ### [Ruby](storage-ruby-how-to-use-table-storage.md)
 
 ## File Storage
-### [Windows, .NET, PowerShell](storage-dotnet-how-to-use-files.md)
-### [Linux](storage-how-to-use-files-linux.md)
-### [Java](storage-java-how-to-use-file-storage.md)
-### [C++](storage-c-plus-plus-how-to-use-files.md)
-### [Python](storage-python-how-to-use-file-storage.md)
+### [About Azure File Storage](storage-file-storage.md)
+### [Create Azure File Share](storage-file-how-to-create-file-share.md)
+### [Connect and Mount](storage-file-how-to-connect-and-mount.md)
+#### [Windows](storage-file-how-to-use-files-windows.md)
+#### [Linux](storage-how-to-use-files-linux.md)
+#### [macOS](storage-file-how-to-use-files-mac.md)
+### Working with Azure Files
+#### [Powershell](storage-file-how-to-use-files-powershell.md)
+#### [CLI](storage-azure-cli.md#create-and-manage-file-shares)
+#### [Storage Explorer](../vs-azure-tools-storage-explorer-files.md)
+#### [.NET](storage-dotnet-how-to-use-files.md)
+#### [Java](storage-java-how-to-use-file-storage.md)
+#### [C++](storage-c-plus-plus-how-to-use-files.md)
+#### [Python](storage-python-how-to-use-file-storage.md)
 
 ## Disk Storage 
 ### [Create a VM using Resource Manager and PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
@@ -66,8 +76,9 @@
 ### [Table design guide](storage-table-design-guide.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Use files
-### [Overview](/rest/api/storageservices/File-Service-Concepts)
-### [Troubleshoot Azure Files](storage-troubleshoot-file-connection-problems.md)
+### [Overview](/rest/api/storageservices/fileservices/File-Service-Concepts)
+### [FAQ](storage-files-faq.md)
+### [Troubleshooting](storage-troubleshoot-file-connection-problems.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Use disks
 ### [Disks and VHDs for Windows VMs](storage-about-disks-and-vhds-windows.md)
@@ -78,7 +89,6 @@
 ### [Frequently Asked Questions about Azure IaaS VM Disks](storage-faq-for-disks.md)
 ### Premium Storage
 #### [High-performance Premium Storage for VM Disks](storage-premium-storage.md)
-#### [Migrating to Premium Storage using Azure Site Recovery](storage-migrate-to-premium-storage-using-azure-site-recovery.md)
 #### [Design for high performance](storage-premium-storage-performance.md)
 ### Standard Storage
 #### [Cost-effective Standard Storage and unmanaged and managed VM Disks](storage-standard-storage.md)
@@ -165,7 +175,7 @@
 #### [Backing up drive manifests](storage-import-export-backing-up-drive-manifests.md)
 #### [Diagnostics and error recovery for Import/Export jobs](storage-import-export-diagnostics-and-error-recovery.md)
 # Reference
-## [PowerShell](/powershell/module/azure.storage)
+## [PowerShell](/powershell/storage)
 ## [Azure CLI](/cli/azure/storage)
 ## .NET
 ### [Resource Manager](/dotnet/api/microsoft.azure.management.storage)
@@ -179,7 +189,7 @@
 ## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [Blobs, Queues, Tables, and Files](/rest/api/storageservices)
+### [Blobs, Queues, Tables, and Files](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
 ### [Resource provider](/rest/api/storagerp)
 ### [Import/Export](/rest/api/storageimportexport)
 
