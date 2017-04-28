@@ -62,7 +62,7 @@ The code sample available [on GitHub](https://azure.microsoft.com/documentation/
           <dependency>
             <groupId>com.microsoft.azure</groupId>
             <artifactId>azure-data-lake-store-sdk</artifactId>
-            <version>2.1.4</version>
+            <version>2.1.5</version>
           </dependency>
           <dependency>
             <groupId>org.slf4j</groupId>
