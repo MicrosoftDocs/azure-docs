@@ -32,28 +32,20 @@ Before you start, make sure you have the accounts and tools you need for working
 
 
 
-## 1. Download sample code for the bot
+## 1. Download the sample bot
 
-Download the sample code for the bot from GitHub:
-
-•	[LUIS demo bot (Node.js)](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/intelligence-LUIS) 
+Download the sample code for the [LUIS demo bot (Node.js)](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/intelligence-LUIS) from GitHub. This is a chat bot that can search for hotels in a specified location and provide reviews for a specified hotel. It listens for three different user intents: `SearchHotels`, `ShowHotelsReviews`, and `Help`.
 
 ## 2. Import the LUIS model to create the LUIS app
 You can create and manage your applications on **My Apps** page. You can always access this page by clicking **My Apps** on the top navigation bar of the [LUIS web page](https://luis.ai).
 
 1. On the **My Apps** page, click **Import App**.
-2. In the **Import new app** dialog box, click **Choose file** and navigate to LuisBot.json in the folder where you downloaded the bot in step 1. Name your application "Hotel Finder". <!--    ![A new app form](./Images/NewApp-Form.JPG) -->
-3. Choose your application culture (for this Hotel Finder app, we’ll choose English), and then click **Create**. 
-
-    >[!NOTE]
-    >The culture cannot be changed once the application is created. 
-
-LUIS creates the Hotel Finder app and opens its main page<!-- which looks like the following screen-->. Use the navigation links in the left panel to move through your app pages to define data and work on your app. 
+2. In the **Import new app** dialog box, click **Choose file** and navigate to `LuisBot.json` in the folder where you downloaded the bot in step 1. Name your application "Hotel Finder", and Click **Import**. <!--    ![A new app form](./Images/NewApp-Form.JPG) -->It may take a few minutes for LUIS to extract the intents and entities from the JSON file. When the import is complete, LUIS opens the Dashboard page of the Hotel Finder app<!-- which looks like the following screen-->. Use the navigation links in the left panel to move through your app pages to define data and work on your app. 
 
 ## 3. Train and publish the LUIS app
-Go to **Train & Test** and click **Train your app**.  Then go to **Publish App** and click **Publish**.
+Go to **Train & Test** and click **Train your app**.  Optionally, you can also test your app now, but it is not required for publishing. To publish, go to **Publish App**, select **BootstrapKey** as the **Endpoint Key**, select **Production** for the **Endpoint slot**, and click **Publish**.
 
-## 4. Copy the LUIS endpoint
+## 4. Copy the LUIS endpoint URL
 Once you've published the app, the **Publish App** page will display an endpoint URL. Copy this URL. You'll update the bot's code to point to it.
 
 ## 5. Paste the LUIS endpoint into the bot code
