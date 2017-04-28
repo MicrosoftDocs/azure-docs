@@ -17,7 +17,7 @@ ms.date: 4/30/2017
 ms.author: erikje
 
 ---
-# Give Azure Stack users the ability to create web, mobile, and API apps
+# Let Azure Stack users create web, mobile, and API apps
 
 If your tenants want to create web, mobile, or API applications, you must add an App Service Resource Provider to your Azure Stack deployment. You can then create an offer that includes App Service and have tenants subscribe to it, so they can create their apps. To set this up, follow these steps (it will take a couple hours to install and for all the worker roles to appear):
 
