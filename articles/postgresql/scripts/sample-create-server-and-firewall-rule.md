@@ -64,18 +64,6 @@ After the script sample has been run, the following command can be used to remov
 az group delete --name myResourceGroup
 ```
 
-## Script explanation
-This script uses the following commands. Each command in the table links to command specific documentation.
-
-| | |
-|---|---|
-| **Command** | **Notes** |
-| [az group create](https://docs.microsoft.com/en-us/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az postgres server create](../placeholder.md) | Creates a PostgreSQL server that hosts the databases. |
-| [az postgres server firewall create](../placeholder.md) | Creates a firewall rule to allow access to the server and databases under it from the entered IP address range. |
-| [az group delete](https://docs.microsoft.com/en-us/cli/azure/resource#delete) | Deletes a resource group including all nested resources. |
-| | |
-
 ## Next steps
 - For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 - Additional Azure Database for PostgreSQL CLI script samples can be found in the [Azure Database for PostgreSQL documentation](../sample-scripts-azure-cli.md).

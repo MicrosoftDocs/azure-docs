@@ -1,25 +1,24 @@
 ---
-title: postgresql-concepts-connection-libraries | Microsoft Docs
-description: Lists each library or driver that client programs can use when connecting to Azure Database for PostgreSQL.
+title: 'Connection libraries for Azure Database for PostgreSQL | Microsoft Docs'
+description: 'Lists each library or driver that client programs can use when connecting to Azure Database for PostgreSQL.'
 keywords: azure cloud postgresql postgres
 services: postgresql
-author:
-ms.author:
+author: SaloniSonpal
+ms.author: salonis
 manager: jhubbard
 editor: jasonh
-
 ms.assetid:
 ms.service: postgresql - database
 ms.tgt_pltfrm: portal
-ms.topic: hero - article
-ms.date: 04/30/2017
+ms.topic: article
+ms.date: 05/10/2017
 ---
 # Connection libraries for Azure Database for PostgreSQL
 This topic lists each library or driver that client programs can use when connecting to Azure Database for PostgreSQL.
 
 ## Client interfaces
 Most language client libraries to connect to PostgreSQL server are external projects, and are distributed independently. These are supported on Windows, Linux, and Mac platforms. Some of the popular client drivers are listed below.
-| **Language** | **Client Interface** | **Additional Information** | **Download** |
+| **Language** | **Client interface** | **Additional information** | **Download** |
 |--------------|----------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------|
 | Python | [psycopg](http://initd.org/psycopg/) | DB API 2.0-compliant | [Download](http://initd.org/psycopg/download/) |
 | PHP | [php-pgsql](https://php.net/manual/en/book.pgsql.php) | Database extension | [Install](https://secure.php.net/manual/en/pgsql.installation.php) |
@@ -33,8 +32,6 @@ Most language client libraries to connect to PostgreSQL server are external proj
 | C++ | [libpqxx](http://pqxx.org/) | New-style C++ interface | [Download](http://pqxx.org/download/software/) |
 
 ## Next steps
-- For an overview of the service, see [Azure Database for PostgreSQL Overview](overview/update.me).
-- For further details on servers, see [Azure Database for PostgreSQL servers](servers/update.me).
-- To create your first PostgreSQL server, refer to Create Azure Database for PostgreSQL via [Azure Portal](servers-portal/update.me) or [Azure CLI](servers-cli/update.me).
-- To get the connection string for your Azure Database for PostgreSQL server, see [Connection Strings](conn-strings/update.me).
-
+- For an overview of the service, see [Azure Database for PostgreSQL Overview](overview.md).
+- For further details on servers, see [Azure Database for PostgreSQL servers](concepts-servers.md).
+- To create your first PostgreSQL server, see [Create an Azure Database for PostgreSQL in the Azure portal](quickstart-create-server-database-portal.md).
