@@ -1,4 +1,4 @@
----
+--
 title:  Azure Stream Analytics data-driven debugging by using the job diagram | Microsoft Docs
 description: Troubleshoot your Stream Analytics job by using the job diagram and metrics.
 keywords: 
@@ -33,7 +33,7 @@ Select each query step to see the corresponding section in a query editing pane.
 
 ![Job diagram with metrics - basic job](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-2.png)
 
-To see the partitions of the Azure Event Hubs input, select **. . .**. A context menu appears. You also can see the input merger.
+To see the partitions of the Azure Event Hubs input, select **. . .** A context menu appears. You also can see the input merger.
 
 ![Job diagram with metrics - expand partition](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-3.png)
 
