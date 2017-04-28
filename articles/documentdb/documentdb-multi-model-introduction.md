@@ -23,17 +23,18 @@ ms.author: mimig
 
 ## What is Azure Cosmos DB?
 
-Azure Cosmos DB is the next generation of the DocumentDB stack. Azure Cosmos DB is a fast, flexible, and comprehensive cloud-based service that provides OSS programming APIs over a multi-model, planet-scale geo-distributed data store with a four 9’s SLA for availability, performance, throughput and consistency. Azure Cosmos DB now provides multi-model support for the following data models and APIs:
+Azure Cosmos DB, formerly known as Azure DocumentDB, is Microsoft's multi-tenant, globally distributed NoSQL database service for mission-critical applications. Azure Cosmos DB allows you to elastically scale both, throughput and storage across any number of geographical regions. The service offers guaranteed low latency at P99, 99.99% high availability, predictable throughput, and multiple well-defined consistency models, all backed by comprehensive SLAs. By virtue of its schema-agnostic and write-optimized database engine, by default Azure Cosmos DB is capable of automatically indexing all the data it ingests and serve rich queries in a scale-independent manner. As a cloud service, DocumentDB is carefully engineered with multi-tenancy and global distribution from the ground up.
+
+Azure Cosmos DB is a multi-model database that supports document, key-value, and graph APIs. Azure Cosmos DB supports both throughput-optimized offers for workloads with high request rates, and storage-optimized offers for workloads that need large volumes of storage. The [Azure Table Storage](https://docs.microsoft.com/azure/storage/storage-introduction) and Azure DocumentDB services are now available as the key-value and document database APIs for Azure Cosmos DB. The service also supports the popular OSS MongoDB and Gremlin graph APIs to interact with the service.
+
+The following table shows the APIs supported by Azure Cosmos DB:
 
 |Data model| APIs supported|
 |---|---|
-|Key-value (table) data|Tables API|
+|Key-value (table) data|[Tables API](documentdb-tables-introduction.md)|
 |Document data|[DocumentDB API](documentdb-introduction.md) and [MongoDB APIs](documentdb-protocol-mongodb.md)|
-|Graph data|Graph APIs|
+|Graph data|[Graph APIs](documentdb-graph-introduction.md)|
  
-> [!NOTE]
-> In addition to the new high performance table storage provided by Azure Cosmos DB, Azure Storage continues to maintain existing table storage. To work with existing tables in Azure Storage, see [Table storage](https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts). 
-
 ## Why use Azure Cosmos DB?
 
 Azure DocumentDB is known for it's enterprise grade performance, throughput, consistency and availability guarantees and geo-distributed data model. Azure Cosmos DB is the next generation of the DocumentDB stack, and with the newly expanded multi-model support, you can benefit from the impressived managed capabilities with all of your data. 
