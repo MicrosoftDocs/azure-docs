@@ -91,7 +91,12 @@ For VMs that support Premium Storage (DS-series, DSv2-series, and GS-series), we
 * **Use data disks for data and log files**: At a minimum, use 2 Premium Storage [P30 disks](../../../storage/storage-premium-storage.md#scalability-and-performance-targets) where one disk contains the log file(s) and the other contains the data and TempDB file(s). Each Premium Storage disk provides a number of IOPs and bandwidth (MB/s) depending on its size, as described in the following article: [Using Premium Storage for Disks](../../../storage/storage-premium-storage.md). 
 * **Disk Striping**: For more throughput, you can add additional data disks and use Disk Striping. To determine the number of data disks, you need to analyze the number of IOPS and bandwidth required for your log file(s), and for your data and TempDB file(s). Notice that different VM sizes have different limits on the number of IOPs and bandwidth supported, see the tables on IOPS per [VM size](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Use the following guidelines:
 
-  * For Windows 8/Windows Server 2012 or later, use [Storage Spaces](https://technet.microsoft.com/library/hh831739.aspx). Set the interleave (stripe size) to 64 KB (65536 bytes) for OLTP workloads and 256 KB (262144 bytes) for data warehousing workloads to avoid performance impact due to partition misalignment. In addition, set column count = number of physical disks. To set the interleave or to set the column count to more than 8, you must use PowerShell. Use the **New-VirtualDisk** PowerShell command with the **Interleave** and **NumberOfColumns** parameters. For example, the following PowerShell creates a new storage pool with the interleave size to 65 KB and the number of columns to 2:
+  * For Windows 8/Windows Server 2012 or later, use [Storage Spaces](https://technet.microsoft.com/library/hh831739.aspx) with the following guidelines:
+
+      1. Set the interleave (stripe size) to 64 KB (65536 bytes) for OLTP workloads and 256 KB (262144 bytes) for data warehousing workloads to avoid performance impact due to partition misalignment. This must be set with PowerShell.
+      1. Set column count = number of physical disks. Use PowerShell when configuring more than 8 disks (not Server Manager UI). 
+      
+    For example, the following PowerShell creates a new storage pool with the interleave size to 65 KB and the number of columns to 2:
 
     ```powershell
     $PoolCount = Get-PhysicalDisk -CanPool $True
