@@ -22,91 +22,91 @@ ms.author: mimig
 
 This quick start demonstrates how to use the Azure portal and [.NET](documentdb-sdk-dotnet.md) to connect to an Azure Cosmos DB account, create a database and collection, and then build and deploy a web app on the Windows platform.
 
-This quick start uses as its starting point the resources created in one of these quick starts: 
+If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
-- [Create account - Portal](documentdb-get-started-portal.md)
-- [Create account - CLI](documentdb-automation-resource-manager-cli-nodejs.md)
-- [Create account - PowerShell](documentdb-manage-account-with-powershell.md)
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Install .NET
+## Create database account
 
-### **Windows .NET framework**
-
-Visual Studio 2017 Community is a fully-featured, extensible, free IDE for creating modern applications for Android, iOS, Windows, as well as web & database applications and cloud services. If you already have Visual Studio installed on your machine, skip the next few steps.
-
-1. Download the [installer](https://go.microsoft.com/fwlink/?LinkId=691978). 
-2. Run the installer and follow the installation prompts to complete the installation.
-
-### **Mac OS**
-*Is there another topic that has these install instructions for .NET (not .NET core)?*
-pen your terminal and navigate to a directory where you plan on creating your .NET Core project. Enter the following commands to install **brew**, **OpenSSL**, and **.NET Core**. 
-
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update
-brew install openssl
-mkdir -p /usr/local/lib
-ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
-ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
-```
-
-Install .NET Core on macOS. Download the [official installer](https://go.microsoft.com/fwlink/?linkid=843444). This installer will install the tools and put them on your PATH so you can run dotnet from the Console
-
-### **Linux (Ubuntu)**
-*Is there another topic that has these install instructions for .NET (not .NET core)?*
-Open your terminal and navigate to a directory where you plan on creating your .NET Core project. Enter the following commands to install **.NET Core**.
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-sudo apt-get update
-sudo apt-get install dotnet-dev-1.0.1
-```
+[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 ## Add a collection
 
-Add a collection in the Azure portal. 
+You can now use Data Explorer to create a collection and add data to your database. 
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
-2. On the left-hand menu, click ![The More services button](./media/documentdb-connect-dotnet/azure-documentdb-more-services.png) at the bottom, type **DocumentDB** in the search box, and then click **NoSQL (DocumentDB)**.
-3. In the **NoSQL (DocumentDB)** page, select the Azure Cosmos DB account to add collections to.
-4. On the account page, on the left-hand menu, click **Quick start**.
-5. On the Quick start page, in the Step 1 area, click **Create 'Items' Collection**. Or if you've already created the Items collection from a different quickstart tab, then proceed to step 6. 
+1. In the Azure portal, in the navigation menu, under **Collections**, click **Data Explorer (Preview)**. 
+2. In the Data Explorer blade, click **New Collection**, then fill in the page using the following information.
+    * In the **Database id** box, enter *Items* as ID for your new database. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space.
+    * In the **Collection id** box, enter *ToDoList* as the ID for your new collection. Collection names have the same character requirements as database IDs.
+    * In the **Storage Capacity** box, leave the default 10 GB selected.
+    * In the **Throughput** box, leave the default 400 RUs selected. You can scale up the throughput later if you want to reduce latency.
+    * In the **Partition key** box, for the purpose of this sample, enter the value */category*, so that tasks in the todo app you create can be partitioned by category. Selecting the correct partition key is important in creating a performant collection, read more about it in [Designing for partitioning](documentdb-partition-data.md#designing-for-partitioning).
 
-    ![Create 'Items' collection in the portal](./media/documentdb-connect-dotnet/azure-documentdb-create-collection.png)
+   ![Data Explorer in the Azure portal](./media/documentdb-connect-dotnet/azure-documentdb-data-explorer.png)
 
-    Once the collection has been created, the text in the Step 1 area changes to `"Items" collection has been created with 10GB storage capacity and 400 Request Units/sec (RUs) throughput capacity, for up to 400 reads/sec. Estimated hourly bill: $0.033 USD.`
+3. Once the form is filled out, click **OK**.
 
-6. In the Step 2 area, click **Download**. When asked if you want to open or save DocumentDB-Quickstart-Dotnet.zip, click **Save** and then click **Open**. 
+## Add sample data
 
-7. In File Explorer, extract the contents of the zip file. 
+You can now add data to your new collection using Data Explorer.
 
-8. Open the todo.sln solution in Visual Studio 2017.
-    
+1. In Data Explorer, the new database appears in the Collections pane. Expand the **Items** database, expand the **ToDoList** collection, click **Documents**, and then click **New Documents**. 
+
+   ![Create new documents in Data Explorer in the Azure portal](./media/documentdb-connect-dotnet/azure-documentdb-data-explorer-emulator-new-document.png)
+  
+2. Now add a few new documents to the collection with the following structure, where you insert unique values for id in each document and change the other properties as you see fit. Your new documents can have any structure you want as Azure Cosmos DB doesn't impose any schema on your data.
+
+     ```json
+     {
+         "id": "1",
+         "category": "personal",
+         "name": "groceries",
+         "description": "Pick up apples and strawberries."
+     }
+     ```
+
+     You can now use queries in Data Explorer to retrieve your data. By default, Data Explorer uses SELECT * FROM c to retrieve all documents in the collection, but you can change that to SELECT * FROM c ORDER BY c.name ASC, to return all the documents in alphabetic ascending order of the name property. 
+ 
+     You can also use Data Explorer to create stored procedures, UDFs, and triggers to perform server-side business logic. Data Explorer exposes all of the built in programmatic data access available in the APIs, but provides easy access to your data in the Azure Portal.
+
+## Clone the sample application
+
+Now let's clone a  DocumentDB API app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+
+Open a git terminal window, such as git bash, and `CD` to a working directory.  
+
+Run the following command to clone the sample repository. 
+
+```bash
+git clone https://github.com/Azure-Samples/documentdb-dotnet-getting-started.git
+```
+Then open the solution file in Visual Studio 2017. 
+
+## Update your connection string
+
+Now you need to get your connection string information from Azure Cosmos DB so that you can copy it into your app.
+
+* Back in the Azure portal, in the left navigation, click **Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the web.config file in the next step.
+
+    ![View and copy an access key in the Azure Portal, Keys blade](./media/documentdb-connect-dotnet/keys.png)
+
 ## Build and deploy the web app
 
-Build and deploy the sample app, then add some sample data to store in Azure Cosmos DB.
+1. In Visual Studio 2017, open the web.config file. 
 
-1. In Visual Studio 2017, press CTRL + F5 to run the application. 
+2. Copy your URI and Primary Key value from the portal and update the URI and Key value in the web.config file. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB.
 
-    The sample application is displayed in your browswer.
+3. In Visual Studio, click CTRL + F5 to run the application. Your app displays in your browser. 
 
 2. Click **Create New** in the browser and create a few new tasks in your to-do app.
 
    ![Todo app with sample data](./media/documentdb-connect-dotnet/azure-documentdb-todo-app-list.png)
 
-## Query data in the Data Explorer in the Azure portal
+You can now go back to Data Explorer and see query, modify, and work with this new data. 
 
-Once you've added a few sample tasks to your todo app, you can use the Data Explorer (preview) in the Azure portal to view, query, and run business-logic on your data.
+## Review SLAs in the Azure portal
 
-* In the Azure portal, in the navigation menu, under **Collections**, click **Data Explorer (Preview)**. In the Data Explorer blade, expand your collection (the ToDoList collection), and then you can view the documents, perform queries, and even create and run stored procedures, triggers, and UDFs.
-
-   ![Data Explorer in the Azure portal](./media/documentdb-connect-dotnet-core/azure-documentdb-data-explorer.png)
-   *screenshot to be updated with appropriate data shown*
-
-## Review metrics in the Azure portal
-
-Use the Azure portal to review the availability, latency, throughput, and consistency of your collection. Each graph that's associated with the [Azure Cosmos DB Service Level Agreements (SLAs)](https://azure.microsoft.com/en-us/support/legal/sla/documentdb/) provides a line showing the quota required to meet the SLA and your actual usage, providing you transparency into the performance of your database. Additional metrics such as storage usage, number of requests per minute are also included in the portal
+Now that your app is up and running, you'll want to ensure ensure business continuity, and watch user access to ensure high-availability to your users. You can use the Azure portal to review the availability, latency, throughput, and consistency of your collection. Each graph that's associated with the [Azure Cosmos DB Service Level Agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/documentdb/) provides a line showing the quota required to meet the SLA and your actual usage, providing you transparency into the performance of your database. Additional metrics such as storage usage, number of requests per minute are also included in the portal
 
 * In the Azure portal, in the left menu, under **Monitoring**, click **Metrics**.
 
@@ -114,5 +114,9 @@ Use the Azure portal to review the availability, latency, throughput, and consis
 
 ## Next steps
 
-- For .NET documentation, see [.NET documentation](https://docs.microsoft.com/dotnet/).
-- *Todo - list other quickstarts.*
+To learn more about the Azure Comsos DB DocumentDB API, see [What is the DocumentDB API?(documentdb-introduction). To learn more about the SQL query language which you can use in the Azure portal and programmatically, see [SQL](documentdb-sql-query.md).
+
+If you're not going to continue to use this app and Azure Cosmos DB, use the following steps to delete all resources created by this quick start in the Azure portal. If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. 
+
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you just created. 
+2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.

@@ -18,17 +18,15 @@ ms.date: 04/27/2017
 ms.author: anhoh
 
 ---
-# Migrate data to Azure Cosmos DB's API for MongoDB by using mongoimport and mongorestore
-> [!div class="op_single_selector"]
-> * [Import to DocumentDB](documentdb-import-data.md)
-> * [Import to API for MongoDB](documentdb-mongodb-migrate.md)
->
->
 
-To migrate data to an API for MongoDB account, you must:
+# Azure Cosmos DB: How to migrate data for the MongoDB API? 
+
+To migrate data to an Azure Cosmos DB account for use with the MongoDB API, you must:
 
 * Download either *mongoimport.exe* or *mongorestore.exe* from the [MongoDB Download Center](https://www.mongodb.com/download-center).
 * Get your [API for MongoDB connection string](documentdb-connect-mongodb-account.md).
+
+If you are importing data from MongoDB and plan to use it with the DocumentDB API, you should use the Data Migration Tool to import data. For more information, see [Data Migration Tool](documentdb-import-data.md).
 
 ## Before you begin
 

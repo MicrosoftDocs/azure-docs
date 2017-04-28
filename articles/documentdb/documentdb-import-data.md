@@ -14,19 +14,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/14/2017
+ms.date: 04/25/2017
 ms.author: anhoh
 
 ---
 # How to import data in Azure Cosmos DB?
 
-Importing document, table, and graph data into Azure Cosmos DB is the same process and involves using the Azure Cosmos DB Data Migration tool. If you are importing data from MongoDB to Azure Cosmos DB, the tool depends on the API you'll use to access the data. If you plan to use MongoDB APIs to access your data, use (mongoimport or mongorestore)[documentdb-mongodb-migrate.md], if you plan to use DocumentDB APIs to access your data, use the Data Migration tool, as described in this article.
-
 **How to import data to Azure Cosmos DB for each data model?**
 
 |   |DocumentDB API|Tables API|Graph API|MongoDB API|
 |---|-----------------|--------------|-------------|---------------|
-|Import tool|Data Migration tool|Data Migration tool|Data Migration tool|[mongoimport.exe or mongorestore.exe](documentdb-mongodb-migrate.md)|
+|Import tool|Data Migration tool|Future release of the Data Migration tool|Future release of the Data Migration tool|[mongoimport.exe or mongorestore.exe](documentdb-mongodb-migrate.md)|
 
 This article provides instructions on using the Data Migration tool, which can import from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB and DocumentDB collections. The Data Migration tool can also be used when migrating from a single partition collection to a multi-partition collection.
 
@@ -552,4 +550,3 @@ Then, choose whether to log all, critical, or no error messages. Finally, decide
 
 ## Next steps
 * To learn more about DocumentDB, see the [Learning Path](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
-

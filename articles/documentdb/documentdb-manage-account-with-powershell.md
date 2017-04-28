@@ -1,6 +1,6 @@
 ---
-title: Azure DocumentDB Automation - Management with Powershell | Microsoft Docs
-description: Use Azure Powershell manage your DocumentDB database accounts. DocumentDB is a cloud-based NoSQL database for JSON data.
+title: Azure Cosmos DB Automation - Management with Powershell | Microsoft Docs
+description: Use Azure Powershell manage your Azure Cosmos DB accounts. 
 services: documentdb
 author: dmakwana
 manager: jhubbard
@@ -18,9 +18,9 @@ ms.date: 04/21/2017
 ms.author: dimakwan
 
 ---
-# Automate Azure DocumentDB account management using Azure Powershell
+# Create an Azure Cosmos DB account using PowerShell
 
-The following guide describes commands to automate management of your DocumentDB database accounts using Azure Powershell. It also includes commands to manage account keys and failover priorities in [multi-region database accounts][scaling-globally]. Updating your database account allows you to modify consistency policies and add/remove regions. For cross-platform management of your DocumentDB database account, you can use either [Azure CLI](documentdb-automation-resource-manager-cli.md), the [Resource Provider REST API][rp-rest-api], or the [Azure portal](documentdb-create-account.md).
+The following guide describes commands to automate management of your Azure Cosmos DB database accounts using Azure Powershell. It also includes commands to manage account keys and failover priorities in [multi-region database accounts][scaling-globally]. Updating your database account allows you to modify consistency policies and add/remove regions. For cross-platform management of your Azure Cosmos DB account, you can use either [Azure CLI](documentdb-automation-resource-manager-cli.md), the [Resource Provider REST API][rp-rest-api], or the [Azure portal](documentdb-create-account.md).
 
 ## Getting Started
 
@@ -31,7 +31,7 @@ Follow the instructions in [How to install and configure Azure PowerShell][power
 * If you would like to execute the following commands without requiring user confirmation, append the `-Force` flag to the command.
 * All the following commands are synchronous.
 
-## <a id="create-documentdb-account-powershell"></a> Create a DocumentDB Database Account
+## <a id="create-documentdb-account-powershell"></a> Create an Azure Cosmos DB Account
 
 This command allows you to create a DocumentDB database account. Configure your new database account as either single-region or [multi-region][scaling-globally] with a certain [consistency policy](documentdb-consistency-levels.md).
 
@@ -196,9 +196,9 @@ Example:
 * To connect using Node.js, see [Connect and query with Node.js and a MongoDB app](documentdb-connect-mongodb-app.md).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[powershell-install-configure]: https://docs.microsoft.com/en-us/azure/powershell-install-configure
-[scaling-globally]: https://azure.microsoft.com/en-us/documentation/articles/documentdb-distribute-data-globally/#scaling-across-the-planet
-[distribute-data-globally]: https://docs.microsoft.com/en-us/azure/documentdb/documentdb-distribute-data-globally
-[azure-resource-groups]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#resource-groups
-[azure-resource-tags]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags
-[rp-rest-api]: https://docs.microsoft.com/en-us/rest/api/documentdbresourceprovider/
+[powershell-install-configure]: https://docs.microsoft.com/azure/powershell-install-configure
+[scaling-globally]: https://azure.microsoft.com/documentation/articles/documentdb-distribute-data-globally/#scaling-across-the-planet
+[distribute-data-globally]: https://docs.microsoft.com/azure/documentdb/documentdb-distribute-data-globally
+[azure-resource-groups]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
+[azure-resource-tags]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+[rp-rest-api]: https://docs.microsoft.com/rest/api/documentdbresourceprovider/

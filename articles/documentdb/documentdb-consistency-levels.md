@@ -22,12 +22,6 @@ ms.custom: H1Hack27Feb2017
 # Tunable data consistency levels in Azure Cosmos DB
 Azure Cosmos DB is designed from the ground up with global distribution in mind for every data model. It is designed to offer predictable low latency guarantees, a 99.99% availability SLA, and multiple well-defined relaxed consistency models. Currently, Azure Cosmos DB provides four consistency levels: strong, bounded-staleness, session, and eventual. Besides the **strong** and the **eventual consistency** models commonly offered by other NoSQL databases, Azure Cosmos DB also offers two carefully codified and operationalized consistency models – **bounded staleness** and **session**, and has validated their usefulness against real world use cases. Collectively these four consistency levels enable you to make well-reasoned trade-offs between consistency, availability, and latency. 
 
-**How to tune consistency for each data model using Azure Cosmos DB?**
-
-|   |DocumentDB API|Tables API|Graph API|MongoDB API|
-|---|-----------------|--------------|-------------|---------------|
-|TBD|TBD|TBD|TBD|TBD|
-
 ## Scope of consistency
 The granularity of consistency is scoped to a single user request. A write request may correspond to an insert, replace, upsert, or delete transaction (with or without the execution of an associated pre or post trigger). Or a write request may correspond to the transactional execution of a JavaScript stored procedure operating over multiple documents within a partition. As with the writes, a read/query transaction is also scoped to a single user request. The user may be required to paginate over a large result-set, spanning multiple partitions, but each read transaction is scoped to a single page and served from within a single partition.
 

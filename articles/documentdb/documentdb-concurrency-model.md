@@ -27,8 +27,6 @@ Conditional writes with ETags will be enforced for all consistency levels. The w
 
 To use optimistic concurrency in the Azure Cosmos DB DocumentDB .NET API, use the [AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx) class. For a sample, see [Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) in the DocumentManagement sample on github.
 
-## Next steps
-
 Learn more about Azure Cosmos DB in the [multi-model introduction](documentdb-multi-model-introduction.md).
 
 

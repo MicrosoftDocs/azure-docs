@@ -22,6 +22,7 @@ ms.author: anhoh
 
 Azure Cosmos DB databases can be used as the data store for apps written for MongoDB. This means that by using existing [drivers](https://docs.mongodb.org/ecosystem/drivers/) for MongoDB databases, your application written for MongoDB can now communicate with Azure Cosmos DB and use Azure Cosmos DB databases instead of MongoDB databases. In many cases, you can switch from using MongoDB to AzureCosmos DB by simply changing a connection string. Using this functionality, customers can easily build and run MongoDB database applications in the Azure cloud - leveraging Azure Cosmos DB's fully managed and scalable NoSQL databases - while continuing to use familiar skills and tools for MongoDB.
 
+
 ## What is the benefit of using Azure Cosmos DB: API for MongoDB?
 **No Server Management** - Azure Cosmos DB is a fully managed service, which means you do not have to manage any infrastructure or Virtual Machines yourself. Azure Cosmos DB is available in 30+ [Azure Regions](https://azure.microsoft.com/regions/services/).
 
@@ -38,6 +39,7 @@ Learn more in this Azure Friday video with Scott Hanselman and Azure Cosmos DB P
 
 
 ## How to get started?
+
 Create an Azure Cosmos DB: API for MongoDB account in the [Azure Portal](https://portal.azure.com) and swap the connection to your new account. 
 
 *And, that's it!*
@@ -48,8 +50,8 @@ For more detailed instructions, follow [create account](documentdb-create-mongod
 
 Information about Azure Cosmos DB: API for MongoDB is integrated into the overall Azure Cosmos DB documentation, but here are a few pointers to get you started:
 * Follow the [Connect to a MongoDB account](documentdb-connect-mongodb-account.md) tutorial to learn how to get your account connection string information.
-* Follow the [Use MongoChef with DocumentDB](documentdb-mongodb-mongochef.md) tutorial to learn how to create a connection between your Azure Cosmos DB database and MongoDB app in MongoChef.
-* Follow the [Migrate data to DocumentDB with protocol support for MongoDB](documentdb-mongodb-migrate.md) tutorial to import your data to an API for MongoDB database.
+* Follow the [Use MongoChef with Azure Cosmos DB](documentdb-mongodb-mongochef.md) tutorial to learn how to create a connection between your Azure Cosmos DB database and MongoDB app in MongoChef.
+* Follow the [Migrate data to Azure Cosmos DB with protocol support for MongoDB](documentdb-mongodb-migrate.md) tutorial to import your data to an API for MongoDB database.
 * Build your first API for MongoDB app using [Node.js](documentdb-mongodb-samples.md).
 * Build your first API for MongoDB web app using .[NET](documentdb-mongodb-application.md).
 * Connect to an API for MongoDB account using [Robomongo](documentdb-mongodb-robomongo.md).

@@ -227,7 +227,7 @@ These projects are actively developed by the Azure DocumentDB team in collaborat
 | --- | --- | --- |
 | Documentation |[azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb) |[Documentation website](https://azure.microsoft.com/documentation/services/documentdb/) |
 | Hadoop Connector |[azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) |[Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
-| Data migration tool |[azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) |[Microsoft download center](http://www.microsoft.com/en-us/download/details.aspx?id=46436) |
+| Data migration tool |[azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) |[Microsoft download center](http://www.microsoft.com/download/details.aspx?id=46436) |
 
 ## Azure Cosmos DB Wizards
 Azure Cosmos DB Wizards are community leaders who’ve demonstrated an exemplary commitment to helping others get the most out of their experience with Azure Cosmos DB, the next generation of Azure DocumentDB. They share their exceptional passion, real-world knowledge, and technical expertise with the community and with the Azure Cosmos DB team.
