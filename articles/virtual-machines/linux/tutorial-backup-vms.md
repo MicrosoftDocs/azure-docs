@@ -19,101 +19,87 @@ ms.author: cynthn
 ---
 # Back up Linux  virtual machines in Azure
 
-# Backup overview
+## Backup overview
 
 
-Pricing
+## How does Azure back up virtual machines?
+When the Azure Backup service initiates a backup job at the scheduled time, it triggers the backup extension to take a point-in-time snapshot. The Azure Backup service uses the _VMSnapshot_ extension in Windows, and the _VMSnapshotLinux_ extension in Linux. The extension is installed during the first VM backup. To install the extension, the VM must be running. If the VM is not running, the Backup service takes a snapshot of the underlying storage (since no application writes occur while the VM is stopped).
+
+When taking a snapshot of Windows VMs, the Backup service coordinates with the Volume Shadow Copy Service (VSS) to get a consistent snapshot of the virtual machine's disks. If you're backing up Linux VMs, you can write your own custom scripts to ensure consistency when taking a VM snapshot. Details on invoking these scripts are provided later in this article.
+
+Once the Azure Backup service takes the snapshot, the data is transferred to the vault. To maximize efficiency, the service identifies and transfers only the blocks of data that have changed since the previous backup.
+
+![Azure virtual machine backup architecture](./media/backup-azure-vms-introduction/vmbackup-architecture.png)
+
+When the data transfer is complete, the snapshot is removed and a recovery point is created.
+
+> [!NOTE]
+> 1. During the backup process, Azure Backup doesn't include the temporary disk attached to the virtual machine. For more information, see the blog on [temporary storage](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/).
+> 2. Since Azure Backup takes a storage-level snapshot and transfers that snapshot to vault, do not change the storage account keys until the backup job finishes.
+>
+
+### Data consistency
+Backing up and restoring business critical data is complicated by the fact that business critical data must be backed up while the applications that produce the data are running. To address this, Azure Backup supports application-consistent backups for both Windows and Linux VMs
+#### Windows VM
+Azure Backup takes VSS full backups on Windows VMs (read more about [VSS full backup](http://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx)). To enable VSS copy backups, the following registry key needs to be set on the VM.
+
+```
+[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
+"USEVSSCOPYBACKUP"="TRUE"
+```
+
+#### Linux VMs
+Azure Backup provides a scripting framework. To ensure application consistency when backing up Linux VMs, create custom pre-scripts and post-scripts that control the backup workflow and environment. Azure Backup invokes the pre-script before taking the VM snapshot and invokes the post-script once the VM snapshot job completes. For more details, see [application consistent
+VM backups using pre-script and post-script](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+> [!NOTE]
+> Azure Backup only invokes the customer-written pre- and post-scripts. If the pre-script and post-scripts execute successfully, Azure Backup marks the recovery point as application consistent. However, the customer is ultimately responsible for the application consistency when using custom scripts.
+>
+
+
+This table explains the types of consistency and the conditions that they occur under during Azure VM backup and restore procedures.
+
+| Consistency | VSS-based | Explanation and details |
+| --- | --- | --- |
+| Application consistency |Yes for Windows|Application consistency is ideal for workloads as it ensures that:<ol><li> The VM *boots up*. <li>There is *no corruption*. <li>There is *no data loss*.<li> The data is consistent to the application that uses the data, by involving the application at the time of backup--using VSS or pre/post script.</ol> <li>*Windows VMs*- Most Microsoft workloads have VSS writers that do workload-specific actions related to data consistency. For example, Microsoft SQL Server has a VSS writer that ensures that the writes to the transaction log file and the database are done correctly. For Azure Windows VM backups, to create an application-consistent recovery point, the backup extension must invoke the VSS workflow and complete it before taking the VM snapshot. For the Azure VM snapshot to be accurate, the VSS writers of all Azure VM applications must complete as well. (Learn the [basics of VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) and dive deep into the details of [how it works](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)). </li> <li> *Linux VMs*- Customers can execute [custom pre-script and post-script to ensure application consistency](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). </li> |
+| File-system consistency |Yes - for Windows-based computers |There are two scenarios where the recovery point can be *file-system consistent*:<ul><li>Backups of Linux VMs in Azure, without pre-script/post-script or if pre-script/post-script failed. <li>VSS failure during backup for Windows VMs in Azure.</li></ul> In both these cases, the best that can be done is to ensure that: <ol><li> The VM *boots up*. <li>There is *no corruption*.<li>There is *no data loss*.</ol> Applications need to implement their own "fix-up" mechanism on the restored data. |
+| Crash consistency |No |This situation is equivalent to a virtual machine experiencing a "crash" (through either a soft or hard reset). Crash consistency typically happens when the Azure virtual machine is shut down at the time of backup. A crash-consistent recovery point provides no guarantees around the consistency of the data on the storage medium--either from the perspective of the operating system or the application. Only the data that already exists on the disk at the time of backup is captured and backed up. <br/> <br/> While there are no guarantees, usually, the operating system boots, followed by disk-checking procedure, like chkdsk, to fix any corruption errors. Any in-memory data or writes that have not been transferred to the disk are lost. The application typically follows with its own verification mechanism in case data rollback needs to be done. <br><br>As an example, if the transaction log has entries that are not present in the database, then the database software does a rollback until the data is consistent. When data is spread across multiple virtual disks (like spanned volumes), a crash-consistent recovery point provides no guarantees for the correctness of the data. |
+
+
+###Pricing
 The cost of backing up Azure VMs is based on the number of protected instances. For a definition of a protected instance, see [What is a protected instance](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). For an example of calculating the cost of backing up a virtual machine, see [How are protected instances calculated](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances). See the Azure Backup Pricing page for information about [Backup Pricing](https://azure.microsoft.com/pricing/details/backup/).
 
 
 ## Create a backup
-
+Create a simple daily backup schedule to a Recovery Services Vault. The Recovery Services Vault by deafult is geo-redundant storage.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. In the menu on the left, select **Virtual machines**. 
 3. From the list, select a VM to back up.
 4. On the VM blade, in the **Settings** section, click **Backup**. The **Enable backup** blade opens.
 5. For the [Recovery Services vault](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm), click **Create new** and provide the name for the new vault. A new vault is created in the same Resource Group and same location as the virtual machine.
-6. To view the details of the Backup policy, click **Backup policy**.
+6. Click **Backup policy**. The default policy is to create a backup daily at 8:30 PM and to retain the backup for 180 days. Keep the defaults for this example and click **OK**.
 
-  The **Backup policy** blade opens and provides the details of the selected policy. If other policies exist, use the drop-down menu to choose a different backup policy. If you want to create a policy, select **Create New** from the drop-down menu. For instructions on defining a backup policy, see [Defining a backup policy](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). To save the changes to the backup policy and return to the Enable backup blade, click **OK**.
+    ![Select backup policy](./media/tutorial-backup-vms/policy.png)
 
-  ![Select backup policy](../../backup/media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new-2.png)
-
-7. On the Enable backup blade, click **Enable Backup** to deploy the policy. Deploying the policy associates it with the vault and the virtual machines.
-
-  ![Enable Backup button](../../backup/media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-button.png)
-
-8. You can track the configuration progress through the notifications that appear in the portal. The following example shows that Deployment started.
-
-  ![Enable Backup notification](../../backup/media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-notification.png)
-
-9. Once the configuration progress has completed, on the VM management blade, click **Backup** to open the Backup Item blade and view the details.
+7. On the Enable backup blade, click **Enable Backup**. 
+9. Once the configuration has completed, on the VM management blade, click **Backup** to open the Backup Item blade and view the details.
 
   ![VM Backup Item View](../../backup/media/backup-azure-vms-first-look-arm/backup-item-view.png)
 
   Until the initial backup has completed, **Last backup status** shows as **Warning(Initial backup pending)**. To see when the next scheduled backup job occurs, under **Backup policy** click the name of the policy. The Backup Policy blade opens and shows the time of the scheduled backup.
 
-10. To run a Backup job and create the initial recovery point, on the Backup vault blade click **Backup now**.
-
-  ![click Backup now to run the initial backup](../../backup/media/backup-azure-vms-first-look-arm/backup-now.png)
-
-  The Backup Now blade opens.
-
-  ![shows the Backup Now blade](../../backup/media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
+10. To create an initial recovery point, on the Backup vault blade click **Backup now**.
 
 11. On the Backup Now blade, click the calendar icon, use the calendar control to select the last day this recovery point is retained, and click **Backup**.
 
-  ![set the last day the Backup Now recovery point is retained](../../backup/media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
-
-  Deployment notifications let you know the backup job has been triggered, and that you can monitor the progress of the job on the Backup jobs page.
+Deployment notifications let you know the backup job has been triggered, and that you can monitor the progress of the job on the Backup jobs page.
 
 ## Restore the VM
 
 Protect your data by taking snapshots of your data at defined intervals. These snapshots are known as recovery points, and they are stored in recovery services vaults. If or when it is necessary to repair or rebuild a VM, you can restore the VM from any of the saved recovery points. When you restore a recovery point, you can create a new VM which is a point-in-time representation of your backed-up VM, or restore disks and use the template that comes along with it to customize the restored VM or do an individual file recovery. This article explains how to restore a VM to a new VM or restore all backed-up disks. For individual file recovery, refer to [Recover files from Azure VM backup](backup-azure-restore-files-from-vm.md)
 
-![3-ways-restore-from-vm-backup](../../backup/media/backup-azure-arm-restore-vms/azure-vm-backup-restore.png)
-
-> [!NOTE]
-> Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
->
->
-
-Restoring a VM or all disks from VM backup involves two steps:
-
-1. Select a restore point for restore
-2. Selecting the restore type - create a new VM or restore disks and specify required parameters. 
-
-## Select restore point for restore
-1. Sign in to the [Azure portal](http://portal.azure.com/)
-2. On the Azure menu, click **Browse** and in the list of services, type **Recovery Services**. The list of services adjusts to what you type. When you see **Recovery Services vaults**, select it.
-
-    ![Open Recovery Services vault](../../backup/media/backup-azure-arm-restore-vms/open-recovery-services-vault.png)
-
-    The list of vaults in the subscription is displayed.
-
-    ![List of Recovery Services vaults](../../backup/media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
-3. From the list, select the vault associated with the VM you want to restore. When you click the vault, its dashboard opens.
-
-    ![List of Recovery Services vaults](../../backup/media/backup-azure-arm-restore-vms/select-vault-open-vault-blade.png)
-4. Now that you're in the vault dashboard. On the **Backup Items** tile, click **Azure Virtual Machines** to display the VMs associated with the vault.
-
-    ![vault dashboard](../../backup/media/backup-azure-arm-restore-vms/vault-dashboard.png)
-
-    The **Backup Items** blade opens and displays the list of Azure virtual machines.
-
-    ![list of VMs in vault](../../backup/media/backup-azure-arm-restore-vms/list-of-vms-in-vault.png)
-5. From the list, select a VM to open the dashboard. The VM dashboard opens to the Monitoring area, which contains the Restore points tile.
-
-    ![list of VMs in vault](../../backup/media/backup-azure-arm-restore-vms/vm-blade.png)
-6. On the VM dashboard menu, click **Restore**
-
-    ![list of VMs in vault](../../backup/media/backup-azure-arm-restore-vms/vm-blade-menu-restore.png)
-
-    The Restore blade opens.
-
-    ![restore blade](../../backup/media/backup-azure-arm-restore-vms/restore-blade.png)
-7. On the **Restore** blade, click **Restore point** to open the **Select Restore point** blade.
+1. In the blade for the VM, click **Backup**.
+2. In the Backup blade, click **Restore VM** from the menu to open the **Select Restore point** blade.
 
     ![restore blade](../../backup/media/backup-azure-arm-restore-vms/recovery-point-selector.png)
 
@@ -133,20 +119,7 @@ Restoring a VM or all disks from VM backup involves two steps:
     ![restore point is set](../../backup/media/backup-azure-arm-restore-vms/recovery-point-set.png)
 9. On the **Restore** blade, **Restore configuration** opens automatically after restore point is set.
 
-## Choosing a VM restore configuration
-Now that you have selected the restore point, choose a configuration for your restore VM. Your choices for configuring the restored VM are to use: Azure portal or PowerShell.
-
-1. If you are not already there, go to the **Restore** blade. Ensure a [Restore point has been selected](#select-restore-point-for-restore), and click **Restore configuration** to open the **Recovery configuration** blade.
-
-    ![recovery configuration wizard is set](../../backup/media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
-2. On the **Restore configuration** blade, you have two choices:
-   * Restore full virtual machine
-   * Restore backed up disks
-
-Portal provides a Quick Create option for restored VM. If you want to customize the VM configuration or names of the resources created as part of create a new VM choice, use PowerShell or portal to restore backed up disks and use PowerShell commands to attach them to choice of VM configuration or use template that comes with restore disks to customize the restored VM. See [Restoring a VM with special network configurations](#restoring-vms-with-special-network-configurations) for details on how to restore VM which has multiple NICs or under load balancer. 
- 
-## Create a new VM from restore point
-If you are not already there, [select a restore point](#restoring-vms-with-special-network-configurations) before proceeding to creating a new VM from restore point. Once restore point is selected, on the **Restore configuration** blade, enter or select values for each of the following fields:
+Once restore point is selected, on the **Restore configuration** blade, enter or select values for each of the following fields:
 
 * **Restore Type** - Create virtual machine.
 * **Virtual machine name** - Provide a name for the VM. The name must be unique to the resource group (for a Resource Manager-deployed VM) or cloud service (for a Classic VM). You cannot replace the virtual machine if it already exists in the subscription.
@@ -157,78 +130,8 @@ If you are not already there, [select a restore point](#restoring-vms-with-speci
 
 ![restore configuration wizard is set](../../backup/media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
 
-> [!NOTE]
-> If you are restoring a Resource Manager-deployed VM, you must identify a virtual network (VNET). A virtual network (VNET) is optional for a Classic VM.
->
->
-
 On the **Restore configuration** blade, click **OK** to finalize the restore configuration. On the **Restore** blade, click **Restore** to trigger the restore operation.
 
-## Restore backed up disks
-If you would like to customize the virtual machine you would like to create from backed up disks than what is present in restore configuration blade, select **Restore disks** as value for **Restore Type**. This choice asks for a storage account where disks from backups are copied to. When choosing a storage account, select an account that shares the same location as the Recovery Services vault. Storage accounts that are Zone redundant are not supported. If there are no storage accounts with the same location as the Recovery Services vault, you must create one before starting the restore operation. The storage account's replication type is mentioned in parentheses.
-
-After restore operation is completed, you can:
-* [Use template to customize the restored VM](#use-templates-to-customize-restore-vm)
-* [Use the restored disks to attach to an existing virtual machine](../virtual-machines/windows/attach-disk-portal.md)
-* [Create a new virtual machine using PowerShell from restored disks.](./backup-azure-vms-automation.md#restore-an-azure-vm)
-
-On the **Restore configuration** blade, click **OK** to finalize the restore configuration. On the **Restore** blade, click **Restore** to trigger the restore operation.
-
-![Recovery configuration completed](../../backup/media/backup-azure-arm-restore-vms/trigger-restore-operation.png)
-
-## Track the restore operation
-Once you trigger the restore operation, the Backup service creates a job for tracking the restore operation. The Backup service also creates and temporarily displays the notification in Notifications area of portal. If you do not see the notification, you can always click the Notifications icon to view your notifications.
-
-![Restore triggered](../../backup/media/backup-azure-arm-restore-vms/restore-notification.png)
-
-To view the operation while it is processing, or to view when it completed, open the Backup jobs list.
-
-1. On the Azure menu, click **Browse** and in the list of services, type **Recovery Services**. The list of services adjusts to what you type. When you see **Recovery Services vaults**, select it.
-
-    ![Open Recovery Services vault](../../backup/media/backup-azure-arm-restore-vms/open-recovery-services-vault.png)
-
-    The list of vaults in the subscription is displayed.
-
-    ![List of Recovery Services vaults](../../backup/media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
-2. From the list, select the vault associated with the VM you restored. When you click the vault, its dashboard opens.
-3. In the vault dashboard on the **Backup Jobs** tile, click **Azure Virtual Machines** to display the jobs associated with the vault.
-
-    ![vault dashboard](../../backup/media/backup-azure-arm-restore-vms/vault-dashboard-jobs.png)
-
-    The **Backup Jobs** blade opens and displays the list of jobs.
-
-    ![list of VMs in vault](../../backup/media/backup-azure-arm-restore-vms/restore-job-in-progress.png)
-    
-## Use templates to customize restore vm
-Once [restore disks operation is completed](#Track-the-restore-operation), you can use the template that is generated as part of restore operation to create a new VM with a configuration different from backup configuration or to customize names of resources created as create a new vm from restore point. 
-
-> [!NOTE]
-> Templates will be added as part of Restore Disks for recovery points taken after 1st March, 2017. They are applicable for non-encrypted and non-managed disk VMs. Support for encrypted VMs and Managed Disk VMs is coming in upcoming releases. 
->
->
-
-To get the template generated as part of restore disks option,
-
-1. Go to restore job details corresponding to the job. 
-2. This will list the template uri from which you can download the template. Please note the container name from values. 
-
-     ![restore job drill-down](../../backup/media/backup-azure-arm-restore-vms/restore-job-drill-down.png)
-     
-3. Note down the target storage account name, container name, template blob uri from values. Go to *target storage account > select Blobs > Containers* and go to file and download the file that starts with name *azuredeploy*.
-
-    ![download-template-storage-account](../../backup/media/backup-azure-arm-restore-vms/download-template.png)
-    
-   Alternatively, you can use [Azure Storage explorer](http://storageexplorer.com/) to go to corresponding subscription > target storage account > Blob Containers and select the container name noted in above step. On the right side pane that shows files inside the container, download the file that starts with name *azuredeploy*. 
-   
-   ![download-template-storage-explorer](../../backup/media/backup-azure-arm-restore-vms/template-storage-explorer-download.png)
-     
-Once template is downloaded, use template deployment to [edit and deploy the template](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) or append more customizations by [authoring a template](../azure-resource-manager/resource-group-authoring-templates.md) before you deploy. You can use Load file option to deploy the template downloaded above. 
-
-   ![loading template deployment](../../backup/media/backup-azure-arm-restore-vms/loading-template.png)
-   
-After entering the required values, accept the *Terms and Conditions* and click on **Purchase**.
-
-   ![submitting template deployment](../../backup/media/backup-azure-arm-restore-vms/submitting-template.png)
 
 ## Post-Restore steps
 * If you are using a cloud-init based Linux distribution such as Ubuntu, for security reasons, password is blocked post restore. Please use VMAccess extension on the restored VM to [reset the password](../virtual-machines/linux/classic/reset-access.md). We recommend using SSH keys on these distributions to avoid resetting password post restore.
@@ -238,38 +141,4 @@ After entering the required values, accept the *Terms and Conditions* and click 
 
 ## Backup for restored VMs
 If you have restored VM to same Resource Group with the same name as originally backed up VM, backup continues on the VM post restore. If you have either restored VM to a different Resource group or specified a different name for restored VM, this is treated as a new VM and you need to setup backup for restored VM.
-
-## Restoring a VM during Azure dataCenter disaster
-Azure Backup allows restoring backed up VMs to the paired data center in case the primary data center where VMs are running experiences disaster and you configured Backup vault to be geo-redundant. During such scenarios, you need to select a storage account, which is present in paired data center and rest of the restore process remains same. Azure Backup uses Compute service from paired geo to create the restored virtual machine. Learn more about [Azure Data center resiliency](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md)
-
-## Restoring VMs with special network configurations
-It is possible to back up and restore VMs with the following special network configurations. However, these configurations require some special consideration while going through the restore process.
-
-* VMs under load balancer (internal and external)
-* VMs with multiple reserved IPs
-* VMs with multiple NICs
-
-> [!IMPORTANT]
-> When creating the special network configuration for VMs, you must use PowerShell to create VMs from the disks restored.
->
->
-
-To fully recreate the virtual machines after restoring to disk, follow these steps:
-
-1. Restore the disks from a recovery services vault using [PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm)
-2. Create the VM configuration required for load balancer/multiple NIC/multiple reserved IP using the PowerShell cmdlets and use it to create the VM of desired configuration.
-
-   * Create VM in cloud service with [Internal Load balancer ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
-   * Create VM to connect to [Internet facing load balancer](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-internet-getstarted/)
-   * Create VM with [multiple NICs](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)
-   * Create VM with [multiple reserved IPs](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)
-
-## Next steps
-Now that you can restore your VMs, see the troubleshooting article for information on common errors with VMs. Also, check out the article on managing tasks with your VMs.
-
-* [Troubleshooting errors](backup-azure-vms-troubleshoot.md#restore)
-* [Manage virtual machines](backup-azure-manage-vms.md)
-
-
-
 
