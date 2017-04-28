@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 04/18/2017
 ms.author: owend
 
 ---
@@ -45,7 +45,7 @@ A gateway is installed on a computer in your network. One gateway must be instal
 * In some cases, tabular models connecting to data sources using native providers such as SQL Server Native Client (SQLNCLI11) may return an error. To learn more, see [Datasource connections](analysis-services-datasource.md).
 
 ## Supported on-premises data sources
-For preview, the gateway supports connections between your Azure Analysis Services server and the following on-premises data sources:
+The gateway supports connections between your Azure Analysis Services server and the following on-premises data sources:
 
 * SQL Server
 * SQL Data Warehouse

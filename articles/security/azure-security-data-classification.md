@@ -7,6 +7,7 @@ author: YuriDio
 manager: swadhwa
 editor: TomSh
 ROBOTS: NOINDEX
+redirect_url: https://aka.ms/data-classification-cloud
 
 ms.assetid: 91d4afed-b80f-4a26-b526-b52b9c858cfb
 ms.service: security

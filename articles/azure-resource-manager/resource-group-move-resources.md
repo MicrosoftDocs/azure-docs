@@ -32,7 +32,7 @@ You cannot change the location of the resource. Moving a resource only moves it 
 ## Checklist before moving resources
 There are some important steps to perform before moving a resource. By verifying these conditions, you can avoid errors.
 
-1. The source and destination subscriptions must exist within the same [Active Directory tenant](../active-directory/active-directory-howto-tenant.md). To check that both subscriptions have the same tenant ID, use Azure PowerShell or Azure CLI.
+1. The source and destination subscriptions must exist within the same [Azure Active Directory tenant](../active-directory/active-directory-howto-tenant.md). To check that both subscriptions have the same tenant ID, use Azure PowerShell or Azure CLI.
 
   For Azure PowerShell, use:
 
@@ -46,7 +46,7 @@ There are some important steps to perform before moving a resource. By verifying
   az account show --subscription "Example Subscription" --query tenantId
   ```
 
-  If the tenant IDs for the source and destination subscriptions are not the same, you can attempt to change the directory for the subscription. However, this option is only available to Service Administrators who are signed in with a Microsoft account (not an organizational account). To attempt changing the directory, log in to the [classic portal](https://manage.windowsazure.com/), and select **Settings**, and select the subscription. If the **Edit Directory** icon is available, select it to change the associated Active Directory. 
+  If the tenant IDs for the source and destination subscriptions are not the same, you can attempt to change the directory for the subscription. However, this option is only available to Service Administrators who are signed in with a Microsoft account (not an organizational account). To attempt changing the directory, log in to the [classic portal](https://manage.windowsazure.com/), and select **Settings**, and select the subscription. If the **Edit Directory** icon is available, select it to change the associated Azure Active Directory. 
 
   ![edit directory](./media/resource-group-move-resources/edit-directory.png) 
 
@@ -64,7 +64,7 @@ You can move most resources through the self-service operations shown in this to
 
 Call support when you need to:
 
-* Move your resources to a new Azure account (and Active Directory tenant).
+* Move your resources to a new Azure account (and Azure Active Directory tenant).
 * Move classic resources but are having trouble with the limitations.
 
 ## Services that enable move
