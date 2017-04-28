@@ -80,7 +80,7 @@ Resource tokens provide access to the application resources within a database. R
 - Are created when a [user](#users) is granted [permissions](#permissions) to a specific resource.
 - Are recreated when a permission resource is acted upon on by POST, GET, or PUT call.
 - Use a hash resource token specifically constructed for the user, resource, and permission.
-- Are time bound with a customizable validity period. The devault valid timespan is one hour. Token lifetime, however, may be explicitly specified, up to a maximum of five hours.
+- Are time bound with a customizable validity period. The default valid timespan is one hour. Token lifetime, however, may be explicitly specified, up to a maximum of five hours.
 - Provide a safe alternative to giving out the master key. 
 - Enable clients to read, write, and delete resources in the DocumentDB account according to the permissions they've been granted.
 
