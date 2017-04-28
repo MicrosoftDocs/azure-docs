@@ -1378,9 +1378,9 @@ This provider is not a full ARM provider and does not provide any ARM operations
 |/vaults/replicationFabrics/replicationRecoveryServicesProviders/delete|Delete Any Recovery Services Providers|
 |/vaults/replicationFabrics/replicationRecoveryServicesProviders/refreshProvider/action|Refresh Provider|
 |/vaults/replicationFabrics/replicationStorageClassifications/read|Read Any Storage Classifications|
-|/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/read|Read Any Storage Classification Mappings|
-|/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/write|Create or Update Any Storage Classification Mappings|
-|/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/delete|Delete Any Storage Classification Mappings|
+|/vaults/replicationFabrics/replicationStorageClassifications/<br>replicationStorageClassificationMappings/read|Read Any Storage Classification Mappings|
+|/vaults/replicationFabrics/replicationStorageClassifications/<br>replicationStorageClassificationMappings/write|Create or Update Any Storage Classification Mappings|
+|/vaults/replicationFabrics/replicationStorageClassifications/<br>replicationStorageClassificationMappings/delete|Delete Any Storage Classification Mappings|
 |/vaults/replicationFabrics/replicationvCenters/read|Read Any Jobs|
 |/vaults/replicationFabrics/replicationvCenters/write|Create or Update Any Jobs|
 |/vaults/replicationFabrics/replicationvCenters/delete|Delete Any Jobs|
@@ -1388,30 +1388,30 @@ This provider is not a full ARM provider and does not provide any ARM operations
 |/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings/read|Read Any Network Mappings|
 |/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings/write|Create or Update Any Network Mappings|
 |/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings/delete|Delete Any Network Mappings|
-|/vaults/replicationFabrics/replicationProtectionContainers/read|Read Any Protection Containers|
-|/vaults/replicationFabrics/replicationProtectionContainers/discoverProtectableItem/action|Discover Protectable Item|
-|/vaults/replicationFabrics/replicationProtectionContainers/write|Create or Update Any Protection Containers|
-|/vaults/replicationFabrics/replicationProtectionContainers/remove/action|Remove Protection Container|
-|/vaults/replicationFabrics/replicationProtectionContainers/switchprotection/action|Switch Protection Container|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectableItems/read|Read Any Protectable Items|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/read|Read Any Protection Container Mappings|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/write|Create or Update Any Protection Container Mappings|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/remove/action|Remove Protection Container Mapping|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/delete|Delete Any Protection Container Mappings|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read|Read Any Protected Items|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/write|Create or Update Any Protected Items|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/delete|Delete Any Protected Items|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/remove/action|Remove Protected Item|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/plannedFailover/action|Planned Failover|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action|Failover|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/action|Test Failover|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action|Test Failover Cleanup|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/failoverCommit/action|Failover Commit|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/reProtect/action|ReProtect Protected Item|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/updateMobilityService/action|Update Mobility Service|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/repairReplication/action|Repair replication|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/action|Apply Recovery Point|
-|/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read|Read Any Replication Recovery Points|
+|/vaults/replicationFabrics/replicationProtectionContainers/<br>read|Read Any Protection Containers|
+|/vaults/replicationFabrics/replicationProtectionContainers/<br>discoverProtectableItem/action|Discover Protectable Item|
+|/vaults/replicationFabrics/replicationProtectionContainers/<br>write|Create or Update Any Protection Containers|
+|/vaults/replicationFabrics/replicationProtectionContainers/<br>remove/action|Remove Protection Container|
+|/vaults/replicationFabrics/replicationProtectionContainers/<br>switchprotection/action|Switch Protection Container|
+|/vaults/replicationFabrics/replicationProtectionContainers/<br>replicationProtectableItems/read|Read Any Protectable Items|
+|/vaults/replicationFabrics/replicationProtectionContainers/<br>replicationProtectionContainerMappings/read|Read Any Protection Container Mappings|
+|/vaults/replicationFabrics/replicationProtectionContainers/<br>replicationProtectionContainerMappings/write|Create or Update Any Protection Container Mappings|
+|/vaults/replicationFabrics/replicationProtectionContainers/<br>replicationProtectionContainerMappings/remove/action|Remove Protection Container Mapping|
+|/vaults/replicationFabrics/replicationProtectionContainers/<br>replicationProtectionContainerMappings/delete|Delete Any Protection Container Mappings|
+|/vaults/replicationFabrics/replicationProtectionContainers/<br>replicationProtectedItems/read|Read Any Protected Items|
+|/vaults/replicationFabrics/replicationProtectionContainers/<br>replicationProtectedItems/write|Create or Update Any Protected Items|
+|/vaults/replicationFabrics/replicationProtectionContainers/<br>replicationProtectedItems/delete|Delete Any Protected Items|
+|/vaults/replicationFabrics/replicationProtectionContainers/<br>replicationProtectedItems/remove/action|Remove Protected Item|
+|/vaults/replicationFabrics/replicationProtectionContainers/<br>replicationProtectedItems/plannedFailover/action|Planned Failover|
+|/vaults/replicationFabrics/replicationProtectionContainers/<br>replicationProtectedItems/unplannedFailover/action|Failover|
+|/vaults/replicationFabrics/replicationProtectionContainers/<br>replicationProtectedItems/testFailover/action|Test Failover|
+|/vaults/replicationFabrics/replicationProtectionContainers/<br>replicationProtectedItems/testFailoverCleanup/action|Test Failover Cleanup|
+|/vaults/replicationFabrics/replicationProtectionContainers/<br>replicationProtectedItems/failoverCommit/action|Failover Commit|
+|/vaults/replicationFabrics/replicationProtectionContainers/<br>replicationProtectedItems/reProtect/action|ReProtect Protected Item|
+|/vaults/replicationFabrics/replicationProtectionContainers/<br>replicationProtectedItems/updateMobilityService/action|Update Mobility Service|
+|/vaults/replicationFabrics/replicationProtectionContainers/<br>replicationProtectedItems/repairReplication/action|Repair replication|
+|/vaults/replicationFabrics/replicationProtectionContainers/<br>replicationProtectedItems/applyRecoveryPoint/action|Apply Recovery Point|
+|/vaults/replicationFabrics/replicationProtectionContainers/<br>replicationProtectedItems/recoveryPoints/read|Read Any Replication Recovery Points|
 |/vaults/replicationPolicies/read|Read Any Policies|
 |/vaults/replicationPolicies/write|Create or Update Any Policies|
 |/vaults/replicationPolicies/delete|Delete Any Policies|
@@ -1436,12 +1436,12 @@ This provider is not a full ARM provider and does not provide any ARM operations
 |/Vaults/backupFabrics/protectionContainers/protectedItems/write|Create a backup Protected Item|
 |/Vaults/backupFabrics/protectionContainers/protectedItems/delete|Deletes Protected Item|
 |/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action|Performs Backup for Protected Item.|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read|Gets Result of Operation Performed on Protected Items.|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/operationStatus/read|Returns the status of Operation performed on Protected Items.|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read|Get Recovery Points for Protected Items.|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action|Restore Recovery Points for Protected Items.|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/action|Provision Instant Item Recovery for Protected Item|
-|/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action|Revoke Instant Item Recovery for Protected Item|
+|/Vaults/backupFabrics/protectionContainers/protectedItems/<br>operationResults/read|Gets Result of Operation Performed on Protected Items.|
+|/Vaults/backupFabrics/protectionContainers/protectedItems/<br>operationStatus/read|Returns the status of Operation performed on Protected Items.|
+|/Vaults/backupFabrics/protectionContainers/protectedItems/<br>recoveryPoints/read|Get Recovery Points for Protected Items.|
+|/Vaults/backupFabrics/protectionContainers/protectedItems/<br>recoveryPoints/restore/action|Restore Recovery Points for Protected Items.|
+|/Vaults/backupFabrics/protectionContainers/protectedItems/<br>recoveryPoints/provisionInstantItemRecovery/action|Provision Instant Item Recovery for Protected Item|
+|/Vaults/backupFabrics/protectionContainers/protectedItems/<br>recoveryPoints/revokeInstantItemRecovery/action|Revoke Instant Item Recovery for Protected Item|
 |/Vaults/usages/read|Returns usage details for a Recovery Services Vault.|
 |/vaults/usages/read|Read Any Vault Usages|
 |/Vaults/certificates/write|The Update Resource Certificate operation updates the resource/vault credential certificate.|
