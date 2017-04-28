@@ -31,15 +31,16 @@ To deploy the MySQL provider on a system that does not have internet access, you
 > The deployment script performs retries, if necessary, to accommodate less reliable network connections or if an operation exceeds a timeout.
 >
 
-## Steps to deploy the resource provider
+## Deploy the resource provider
 
 1. If you have not already done so, create a [Windows Server 2016 image with the .NET 3.5 runtime](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image) installed.
 
+  > [!NOTE]
+  > Although the .NET 3.5 runtime is not required for this RP, it is used for the SQL Resource Provider, so you can save space by using the same image.
+  >
+  >
 
-> [!NOTE]
-> Although the .NET 3.5 runtime is not required for this RP, it is used for the SQL Resource Provider, so you can save space by using the same image.
->
-
+  
 2. If you have installed any version of the AzureRm PowerShell module other than 1.2.9, you need to remove it or the install will block.
 
 3. [Download the MySQL resource provider binaries file](https://aka.ms/azurestackmysqlrptp3) and extract it on the Console VM in your Azure Stack.
