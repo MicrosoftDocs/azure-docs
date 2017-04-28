@@ -33,88 +33,10 @@ You can use Azure Cosmos DB to create, update, and query graphs using the `Micro
 - Create a database
 - Create a collection for storing graphs. You can configure the partition key, indexing policy, and provision collection throughput programmatically or via the Azure portal
 
-Here's the mapping of graph entities as stored in Azure Cosmos DB:
-
-| Entity | Azure Cosmos DB | Description |
-| --- | --- | --- |
-| Graph | Collection | A graph can be represented in Azure Cosmos DB via collections. You can provision throughput in RUs, store vertexes and edges of arbitrary types within the same collection | 
-| Vertex | Document | A vertex is a document stored within the collection. Vertex documents can be created side by side with arbitrary JSON documents, and any document can be promoted to a vertex by adding the required GraphSON properties |
-| Edge | Array within Document | Edges are collocated with the vertices within the same document. 
-| Property | Value within Document | Properties are stored within the designated `properties` property within vertex documents. 
- 
-
 Once you create the account, you can start working in .NET by downloading the [Microsoft.Azure.Azure Cosmos DB](documentdb-sdk-dotnet.md) package and the [Microsoft.Azure.Graph](https://aka.ms/graphdbextension) extension library, and include them within your project. The `Microsoft.Azure.Graph` library provides a single extension method `CreateGraphQuery` for executing Gremlin operations. Gremlin is a functional programming language that supports write operations (DML) and query and traversal operations. We cover a few examples in this article to get your started with Gremlin. [Gremlin queries](documentdb-gremlin-support.md) has a detailed walkthrough of Gremlin capabilities in Azure Cosmos DB.
 
-Azure Cosmos DB uses the [GraphSON format](https://github.com/thinkaurelius/faunus/wiki/GraphSON-Format) when returning results from Gremlin operations. GraphSON provides a standard format for representing vertices, edges, and properties (single and multi-valued properties) using JSON and is a standard used by many graph databases. 
-
-For example, the following snippet shows a GraphSON representation of a vertex in Azure Cosmos DB. 
-
-```json
-  {
-    "id": "a7111ba7-0ea1-43c9-b6b2-efc5e3aea4c0",
-    "label": "person",
-    "type": "vertex",
-    "outE": {
-      "knows": [
-        {
-          "id": "3ee53a60-c561-4c5e-9a9f-9c7924bc9aef",
-          "inV": "04779300-1c8e-489d-9493-50fd1325a658"
-        },
-        {
-          "id": "21984248-ee9e-43a8-a7f6-30642bc14609",
-          "inV": "a8e3e741-2ef7-4c01-b7c8-199f8e43e3bc"
-        }
-      ]
-    },
-    "properties": {
-      "firstName": [
-        {
-          "value": "Thomas"
-        }
-      ],
-      "lastName": [
-        {
-          "value": "Andersen"
-        }
-      ],
-      "age": [
-        {
-          "value": 45
-        }
-      ]
-    }
-  }
-```
-
-The properties used by GraphSON for vertices are the following:
-
-| Property | Description |
-| --- | --- |
-| id | The ID for the vertex. Must be unique (in combination with the value of _partition if applicable) |
-| label | The label of the vertex. This is optional, and used to describe the entity type. |
-| type | Used to distinguish vertices from non-graph documents |
-| properties | Bag of user-defined properties associated with the vertex. Each property can have multiple values. |
-| _partition | The partition key of the vertex. Can be used to scale out graphs to multiple servers |
-| outE | This contains a list of out edges from a vertex. Storing the adjacency information with vertex allows for fast execution of traversals. Edges are grouped based on their labels. |
-
-And the edge contains the following information to help with navigation to other parts of the graph.
-
-| Property | Description |
-| --- | --- |
-| id | The ID for the edge. Must be unique (in combination with the value of _partition if applicable) |
-| label | The label of the edge. This property is optional, and used to describe the relationship type. |
-| inV | Bag of user-defined properties associated with the edge. Each property can have multiple values. |
-| properties | Bag of user-defined properties associated with the edge. Each property can have multiple values. |
-
-Each property can store multiple values within an array. 
-
-| Property | Description |
-| --- | --- |
-| value | The value of the property
-
-Now that we understand how vertices and edges are represented with GraphSON, let's get started writing code with the library. Azure Cosmos DB includes JSON.NET as a dependency, and this allows us to serialize/deserialize GraphSON into objects that we can work with in code.
-
 ## Serializing vertices and edges to .NET objects
+Azure Cosmos DB uses the [GraphSON wire format](documentdb-gremlin-support.md), which defines a JSON schema for vertices, edges, and properties. The Azure Cosmos DB .NET SDK includes JSON.NET as a dependency, and this allows us to serialize/deserialize GraphSON into .NET objects that we can work with in code.
 
 As an example, let's work with a simple social network with four people. We look at how to create `Person` vertices, add `Knows` relationships between them, then query and traverse the graph to find "friend of friend" relationships. 
 
