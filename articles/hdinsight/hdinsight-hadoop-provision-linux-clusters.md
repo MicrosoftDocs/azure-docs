@@ -24,54 +24,23 @@ ms.author: jgao
 
 A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks on the cluster. Azure abstracts the implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information. In this article,  you learn about these configuration settings.
 
-##Basic concepts and terms
+## Basic configurations
 
-This section covers some basic concepts and terms that is helpful for creating HDInsight clusters.
+From the Azure portal, you can create a cluster using *Quick create* or *Custom*.  The Custom option requires more advanced settings.  This section covers the basic configuration settings used in the Quick create option.
 
-### Cluster storage
+### Subscription 
+Each HDInsight cluster is tied to one Azure subscription.
 
-The original Hadoop Distributed File System (HDFS) uses many local disks on the cluster. HDInsight uses either blobs in [Azure Storage](hdinsight-hadoop-provision-linux-clusters.md#azure-storage) or [Azure Data Lake Store](hdinsight-hadoop-provision-linux-clusters.md#azure-data-lake-store) . There are some specific requirements on using Data Lake sotres for HDInsight. For more information see the introduction section of [Create HDInsight clusters with Data Lake Store by using the Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+### Resource group name
+[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure resource group. You can deploy, update, monitor, or delete all of the resources for your application in a single coordinated operation.
 
-#### <a name="azure-storage"></a>Azure Storage
-Azure Storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. Through an HDFS interface, the full set of components in HDInsight can operate directly on structured or unstructured data stored in blobs. Storing data in Azure Storage helps you safely delete the HDInsight clusters that are used for computation without losing user data. HDInsight only supports __General purpose__ Azure Storage accounts. It does not currently support the __Blob storage__ account type.
+### Cluster name
+The cluster name is used to identify a cluster. The cluster name must be globally unique, and it must adhere to the following naming guidelines:
 
-During configuration, you specify an Azure Storage account and a blob container in the Azure Storage account. The blob container is used as the default storage location by the cluster. Optionally, you can specify additional Azure Storage accounts (linked storage) that the cluster can access. The cluster can also access any blob containers that are configured with full public read access or public read access for blobs only.
+* The field must be a string that contains between 3 and 63 characters.
+* The field can contain only letters, numbers, and hyphens.
 
-We do not recommend that you use the default blob container for storing business data. Deleting the default blob container after each use to reduce storage cost is a good practice. Note that the default container contains application and system logs. Make sure to retrieve the logs before deleting the container.
-
-Sharing one blob container for multiple clusters is not supported.
-
-For more information on using Azure Storage account, see [Using Azure Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md).
-
-#### <a name="azure-data-lake-store"></a>Azure Data Lake Store
-In addition to Azure Storage, you can use [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) as a default storage account for HBase cluster in HDInsight and as linked storage for all four HDInsight cluster types. For more information, see [Create an HDInsight cluster with Data Lake Store using Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
-
-#### Use additional storage
-In some cases, you might add additional storage to the cluster. For example, you might have multiple Azure storage accounts for different geographical regions or different services, but you want to analyze them all with HDInsight.
-
-You can add storage accounts when you create an HDInsight cluster or after a cluster has been created.  See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
-
-For more information about secondary Azure Storage account, see [Using Azure Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md). For more information about secondary Data Lake Storage, see [Create HDInsight clusters with Data Lake Store using Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
-
-### Use Hive/Oozie metastore
-We recommend that you use a custom metastore if you want to retain your Hive tables after you delete your HDInsight cluster. You will be able to attach that metastore to another HDInsight cluster.
-
-> [!IMPORTANT]
-> An HDInsight metastore that is created for one HDInsight cluster version cannot be shared across different HDInsight cluster versions. For a list of HDInsight versions, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
->
->
-
-The metastore contains Hive and Oozie metadata, such as Hive tables, partitions, schemas, and columns. The metastore helps you retain your Hive and Oozie metadata, so you don't need to re-create Hive tables or Oozie jobs when you create a new cluster. By default, Hive uses an embedded Azure SQL database to store this information. The embedded database can't preserve the metadata when the cluster is deleted. When you create a Hive table in an HDInsight cluster with a Hive metastore configured, those tables will be retained when you re-create the cluster by using the same Hive metastore.
-
-Metastore configuration is not available for HBase cluster types.
-
-> [!IMPORTANT]
-> When you create a custom metastore, do not use a database name that contains dashes or hyphens. This can cause the cluster creation process to fail.
->
->
-
-### Cluster types
-
+### Cluster type
 Azure HDInsight provides the following types of clusters, each with a set of components to provide certain functionalities:
 
 | Cluster type | Functionality |
@@ -141,27 +110,6 @@ For more information on using an Azure virtual network with HDInsight, see [Exte
 
 For an example of using two cluster types within an Azure virtual network, see [Analyze sensor data with Storm and HBase](hdinsight-storm-sensor-data-analysis.md).
 
-
-
-## Basic configuration options
-
-From the Azure portal, you can create a cluster using *Quick create* or *Custom*.  The Custom option requires more advanced settings.  This section covers the basic configuration settings used in the Quick create option.
-
-### Subscription 
-Each HDInsight cluster is tied to one Azure subscription.
-
-### Resource group name
-[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure resource group. You can deploy, update, monitor, or delete all of the resources for your application in a single coordinated operation.
-
-### Cluster name
-The cluster name is used to identify a cluster. The cluster name must be globally unique, and it must adhere to the following naming guidelines:
-
-* The field must be a string that contains between 3 and 63 characters.
-* The field can contain only letters, numbers, and hyphens.
-
-### Cluster type
-See [Cluster types](#cluster-types).
-
 ### Operating system
 You can create HDInsight clusters on either Linux or Windows.  For more information on the OS versions, see [Suported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
@@ -183,31 +131,67 @@ With HDInsight clusters, you can configure two user accounts during cluster crea
 * HTTP user. The default user name is *admin*. It uses the basic configuration on the Azure portal. Sometimes it is called "Cluster user."
 * SSH user (Linux clusters). This is used to connect to the cluster through SSH. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-  > [!NOTE]
-  > For Windows-based clusters, you can create an RDP user to connect to the cluster by using RDP.
-  >
-  >
+### Location
+The location of the cluster uses the same location of the default storage.
 
-### Storage
+## Storage
 
 The cluster uses this data source as the primary location for most data access, such as job input and log output.  
 
 ![HDInsight storage](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
 
+The original Hadoop Distributed File System (HDFS) uses many local disks on the cluster. HDInsight uses either blobs in [Azure Storage](hdinsight-hadoop-provision-linux-clusters.md#azure-storage) or [Azure Data Lake Store](hdinsight-hadoop-provision-linux-clusters.md#azure-data-lake-store). There are some specific requirements on using Data Lake sotres for HDInsight. For more information see the introduction section of [Create HDInsight clusters with Data Lake Store by using the Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
+#### <a name="azure-storage"></a>Azure Storage
+Azure Storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. Through an HDFS interface, the full set of components in HDInsight can operate directly on structured or unstructured data stored in blobs. Storing data in Azure Storage helps you safely delete the HDInsight clusters that are used for computation without losing user data. HDInsight only supports __General purpose__ Azure Storage accounts. It does not currently support the __Blob storage__ account type.
 
-See the [Storage](hdinsight-hadoop-provision-linux-clusters.md#storage) section in this article.
+During configuration, you specify an Azure Storage account and a blob container in the Azure Storage account. The blob container is used as the default storage location by the cluster. Optionally, you can specify additional Azure Storage accounts (linked storage) that the cluster can access. The cluster can also access any blob containers that are configured with full public read access or public read access for blobs only.
+
+We do not recommend that you use the default blob container for storing business data. Deleting the default blob container after each use to reduce storage cost is a good practice. Note that the default container contains application and system logs. Make sure to retrieve the logs before deleting the container.
+
+Sharing one blob container for multiple clusters is not supported.
+
+For more information on using Azure Storage account, see [Using Azure Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md).
+
+#### <a name="azure-data-lake-store"></a>Azure Data Lake Store
+In addition to Azure Storage, you can use [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) as a default storage account for HBase cluster in HDInsight and as linked storage for all four HDInsight cluster types. For more information, see [Create an HDInsight cluster with Data Lake Store using Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+
+#### Use additional storage
+In some cases, you might add additional storage to the cluster. For example, you might have multiple Azure storage accounts for different geographical regions or different services, but you want to analyze them all with HDInsight.
+
+You can add storage accounts when you create an HDInsight cluster or after a cluster has been created.  See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
+
+For more information about secondary Azure Storage account, see [Using Azure Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md). For more information about secondary Data Lake Storage, see [Create HDInsight clusters with Data Lake Store using Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+
 
 ### Location 
 The HDInsight cluster and its default storage must be located at the same Azure location.
 
 For a list of supported regions, click the **Region** drop-down list on [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
+### Use Hive/Oozie metastore
+We recommend that you use a custom metastore if you want to retain your Hive tables after you delete your HDInsight cluster. You will be able to attach that metastore to another HDInsight cluster.
+
+> [!IMPORTANT]
+> An HDInsight metastore that is created for one HDInsight cluster version cannot be shared across different HDInsight cluster versions. For a list of HDInsight versions, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
+>
+>
+
+The metastore contains Hive and Oozie metadata, such as Hive tables, partitions, schemas, and columns. The metastore helps you retain your Hive and Oozie metadata, so you don't need to re-create Hive tables or Oozie jobs when you create a new cluster. By default, Hive uses an embedded Azure SQL database to store this information. The embedded database can't preserve the metadata when the cluster is deleted. When you create a Hive table in an HDInsight cluster with a Hive metastore configured, those tables will be retained when you re-create the cluster by using the same Hive metastore.
+
+Metastore configuration is not available for HBase cluster types.
+
+> [!IMPORTANT]
+> When you create a custom metastore, do not use a database name that contains dashes or hyphens. This can cause the cluster creation process to fail.
+>
+>
 
 ## HDInsight application
 
 Bla, bla, bla ...
 
+## Use edge node
+An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the head node. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. For more information, see [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md).
 
 ## cluster size
 
@@ -272,22 +256,7 @@ Billing starts when a cluster is created, and stops when the cluster is deleted.
 > [!WARNING]
 > Using an additional storage account in a different location than the HDInsight cluster is not supported.
 
-## Use Hive/Oozie metastore
-We recommend that you use a custom metastore if you want to retain your Hive tables after you delete your HDInsight cluster. You will be able to attach that metastore to another HDInsight cluster.
 
-> [!IMPORTANT]
-> An HDInsight metastore that is created for one HDInsight cluster version cannot be shared across different HDInsight cluster versions. For a list of HDInsight versions, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
->
->
-
-The metastore contains Hive and Oozie metadata, such as Hive tables, partitions, schemas, and columns. The metastore helps you retain your Hive and Oozie metadata, so you don't need to re-create Hive tables or Oozie jobs when you create a new cluster. By default, Hive uses an embedded Azure SQL database to store this information. The embedded database can't preserve the metadata when the cluster is deleted. When you create a Hive table in an HDInsight cluster with a Hive metastore configured, those tables will be retained when you re-create the cluster by using the same Hive metastore.
-
-Metastore configuration is not available for HBase cluster types.
-
-> [!IMPORTANT]
-> When you create a custom metastore, do not use a database name that contains dashes or hyphens. This can cause the cluster creation process to fail.
->
->
 
 ## Use Azure virtual networks
 With [Azure Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/), you can create a secure, persistent network that contains the resources that you need for your solution. With a virtual network, you can:
@@ -344,8 +313,7 @@ Some native Java components, like Mahout and Cascading, can be run on the cluste
 >
 >
 
-## Use edge node
- An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the head node. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. For more information, see [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md).
+
 
 ## Cluster creation methods
 In this article, you have learned basic information about creating a Linux-based HDInsight cluster. Use the following table to find specific information about how to create a cluster by using a method that best suits your needs.
