@@ -18,13 +18,17 @@ ms.author: alkarche
 
 ---
 # Azure Functions External Table binding (Preview)
-This article shows how to manipulate tabular data on SaaS providers (e.g. Sharepoint, Dynamics) within your function utilizing built-in bindings. Azure functions supports input, and output bindings for external tables.
-
-This binding creates API connections to SaaS providers, or uses existing API connections from your Function App's resource group.
+This article shows how to manipulate tabular data on SaaS providers (e.g. Sharepoint, Dynamics) within your function with built-in bindings. Azure Functions supports input, and output bindings for external tables.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## Supported Table connections
+## API Connections
+
+Table bindings leverage external API connections to authenticate with 3rd party SaaS providers. 
+
+When assigning a binding you can either create a new API connection or use an existing API connection within the same resource group
+
+### Supported API Connections (Table)s
 
 |Connector|Trigger|Input|Output|
 |:-----|:---:|:---:|:---:|
@@ -48,6 +52,20 @@ This binding creates API connections to SaaS providers, or uses existing API con
 
 > [!NOTE]
 > External Table connections can also be used in [Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list)
+
+### Creating an API connnection: step by step
+
+1. Create a new function > create a custom function
+![Create a custom function](./media/functions-bindings-storage-table/create-custom-function.jpg)
+1. Select scenario `Experimental` > Choose the `ExternalTable-CSharp` template > Create a new  `External Table connection`
+![Choose table input template](./media/functions-bindings-storage-table/create-template-table.jpg)
+1. Choose your SaaS provider > choose/create a connection
+![Configure SaaS connection](./media/functions-bindings-storage-table/authorize-API-connection.jpg)
+1. Select your API connection > create the function
+![Create table function](./media/functions-bindings-storage-table/table-template-options.jpg)
+1. Select `Integrate` > `External Table`
+    1. Configure the connection to use your target table. These settings will very between SaaS providers. They are outline below in [data source settings](#datasourcesettings)
+![Configure table](./media/functions-bindings-storage-table/configure-API-connection.jpg)
 
 ## Usage
 
@@ -149,12 +167,12 @@ module.exports = function(context) {
 };
 ```
 -->
-
+<a name="datasourcesettings"></a>
 ## Data Source Settings
 
 ### SQL Server
 
-The script to create and populate the Contact table is below. dataSetName is “default”.
+The script to create and populate the Contact table is below. dataSetName is “default.”
 
 ```sql
 CREATE TABLE Contact
