@@ -3,7 +3,7 @@ title: Azure Advanced Threat Detection | Microsoft Docs
 description: Learn about Identity Protection and its capabilities.
 services: security
 documentationcenter: na
-author: TomSh
+author: UnifyCloud
 manager: swadhwa
 editor: TomSh
 
