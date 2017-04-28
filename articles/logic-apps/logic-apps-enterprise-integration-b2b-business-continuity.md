@@ -1,6 +1,6 @@
 ---
-title: 'Logic Apps B2B integration account disaster recovery: Azure Logic Apps | Microsoft Docs'
-description: Azure Logic Apps B2B disaster recovery
+title: 'Logic Apps B2B integration account disaster recovery: Azure App Service | Microsoft Docs'
+description: Logic Apps B2B disaster recovery
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
