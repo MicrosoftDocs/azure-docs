@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
+ms.date: 04/28/2017
 ms.author: patricka
 
 ---
@@ -32,7 +32,7 @@ In Graph API, to access directory data and objects (in other words, resources or
 * **Service Root**: In Azure AD Graph API, the service root is always https://graph.windows.net.
 * **Tenant identifier**: This can be a verified (registered) domain name, in the example above, contoso.com. It can also be a tenant object ID or the “myorganization” or “me” alias. For more information, see [Addressing Entities and Operations in the Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview)).
 * **Resource path**: This section of a URL identifies the resource to be interacted with (users, groups, a particular user, or a particular group, etc.) In the example above, it is the top-level “groups” to address that resource set. You can also address a specific entity, for example “users/{objectId}” or “users/userPrincipalName”.
-* **Query parameters**: ? separates the resource path section from the query parameters section. The “api-version” query parameter is required on all requests in the Graph API. The Graph API also supports the following OData query options: **$filter**, **$orderby**, **$expand**, **$top**, and **$format**. The following query options are not currently supported: **$count**, **$inlinecount**, and **$skip**. For more information, see [Supported Queries, Filters, and Paging Options in Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options).
+* **Query parameters**: A question mark (?) separates the resource path section from the query parameters section. The “api-version” query parameter is required on all requests in the Graph API. The Graph API also supports the following OData query options: **$filter**, **$orderby**, **$expand**, **$top**, and **$format**. The following query options are not currently supported: **$count**, **$inlinecount**, and **$skip**. For more information, see [Supported Queries, Filters, and Paging Options in Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options).
 
 ## Graph API versions
 You specify the version for a Graph API request in the “api-version” query parameter. For version 1.5 and later, you use a numerical version value; api-version=1.6. For earlier versions, you use a date string that adheres to the format YYYY-MM-DD; for example, api-version=2013-11-08. For preview features, use the string “beta”; for example, api-version=beta. For more information about differences between Graph API versions, see [Azure AD Graph API Versioning](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-versioning).
@@ -50,23 +50,18 @@ Or `https://graph.windows.net/contoso.com/users?api-version=1.6` lists all user 
 ## Using the Graph Explorer
 You can use the Graph Explorer for the Azure AD Graph API to query the directory data as you build your application.
 
-> [!IMPORTANT]
-> The Graph Explorer does not support writing or deleting the data from a directory. You can only perform read operations on your Azure AD directory with the Graph Explorer.
-> 
-> 
-
 The following is the output you would see if you were to navigate to the Graph Explorer, select Use Demo Company, and enter `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.6` to display all of the users in the demo directory:
 
 ![Azure AD graph api explorer](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
-**Load the Graph Explorer**: To load the tool, navigate to [https://graphexplorer.cloudapp.net/](https://graphexplorer.cloudapp.net/). Click **Use Demo Company** to run the Graph Explorer against data from a sample tenant. You do not need credentials to use the demo company. Alternatively, you can click **Sign in** and sign in with your Azure AD account credentials to run the Graph Explorer against your tenant. If you run Graph Explorer against your own tenant, either you or your administrator needs to consent during sign-in. If you have an Office 365 subscription, you automatically have an Azure AD tenant. The credentials you use to sign in to Office 365 are, in fact, Azure AD accounts, and you can use these credentials with Graph Explorer.
+**Load the Graph Explorer**: To load the tool, navigate to [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/). Click **Login** and sign-in with your Azure AD account credentials to run the Graph Explorer against your tenant. If you run Graph Explorer against your own tenant, either you or your administrator needs to consent during sign-in. If you have an Office 365 subscription, you automatically have an Azure AD tenant. The credentials you use to sign in to Office 365 are, in fact, Azure AD accounts, and you can use these credentials with Graph Explorer.
 
 **Run a query**: To run a query, type your query in the request text box and click **GET** or click the **enter** key. The results are displayed in the response box. For example, `https://graph.windows.net/graphdir1.onmicrosoft.com /groups?api-version=1.6` lists all group objects in the demo directory.
 
 Note the following features and limitations of the Graph Explorer:
 
-* Autocomplete capability on resource sets. To see this, click **Use Demo Company** and then click on the request text box (where the company URL appears). You can select a resource set from the dropdown list.
-* Supports the “me” and “myorganization” addressing aliases. For example, you can use `https://graph.windows.net/me?api-version=1.6` to return the user object of the signed-in user or `https://graph.windows.net/myorganization/users?api-version=1.6` to return all users in the current directory. Note that using the “me” alias returns an error for the demo company because there is no signed-in user making the request.
+* Autocomplete capability on resource sets. To see this, click on the request text box (where the company URL appears). You can select a resource set from the dropdown list.
+* Supports the “me” and “myorganization” addressing aliases. For example, you can use `https://graph.windows.net/me?api-version=1.6` to return the user object of the signed-in user or `https://graph.windows.net/myorganization/users?api-version=1.6` to return all users in the current directory.
 * A response headers section. This can be used to help troubleshoot issues that occur when running queries.
 * A JSON viewer for the response with expand and collapse capabilities.
 * No support for displaying a thumbnail photo.
