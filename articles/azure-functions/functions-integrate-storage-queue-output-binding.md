@@ -76,6 +76,8 @@ Now that you have an output binding defined, you need to update the code to use 
     outQueueItem.Add("Name passed to the function: " + name);     
     ```
 
+4. Click **Save** to save changes.
+
 The value passed to the HTTP trigger is included in the message added to the queue.
  
 ## Test the function 
