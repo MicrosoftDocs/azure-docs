@@ -116,7 +116,7 @@ Set-AzureRmVmssOsProfile $vmssConfig -AdminUsername azureuser -AdminPassword P@s
 # Create the virtual network resources
 $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet" -AddressPrefix 10.0.0.0/24
 $vnet = New-AzureRmVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroupScaleSet" -Location "westus" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-$ipConfig = New-AzureRmVmssIpConfig -Name "myPublicIP" -LoadBalancerBackendAddressPoolsId $null -SubnetId $vnet.Subnets[0].Id
+$ipConfig = New-AzureRmVmssIpConfig -Name "myIPConfig" -LoadBalancerBackendAddressPoolsId $lb.BackendAddressPools[0].Id ` -SubnetId $vnet.Subnets[0].Id
 
 # Attach the virtual network to the config object
 Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmssConfig -Name "network-config" -Primary $true -IPConfiguration $ipConfig
