@@ -57,7 +57,7 @@ As an example, you can create an offer that lets users create DNN web content ma
 
 ## As a tenant, create an app in Azure Stack
 
-Now that you've deployed the App Service resource provider and created an offer, you can sign in as a tenant, subscribe to the offer, and create an app. To create a DNN Platform content management system, you must first create a SQL hosting server and then the DNN web app.
+Now that you've deployed the App Service resource provider and created an offer, you can sign in as a tenant, subscribe to the offer, and create an app. To create a DNN Platform content management system, you must first create a SQL databse and then the DNN web app.
 
 ### Subscribe to the offer
 1. Sign in to the Azure Stack portal (https://portal.local.azurestack.external) as a tenant.
