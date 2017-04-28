@@ -28,7 +28,7 @@ By enabling 'Language customization' on a policy, you can now control the langua
 1. [Follow these steps to navigate to the B2C features blade on the Azure portal.](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-app-registration#navigate-to-the-b2c-features-blade)
 2. Navigate to a policy that you want to enable for translations.
 3. Click 'Language customization'.
-4. Please read the warning carfully.  Once enabled, you cannot turn this feature.
+4. Read the warning carefully.  Once enabled, you cannot turn this feature.
 5. Turn on the feature and click OK.
 6. Save your policy on the upper left corner of your 'Edit policy' blade.
 
@@ -52,10 +52,10 @@ Create a list of allowed languages for your login experience to be translated in
 5. In the dropdown, select the language you want to edit for.
 6. Click 'Download'. 
 
-This gives you a JSON file that you can use to start editing your strings.  For the examples below, we assume you are looking in the 'Local account sign-up page' in a 'Sign-up or sign-in policy'.
+These steps gives you a JSON file that you can use to start editing your strings.  For the examples below, we assume you are looking in the 'Local account sign-up page' in a 'Sign-up or sign-in policy'.
 ### Changing any string on the page
 1. Open the JSON file downloaded from previous instructions in a JSON editor.
-2. Find the element you want to change.  You can do this by finding the `StringId` of the string you are looking for, or look for the `Value` you want to change.
+2. Find the element you want to change.  To do this, find the `StringId` of the string you are looking for, or look for the `Value` you want to change.
 3. Update the `Value` attribute with what you want displayed.
 4. Save the file and upload your changes.
 
@@ -117,7 +117,7 @@ If you want to provide a set list of values for responses, you need to create a 
 
 ## Additional Information
 ### Recommendations for 'Language customization'
-We recommend only putting in entries to your Language resources for strings you explicitly want to replace.  We enforce a size limit to the file that is compiled out of all your JSON translations.  If your files get too large it impacts the performance of your login experience.
+We recommend only putting in entries to your Language resources for strings you explicitly want to replace.  We enforce a size limit to the file that is compiled out of all your JSON translations.  If your files get too large, it impacts the performance of your login experience.
 ### Page UI customization labels are removed once 'Language customization' is enabled
 When you enable 'Language customization', your previous edits for labels using Page UI customization are removed except for custom user attributes.  This change is done to avoid conflicts in where you can edit your strings.  You can continue to change your labels and other strings by uploading language resources in 'Language customization'.
 ### What languages are supported?
