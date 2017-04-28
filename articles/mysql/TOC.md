@@ -11,6 +11,15 @@
 # Sample Scripts
 ## [Azure CLI](sample-scripts-azure-cli.md)
 
+# Tutorials
+## Design a Database
+### [Azure portal](tutorial-design-database-using-azure-portal.md)
+
+# Concepts
+## Development
+### [Connection libraries](concept-connection-libraries.md)
+### [Application development](concept-database-application-development.md)
+
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/mysql/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDatabaseforMySQL)

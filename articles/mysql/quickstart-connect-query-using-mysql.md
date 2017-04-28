@@ -36,7 +36,7 @@ From the Azure portal, get the fully qualified server name for your Azure Databa
 2. Click **All resources** from the left-hand menu, and click your Azure Database for MySQL server.
 3. Click **Properties**. Make note of the **SERVER NAME** and **SERVER ADMIN LOGIN** for later. 
 
-![Get the Azure Database for MySQL server name and log in from the Azure portal](./media/mysql-quickstart-connect-query-using-mysql/1_server-properties-name-login.png)
+![Get the Azure Database for MySQL server name and log in from the Azure portal](./media/quickstart-connect-query-using-mysql/1_server-properties-name-login.png)
 
 In this example, the server name is *mysqlserver4demo.database.windows.net*, and the server admin login is *myadmin@mysqlserver4demo*.
 
@@ -46,7 +46,7 @@ To connect to the database, enter the following into **mysql** command-line tool
 ```dos
 C:\mysql -h mysqlserver4demo.database.windows.net -u myadmin@mysqlserver4demo -p
 ```
-![Connect to server using mysql command-line tool](./media/mysql-quickstart-connect-query-using-mysql/2_connect-to-the-server.png)
+![Connect to server using mysql command-line tool](./media/quickstart-connect-query-using-mysql/2_connect-to-the-server.png)
 
 ## Create the database
 The CREATE DATABASE command creates a database. Copy and paste the following command at the command prompt to create a database.
@@ -85,7 +85,7 @@ mysql> SELECT * FROM customers;
 ```
 This command outputs two rows from table `customers`. If it executes successfully, mysql has the following output:
 
-![Example customer table output from mysql](./media/mysql-quickstart-connect-query-using-mysql/3_query-data-in-the-table.png)
+![Example customer table output from mysql](./media/quickstart-connect-query-using-mysql/3_query-data-in-the-table.png)
 
 ## Update data in the table
 The UPDATE command updates existing rows in a table. Copy and paste the following command at the mysql command prompt to update one row.
