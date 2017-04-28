@@ -33,46 +33,85 @@ Scale sets support up to 1,000 VMs when you use an Azure platform image. For pro
 
 
 ## Create an app to scale
-For production use, you may wish to [Create a custom VM image](tutorial-custom-images.md) that includes your application installed and configured. For this tutorial, lets customize a platform image to quickly see a scale set in action.
-
-In a previous tutorial, you learned [How to customize a Windows virtual machine](tutorial-automate-vm-deployment.md) with the Custom Script Extension. 
-
-
-## Create a scale set
 Before you can create a scale set, create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resource group named `myResourceGroupAutomate` in the `westus` location:
 
 ```powershell
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroupScaleSet -Location westus
 ```
 
-Set an administrator username and password for the VMs with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
-
-```powershell
-$cred = Get-Credential
-```
-
-Now create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a scale set named `myScaleSet` and uses the Custom Script Extension to install IIS on the VM:
+In an earlier tutorial, you learned how to [Automate VM configuration](tutorial-automate-vm-deployment.md) using the Custom Script Extension. Create a scale set configuration then apply a Custom Script Extension to install and configure IIS:
 
 ```powershell
 # Create a config object
 $vmssConfig = New-AzureRmVmssConfig -Location WestUS -SkuCapacity 2 -SkuName Standard_DS2 -UpgradePolicyMode Automatic
 
+# Define the script for your Custom Script Extension to run
+$publicSettings = @{
+    "fileUris" = (,"https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate-iis.ps1");
+    "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1"
+}
+
 # Use Custom Script Extension to install IIS and configure basic website
-$publicSettings = '{"fileUris":["https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate-iis.ps1"]}'
-$protectedSettings = '{"commandToExecute":"powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1"}'
 Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmssConfig `
     -Name "customScript" `
     -Publisher "Microsoft.Compute" `
     -Type "CustomScriptExtension" `
-    -TypeHandlerVersion "1.8" `
-    -Setting $publicSettings `
-    -ProtectedSetting $protectedSettings
+    -TypeHandlerVersion 1.8 `
+    -Setting $publicSettings
+```
 
+## Create scale load balancer
+An Azure load balancer is a Layer-4 (TCP, UDP) load balancer that provides high availability by distributing incoming traffic among healthy VMs. A load balancer health probe monitors a given port on each VM and only distributes traffic to an operational VM. For more information, see the next tutorial on [How to load balance Windows virtual machines](tutorial-load-balancer.md).
+
+Create a load balancer that has a public IP address and distributes web traffic on port 80:
+
+```powershell
+$publicIP = New-AzureRmPublicIpAddress `
+  -ResourceGroupName myResourceGroupScaleSet `
+  -Location westus `
+  -AllocationMethod Static `
+  -Name myPublicIP
+
+$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
+  -Name myFrontEndPool `
+  -PublicIpAddress $publicIP
+
+$backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name myBackEndPool
+
+$lb = New-AzureRmLoadBalancer `
+  -ResourceGroupName myResourceGroupScaleSet `
+  -Name myLoadBalancer `
+  -Location westus `
+  -FrontendIpConfiguration $frontendIP `
+  -BackendAddressPool $backendPool
+
+Add-AzureRmLoadBalancerProbeConfig -Name myHealthProbe `
+  -LoadBalancer $lb `
+  -Protocol tcp `
+  -Port 80 `
+  -IntervalInSeconds 15 `
+  -ProbeCount 2
+
+Add-AzureRmLoadBalancerRuleConfig -Name myLoadBalancerRule `
+  -LoadBalancer $lb `
+  -FrontendIpConfiguration $lb.FrontendIpConfigurations[0] `
+  -BackendAddressPool $lb.BackendAddressPools[0] `
+  -Protocol Tcp `
+  -FrontendPort 80 `
+  -BackendPort 80
+
+Set-AzureRmLoadBalancer -LoadBalancer $lb
+```
+
+## Create a scale set
+Now create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a scale set named `myScaleSet`:
+
+```powershell
 # Reference a virtual machine image from the gallery
 Set-AzureRmVmssStorageProfile $vmssConfig -ImageReferencePublisher MicrosoftWindowsServer -ImageReferenceOffer WindowsServer -ImageReferenceSku 2016-Datacenter -ImageReferenceVersion latest
 
 # Set up information for authenticating with the virtual machine
-Set-AzureRmVmssOsProfile $vmssConfig -AdminUsername azureuser -AdminPassword P@ssword! -ComputerNamePrefix myScaleSetVM
+Set-AzureRmVmssOsProfile $vmssConfig -AdminUsername azureuser -AdminPassword P@ssword! -ComputerNamePrefix myVM
 
 # Create the virtual network resources
 $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet" -AddressPrefix 10.0.0.0/24
@@ -89,31 +128,16 @@ New-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet -Name myScaleSet -Vir
 It takes a few minutes to create and configure all the scale set resources and VMs.
 
 
-## Allow web traffic
-A load balancer was created automatically as part of the virtual machine scale set. The load balancer distributes traffic across a set of defined VMs using load balancer rules. You can learn more about load balancer concepts and configuration in the next tutorial, [How to load balance virtual machines in Azure](tutorial-load-balancer.md).
-
-To allow traffic to reach the web app, create a rule with [New-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/new-azurermloadbalancerruleconfig). The following example creates a rule named `myLoadBalancerRuleWeb`:
-
-```powershell
-$lbrule = New-AzureRmLoadBalancerRuleConfig -Name myLoadBalancerRuleWeb `
-    -FrontendIpConfiguration loadBalancerFrontEnd `
-    -BackendAddressPool myScaleSetLBBEPool `
-    -Protocol Tcp `
-    -FrontendPort 80 `
-    -BackendPort 80
-```
-
-
 ## Test your app
 To see your IIS website in action, obtain the public IP address of your load balancer with [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address for `myPublicIP` created as part of the scale set:
 
 ```powershell
-Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAutomate -Name myPublicIP | select IpAddress
+Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupScaleSet -Name myPublicIP | select IpAddress
 ```
 
 Enter the public IP address in to a web browser. The app is displayed, including the hostname of the VM that the load balancer distributed traffic to:
 
-![Running Node.js app](./media/tutorial-create-vmss/running-nodejs-app.png)
+![Running IIS site](./media/tutorial-create-vmss/running-iis-site.png)
 
 To see the scale set in action, you can force-refresh your web browser to see the load balancer distribute traffic across all the VMs running your app.
 
@@ -153,12 +177,14 @@ Update-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
     -VirtualMachineScaleSet $scaleset
 ```
 
+If takes a few minutes to update the specified number of instances in your scale set.
+
 
 ### Configure autoscale rules
 Rather than manually scaling the number of instances in your scale set, you define autoscale rules. These rules monitor the instances in your scale set and respond accordingly based on metrics and thresholds you define. The following example scales out the number of instances by one when the average CPU load is greater than 60% over a 5 minute period. If the average CPU load then drops below 30% over a 5 minute period, the instances are scaled in by one instance:
 
 ```powershell
-$mySubscriptionId = "yoursubscriptionid"
+$mySubscriptionId = (Get-AzureRmSubscription).SubscriptionId
 $myResourceGroup = "myResourceGroupScaleSet"
 $myScaleSet = "myScaleSet"
 $myLocation = "West US"
@@ -188,13 +214,12 @@ $myScaleProfile = New-AzureRmAutoscaleProfile -DefaultCapacity 2  `
   -MinimumCapacity 2 `
   -Rules $myRuleScaleUp,$myRuleScaleDown `
   -Name "autoprofile"
-Add-AzureRmAutoscaleSetting -Location $location `
+Add-AzureRmAutoscaleSetting -Location $myLocation `
   -Name "autosetting" `
   -ResourceGroup $myResourceGroup `
   -TargetResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
   -AutoscaleProfiles $myScaleProfile
 ```
-
 
 
 ## Next steps
