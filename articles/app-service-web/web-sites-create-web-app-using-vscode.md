@@ -66,11 +66,14 @@ This section shows you how to scaffold a new app ASP.NET web app. You will use t
     ![Yeoman - ASP.NET Core generator](./media/web-sites-create-web-app-using-vscode/01-yo-aspnet.png)
 5. Set the name of your new ASP.NET web app to **SampleWebApp**. As this name is used throughout the tutorial, if you select a different name, you'll need to substitute it for each occurrence of **SampleWebApp**. When you press **&lt;Enter>**, Yeoman will create a new folder named **SampleWebApp** and the necessary files for your new app.
 6. At the command prompt, change directories to your new project folder:
-   
-        cd SampleWebApp
+    ```terminal
+    cd SampleWebApp
+    ```       
 7. Also at the command prompt, to install the necessary NuGet packages to run the application, enter the following command:
    
-        dotnet restore
+    ```terminal
+    dotnet restore
+    ```
 
 ## Run the web app locally
 Now that you have created the web app and retrieved all the NuGet packages for the app, you can run the web app locally.
