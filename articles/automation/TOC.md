@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [What is Azure Automation?](automation-intro.md)
 # Get started
 ## [Get started with Azure Automation](automation-offering-get-started.md)
@@ -71,8 +71,8 @@
 ### [Troubleshoot common errors](automation-troubleshooting-automation-errors.md)
 ### [Troubleshoot Hybrid Runbook Worker](automation-troubleshooting-hybrid-runbook-worker.md)
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
-## [PowerShell (Classic)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
+## [PowerShell](/powershell/module/azurerm.automation)
+## [PowerShell (Classic)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
 ## [REST](/rest/api/automation)
 ## [REST (Classic)](https://msdn.microsoft.com/library/azure/mt163781)

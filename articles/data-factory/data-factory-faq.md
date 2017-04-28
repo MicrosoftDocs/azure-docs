@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Data Factory - Frequently Asked Questions
 description: Frequently asked questions about Azure Data Factory.
 services: data-factory
@@ -191,7 +191,7 @@ You can also do the following in the Azure portal:
 6. You should see the **DURATION** field with a value. This value is the time taken to process the slice.   
 
 ### How to stop a running slice?
-If you need to stop the pipeline from executing, you can use [Suspend-AzureRmDataFactoryPipeline](https://msdn.microsoft.com/library/mt603721.aspx) cmdlet. Currently, suspending the pipeline does not stop the slice executions that are in progress. Once the in-progress executions finish, no extra slice is picked up.
+If you need to stop the pipeline from executing, you can use [Suspend-AzureRmDataFactoryPipeline](/powershell/module/azurerm.datafactories/suspend-azurermdatafactorypipeline) cmdlet. Currently, suspending the pipeline does not stop the slice executions that are in progress. Once the in-progress executions finish, no extra slice is picked up.
 
 If you really want to stop all the executions immediately, the only way would be to delete the pipeline and create it again. If you choose to delete the pipeline, you do NOT need to delete tables and linked services used by the pipeline.
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Set up a standalone Azure Service Fabric cluster | Microsoft Docs
 description: Create a development standalone cluster with three nodes running on the same computer. After completing this setup, you will be ready to create a multi-machine cluster.
 services: service-fabric
@@ -46,12 +46,12 @@ To create the three-node development cluster, run the *CreateServiceFabricCluste
 The Service Fabric runtime package is automatically downloaded and installed at time of cluster creation.
 
 ## Connect to the cluster
-Your three-node development cluster is now running. The ServiceFabric PowerShell module is installed with the runtime.  You can verify that the cluster is running from the same computer or from a remote computer with the Service Fabric runtime.  The [Connect-ServiceFabricCluster](/powershell/module/ServiceFabric/Connect-ServiceFabricCluster) cmdlet establishes a connection to the cluster.   
+Your three-node development cluster is now running. The ServiceFabric PowerShell module is installed with the runtime.  You can verify that the cluster is running from the same computer or from a remote computer with the Service Fabric runtime.  The [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet establishes a connection to the cluster.   
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint localhost:19000
 ```
-See [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md) for other examples of connecting to a cluster. After connecting to the cluster, use the [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode) cmdlet to display a list of nodes in the cluster and status information for each node. **HealthState** should be *OK* for each node.
+See [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md) for other examples of connecting to a cluster. After connecting to the cluster, use the [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet to display a list of nodes in the cluster and status information for each node. **HealthState** should be *OK* for each node.
 
 ```powershell
 PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer> Get-ServiceFabricNode |Format-Table
