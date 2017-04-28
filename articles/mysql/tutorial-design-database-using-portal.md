@@ -19,9 +19,9 @@ In this tutorial, you build a database for a university to track student grades 
 To complete this tutorial, make sure you have installed the newest version of [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/).
 
 ## Log in to the Azure portal
-Open your favorite web browser, and visit [Microsoft Azure Portal](https://portal.azure.com/). Enter your credential to login to the portal. The default view is your service dashboard.
+Open your favorite web browser, and visit [Microsoft Azure Portal](https://portal.azure.com/). Enter your credential to log in to the portal. The default view is your service dashboard.
 
-![Portal login](./media/tutorial-design-database-using-portal/1_1-portal-login.png)
+![Portal log in](./media/tutorial-design-database-using-portal/1_1-portal-login.png)
 
 ## Create an Azure MySQL server
 1. Navigate to **Databases** -> **MySQL**. If you cannot find MySQL Server under **Databases** category, click **See all** to show all available database services. You can also type **MySQL** in the search box to quickly find the service.
@@ -31,7 +31,7 @@ Open your favorite web browser, and visit [Microsoft Azure Portal](https://porta
 2. Click **MySQL** icon, and then click **Create**.
 In our example, fill out the Azure Database for MySQL form with the following information:
 - **Server name:** mysqlserver4demo (server name is globally unique)
-- **Subscription:** MySQLaaS (select from drop down)
+- **Subscription:** MySQLaaS (select from drop-down)
 - **Resource group:** myresource (create a new resource group or use an existing one)
 - **Server admin login:** myadmin (setup admin account name)
 - **Password** (setup admin account password)
@@ -77,7 +77,7 @@ Use [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/) to establish a 
   - **Password**: you can store admin account password in vault
   ![Setup new connection](./media/tutorial-design-database-using-portal/5_2-setup-new-connection.png)
 3. Click **Test Connection** to test if all parameters are correctly configured.
-4. Now, you can click the connection just created to successfully connect to the server.
+4. Now, you can click the connection to the connect to the server.
 > [!TIP]
 > SSL is enforced by default while server is created, which means you need extra configuration to enable connection. You could go to "connection security" on the portal to disable enforcing SSL or learn how to configure SSL in MySQL Workbench. It is recommended to enforce SSL to ensure higher security.
 
@@ -100,7 +100,7 @@ The following diagram shows how these tables are related to each other. Some of 
 
 ![Table relation](./media/tutorial-design-database-using-portal/7_1-table-relation.png)
 
-1. Double click on the database name in the **SCHEMAS** of **Navigator Window**. This will select the database for operation.
+1. Double-click on the database name in the **SCHEMAS** of **Navigator Window**. This will select the database for operation.
 2. Click **Create a new SQL tab for executing queries** button. A blank query window opens. In the query window, execute the following query to create four tables in your database:
 ```sql
  -- Create Person table

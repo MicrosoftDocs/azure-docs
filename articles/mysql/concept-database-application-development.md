@@ -1,5 +1,5 @@
 ---
-title: Database application development overview for Azure Database for MySQL  | Microsoft Docs
+title: Database application development overview for Azure Database for MySQL | Microsoft Docs
 description: Introduces design considerations that a developer should follow when writing application code to connect to Azure Database for MySQL 
 services: mysql
 author: v-chenyh
@@ -25,7 +25,7 @@ There are code samples available for various programming languages and platforms
 [Connectivity libraries used to connect to Azure Database for MySQL](concept-connectivity-libraries.md)
 
 ## Tools
-Azure Database for MySQL uses the MySQL community version, compatible with MySQL common management tools such as Workbench or MySQL utilities such as mysql.exe, [phpMyAdmin](https://www.phpmyadmin.net/), [Navicat](https://www.navicat.com/products/navicat-for-mysql), and others. You can also use the Azure Management Portal, Azure CLI, and REST APIs to interact with the database service.
+Azure Database for MySQL uses the MySQL community version, compatible with MySQL common management tools such as Workbench or MySQL utilities such as mysql.exe, [phpMyAdmin](https://www.phpmyadmin.net/), [Navicat](https://www.navicat.com/products/navicat-for-mysql), and others. You can also use the Azure portal, Azure CLI, and REST APIs to interact with the database service.
 
 ## Resource limitations
 Azure MySQL Database manages the resources available to a server using two different mechanisms: 
@@ -39,7 +39,7 @@ Azure MySQL Database provides resources for limiting access, protecting data, co
 Azure MySQL Database supports server authentication of users and logins.
 
 ## Resiliency
-When a transient error occurs while connecting to MySQL Database, your code should retry the call. We recommend that retry logic use back off logic, so that it does not overwhelm the SQL Database with multiple clients retrying simultaneously.
+When a transient error occurs while connecting to MySQL Database, your code should retry the call. We recommend the retry logic use back off logic, so that it does not overwhelm the SQL Database with multiple clients retrying simultaneously.
 
 - Code samples: For code samples that illustrate retry logic, see samples for the language of your choice at: [Connectivity libraries used to connect to Azure Database for MySQL](concept-connectivity-libraries.md)
 
