@@ -107,25 +107,25 @@ The following steps will walk you through the steps that are required to create 
 
 ## Create an Azure Container Registry to use as a Private Docker Registry
 
-1. Browse to the [Azure Portal] and log in.
+1. Browse to the [Azure portal] and log in.
 
-   Once you have logged into your account on the Azure Portal, you can follow the steps in the [Create a private Docker container registry using the Azure portal] article, which are paraphrased in the following steps for the sake of expediency.
+   Once you have logged into your account on the Azure portal, you can follow the steps in the [Create a private Docker container registry using the Azure portal] article, which are paraphrased in the following steps for the sake of expediency.
 
 1. Click the menu icon for **+ New**, then click **Containers**, and then click **Azure Container Registry**.
    
-   ![Azure Portal][AR01]
+   ![Azure portal][AR01]
 
 1. When the information page for the Azure Container Registry template is displayed, click **Create**. 
 
-   ![Azure Portal][AR02]
+   ![Azure portal][AR02]
 
 1. When the **Create container registry** blade is displayed, enter your **Registry name** and **Resource group**, choose **Enable** for the **Admin user**, and then click **Create**.
 
-   ![Azure Portal][AR03]
+   ![Azure portal][AR03]
 
-1. Once your container registry has been created, navigate to your container registry in the Azure Portal, and then click **Access Keys**. Take note of the username and password for the next steps.
+1. Once your container registry has been created, navigate to your container registry in the Azure portal, and then click **Access Keys**. Take note of the username and password for the next steps.
 
-   ![Azure Portal][AR04]
+   ![Azure portal][AR04]
 
 ## Configure Maven to use your Azure Container Registry access keys
 
@@ -199,11 +199,11 @@ The following steps will walk you through the steps that are required to create 
 
 ## Create a web app on Linux on Azure App Service using your container image
 
-1. Browse to the [Azure Portal] and log in.
+1. Browse to the [Azure portal] and log in.
 
 1. Click the menu icon for **+ New**, then click **Web + Mobile**, and then click **Web App on Linux**.
    
-   ![Azure Portal][LX01]
+   ![Azure portal][LX01]
 
 1. When the **Web App on Linux** blade is displayed, enter the following information:
 
@@ -225,7 +225,7 @@ The following steps will walk you through the steps that are required to create 
    
    e. Once you have entered all of the above information, click **OK**.
 
-   ![Azure Portal][LX02]
+   ![Azure portal][LX02]
 
 1. Click **Create**.
 
@@ -244,7 +244,7 @@ For more information about getting started with creating a simple Spring Boot ap
 [Azure Command-Line Interface (CLI)]: https://docs.microsoft.com/cli/azure/overview
 [Azure Container Service (ACS)]: https://azure.microsoft.com/services/container-service/
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
-[Azure Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [Create a private Docker container registry using the Azure portal]: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal
 [Docker]: https://www.docker.com/
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/

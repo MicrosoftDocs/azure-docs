@@ -83,11 +83,11 @@ The following steps will walk you through the steps that are required to create 
 
 The following steps will walk you through the steps to create an Azure Web App, configure the required settings for Java, and configure your FTP credentials.
 
-1. Browse to the [Azure Portal] and log in.
+1. Browse to the [Azure portal] and log in.
 
-1. Once you have logged into your account on the Azure Portal, click the menu icon for **App Services**:
+1. Once you have logged into your account on the Azure portal, click the menu icon for **App Services**:
    
-   ![Azure Portal][AZ01]
+   ![Azure portal][AZ01]
 
 1. When the **App Services** page is displayed, click **+ Add** to create a new App Service.
 
@@ -205,7 +205,7 @@ For more information about configuring additional settings for your web app, see
 [Azure App Service]: https://azure.microsoft.com/services/app-service/
 [Azure Container Service]: https://azure.microsoft.com/services/container-service/
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
-[Azure Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [Configure web apps in Azure App Service]: /azure/app-service-web/web-sites-configure
 [Deploy your app to Azure App Service using FTP/S]: https://docs.microsoft.com/en-us/azure/app-service-web/app-service-deploy-ftp
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
