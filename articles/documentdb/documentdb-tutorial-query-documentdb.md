@@ -1,6 +1,6 @@
 ---
 title: How to query in Azure Cosmos DB? | Microsoft Docs
-description: Learn to query with the different dat models in Azure Cosmos DB
+description: Learn to query with the different data models in Azure Cosmos DB
 services: documentdb
 documentationcenter: ''
 author: mimig1
@@ -20,20 +20,20 @@ ms.author: mimig
 
 ---
 
-# How to query in Azure Cosmos DB?
+# How to query with Azure Cosmos DB?
 
-Each of the Azure Cosmos DB data-models have their own query protocol, so creating queries for each model is slightly different. This article provides links to the query protocol for each model, as well as sample queries for each model.
+Each of the Azure Cosmos DB data-models have their own query protocol, so creating queries for each model is slightly different. This article provides links to the query protocol for each model, as well as sample queries for the DocumentDB API.
 
 **How to query each data model using Azure Cosmos DB?**
 
 |   |DocumentDB API|Tables API|Graph API|MongoDB API|
 |---|-----------------|--------------|-------------|---------------|
-|Query protocol|[SQL](documentdb-sql-query.md)|[OData](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/querying-tables-and-entities)<br>[LINQ](ttps://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service)|[Gremlin](http://tinkerpop.apache.org/gremlin.html)|[MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/)|
-|Example queries|[Document query](#query-documents)|[Table query](#query-tables)|[Graph query](#query-graphs)|[MongoDB query](#query-mongodb)|
+|Query protocol|[SQL](documentdb-sql-query.md)|[OData](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities)<br>[LINQ](ttps://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service)|[Gremlin](http://tinkerpop.apache.org/gremlin.html)|[MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/)|
+|Example queries|[Document query](#documentdbquery)|Table query|Graph query|[MongoDB query](documentdb-tutorial-query-mongodb.md)|
 
 The queries in this article use the following sample document.
 
-**Sample Family document**
+## Sample Family document
 
 ```json
 {
@@ -64,7 +64,7 @@ The queries in this article use the following sample document.
 }
 ```
 
-## <a id="#query-documents"></a>How to query DocumentDB with the API for Documents?
+## <a id="documentdbquery"></a> How to query with DocumentDB API?
 
 Given the sample family document above, following SQL query returns the documents where the id field matches `WakefieldFamily`. Since it's a `SELECT *` statement, the output of the query is the complete JSON document:
 
@@ -94,7 +94,6 @@ Given the sample family document above, following SQL query returns the document
         "isRegistered": true
     }]
 
-
 The next query returns all the given names of children in the family whose id matches `WakefieldFamily` ordered by their grade.
 
 **Query**
@@ -112,9 +111,7 @@ The next query returns all the given names of children in the family whose id ma
       { "givenName": "Lisa"}
     ]
 
-For more information about querying document data with SQL queries, see [SQL](documentdb-sql-query.md), and print out the [SQL Query Cheat Sheet](documentdb-sql-query-cheat-sheet.md).
-
-## <a id="#query-mongodb"></a>How to query DocumentDB with the API for MongoDB?
+## <a id="mongodbquery"></a> How to query with MongoDB API?
 
 Given the sample family document above, the following query returns the documents where the id field matches `WakefieldFamily`.
 
@@ -162,7 +159,7 @@ Given the sample family document above, the following query returns the document
     },
     "creationDate": 1431620462,
     "isRegistered": false
-  }
+    }
 
 The next query returns all the children in the family. 
 
@@ -192,10 +189,13 @@ The next query returns all the children in the family.
         "grade": 8
       }
     ]
-  }
+    }
 
-## <a id="#query-tables"></a>How to query DocumentDB with the API for Tables?
+## <a id="tablesquery"></a> How to query with Tables API?
 
-## <a id="#query-graph"></a>How to query DocumentDB with the API for Graph?
+## <a id="graphquery"></a> How to query with Graph API?
+
 
 ## Next steps
+
+For more information about querying document data with SQL queries, see [SQL](documentdb-sql-query.md), and print out the [SQL Query Cheat Sheet](documentdb-sql-query-cheat-sheet.md).

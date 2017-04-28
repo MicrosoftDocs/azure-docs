@@ -21,7 +21,7 @@ ms.author: mimig
 
 # Create a failover policy for high availability using the Azure CLI
 
-This sample CLI script creates an Azure DocumentDB account, database and collection. Once the script has been successfully run, the DocumentDB database can be accessed from all Azure services. 
+This sample CLI script creates an Azure Cosmos DB account, database and collection.  
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 

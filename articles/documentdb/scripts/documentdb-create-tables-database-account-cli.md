@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script-Create a DocumentDB Gremlin graph account, database and collection | Microsoft Docs
-description: Azure CLI Script Sample - Create a DocumentDB Gremlin graph account, database and collection
+title: Azure CLI Script-Create an Azure Cosmos DB Tables API account, database, and collection | Microsoft Docs
+description: Azure CLI Script Sample - Create an Azure Cosmos DB Tables API account, database, and collection
 services: documentdb
 documentationcenter: documentdb
 author: mimig1
@@ -19,15 +19,15 @@ ms.date: 04/20/2017
 ms.author: mimig
 ---
 
-# Create a Document Gremlin graph API account, database, and collection using the Azure CLI
+# Azure Cosmos DB: Create a Tables API account using the Azure CLI
 
-This sample CLI script creates an Azure DocumentDB account, database and collection. Once the script has been successfully run, the DocumentDB database can be accessed from all Azure services. 
+This sample CLI script creates an Azure CosmosDB account, database and collection. 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/documentdb/create-documentdb-table-account/create-documentdb-table-account.sh?highlight=16-38 "Create an Azure Cosmos DB Tables API account, database, and collection")]
+[!code-azurecli[main](../../../cli_scripts/documentdb/create-documentdb-table-account/create-documentdb-table-account.sh?highlight=17-39 "Create an Azure Cosmos DB Tables API account, database, and collection")]
 
 ## Clean up deployment
 

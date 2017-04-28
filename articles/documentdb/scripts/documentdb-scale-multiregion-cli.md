@@ -27,7 +27,7 @@ This sample replicates any kind of Azure Cosmos DB database account in multiple 
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/documentdb/scale-documentdb-replicate-multiple-regions/scale-documentdb-replicate-multiple-regions.sh?highlight=29-38 "Scale Azure Cosmos DB into multiple regions")]
+[!code-azurecli[main](../../../cli_scripts/documentdb/scale-documentdb-replicate-multiple-regions/scale-documentdb-replicate-multiple-regions.sh?highlight=30-37 "Scale Azure Cosmos DB into multiple regions")]
 
 ## Clean up deployment
 
