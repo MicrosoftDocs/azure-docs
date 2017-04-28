@@ -1,5 +1,5 @@
 ---
-title: Build a bot integrated with LUIS using the Bot Builder SDK for Node.js | Microsoft Docs | Microsoft Azure
+title: Build a bot integrated with LUIS using the Bot Builder SDK for Node.js in Azure | Microsoft Docs 
 description: Build a bot that's integrated with a LUIS application . 
 services: cognitive-services
 author: DeniseMak
@@ -22,7 +22,6 @@ This tutorial walks you through creating a bot with the Bot Builder SDK for Node
 Before you start, make sure you have the accounts and tools you need for working with LUIS and the [Bot Framework][BotFramework].
 
 ### LUIS prerequisites
-* To use Microsoft Cognitive Service APIs, you first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. You'll use this to log into the [LUIS web page](https://www.luis.ai) to create the LUIS app.
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. This should be the same account that you use for LUIS.
 
 ### Bot Framework prerequisites
