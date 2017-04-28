@@ -20,7 +20,7 @@ ms.author: jeffstok
 ---
 # Azure Stream Analytics event order handling
 
-In a temporal data stream of events, each event is recorded with the time that the event is received. Some conditions might cause event streams to occasionally receive some events in a different order than which they were sent. A simple TCP retransmit, or even a clock skew between the sending device and the receiving event hub might cause this to occur. “Punctuation” events also are added to received event streams, to advance the time in the absence of event arrivals. These are needed for actualizing scenarios like “Notify me when no logins occur for 3 minutes."
+In a temporal data stream of events, each event is recorded with the time that the event is received. Some conditions might cause event streams to occasionally receive some events in a different order than which they were sent. A simple TCP retransmit, or even a clock skew between the sending device and the receiving event hub might cause this to occur. “Punctuation” events also are added to received event streams, to advance the time in the absence of event arrivals. These are needed in scenarios like “Notify me when no logins occur for 3 minutes."
 
 Input streams that are not in order are either:
 * Sorted (and therefore **delayed**).
@@ -28,12 +28,12 @@ Input streams that are not in order are either:
 
 
 ## Lateness tolerance
-Stream Analytics tolerates these types of scenarios. Stream Analytics has handling for "out-of-order" events and "late" events. It handles these events in the following ways:
+Stream Analytics tolerates these types of scenarios. Stream Analytics has handling for "out-of-order" and "late" events. It handles these events in the following ways:
 
 * Events that arrive out of order but within the set tolerance are **reordered by timestamp**.
-* Events that arrive later than tolerance are **dropped or adjusted**:
-    * **Adjusted**. Adjusted to appear to have arrived at the latest acceptable time.
-    * **Dropped**. Discarded.
+* Events that arrive later than tolerance are **dropped or adjusted**.
+    * **Adjusted**: Adjusted to appear to have arrived at the latest acceptable time.
+    * **Dropped**: Discarded.
 
 ![Stream Analytics event handling](media/stream-analytics-event-handling/stream-analytics-event-handling.png)
 
@@ -41,23 +41,23 @@ Stream Analytics tolerates these types of scenarios. Stream Analytics has handli
 
 Because Stream Analytics applies a temporal transformation when it processes incoming events (for example, for windowed aggregates or temporal joins), Stream Analytics sorts incoming events by timestamp order.
 
-When the “timestamp by” keyword is **not** used, the Azure Event Hubs event enqueue time is used by default. Event Hubs guarantees monotonicity of the timestamp on each partition of the event hub. It also guarantees the merging of events from all partitions by timestamp order. These two Event Hubs guarantees ensure no out-of-order events.
+When the “timestamp by” keyword is **not** used, the Azure Event Hubs event enqueue time is used by default. Event Hubs guarantees monotonicity of the timestamp on each partition of the event hub. It also guarantees that events from all partitions will be merged in timestamp order. These two Event Hubs guarantees ensure no out-of-order events.
 
-Sometimes, it’s important for you to use the sender’s timestamp. In that case, a timestamp from the event payload is chosen by using “timestamp by.” In these scenarios, one or more sources of disorder might be introduced:
+Sometimes, it’s important for you to use the sender’s timestamp. In that case, a timestamp from the event payload is chosen by using “timestamp by.” In these scenarios, one or more sources of event misorder might be introduced:
 
 * Event producers have clock skews. This is common when producers are from different computers, so they have different clocks.
 * There's a network delay from the source of the events to the destination event hub.
-* Clock skews exist between event hub partitions. Stream Analytics first sorts events from all event hub partitions by event enqueue time. Then, it examines the data stream for disordered events.
+* Clock skews exist between event hub partitions. Stream Analytics first sorts events from all event hub partitions by event enqueue time. Then, it examines the data stream for misordered events.
 
 On the configuration tab, you see the following defaults:
 
 ![Stream Analytics out-of-order handling](media/stream-analytics-event-handling/stream-analytics-out-of-order-handling.png)
 
-If you use 0 seconds as the out-of-order tolerance window, you are asserting that all events are in order all the time. Given the three sources of disorder we discuss in the previous section, it’s unlikely that this is true. 
+If you use 0 seconds as the out-of-order tolerance window, you are asserting that all events are in order all the time. Given the three sources of misordered events, it’s unlikely that this is true. 
 
-To allow Stream Analytics to correct an event disorder, you can specify a non-zero out-of-order tolerance window. Stream Analytics buffers events up to that window, and then reorders them by using timestamp you chose before it applies the temporal transformation. You can start with a 3-second window, and tune the value to reduce the number of events that are time adjusted. 
+To allow Stream Analytics to correct an event misorder, you can specify a non-zero out-of-order tolerance window. Stream Analytics buffers events up to that window, and then reorders them by using the timestamp you chose. It then applies the temporal transformation. You can start with a 3-second window, and tune the value to reduce the number of events that are time-adjusted. 
 
-Because of buffering, the side effect is that the output is **delayed by the same amount of time**. As a result, you need to tune the value to reduce the number of out-of-order events, and keep the job latency low.
+A side effect of the buffering is that the output is **delayed by the same amount of time**. You can tune the value to reduce the number of out-of-order events, and keep the job latency low.
 
 ## Get help
 For additional assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
