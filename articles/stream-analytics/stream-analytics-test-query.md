@@ -1,8 +1,8 @@
 ---
-title:  Azure Stream Analytics query testing | Microsoft Docs
+title: Azure Stream Analytics query testing | Microsoft Docs
 description: How to test your queries in Stream Analytics jobs.
 keywords: test query, troubleshoot query
-documentationcenter: ''
+documentation center: ''
 services: stream-analytics
 author: jeffstokes72
 manager: jhubbard
@@ -18,31 +18,31 @@ ms.date: 04/20/2017
 ms.author: jeffstok
 
 ---
-# Test an Azure Stream Analytics query in the Azure portal
+# Test Azure Stream Analytics queries in the Azure portal
 
-Azure Stream Analytics allows you to test queries in the Azure portal without needing to start or stop a job.
+With Azure Stream Analytics, you can test queries in the Azure portal without needing to start or stop a job.
 
 ## Test the input
 
-To test with sample input data, right-click on any of your Inputs and choose to "Upload sample data from file."
+1. To test with sample input data, right-click any of your inputs, and then select **Upload sample data from file**.
 
-![stream analytics query editor test query](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
+    ![stream analytics query editor test query](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 
-Once the upload has completed you can then use the "Test" button to test this query against the sample data you have provided.
+2. After the upload is complete, click **Test** to test this query against the sample data you have provided.
 
-![stream analytics query editor test sample data](media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
+    ![stream analytics query editor test sample data](media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
 
-The output of your query is displayed in the browser, with a link to Download results should you wish to save the test output for later use. You can now easily and iteratively modify your query and test repeatedly to see how the output changes.
+The output of your query is displayed in the browser, with a link to the download results should you want to save the test output for later use. You can now easily and iteratively modify your query and test it repeatedly to see how the output changes.
 
 ![Stream Analytics query editor sample output](media/stream-analytics-test-query/stream-analytics-test-query-editor-samples-output.png)
 
-With multiple outputs used in a query you can see the results for both outputs separately and easily toggle between them as well.
+With multiple outputs used in a query, you can see the results for both outputs separately and easily toggle between them.
 
-Once you are satisfied with the results shown in the browser, you can save your query, start your job, and let it process events without error.
+After you are satisfied with the results shown in the browser, you can save your query, start your job, and let it process events without error.
 
 ## Get help
 
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 
