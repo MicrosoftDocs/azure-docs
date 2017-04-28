@@ -24,11 +24,13 @@ Learn how to update an existing function by adding an output binding that sends 
 
 ![View message in the logs.](./media/functions-integrate-storage-queue-output-binding/functions-integrate-storage-binding-in-portal.png)
 
+It should take you less than five minutes to complete all the steps in this topic.
+
+## Before you begin
+
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-previous-topics.md)]
 
 You also need to download and install the [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
-
-It should take you less than five minutes to complete all the steps in this topic.
 
 ## <a name="add-binding"></a>Add an output binding
  
