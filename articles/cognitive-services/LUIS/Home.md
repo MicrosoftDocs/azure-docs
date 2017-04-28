@@ -1,5 +1,5 @@
 ---
-title: Overview of LUIS machine learning in Azure | Microsoft Docs 
+title: Overview of LUIS machine learning in Azure| Microsoft Docs 
 description: Use Language Understanding Intelligent Services (LUIS) to bring the power of machine learning to your applications.
 services: cognitive-services
 author: cahann
