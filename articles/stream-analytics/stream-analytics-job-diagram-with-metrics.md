@@ -27,27 +27,27 @@ The job diagram on the **Monitoring** blade in the Azure portal can help you vis
 
 In the Azure portal, on the **Monitoring** blade, under **SUPPORT + TROUBLESHOOTING**, select **Job diagram**:
 
-![Job diagram with metrics location](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-1.png)
+![Job diagram with metrics - location](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-1.png)
 
 Select each query step to see the corresponding section in a query editing pane. A metric chart for the step is displayed in a lower pane.
 
-![Job diagram with metrics basic job](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-2.png)
+![Job diagram with metrics - basic job](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-2.png)
 
 To see the partitions of the Azure Event Hubs input, select **…**. A context menu appears. You also can see the input merger.
 
-![Job diagram with metrics expand partition](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-3.png)
+![Job diagram with metrics - expand partition](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-3.png)
 
 To see the metric chart for only a single partition, select the partition node. The metrics are shown at the bottom of the page.
 
-![Job diagram with metrics more metrics](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-4.png)
+![Job diagram with metrics - more metrics](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-4.png)
 
 To see the metrics chart for a merger, select the merger node. The following chart shows that no events were dropped or adjusted.
 
-![Job diagram with metrics grid](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-5.png)
+![Job diagram with metrics - grid](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-5.png)
 
 To see the details of the metric value and time, point to the chart.
 
-![Job diagram with metrics hover](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-6.png)
+![Job diagram with metrics - hover](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-6.png)
 
 ## Troubleshoot by using metrics
 
@@ -68,7 +68,7 @@ If the preceding query step is an input processor, use the input metrics to help
  
 ### Are there any errors in the input?
 
-**InputEventsEventDataNullTotal** is a count of events with null data.
+**InputEventsEventDataNullTotal** is a count of events that have null data.
 **InputEventsSerializerErrorsTotal** is a count of events that could not be deserialized correctly.
 **InputEventsDegradedTotal** is a count of events that had an issue other than deserialization problems.
  
