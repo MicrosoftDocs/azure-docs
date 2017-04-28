@@ -98,7 +98,7 @@ Other quick starts in this collection build upon this quick start. If you plan t
 If you just would like to delete the newly created server:
 1.	From the left-hand menu in Azure portal, click PostgreSQL servers and then search for the server you just created
 2.	On the Overview page, click the Delete button on the top pane
-![Azure Database for PostgreSQL - Delete server](./media/postgresql-quickstart-create-database-portal/9-delete.png)
+![Azure Database for PostgreSQL - Delete server](./media/postgresql-quickstart-create-database-portal/12-delete.png)
 
 3.	Confirm the server name you want to delete, and show the databases under it that is affected. Type **mypgserver-20170401** in the text box, and then click Delete.
 
