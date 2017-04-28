@@ -29,7 +29,10 @@ If your tenants want to create web, mobile, or API applications, you must add an
 2. You must use the PowerShell Integrated Scripting Environment (ISE) as an administrator, which requires that you [turn off Internet enhanced security](azure-stack-app-service-before-you-get-started.md#turn-off-internet-explorer-enhanced-security) and [enable cookies](azure-stack-app-service-before-you-get-started.md#enable-cookies).
 3. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) and [install Visual Studio](azure-stack-install-visual-studio.md).
 4. [Add a Windows Server 2016 virtual machine image](azure-stack-add-default-image.md) to the Azure Stack marketplace so that App Service can create virtual machines required for the App Service deployment.
-5. [Install the SQL Server resource provider](azure-stack-sql-resource-provider-deploy.md) (App Service will use the default database). Make note of the database administrator username and password, which you’ll need later when you deploy App Service.
+5. [Install the SQL Server resource provider](azure-stack-sql-resource-provider-deploy.md) (App Service will use the default database). Make note of the following information, which you'll need later when you deploy App Service.
+    - SQL database administrator username and password
+    - SQL Hosting Server SKU
+    
 
 ## Deploy the App Service resource provider on the POC host
 
@@ -50,12 +53,39 @@ As an example, you can create an offer that lets users create DotNetNuke web con
 > 
 >
 
-3.	[Create an offer](azure-stack-create-offer.md) and select the **TestAppServicePlan** plan.
+3.	[Create an offer](azure-stack-create-offer.md), name it **TestAppServiceOffer** and select the **TestAppServicePlan** plan.
 
 ## As a tenant, create an app in Azure Stack
 
-1. Sign in to the Azure Stack portal as a tenant.
-2. Click **+**
+Now that you've deployed the App Service resource provider and created an offer, you can sign in as a tenant, subscribe to the offer, and create an app. To try out the DNN Platform content management system, you must first create a SQL hosting server and then the DNN web app.
+
+### Subscribe to the offer
+1. Sign in to the Azure Stack portal (https://portal.local.azurestack.external) as a tenant.
+2. Click **Get a subscription** > type **TestAppServiceSubscription** under **Display Name** > **Select an offer** > **TestAppServiceOffer** > **Create**.
+
+### Create a SQL database
+
+1. Click **+** > **Data + Storage** > **SQL Database**.
+2. Leave the defaults for the fields, except as follows follows:
+    - **Database Name**: DNNdb
+    - **Max Size in MB**: 100
+    - **Subscription**: TestAppServiceOffer
+    - **Resource Group**: DNN-RG
+3. Click **Login Settings**, enter credentials for the database, and then click **OK**. You'll use these credentials later in these steps.
+4. Click **SKU** > select the SQL SKU that you created for the SQL Hosting Server > **OK**.
+5. Click **Create**.
+
+## Create a DNN app    
+
+1. Click **+** > **See all** > **DNN Platform preview** > **Create**.
+2. Type *DNNapp* under **App name** and select **TestAppServiceOffer** under **Subscription**.
+3. Click **Configure required settings** > **Create New** > type an **App Serivce plan** name.
+4. Click **Pricing tier** > **F1 Free** > **Select** > **OK**.
+5. Click **Database** and enter the information for the SQL database you created earlier.
+6. Click **Create**.
+
+
+
 
 
 
