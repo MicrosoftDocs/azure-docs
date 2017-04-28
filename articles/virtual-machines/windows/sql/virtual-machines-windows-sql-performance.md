@@ -65,9 +65,7 @@ In addition, we recommend that you create your Azure storage account in the same
 There are three main disk types on an Azure VM:
 
 * **OS disk**: When you create an Azure Virtual Machine, the platform will attach at least one disk (labeled as the **C** drive) to the VM for your operating system disk. This disk is a VHD stored as a page blob in storage.
-
 * **Temporary disk**: Azure Virtual Machines contain another disk called the temporary disk (labeled as the **D**: drive). This is a disk on the node that can be used for scratch space.
-
 * **Data disks**: You can also attach additional disks to your virtual machine as data disks, and these will be stored in storage as page blobs.
 
 The following sections describe recommendations for using these different disks.
@@ -97,7 +95,7 @@ For VMs that support Premium Storage (DS-series, DSv2-series, and GS-series), we
       1. Set the interleave (stripe size) to 64 KB (65536 bytes) for OLTP workloads and 256 KB (262144 bytes) for data warehousing workloads to avoid performance impact due to partition misalignment. This must be set with PowerShell.
       1. Set column count = number of physical disks. Use PowerShell when configuring more than 8 disks (not Server Manager UI). 
 
-    For example, the following PowerShell creates a new storage pool with the interleave size to 65 KB and the number of columns to 2:
+    For example, the following PowerShell creates a new storage pool with the interleave size to 64 KB and the number of columns to 2:
 
     ```powershell
     $PoolCount = Get-PhysicalDisk -CanPool $True
