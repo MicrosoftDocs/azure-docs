@@ -1,7 +1,6 @@
 # [Azure DB for MySQL Docs](index.md)
 
 # Overview
-## [Azure DB for MySQL](overview.md)
 
 # Quickstart
 ## [Create server - portal](quickstart-create-mysql-server-database-using-azure-portal.md)
@@ -9,7 +8,6 @@
 ## [Connect & query - mysql](quickstart-connect-query-using-mysql.md)
 
 # Sample Scripts
-## [Azure CLI](sample-scripts-azure-cli.md)
 
 # Tutorials
 ## Design a Database
