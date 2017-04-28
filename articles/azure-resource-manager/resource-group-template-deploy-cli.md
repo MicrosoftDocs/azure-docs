@@ -19,7 +19,7 @@ ms.author: tomfitz
 ---
 # Deploy resources with Resource Manager templates and Azure CLI
 
-This topic explains how to use Azure CLI 2.0 with Resource Manager templates to deploy your resources to Azure. The Resource Manager template you deploy can either be a local file on your machine, or an external file that is located in a repository like GitHub.
+This topic explains how to use Azure CLI 2.0 with Resource Manager templates to deploy your resources to Azure. The Resource Manager template you deploy can either be a local file on your machine, or an external file that is located in a repository like GitHub. If you are not familiar with Resource Manager, see [Azure Resource Manager overview](resource-group-overview.md) to learn about deploying and managing your Azure solutions.
 
 You can get the template (storage.json) used in these examples from the [Create your first Azure Resource Manager template](resource-manager-create-first-template.md#final-template) article. To use the template with these examples, create a JSON file and add the copied content.
 
@@ -29,7 +29,9 @@ You can get the template (storage.json) used in these examples from the [Create 
 
 ## Deploy a template from your local machine
 
-To quickly get started with deployment, use the following commands to deploy a local template with inline parameters:
+When deploying resources to Azure, you first create a resource group that serves as the container for the deployed resources. Then, you deploy the template that defines the resources to create. A template can include parameters that enable you to customize the deployment. Through parameters, you provide values that are tailored for a particular environment (such as dev, test, and production). If your template provides parameters, you pass in values for those parameters during deployment. To understand how to define parameters in your template, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
+
+The following example prompts you to log in to Azure, and creates a resource group in your default subscription. To use a different subscription, see [Manage multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli). The example deploys a template from your local machine that creates a storage account. It includes template parameters for specifying the type storage account to create, and setting a name prefix.
 
 ```azurecli
 az login
@@ -48,13 +50,11 @@ The deployment can take a few minutes to complete. When it finishes, you see a m
 "provisioningState": "Succeeded",
 ```
 
-The preceding example created the resource group in your default subscription. To use a different subscription, add the [az account set](/cli/azure/account#set) command after logging in.
-
 ## Deploy a template from an external source
 
 Instead of storing Resource Manager templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure Storage account for shared access in your organization. You can deploy directly from any external source that is accessible by URI. 
 
-To deploy an external template, use the **template-uri** parameter. The template can be at any publicly accessible URI (such as a file in storage account).
+To deploy an external template, use the **template-uri** parameter.
    
 ```azurecli
 az group deployment create \
@@ -64,13 +64,11 @@ az group deployment create \
     --parameters "{\"storageNamePrefix\":{\"value\":\"contoso\"},\"storageSKU\":{\"value\":\"Standard_GRS\"}}"
 ```
 
-You can protect your template by requiring a shared access signature (SAS) token for access. For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](resource-manager-cli-sas-token.md).
+The preceding example requires a publicly accessible URI for the template. This approach works for most scenarios because your template should not include sensitive data. If you need to specify sensitive data (like an admin password), you pass that value as a secure parameter. The publicly accessible template includes a parameter for that password but the password itself is not in the template. However, if you decide that you do not want your template to be publicly accessible, you can protect it by storing it in a private storage container. During deployment, you generate a shared access signature (SAS) token for the blob, and include that SAS token in the URI for the template. For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](resource-manager-cli-sas-token.md).
 
 ## Parameter files
 
-The preceding examples show how to pass parameters as inline values during template deployment.  You may find it easier to create a JSON file containing the parameters and use that during deployment. 
-
-The parameter file must be in the following format:
+The preceding examples show how to pass parameters as inline values during template deployment.  You may find it easier to create a JSON file that contains the parameters to use during deployment. The parameter file must be in the following format:
 
 ```json
 {
@@ -87,7 +85,11 @@ The parameter file must be in the following format:
 }
 ```
 
-To pass a local parameter file, use:
+Notice that the schema element for the parameter file points to a file named `deploymentParameters.json`. This schema file defines the elements that are available within a parameter file. Also, notice that the parameters section includes two parameters with names that match the parameters defined in your template (storageNamePrefix and storageSKU). The parameter file contains values for both parameters. These values are automatically passed to the template during deployment. You can create multiple parameter files for different deployment scenarios, and then pass in the appropriate parameter file. 
+
+Copy the preceding example and save it as a file named `storage.parameters.json`.
+
+To pass a local parameter file, use `@` to specify a local file named storage.parameters.json.
 
 ```azurecli
 az group deployment create \
@@ -147,32 +149,6 @@ If your template has a syntax error, the command returns an error indicating it 
   "properties": null
 }
 ```
-
-## Debug
-
-To see information about the operations for a failed deployment, use:
-   
-```azurecli
-az group deployment operation list --resource-group ExampleGroup --name vmlinux --query "[*].[properties.statusMessage]"
-```
-
-For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](resource-manager-common-deployment-errors.md).
-
-
-## Export Resource Manager template
-For an existing resource group (deployed through Azure CLI or one of the other methods like the portal), you can view the Resource Manager template for the resource group. Exporting the template offers two benefits:
-
-1. You can easily automate future deployments of the solution because all the infrastructure is defined in the template.
-2. You can become familiar with template syntax by looking at the JavaScript Object Notation (JSON) that represents your solution.
-
-To view the template for a resource group, run the [az group export](/cli/azure/group#export) command.
-
-```azurecli
-az group export --name ExampleGroup
-```
-
-For more information, see [Export an Azure Resource Manager template from existing resources](resource-manager-export-template.md).
-
 
 [!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
 
