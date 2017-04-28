@@ -52,7 +52,7 @@
 ### [1 - Node.js console app](documentdb-mongodb-samples.md)
 ### [2 - .NET web app](documentdb-mongodb-application.md)
 ## Graph
-### [1 - Gremlin console](documentdb-graph=get-started-console.md)
+### [1 - Gremlin console](documentdb-graph-get-started-console.md)
 ### [1 - .NET](documentdb-connect-graph-dotnet.md)
 ## Table
 ### .NET

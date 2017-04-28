@@ -1,15 +1,14 @@
 ---
-title: 'Cosmos DB tutorial: Graph in the Gremlin Console | Microsoft Docs'
+title: 'Azure Cosmos DB tutorial: Graph in the Gremlin Console | Microsoft Docs'
 description: A Cosmos tutorial that creates vertices, edges, and queries Cosmos DB's Graph.
-keywords: cosmos db, cosmos db tutorial, online database, gremlin, console
-services: cosmos db
+services: documentdb
 documentationcenter: .net
 author: AndrewHoh
 manager: jhubbard
 editor: monicar
 
 ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
-ms.service: cosmos db
+ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
@@ -18,15 +17,9 @@ ms.date: 04/26/2017
 ms.author: anhoh
 
 ---
-# Cosmos DB tutorial: Get started with Graph API in the Gremlin Console
-> [!div class="op_single_selector"]
-> * [.NET](cosmos-db-graph-getting-started.md)
-> * [Java](cosmos-db-graph0getting-started-console.md)
-> * [Gremlin Console](cosmos-db-graph0getting-started-console.md)
->  
-> 
+# Azure Cosmos DB tutorial: Get started with Graph API in the Gremlin Console
 
-Welcome to the Cosmos DB tutorial for the Graph API Gremlin Console! After following this tutorial, you'll have ran through creating and querying vertices and edges with Cosmos DB's Graph API.
+Welcome to the Azure Cosmos DB tutorial for the Graph API Gremlin Console! After following this tutorial, you'll have ran through creating and querying vertices and edges with Cosmos DB's Graph API.
 
 We'll cover:
 
