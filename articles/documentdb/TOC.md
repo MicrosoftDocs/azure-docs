@@ -12,12 +12,12 @@
 ### [Node.js](documentdb-connect-mongodb-app.md)
 ## Graph
 ### [.NET](documentdb-connect-graph-dotnet.md)
-### [Gremlin console](documentdb-graph=get-started-console.md)
+### [Gremlin console](documentdb-graph-getting-started-console.md)
 ## Table
 ### .NET 
 <!---[.NET](documentdb-connect-tables-dotnet.md)--->
 
-# Tutorials
+# Tutorials (Option 1)
 ## 1 - Import
 ### [DocumentDB/Table/Graph](documentdb-import-data.md)
 ### [MongoDB](documentdb-mongodb-migrate.md)
@@ -32,9 +32,8 @@
 ## [6 - Server-side business logic](documentdb-programming.md)
 ## [7 - Multi-regions](documentdb-portal-global-replication.md)
 ## [8 - Track changes](documentdb-change-feed.md)
-##
-## OR
-##
+
+#Tutorials (Option 2)
 ## DocumentDB
 ### 1 - Write your first app 
 #### [.NET](documentdb-get-started.md)
@@ -52,7 +51,7 @@
 ### [1 - Node.js console app](documentdb-mongodb-samples.md)
 ### [2 - .NET web app](documentdb-mongodb-application.md)
 ## Graph
-### [1 - Gremlin console](documentdb-graph-get-started-console.md)
+### [1 - Gremlin console](documentdb-graph-getting-started-console.md)
 ### [1 - .NET](documentdb-connect-graph-dotnet.md)
 ## Table
 ### .NET
