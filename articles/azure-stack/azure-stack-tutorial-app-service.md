@@ -66,7 +66,7 @@ Now that you've deployed the App Service resource provider and created an offer,
 ### Create a SQL database
 
 1. Click **+** > **Data + Storage** > **SQL Database**.
-2. Leave the defaults for the fields, except as follows follows:
+2. Leave the defaults for the fields, except as follows:
     - **Database Name**: DNNdb
     - **Max Size in MB**: 100
     - **Subscription**: TestAppServiceOffer
