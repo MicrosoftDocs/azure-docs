@@ -36,7 +36,7 @@ Once you've created it, the following articles provide more detail about the mai
 1.	[Add intents](Add-intents.md)
 2.	[Add entities](Add-entities.md)
 3.	[Train and test](Train-Test.md)
-4.	[Publish][PublishApp.md]
+4.	[Publish](PublishApp.md)
 
 You can also watch a basic [video tutorial](https://www.youtube.com/watch?v=jWeLajon9M8&index=4&list=PLD7HFcN7LXRdHkFBFu4stPPeWJcQ0VFLx) on these steps.
 

@@ -1,5 +1,5 @@
 ---
-title: Build a bot integrated with LUIS using the Bot Framework | Microsoft Docs | Microsoft Azure
+title: Build a bot integrated with LUIS using the Bot Builder SDK for Node.js | Microsoft Docs | Microsoft Azure
 description: Build a bot that's integrated with a LUIS application . 
 services: cognitive-services
 author: DeniseMak
@@ -12,20 +12,30 @@ ms.date: 04/26/2017
 ms.author: v-demak
 ---
 
-# Build a bot integrated with LUIS using the Bot Framework
+# Build a bot integrated with LUIS using the Bot Builder SDK for Node.js
 
 This tutorial walks you through creating a bot with the Bot Builder SDK for Node.js and integrating it with a Language Understanding Intelligent Service (LUIS) app. 
 
-You will run the bot locally using the Bot Framework Emulator. 
+
 
 ## Before you begin
-To use Microsoft Cognitive Service APIs, you first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal.
+Before you start, make sure you have the accounts and tools you need for working with LUIS and the [Bot Framework][BotFramework].
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+### LUIS prerequisites
+* To use Microsoft Cognitive Service APIs, you first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. You'll use this to log into the [LUIS web page](https://www.luis.ai) to create the LUIS app.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. This should be the same account that you use for LUIS.
+
+### Bot Framework prerequisites
+* Download the [Bot Builder SDK][BotBuilderDownload] from GitHub. [Install][InstallNodeJsSDK] the SDK for [Node.js][NodeJs].
+* Install the [Bot Framework Emulator][EmulatorDownload], which you'll use to run the bot locally.
+* Create an account on the [Bot Framework developer portal][BFPortal], where you'll register the bot.
+
+
 
 ## 1. Download sample code for the bot
 
 Download the sample code for the bot from GitHub:
+
 •	[LUIS demo bot (Node.js)](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/intelligence-LUIS) 
 
 ## 2. Import the LUIS model to create the LUIS app
@@ -38,12 +48,50 @@ You can create and manage your applications on **My Apps** page. You can always 
     >[!NOTE]
     >The culture cannot be changed once the application is created. 
 
-LUIS creates the Hotel Finder app and opens its main page which looks like the following screen. Use the navigation links in the left panel to move through your app pages to define data and work on your app. 
+LUIS creates the Hotel Finder app and opens its main page<!-- which looks like the following screen-->. Use the navigation links in the left panel to move through your app pages to define data and work on your app. 
 
+## 3. Train and publish the LUIS app
+Go to **Train & Test** and click **Train your app**.  Then go to **Publish App** and click **Publish**.
+
+## 4. Copy the LUIS endpoint
+Once you've published the app, the **Publish App** page will display an endpoint URL. Copy this URL. You'll update the bot's code to point to it.
+
+## 5. Paste the LUIS endpoint into the bot code
+1. Go to the `.env` file in the sample bot. Set `LUIS_MODEL_URL` to the URL from the previous step.
+2. Delete any trailing `&q=` from the URL. Here's an example of how the URL might look:
+```
+LUIS_MODEL_URL=https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/2c2afc3e-6f39-4b6f-b8ad-c47ce1b98d8a?subscription-key=9823b75a8c9045f9bce7fee87a5e1fbc&staging=true&verbose=true&timezoneOffset=0
+```
+
+
+In `app.js` this URL is used to initialize the recognizer object that the bot uses to listen for the user's intent.
+```javascript
+// This Url can be obtained by uploading or creating your model from the LUIS portal: https://www.luis.ai/
+var recognizer = new builder.LuisRecognizer(process.env.LUIS_MODEL_URL);
+```
+## 6. Register the bot
+Go to the Bot Framework developer portal and [register][RegisterInstructions] the bot. As part of this process, you'll generate a Microsoft App ID and password. Copy and securely store the password that is shown, and enter the App ID and password in the bot's `.env` file.
+
+## 7. Start the bot
+Open a node.js command prompt, and run the bot: `node app.js`. 
+
+## 8. Start the emulator
+1. Run the Bot Framework Emulator, enter `http://localhost:3978/api/messages` for your endpoint URL, and enter the Microsoft App ID and password from step 6, which you should have in the `.env` file.
+2. (Optional) Take note of the URL in the **Log** panel of the emulator.  There should be a message displaying the ngrok URL, similar to this example: `ngrok listening on https://ce9a9909.ngrok.io`. Go back to the [Bot Framework developer portal][BFPortal] and enter this URL in the bot's profile, appending `/api/messages` to the URL. This step is optional, but useful if you later decide to test the bot using the developer portal or connect it to channels other than the emulator.
+
+## 9. Talk to the bot
+1. Click **Connect** in the emulator. You can start giving the bot some requests like "Find me hotels in Paris", or "Show me reviews of the Contoso Hotel".
 
 ## Next steps
 
-* Try to improve your app's performance by continuing to add and label utterances.
+* Try to improve your LUIS app's performance by continuing to add and label utterances.
 * Try adding [Features](Add-Features.md) to enrich your model and improve performance in language understanding. Features help your app identify alternative interchangeable words/phrases, as well as commonly-used patterns specific to your domain.
 
 <!-- Links -->
+[EmulatorDownload]: https://github.com/Microsoft/BotFramework-Emulator
+[BotBuilderDownload]: https://github.com/
+[InstallNodeJsSDK]: https://docs.microsoft.com/bot-framework/nodejs/
+[NodeJs]: https://nodejs.org/
+[BFPortal]: https://dev.botframework.com/
+[RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
+[BotFramework]: https://docs.microsoft.com/bot-framework/
