@@ -33,7 +33,7 @@ From the [Azure portal](https://portal.azure.com), you can create a HDInsight cl
 - Advanced settings
 
   - [Script actions](#customize-clusters-using-script-action)
-  - [Virtual network](use-virtual-netwrok)
+  - [Virtual network](use-virtual-network)
 
 ### Subscription 
 Each HDInsight cluster is tied to one Azure subscription.
@@ -47,8 +47,8 @@ The cluster name is used to identify a cluster. The cluster name must be globall
 * The field must be a string that contains between 3 and 63 characters.
 * The field can contain only letters, numbers, and hyphens.
 
-### Cluster type
-Azure HDInsight provides the following types of clusters, each with a set of components to provide certain functionalities:
+### <a name="cluster-types"></a> Cluster type
+Azure HDInsight currently provides the following cluster types of, each with a set of components to provide certain functionalities:
 
 | Cluster type | Functionality |
 | --- | --- |
@@ -118,10 +118,10 @@ For more information on using an Azure virtual network with HDInsight, see [Exte
 For an example of using two cluster types within an Azure virtual network, see [Analyze sensor data with Storm and HBase](hdinsight-storm-sensor-data-analysis.md).
 
 ### Operating system
-You can create HDInsight clusters on either Linux or Windows.  For more information on the OS versions, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
+You can create HDInsight clusters on either Linux or Windows.  For more information on the OS versions, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions). HDInsight 3.4 and higher uses the Ubuntu Linux distribution as the underlying OS for the cluster. 
 
 ### Version
-This option is used to determine the version of HDInsight needed for this cluster. For more information on the OS versions, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
+This option is used to determine the version of HDInsight needed for this cluster. For more information, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
 ### <a name="cluster-tiers"></a>Cluster tier
 
@@ -139,15 +139,15 @@ With HDInsight clusters, you can configure two user accounts during cluster crea
 * SSH user (Linux clusters). This is used to connect to the cluster through SSH. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ### Location
-The location of the cluster uses the same location of the default storage.
+The cluster location doesn't need to specified explicitly. The cluster shares the same location of the default storage. For a list of supported regions, click the **Region** drop-down list on [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
-## Storage
 
-The cluster uses this data source as the primary location for most data access, such as job input and log output.  
+### Storage
+
+The original Hadoop Distributed File System (HDFS) uses many local disks on the cluster. HDInsight uses either blobs in [Azure Storage](hdinsight-hadoop-provision-linux-clusters.md#azure-storage) or [Azure Data Lake Store](hdinsight-hadoop-provision-linux-clusters.md#azure-data-lake-store). There are some specific requirements on using Data Lake stores for HDInsight. For more information see the introduction section of [Create HDInsight clusters with Data Lake Store by using the Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 ![HDInsight storage](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
 
-The original Hadoop Distributed File System (HDFS) uses many local disks on the cluster. HDInsight uses either blobs in [Azure Storage](hdinsight-hadoop-provision-linux-clusters.md#azure-storage) or [Azure Data Lake Store](hdinsight-hadoop-provision-linux-clusters.md#azure-data-lake-store). There are some specific requirements on using Data Lake stores for HDInsight. For more information see the introduction section of [Create HDInsight clusters with Data Lake Store by using the Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 #### <a name="azure-storage"></a>Azure Storage
 Azure Storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. Through an HDFS interface, the full set of components in HDInsight can operate directly on structured or unstructured data stored in blobs. Storing data in Azure Storage helps you safely delete the HDInsight clusters that are used for computation without losing user data. HDInsight only supports __General purpose__ Azure Storage accounts. It does not currently support the __Blob storage__ account type.
@@ -163,7 +163,8 @@ For more information on using Azure Storage account, see [Using Azure Storage wi
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 In addition to Azure Storage, you can use [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) as a default storage account for HBase cluster in HDInsight and as linked storage for all four HDInsight cluster types. For more information, see [Create an HDInsight cluster with Data Lake Store using Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
-#### Use additional storage
+#### Additional storage
+
 In some cases, you might add additional storage to the cluster. For example, you might have multiple Azure storage accounts for different geographical regions or different services, but you want to analyze them all with HDInsight.
 
 You can add storage accounts when you create an HDInsight cluster or after a cluster has been created.  See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
@@ -171,12 +172,7 @@ You can add storage accounts when you create an HDInsight cluster or after a clu
 For more information about secondary Azure Storage account, see [Using Azure Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md). For more information about secondary Data Lake Storage, see [Create HDInsight clusters with Data Lake Store using Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 
-### Location 
-The HDInsight cluster and its default storage must be located at the same Azure location.
-
-For a list of supported regions, click the **Region** drop-down list on [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
-
-### Use Hive/Oozie metastore
+#### Hive/Oozie metastore
 We recommend that you use a custom metastore if you want to retain your Hive tables after you delete your HDInsight cluster. You will be able to attach that metastore to another HDInsight cluster.
 
 > [!IMPORTANT]
@@ -195,10 +191,9 @@ Metastore configuration is not available for HBase cluster types.
 
 ## HDInsight application
 
-Bla, bla, bla ...
+An HDInsight application is an application that users can install on a Linux-based HDInsight cluster. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. For more information, see [Install third-party Hadoop applications on Azure HDInsight](hdinsight-apps-install-applications.md).
 
-## Use edge node
-An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the head node. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. For more information, see [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md).
+Most of the HDInsight applications are installed on an empty edge node.  An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the head node. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. For more information, see [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md).
 
 ## Cluster size
 
@@ -266,23 +261,23 @@ Billing starts when a cluster is created, and stops when the cluster is deleted.
 
 
 ## Use virtual network
-With [Azure Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/), you can create a secure, persistent network that contains the resources that you need for your solution. With a virtual network, you can:
+With [Azure Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/), you can create a secure, persistent network that contains the resources that you need for your solution. For more information about using HDInsight with a virtual network, including specific configuration requirements for the virtual network, see [Extend HDInsight capabilities by using Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
-* Connect cloud resources together in a private network (cloud-only).
 
-    ![Diagram of cloud-only configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-cloud-only.png)
-* Connect your cloud resources to your local datacenter network (site-to-site or point-to-site) by using a virtual private network (VPN).
+## Customize clusters using Script Action
 
-| Site-to-site configuration | Point-to-site configuration |
-| --- | --- |
-| With site-to-site configuration, you can connect multiple resources from your datacenter to Azure Virtual Network by using a hardware VPN or the Routing and Remote Access Service.<br />![Diagram of site-to-site configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-site-to-site.png) |With point-to-site configuration, you can connect a specific resource to the Azure virtual network by using a software VPN.<br />![Diagram of point-to-site configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-point-to-site.png) |
+You can install additional components or customize cluster configuration by using scripts during creation. Such scripts are invoked via **Script Action**, which is a configuration option that can be used from the Azure portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK. For more information, see [Customize HDInsight cluster using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
-Windows-based clusters require a virtual network created in the classic deployment model. Linux-based clusters require a virtual network created in the Resource Manager deployment model. If you do not have the correct type of network, it will not be usable when you create the cluster.
+Some native Java components, like Mahout and Cascading, can be run on the cluster as Java Archive (JAR) files. These JAR files can be distributed to Azure Storage and submitted to HDInsight clusters through Hadoop job submission mechanisms. For more information, see [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md).
 
-For more information about using HDInsight with a virtual network, including specific configuration requirements for the virtual network, see [Extend HDInsight capabilities by using Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
+> [!NOTE]
+> If you have issues deploying JAR files to HDInsight clusters, or calling JAR files on HDInsight clusters, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
+>
+> Cascading is not supported by HDInsight and is not eligible for Microsoft Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight](hdinsight-component-versioning.md).
+>
+>
 
-## Customize clusters using HDInsight cluster customization (bootstrap)
-Sometimes, you want to configure the following configuration files:
+Sometimes, you want to configure the following configuration files during the creation process:
 
 * clusterIdentity.xml
 * core-site.xml
@@ -300,27 +295,7 @@ Sometimes, you want to configure the following configuration files:
 * webhcat-site.xml
 * yarn-site.xml
 
-To keep the changes through the lifetime of a cluster, you can use HDInsight cluster customization during the creation process, or you can use Ambari in Linux-based clusters. For more information, see [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
-
-> [!NOTE]
-> The Windows-based clusters can't retain the changes due to re-image. For more information,
-> see [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).  To keep the changes through the clusters' lifetime, you must use HDInsight cluster customization during the creation process.
->
->
-
-## Customize clusters using Script Action
-You can install additional components or customize cluster configuration by using scripts during creation. Such scripts are invoked via **Script Action**, which is a configuration option that can be used from the Azure portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK. For more information, see [Customize HDInsight cluster using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
-
-Some native Java components, like Mahout and Cascading, can be run on the cluster as Java Archive (JAR) files. These JAR files can be distributed to Azure Storage and submitted to HDInsight clusters through Hadoop job submission mechanisms. For more information, see [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md).
-
-> [!NOTE]
-> If you have issues deploying JAR files to HDInsight clusters, or calling JAR files on HDInsight clusters, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
->
-> Cascading is not supported by HDInsight and is not eligible for Microsoft Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight](hdinsight-component-versioning.md).
->
->
-
-
+For more information, see [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
 ## Cluster creation methods
 In this article, you have learned basic information about creating a Linux-based HDInsight cluster. Use the following table to find specific information about how to create a cluster by using a method that best suits your needs.
