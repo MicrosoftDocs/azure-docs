@@ -80,6 +80,26 @@ When a  failover is triggered, it involves following steps:
 >
 > 
 
+## Time taken for failover to Azure
+
+In certain cases, failover of virtual machines requires an extra intermediate step that usually takes around 8  to 10 minutes to complete. These cases are as following:
+
+* VMware virtual machines using mobility service of version older than 9.8
+* Physical servers 
+* VMware Linux virtual machines
+* Hyper-V virtual machines protected as physical servers
+* VMware virtual machines where following drivers are not present as boot drivers 
+	* storvsc 
+	* vmbus 
+	* storflt 
+	* intelide 
+	* atapi
+ * VMware virtual machines where DHCP service is not enabled. (This doesn't imply that the virtual machine is  using Static IP)
+
+In all the other cases this intermediate step is not required and the time taken for the failover is significantly lower. 
+
+
+
 
 
 ## Using scripts in Failover
