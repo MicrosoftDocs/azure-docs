@@ -21,7 +21,7 @@ ms.author: dobett
 
 [!INCLUDE [iot-suite-gateway-kit-selector](../../includes/iot-suite-gateway-kit-selector.md)]
 
-This tutorial shows you how to use the Gateway SDK to send temperature and humidity data from SensorTag device to the cloud. The SensorTag connects to the Intel NUC gateway using Bluetooth. The tutorial uses:
+This tutorial shows you how to use the Gateway SDK to send temperature and humidity data from SensorTag device to the remote monitoring preconfigured solution. The SensorTag connects to the Intel NUC gateway using Bluetooth. The tutorial uses:
 
 - The Microsoft Azure IoT Gateway SDK to implement a sample gateway.
 - The IoT Suite remote monitoring preconfigured solution as the cloud-based back end.
@@ -31,8 +31,8 @@ This tutorial shows you how to use the Gateway SDK to send temperature and humid
 In this tutorial, you complete the following steps:
 
 - Deploy an instance of the remote monitoring preconfigured solution to your Azure subscription. This step automatically deploys and configures multiple Azure services.
-- Set up your Intel NUC gateway to receive telemetry from a SensorTag device.
 - Set up your Intel NUC gateway device to communicate with your computer and the remote monitoring solution.
+- Set up your Intel NUC gateway to receive telemetry from a SensorTag device.
 
 [!INCLUDE [iot-suite-gateway-kit-prerequisites](../../includes/iot-suite-gateway-kit-prerequisites.md)]
 
@@ -44,8 +44,6 @@ In this tutorial, you complete the following steps:
 > The remote monitoring solution provisions a set of Azure services in your Azure subscription. The deployment reflects a real enterprise architecture. To avoid unnecessary Azure consumption charges, delete your instance of the preconfigured solution at azureiotsuite.com when you have finished with it. If you need the preconfigured solution again, you can easily recreate it. For more information about reducing consumption while the remote monitoring solution runs, see [Configuring Azure IoT Suite preconfigured solutions for demo purposes][lnk-demo-config].
 
 [!INCLUDE [iot-suite-gateway-kit-view-solution](../../includes/iot-suite-gateway-kit-view-solution.md)]
-
-Repeat the previous steps to add a second device using a Device ID such as **device02**. The sample sends data from two simulated devices in the gateway to the remote monitoring solution.
 
 [!INCLUDE [iot-suite-gateway-kit-prepare-nuc-connectivity](../../includes/iot-suite-gateway-kit-prepare-nuc-connectivity.md)]
 
@@ -98,7 +96,7 @@ Configure Bluetooth on the Intel NUC to enable the SensorTag device to connect a
     connect <SensorTag MAC address>
     ```
 
-    If connect successfully, the shell shows the message **Connection successful** and prints information about the SensorTag device. If you cannot connect, check that the SensorTag is still powered on.
+    If you connect successfully, the shell shows the message **Connection successful** and prints information about the SensorTag device. If you cannot connect, check the SensorTag is still powered on.
 
 1. You can now disconnect from the SensorTag and exit the Bluetooth shell by running the following commands:
 
@@ -109,12 +107,12 @@ Configure Bluetooth on the Intel NUC to enable the SensorTag device to connect a
 
 [!INCLUDE [iot-suite-gateway-kit-prepare-nuc-software](../../includes/iot-suite-gateway-kit-prepare-nuc-software.md)]
 
-## Configure and run the sample
+## Configure and run the gateway
 
-You can now configure the gateway software on your Intel NUC to communicate with the remote monitoring solution.
+You can now configure the gateway software on your Intel NUC to communicate with the remote monitoring solution. For more information about configuring a gateway and gateway modules, see [Azure IoT Gateway SDK concepts][lnk-gateway-concepts].
 
 > [!NOTE]
-> In this tutorial, you use the standard **vi** text editor on the Intel NUC. If you have not used **vi** before, you should complete an introductory tutorial such as [Unix - The vi Editor Tutorial][lnk-vi-tutorial] to familiarize yourself with the editor.
+> In this tutorial, you use the standard **vi** text editor on the Intel NUC. If you have not used **vi** before, you should complete an introductory tutorial such as [Unix - The vi Editor Tutorial][lnk-vi-tutorial] to familiarize yourself with this editor.
 
 Open the sample configuration file in the **vi** editor using the following command:
 
@@ -144,7 +142,7 @@ args": [
 ]
 ```
 
-Replace the **deviceID** and **deviceKey** placeholders with the IDs and keys for the two devices you created in the remote monitoring solution previously. Replace the MAC address with the MAC address you noted previously of your SensorTag device.
+Replace the **deviceID** and **deviceKey** placeholders with the IDs and keys for the two devices you created in the remote monitoring solution previously. Replace the MAC address with the MAC address of your SensorTag device that you noted previously.
 
 Locate the following lines in the configuration for the SensorTag module:
 
@@ -155,7 +153,7 @@ Locate the following lines in the configuration for the SensorTag module:
   "instructions": [
 ```
 
-Replace the device MAC address with the MAC address you noted previously of your SensorTag device.
+Replace the device MAC address with the MAC address of your SensorTag device that you noted previously.
 
 
 Locate the following lines in the configuration for the Logger module:
@@ -166,7 +164,7 @@ Locate the following lines in the configuration for the Logger module:
 }
 ```
 
-Set the filename to **/tmp/gateway.log**.
+Set the filename to **/tmp/ble-gateway.log**.
 
 Save your changes to the configuration file.
 
@@ -230,3 +228,4 @@ Visit the [Azure IoT Dev Center](https://azure.microsoft.com/develop/iot/) for m
 [lnk-demo-config]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/configure-preconfigured-demo.md
 [lnk-vi-tutorial]: http://www.tutorialspoint.com/unix/unix-vi-editor.htm
 [lnk-sensortag]: http://www.ti.com/ww/en/wireless_connectivity/sensortag/
+[lnk-gateway-concepts]: https://docs.microsoft.com/azure/iot-hub/iot-hub-linux-gateway-sdk-get-started

@@ -21,7 +21,7 @@ ms.author: dobett
 
 [!INCLUDE [iot-suite-gateway-kit-selector](../../includes/iot-suite-gateway-kit-selector.md)]
 
-This tutorial shows you how to use the Gateway SDK to simulate temperature and humidity data to send to the cloud. The tutorial uses:
+This tutorial shows you how to use the Gateway SDK to simulate temperature and humidity data to send to the remote monitoring preconfigured solution. The tutorial uses:
 
 - The Microsoft Azure IoT Gateway SDK to implement a sample gateway.
 - The IoT Suite remote monitoring preconfigured solution as the cloud-based back end.
@@ -49,12 +49,12 @@ Repeat the previous steps to add a second device using a Device ID such as **dev
 
 [!INCLUDE [iot-suite-gateway-kit-prepare-nuc-software](../../includes/iot-suite-gateway-kit-prepare-nuc-software.md)]
 
-## Configure and run the sample
+## Configure and run the gateway
 
-You can now configure the gateway software on your Intel NUC to communicate with the remote monitoring solution.
+You can now configure the gateway software on your Intel NUC to communicate with the remote monitoring solution. For more information about configuring a gateway and gateway modules, see [Azure IoT Gateway SDK concepts][lnk-gateway-concepts].
 
 > [!NOTE]
-> In this tutorial, you use the standard `vi` text editor on the Intel NUC. If you have not used `vi` before, you should complete an introductory tutorial, such as [Unix - The vi Editor Tutorial][lnk-vi-tutorial] to familiarize yourself with the editor.
+> In this tutorial, you use the standard `vi` text editor on the Intel NUC. If you have not used `vi` before, you should complete an introductory tutorial, such as [Unix - The vi Editor Tutorial][lnk-vi-tutorial] to familiarize yourself with this editor.
 
 Open the sample configuration file in the **vi** editor using the following command:
 
@@ -152,3 +152,4 @@ Visit the [Azure IoT Dev Center](https://azure.microsoft.com/develop/iot/) for m
 [lnk-demo-config]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/configure-preconfigured-demo.md
 
 [lnk-vi-tutorial]: http://www.tutorialspoint.com/unix/unix-vi-editor.htm
+[lnk-gateway-concepts]: https://docs.microsoft.com/azure/iot-hub/iot-hub-linux-gateway-sdk-get-started

@@ -1,13 +1,13 @@
 ## Build the gateway
 
-This tutorial uses custom gateway modules to communicate with the remote monitoring preconfigured solution. Therefore, you need to build the gateway from the custom source code. The following sections describe how to download and build the custom gateway.
+This tutorial uses custom gateway modules to communicate with the remote monitoring preconfigured solution. Therefore, you need to build the gateway from the custom source code. The following sections describe how to download and build the custom gateway code.
 
 To build the gateway on the Intel NUC, you need to:
 
 - Clone the repository that contains the gateway source code.
 - Set up the C compiler to work with the Gateway SDK.
 - Install the necessary tools for the build process.
-- Build the gateway and samples.
+- Build the gateway.
 
 ### Clone the repository
 
@@ -51,4 +51,4 @@ cd /tmp/azure-remote-monitoring-gateway-intelnuc
 ./tools/build.sh
 ```
 
-The build script generates the following executable: **/tmp/azure-remote-monitoring-gateway-intelnuc/build/samples/simulated\_device\_cloud\_upload/simulated\_device\_cloud\_upload\_sample**.
+The build script generates executables in the following folder: **/tmp/azure-remote-monitoring-gateway-intelnuc/build/samples/**.
