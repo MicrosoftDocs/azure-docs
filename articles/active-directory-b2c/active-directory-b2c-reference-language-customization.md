@@ -21,7 +21,7 @@ Language customization allows you to change your login experience to a different
 ## How does Language customization work?
 Language customization allows you to select which languages your login experience is available in.  Once the feature is enabled, you can provide the Open ID Connect (OIDC) parameter, ui_locales, from your application.  When you call into Azure AD B2C and we translate your page to the locale that you have indicated.  This type of configuration gives you complete control over what languages your login experience is shown in and ignore the language settings of the customer's browser.  Alternatively, you may not need that level of control over what languages your customer see.  If you don't provide a ui_locales parameter, the customer's experience is dictated by their browser's settings.  You can still control which languages your login experience is translated to by adding it as a supported language.  If a customer's browser is set to show a language you don't want to support, then the language you selected as a default is shown instead.
 
->If you are using custom user attributes, you need to provide your own translations.  See '[Customize your strings]()' for details.
+>If you are using custom user attributes, you need to provide your own translations.  See '[Customize your strings](#customize-your-strings)' for details.
 
 ## Add Microsoft provided default translations to your login experience 
 By enabling 'Language customization' on a policy, you can now control the language of the login experience by adding the ui_locales parameter.
