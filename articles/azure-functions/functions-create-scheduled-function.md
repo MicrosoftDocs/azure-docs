@@ -55,7 +55,9 @@ Now, you can change the function run run less often, such as once every hour.
 
 ## Update the timer schedule
 
-To modify the schedule used by the timer trigger, expand your function and click **Integrate**. This is where you define input and output bindings for your timer trigger, and also set the schedule. Enter a new **Schedule** value of `0 0 */1 * * *`, and then click **Save**.  
+1. Expand your function and click **Integrate**. This is where you define input and output bindings for your function and also set the schedule. 
+
+2. Enter a new **Schedule** value of `0 0 */1 * * *`, and then click **Save**.  
 
 ![Functions update timer schedule in the Azure portal.](./media/functions-create-scheduled-function/functions-timer-trigger-change-schedule.png)
 
