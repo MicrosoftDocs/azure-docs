@@ -33,7 +33,7 @@
 ## [7 - Multi-regions](documentdb-portal-global-replication.md)
 ## [8 - Track changes](documentdb-change-feed.md)
 
-#Tutorials (Option 2)
+# Tutorials (Option 2)
 ## DocumentDB
 ### 1 - Write your first app 
 #### [.NET](documentdb-get-started.md)
