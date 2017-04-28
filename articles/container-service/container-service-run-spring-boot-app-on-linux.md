@@ -230,6 +230,14 @@ The following steps will walk you through the steps that are required to create 
 
 1. Click **Create**.
 
+## Next Steps
+
+For more information about using Spring Boot applications on Azure, see the following articles:
+
+* [Deploy a Spring Boot Application to the Azure App Service](../app-service/app-service-deploy-spring-boot-web-app-on-azure.md)
+
+* [Running a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service](../container-service/container-service-run-spring-boot-app-on-kubernetes.md)
+
 ## Additional Resources
 
 For more information about using Azure with Java, see the [Azure Java Developer Center] and the [Java Tools for Visual Studio Team Services].
@@ -246,7 +254,7 @@ For more information about getting started with creating a simple Spring Boot ap
 [Azure Container Service (ACS)]: https://azure.microsoft.com/services/container-service/
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
 [Azure portal]: https://portal.azure.com/
-[Create a private Docker container registry using the Azure portal]: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal
+[Create a private Docker container registry using the Azure portal]: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal
 [Docker]: https://www.docker.com/
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/

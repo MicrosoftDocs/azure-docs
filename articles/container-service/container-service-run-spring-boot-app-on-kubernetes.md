@@ -276,6 +276,13 @@ In order to deploy your Docker container to your Kubernetes Cluster, you can use
 
    * The `--target-port` parameter specifies the internal TCP port of 8080; external traffic from the load balancer will be redirected to this port on the containers
 
+## Next Steps
+
+For more information about using Spring Boot applications on Azure, see the following articles:
+
+* [Deploy a Spring Boot Application to the Azure App Service](../app-service/app-service-deploy-spring-boot-web-app-on-azure.md)
+
+* [Running a Spring Boot Application on Linux in the Azure Container Service](../container-service/container-service-run-spring-boot-app-on-linux.md)
 
 ## Additional Resources
 
@@ -290,8 +297,8 @@ The following links provide additional information about creating Spring Boot ap
 
 The following links provide additional information about using Kubernetes with Azure:
 
-* [Get started with a Kubernetes cluster in Container Service](https://docs.microsoft.com/en-us/azure/container-service/container-service-kubernetes-walkthrough)
-* [Using the Kubernetes web UI with Azure Container Service](https://docs.microsoft.com/en-us/azure/container-service/container-service-kubernetes-ui)
+* [Get started with a Kubernetes cluster in Container Service](https://docs.microsoft.com/azure/container-service/container-service-kubernetes-walkthrough)
+* [Using the Kubernetes web UI with Azure Container Service](https://docs.microsoft.com/azure/container-service/container-service-kubernetes-ui)
 
 More information about using Kubernetes command-line interface is available in the **kubectl** user guide at <https://kubernetes.io/docs/user-guide/kubectl/>.
 
@@ -301,7 +308,7 @@ More information about using Kubernetes command-line interface is available in t
 [Azure Container Service (ACS)]: https://azure.microsoft.com/services/container-service/
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
 [Azure portal]: https://portal.azure.com/
-[Create a private Docker container registry using the Azure portal]: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal
+[Create a private Docker container registry using the Azure portal]: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal
 [Docker]: https://www.docker.com/
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/

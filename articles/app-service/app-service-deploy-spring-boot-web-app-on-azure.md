@@ -188,6 +188,14 @@ The following steps will walk you through the steps to deploy your Spring Boot w
 
    ![Browse Sample App][SB02]
 
+## Next Steps
+
+For more information about using Spring Boot applications on Azure, see the following articles:
+
+* [Running a Spring Boot Application on Linux in the Azure Container Service](../container-service/container-service-run-spring-boot-app-on-linux.md)
+
+* [Running a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service](../container-service/container-service-run-spring-boot-app-on-kubernetes.md)
+
 ## Additional Resources
 
 For more information about using Azure with Java, see the [Azure Java Developer Center] and the [Java Tools for Visual Studio Team Services].
@@ -207,7 +215,7 @@ For more information about configuring additional settings for your web app, see
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
 [Azure portal]: https://portal.azure.com/
 [Configure web apps in Azure App Service]: /azure/app-service-web/web-sites-configure
-[Deploy your app to Azure App Service using FTP/S]: https://docs.microsoft.com/en-us/azure/app-service-web/app-service-deploy-ftp
+[Deploy your app to Azure App Service using FTP/S]: https://docs.microsoft.com/azure/app-service-web/app-service-deploy-ftp
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/
 [Java Developer Kit (JDK)]: http://www.oracle.com/technetwork/java/javase/downloads/
