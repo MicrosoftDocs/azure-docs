@@ -1,5 +1,5 @@
 ---
-title: Azure Germany security and identity | Microsoft Docs
+title: Azure Germany security and identity services | Microsoft Docs
 description: Provides a comparison of security and identity services for Azure Germany
 services: germany
 cloud: na
@@ -17,7 +17,7 @@ ms.date: 04/13/2017
 ms.author: ralfwi
 ---
 
-# Azure Germany security and identity
+# Azure Germany security and identity services
 ## Key Vault
 For details on the Azure Key Vault service and how to use it, see the [Key Vault global documentation](../key-vault/index.md).
 
