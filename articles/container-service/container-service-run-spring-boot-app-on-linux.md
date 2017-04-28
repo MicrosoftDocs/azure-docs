@@ -229,7 +229,7 @@ The following steps will walk you through the steps that are required to create 
 
 1. Click **Create**.
 
-## See Also
+## Additional Resources
 
 For more information about using Azure with Java, see the [Azure Java Developer Center] and the [Java Tools for Visual Studio Team Services].
 

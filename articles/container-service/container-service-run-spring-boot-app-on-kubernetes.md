@@ -207,6 +207,10 @@ The following steps will walk you through the steps that are required to create 
 
 ## Deploy your Docker container with your Spring Boot app to your Kubernetes Cluster
 
+In order to deploy your Docker container to your Kubernetes Cluster, you can use the Kubernetes configuration website, or you can use the Kubernetes command-line interface (kubectl).
+
+### Deploying your Docker container by using the Kubernetes configuration website
+
 1. Open a command prompt.
 
 1. Open the configuration website for your Kubernetes cluster in your default browser:
@@ -228,7 +232,7 @@ The following steps will walk you through the steps that are required to create 
 
    d. Choose **External** for the **Service**.
 
-   e. Specify your desired ports in the **Port** and **Target port** text boxes.
+   e. Specify your external and internal ports in the **Port** and **Target port** text boxes.
 
    ![Kubernetes Configuration Website][KB02]
 
@@ -244,7 +248,36 @@ The following steps will walk you through the steps that are required to create 
 
    ![Browse Sample App on Azure][SB02]
 
-## See Also
+### Deploying your Docker container by using the Kubernetes command-line interface (kubectl)
+
+1. Open a command prompt.
+
+1. Run your container in the Kubernetes cluster by using the `kubectl run` command; at a minimum you will need to specify your container name, along with your login server and image name. For example:
+   ```
+   kubectl run gs-spring-boot-docker --image=wingtiptoysregistry.azurecr.io/gs-spring-boot-docker:latest
+   ```
+   In the above example:
+
+   * The container name `gs-spring-boot-docker` is specified immediately after the `run` command
+
+   * The `--image` parameter specifies the combined login server and image name as `wingtiptoysregistry.azurecr.io/gs-spring-boot-docker:latest`
+
+1. Expose your Kubernetes cluster externally by using the `kubectl expose` command; you will need to specify your container name, the public-facing TCP port and the internal target port. For example:
+   ```
+   kubectl expose deployment gs-spring-boot-docker --type=LoadBalancer --port=80 --target-port=8080
+   ```
+   In the above example:
+
+   * The container name `gs-spring-boot-docker` is specified immediately after the `expose deployment` command
+
+   * The `--type` parameter specifies that the cluster will use a load balancer
+
+   * The `--port` parameter specifies the public-facing TCP port of 80; external users will browse to this port
+
+   * The `--target-port` parameter specifies the internal TCP port of 8080; external traffic from the load balancer will be redirected to this port on the containers
+
+
+## Additional Resources
 
 For more information about using Azure with Java, see the [Azure Java Developer Center] and the [Java Tools for Visual Studio Team Services].
 
@@ -260,6 +293,8 @@ The following links provide additional information about using Kubernetes with A
 * [Get started with a Kubernetes cluster in Container Service](https://docs.microsoft.com/en-us/azure/container-service/container-service-kubernetes-walkthrough)
 * [Using the Kubernetes web UI with Azure Container Service](https://docs.microsoft.com/en-us/azure/container-service/container-service-kubernetes-ui)
 
+More information about using Kubernetes command-line interface is available in the **kubectl** user guide at <https://kubernetes.io/docs/user-guide/kubectl/>.
+
 <!-- URL List -->
 
 [Azure Command-Line Interface (CLI)]: https://docs.microsoft.com/cli/azure/overview
@@ -273,7 +308,7 @@ The following links provide additional information about using Kubernetes with A
 [Java Developer Kit (JDK)]: http://www.oracle.com/technetwork/java/javase/downloads/
 [Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
 [Kubernetes]: https://kubernetes.io/
-[Kubernetes Command-Line Interface (kubectl)]: https://kubernetes.io/docs/tasks/kubectl/install/
+[Kubernetes Command-Line Interface (kubectl)]: https://kubernetes.io/docs/user-guide/kubectl-overview/
 [Maven]: http://maven.apache.org/
 [MSDN subscriber benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [Spring Boot]: http://projects.spring.io/spring-boot/

@@ -188,7 +188,7 @@ The following steps will walk you through the steps to deploy your Spring Boot w
 
    ![Browse Sample App][SB02]
 
-## See Also
+## Additional Resources
 
 For more information about using Azure with Java, see the [Azure Java Developer Center] and the [Java Tools for Visual Studio Team Services].
 
