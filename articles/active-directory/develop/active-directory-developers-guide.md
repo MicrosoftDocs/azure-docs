@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/07/2017
-ms.author: mbaldwin
+ms.author: bryanla
 ms.custom: aaddev
 ---
 # Azure Active Directory for developers

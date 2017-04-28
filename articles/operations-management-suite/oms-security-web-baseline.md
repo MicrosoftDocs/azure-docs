@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 04/27/2017
 ms.author: yurid
 
 ---
@@ -56,6 +56,9 @@ Once you are in the **Log Search**, you can type different queries to obtain mor
 You can also use these records/queries to create your own dashboards, reports, or alerts. The screen below has a sample UI control that you can add to your dashboard. You can learn how to visualize your data using OMS View Designer [here](https://blogs.technet.microsoft.com/msoms/2016/06/30/oms-view-designer-visualize-your-data-your-way/). The screen below is an example of how the tile will look like once you make this customization.
 
 ![Sample UI](./media/oms-security-web-baseline/oms-security-web-baseline-fig4.png)
+
+> [!NOTE]
+> If you would like to know the settings that are checked for the baseline assessment, you can download [this Excel spreadsheet](https://gallery.technet.microsoft.com/OMS-Web-Baseline-1e811690) that contains these settings.
 
 ## See also
 In this document, you learned about OMS Security and Audit web baseline assessment. To learn more about OMS Security, see the following articles:
