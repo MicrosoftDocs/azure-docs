@@ -26,18 +26,18 @@ Azure Germany includes the core components of infrastructure as a service (IaaS)
 Azure Germany supports most of the same great features that global Azure customers have used, like geosynchronous data replication and autoscaling. 
 
 ## Azure Germany documentation
-This site describes the capabilities of [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/) services, and it provides general guidance applicable to all customers. Before including specifically regulated data in your Azure Germany subscription, you should familiarize yourself with the Azure Germany capabilities.
+This site describes the capabilities of [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/) services, and it provides general guidance that applies to all customers. Before you include specifically regulated data in your Azure Germany subscription, you should familiarize yourself with the Azure Germany capabilities.
 
-For current information on the Azure Germany services covered under specific accreditations and regulations, see the [Microsoft Azure Trust Center Compliance page](http://www.microsoft.com/TrustCenter/Compliance/default.aspx). Additional Microsoft services might also be available, but are not within the scope of the Azure Germany covered services and are not addressed by this documentation. Azure Germany services might also permit you to use various additional resources, applications, or services that are provided by third parties--or by Microsoft under separate terms of use and privacy policies--which are not included in the scope of this documentation. You are responsible for reviewing the terms of all such “add-on” offerings, such as Azure Marketplace offerings, to ensure that they meet your needs for compliance.
+For current information on the Azure Germany services covered under specific accreditations and regulations, see the [Microsoft Azure Trust Center Compliance page](http://www.microsoft.com/TrustCenter/Compliance/default.aspx). Additional Microsoft services might be available, but they are not within the scope of the Azure Germany covered services or this documentation. Azure Germany services might also permit you to use various additional resources, applications, or services that are provided by third parties--or by Microsoft under separate terms of use and privacy policies. These are also not included in the scope of this documentation. You are responsible for reviewing the terms of all such “add-on” offerings, such as Azure Marketplace offerings, to ensure that they meet your needs for compliance.
 
 Azure Germany is available to eligible customers and partners globally who intend to do business in the EU/EFTA, including the United Kingdom.
 
 ## General guidance for customers
-Most of the technical content that's available currently assumes that applications are being developed for global Azure rather than for Azure Germany. It’s important for you to ensure that developers are aware of key differences for applications developed to be hosted in Azure Germany:
+Most of the technical content that's currently available assumes that applications are being developed for global Azure rather than for Azure Germany. It’s important for you to ensure that developers are aware of key differences for applications developed to be hosted in Azure Germany:
 
 * Certain services and features that are in specific regions of global Azure might not be available in Azure Germany. For the most up-to-date services that are generally available, see the [regions page](https://azure.microsoft.com/regions/services). 
 * For features that are offered in Azure Germany, there are configuration differences from global Azure. You should review your sample code, configurations, and steps to ensure that you are building and executing within the Azure Germany environment.
-* For information that identifies the Azure Germany boundary and customer regulated/controlled data guidance and best practices, refer to the Azure Germany technical services documentation available from this site.
+* For information that identifies the Azure Germany boundary, and for customer-regulated/controlled data guidance and best practices, refer to the Azure Germany technical services documentation on this site.
 
 ## Next steps
 For supplemental information and updates, subscribe to the 
@@ -46,7 +46,7 @@ For supplemental information and updates, subscribe to the
 If you're interested in learning more about Azure Germany, use the following links:
 
 * [Sign up for a trial](https://azure.microsoft.com/free/germany/)
-* [Sign in](https://portal.microsoftazure.de/) if you already have an Azure Germany account.
+* [Sign in](https://portal.microsoftazure.de/) (if you already have an Azure Germany account)
 * [Acquiring and accessing Azure Germany](https://azure.microsoft.com/overview/clouds/germany/) 
 
 
