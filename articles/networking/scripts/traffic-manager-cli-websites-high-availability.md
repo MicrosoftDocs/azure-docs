@@ -20,15 +20,23 @@ ms.author: kumud
 
 # Route traffic for high availability of applications
 
-In this scenario you will create a resource group, two app service plans, two web apps, a traffic manager profile, and two traffic manager endpoints. Once the exercise is complete you will have a high-available architecture which allows provides high availability of your web app and provides a backup service in case the primary service is unavailable.
+This script creates a resource group, two app service plans, two web apps, a traffic manager profile, and two traffic manager endpoints. Traffic Manager directs traffic to the application in one region as the primary region, and to the secondary region when the application in the primary region is unavailable. Before executing the script, you must change the MyWebApp, MyWebAppL1 and MyWebAppL2 values to unique values across Azure. After running the script, you can access the app in the primary region with the URL mywebapp.trafficmanager.net.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/load-balancer/load-balance-multiple-web-sites-vm/load-balance-multiple-web-sites-vm.sh "Route traffic for high availability")]
+[!code-azurecli[main](../../../cli_scripts/traffic-manager/direct-traffic-for-increased-application-availability/direct-traffic-for-increased-application-availability.sh "Route traffic for high availability")]
 
-[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
+
+## Clean up deployment 
+
+After the script sample has been run, the follow command can be used to remove the resource group, App Service app, and all related resources.
+
+```azurecli
+az group delete --name myResourceGroup1 --yes
+az group delete --name myResourceGroup2 --yes
+```
 
 ## Script explanation
 
