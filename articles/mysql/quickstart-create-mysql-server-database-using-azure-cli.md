@@ -29,7 +29,7 @@ Log in to your Azure subscription with the [az login](/cli/azure/#login) command
 ```azurecli
 az login
 ```
-Follow the command prompt instructions to open URL https://aka.ms/devicelog in in your browser, and then enter the code generated in the **command prompt**.
+Follow the command prompt instructions to open URL https://aka.ms/devicelog in your browser, and then enter the code generated in the **command prompt**.
 
 ## Create a resource group
 Create an [Azure resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) with [az group create](https://docs.microsoft.com/cli/azure/group#create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group.
@@ -42,7 +42,7 @@ az group create --name mycliresource --location westus
 ## Create an Azure Database for MySQL server
 Create an Azure Database for MySQL server with the az mysql server create command. A server can manage multiple databases. Typically, a separate database is used for each project or for each user.
 
-The following example creates a Azure Database for MySQL server located in `westus` in the resource group `mycliresource` with name `mycliserver`. The server has an administrator log in named `myadmin` and password `Password01!`. The server is created with **Basic** performance tier and **50** compute units shared between all the databases in the server. You can scale compute and storage up or down depending on the application needs.
+The following example creates an Azure Database for MySQL server located in `westus` in the resource group `mycliresource` with name `mycliserver`. The server has an administrator log in named `myadmin` and password `Password01!`. The server is created with **Basic** performance tier and **50** compute units shared between all the databases in the server. You can scale compute and storage up or down depending on the application needs.
 
 ```azurecli
 az mysql server create --resource-group mycliresource --name mycliserver
@@ -50,7 +50,7 @@ az mysql server create --resource-group mycliresource --name mycliserver
 --performance-tier Basic --compute-units 50
 ```
 
-![Create an Azure Database for MySQL server using Azure CLI](./media/mysql-quickstart-create-mysql-server-database-using-azure-cli/3_az-mysq-server-create.png)
+![Create an Azure Database for MySQL server using Azure CLI](./media/quickstart-create-mysql-server-database-using-azure-cli/3_az-mysq-server-create.png)
 
 ## Configure firewall rule
 Create an Azure Database for MySQL server-level firewall rule with the az mysql server firewall-rule create command. A server-level firewall rule allows an external application, such as **mysql** command-line tool or MySQL Workbench to connect to your server through the Azure MySQL service firewall. 
@@ -64,4 +64,3 @@ az mysql server firewall-rule create --resource-group mycliresource
 ```
 ## Next steps
 -   For a complete list of currently supported Azure CLI 2.0 commands, see [Azure CLI 2.0: Command reference - az](https://docs.microsoft.com/en-us/cli/azure/).
--   To connect and query using **mysql** command-line tool, see [Connect and query with mysql command-line tool](quickstart-connect-query-using-mysql.md).
