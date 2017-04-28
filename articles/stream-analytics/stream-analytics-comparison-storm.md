@@ -393,7 +393,7 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
             </td>
             <td width="204" valign="top">
                 <p>
-                    Deployment is implemented via Azure Portal, PowerShell and REST APIs.
+                    Deployment is implemented via Azure Portal, PowerShell, <a href="https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio">Visual Studio</a> and REST APIs.
                 </p>
             </td>
             <td width="246" valign="top">
