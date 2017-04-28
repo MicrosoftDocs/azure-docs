@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Stream Analytics with diagnostic logs | Microsoft Docs
+title: Troubleshoot Azure Stream Analytics by using diagnostic logs | Microsoft Docs
 description: Learn how to analyze diagnostic logs from Stream Analytics jobs in Microsoft Azure.
 keywords:
 documentationcenter: ''
