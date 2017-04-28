@@ -1,7 +1,7 @@
 ## Prerequisites
 The Azure Toolkit for Eclipse requires the following software components:
 
-* Eclipse IDE for Java EE Developers, Mars, or later. You can download them at <http://www.eclipse.org/downloads/>.
+* Eclipse IDE for Java EE Developers, Mars, or later. You can download it at <http://www.eclipse.org/downloads/>.
 
 * A Java Developer Kit (JDK), version 1.8 or later.
 
