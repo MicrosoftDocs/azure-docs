@@ -79,6 +79,9 @@ Before backing up, you need to configure storage settings for your server.
 Use [Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet) cmdlet.
 
 ## Restore
+When restoring, your backup file must be in the storage account you've configured for your server. If you need to move a backup file from an on-premises location to your storage account, use [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) or the [AzCopy](../storage/storage-use-azcopy.md) command-line utility. 
+
+If you're restoring a tabular 1200 model database from an on-premises SQL Server Analysis Services server, you must first remove all of the domain users from the model's roles, and add them back to the roles as Azure Active Directory users. The roles will be the same.
 
 ### To restore by using SSMS
 
@@ -99,5 +102,7 @@ Use [Restore-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powers
 
 
 ## Related information
-[Azure storage accounts](../storage/storage-create-storage-account.md)   
+
+[Azure storage accounts](../storage/storage-create-storage-account.md)  
+[High availablility](analysis-services-bcdr.md)     
 [Manage Azure Analysis Services](analysis-services-manage.md)

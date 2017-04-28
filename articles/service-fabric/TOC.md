@@ -1,4 +1,4 @@
-
+﻿
 # Overview
 ## [What is Service Fabric?](service-fabric-overview.md)
 ## [Understand microservices](service-fabric-overview-microservices.md)
@@ -8,7 +8,7 @@
 ## [Terminology](service-fabric-technical-overview.md)
 ## [Primer](service-fabric-content-roadmap.md)
 
-# Get Started
+# Get started
 ## Set up your development environment
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
@@ -74,7 +74,7 @@
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
 ##### [Secure communications - C#](service-fabric-reliable-services-secure-communication.md)
 ##### [Secure communications - Java](service-fabric-reliable-services-secure-communication-java.md)
-##### [Reverse Proxy](service-fabric-reverseproxy.md)
+##### [Reverse proxy](service-fabric-reverseproxy.md)
 #### [Advanced usage](service-fabric-reliable-services-advanced-usage.md)
 
 ### Build a Reliable Actor service
@@ -87,7 +87,7 @@
 #### [Reentrancy](service-fabric-reliable-actors-reentrancy.md)
 #### [Type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
-#### Get Started
+#### Get started
 ##### [C# on Windows](service-fabric-reliable-actors-get-started.md)
 ##### [Java on Linux](service-fabric-reliable-actors-get-started-java.md)
 
@@ -138,13 +138,13 @@
 #### [Application upgrades advanced topics](service-fabric-application-upgrade-advanced.md)
 
 ### Test applications and services
-#### [Fault Analysis overview](service-fabric-testability-overview.md)
+#### [Fault analysis overview](service-fabric-testability-overview.md)
 #### [Test service-to-service communication](service-fabric-testability-scenarios-service-communication.md)
 #### Simulate failures
-##### [Using controlled Chaos](service-fabric-controlled-chaos.md)
-##### [Using Test actions](service-fabric-testability-actions.md)
+##### [Using controlled chaos](service-fabric-controlled-chaos.md)
+##### [Using test actions](service-fabric-testability-actions.md)
 ##### [During workloads](service-fabric-testability-workload-tests.md)
-##### [Using Test scenarios](service-fabric-testability-scenarios.md)
+##### [Using test scenarios](service-fabric-testability-scenarios.md)
 ##### [Using the node transition APIs](service-fabric-node-transition-apis.md)
 #### [Load test your application](service-fabric-vso-load-test.md)
 
@@ -186,7 +186,7 @@
 #### [Plan and prepare for your deployment](service-fabric-cluster-standalone-deployment-preparation.md)
 #### Create
 ##### [Create on-premises](service-fabric-cluster-creation-for-windows-server.md)
-##### [Create on Azure Virtual Machines](service-fabric-cluster-creation-with-windows-azure-vms.md)
+##### [Create on Azure virtual machines](service-fabric-cluster-creation-with-windows-azure-vms.md)
 ##### [Secure using certs](service-fabric-windows-cluster-x509-security.md)  
 ##### [Secure using Windows security](service-fabric-windows-cluster-windows-security.md)
 #### [Scale](service-fabric-cluster-windows-server-add-remove-nodes.md)
@@ -237,7 +237,7 @@
 ### [Troubleshoot your local cluster](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Reference
-## [PowerShell](/powershell/module/ServiceFabric/)
+## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
 ## [Java API](/java/api/)
 ## [.NET](/dotnet/api/)
 ## [REST](/rest/api/servicefabric)

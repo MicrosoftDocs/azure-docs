@@ -1,4 +1,4 @@
----
+﻿---
 title: Create and upload a VM image using Powershell | Microsoft Docs
 description: Learn to create and upload a generalized Windows Server image (VHD) using the classic deployment model and Azure Powershell.
 services: virtual-machines-windows
@@ -28,7 +28,7 @@ This article shows you how to upload your own generalized VM image as a virtual 
 This article assumes you have:
 
 * **An Azure subscription** - If you don't have one, you can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
-* **[Microsoft Azure PowerShell](/powershell/azureps-cmdlets-docs)** - You have the Microsoft Azure PowerShell module installed and configured to use your subscription.
+* **[Microsoft Azure PowerShell](/powershell/azure/overview)** - You have the Microsoft Azure PowerShell module installed and configured to use your subscription.
 * **A .VHD file** - supported Windows operating system stored in a .vhd file and attached to a virtual machine. Check to see if the server roles running on the VHD are supported by Sysprep. For more information, see [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
     > [!IMPORTANT]
@@ -84,7 +84,7 @@ You need a storage account in Azure so you have a place to upload the .vhd file.
     ```
 
 ## Step 3: Upload the .vhd file
-Use the [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) to upload the VHD.
+Use the [Add-AzureVhd](https://docs.microsoft.com/en-us/powershell/module/azure/add-azurevhd) to upload the VHD.
 
 From the Azure PowerShell window you used in the previous step, type the following command and replace the variables in &lsaquo; brackets &rsaquo; with your own information.
 
@@ -93,7 +93,7 @@ Add-AzureVhd -Destination "https://<StorageAccountName>.blob.core.windows.net/<C
 ```
 
 ## Step 4: Add the image to your list of custom images
-Use the [Add-AzureVMImage](https://msdn.microsoft.com/library/mt589167.aspx) cmdlet to add the image to the list of your custom images.
+Use the [Add-AzureVMImage](https://docs.microsoft.com/en-us/powershell/module/azure/add-azurevmimage) cmdlet to add the image to the list of your custom images.
 
 ```powershell
 Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName>.vhd" -OS "Windows"
