@@ -35,7 +35,7 @@ ASP.NET Core is a significant redesign of ASP.NET. ASP.NET Core is a new open-so
 * Install [Node.js](http://nodejs.org) - Node.js is a platform for building fast and scalable server applications using JavaScript. Node is the runtime (Node), and [npm](http://www.npmjs.com/) is the Package Manager for Node modules. You will use npm to scaffold an ASP.NET Core web app in this tutorial.
 * Install Git - You can install it from either of these locations: [Chocolatey](https://chocolatey.org/packages/git) or [git-scm.com](http://git-scm.com/downloads). If you are new to Git, choose [git-scm.com](http://git-scm.com/downloads) and select the option to **Use Git from the Windows Command Prompt**. Once you install Git, you'll also need to set the Git user name and email as it's required later in the tutorial (when performing a commit from VS Code).  
 
-## Install ASP.NET Core and DNX
+## Install ASP.NET Core
 ASP.NET Core is a lean .NET stack for building modern cloud and web apps that run on OS X, Linux, and Windows. It has been built from the ground up to provide an optimized development framework for apps that are either deployed to the cloud or run on-premises. It consists of modular components with minimal overhead, so you retain flexibility while constructing your solutions.
 
 This tutorial is designed to get you started building applications with the latest development versions of ASP.NET Core. The following instructions are specific to Windows. For more detailed installation instructions for OS X, Linux, and Windows, see [Installing ASP.NET Core](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx). 
@@ -71,33 +71,14 @@ This section shows you how to scaffold a new app ASP.NET web app. You will use t
 7. Also at the command prompt, to install the necessary NuGet packages to run the application, enter the following command:
    
         dotnet restore
-8. Open VS Code by entering the following at the command prompt:
-   
-        code .
 
 ## Run the web app locally
 Now that you have created the web app and retrieved all the NuGet packages for the app, you can run the web app locally.
 
-1. From the **Command Palette** in VS Code, enter the following to show the available run command options:
-   
-        dnx: Run Command
-   
-   > [!NOTE]
-   > If the Omnisharp server is not currently running, it will start up. Re-enter the above command.
-   > 
-   > 
-   
-    Next, select the following command to run your web app:
-   
-        dnx web - (SampleWebApp)
-   
-    The command window will display that the application has started. If the command window doesn't display this message, check the lower left corning of VS Code for errors in your project.
-   
-   > [!NOTE]
-   > Issuing a command from the **Command Palette** requires a **>** character at the beginning of the command line. You can view the details related to the **web** command in the *project.json* file.   
-   > If the command does not appear or is not available, you may need to install the C# extension. Run  `>Extensions: Install Extension` and `ext install c#` to install the C# extensions.
-   > 
-   > 
+1. Run the app  (the `dotnet run` command will build the app when it's out of date):
+  ```terminal
+    dotnet run
+    ```
 2. Open a browser and navigate to the following URL.
    
     **http://localhost:5000**
