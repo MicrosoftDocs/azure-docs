@@ -29,6 +29,10 @@ For supported operating systems and driver requirements, see [N-series driver se
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
+[!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
+
+* We don't recommend installing X server or other systems that use the nouveau driver on Ubuntu NC VMs. Before installing NVIDIA GPU drivers, you need to disable the nouveau driver.  
+
 ## Other sizes
 - [General purpose](sizes-general.md)
 - [Compute optimized](sizes-compute.md)
