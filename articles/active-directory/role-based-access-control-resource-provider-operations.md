@@ -442,7 +442,7 @@ This provider is not a full ARM provider and does not provide any ARM operations
 |/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/read|Gets the network security group associated with the network interface.|
 |/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/write|Adds a network security group associated with the network interface.|
 |/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/delete|Deletes the network security group associated with the network interface.|
-|/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/operationStatuses/read|Reads the operation status for the virtual machines associated network security groups.|
+|/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/<br>operationStatuses/read|Reads the operation status for the virtual machines associated network security groups.|
 |/virtualMachines/providers/Microsoft.Insights/metricDefinitions/read|Gets the metrics definitions.|
 |/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/read|Get the diagnostics settings.|
 |/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/write|Add or modify diagnostics settings.|
@@ -730,9 +730,9 @@ This provider is not a full ARM provider and does not provide any ARM operations
 |/datafactories/linkedServices/read|Reads Linked service.|
 |/datafactories/linkedServices/delete|Deletes Linked service.|
 |/datafactories/linkedServices/write|Create or Update Linked service|
-|/datafactories/{resourceTypeName:regex(^(tables|datasets)$)}/read|Reads Table.|
-|/datafactories/{resourceTypeName:regex(^(tables|datasets)$)}/delete|Deletes Table.|
-|/datafactories/{resourceTypeName:regex(^(tables|datasets)$)}/write|Create or Update Table|
+|/datafactories/tables/read|Reads Table.|
+|/datafactories/tables/delete|Deletes Table.|
+|/datafactories/tables/write|Create or Update Table|
 
 ## Microsoft.DataLakeAnalytics
 
@@ -1373,10 +1373,10 @@ This provider is not a full ARM provider and does not provide any ARM operations
 |/vaults/replicationFabrics/renewcertificate/action||
 |/vaults/replicationFabrics/deployProcessServerImage/action|Deploy Process Server Image|
 |/vaults/replicationFabrics/reassociateGateway/action|Reassociate Gateway|
-|/vaults/replicationFabrics/replicationRecoveryServicesProviders/read|Read Any Recovery Services Providers|
-|/vaults/replicationFabrics/replicationRecoveryServicesProviders/remove/action|Remove Recovery Services Provider|
-|/vaults/replicationFabrics/replicationRecoveryServicesProviders/delete|Delete Any Recovery Services Providers|
-|/vaults/replicationFabrics/replicationRecoveryServicesProviders/refreshProvider/action|Refresh Provider|
+|/vaults/replicationFabrics/replicationRecoveryServicesProviders/<br>read|Read Any Recovery Services Providers|
+|/vaults/replicationFabrics/replicationRecoveryServicesProviders/<br>remove/action|Remove Recovery Services Provider|
+|/vaults/replicationFabrics/replicationRecoveryServicesProviders/<br>delete|Delete Any Recovery Services Providers|
+|/vaults/replicationFabrics/replicationRecoveryServicesProviders/<br>refreshProvider/action|Refresh Provider|
 |/vaults/replicationFabrics/replicationStorageClassifications/read|Read Any Storage Classifications|
 |/vaults/replicationFabrics/replicationStorageClassifications/<br>replicationStorageClassificationMappings/read|Read Any Storage Classification Mappings|
 |/vaults/replicationFabrics/replicationStorageClassifications/<br>replicationStorageClassificationMappings/write|Create or Update Any Storage Classification Mappings|
@@ -1385,9 +1385,9 @@ This provider is not a full ARM provider and does not provide any ARM operations
 |/vaults/replicationFabrics/replicationvCenters/write|Create or Update Any Jobs|
 |/vaults/replicationFabrics/replicationvCenters/delete|Delete Any Jobs|
 |/vaults/replicationFabrics/replicationNetworks/read|Read Any Networks|
-|/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings/read|Read Any Network Mappings|
-|/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings/write|Create or Update Any Network Mappings|
-|/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings/delete|Delete Any Network Mappings|
+|/vaults/replicationFabrics/replicationNetworks/<br>replicationNetworkMappings/read|Read Any Network Mappings|
+|/vaults/replicationFabrics/replicationNetworks/<br>replicationNetworkMappings/write|Create or Update Any Network Mappings|
+|/vaults/replicationFabrics/replicationNetworks/<br>replicationNetworkMappings/delete|Delete Any Network Mappings|
 |/vaults/replicationFabrics/replicationProtectionContainers/<br>read|Read Any Protection Containers|
 |/vaults/replicationFabrics/replicationProtectionContainers/<br>discoverProtectableItem/action|Discover Protectable Item|
 |/vaults/replicationFabrics/replicationProtectionContainers/<br>write|Create or Update Any Protection Containers|
@@ -1692,9 +1692,9 @@ This provider is not a full ARM provider and does not provide any ARM operations
 |/servers/elasticPools/write|Create a new or change properties of existing elastic database pool|
 |/servers/elasticPools/delete|Delete existing elastic database pool|
 |/servers/elasticPools/operationResults/read|Retrieve details on a given elastic database pool operation|
-|/servers/elasticPools/providers/Microsoft.Insights/metricDefinitions/read|Return types of metrics that are available for elastic database pools|
-|/servers/elasticPools/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource|
-|/servers/elasticPools/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
+|/servers/elasticPools/providers/Microsoft.Insights/<br>metricDefinitions/read|Return types of metrics that are available for elastic database pools|
+|/servers/elasticPools/providers/Microsoft.Insights/<br>diagnosticSettings/read|Gets the diagnostic setting for the resource|
+|/servers/elasticPools/providers/Microsoft.Insights/<br>diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
 |/servers/elasticPools/metrics/read|Return elastic database pool resource utilization metrics|
 |/servers/elasticPools/elasticPoolDatabaseActivity/read|Retrieve activities and details on a given database that is part of elastic database pool|
 |/servers/elasticPools/advisors/read|Returns list of advisors available for the elastic pool|
@@ -1740,10 +1740,10 @@ This provider is not a full ARM provider and does not provide any ARM operations
 |/servers/databases/dataMaskingPolicies/rules/write|Change data masking policy rule for a given database|
 |/servers/databases/securityAlertPolicies/read|Retrieve details of the threat detection policy configured on a given database|
 |/servers/databases/securityAlertPolicies/write|Change the threat detection policy for a given database|
-|/servers/databases/providers/Microsoft.Insights/metricDefinitions/read|Return types of metrics that are available for databases|
-|/servers/databases/providers/Microsoft.Insights/diagnosticSettings/read|Gets the diagnostic setting for the resource|
-|/servers/databases/providers/Microsoft.Insights/diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
-|/servers/databases/providers/Microsoft.Insights/logDefinitions/read|Gets the available logs for databases|
+|/servers/databases/providers/Microsoft.Insights/<br>metricDefinitions/read|Return types of metrics that are available for databases|
+|/servers/databases/providers/Microsoft.Insights/<br>diagnosticSettings/read|Gets the diagnostic setting for the resource|
+|/servers/databases/providers/Microsoft.Insights/<br>diagnosticSettings/write|Creates or updates the diagnostic setting for the resource|
+|/servers/databases/providers/Microsoft.Insights/<br>logDefinitions/read|Gets the available logs for databases|
 |/servers/databases/topQueries/read|Returns aggregated runtime statistics for selected query in selected time period|
 |/servers/databases/topQueries/queryText/read|Returns the Transact-SQL text for selected query ID|
 |/servers/databases/topQueries/statistics/read|Returns aggregated runtime statistics for selected query in selected time period|
@@ -1757,7 +1757,7 @@ This provider is not a full ARM provider and does not provide any ARM operations
 |/servers/databases/auditingPolicies/read|Retrieve details of the table auditing policy configured on a given database|
 |/servers/databases/auditingPolicies/write|Change the table auditing policy for a given database|
 |/servers/databases/dataWarehouseQueries/read|Returns the data warehouse distribution query information for selected query ID|
-|/servers/databases/dataWarehouseQueries/dataWarehouseQuerySteps/read|Returns the distributed query step information of data warehouse query for selected step ID|
+|/servers/databases/dataWarehouseQueries/<br>dataWarehouseQuerySteps/read|Returns the distributed query step information of data warehouse query for selected step ID|
 |/servers/databases/serviceTierAdvisors/read|Return suggestion about scaling database up or down based on query execution statistics to improve performance or reduce cost|
 |/servers/databases/advisors/read|Returns list of advisors available for the database|
 |/servers/databases/advisors/write|Update auto-execute status of an advisor on database level.|
@@ -1847,8 +1847,8 @@ This provider is not a full ARM provider and does not provide any ARM operations
 |/managers/devices/listFailoverSets/action|List the failover sets for an existing device.|
 |/managers/devices/listFailoverTargets/action|List failover targets of the devices|
 |/managers/devices/publicEncryptionKey/action|List public encryption key of the device manager|
-|/managers/devices/hardwareComponentGroups/read|List the Hardware Component Groups|
-|/managers/devices/hardwareComponentGroups/changeControllerPowerState/action|Change controller power state of hardware component groups|
+|/managers/devices/hardwareComponentGroups/<br>read|List the Hardware Component Groups|
+|/managers/devices/hardwareComponentGroups/<br>changeControllerPowerState/action|Change controller power state of hardware component groups|
 |/managers/devices/metrics/read|Lists or gets the Metrics|
 |/managers/devices/chapSettings/write|Create or update the Chap Settings|
 |/managers/devices/chapSettings/read|Lists or gets the Chap Settings|
@@ -1857,13 +1857,13 @@ This provider is not a full ARM provider and does not provide any ARM operations
 |/managers/devices/backupScheduleGroups/write|Create or update the Backup Schedule Groups|
 |/managers/devices/backupScheduleGroups/delete|Deletes the Backup Schedule Groups|
 |/managers/devices/updateSummary/read|Lists or gets the Update Summary|
-|/managers/devices/migrationSourceConfigurations/import/action|Import source configurations for migration|
-|/managers/devices/migrationSourceConfigurations/startMigrationEstimate/action|Start a job to estimate the duration of the migration process.|
-|/managers/devices/migrationSourceConfigurations/startMigration/action|Start migration using source configurations|
-|/managers/devices/migrationSourceConfigurations/confirmMigration/action|Confirms a successful migration and commit it.|
-|/managers/devices/migrationSourceConfigurations/fetchMigrationEstimate/action|Fetch the status for the migration estimation job.|
-|/managers/devices/migrationSourceConfigurations/fetchMigrationStatus/action|Fetch the status for the migration.|
-|/managers/devices/migrationSourceConfigurations/fetchConfirmMigrationStatus/action|Fetch the confirm status of migration.|
+|/managers/devices/migrationSourceConfigurations/<br>import/action|Import source configurations for migration|
+|/managers/devices/migrationSourceConfigurations/<br>startMigrationEstimate/action|Start a job to estimate the duration of the migration process.|
+|/managers/devices/migrationSourceConfigurations/<br>startMigration/action|Start migration using source configurations|
+|/managers/devices/migrationSourceConfigurations/<br>confirmMigration/action|Confirms a successful migration and commit it.|
+|/managers/devices/migrationSourceConfigurations/<br>fetchMigrationEstimate/action|Fetch the status for the migration estimation job.|
+|/managers/devices/migrationSourceConfigurations/<br>fetchMigrationStatus/action|Fetch the status for the migration.|
+|/managers/devices/migrationSourceConfigurations/<br>fetchConfirmMigrationStatus/action|Fetch the confirm status of migration.|
 |/managers/devices/alertSettings/read|Lists or gets the Alert Settings|
 |/managers/devices/alertSettings/write|Create or update the Alert Settings|
 |/managers/devices/networkSettings/read|Lists or gets the Network Settings|
@@ -1907,7 +1907,7 @@ This provider is not a full ARM provider and does not provide any ARM operations
 |/managers/devices/backupPolicies/schedules/delete|Deletes an existing Schedules|
 |/managers/devices/securitySettings/update/action|Update the security settings.|
 |/managers/devices/securitySettings/read|List the Security Settings|
-|/managers/devices/securitySettings/syncRemoteManagementCertificate/action|Synchronize the remote management certificate for a device.|
+|/managers/devices/securitySettings/<br>syncRemoteManagementCertificate/action|Synchronize the remote management certificate for a device.|
 |/managers/devices/securitySettings/write|Creates a new or updates Security Settings|
 |/managers/devices/fileservers/read|Lists or gets the File Servers|
 |/managers/devices/fileservers/write|Create or update the File Servers|
@@ -2143,19 +2143,19 @@ This provider is not a full ARM provider and does not provide any ARM operations
 |/sites/diagnostics/frebanalysis/read|Get Web Apps Diagnostics FREB Analysis.|
 |/availablestacks/read|Get Available Stacks.|
 |/isusernameavailable/read|Check if Username is available.|
-|/Microsoft.Web/apiManagementAccounts/apis/Read|Get the list of Apis.|
-|/Microsoft.Web/apiManagementAccounts/apis/Write|Add a new Api or update existing one.|
-|/Microsoft.Web/apiManagementAccounts/apis/Delete|Delete an existing Api.|
-|/Microsoft.Web/apiManagementAccounts/apis/connections/Read|Get the list of Connections.|
-|/Microsoft.Web/apiManagementAccounts/apis/connections/Write|Save a new Connection or update an existing one.|
-|/Microsoft.Web/apiManagementAccounts/apis/connections/Delete|Delete an existing Connection.|
-|/Microsoft.Web/apiManagementAccounts/apis/connections/connectionAcls/Read|Read ConnectionAcls|
-|/Microsoft.Web/apiManagementAccounts/apis/connections/connectionAcls/Write|Add or update ConnectionAcl|
-|/Microsoft.Web/apiManagementAccounts/apis/connections/connectionAcls/Delete|Delete ConnectionAcl|
-|/Microsoft.Web/apiManagementAccounts/apis/connectionAcls/Read|Read ConnectionAcls for Api|
-|/Microsoft.Web/apiManagementAccounts/apis/apiAcls/Read|Read ConnectionAcls|
-|/Microsoft.Web/apiManagementAccounts/apis/apiAcls/Write|Create or update Api Acls|
-|/Microsoft.Web/apiManagementAccounts/apis/apiAcls/Delete|Delete Api Acls|
+|/Microsoft.Web/apiManagementAccounts/<br>apis/Read|Get the list of Apis.|
+|/Microsoft.Web/apiManagementAccounts/<br>apis/Write|Add a new Api or update existing one.|
+|/Microsoft.Web/apiManagementAccounts/<br>apis/Delete|Delete an existing Api.|
+|/Microsoft.Web/apiManagementAccounts/<br>apis/connections/Read|Get the list of Connections.|
+|/Microsoft.Web/apiManagementAccounts/<br>apis/connections/Write|Save a new Connection or update an existing one.|
+|/Microsoft.Web/apiManagementAccounts/<br>apis/connections/Delete|Delete an existing Connection.|
+|/Microsoft.Web/apiManagementAccounts/<br>apis/connections/connectionAcls/Read|Read ConnectionAcls|
+|/Microsoft.Web/apiManagementAccounts/<br>apis/connections/connectionAcls/Write|Add or update ConnectionAcl|
+|/Microsoft.Web/apiManagementAccounts/<br>apis/connections/connectionAcls/Delete|Delete ConnectionAcl|
+|/Microsoft.Web/apiManagementAccounts/<br>apis/connectionAcls/Read|Read ConnectionAcls for Api|
+|/Microsoft.Web/apiManagementAccounts/<br>apis/apiAcls/Read|Read ConnectionAcls|
+|/Microsoft.Web/apiManagementAccounts/<br>apis/apiAcls/Write|Create or update Api Acls|
+|/Microsoft.Web/apiManagementAccounts/<br>apis/apiAcls/Delete|Delete Api Acls|
 |/serverfarms/Read|Get the properties on an App Service Plan|
 |/serverfarms/Write|Create a new App Service Plan or update an existing one|
 |/serverfarms/Delete|Delete an existing App Service Plan|
