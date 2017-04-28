@@ -51,7 +51,11 @@ Create a VM with the [az vm create](/cli/azure/vm#create) command.
 The following example creates a VM named `myVM` and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
 
 ```azurecli
-az vm create --resource-group myResourceGroup --name myVM --image Oracle:Oracle-Database-Ee:12.1.0.2:latest --size Standard_DS2_v2 --generate-ssh-keys
+az vm create --resource-group myResourceGroup \
+    --name myVM \
+    --image Oracle:Oracle-Database-Ee:12.1.0.2:latest \
+    --size Standard_DS2_v2 \
+    --generate-ssh-keys
 ```
 
 When the VM has been created, the Azure CLI shows information similar to the following example: Take note of the `publicIpAddress`. This address is used to access the VM.
@@ -159,10 +163,8 @@ Creating Pluggable Databases
 Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for further details.
 ```
 
-## Set up Connectivity 
-Test for local connectivity
-
-Once we have created the database, we need to set the ORACLE_HOME and ORACLE_SID environment variables.
+## Preparing for Connectivity 
+To ensure the Database has been initialized correctly, we are going to test for local connectivity. The easiest way to do this is to connect with `sqlplus`.  Before connecting we have to set some environment variables first - specifically *ORACLE_HOME* and *ORACLE_SID* environment variables.
 
 ```bash
 ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
@@ -181,73 +183,9 @@ export ORACLE_SID=cdb1
 
 ```
 
-Now we can connect using sqlplus:
-
-```bash
-sqlplus / as sysdba
-
-SQL*Plus: Release 12.1.0.2.0 Production on Fri Apr 7 13:16:30 2017
-
-Copyright (c) 1982, 2014, Oracle.  All rights reserved.
-
-
-Connected to:
-Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
-With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
-
-```
-
-The final thing is to configure the external endpoint. We should exit (enter exit twice) the SSH session on the VM, as we need to configure the Azure Network Security Group protecting the VM. We execute this with the Azure CLI:
-
-```bash
-az network nsg rule create --resource-group myResourceGroup\
-    --nsg-name myVmNSG --name allow-oracle\
-    --protocol tcp --direction inbound --priority 999 \
-    --source-address-prefix '*' --source-port-range '*' \
-    --destination-address-prefix '*' --destination-port-range 1521 --access allow
-```
-
-Result should look similar to the following response:
-
-```
-{
-  "access": "Allow",
-  "description": null,
-  "destinationAddressPrefix": "*",
-  "destinationPortRange": "1521",
-  "direction": "Inbound",
-  "etag": "W/\"bd77dcae-e5fd-4bd6-a632-26045b646414\"",
-  "id": "/subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myVmNSG/securityRules/allow-oracle",
-  "name": "allow-oracle",
-  "priority": 999,
-  "protocol": "Tcp",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "myResourceGroup",
-  "sourceAddressPrefix": "*",
-  "sourcePortRange": "*"
-}
-```
-
-To test the external connectivity, run sqlplus on a remote pc. Before connecting, create a 'tnsnames.ora' file on that PC.
-Note: The global db name is cdb1, but the pluggable db name is pdb1
-
-```
-azure_pdb1=
-  (DESCRIPTION=
-    (ADDRESS=
-      (PROTOCOL=TCP)
-      (HOST=<vm-name>.cloudapp.net or ip address)
-      (PORT=1521)
-    )
-    (CONNECT_DATA=
-      (SERVER=dedicated)
-      (SERVICE_NAME=pdb1)
-    )
-  )
-```
 ## Setup connectivity to Oracle EM Express
 
-TO Connect to Oracle EM Express, the port must be configure in Oracle. Ssh to the VM
+We will enable Oracle EM Express to have a GUI management tool to explore the database.  To Connect to Oracle EM Express, the port must first be configure in Oracle.
 
 ```bash
 $ sudo su - oracle
@@ -269,11 +207,7 @@ SQL> select con_id, name, open_mode from v$pdbs;
 ---------- ------------------------------ ----------
          2 PDB$SEED                       READ ONLY
          3 PDB1                           MOUNT
-```
 
-If database for PDB1 is "MOUNT" mode, then proceed with this step, otherwise, you can skip this step
-
-```bash
 SQL> alter session set container=pdb1;
 
 Session altered.
@@ -281,11 +215,7 @@ Session altered.
 SQL> alter database open;
 
 database opened.
-```
 
-This step set up the port number to be used to access EM express
-
-```bash
 SQL> alter session set container=pdb1;
 
 Session altered.
@@ -294,44 +224,9 @@ SQL> exec DBMS_XDB_CONFIG.SETHTTPSPORT(5502);
 
 PL/SQL procedure successfully completed.
 ```
-configure the external endpoint to allow access to EM Express
-
-```azurecli
-az network nsg rule create --resource-group myResourceGroup\
-    --nsg-name myVmNSG --name allow-oracle-EM\
-    --protocol tcp --direction inbound --priority 1001 \
-    --source-address-prefix '*' --source-port-range '*' \
-    --destination-address-prefix '*' --destination-port-range 5502 --access allow
-```
-You should get result similar to this
-```azurecli
-{
-  "access": "Allow",
-  "description": null,
-  "destinationAddressPrefix": "*",
-  "destinationPortRange": "5502",
-  "direction": "Inbound",
-  "etag": "W/\"06c68b5e-1b3f-4ae0-bcf6-59b3b981d685\"",
-  "id": "/subscriptions/2dad32d6-b188-49e6-9437-ca1d51cec4dd/resourceGroups/kennyRG/providers/Microsoft.Network/networkSecurityGroups/kennyVM1NSG/securityRules/allow-oracle-EM",
-  "name": "allow-oracle-EM",
-  "priority": 1001,
-  "protocol": "Tcp",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "myResourceGroup",
-  "sourceAddressPrefix": "*",
-  "sourcePortRange": "*"
-}
-```
-
-Connect EM Express from your browser
-```
-https://<VM hostname>:5502/em
-```
-You can log in using SYS account with the password you specified during the install
-
 ## Automating Database Startup and Shutdown
 
-Once the Oracle instance is created. Log in as root.
+Once the Oracle instance is created, it is not setup to start automatically on machine boot.  In order to accomplish these tasks, you will need to Login as root and create/update some system files.
 
 ```bash
 # sudo su -
@@ -392,6 +287,77 @@ restart the vm to test
 ```bash
 # reboot
 ```
+
+## opening the ports for connectivity
+
+The final thing is to configure some external endpoints. Exit your SSH session on the VM in order to configure the Azure Network Security Group protecting the VM. In order to open the endpoint for accessing the Oracle DB remotely, you will execute the following command. 
+
+```azurecli
+az network nsg rule create --resource-group myResourceGroup\
+    --nsg-name myVmNSG --name allow-oracle\
+    --protocol tcp --direction inbound --priority 999 \
+    --source-address-prefix '*' --source-port-range '*' \
+    --destination-address-prefix '*' --destination-port-range 1521 --access allow
+```
+
+Result should look similar to the following response:
+
+```
+{
+  "access": "Allow",
+  "description": null,
+  "destinationAddressPrefix": "*",
+  "destinationPortRange": "1521",
+  "direction": "Inbound",
+  "etag": "W/\"bd77dcae-e5fd-4bd6-a632-26045b646414\"",
+  "id": "/subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myVmNSG/securityRules/allow-oracle",
+  "name": "allow-oracle",
+  "priority": 999,
+  "protocol": "Tcp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "sourceAddressPrefix": "*",
+  "sourcePortRange": "*"
+}
+```
+
+In order to open the endpoint for accessing Oracle EM Express remotely, you will execute the following command.
+
+```azurecli
+az network nsg rule create --resource-group myResourceGroup\
+    --nsg-name myVmNSG --name allow-oracle-EM\
+    --protocol tcp --direction inbound --priority 1001 \
+    --source-address-prefix '*' --source-port-range '*' \
+    --destination-address-prefix '*' --destination-port-range 5502 --access allow
+```
+
+Result should look similar to the following response:
+
+```azurecli
+{
+  "access": "Allow",
+  "description": null,
+  "destinationAddressPrefix": "*",
+  "destinationPortRange": "5502",
+  "direction": "Inbound",
+  "etag": "W/\"06c68b5e-1b3f-4ae0-bcf6-59b3b981d685\"",
+  "id": "/subscriptions/2dad32d6-b188-49e6-9437-ca1d51cec4dd/resourceGroups/kennyRG/providers/Microsoft.Network/networkSecurityGroups/kennyVM1NSG/securityRules/allow-oracle-EM",
+  "name": "allow-oracle-EM",
+  "priority": 1001,
+  "protocol": "Tcp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "sourceAddressPrefix": "*",
+  "sourcePortRange": "*"
+}
+```
+
+Connect EM Express from your browser
+```
+https://<VM hostname>:5502/em
+```
+You can log in using SYS account with the password you specified during the install
+
 
 ## Delete virtual machine
 
