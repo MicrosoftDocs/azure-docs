@@ -1,6 +1,6 @@
 ---
-title:  Azure Stream Analytics data-driven debugging using the Job Diagram | Microsoft Docs
-description: How to troubleshoot your Stream Analytics job by using the job diagram with metrics page
+title:  Azure Stream Analytics data-driven debugging by using the job diagram | Microsoft Docs
+description: Troubleshoot your Stream Analytics job by using the job diagram and metrics.
 keywords: 
 documentationcenter: ''
 services: stream-analytics
@@ -19,74 +19,76 @@ ms.author: jeffstok
 
 ---
 
-# Data driven debugging using the Job Diagram
+# Data-driven debugging by using the job diagram
 
-The Job Diagram enables the visualization of the pipeline to show inputs, outputs, query steps and examine the metrics for each step. The metrics for each step can be to quickly isolate the source of the problem while troubleshooting issues.
+The job diagram on the **Monitoring** blade in the Azure portal can help you visualize your job pipeline. It shows inputs, outputs, and query steps. You can use the job diagram to examine the metrics for each step, to quickly isolate the source of a problem when you troubleshoot issues.
 
-## Using the Job Diagram
+## Using the job diagram
 
-Open the “Job diagram” link on the right:
+In the Azure portal, on the **Monitoring** blade, under **SUPPORT + TROUBLESHOOTING**, select **Job diagram**:
 
 ![Job diagram with metrics location](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-1.png)
 
-Clicking each query step shows the corresponding section in a query editing pane as illustrated. A metric chart for the step is also displayed in a lower pane.
+Select each query step to see the corresponding section in a query editing pane. A metric chart for the step is displayed in a lower pane.
 
 ![Job diagram with metrics basic job](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-2.png)
 
-Clicking the … will pop up the context menu allowing the expansion of partitions showing the partitions of the Event Hub input in addition to the input merger.
+To see the partitions of the Azure Event Hubs input, select **…**. A context menu appears. You also can see the input merger.
 
 ![Job diagram with metrics expand partition](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-3.png)
 
-Clicking a single partition node shows the metrics chart only for that partition on the bottom.
+To see the metric chart for only a single partition, select the partition node. The metrics are shown at the bottom of the page.
 
 ![Job diagram with metrics more metrics](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-4.png)
 
-Selecting the merger node shows the metrics chart for the merger. The chart below shows that no events got dropped or adjusted.
+To see the metrics chart for a merger, select the merger node. The following chart shows that no events were dropped or adjusted.
 
 ![Job diagram with metrics grid](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-5.png)
 
-Additionally, hovering on the chart will show details of the metric value and time
+To see the details of the metric value and time, point to the chart.
 
 ![Job diagram with metrics hover](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-6.png)
 
-**QueryLastProcessedTime** This metric indicates when a particular step received data. Based on the topology, work backwards from the output processor to see which step is not receiving data. If a step is not getting data, go to the preceding step is a query step, check if it has a time window and if enough time has passed for it to output data (Note that time windows are snapped to the hour).
- 
-If the preceding step is an input processor, use the input metrics to help answer the following targeted questions about jobs getting data from its input sources. If the query is partitioned, examine each partition.
- 
-## How much data is being read?
+## Troubleshoot by using metrics
 
-**InputEventsSourcesTotal** metric provides the number of data units read, e.g. number of blobs.
-**InputEventsTotal** provides the number of events read. This metric is available per partition.
-**InputEventsInBytesTotal** provides the number of bytes read.
-**InputEventsLastArrivalTime** is updated with every received event's enqueued time
+The **QueryLastProcessedTime** metric indicates when a specific step received data. Based on the topology, you can work backward from the output processor to see which step is not receiving data. If a step is not getting data, go to the preceding query step. Check whether it has a time window, and if enough time has passed for it to output data. (Note that time windows are snapped to the hour.)
  
-## Is time moving forward? If actual events are read, punctuation might not be issued.
-
-**InputEventsLastPunctuationTime** indicates when a punctuation was issued to keep time moving forward. Data flow can get blocked if punctuation is not issued.
+If the preceding query step is an input processor, use the input metrics to help answer the following targeted questions. They can help you determine whether a job is getting data from its input sources. If the query is partitioned, examine each partition.
  
-## Are there any errors in the input?
+### How much data is being read?
 
-**InputEventsEventDataNullTotal** holds a count of events with null data
-**InputEventsSerializerErrorsTotal** holds a count of events that could not be deserialized correctly
-**InputEventsDegradedTotal** holds a count of events that had an issue other than deserialization problems
+**InputEventsSourcesTotal** is the number of data units read. For example, the number of blobs.
+**InputEventsTotal** is the number of events read. This metric is available per partition.
+**InputEventsInBytesTotal** is the number of bytes read.
+**InputEventsLastArrivalTime** is updated with every received event's enqueued time.
  
-## Are events getting dropped/adjusted?
+### Is time moving forward? If actual events are read, punctuation might not be issued.
 
-**InputEventsEarlyTotal** provides the number of events with an application timestamp before the high watermark.
-**InputEventsLateTotal** provides the number of events with an application timestamp after the high watermark.
-**InputEventsDroppedBeforeApplicationStartTimeTotal** provides the number events dropped before the job start time
+**InputEventsLastPunctuationTime** indicates when a punctuation was issued to keep time moving forward. If punctuation is not issued, data flow can get blocked.
  
-## Are we following behind in reading data?
+### Are there any errors in the input?
 
-**InputEventsSourcesBackloggedTotal** tells us how many more messages need to be read for EventHub and IoTHub inputs.
+**InputEventsEventDataNullTotal** is a count of events with null data.
+**InputEventsSerializerErrorsTotal** is a count of events that could not be deserialized correctly.
+**InputEventsDegradedTotal** is a count of events that had an issue other than deserialization problems.
+ 
+### Are events being dropped or adjusted?
+
+**InputEventsEarlyTotal** is the number of events that have an application timestamp before the high watermark.
+**InputEventsLateTotal** is the number of events that have an application timestamp after the high watermark.
+**InputEventsDroppedBeforeApplicationStartTimeTotal** is the number events dropped before the job start time.
+ 
+### Are we falling behind in reading data?
+
+**InputEventsSourcesBackloggedTotal** tells you how many more messages need to be read for Event Hubs and Azure IoT Hub inputs.
 
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For additional assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## Next steps
-* [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-* [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
-* [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Introduction to Stream Analytics](stream-analytics-introduction.md)
+* [Get started with Stream Analytics](stream-analytics-get-started.md)
+* [Scale Stream Analytics jobs](stream-analytics-scale-jobs.md)
+* [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
