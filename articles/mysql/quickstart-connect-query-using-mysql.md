@@ -2,26 +2,20 @@
 title: 'Quickstart: Query MySQL database on Azure - mysql command line | Microsoft Docs'
 description: This quickstart describes how to use mysql command-line tool to connect and query a MySQL database in an Azure Database for MySQL server in about five minutes.
 services: mysql
-documentationcenter: 
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
 editor: jasonh
-
 ms.assetid: 
 ms.service: mysql-database
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: portal
-ms.workload:
-ms.date: 04/17/2017
-ms.custom: quick start connect
+ms.date: 05/10/2017
 ---
 
 # Quickstart: Connect and query Azure Database for MySQL using mysql command-line tool
-
 This quickstart describes how to use **mysql** command-line tool to connect and query a database in an Azure Database for MySQL server.
-
 
 ## Before you begin
 Before you begin this quickstart, make sure you are ready with the following:
@@ -29,8 +23,8 @@ Before you begin this quickstart, make sure you are ready with the following:
 * **[mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) command-line tool** with input line editing capabilities. It supports interactive and noninteractive use. When used interactively, query results are presented in an ASCII-table format. When used noninteractively (for example, as a filter), the resulting format is tab-separated. The output format can be changed using command options.
 
 * **An existing Azure Database for MySQL server**. Make sure you have created a server and enabled server-level firewall rules using one of the following quickstarts:
-    - [Create Azure Database for MySQL server using Azure portal](mysql-quickstart-create-mysql-server-database-using-azure-portal.md)
-    - [Create Azure Database for MySQL server using Azure CLI](mysql-quickstart-create-mysql-server-database-using-azure-cli.md)
+    - [Create Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md)
+    - [Create Azure Database for MySQL server using Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md)
 
 > [!TIP]
 > For more information about **mysql** command-line tool, see [MySQL 5.6 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.6/en/mysql.html).
@@ -52,8 +46,6 @@ To connect to the database, enter the following into **mysql** command-line tool
 ```dos
 C:\mysql -h mysqlserver4demo.database.windows.net -u myadmin@mysqlserver4demo -p
 ```
-
-
 ![Connect to server using mysql command-line tool](./media/mysql-quickstart-connect-query-using-mysql/2_connect-to-the-server.png)
 
 ## Create the database
@@ -122,6 +114,3 @@ This command deletes all rows in `customers` table, meaning the table no longer 
 
 ## Next steps
 - For more information regarding mysql command-line tool, see [MySQL 5.6 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.6/en/mysql.html)
-- To connect and query using MySQL Workbench, see [Connect and query - Workbench](placeholder.md).
-- To migrate data from an existing MySQL database, see [Migrate data from MySQL](placeholder.md).
-- For a technical overview of Azure Database for MySQL, see [About Azure Database for MySQL](placeholder.md).
