@@ -1,6 +1,6 @@
 ---
 title: JavaScript developer reference for Azure Functions | Microsoft Docs
-description: Understand how to develop Azure Functions by using JavaScript.
+description: Understand how to develop functions by using JavaScript.
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -27,7 +27,7 @@ ms.author: chrande, glenga
 > 
 > 
 
-The JavaScript experience for Azure Functions makes it easy to export a function, which is passed a `context` object for communicating with the runtime and for receiving and sending data via bindings.
+The JavaScript experience for Azure Functions makes it easy to export a function, which is passed as a `context` object for communicating with the runtime and for receiving and sending data via bindings.
 
 This article assumes that you've already read the [Azure Functions developer reference](functions-reference.md).
 
@@ -136,7 +136,7 @@ You can set the trace-level threshold for logging in the host.json file, or turn
 
 In Functions, you use the `context.log` methods to write trace output to the console. At this point, you cannot use `console.log` to write to the console.
 
-When you call `context.log()` your message is written to the console at the default trace level, which is the _info_ trace level. The following code writes to the console at the info trace level:
+When you call `context.log()`, your message is written to the console at the default trace level, which is the _info_ trace level. The following code writes to the console at the info trace level:
 
 ```javascript
 context.log({hello: 'world'});  
@@ -219,7 +219,7 @@ The `response` object has the following properties:
 
 When you work with HTTP triggers, you can access the HTTP request and response objects in any of three ways:
 
-+ From the named input and output bindings. In this way, the HTTP trigger and bindings work the same as any other binding. The following example sets the response object by using a named `response` binding. 
++ From the named input and output bindings. In this way, the HTTP trigger and bindings work the same as any other binding. The following example sets the response object by using a named `response` binding: 
 
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
