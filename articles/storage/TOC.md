@@ -4,7 +4,6 @@
 
 # Get Started
 
-## [Quick start guide](storage-getting-started-guide.md)
 ## [Create a storage account](storage-create-storage-account.md)
 
 ## Blob Storage
@@ -180,7 +179,7 @@
 ## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [Blobs, Queues, Tables, and Files](/rest/api/storageservices/azure-storage-services-rest-api-reference)
+### [Blobs, Queues, Tables, and Files](/rest/api/storageservices)
 ### [Resource provider](/rest/api/storagerp)
 ### [Import/Export](/rest/api/storageimportexport)
 
