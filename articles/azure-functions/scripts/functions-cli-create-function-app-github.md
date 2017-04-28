@@ -11,7 +11,7 @@ ms.service: functions
 ---
 # Create a function app and deploy function code from GitHub
 
-In this scenario you will learn how to create a function app using the [consumption plan](../functions-scale.md#consumption-plan) with its related resources, and deploys your function code from a public GitHub repository (without continuous deployment). For continuous delivery of function code from GitHub, read [Create a function app and continuously deploy from GitHub](functions-cli-create-function-app-github-continuous.md)
+This sample script creates a function app using the [consumption plan](../functions-scale.md#consumption-plan) with its related resources, and deploys your function code from a public GitHub repository (without continuous deployment). For continuous delivery of function code from GitHub, read [Create a function app and continuously deploy from GitHub](functions-cli-create-function-app-github-continuous.md)
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -21,15 +21,11 @@ This sample creates an Azure Function app and deploys function code from GitHub.
 
 [!code-azurecli[main](../../../cli_scripts/azure-function/deploy-function-app-with-function-github/deploy-function-app-with-function-github.sh?highlight=3-4 "Create a function app with deployment from GitHub")]
 
-## Clean up deployment
-
-After the script sample has been run, the follow command can be used to remove the resource group, function app, and all related resources.
-
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 
-This script uses the following commands. Each command in the table links to command specific documentation.
+Each command in the table links to command specific documentation. This script uses the following commands:
 
 | Command | Notes |
 |---|---|

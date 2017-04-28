@@ -10,7 +10,7 @@ ms.topic: functions
 ---
 # Create an App Service
 
-In this scenario you will learn how to create a function app using the [consumption plan](../functions-scale.md#consumption-plan) with its related resources, and continuously deploys your function code from a GitHub repository. In this sample, you will need:
+This sample script creates a function app using the [consumption plan](../functions-scale.md#consumption-plan) with its related resources, and continuously deploys your function code from a GitHub repository. In this sample, you need:
 
 * A GitHub repository with functions code, that you have administrative permissions for.
 * A [Personal Access Token (PAT)](https://help.github.com/articles/creating-an-access-token-for-command-line-use) for your GitHub account.
@@ -19,13 +19,13 @@ In this scenario you will learn how to create a function app using the [consumpt
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/azure-functions/ "Azure Service")]
+[!code-azurecli[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-github-continuous/deploy-function-app-with-function-github-continuous.sh "Azure Service")]
 
 [!INCLUDE [cli-script-clean-up](../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 
-This script uses the following commands to create a resource group, web app, documentdb and all related resources. Each command in the table links to command specific documentation.
+Each command in the table links to command specific documentation. This script uses the following:
 
 | Command | Notes |
 |---|---|
@@ -36,6 +36,6 @@ This script uses the following commands to create a resource group, web app, doc
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentaiton](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
 Additional Azure Functions CLI script samples can be found in the [Azure Functions documentation](../functions-cli-samples.md).
