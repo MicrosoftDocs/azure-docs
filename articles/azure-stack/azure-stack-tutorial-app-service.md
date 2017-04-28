@@ -84,7 +84,7 @@ Now that you've deployed the App Service resource provider and created an offer,
 5. Click **Database** and enter the information for the SQL database you created earlier.
 6. Click **Create**.
 
-
+You now have a DNN app ready for your use!
 
 
 
