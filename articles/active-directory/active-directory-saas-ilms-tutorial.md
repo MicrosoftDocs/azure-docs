@@ -112,7 +112,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Reply URL** textbox, paste the **Endpoint (URL)** value you copy from **Service Provider** section of SAML settings in iLMS admin portal having the following pattern `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
 
-	>[!Note]:
+	>[!Note]
 	>This '123456' is an example value of identifier.
 
 4. Check **Show advanced URL settings**, if you wish to configure the application in **SP** initiated mode:
