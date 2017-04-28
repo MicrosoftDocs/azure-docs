@@ -24,13 +24,13 @@ Learn how to create a function that is triggered by an HTTP request with a JSON 
 
 ![Github Webhook triggered function in the Azure portal](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 
+It should take you less than five minutes to complete all the steps in this topic.
+
 ## Before you begin
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-previous-topics.md)]
 
 You also need a GitHub account with at least one project. You can [sign up for a free GitHub account](https://github.com/join), if you don't already have one.
-
-It should take you less than five minutes to complete all the steps in this topic.
 
 ## <a name="create-function"></a>Create a GitHub webhook triggered function
 

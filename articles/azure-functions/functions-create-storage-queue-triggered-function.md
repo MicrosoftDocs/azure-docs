@@ -24,11 +24,13 @@ Learn how to create a function triggered when messages are submitted to an Azure
 
 ![View message in the logs.](./media/functions-create-storage-queue-triggered-function/functions-queue-storage-trigger-view-logs.png)
 
+It should take you less than five minutes to complete all the steps in this topic.
+
+## Before you begin
+
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-previous-topics.md)]
 
 You also need to download and install the [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
-
-It should take you less than five minutes to complete all the steps in this topic.
 
 ## <a name="create-function"></a>Create a Queue triggered function
 
