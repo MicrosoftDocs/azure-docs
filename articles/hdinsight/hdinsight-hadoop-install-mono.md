@@ -31,6 +31,12 @@ This script accepts the following parameter:
 
 * __Mono version number__: The version of Mono to install. The version must be available from [https://download.mono-project.com/repo/debian/dists/wheezy/snapshots/](https://download.mono-project.com/repo/debian/dists/wheezy/snapshots/).
 
+The script installs the following Mono packages:
+
+* __mono-complete__
+
+* __ca-certificates-mono__
+
 ## The script
 
 __Script location__: [https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash](https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash)
