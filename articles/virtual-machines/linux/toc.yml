@@ -4,7 +4,7 @@
   items:
   - name: About Virtual Machines
     href: overview.md
-- name: Quickstart
+- name: Quickstarts
   expanded: true
   items:
   - name: Create VM - Azure CLI
