@@ -99,7 +99,7 @@ This section shows you how to scaffold a new app ASP.NET web app. You will use t
         cd SampleWebApp
 7. Also at the command prompt, to install the necessary NuGet packages to run the application, enter the following command:
    
-        dnu restore
+        dotnet restore
 8. Open VS Code by entering the following at the command prompt:
    
         code .
