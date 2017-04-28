@@ -71,7 +71,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 
 ## Configure Jenkins
-Open a web browser and go to `http://<publicIpAddress>:8080` to access your Jenkins instance. Follow through the initial Jenkins set up:
+To access your Jenkins instance, open a web browser and go to `http://<publicIpAddress>:8080`. Follow through the initial Jenkins set up:
 
 - Enter `initialAdminPassword` copied from the VM in the previous step
 - Click **Select plugins to install**
@@ -211,7 +211,7 @@ Go to your Jenkins instance in a web browser and click your **HelloWorld** job c
 
 
 ## Test your pipeline
-Edit `index.js` in your forked repo and commit the change. A new job starts in Jenkins based on the webhook for GitHub, creates a Docker image, pulls the latest commit from GitHub, and then starts your app in a new container.
+Edit `index.js` in your forked repo and commit the change. A new job starts in Jenkins based on the webhook for GitHub, creates a Docker image, pulls the latest commit from GitHub, then starts your app in a new container.
 
 Obtain the public IP address of your Docker VM with:
 
