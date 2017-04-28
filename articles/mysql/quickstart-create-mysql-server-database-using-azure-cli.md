@@ -64,4 +64,4 @@ az mysql server firewall-rule create --resource-group mycliresource
 ```
 ## Next steps
 -   For a complete list of currently supported Azure CLI 2.0 commands, see [Azure CLI 2.0: Command reference - az](https://docs.microsoft.com/en-us/cli/azure/).
--   To connect and query using **mysql** command-line tool, see [Connect and query with mysql command-line tool](mysql-quickstart-connect-query-using-mysql.md).
+-   To connect and query using **mysql** command-line tool, see [Connect and query with mysql command-line tool](quickstart-connect-query-using-mysql.md).

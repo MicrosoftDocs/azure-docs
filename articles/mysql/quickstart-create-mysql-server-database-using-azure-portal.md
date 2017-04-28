@@ -69,4 +69,4 @@ You can create multiple databases within a MySQL server. There is no limit to th
 > TIP: For additional commands, see [MySQL 5.6 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.6/en/mysql.html).
 
 ## Next steps
-- To create an Azure Database for MySQL server with Azure CLI, see [Create MySQL server – CLI](mysql-quickstart-connect-query-using-mysql.md).
+- To create an Azure Database for MySQL server with Azure CLI, see [Create MySQL server – CLI](quickstart-connect-query-using-mysql.md).
