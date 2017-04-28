@@ -62,7 +62,7 @@ For sample code on working with clustering with the StackExchange.Redis client, 
 <a name="cluster-size"></a>
 
 ## Change the cluster size on a running premium cache
-To change the cluster size on a running premium cache with clustering enabled, click **(PREVIEW) Redis Cluster Size** from the **Resource menu**.
+To change the cluster size on a running premium cache with clustering enabled, click **Redis Cluster Size** from the **Resource menu**.
 
 > [!NOTE]
 > Note that while the Azure Redis Cache Premium tier has been released to General Availability, the Redis Cluster Size feature is currently in preview.
@@ -72,6 +72,11 @@ To change the cluster size on a running premium cache with clustering enabled, c
 ![Redis cluster size][redis-cache-redis-cluster-size]
 
 To change the cluster size, use the slider or type a number between 1 and 10 in the **Shard count** text box and click **OK** to save.
+
+> [!NOTE]
+> Scaling a cluster runs the [MIGRATE](https://redis.io/commands/migrate) command, which is an expensive command, so for minimal impact, consider running this operation during non-peak hours. During the migration process, you will see a spike in server load. Scaling a cluster is a long running process and can take several minutes per shard.
+> 
+> 
 
 ## Clustering FAQ
 The following list contains answers to commonly asked questions about Azure Redis Cache clustering.
