@@ -11,10 +11,8 @@
 ## MongoDB
 ### [Node.js](documentdb-connect-mongodb-app.md)
 ## Graph
-### .NET
-### Gremlin console
-<!---### [.NET](documentdb-connect-graph-dotnet.md)-->
-<!---### [Gremlin console](documentdb-connect-gremlin-graph.md)--->
+### [.NET](documentdb-connect-graph-dotnet.md)
+### [Gremlin console](documentdb-graph=get-started-console.md)
 ## Table
 ### .NET 
 <!---[.NET](documentdb-connect-tables-dotnet.md)--->
@@ -34,6 +32,33 @@
 ## [6 - Server-side business logic](documentdb-programming.md)
 ## [7 - Multi-regions](documentdb-portal-global-replication.md)
 ## [8 - Track changes](documentdb-change-feed.md)
+##
+## OR
+##
+## DocumentDB
+### 1 - Write your first app 
+#### [.NET](documentdb-get-started.md)
+#### [.NET Core](documentdb-dotnetcore-get-started.md)
+#### [Java](documentdb-java-get-started.md)
+#### [Node.js](documentdb-nodejs-get-started.md)
+#### [C++](documentdb-cpp-get-started.md)
+### 2 - Build a web app
+#### [.NET](documentdb-dotnet-application.md)
+#### [Xamarin](documentdb-mobile-apps-with-xamarin.md)
+#### [Node.js](documentdb-nodejs-application.md)
+#### [Java](documentdb-java-application.md)
+#### [Python Flask](documentdb-python-application.md)
+## MongoDB
+### [1 - Node.js console app](documentdb-mongodb-samples.md)
+### [2 - .NET web app](documentdb-mongodb-application.md)
+## Graph
+### [1 - Gremlin console](documentdb-graph=get-started-console.md)
+### [1 - .NET](documentdb-connect-graph-dotnet.md)
+## Table
+### .NET
+## Local emulator
+### [1 - Develop locally](documentdb-nosql-local-emulator.md)
+### [2 - Export certificates](documentdb-nosql-local-emulator-export-ssl-certificates.md)
 
 # Samples
 ## [Azure CLI 2.0](documentdb-cli-samples.md)
@@ -45,8 +70,7 @@
 ### [MongoDB API](documentdb-protocol-mongodb.md)
 ### Table API
 <!---### [Table API](documentdb-table-introduction.md)--->
-### Graph API
-<!---### [Graph API](documentdb-graph-introduction.md)--->
+### [Graph API](documentdb-graph-introduction.md)
 ## [Resource model](documentdb-resources.md)
 ## [Global distribution](documentdb-distribute-data-globally.md)
 ## [Regional failovers](documentdb-regional-failovers.md)
