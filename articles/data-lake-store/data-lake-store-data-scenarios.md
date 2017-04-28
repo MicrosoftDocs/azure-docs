@@ -47,6 +47,7 @@ Following are tools that you can use:
 
 * [Azure Stream Analytics](../stream-analytics/stream-analytics-data-lake-output.md) - Events ingested into Event Hubs can be written to Azure Data Lake using an Azure Data Lake Store output.
 * [Azure HDInsight Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md) - You can write data directly to Data Lake Store from the Storm cluster.
+* [Azure HDInsight Spark](../hdinsight/hdinsight-apache-spark-use-with-data-lake-store.md) - Write data from Data Lake Store from Spark clusters. 
 * [EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) – You can receive events from Event Hubs and then write it to Data Lake Store using the [Data Lake Store .NET SDK](data-lake-store-get-started-net-sdk.md).
 
 ### Relational data
