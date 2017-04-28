@@ -85,7 +85,7 @@ In a new browser tab or window, open the [Node.js Hello Worlds sample app](https
 
 Inside your fork, configure the Jenkins integration:
 
-- Click on **Settings**, then select **Integrations & services**
+- Click **Settings**, then select **Integrations & services**
 - Click **Add service** and enter **Jenkins** in filter
 - Select **Jenkins (GitHub plugin)**
 - For the **Jenkins hook URL**, enter `http://<publicIpAddress>:8080/github-webhook/`
@@ -106,9 +106,9 @@ Back in Jenkins, click **Create new job**:
 
 ## Test GitHub integration
 Back in GitHub, select you forked repo, and then click the **index.js** file. Edit this file so line 6 reads `response.end("Hello Azure!");`.
-Commit youur changes.
+Commit your changes.
 
-In Jenkins, a new build should start. Click on the build and select **Console output**. Your code is pulled from GitHub, and then the build action triggers the message `Testing` to appear in the console.
+In Jenkins, a new build should start. Click the build and select **Console output**. Your code is pulled from GitHub, and then the build action triggers the message `Testing` to appear in the console.
 
 
 ## Create Docker virtual machine
@@ -151,7 +151,7 @@ In your Jenkins browser, install the required Docker plugins to allow Jenkins to
 
 Once Jenkins restarts, log back in to Jenkins. Now create the connection between Jenkins and Docker:
 
-- Click on **Manage Jenkins**, then click **Configure System**
+- Click **Manage Jenkins**, then click **Configure System**
 - Under the **Docker builder** section, enter the URL to your host:
   - **URL**: tcp://myDockerVM:2375
 - Click **Test Connection** and it should return `Connected to tcp://myDockerVM:2375`
@@ -184,7 +184,7 @@ RUN mkdir /var/www && cd /var/www/ && git clone https://github.com/iainfoulds/no
 ## Create Jenkins build rules
 Earlier you created a basic Jenkins build rule. Now lets flesh that to actually build the app in container from the latest GitHub commit.
 
-Go to your Jenkins instance in a web browser and click on your **HelloWorld** job created in a previous step. Click **Configure** on the left-hand side and scroll down to the **Build** section:
+Go to your Jenkins instance in a web browser and click your **HelloWorld** job created in a previous step. Click **Configure** on the left-hand side and scroll down to the **Build** section:
 
 - Remove your existing `echo "Test"` build step
 - Click **Add build step**, select **Execute Docker command**
@@ -204,14 +204,14 @@ Go to your Jenkins instance in a web browser and click on your **HelloWorld** jo
     - In the **Image name** box, enter `helloworld`
     - In the **Command** box, enter `nodejs /var/www/nodejs-docs-hello-world/index.js`
     - In the **Container name** box, enter `helloworld`
-    - Click the **Advanced** button in the **Port bindins** box enter `1337:1337`
+    - Click the **Advanced** button in the **Port bindings** box enter `1337:1337`
 - Click **Add build step**, select **Execute Docker command**
     - Under the **Docker command** drop-down menu, select **Start container(s)**
     - In the **Container ID(s)** box, enter `helloworld`
 
 
 ## Test your pipeline
-Edit `index.js` in your forked repo and commit the change. A new job will start in Jenkins based on the webhook for GitHub, creates a new Docker image, pulls the latest commit from GitHub, and then starts your app in a new container.
+Edit `index.js` in your forked repo and commit the change. A new job starts in Jenkins based on the webhook for GitHub, creates a Docker image, pulls the latest commit from GitHub, and then starts your app in a new container.
 
 Obtain the public IP address of your Docker VM with:
 
