@@ -66,18 +66,20 @@ An Azure load balancer is a Layer-4 (TCP, UDP) load balancer that provides high 
 Create a load balancer that has a public IP address and distributes web traffic on port 80:
 
 ```powershell
+# Create a public IP address
 $publicIP = New-AzureRmPublicIpAddress `
   -ResourceGroupName myResourceGroupScaleSet `
   -Location westus `
   -AllocationMethod Static `
   -Name myPublicIP
 
+# Create a frontend and backend IP pool
 $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
   -Name myFrontEndPool `
   -PublicIpAddress $publicIP
-
 $backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name myBackEndPool
 
+# Create the load balancer
 $lb = New-AzureRmLoadBalancer `
   -ResourceGroupName myResourceGroupScaleSet `
   -Name myLoadBalancer `
@@ -85,6 +87,7 @@ $lb = New-AzureRmLoadBalancer `
   -FrontendIpConfiguration $frontendIP `
   -BackendAddressPool $backendPool
 
+# Create a load balancer health probe on port 80
 Add-AzureRmLoadBalancerProbeConfig -Name myHealthProbe `
   -LoadBalancer $lb `
   -Protocol tcp `
@@ -92,7 +95,9 @@ Add-AzureRmLoadBalancerProbeConfig -Name myHealthProbe `
   -IntervalInSeconds 15 `
   -ProbeCount 2
 
-Add-AzureRmLoadBalancerRuleConfig -Name myLoadBalancerRule `
+# Create a load balancer rule to distribute traffic on port 80
+Add-AzureRmLoadBalancerRuleConfig `
+  -Name myLoadBalancerRule `
   -LoadBalancer $lb `
   -FrontendIpConfiguration $lb.FrontendIpConfigurations[0] `
   -BackendAddressPool $lb.BackendAddressPools[0] `
@@ -100,6 +105,7 @@ Add-AzureRmLoadBalancerRuleConfig -Name myLoadBalancerRule `
   -FrontendPort 80 `
   -BackendPort 80
 
+# Update the load balancer configuration
 Set-AzureRmLoadBalancer -LoadBalancer $lb
 ```
 
@@ -108,21 +114,45 @@ Now create a virtual machine scale set with [New-AzureRmVmss](/powershell/module
 
 ```powershell
 # Reference a virtual machine image from the gallery
-Set-AzureRmVmssStorageProfile $vmssConfig -ImageReferencePublisher MicrosoftWindowsServer -ImageReferenceOffer WindowsServer -ImageReferenceSku 2016-Datacenter -ImageReferenceVersion latest
+Set-AzureRmVmssStorageProfile $vmssConfig `
+  -ImageReferencePublisher MicrosoftWindowsServer `
+  -ImageReferenceOffer WindowsServer `
+  -ImageReferenceSku 2016-Datacenter `
+  -ImageReferenceVersion latest
 
 # Set up information for authenticating with the virtual machine
-Set-AzureRmVmssOsProfile $vmssConfig -AdminUsername azureuser -AdminPassword P@ssword! -ComputerNamePrefix myVM
+Set-AzureRmVmssOsProfile $vmssConfig `
+  -AdminUsername azureuser `
+  -AdminPassword P@ssword! `
+  -ComputerNamePrefix myVM
 
 # Create the virtual network resources
-$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet" -AddressPrefix 10.0.0.0/24
-$vnet = New-AzureRmVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroupScaleSet" -Location "westus" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-$ipConfig = New-AzureRmVmssIpConfig -Name "myIPConfig" -LoadBalancerBackendAddressPoolsId $lb.BackendAddressPools[0].Id ` -SubnetId $vnet.Subnets[0].Id
+$subnet = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name "mySubnet" `
+  -AddressPrefix 10.0.0.0/24
+$vnet = New-AzureRmVirtualNetwork `
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -Name "myVnet" `
+  -Location "westus" `
+  -AddressPrefix 10.0.0.0/16 `
+  -Subnet $subnet
+$ipConfig = New-AzureRmVmssIpConfig `
+  -Name "myIPConfig" `
+  -LoadBalancerBackendAddressPoolsId $lb.BackendAddressPools[0].Id ` `
+  -SubnetId $vnet.Subnets[0].Id
 
 # Attach the virtual network to the config object
-Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmssConfig -Name "network-config" -Primary $true -IPConfiguration $ipConfig
+Add-AzureRmVmssNetworkInterfaceConfiguration `
+  -VirtualMachineScaleSet $vmssConfig `
+  -Name "network-config" `
+  -Primary $true `
+  -IPConfiguration $ipConfig
 
 # Create the scale set with the config object (this step might take a few minutes)
-New-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet -Name myScaleSet -VirtualMachineScaleSet $vmssConfig     
+New-AzureRmVmss `
+  -ResourceGroupName myResourceGroupScaleSet `
+  -Name myScaleSet `
+  -VirtualMachineScaleSet $vmssConfig     
 ```
 
 It takes a few minutes to create and configure all the scale set resources and VMs.
@@ -149,7 +179,12 @@ Throughout the lifecycle of the scale set, you may need to run one or more manag
 To view a list of VMs running in your scale set, use [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) as follows:
 
 ```powershell
-$scaleset = Get-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet -VMScaleSetName myScaleSet
+# Get current scale set
+$scaleset = Get-AzureRmVmss `
+  -ResourceGroupName myResourceGroupScaleSet `
+  -VMScaleSetName myScaleSet
+
+# Loop through the instanaces in your scale set
 for ($i=0; $i -le ($set.Sku.Capacity - 1); $i++) {
     Get-AzureRmVmssVM -ResourceGroupName myResourceGroupScaleSet `
       -VMScaleSetName myScaleSet `
@@ -170,7 +205,12 @@ Get-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
 You can then manually increase or decrease the number of virtual machines in the scale set with [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). The following example sets the number of VMs in your scale set to `5`:
 
 ```powershell
-$scaleset = Get-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet -VMScaleSetName myScaleSet
+# Get current scale set
+$scaleset = Get-AzureRmVmss `
+  -ResourceGroupName myResourceGroupScaleSet `
+  -VMScaleSetName myScaleSet
+
+# Set and update the capacity of your scale set
 $scaleset.sku.capacity = 5
 Update-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
     -Name myScaleSet `
@@ -184,12 +224,15 @@ If takes a few minutes to update the specified number of instances in your scale
 Rather than manually scaling the number of instances in your scale set, you define autoscale rules. These rules monitor the instances in your scale set and respond accordingly based on metrics and thresholds you define. The following example scales out the number of instances by one when the average CPU load is greater than 60% over a 5 minute period. If the average CPU load then drops below 30% over a 5 minute period, the instances are scaled in by one instance:
 
 ```powershell
+# Define your scale set information
 $mySubscriptionId = (Get-AzureRmSubscription).SubscriptionId
 $myResourceGroup = "myResourceGroupScaleSet"
 $myScaleSet = "myScaleSet"
 $myLocation = "West US"
 
-$myRuleScaleUp = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" `
+# Create a scale up rule to increase the number instances after 60% average CPU usage exceeded for a 5 minute period
+$myRuleScaleUp = New-AzureRmAutoscaleRule `
+  -MetricName "Percentage CPU" `
   -MetricResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
   -Operator GreaterThan `
   -MetricStatistic Average `
@@ -199,7 +242,10 @@ $myRuleScaleUp = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" `
   -ScaleActionCooldown 00:05:00 `
   -ScaleActionDirection Increase `
   -ScaleActionValue 1
-$myRuleScaleDown = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" `
+
+# Create a scale down rule to decrease the number of instances after 30% average CPU usage over a 5 minute period
+$myRuleScaleDown = New-AzureRmAutoscaleRule `
+  -MetricName "Percentage CPU" `
   -MetricResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
   -Operator LessThan `
   -MetricStatistic Average `
@@ -209,12 +255,18 @@ $myRuleScaleDown = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" `
   -ScaleActionCooldown 00:05:00 `
   -ScaleActionDirection Decrease `
   -ScaleActionValue 1
-$myScaleProfile = New-AzureRmAutoscaleProfile -DefaultCapacity 2  `
+
+# Create a scale profile with your scale up and scale down rules
+$myScaleProfile = New-AzureRmAutoscaleProfile `
+  -DefaultCapacity 2  `
   -MaximumCapacity 10 `
   -MinimumCapacity 2 `
   -Rules $myRuleScaleUp,$myRuleScaleDown `
   -Name "autoprofile"
-Add-AzureRmAutoscaleSetting -Location $myLocation `
+
+# Apply the autoscale rules
+Add-AzureRmAutoscaleSetting `
+  -Location $myLocation `
   -Name "autosetting" `
   -ResourceGroup $myResourceGroup `
   -TargetResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
