@@ -235,7 +235,7 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
             </td>
             <td width="204" valign="top">
                 <p>
-                    Currently there is no support for UDFs.
+                    UDFs can be written in JavaScript.
                 </p>
             </td>
             <td width="246" valign="top">
