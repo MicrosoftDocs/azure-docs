@@ -12,7 +12,7 @@
 ##[Integrate On-premises data gateway](analysis-services-gateway.md)
 ##[Connect with Excel](analysis-services-connect-excel.md)
 ##[Connect with Power BI](analysis-services-connect-pbi.md)
-##[Data providers](analysis-services-data-providers.md)
+##[Get client libraries](analysis-services-data-providers.md)
 ##[Backup and restore](analysis-services-backup.md)
 ##[High availability](analysis-services-bcdr.md)
 ##[Datasource connections](analysis-services-datasource.md)
