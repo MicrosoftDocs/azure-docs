@@ -2,20 +2,17 @@
 title: 'Quickstart: Create an Azure Database for MySQL server - Azure CLI | Microsoft Docs'
 description: This quickstart describes how to use the Azure CLI to create an Azure Database for MySQL server in an Azure resource group.
 services: mysql
-documentationcenter: 
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
 editor: jasonh
-
 ms.assetid: 
 ms.service: mysql-database
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: portal
 ms.workload:
-ms.date: 04/19/2017
-ms.custom: quick start connect
+ms.date: 05/10/2017
 ---
 
 # Create a MySQL server using Azure CLI
@@ -34,8 +31,6 @@ az login
 ```
 Follow the command prompt instructions to open URL https://aka.ms/devicelog in in your browser, and then enter the code generated in the **command prompt**.
 
-![Log in to Azure through Azure CLI](./media/mysql-quickstart-create-mysql-server-database-using-azure-cli/1_az-login.png)
-
 ## Create a resource group
 Create an [Azure resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) with [az group create](https://docs.microsoft.com/cli/azure/group#create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group.
 
@@ -44,9 +39,6 @@ The following example creates a resource group named `mycliresource` in the `wes
 ```azurecli
 az group create --name mycliresource --location westus
 ```
-
-![Create an Azure resource group from Azure CLI](./media/mysql-quickstart-create-mysql-server-database-using-azure-cli/2_az-group-create.png)
-
 ## Create an Azure Database for MySQL server
 Create an Azure Database for MySQL server with the az mysql server create command. A server can manage multiple databases. Typically, a separate database is used for each project or for each user.
 
@@ -70,13 +62,6 @@ az mysql server firewall-rule create --resource-group mycliresource
 --server mycliserver --name AllowYourIP --start-ip-address 0.0.0.0
 --end-ip-address 255.255.255.255
 ```
-
-![Create a firewall rule in Azure Database for MySQL using Azure CLI](./media/mysql-quickstart-create-mysql-server-database-using-azure-cli/5_az-mysql-server-firewall-rule-create.png)
-
 ## Next steps
--   For a complete list of currently supported Azure CLI 2.0 commands, see [Azure CLI 2.0: Command reference -    az](https://docs.microsoft.com/en-us/cli/azure/).
--   To create a database in your new Azure Database for MySQL server using **mysql** command-line tool, see [Create an Azure Database for MySQL](placeholder.md).
+-   For a complete list of currently supported Azure CLI 2.0 commands, see [Azure CLI 2.0: Command reference - az](https://docs.microsoft.com/en-us/cli/azure/).
 -   To connect and query using **mysql** command-line tool, see [Connect and query with mysql command-line tool](mysql-quickstart-connect-query-using-mysql.md).
--   To connect and query using MySQL Workbench, see [Connect and query with Workbench](placeholder.md).
--   To migrate data from an existing PostgreSQL database, see [Migrate data](placeholder.md).
--   For a technical overview of Azure Database for MySQL, see [About Azure Database for MySQL](placeholder.md).
