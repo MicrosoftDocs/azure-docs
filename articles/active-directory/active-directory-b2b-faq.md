@@ -84,8 +84,8 @@ Yes. Here are details to keep in mind for self-service password reset (SSPR) for
 ### Is password reset available for users in a viral tenant?
 No.
 
-### Does Microsoft CRM provide online support for Azure AD B2B collaboration?
-Currently, Microsoft CRM does not provide online support for Azure AD B2B collaboration. However, we plan to support this in the future.
+### Does Microsoft Dynamics CRM provide online support for Azure AD B2B collaboration?
+Currently, Microsoft Dynamics CRM does not provide online support for Azure AD B2B collaboration. However, we plan to support this in the future.
 
 ### What is the lifetime of an initial password for a newly created B2B collaboration user?
 Azure AD has a fixed set of character, password strength, and account lockout requirements that apply equally to all Azure AD cloud user accounts. Cloud user accounts are accounts that are not federated with another identity provider, like a Microsoft account, Facebook, Active Directory Federation Services, or even another cloud tenant (for B2B collaboration). For federated accounts, password policy depends on the policy that is applied in the on-premises tenancy and the user's Microsoft account settings.
