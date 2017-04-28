@@ -203,11 +203,11 @@ Go to your Jenkins instance in a web browser and click on your **HelloWorld** jo
     - Under the **Docker command** drop-down menu, select **Create container**
     - In the **Image name** box, enter `helloworld`
     - In the **Command** box, enter `nodejs /var/www/nodejs-docs-hello-world/index.js`
+    - In the **Container name** box, enter `helloworld`
     - Click the **Advanced** button in the **Port bindins** box enter `1337:1337`
 - Click **Add build step**, select **Execute Docker command**
     - Under the **Docker command** drop-down menu, select **Start container(s)**
-    - In the **IContainer ID(s)** box, enter `helloworld`
-    - Click the **Advanced** button and check the box for **Ignore if not found**
+    - In the **Container ID(s)** box, enter `helloworld`
 
 
 ## Test your pipeline
