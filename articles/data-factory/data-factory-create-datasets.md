@@ -19,7 +19,7 @@ ms.author: shlo
 
 ---
 # Datasets in Azure Data Factory
-This article describes datasets in Azure Data Factory, and includes several examples to show how they work in different types of databases.
+This article describes what datasets are, how they are defined in JSON format, and how they are used in Azure Data Factory pipelines. It provides details about each section (for example, structure, availability, and policy) in the dataset JSON definition. The article also provides examples for using the **offset**, **anchorDateTime**, and **style** properties in a dataset JSON definition.
 
 > [!NOTE]
 > If you are new to Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md) for an overview. If you do not have hands-on experience with creating data factories, you can gain a better understanding by reading the [data transformation tutorial](data-factory-build-your-first-pipeline.md), and the [data movement tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
@@ -275,7 +275,7 @@ The **policy** section in the dataset definition defines the criteria or the con
 ### Validation policies
 | Policy name | Description | Applied to | Required | Default |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB |Validates that the data in **Blob storage** meets the minimum size requirements (in megabytes). |Blob storage |No |NA |
+| minimumSizeMB |Validates that the data in **Azure Blob storage** meets the minimum size requirements (in megabytes). |Azure Blob storage |No |NA |
 | minimumRows |Validates that the data in an **Azure SQL database** or an **Azure table** contains the minimum number of rows. |<ul><li>Azure SQL database</li><li>Azure table</li></ul> |No |NA |
 
 #### Examples
