@@ -42,9 +42,9 @@
 ### [Transaction processing](service-bus-transactions.md)
 ### [Diagnostic logs](service-bus-diagnostic-logs.md)
 ### AMQP
+#### [AMQP overview](service-bus-amqp-overview.md)
 #### [.NET](service-bus-amqp-dotnet.md)
 #### [Java](service-bus-amqp-java.md)
-#### [AMQP overview](service-bus-amqp-overview.md)
 #### [Java Message Service and AMQP](service-bus-java-how-to-use-jms-api-amqp.md)
 #### [AMQP protocol guide](service-bus-amqp-protocol-guide.md)
 #### [AMQP request-response-based operations](service-bus-amqp-request-response.md)
