@@ -55,7 +55,7 @@ mkdir SampleWebApp
 cd SampleWebApp
 dotnet new mvc
 ```
-![dotnet CLI - ASP.NET Core generator](./media/web-sites-create-web-app-using-vscode/01-yo-aspnet.png)
+![dotnet CLI - ASP.NET Core generator](./media/web-sites-create-web-app-using-vscode/aspnetcore-mvc-01.png)
 
 2. To install the necessary NuGet packages to run the application, enter the following command:
    
