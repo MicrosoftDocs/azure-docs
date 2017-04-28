@@ -1,7 +1,7 @@
 ---
-title: Backup Azure Linux VMs | Microsoft Docs'
-description: Protect your Linux VMs by backing them up using Azure Backup.
-services: virtual-machines-linux
+title: Backup Azure Windows VMs | Microsoft Docs'
+description: Protect your Windows VMs by backing them up using Azure Backup.
+services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: timlt
@@ -9,7 +9,7 @@ editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid: 
-ms.service: virtual-machines-linux
+ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
@@ -17,20 +17,19 @@ ms.workload: infrastructure
 ms.date: 04/26/2017
 ms.author: cynthn
 ---
-# Back up Linux  virtual machines in Azure
+# Back up Windos virtual machines in Azure
 
 ## Backup overview
 
-When the Azure Backup service initiates a backup job at the scheduled time, it triggers the backup extension to take a point-in-time snapshot. The Azure Backup service uses the _VMSnapshotLinux_ extension in Linux. The extension is installed during the first VM backup if the VM is running. If the VM is not running, the Backup service takes a snapshot of the underlying storage (since no application writes occur while the VM is stopped).
 
-Backing up and restoring business critical data is complicated by the fact that business critical data must be backed up while the applications that produce the data are running. To ensure application consistency when backing up Linux VMs, create custom pre-scripts and post-scripts that control the backup workflow and environment. Azure Backup invokes the pre-script before taking the VM snapshot and invokes the post-script once the VM snapshot job completes. For more details, see [application consistent VM backups using pre-script and post-script](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). If the pre-script and post-scripts execute successfully, Azure Backup marks the recovery point as application consistent. However, the customer is ultimately responsible for the application consistency when using custom scripts.
+## How does Azure back up virtual machines?
+When the Azure Backup service initiates a backup job at the scheduled time, it triggers the backup extension to take a point-in-time snapshot. The Azure Backup service uses the _VMSnapshot_ extension. The extension is installed during the first VM backup if the VM is running. If the VM is not running, the Backup service takes a snapshot of the underlying storage (since no application writes occur while the VM is stopped).
 
-Once the Azure Backup service takes the snapshot, the data is transferred to the vault. To maximize efficiency, the service identifies and transfers only the blocks of data that have changed since the previous backup.
+When taking a snapshot of Windows VMs, the Backup service coordinates with the Volume Shadow Copy Service (VSS) to get a consistent snapshot of the virtual machine's disks. Once the Azure Backup service takes the snapshot, the data is transferred to the vault. To maximize efficiency, the service identifies and transfers only the blocks of data that have changed since the previous backup.
 
 ![Azure virtual machine backup architecture](./media/backup-azure-vms-introduction/vmbackup-architecture.png)
 
 When the data transfer is complete, the snapshot is removed and a recovery point is created.
-
 
 This table explains the types of consistency and the conditions that they occur under during Azure VM backup and restore procedures.
 
