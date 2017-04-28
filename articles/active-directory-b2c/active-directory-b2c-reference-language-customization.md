@@ -72,7 +72,7 @@ If you are looking to change the string for a custom user attribute, or want to 
       "StringId": "DisplayName",
       "Value": "<ExtensionAttributeValue>"
     }
-    .[..]
+    [...]
 }
 ```
 
