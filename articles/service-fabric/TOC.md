@@ -3,6 +3,7 @@
 ## [What is Service Fabric?](service-fabric-overview.md)
 ## [Understand microservices](service-fabric-overview-microservices.md)
 ## [Application scenarios](service-fabric-application-scenarios.md)
+## [Patterns and scenarios](service-fabric-patterns-and-scenarios.md)
 ## [Architecture](service-fabric-architecture.md)
 ## [Terminology](service-fabric-technical-overview.md)
 ## [Primer](service-fabric-content-roadmap.md)
@@ -21,10 +22,6 @@
 ## [Create your first standalone cluster](service-fabric-get-started-standalone-cluster.md)
 
 # How To
-## Learn patterns and scenarios
-### [Patterns and scenarios](service-fabric-patterns-and-scenarios.md)
-### [Cluster networking patterns](service-fabric-patterns-networking.md)
-
 ## Build an application
   
 ### Concepts
@@ -36,6 +33,11 @@
 #### [Availability of services](service-fabric-availability-services.md)
 #### [Scalability of applications](service-fabric-concepts-scalability.md)
 #### [Service communication](service-fabric-connect-and-communicate-with-services.md)
+#### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
+#### Migrate from Cloud Services
+##### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
+##### [Migrate to Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
+##### [Recomended practices](/azure/architecture/service-fabric/migrate-from-cloud-services)
 
 ### [Plan app capacity](service-fabric-capacity-planning.md)
 
@@ -69,7 +71,6 @@
 ##### [Communicate with Reliable Services](service-fabric-reliable-services-communication.md)
 ##### [Service Remoting - C#](service-fabric-reliable-services-communication-remoting.md)
 ##### [Service Remoting - Java](service-fabric-reliable-services-communication-remoting-java.md)
-##### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
 ##### [Secure communications - C#](service-fabric-reliable-services-secure-communication.md)
 ##### [Secure communications - Java](service-fabric-reliable-services-secure-communication-java.md)
@@ -98,12 +99,7 @@
 
 ### [Add a web front end](service-fabric-add-a-web-frontend.md)
 
-### Migrate from Cloud Services
-#### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
-#### [Migrate to Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
-#### [Recomended practices](/azure/architecture/service-fabric/migrate-from-cloud-services)
-
-### IDE stuff...
+### Work in an IDE
 #### [Get started with Eclipse plugin for Java development](service-fabric-get-started-eclipse.md)
 #### [Manage apps in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 #### [Configure secure connections in Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
@@ -141,20 +137,20 @@
 #### [Data serialization in application upgrades](service-fabric-application-upgrade-data-serialization.md)
 #### [Application upgrades advanced topics](service-fabric-application-upgrade-advanced.md)
 
+### Test applications and services
+#### [Fault Analysis overview](service-fabric-testability-overview.md)
+#### [Test service-to-service communication](service-fabric-testability-scenarios-service-communication.md)
+#### Simulate failures
+##### [Using controlled Chaos](service-fabric-controlled-chaos.md)
+##### [Using Test actions](service-fabric-testability-actions.md)
+##### [During workloads](service-fabric-testability-workload-tests.md)
+##### [Using Test scenarios](service-fabric-testability-scenarios.md)
+##### [Using the node transition APIs](service-fabric-node-transition-apis.md)
+#### [Load test your application](service-fabric-vso-load-test.md)
+
 ### Set up continuous integration
 #### [Set up continuous integration with VSTS](service-fabric-set-up-continuous-integration.md)
 #### [Deploy your Linux Java app using Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
-
-## Test applications and services
-### [Fault Analysis overview](service-fabric-testability-overview.md)
-### [Test service-to-service communication](service-fabric-testability-scenarios-service-communication.md)
-### Simulate failures
-#### [Using controlled Chaos](service-fabric-controlled-chaos.md)
-#### [Using Test actions](service-fabric-testability-actions.md)
-#### [During workloads](service-fabric-testability-workload-tests.md)
-#### [Using Test scenarios](service-fabric-testability-scenarios.md)
-#### [Using the node transition APIs](service-fabric-node-transition-apis.md)
-### [Load test your application](service-fabric-vso-load-test.md)
 
 ## Create and manage clusters
 
@@ -168,11 +164,10 @@
 #### [Capacity planning](service-fabric-cluster-capacity.md)
 #### [Disaster recovery](service-fabric-disaster-recovery.md)
 
-### [Visualize a cluster](service-fabric-visualizing-your-cluster.md)
-
 ### Clusters on Azure
 #### Concepts
 ##### [Node types and VM Scale Sets](service-fabric-cluster-nodetypes.md)
+##### [Cluster networking patterns](service-fabric-patterns-networking.md)
 #### Create 
 ##### [Azure portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
@@ -199,6 +194,7 @@
 #### [Configure](service-fabric-cluster-manifest.md)
 #### [Upgrade](service-fabric-cluster-upgrade-windows-server.md) 
 
+### [Visualize a cluster](service-fabric-visualizing-your-cluster.md)
 ### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
 
 ### [Manage a cluster using Azure CLI](service-fabric-azure-cli.md)
