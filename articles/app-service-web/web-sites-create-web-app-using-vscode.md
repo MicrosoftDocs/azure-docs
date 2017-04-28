@@ -36,42 +36,13 @@ ASP.NET Core is a significant redesign of ASP.NET. ASP.NET Core is a new open-so
 * Install Git - You can install it from either of these locations: [Chocolatey](https://chocolatey.org/packages/git) or [git-scm.com](http://git-scm.com/downloads). If you are new to Git, choose [git-scm.com](http://git-scm.com/downloads) and select the option to **Use Git from the Windows Command Prompt**. Once you install Git, you'll also need to set the Git user name and email as it's required later in the tutorial (when performing a commit from VS Code).  
 
 ## Install ASP.NET Core and DNX
-ASP.NET Core/DNX (the .NET Execution Environment) is a lean .NET stack for building modern cloud and web apps that run on OS X, Linux, and Windows. It has been built from the ground up to provide an optimized development framework for apps that are either deployed to the cloud or run on-premises. It consists of modular components with minimal overhead, so you retain flexibility while constructing your solutions.
+ASP.NET Core is a lean .NET stack for building modern cloud and web apps that run on OS X, Linux, and Windows. It has been built from the ground up to provide an optimized development framework for apps that are either deployed to the cloud or run on-premises. It consists of modular components with minimal overhead, so you retain flexibility while constructing your solutions.
 
-This tutorial is designed to get you started building applications with the latest development versions of ASP.NET Core and DNX. The following instructions are specific to Windows. For more detailed installation instructions for OS X, Linux, and Windows, see [Installing ASP.NET Core and DNX](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx). 
+This tutorial is designed to get you started building applications with the latest development versions of ASP.NET Core. The following instructions are specific to Windows. For more detailed installation instructions for OS X, Linux, and Windows, see [Installing ASP.NET Core](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx). 
 
-1. To install .NET Version Manager (DNVM) in Windows, open a command prompt, and run the following command.
-   
-        @powershell -NoProfile -ExecutionPolicy unrestricted -Command "&{$Branch='dev';iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))}"
-   
-    This will download the DNVM script and put it in your user profile directory. 
-2. **Restart Windows** to complete the DNVM installation. 
-   
-    After you have restarted Windows, you can open the command prompt to verify the location of DNVM by entering the following:
-   
-        where dnvm
-   
-    The command prompt will show a path similar to the following.
-   
-    ![dnvm location](./media/web-sites-create-web-app-using-vscode/00-where-dnvm.png)
-3. Now that you have DNVM, you must use it to download DNX to run your applications. Run the following at the command prompt:
-   
-        dnvm upgrade
-   
-    Verify your DNVM, and view the active runtime by entering the following at the command prompt:
-   
-        dnvm list
-   
-    The command prompt will show the details of the active runtime.
-   
-    ![DNVM location](./media/web-sites-create-web-app-using-vscode/00b-dnvm-list.png)
-   
-    If more than one DNX runtime is listed, you can choose to enter the following (or a more recent version) at the command prompt to set the active DNX runtime. Set it to the same version that is used by the ASP.NET Core generator when you create your web app later in this tutorial. *You may not need to change the active runtime if it is set to the latest available.*
-   
-        dnvm use 1.0.0-update1 –p
 
 > [!NOTE]
-> For more detailed installation instructions for OS X, Linux, and Windows, see [Installing ASP.NET Core and DNX](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx). 
+> For more detailed installation instructions for OS X, Linux, and Windows, see [Installing ASP.NET Core](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx). 
 > 
 > 
 
