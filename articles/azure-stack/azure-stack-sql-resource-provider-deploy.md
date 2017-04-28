@@ -123,7 +123,7 @@ Invoke-Webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip -
 Expand-Archive master.zip -DestinationPath . -Force
 
 Import-Module C:\AzureStack-Tools-master\Connect\AzureStack.Connect.psm1
-$aadTenant = Get-AADTenantGUID -AADTenantName "<your directory name>"  
+$aadTenant = Get-DirectoryTenantID -AADTenantName "<your directory name>"  
 
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
