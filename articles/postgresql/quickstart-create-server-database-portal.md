@@ -94,22 +94,22 @@ Let's now use the psql command line utility to connect to the Azure Database for
 2. This enables a bash shell experience in your browser.
 ![Azure Database for PostgreSQL - Azure Console Bash Prompt](./media/postgresql-quickstart-create-database-portal/8-bash.png)
 3. At the Cloud Console prompt, connect to your Azure Database for PostgreSQL server using the psql commands. The following format is used to connect to an Azure Database for PostgreSQL server with the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility:
-```dos
+```bash
 psql --host=<myserver> --port=<port> --username=<server admin login> --password --dbname=<database name>
 ```
 
   For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mypgserver-20170401.postgres.database.azure.com** using access credentials.
       
-  ```dos
+  ```bash
 psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --password --dbname=postgres
 ```
 4.  Once you're connected to the server, create a blank database at the prompt.
-```dos
+```bash
 CREATE DATABASE mypgsqldb;
 ```
 
 5.  At the prompt, execute the following command to switch connection to the newly created database **mypgsqldb**.
-```dos
+```bash
 \c mypgsqldb
 ```
 
