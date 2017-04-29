@@ -22,8 +22,8 @@ ms.author: aedwin
 
 The Price Sheet API provides the applicable rate for each Meter for the given Enrollment and Billing Period?
 
-##Request 
-Common header properties that need to be added are specified [here](billing-enterprise-api.md). If a billing period is not specified, then data for the current billing period is returned. 
+##Request
+Common header properties that need to be added are specified [here](billing-enterprise-api.md). If a billing period is not specified, then data for the current billing period is returned.
 
 |Method | Request URI|
 |-|-|
@@ -31,7 +31,7 @@ Common header properties that need to be added are specified [here](billing-ente
 
 
 ## Response
- 
+
 	{
   		[
     		{
@@ -61,23 +61,22 @@ Common header properties that need to be added are specified [here](billing-ente
 **Response property definitions**
 
 |Property Name| Type| Description
-|-|-|
-|id| string| The unique Id that represents a particular PriceSheet item (meter by billing period)
-|billingPeriodId| string| Unique Id representing the 
-|meterName| datetime| The meter name. 
-|unitOfMeasure| string| The Unit of Measure for measuring the service
-|includedQuantity| decimal| Quantity that is included in 
-|partNumber| string| 
-|unitPrice| decimal| The URL path that routes to the PriceSheet data for this period
-|currencyCode| string| The currency code for the unitPrice.
+|-|-|-|
+|id| string| The unique Id that represents a particular PriceSheet item (meter by billing period)|
+|billingPeriodId| string| Unique Id representing the
+|meterName| datetime| The meter name.|
+|unitOfMeasure| string| The Unit of Measure for measuring the service|
+|includedQuantity| decimal| Quantity that is included |
+|partNumber| string| The part number associated with the Meter|
+|unitPrice| decimal| The URL path that routes to the PriceSheet data for this period|
+|currencyCode| string| The currency code for the unitPrice|
 <br/>
 ## See Also
 
 * [Billing Periods API](billing-enterprise-api-billing-periods.md)
 
-* [Usage Detail API](billing-enterprise-api-usage-detail.md) 
+* [Usage Detail API](billing-enterprise-api-usage-detail.md)
 
 * [Balance and Summary API](billing-enterprise-api-balance-summary.md)
 
-* [Marketplace Store Charge API](billing-enterprise-api-marketplace-storecharge.md) 
-
+* [Marketplace Store Charge API](billing-enterprise-api-marketplace-storecharge.md)
