@@ -99,3 +99,7 @@ The security alerts feature requires that the Azure security center pricing tier
 Once enabled, the security alerts graph begins to populate if security threats are detected.
 
 ![Security Alerts](./media/tutorial-azure-security/security-alerts.png)
+
+Select an alert to view information such as a description of the threat, detection time, threat attempts, and recommended remediation. In this example, an RDP brute force attack was detected with 294 failed RDP attempts.
+
+![RDP Attack](./media/tutorial-azure-security/rdp-attack.png)
