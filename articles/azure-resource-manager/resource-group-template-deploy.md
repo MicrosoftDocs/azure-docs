@@ -19,18 +19,25 @@ ms.author: tomfitz
 ---
 # Deploy resources with Resource Manager templates and Azure PowerShell
 
-This topic explains how to use Azure PowerShell with Resource Manager templates to deploy your resources to Azure. The Resource Manager template you deploy can either be a local file on your machine, or an external file that is located in a repository like GitHub. If you are not familiar with Resource Manager, see [Azure Resource Manager overview](resource-group-overview.md) to learn about deploying and managing your Azure solutions.
+This topic explains how to use Azure PowerShell with Resource Manager templates to deploy your resources to Azure. The Resource Manager template you deploy can either be a local file on your machine, or an external file that is located in a repository like GitHub. If you are not familiar with the concepts of deploying and managing your Azure solutions, see [Azure Resource Manager overview](resource-group-overview.md).
 
-You can get the template (storage.json) used in these examples from the [Create your first Azure Resource Manager template](resource-manager-create-first-template.md#final-template) article. To use the template with these examples, create a JSON file and add the copied content.
+The examples in this article deploy resources to a resource group in your default subscription. To use a different subscription, see [Manage multiple Azure subscriptions](/powershell/azure/manage-subscriptions-azureps). You can get the template (storage.json) used in these examples from the [Create your first Azure Resource Manager template](resource-manager-create-first-template.md#final-template) article. To use the template with these examples, create a JSON file and add the copied content.
 
 [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install.md)]
 
 <a id="deploy-local-template" />
 
 ## Deploy a template from your local machine
-When deploying resources to Azure, you first create a resource group that serves as the container for the deployed resources. Then, you deploy the template that defines the resources to create. A template can include parameters that enable you to customize the deployment. Through parameters, you provide values that are tailored for a particular environment (such as dev, test, and production). If your template provides parameters, you pass in values for those parameters during deployment. To understand how to define parameters in your template, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
 
-The following example prompts you to log in to Azure, and creates a resource group in your default subscription. To use a different subscription, see [Manage multiple Azure subscriptions](/powershell/azure/manage-subscriptions-azureps). The example deploys a template from your local machine that creates a storage account. It includes template parameters for specifying the type storage account to create, and setting a name prefix.  
+When deploying resources to Azure, you:
+
+1. Log in to your Azure account
+2. Create a resource group that serves as the container for the deployed resources
+3. Deploy the template that defines the resources to create
+
+A template can include parameters that enable you to customize the deployment. Through parameters, you provide values that are tailored for a particular environment (such as dev, test, and production). If your template provides parameters, you pass in values for those parameters during deployment. To understand how to define parameters in your template, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
+
+The following example prompts you to log in to Azure, creates a resource group, and deploys a template from your local machine. It includes template parameters to specify the type storage account to create, and set a name prefix.  
 
 ```powershell
 Login-AzureRmAccount
