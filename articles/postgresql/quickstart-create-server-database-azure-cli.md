@@ -79,25 +79,25 @@ Make a note of the **fullyQualifiedDomainName** and **administratorLogin**.
 
 ## Connect to Azure Database for PostgreSQL using psql
 
-Let's now use the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) command line utility to connect to the Azure PostgreSQL server.
+If your client computer has PostgreSQL installed, you can use a local instance of [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) to connect to a Azure PostgreSQL server. Let's now use the psql command line utility to connect to the Azure PostgreSQL server.
 
 1. Run the following psql command to connect to an Azure Database for PostgreSQL server
 ```dos
 psql --host=--host=<servername> --port=<port> --username=<user@servername> --password --dbname=<dbname>
 ```
 
-   For example, the following command connects to the default database called `postgres` on your PostgreSQL server `mypgserver-20170401.postgres.database.azure.com` using the obtaind access credentials:
+  For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mypgserver-20170401.postgres.database.azure.com** using access credentials.
   
-    ```dos
-    psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --password --dbname=postgres
-    ```
+  ```dos
+psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --password --dbname=postgres
+```
 
 2.  Once you're connected to the server, create a blank database at the prompt.
 ```dos
 CREATE DATABASE mypgsqldb;
 ```
 
-3.  At the prompt, execute the following command to switch connection to the newly created database **mypgsqldb**:
+3.  At the prompt, execute the following command to switch connection to the newly created database **mypgsqldb**
 ```dos
 \c mypgsqldb
 ```

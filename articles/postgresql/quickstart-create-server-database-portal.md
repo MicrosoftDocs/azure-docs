@@ -35,14 +35,14 @@ Follow these steps to create an Azure Database for PostgreSQL server:
  ![Azure Database for PostgreSQL - Create the database](./media/postgresql-quickstart-create-database-portal/1-create-database.png)
 
 3.	Fill out the Azure Database for PostgreSQL form with the following information, as shown on the preceding image:
-    - Server name: **mypgserver-20170401**
-   > [!IMPORTANT] 
-   > Name of a server maps to DNS name and is thus required to be globally unique.
-
+    - Server name: **mypgserver-20170401** (a globally unique server name) 
     - Resource group: **myresourcegroup**
     - Server admin login and password of your choice
     - Location
     - PostgreSQL Version
+
+   > [!IMPORTANT] 
+   > Name of a server maps to DNS name and is thus required to be globally unique.
 4.	Click **Pricing tier** to specify the service tier and performance level for your new database. For this quick start, select **200 Compute Units** and **125** GB of included storage.
  ![Azure Database for PostgreSQL - pick the service tier](./media/postgresql-quickstart-create-database-portal/2-service-tier.png)
 5.	Click **Ok**.
@@ -98,18 +98,17 @@ Let's now use the psql command line utility to connect to the Azure Database for
 psql --host=<myserver> --port=<port> --username=<server admin login> --password --dbname=<database name>
 ```
 
-  For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mypgserver-20170401.postgres.database.azure.com** using access credentials:
+  For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mypgserver-20170401.postgres.database.azure.com** using access credentials.
       
-   ```dos
-   psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --password --dbname=postgres
-   ```
-
+  ```dos
+psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --password --dbname=postgres
+```
 4.  Once you're connected to the server, create a blank database at the prompt.
 ```dos
 CREATE DATABASE mypgsqldb;
 ```
 
-5.  At the prompt, execute the following command to switch connection to the newly created database **mypgsqldb**:
+5.  At the prompt, execute the following command to switch connection to the newly created database **mypgsqldb**.
 ```dos
 \c mypgsqldb
 ```
