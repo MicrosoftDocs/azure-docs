@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory B2C: Adding AAD provider using custom policies | Microsoft Docs'
+title: 'Azure Active Directory B2C: Adding Azure AD provider using custom policies | Microsoft Docs'
 description: A topic on Azure Active Directory B2C custom policies
 services: active-directory-b2c
 documentationcenter: ''
