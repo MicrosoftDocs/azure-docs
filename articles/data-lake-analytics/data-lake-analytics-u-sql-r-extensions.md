@@ -24,7 +24,7 @@ The following example illustrates the basic steps for deploying R code:
 * Use the REFERENCE ASSEMBLY statement to enable R extensions for the U-SQL Script.
 * Use the REDUCE operation to partition the input data on a key.
 * The R extensions for U-SQL include a built-in reducer (Extension.R.Reducer) that runs R code on each vertex assigned to the reducer. 
-* Usage of dedicated named data frames called inputFromUSQL and outputToUSQL (see examples below) respectively to pass data between USQL and R. Input and output DataFrame identifier names are fixed (i.e. users cannot change these predefined names of input and output DataFrame identifiers).
+* Usage of dedicated named data frames called inputFromUSQL and outputToUSQL respectively to pass data between USQL and R. Input and output DataFrame identifier names are fixed (i.e. users cannot change these predefined names of input and output DataFrame identifiers).
 
 
 --
@@ -65,7 +65,7 @@ The following example illustrates the basic steps for deploying R code:
 ### Datatypes
 * String and numeric columns from U-SQL are converted as-is between R DataFrame and U-SQL [supported types: double, string, bool, integer, byte].
 * Factor datatype is not supported in U-SQL.
-* byte[] needs to be serialized into base 64 encoded strings.
+* byte[] must be serialized as a base64-encoded string.
 * U-SQL strings can be converted to factors in R code, once U-SQL create R input dataframe or by setting the reducer parameter stringsAsFactors: true.
 
 ### Schemas
