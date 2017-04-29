@@ -17,20 +17,18 @@ ms.author: awills
 
 ---
 # Monitor availability and responsiveness of any web site
-After you've deployed your web app or web site to any server, you can set up web tests to monitor its availability and responsiveness. [Azure Application Insights](app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It alerts you if your application doesn't respond, or responds slowly.
+After you've deployed your web app or web site to any server, you can set up tests to monitor its availability and responsiveness. [Azure Application Insights](app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It alerts you if your application doesn't respond, or responds slowly.
 
-![Web test example](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
+You can set up availability tests for any HTTP or HTTPS endpoint that is accessible from the public internet. You don't have to add anything to the web site you're testing. It doesn't even have to be your site: you could test a REST API service on which you depend.
 
-You can set up web tests for any HTTP or HTTPS endpoint that is accessible from the public internet. You don't have to add anything to the web site you're testing. It doesn't even have to be your site: you could test a REST API service on which you depend.
-
-There are two types of web test:
+There are two types of availability tests:
 
 * [URL ping test](#create): a simple test that you can create in the Azure portal.
 * [Multi-step web test](#multi-step-web-tests): which you create in Visual Studio Enterprise and upload to the portal.
 
-You can create up to 10 web tests per application resource.
+You can create up to 25 availability tests per application resource.
 
-## <a name="create"></a>1. Open a resource for your web test reports
+## <a name="create"></a>1. Open a resource for your availability test reports
 
 **If you have already configured Application Insights** for your web app, open its Application Insights resource in the [Azure portal](https://portal.azure.com).
 
@@ -41,7 +39,7 @@ You can create up to 10 web tests per application resource.
 Click **All resources** to open the Overview blade for the new resource.
 
 ## <a name="setup"></a>2. Create a URL ping test
-Open the Availability blade and add a web test.
+Open the Availability blade and add a test.
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
@@ -67,21 +65,30 @@ Open the Availability blade and add a web test.
 Add more tests. For example, as well as testing your home page, you can make sure your database is running by testing the URL for a search.
 
 
-## <a name="monitor"></a>3. See your web test results
+## <a name="monitor"></a>3. See your availability test results
 
 After 5 minutes, click **Refresh** to see test results. 
-
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
+<ToDo update image - this experience is changing to a scatterplot>
 
-Click any bar on the summary chart for a more detailed view of that time period.
+The scatterplot shows a sample of all the test results that have diagnostic test-step detail in them. The engine stores diagnostic detail for tests that have failures. For successful tests, diagnostic details are stored for a subset of the executions. You can click through any green/red dot in the scatter plot to see the step level details.
+
+Select a particular test, location or reduce the time period to see more test results around the time period of interest.
+
+Results from all availability test executions are captured for the 2 Availability metrics in Metrics Explorer: 
+1. Availability: This is the percentage of the tests that were successful, across all test executions. 
+2. Test Duration: This is the average test duration across all test executions.
+
+You can apply filters on the test name, location to analyze trends of a particular test and/or location.
 
 ## <a name="edit"></a> Inspect and edit tests
 
 From the summary page, select a specific test. There, you can see its specific results, and edit or temporarily disable it.
 
 ![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
+<ToDo update image - this experience is changing to a scatterplot>
 
-You might want to disable web tests while you are performing maintenance on your service.
+You might want to disable availability tests or the alert rules associated with them while you are performing maintenance on your service. This can be done programmatically as well <ToDo Add link here>.
 
 
 ## <a name="failures"></a>If you see failures
@@ -90,7 +97,7 @@ Click a red dot.
 ![Click a red dot](./media/app-insights-monitor-web-app-availability/open-instance.png)
 
 
-From a web test result, you can:
+From an availability test result, you can:
 
 * Inspect the response received from your server.
 * Open the telemetry sent by your server app while processing the failed request instance.
@@ -236,7 +243,7 @@ From the Overview blade, open **Settings**, **Performance Tests**. When you crea
 When the test is complete, you are shown response times and success rates.
 
 ## Automation
-* [Use PowerShell scripts to set up a web test](app-insights-powershell.md#add-an-availability-test) automatically.
+* [Use PowerShell scripts to set up an availability test](app-insights-powershell.md#add-an-availability-test) automatically.
 * Set up a [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) that is called when an alert is raised.
 
 ## <a name="qna"></a>Questions? Problems?
@@ -248,7 +255,7 @@ When the test is complete, you are shown response times and success rates.
     We support TLS 1.1 and TLS 1.2.
 * *Is there a difference between "web tests" and "availability tests"?*
 
-    We use the two terms interchangeably.
+    While the two terms may be referenced interchangeably, Availability tests is a more generic term that includes the single URL ping tests in addition to the multi-step web tests.
 * *I'd like to use availability tests on our internal server that runs behind a firewall.*
 
     There are two possible solutions:
