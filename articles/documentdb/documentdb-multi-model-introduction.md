@@ -18,7 +18,7 @@ ms.author: mimig
 
 ---
 
-# Introduction to Azure Cosmos DB: Azure's comprehensive database service
+# Introduction to Azure Cosmos DB
 
 ## What is Cosmos DB?
 
