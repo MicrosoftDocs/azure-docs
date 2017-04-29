@@ -86,7 +86,8 @@ Let's now use the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.htm
 psql --host=--host=<servername> --port=<port> --username=<user@servername> --password --dbname=<dbname>
 ```
 
-    For example, the following command connects to the default database called `postgres` on your PostgreSQL server `mypgserver-20170401.postgres.database.azure.com` using the obtaind access credentials:        
+   For example, the following command connects to the default database called `postgres` on your PostgreSQL server `mypgserver-20170401.postgres.database.azure.com` using the obtaind access credentials:
+  
     ```dos
     psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --password --dbname=postgres
     ```
@@ -143,6 +144,6 @@ az postgres server delete --resource-group myresourcegroup --name mypgserver-201
 ```
 
 ## Next steps
-- Migrate your database using [Export and Import]((./howto-migrate-using-export-and-import.md) or [Dump and Restore](./howto-migrate-using-dump-and-restore.md).
+- Migrate your database using [Export and Import](./howto-migrate-using-export-and-import.md) or [Dump and Restore](./howto-migrate-using-dump-and-restore.md).
 - To create PostgreSQL server via Azure CLI, see [Create PostgreSQL server - portal](./quickstart-create-server-database-portal.md).
 - For a technical overview, see [About the Azure Database for PostgreSQL service](./overview.md).

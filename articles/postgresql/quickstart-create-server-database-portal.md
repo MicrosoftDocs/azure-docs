@@ -38,6 +38,7 @@ Follow these steps to create an Azure Database for PostgreSQL server:
     - Server name: **mypgserver-20170401**
    > [!IMPORTANT] 
    > Name of a server maps to DNS name and is thus required to be globally unique.
+
     - Resource group: **myresourcegroup**
     - Server admin login and password of your choice
     - Location
@@ -97,10 +98,11 @@ Let's now use the psql command line utility to connect to the Azure Database for
 psql --host=<myserver> --port=<port> --username=<server admin login> --password --dbname=<database name>
 ```
 
-    For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mypgserver-20170401.postgres.database.azure.com** using access credentials:        
-    ```dos
-    psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --password --dbname=postgres
-    ```
+  For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mypgserver-20170401.postgres.database.azure.com** using access credentials:
+      
+   ```dos
+   psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --password --dbname=postgres
+   ```
 
 4.  Once you're connected to the server, create a blank database at the prompt.
 ```dos
@@ -152,6 +154,6 @@ If you just would like to delete the newly created server:
 3.	Confirm the server name you want to delete, and show the databases under it that is affected. Type **mypgserver-20170401** in the text box, and then click Delete.
 
 ## Next steps
-- Migrate your database using [Export and Import]((./howto-migrate-using-export-and-import.md) or [Dump and Restore](./howto-migrate-using-dump-and-restore.md).
+- Migrate your database using [Export and Import](./howto-migrate-using-export-and-import.md) or [Dump and Restore](./howto-migrate-using-dump-and-restore.md).
 - To create PostgreSQL server via Azure CLI, see [Create PostgreSQL server - CLI](./quickstart-create-server-database-azure-cli.md).
 - For a technical overview, see [About the Azure Database for PostgreSQL service](./overview.md).
