@@ -17,45 +17,22 @@
 ### .NET 
 <!---[.NET](documentdb-connect-tables-dotnet.md)--->
 
-# Tutorials (Option 1)
-## 1 - Import
+# Tutorials
+## 1 - Create and partition
+## 2 - Import 
 ### [DocumentDB/Table/Graph](documentdb-import-data.md)
 ### [MongoDB](documentdb-mongodb-migrate.md)
-## [2 - Partition and scale](documentdb-partition-data.md)
 ## 3 - Query
 ### [DocumentDB](documentdb-tutorial-query-documentdb.md)
 ### [MongoDB](documentdb-tutorial-query-mongodb.md)
 ### Table
 ### Graph
-## [4 - Index](documentdb-indexing-policies.md)
-## [5 - Tune consistency](documentdb-consistency-levels.md)
-## [6 - Server-side business logic](documentdb-programming.md)
-## [7 - Multi-regions](documentdb-portal-global-replication.md)
-## [8 - Track changes](documentdb-change-feed.md)
-
-# Tutorials (Option 2)
-## DocumentDB
-### 1 - Write your first app 
-#### [.NET](documentdb-get-started.md)
-#### [.NET Core](documentdb-dotnetcore-get-started.md)
-#### [Java](documentdb-java-get-started.md)
-#### [Node.js](documentdb-nodejs-get-started.md)
-#### [C++](documentdb-cpp-get-started.md)
-### 2 - Build a web app
-#### [.NET](documentdb-dotnet-application.md)
-#### [Xamarin](documentdb-mobile-apps-with-xamarin.md)
-#### [Node.js](documentdb-nodejs-application.md)
-#### [Java](documentdb-java-application.md)
-#### [Python Flask](documentdb-python-application.md)
-## MongoDB
-### [1 - Node.js console app](documentdb-mongodb-samples.md)
-### [2 - .NET web app](documentdb-mongodb-application.md)
-## Graph
-### [1 - Gremlin console](documentdb-graph-getting-started-console.md)
-### [1 - .NET](documentdb-connect-graph-dotnet.md)
-## Table
-### .NET
-## Local emulator
+## 4 - Index
+## 5 - Tune consistency
+## 6 - Server-side business logic
+## [7 - Multi-region replication](documentdb-portal-global-replication.md)
+## 8 - Track changes
+## 10 - Develop locally
 ### [1 - Develop locally](documentdb-nosql-local-emulator.md)
 ### [2 - Export certificates](documentdb-nosql-local-emulator-export-ssl-certificates.md)
 
@@ -64,15 +41,16 @@
 ## [Azure PowerShell](documentdb-powershell-samples.md)
 
 # Concepts
-## Multi-model approach
+## [Multi-model APIs](documentdb-resources.md)
 ### [DocumentDB API](documentdb-introduction.md)
 ### [MongoDB API](documentdb-protocol-mongodb.md)
 ### Table API
 <!---### [Table API](documentdb-table-introduction.md)--->
 ### [Graph API](documentdb-graph-introduction.md)
-## [Resource model](documentdb-resources.md)
 ## [Global distribution](documentdb-distribute-data-globally.md)
-## [Regional failovers](documentdb-regional-failovers.md)
+## [Partition and scale](documentdb-partition-data.md)
+## [Consistency](documentdb-consistency-levels.md)
+## [Regional failover](documentdb-regional-failovers.md)
 ## [Security](documentdb-nosql-database-security.md)
 ## [NoSQL TCO analysis](https://aka.ms/documentdb-tco-paper)
 ## Scenarios
@@ -102,9 +80,11 @@
 
 ## Develop
 ### [SQL query](documentdb-sql-query.md)
+### [Stored procedures, triggers, and UDFs](documentdb-programming.md)
+### [Customize your indexes](documentdb-indexing-policies.md)
 ### [Multi-region development](documentdb-developing-with-multiple-regions.md)
-### Gremlin support
-<!---### [Gremlin support](documentdb-gremlin-support.md) --->
+### [Track changes with change feed](documentdb-change-feed.md)
+### [Gremlin support](documentdb-gremlin-support.md)
 ### [Continuation model](documentdb-continuation-model.md)
 ### [Concurrency model](documentdb-concurrency-model.md)
 ### [Use geospatial data](documentdb-geospatial.md)
@@ -113,23 +93,29 @@
 ### Best practices
 #### [Multi-master setup](documentdb-multi-region-writers.md)
 #### [DateTimes](documentdb-working-with-dates.md)
-### Tutorials
-### Write your first DocumentDB API app 
-#### [.NET console app](documentdb-get-started.md)
-#### [.NET Core console app](documentdb-dotnetcore-get-started.md)
-#### [Java console app](documentdb-java-get-started.md)
-#### [Node.js console app](documentdb-nodejs-get-started.md)
-#### [Node.js console app for MongoDB API](documentdb-mongodb-samples.md)
-#### [C++ console app](documentdb-cpp-get-started.md)
-#### Java app
-### Build a DocumentDB API web app
-#### [.NET web app](documentdb-dotnet-application.md)
-#### [.NET web app for MongoDB API](documentdb-mongodb-application.md)
-#### [Xamarin app](documentdb-mobile-apps-with-xamarin.md)
-#### [Node.js web app](documentdb-nodejs-application.md)
-#### [Java web app](documentdb-java-application.md)
-#### [Python Flask web app](documentdb-python-application.md)
-### Write your first Table API app
+
+### Tutorials 
+#### DocumentDB
+##### Write your first app 
+###### [.NET](documentdb-get-started.md)
+###### [.NET Core](documentdb-dotnetcore-get-started.md)
+###### [Java](documentdb-java-get-started.md)
+###### [Node.js](documentdb-nodejs-get-started.md)
+###### [C++](documentdb-cpp-get-started.md)
+##### Build a web app
+###### [.NET](documentdb-dotnet-application.md)
+###### [Xamarin](documentdb-mobile-apps-with-xamarin.md)
+###### [Node.js](documentdb-nodejs-application.md)
+###### [Java](documentdb-java-application.md)
+###### [Python Flask](documentdb-python-application.md)
+#### MongoDB
+##### [Node.js console app](documentdb-mongodb-samples.md)
+##### [.NET web app](documentdb-mongodb-application.md)
+#### Graph
+##### [Gremlin console](documentdb-graph-getting-started-console.md)
+##### [.NET](documentdb-connect-graph-dotnet.md)
+#### Table
+##### .NET
 <!---### [Write your first Table API app](documentdb-dotnet-tables-get-started.md)--->
 ### [Develop Locally](documentdb-nosql-local-emulator.md)
 #### [Export Emulator Certificates](documentdb-nosql-local-emulator-export-ssl-certificates.md)
