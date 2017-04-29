@@ -67,5 +67,5 @@ The following table explains each property in the New Event Source tab with its 
 
 ## Next steps
 
-1. Add a data access policy to your environment (time-series-insights-data-access.md)
+1. Add a data access policy to your environment [Define data access policies](time-series-insights-data-access.md)
 1. Access your environment in the [Time Series Insights Portal](https://insights.timeseries.azure.com)
