@@ -46,7 +46,7 @@ When this action is completed, the Azure security center data collection agent i
 
 ## Configure security policy
 
-A security policy defines the security policy items for which data is collected and recommendations are made. By default, Azure resources are evaluated against all policy items. Individual policy items can be disabled globally for all Azure resource, or disabled per resource group. This configuration gives you’re the ability to apply different security policies to different sets of Azure resources. For in-depth information on Azure security center security policies, see [Set security policies in Azure security center](../../security-center/security-center-policiess.md). 
+A security policy defines the security policy items for which data is collected and recommendations are made. By default, Azure resources are evaluated against all policy items. Individual policy items can be disabled globally for all Azure resource, or disabled per resource group. This configuration gives you’re the ability to apply different security policies to different sets of Azure resources. For in-depth information on Azure security center security policies, see [Set security policies in Azure security center](../../security-center/security-center-policies.md). 
 
 To configure a security policy for all Azure resources:
 
