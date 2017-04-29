@@ -57,25 +57,25 @@ Many data stores support data encryption at rest. We suggest that you enable dat
 Transparent Data Encryption (TDE) in Azure SQL Data Warehouse helps with protecting against the threat of malicious activity by performing real-time encryption and decryption of your data at rest. This is transparent to the client. For more information, see [Secure a database in SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### Azure SQL Database
-Azure SQL Database supports transparent data encryption which helps with protecting against the threat of malicious activity by performing real-time encryption and decryption of the database without requiring changes to the application. This behavior is transparent to the client. For more information, see [Transparent Data Encryption with Azure SQL Database](https://msdn.microsoft.com/library/dn948096.aspx).
+Azure SQL Database supports transparent data encryption, which helps with protecting against the threat of malicious activity by performing real-time encryption and decryption of the database without requiring changes to the application. This behavior is transparent to the client. For more information, see [Transparent Data Encryption with Azure SQL Database](https://msdn.microsoft.com/library/dn948096.aspx).
 
 #### Azure Data Lake Store  
-Azure Data Lake store provides encryption for data stored in the account. When enabled, the data before it is stored on persistent media is encrypted. Data Lake store automatically encrypts data prior to persisting and decrypts prior to retrieval, making it transparent to the client accessing the data. For more information, see [security in Azure Data Lake Store](../data-lake-store/data-lake-store-security-overview.md).
+Azure Data Lake store provides encryption for data stored in the account. When enabled, the data before it is stored on persistent media is encrypted. Data Lake store automatically encrypts data before persisting and decrypts before retrieval, making it transparent to the client accessing the data. For more information, see [security in Azure Data Lake Store](../data-lake-store/data-lake-store-security-overview.md).
 
 #### Azure Blob and Table Storage 
-Azure Blob and Table storage supports Storage Service Encryption (SSE), which automatically encrypts your data prior to persisting to storage and decrypts prior to retrieval. For more information, see [Azure Storage Service Encryption for data at rest](../storage/storage-service-encryption.md).
+Azure blob storage and Azure table storage supports Storage Service Encryption (SSE), which automatically encrypts your data before persisting to storage and decrypts before retrieval. For more information, see [Azure Storage Service Encryption for data at rest](../storage/storage-service-encryption.md).
 
 #### Amazon S3
-At the time of authoring, Amazon S3 supports both client and server side encryption of data at Rest. For more information, see [this article](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html). Currently we do not support Amazon S3 inside an Amazon virtual private cloud (VPC).
+At the time of authoring, Amazon S3 supports both client and server-side encryption of data at Rest. For more information, see [this article](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html). Currently we do not support Amazon S3 inside an Amazon virtual private cloud (VPC).
 
 #### Amazon Redshift 
-At the time of authoring, Amazon redshift supports cluster encryption for data at rest. Please refer to Amazon’s documentation for more details. Currently, we do not support Amazon Redshift inside an Amazon virtual private cloud (VPC).
+At the time of authoring, Amazon Redshift supports cluster encryption for data at rest. Refer to Amazon’s documentation for more details. Currently, we do not support Amazon Redshift inside an Amazon virtual private cloud (VPC).
 
 #### Salesforce
 Salesforce supports [Shield Platform Encryption](https://help.salesforce.com/articleView?id=security_pe_overview.htm) that allows encryption of all files, attachments, custom fields.
 
 ## Hybrid Scenarios (using Data Management Gateway)
-For hybrid scenarios, we require Data Management Gateway to be installed in an on-premises network or inside an Virtual Network (Azure) or Virtual Private Cloud (Amazon) that can access the local data stores. For more information the gateway, see [Data Management Gateway](data-factory-data-management-gateway.md). 
+For hybrid scenarios, we require Data Management Gateway to be installed in an on-premises network or inside a virtual network (Azure) or virtual private cloud (Amazon) that can access the local data stores. For more information the gateway, see [Data Management Gateway](data-factory-data-management-gateway.md). 
 
 ![Data Management Gateway channels](media/data-factory-data-movement-security-considerations/data-management-gateway-channels.png)
 
@@ -83,23 +83,23 @@ The command channel allows communication between data movement services in Data 
 
 
 ### On-premises data store credentials
-The data store credentials for your on-premises data stores are locally (not in the cloud). They can be set in 3 different ways. 
+The data store credentials for your on-premises data stores are locally (not in the cloud). They can be set in three different ways. 
 
 - Setting credentials using plain-text (less secure) using HTTPS from Azure Portal/ Copy Wizard. The credentials are passed in plain-text to the on-premises gateway.
 - Setting credentials using JavaScript Cryptography library from Copy Wizard.
 - Setting credentials using click-once based credentials manager app. This application executes on the on-premises machine that has access to the gateway and sets the credentials. It is the most secure mechanism. 
 
-#### JavaScript cryptography library based encryption
-You can encrypt data store credentials using [JavaScript Cryptography library](https://www.microsoft.com/download/details.aspx?id=52439) from the [Copy Wizard](data-factory-copy-wizard.md). When you select this option, the Copy Wizard retrieves the public key of gateway and uses it to encrypt the data store credentials. The credentials are decrypted by the gateway machine and protected by  Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx).
+#### JavaScript cryptography library-based encryption
+You can encrypt data store credentials using [JavaScript Cryptography library](https://www.microsoft.com/download/details.aspx?id=52439) from the [Copy Wizard](data-factory-copy-wizard.md). When you select this option, the Copy Wizard retrieves the public key of gateway and uses it to encrypt the data store credentials. The credentials are decrypted by the gateway machine and protected by Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx).
 
 **Supported browsers:** IE8, IE9, IE10, IE11, Microsoft Edge, and latest Firefox, Chrome, Opera, Safari browsers. 
 
 #### Click-once credentials manager app
-You can launch the click-once based credential manager app is from Azure portal/Copy Wizard when authoring pipelines. This application ensures that credentials are not transferred in plain text over the wire. By default, it uses the port 8050 on the machine with gateway for secure communication. This port can be changed if required.  
+You can launch the click-once based credential manager app is from Azure portal/Copy Wizard when authoring pipelines. This application ensures that credentials are not transferred in plain text over the wire. By default, it uses the port 8050 on the machine with gateway for secure communication. If required, this port can be changed.  
   
 ![HTTPS port for the gateway](media/data-factory-data-movement-security-considerations/https-port-for-gateway.png)
 
-Currently, Data Management Gateway uses a single certificate. This certificate is created during the gateway installation (applies to Data Management Gateway created after November 2016 and version 2.4.xxxx.x or later). You can replace this certificate with your own SSL/TLS certificate if needed. This certificate is specifically used by the click-one credential manager application to security connect to the gateway machine for setting credentials. It stores data store credentials securely on-premises by using the Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) on the machine with gateway machine. 
+Currently, Data Management Gateway uses a single certificate. This certificate is created during the gateway installation (applies to Data Management Gateway created after November 2016 and version 2.4.xxxx.x or later). You can replace this certificate with your own SSL/TLS certificate. This certificate is specifically used by the click-one credential manager application to security connect to the gateway machine for setting credentials. It stores data store credentials securely on-premises by using the Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) on the machine with gateway machine. 
 
 > [!NOTE]
 > Older gateways that were installed before November 2016 or of version 2.3.xxxx.x continue to use credentials encrypted and stored on cloud. Even if you upgrade the gateway to latest version, the credentials are not migrated to an on-premises machine    
@@ -157,19 +157,19 @@ The following table provides **inbound port** requirements for the **windows fir
 
 | Inbound ports | Description | 
 | ------------- | ----------- | 
-| 8050 (TCP) | Required by the Credential manager application for securely setting credentials for on premise data stores on the gateway. | 
+| 8050 (TCP) | Required by the Credential manager application for securely setting credentials for on-premises data stores on the gateway. | 
 
 ![Gateway port requirements](media\data-factory-data-movement-security-considerations/gateway-port-requirements.png) 
 
 #### IP configurations/ white-listing in data store
-Some data stores in the cloud also require white-listing of IP address of the machine accessing them. Please ensure that the IP address of the gateway machine is white-listed/ configured in firewall appropriately.
+Some data stores in the cloud also require white-listing of IP address of the machine accessing them. Ensure that the IP address of the gateway machine is white-listed/ configured in firewall appropriately.
 
 The following cloud data stores that require white-listing. (some of these data stores, by default may not require white-listing)
 
 - [Azure SQL Database](../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md#create-a-server-level-firewall-rule-in-the-azure-portal)
-- [Azure Data Lake Store](../azure/data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
-- [Azure Document DB](../azure/documentdb/documentdb-firewall-support.md)
+- [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
+- [Azure Document DB](../documentdb/documentdb-firewall-support.md)
 - [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## Frequently asked questions
