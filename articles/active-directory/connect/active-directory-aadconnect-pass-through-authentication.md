@@ -40,37 +40,37 @@ Azure AD Pass-through Authentication provides a simple solution for these organi
 
 ![Azure AD Pass-through Authentication](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 
-When pass-through authentication is combined with the [Seamless Single Sign-on](active-directory-aadconnect-sso.md) feature, your users won't even need to type in their passwords to sign in to Azure AD, when they are on their corporate machines within your corporate network - a truly integrated experience.
+You can combine pass-through authentication with the [Seamless Single Sign-on](active-directory-aadconnect-sso.md) feature. This way, when your users are on their corporate machines within your corporate network, they won't even need to type in their passwords to sign in to Azure AD--a truly integrated experience.
 
 ## What's available during preview?
 
 >[!NOTE]
->Azure AD pass-through authentication is currently in preview. It is a free feature and you don't need any paid editions of Azure AD to use it. 
+>Azure AD pass-through authentication is currently in preview. It is a free feature, and you don't need any paid editions of Azure AD to use it. 
 
 The following scenarios are fully supported during preview:
 
-- All web browser-based applications.
-- Office 365 client applications that support [modern authentication](https://aka.ms/modernauthga).
+- All web browser-based applications
+- Office 365 client applications that support [modern authentication](https://aka.ms/modernauthga)
 
 The following scenarios are _not_ supported during preview:
 
-- Legacy Office client applications and Exchange ActiveSync (i.e., native email applications on mobile devices).
+- Legacy Office client applications and Exchange ActiveSync (that is, native email applications on mobile devices).
   - Organizations are encouraged to switch to modern authentication, if possible. This allows for pass-through authentication support, but also helps you secure your identities using [conditional access](../active-directory-conditional-access.md) features such as multi-factor authentication.
 - Azure AD Join for Windows 10 devices.
 
 >[!IMPORTANT]
->As a workaround for scenarios that the pass-through authentication feature doesn't support today (legacy Office client applications, Exchange ActiveSync and Azure AD Join for Window 10 devices), password synchronization is also enabled by default when you enable pass-through authentication. Password synchronization acts as a fallback in only these specific scenarios. If you don't need this, you can turn off password synchronization on the [Optional Features](active-directory-aadconnect-get-started-custom.md#optional-features) page on Azure AD Connect wizard.
+>As a workaround for scenarios that the pass-through authentication feature doesn't support today (legacy Office client applications, Exchange ActiveSync and Azure AD Join for Window 10 devices), password synchronization is also enabled by default when you enable pass-through authentication. Password synchronization acts as a fallback in these specific scenarios only. If you don't need this, you can turn off password synchronization on the [Optional Features](active-directory-aadconnect-get-started-custom.md#optional-features) page on Azure AD Connect wizard.
 
-## How to enable Azure AD Pass-through Authentication?
+## How do I turn on Azure AD Pass-through Authentication?
 
-### Pre-requisites
+### Prerequisites
 
-Before you can enable Azure AD pass-through authentication, you need to have the following pre-requisites in place:
+Before you can enable Azure AD pass-through authentication, you need to have the following prerequisites in place:
 
 - An Azure AD tenant for which you are a Global Administrator.
 
 >[!NOTE]
->It is highly recommended that the Global Administrator account is a cloud-only account so that you can manage the configuration of your tenant should your on-premises services fail or become unavailable. You can add a cloud-only Global Administrator account as shown [here](../active-directory-users-create-azure-portal.md).
+>We highly recommended that the Global Administrator account be a cloud-only account. This way, you can manage the configuration of your tenant should your on-premises services fail or become unavailable. Learn about [adding a cloud-only Global Administrator account](../active-directory-users-create-azure-portal.md).
 
 - Azure AD Connect version 1.1.486.0 or higher. It is recommended that you use the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 - A server running Windows Server 2012 R2 or higher on which to run Azure AD Connect.
@@ -236,7 +236,7 @@ For detailed analytics and debugging logs you can enable the "Session" log. Don'
 
 #### Detailed trace logs
 
-To troubleshoot user sign-in failures, look for trace logs at **C:\Programdata\Microsoft\Microsoft AAD Application Proxy Connector\Trace**. These logs include reasons why a specific user sign-in failed using the pass-through authentication feature. Given below is an example log entry:
+To troubleshoot user sign-in failures, look for trace logs at **C:\Programdata\Microsoft\Microsoft AAD Application Proxy Connector\Trace**. These logs include the reasons that a specific user sign-in failed using the pass-through authentication feature. Here is an example log entry:
 
 ```
 	ApplicationProxyConnectorService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
