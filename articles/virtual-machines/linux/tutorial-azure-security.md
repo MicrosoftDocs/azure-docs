@@ -1,6 +1,6 @@
 ---
-title: Linux VM security with the Azure Security Center | Microsoft Docs
-description: Tutorial - Linux VM security with the Azure Security Center
+title: VM security with the Azure Security Center | Microsoft Docs
+description: Tutorial - VM security with the Azure Security Center
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -77,7 +77,7 @@ Selecting each VM displays all recommendations for that VM. recommendations are 
 Once Azure security center begins to populate with configuration data, recommendations are made against the configured security policy. For instance, if a VM has been configured without an associated network security group, a recommendation is made to create one. To see a list of all recommendations: 
 
 1. From the Azure security center dashboard, click **Recommendations**.
-3. Select a specific recommendation, a blade will open with a list of all resources for which the recommendation applies.
+3. Select a specific recommendation, a blade opens with a list of all resources for which the recommendation applies.
 4. Select a specific resource for which you would like to address.
 5. Follow the on-screen instructions for remediation steps. 
 

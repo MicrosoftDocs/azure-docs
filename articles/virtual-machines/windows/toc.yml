@@ -29,6 +29,8 @@
     href: tutorial-load-balancer.md
   - name: 7 - Manage networking
     href: tutorial-virtual-network.md
+  - name: 8 - Manage VM security
+    href: ../linux/tutorial-azure-security.md
 - name: Samples
   items:
   - name: PowerShell
