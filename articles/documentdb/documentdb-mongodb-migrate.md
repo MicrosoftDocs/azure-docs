@@ -1,6 +1,6 @@
 ---
-title: Use mongoimport & mongorestore with Azure DocumentDB | Microsoft Docs
-description: 'Learn how to use mongoimport and mongorestore to import data to a DocumentDB: API for MongoDB account'
+title: Use mongoimport & mongorestore with Azure Cosmos DB's API for MongoDB | Microsoft Docs
+description: 'Learn how to use mongoimport and mongorestore to import data to an API for MongoDB account'
 keywords: mongoimport, mongorestore
 services: documentdb
 author: AndrewHoh
@@ -14,24 +14,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 04/27/2017
 ms.author: anhoh
 
 ---
+
 # Azure Cosmos DB: How to migrate data for the MongoDB API? 
 
 To migrate data to an Azure Cosmos DB account for use with the MongoDB API, you must:
 
 * Download either *mongoimport.exe* or *mongorestore.exe* from the [MongoDB Download Center](https://www.mongodb.com/download-center).
-* Get your [DocumentDB support for MongoDB connection string](documentdb-connect-mongodb-account.md).
+* Get your [API for MongoDB connection string](documentdb-connect-mongodb-account.md).
 
 If you are importing data from MongoDB and plan to use it with the DocumentDB API, you should use the Data Migration Tool to import data. For more information, see [Data Migration Tool](documentdb-import-data.md).
 
 ## Before you begin
 
-* Increase throughput: The duration of your data migration depends on the amount of throughput you set up for your collections. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the [Azure portal](https://portal.azure.com), see [Performance levels and pricing tiers in DocumentDB](documentdb-performance-levels.md).
+* Increase throughput: The duration of your data migration depends on the amount of throughput you set up for your collections. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the [Azure portal](https://portal.azure.com), see [Performance levels and pricing tiers in Azure Cosmos DB](documentdb-performance-levels.md).
 
-* Enable SSL: DocumentDB has strict security requirements and standards. Be sure to enable SSL when you interact with your account. The procedures in the rest of the article include how to enable SSL for *mongoimport* and *mongorestore*.
+* Enable SSL: Azure Cosmos DB has strict security requirements and standards. Be sure to enable SSL when you interact with your account. The procedures in the rest of the article include how to enable SSL for *mongoimport* and *mongorestore*.
 
 ## Find your connection string information (host, port, username, and password)
 
@@ -56,7 +57,7 @@ Example:
 
 ## Import data to API for MongoDB with mongorestore
 
-To restore data to your DocumentDB account, use the following template to execute the import. Fill in *host*, *username*, and *password* with the values specific to your account.
+To restore data to your API for MongoDB account, use the following template to execute the import. Fill in *host*, *username*, and *password* with the values specific to your account.
 
 Template:
 
@@ -67,4 +68,4 @@ Example:
     mongorestore.exe --host anhoh-host.documents.azure.com:10250 -u anhoh-host -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
 
 ## Next steps
-* For more information, explore [DocumentDB: API for MongoDB samples](documentdb-mongodb-samples.md).
+* For more information, explore [API for MongoDB samples](documentdb-mongodb-samples.md).

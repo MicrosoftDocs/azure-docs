@@ -16,7 +16,7 @@ ms.author: arramac
 
 ---
 # Introduction to Graph support in Azure Cosmos DB
-Azure Cosmos DB is a fully-managed, blazing fast, globally distributed database with multi-model support for key-value, document, and graph data models. Azure Cosmos DB provides graph modeling and traversal APIs along with turn-key global distribution, elastic scaling of storage and throughput, <10ms read latencies and <15ms at p99, automatic indexing and query, tunable consistency levels, and comprehensive SLAs including 99.99% availability. Azure Cosmos DB is a [TinkerPop-enabled graph database](http://tinkerpop.apache.org/providers.html), can be queried using the [Gremlin language](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), and integrates with other TinkerPop-enabled graph systems.
+Azure Cosmos DB is a fully-managed, globally distributed NoSQL database service with multi-model support for key-value, document, and graph data models. Azure Cosmos DB provides graph modeling and traversal APIs along with turn-key global distribution, elastic scaling of storage and throughput, <10ms read latencies and <15ms at p99, automatic indexing and query, tunable consistency levels, and comprehensive SLAs including 99.99% availability. Azure Cosmos DB is a [TinkerPop-enabled graph database](http://tinkerpop.apache.org/providers.html), can be queried using the [Gremlin language](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), and integrates with other TinkerPop-enabled graph systems.
 
 In this article, we provide an overview of the Azure Cosmos DB's Graph API, and how you can use it to store massive graphs with billions of vertices and edges, query them within order of milliseconds latency, and evolve the graph structure and schema easily. 
 
@@ -27,7 +27,7 @@ A [graph](http://mathworld.wolfram.com/Graph.html) is a structure composed of [v
 
 For example, the following diagram sample graph that shows the relationship between people, mobile devices, interests, and operating systems. 
 
-![Sample dataase showing persons, devices, and interests](./media/documentdb-graph-introduction/sample-graph.png) 
+![Sample database showing persons, devices, and interests](./media/documentdb-graph-introduction/sample-graph.png) 
 
 Graphs are useful in understanding a wide diversity of datasets in science, technology, and business. Graph databases provide the ability to model and store graphs naturally and efficiently, which makes them appealing for a number of scenarios. Graph databases are typically NoSQL databases, because these use cases often also need schema flexibility and rapid iteration. 
 
@@ -42,7 +42,7 @@ Azure Cosmos DB is a fully-managed graph database that offers global distributio
 
 Azure Cosmos DB offers the following differentiated capabilities compared to other graph databases in the market: 
 
-* **Elastically scalable throughput and storage**: Graphs in the real world need to scale beyond the capacity of a single server. With Azure Comos DB, you can scale your graphs seamlessly across multiple servers. You can also independently scale the throughput independently based on your acces patterns. Azure Cosmos DB supports graph databases that can scale to virtually unlimited storage sizes and provisioned throughput. 
+* **Elastically scalable throughput and storage**: Graphs in the real world need to scale beyond the capacity of a single server. With Azure Comos DB, you can scale your graphs seamlessly across multiple servers. You can also independently scale the throughput of your graph independently based on your access patterns. Azure Cosmos DB supports graph databases that can scale to virtually unlimited storage sizes and provisioned throughput. 
 
 * **Multi-region replication**: Azure Cosmos DB transparently replicates your graph data to all regions you've associated with your account, enabling you to develop applications that require global access to data while providing tradeoffs between consistency, availability and performance, all with corresponding guarantees. Azure Cosmos DB provides transparent regional failover with multi-homing APIs, and the ability to elastically scale throughput and storage across the globe.
 
