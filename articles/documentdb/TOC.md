@@ -32,8 +32,8 @@
 ## 6 - Server-side business logic
 ## [7 - Multi-region replication](documentdb-portal-global-replication.md)
 ## 8 - Track changes
-## 10 - Develop locally
-### [1 - Develop locally](documentdb-nosql-local-emulator.md)
+## 9 - Develop locally
+### [1 - Use the emulator](documentdb-nosql-local-emulator.md)
 ### [2 - Export certificates](documentdb-nosql-local-emulator-export-ssl-certificates.md)
 
 # Samples
@@ -90,10 +90,6 @@
 ### [Use geospatial data](documentdb-geospatial.md)
 ### [Performance testing](documentdb-performance-testing.md)
 ### [Performance tips](documentdb-performance-tips.md)
-### Best practices
-#### [Multi-master setup](documentdb-multi-region-writers.md)
-#### [DateTimes](documentdb-working-with-dates.md)
-
 ### Tutorials 
 #### DocumentDB
 ##### Write your first app 
@@ -117,9 +113,9 @@
 #### Table
 ##### .NET
 <!---### [Write your first Table API app](documentdb-dotnet-tables-get-started.md)--->
-### [Develop Locally](documentdb-nosql-local-emulator.md)
-#### [Export Emulator Certificates](documentdb-nosql-local-emulator-export-ssl-certificates.md)
-### Samples
+### Best practices
+#### [Multi-master setup](documentdb-multi-region-writers.md)
+#### [DateTimes](documentdb-working-with-dates.md)### Samples
 #### DocumentDB API
 ##### [.NET samples](documentdb-dotnet-samples.md)
 ##### [Node.js samples](documentdb-nodejs-samples.md)
