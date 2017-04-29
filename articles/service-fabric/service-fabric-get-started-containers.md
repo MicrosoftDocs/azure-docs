@@ -49,6 +49,8 @@ You will build an image based on the [microsft/iis image](https://hub.docker.com
 Define your Docker image in a Dockerfile. The Dockerfile contains instructions for the base image, additional components, the app you want to run, and other configuration images. The Dockerfile is the input to the docker build command, which creates the image. The Dockerfile that creates your image looks like this:
 
 ```
+# The `FROM` instruction specifies the base image. You are
+# extending the `microsoft/iis` image.
 FROM microsoft/iis
 
 RUN mkdir C:\site
@@ -59,8 +61,13 @@ RUN powershell -NoProfile -Command \
 
 EXPOSE 8000
 
+# The final instruction copies the web app you created earlier into the container.
 ADD content/ /site
 ```
+
+There is no ```ENTRYPOINT``` command in this Dockerfile. You don't need one. When running Windows Server with IIS, the IIS process is the entrypoint, which is configured to start in the aspnet base image.
+
+Run the Docker build command to create the image that runs your ASP.NET app. To do this, open a PowerShell window in the directory of your project and type the following command in the solution directory:
 
 ## Verify the image
 
