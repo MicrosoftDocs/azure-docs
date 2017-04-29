@@ -44,8 +44,10 @@ Follow these steps to create an Azure Database for PostgreSQL server with defaul
 ![Azure Database for PostgreSQL - pick the service tier](./media/postgresql-quickstart-create-database-portal/2-service-tier.png)
 5.	Click **Ok**.
 6.	Click **Create** to provision the server. Provisioning takes a few minutes.
-    > [!NOTE]
-    > Check the **Pin to dashboard** option to allow easy tracking of your deployments.
+
+> [!NOTE]
+> Check the **Pin to dashboard** option to allow easy tracking of your deployments.
+
 7.	On the toolbar, click **Notifications** to monitor the deployment process.
 ![Azure Database for PostgreSQL - See notifications](./media/postgresql-quickstart-create-database-portal/3-notifications.png)
    > [!IMPORTANT]
@@ -61,8 +63,9 @@ The Azure Database for PostgreSQL service creates a firewall at the server-level
 3.	Click in the text box under **Rule Name,** and add a new firewall rule to whitelist the IP range for connectivity. For this quick start, let�s allow all IPs by typing in **Rule Name = AllowAllIps**, **Start IP = 0.0.0.0** and **End IP = 255.255.255.255** and then click **Save**. A server-level firewall rule is created for your specified IP address range.
 ![Azure Database for PostgreSQL - Create Firewall Rule](./media/postgresql-quickstart-create-database-portal/5-firewall-2.png)
 4.	Click **OK** and then click the **X** to close the **Connections Security** page.
-    > [!NOTE] 
-    > You can set a firewall rule that covers an IP range to be able to connect from your network.
+
+> [!NOTE]  
+> You can set a firewall rule that covers an IP range to be able to connect from your network.
 
 ## Get the connection information
 When we created our Azure PostgreSQL server, the default **postgres** database also gets created. To connect to your database server, you need to provide host information and access credentials.
@@ -83,7 +86,6 @@ Let's now use the psql command line utility to connect to the Azure Database for
 ```dos
 psql --host=<myserver> --port=<port> --username=<server admin login> --password --dbname=<database name>
 ```
-
 For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mypgserver-20170401.postgres.database.azure.com** using access credentials:
 ```dos
 psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --password --dbname=postgres
