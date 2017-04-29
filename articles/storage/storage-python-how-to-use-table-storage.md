@@ -102,13 +102,12 @@ use the **TableBatch** class. When you do want to submit the
 batch, you call **commit\_batch**. Note that all entities must be in the same partition in order to be changed as a batch. The example below adds two entities together in a batch.
 
 ```python
-from azure.storage.table import TableBatch
-batch = TableBatch()
+batch = table_service.begin_batch()
 task10 = {'PartitionKey': 'tasksSeattle', 'RowKey': '10', 'description' : 'Go grocery shopping', 'priority' : 400}
 task11 = {'PartitionKey': 'tasksSeattle', 'RowKey': '11', 'description' : 'Clean the bathroom', 'priority' : 100}
-batch.insert_entity(task10)
-batch.insert_entity(task11)
-table_service.commit_batch('tasktable', batch)
+table_service.insert_entity('tasktable',task10)
+table_service.insert_entity('tasktable',task11)
+table_service.commit_batch()
 ```
 
 Batches can also be used with the context manager syntax:
@@ -181,7 +180,7 @@ table_service.delete_table('tasktable')
 Now that you've learned the basics of Table storage, follow these links
 to learn more.
 
-* [Python Developer Center](/develop/python/)
+* [Python Developer Center](https://azure.microsoft.com/en-us/develop/python/)
 * [Azure Storage Services REST API](http://msdn.microsoft.com/library/azure/dd179355)
 * [Azure Storage Team Blog]
 * [Microsoft Azure Storage SDK for Python]
