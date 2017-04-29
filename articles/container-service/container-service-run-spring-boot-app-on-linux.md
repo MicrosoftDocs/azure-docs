@@ -18,7 +18,7 @@ ms.author: asirveda;robmcm
 
 ---
 
-# Running a Spring Boot Application on Linux in the Azure Container Service
+# Run a Spring Boot Application on Linux in the Azure Container Service
 
 The **[Spring Framework]** is an open-source solution which helps Java developers create enterprise-level applications, and one of the more-popular projects which is built on top of that platform is [Spring Boot], which provides a simplified approach for creating stand-alone Java applications.
 
