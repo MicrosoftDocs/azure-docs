@@ -32,7 +32,6 @@
 
 ## Manage
 ### [Job reliability](stream-analytics-job-reliability.md)
-### [Monitor jobs](stream-analytics-monitoring.md)
 ### [Diagnostics logs](stream-analytics-job-diagnostic-logs.md)
 ### [Monitor jobs programmatically](stream-analytics-monitor-jobs.md)
 ### [Monitor jobs with PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
@@ -42,6 +41,7 @@
 
 ## Troubleshoot
 ### [Troubleshooting guide](stream-analytics-troubleshooting-guide.md)
+### [Monitor jobs](stream-analytics-monitoring.md)
 ### [Resource health blade](stream-analytics-resource-health.md)
 ### [Job diagram and metrics](stream-analytics-job-diagram-with-metrics.md)
 ### [Test queries](stream-analytics-test-query.md)
