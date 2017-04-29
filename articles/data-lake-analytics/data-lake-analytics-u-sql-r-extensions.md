@@ -66,7 +66,7 @@ The following example illustrates the basic steps for deploying R code:
 * String and numeric columns from U-SQL are converted as-is between R DataFrame and U-SQL [supported types: double, string, bool, integer, byte].
 * Factor datatype is not supported in U-SQL.
 * byte[] needs to be serialized into base 64 encoded strings.
-* U-SQL strings can be converted to factors in R code, once U-SQL create R input dataframe or by setting the reducer parameter stringsAsFactors:true .
+* U-SQL strings can be converted to factors in R code, once U-SQL create R input dataframe or by setting the reducer parameter stringsAsFactors: true.
 
 ### Schemas
 * U-SQL datasets cannot have duplicate column names.
