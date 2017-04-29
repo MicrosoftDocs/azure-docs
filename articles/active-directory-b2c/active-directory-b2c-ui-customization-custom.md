@@ -40,15 +40,17 @@ With the page UI customization feature, you can customize the look and feel of a
 
 Here's how it works: Azure AD B2C runs code in your consumer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/) to load content from a URL that you specify in a policy. You can specify different URLs for different pages. The code merges UI elements from Azure AD B2C with the content loaded from your URL, and displays the page to your consumer.
 
-Here are the steps required for hosting your content:
+## Creating your HTML5 content
 
-1. Click the copy button on this html code snippet.  Notice that it has well-formed HTML5 content.  It has an empty element called `<div id="api"></div>` located somewhere in the `<body>`. This element marks where the Azure AD B2C content is inserted.
+Let's create HTML content with your product's brand name in the title.
+
+1. Click **Copy** on this html snippet.  It is well-formed HTML5 with an empty element called `<div id="api"></div>` located somewhere in the `<body>`. This element marks where Azure AD B2C content is inserted.
 
    ```html
    <!DOCTYPE html>
    <html>
    <head>
-       <title>Test UI Customization</title>
+       <title>My Product Brand Name</title>
    </head>
    <body >
        <div id="api"></div>
@@ -56,14 +58,14 @@ Here are the steps required for hosting your content:
    </html>
    ```
 
-1. Paste the html in a text editor and save the file as `customize-ui.html`
+1. Paste in a text editor and save the file as `customize-ui.html`
 
 ## Create a blob storage account
 
-Let's start by creating a blob storage account.
-
 >[!NOTE]
 > In this guide, we use Azure Blob Storage to host our content.  You could also host your content on a webserver, but it is required that you [enable Cross-Origin Resource Sharing (CORS) on your webserver](https://enable-cors.org/server.html).
+
+Let's host this HTML on Azure blob storage.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the Hub menu, select **New** -> **Storage** -> **Storage account**.
@@ -82,35 +84,40 @@ Let's start by creating a blob storage account.
 
 ## Create a Container
 
-1. Switch to the left-hand tab called **Overview**
-1. Click **+ Container**
+Let's create a public container on Azure blob storage.
+
+1. Switch to the left-hand tab called **Overview**.
+1. Click **+ Container**.
 1. For **Name** type `$root`
-1. Set **Access type** to **Blob**
-1. Select the new container called `$root`
-1. Click **Upload**
-1. Click the folder icon next to `Select a file`
-1. Browse to `customize-ui.html` that we created in [the earlier section](#the-page-ui-customization-feature)
-1. Click **Upload**
+1. Set **Access type** to **Blob**.
+1. Click '$root' to open the new container.
+1. Click **Upload**.
+1. Click the folder icon next to `Select a file`.
+1. Browse to `customize-ui.html` that we created in [the earlier section](#the-page-ui-customization-feature).
+1. Click **Upload**.
 1. Select the blob that we uploaded called `customize-ui.html`.
-1. Next to the **URL** click the copy button.  Open a browser and ensure you can view the file.  (If it is inaccessible, make sure the container access type is set to blob)
+1. Next to the **URL** click the copy button.
+1. Open a browser and navigate to this URL.  If it is inaccessible, make sure the container access type is set to blob.
 
 ## Configure CORS
 
-Next we configure blob storage for Cross-Origin Resource Sharing (CORS).
+Next we configure Azure blob storage for Cross-Origin Resource Sharing (CORS).
 
 >[!NOTE]
 >Want to try out the UI customization feature by using our sample HTML and CSS content?  We've provided [a simple helper tool](active-directory-b2c-reference-ui-customization-helper-tool.md) that uploads and configures our sample content on your Azure blob storage account.  If you use the tool, skip ahead to [Modify your sign-up or sign-in custom policy](#modify-your-sign-up-or-sign-in-custom-policy)
 
 1. In the storage blade under settings, open **CORS**.
-1. Click **+ Add**
-1. Set `Allowed origins` to `*`
-1. Dropdown `Allowed verbs` and select both `GET` and `OPTIONS`
-1. Set `Allowed headers` to `*`
-1. Set `Exposed headers` to `*`
-1. Set `Maximum age (seconds)` to `200`
-1. Click **Add**
+1. Click **+ Add**.
+1. Set `Allowed origins` to `*`.
+1. In the drop-down called `Allowed verbs`, select both `GET` and `OPTIONS`.
+1. Set `Allowed headers` to `*`.
+1. Set `Exposed headers` to `*`.
+1. Set `Maximum age (seconds)` to `200`.
+1. Click **Add**.
 
 ## Testing CORS
+
+Let's validate that we are ready.
 
 1. Navigate to http://test-cors.org/ and paste the URL into the `Remote URL` field.
 1. Click **Send Request**
