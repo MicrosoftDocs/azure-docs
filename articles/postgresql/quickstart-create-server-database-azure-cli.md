@@ -29,6 +29,11 @@ Log in to your Azure subscription with the [az login](/cli/azure/#login) command
 az login
 ```
 
+If you have multiple subscriptions, choose the appropriate subscription in which the resource exists or is billed for. Select a specific subscription ID under your account using [az account set](/cli/azure/account#set) command.
+```azurecli
+az account set --subscription 00000000-0000-0000-0000-000000000000
+```
+
 ## Create a resource group
 
 Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) using the [az group create](/cli/azure/group#create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myresourcegroup` in the `westus` location.
@@ -40,26 +45,22 @@ az group create --name myresourcegroup --location westus
 
 Create an [Azure PostgreSQL server](overview.md) using the **az postgres server create** command. A server contains a group of databases managed as a group. 
 
-The following example creates a server called `mypgserver-20170401` in your resource group `myresourcegroup`  with an admin login named `mylogin` and a password `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
-
-> [!IMPORTANT] 
-> Name of a server maps to DNS name and is thus required to be globally unique.
-
+The following example creates a server called `mypgserver-20170401` in your resource group `myresourcegroup` with server admin login `mylogin`. Name of a server maps to DNS name and is thus required to be globally unique. Please replace the user and password parameter values with your login and password.
 ```azurecli
-az postgres server create --resource-group myresourcegroup --name mypgserver-20170401  --location westus --user mylogin --password ChangeYourAdminPassword1 --performance-tier Basic --compute-units 50 --version 9.6
+az postgres server create --resource-group myresourcegroup --name mypgserver-20170401  --location westus --user mylogin --password ChangeYourAdminPassword1 --performance-tier Basic --compute-units 100 --version 9.6
 ```
 
-> [!NOTE]
-> By default, **postgres** database gets created under your server. The [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) database is a default database meant for use by users, utilities and third party applications. 
+> [!IMPORTANT]
+> The server admin login and password that you specify here are required to log in to the server and its databases later in this quick start. Remember or record this information for later use.
+
+By default, **postgres** database gets created under your server. The [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) database is a default database meant for use by users, utilities and third party applications. 
+
 
 ## Configure a server-level firewall rule
 
 Create an Azure PostgreSQL server-level firewall rule with the **az postgres server firewall-rule create** command. A server-level firewall rule allows an external application, such as [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) or [PgAdmin](https://www.pgadmin.org/) to connect to your server through the Azure PostgreSQL service firewall. 
 
-> [!NOTE] 
-> You can set a firewall rule that covers an IP range to be able to connect from your network.
-
-The following example uses **az postgres server firewall-rule create** to create a firewall rule `AllowAllIps` for an IP address range. To open all IP addresses, use 0.0.0.0 as the starting IP address and 255.255.255.255 as the ending address.
+You can set a firewall rule that covers an IP range to be able to connect from your network. The following example uses **az postgres server firewall-rule create** to create a firewall rule `AllowAllIps` for an IP address range. To open all IP addresses, use 0.0.0.0 as the starting IP address and 255.255.255.255 as the ending address.
 ```azurecli
 az postgres server firewall-rule create --resource-group myresourcegroup --server mypgserver-20170401 --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
@@ -75,7 +76,30 @@ To connect to your server, you need to provide host information and access crede
 az postgres server show --resource-group myresourcegroup --name mypgserver-20170401
 ```
 
-Make a note of the **fullyQualifiedDomainName** and **administratorLogin**.
+The result is in JSON format. Make a note of the **fullyQualifiedDomainName** and **administratorLogin**.
+```json
+{
+  "administratorLogin": "mylogin",
+  "fullyQualifiedDomainName": "mypgserver-20170401.postgres.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/mypgserver-20170401",
+  "location": "westus",
+  "name": "mypgserver-20170401",
+  "resourceGroup": "myresourcegroup",
+  "sku": {
+    "capacity": 100,
+    "family": null,
+    "name": "PGSQLS3M100",
+    "size": null,
+    "tier": "Basic"
+  },
+  "sslEnforcement": null,
+  "storageMb": 51200,
+  "tags": null,
+  "type": "Microsoft.DBforPostgreSQL/servers",
+  "userVisibleState": "Ready",
+  "version": "9.6"
+}
+```
 
 ## Connect to Azure Database for PostgreSQL using psql
 

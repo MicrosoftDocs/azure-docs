@@ -27,7 +27,7 @@ Log in to the [Azure portal](https://portal.azure.com).
 
 ## Create an Azure PostgreSQL server
 
-An Azure PostgreSQL server is created with a defined set of [compute and storage resources](placeholder.md). The server is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
+An Azure PostgreSQL server is created with a defined set of [compute and storage resources](./concepts-compute-unit-and-storage.md). The server is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
 
 Follow these steps to create an Azure Database for PostgreSQL server:
 1.	Click the **New** button found on the upper left-hand corner of the Azure portal.
@@ -35,14 +35,16 @@ Follow these steps to create an Azure Database for PostgreSQL server:
  ![Azure Database for PostgreSQL - Create the database](./media/postgresql-quickstart-create-database-portal/1-create-database.png)
 
 3.	Fill out the Azure Database for PostgreSQL form with the following information, as shown on the preceding image:
-    - Server name: **mypgserver-20170401** (a globally unique server name) 
+    - Server name: **mypgserver-20170401** (name of a server maps to DNS name and is thus required to be globally unique) 
+    - Subscription: If you have multiple subscriptions, choose the appropriate subscription in which the resource exists or is billed for.
     - Resource group: **myresourcegroup**
     - Server admin login and password of your choice
     - Location
     - PostgreSQL Version
 
-   > [!IMPORTANT] 
-   > Name of a server maps to DNS name and is thus required to be globally unique.
+  > [!IMPORTANT]
+  > The server admin login and password that you specify here are required to log in to the server and its databases later in this quick start. Remember or record this information for later use.
+
 4.	Click **Pricing tier** to specify the service tier and performance level for your new database. For this quick start, select **200 Compute Units** and **125** GB of included storage.
  ![Azure Database for PostgreSQL - pick the service tier](./media/postgresql-quickstart-create-database-portal/2-service-tier.png)
 5.	Click **Ok**.
@@ -54,8 +56,7 @@ Follow these steps to create an Azure Database for PostgreSQL server:
 7.	On the toolbar, click **Notifications** to monitor the deployment process.
  ![Azure Database for PostgreSQL - See notifications](./media/postgresql-quickstart-create-database-portal/3-notifications.png)
    
-  > [!NOTE]
-  > By default, **postgres** database gets created under your server. The [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) database is a default database meant for use by users, utilities and third party applications. 
+  By default, **postgres** database gets created under your server. The [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) database is a default database meant for use by users, utilities and third party applications. 
 
 ## Create a server-level firewall rule
 
