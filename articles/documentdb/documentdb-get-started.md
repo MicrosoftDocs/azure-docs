@@ -29,7 +29,7 @@ ms.author: anhoh
 >  
 > 
 
-Welcome to the NoSQL tutorial for the Azure DocumentDB .NET SDK! After following this tutorial, you'll have a console application that creates and queries DocumentDB resources.
+Welcome to the NoSQL tutorial for the Azure DocumentDB .NET SDK! After following this tutorial, you'll have a console application that creates and queries DocumentDB resources
 
 We'll cover:
 
