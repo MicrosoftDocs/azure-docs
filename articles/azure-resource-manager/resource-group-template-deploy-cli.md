@@ -23,8 +23,6 @@ This topic explains how to use Azure CLI 2.0 with Resource Manager templates to 
 
 The Resource Manager template you deploy can either be a local file on your machine, or an external file that is located in a repository like GitHub. The template you deploy in this article is available in the [Sample template](#sample-template) section, or as [storage.json in GitHub](https://github.com/tfitzmac/Sample-Templates/blob/master/storage.json).
 
-The examples in this article deploy resources to a resource group in your default subscription. To use a different subscription, see [Manage multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli).
-
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
 <a id="deploy-local-template" />
@@ -37,9 +35,9 @@ When deploying resources to Azure, you:
 2. Create a resource group that serves as the container for the deployed resources
 3. Deploy to the resource group the template that defines the resources to create
 
-A template can include parameters that enable you to customize the deployment. For example, you can provide values that are tailored for a particular environment (such as dev, test, and production). Notice in the sample template that it defines a parameter for storage account SKU, and a name prefix. 
+A template can include parameters that enable you to customize the deployment. For example, you can provide values that are tailored for a particular environment (such as dev, test, and production). The sample template defines a parameter for the storage account SKU, and a parameter to use a prefix for the name. 
 
-The following example creates a resource group, and deploys a template from your local machine. It includes template parameters to specify the type storage account to create, and set a name prefix.  
+The following example creates a resource group, and deploys a template from your local machine:
 
 ```azurecli
 az login
@@ -226,6 +224,7 @@ The following template is used for the examples in this topic. Copy and save it 
 ```
 
 ## Next steps
+* The examples in this article deploy resources to a resource group in your default subscription. To use a different subscription, see [Manage multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli).
 * For a complete sample script that deploys a template, see [Resource Manager template deployment script](resource-manager-samples-cli-deploy.md).
 * To understand how to define parameters in your template, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
 * For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](resource-manager-common-deployment-errors.md).
