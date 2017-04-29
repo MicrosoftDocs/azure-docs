@@ -46,28 +46,44 @@ Collect all the assets that you need to load into a Docker image in one place. F
 ## Build the Docker image
 You will build an image based on the [microsft/iis image](https://hub.docker.com/r/microsoft/iis/) located on Docker Hub. The base image, microsoft/iis, is a Windows Server image which contains Windows Server Core and Internet Information Services (IIS).  Running this image in your container automatically starts IIS and installed websites.
 
-Define your Docker image in a Dockerfile. The Dockerfile contains instructions for the base image, additional components, the app you want to run, and other configuration images. The Dockerfile is the input to the docker build command, which creates the image. The Dockerfile that creates your image looks like this:
+Define your Docker image in a Dockerfile. The Dockerfile contains instructions for the base image, additional components, the app you want to run, and other configuration images. The Dockerfile is the input to the docker build command, which creates the image. 
 
-```
-# The `FROM` instruction specifies the base image. You are
-# extending the `microsoft/iis` image.
-FROM microsoft/iis
+1. Create a new file *Dockerfile* (with no file extension) in *c:\temp\helloworldapp*. The Dockerfile that creates your image looks like this:
 
-RUN mkdir C:\site
+    ```
+    # The `FROM` instruction specifies the base image. You are
+    # extending the `microsoft/iis` image.
+    FROM microsoft/iis
 
-RUN powershell -NoProfile -Command \
-    Import-module IISAdministration; \
-    New-IISSite -Name "Site" -PhysicalPath C:\site -BindingInformation "*:8000:"
+    RUN mkdir C:\site
 
-EXPOSE 8000
+    RUN powershell -NoProfile -Command \
+        Import-module IISAdministration; \
+        New-IISSite -Name "Site" -PhysicalPath C:\site -BindingInformation "*:8000:"
 
-# The final instruction copies the web app you created earlier into the container.
-ADD content/ /site
-```
+    EXPOSE 8000
+
+    # The final instruction copies the web app you created earlier into the container.
+    ADD content/ /site
+    ```
 
 There is no ```ENTRYPOINT``` command in this Dockerfile. You don't need one. When running Windows Server with IIS, the IIS process is the entrypoint, which is configured to start in the aspnet base image.
 
-Run the Docker build command to create the image that runs your ASP.NET app. To do this, open a PowerShell window in the directory of your project and type the following command in the solution directory:
+2. Run the Docker build command to create the image that runs your web app. To do this, open a PowerShell window and navigate to *c:\temp\helloworldapp*. Run the following command:
+
+    ```
+    docker build -t helloworldwebapp .
+    ```
+This command will build the new image using the instructions in your Dockerfile, naming (-t tagging) the image as mvcrandomanswers. This may include pulling the base image from Docker Hub, and then adding your app to that image.
+
+3. Run the ```docker images``` command to see information on the new image:
+
+    ```
+    docker images
+    
+    REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
+    helloworldwebapp              latest              86838648aab6        2 minutes ago       10.1 GB
+    ```
 
 ## Verify the image
 
