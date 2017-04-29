@@ -26,7 +26,7 @@ This tutorial shows you how to create an ASP.NET Core web app using [Visual Stud
 > 
 > 
 
-ASP.NET Core is a significant redesign of ASP.NET. ASP.NET Core is a new open-source and cross-platform framework for building modern cloud-based web apps using .NET. For more information, see [Introduction to ASP.NET Core](http://docs.asp.net/en/latest/conceptual-overview/aspnet.html). For information about Azure App Service web apps, see [Web Apps Overview](app-service-web-overview.md).
+ASP.NET Core is a significant redesign of ASP.NET. ASP.NET Core is a new open-source and cross-platform framework for building modern cloud-based web apps using .NET. For more information, see [Introduction to ASP.NET Core](http://docs.asp.net/latest/conceptual-overview/aspnet.html). For information about Azure App Service web apps, see [Web Apps Overview](app-service-web-overview.md).
 
 [!INCLUDE [app-service-web-try-app-service.md](../../includes/app-service-web-try-app-service.md)]
 
@@ -37,7 +37,7 @@ ASP.NET Core is a significant redesign of ASP.NET. ASP.NET Core is a new open-so
 ## Install ASP.NET Core
 ASP.NET Core is a lean .NET stack for building modern cloud and web apps that run on OS X, Linux, and Windows. It has been built from the ground up to provide an optimized development framework for apps that are either deployed to the cloud or run on-premises. It consists of modular components with minimal overhead, so you retain flexibility while constructing your solutions.
 
-This tutorial is designed to get you started building applications with the latest development versions of ASP.NET Core. The following instructions are specific to Windows. For more detailed installation instructions for OS X, Linux, and Windows, see [Installing ASP.NET Core](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx). 
+This tutorial is designed to get you started building applications with the latest development versions of ASP.NET Core. The following instructions are specific to Windows. For installation instructions on OS X, Linux, and Windows, see [Getting Sratrted with ASP.NET Core](https://docs.microsoft.com/aspnet/core/getting-started). 
 
 
 > [!NOTE]
