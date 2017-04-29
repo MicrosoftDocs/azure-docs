@@ -1,10 +1,10 @@
 ---
-title: How to create, manage, or delete a storage account in the Azure Portal | Microsoft Docs
-description: Create a new storage account, manage your account access keys, or delete a storage account in the Azure Portal. Learn about standard and premium storage accounts.
+title: How to create, manage, or delete a storage account in the Azure portal | Microsoft Docs
+description: Create a new storage account, manage your account access keys, or delete a storage account in the Azure portal. Learn about standard and premium storage accounts.
 services: storage
 documentationcenter: ''
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: 87c37da0-6cc6-4d88-a330-ef2896a1531d
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/26/2016
+ms.date: 01/23/2017
 ms.author: robinsh
 
 ---
@@ -56,7 +56,7 @@ You can also configure a custom domain name to use with your storage account. Fo
 
 ## Create a storage account
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the Hub menu, select **New** -> **Data + Storage** -> **Storage account**.
+2. On the Hub menu, select **New** -> **Storage** -> **Storage account**.
 3. Enter a name for your storage account. See [Storage account endpoints](#storage-account-endpoints) for details about how the storage account name will be used to address your objects in Azure Storage.
    
    > [!NOTE]

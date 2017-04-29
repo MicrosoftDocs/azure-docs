@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Create a pipeline with Copy Activity using .NET API | Microsoft Docs'
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using .NET API.
 services: data-factory
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/27/2016
+ms.date: 04/11/2017
 ms.author: spelluru
 
 ---
@@ -34,12 +34,15 @@ The Copy Activity performs the data movement in Azure Data Factory. The activity
 
 > [!NOTE]
 > This article does not cover all the Data Factory .NET API. See [Data Factory .NET API Reference](https://msdn.microsoft.com/library/mt415893.aspx) for details about Data Factory .NET SDK.
+> 
+> The data pipeline in this tutorial copies data from a source data store to a destination data store. It does not transform input data to produce output data. For a tutorial on how to transform data using Azure Data Factory, see [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
+
 
 ## Prerequisites
 * Go through [Tutorial Overview and Pre-requisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) to get an overview of the tutorial and complete the **prerequisite** steps.
 * Visual Studio 2012 or 2013 or 2015
 * Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/)
-* Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application.
+* Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/overview) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application.
 
 ### Create an application in Azure Active Directory
 Create an Azure Active Directory application, create a service principal for the application, and assign it to the **Data Factory Contributor** role.
@@ -47,42 +50,59 @@ Create an Azure Active Directory application, create a service principal for the
 1. Launch **PowerShell**.
 2. Run the following command and enter the user name and password that you use to sign in to the Azure portal.
 
-        Login-AzureRmAccount
+	```PowerShell
+	Login-AzureRmAccount
+	```
 3. Run the following command to view all the subscriptions for this account.
 
-        Get-AzureRmSubscription
+	```PowerShell
+	Get-AzureRmSubscription
+	```
 4. Run the following command to select the subscription that you want to work with. Replace **&lt;NameOfAzureSubscription**&gt; with the name of your Azure subscription.
 
-        Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+	```PowerShell
+	Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+	```
 
    > [!IMPORTANT]
    > Note down **SubscriptionId** and **TenantId** from the output of this command.
 
 5. Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command in the PowerShell.
 
-        New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+	```PowerShell
+	New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+	```
 
     If the resource group already exists, you specify whether to update it (Y) or keep it as (N).
 
     If you use a different resource group, you need to use the name of your resource group in place of ADFTutorialResourceGroup in this tutorial.
 6. Create an Azure Active Directory application.
 
-        $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
+	```PowerShell
+	$azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
+	```
 
     If you get the following error, specify a different URL and run the command again.
-
-        Another object with the same value for property identifierUris already exists.
+	
+	```PowerShell
+	Another object with the same value for property identifierUris already exists.
+	```
 7. Create the AD service principal.
 
-        New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+	```PowerShell
+    New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+	```
 8. Add service principal to the **Data Factory Contributor** role.
 
-        New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+	```PowerShell
+    New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+	```
 9. Get the application ID.
 
-        $azureAdApplication
-
-    Note down the application ID (**applicationID** from the output).
+	```PowerShell
+	$azureAdApplication	
+	```
+    Note down the application ID (applicationID) from the output.
 
 You should have following four values from these steps:
 
@@ -100,7 +120,7 @@ You should have following four values from these steps:
    5. Enter **DataFactoryAPITestApp** for the Name.
    6. Select **C:\ADFGetStarted** for the Location.
    7. Click **OK** to create the project.
-2. Click **Tools**, point to **Nuget Package Manager**, and click **Package Manager Console**.
+2. Click **Tools**, point to **NuGet Package Manager**, and click **Package Manager Console**.
 3. In the **Package Manager Console**, do the following steps:
    1. Run the following command to install Data Factory package: `Install-Package Microsoft.Azure.Management.DataFactories`
    2. Run the following command to install Azure Active Directory package (you use Active Directory API in the code): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
@@ -111,9 +131,6 @@ You should have following four values from these steps:
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>
     <configuration>
-        <startup>
-            <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
-        </startup>
         <appSettings>
             <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
             <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
@@ -130,16 +147,18 @@ You should have following four values from these steps:
 5. Add the following **using** statements to the source file (Program.cs) in the project.
 
     ```csharp
-    using System.Threading;
     using System.Configuration;
     using System.Collections.ObjectModel;
+    using System.Threading;
+    using System.Threading.Tasks;
 
+    using Microsoft.Azure;
     using Microsoft.Azure.Management.DataFactories;
     using Microsoft.Azure.Management.DataFactories.Models;
     using Microsoft.Azure.Management.DataFactories.Common.Models;
 
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using Microsoft.Azure;
+
     ```
 
 6. Add the following code that creates an instance of **DataPipelineManagementClient** class to the **Main** method. You use this object to create a data factory, a linked service, input and output datasets, and a pipeline. You also use this object to monitor slices of a dataset at runtime.
@@ -149,10 +168,9 @@ You should have following four values from these steps:
     string resourceGroupName = "ADFTutorialResourceGroup";
     string dataFactoryName = "APITutorialFactory";
 
-    TokenCloudCredentials aadTokenCredentials =
-        new TokenCloudCredentials(
+    TokenCloudCredentials aadTokenCredentials = new TokenCloudCredentials(
             ConfigurationManager.AppSettings["SubscriptionId"],
-            GetAuthorizationHeader());
+            GetAuthorizationHeader().Result);
 
     Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
 
@@ -162,7 +180,7 @@ You should have following four values from these steps:
    > [!IMPORTANT]
    > Replace the value of **resourceGroupName** with the name of your Azure resource group.
    >
-   > Update name of the data factory (**dataFactoryName**) to be unique. Name of the data factory must be globally unique. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
+   > Update name of the data factory (dataFactoryName) to be unique. Name of the data factory must be globally unique. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
 
 7. Add the following code that creates a **data factory** to the **Main** method.
 
@@ -176,7 +194,7 @@ You should have following four values from these steps:
             {
                 Name = dataFactoryName,
                 Location = "westus",
-                Properties = new DataFactoryProperties() { }
+                Properties = new DataFactoryProperties()
             }
         }
     );
@@ -294,7 +312,6 @@ You should have following four values from these steps:
                     {
                         TableName = "emp"
                     },
-
                     Availability = new Availability()
                     {
                         Frequency = SchedulePeriod.Hour,
@@ -324,8 +341,8 @@ You should have following four values from these steps:
                 {
                     Description = "Demo Pipeline for data transfer between blobs",
 
-            // Initial value for pipeline's active period. With this, you won't need to set slice status
-            Start = PipelineActivePeriodStartTime,
+                    // Initial value for pipeline's active period. With this, you won't need to set slice status
+                    Start = PipelineActivePeriodStartTime,
                     End = PipelineActivePeriodEndTime,
 
                     Activities = new List<Activity>()
@@ -356,7 +373,7 @@ You should have following four values from these steps:
                                 }
                             }
                         }
-                    },
+                    }
                 }
             }
         });
@@ -371,7 +388,7 @@ You should have following four values from these steps:
 
     while (DateTime.Now - start < TimeSpan.FromMinutes(5) && !done)
     {
-        Console.WriteLine("Pulling the slice status");
+        Console.WriteLine("Pulling the slice status");        
         // wait before the next status check
         Thread.Sleep(1000 * 12);
 
@@ -435,52 +452,42 @@ You should have following four values from these steps:
 14. Add the following helper method used by the **Main** method to the **Program** class.
 
     ```csharp
-    public static string GetAuthorizationHeader()
+    public static async Task<string> GetAuthorizationHeader()
     {
-        AuthenticationResult result = null;
-        var thread = new Thread(() =>
-        {
-            try
-            {
-                var context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
-
-                ClientCredential credential = new ClientCredential(ConfigurationManager.AppSettings["ApplicationId"], ConfigurationManager.AppSettings["Password"]);
-                result = context.AcquireToken(resource: ConfigurationManager.AppSettings["WindowsManagementUri"], clientCredential: credential);
-            }
-            catch (Exception threadEx)
-            {
-                Console.WriteLine(threadEx.Message);
-            }
-        });
-
-        thread.SetApartmentState(ApartmentState.STA);
-        thread.Name = "AcquireTokenThread";
-        thread.Start();
-        thread.Join();
+        AuthenticationContext context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+        ClientCredential credential = new ClientCredential(
+	        ConfigurationManager.AppSettings["ApplicationId"],
+	        ConfigurationManager.AppSettings["Password"]);
+        AuthenticationResult result = await context.AcquireTokenAsync(
+	        resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
+	        clientCredential: credential);
 
         if (result != null)
-        {
             return result.AccessToken;
-        }
 
         throw new InvalidOperationException("Failed to acquire token");
     }
     ```
 
-15. In the Solution Explorer, expand the project (**DataFactoryAPITestApp**), right-click **References**, and click **Add Reference**. Select check box for "**System.Configuration**" assembly and click **OK**.
+15. In the Solution Explorer, expand the project (DataFactoryAPITestApp), right-click **References**, and click **Add Reference**. Select check box for **System.Configuration** assembly. and click **OK**.
 16. Build the console application. Click **Build** on the menu and click **Build Solution**.
 17. Confirm that there is at least one file in the **adftutorial** container in your Azure blob storage. If not, create **Emp.txt** file in Notepad with the following content and upload it to the adftutorial container.
 
-       John, Doe
-       Jane, Doe
+	```
+	John, Doe
+	Jane, Doe
+	```
 18. Run the sample by clicking **Debug** -> **Start Debugging** on the menu. When you see the **Getting run details of a data slice**, wait for a few minutes, and press **ENTER**.
 19. Use the Azure portal to verify that the data factory **APITutorialFactory** is created with the following artifacts:
    * Linked service: **LinkedService_AzureStorage**
    * Dataset: **DatasetBlobSource** and **DatasetBlobDestination**.
    * Pipeline: **PipelineBlobSample**
-20. Verify that the two employee records are created in the "**emp**" table in the specified Azure SQL database.
+20. Verify that the two employee records are created in the **emp** table in the specified Azure SQL database.
 
 ## Next Steps
-* Read through [Data Movement Activities](data-factory-data-movement-activities.md) article, which provides detailed information about the Copy Activity you used in the tutorial.
-* See [Data Factory .NET API Reference](https://msdn.microsoft.com/library/mt415893.aspx) for details about Data Factory .NET SDK. This article does not cover all the Data Factory .NET API.
-
+| Topic | Description |
+|:--- |:--- |
+| [Pipelines](data-factory-create-pipelines.md) |This article helps you understand pipelines and activities in Azure Data Factory. |
+| [Datasets](data-factory-create-datasets.md) |This article helps you understand datasets in Azure Data Factory. |
+| [Scheduling and execution](data-factory-scheduling-and-execution.md) |This article explains the scheduling and execution aspects of Azure Data Factory application model. |
+[Data Factory .NET API Reference](/dotnet/api/) | Provides details about Data Factory .NET SDK (look for Microsoft.Azure.Management.DataFactories.Models in the tree view).

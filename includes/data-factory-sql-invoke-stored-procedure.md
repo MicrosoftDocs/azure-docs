@@ -9,53 +9,59 @@ You may invoke a stored procedure of choice. The following sample shows how to u
 
 In this example, type is set to: SqlServerTable. Set it to AzureSqlTable to use with an Azure SQL database. 
 
-    {
-      "name": "SqlOutput",
-      "properties": {
-        "type": "SqlServerTable",
-        "linkedServiceName": "SqlLinkedService",
-        "typeProperties": {
-          "tableName": "Marketing"
-        },
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
-        }
-      }
+```json
+{
+  "name": "SqlOutput",
+  "properties": {
+    "type": "SqlServerTable",
+    "linkedServiceName": "SqlLinkedService",
+    "typeProperties": {
+      "tableName": "Marketing"
+    },
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
     }
+  }
+}
+```
 
 Define the SqlSink section in copy activity JSON as follows. To call a stored procedure while insert data, both SqlWriterStoredProcedureName and SqlWriterTableType properties are needed.
 
-    "sink":
-    {
-        "type": "SqlSink",
-        "SqlWriterTableType": "MarketingType",
-        "SqlWriterStoredProcedureName": "spOverwriteMarketing", 
-        "storedProcedureParameters":
+```json
+"sink":
+{
+    "type": "SqlSink",
+    "SqlWriterTableType": "MarketingType",
+    "SqlWriterStoredProcedureName": "spOverwriteMarketing", 
+    "storedProcedureParameters":
+            {
+                "stringData": 
                 {
-                    "stringData": 
-                    {
-                        "value": "str1"     
-                    }
+                    "value": "str1"     
                 }
-    }
+            }
+}
+```
 
 In your database, define the stored procedure with the same name as SqlWriterStoredProcedureName. It handles input data from your specified source, and insert into the output table. Notice that the parameter name of the stored procedure should be the same as the tableName defined in Table JSON file.
 
-    CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
-    AS
-    BEGIN
-        DELETE FROM [dbo].[Marketing] where ProfileID = @stringData
-        INSERT [dbo].[Marketing](ProfileID, State)
-        SELECT * FROM @Marketing
-    END
-
+```sql
+CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
+AS
+BEGIN
+    DELETE FROM [dbo].[Marketing] where ProfileID = @stringData
+    INSERT [dbo].[Marketing](ProfileID, State)
+    SELECT * FROM @Marketing
+END
+```
 In your database, define the table type with the same name as SqlWriterTableType. Notice that the schema of the table type should be same as the schema returned by your input data.
 
-    CREATE TYPE [dbo].[MarketingType] AS TABLE(
-        [ProfileID] [varchar](256) NOT NULL,
-        [State] [varchar](256) NOT NULL
-    )
-
+```sql
+CREATE TYPE [dbo].[MarketingType] AS TABLE(
+    [ProfileID] [varchar](256) NOT NULL,
+    [State] [varchar](256) NOT NULL
+)
+```
 The stored procedure feature takes advantage of [Table-Valued Parameters](https://msdn.microsoft.com/library/bb675163.aspx).
 

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
-ms.author: asmalser-msft
+ms.author: asmalser
 
 ---
 # What is application access and single sign-on with Azure Active Directory?

@@ -14,14 +14,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 03/20/2017
 ms.author: garye;bradsev
 
 ---
 # Import your data into Azure Machine Learning Studio from another experiment
 [!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
-There will be times when you'll want to take an intermediate result from an experiment and use it as part of another experiment.  To do this, you save the module as a dataset:
+There will be times when you'll want to take an intermediate result from one experiment and use it as part of another experiment. To do this, you save the module as a dataset:
 
 1. Click the output of the module that you want to save as a dataset.
 2. Click **Save as Dataset**.

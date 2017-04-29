@@ -13,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 02/23/2017
 ms.author: curtand
 
 ---
 # What is Azure Active Directory?
 Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based directory and identity management service.
 
-For IT Admins, Azure AD provides an affordable, easy to use solution to give employees and business partners single sign-on (SSO) access to [thousands of cloud SaaS Applications](http://blogs.technet.com/b/ad/archive/2014/09/03/50-saas-apps-now-support-federation-with-azure-ad.aspx) like Office365, Salesforce.com, DropBox, and Concur.
+For IT Admins, Azure AD provides an affordable, easy to use solution to give employees and business partners single sign-on (SSO) access to [thousands of cloud SaaS Applications](active-directory-saas-tutorial-list.md) like Office365, Salesforce.com, DropBox, and Concur.
 
 For application developers, Azure AD lets you focus on building your application by making it fast and simple to integrate with a world class identity management solution used by millions of organizations around the world.
 
 Azure AD also includes a full suite of identity management capabilities including multi-factor authentication, device registration, self-service password management, self-service group management, privileged account management, role based access control, application usage monitoring, rich auditing and security monitoring and alerting. These capabilities can help secure cloud based applications, streamline IT processes, cut costs and help ensure that corporate compliance goals are met.
 
-Additionally, with just [four clicks](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx), Azure AD can be integrated with an existing Windows Server Active Directory, giving organizations the ability to leverage their existing on-premises identity investments to manage access to cloud based SaaS applications.
+Additionally, with just [four clicks](./connect/active-directory-aadconnect-get-started-express.md), Azure AD can be integrated with an existing Windows Server Active Directory, giving organizations the ability to leverage their existing on-premises identity investments to manage access to cloud based SaaS applications.
 
 If you are an Office365, Azure or Dynamics CRM Online customer, you might not realize that you are already using Azure AD. Every Office365, Azure and Dynamics CRM tenant is actually already an Azure AD tenant. Whenever you want you can start using that tenant to manage access to thousands of other cloud applications Azure AD integrates with!
 
@@ -56,58 +56,22 @@ AD DS is a server role on Windows Server, which means that it can be deployed on
 
 Azure AD is a multi-customer public directory service, which means that within Azure AD you can create a tenant for your cloud servers and applications such as Office 365. Users and groups are created in a flat structure without OUs or GPOs. Authentication is performed through protocols such as SAML, WS-Federation, and OAuth. It's possible to query Azure AD, but instead of using LDAP you must use a REST API called AD Graph API. These all work over HTTP and HTTPS.
 
-You can use Azure AD Connect to sync your on-premises identities with Azure AD.
 
-### Authentication and authorization details
-
-| Azure AD                                   | On-premises AD DS |
-|--------------------------------------------|-------------------|
-| <li>   SAML      <li>   WS-Federation    <li>   Interactive with supported credentials  <li>   OAuth 2.0   <li>   OpenID Connect                          | <li>   SAML   <li>   WS-Federation  <li>   NTLM  <li>   Kerberos   <li>   MD5   <li>   Basic          |
-
-### Object repository details
-
-| Azure AD                                          | On-premises AD DS |
-|---------------------------------------------------|-------------------|
-| Access via Azure AD Graph and Microsoft Graph | X.500 LDAP    |
-
-### Programmatic access details
-
-| Azure AD                        | On-premises AD DS |
-|---------------------------------|-------------------|
-| MS/Azure AD Graph REST APIs | LDAP          |
-
-### SSO to applications details
-
-| Azure AD           | On-premises AD DS   |
-|--------------------|---------------------|
-| <li>   OpenID Connect  <li>   SAML          | <li>   SAML      <li>   WS-Fed   <li>   Open-ID connect  |
-
-### Access management details
-
-| Azure AD         | On-premises AD DS     |
-|------------------------------------|------------------------------------------------------------------------|
-| <li>   Resource-defined scope and role based access control   <li>   Client-define delegated and application permissions        <li>   Consent Framework (enforces proper user/admin consent, as defined/requested by resource/client)  <li>   Via app role, can be applied individually or through groups, supports:   <ul> <li>   Admin managed       <li>   Self-service application access  <li>   User consent </ul>         | <li>   Via ACLs, can be applied individually or through groups, supports:  <ul><li>   Admin managed  </ul>                                                 |
-
-### Group management details
-
-| Azure AD                          | On-premises AD DS                                 |
-|-----------------------------------|---------------------------------------------------|
-| <li>   Admin managed    <li>   Rule/dynamic managed   <li>   Self-service group management  | <li>   Admin managed      <li>   External system (FIM, or other) required for:  <ul><li>   Rule/dynamic managed      </ul>                 |
-
-### Supported credentials details
-
-| Azure AD           | On-premises AD DS  |
-|--------------------|--------------------|
-| <li>   Username + password  <li>   Smartcard     | <li>   Username + password  <li>   Smartcard     |
 
 
 ## How can I get started?
-* If you are an IT admin:
-  * [Try it out!](https://azure.microsoft.com/trial/get-started-active-directory/) - you can sign up for a free 30 trial today and deploy your first cloud solution in under 5 minutes using this link
-  * Read “Getting started with Azure AD” for tips and tricks on getting an Azure AD tenant up and running fast
-* If you are a developer:
-  * Check out our [Developers Guide](active-directory-developers-guide.md) to Azure Active Directory
-  * [Start a trial](https://azure.microsoft.com/trial/get-started-active-directory/) – sign up for a free 30 day trial today and  start integrating your apps with Azure AD
+
+**If you are an IT admin:**
+
+* [Try it out!](https://azure.microsoft.com/trial/get-started-active-directory/) - you can sign up for a free 30 day trial today and deploy your first cloud solution in under 5 minutes using this link
+
+* Read “Getting started with Azure AD” for tips and tricks on getting an Azure AD tenant up and running fast
+
+**If you are a developer:**
+ 
+* Check out our [Developers Guide](active-directory-developers-guide.md) to Azure Active Directory
+
+* [Start a trial](https://azure.microsoft.com/trial/get-started-active-directory/) – sign up for a free 30 day trial today and  start integrating your apps with Azure AD
 
 ## Where can I learn more?
 We have a ton of great resources online to help you learn all about Azure AD. Here’s a list of great articles to get you started:

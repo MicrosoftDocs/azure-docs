@@ -1,9 +1,9 @@
 ---
-title: Locally monitor and diagnose services written with Azure Service Fabric | Microsoft Docs
+title: Debug Azure microservices in Windows | Microsoft Docs
 description: Learn how to monitor and diagnose your services written using Microsoft Azure Service Fabric on a local development machine.
 services: service-fabric
 documentationcenter: .net
-author: ms-toddabel
+author: dkkapur
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/06/2016
-ms.author: toddabel
+ms.date: 04/24/2017
+ms.author: dekapur
 
 ---
 # Monitor and diagnose services in a local machine development setup
@@ -24,15 +24,15 @@ ms.author: toddabel
 > 
 > 
 
-Monitoring, detecting, diagnosing, and troubleshooting allow for services to continue with minimal disruption to the user experience. While monitoring and diagnostics are critical in an actual deployed production environment, the efficacy will depend on adopting a similar model during development of services to ensure they work when you move to a real-world setup. Service Fabric makes it easy for service developers to implement diagnostics that can seamlessly work across both single-machine local development setups and real-world production cluster setups.
+Monitoring, detecting, diagnosing, and troubleshooting allow for services to continue with minimal disruption to the user experience. While monitoring and diagnostics are critical in an actual deployed production environment, the efficiency will depend on adopting a similar model during development of services to ensure they work when you move to a real-world setup. Service Fabric makes it easy for service developers to implement diagnostics that can seamlessly work across both single-machine local development setups and real-world production cluster setups.
 
-## The benefits of Event Tracing for Windows
-[Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) is the recommended technology for tracing messages in Service Fabric. Reasons for this are:
+## Event Tracing for Windows
+[Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) is the recommended technology for tracing messages in Service Fabric. Some benefits of using ETW are:
 
 * **ETW is fast.** It was built as a tracing technology that has minimal impact on code execution times.
 * **ETW tracing works seamlessly across local development environments and also real-world cluster setups.** This  means you don't have to rewrite your tracing code when you are ready to deploy your code to a real cluster.
 * **Service Fabric system code also uses ETW for internal tracing.** This allows you to view your application traces interleaved with Service Fabric system traces. It also helps you to more easily understand the sequences and interrelationships between your application code and events in the underlying system.
-* **There is built-in support in Service Fabric Visual Studio tools to view ETW events.**
+* **There is built-in support in Service Fabric Visual Studio tools to view ETW events.** ETW events appear in the Diagnostic Events view of Visual Studio once Visual Studio is correctly configured with Service Fabric. 
 
 ## View Service Fabric system events in Visual Studio
 Service Fabric emits ETW events to help application developers understand what's happening in the platform. If you haven't already done so, go ahead and follow the steps in [Creating your first application in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md). This information will help you get an application up and running with the Diagnostics Events Viewer showing the trace messages.
@@ -62,5 +62,5 @@ After adding custom ETW tracing to your service code, you can build, deploy, and
 The same tracing code that you added to your application above for local diagnostics will work with tools that you can use to view these events when running your application on an Azure cluster. Check out these articles that discuss the different options for the tools and describe how you can set them up.
 
 * [How to collect logs with Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad.md)
-* [Using ElasticSearch as a Service Fabric application trace store](service-fabric-diagnostic-how-to-use-elasticsearch.md)
+* [Collect logs directly from service process](service-fabric-diagnostic-collect-logs-without-an-agent.md)
 

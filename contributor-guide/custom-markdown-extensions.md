@@ -88,10 +88,10 @@ Simple (one-way) selectors render as a set of option buttons right below the tit
 
 Syntax:
 
-    >[!div class="op_single_selector"]
-    >*[platform, language or method](article-file-name)
-    >*[platform, language or method](article-file-name)
-    >*[platform, language or method](article-file-name)
+    > [!div class="op_single_selector"]
+    > * [platform, language or method](article-file-name)
+    > * [platform, language or method](article-file-name)
+    > * [platform, language or method](article-file-name)
 
 ### <a id="two-way-selectors"></a>Two-way selectors
 Two-way selectors let users select topics from a two way matrix. This is essential when an Azure technology supports multiple backend platforms as well as multiple clients.

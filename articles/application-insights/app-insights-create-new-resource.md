@@ -33,11 +33,11 @@ In the [portal.azure.com](https://portal.azure.com), add an Application Insights
 
 ![Click New, Application Insights](./media/app-insights-create-new-resource/01-new.png)
 
-* **Application type** affects what you see on the overview blade and the properties available in [metric explorer][metrics]. If you don't see your type of app, choose ASP.NET.
-* **Resource group** is a convenience for managing properties like access control. If you have already created other Azure resources, you can choose to put this new resource in the same group.
+* **Application type** affects what you see on the overview blade and the properties available in [metric explorer][metrics]. If you don't see your type of app, choose General.
 * **Subscription** is your payment account in Azure.
+* **Resource group** is a convenience for managing properties like access control. If you have already created other Azure resources, you can choose to put this new resource in the same group.
 * **Location** is where we keep your data.
-* **Add to startboard** puts a quick-access tile for your resource on your Azure Home page. Recommended.
+* **Pin to dashboard** puts a quick-access tile for your resource on your Azure Home page. Recommended.
 
 When your app has been created, a new blade opens. This is where you'll see performance and usage data about your app. 
 
@@ -63,7 +63,7 @@ Click the Search tile to see [Diagnostic Search][diagnostic], where the first ev
 Click Refresh after a few seconds if you're expecting more data.
 
 ## Creating a resource automatically
-You can write a [PowerShell script](app-insights-powershell-script-create-resource.md) to create a resource automatically.
+You can write a [PowerShell script](app-insights-powershell.md) to create a resource automatically.
 
 ## Next steps
 * [Create a dashboard](app-insights-dashboards.md)

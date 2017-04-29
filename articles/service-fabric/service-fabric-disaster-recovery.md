@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/29/2016
+ms.date: 03/01/2017
 ms.author: seanmck
 
 ---
@@ -91,6 +91,7 @@ As a cause of data loss, code defects in services, human operational errors, and
   * [Availability checklist](../best-practices-availability-checklist.md)
   * [Performing a disaster recovery drill](../sql-database/sql-database-disaster-recovery-drills.md)
   * [Disaster recovery and high availability for Azure applications][dr-ha-guide]
+* Learn about [Service Fabric support options](service-fabric-support.md)
 
 <!-- External links -->
 

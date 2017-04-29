@@ -1,6 +1,6 @@
 ---
 title:  What's new in Enterprise Application management in Azure Active Directory  | Microsoft Docs
-description: Learn what's new in conjunction with Enterprise Application management in Azure Active Directory.
+description: Learn what's new in Enterprise Application management in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: asteen
@@ -149,7 +149,7 @@ We hope you like using the updated preview experience. Please keep the feedback 
 
 ## Next steps
 
-For more details about SSO for enterprise apps, see [Managing single sign-on for enterprise apps in the new Azure portal](active-directory-enterprise-apps-manage-sso.md).
+For more details, see [Managing Applications with Azure Active Directory](active-directory-enable-sso-scenario.md).
 
 
 

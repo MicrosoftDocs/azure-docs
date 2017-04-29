@@ -1,5 +1,5 @@
 ---
-title: Configure CHAP for your StorSimple device | Microsoft Docs
+title: Configure CHAP for StorSimple 8000 series device | Microsoft Docs
 description: Describes how to configure the Challenge Handshake Authentication Protocol (CHAP) on a StorSimple device.
 services: storsimple
 documentationcenter: ''

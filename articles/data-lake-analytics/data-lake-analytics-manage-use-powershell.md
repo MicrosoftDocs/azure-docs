@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 
 ---
@@ -33,11 +33,11 @@ Before you begin this tutorial, you must have the following:
 
 
 ## Install Azure PowerShell 1.0 or greater
-See [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
+See the Prerequisite section of [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 ## Manage accounts
-Before running any Data Lake Analytics jobs, you must have a Data Lake Analytics account. Unlike Azure HDInsight, you don't pay for an Analytics account when it is not
-running a job.  You only pay for the time when it is running a job.  For more information, see
+Before running any Data Lake Analytics jobs, you must have a Data Lake Analytics account. Unlike Azure HDInsight, you don't pay for an Analytics account when it is not 
+running a job.  You only pay for the time when it is running a job.  For more information, see 
 [Azure Data Lake Analytics Overview](data-lake-analytics-overview.md).  
 
 ### Create accounts
@@ -55,7 +55,7 @@ running a job.  You only pay for the time when it is running a job.  For more in
     New-AzureRmDataLakeStoreAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $dataLakeStoreName `
-        -Location $location
+        -Location $location 
 
     Write-Host "Create a Data Lake Analytics account ..."  -ForegroundColor Green
     New-AzureRmDataLakeAnalyticsAccount `
@@ -79,7 +79,7 @@ You can also use an Azure Resource Group template. A template for creating a Dat
     $DataLakeAnalyticsAccountName = "<New Data Lake Analytics Account Name>"
 
     $DeploymentName = "MyDataLakeAnalyticsDeployment"
-    $ARMTemplateFile = "E:\Tutorials\ADL\ARMTemplate\azuredeploy.json"  # update the Json template path
+    $ARMTemplateFile = "E:\Tutorials\ADL\ARMTemplate\azuredeploy.json"  # update the Json template path 
 
     Login-AzureRmAccount
 
@@ -90,7 +90,7 @@ You can also use an Azure Resource Group template. A template for creating a Dat
 
     # Create the Data Lake Analytics account with the default Data Lake Store account.
     $parameters = @{"adlAnalyticsName"=$DataLakeAnalyticsAccountName; "adlStoreName"=$DefaultDataLakeStoreAccountName}
-    New-AzureRmResourceGroupDeployment -Name $DeploymentName -ResourceGroupName $ResourceGroupName -TemplateFile $ARMTemplateFile -TemplateParameterObject $parameters
+    New-AzureRmResourceGroupDeployment -Name $DeploymentName -ResourceGroupName $ResourceGroupName -TemplateFile $ARMTemplateFile -TemplateParameterObject $parameters 
 
 
 ### List account
@@ -125,7 +125,7 @@ The cmdlet will return either **True** or **False**.
     $resourceGroupName = "<ResourceGroupName>"
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 
-    Remove-AzureRmDataLakeAnalyticsAccount -Name $dataLakeAnalyticsAccountName
+    Remove-AzureRmDataLakeAnalyticsAccount -Name $dataLakeAnalyticsAccountName 
 
 Delete Data Lake Analytics account will not delete the dependent Data Lake Storage account. The following example deletes the Data Lake Analytics account and the default Data Lake Store account
 
@@ -133,7 +133,7 @@ Delete Data Lake Analytics account will not delete the dependent Data Lake Stora
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
     $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName).Properties.DefaultDataLakeAccount
 
-    Remove-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName
+    Remove-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName 
     Remove-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName
 
 <!-- ################################ -->
@@ -144,9 +144,9 @@ Data Lake Analytics currently supports the following data sources:
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
 * [Azure Storage](../storage/storage-introduction.md)
 
-When you create an Analytics account, you must designate an Azure Data Lake Storage account to be the default
-storage account. The default Data Lake Store account is used to store job metadata and job audit logs. After you have
-created an Analytics account, you can add additional Data Lake Storage accounts and/or Azure Storage account.
+When you create an Analytics account, you must designate an Azure Data Lake Storage account to be the default 
+storage account. The default Data Lake Store account is used to store job metadata and job audit logs. After you have 
+created an Analytics account, you can add additional Data Lake Storage accounts and/or Azure Storage account. 
 
 ### Find the default Data Lake Store account
     $resourceGroupName = "<ResourceGroupName>"
@@ -167,7 +167,7 @@ created an Analytics account, you can add additional Data Lake Storage accounts 
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
     $AzureDataLakeName = "<DataLakeStoreName>"
 
-    Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticAccountName -DataLake $AzureDataLakeName
+    Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticAccountName -DataLake $AzureDataLakeName 
 
 ### List data sources:
     $resourceGroupName = "<ResourceGroupName>"
@@ -192,7 +192,7 @@ You must have a Data Lake Analytics account before you can create a job.  For mo
     #States: Accepted, Compiling, Ended, New, Paused, Queued, Running, Scheduling, Starting
 
     Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -Result Cancelled
-    #Results: Cancelled, Failed, None, Successed
+    #Results: Cancelled, Failed, None, Successed 
 
     Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -Name <Job Name>
     Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -Submitter <Job submitter>
@@ -232,8 +232,8 @@ You must have a Data Lake Analytics account before you can create a job.  For mo
 
 > [!NOTE]
 > The default priority of a job is 1000, and the default degree of parallelism for a job is 1.
->
->
+> 
+> 
 
 ### Cancel jobs
     Stop-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
@@ -298,12 +298,12 @@ The U-SQL catalog is used to structure data and code so they can be shared by U-
 
 ## Use Azure Resource Manager groups
 Applications are typically made up of many components, for example a web app, database, database server, storage,
-and 3rd party services. Azure Resource Manager (ARM) enables you to work with the resources in your application
-as a group, referred to as an Azure Resource Group. You can deploy, update, monitor or delete all of the
-resources for your application in a single, coordinated operation. You use a template for deployment and that
-template can work for different environments such as testing, staging and production. You can clarify billing
-for your organization by viewing the rolled-up costs for the entire group. For more information, see [Azure
-Resource Manager Overview](../azure-resource-manager/resource-group-overview.md).
+and 3rd party services. Azure Resource Manager (ARM) enables you to work with the resources in your application 
+as a group, referred to as an Azure Resource Group. You can deploy, update, monitor or delete all of the 
+resources for your application in a single, coordinated operation. You use a template for deployment and that 
+template can work for different environments such as testing, staging and production. You can clarify billing 
+for your organization by viewing the rolled-up costs for the entire group. For more information, see [Azure 
+Resource Manager Overview](../azure-resource-manager/resource-group-overview.md). 
 
 A Data Lake Analytics service can include the following components:
 
@@ -327,7 +327,7 @@ The ARM group however can be located in a different data center.
 
 ## Appendix A - Data Lake Analytics ARM template
 The following ARM template can be used to deploy a Data Lake Analytics account and its dependent Data Lake Store account.  Save it as a json file, and then use PowerShell script to call the template. For more information, see
-[Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md#deploy) and [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
+[Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md) and [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
     {
       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -381,3 +381,4 @@ The following ARM template can be used to deploy a Data Lake Analytics account a
         }
       }
     }
+

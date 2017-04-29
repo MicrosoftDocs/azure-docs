@@ -13,10 +13,10 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
 ---
-# Deploy StorSimple Virtual Array – Set up your virtual device as an iSCSI server
+# Deploy StorSimple Virtual Array – Set up as an iSCSI server via Azure portal
 
 ![iscsi setup process flow](./media/storsimple-virtual-array-deploy3-iscsi-setup/iscsi4.png)
 

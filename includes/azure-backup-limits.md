@@ -1,26 +1,3 @@
- (backup vaults<properties
-   pageTitle="Azure Backup limits table"
-   description="Describes system limits for Azure Backup."
-   services="backup"
-   documentationCenter="NA"
-   authors="Jim-Parker"
-   manager="jwhit"
-   editor="" />
-
----
-{}
-
-ms.service: backup
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 10/05/2015
-ms.author: trinadhk
-;"jimpark";: ''
-"\"aashishr\"": ''
-
----
 The following limits apply to Azure Backup.
 
 | Limit Identifier | Default Limit |

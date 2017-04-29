@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 2/17/2017
 ms.author: johnkem
 
 ---
@@ -31,14 +31,23 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |---|---|---|---|---|
 |qpu_metric|QPU|Count|Average|QPU. Range 0-100 for S1, 0-200 for S2 and 0-400 for S4|
 |memory_metric|Memory|Bytes|Average|Memory. Range 0-25 GB for S1, 0-50 GB for S2 and 0-100 GB for S4|
+|TotalConnectionRequests|Total Connection Requests|Count|Average|Total connection requests. These are arrivals.|
+|SuccessfullConnectionsPerSec|Successful Connections Per Sec|CountPerSecond|Average|Rate of successful connection completions.|
+|TotalConnectionFailures|Total Connection Failures|Count|Average|Total failed connection attempts.|
+|CurrentUserSessions|Current User Sessions|Count|Average|Current number of user sessions established.|
+|QueryPoolBusyThreads|Query Pool Busy Threads|Count|Average|Number of busy threads in the query thread pool.|
+|CommandPoolJobQueueLength|Command Pool Job Queue Length|Count|Average|Number of jobs in the queue of the command thread pool.|
+|ProcessingPoolJobQueueLength|Processing Pool Job Queue Length|Count|Average|Number of non-I/O jobs in the queue of the processing thread pool.|
 
 ## Microsoft.ApiManagement/service
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
-|TotalRequests|Total Gateway Requests|Count|Sum|Number of Gateway requests|
-|TotalSuccessfulRequests|Successful Gateway Requests|Count|Sum|Number of processed gateway requests|
-|TotalFailedRequests|Failed Gateway Requests|Count|Sum|Number of failures in gateway requests|
+|TotalRequests|Total Gateway Requests|Count|Total|Number of gateway requests|
+|SuccessfulRequests|Successful Gateway Requests|Count|Total|Number of successful gateway requests|
+|UnauthorizedRequests|Unauthorized Gateway Requests|Count|Total|Number of unauthorized gateway requests|
+|FailedRequests|Failed Gateway Requests|Count|Total|Number of failures in gateway requests|
+|OtherRequests|Other Gateway Requests|Count|Total|Number of other gateway requests|
 
 ## Microsoft.Batch/batchAccounts
 
@@ -290,19 +299,63 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
-|d2c.telemetry.ingress.allProtocol|Telemetry Message Send Attempts|Count|Total|Number of Device to Cloud telemetry messages attempted to be sent to your IoT hub|
-|d2c.telemetry.ingress.success|Telemetry Messages Sent|Count|Total|Number of Device to Cloud telemetry messages sent successfully to your IoT hub|
-|c2d.commands.egress.complete.success|Commands Completed|Count|Total|Number of Cloud to Device commands completed successfully by the device|
-|c2d.commands.egress.abandon.success|Commands Abandoned|Count|Total|Number of Cloud to Device commands abandoned by the device|
-|c2d.commands.egress.reject.success|Commands Rejected|Count|Total|Number of Cloud to Device commands rejected by the device|
-|devices.totalDevices|Total Devices|Count|Total|Number of devices registered to your IoT hub|
-|devices.connectedDevices.allProtocol|Connected Devices|Count|Total|Number of devices connected to your IoT hub|
+|d2c.telemetry.ingress.allProtocol|Telemetry message send attempts|Count|Total|Number of device-to-cloud telemetry messages attempted to be sent to your IoT hub|
+|d2c.telemetry.ingress.success|Telemetry messages sent|Count|Total|Number of device-to-cloud telemetry messages sent successfully to your IoT hub|
+|c2d.commands.egress.complete.success|Commands completed|Count|Total|Number of cloud-to-device commands completed successfully by the device|
+|c2d.commands.egress.abandon.success|Commands abandoned|Count|Total|Number of cloud-to-device commands abandoned by the device|
+|c2d.commands.egress.reject.success|Commands rejected|Count|Total|Number of cloud-to-device commands rejected by the device|
+|devices.totalDevices|Total devices|Count|Total|Number of devices registered to your IoT hub|
+|devices.connectedDevices.allProtocol|Connected devices|Count|Total|Number of devices connected to your IoT hub|
+|d2c.telemetry.egress.success|Telemetry messages delivered|Count|Total|Number of times messages were successfully written to endpoints (total)|
+|d2c.telemetry.egress.dropped|Dropped messages|Count|Total|Number of messages dropped because they did not match any routes and the fallback route was disabled|
+|d2c.telemetry.egress.orphaned|Orphaned messages|Count|Total|The count of messages not matching any routes including the fallback route|
+|d2c.telemetry.egress.invalid|Invalid messages|Count|Total|The count of messages not delivered due to incompatibility with the endpoint|
+|d2c.telemetry.egress.fallback|Messages matching fallback condition|Count|Total|Number of messages written to the fallback endpoint|
+|d2c.endpoints.egress.eventHubs|Messages delivered to Event Hub endpoints|Count|Total|Number of times messages were successfully written to Event Hub endpoints|
+|d2c.endpoints.latency.eventHubs|Message latency for Event Hub endpoints|Milliseconds|Average|The average latency between message ingress to the IoT hub and message ingress into an Event Hub endpoint, in milliseconds|
+|d2c.endpoints.egress.serviceBusQueues|Messages delivered to Service Bus Queue endpoints|Count|Total|Number of times messages were successfully written to Service Bus Queue endpoints|
+|d2c.endpoints.latency.serviceBusQueues|Message latency for Service Bus Queue endpoints|Milliseconds|Average|The average latency between message ingress to the IoT hub and message ingress into a Service Bus Queue endpoint, in milliseconds|
+|d2c.endpoints.egress.serviceBusTopics|Messages delivered to Service Bus Topic endpoints|Count|Total|Number of times messages were successfully written to Service Bus Topic endpoints|
+|d2c.endpoints.latency.serviceBusTopics|Message latency for Service Bus Topic endpoints|Milliseconds|Average|The average latency between message ingress to the IoT hub and message ingress into a Service Bus Topic endpoint, in milliseconds|
+|d2c.endpoints.egress.builtIn.events|Messages delivered to the built-in endpoint (messages/events)|Count|Total|Number of times messages were successfully written to the built-in endpoint (messages/events)|
+|d2c.endpoints.latency.builtIn.events|Message latency for the built-in endpoint (messages/events)|Milliseconds|Average|The average latency between message ingress to the IoT hub and message ingress into the built-in endpoint (messages/events), in milliseconds |
+|d2c.twin.read.success|Successful twin reads from devices|Count|Total|The count of all successful device-initiated twin reads.|
+|d2c.twin.read.failure|Failed twin reads from devices|Count|Total|The count of all failed device-initiated twin reads.|
+|d2c.twin.read.size|Response size of twin reads from devices|Bytes|Average|The average, min, and max of all successful device-initiated twin reads.|
+|d2c.twin.update.success|Successful twin updates from devices|Count|Total|The count of all successful device-initiated twin updates.|
+|d2c.twin.update.failure|Failed twin updates from devices|Count|Total|The count of all failed device-initiated twin updates.|
+|d2c.twin.update.size|Size of twin updates from devices|Bytes|Average|The average, min, and max size of all successful device-initiated twin updates.|
+|c2d.methods.success|Successful direct method invocations|Count|Total|The count of all successful direct method calls.|
+|c2d.methods.failure|Failed direct method invocations|Count|Total|The count of all failed direct method calls.|
+|c2d.methods.requestSize|Request size of direct method invocations|Bytes|Average|The average, min, and max of all successful direct method requests.|
+|c2d.methods.responseSize|Response size of direct method invocations|Bytes|Average|The average, min, and max of all successful direct method responses.|
+|c2d.twin.read.success|Successful twin reads from back end|Count|Total|The count of all successful back-end-initiated twin reads.|
+|c2d.twin.read.failure|Failed twin reads from back end|Count|Total|The count of all failed back-end-initiated twin reads.|
+|c2d.twin.read.size|Response size of twin reads from back end|Bytes|Average|The average, min, and max of all successful back-end-initiated twin reads.|
+|c2d.twin.update.success|Successful twin updates from back end|Count|Total|The count of all successful back-end-initiated twin updates.|
+|c2d.twin.update.failure|Failed twin updates from back end|Count|Total|The count of all failed back-end-initiated twin updates.|
+|c2d.twin.update.size|Size of twin updates from back end|Bytes|Average|The average, min, and max size of all successful back-end-initiated twin updates.|
+|twinQueries.success|Successful twin queries|Count|Total|The count of all successful twin queries.|
+|twinQueries.failure|Failed twin queries|Count|Total|The count of all failed twin queries.|
+|twinQueries.resultSize|Twin queries result size|Bytes|Average|The average, min, and max of the result size of all successful twin queries.|
+|jobs.createTwinUpdateJob.success|Successful creations of twin update jobs|Count|Total|The count of all successful creation of twin update jobs.|
+|jobs.createTwinUpdateJob.failure|Failed creations of twin update jobs|Count|Total|The count of all failed creation of twin update jobs.|
+|jobs.createDirectMethodJob.success|Successful creations of method invocation jobs|Count|Total|The count of all successful creation of direct method invocation jobs.|
+|jobs.createDirectMethodJob.failure|Failed creations of method invocation jobs|Count|Total|The count of all failed creation of direct method invocation jobs.|
+|jobs.listJobs.success|Successful calls to list jobs|Count|Total|The count of all successful calls to list jobs.|
+|jobs.listJobs.failure|Failed calls to list jobs|Count|Total|The count of all failed calls to list jobs.|
+|jobs.cancelJob.success|Successful job cancellations|Count|Total|The count of all successful calls to cancel a job.|
+|jobs.cancelJob.failure|Failed job cancellations|Count|Total|The count of all failed calls to cancel a job.|
+|jobs.queryJobs.success|Successful job queries|Count|Total|The count of all successful calls to query jobs.|
+|jobs.queryJobs.failure|Failed job queries|Count|Total|The count of all failed calls to query jobs.|
+|jobs.completed|Completed jobs|Count|Total|The count of all completed jobs.|
+|jobs.failed|Failed jobs|Count|Total|The count of all failed jobs.|
 
 ## Microsoft.EventHub/namespaces
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
-|INREQS|Incoming Requests|Count|Total|Event Hub incoming message throughput for a namespace|
+|INREQS|Incoming Requests|Count|Total|Total incoming requests for a namespace|
 |SUCCREQ|Successful Requests|Count|Total|Total successful requests for a namespace|
 |FAILREQ|Failed Requests|Count|Total|Total failed requests for a namespace|
 |SVRBSY|Server Busy Errors|Count|Total|Total server busy errors for a namespace|
@@ -310,8 +363,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |MISCERR|Other Errors|Count|Total|Total failed requests for a namespace|
 |INMSGS|Incoming Messages|Count|Total|Total incoming messages for a namespace|
 |OUTMSGS|Outgoing Messages|Count|Total|Total outgoing messages for a namespace|
-|EHINMBS|Incoming bytes per second|BytesPerSecond|Total|Event Hub incoming message throughput for a namespace|
-|EHOUTMBS|Outgoing bytes per second|BytesPerSecond|Total|Total outgoing messages for a namespace|
+|EHINMBS|Incoming bytes|BytesPerSecond|Total|Event Hub incoming message throughput for a namespace|
+|EHOUTMBS|Outgoing bytes|BytesPerSecond|Total|Total outgoing messages for a namespace|
 |EHABL|Archive backlog messages|Count|Total|Event Hub archive messages in backlog for a namespace|
 |EHAMSGS|Archive messages|Count|Total|Event Hub archived messages in a namespace|
 |EHAMBS|Archive message throughput|BytesPerSecond|Total|Event Hub archived message throughput in a namespace|
@@ -357,6 +410,70 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |---|---|---|---|---|
 |Throughput|Throughput|BytesPerSecond|Average||
 
+## Microsoft.NotificationHubs/Namespaces/NotificationHubs
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|
+|---|---|---|---|---|
+|registration.all|Registration Operation|Count|Total|The count of all successful registration operations (creations updates queries and deletions). |
+|registration.create|Registration Create Operations|Count|Total|The count of all successful registration creations.|
+|registration.update|Registration Update Operations|Count|Total|The count of all successful registration updates.|
+|registration.get|Registration Read Operations|Count|Total|The count of all successful registration queries.|
+|registration.delete|Registration Delete Operations|Count|Total|The count of all successful registration deletions.|
+|incoming|Incoming Messages|Count|Total|The count of all successful send API calls. |
+|incoming.scheduled|Scheduled Push Notifications Sent|Count|Total|Scheduled Push Notifications Cancelled|
+|incoming.scheduled.cancel|Scheduled Push Notifications Cancelled|Count|Total|Scheduled Push Notifications Cancelled|
+|scheduled.pending|Pending Scheduled Notifications|Count|Total|Pending Scheduled Notifications|
+|installation.all|Installation Management Operations|Count|Total|Installation Management Operations|
+|installation.get|Get Installation Operations|Count|Total|Get Installation Operations|
+|installation.upsert|Create or Update Installation Operations|Count|Total|Create or Update Installation Operations|
+|installation.patch|Patch Installation Operations|Count|Total|Patch Installation Operations|
+|installation.delete|Delete Installation Operations|Count|Total|Delete Installation Operations|
+|outgoing.allpns.success|Successful notifications|Count|Total|The count of all successful notifications.|
+|outgoing.allpns.invalidpayload|Payload Errors|Count|Total|The count of pushes that failed because the PNS returned a bad payload error.|
+|outgoing.allpns.pnserror|External Notification System Errors|Count|Total|The count of pushes that failed because there was a problem communicating with the PNS (excludes authentication problems).|
+|outgoing.allpns.channelerror|Channel Errors|Count|Total|The count of pushes that failed because the channel was invalid not associated with the correct app throttled or expired.|
+|outgoing.allpns.badorexpiredchannel|Bad or Expired Channel Errors|Count|Total|The count of pushes that failed because the channel/token/registrationId in the registration was expired or invalid.|
+|outgoing.wns.success|WNS Successful Notifications|Count|Total|The count of all successful notifications.|
+|outgoing.wns.invalidcredentials|WNS Authorization Errors (Invalid Credentials)|Count|Total|The count of pushes that failed because the PNS did not accept the provided credentials or the credentials are blocked. (Windows Live does not recognize the credentials).|
+|outgoing.wns.badchannel|WNS Bad Channel Error|Count|Total|The count of pushes that failed because the ChannelURI in the registration was not recognized (WNS status: 404 not found).|
+|outgoing.wns.expiredchannel|WNS Expired Channel Error|Count|Total|The count of pushes that failed because the ChannelURI is expired (WNS status: 410 Gone).|
+|outgoing.wns.throttled|WNS Throttled Notifications|Count|Total|The count of pushes that failed because WNS is throttling this app (WNS status: 406 Not Acceptable).|
+|outgoing.wns.tokenproviderunreachable|WNS Authorization Errors (Unreachable)|Count|Total|Windows Live is not reachable.|
+|outgoing.wns.invalidtoken|WNS Authorization Errors (Invalid Token)|Count|Total|The token provided to WNS is not valid (WNS status: 401 Unauthorized).|
+|outgoing.wns.wrongtoken|WNS Authorization Errors (Wrong Token)|Count|Total|The token provided to WNS is valid but for another application (WNS status: 403 Forbidden). This can happen if the ChannelURI in the registration is associated with another app. Check that the client app is associated with the same app whose credentials are in the notification hub.|
+|outgoing.wns.invalidnotificationformat|WNS Invalid Notification Format|Count|Total|The format of the notification is invalid (WNS status: 400). Note that WNS does not reject all invalid payloads.|
+|outgoing.wns.invalidnotificationsize|WNS Invalid Notification Size Error|Count|Total|The notification payload is too large (WNS status: 413).|
+|outgoing.wns.channelthrottled|WNS Channel Throttled|Count|Total|The notification was dropped because the ChannelURI in the registration is throttled (WNS response header: X-WNS-NotificationStatus:channelThrottled).|
+|outgoing.wns.channeldisconnected|WNS Channel Disconnected|Count|Total|The notification was dropped because the ChannelURI in the registration is throttled (WNS response header: X-WNS-DeviceConnectionStatus: disconnected).|
+|outgoing.wns.dropped|WNS Dropped Notifications|Count|Total|The notification was dropped because the ChannelURI in the registration is throttled (X-WNS-NotificationStatus: dropped but not X-WNS-DeviceConnectionStatus: disconnected).|
+|outgoing.wns.pnserror|WNS Errors|Count|Total|Notification not delivered because of errors communicating with WNS.|
+|outgoing.wns.authenticationerror|WNS Authentication Errors|Count|Total|Notification not delivered because of errors communicating with Windows Live invalid credentials or wrong token.|
+|outgoing.apns.success|APNS Successful Notifications|Count|Total|The count of all successful notifications.|
+|outgoing.apns.invalidcredentials|APNS Authorization Errors|Count|Total|The count of pushes that failed because the PNS did not accept the provided credentials or the credentials are blocked.|
+|outgoing.apns.badchannel|APNS Bad Channel Error|Count|Total|The count of pushes that failed because the token is invalid (APNS status code: 8).|
+|outgoing.apns.expiredchannel|APNS Expired Channel Error|Count|Total|The count of token that were invalidated by the APNS feedback channel.|
+|outgoing.apns.invalidnotificationsize|APNS Invalid Notification Size Error|Count|Total|The count of pushes that failed because the payload was too large (APNS status code: 7).|
+|outgoing.apns.pnserror|APNS Errors|Count|Total|The count of pushes that failed because of errors communicating with APNS.|
+|outgoing.gcm.success|GCM Successful Notifications|Count|Total|The count of all successful notifications.|
+|outgoing.gcm.invalidcredentials|GCM Authorization Errors (Invalid Credentials)|Count|Total|The count of pushes that failed because the PNS did not accept the provided credentials or the credentials are blocked.|
+|outgoing.gcm.badchannel|GCM Bad Channel Error|Count|Total|The count of pushes that failed because the registrationId in the registration was not recognized (GCM result: Invalid Registration).|
+|outgoing.gcm.expiredchannel|GCM Expired Channel Error|Count|Total|The count of pushes that failed because the registrationId in the registration was expired (GCM result: NotRegistered).|
+|outgoing.gcm.throttled|GCM Throttled Notifications|Count|Total|The count of pushes that failed because GCM throttled this app (GCM status code: 501-599 or result:Unavailable).|
+|outgoing.gcm.invalidnotificationformat|GCM Invalid Notification Format|Count|Total|The count of pushes that failed because the payload was not formatted correctly (GCM result: InvalidDataKey or InvalidTtl).|
+|outgoing.gcm.invalidnotificationsize|GCM Invalid Notification Size Error|Count|Total|The count of pushes that failed because the payload was too large (GCM result: MessageTooBig).|
+|outgoing.gcm.wrongchannel|GCM Wrong Channel Error|Count|Total|The count of pushes that failed because the registrationId in the registration is not associated to the current app (GCM result: InvalidPackageName).|
+|outgoing.gcm.pnserror|GCM Errors|Count|Total|The count of pushes that failed because of errors communicating with GCM.|
+|outgoing.gcm.authenticationerror|GCM Authentication Errors|Count|Total|The count of pushes that failed because the PNS did not accept the provided credentials the credentials are blocked or the SenderId is not correctly configured in the app (GCM result: MismatchedSenderId).|
+|outgoing.mpns.success|MPNS Successful Notifications|Count|Total|The count of all successful notifications.|
+|outgoing.mpns.invalidcredentials|MPNS Invalid Credentials|Count|Total|The count of pushes that failed because the PNS did not accept the provided credentials or the credentials are blocked.|
+|outgoing.mpns.badchannel|MPNS Bad Channel Error|Count|Total|The count of pushes that failed because the ChannelURI in the registration was not recognized (MPNS status: 404 not found).|
+|outgoing.mpns.throttled|MPNS Throttled Notifications|Count|Total|The count of pushes that failed because MPNS is throttling this app (WNS MPNS: 406 Not Acceptable).|
+|outgoing.mpns.invalidnotificationformat|MPNS Invalid Notification Format|Count|Total|The count of pushes that failed because the payload of the notification was too large.|
+|outgoing.mpns.channeldisconnected|MPNS Channel Disconnected|Count|Total|The count of pushes that failed because the ChannelURI in the registration was disconnected (MPNS status: 412 not found).|
+|outgoing.mpns.dropped|MPNS Dropped Notifications|Count|Total|The count of pushes that were dropped by MPNS (MPNS response header: X-NotificationStatus: QueueFull or Suppressed).|
+|outgoing.mpns.pnserror|MPNS Errors|Count|Total|The count of pushes that failed because of errors communicating with MPNS.|
+|outgoing.mpns.authenticationerror|MPNS Authentication Errors|Count|Total|The count of pushes that failed because the PNS did not accept the provided credentials or the credentials are blocked.|
+
 ## Microsoft.Search/searchServices
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
@@ -386,13 +503,13 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |blocked_by_firewall|Blocked by Firewall|Count|Total|Blocked by Firewall|
 |deadlock|Deadlocks|Count|Total|Deadlocks|
 |storage_percent|Database size percentage|Percent|Maximum|Database size percentage|
-|xtp_storage_percent|In-Memory OLTP storage percent(Preview)|Percent|Average|In-Memory OLTP storage percent(Preview)|
-|workers_percent|Workers percentage|Percent|Average|Workers percent|
-|sessions_percent|Sessions percent|Percent|Average|Sessions percent|
-|dtu_limit|DTU limit|Count|Average|DTU limit|
+|xtp_storage_percent|In-Memory OLTP storage percent|Percent|Average|In-Memory OLTP storage percent|
+|workers_percent|Workers percentage|Percent|Average|Workers percentage|
+|sessions_percent|Sessions percentage|Percent|Average|Sessions percentage|
+|dtu_limit|DTU Limit|Count|Average|DTU Limit|
 |dtu_used|DTU used|Count|Average|DTU used|
 |service_level_objective|Service level objective of the database|Count|Total|Service level objective of the database|
-|dwu_limit|dwu limit|Count|Maximum|dwu limit|
+|dwu_limit|DWU limit|Count|Maximum|DWU limit|
 |dwu_consumption_percent|DWU percentage|Percent|Average|DWU percentage|
 |dwu_used|DWU used|Count|Average|DWU used|
 
@@ -405,12 +522,13 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |log_write_percent|Log IO percentage|Percent|Average|Log IO percentage|
 |dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage|
 |storage_percent|Storage percentage|Percent|Average|Storage percentage|
-|workers_percent|Workers percent|Percent|Average|Workers percent|
-|sessions_percent|Sessions percent|Percent|Average|Sessions percent|
+|workers_percent|Workers percentage|Percent|Average|Workers percentage|
+|sessions_percent|Sessions percentage|Percent|Average|Sessions percentage|
 |eDTU_limit|eDTU limit|Count|Average|eDTU limit|
 |storage_limit|Storage limit|Bytes|Average|Storage limit|
 |eDTU_used|eDTU used|Count|Average|eDTU used|
 |storage_used|Storage used|Bytes|Average|Storage used|
+|xtp_storage_percent|In-Memory OLTP storage percent|Percent|Average|In-Memory OLTP storage percent|
 
 ## Microsoft.StreamAnalytics/streamingjobs
 
@@ -439,7 +557,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |BytesReceived|Data In|Bytes|Total|Data In|
 |BytesSent|Data Out|Bytes|Total|Data Out|
 
-## Microsoft.Web/sites (including Azure Functions)
+## Microsoft.Web/sites (including Functions)
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
@@ -456,8 +574,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Http406|Http 406|Count|Total|Http 406|
 |Http4xx|Http 4xx|Count|Total|Http 4xx|
 |Http5xx|Http Server Errors|Count|Total|Http Server Errors|
-|MemoryWorkingSet|Memory working set|Bytes|Total|Memory working set|
-|AverageMemoryWorkingSet|Average memory working set|Bytes|Total|Average memory working set|
+|MemoryWorkingSet|Memory working set|Bytes|Average|Memory working set|
+|AverageMemoryWorkingSet|Average memory working set|Bytes|Average|Average memory working set|
 |AverageResponseTime|Average Response Time|Seconds|Average|Average Response Time|
 |FunctionExecutionUnits|Function Execution Units|Count|Average|Function Execution Units|
 |FunctionExecutionCount|Function Execution Count|Count|Average|Function Execution Count|
@@ -479,8 +597,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Http406|Http 406|Count|Total|Http 406|
 |Http4xx|Http 4xx|Count|Total|Http 4xx|
 |Http5xx|Http Server Errors|Count|Total|Http Server Errors|
-|MemoryWorkingSet|Memory working set|Bytes|Total|Memory working set|
-|AverageMemoryWorkingSet|Average memory working set|Bytes|Total|Average memory working set|
+|MemoryWorkingSet|Memory working set|Bytes|Average|Memory working set|
+|AverageMemoryWorkingSet|Average memory working set|Bytes|Average|Average memory working set|
 |AverageResponseTime|Average Response Time|Seconds|Average|Average Response Time|
 |FunctionExecutionUnits|Function Execution Units|Count|Average|Function Execution Units|
 |FunctionExecutionCount|Function Execution Count|Count|Average|Function Execution Count|

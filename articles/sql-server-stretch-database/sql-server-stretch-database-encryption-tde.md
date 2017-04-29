@@ -1,5 +1,5 @@
 ---
-title: Enable Transparent Data Encryption (TDE) for SQL Server Stretch Database on Azure | Microsoft Docs
+title: Enable Transparent Data Encryption for Stretch Database - Azure | Microsoft Docs
 description: Enable Transparent Data Encryption (TDE) for SQL Server Stretch Database on Azure
 services: sql-server-stretch-database
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2016
-ms.author: douglaslMS
+ms.author: douglasl
 
 ---
 # Enable Transparent Data Encryption (TDE) for Stretch Database on Azure
 > [!div class="op_single_selector"]
 > * [Azure portal](sql-server-stretch-database-encryption-tde.md)
 > * [TSQL](sql-server-stretch-database-tde-tsql.md)
-> 
-> 
+>
+>
 
 Transparent Data Encryption (TDE) helps protect against the threat of malicious activity by performing real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application.
 

@@ -32,7 +32,7 @@ To configure it, you have you need to set up a Service Principal with permission
 
 David Ebbo has written [a great blog post](http://blog.davidebbo.com/2014/12/azure-service-principal.html) on how to set this up. Please follow all the instructions there and get your **Tenant ID**, **Client ID** and **Secret**. These three fields, plus the **Subscription ID**, are what are required to configure the Connector.
 
-## Using the Azure Resource Connector in Logic apps designer
+## Using the Azure Resource Connector in Logic App Designer
 ### Trigger
 There are two triggers that are supported in the Connector:
 
@@ -90,10 +90,10 @@ For **Metrics** about resources you can:
 | Get metrics |Get a metric for a resource Id. |
 
 ## Do more with your connector
-Now that the connector is created, you can add it to a business flow using a Logic app. See [What are Logic apps?](app-service-logic-what-are-logic-apps.md).
+Now that the connector is created, you can add it to a business flow using a Logic app. See [What are Logic apps?](../logic-apps/logic-apps-what-are-logic-apps.md).
 
 > [!NOTE]
-> If you want to get started with Azure Logic apps before signing up for an Azure account, go to [Try Logic app](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter Logic app in App Service. No credit cards required; no commitments.
+> If you want to get started with Azure Logic apps before signing up for an Azure account, go to [Try Logic app](https://azure.microsoft.com/try/app-service/logic/), where you can immediately create a short-lived starter Logic app in App Service. No credit cards required; no commitments.
 > 
 > 
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Identity Management and Access Control Security Best Practices | Microsoft Docs
+title: Azure identity & access security best practices | Microsoft Docs
 description: This article provides a set of best practices for identity management and access control using built in Azure capabilities.
 services: security
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 01/30/2017
 ms.author: yurid
 
 ---
@@ -62,8 +62,8 @@ Use SSO to enable users to access their [SaaS applications](../active-directory/
 
 > [!NOTE]
 > the decision to use SSO will impact how you integrate your on-premises directory with your cloud directory. If you want SSO, you will need to use federation, because directory synchronization will only provide [same sign-on experience](../active-directory/active-directory-aadconnect.md).
-> 
-> 
+>
+>
 
 Organizations that do not enforce SSO for their users and applications are more exposed to scenarios where users will have multiple passwords which directly increases the likelihood of users reusing passwords or using weak passwords.
 
@@ -105,14 +105,14 @@ To achieve this, organizations can create security policies that have definition
 
 > [!NOTE]
 > this is not the same as RBAC, it actually leverages RBAC to authenticate the users that have privilege to create those resources.
-> 
-> 
+>
+>
 
 Leverage [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) to create custom policies also for scenarios where the organization wants to allow operations only when the appropriate cost center is associated; otherwise, they will deny the request.
 
 Organizations that are not controlling how resources are created are more susceptible to users that may abuse the service by creating more resources than they need. Hardening the resource creation process is an important step to secure a multi-tenant scenario.
 
-You can learn more about creating policies with Azure Resource Manager by reading the article [Use Policy to manage resources and control access](../resource-manager-policy.md).
+You can learn more about creating policies with Azure Resource Manager by reading the article [Use Policy to manage resources and control access](../azure-resource-manager/resource-manager-policy.md).
 
 ## Guide developers to leverage identity capabilities for SaaS apps
 User identity will be leveraged in many scenarios when users access [SaaS apps](https://azure.microsoft.com/marketplace/active-directory/all/) that can be integrated with on-premises or cloud directory. First and foremost, we recommend that developers use a secure methodology to develop these apps, such as [Microsoft Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). Azure AD simplifies authentication for developers by providing identity as a service, with support for industry-standard protocols such as [OAuth 2.0](http://oauth.net/2/) and [OpenID Connect](http://openid.net/connect/), as well as open source libraries for different platforms.
@@ -132,4 +132,3 @@ In contrast, Azure AD identity protection is an active monitoring system and it 
 
 Organizations that do not actively monitor their identity systems are at risk of having user credentials compromised. Without knowledge that suspicious activities are taking place using these credentials, organizations won’t be able to mitigate this type of threat.
 You can learn more about Azure Identity protection by reading [Azure Active Directory Identity Protection](../active-directory/active-directory-identityprotection.md).
-

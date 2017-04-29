@@ -3,8 +3,8 @@ title: Create and use a SAS with Blob storage | Microsoft Docs
 description: This tutorial shows you how to create shared access signatures for use with Blob storage, and how to consume them from your client applications.
 services: storage
 documentationcenter: ''
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 
 ms.assetid: 491e0b3c-76d4-4149-9a80-bbbd683b1f3e
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 
 ---
 # Shared Access Signatures, Part 2: Create and use a SAS with Blob storage
@@ -32,7 +32,7 @@ In this tutorial, we'll focus on creating shared access signatures for container
 ## Part 1: Create a Console Application to Generate Shared Access Signatures
 First, ensure that you have the Azure Storage Client Library for .NET installed. You can install the [NuGet package](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package") containing the most up-to-date assemblies for the client library; this is the recommended method for ensuring that you have the most recent fixes. You can also download the client library as part of the most recent version of the [Azure SDK for .NET](https://azure.microsoft.com/downloads/).
 
-In Visual Studio, create a new Windows console application and name it **GenerateSharedAccessSignatures**. Add references to  **Microsoft.WindowsAzure.Configuration.dll** and **Microsoft.WindowsAzure.Storage.dll**, using either of the following approaches:
+In Visual Studio, create a new Windows console application and name it **GenerateSharedAccessSignatures**. Add references to **Microsoft.WindowsAzure.Configuration.dll** and **Microsoft.WindowsAzure.Storage.dll**, using either of the following approaches:
 
 * If you want to install the NuGet package, first install the [NuGet Client](https://docs.nuget.org/consume/installing-nuget). In Visual Studio, select **Project | Manage NuGet Packages**, search online for **Azure Storage**, and follow the instructions to install.
 * Alternatively, locate the assemblies in your installation of the Azure SDK and add references to them.
@@ -40,7 +40,7 @@ In Visual Studio, create a new Windows console application and name it **Generat
 At the top of the Program.cs file, add the following **using** statements:
 
 ```csharp
-using System.IO;    
+using System.IO;
 using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
@@ -112,7 +112,7 @@ Console.WriteLine("Container SAS URI: " + GetContainerSasUri(container));
 Console.WriteLine();
 ```
 
-Compile and run to output the shared access signature URI for the new container. The URI will be similar to the following URI:       
+Compile and run to output the shared access signature URI for the new container. The URI will be similar to the following URI:
 
 `https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D`
 
@@ -155,7 +155,7 @@ static string GetBlobSasUri(CloudBlobContainer container)
 }
 ```
 
-At the bottom of the **Main()** method, add the following lines to call **GetBlobSasUri()**, before the call to **Console.ReadLine()**, and write the shared access signature URI to the console window:    
+At the bottom of the **Main()** method, add the following lines to call **GetBlobSasUri()**, before the call to **Console.ReadLine()**, and write the shared access signature URI to the console window:
 
 ```csharp
 //Generate a SAS URI for a blob within the container, without a stored access policy.
@@ -198,7 +198,7 @@ static void CreateSharedAccessPolicy(CloudBlobClient blobClient, CloudBlobContai
 }
 ```
 
-At the bottom of the **Main()** method, before the call to **Console.ReadLine()**, add the following lines to first clear any existing access policies and then call the **CreateSharedAccessPolicy()** method:    
+At the bottom of the **Main()** method, before the call to **Console.ReadLine()**, add the following lines to first clear any existing access policies and then call the **CreateSharedAccessPolicy()** method:
 
 ```csharp
 //Clear any existing access policies on container.
@@ -269,7 +269,7 @@ static string GetBlobSasUriWithPolicy(CloudBlobContainer container, string polic
 }
 ```
 
-At the bottom of the **Main()** method, before the call to **Console.ReadLine()**, add the following lines to call the **GetBlobSasUriWithPolicy** method:    
+At the bottom of the **Main()** method, before the call to **Console.ReadLine()**, add the following lines to call the **GetBlobSasUriWithPolicy** method:
 
 ```csharp
 //Generate a SAS URI for a blob within the container, using a stored access policy to set constraints on the SAS.
@@ -331,8 +331,8 @@ To test the shared access signatures created in the previous examples, we'll cre
 
 > [!NOTE]
 > If more than 24 hours have passed since you completed the first part of the tutorial, the signatures you generated will no longer be valid. In this case, you should run the code in the first console application to generate fresh shared access signatures for use in the second part of the tutorial.
-> 
-> 
+>
+>
 
 In Visual Studio, create a new Windows console application and name it **ConsumeSharedAccessSignatures**. Add references to **Microsoft.WindowsAzure.Configuration.dll** and **Microsoft.WindowsAzure.Storage.dll**, as you did previously.
 
@@ -445,7 +445,7 @@ static void UseContainerSAS(string sas)
         Console.WriteLine("Delete operation failed for SAS " + sas);
         Console.WriteLine("Additional error information: " + e.Message);
         Console.WriteLine();
-    }        
+    }
 }
 ```
 
@@ -540,7 +540,7 @@ static void UseBlobSAS(string sas)
         Console.WriteLine("Delete operation failed for SAS " + sas);
         Console.WriteLine("Additional error information: " + e.Message);
         Console.WriteLine();
-    }        
+    }
 }
 ```
 

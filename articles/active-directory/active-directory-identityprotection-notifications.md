@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 03/09/2017
 ms.author: markvi
 
 ---
@@ -25,7 +25,7 @@ Azure AD Identity Protection sends two types of automated notification emails to
 * Weekly digest email
 
 ## User compromised alert email
-A user compromised email alert is generated when Azure AD Identity Protection identifies an account as compromised. The email includes a link to the Users flagged for risk report in the Identity Protection dashboard. We recommend that you immediately investigate notifications of compromised.
+A user compromised email alert is generated when Azure AD Identity Protection identifies an account as compromised. The email includes a link to the Users flagged for risk report in the Identity Protection dashboard. We recommend that you immediately investigate notifications of compromised accounts.
 
 ## Weekly digest email
 The weekly digest email contains a summary of new risk events.<br>
@@ -38,7 +38,7 @@ It includes:
 
 <br>
 ![Remediation](./media/active-directory-identityprotection-notifications/400.png "Remediation")
-<br> 
+<br>
 
 You can switch sending a weekly digest email off.
 <br><br>
@@ -57,5 +57,4 @@ You can switch sending a weekly digest email off.
    <br>
 
 ## See also
-* [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
-
+* [Azure Active Directory Identity Protection](active-directory-identityprotection.md)

@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 72e0edaf-795e-4856-84a5-6594f735fb7e
 ms.service: sql-database
-ms.custom: sharded databases
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -68,7 +68,7 @@ As with the admin credentials, do not values in the form of "username@server". I
 ## See also
 [Managing databases and logins in Azure SQL Database](sql-database-manage-logins.md)
 
-[Securing your SQL Database](sql-database-security.md)
+[Securing your SQL Database](sql-database-security-overview.md)
 
 [Getting started with Elastic Database jobs](sql-database-elastic-jobs-getting-started.md)
 

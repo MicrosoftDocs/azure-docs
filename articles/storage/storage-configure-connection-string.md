@@ -1,10 +1,10 @@
 ---
-title: Configure a Connection String to Azure Storage | Microsoft Docs
-description: Configure a connection string to an Azure storage account. A connection string includes the information needed to authenticate access to a storage account from your application at runtime.
+title: Configure a connection string for Azure Storage | Microsoft Docs
+description: Configure a connection string for an Azure storage account. A connection string contains the information needed to authenticate access to a storage account from your application at runtime.
 services: storage
 documentationcenter: ''
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 
 ms.assetid: ecb0acb5-90a9-4eb2-93e6-e9860eda5e53
@@ -13,13 +13,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: tamram
+ms.date: 04/12/2017
+ms.author: marsma
 
 ---
-# Configure Azure Storage Connection Strings
-## Overview
-A connection string includes the authentication information needed to access data in an Azure storage account from your application at runtime. You can configure a connection string to:
+# Configure Azure Storage connection strings
+
+A connection string includes the authentication information required for your application to access data in an Azure Storage account at runtime. You can configure connection strings to:
 
 * Connect to the Azure storage emulator.
 * Access a storage account in Azure.
@@ -28,78 +28,87 @@ A connection string includes the authentication information needed to access dat
 [!INCLUDE [storage-account-key-note-include](../../includes/storage-account-key-note-include.md)]
 
 ## Storing your connection string
-Your application will need to access the connection string at runtime in order to authenticate requests made to Azure Storage. You have a few different options for storing your connection string:
+Your application needs to access the connection string at runtime to authenticate requests made to Azure Storage. You have several options for storing your connection string:
 
-* For an application running on the desktop or on a device, you can store the connection string in an **app.config** file or a **web.config** file. Add the connection string to the **AppSettings** section.
-* For an application running in an Azure cloud service, you can store your connection string in the [Azure service configuration schema (.cscfg) file](https://msdn.microsoft.com/library/ee758710.aspx). Add the connection string to the **ConfigurationSettings** section of the service configuration file.
-* You can also use your connection string directly in your code. For most scenarios, however, we recommend that you store your configuration string in a configuration file.
+* An application running on the desktop or on a device can store the connection string in an **app.config** or **web.config** file. Add the connection string to the **AppSettings** section in these files.
+* An application running in an Azure cloud service can store the connection string in the [Azure service configuration schema (.cscfg) file](https://msdn.microsoft.com/library/ee758710.aspx). Add the connection string to the **ConfigurationSettings** section of the service configuration file.
+* You can use your connection string directly in your code. However, we recommend that you store your connection string in a configuration file in most scenarios.
 
-Storing your connection string within a configuration file makes it easy to update the connection string to switch between the storage emulator and an Azure storage account in the cloud. You only need to edit the connection string to point to your target environment.
+Storing your connection string in a configuration file makes it easy to update the connection string to switch between the storage emulator and an Azure storage account in the cloud. You only need to edit the connection string to point to your target environment.
 
-You can use the [Microsoft Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) class to access your connection string at runtime regardless of where your application is running.
+You can use the [Microsoft Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) to access your connection string at runtime regardless of where your application is running.
 
-## Create a connection string to the storage emulator
+## Create a connection string for the storage emulator
 [!INCLUDE [storage-emulator-connection-string-include](../../includes/storage-emulator-connection-string-include.md)]
 
-See [Use the Azure Storage Emulator for Development and Testing](storage-use-emulator.md) for more information about the storage emulator.
+For more information about the storage emulator, see [Use the Azure storage emulator for development and testing](storage-use-emulator.md).
 
-## Create a connection string to an Azure storage account
-To create a connection string to your Azure storage account, use the connection string format below. Indicate whether you want to connect to the storage account through HTTPS (recommended) or HTTP, replace *myAccountName* with the name of your storage account, and replace *myAccountKey* with your account access key:
+## Create a connection string for an Azure storage account
+To create a connection string for your Azure storage account, use the following format. Indicate whether you want to connect to the storage account through HTTPS (recommended) or HTTP, replace `myAccountName` with the name of your storage account, and replace `myAccountKey` with your account access key:
 
 `DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey`
 
-For example, your connection string will look similar to the following sample connection string:
+For example, your connection string might look similar to:
 
 `DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>`
 
-> [!NOTE]
-> Azure Storage supports both HTTP and HTTPS in a connection string; however, using HTTPS is highly recommended.
-> 
-> 
+Although Azure Storage supports both HTTP and HTTPS in a connection string, *HTTPS is highly recommended*.
+
+> [!TIP]
+> You can find your storage account's connection strings in the [Azure portal](https://portal.azure.com). Navigate to **SETTINGS** > **Access keys** in your storage account's menu blade to see connection strings for both primary and secondary access keys.
+>
 
 ## Create a connection string using a shared access signature
 [!INCLUDE [storage-use-sas-in-connection-string-include](../../includes/storage-use-sas-in-connection-string-include.md)]
 
-## Creating a connection string to an explicit storage endpoint
-You can explicitly specify the service endpoints in your connection string instead of using the default endpoints. To create a connection string that specifies an explicit endpoint, specify the complete service endpoint for each service, including the protocol specification (HTTPS (recommended) or HTTP), in the following format:
+## Create a connection string for an explicit storage endpoint
+You can specify explicit service endpoints in your connection string instead of using the default endpoints. To create a connection string that specifies an explicit endpoint, specify the complete service endpoint for each service, including the protocol specification (HTTPS (recommended) or HTTP), in the following format:
 
 ```
 DefaultEndpointsProtocol=[http|https];
 BlobEndpoint=myBlobEndpoint;
+FileEndpoint=myFileEndpoint;
 QueueEndpoint=myQueueEndpoint;
 TableEndpoint=myTableEndpoint;
-FileEndpoint=myFileEndpoint;
 AccountName=myAccountName;
 AccountKey=myAccountKey
 ```
 
-One scenario where you may wish to do specify an explicit endpoint is if you have mapped your Blob storage endpoint to a custom domain. In that case, you can specify your custom endpoint for Blob storage in your connection string, and optionally specify the default endpoints for the other service if your application uses them.
+One scenario where you might wish to specify an explicit endpoint is when you've mapped your Blob storage endpoint to a [custom domain](storage-custom-domain-name.md). In that case, you can specify your custom endpoint for Blob storage in your connection string. You can optionally specify the default endpoints for the other services if your application uses them.
 
-Here are examples of valid connection strings that specify an explicit endpoint for the Blob service:
+Here is an example of a connection string that specifies an explicit endpoint for the Blob service:
 
 ```
 # Blob endpoint only
 DefaultEndpointsProtocol=https;
-BlobEndpoint=www.mydomain.com;
+BlobEndpoint=http://www.mydomain.com;
 AccountName=storagesample;
-AccountKey=account-key
-
-# All service endpoints
-DefaultEndpointsProtocol=https;
-BlobEndpoint=www.mydomain.com;
-FileEndpoint=myaccount.file.core.windows.net;
-QueueEndpoint=myaccount.queue.core.windows.net;
-TableEndpoint=myaccount;
-AccountName=storagesample;
-AccountKey=account-key
+AccountKey=<account-key>
 ```
 
-The endpoint value that is listed in the connection string is used to construct the request URIs to the Blob service, and it dictates the form of any URIs that are returned to your code.
+This example specifies explicit endpoints for all services, including a custom domain for the Blob service:
 
-Note that if you choose to omit a service endpoint from the connection string, then you will not be able to use that connection string to access data in that service from your code.
+```
+# All service endpoints
+DefaultEndpointsProtocol=https;
+BlobEndpoint=http://www.mydomain.com;
+FileEndpoint=https://myaccount.file.core.windows.net;
+QueueEndpoint=https://myaccount.queue.core.windows.net;
+TableEndpoint=https://myaccount.table.core.windows.net;
+AccountName=storagesample;
+AccountKey=<account-key>
+```
 
-### Creating a connection string with an endpoint suffix
-To create a connection string for storage service in regions or instances with different endpoint suffixes, such as for Azure China or Azure Governance, use the following connection string format. Indicate whether you want to connect to the storage account through HTTP or HTTPS, replace *myAccountName* with the name of your storage account, replace *myAccountKey* with your account access key, and replace *mySuffix* with the URI suffix:
+The endpoint values in a connection string are used to construct the request URIs to the storage services, and dictate the form of any URIs that are returned to your code.
+
+If you've mapped a storage endpoint to a custom domain and omit that endpoint from a connection string, then you will not be able to use that connection string to access data in that service from your code.
+
+> [!IMPORTANT]
+> Service endpoint values in your connection strings must be well-formed URIs, including `https://` (recommended) or `http://`. Because Azure Storage does not yet support HTTPS for custom domains, you *must* specify `http://` for any endpoint URI that points to a custom domain.
+>
+
+### Create a connection string with an endpoint suffix
+To create a connection string for a storage service in regions or instances with different endpoint suffixes, such as for Azure China or Azure Government, use the following connection string format. Indicate whether you want to connect to the storage account through HTTPS (recommended) or HTTP, replace `myAccountName` with the name of your storage account, replace `myAccountKey` with your account access key, and replace `mySuffix` with the URI suffix:
 
 ```
 DefaultEndpointsProtocol=[http|https];
@@ -108,7 +117,7 @@ AccountKey=myAccountKey;
 EndpointSuffix=mySuffix;
 ```
 
-For example, your connection string should look similar to the following connection string:
+Here's an example connection string for storage services in Azure China:
 
 ```
 DefaultEndpointsProtocol=https;
@@ -121,7 +130,7 @@ EndpointSuffix=core.chinacloudapi.cn;
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ## Next steps
-* [Use the Azure Storage Emulator for Development and Testing](storage-use-emulator.md)
-* [Azure Storage Explorers](storage-explorers.md)
+* [Use the Azure storage emulator for development and testing](storage-use-emulator.md)
+* [Azure Storage explorers](storage-explorers.md)
 * [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 
