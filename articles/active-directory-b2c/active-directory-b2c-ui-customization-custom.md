@@ -16,16 +16,15 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeeda
 ---
-
 # Azure Active Directory B2C: UI Customization in a Custom Policy
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-After completing this article, your signin and signup custom policy will use HTML and CSS that you supply.  When using a custom policy, UI customization is configured in XML instead of using controls in the Azure Portal.  These steps are the custom policy equivalent to configuring UI Customization for a built-in signup and signin policy.
+After completing this article, you will have a sign-up and sign-in custom policy with your brand and appearance.  Azure AD B2C allows for nearly full control of the HTML and CSS presented to the end user.  When using a custom policy, UI customization is configured in XML instead of using controls in the Azure portal.
 
 ## Prerequisites
 
-Before proceeding, you must complete [Getting started with custom policies](active-directory-b2c-get-started-custom.md).  You should have a working custom policy for signup and sign in with local accounts.
+Before proceeding, you must complete [Getting started with custom policies](active-directory-b2c-get-started-custom.md).  You should have a working custom policy for sign-up and sign-in with local accounts.
 
 ### Confirming your B2C tenant
 
@@ -36,13 +35,14 @@ Because custom policies are still in private preview, confirm that your Azure AD
 1. Make sure **Upload Policy** is available.  If the button is disabled, email AADB2CPreview@microsoft.com.
 
 ## The page UI customization feature
-With the page UI customization feature, you can customize the look and feel of any custom policy.  This enables you to provide seamless experiences when navigating between your application and pages served by Azure AD B2C.
+
+With the page UI customization feature, you can customize the look and feel of any custom policy.  This enables you to maintain your brand and visual theme consistency when the user navigates between your application and pages served by Azure AD B2C.
 
 Here's how it works: Azure AD B2C runs code in your consumer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/) to load content from a URL that you specify in a policy. You can specify different URLs for different pages. The code merges UI elements from Azure AD B2C with the content loaded from your URL, and displays the page to your consumer.
 
 Here are the steps required for hosting your content:
 
-1. Click the copy button below.  Notice that it has well-formed HTML5 content.  It has an empty element called `<div id="api"></div>` located somewhere in the `<body>`. This element marks where the Azure AD B2C content is inserted.
+1. Click the copy button on this html code snippet.  Notice that it has well-formed HTML5 content.  It has an empty element called `<div id="api"></div>` located somewhere in the `<body>`. This element marks where the Azure AD B2C content is inserted.
 
    ```html
    <!DOCTYPE html>
@@ -63,26 +63,26 @@ Here are the steps required for hosting your content:
 Let's start by creating a blob storage account.
 
 >[!NOTE]
-> In this guide, we will use Azure Blob Storage to host our content.  You could also host your content on a webserver, but you will need to [enable Cross-Origin Resource Sharing (CORS) on your webserver](https://enable-cors.org/server.html).
+> In this guide, we use Azure Blob Storage to host our content.  You could also host your content on a webserver, but it is required that you [enable Cross-Origin Resource Sharing (CORS) on your webserver](https://enable-cors.org/server.html).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the Hub menu, select **New** -> **Storage** -> **Storage account**.
-1. Enter a unique name for your storage account.
-1. Leave **Deployment model** as **Resource Manager**.
-1. Select **Account Kind** and change it to **Blob storage**.
-1. Leave **Performance** as  **Standard**.
-1. Leave **Replication** as **RA-GRS**.
-1. Leave **Hot** as the **Access tier**.
-1. Leave **Storage service encryption** as **Disabled**.
-1. Select the subscription in which you want to create the new storage account.
-1. Specify a new resource group or select an existing resource group.
-1. Select the geographic location for your storage account.
-1. Check `Pin to dashboard` then click **Create** to create the storage account.
-1. Wait for the deployment to finish and the storage account blade will open automatically.
+1. Enter a unique **name** for your storage account.
+1. **Deployment model** can be left as **Resource Manager**.
+1. Change **Account Kind** to **Blob storage**.
+1. **Performance** can be left as **Standard**.
+1. **Replication** can be left as **RA-GRS**.
+1. **Access tier** can be left as **Hot**.
+1. **Storage service encryption** can be left as **Disabled**.
+1. Select a **subscription** for your storage account.
+1. Create a new **resource group** or select an existing one.
+1. Select the **geographic location** for your storage account.
+1. Click **Create** to create the storage account.
+1. Wait for the deployment to finish and the storage account blade opens automatically.
 
 ## Create a Container
 
-1. Switch to the left hand tab called **Overview**
+1. Switch to the left-hand tab called **Overview**
 1. Click **+ Container**
 1. For **Name** type `$root`
 1. Set **Access type** to **Blob**
@@ -91,15 +91,15 @@ Let's start by creating a blob storage account.
 1. Click the folder icon next to `Select a file`
 1. Browse to `customize-ui.html` that we created in [the earlier section](#the-page-ui-customization-feature)
 1. Click **Upload**
-1. Select the  `customize-ui.html` that we just uploaded.
+1. Select the blob that we uploaded called `customize-ui.html`.
 1. Next to the **URL** click the copy button.  Open a browser and ensure you can view the file.  (If it is inaccessible, make sure the container access type is set to blob)
 
 ## Configure CORS
 
-Next we will configure blob storage for Cross-Origin Resource Sharing (CORS).
+Next we configure blob storage for Cross-Origin Resource Sharing (CORS).
 
 >[!NOTE]
->If you want to try out the UI customization feature by using our sample HTML and CSS content, we've provided you [a simple helper tool](active-directory-b2c-reference-ui-customization-helper-tool.md) that uploads and configures sample content on your Azure Blob storage.  If you use the tool, skip ahead to [Modify your signup or signin custom policy](#modify-your-signup-or-signin-custom-policy)
+>Want to try out the UI customization feature by using our sample HTML and CSS content?  We've provided [a simple helper tool](active-directory-b2c-reference-ui-customization-helper-tool.md) that uploads and configures our sample content on your Azure blob storage account.  If you use the tool, skip ahead to [Modify your sign-up or sign-in custom policy](#modify-your-sign-up-or-sign-in-custom-policy)
 
 1. In the storage blade under settings, open **CORS**.
 1. Click **+ Add**
@@ -116,9 +116,9 @@ Next we will configure blob storage for Cross-Origin Resource Sharing (CORS).
 1. Click **Send Request**
 1. If you receive an error review [your CORS settings](#configure-cors)
 
-## Modify your signup or signin custom policy
+## Modify your sign-up or sign-in custom policy
 
-1. Inside the `<BuildingBlocks>` tag (child of top level `<TrustFrameworkPolicy>` tag), add a new content defintion by copying the text below.  Replace `{your_storage_account}` with the name of your storage account.
+1. Under the top-level `<TrustFrameworkPolicy>` tag, you should find `<BuildingBlocks>` tag.  Inside the `<BuildingBlocks>` tag, add a new`'ContentDefinitions` tag by copying this example.  Replace `{your_storage_account}` with the name of your storage account.
 
   ```xml
   <BuildingBlocks>
@@ -133,9 +133,9 @@ Next we will configure blob storage for Cross-Origin Resource Sharing (CORS).
 ## Upload your updated custom policy
 
 1. In the [Azure portal](https://portal.azure.com), [switch into the context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md) and open the Azure AD B2C blade.
-1. Click on **All Policies**.
-1. Select **Upload Policy**
-1. Upload `SignUpOrSignin.xml`.
+1. Click **All Policies**.
+1. Click **Upload Policy**
+1. Upload `SignUpOrSignin.xml` with the `ContentDefinitions` tag that we added.
 
 ## Test the custom policy using "Run Now"
 
