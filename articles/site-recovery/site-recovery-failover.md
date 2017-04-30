@@ -110,7 +110,7 @@ You might want to automate certain actions while doing a failover. You can use s
 
 
 
-## Next Steps
+## Next steps
 Once you have failed over virtual machines and the on-premises data center is available, you should [**Re-protect**](site-recovery-how-to-reprotect.md) VMware virtual machines back to the on-premises data center.
 
 Use [**Planned failover**](site-recovery-failback-from-azure-to-hyper-v.md) option to **Failback** Hyper-v virtual machines back to on-premises from Azure.

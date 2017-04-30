@@ -120,5 +120,5 @@ If you want to connect to Azure VMs using RDP after failover, make sure you do t
 
 
 
-## Next Stept
+## Next steps
 Once you have successfully tried a test failover you can try doing a [failover](site-recovery-failover.md).
