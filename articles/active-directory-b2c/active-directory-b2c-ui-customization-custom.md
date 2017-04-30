@@ -36,7 +36,7 @@ Because custom policies are still in private preview, confirm that your Azure AD
 
 ## The page UI customization feature
 
-With the page UI customization feature, you can customize the look and feel of any custom policy.  This enables you to maintain your brand and visual theme consistency when the user navigates between your application and pages served by Azure AD B2C.
+With the page UI customization feature, you can customize the look and feel of any custom policy.  Maintain brand and visual consistency between your application and Azure AD B2C.
 
 Here's how it works: Azure AD B2C runs code in your consumer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/).  First, you specify a URL in the custom policy with customized HTML content.  Azure AD B2C merges UI elements with the HTML content loaded from your URL, and displays the page to your consumer.
 
