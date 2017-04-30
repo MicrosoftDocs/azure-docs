@@ -208,5 +208,5 @@ The image that is used has SQL Server installed, but is not used in this tutoria
 
 In this tutorial, you learned about creating and securing Azure networks as related to virtual machines. Advance to the next tutorial to learn about monitoring VM security with Azure Security Center.
 
-[Manage virtual machine security](../linux/tutorial-azure-security.md)
+[Manage virtual machine security](../linux/tutorial-azure-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
