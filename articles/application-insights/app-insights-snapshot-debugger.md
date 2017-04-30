@@ -21,11 +21,11 @@ ms.author: awills
 
 Automatically collect debug snapshots the moment exceptions are thrown to get visibility into the state of source code and variables. The Snapshot Debugger monitors exception telemetry and collects snapshots on your top throwing exceptions so that you have the information you need to diagnose issues in production. Include the [snapshot collector NuGet package](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) into your application, optionally configure collection parameters in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), and snapshots appear on [exceptions](app-insights-asp-net-exceptions.md) in the Application Insights portal.
 
-You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. To get a more powerful debugging experience with source code, open snapshots with Visual Studio 2017 Enterprise by [downloading the Snapshot Debugger extension for Visual Studio](https://aka.ms/snapshotdebugger) from the Visual Studio Marketplace.
+You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. To get a more powerful debugging experience with source code, open snapshots with Visual Studio 2017 Enterprise by [downloading the Snapshot Debugger extension for Visual Studio](https://aka.ms/snapshotdebugger).
 
 ## Configure Snapshot Collection
 
-To collect snapshots, include the [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package into your app. This adds a default exception collection plan into your [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) file that collects snapshots exceptions and sends them to Application Insights.
+To collect snapshots, include the [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package into your app. This package adds a default exception collection plan into your [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) file that collects snapshots exceptions and sends them to Application Insights.
 
 ```xml
   <TelemetryProcessors>
@@ -59,7 +59,7 @@ Snapshot collection is available for:
 
 ## Debugging snapshots in the Application Insights Portal
 
-If a snapshot is available for a given exception or problem ID, an *Open Debug Snapshot* link will appear on the [exception](app-insights-asp-net-exceptions.md) in the Application Insights portal.
+If a snapshot is available for a given exception or problem ID, an *Open Debug Snapshot* link appears on the [exception](app-insights-asp-net-exceptions.md) in the Application Insights portal.
 
 ![Open Debug Snapshot button on exception](./media/app-insights-snapshot-debugger/snapshot-on-exception.png)
 
