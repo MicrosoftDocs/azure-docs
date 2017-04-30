@@ -7,4 +7,4 @@ Currently in public preview, Azure Table storage is offered as part of [Azure Co
 - Five tunable consistency levels
 - 99.99% availability 
 
-To learn more, see [Azure Cosmos DB: Tables API](https://aka.ms/premiumtables). Azure Cosmos DB will be extended to support all existing and new tables using the Azure Table storage SDKs and APIs.
+Azure Cosmos DB will be extended to support all existing and new tables using the Azure Table storage SDKs and APIs. To learn more, see [Azure Cosmos DB: Tables API](https://aka.ms/premiumtables). 
