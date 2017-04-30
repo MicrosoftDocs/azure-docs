@@ -97,7 +97,7 @@ You can verify your image locally before pushing it the container registry.
     docker run -d -p 8000:8000 --name my-web-site helloworldapp
     ```
 
-*name* gives a name to the running container instead of the container ID.
+    *name* gives a name to the running container (instead of the container ID).
 
 2. Once the container starts, find its IP address so that you can connect to your running container from a browser:
     ```
@@ -111,6 +111,12 @@ You can verify your image locally before pushing it the container registry.
 
     ```
     docker stop my-web-site
+    ```
+
+5. Delete the container from your development machine:
+
+    ```
+    docker rm my-web-site
     ```
 
     After packaging and deploying the container in a Service Fabric app, you can delete the image.  
@@ -141,28 +147,136 @@ After you verify that the container runs on your development machine, push the i
 ## Package the container image in Visual Studio
 Visual Studio provides a Service Fabric service template to help you deploy a container to a Service Fabric cluster.
 
-1. Choose File > New Project, and create a Service Fabric application.
-2. Choose Guest Container as the service template.
-3. Choose Image Name and provide the path to the image in your container repository such as at https://hub.docker.com/ for example myrepo/myimage:v1 
-4. Give your service a name, and click **OK**.
-5. If your containerized service needs an endpoint for communication, you can now add the protocol, port, and type to the ServiceManifest.xml file. For example: 
-<Endpoint Name="MyContainerServiceEndpoint" Protocol="http" Port="80" UriScheme="http" PathSuffix="myapp/" Type="Input" />
-By providing the UriScheme this automatically registers the container endpoint with the Service Fabric Naming service for discoverability. The port can either be fixed (as shown in the preceding example) or dynamically allocated (left blank and a port is allocated from the designated application port range) just as you would with any service. You also need to configure the container port-to-host port mapping by specifying a PortBinding policy in the application manifest as described below.
-6. If your container needs resource governance then add a ResourceGovernancePolicy.
-7. If your container needs to authenticate with a private repository then add RepositoryCredentials.
-8. You can now use the package and publish action against your local cluster if this is Windows Server 2016 with container support activated. 
-9.When ready, you can publish the application to a remote cluster or check in the solution to source control. 
+1. Run Visual Studio as administrator.  Select **File** > **New** > **Project**.
+2. Select **Service Fabric application**, name it "MyFirstContainer", and click **OK**.
+3. Select **Guest Container** from the list of **service templates**.
+4. In **Image Name** enter "myregistry.azurecr.io/samples/helloworldapp", the image you pushed to your container repository. 
+5. Give your service a name, and click **OK**.
+6. If your containerized service needs an endpoint for communication, you can now add the protocol, port, and type to the ServiceManifest.xml file. For example: 
+
+    ```xml
+    <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+    ```
+    By providing the UriScheme this automatically registers the container endpoint with the Service Fabric Naming service for discoverability. The port can either be fixed (as shown in the preceding example) or dynamically allocated (left blank and a port is allocated from the designated application port range) just as you would with any service. You also need to configure the container port-to-host port mapping by specifying a PortBinding policy in the application manifest as described below.
+7. Add PortBinding.  If your container needs to authenticate with a private repository then add ```RepositoryCredentials```.
+
+    ```xml
+    <Policies>
+        <ContainerHostPolicies CodePackageRef="Code">
+            <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
+            <PortBinding ContainerPort="8000" EndpointRef="Guest1TypeEndpoint"/>
+        </ContainerHostPolicies>
+    </Policies>
+    ```
+8. Open *Cloud.xml* under **PublishProfiles**.  Add the cluster name and connection port to **ClusterConnectionParameters**.  For example:
+    ```xml
+    <ClusterConnectionParameters ConnectionEndpoint="containercluster.westus2.cloudapp.azure.com:19000" />
+    ```
+    
+9. Save all files and build your project.  
+
+10. To package your app right-click on **MyFirstContainer** in Solution Explorer and select **Package**. 
+
+11. To publish your app right-click on **MyFirstContainer** in Solution Explorer and select **Publish**.
+
+12. Open Service Fabric Explorer and follow the app deployment.  The app will be in error state until the image is downloaded on the cluster nodes:
+    ![Error][1]
+
+13. App will be in Ready state when it's ready:
+    ![Ready][2]
 
 ## Deploy the container app
 
 
 ## Clean up
 Delete your cluster
-Delete the container from your development machine:
+Delete the image from dev machine
 
+## Application and Service Manifests
+### ServiceManifest.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceManifest Name="Guest1Pkg"
+                 Version="1.0.0"
+                 xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ServiceTypes>
+    <!-- This is the name of your ServiceType.
+         The UseImplicitHost attribute indicates this is a guest service. -->
+    <StatelessServiceType ServiceTypeName="Guest1Type" UseImplicitHost="true" />
+  </ServiceTypes>
+
+  <!-- Code package is your service executable. -->
+  <CodePackage Name="Code" Version="1.0.0">
+    <EntryPoint>
+      <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
+      <ContainerHost>
+        <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
+      </ContainerHost>
+    </EntryPoint>
+    <!-- Pass environment variables to your container: -->
+    <!--
+    <EnvironmentVariables>
+      <EnvironmentVariable Name="VariableName" Value="VariableValue"/>
+    </EnvironmentVariables>
+    -->
+  </CodePackage>
+
+  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+       independently-updateable and versioned set of custom configuration settings for your service. -->
+  <ConfigPackage Name="Config" Version="1.0.0" />
+
+  <Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+    </Endpoints>
+  </Resources>
+</ServiceManifest>
 ```
-docker rm my-web-site
+### ApplicationManifest.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest ApplicationTypeName="MyFirstContainerType"
+                     ApplicationTypeVersion="1.0.0"
+                     xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Parameters>
+    <Parameter Name="Guest1_InstanceCount" DefaultValue="-1" />
+  </Parameters>
+  <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
+       should match the Name and Version attributes of the ServiceManifest element defined in the 
+       ServiceManifest.xml file. -->
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+    <Policies>
+      <ContainerHostPolicies CodePackageRef="Code">
+        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
+        <PortBinding ContainerPort="8000" EndpointRef="Guest1TypeEndpoint"/>
+      </ContainerHostPolicies>
+    </Policies>
+  </ServiceManifestImport>
+  <DefaultServices>
+    <!-- The section below creates instances of service types, when an instance of this 
+         application type is created. You can also create one or more instances of service type using the 
+         ServiceFabric PowerShell module.
+         
+         The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
+    <Service Name="Guest1">
+      <StatelessService ServiceTypeName="Guest1Type" InstanceCount="[Guest1_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+  </DefaultServices>
+</ApplicationManifest>
 ```
 
 ## Next steps
 
+[1]: ./media/service-fabric-get-started-containers/MyFirstContainerError.png
+[2]: ./media/service-fabric-get-started-containers/MyFirstContainerReady.png
