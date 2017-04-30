@@ -45,7 +45,7 @@ The first step required to use custom policies is to set up keys.
 Custom policies are a set of XML files that need to be uploaded to your Azure AD B2C tenant. We provide a starter pack that you can use to get started. The starter pack contains:
 
 * The [base file](active-directory-b2c-overview-custom.md#policy-files) of the policy. Few modifications are required to the base.
-* The [extension file](active-directory-b2c-overview-custom.md#policy-files) of the policy.  This file is where the majority of configuration changes are made.
+* The [extension file](active-directory-b2c-overview-custom.md#policy-files) of the policy.  This file is where most configuration changes are made.
 
 Let's get started:
 
