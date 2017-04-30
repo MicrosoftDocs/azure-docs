@@ -17,7 +17,7 @@ ms.workload: infrastructure
 ms.date: 05/01/2017
 ms.author: nepeters
 ---
-# Monitor Linux VM security with the Azure Security Center
+# Monitor VM security with the Azure Security Center
 
 Azure security center helps you gain visibility into the configuration of Azure resource as related to security practices. It also provides integrated security monitoring, which can detect threats that may otherwise go unnoticed. This tutorial provides a brief overview of Azure security center and describes how to use it with Azure virtual machines.   
 
