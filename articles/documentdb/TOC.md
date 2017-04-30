@@ -19,7 +19,7 @@
 
 # Tutorials
 ## 1 - Create Azure Cosmos DB
-### [DocumentDB](documentdb-tutorial-documentdb-create-partitioned.md)
+### [DocumentDB](documentdb-tutorial-documentdb-create.md)
 ### MongoDB
 ### Table
 ### Graph
