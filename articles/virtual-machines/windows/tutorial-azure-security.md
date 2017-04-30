@@ -1,7 +1,7 @@
 ---
-title: Linux VM security with the Azure Security Center | Microsoft Docs
+title: Windows VM security with the Azure Security Center | Microsoft Docs
 description: Tutorial - VM security with the Azure Security Center
-services: virtual-machines-linux
+services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
 manager: timlt
@@ -9,10 +9,10 @@ editor: tysonn
 tags: azure-service-management
 
 ms.assetid: 
-ms.service: virtual-machines-linux
+ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/01/2017
 ms.author: nepeters
