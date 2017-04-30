@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure Active Directory B2C: Get Started With Custom Policies | Microsoft Docs'
 description: A topic on how to get started with Azure Active Directory B2C custom policies
 services: active-directory-b2c
@@ -75,7 +75,7 @@ Let's get started:
 1. Open `SignUpOrSignIn.xml`and make the same changes by replacing `{tenantName}` with your Azure AD B2C tenant. Save the file.
 
 >[!NOTE]
->If your XML editor supports validation, you may want to validate the files against the `TrustFrameworkPolicy\_0.3.0.0.xsd` XML schema file that is located in the root folder of the starter pack. This will help catch errors quickly before uploading.
+>If your XML editor supports validation, you may want to validate the files against the `TrustFrameworkPolicy_0.3.0.0.xsd` XML schema file that is located in the root folder of the starter pack. This will help catch errors quickly before uploading.
 
 ## Register Policy Engine Applications
 

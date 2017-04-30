@@ -38,27 +38,33 @@ The key container is what you will use to store keys. To set one up:
     Import-Module .\ExploreAdmin.dll
     ```
 
-1. Confirm the TokenSigningKeyContainer does not yet exist.  Replace `{tenantName}` with the name of your tenant.
+1. Confirm `b2c_1a_TokenSigningKeyContainer` does not yet exist.  Replace `{tenantName}` with the name of your tenant.
 
     ```powershell
-    Get-CpimKeyContainer -TenantId {tenantName}.onmicrosoft.com -StorageReferenceId TokenSigningKeyContainer -ForceAuthenticationPrompt
+    Get-CpimKeyContainer -TenantId {tenantName}.onmicrosoft.com -StorageReferenceId b2c_1a_TokenSigningKeyContainer -ForceAuthenticationPrompt
     ```
 
     a. You will be prompted to log in.  Use the admin account you created in the previous section.
 
     b. You will be prompted to set up your phone number as a second factor and to change your password.
 
-    c. You should receive an error that 'TokenSigningKeyContainer' cannot be found.  If you have already completed these steps previously you scan skip the rest of this section.
+    c. You should receive an error that `b2c_1a_TokenSigningKeyContainer` cannot be found.  If you have already completed these steps previously you scan skip the rest of this section.
 
 
-1. Create the TokenSigningKeyContainer.  Replace `{tenantName}` with the name of your tenant.
+1. Create `b2c_1a_TokenSigningKeyContainer`.  Replace `{tenantName}` with the name of your tenant.
 
     ```powershell
-    New-CpimKeyContainer {tenantName}.onmicrosoft.com TokenSigningKeyContainer TokenSigningKeyContainer rsa 2048 0 0
+    New-CpimKeyContainer {tenantName}.onmicrosoft.com  b2c_1a_TokenSigningKeyContainer  b2c_1a_TokenSigningKeyContainer rsa 2048 0 0
     ```
 
-1. Create the TokenEncryptionKeyContainer.  Replace `{tenantName}` with the name of your tenant.
+1. Create `b2c_1a_TokenEncryptionKeyContainer`.  Replace `{tenantName}` with the name of your tenant.
 
     ```powershell
-    New-CpimKeyContainer {tenantName}.onmicrosoft.com TokenEncryptionKeyContainer TokenEncryptionKeyContainer rsa 2048 0 0
+    New-CpimKeyContainer {tenantName}.onmicrosoft.com b2c_1a_TokenEncryptionKeyContainer b2c_1a_TokenEncryptionKeyContainer rsa 2048 0 0
+    ```
+
+1. Create `b2c_1a_FacebookSecret`.  Replace `{tenantName}` with the name of your tenant.
+
+    ```powershell
+    New-CpimKeyContainer {tenantName}.onmicrosoft.com  b2c_1a_FacebookSecret  b2c_1a_FacebookSecret rsa 2048 0 0
     ```
