@@ -121,7 +121,7 @@ Let's validate that we are ready.
 
 1. Navigate to http://test-cors.org/ and paste the URL into the `Remote URL` field.
 1. Click **Send Request**
-1. If you receive an error, make sure your [CORS settings](#configure-cors) are correct.
+1. If you receive an error, make sure your [CORS settings](#configure-cors) are correct.  You may also need to clear your browser cache or try an in-private browsing session `CTRL-SHIFT-P`.
 
 ## Modify your sign-up or sign-in custom policy
 
@@ -130,7 +130,7 @@ Let's validate that we are ready.
   ```xml
   <BuildingBlocks>
     <ContentDefinitions>
-      <ContentDefinition Id="api.localaccountsignup">
+      <ContentDefinition Id="api.idpselections">
         <LoadUri>https://{your_storage_account}.blob.core.windows.net/customize-ui.html</LoadUri>
       </ContentDefinition>
     </ContentDefinitions>
