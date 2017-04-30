@@ -18,11 +18,11 @@ ms.author: jingwang
 ---
 
 # Azure Data Factory - Security considerations for data movement
-This article describes basic security infrastructure that data movement services in Azure Data Factory leverages to secure your data. Azure Data Factory management resources are built on Azure security infrastructure and uses all possible security measures offered by Azure.
+This article describes basic security infrastructure that data movement services in Azure Data Factory use to secure your data. Azure Data Factory management resources are built on Azure security infrastructure and use all possible security measures offered by Azure.
 
 In a Data Factory solution, you create one or more data pipelines. A pipeline is a logical grouping of activities that together perform a task. These pipelines reside in the region where the data factory was created. 
 
-Even though Data Factory is available in only **West US**, **East US**, and **North Europe** regions, the data movement service is available globally in several regions. We ensure that data never leaves a geographical area/ region unless you explicitly instruct Azure Data Factory to use an alternate region if the data movement service is not yet deployed to that region. 
+Even though Data Factory is available in only **West US**, **East US**, and **North Europe** regions, the data movement service is available globally in several regions. Data Factory service ensures that data does not leave a geographical area/ region unless you explicitly instruct the service to use an alternate region if the data movement service is not yet deployed to that region. 
 
 Azure Data Factory itself does not store any data. It lets you create data-driven flows to orchestrate movement of data between supported data stores and processing of data using compute services in other regions or in an on-premises environment. It also allows you to monitor and manage workflows using both programmatic and UI mechanisms.
 
@@ -47,35 +47,35 @@ Azure Data Factory protects your data store credentials by **encrypting** them b
 All data transfers between data movement services and cloud data stores are via secure channel HTTPS or TLS, subject to the cloud data store supporting HTTPS or TLS.
 
 > [!NOTE]
-> All connections to **Azure SQL Database** and **Azure SQL Data Warehouse** require encryption (SSL/TLS) at all times while data is "in transit" to and from the database. While authoring a pipeline using a JSON editor, add the **encryption** property and set it to **true** in the **connection string**. When you use the [Copy Wizard](data-factory-azure-copy-wizard.md), we ensure that the encryption is enabled by default. For Azure Storage, you can use HTTPS in the connection string.
+> All connections to **Azure SQL Database** and **Azure SQL Data Warehouse** require encryption (SSL/TLS) always while data is "in transit" to and from the database. While authoring a pipeline using a JSON editor, add the **encryption** property and set it to **true** in the **connection string**. When you use the [Copy Wizard](data-factory-azure-copy-wizard.md), we ensure that the encryption is enabled by default. For Azure Storage, you can use HTTPS in the connection string.
 
 
 ### Data encryption at rest
-Many data stores support data encryption at rest. We suggest that you enable data encryption mechanism for those data stores. 
+Many data stores support encryptions of data at rest. We suggest that you enable data encryption mechanism for those data stores. 
 
 #### Azure SQL Data Warehouse
-Transparent Data Encryption (TDE) in Azure SQL Data Warehouse helps with protecting against the threat of malicious activity by performing real-time encryption and decryption of your data at rest. This is transparent to the client. For more information, see [Secure a database in SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
+Transparent Data Encryption (TDE) in SQL Data Warehouse helps with protecting against the threat of malicious activity by performing real-time encryption and decryption of your data at rest. This behavior is transparent to the client. For more information, see [Secure a database in SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### Azure SQL Database
-Azure SQL Database supports transparent data encryption, which helps with protecting against the threat of malicious activity by performing real-time encryption and decryption of the database without requiring changes to the application. This behavior is transparent to the client. For more information, see [Transparent Data Encryption with Azure SQL Database](https://msdn.microsoft.com/library/dn948096.aspx).
+Transparent data encryption in SQL Database helps with protecting against the threat of malicious activity by performing real-time encryption and decryption of the database without requiring changes to the application. This behavior is transparent to the client. For more information, see [Transparent Data Encryption with Azure SQL Database](https://msdn.microsoft.com/library/dn948096.aspx).
 
 #### Azure Data Lake Store  
 Azure Data Lake store provides encryption for data stored in the account. When enabled, the data before it is stored on persistent media is encrypted. Data Lake store automatically encrypts data before persisting and decrypts before retrieval, making it transparent to the client accessing the data. For more information, see [security in Azure Data Lake Store](../data-lake-store/data-lake-store-security-overview.md).
 
 #### Azure Blob and Table Storage 
-Azure blob storage and Azure table storage supports Storage Service Encryption (SSE), which automatically encrypts your data before persisting to storage and decrypts before retrieval. For more information, see [Azure Storage Service Encryption for data at rest](../storage/storage-service-encryption.md).
+Azure blob storage and Azure table storage support Storage Service Encryption (SSE), which automatically encrypts your data before persisting to storage and decrypts before retrieval. For more information, see [Azure Storage Service Encryption for data at rest](../storage/storage-service-encryption.md).
 
 #### Amazon S3
 At the time of authoring, Amazon S3 supports both client and server-side encryption of data at Rest. For more information, see [this article](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html). Currently we do not support Amazon S3 inside an Amazon virtual private cloud (VPC).
 
 #### Amazon Redshift 
-At the time of authoring, Amazon Redshift supports cluster encryption for data at rest. Refer to Amazon’s documentation for more details. Currently, we do not support Amazon Redshift inside an Amazon virtual private cloud (VPC).
+At the time of authoring, Amazon Redshift supports cluster encryption for data at rest. For more information, see [this article](http://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html). Currently, we do not support Amazon Redshift inside an Amazon virtual private cloud (VPC).
 
 #### Salesforce
 Salesforce supports [Shield Platform Encryption](https://help.salesforce.com/articleView?id=security_pe_overview.htm) that allows encryption of all files, attachments, custom fields.
 
 ## Hybrid Scenarios (using Data Management Gateway)
-For hybrid scenarios, we require Data Management Gateway to be installed in an on-premises network or inside a virtual network (Azure) or virtual private cloud (Amazon) that can access the local data stores. For more information the gateway, see [Data Management Gateway](data-factory-data-management-gateway.md). 
+Hybrid scenarios require Data Management Gateway to be installed in an on-premises network or inside a virtual network (Azure) or virtual private cloud (Amazon) that can access the local data stores. For more information the gateway, see [Data Management Gateway](data-factory-data-management-gateway.md). 
 
 ![Data Management Gateway channels](media/data-factory-data-movement-security-considerations/data-management-gateway-channels.png)
 
@@ -95,11 +95,11 @@ You can encrypt data store credentials using [JavaScript Cryptography library](h
 **Supported browsers:** IE8, IE9, IE10, IE11, Microsoft Edge, and latest Firefox, Chrome, Opera, Safari browsers. 
 
 #### Click-once credentials manager app
-You can launch the click-once based credential manager app is from Azure portal/Copy Wizard when authoring pipelines. This application ensures that credentials are not transferred in plain text over the wire. By default, it uses the port 8050 on the machine with gateway for secure communication. If required, this port can be changed.  
+You can launch the click-once based credential manager app is from Azure portal/Copy Wizard when authoring pipelines. This application ensures that credentials are not transferred in plain text over the wire. By default, it uses the port 8050 on the machine with gateway for secure communication. If necessary, this port can be changed.  
   
 ![HTTPS port for the gateway](media/data-factory-data-movement-security-considerations/https-port-for-gateway.png)
 
-Currently, Data Management Gateway uses a single certificate. This certificate is created during the gateway installation (applies to Data Management Gateway created after November 2016 and version 2.4.xxxx.x or later). You can replace this certificate with your own SSL/TLS certificate. This certificate is specifically used by the click-one credential manager application to security connect to the gateway machine for setting credentials. It stores data store credentials securely on-premises by using the Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) on the machine with gateway machine. 
+Currently, Data Management Gateway uses a single certificate. This certificate is created during the gateway installation (applies to Data Management Gateway created after November 2016 and version 2.4.xxxx.x or later). You can replace this certificate with your own SSL/TLS certificate. This certificate is used by the click-one credential manager application to security connect to the gateway machine for setting credentials. It stores data store credentials securely on-premises by using the Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) on the machine with gateway machine. 
 
 > [!NOTE]
 > Older gateways that were installed before November 2016 or of version 2.3.xxxx.x continue to use credentials encrypted and stored on cloud. Even if you upgrade the gateway to latest version, the credentials are not migrated to an on-premises machine    
@@ -121,11 +121,11 @@ The following table summarizes the network and gateway configuration recommendat
 
 | Source | Destination | Network configuration | Gateway setup |
 | ------ | ----------- | --------------------- | ------------- | 
-| On-premises | Virtual machines and cloud services deployed in virtual networks | IPSec VPN (point-to-site or site-to-site) | Gateway can be installed either on-premises or on an Azure vitual machine (VM) in VNet | 
+| On-premises | Virtual machines and cloud services deployed in virtual networks | IPSec VPN (point-to-site or site-to-site) | Gateway can be installed either on-premises or on an Azure virtual machine (VM) in VNet | 
 | On-premises | Virtual machines and cloud services deployed in virtual networks | ExpressRoute (Private Peering) | Gateway can be installed either on-premises or on an Azure VM in VNet | 
 | On-premises | Azure-based services that have a public endpoint | ExpressRoute (Public Peering) | Gateway must be installed on-premises | 
 
-The following images show the usage of Data Management Gateway for moving data between an on-premises database and Azure managed services using Express route and IPSec VPN (with Virtual Network):
+The following images show the usage of Data Management Gateway for moving data between an on-premises database and Azure services using Express route and IPSec VPN (with Virtual Network):
 
 **Express Route:**
  
@@ -133,22 +133,22 @@ The following images show the usage of Data Management Gateway for moving data b
 
 **IPSec VPN:**
 
-![IP Sec VPN with gateway](media/data-factory-data-movement-security-considerations/ipsec-vpn-for-gateway.png)
+![IPSec VPN with gateway](media/data-factory-data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
 ### Firewall configurations and white listing IP addresses
 
 #### Firewall requirements on-premise/private network	
-In an enterprise, a **corporate firewall** runs on the central router of the organization, and **Windows firewall** runs as a daemon on the local machine on which the gateway is installed. 
+In an enterprise, a **corporate firewall** runs on the central router of the organization. And, **Windows firewall** runs as a daemon on the local machine on which the gateway is installed. 
 
 The following table provides **outbound port** and domain requirements for the **corporate firewall**.
 
 | Domain names | Outbound ports | Description |
 | ------------ | -------------- | ----------- | 
-| *.servicebus.windows.net | 443, 80 | Required by the gateway to connect to data movement services in Data Factory |
-| *.core.windows.net | 443 | Used by the gateway to connect to Azure Storage Account when you use the staged copy feature. | 
-| *.frontend.clouddatahub.net | 443 | Required by the gateway to connect to the Azure Data Factory service. | 
-| *.database.windows.net | 1433	| (OPTIONAL) needed when your destination is Azure SQL Database/ Azure SQL Data Warehouse. Use the staged copy feature to copy data to Azure SQL Database/Azure SQL Data Warehouse  without opening the port 1433. | 
-| *.azuredatalakestore.net | 443 | (OPTIONAL) needed when your destination is Azure Data Lake store | 
+| `*.servicebus.windows.net` | 443, 80 | Required by the gateway to connect to data movement services in Data Factory |
+| `*.core.windows.net` | 443 | Used by the gateway to connect to Azure Storage Account when you use the staged copy feature. | 
+| `*.frontend.clouddatahub.net` | 443 | Required by the gateway to connect to the Azure Data Factory service. | 
+| `*.database.windows.net` | 1433	| (OPTIONAL) needed when your destination is Azure SQL Database/ Azure SQL Data Warehouse. Use the staged copy feature to copy data to Azure SQL Database/Azure SQL Data Warehouse without opening the port 1433. | 
+| `*.azuredatalakestore.net` | 443 | (OPTIONAL) needed when your destination is Azure Data Lake store | 
 
 > [!NOTE] 
 > You may have to manage ports/ white listing domains at corporate firewall level as required by respective data sources. 
@@ -175,10 +175,10 @@ The following cloud data stores that require white-listing. (some of these data 
 ## Frequently asked questions
 
 **Question:** Can the Gateway be shared across different data factories?
-**Answer:** We do not support this feature yet. We are actively working on this.
+**Answer:** We do not support this feature yet. We are actively working on this feature.
 
 **Question:** What are the port requirements for the gateway to work?
-**Answer:** Gateway makes HTTP-based connections to open internet. The **outbound ports 443 and 80** must be opened for gateway to make this connection. **Inbound Port 8050** needs to be opened only at the machine level (not at corporate firewall level) for Credential Manager application. If Azure SQL Database or Azure SQL Data Warehouse is used as source/ destination, then you need to open **1433** port as well.
+**Answer:** Gateway makes HTTP-based connections to open internet. The **outbound ports 443 and 80** must be opened for gateway to make this connection. Open **Inbound Port 8050** only at the machine level (not at corporate firewall level) for Credential Manager application. If Azure SQL Database or Azure SQL Data Warehouse is used as source/ destination, then you need to open **1433** port as well.
 
 **Question:** What are certificate requirements for Gateway?
 **Answer:** Current gateway requires a certificate that is used by the credential manager application for securely setting data store credentials. This certificate is a self-signed certificate created and configured by the gateway setup. You can use your own TLS/ SSL certificate instead. 
