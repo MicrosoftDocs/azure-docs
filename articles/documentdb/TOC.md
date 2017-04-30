@@ -18,8 +18,9 @@
 <!---[.NET](documentdb-connect-tables-dotnet.md)--->
 
 # Tutorials
-## 1 - Create Azure Cosmos DB
-### [DocumentDB](documentdb-tutorial-documentdb-create.md)
+
+## 1 - Create
+### [DocumentDB](documentdb-tutorial-documentdb-create-partitioned.md)
 ### MongoDB
 ### Table
 ### Graph

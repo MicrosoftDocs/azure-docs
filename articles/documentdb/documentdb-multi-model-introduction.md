@@ -47,7 +47,7 @@ Cosmos DB now provides multi-model support for the following data models and API
 
 |Data model| APIs supported|
 |---|---|
-|Key-value (table) data| [Tables API](documentdb-table-introduction.md)|
+|Key-value (table) data| [Tables API](https://aka.ms/premiumtables)|
 |Document data|[Native DocumentDB support](documentdb-introduction.md) plus support for [MongoDB APIs](documentdb-protocol-mongodb.md)|
 |Graph data|[Gremlin graph APIs](documentdb-graph-introduction.md)|
  
