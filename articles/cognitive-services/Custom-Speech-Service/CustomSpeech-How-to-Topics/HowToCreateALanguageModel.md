@@ -43,7 +43,7 @@ When the text is imported, it will be text-normalized so it can be processed by 
 
 ### Importing the language data set
 
-When you are ready to import your language data set, click “Language Data” from the “Menu” drop-down menu. A table called “Language Data” that contains your language data sets is shown. If you have not yet uploaded any language data, the table will be empty. The current locale is reflected in the table title. If you would like to import language data of a different language, click on “Change Locale”. Additional information on supported languages can be found in the section on [Changing Locale](HowToChangeLocale,md).
+When you are ready to import your language data set, click “Language Data” from the “Menu” drop-down menu. A table called “Language Data” that contains your language data sets is shown. If you have not yet uploaded any language data, the table will be empty. The current locale is reflected in the table title. If you would like to import language data of a different language, click on “Change Locale”. Additional information on supported languages can be found in the section on [Changing Locale](HowToChangeLocale.md).
 
 To import a new data set, click “Import New” under the table title. Enter a Name and Description to help you identify the data set in the future. Next, use the “Choose File” button to locate the text file of language data. After that, click “Import” and the data set will be uploaded. Depending on the size of the data set, this may take several minutes.
 
@@ -61,7 +61,7 @@ When the status of the language data set is “Complete”, it can be used to cr
 
 ### Creating a custom language model
 
-Once your language data is ready, click “Language Models” from the “Menu” drop-down menu to start the process of custom language model creation. This page contains a table called “Language Models” with your current custom language models. If you have not yet created any custom language models, the table will be empty. The current locale is reflected in the table title. If you would like to create a language model for a different language, click on “Change Locale”. Additional information on supported languages can be found in the section on [Changing Locale](HowToChangeLocale,md). To create a new model, click the “Create New” link below the table title.
+Once your language data is ready, click “Language Models” from the “Menu” drop-down menu to start the process of custom language model creation. This page contains a table called “Language Models” with your current custom language models. If you have not yet created any custom language models, the table will be empty. The current locale is reflected in the table title. If you would like to create a language model for a different language, click on “Change Locale”. Additional information on supported languages can be found in the section on [Changing Locale](HowToChangeLocale.md). To create a new model, click the “Create New” link below the table title.
 
 On the "Create Language Model" page, enter a "Name" and "Description" to help you keep track of pertinent information about this model, such as the data set used. Next, select the “Base Language Model” from the drop-down menu. This model will be the starting point for your customization. There are two base language models to choose from. The _Microsoft Search and Dictation LM_ is appropriate for speech directed at an application, such as such as commands, search queries, or dictation. The _Microsoft Conversational LM_ is appropriate for recognizing speech spoken in a conversational style. This type of speech is typically directed at another person and occurs in call centers or meetings.
 
@@ -82,5 +82,5 @@ When the model has reached the “Complete” state, it can be deployed to an en
 If you would like to change the "Name" or "Description"" of the model at some point, you can use the “Edit” link in the appropriate row of the language models table.
 
 ### Next steps
-* Try to create your [custom acoustic model](HowToCreateAnAcousticModel)
-* [Create a custom speech-to-text endpoint](HowToCreateAnEndoint.md)
+* Try to create your [custom acoustic model](HowToCreateAnAcousticModel.md)
+* [Create a custom speech-to-text endpoint](HowToCreateAnEndpoint.md)
