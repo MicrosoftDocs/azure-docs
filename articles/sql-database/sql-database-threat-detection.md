@@ -32,8 +32,7 @@ SQL Threat Detection integrates alerts with [Azure Security Center](https://azur
 
 ## Set up threat detection for your database in the Azure portal
 1. Launch the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-2. Navigate to the configuration blade of the SQL Database you want to monitor. In the Settings blade, select **Auditing & Threat Detection**.
- 
+2. Navigate to the configuration blade of the SQL Database you want to monitor. In the Settings blade, select **Auditing & Threat Detection**. 
     ![Navigation pane][1]
 3. In the **Auditing & Threat Detection** configuration blade turn **ON** Auditing, which will display the threat detection settings.
   
@@ -59,7 +58,7 @@ For a script example, see [Configure auditing and threat detection using PowerSh
 
 ## Explore threat detection alerts for your database in the Azure portal
 
-SQL Database Threat Detection integrates its alerts with Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/). A live SQL security tile within the database blade in Azure portal tracks the status of active threats. 
+SQL Database Threat Detection integrates its alerts with [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/). A live SQL security tile within the database blade in the Azure portal tracks the status of active threats. 
 
    ![Navigation pane][6]
    
@@ -74,11 +73,11 @@ SQL Database Threat Detection integrates its alerts with Azure Security Center](
 
 ## Next steps
 
-* Learn more about Threat Detection,visit the [Azure blog](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
-* For a PowerShell script example, see [Configure auditing and threat detection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md)
+* Learn more about Threat Detection, visit the [Azure blog](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
 * Learn more about [Azure SQL Database Auditing](sql-database-auditing.md)
-* Please see [SQL Database Pricing page](https://azure.microsoft.com/en-us/pricing/details/sql-database/)  or [Azure Security Center pricing page](https://azure.microsoft.com/en-us/pricing/details/security-center/) for more details 
 * Learn more about [Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)
+* For more details on pricing, please see the [SQL Database Pricing page](https://azure.microsoft.com/en-us/pricing/details/sql-database/)  
+* For a PowerShell script example, see [Configure auditing and threat detection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md)
 
 
 
