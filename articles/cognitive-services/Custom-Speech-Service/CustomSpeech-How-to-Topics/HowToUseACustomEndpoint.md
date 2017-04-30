@@ -23,10 +23,10 @@ The service assumes that data is transmitted in real-time. If it is sent faster,
 
 To send requests to your custom endpoint using the speech client library, instantiate the recognition client using the Client Speech SDK from [nuget](http://nuget.org/) (search for "speech recognition" and select Microsoft's speech recognition nuget for your platform). Some sample code can be found [here](https://github.com/Microsoft/Cognitive-Speech-STT-Windows). The Client Speeck SDK provides a factory class _SpeechRecognitionServiceFactory_ which offers 4 methods:
 
-  *   CreateDataClient(...): A data recognition client
-  *   CreateDataClientWithIntent(...): A data recognition client with intent
-  *   CreateMicrophoneClient(...): A microphone recognition client
-  *   CreateMicrophoneClientWithIntent(...): A microphone recognition client with intent
+  *   ```CreateDataClient(...)```: A data recognition client
+  *   ```CreateDataClientWithIntent(...)```: A data recognition client with intent
+  *   ```CreateMicrophoneClient(...)```: A microphone recognition client
+  *   ```CreateMicrophoneClientWithIntent(...)```: A microphone recognition client with intent
 
 For detailed documentation please visit the [Bing Speech API](https://www.microsoft.com/cognitive-services/en-us/Speech-api/documentation/GetStarted/GetStartedCSharpDesktop) documentation since the Custom Speech Service endpoints support the same SDK.
 
@@ -36,7 +36,9 @@ All four types of clients can be instantiated in two ways. The first will utiliz
 
 For example, a DataRecognitionClient that will send requests to a custom endpoint can be created using the following method.
 
-    public static DataRecognitionClient CreateDataClient(SpeeechRecognitionMode speechRecognitionMode, string language, string primaryOrSecondaryKey, **string url**);
+```
+public static DataRecognitionClient CreateDataClient(SpeeechRecognitionMode speechRecognitionMode, string language, string primaryOrSecondaryKey, **string url**);
+```
 
 The your_subscriptionId and endpointURL refer to the Subscription Key and the Web Sockets URL shown on the Deployment Information page, respectively.
 
@@ -44,14 +46,16 @@ The authenticationUri is used to receive a token from the authentication service
 
 Here is some sample code showing how to use the client SDK:
 
-          var dataClient = SpeechRecognitionServiceFactory.CreateDataClient(
-            SpeechRecognitionMode.LongDictation,
-            "en-us",
-            "your_subscriptionId",
-            "your_subscriptionId",
-            "endpointURL");
-          // set the authorization Uri
-          dataClient.AuthenticationUri = "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
+```
+var dataClient = SpeechRecognitionServiceFactory.CreateDataClient(
+  SpeechRecognitionMode.LongDictation,
+  "en-us",
+  "your_subscriptionId",
+  "your_subscriptionId",
+  "endpointURL");
+// set the authorization Uri
+dataClient.AuthenticationUri = "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
+```
 
 Note that when using Create methods in the SDK you must provide the subscription id twice. This is because of overloading of the Create methods.
 
@@ -69,17 +73,22 @@ To create a POST request, the same process used for the Microsoft Cognitive Serv
 
 1.  Obtain an access token using your subscription id. This is required to access the recognition endpoint and can be reused for ten minutes.
 
-        curl -X POST --header "Ocp-Apim-Subscription-Key:<subscriptionId>" --data "" "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken"
-
-    where **subscriptionId** should be set to the Subscription Id you use for this deployment. The response is the plain token you need for the next request.
+```
+curl -X POST --header "Ocp-Apim-Subscription-Key:<subscriptionId>" --data "" "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken"
+```
+  where **subscriptionId** should be set to the Subscription Id you use for this deployment. The response is the plain token you need for the next request.
 
 2.  Post audio to the endpoint using POST again:
 
-        curl -X POST --data-binary @@example.wav -H "Authorization: Bearer <token>" -H "Content-Type: application/octet-stream" "<https_endpoint>"
+```
+curl -X POST --data-binary @@example.wav -H "Authorization: Bearer <token>" -H "Content-Type: application/octet-stream" "<https_endpoint>"
+```
 
-    where **token** is your access token you have received with the previous call and **https_endpoint** is the full address of your custom speech-to-text endpoint shown in the Deployment Information page.
+  where **token** is your access token you have received with the previous call and **https_endpoint** is the full address of your custom speech-to-text endpoint shown in the Deployment Information page.
 
-    Please refer to documentation on the [Microsoft Cognitive Services Bing Speech HTTP API](https://www.microsoft.com/cognitive-services/en-us/speech-api/documentation/API-Reference-REST/BingVoiceRecognition#SampleImplementation) for more information about HTTP post parameters and the response format.
+  Please refer to documentation on the [Microsoft Cognitive Services Bing Speech HTTP API](https://www.microsoft.com/cognitive-services/en-us/speech-api/documentation/API-Reference-REST/BingVoiceRecognition#SampleImplementation) for more information about HTTP post parameters and the response format.
 
 ### Related Links:
-* [Pricing Options for Microsoft Cognitive APIs](https://www.microsoft.com/cognitive-services/en-us/pricing)
+* [How to create a custom speech-to-text endpoint](HowToCreateAnEndoint.md)
+* [How to create a custom acoustic model](HowToCreateAnAcousticModel.md)
+* [How to create a custom language model](HowToCreateALanguageModel.md)

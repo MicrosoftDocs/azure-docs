@@ -53,21 +53,21 @@ An acoustic data set for customizing the acoustic model consists of two parts: (
 The transcriptions for all WAV files should be contained in a single plain-text file. Each line of the transcription file should have the name of one of the audio files, followed by the corresponding transcription. The file name and transcription should be separated by a tab (\t).
 
   For example:
-
+```
   speech01.wav  speech recognition is awesome
 
   speech02.wav  the quick brown fox jumped all over the place
 
   speech03.wav  the lazy dog was not amused
+```
 
-
-The transcriptions will be text-normalized so they can be processed by the system. However, there are some very important normalizations that must be done by the user _prior_ to uploading the data to the Custom Speech Service. Please consult the section on [transcription guidelines](#Transcription guidelines (en-US)) for the appropriate language when preparing your transcriptions.
+The transcriptions will be text-normalized so they can be processed by the system. However, there are some very important normalizations that must be done by the user _prior_ to uploading the data to the Custom Speech Service. Please consult the section on [transcription guidelines](TranscriptionGuidelines.md) for the appropriate language when preparing your transcriptions.
 
 ### Importing the acoustic data set
 
 Once the audio files and transcriptions have been prepared, they are ready to be imported to the service web portal.
 
-To do so, first ensure you are signed into the system. Then click the “Menu” drop-down menu on the top ribbon and select “Acoustic Data”. If this is your first time uploading data to the Custom Speech Service, you will see an empty table called “Acoustic Data”. The current locale is reflected in the table title. If you would like to import acoustic data of a different language, click on “Change Locale”. Additional information on supported languages can be found in the section on [Changing Locale](#Changing Locale).
+To do so, first ensure you are signed into the system. Then click the “Menu” drop-down menu on the top ribbon and select “Acoustic Data”. If this is your first time uploading data to the Custom Speech Service, you will see an empty table called “Acoustic Data”. The current locale is reflected in the table title. If you would like to import acoustic data of a different language, click on “Change Locale”. Additional information on supported languages can be found in the section on [changing locale](HowToChangeLocale.md).
 
 Click the “Import New” button, located directly below the table title and you will be taken to the page for uploading a new data set.
 
@@ -95,7 +95,7 @@ Next, select the acoustic data you wish to use to perform the customization usin
 
 ![try](../Images/AcousticModels_Create2.png)
 
-You can optionally choose to perform offline testing of your new model when the processing is complete. This will run a speech-to-text evaluation on a specified acoustic data set using the customized acoustic model and report the results. To perform this testing, select the “Offline Testing” check box. Then select a language model from the drop-down menu. If you have not created any custom language models, only the base language models will be in the drop-down list. Please see the [description](#Creating a custom language model) of the base language models in the guide and select the one that is most appropriate.
+You can optionally choose to perform offline testing of your new model when the processing is complete. This will run a speech-to-text evaluation on a specified acoustic data set using the customized acoustic model and report the results. To perform this testing, select the “Offline Testing” check box. Then select a language model from the drop-down menu. If you have not created any custom language models, only the base language models will be in the drop-down list. Please see the [description](HowToCreateALanguageModel.md) of the base language models in the guide and select the one that is most appropriate.
 
 Finally, select the acoustic data set you would like to use to evaluate the custom model. If you perform offline testing, it is important to select an acoustic data that is different from the one used for the model creation to get a realistic sense of the model’s performance. Also note that offline testing is limited to 1000 utterances. If the acoustic dataset for testing is larger than that, only the first 1000 utterances will be evaluated.
 
@@ -106,4 +106,5 @@ You will now see a new entry in the acoustic models table corresponding to this 
 ![try](../Images/AcousticModels_Creating.png)
 
 ### Related Links:
-* [Pricing Options for Microsoft Cognitive APIs](https://www.microsoft.com/cognitive-services/en-us/pricing)
+* [How to create a custom language model](HowToCreateALanguageModel.md)
+* [How to create a custom speech-to-text endpoint](HowToCreateAnEndoint.md)

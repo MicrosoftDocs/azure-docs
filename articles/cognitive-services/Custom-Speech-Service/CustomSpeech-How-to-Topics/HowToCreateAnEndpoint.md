@@ -13,7 +13,7 @@ ms.author: panosper
 ---
 
 ## Creating a custom speech-to-text endpoint
-When you have created custom acoustic models and/or language models, they can be deployed in a custom speech-to-text endpoint. To create a new custom endpoint, click “Deployments” from the “Menu” menu on the top of the page. This takes you to a table called “Deployments” of current custom endpoints. If you have not yet created any endpoints, the table will be empty. The current locale is reflected in the table title. If you would like to create a deployment for a different language, click on “Change Locale”. Additional information on supported languages can be found in the section on [Changing Locale](#Changing Locale).
+When you have created custom acoustic models and/or language models, they can be deployed in a custom speech-to-text endpoint. To create a new custom endpoint, click “Deployments” from the “Menu” menu on the top of the page. This takes you to a table called “Deployments” of current custom endpoints. If you have not yet created any endpoints, the table will be empty. The current locale is reflected in the table title. If you would like to create a deployment for a different language, click on “Change Locale”. Additional information on supported languages can be found in the section on [changing locale](HowToChangeLocale.md).
 
 To create a new endpoint, click the “Create New” link under the table title. On the "Create Deployment"" screen, enter a "Name" and "Description" of your custom deployment. From the "Acoustic Model" drop-down, select the desired acoustic model, and from the "Language Model" drop-down, select the desired language model. The choices for acoustic and language models always include the base Microsoft models. The selection of the base model limits the combinations. You cannot mix conversational base models with search and dictate base models.
 
@@ -28,4 +28,6 @@ You’ll notice that when the deployment is ready, the Name of the deployment is
 ![try](../Images/Deployment_Info2.png)
 
 ### Related Links:
-* [Pricing Options for Microsoft Cognitive APIs](https://www.microsoft.com/cognitive-services/en-us/pricing)
+* [How to use a custom speech-to-text endpoint](HowToUseACustomEndpoint.md)
+* [How to create a custom acoustic model](HowToCreateAnAcousticModel.md)
+* [How to create a custom language model](HowToCreateALanguageModel.md)

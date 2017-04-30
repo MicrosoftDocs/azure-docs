@@ -138,4 +138,6 @@ Here are some examples
 The process of converting “raw” unformatted text back to formatted text, i.e. with capitalization and punctuation, is called inverse text normalization (ITN). ITN is performed on results returned by the Microsoft Cognitive Services Speech API. A custom endpoint deployed using the Custom Speech Service uses the same ITN as the Microsoft Cognitive Services Speech API. However, this service does not currently support custom ITN, so new terms introduced by a custom language model will not be formatted in the recognition results.
 
 ### Related Links:
-* [Pricing Options for Microsoft Cognitive APIs](https://www.microsoft.com/cognitive-services/en-us/pricing)
+* [How to create a custom acoustic model](HowToCreateAnAcousticModel.md)
+* [How to create a custom language model](HowToCreateALanguageModel.md)
+* [How to create a custom speech-to-text endpoint](HowToCreateAnEndoint.md)
