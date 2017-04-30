@@ -38,7 +38,7 @@ Because custom policies are still in private preview, confirm that your Azure AD
 
 With the page UI customization feature, you can customize the look and feel of any custom policy.  This enables you to maintain your brand and visual theme consistency when the user navigates between your application and pages served by Azure AD B2C.
 
-Here's how it works: Azure AD B2C runs code in your consumer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/) to load content from a URL that you specify in a policy. You can specify different URLs for different pages. The code merges UI elements from Azure AD B2C with the content loaded from your URL, and displays the page to your consumer.
+Here's how it works: Azure AD B2C runs code in your consumer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/).  First, you specify a URL in the custom policy with customized HTML content.  Azure AD B2C merges UI elements with the HTML content loaded from your URL, and displays the page to your consumer.
 
 ## Creating your HTML5 content
 
@@ -52,7 +52,7 @@ Let's create HTML content with your product's brand name in the title.
    <head>
        <title>My Product Brand Name</title>
    </head>
-   <body >
+   <body>
        <div id="api"></div>
    </body>
    </html>
@@ -77,7 +77,7 @@ Let's host this HTML on Azure blob storage.
 1. **Access tier** can be left as **Hot**.
 1. **Storage service encryption** can be left as **Disabled**.
 1. Select a **subscription** for your storage account.
-1. Create a new **resource group** or select an existing one.
+1. Create a **resource group** or select an existing one.
 1. Select the **geographic location** for your storage account.
 1. Click **Create** to create the storage account.
 1. Wait for the deployment to finish and the storage account blade opens automatically.
@@ -121,11 +121,11 @@ Let's validate that we are ready.
 
 1. Navigate to http://test-cors.org/ and paste the URL into the `Remote URL` field.
 1. Click **Send Request**
-1. If you receive an error review [your CORS settings](#configure-cors)
+1. If you receive an error, make sure your [CORS settings](#configure-cors) are correct.
 
 ## Modify your sign-up or sign-in custom policy
 
-1. Under the top-level `<TrustFrameworkPolicy>` tag, you should find `<BuildingBlocks>` tag.  Inside the `<BuildingBlocks>` tag, add a new`'ContentDefinitions` tag by copying this example.  Replace `{your_storage_account}` with the name of your storage account.
+1. Under the top-level `<TrustFrameworkPolicy>` tag, you should find `<BuildingBlocks>` tag.  Inside the `<BuildingBlocks>` tag, add a `ContentDefinitions` tag by copying this example.  Replace `{your_storage_account}` with the name of your storage account.
 
   ```xml
   <BuildingBlocks>
