@@ -6,8 +6,6 @@
 # Quickstarts
 ## [Create DB - Portal](quickstart-create-server-database-portal.md)
 ## [Create DB - Azure CLI](quickstart-create-server-database-azure-cli.md)
-## [Connect & Query - psql](quickstart-connect-query-using-psql.md)
-## [Connect & Query - pgAdmin](quickstart-connect-query-using-pgadmin.md)
 ## Connect
 <!-- ### [Azure CLI](placeholder.md) -->
 <!-- ### [Python](placeholder.md) -->
