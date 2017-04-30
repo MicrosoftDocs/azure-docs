@@ -1,4 +1,4 @@
----
+﻿---
 title: Introduction to Azure Cosmos DB | Microsoft Docs
 description: Learn about Azure Cosmos DB. This globally-ditributed multi-model database is built for big data, elastic scalability, and high availability.
 keywords: global distribution, elastic scale, planet-scale, SLAs, json database, document database, graph database, key-value database
@@ -19,7 +19,7 @@ ms.author: mimig
 
 ---
 
-# Introduction to Azure Cosmos DB: Azure's comprehensive database service
+# Introduction to Azure Cosmos DB
 
 ## What is Azure Cosmos DB?
 
