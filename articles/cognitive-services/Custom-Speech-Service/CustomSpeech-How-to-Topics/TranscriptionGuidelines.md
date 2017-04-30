@@ -140,4 +140,4 @@ The process of converting “raw” unformatted text back to formatted text, i.e
 ### Related Links:
 * [How to create a custom acoustic model](HowToCreateAnAcousticModel.md)
 * [How to create a custom language model](HowToCreateALanguageModel.md)
-* [How to create a custom speech-to-text endpoint](HowToCreateAnEndoint.md)
+* [How to create a custom speech-to-text endpoint](HowToCreateAnEndpoint.md)
