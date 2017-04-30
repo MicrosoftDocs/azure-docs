@@ -52,7 +52,7 @@ You can find a detailed description on how to create a custom language model [he
 ## <a name="Create3">Creating a custom speech-to-text endpoint</a>
 When you have created custom acoustic models and/or language models, they can be deployed in a custom speech-to-text endpoint. To create a new custom endpoint, click “Deployments” from the “CRIS” menu on the top of the page. This takes you to a table called “Deployments” of current custom endpoints. If you have not yet created any endpoints, the table will be empty. The current locale is reflected in the table title. If you would like to create a deployment for a different language, click on “Change Locale”. Additional information on supported languages can be found in the section on Changing Locale.
 
-You can find a detailed description on how to create a custom speech-text endpoint [here](./CustomSpeech-How-to-Topics/HowToCreateAnEndoint.md).
+You can find a detailed description on how to create a custom speech-text endpoint [here](./CustomSpeech-How-to-Topics/HowToCreateAnEndpoint.md).
 
 ## <a name="Using">Using a custom speech endpoint</a>
 Requests can be sent to a CRIS speech-to-text endpoint in a very similar manner as the default Microsoft Cognitive Services speech endpoint. Note that these endpoints are functionally identical to the default endpoints of the Speech API. Thus, the same functionality available via the client library or REST API for the Speech API is also the available for your custom endpoint.
