@@ -20,7 +20,7 @@ ms.author: gsacavdm
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-After completing the steps in this article, you will have a working custom policy that allows an end user to sign-up and sign-in using a "local account". It will also prepare your environment for adding any new identity providers (like Facebook or Azure AD). Local Accounts are created by end users by using an existing email and creating a new password for use with your services. Completion of these steps is required before all other uses of the Azure AD B2C’s Identity Experience Engine and many essential concepts are introduced.
+After completing the steps in this article, you will have a working custom policy that allows an end user to sign-up and sign-in using a "local account". You will also prepare your environment for adding additional identity providers (like Facebook or Azure AD). Local Accounts are created by end users by using an existing email and creating a password for use with your services. Completion of these steps is required before all other uses of the Azure AD B2C’s Identity Experience Engine and many essential concepts are introduced.
 
 ## Prerequisites
 
@@ -34,18 +34,19 @@ Because custom policies are still in private preview, confirm that your Azure AD
 1. Click **All Policies**.
 1. Make sure **Upload Policy** is available.  If the button is disabled, email AADB2CPreview@microsoft.com.
 
-## Setup keys for your custom policy
+## Set up keys for your custom policy
 
-The first step required to use custom policies is to setup keys.
+The first step required to use custom policies is to set up keys.
 
 [!INCLUDE [active-directory-b2c-setup-keys-custom.md](../../includes/active-directory-b2c-setup-keys-custom.md)]
 
 ## Download starter pack and modify policies
 
-Custom policies are a set of XML files that need to be uploaded to your Azure AD B2C tenant. We provide a starter pack that you can use to get started. Inside the starter pack you will find:
+Custom policies are a set of XML files that need to be uploaded to your Azure AD B2C tenant. We provide a starter pack that you can use to get started. The starter pack contains:
 
-* The [base file](active-directory-b2c-overview-custom.md) of the policy. Very few modifications will be required to the base.
+* The [base file](active-directory-b2c-overview-custom.md#Policy-files) of the policy. Very few modifications will be required to the base.
 * The [extension file](active-directory-b2c-overview-custom.md) of the policy.  This is where we will make the majority of the changes to configure your policy.
+
 
 Let's get started:
 
@@ -79,10 +80,10 @@ Let's get started:
 
 ## Register Policy Engine Applications
 
-Azure AD B2C requires you to register two extra applications that are used by the engine to sign up and sign in users.
+Azure AD B2C requires you to register two extra applications that are used by the engine to sign-up and sign-in users.
 
 >[!NOTE]
->Below, we create two applications which to enable sign in using local accounts: PolicyEngine (a web app) and PolicyEngineProxy (a native app) with delegated permission from PolicyEngine. This section is only required for Azure AD B2C tenants where use of local accounts is expected.
+>Below, we create two applications which to enable sign-in using local accounts: PolicyEngine (a web app) and PolicyEngineProxy (a native app) with delegated permission from PolicyEngine. This section is only required for Azure AD B2C tenants where use of local accounts is expected.
 
 ### Create the policy engine application
 
@@ -138,7 +139,7 @@ When a file is uploaded, the name is prepended with `B2C_1A_`.  This is differen
 
 1. Open the **Azure AD B2C Blade** and navigate to **All polices**.
 1. Select the custom policy that you uploaded, and click the **Run now** button.
-1. You should be able to sign up using an email address.
+1. You should be able to sign-up using an email address.
 
 ## Next steps
 
