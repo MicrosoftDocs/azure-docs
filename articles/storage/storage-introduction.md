@@ -92,7 +92,7 @@ Table storage is a key-attribute store, meaning that every value in a table is s
 
 You can use Table storage to store flexible datasets, such as user data for web applications, address books, device information, and any other type of metadata that your service requires.  You can store any number of entities in a table, and a storage account may contain any number of tables, up to the capacity limit of the storage account. Like Blobs and Queues, developers can manage and access Table storage using standard REST protocols, however Table storage also supports a subset of the OData protocol, simplifying advanced querying capabilities and enabling both JSON and AtomPub (XML based) formats. For today's Internet-based applications, NoSQL databases like Table storage offer a popular alternative to traditional relational databases.
 
-[!INCLUDE [storage-table-to-cosmos-db-include](storage-table-to-cosmos-db-include.md)]
+[!INCLUDE [storage-table-to-cosmos-db-include](../../include/storage-table-to-cosmos-db-include.md)]
 
 ## Queue storage
 In designing applications for scale, application components are often decoupled, so that they can scale independently. Queue storage provides a reliable messaging solution for asynchronous communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process workflows.

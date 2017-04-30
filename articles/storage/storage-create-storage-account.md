@@ -1,4 +1,4 @@
----
+﻿---
 title: How to create, manage, or delete a storage account in the Azure portal | Microsoft Docs
 description: Create a new storage account, manage your account access keys, or delete a storage account in the Azure portal. Learn about standard and premium storage accounts.
 services: storage
@@ -33,7 +33,7 @@ An Azure storage account provides a unique namespace to store and access your Az
 > [!NOTE]
 > When you create an Azure virtual machine, a storage account is created for you automatically in the deployment location if you do not already have a storage account in that location. So it's not necessary to follow the steps below to create a storage account for your virtual machine disks. The storage account name will be based on the virtual machine name. See the [Azure Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/) for more details.
 > 
-> Currently in public preview, the [Azure Cosmos DB service](../cosmosdb/tables-introduction.md) supports new throughput-optimized tables. See [Azure Cosmos DB pricing](https://azure.microsoft.com/en-us/pricing/details/documentdb/) for pricing details. There is no change in billing for accounts created via Azure Storage. 
+> Currently in public preview, the [Azure Cosmos DB service](https://aka.ms/premiumtables) supports new throughput-optimized tables. See [Azure Cosmos DB pricing](https://azure.microsoft.com/en-us/pricing/details/documentdb/) for pricing details. There is no change in billing for accounts created via Azure Storage. 
 
 ## Storage account endpoints
 Every object that you store in Azure Storage has a unique URL address. The storage account name forms the subdomain of that address. The combination of subdomain and domain name, which is specific to each service, forms an *endpoint* for your storage account.
@@ -48,7 +48,7 @@ For example, if your storage account is named *mystorageaccount*, then the defau
 > [!NOTE]
 > A Blob storage account only exposes the Blob service endpoint.
 > 
-> Currently in public preview, [Azure Cosmos DB](../cosmosdb/tables-introduction.md) supports throughput-optimized tables, and will be extended to support all existing and new tables. The Azure Cosmos DB service be accessed using the Azure Table storage APIs using the https://*myazurecosmosdb*.documents.azure.com endpoint. 
+> Currently in public preview, [Azure Cosmos DB](https://aka.ms/premiumtables) supports throughput-optimized tables, and will be extended to support all existing and new tables. The Azure Cosmos DB service be accessed using the Azure Table storage APIs using the https://*myazurecosmosdb*.documents.azure.com endpoint. 
 
 The URL for accessing an object in a storage account is built by appending the object's location in the storage account to the endpoint. For example, a blob address might have this format: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
@@ -84,7 +84,7 @@ You can also configure a custom domain name to use with your storage account. Fo
 10. Click **Create** to create the storage account.
 
 > [!NOTE]
-> Also see [Creating a Azure Cosmos DB account](../cosmosdb/create-account.md) to create tables with independent scaling of storage and throughput, turn-key global distribution, single-digit millisecond latencies with reads under 10ms at p99 and writes under 15ms at p99, automatic indexing and rich querying, five tunable consistency levels, and 99.99% availabilty. To learn more, see [Azure Cosmos DB: Tables API](../cosmosdb/tables-introduction.md). Azure Cosmos DB will be extended to support all existing and new tables using the Azure Table storage SDKs and APIs.
+> Also see [Creating a Azure Cosmos DB account](https://aka.ms/cosmosdbcreate) to create tables with independent scaling of storage and throughput, turn-key global distribution, single-digit millisecond latencies with reads under 10ms at p99 and writes under 15ms at p99, automatic indexing and rich querying, five tunable consistency levels, and 99.99% availabilty. To learn more, see [Azure Cosmos DB: Tables API](https://aka.ms/premiumtables). Azure Cosmos DB will be extended to support all existing and new tables using the Azure Table storage SDKs and APIs.
 
 ## Manage your storage account
 ### Change your account configuration

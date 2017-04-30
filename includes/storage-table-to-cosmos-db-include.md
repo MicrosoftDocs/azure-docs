@@ -1,4 +1,4 @@
-Currently in public preview, Azure Table storage is offered as part of [Azure Cosmos DB](../articles/cosmosdb/introduction.md), and supports the following capabilities:
+Currently in public preview, Azure Table storage is offered as part of [Azure Cosmos DB](https://aka.ms/cosmosdb), and supports the following capabilities:
 
 - independent scaling of storage and throughput
 - turn-key global distribution
@@ -7,4 +7,4 @@ Currently in public preview, Azure Table storage is offered as part of [Azure Co
 - five tunable consistency levels
 - 99.99% availability. 
 
-To learn more, see [Azure Cosmos DB: Tables API](../articles/cosmosdb/tables-introduction.md). Azure Cosmos DB will be extended to support all existing and new tables using the Azure Table storage SDKs and APIs.
+To learn more, see [Azure Cosmos DB: Tables API](https://aka.ms/premiumtables). Azure Cosmos DB will be extended to support all existing and new tables using the Azure Table storage SDKs and APIs.
