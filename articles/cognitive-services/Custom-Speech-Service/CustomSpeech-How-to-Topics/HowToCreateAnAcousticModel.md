@@ -107,4 +107,4 @@ You will now see a new entry in the acoustic models table corresponding to this 
 
 ### Next steps
 * Start create your [custom language model](HowToCreateALanguageModel.md)
-* [Create a custom speech-to-text endpoint](HowToCreateAnEndoint.md)
+* [Create a custom speech-to-text endpoint](HowToCreateAnEndpoint.md)
