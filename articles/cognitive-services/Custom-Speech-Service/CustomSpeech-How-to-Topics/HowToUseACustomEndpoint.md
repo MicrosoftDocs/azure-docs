@@ -88,7 +88,6 @@ curl -X POST --data-binary @@example.wav -H "Authorization: Bearer <token>" -H "
 
   Please refer to documentation on the [Microsoft Cognitive Services Bing Speech HTTP API](https://www.microsoft.com/cognitive-services/en-us/speech-api/documentation/API-Reference-REST/BingVoiceRecognition#SampleImplementation) for more information about HTTP post parameters and the response format.
 
-### Related Links:
-* [How to create a custom speech-to-text endpoint](HowToCreateAnEndoint.md)
-* [How to create a custom acoustic model](HowToCreateAnAcousticModel.md)
-* [How to create a custom language model](HowToCreateALanguageModel.md)
+### Next steps
+* Improve accuracy with your [custom acoustic model](HowToCreateAnAcousticModel.md)
+* Improve accuracy with a [custom language model](HowToCreateALanguageModel.md)
