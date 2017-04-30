@@ -38,7 +38,7 @@ To collect snapshots, include the [Microsoft.ApplicationInsights.SnapshotCollect
       <!-- How many times we need to see an exception before we ask for snapshots. -->
       <ThresholdForSnapshotting>5</ThresholdForSnapshotting>
       <!-- The maximum number of examples we create for a single problem. -->
-      <MaximumExamplesRequired>3</MaximumExamplesRequired>
+      <MaximumSnapshotsRequired>3</MaximumSnapshotsRequired>
       <!-- The maximum number of problems that we can be tracking at any time. -->
       <MaximumCollectionPlanSize>50</MaximumCollectionPlanSize>
       <!-- How often to reset problem counters. -->
