@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/12/2017
+ms.date: 04/30/2017
 ms.author: mimig
 
 ---
@@ -78,27 +78,63 @@ Open a git terminal window, such as git bash, and `CD` to a working directory.
 Run the following command to clone the sample repository. 
 
 ```bash
-git clone https://github.com/Azure-Samples/documentdb-dotnet-getting-started.git
+git clone https://github.com/Azure-Samples/documentdb-dotnet-todo-app.git
 ```
 Then open the solution file in Visual Studio 2017. 
 
+## Review the code
+
+Let's make a quick review of what's happening in the app. Open the DocumentDBRepository.cs file and you'll find that these lines of code create the DocumentDB resources. 
+
+1. The DocumentClient is initialized.
+
+```charp
+client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
+```
+
+2. A new database is created.
+
+```csharp
+await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
+```
+
+3. A new collection is created.
+
+```csharp
+await client.CreateDocumentCollectionAsync(
+    UriFactory.CreateDatabaseUri(DatabaseId),
+    new DocumentCollection { Id = CollectionId },
+    new RequestOptions { OfferThroughput = 1000 });
+```
+
 ## Update your connection string
 
-Now you need to get your connection string information from Azure Cosmos DB so that you can copy it into your app.
+Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-* Back in the Azure portal, in the left navigation, click **Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the web.config file in the next step.
+1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the web.config file in the next step.
 
     ![View and copy an access key in the Azure Portal, Keys blade](./media/documentdb-connect-dotnet/keys.png)
 
+2. In Visual Studio 2017, open the web.config file. 
+
+3. Copy your URI value from the portal (using the copy button) and make it the value of the endpoint key in web.config. 
+
+    `<add key="endpoint" value="FILLME" />`
+
+4. Then copy your PRIMARY KEY value from the portal aand make it the value of the authKey in web.congif. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
+
+    `<add key="authKey" value="FILLME" />`
+    
 ## Build and deploy the web app
+1. In Visual Studio, right-click on the project in **Solution Explorer** and then click **Manage NuGet Packages**. 
 
-1. In Visual Studio 2017, open the web.config file. 
+2. In the NuGet **Browse** box, type ***Azure DocumentDB***.
 
-2. Copy your URI and Primary Key value from the portal and update the URI and Key value in the web.config file. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB.
+3. From the results, install the **.NET Client library for Azure DocumentDB**. This installs the DocumentDB package as well as all dependencies.
 
-3. In Visual Studio, click CTRL + F5 to run the application. Your app displays in your browser. 
+4. Click CTRL + F5 to run the application. Your app displays in your browser. 
 
-2. Click **Create New** in the browser and create a few new tasks in your to-do app.
+5. Click **Create New** in the browser and create a few new tasks in your to-do app.
 
    ![Todo app with sample data](./media/documentdb-connect-dotnet/azure-documentdb-todo-app-list.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Create a partitioned an Azure Cosmos DB collection | Microsoft Docs
-description: Learn how to create an Azure Cosmos DB collection and partition data
+title: Create a collection with the DocumentDB API | Microsoft Docs
+description: Learn how to create an Azure Cosmos DB collection with a partition key
 services: cosmosdb
 documentationcenter: ''
 author: mimig1
@@ -19,9 +19,9 @@ ms.author: mimig
 
 ---
 
-# Create a partitioned Azure Cosmos DB collection
+# Create a collection with the DocumentDB API
 
-In this tutorial, you'll learn how to create an Azure Cosmos DB account with partitioned collections. By using partitioned collections, your application is prepared to scale effortlessly as your data grows over the 10 GB cap of a single collection. [Partitioned collections](documentdb-partition-data.md) have no size limit. Just like all Azure Cosmos DB data, partitioned collections can be replicated globally, and the throughput can be scaled up and down to provide the performance you need.
+In this tutorial, you'll learn how to create an Azure Cosmos DB collection and use a partition key to partition your data. By defining a partition key at the start, your application is prepared to scale effortlessly as your data grows. 
 
 In this tutorial, you'll perform the following operations using the [DocumentDB .NET SDK](documentdb-sdk-dotnet.md):
 
