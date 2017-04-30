@@ -82,13 +82,13 @@ SQL Database Threat Detection integrates its alerts with [Azure Security Center]
 
 
 <!--Image references-->
-[1]: ./media/sql-database-threat-detection-get-started/1_td_click_on_settings.png
-[2]: ./media/sql-database-threat-detection-get-started/2_td_turn_on_auditing.png
-[3]: ./media/sql-database-threat-detection-get-started/3_td_turn_on_threat_detection.png
-[4]: ./media/sql-database-threat-detection-get-started/4_td_email.png
-[5]: ./media/sql-database-threat-detection-get-started/5_td_audit_record_details
-[6]: ./media/sql-database-threat-detection-get-started/6_td_security_tile_view_alerts
-[7]: ./media/sql-database-threat-detection-get-started/7_td_SQL_security_alerts_list
-[8]: ./media/sql-database-threat-detection-get-started/8_td_SQL_security_alert_details
+[1]: ./media/sql-database-threat-detection/1_td_click_on_settings.png
+[2]: ./media/sql-database-threat-detection/2_td_turn_on_auditing.png
+[3]: ./media/sql-database-threat-detection/3_td_turn_on_threat_detection.png
+[4]: ./media/sql-database-threat-detection/4_td_email.png
+[5]: ./media/sql-database-threat-detection/5_td_audit_record_details
+[6]: ./media/sql-database-threat-detection/6_td_security_tile_view_alerts
+[7]: ./media/sql-database-threat-detection/7_td_SQL_security_alerts_list
+[8]: ./media/sql-database-threat-detection/8_td_SQL_security_alert_details
 
 
