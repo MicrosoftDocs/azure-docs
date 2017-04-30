@@ -1,5 +1,5 @@
 > [!NOTE]
-> We have plans to improve this experience and deprecate the following steps.
+> We plan to improve this experience and deprecate the following steps.
 
 ### Create an administrator credential in the Azure AD B2C tenant.
 

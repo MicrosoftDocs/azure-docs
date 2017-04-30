@@ -75,14 +75,14 @@ Let's get started:
 1. Open `SignUpOrSignIn.xml`and make the same changes by replacing `{tenantName}` with your Azure AD B2C tenant. Save the file.
 
 >[!NOTE]
->If your XML editor supports validation, you may want to validate the files against the `TrustFrameworkPolicy_0.3.0.0.xsd` XML schema file that is located in the root folder of the starter pack. This allows identification of errors before uploading.
+>If your XML editor supports validation, you may want to validate the files against the `TrustFrameworkPolicy_0.3.0.0.xsd` XML schema file that is located in the root folder of the starter pack. XML schema validation identifies errors before uploading.
 
 ## Register Policy Engine Applications
 
 Azure AD B2C requires you to register two extra applications that are used by the engine to sign-up and sign-in users.
 
 >[!NOTE]
->Below, we create two applications which to enable sign-in using local accounts: PolicyEngine (a web app) and PolicyEngineProxy (a native app) with delegated permission from PolicyEngine. This section is only required for Azure AD B2C tenants where use of local accounts is expected.
+>Below, we create two applications that enable sign-in using local accounts: PolicyEngine (a web app) and PolicyEngineProxy (a native app) with delegated permission from PolicyEngine. This section is only required for Azure AD B2C tenants where use of local accounts is expected.
 
 ### Create the policy engine application
 
@@ -126,13 +126,13 @@ To create a custom policy with local accounts enabled, you need to add the appli
 1. Select **Upload Policy**
 
     >[!WARNING]
-    >The custom policy files must be uploaded in the following order.
+    >The custom policy files must be uploaded in the following order:
 
 1. Upload `TrustFrameworkBase.xml`.
 1. Upload `TrustFrameworkExtensions.xml`.
 1. Upload `SignUpOrSignin.xml`.
 
-When a file is uploaded, the name is prepended with `B2C_1A_`.  This is different than built-in policies, which start with `B2C_1_`.
+When a file is uploaded, the name is prepended with `B2C_1A_`.  Built-in policies start with `B2C_1_` instead.
 
 ## Test the custom policy using "Run Now"
 
