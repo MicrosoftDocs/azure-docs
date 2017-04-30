@@ -20,11 +20,11 @@ ms.author: gsacavdm
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-After completing the steps in this article, you will have a working custom policy that allows an end user to sign-up and sign-in using a "local account". You will also prepare your environment for adding additional identity providers (like Facebook or Azure AD). Local Accounts are created by end users by using an existing email and creating a password for use with your services. Completion of these steps is required before all other uses of the Azure AD B2C’s Identity Experience Engine and many essential concepts are introduced.
+After completing the steps in this article, your custom policy will support "local account" sign-up or sign-in using an email and password. You will also prepare your environment for adding additional identity providers (like Facebook or Azure AD).  Completion of these steps is required before all other uses of the Azure AD B2C’s Identity Experience Engine and many essential concepts are introduced.
 
 ## Prerequisites
 
-Before proceeding, ensure that you have an Azure AD B2C tenant. An Azure AD B2C tenant is a container for all your users, apps, policies and more. If you don't have one already, you need to [create one](active-directory-b2c-get-started.md).
+Before proceeding, ensure that you have an Azure AD B2C tenant. An Azure AD B2C tenant is a container for all your users, apps, policies, and more. If you don't have one already, you need to [create one](active-directory-b2c-get-started.md).
 
 ### Confirming your B2C tenant
 
@@ -44,8 +44,8 @@ The first step required to use custom policies is to set up keys.
 
 Custom policies are a set of XML files that need to be uploaded to your Azure AD B2C tenant. We provide a starter pack that you can use to get started. The starter pack contains:
 
-* The [base file](active-directory-b2c-overview-custom.md#Policy-files) of the policy. Very few modifications are required to the base.
-* The [extension file](active-directory-b2c-overview-custom.md) of the policy.  This is where the majority of the changes are made to configure your policy.
+* The [base file](active-directory-b2c-overview-custom.md#policy-files) of the policy. Few modifications are required to the base.
+* The [extension file](active-directory-b2c-overview-custom.md#policy-files) of the policy.  This file is where the majority of configuration changes are made.
 
 Let's get started:
 
