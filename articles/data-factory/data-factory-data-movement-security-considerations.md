@@ -24,7 +24,7 @@ In a Data Factory solution, you create one or more data pipelines. A pipeline is
 
 Even though Data Factory is available in only **West US**, **East US**, and **North Europe** regions, the data movement service is available globally in several regions. Data Factory service ensures that data does not leave a geographical area/ region unless you explicitly instruct the service to use an alternate region if the data movement service is not yet deployed to that region. 
 
-Azure Data Factory itself does not store any data. It lets you create data-driven flows to orchestrate movement of data between supported data stores and processing of data using compute services in other regions or in an on-premises environment. It also allows you to monitor and manage workflows using both programmatic and UI mechanisms.
+Azure Data Factory itself does not store any data except for linked service credentials for cloud data stores, which are encrypted using certificates. It lets you create data-driven flows to orchestrate movement of data between supported data stores and processing of data using compute services in other regions or in an on-premises environment. It also allows you to monitor and manage workflows using both programmatic and UI mechanisms.
 
 Data movement using Azure Data Factory has been **certified** for:
 -	[HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA)  
@@ -53,34 +53,12 @@ All data transfers between data movement services and cloud data stores are via 
 ### Data encryption at rest
 Many data stores support encryptions of data at rest. We suggest that you enable data encryption mechanism for those data stores. 
 
-#### Azure SQL Data Warehouse
-Transparent Data Encryption (TDE) in SQL Data Warehouse helps with protecting against the threat of malicious activity by performing real-time encryption and decryption of your data at rest. This behavior is transparent to the client. For more information, see [Secure a database in SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
-
-#### Azure SQL Database
-Transparent data encryption in SQL Database helps with protecting against the threat of malicious activity by performing real-time encryption and decryption of the database without requiring changes to the application. This behavior is transparent to the client. For more information, see [Transparent Data Encryption with Azure SQL Database](https://msdn.microsoft.com/library/dn948096.aspx).
-
-#### Azure Data Lake Store  
-Azure Data Lake store provides encryption for data stored in the account. When enabled, the data before it is stored on persistent media is encrypted. Data Lake store automatically encrypts data before persisting and decrypts before retrieval, making it transparent to the client accessing the data. For more information, see [security in Azure Data Lake Store](../data-lake-store/data-lake-store-security-overview.md).
-
-#### Azure Blob and Table Storage 
-Azure blob storage and Azure table storage support Storage Service Encryption (SSE), which automatically encrypts your data before persisting to storage and decrypts before retrieval. For more information, see [Azure Storage Service Encryption for data at rest](../storage/storage-service-encryption.md).
-
-#### Amazon S3
-At the time of authoring, Amazon S3 supports both client and server-side encryption of data at Rest. For more information, see [this article](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html). Currently we do not support Amazon S3 inside an Amazon virtual private cloud (VPC).
-
-#### Amazon Redshift 
-At the time of authoring, Amazon Redshift supports cluster encryption for data at rest. For more information, see [this article](http://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html). Currently, we do not support Amazon Redshift inside an Amazon virtual private cloud (VPC).
-
-#### Salesforce
-Salesforce supports [Shield Platform Encryption](https://help.salesforce.com/articleView?id=security_pe_overview.htm) that allows encryption of all files, attachments, custom fields.
-
 ## Hybrid Scenarios (using Data Management Gateway)
 Hybrid scenarios require Data Management Gateway to be installed in an on-premises network or inside a virtual network (Azure) or virtual private cloud (Amazon) that can access the local data stores. For more information the gateway, see [Data Management Gateway](data-factory-data-management-gateway.md). 
 
 ![Data Management Gateway channels](media/data-factory-data-movement-security-considerations/data-management-gateway-channels.png)
 
 The command channel allows communication between data movement services in Data Factory and Data Management Gateway. The communication includes activity-related information. The data channel is used for transferring data between on-premises data stores and cloud data stores.    
-
 
 ### On-premises data store credentials
 The data store credentials for your on-premises data stores are locally (not in the cloud). They can be set in three different ways. 
