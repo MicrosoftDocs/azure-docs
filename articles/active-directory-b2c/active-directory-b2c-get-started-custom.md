@@ -44,9 +44,8 @@ The first step required to use custom policies is to set up keys.
 
 Custom policies are a set of XML files that need to be uploaded to your Azure AD B2C tenant. We provide a starter pack that you can use to get started. The starter pack contains:
 
-* The [base file](active-directory-b2c-overview-custom.md#Policy-files) of the policy. Very few modifications will be required to the base.
-* The [extension file](active-directory-b2c-overview-custom.md) of the policy.  This is where we will make the majority of the changes to configure your policy.
-
+* The [base file](active-directory-b2c-overview-custom.md#Policy-files) of the policy. Very few modifications are required to the base.
+* The [extension file](active-directory-b2c-overview-custom.md) of the policy.  This is where the majority of the changes are made to configure your policy.
 
 Let's get started:
 
@@ -56,7 +55,7 @@ Let's get started:
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
 
-1. Open the `SocialIDPAndLocalAccounts` folder.  The base file (`TrustFrameworkBase.xml`) in this folder contains content needed for both local and social/corporate accounts. The social content will not interfere with the steps for getting local accounts up and running.
+1. Open the `SocialIDPAndLocalAccounts` folder.  The base file (`TrustFrameworkBase.xml`) in this folder contains content needed for both local and social/corporate accounts. The social content does not interfere with the steps for getting local accounts up and running.
 1. Open `TrustFrameworkBase.xml`.  If you need an XML editor, try [Download Visual Studio Code](https://code.visualstudio.com/download), a lightweight cross platform editor.
 1. In the root `TrustFrameworkPolicy` element, update the `TenantId` and `PublicPolicyUri` attributes, replacing `{tenantName}` with your Azure AD B2C tenant:
 
@@ -76,7 +75,7 @@ Let's get started:
 1. Open `SignUpOrSignIn.xml`and make the same changes by replacing `{tenantName}` with your Azure AD B2C tenant. Save the file.
 
 >[!NOTE]
->If your XML editor supports validation, you may want to validate the files against the `TrustFrameworkPolicy_0.3.0.0.xsd` XML schema file that is located in the root folder of the starter pack. This will help catch errors quickly before uploading.
+>If your XML editor supports validation, you may want to validate the files against the `TrustFrameworkPolicy_0.3.0.0.xsd` XML schema file that is located in the root folder of the starter pack. This allows identification of errors before uploading.
 
 ## Register Policy Engine Applications
 
@@ -88,9 +87,9 @@ Azure AD B2C requires you to register two extra applications that are used by th
 ### Create the policy engine application
 
 1. In the [Azure portal](https://portal.azure.com), [switch into the context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md).
-1. Open the `Azure Active Directory` blade (not the Azure AD B2C blade). You may need to click on **> More Services** to find it.
+1. Open the `Azure Active Directory` blade (not the Azure AD B2C blade). You may need to click **> More Services** to find it.
 1. Select **App registrations**.
-1. Click on **+ New application registration**.
+1. Click **+ New application registration**.
    * Name: `PolicyEngine`
    * Application type: `Web app/API`
    * Sign-on URL: `https://login.microsoftonline.com/{tenantName}.onmicrosoft.com` where `{tenantName}` is your Azure AD B2C tenant.
@@ -100,7 +99,7 @@ Azure AD B2C requires you to register two extra applications that are used by th
 ### Create the policy engine proxy application
 
 1. Select **App registrations**.
-1. Click on **+ New application registration**.
+1. Click **+ New application registration**.
    * Name: `PolicyEngineProxy`
    * Application type: `Native`
    * Sign-on URL: `https://login.microsoftonline.com/{tenantName}.onmicrosoft.com` where `{tenantName}` is your Azure AD B2C tenant.
@@ -111,9 +110,9 @@ Azure AD B2C requires you to register two extra applications that are used by th
 1. Check the checkbox next to `Access PolicyEngine` and then click **Select**.
 1. Click **Done**.
 
-### Add the application ID's to your custom policy
+### Add the application IDs to your custom policy
 
-In order to create a custom policy with local accounts enabled, you need to add the application ID's to the extensions file (`TrustFrameworkExtensions.xml`).
+To create a custom policy with local accounts enabled, you need to add the application IDs to the extensions file (`TrustFrameworkExtensions.xml`).
 
 1. In the extensions file (`TrustFrameworkExtensions.xml`), find the element `<TechnicalProfile Id="login-NonInteractive">`.
 1. Replace both instances of `{Policy Engine Proxy Application ID}` with the application ID of the [policy engine proxy application that you created](#create-the-policy-engine-proxy-application).
@@ -123,17 +122,17 @@ In order to create a custom policy with local accounts enabled, you need to add 
 ## Upload the policies to your tenant
 
 1. In the [Azure portal](https://portal.azure.com), [switch into the context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md) and open the Azure AD B2C blade.
-1. Click on **All Policies**.
+1. Click **All Policies**.
 1. Select **Upload Policy**
 
     >[!WARNING]
-    >The custom policy files must be uploaded in the specific order listed below.
+    >The custom policy files must be uploaded in the following order.
 
 1. Upload `TrustFrameworkBase.xml`.
 1. Upload `TrustFrameworkExtensions.xml`.
 1. Upload `SignUpOrSignin.xml`.
 
-When a file is uploaded, the name is prepended with `B2C_1A_`.  This is different than built-in policies which start with `B2C_1_`.
+When a file is uploaded, the name is prepended with `B2C_1A_`.  This is different than built-in policies, which start with `B2C_1_`.
 
 ## Test the custom policy using "Run Now"
 
@@ -143,8 +142,8 @@ When a file is uploaded, the name is prepended with `B2C_1A_`.  This is differen
 
 ## Next steps
 
-The base file that we used in this getting started guide already contains some of the content that you will need for adding other identity providers. To set up login using Azure AD accounts, [continue here](active-directory-b2c-setup-aad-custom.md).
+The base file that we used in this getting started guide already contains some of the content that you need for adding other identity providers. To set up login using Azure AD accounts, [continue here](active-directory-b2c-setup-aad-custom.md).
 
 ## Reference
 
-* A **Technical Profile (TP)** is an element type that can be thought of as a function that defines an endpoint’s name, its metadata, its protocol, and details the exchange of claims that the Identity Experience Engine should perform The Local Account SignIn is the TechnicalProfile used by the Identity Experience Engine to perform a local account login.
+* A **Technical Profile (TP)** is an element that defines an endpoint’s name, its metadata, its protocol, and details the exchange of claims that the Identity Experience Engine should perform.  The Local Account SignIn is the TechnicalProfile used by the Identity Experience Engine to perform a local account login.
