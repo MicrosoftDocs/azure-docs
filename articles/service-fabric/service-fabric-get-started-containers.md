@@ -105,17 +105,64 @@ You can verify your image locally before pushing it the container registry.
     172.31.194.61
     ```
 
-3. Connect to the running container using the IPv4 address returned in previous step and port 8000.  For example, enter "http://172.31.194.61:8000". You should see the title "Hello World!".
+3. Connect to the running container.  Open a web browser and browse to "http://172.31.194.61:8000". You should see the title "Hello World!".
+
+4. To stop your container, issue a docker stop command:
+
+    ```
+    docker stop my-web-site
+    ```
+
+    After packaging and deploying the container in a Service Fabric app, you can delete the image.  
 
 ## Push the image to the container registry
+After you verify that the container runs on your development machine, push the image to the Azure container registry.
 
-## Package the container app
+1. Run ``docker login`` to log in to your container registry with your [registry credentials](../container-registry/container-registry-authentication.md).
+
+    The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/active-directory-application-objects.md). For example, you might have assigned a service principal to your registry for an automation scenario.
+
+    ```
+    docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
+    ```
+
+2. The following command creates an alias of the image, with a fully qualified path to your registry. This example specifies the ```samples``` namespace to avoid clutter in the root of the registry.
+
+    ```
+    docker tag helloworldapp myregistry.azurecr.io/samples/helloworldapp
+    ```
+
+3.  Push the image to your registry:
+
+    ```
+    docker push myregistry.azurecr.io/samples/helloworldapp
+    ```
+
+## Package the container image in Visual Studio
+Visual Studio provides a Service Fabric service template to help you deploy a container to a Service Fabric cluster.
+
+1. Choose File > New Project, and create a Service Fabric application.
+2. Choose Guest Container as the service template.
+3. Choose Image Name and provide the path to the image in your container repository such as at https://hub.docker.com/ for example myrepo/myimage:v1 
+4. Give your service a name, and click **OK**.
+5. If your containerized service needs an endpoint for communication, you can now add the protocol, port, and type to the ServiceManifest.xml file. For example: 
+<Endpoint Name="MyContainerServiceEndpoint" Protocol="http" Port="80" UriScheme="http" PathSuffix="myapp/" Type="Input" />
+By providing the UriScheme this automatically registers the container endpoint with the Service Fabric Naming service for discoverability. The port can either be fixed (as shown in the preceding example) or dynamically allocated (left blank and a port is allocated from the designated application port range) just as you would with any service. You also need to configure the container port-to-host port mapping by specifying a PortBinding policy in the application manifest as described below.
+6. If your container needs resource governance then add a ResourceGovernancePolicy.
+7. If your container needs to authenticate with a private repository then add RepositoryCredentials.
+8. You can now use the package and publish action against your local cluster if this is Windows Server 2016 with container support activated. 
+9.When ready, you can publish the application to a remote cluster or check in the solution to source control. 
 
 ## Deploy the container app
 
 
 ## Clean up
 Delete your cluster
+Delete the container from your development machine:
+
+```
+docker rm my-web-site
+```
 
 ## Next steps
 
