@@ -20,7 +20,7 @@
 # Tutorials
 
 ## 1 - Create
-### [DocumentDB](documentdb-tutorial-documentdb-create-partitioned.md)
+### [DocumentDB](documentdb-tutorial-documentdb-create.md) 
 ### MongoDB
 ### Table
 ### Graph
