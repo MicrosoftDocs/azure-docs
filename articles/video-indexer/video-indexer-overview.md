@@ -8,7 +8,7 @@ manager: erikre
 
 ms.service: video-indexer
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 05/01/2017
 ms.author: juliako;
 
 ---
@@ -24,6 +24,8 @@ Video Indexer is an Azure service that processes and extracts the following insi
 - **Sentiment analysis**: performs analysis based on multiple emotional attributes. Currently, Positive, Neutral, Negative options are supported. 
 
 Once Video Indexer is done processing and analyzing, you can review, curate, and publish cognitive insights.
+
+For more information, see the [Video Indexer announcement](https://aka.ms/videoindexerblog) blog.
 
 Whether your role is a content manager or a developer, the Video Indexer service is able to address your needs. Content managers can use the Video Indexer web portal to consume the service without writing a single line of code, see [Get started using the Video Indexer portal](video-indexer-get-started.md). Developers can take advantage of APIs to process content at scale, see [Use Video Indexer REST API](video-indexer-use-apis.md). The service also enables customers to use widgets to publish video streams and extracted insights in their own applications, see [Embed visual widgets in your application](video-indexer-embed-widgets.md).
 
@@ -53,4 +55,6 @@ You are ready to get started with Video Indexer. For more information, see the f
 - [Process content with Video Indexer REST API](video-indexer-use-apis.md)
 - [Embed visual widgets in your application](video-indexer-embed-widgets.md)
 
+ ## See also
  
+ [Video Indexer announcement](https://aka.ms/videoindexerblog).
