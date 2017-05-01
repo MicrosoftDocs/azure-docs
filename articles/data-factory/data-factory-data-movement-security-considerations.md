@@ -162,4 +162,7 @@ The following cloud data stores require whitelisting of IP address of the gatewa
 **Question:** What are certificate requirements for Gateway?
 **Answer:** Current gateway requires a certificate that is used by the credential manager application for securely setting data store credentials. This certificate is a self-signed certificate created and configured by the gateway setup. You can use your own TLS/ SSL certificate instead. For more information, see [click-once credential manager application](#click-once-credentials-manager-app) section. 
 
+## Next steps
+For information about performance of copy activity, see [Copy activity performance and tuning guide](data-factory-copy-activity-performance.md).
+
  
