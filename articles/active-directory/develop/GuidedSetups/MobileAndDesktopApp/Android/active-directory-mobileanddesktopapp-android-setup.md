@@ -23,7 +23,7 @@ This section provides step-by-step instructions for how to create a new project 
 
 | | |
 |---------|---------|
-|[![Download](../../media/active-directory-mobileanddesktopapp-android-setup/download.png)](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/complete.zip)|Prefer to download this sample's Android Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/complete.zip) and skip to the [Configuration](active-directory-mobileanddesktopapp-windowsdesktop-configure.md) step to configure the code sample before executing.|
+|[![Download](../../media/active-directory-mobileanddesktopapp-android-setup/download.png)](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/complete.zip)|Prefer to download this sample's Android Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/complete.zip) and skip to the [Configuration](active-directory-mobileanddesktopapp-android-configure.md) step to configure the code sample before executing.|
 
 
 # Create a new project 
