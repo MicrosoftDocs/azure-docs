@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Create and modify an ExpressRoute circuit: PowerShell: Azure classic| Microsoft Docs'
 description: This article walks you through the steps for creating and provisioning an ExpressRoute circuit. This article also shows you how to check the status, update, or delete and deprovision your circuit.
 documentationcenter: na
@@ -41,7 +41,7 @@ This article walks you through the steps to create an Azure ExpressRoute circuit
 Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.  
 
 ### Step 2. Install the latest versions of the Azure Service Management (SM) PowerShell modules
-Follow the instructions in [Getting started with Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules.
+Follow the instructions in [Getting started with Azure PowerShell cmdlets](/powershell/azure/overview) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules.
 
 ### Step 3. Log in to your Azure account and select a subscription
 1. Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:

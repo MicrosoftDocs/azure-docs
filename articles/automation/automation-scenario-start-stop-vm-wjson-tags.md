@@ -1,4 +1,4 @@
----
+﻿---
 title: Use JSON-formatted tags to schedule Azure VM state | Microsoft Docs
 description: This article demonstrates how to use JSON strings on tags to automate the scheduling of VM startup and shutdown.
 services: automation
@@ -142,7 +142,7 @@ Follow these steps to tag a virtual machine or resource group in the portal:
 ### Tag from PowerShell
 All imported runbooks contain help information at the beginning of the script that describes how to execute the runbooks directly from PowerShell. You can call the Add-ScheduleResource and Update-ScheduleResource runbooks from PowerShell. You do this by passing required parameters that enable you to create or update the Schedule tag on a VM or resource group outside of the portal.
 
-To create, add, and delete tags through PowerShell, you first need to [set up your PowerShell environment for Azure](/powershell/azureps-cmdlets-docs). After you complete the setup, you can proceed with the following steps.
+To create, add, and delete tags through PowerShell, you first need to [set up your PowerShell environment for Azure](/powershell/azure/overview). After you complete the setup, you can proceed with the following steps.
 
 ### Create a schedule tag with PowerShell
 1. Open a PowerShell session. Then use the following example to authenticate with your Run As account and to specify a subscription:
