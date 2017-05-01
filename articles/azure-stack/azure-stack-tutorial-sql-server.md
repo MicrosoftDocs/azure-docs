@@ -45,7 +45,7 @@ Now that you've deployed the SQL Server resource provider and created an offer, 
 
 ### Subscribe to the offer
 1. Sign in to the Azure Stack portal (https://portal.local.azurestack.external) as a tenant.
-2. Click **Get a subscription** > type **TestSQLServerSubscription** under **Display Name** > **Select an offer** > ** TestSQLServerOffer** > **Create**.
+2. Click **Get a subscription** > type **TestSQLServerSubscription** under **Display Name** > **Select an offer** > **TestSQLServerOffer** > **Create**.
 3. Click **More services** > **Subscriptions** > **TestSQLServerSubscription** > **Resource providers**.
 4. Click **Register** next to the **Microsoft.SQLAdapter** provider.
 
