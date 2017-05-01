@@ -114,9 +114,9 @@ The following images show the usage of Data Management Gateway for moving data b
 
 ![IPSec VPN with gateway](media/data-factory-data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### Firewall configurations and whitelisting IP addresses
+### Firewall configurations and whitelisting IP address of gateway
 
-#### Firewall requirements on-premise/private network	
+#### Firewall requirements for on-premise/private network	
 In an enterprise, a **corporate firewall** runs on the central router of the organization. And, **Windows firewall** runs as a daemon on the local machine on which the gateway is installed. 
 
 The following table provides **outbound port** and domain requirements for the **corporate firewall**.
@@ -124,26 +124,26 @@ The following table provides **outbound port** and domain requirements for the *
 | Domain names | Outbound ports | Description |
 | ------------ | -------------- | ----------- | 
 | `*.servicebus.windows.net` | 443, 80 | Required by the gateway to connect to data movement services in Data Factory |
-| `*.core.windows.net` | 443 | Used by the gateway to connect to Azure Storage Account when you use the staged copy feature. | 
+| `*.core.windows.net` | 443 | Used by the gateway to connect to Azure Storage Account when you use the [staged copy](data-factory-copy-activity-performance.md#staged-copy) feature. | 
 | `*.frontend.clouddatahub.net` | 443 | Required by the gateway to connect to the Azure Data Factory service. | 
 | `*.database.windows.net` | 1433	| (OPTIONAL) needed when your destination is Azure SQL Database/ Azure SQL Data Warehouse. Use the staged copy feature to copy data to Azure SQL Database/Azure SQL Data Warehouse without opening the port 1433. | 
 | `*.azuredatalakestore.net` | 443 | (OPTIONAL) needed when your destination is Azure Data Lake store | 
 
 > [!NOTE] 
-> You may have to manage ports/ whitelisting domains at corporate firewall level as required by respective data sources. 
+> You may have to manage ports/ whitelisting domains at the corporate firewall level as required by respective data sources. The above table only uses Azure SQL Database, Azure SQL Data Warehouse, Azure Data Lake Store as examples.   
 
 The following table provides **inbound port** requirements for the **windows firewall**.
 
 | Inbound ports | Description | 
 | ------------- | ----------- | 
-| 8050 (TCP) | Required by the Credential manager application for securely setting credentials for on-premises data stores on the gateway. | 
+| 8050 (TCP) | Required by the credential manager application to securely set credentials for on-premises data stores on the gateway. | 
 
 ![Gateway port requirements](media\data-factory-data-movement-security-considerations/gateway-port-requirements.png) 
 
 #### IP configurations/ whitelisting in data store
 Some data stores in the cloud also require whitelisting of IP address of the machine accessing them. Ensure that the IP address of the gateway machine is whitelisted/ configured in firewall appropriately.
 
-The following cloud data stores that require whitelisting. (some of these data stores, by default may not require whitelisting)
+The following cloud data stores require whitelisting of IP address of the gateway machine. Some of these data stores, by default, may not require whitelisting of the IP address. 
 
 - [Azure SQL Database](../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md#create-a-server-level-firewall-rule-in-the-azure-portal)
@@ -154,12 +154,12 @@ The following cloud data stores that require whitelisting. (some of these data s
 ## Frequently asked questions
 
 **Question:** Can the Gateway be shared across different data factories?
-**Answer:** We do not support this feature yet. We are actively working on this feature.
+**Answer:** We do not support this feature yet. We are actively working on it.
 
 **Question:** What are the port requirements for the gateway to work?
-**Answer:** Gateway makes HTTP-based connections to open internet. The **outbound ports 443 and 80** must be opened for gateway to make this connection. Open **Inbound Port 8050** only at the machine level (not at corporate firewall level) for Credential Manager application. If Azure SQL Database or Azure SQL Data Warehouse is used as source/ destination, then you need to open **1433** port as well.
+**Answer:** Gateway makes HTTP-based connections to open internet. The **outbound ports 443 and 80** must be opened for gateway to make this connection. Open **Inbound Port 8050** only at the machine level (not at corporate firewall level) for Credential Manager application. If Azure SQL Database or Azure SQL Data Warehouse is used as source/ destination, then you need to open **1433** port as well. For more information, see [Firewall configurations and whitelisting IP addresses](#firewall-configurations-and-whitelisting-ip-address-of gateway) section. 
 
 **Question:** What are certificate requirements for Gateway?
-**Answer:** Current gateway requires a certificate that is used by the credential manager application for securely setting data store credentials. This certificate is a self-signed certificate created and configured by the gateway setup. You can use your own TLS/ SSL certificate instead. 
+**Answer:** Current gateway requires a certificate that is used by the credential manager application for securely setting data store credentials. This certificate is a self-signed certificate created and configured by the gateway setup. You can use your own TLS/ SSL certificate instead. For more information, see [click-once credential manager application](#click-once-credentials-manager-app) section. 
 
  
