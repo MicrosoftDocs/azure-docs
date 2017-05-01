@@ -1,4 +1,4 @@
-
+﻿
 
 # Overview
 ## [What is Scheduler?](scheduler-intro.md)
@@ -21,7 +21,7 @@
 ### [Outbound authentication](scheduler-outbound-authentication.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
+## [PowerShell](/powershell/module/azurerm.scheduler)
 ## [REST](/rest/api/scheduler)
 
 # Resources

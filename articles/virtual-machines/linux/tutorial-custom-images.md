@@ -26,7 +26,7 @@ The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cl
 
 To complete the example in this tutorial, you must have an existing virtual machine. If needed, this [script sample](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) can create one for you. When working through the tutorial, replace the resource group and VM names where needed.
 
-## Create an image
+## Prepare VM
 
 To create an image of a virtual machine, you need to prepare the VM by deprovisioning, deallocating, and then marking the source VM as generalized.
 
@@ -61,7 +61,7 @@ Finally, set the state of the VM as generalized with [az vm generalize](/cli//az
 az vm generalize --resource-group myResourceGroupImages --name myVM
 ```
 
-### Capture the image
+## Create VM from image
 
 Now you can create an image of the VM by using [az image create](/cli//azure/image#create). The following example creates an image named `myImage` from a VM named `myVM`.
    

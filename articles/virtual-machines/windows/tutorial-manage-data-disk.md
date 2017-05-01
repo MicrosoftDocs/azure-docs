@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage Azure disks with the Azure PowerShell | Microsoft Docs
 description: Tutorial - Manage Azure disks with the Azure PowerShell 
 services: virtual-machines-windows
@@ -22,7 +22,7 @@ ms.author: nepeters
 
 In this tutorial, you learn about the different types of VM disks, how to select a disk configuration, and how to create and attach disks to Azure VMs. This tutorial also covers taking disk snapshots.  
 
-The steps in this tutorial can be completed using the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) module.
+The steps in this tutorial can be completed using the latest [Azure PowerShell](/powershell/azure/overview) module.
 
 ## Default Azure disks
 

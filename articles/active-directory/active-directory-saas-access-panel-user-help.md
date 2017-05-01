@@ -21,7 +21,7 @@ ms.author: markvi
 
 You have probably reached this page because you were unfortunately running into an issue when using the MyApps portal. While there are cases that require you to contact helpdesk or your administrator to get a problem solved, we are capturing in this topic steps to common questions you can try out yourself, first.
 
-If you are looking for help related to password management, try [this](active-directory-passwords-update-your-own-password.md#reset-my-password).
+If you are looking for help related to password management, try [this](active-directory-passwords-update-your-own-password.md).
 
 
 ## What is the MyApps portal?
@@ -45,7 +45,7 @@ MyApps is a web portal that allows you to:
 3.	Type your old password, and then type a new password and confirm it.
 4.	Click **Submit**.
 
-For more details, see [How to update your own password](active-directory-passwords-update-your-own-password.md#reset-my-password).
+For more details, see [How to update your own password](active-directory-passwords-update-your-own-password.md).
 
 
 ## How do I setup password reset?
@@ -54,7 +54,7 @@ For more details, see [How to update your own password](active-directory-passwor
 2.	Under **Manage Account**, click **Set up self service password reset**.
 3.	Follow the steps in the dialogue box and submit.
 
-For more details, see [How to reset your password](active-directory-passwords-update-your-own-password.md#reset-my-password).
+For more details, see [How to reset your password](active-directory-passwords-update-your-own-password.md).
 
 
 ## How can I add a new app?
