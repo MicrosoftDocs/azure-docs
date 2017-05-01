@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/storsimple/storsimple-virtual-array-backup.md
+redirect_url: /azure/storsimple/storsimple-virtual-array-backup
 ---
