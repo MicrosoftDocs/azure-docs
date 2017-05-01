@@ -147,7 +147,7 @@ BingAPIs-Market: en-US
 > [!NOTE]
 > Version 7 response change:
 >
-> Renamed the `nextOffsetAddCount` to `nextOffset`. You use the field to page images. In v7, you set the [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference.md#offset) query parameter to the value of `nextOffset`. For more information, see [Paging Images](./paging-images.md).
+> Renamed the `nextOffsetAddCount` to `nextOffset`. You use the field to page images. In v7, you set the [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference.md#offset) query parameter to the value of `nextOffset`. For more information, see [Paging Images](./paging-videos.md).
 
 ## Next Steps
 
