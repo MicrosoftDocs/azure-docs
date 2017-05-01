@@ -81,10 +81,10 @@ When working with a graph app, the steps and code required are similar to workin
 
 To connect your app and create core resources, complete the following steps in the DocumentDB API tutorial:
 
-* [Connect your app](documentdb-tutorial-create-documentdb-dotnet.md#add-references)
-* [Instantiate the DocumentClient](documentdb-tutorial-create-documentdb-dotnet.md#instantiate)
-* [Create a database](documentdb-tutorial-create-documentdb-dotnet.md#create-database)
-* [Create a collection](documentdb-tutorial-create-documentdb-dotnet.md#CreateColl)
+* [Connect your app](documentdb-tutorial-documentdb-create.md#add-references)
+* [Instantiate the DocumentClient](documentdb-tutorial-documentdb-create.md#instantiate)
+* [Create a database](documentdb-tutorial-documentdb-create.md#create-database)
+* [Create a collection](documentdb-tutorial-documentdb-create.md#CreateColl)
 
 
 ## <a id="serializing"></a>Serializing vertices and edges to .NET objects

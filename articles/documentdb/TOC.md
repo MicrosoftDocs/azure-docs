@@ -22,7 +22,7 @@
 ### [DocumentDB](documentdb-tutorial-documentdb-create.md)
 ### MongoDB
 ### Table
-### [Graph](documentdb-tutorial-graph-dotnet.md)
+### [Graph](documentdb-tutorial-create-graph-dotnet.md)
 ## 2 - Import 
 ### [DocumentDB/Table/Graph](documentdb-import-data.md)
 ### [MongoDB](documentdb-mongodb-migrate.md)
