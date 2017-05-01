@@ -11,11 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 04/30/2017
 ms.author: arramac
 
 ---
-# Introduction to Graph support in Azure Cosmos DB
+# Introduction to Azure Cosmos DB: Graph API
+Azure Cosmos DB, formerly known as Azure DocumentDB, is Microsoft's multi-tenant, globally distributed NoSQL database service for mission-critical applications. Azure Cosmos DB was built with global distribution and horizontal scale at its core. It offers turn-key global distribution across any number of Azure regions by transparently scaling and replicating your data wherever your users are. You can elastically scale throughput and storage worldwide and pay only for the throughput and storage you need. Azure Cosmos DB guarantees single-digit millisecond latencies at the 99th percentile anywhere in the world, offers multiple well-defined consistency models to fine-tune for performance, and guaranteed high availability with multi-homing capabilities, all backed by industry-leading service level agreements (SLAs). 
+
 Azure Cosmos DB is a fully-managed, globally distributed NoSQL database service with multi-model support for key-value, document, and graph data models. Azure Cosmos DB provides graph modeling and traversal APIs along with turn-key global distribution, elastic scaling of storage and throughput, <10ms read latencies and <15ms at p99, automatic indexing and query, tunable consistency levels, and comprehensive SLAs including 99.99% availability. Azure Cosmos DB is a [TinkerPop-enabled graph database](http://tinkerpop.apache.org/providers.html), can be queried using the [Gremlin language](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), and integrates with other TinkerPop-enabled graph systems.
 
 In this article, we provide an overview of the Azure Cosmos DB's Graph API, and how you can use it to store massive graphs with billions of vertices and edges, query them within order of milliseconds latency, and evolve the graph structure and schema easily. 
@@ -54,7 +56,7 @@ Azure Cosmos DB offers the following differentiated capabilities compared to oth
 
 * **Compatibility with TinkerPop**: Azure Cosmos DB natively supports the open-source TinkerPop framework, and can be queried using the Gremlin language and integrated with other TinkerPop-enabled graph systems. So, you can easily migrate from an another different graph database like Titan or Neo4j, or use graph analytics frameworks that are written on top of TinkerPop.
 
-* **Tunable consistency levels**: Select from five well defined consistency levels to achieve optimal trade-off between consistency and performance. 
+* **Tunable consistency levels:** Select from four well defined consistency levels to achieve optimal trade-off between consistency and performance. For queries and read operations, DocumentDB offers four distinct consistency levels: strong, bounded-staleness, session, and eventual. These granular, well-defined consistency levels allow you to make sound trade-offs between consistency, availability, and latency. Learn more in [Using consistency levels to maximize availability and performance in DocumentDB](documentdb-consistency-levels.md).
 
 Azure Cosmos DB also provides the ability to use multiple models like document and graph within the same collections/databases. You can use a document collection to store graph data side by side with documents, and use both SQL queries over JSON and Gremlin queries to query the collection. 
 

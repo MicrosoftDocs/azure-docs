@@ -55,7 +55,6 @@ public class Vertex
     public Dictionary<string, List<Property>> Properties { get; set; }
 }
 ```
-See the complete sample for how to create a wrapper class for `Edge` and `Property`. 
 
 ## Adding vertices and edges
 
