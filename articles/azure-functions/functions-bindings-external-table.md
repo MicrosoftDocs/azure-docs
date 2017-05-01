@@ -192,7 +192,7 @@ GO
 ```
 
 ### Google Sheets
-In Google Docs, create a spreadsheet with a worksheet named `Contact`. The connector cannot use the spreadsheet display name. The internal name (in bold) needs to be used as dataSetName, for example: https://docs.google.com/spreadsheets/d/**1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0**
+In Google Docs, create a spreadsheet with a worksheet named `Contact`. The connector cannot use the spreadsheet display name. The internal name (in bold) needs to be used as dataSetName, for example: `docs.google.com/spreadsheets/d/`**`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`**
 Add the column names `Id`, `LastName`, `FirstName` to the first row, then populate data on subsequent rows.
 
 ### Salesforce
