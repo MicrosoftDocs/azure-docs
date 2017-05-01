@@ -58,6 +58,7 @@
 ### [View all groups](active-directory-groups-view-azure-portal.md)
 ### [Enable dedicated groups](active-directory-accessmanagement-dedicated-groups.md)
 ### [Add group access to SaaS apps](active-directory-accessmanagement-group-saasapps.md)
+### [Restore a deleted Office 365 group](active-directory-groups-restore-azure-portal.md)
 ### Manage group settings
 #### [Azure portal](active-directory-groups-settings-azure-portal.md)
 #### [Cmdlets](active-directory-accessmanagement-groups-settings-cmdlets.md)
@@ -289,6 +290,7 @@
 ##### [PowerShell](role-based-access-control-manage-access-powershell.md)
 ##### [REST](role-based-access-control-manage-access-rest.md)
 #### [Troubleshoot](role-based-access-control-troubleshooting.md)
+#### [Resource Provider operations](role-based-access-control-resource-provider-operations.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
 
 ## Secure your identities

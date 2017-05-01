@@ -512,7 +512,7 @@ For example, generate event every 5 seconds that will report the most recently s
 This query will generate events every 5 second and will output the last event that was received before. [Hopping Window](https://msdn.microsoft.com/library/dn835041.aspx "Hopping Window - Azure Stream Analytics") duration determines how far back the query will look to find the latest event (300 seconds in this example).
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
