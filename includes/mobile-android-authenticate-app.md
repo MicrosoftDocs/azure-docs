@@ -104,6 +104,6 @@
 
 8. From the **Run** menu, click **Run app** to start the app and sign in with your chosen identity provider.
 
-> [!WARN]  The URL Scheme mentioned is case-sensitive.  Ensure that all occurences of `{url_scheme_of_you_app}` in the above samples matches with respect to case as well as content.
+> [!WARNING]  The URL Scheme mentioned is case-sensitive.  Ensure that all occurences of `{url_scheme_of_you_app}` in the above samples matches with respect to case as well as content.
 
 When you are successfully signed in, the app should run without errors, and you should be able to query the back-end service and make updates to data.
