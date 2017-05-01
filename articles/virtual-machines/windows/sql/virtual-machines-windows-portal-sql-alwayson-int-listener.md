@@ -224,14 +224,16 @@ After you have added an IP address for the listener, you can configure the addit
 
 1. Very that the probe port for the new IP address is open on both SQL Server virtual machines. 
 
-2. In cluster manager, add the client access point.
+2. [In cluster manager, add the client access point](#addcap).
 
-3. Configure the IP resource for the availabilty group.
+3. [Configure the IP resource for the availability group](#congroup).
 
    >[!IMPORTANT]
    >When you create the IP address, use the IP address that you added to the load balancer.  
 
-4. Make the availability group resource dependent on the client access point. 
+4. [Make the SQL Server availability group resource dependent on the client access point](#dependencyGroup)
+
+5. [Make the client access point resource dependent on the IP address](#listname).
  
 5. [Set the cluster parameters in PowerShell](#setparam).
 
