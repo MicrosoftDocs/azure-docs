@@ -14,11 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ---
-# Overview
-Azure Database for PostgreSQL supports connecting your database server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application. It is recommended that enforcing SSL connections on your PostgreSQL server not be disabled to ensure your database is fully secure.
+# Configure SSL connectivity in Azure Database for PostgreSQL
+Azure Database for PostgreSQL supports connecting your database server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.
 
-## Enforcing SSL connections on your PostgreSQL server 
-When provisioning a new Azure Database for PostgreSQL server through the Azure portal and CLI, enforcement of SSL connections is enabled by default. Likewise, connection strings that are pre-defined in the "Connection Strings" settings section include the required parameters for common languages to connect to your database server using SSL.
+By default, the database service should be configured to require SSL connections when connecting to PostgreSQL.  It is recommended avoid disabling the SSL option whenever possible. 
+
+## Enforcing SSL connections
+When provisioning a new Azure Database for PostgreSQL server through the Azure portal and CLI, enforcement of SSL connections is enabled by default. 
+
+Likewise, connection strings that are pre-defined in the "Connection Strings" settings under your server in the Azure portal include the required parameters for common languages to connect to your database server using SSL. The SSL parameter varies based on the connector, for example "ssl=true" or "sslmode=require" or "sslmode=required" and other variations.
 
 ## Ensure your application or framework supports SSL connections
 Many common applications that use PostgreSQL for database services, such as Wordpress, Drupal, and Magento, do not enable SSL by default during installation. Enabling SSL connectivity must be done after installation or through CLI commands specific to the application. If your PostgreSQL server is enforcing SSL connections and the associated application is not configured properly, the application may fail to connect to your database server. Consult your application's documentation to learn how to enable SSL connections.
@@ -29,7 +33,7 @@ In some cases, applications require a local certificate file (.pem) generated fr
 ### Download the certificate file from the Certificate Authority (CA) 
 The certificate needed to communicate over SSL with your Azure Database for PostgreSQL server is located [here](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt). Download the certificate file to your local drive (this tutorial uses **c:\ssl**).
 
-### Download and install OpenSSL on your PC 
+### Download and install OpenSSL on your machine 
 To generate the local **.pem** file needed for your application to connect securely to your database server, you need to install OpenSSL on your local computer. For Linux PCs, **Step 2a** guides you through this process. For Windows PCs, **Step 2b** guides you through this process.
 
 ### Linux Users - Download and install OpenSSL
@@ -109,3 +113,6 @@ postgres=>
 Configuring pgAdmin 4 to connect securely over SSL requires you to set the **SSL mode** field to **Require** as follows.
 
 ![Screenshot of pgAdmin - connection - SSL mode Require](./media/concepts-ssl-connection-security/pgadmin-ssl.png)
+
+# Next steps
+Review various application connectivity options following [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md)
