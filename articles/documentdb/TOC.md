@@ -1,6 +1,6 @@
 
 # Overview
-## [About Azure Cosmos DB](documentdb-multi-model-introduction.md)
+## About Azure Cosmos DB
 ## [Comparison of services](documentdb-nosql-vs-sql.md)
 
 # Quickstarts
@@ -18,7 +18,7 @@
 <!---[.NET](documentdb-connect-tables-dotnet.md)--->
 
 # Tutorials
-## 1 - Create Azure Cosmos DB
+## 1 - Create
 ### [DocumentDB](documentdb-tutorial-documentdb-create.md)
 ### MongoDB
 ### Table
