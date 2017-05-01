@@ -1,5 +1,5 @@
 ---
-title: Make virtual machines available on Azure Stack | Microsoft Docs
+title: Make virtual machines available to your Azure Stack users| Microsoft Docs
 description: Tutorial to make virtual machines available on Azure Stack
 services: azure-stack
 documentationcenter: ''
@@ -13,57 +13,68 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 4/26/2017
+ms.date: 5/1/2017
 ms.author: victorh
 
 ---
-# Make virtual machines available on Azure Stack
-This tutorial guides you, the Azure Stack administrator, through the process of creating a plan and offer so that a tenant can subscribe to the offer and then add a virtual machine to their subscription.
-## Review basic concepts
-In Azure Stack, services are delivered to tenants using regions, subscriptions, offers, and plans. Tenants can subscribe to multiple offers. Offers can have one or more plans, and plans can have one or more services.
+# Make virtual machines available to your Azure Stack users
+As an Azure Stack administrator, you can create offers that your users (sometimes referred to as tenants) can subscribe to. Using their subscription, users can then consumer Azure Stack services. For example they can then add a virtual machine or whatever else you make available in your offer.
+
+In Azure Stack, services are delivered to users using subscriptions, offers, and plans. Users can subscribe to multiple offers. Offers can have one or more plans, and plans can have one or more services.
 
 ![](media/azure-stack-key-features/image4.png)
 
 To learn more, see [Key features and concepts in Azure Stack](azure-stack-key-features.md).
 
-## Create a plan and offer
+## Create an offer
 
-Now you can get things ready for your tenants. You will create an offer that they can then subscribe to.
-1. [Set quotas](azure-stack-setting-quotas.md)
+Now you can get things ready for your users. You will create an offer that they can then subscribe to.
+1. [Set quotas](azure-stack-setting-quotas.md).
 
     Quotas define the limits of resources that a tenant subscription can provision or consume. For example, a quota might allow a tenant to create up to five VMs. To add a service to a plan, the administrator must configure the quota settings for that service.
 
-2. [Create a plan](azure-stack-create-plan.md)
+2. [Create a plan](azure-stack-create-plan.md).
 
-    Plans are groupings of one or more services. As a provider, you can create plans to offer to your tenants. In turn, your tenants subscribe to your offers to use the plans and services they include.
+    Plans are groupings of one or more services. As a provider, you can create plans to offer to your users. In turn, your users subscribe to your offers to use the plans and services they include.
 
-3. [Create an offer](azure-stack-create-offer.md)
+3. [Create an offer](azure-stack-create-offer.md).
 
-    Offers are groups of one or more plans that providers present to tenants to purchase or subscribe to.
+    Offers are groups of one or more plans that providers present to users to purchase or subscribe to.
 
-## Validate the offer
+## Add an image
 
-Now that you’ve created an offer, you can validate the offer. You will log on as a tenant and subscribe to the offer and then add a virtual machine.
+Before you can provision virtual machines, you must add an image to the Azure Stack marketplace. This example shows you how to add a Windows Server 2016 image, but you can add the image of your choice, including Linux images.
 
-If you deployed using ADFS, you need to create a tenant user account first. If you deployed using Azure Active Directory, you already created a tenant account following the guidance in [Azure Stack deployment prerequisites](azure-stack-deploy.md).
+For more information see [The Azure Stack Marketplace](azure-stack-marketplace.md).
 
-1. If you have an ADFS deployment, create a tenant user account (for example Contoso):
+> [!NOTE]
+> This step can take almost an hour to complete!
 
-    [Add users in the Azure Stack POC](azure-stack-add-users-adfs.md)
+[Add the Windows Server 2016 VM image to the Azure Stack marketplace](azure-stack-add-default-image.md)
 
-2. Now you can get a subscription to subscribe to an offer:
 
-    [Subscribe to an offer](azure-stack-subscribe-plan-provision-vm.md)
+## Test the offer
 
-3. Before you can provision virtual machines, you must add the Windows Server VM image to the Azure Stack marketplace.
+Now that you’ve created an offer, you can test it. Log in as a user and subscribe to the offer and then add a virtual machine.
 
-    > [!NOTE]
-    > This step can take almost an hour to complete!
+If you deployed using AD FS, you need to create a user account first. If you deployed using Azure Active Directory, you already created a user account following the guidance in [Azure Stack deployment prerequisites](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-deploy#azure-active-directory-accounts).
 
-    [Add the Windows Server 2016 VM image to the Azure Stack marketplace](azure-stack-add-default-image.md)
+1. [Add users in the Azure Stack POC](azure-stack-add-users-adfs.md) (AD FS deployments only).
 
-4. Now you can logon to the portal as a tenant to provision a virtual machine using the newly created offer. 
+    If you have an AD FS deployment, create a user account (for example Contoso):
 
-    Use the following article, but logon with a tenant account instead with an administrator account: 
+    
 
-    [Provision a virtual machine](azure-stack-provision-vm.md)
+2. [Subscribe to an offer](azure-stack-subscribe-plan-provision-vm.md).
+
+   Now you can login to the portal as a user to subscribe to an offer.
+
+
+3. [Provision a virtual machine](azure-stack-provision-vm.md).
+
+   Now you can log in to the portal as a user to provision a virtual machine using the subscription. 
+
+   To test that this works with a user account, follow the article, but log in with a user account instead of an administrator account. 
+
+## Next steps
+In this tutorial you've learned how to create an offer and verified that users can subscribe to the offer to start using resources on Azure Stack. Next, you can Deploy apps to Azure & Azure Stack.
