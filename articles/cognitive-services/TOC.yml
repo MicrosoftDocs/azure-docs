@@ -43,7 +43,27 @@
   - name: Language Understanding Intelligent Services
     href: LUIS/Home.md
   - name: QnAMaker
-    href: QnAMaker/Home.md
+    items:
+    - name: Overview
+      href: QnAMaker/Home.md
+    - name: Quickstart
+      href: QnAMaker/Quickstart.md
+    - name: Create a knowledge base
+      href: QnAMaker/Guides/CreateKB.md
+    - name: Publish a knowledge base
+      href: QnAMaker/Guides/PublishKB.md
+    - name: Train a knowledge base
+      href: QnAMaker/Guides/TrainKB.md
+    - name: Update a knowledge base
+      href: QnAMaker/Guides/UpdateKB.md
+    - name: Share a knowledge base
+      href: QnAMaker/Guides/share-knowledgebase-qnamaker.md
+    - name: Authentication
+      href: QnAMaker/SubscriptionKeys.md
+    - name: API Reference
+      href: QnAMaker/HTTPEndPoint.md
+    - name: FAQ
+      href: QnAMaker/FAQs.md
   - name: Recommendations
     href: Recommendations/overview.md
   - name: Speaker Recognition
