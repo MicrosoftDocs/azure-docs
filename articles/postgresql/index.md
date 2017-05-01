@@ -16,9 +16,21 @@ ms.author: jasonh
 
 <div class="content">
 <h1>Azure Database for PostgreSQL Documentation</h1>
-
-<p>Azure Database for PostgreSQL is a relational database service in the Microsoft cloud built for developers based on the open source PostgreSQL database engine.</p>
-
+<div class="introHolder" style="justify-content: space-between;">
+    <div class="intro" style="min-width: 200px">
+        <p>Azure Database for PostgreSQL is a relational database service in the Microsoft cloud built for developers based on the open source PostgreSQL database engine.</p>
+    </div>
+    <a href="https://azure.microsoft.com/en-us/resources/videos/create-sql-database-on-azure/">
+        <div class="calloutHolder" style="max-width: 250px">
+            <div>
+                <img src="../sql-database/media/index/create-sql-database-on-azure.png" style="width: 250px;" />
+            </div>
+            <div>
+                <p style="margin-top: 0; color: #6e6e6e">Create a SQL database on Azure. (3:12)</p>
+            </div>
+        </div>
+    </a>
+</div>
 <h2 style="margin-top: 18px; margin-bottom: 0px;">5-Minute Quickstarts</h2>
 <div style="display: flex; justify-content: flex-start">
     <div style="margin-right: 3em">
