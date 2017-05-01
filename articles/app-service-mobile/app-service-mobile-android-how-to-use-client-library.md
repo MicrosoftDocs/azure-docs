@@ -70,7 +70,7 @@ Change both **build.gradle** files:
 
 To access Azure, your app must have the INTERNET permission enabled. If it's not already enabled, add the following line of code to your **AndroidManifest.xml** file:
 
-    ```xml
+    ```
     <uses-permission android:name="android.permission.INTERNET" />
     ```
 
@@ -985,7 +985,8 @@ dependencies {
 
 Obtain the ID of the logged-in user from a **MobileServiceUser** using the **getUserId** method. For an example of how to use Futures to call the asynchronous login APIs, see [Get started with authentication].
 
-> [!WARN]  The URL Scheme mentioned is case-sensitive.  Ensure that all occurrences of `{url_scheme_of_you_app}` match case.
+> [!WARNING]
+> The URL Scheme mentioned is case-sensitive.  Ensure that all occurrences of `{url_scheme_of_you_app}` match case.
 
 ### <a name="caching"></a>Cache authentication tokens
 
@@ -1093,7 +1094,7 @@ dependencies {
 
 1. Add the following code to your application, making the following replacements:
 
-* Replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application. The format should be https://login.windows.net/contoso.onmicrosoft.com. This value can be copied from the Domain tab in your Azure Active Directory in the [Azure classic portal].
+* Replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application. The format should be https://login.windows.net/contoso.onmicrosoft.com.
 * Replace **INSERT-RESOURCE-ID-HERE** with the client ID for your mobile app backend. You can obtain the client ID from the **Advanced** tab under **Azure Active Directory Settings** in the portal.
 * Replace **INSERT-CLIENT-ID-HERE** with the client ID you copied from the native client application.
 * Replace **INSERT-REDIRECT-URI-HERE** with your site's */.auth/login/done* endpoint, using the HTTPS scheme. This value should be similar to *https://contoso.azurewebsites.net/.auth/login/done*.
