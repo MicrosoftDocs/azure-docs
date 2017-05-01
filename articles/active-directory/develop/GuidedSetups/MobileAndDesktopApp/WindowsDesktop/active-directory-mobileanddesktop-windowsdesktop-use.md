@@ -1,6 +1,6 @@
 ---
-title: Implementing Microsoft Sign-in on ASP.NET Web Server - Sign-In
-description: How to  implement Microsoft Sign-In on a Visual Studio ASP.NET solution with a traditional web browser based application using OpenID Connect standard. | Microsoft Azure
+title: Implementing Sign-in with Microsoft on a Windows Desktop Application - Use
+description: How a Windows Desktop .NET (XAML) application can get an access token and call an API protected by Azure Active Directory v2 endpoint. | Microsoft Azure | Microsoft Azure
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
