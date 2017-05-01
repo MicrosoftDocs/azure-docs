@@ -87,14 +87,14 @@ After the storage account has been created, the Azure CLI shows information simi
 
 ## Create a function app
 
-The function app provides an environment for serverless execution of your function code. Create a function app by using the `az functionapp create` command. 
+You must have a function app to host the execution of your functions. The function app provides an environment for serverless execution of your function code. It lets you group functions as a logic unit for easier management, deployment and sharing of resources. Create a function app by using the [az functionapp create](/cli/azure/functionapp#create) command. 
 
 In the following command, substitute your own unique function app name where you see the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. 
 
 ```azurecli
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup --consumption-plan-location westeurope
 ```
-By default, a function app is created with the Consumption hosting plan, which means that you only pay when the function is running. For more information, see [Choose the correct service plan](functions-scale.md). 
+By default, a function app is created with the Consumption hosting plan, which means that resources are added dynamically as required by your functions and you only pay when functions are running. For more information, see [Choose the correct hosting plan](functions-scale.md). 
 
 After the function app has been created, the Azure CLI shows information similar to the following example (null values removed for readability):
 
@@ -173,11 +173,18 @@ After the deployment source been set, the Azure CLI shows information similar to
 
 ## Test the function
 
-Browse to the deployed function using your web browser, replacing the `<app_name>` placeholder with the name of your function app. Append the query string `&name=<yourname>` to the URL and execute the request. 
+Use cURL to test the deployed function on a Mac or Linux computer or using Bash on Windows. Execute the following cURL command, replacing the `<app_name>` placeholder with the name of your function app. Append the query string `&name=<yourname>` to the URL.
 
 ```bash
-http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
-```   
+curl http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
+```  
+
+![Function response shown in a browser.](./media/functions-create-first-azure-function-azure-cli/functions-azure-cli-function-test-curl.png)  
+
+If you don't have cURL available in your command line, simply enter the same URL in the address of your web browser. Again, replace the `<app_name>` placeholder with the name of your function ap, and append the query string `&name=<yourname>` to the URL and execute the request. 
+
+    http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
+   
 ![Function response shown in a browser.](./media/functions-create-first-azure-function-azure-cli/functions-azure-cli-function-test-browser.png)  
 
 ## Clean up resources

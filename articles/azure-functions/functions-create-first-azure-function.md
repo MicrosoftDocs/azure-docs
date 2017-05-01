@@ -20,7 +20,7 @@ ms.author: glenga
 ---
 # Create your first function in the Azure portal
 
-Learn how to use Azure Functions to create a "hello world" function in the Azure Portal. 
+Learn how to use Azure Functions to create a "hello world" function in the Azure Portal. Functions lets you execute your code in a serverless environment without having to first create a VM or publish a web application. 
 
 ![Create function app in the Azure portal](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
@@ -34,7 +34,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a function app
 
-Before you can create a function in the Azure portal, you must create a function app to host the serverless execution of your function.
+You must have a function app to host the execution of your functions. A function app lets you group functions as a logic unit for easier management, deployment and sharing of resources. 
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
@@ -46,7 +46,7 @@ Before you can create a function in the Azure portal, you must create a function
     | ------------ |  ------- | -------------------------------------------------- |
     | **App name** | _Globally unique name_ | Name that identifies your new function app. | 
     | **[Resource Group](../azure-resource-manager/resource-group-overview.md)** |  `myResourceGroup` | Name for the new resource group in which to create your function app. | 
-    | **[Hosting plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)** |   **Consumption plan** | Hosting plan that defines how resources are allocated to your function app. In the default **Consumption Plan**, resources are added dynamically as required by your functions.   |
+    | **[Hosting plan](functions-scale.md)** |   **Consumption plan** | Hosting plan that defines how resources are allocated to your function app. In the default **Consumption Plan**, resources are added dynamically as required by your functions and you only pay when functions are running.   |
     | **[Storage account](../storage/storage-create-storage-account.md#create-a-storage-account)** |  _Globally unique name_ |  Name of the new storage account used by your function app. | 
 
 3. Click **Create** to provision and deploy the function app.  
@@ -89,9 +89,11 @@ When your function runs, trace information is written to the logs. To see the tr
 
 ## Next steps
 
-You have just created a function app with a simple HTTP triggered function. For more information, see [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md).
+You have just created a function app with a simple HTTP triggered function.  
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+
+For more information, see [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md).
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 

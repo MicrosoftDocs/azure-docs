@@ -32,15 +32,13 @@ It should take you less than five minutes to complete all the steps in this topi
 
 You also need a GitHub account with at least one project. You can [sign up for a free GitHub account](https://github.com/join), if you don't already have one.
 
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
+
 ## <a name="create-function"></a>Create a GitHub webhook triggered function
 
-1. Log in to the [Azure portal](https://portal.azure.com/). 
+1. Expand your function app, click the **+** button next to **Functions**, click the **GitHubWebHook** template for your desired language. **Name your function**, then click **Create**. 
 
-2. In the search bar at the top of the portal, type the name of your function app and select it from the list.
-
-3. Expand your function app, click the **+** button next to **Functions**, click the **GitHubWebHook** template for your desired language. **Name your function**, then click **Create**. 
-
-4. In your new function, click **</> Get function URL**, then copy and save the values. Do the same thing for **</> Get GitHub secret**. You use these values to configure the webhook in GitHub. 
+2. In your new function, click **</> Get function URL**, then copy and save the values. Do the same thing for **</> Get GitHub secret**. You use these values to configure the webhook in GitHub. 
 
     ![Review the function code](./media/functions-create-github-webhook-triggered-function/functions-copy-function-url-github-secret.png) 
          
@@ -87,9 +85,9 @@ Now, the webhook is configured to trigger your function when a new issue comment
 
 ## Next steps
 
-You have created a function that runs when a request is received from a GitHub webhook. For more information, see [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md). 
-
+You have created a function that runs when a request is received from a GitHub webhook. 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+For more information about webhook tiggers, see [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md). 
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 

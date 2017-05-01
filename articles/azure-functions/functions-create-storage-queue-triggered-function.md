@@ -32,14 +32,11 @@ It should take you less than five minutes to complete all the steps in this topi
 
 You also need to download and install the [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
 
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
+
 ## <a name="create-function"></a>Create a Queue triggered function
 
-
-1. Log in to the [Azure portal](https://portal.azure.com/). 
-
-2. In the search bar at the top of the portal, type the name of your function app and select it from the list.
-
-3. Expand your function app, click the **+** button next to **Functions**, click the **QueueTrigger** template for your desired language. Use the following settings and then click **Create**.
+Expand your function app, click the **+** button next to **Functions**, click the **QueueTrigger** template for your desired language. Use the following settings and then click **Create**.
     
     | Setting      |  Suggested value   | Description                                        |
     | ------------ |  ----------------- | -------------------------------------------------- |
@@ -90,9 +87,11 @@ Now that you have a storage queue, you can test the function by adding a message
 
 ## Next steps
 
-You have created a function that runs when a message is added to a storage queue. For more information, see [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md). 
+You have created a function that runs when a message is added to a storage queue. 
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+
+For more information about Queue storage triggers, see [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md). 
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 

@@ -20,7 +20,7 @@ ms.author: glenga
 ---
 # Add messages to an Azure Storage queue using Functions
 
-Learn how to update an existing function by adding an output binding that sends messages to Azure Queue storage. 
+Learn how to update an existing function by adding an output binding that sends messages to Azure Queue storage. In Azure Functions, input and output bindings provide a declarative way to connect to external service data from your function. 
 
 ![View message in the logs.](./media/functions-integrate-storage-queue-output-binding/functions-integrate-storage-binding-in-portal.png)
 
@@ -32,17 +32,19 @@ It should take you less than five minutes to complete all the steps in this topi
 
 You also need to download and install the [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
 
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
+
 ## <a name="add-binding"></a>Add an output binding
  
-1. Log in to the [Azure portal](https://portal.azure.com/). 
+1. Expand your function app and click your function.
 
-2. In the search bar at the top of the portal, type the name of your function app and select it from the list.
-
-3. In your function, click **Integrate** and **+ New output**, then click **Azure Queue storage** and click **Select**.
+2. Click **Integrate** and **+ New output**, then click **Azure Queue storage** and click **Select**.
     
     ![Add a Queue storage output binding to a function in the Azure portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-4. Use the following settings and then click **Save**: 
+3. Use the following settings and then click **Save**: 
+
+    ![Add a Queue storage output binding to a function in the Azure portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png
 
     | Setting      |  Suggested value   | Description                              |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -80,7 +82,7 @@ Now that you have an output binding defined, you need to update the code to use 
 
 4. Click **Save** to save changes.
 
-The value passed to the HTTP trigger is included in the message added to the queue.
+The value passed to the HTTP trigger is included in a message added to the queue.
  
 ## Test the function 
 
@@ -109,6 +111,7 @@ Next, you can connect to your storage account to verify the new queue and the me
 4. Expand the attached storage account, right-click **Queues** and verify that a queue named **outqueue** exists. You should also see a message already in the queue.  
  
     ![Create a storage queue.](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
+ 
 
 ## Clean up resources
 
@@ -116,9 +119,11 @@ Next, you can connect to your storage account to verify the new queue and the me
 
 ## Next steps
 
-You have added an output binding to an existing function. This binding adds messages to a storage queue. For more information, see [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md). 
+You have added an output binding to an existing function. 
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+
+For more information about binding to Queue storage, see [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md). 
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 

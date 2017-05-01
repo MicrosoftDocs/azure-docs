@@ -30,15 +30,13 @@ It should take you less than five minutes to complete all the steps in this topi
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-previous-topics.md)]
 
-In this topic, you create a timer triggered function in your existing function app.  
+In this topic, you create a timer triggered function in your existing function app. 
+
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
 
 ## <a name="create-function"></a>Create a timer triggered function
 
-1. Log in to the [Azure portal](https://portal.azure.com/). 
-
-2. In the search bar at the top of the portal, type the name of your function app and select it from the list.
-
-3. Expand your function app, click the **+** button next to **Functions** and click the **TimerTrigger** template for your desired language. Use the following settings and then click **Create**:
+1. Expand your function app, click the **+** button next to **Functions** and click the **TimerTrigger** template for your desired language. Use the following settings and then click **Create**:
 
     | Setting      |  Suggested value   | Description                              |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -68,9 +66,11 @@ You now have a function that runs once every hour.
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
 ## Next steps
-You have created a function that runs based on a schedule. For more information, see [Schedule code execution with Azure Functions](functions-bindings-timer.md). 
+You have created a function that runs based on a schedule. 
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+
+For more information timer triggers, see [Schedule code execution with Azure Functions](functions-bindings-timer.md). 
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 

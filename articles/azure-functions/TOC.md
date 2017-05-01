@@ -6,7 +6,6 @@
 # Quickstarts
 ## [Create function - portal](functions-create-first-azure-function.md)
 ## [Create function - Azure CLI](functions-create-first-azure-function-azure-cli.md)
-## Create function - Visual Studio
 ## Triggers
 ### [Timer](functions-create-scheduled-function.md)
 ### [GitHub webhook](functions-create-github-webhook-triggered-function.md)
