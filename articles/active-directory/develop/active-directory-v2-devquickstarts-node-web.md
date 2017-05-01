@@ -68,7 +68,7 @@ In addition, we use `passport-azure-ad` in the skeleton of the quickstart:
 This installs the libraries that `passport-azure-ad` uses.
 
 ## 3: Set up your app to use the passport-node-js strategy
-Configure the Express middleware to use the OpenID Connect authentication protocol. You use Passport to issue sign-in and sign-out requests, manage the user's session, and get information about the user, among other things.
+Set up the Express middleware to use the OpenID Connect authentication protocol. You use Passport to issue sign-in and sign-out requests, manage the user's session, and get information about the user, among other things.
 
 1.  In the root of the project, open the Config.js file. In the `exports.creds` section, enter your app's configuration values.
   
@@ -127,7 +127,7 @@ Configure the Express middleware to use the OpenID Connect authentication protoc
   ));
   ```
 
-  Passport uses a similar pattern for all its strategies (Twitter, Facebook, and so on). All strategy writers adhere to the pattern. Pass the strategy a `function()` that uses a token and `done` as parameters. The strategy is returned after it does all its work. Store the user and stash the token so you don’t need to ask for it again.
+Passport uses a similar pattern for all its strategies (Twitter, Facebook, and so on). All strategy writers adhere to the pattern. Pass the strategy a `function()` that uses a token and `done` as parameters. The strategy is returned after it does all its work. Store the user and stash the token so you don’t need to ask for it again.
 
   > [!IMPORTANT]
   > The preceding code takes any user that can authenticate to your server. This is known as auto-registration. On a production server, you wouldn’t want to let anyone in without first having them go through a registration process that you choose. This is usually the pattern that you see in consumer apps. The app might allow you to register with Facebook, but then it asks you to enter additional information. If you weren't using a command-line program for this tutorial, you could extract the email from the token object that is returned. Then, you might ask the user to enter additional information. Because this is a test server, you add the user directly to the in-memory database.
