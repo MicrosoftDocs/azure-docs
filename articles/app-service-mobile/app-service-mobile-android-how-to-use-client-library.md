@@ -32,7 +32,7 @@ You can find the [Javadocs API reference][12] for the Android client library on 
 
 ## Supported Platforms
 
-The Azure Mobile Apps SDK for Android supports API levels 19 through 24 (KitKat through Nougat) for phone and tablet form factors.  Authentication, in particular, utilizes a common web framework approach to gather credentials.  Server-flow authentication will not work with small form factor devices such as watches.
+The Azure Mobile Apps SDK for Android supports API levels 19 through 24 (KitKat through Nougat) for phone and tablet form factors.  Authentication, in particular, utilizes a common web framework approach to gather credentials.  Server-flow authentication does not work with small form factor devices such as watches.
 
 ## Setup and Prerequisites
 
@@ -419,7 +419,7 @@ List<ToDoItem> result = mToDoTable
     .get();
 ```
 
-If you wish to get all records in a table, you will need to implement code to iterate over all pages:
+If you wish to get all records in a table, implement code to iterate over all pages:
 
 ```java
 List<MyDataModel> results = new List<MyDataModel>();
@@ -769,7 +769,7 @@ The Azure Mobile Apps Client SDK also implements offline synchronization of data
 
 ### Initialize Offline Sync
 
-Each offline table must be defined in the offline cache before use.  Normally, this is done immediately after the creation of the client:
+Each offline table must be defined in the offline cache before use.  Normally, table definition is done immediately after the creation of the client:
 
 ```java
 AsyncTask<Void, Void, Void> initializeStore(MobileServiceClient mClient)
@@ -910,7 +910,7 @@ The following code starts a server flow login process using the Google provider.
 MobileServiceUser user = mClient.login(MobileServiceAuthenticationProvider.Google, "{url_scheme_of_your_app}", GOOGLE_LOGIN_REQUEST_CODE);
 ```
 
-In addition, you will need to add the following method to the main Activity class:
+In addition, add the following method to the main Activity class:
 
 ```java
 // You can choose any unique number here to differentiate auth providers from each other. Note this is the same code at login() and onActivityResult().
@@ -1168,7 +1168,7 @@ The Client connection is normally a basic HTTP connection using the underlying H
 * You wish to use an alternate HTTP library to adjust timeouts.
 * You wish to provide a progress bar.
 * You wish to add a custom header to support API management functionality.
-* You wish to intercept a failed response so that you can implement re-authentication.
+* You wish to intercept a failed response so that you can implement reauthentication.
 * You wish to log backend requests to an analytics service.
 
 ### Using an alternate HTTP Library
@@ -1260,7 +1260,7 @@ private class CustomHeaderFilter implements ServiceFilter {
 
 ### <a name="conversions"></a>Configure Automatic Serialization
 
-You can specify a conversion strategy that applies to every column by using the [gson][3] API. The Android client library uses [gson][3] behind the scenes to serialize Java objects to JSON data before the data is sent to Azure App Service.  The following code uses the **setFieldNamingStrategy()** method to set the strategy. This example will delete the initial character (an "m"), and then lower-case the next character, for every field name. For example, it would turn "mId" into "id."  This prevents the need for `SerializedName()` annotations on most fields.
+You can specify a conversion strategy that applies to every column by using the [gson][3] API. The Android client library uses [gson][3] behind the scenes to serialize Java objects to JSON data before the data is sent to Azure App Service.  The following code uses the **setFieldNamingStrategy()** method to set the strategy. This example will delete the initial character (an "m"), and then lower-case the next character, for every field name. For example, it would turn "mId" into "id."  Implement a conversion strategy to reduce the need for `SerializedName()` annotations on most fields.
 
 ```java
 FieldNamingStrategy namingStrategy = new FieldNamingStrategy() {
