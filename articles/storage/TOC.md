@@ -4,7 +4,6 @@
 
 # Get Started
 
-## [Quick start guide](storage-getting-started-guide.md)
 ## [Create a storage account](storage-create-storage-account.md)
 
 ## Blob Storage

@@ -56,9 +56,9 @@ Built-in policies in Azure AD B2C follow the 3-file pattern depicted above, but 
 
 Azure’s customer identity and access management (CIAM) service. The service includes:
 
-    1. A user directory in the form of a special-purpose Azure Active Directory accessible via Microsoft Graph and which holds user data for both local accounts and federated accounts 
-    2. Access to the **Identity Experience Engine** which orchestrates trust between users and entities and passes claims between them to complete an identity/access management task 
-    3. A security token service (STS) issuing id tokens, refresh tokens, and access tokens (and equivalent SAML assertions) and validating them to protect resources.
+1. A user directory in the form of a special-purpose Azure Active Directory accessible via Microsoft Graph and which holds user data for both local accounts and federated accounts 
+2. Access to the **Identity Experience Engine** which orchestrates trust between users and entities and passes claims between them to complete an identity/access management task 
+3. A security token service (STS) issuing id tokens, refresh tokens, and access tokens (and equivalent SAML assertions) and validating them to protect resources.
 
 Azure AD B2C interacts with identity providers, users, other systems, and with the local user directory in sequence to achieve an identity task (e.g. login a user, register a new user, reset a password). The underlying platform which establishes multi-party trust and executes these steps is called the Identity Experience Engine and a policy (also called an user journey or a Trust framework policy) explicitly defines the actors, the actions, the protocols, and the sequence of steps to complete.
 
