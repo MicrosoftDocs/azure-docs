@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/27/2017
+ms.date: 05/01/2017
 ms.author: iainfou
 ---
 
@@ -26,6 +26,17 @@ Create a cloud-init file named `cloud-init-jenkins.txt` and paste the following 
 ```yaml
 #cloud-config
 package_upgrade: true
+write_files:
+  - path: /etc/systemd/system/docker.service.d/docker.conf
+    content: |
+      [Service]
+        ExecStart=
+        ExecStart=/usr/bin/dockerd
+  - path: /etc/docker/daemon.json
+    content: |
+      {
+        "hosts": ["tcp://127.0.0.1:2375"]
+      }
 runcmd:
   - wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
   - sh -c 'echo deb http://pkg.jenkins-ci.org/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
@@ -48,8 +59,6 @@ az vm create --resource-group myResourceGroupJenkins \
 	--image UbuntuLTS \
 	--admin-username azureuser \
 	--generate-ssh-keys \
-	--vnet-name myVnet \
-	--subnet mySubnet \
 	--custom-data cloud-init-jenkins.txt
 ```
 
