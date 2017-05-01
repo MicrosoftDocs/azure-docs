@@ -14,35 +14,36 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/22/2017
+ms.date: 04/25/2017
 ms.author: glenga
 
 ---
 # Create a function triggered by Azure Queue storage
 
-Learn how to create a function triggered when messages are submitted to an Azure Storage queue. 
+Learn how to create a function triggered when messages are submitted to an Azure Storage queue.  
 
 ![View message in the logs.](./media/functions-create-storage-queue-triggered-function/functions-queue-storage-trigger-view-logs.png)
+
+It should take you less than five minutes to complete all the steps in this topic.
+
+## Before you begin
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-previous-topics.md)]
 
 You also need to download and install the [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
 
-It should take you less than five minutes to complete all the steps in this topic.
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
 
-## Find your function app    
+## <a name="create-function"></a>Create a Queue triggered function
 
-1. Log in to the [Azure portal](https://portal.azure.com/). 
+Expand your function app, click the **+** button next to **Functions**, click the **QueueTrigger** template for your desired language. Use the following settings and then click **Create**.
+    
+    | Setting      |  Suggested value   | Description                                        |
+    | ------------ |  ----------------- | -------------------------------------------------- |
+    | **Queue name**   | `myqueue-items`    | The name of the queue to connect to in your Storage account. |
+    | **Storage account connection** | **AzureWebJobStorage** | You can use the the storage account connection already being used by your function app, or create a new one.  |
 
-2. In the search bar at the top of the portal, type the name of your function app and select it from the list.
-
-## <a name="create-function"></a>Create a Queue storage triggered function
-
-In your function app, click the **+** button next to **Functions**, click the **QueueTrigger** template for your desired language, and click **Create**.
-   
-![Create a Queue storage triggered function in the Azure portal.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png) 
-
-This function is connected to the default storage account, the same one already used by the function app. Next, you create the **myqueue-items** queue in that storage account.
+Next, you create the **myqueue-items** queue in your storage account.
 
 ## Create the queue
 
@@ -54,11 +55,11 @@ This function is connected to the default storage account, the same one already 
 
     ![Run the Storage Account Explorer tool.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-1.png)
     
-4. Enter the **Account name** and **Account key** from step 1, click **Next** and then **Connect**. 
+3. Enter the **Account name** and **Account key** from step 1, click **Next** and then **Connect**. 
   
     ![Enter the storage credentials and connect.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-2.png)
 
-5. Expand the attached storage account, right-click **Queues**, click **Create queue**, type `myqueue-items`, and then press enter.
+4. Expand the attached storage account, right-click **Queues**, click **Create queue**, type `myqueue-items`, and then press enter.
  
     ![Create a storage queue.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-create-queue.png)
 
@@ -72,9 +73,9 @@ Now that you have a storage queue, you can test the function by adding a message
 
     ![Add a message to the queue.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-add-message.png)
 
-2. Type your **Message text** and click **OK**.
+2. Type your "Hello World!" message in **Message text** and click **OK**.
  
-3. Go back to your function logs and verify that the new message is read from the queue. 
+3. Wait for a few seconds, then go back to your function logs and verify that the new message has been read from the queue. 
 
     ![View message in the logs.](./media/functions-create-storage-queue-triggered-function/functions-queue-storage-trigger-view-logs.png)
 
@@ -86,9 +87,11 @@ Now that you have a storage queue, you can test the function by adding a message
 
 ## Next steps
 
-You have created a function that runs when a message is added to a storage queue. For more information, see [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md). 
+You have created a function that runs when a message is added to a storage queue. 
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+
+For more information about Queue storage triggers, see [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md). 
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
