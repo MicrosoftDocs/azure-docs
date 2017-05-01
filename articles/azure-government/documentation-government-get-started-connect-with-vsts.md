@@ -1,4 +1,4 @@
----
+--
 title: Connect to Azure Government from Visual Studio Team Services | Microsoft Docs
 description: Information on configuring continuous deployment to your applications hosted with a subscription in Azure Government by connecting from Visual Studio Team Services
 services: azure-government
@@ -30,12 +30,12 @@ Refer to [CI/CD for newbies](https://www.visualstudio.com/en-us/docs/build/get-s
 
 # Deploy your application to Azure 
 You can deploy your application to Azure by adding [deployment tasks](https://www.visualstudio.com/en-us/docs/build/define/build#deploy) to the build or the release workflows for your application. 
-Teams can manage the target Azure subscriptions for depoyments using [service endpoints](https://www.visualstudio.com/en-us/docs/build/concepts/library/service-endpoints). 
+Teams can manage the target Azure subscriptions for deployments using [service endpoints](https://www.visualstudio.com/en-us/docs/build/concepts/library/service-endpoints). 
 To enable connection to a subscription in the Azure Government Clouds, the Environment parameter in the service endpoint connection needs to be correctly set.
 
 ## Configure an Azure Resource Manager service endpoint
 Azure Resource Manager service endpoint defines and secures a connection to a Microsoft Azure subscription using Service Principal Authentication (SPA). 
-It is required when the target resources in Azure are "Reasource Manager" based. 
+It is required when the target resources in Azure are "Resource Manager" based. 
 
 ![Figure 1: Azure Resource Manager endpoint](./media/azure-gov-vsts-arm-endpoint.png)
 <p align="center">Figure 1: Configure an Azure Resource Manager service endpoint</p>
@@ -43,7 +43,7 @@ It is required when the target resources in Azure are "Reasource Manager" based.
 
 ## Configure an Azure Classic service endpoint
 Azure Classic service endpoint defines and secures a connection to a Microsoft Azure subscription using Azure credentials or an Azure management certificate. 
-It is required when the target resources in Azure are "Classic" viz. Azure Cloud Services. 
+It is required when the target resources in Azure are "Classic" like Azure Cloud Services. 
 
 ![Figure 2: Azure Classic endpoint](./media/azure-gov-vsts-classic-endpoint.png)
 <p align="center">Figure 2: Configure an Azure Classic service endpoint</p>
@@ -52,4 +52,4 @@ It is required when the target resources in Azure are "Classic" viz. Azure Cloud
 * Do I need a build agent?
 You need at least one [agent](https://www.visualstudio.com/en-us/docs/build/concepts/agents/agents) to run your deployments. By default, the build and deployment processes are configured to use the [hosted agents](https://www.visualstudio.com/en-us/docs/build/concepts/agents/hosted). Configuring a private agent would limit data sharing outside of Azure Government.
 * I use Team Foundation Server on-premises. Can I configure CD on my TFS Server to target Azure Government?
-At present, Team Foundation Server cannot be used to deploy to an Azure Government Cloud. This capability will be added in the next update of TFS 2017.
+Currently, Team Foundation Server cannot be used to deploy to an Azure Government Cloud. This capability will be added in the next update of TFS 2017.
