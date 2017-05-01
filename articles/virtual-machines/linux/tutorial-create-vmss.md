@@ -197,7 +197,7 @@ You can create and use data disks with scale sets. In a previous tutorial, you l
 ### Create scale set with data disks
 To create a scale set and attach data disks, add the `--data-disk-sizes-gb` parameter to the **az vmss create** command. The following example creates a scale set with 50Gb data disks attached to each instance:
 
-```
+```azurecli
 az vmss create \
   --resource-group myResourceGroupScaleSet \
   --name myScaleSetDisks \
