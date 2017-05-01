@@ -22,7 +22,7 @@
 # Get started
 ## [Create your first virtual network](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
-# How-to guides
+# How To
 ## Internet connectivity
 ### [Network load balance public servers](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Application load balance public servers](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
