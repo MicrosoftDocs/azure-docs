@@ -57,4 +57,4 @@ You are ready to get started with Video Indexer. For more information, see the f
 
  ## See also
  
- [Video Indexer announcement](https://aka.ms/videoindexerblog).
+ [The Video Indexer announcement](https://aka.ms/videoindexerblog).
