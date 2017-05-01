@@ -4,18 +4,18 @@ description: Learn to migrate your SQL Server database to Azure SQL Database.
 services: sql-database
 documentationcenter: ''
 author: janeng
-manager: jstrauss
+manager: jhubbard
 editor: ''
 tags: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial
+ms.custom: tutorial-migrate
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 04/04/2017
+ms.date: 04/20/2017
 ms.author: janeng
 
 ---
@@ -36,7 +36,7 @@ To complete this tutorial, make sure you have:
 - The [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA).
 - A database to migrate. This tutorial uses the [SQL Server 2008R2 AdventureWorks OLTP database](https://msftdbprodsamples.codeplex.com/releases/view/59211) on an instance of SQL Server 2008R2 or newer, but you can use any database of your choice. 
 
-## Step 1 - Prepare for migration
+## Prepare for migration
 
 You are ready to prepare for migration. Follow these steps to use the **[Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595)** to assess the readiness of your database for migration to Azure SQL Database.
 
@@ -81,7 +81,7 @@ You are ready to prepare for migration. Follow these steps to use the **[Data Mi
 10. Optionally, click **Export report** to save the report as a JSON file.
 11. Close the Data Migration Assistant.
 
-## Step 2 - Export to BACPAC file 
+## Export to BACPAC file 
 
 A BACPAC file is a ZIP file with an extension of BACPAC containing the metadata and data from a SQL Server database. A BACPAC file can be stored in Azure blob storage or in local storage for archiving or for migration - such as from SQL Server to Azure SQL Database. For an export to be transactionally consistent, you must ensure either that no write activity is occurring during the export.
 
@@ -89,9 +89,9 @@ Follow these steps to use the SQLPackage command-line utility to export the Adve
 
 1. Open a Windows command prompt and change your directory to a folder in which you have the **130** version of SQLPackage - such as **C:\Program Files (x86)\Microsoft SQL Server\130\DAC\bin**.
 
-2. Execute the following SQLPackage command at the command prompt to export the **AdventureWorks2008R2** database from **localhost** to **AdventureWorks2008R2.bacpac**. Change any of these three values as appropriate to your environment.
+2. Execute the following SQLPackage command at the command prompt to export the **AdventureWorks2008R2** database from **localhost** to **AdventureWorks2008R2.bacpac**. Change any of these values as appropriate to your environment.
 
-    ```
+    ```SQLPackage
     sqlpackage.exe /Action:Export /ssn:localhost /sdn:AdventureWorks2008R2 /tf:AdventureWorks2008R2.bacpac
     ```
 
@@ -99,11 +99,11 @@ Follow these steps to use the SQLPackage command-line utility to export the Adve
 
 Once the execution is complete the generated BCPAC file is stored in the directory where the sqlpackage executable is located. In this example C:\Program Files (x86)\Microsoft SQL Server\130\DAC\bin. 
 
-## Step 3: Log in to the Azure portal
+## Log in to the Azure portal
 
 Log in to the [Azure portal](https://portal.azure.com/). Logging on from the computer from which you are running the SQLPackage command-line utility eases the creation of the firewall rule in step 5.
 
-## Step 4: Create a SQL Database logical server
+## Create a SQL Database logical server
 
 An [Azure SQL Database logical server](sql-database-features.md) acts as a central administrative point for multiple databases. Follow these steps to create a SQL Database logical server to contain the migrated Adventure Works OLTP SQL Server database. 
 
@@ -129,15 +129,15 @@ An [Azure SQL Database logical server](sql-database-features.md) acts as a centr
 
 5. Click **Create** to provision the logical server. Provisioning takes a few minutes. 
 
-## Step 5: Create a server-level firewall rule
+## Create a server-level firewall rule
 
-The SQL Database service creates a [firewall at the server-level](sql-database-firewall-configure.md) preventing external applications and tools from connecting to the server or any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. Follow these steps to create a SQL Database server-level firewall rule for the IP address of the computer from which you are running the SQLPackage command-line utility. This enables SQLPackage to connect to the SQL Database logical server through the Azure SQL Database firewall. 
+The SQL Database service creates a [firewall at the server-level](sql-database-firewall-configure.md) that prevents external applications and tools from connecting to the server or any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. Follow these steps to create a SQL Database server-level firewall rule for the IP address of the computer from which you are running the SQLPackage command-line utility. This enables SQLPackage to connect to the SQL Database logical server through the Azure SQL Database firewall. 
 
 1. Click **All resources** from the left-hand menu and click your new server on the **All resources** page. The overview page for your server opens, showing you the fully qualified server name (such as **mynewserver20170403.database.windows.net**) and provides options for further configuration.
 
      ![logical server overview](./media/sql-database-migrate-your-sql-server-database/logical-server-overview.png)
 
-2. Click **Firewall** in the left-hand menu under Settings on the overview page. The **Firewall settings** page for the SQL Database server opens. 
+2. Click **Firewall** in the left-hand menu under **Settings** on the overview page. The **Firewall settings** page for the SQL Database server opens. 
 
 3. Click **Add client IP** on the toolbar to add the IP address of the computer you are currently using and then click **Save**. A server-level firewall rule is created for this IP address.
 
@@ -145,11 +145,15 @@ The SQL Database service creates a [firewall at the server-level](sql-database-f
 
 4. Click **OK**.
 
-You can now connect to all databases on this server using SQL Server Management Studio or another tool of your choice from this IP address using the Server admin account created previously.
+You can now connect to all databases on this server using SQL Server Management Studio or another tool of your choice from this IP address using the server admin account created previously.
 
-## Step 6 - Import BACPAC file to Azure SQL Database 
+> [!NOTE]
+> SQL Database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL Database server unless your IT department opens port 1433.
+>
 
-The newest versions of the SQLPackage command-line utility provide support for creating an Azure SQL database at a specified service tier and performance level. For best performance during import, select a high service tier and performance level and then scale down after import if the service tier and performance level is higher than you need immediately. See [Service tiers](sql-database-service-tiers.md) for more information.
+## Import BACPAC file to Azure SQL Database 
+
+The newest versions of the SQLPackage command-line utility provide support for creating an Azure SQL database at a specified [service tier and performance level](sql-database-service-tiers.md). For best performance during import, select a high service tier and performance level and then scale down after import if the service tier and performance level is higher than you need immediately.
 
 Follow these steps use the SQLPackage command-line utility to import the AdventureWorks2008R2 database to Azure SQL Database.
 
@@ -165,7 +169,7 @@ Follow these steps use the SQLPackage command-line utility to import the Adventu
 > An Azure SQL Database logical server listens on port 1433. If you are attempting to connect to an Azure SQL Database logical server from within a corporate firewall, this port must be open in the corporate firewall for you to successfully connect.
 >
 
-## Step 7 - Connect using SQL Server Management Studio (SSMS)
+## Connect using SQL Server Management Studio (SSMS)
 
 Use SQL Server Management Studio to establish a connection to your Azure SQL Database server and newly migrated database. If you are running SQL Server Management Studio on a different computer from which you ran SQLPackage, create a firewall rule for this computer using the steps in the previous procedure.
 
@@ -184,7 +188,7 @@ Use SQL Server Management Studio to establish a connection to your Azure SQL Dat
 
 4. In Object Explorer, expand **Databases** and then expand **myMigratedDatabase** to view the objects in the sample database.
 
-## Step 8 - Change database properties
+## Change database properties
 
 You can change the service tier, performance level, and compatibility level using SQL Server Management Studio.
 
@@ -217,3 +221,11 @@ You can change the service tier, performance level, and compatibility level usin
 
 - For an overview of migration, see [Database migration](sql-database-cloud-migrate.md).
 - For a discussion of T-SQL differences, see [Resolving Transact-SQL differences during migration to SQL Database](sql-database-transact-sql-information.md).
+- To connect and query using Visual Studio Code, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
+- To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
+- To connect and query using PHP, see [Connect and query with PHP](sql-database-connect-query-php.md).
+- To connect and query using Node.js, see [Connect and query with Node.js](sql-database-connect-query-nodejs.md).
+- To connect and query using Java, see [Connect and query with Java](sql-database-connect-query-java.md).
+- To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
+- To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).
+

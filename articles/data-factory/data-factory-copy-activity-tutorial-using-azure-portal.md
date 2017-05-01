@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/14/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 
 ---
@@ -171,12 +171,12 @@ In this step, you create a dataset named **InputDataset** that points to a blob 
 	```   
 	Note the following points: 
    
-   * dataset **type** is set to **AzureBlob**.
-   * **linkedServiceName** is set to **AzureStorageLinkedService**. You created this linked service in Step 2.
-   * **folderPath** is set to the **adftutorial** container. You can also specify the name of a blob within the folder using the **fileName** property. Since you are not specifying the name of the blob, data from all blobs in the container is considered as an input data.  
-   * format **type** is set to **TextFormat**
-   * There are two fields in the text file – **FirstName** and **LastName** – separated by a comma character (**columnDelimiter**)    
-   * The **availability** is set to **hourly** (**frequency** is set to **hour** and **interval** is set to **1**). Therefore, Data Factory looks for input data every hour in the root folder of blob container (**adftutorial**) you specified. 
+	- dataset **type** is set to **AzureBlob**.
+	- **linkedServiceName** is set to **AzureStorageLinkedService**. You created this linked service in Step 2.
+	- **folderPath** is set to the **adftutorial** container. You can also specify the name of a blob within the folder using the **fileName** property. Since you are not specifying the name of the blob, data from all blobs in the container is considered as an input data.
+	- format **type** is set to **TextFormat**
+	- There are two fields in the text file – **FirstName** and **LastName** separated by a comma character (**columnDelimiter**)
+	- The **availability** is set to **hourly** (**frequency** is set to **hour** and **interval** is set to **1**). Therefore, Data Factory looks for input data every hour in the root folder of blob container (**adftutorial**) you specified. 
      
      if you don't specify a **fileName** for an **input** dataset, all files/blobs from the input folder (**folderPath**) are considered as inputs. If you specify a fileName in the JSON, only the specified file/blob is considered asn input.
      
@@ -236,11 +236,11 @@ In this part of the step, you create an output dataset named **OutputDataset**. 
 	```   	
 	Note the following points: 
    
-   * dataset **type** is set to **AzureSQLTable**.
-   * **linkedServiceName** is set to **AzureSqlLinkedService** (you created this linked service in Step 2).
-   * **tablename** is set to **emp**.
-   * There are three columns – **ID**, **FirstName**, and **LastName** – in the emp table in the database. ID is an identity column, so you need to specify only **FirstName** and **LastName** here.
-   * The **availability** is set to **hourly** (**frequency** set to **hour** and **interval** set to **1**).  The Data Factory service generates an output data slice every hour in the **emp** table in the Azure SQL database.
+	- dataset **type** is set to **AzureSQLTable**.
+	- **linkedServiceName** is set to **AzureSqlLinkedService** (you created this linked service in Step 2).
+	- **tablename** is set to **emp**.
+	- There are three columns – **ID**, **FirstName**, and **LastName** – in the emp table in the database. ID is an identity column, so you need to specify only **FirstName** and **LastName** here.
+	- The **availability** is set to **hourly** (**frequency** set to **hour** and **interval** set to **1**).  The Data Factory service generates an output data slice every hour in the **emp** table in the Azure SQL database.
 3. Click **Deploy** on the toolbar to create and deploy the **OutputDataset** dataset. Confirm that you see the **OutputDataset** in the tree view. 
 
 > [!NOTE]
@@ -299,17 +299,17 @@ In this step, you create a pipeline with a **Copy Activity** that uses **InputDa
     
 	Note the following points:
    
-   * In the activities section, there is only one activity whose **type** is set to **Copy**.
-   * Input for the activity is set to **InputDataset** and output for the activity is set to **OutputDataset**.
-   * In the **typeProperties** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type.
+	- In the activities section, there is only one activity whose **type** is set to **Copy**.
+	- Input for the activity is set to **InputDataset** and output for the activity is set to **OutputDataset**.
+	- In the **typeProperties** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type.
      
-     Replace the value of the **start** property with the current day and **end** value with the next day. You can specify only the date part and skip the time part of the date time. For example, "2016-02-03", which is equivalent to "2016-02-03T00:00:00Z"
+	Replace the value of the **start** property with the current day and **end** value with the next day. You can specify only the date part and skip the time part of the date time. For example, "2016-02-03", which is equivalent to "2016-02-03T00:00:00Z"
      
-     Both start and end datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2016-10-14T16:32:41Z. The **end** time is optional, but we use it in this tutorial. 
+	Both start and end datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2016-10-14T16:32:41Z. The **end** time is optional, but we use it in this tutorial. 
      
-     If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property.
+	If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property.
      
-     In the preceding example, there are 24 data slices as each data slice is produced hourly.
+	In the preceding example, there are 24 data slices as each data slice is produced hourly.
 3. Click **Deploy** on the toolbar to create and deploy the **ADFTutorialPipeline**. Confirm that you see the pipeline in the tree view. 
 4. Now, close the **Editor** blade by clicking **X**. Click **X** again to see the **Data Factory** home page for the **ADFTutorialDataFactory**.
 

@@ -144,7 +144,7 @@ For more information about Managed Disks, please refer to the following articles
 
 * [Attach a managed data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md)
 
-* [Add a managed disk to a Linux VM](../virtual-machines/linux/quick-create-cli.md)
+* [Add a managed disk to a Linux VM](../virtual-machines/linux/add-disk.md)
 
 ### Compare Managed Disks storage options 
 

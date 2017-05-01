@@ -249,6 +249,9 @@ You can add storage accounts when you create an HDInsight cluster or after a clu
 
 For more information about secondary Azure Storage account, see [Using Azure Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md). For more information about secondary Data Lake Storage, see [Create HDInsight clusters with Data Lake Store using Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
+> [!WARNING]
+> Using an additional storage account in a different location than the HDInsight cluster is not supported.
+
 ## Use Hive/Oozie metastore
 We recommend that you use a custom metastore if you want to retain your Hive tables after you delete your HDInsight cluster. You will be able to attach that metastore to another HDInsight cluster.
 

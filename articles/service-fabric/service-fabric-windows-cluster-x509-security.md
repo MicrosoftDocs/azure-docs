@@ -1,4 +1,4 @@
----
+﻿---
 title: Secure an Azure Service Fabric cluster on Windows using certs | Microsoft Docs
 description: This article describes how to secure communication within the standalone or private cluster as well as between clients and the cluster.
 services: service-fabric
@@ -267,7 +267,7 @@ $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $Tru
 Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-You can then run other PowerShell commands to work with this cluster. For example, [Get-ServiceFabricNode](/powershell/servicefabric/vlatest/get-servicefabricnode.md) to show a list of nodes on this secure cluster.
+You can then run other PowerShell commands to work with this cluster. For example, [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode.md?view=azureservicefabricps) to show a list of nodes on this secure cluster.
 
 
 To remove the cluster, connect to the node on the cluster where you downloaded the Service Fabric package, open a command line and navigate to the package folder. Now run the following command:

@@ -19,13 +19,14 @@ ms.author: xshi
 
 ---
 # Set up Intel NUC as an IoT gateway
+[!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 ## What you will do
 
 - Set up Intel NUC as an IoT gateway.
 - Install the Azure IoT Gateway SDK package on the Intel NUC.
 - Run a "hello_world" sample application on the Intel NUC to verify the gateway functionality.
-    
+
   > If you have any problems, look for solutions on the [troubleshooting page](iot-hub-gateway-kit-c-troubleshooting.md).
 
 ## What you will learn
@@ -93,7 +94,7 @@ Follow these steps to install the package.
 1. Add the IoT Cloud repository by running the following commands in a terminal window:
 
    ```bash
-   rpm --import http://iotdk.intel.com/misc/iot_pub2.key
+   rpm --import https://iotdk.intel.com/misc/iot_pub2.key
    smart channel --add IoT_Cloud type=rpm-md name="IoT_Cloud" baseurl=http://iotdk.intel.com/repos/iot-cloud/wrlinux7/rcpl13/ -y
    smart channel --add WR_Repo type=rpm-md baseurl=https://distro.windriver.com/release/idp-3-xt/public_feeds/WR-IDP-3-XT-Intel-Baytrail-public-repo/RCPL13/corei7_64/
    ```
@@ -163,4 +164,5 @@ If you have any problems, look for solutions on the [troubleshooting page](iot-h
 Congratulations! You've finished setting up Intel NUC as a gateway. Now you're ready to move on to the next lesson to set up your host computer, create an Azure IoT Hub and register your Azure IoT Hub logical device.
 
 ## Next steps
-[Get your host computer and Azure IoT Hub ready](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
+[Use an IoT gateway to connect a device to Azure IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+

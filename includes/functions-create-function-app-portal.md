@@ -1,7 +1,7 @@
 
-1. Go to the [Azure portal](https://portal.azure.com) and sign-in with your Azure account.
+1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
-2. Click **+New** > **Compute** > **Function App**, select your **Subscription**, type a unique **App name** that identifies your function app, then specify the following settings:
+2. Click **Compute** > **Function App**, select your **Subscription**, type a unique **App name** that identifies your function app, then specify the following settings:
    
    * **[Resource Group](../articles/azure-resource-manager/resource-group-overview.md)**: Select **Create new** and enter a name for your new resource group. 
    * **[Hosting plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)**, which can be one of these plans: 

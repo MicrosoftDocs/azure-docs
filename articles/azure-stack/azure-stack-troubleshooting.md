@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/6/2017
+ms.date: 4/12/2017
 ms.author: helaw
 
 ---
@@ -42,7 +42,8 @@ Code examples are provided as is and expected results cannot be guaranteed. This
 * You cannot associate a load balancer with a backend network via the portal.  This task can be completed with PowerShell or with a template.
 * VM Scale Set scale-in operations may fail.
 * VM Scale Set resize operations fail to complete. As an example, scaling out a VM Scale Set and resizing from A1 to D2 VMs will fail.
-* You will notice in the Total Memory in Region Management>Scale Units is expressed in MB instead of GB. 
+* You will notice in the Total Memory in Region Management>Scale Units is expressed in MB instead of GB.
+* You may see a blank dashboard in the portal.  If this happens, recover the dashboard by selecting the gear in the upper right of the portal, and selecting "Restore default settings".
  
 
 ## Deployment

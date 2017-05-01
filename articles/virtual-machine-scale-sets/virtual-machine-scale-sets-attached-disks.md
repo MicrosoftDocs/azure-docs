@@ -14,12 +14,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/6/2017
+ms.date: 4/25/2017
 ms.author: guybo
 
 ---
 # Azure VM scale sets and attached data disks
-Azure [virtual machine scale sets](/azure/virtual-machine-scale-sets/) now support virtual machines with attached data disks. Data disks can be defined in the storage profile for scale sets created with Azure Managed Disks. Previously the only directly attached storage options available with VMs in scale sets were the OS drive and temp drives.
+Azure [virtual machine scale sets](/azure/virtual-machine-scale-sets/) now support virtual machines with attached data disks. Data disks can be defined in the storage profile for scale sets that have been created with Azure Managed Disks. Previously the only directly attached storage options available with VMs in scale sets were the OS drive and temp drives.
 
 > [!NOTE]
 >  When you create a scale set with attached data disks defined, you still need to mount and format the disks from within a VM to use them (just like for standalone Azure VMs). A convenient way to do this is to use a custom script extension which calls a standard script to partition and format all the data disks on a VM.
@@ -54,10 +54,21 @@ Another way to create a scale set with attached data disks is to define a scale 
 You can see a complete, ready to deploy example of a scale set template with an attached disk defined here: [https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data](https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data).
 
 ## Adding a data disk to an existing scale set
+> [!NOTE]
+>  You can only attach data disks to a scale set which has been created with [Azure Managed Disks](./virtual-machine-scale-sets-managed-disks.md).
+
 You can add a data disk to a VM scale set using Azure CLI _az vmss disk attach_ command. Make sure you specify a lun which is not already in use. The following CLI example adds a 50 GB drive to lun 3:
 ```bash
 az vmss disk attach -g dsktest -n dskvmss --size-gb 50 --lun 3
 ```
+
+The following PowerShell example adds a 50 GB drive to lun 3:
+```powershell
+$vmss = Get-AzureRmVmss -ResourceGroupName myvmssrg -VMScaleSetName myvmss
+$vmss = Add-AzureRmVmssDataDisk -VirtualMachineScaleSet $vmss -Lun 3 -Caching 'ReadWrite' -CreateOption Empty -DiskSizeGB 50 -StorageAccountType StandardLRS
+Update-AzureRmVmss -ResourceGroupName myvmssrg -Name myvmss -VirtualMachineScaleSet $vmss
+```
+
 > [!NOTE]
 > Different VM sizes have different limits on the numbers of attached drives they support. Check the [virtual machine size characteristics](../virtual-machines/windows/sizes.md) before adding a new disk.
 

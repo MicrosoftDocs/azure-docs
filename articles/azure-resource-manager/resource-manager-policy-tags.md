@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 04/20/2017
 ms.author: tomfitz
 
 ---
@@ -27,83 +27,53 @@ Applying a tag policy to a resource group or subscription with existing resource
 
 A common requirement is that all resources in a resource group have a particular tag and value. This requirement is often needed to track costs by department. The following conditions must be met:
 
-* The required tag and value are appended to new and updated resources that do not have any existing tags.
-* The required tag and value are appended to new and updated resources that have other tags, but not the required tag and value.
+* The required tag and value are appended to new and updated resources that do not have the tag.
 * The required tag and value cannot be removed from any existing resources.
 
-You accomplish this requirement by applying to a resource group the following three policies:
+You accomplish this requirement by applying two built-in policies to a resource group.
 
-* [Append tag](#append-tag) 
-* [Append tag with other tags](#append-tag-with-other-tags)
-* [Require tag and value](#require-tag-and-value)
+| ID | Description |
+| ---- | ---- |
+| 2a0e14a6-b0a6-4fab-991a-187a4f81c498 | Applies a required tag and its default value when it is not specified by the user. |
+| 1e30110a-5ceb-460c-a204-c1c3969c6d62 | Enforces a required tag and its value. |
 
-### Append tag
+### PowerShell
 
-The following policy rule appends costCenter tag with a predefined value when no tags are present:
+The following PowerShell script assigns the two built-in policy definitions to a resource group. Before running the script, assign all required tags to the resource group. Each tag on the resource group is required for the resources in the group. To assign to all resource groups in your subscription, do not provide the `-Name` parameter when getting the resource groups.
 
-```json
+```powershell
+$appendpolicy = Get-AzureRmPolicyDefinition | Where-Object {$_.Name -eq '2a0e14a6-b0a6-4fab-991a-187a4f81c498'}
+$denypolicy = Get-AzureRmPolicyDefinition | Where-Object {$_.Name -eq '1e30110a-5ceb-460c-a204-c1c3969c6d62'}
+
+$rgs = Get-AzureRMResourceGroup -Name ExampleGroup
+
+foreach($rg in $rgs)
 {
-  "if": {
-    "field": "tags",
-    "exists": "false"
-  },
-  "then": {
-    "effect": "append",
-    "details": [
-      {
-        "field": "tags",
-        "value": {"costCenter":"myDepartment" }
-      }
-    ]
-  }
-}
-```
-
-### Append tag with other tags
-
-The following policy rule appends costCenter tag with a predefined value when tags are present, but the costCenter tag is not defined:
-
-```json
-{
-  "if": {
-    "allOf": [
-      {
-        "field": "tags",
-        "exists": "true"
-      },
-      {
-        "field": "tags.costCenter",
-        "exists": "false"
-      }
-    ]
-  },
-  "then": {
-    "effect": "append",
-    "details": [
-      {
-        "field": "tags.costCenter",
-        "value": "myDepartment"
-      }
-    ]
-  }
-}
-```
-
-### Require tag and value
-
-The following policy rule denies update or creation of resources that do not have the costCenter tag assigned to the predefined value.
-
-```json
-{
-  "if": {
-    "not": {
-      "field": "tags.costCenter",
-      "equals": "myDepartment"
+    $tags = $rg.Tags
+    foreach($key in $tags.Keys){
+        $key 
+        $tags[$key]
+        New-AzureRmPolicyAssignment -Name ("append"+$key+"tag") -PolicyDefinition $appendpolicy -Scope $rg.ResourceId -tagName $key -tagValue  $tags[$key]
+        New-AzureRmPolicyAssignment -Name ("denywithout"+$key+"tag") -PolicyDefinition $denypolicy -Scope $rg.ResourceId -tagName $key -tagValue  $tags[$key]
     }
-  },
-  "then": {
-    "effect": "deny"
-  }
+}
+```
+
+After assigning the policies, you can trigger an update to all existing resources to enforce the tag policies you have added. The following script retains any other tags that existed on the resources:
+
+```powershell
+$group = Get-AzureRmResourceGroup -Name "ExampleGroup" 
+
+$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName 
+
+foreach($r in $resources)
+{
+    try{
+        $r | Set-AzureRmResource -Tags ($a=if($r.Tags -eq $NULL) { @{}} else {$r.Tags}) -Force -UsePatchSemantics
+    }
+    catch{
+        Write-Host  $r.ResourceId + "can't be updated"
+    }
 }
 ```
 
@@ -146,26 +116,6 @@ The following policy denies requests that don't have a tag containing "costCente
   "then" : {
     "effect" : "deny"
   }
-}
-```
-
-## Trigger updates to existing resources
-
-The following PowerShell script triggers an update to existing resources to enforce tag policies you have added.
-
-```powershell
-$group = Get-AzureRmResourceGroup -Name "ExampleGroup" 
-
-$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName 
-
-foreach($r in $resources)
-{
-    try{
-        $r | Set-AzureRmResource -Tags ($a=if($_.Tags -eq $NULL) { @{}} else {$_.Tags}) -Force -UsePatchSemantics
-    }
-    catch{
-        Write-Host  $r.ResourceId + "can't be updated"
-    }
 }
 ```
 

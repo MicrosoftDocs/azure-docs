@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2017
+ms.date: 04/12/2017
 ms.author: awills
 
 ---
@@ -30,23 +30,26 @@ There are two types of web test:
 
 You can create up to 10 web tests per application resource.
 
-## <a name="create"></a>1. Create a resource for your test reports
-Skip this step if you've already [set up an Application Insights resource][start] for this application, and you want to see the availability reports in the same place.
+## <a name="create"></a>1. Open a resource for your web test reports
 
-Sign up to [Microsoft Azure](http://azure.com), go to the [Azure portal](https://portal.azure.com), and create an Application Insights resource.
+**If you have already configured Application Insights** for your web app, open its Application Insights resource in the [Azure portal](https://portal.azure.com).
+
+**Or, if you want to see your reports in a new resource,** sign up to [Microsoft Azure](http://azure.com), go to the [Azure portal](https://portal.azure.com), and create an Application Insights resource.
 
 ![New > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
 Click **All resources** to open the Overview blade for the new resource.
 
 ## <a name="setup"></a>2. Create a URL ping test
-In your Application Insights resource, look for the Availability tile. Click it to open the Web tests blade for your application, and add a web test.
+Open the Availability blade and add a web test.
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-* **The URL** must be visible from the public internet. It can include a query string&#151;so, for example, you can exercise your database a little. If the URL resolves to a redirect, we follow it up to 10 redirects.
-* **Parse dependent requests**: Images, scripts, style files, and other resources of the page are requested as part of the test, and the recorded response time includes these times. The test fails if all these resources cannot be successfully downloaded within the timeout for the whole test.
-* **Enable retries**:  When the test fails, it is retried after a short interval. A failure is reported only if three successive attempts fail. Subsequent tests are then performed at the usual test frequency. Retry is temporarily suspended until the next success. This rule is applied independently at each test location. (We recommend this setting. On average, about 80% of failures disappear on retry.)
+* **The URL** can be any web page you want to test, but it must be visible from the public internet. The URL can include a query string&#151;so, for example, you can exercise your database a little. If the URL resolves to a redirect, we follow it up to 10 redirects.
+* **Parse dependent requests**: If this option is checked, the test will request images, scripts, style files, and other files that are part of the web page under test. The recorded response time includes the time taken to get these files. The test fails if all these resources cannot be successfully downloaded within the timeout for the whole test. 
+
+    If the option is not checked, the test only requests the file at the URL you specified.
+* **Enable retries**:  If this option is checked, when the test fails, it is retried after a short interval. A failure is reported only if three successive attempts fail. Subsequent tests are then performed at the usual test frequency. Retry is temporarily suspended until the next success. This rule is applied independently at each test location. We recommend this option. On average, about 80% of failures disappear on retry.
 * **Test frequency**: Sets how often the test is run from each test location. With a frequency of five minutes and five test locations, your site is tested on average every minute.
 * **Test locations** are the places from where our servers send web requests to your URL. Choose more than one so that you can distinguish problems in your website from network issues. You can select up to 16 locations.
 * **Success criteria**:
@@ -63,14 +66,23 @@ In your Application Insights resource, look for the Availability tile. Click it 
 ### Test more URLs
 Add more tests. For example, as well as testing your home page, you can make sure your database is running by testing the URL for a search.
 
+
 ## <a name="monitor"></a>3. See your web test results
-After 1-2 minutes, results appear in the Web Test blade.
+
+After 5 minutes, click **Refresh** to see test results. 
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
 Click any bar on the summary chart for a more detailed view of that time period.
 
-These charts combine results for all the web tests of this application.
+## <a name="edit"></a> Inspect and edit tests
+
+From the summary page, select a specific test. There, you can see its specific results, and edit or temporarily disable it.
+
+![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
+
+You might want to disable web tests while you are performing maintenance on your service.
+
 
 ## <a name="failures"></a>If you see failures
 Click a red dot.
@@ -99,7 +111,9 @@ You can monitor a scenario that involves a sequence of URLs. For example, if you
 
 To create a multi-step test, you record the scenario by using Visual Studio Enterprise, and then upload the recording to Application Insights. Application Insights replays the scenario at intervals and verifies the responses.
 
-Note that you can't use coded functions in your tests: the scenario steps must be contained as a script in the .webtest file.
+> [!NOTE]
+> You can't use coded functions or loops in your tests. The test must be contained completely in the .webtest script. However, you can use standard plugins.
+>
 
 #### 1. Record a scenario
 Use Visual Studio Enterprise to record a web session.
@@ -140,13 +154,19 @@ Use Visual Studio Enterprise to record a web session.
 
     Set the test locations, frequency, and alert parameters in the same way as for ping tests.
 
-View your test results and any failures in the same way as for single-url tests.
+#### 3. See the results
 
-A common reason for failure is that the test runs too long. It mustn't run longer than two minutes.
+View your test results and any failures in the same way as single-url tests.
 
-Don't forget that all the resources of a page must load correctly for the test to succeed, including scripts, style sheets, images, and so forth.
+In addition, you can download the test results to view them in Visual Studio.
 
-Note that the web test must be entirely contained in the .webtest file: you can't use coded functions in the test.
+#### Too many failures?
+
+* A common reason for failure is that the test runs too long. It mustn't run longer than two minutes.
+
+* Don't forget that all the resources of a page must load correctly for the test to succeed, including scripts, style sheets, images, and so forth.
+
+* The web test must be entirely contained in the .webtest script: you can't use coded functions in the test.
 
 ### Plugging time and random numbers into your multi-step test
 Suppose you're testing a tool that gets time-dependent data such as stocks from an external feed. When you record your web test, you have to use specific times, but you set them as parameters of the test, StartTime and EndTime.
@@ -207,12 +227,6 @@ If your test must sign in using OAuth, the general approach is:
 * Parameterize the tokens, setting the parameter when the token is returned from the authenticator, and using it in the query to the site.
   (Visual Studio attempts to parameterize the test, but does not correctly parameterize the tokens.)
 
-## <a name="edit"></a> Edit or disable a test
-Open an individual test to edit or disable it.
-
-![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
-
-You might want to disable web tests while you are performing maintenance on your service.
 
 ## Performance tests
 You can run a load test on your website. Like the availability test, you can send either simple requests or multi-step requests from our points around the world. Unlike an availability test, many requests are sent, simulating multiple simultaneous users.
@@ -225,7 +239,7 @@ When the test is complete, you are shown response times and success rates.
 * [Use PowerShell scripts to set up a web test](app-insights-powershell.md#add-an-availability-test) automatically.
 * Set up a [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) that is called when an alert is raised.
 
-## Questions? Problems?
+## <a name="qna"></a>Questions? Problems?
 * *Can I call code from my web test?*
 
     No. The steps of the test must be in the .webtest file. And you can't call other web tests or use loops. But there are several plug-ins that you might find helpful.

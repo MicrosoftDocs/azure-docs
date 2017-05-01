@@ -109,6 +109,24 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
         </div>
         </a>
     </li>
+    <li>
+        <a href="/azure/iot-hub/iot-hub-device-sdk-c-intro">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/c.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get Started with IoT Hub using C</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 </ul>
 
 ---
@@ -137,8 +155,8 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (Devices)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.service">Java (Service)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (Devices)</a></p>
-                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.8/index.html">Node (Service)</a></p>
-                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.8/index.html">Node (Devices)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.9/index.html">Node (Service)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.9/index.html">Node (Devices)</a></p>
                         <p><a href="http://azure.github.io/azure-iot-sdks/">Azure IoT SDKs</a></p>
                         <p><a href="http://azure.github.io/azure-iot-gateway-sdk">Gateway SDK</a></p>
                     </div>

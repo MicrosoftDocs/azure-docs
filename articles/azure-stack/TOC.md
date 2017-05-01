@@ -15,7 +15,6 @@
 ### [Add default image](azure-stack-add-default-image.md)
 ### [Provision a virtual machine](azure-stack-provision-vm.md)
 ### [Create a storage account](azure-stack-provision-storage-account.md)
-### [Add an Azure Stack tenant](azure-stack-add-new-user-aad.md)
 ### [Redeploy Azure Stack POC](azure-stack-redeploy.md)
 
 # Manage
@@ -31,15 +30,17 @@
 ## How to
 ### [Manage updates](azure-stack-updates.md)
 ### [Monitor health and alerts](azure-stack-monitor-health.md)
-### [Manage network resources](azure-stack-viewing-public-ip-address-consumption-in-tp2.md)
+### [Manage network resources](azure-stack-viewing-public-ip-address-consumption.md)
 ### [Manage storage resources](azure-stack-manage-storage-accounts.md)
 ### [Manage Windows Azure Pack VMs](azure-stack-manage-windows-azure-pack.md)
 
 # Security & compliance
 ## How to
 ### [Manage RBAC](azure-stack-manage-permissions.md)
+### [Add users for Azure AD](azure-stack-add-new-user-aad.md)
 ### [Add users for AD FS](azure-stack-add-users-adfs.md)
 ### [Create service principals](Azure-stack-create-service-principals.md)
+### [Enable multi-tenancy](azure-stack-enable-multitenancy.md)
 
 # Offer services
 ## Get started
@@ -84,7 +85,7 @@
 ## Network
 ### [iDNS for Azure Stack](azure-stack-understanding-dns.md)
 ### [DNS in Azure Stack](azure-stack-dns.md)
-### [Understanding site-to-site VPN connections](azure-stack-create-vpn-connection-one-node-tp2.md)
+### [Understanding site-to-site VPN connections](azure-stack-create-vpn-connection-one-node.md)
 ## Key Vault
 ### [Overview](azure-stack-kv-intro.md)
 ### Get Started

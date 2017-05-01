@@ -99,14 +99,15 @@ Storage, and
 18. Click **Next** the installer verifies the certificate password provided.
 ![App Service on Azure Stack Technical Preview 3 Certificate Details][8]
 19. Review the **App Service Role Configuration**.  The defaults are populated with the minimum recommended instance SKUs for each role.  A summary of core and memory requirements is provided to help plan your deployment.  Once you have made your selections click **Next** to advance.
-  - **Controller** - By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Controller role is responsible for managing and maintaining the health of the App Service cloud.
-  - **Management** - By default 1 Standard A2 instance is selected.  To provide failover we recommend two instances.  The Management role is responsible for the App Service ARM and API endpoints, Portal Extensions (Admin, Tenant, Functions Portal), and the Data Service
-  - **Publisher**  - By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Publisher role is responsible for publishing content via FTP and Web Deploy.
-  - **FrontEnd** - By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Frontend role is responsible for routing requests to App Service Applications
-  - **Shared Worker** - By default 1 Standard A1 instance is selected but you may wish to add more.  You as an administrator can define your offering and as such can choose any tier of SKU but they must have a minimum of one core.  The Shared Worker is responsible for hosting Web/Mobile/API applications and Azure Function Apps.
+  - **Controller**: By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Controller role is responsible for managing and maintaining the health of the App Service cloud.
+  - **Management**: By default 1 Standard A2 instance is selected.  To provide failover we recommend two instances.  The Management role is responsible for the App Service ARM and API endpoints, Portal Extensions (Admin, Tenant, Functions Portal), and the Data Service
+  - **Publisher**: By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Publisher role is responsible for publishing content via FTP and Web Deploy.
+  - **FrontEnd**: By default 1 Standard A1 instance is selected.  This is the minimum we recommend.  The Frontend role is responsible for routing requests to App Service Applications
+  - **Shared Worker**: By default 1 Standard A1 instance is selected but you may wish to add more.  You as an administrator can define your offering and as such can choose any tier of SKU but they must have a minimum of one core.  The Shared Worker is responsible for hosting Web/Mobile/API applications and Azure Function Apps.
 ![App Service on Azure Stack Technical Preview 3 Role Configuration][9]
-> [!NOTE]
-> In the technical previews the App Service RP installer also deploys a Standard A1 instance to operate as a simple File Server to support the farm.  This remains for single node PoC but for Production workloads at GA the App Service installer enables the use of a HA File Server.
+
+    > [!NOTE]
+    > In the technical previews the App Service RP installer also deploys a Standard A1 instance to operate as a simple File Server to support the farm.  This remains for single node PoC but for Production workloads at GA the App Service installer enables the use of a HA File Server.
 
 20. Choose your chosen deployment **Windows Server 2016** VM Image, from those available in the Compute Resource Provider, for the App Service Cloud and click **Next**.     
 ![App Service on Azure Stack Technical Preview 3 VM Image Selection][10]
@@ -138,7 +139,11 @@ Storage, and
 Now that you have deployed and registered the App Service resource provider, you can test it to make sure that tenants can deploy Web, Mobile, and API apps.
 
 > [!NOTE]
-> You need to create an offer, which has the Microsoft.Web namespace within the plan and then you need to have a tenant subscription, which has subscribed to this offer.  For more information, see the following articles - [Create Offer](azure-stack-create-offer.md) and [Create Plan](azure-stack-create-plan.md) 
+> You need to create an offer that has the Microsoft.Web namespace within the plan and then you need to have a tenant subscription that has subscribed to this offer.  For more information, see the following articles - [Create Offer](azure-stack-create-offer.md) and [Create Plan](azure-stack-create-plan.md)
+>
+>You **must** have a **Tenant Subscription** to create applications using App Service on Azure Stack.  The only capabilities that a Service Admin can complete within the Admin Portal are related to the resource provider administration of App Service such as adding capacity, configuring deployment sources, adding worker tiers and SKUs.
+>
+> As of TP3 to **create Web/Mobile/API Apps** you must use the **Tenant portal** and have a **tenant subscription**.  
 
 1. In the Azure Stack Tenant portal, click New, click Web + Mobile, and click Web App.
 2. In the Web App blade, type a name in the Web app box.
@@ -150,9 +155,6 @@ Now that you have deployed and registered the App Service resource provider, you
 8. In the web app blade, click Browse to view the default website for this app.
 
 ## Deploy a WordPress, DNN, or Django website (optional)**
-
-> [!NOTE]
-> You must have a Tenant Subscription to create applications using App Service on Azure Stack.  In TP3 only App Service Resource Provider Administration operations are supported within the Admin portal.
 
 1. In the **Azure Stack tenant portal**, click “+”, go to the Azure Marketplace, deploy a Django website, and wait for successful completion. The Django web platform uses a file system-based database and doesn’t require any additional resource providers like SQL or MySQL.
 2. If you also deployed a MySQL resource provider, you can deploy a WordPress website from the Marketplace. When you're prompted for database parameters, input the user name as *User1@Server1* (with the user name and server name of your choice).

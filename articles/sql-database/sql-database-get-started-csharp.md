@@ -10,7 +10,7 @@ editor: cgronlun
 
 ms.assetid: cfff2299-a474-4054-8d99-759af1ae5188
 ms.service: sql-database
-ms.custom: single databases
+ms.custom: development
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: csharp

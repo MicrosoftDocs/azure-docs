@@ -22,6 +22,12 @@ Service Map automatically discovers application components on Windows and Linux 
 
 This article describes the details of configuring Service Map and onboarding agents.  For information on using Service Map, see [Using Service Map solution in Operations Management Suite (OMS)](operations-management-suite-service-map.md)
 
+## Dependency Agent downloads
+| File | OS | Version | SHA-256 |
+|:--|:--|:--|:--|
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
+
 
 ## Connected sources
 Service Map gets its data from the Microsoft Dependency Agent.  The Dependency Agent is dependent on the OMS Agent for its connections to OMS.  This means that a server must have the OMS Agent installed and configured first, and then the Dependency Agent can be installed.  The following table describes the connected sources that are supported by the Service Map solution.

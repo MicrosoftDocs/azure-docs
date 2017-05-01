@@ -45,7 +45,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                 </a>
             </li>
             <li>
-                <a href="https://azure.microsoft.com/en-us/community/training/">
+                <a href="https://azure.microsoft.com/community/training/">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
@@ -77,61 +77,61 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     <h3>Compute</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/virtual-machines/linux/index">
+                                            <a href="/azure/virtual-machines/linux/">
                                                 <img src="media/index/VirtualMachine.svg" alt="" />
                                                 <p>Linux Virtual Machines</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/virtual-machines/windows/index">
+                                            <a href="/azure/virtual-machines/windows/">
                                                 <img src="media/index/VirtualMachine.svg" alt="" />
                                                 <p>Windows Virtual Machines</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/virtual-machine-scale-sets/index">
+                                            <a href="/azure/virtual-machine-scale-sets/">
                                                 <img src="media/index/AvailabilitySetOld.svg" alt="" />
                                                 <p>Virtual Machine Scale Sets</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/app-service/index">
+                                            <a href="/azure/app-service/">
                                                 <img src="media/index/app-service-web.svg" alt="" />
                                                 <p>Web Apps</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/container-service/index">
+                                            <a href="/azure/container-service/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
                                                 <p>Azure Container Service</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/container-registry/index">
+                                            <a href="/azure/container-registry/">
                                                 <img src="media/index/container-registry.svg" alt="" />
                                                 <p>Azure Container Registry</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/azure-functions/index">
+                                            <a href="/azure/azure-functions/">
                                                 <img src="media/index/AzureFunctions.svg" alt="" />
                                                 <p>Functions</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/service-fabric/index">
+                                            <a href="/azure/service-fabric/">
                                                 <img src="media/index/Fabric.svg" alt="" />
                                                 <p>Service Fabric</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/batch/index">
+                                            <a href="/azure/batch/">
                                                 <img src="media/index/Batch.svg" alt="" />
                                                 <p>Batch</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cloud-services/index">
+                                            <a href="/azure/cloud-services/">
                                                 <img src="media/index/CloudService.svg" alt="" />
                                                 <p>Cloud Services</p>
                                             </a>
@@ -140,37 +140,37 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     <h3>Databases</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/sql-database/index">
+                                            <a href="/azure/sql-database/">
                                                 <img src="media/index/SQLDatabase.svg" alt="" />
                                                 <p>SQL Database</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/sql-data-warehouse/index">
+                                            <a href="/azure/sql-data-warehouse/">
                                                 <img src="media/index/SQLDataWarehouse.svg" alt="" />
                                                 <p>SQL Data Warehouse</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/sql-server-stretch-database/index">
+                                            <a href="/azure/sql-server-stretch-database/">
                                                 <img src="media/index/SQLDatabase.svg" alt="" />
                                                 <p>SQL Server Stretch Database</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/documentdb/index">
+                                            <a href="/azure/documentdb/">
                                                 <img src="media/index/DocumentDB.svg" alt="" />
                                                 <p>DocumentDB</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/redis-cache/index">
+                                            <a href="/azure/redis-cache/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
                                                 <p>Redis Cache</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/data-factory/index">
+                                            <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
                                                 <p>Data Factory</p>
                                             </a>
@@ -186,13 +186,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/key-vault/index">
+                                            <a href="/azure/key-vault/">
                                                 <img src="media/index/KeyVault.svg" alt="" />
                                                 <p>Key Vault</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/active-directory/index">
+                                            <a href="/azure/active-directory/">
                                                 <img src="media/index/ActiveDirectory.svg" alt="" />
                                                 <p>Azure Active Directory</p>
                                             </a>
@@ -210,13 +210,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/multi-factor-authentication/index">
+                                            <a href="/azure/multi-factor-authentication/">
                                                 <img src="media/index/MultiFactorAuthentication.svg" alt="" />
                                                 <p>Multi-Factor Authentication</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/security/index">
+                                            <a href="/azure/security/">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
                                                 <p>Security Information</p>
                                             </a>
@@ -227,55 +227,55 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     <h3>Networking</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/virtual-network/index">
+                                            <a href="/azure/virtual-network/">
                                                 <img src="media/index/VirtualNetwork.svg" alt="" />
                                                 <p>Virtual Network</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/load-balancer/index">
+                                            <a href="/azure/load-balancer/">
                                                 <img src="media/index/LoadBalancer.svg" alt="" />
                                                 <p>Load Balancer</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/application-gateway/index">
+                                            <a href="/azure/application-gateway/">
                                                 <img src="media/index/ApplicationGateway.svg" alt="" />
                                                 <p>Application Gateway</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/vpn-gateway/index">
+                                            <a href="/azure/vpn-gateway/">
                                                 <img src="media/index/VPNGateway.svg" alt="" />
                                                 <p>VPN Gateway</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/dns/index">
+                                            <a href="/azure/dns/">
                                                 <img src="media/index/DNS.svg" alt="" />
                                                 <p>Azure DNS</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cdn/index">
+                                            <a href="/azure/cdn/">
                                                 <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
                                                 <p>CDN</p>
                                             </a>
                                         </li>
                                         <li>
-                                        <a href="/azure/traffic-manager/index">
+                                        <a href="/azure/traffic-manager/">
                                                 <img src="media/index/TrafficManager.svg" alt="" />
                                                 <p>Traffic Manager</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/expressroute/index">
+                                            <a href="/azure/expressroute/">
                                                 <img src="media/index/ExpressRoute.svg" alt="" />
                                                 <p>ExpressRoute</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/network-watcher/index">
+                                            <a href="/azure/network-watcher/">
                                                 <img src="media/index/network-watcher.svg" alt="" />
                                                 <p>Network Watcher</p>
                                             </a>
@@ -284,67 +284,67 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     <h3>Intelligence + Analytics</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/hdinsight/index">
+                                            <a href="/azure/hdinsight/">
                                                 <img src="media/index/HDInsight.svg" alt="" />
                                                 <p>HDInsight</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/machine-learning/index">
+                                            <a href="/azure/machine-learning/">
                                                 <img src="media/index/MachineLearning.svg" alt="" />
                                                 <p>Machine Learning</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/stream-analytics/index">
+                                            <a href="/azure/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
                                                 <p>Stream Analytics</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/index">
+                                            <a href="/azure/cognitive-services/">
                                                 <img src="media/index/CognitiveServices.svg" alt="" />
                                                 <p>Cognitive Services</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/data-catalog/index">
+                                            <a href="/azure/data-catalog/">
                                                 <img src="media/index/data-catalog.svg" alt="" />
                                                 <p>Data Catalog</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/data-lake-analytics/index">
+                                            <a href="/azure/data-lake-analytics/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
                                                 <p>Data Lake Analytics</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/data-lake-store/index">
+                                            <a href="/azure/data-lake-store/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
                                                 <p>Data Lake Store</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/data-factory/index">
+                                            <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
                                                 <p>Data Factory</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/power-bi-embedded/index">
+                                            <a href="/azure/power-bi-embedded/">
                                                 <img src="media/index/PowerBIEmbedded.svg" alt="" />
                                                 <p>Power BI Embedded</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/analysis-services/index">
+                                            <a href="/azure/analysis-services/">
                                                 <img src="media/index/AnalysisServices.svg" alt="" />
                                                 <p>Analysis Services</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.botframework.com/en-us/azure-bot-service/index">
+                                            <a href="https://docs.botframework.com/en-us/azure-bot-service/">
                                                 <img src="media/index/bot-service.svg" alt="" />
                                                 <p>Azure Bot Service</p>
                                             </a>
@@ -359,19 +359,19 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/devtest-lab/index">
+                                            <a href="/azure/devtest-lab/">
                                                 <img src="media/index/DevTestLabs.svg" alt="" />
                                                 <p>Azure DevTest Labs</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/application-insights/index">
+                                            <a href="/azure/application-insights/">
                                                 <img src="media/index/ApplicationInsights.svg" alt="" />
                                                 <p>Application Insights</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/api-management/index">
+                                            <a href="/azure/api-management/">
                                                 <img src="media/index/APIManagement.svg" alt="" />
                                                 <p>API Management</p>
                                             </a>
@@ -390,31 +390,31 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     <h3>Storage</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/storage/index">
+                                            <a href="/azure/storage/">
                                                 <img src="media/index/Storage.svg" alt="" />
                                                 <p>Storage</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/data-lake-store/index">
+                                            <a href="/azure/data-lake-store/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
                                                 <p>Data Lake Store</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/storsimple/index">
+                                            <a href="/azure/storsimple/">
                                                 <img src="media/index/StorSimple.svg" alt="" />
                                                 <p>StorSimple</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/backup/index">
+                                            <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
                                                 <p>Backup</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/site-recovery/index">
+                                            <a href="/azure/site-recovery/">
                                                 <img src="media/index/SiteRecovery.svg" alt="" />
                                                 <p>Site Recovery</p>
                                             </a>
@@ -429,37 +429,37 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/iot-hub/index">
+                                            <a href="/azure/iot-hub/">
                                                 <img src="media/index/IoTHub.svg" alt="" />
                                                 <p>Azure IoT Hub</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/iot-suite/index">
+                                            <a href="/azure/iot-suite/">
                                                 <img src="media/index/iot-suite.svg" alt="" />
                                                 <p>Azure IoT Suite</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/event-hubs/index">
+                                            <a href="/azure/event-hubs/">
                                                 <img src="media/index/EventHubs.svg" alt="" />
                                                 <p>Event Hubs</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/notification-hubs/index">
+                                            <a href="/azure/notification-hubs/">
                                                 <img src="media/index/NotificationHubs.svg" alt="" />
                                                 <p>Notification Hubs</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/stream-analytics/index">
+                                            <a href="/azure/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
                                                 <p>Stream Analytics</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/machine-learning/index">
+                                            <a href="/azure/machine-learning/">
                                                 <img src="media/index/MachineLearning.svg" alt="" />
                                                 <p>Machine Learning</p>
                                             </a>
@@ -468,49 +468,49 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     <h3>Monitoring + Management</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/application-insights/index">
+                                            <a href="/azure/application-insights/">
                                                 <img src="media/index/ApplicationInsights.svg" alt="" />
                                                 <p>Application Insights</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/log-analytics/index">
+                                            <a href="/azure/log-analytics/">
                                                 <img src="media/index/OperationsManagementSuite.svg" alt="" />
                                                 <p>Log Analytics</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/automation/index">
+                                            <a href="/azure/automation/">
                                                 <img src="media/index/Automation.svg" alt="" />
                                                 <p>Automation</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/backup/index">
+                                            <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
                                                 <p>Backup</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/site-recovery/index">
+                                            <a href="/azure/site-recovery/">
                                                 <img src="media/index/SiteRecovery.svg" alt="" />
                                                 <p>Site Recovery</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/scheduler/index">
+                                            <a href="/azure/scheduler/">
                                                 <img src="media/index/Scheduler.svg" alt="" />
                                                 <p>Scheduler</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/monitoring-and-diagnostics/index">
+                                            <a href="/azure/monitoring-and-diagnostics/">
                                                 <img src="media/index/AzureMonitoring.svg" alt="" />
                                                 <p>Azure Monitor</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/billing/index">
+                                            <a href="/azure/billing/">
                                                 <img src="media/index/billing.svg" alt="" />
                                                 <p>Billing</p>
                                             </a>
@@ -528,7 +528,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/azure-resource-manager/index">
+                                            <a href="/azure/azure-resource-manager/">
                                                 <img src="media/index/AzureDefaultBlack.svg" alt="" />
                                                 <p>Azure Resource Manager</p>
                                             </a>
@@ -540,61 +540,61 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/app-service/index">
+                                            <a href="/azure/app-service/">
                                                 <img src="media/index/AppService.svg" alt="" />
                                                 <p>App Service</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/app-service-web/index">
+                                            <a href="/azure/app-service-web/">
                                                 <img src="media/index/app-service-web.svg" alt="" />
                                                 <p>Web Apps</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/app-service-mobile/index">
+                                            <a href="/azure/app-service-mobile/">
                                                 <img src="media/index/app-service-mobile.svg" alt="" />
                                                 <p>Mobile Apps</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/app-service-api/index">
+                                            <a href="/azure/app-service-api/">
                                                 <img src="media/index/app-service-api.svg" alt="" />
                                                 <p>API Apps</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/logic-apps/index">
+                                            <a href="/azure/logic-apps/">
                                                 <img src="media/index/LogicApp.svg" alt="" />
                                                 <p>Logic Apps</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cdn/index">
+                                            <a href="/azure/cdn/">
                                                 <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
                                                 <p>CDN</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/media-services/index">
+                                            <a href="/azure/media-services/">
                                                 <img src="media/index/MediaServices.svg" alt="" />
                                                 <p>Media Services</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/search/index">
+                                            <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
                                                 <p>Search</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/mobile-engagement/index">
+                                            <a href="/azure/mobile-engagement/">
                                                 <img src="media/index/MobileEngagement.svg" alt="" />
                                                 <p>Mobile Engagement</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/notification-hubs/index">
+                                            <a href="/azure/notification-hubs/">
                                                 <img src="media/index/NotificationHubs.svg" alt="" />
                                                 <p>Notification Hubs</p>
                                             </a>
@@ -603,43 +603,43 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     <h3>Enterprise Integration</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/logic-apps/index">
+                                            <a href="/azure/logic-apps/">
                                                 <img src="media/index/LogicApp.svg" alt="" />
                                                 <p>Logic Apps</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/service-bus/index">
+                                            <a href="/azure/service-bus/">
                                                 <img src="media/index/ServiceBus.svg" alt="" />
                                                 <p>Service Bus</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/api-management/index">
+                                            <a href="/azure/api-management/">
                                                 <img src="media/index/APIManagement.svg" alt="" />
                                                 <p>API Management</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/storsimple/index">
+                                            <a href="/azure/storsimple/">
                                                 <img src="media/index/StorSimple.svg" alt="" />
                                                 <p>StorSimple</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/sql-server-stretch-database/index">
+                                            <a href="/azure/sql-server-stretch-database/">
                                                 <img src="media/index/SQLDatabase.svg" alt="" />
                                                 <p>SQL Server Stretch Database</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/data-factory/index">
+                                            <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
                                                 <p>Data Factory</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/biztalk-services/index">
+                                            <a href="/azure/biztalk-services/">
                                                 <img src="media/index/BizTalkServices.svg" alt="" />
                                                 <p>Biztalk Services</p>
                                             </a>
@@ -648,13 +648,19 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     <h3>Other Clouds</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/azure-government/index">
+                                            <a href="/azure/azure-government/">
                                                 <img src="media/index/azure-government.svg" alt="" />
                                                 <p>Azure US Government</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/azure-stack/index">
+                                            <a href="/azure/germany/">
+                                                <img src="media/index/azure-germany.svg" alt="" />
+                                                <p>Azure Germany</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-stack/">
                                                 <img src="media/index/azure-stack.svg" alt="" />
                                                 <p>Azure Stack</p>
                                             </a>
@@ -679,8 +685,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Deploy infrastructure</h3>
-                                                <a class="barLink" href="/azure/virtual-machines/linux/index">Linux virtual machines</a>
-                                                <a class="barLink" href="/azure/virtual-machines/windows/index">Windows virtual machines</a>
+                                                <a class="barLink" href="/azure/virtual-machines/linux/">Linux virtual machines</a>
+                                                <a class="barLink" href="/azure/virtual-machines/windows/">Windows virtual machines</a>
                                             </div>
                                         </div>
                                     </div>
@@ -733,7 +739,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Manage data</h3>
-                                                <a class="barLink" href="/azure/sql-database/index">SQL Database as a Service</a>
+                                                <a class="barLink" href="/azure/sql-database/">SQL Database as a Service</a>
                                             </div>
                                         </div>
                                     </div>
@@ -752,7 +758,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="/powershell/azure/overview?view=azurermps-3.7.0">
+                                                    <a href="/powershell/azure/overview">
                                                         <img src="media/index/azure_dev-8.svg" alt="">
                                                         <span>Azure<br />PowerShell</span>
                                                     </a>
@@ -774,7 +780,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                         <a href="#Compute">Compute</a>
                         <ul id="Compute" class="cardsA">
                             <li>
-                                <a href="/azure/virtual-machines/linux/index">
+                                <a href="/azure/virtual-machines/linux/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -793,7 +799,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/virtual-machines/windows/index">
+                                <a href="/azure/virtual-machines/windows/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -812,7 +818,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/virtual-machine-scale-sets/index">
+                                <a href="/azure/virtual-machine-scale-sets/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -850,7 +856,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/container-service/index">
+                                <a href="/azure/container-service/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -869,7 +875,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/container-registry/index">
+                                <a href="/azure/container-registry/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -888,7 +894,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-functions/index">
+                                <a href="/azure/azure-functions/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -907,7 +913,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/service-fabric/index">
+                                <a href="/azure/service-fabric/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -926,7 +932,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/batch/index">
+                                <a href="/azure/batch/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -945,7 +951,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cloud-services/index">
+                                <a href="/azure/cloud-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -969,7 +975,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                         <a href="#network">Networking</a>
                         <ul id="network" class="cardsA">
                             <li>
-                                <a href="/azure/virtual-network/index">
+                                <a href="/azure/virtual-network/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -988,7 +994,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/load-balancer/index">
+                                <a href="/azure/load-balancer/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1007,7 +1013,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/application-gateway/index">
+                                <a href="/azure/application-gateway/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1027,7 +1033,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/vpn-gateway/index">
+                                <a href="/azure/vpn-gateway/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1046,7 +1052,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/dns/index">
+                                <a href="/azure/dns/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1065,7 +1071,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cdn/index">
+                                <a href="/azure/cdn/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1085,7 +1091,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/traffic-manager/index">
+                                <a href="/azure/traffic-manager/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1104,7 +1110,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/expressroute/index">
+                                <a href="/azure/expressroute/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1123,7 +1129,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/network-watcher/index">
+                                <a href="/azure/network-watcher/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1147,7 +1153,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                         <a href="#storage">Storage</a>
                         <ul id="storage" class="cardsA">
                             <li>
-                                <a href="/azure/storage/index">
+                                <a href="/azure/storage/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1166,7 +1172,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-lake-store/index">
+                                <a href="/azure/data-lake-store/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1185,7 +1191,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/storsimple/index">
+                                <a href="/azure/storsimple/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1204,7 +1210,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/backup/index">
+                                <a href="/azure/backup/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1223,7 +1229,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/site-recovery/index">
+                                <a href="/azure/site-recovery/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1247,7 +1253,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                         <a href="#web">Web + Mobile</a>
                         <ul id="web" class="cardsA">
                             <li>
-                                <a href="/azure/app-service/index">
+                                <a href="/azure/app-service/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1323,7 +1329,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/logic-apps/index">
+                                <a href="/azure/logic-apps/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1342,7 +1348,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cdn/index">
+                                <a href="/azure/cdn/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1362,7 +1368,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/media-services/index">
+                                <a href="/azure/media-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1381,7 +1387,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/search/index">
+                                <a href="/azure/search/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1400,7 +1406,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/mobile-engagement/index">
+                                <a href="/azure/mobile-engagement/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1419,7 +1425,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/notification-hubs/index">
+                                <a href="/azure/notification-hubs/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1443,7 +1449,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                         <a href="#databases">Databases</a>
                         <ul id="databases" class="cardsA">
                             <li>
-                                <a href="/azure/sql-database/index">
+                                <a href="/azure/sql-database/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1462,7 +1468,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/sql-data-warehouse/index">
+                                <a href="/azure/sql-data-warehouse/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1481,7 +1487,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/sql-server-stretch-database/index">
+                                <a href="/azure/sql-server-stretch-database/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1500,7 +1506,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/documentdb/index">
+                                <a href="/azure/documentdb/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1519,7 +1525,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/redis-cache/index">
+                                <a href="/azure/redis-cache/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1538,7 +1544,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-factory/index">
+                                <a href="/azure/data-factory/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1562,7 +1568,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                         <a href="#analytics">Intelligence + Analytics</a>
                         <ul id="analytics" class="cardsA">
                             <li>
-                                <a href="/azure/hdinsight/index">
+                                <a href="/azure/hdinsight/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1581,7 +1587,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/machine-learning/index">
+                                <a href="/azure/machine-learning/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1600,7 +1606,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/stream-analytics/index">
+                                <a href="/azure/stream-analytics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1619,7 +1625,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cognitive-services/index">
+                                <a href="/azure/cognitive-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1638,7 +1644,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-catalog/index">
+                                <a href="/azure/data-catalog/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1657,7 +1663,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-lake-analytics/index">
+                                <a href="/azure/data-lake-analytics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1676,7 +1682,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-lake-store/index">
+                                <a href="/azure/data-lake-store/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1695,7 +1701,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-factory/index">
+                                <a href="/azure/data-factory/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1714,7 +1720,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/power-bi-embedded/index">
+                                <a href="/azure/power-bi-embedded/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1733,7 +1739,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/analysis-services/index">
+                                <a href="/azure/analysis-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1752,7 +1758,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.botframework.com/en-us/azure-bot-service/index">
+                                <a href="https://docs.botframework.com/en-us/azure-bot-service/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1776,7 +1782,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                         <a href="#iot">Internet of Things</a>
                         <ul id="iot" class="cardsA">
                             <li>
-                                <a href="https://azure.microsoft.com/develop/iot/index">
+                                <a href="https://azure.microsoft.com/develop/iot/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1795,7 +1801,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/iot-hub/index">
+                                <a href="/azure/iot-hub/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1814,7 +1820,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/iot-suite/index">
+                                <a href="/azure/iot-suite/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1833,7 +1839,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/event-hubs/index">
+                                <a href="/azure/event-hubs/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1852,7 +1858,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/stream-analytics/index">
+                                <a href="/azure/stream-analytics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1871,7 +1877,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/machine-learning/index">
+                                <a href="/azure/machine-learning/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1890,7 +1896,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/notification-hubs/index">
+                                <a href="/azure/notification-hubs/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1914,7 +1920,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                         <a href="#integration">Enterprise Integration</a>
                         <ul id="integration" class="cardsA">
                             <li>
-                                <a href="/azure/logic-apps/index">
+                                <a href="/azure/logic-apps/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1933,7 +1939,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/service-bus/index">
+                                <a href="/azure/service-bus/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1952,7 +1958,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/api-management/index">
+                                <a href="/azure/api-management/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1971,7 +1977,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/storsimple/index">
+                                <a href="/azure/storsimple/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1990,7 +1996,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/sql-server-stretch-database/index">
+                                <a href="/azure/sql-server-stretch-database/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2009,7 +2015,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-factory/index">
+                                <a href="/azure/data-factory/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2028,7 +2034,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/biztalk-services/index">
+                                <a href="/azure/biztalk-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2071,7 +2077,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/key-vault/index">
+                                <a href="/azure/key-vault/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2090,7 +2096,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/active-directory/index">
+                                <a href="/azure/active-directory/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2147,7 +2153,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/multi-factor-authentication/index">
+                                <a href="/azure/multi-factor-authentication/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2166,7 +2172,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/security/index">
+                                <a href="/azure/security/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2209,7 +2215,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/devtest-lab/index">
+                                <a href="/azure/devtest-lab/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2228,7 +2234,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/application-insights/index">
+                                <a href="/azure/application-insights/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2247,7 +2253,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/api-management/index">
+                                <a href="/azure/api-management/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2290,7 +2296,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                         <a href="#mgmt">Monitoring + Management</a>
                         <ul id="mgmt" class="cardsA">
                             <li>
-                                <a href="/azure/application-insights/index">
+                                <a href="/azure/application-insights/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2309,7 +2315,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/log-analytics/index">
+                                <a href="/azure/log-analytics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2328,7 +2334,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/automation/index">
+                                <a href="/azure/automation/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2347,7 +2353,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/backup/index">
+                                <a href="/azure/backup/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2366,7 +2372,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/site-recovery/index">
+                                <a href="/azure/site-recovery/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2385,7 +2391,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/scheduler/index">
+                                <a href="/azure/scheduler/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2404,7 +2410,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/monitoring-and-diagnostics/index">
+                                <a href="/azure/monitoring-and-diagnostics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2423,7 +2429,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/billing/index">
+                                <a href="/azure/billing/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2442,7 +2448,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/advisor/index">
+                                <a href="/azure/advisor/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2480,7 +2486,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-resource-manager/index">
+                                <a href="/azure/azure-resource-manager/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2504,7 +2510,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                         <a href="#other">Other Clouds</a>
                         <ul id="other" class="cardsA">
                             <li>
-                                <a href="/azure/azure-government/index">
+                                <a href="/azure/azure-government/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2523,7 +2529,26 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-stack/index">
+                                <a href="/azure/germany/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-germany.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Microsoft Azure Germany</h3>
+                                                    <p>Build and host applications in compliance with German regulations as well as key international standards, with additional control by a data trustee</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-stack/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2567,19 +2592,19 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/dotnet/api">Get the .NET SDK</a>
+                                                    <a href="/azure/dotnet/ ">Get the .NET SDK</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/azure/app-service-web/app-service-web-get-started-dotnet">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/dotnet/api">API reference</a>
+                                                    <a href="/dotnet/api/?term=Microsoft.Azure">API reference</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/documentation/samples/?platform=dotnet">Get samples</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/net/index">Learn more</a>
+                                                    <a href="https://azure.microsoft.com/develop/net/">Learn more</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2630,7 +2655,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="https://www.npmjs.com/package/azure">Get the Node.js SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://azure.github.io/azure-sdk-for-node/index">Get started</a>
+                                                    <a href="http://azure.github.io/azure-sdk-for-node/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure.github.io/azure-storage-node/index.html">API reference</a>
@@ -2660,16 +2685,16 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="https://github.com/Azure/azure-sdk-for-java#download">Get the Java SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/java/api/index">Get started</a>
+                                                    <a href="/java/api/">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/java/api/index">API reference</a>
+                                                    <a href="/java/api/">API reference</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/documentation/samples/?platform=java">Get samples</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/java/index">Learn more</a>
+                                                    <a href="https://azure.microsoft.com/develop/java/">Learn more</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2699,7 +2724,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="https://azure.microsoft.com/documentation/samples/?platform=ruby">Get samples</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/ruby/index">Learn more</a>
+                                                    <a href="https://azure.microsoft.com/develop/ruby/">Learn more</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2717,7 +2742,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/rest/api/index">Get started with REST</a>
+                                                    <a href="/rest/api/">Get started with REST</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/rest/api">Reference</a>
@@ -2967,7 +2992,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </div>
                             </li>
                             <li>
-                                <a href="/azure/architecture/index">
+                                <a href="/azure/architecture/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2986,7 +3011,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/architecture/reference-architectures/index">
+                                <a href="/azure/architecture/reference-architectures/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3005,7 +3030,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/architecture/patterns/index">
+                                <a href="/azure/architecture/patterns/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3044,7 +3069,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
 <!--                            <li>
-                                <a href="/azure/architecture/index">
+                                <a href="/azure/architecture/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">

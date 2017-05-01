@@ -1,10 +1,10 @@
 ---
-title: Application Insights Data Model
+title: Azure Application Insights Data Model | Microsoft Docs
 description: Describes properties exported from continuous export in JSON, and used as filters.
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
 ms.service: application-insights
@@ -27,7 +27,6 @@ Points to note:
 * Time durations are in tenths of a microsecond, so 10000000 == 1 second.
 * Dates and times are UTC, and are given in the ISO format `yyyy-MM-DDThh:mm:ss.sssZ`
 
-There are several [samples](app-insights-export-telemetry.md#code-samples) that illustrate how to use them.
 
 ## Example
     // A server report about an HTTP request

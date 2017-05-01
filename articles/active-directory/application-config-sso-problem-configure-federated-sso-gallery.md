@@ -19,7 +19,7 @@ ms.author: asteen
 
 # Problem configuring federated single sign-on for an Azure AD Gallery application
 
-If you encounter a problem when configuring an application. Verify you have followed all the steps in the tutorial for the application. In the application’s configuration, you have inline documentation on how to configure the application. Also, you can access the [List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-saas-tutorial-list/) for a detail step-by-step guidance.
+If you encounter a problem when configuring an application. Verify you have followed all the steps in the tutorial for the application. In the application’s configuration, you have inline documentation on how to configure the application. Also, you can access the [List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) for a detail step-by-step guidance.
 
 ## Can’t add another instance of the application
 
@@ -75,7 +75,7 @@ If the values don’t match with the patterns pre-configured on Azure AD. You ca
 
 You won’t be able to select the EntityID (User Identifier) format that Azure AD sends to the application in the response after user authentication.
 
-Azure AD select the format for the NameID attribute (User Identifier) based on the value selected or the format requested by the application in the SAML AuthRequest. For more information visit the article [Single Sign-On SAML protocol](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) under the section NameIDPolicy,
+Azure AD select the format for the NameID attribute (User Identifier) based on the value selected or the format requested by the application in the SAML AuthRequest. For more information visit the article [Single Sign-On SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) under the section NameIDPolicy,
 
 ## Can’t find the Azure AD metadata to complete the configuration with the application
 

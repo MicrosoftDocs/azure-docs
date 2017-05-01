@@ -133,7 +133,7 @@ Verify configuration in Active Directory:
 
 ## Additional Information
 * [Managing Risk With Conditional Access](../active-directory-conditional-access.md)
-* [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](https://msdn.microsoft.com/library/azure/dn788908.aspx)
+* [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](../active-directory-device-registration-on-premises-setup.md)
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

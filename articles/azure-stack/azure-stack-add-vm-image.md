@@ -3,8 +3,8 @@ title: Adding a VM image to Azure Stack | Microsoft Docs
 description: Add your organization's custom Windows or Linux VM image for tenants to use
 services: azure-stack
 documentationcenter: ''
-author: mattmcg
-manager: darmour
+author: SnehaGunda
+manager: byronr
 editor: ''
 
 ms.assetid: e5a4236b-1b32-4ee6-9aaa-fcde297a020f
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/10/2016
-ms.author: mattmcg
+ms.date: 04/21/2017
+ms.author: sngun
 
 ---
 # Make a custom virtual machine image available in Azure Stack
@@ -52,28 +52,28 @@ If the VM image VHD is available locally on the console VM (or another externall
    Add-AzureStackAzureRmEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
    ```
 
-4. Get the GUID value of the Azure Active Directory(AAD) tenant that is used to deploy the Azure Stack. If your Azure Stack environment is deployed by using:  
+4. Get the GUID value of the Active Directory(AD) tenant that is used to deploy the Azure Stack. If your Azure Stack environment is deployed by using:  
 
     a. **Azure Active Directory**, use the following cmdlet:
     
     ```PowerShell
-       $AadTenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackAdmin
+    $TenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackAdmin
     ```
     b. **Active Directory Federation Services**, use the following cmdlet:
     
     ```PowerShell
-    $AadTenantID = Get-DirectoryTenantID -ADFS -EnvironmentName AzureStackAdmin 
+    $TenantID = Get-DirectoryTenantID -ADFS -EnvironmentName AzureStackAdmin 
     ```
 
 5. Add the VM image by invoking the **Add-VMImage** cmdlet. In the Add-VMImage cmdlet, specify the osType as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. These parameters are used by Azure Resource Manager templates that reference the VM image. Following is an example invocation of the script:
      
      ```powershell
-     # Store the AAD service administrator account credentials in a variable 
+     # Store the service administrator account credentials in a variable 
      $UserName='<Username of the service administrator account>'
      $Password='<Admin password provided when deploying Azure Stack>'|ConvertTo-SecureString -Force -AsPlainText
      $Credential=New-Object PSCredential($UserName,$Password)
 
-     Add-VMImage -publisher "Canonical" -offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0" -osType Linux -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' -TenantId $AadTenantID -EnvironmentName "AzureStackAdmin" -azureStackCredentials $Credential
+     Add-VMImage -publisher "Canonical" -offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0" -osType Linux -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' -TenantId $TenantID -EnvironmentName "AzureStackAdmin" -azureStackCredentials $Credential
      ```
 
 The command does the following:
@@ -164,4 +164,3 @@ To make the blob anonymously accessible, go to the storage account blob containe
    more readily available for tenant consumption in the UI, it is best
    to [create a
    Marketplace item](azure-stack-create-and-publish-marketplace-item.md).
-

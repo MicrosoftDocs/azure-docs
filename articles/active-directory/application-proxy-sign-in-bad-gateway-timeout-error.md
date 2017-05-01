@@ -32,7 +32,7 @@ When you see this error, the page also share a status code. That code is likely 
 
 To find the code, look at the text at the bottom left of the error message for the “Status Code” field. Also look for any notes at the very bottom of the page with additional tips.
 
-   ![Connection problem](./media/application-proxy/connection-problem.png)
+   ![Gateway timeout error](./media/application-proxy/connection-problem.png)
 
 For details on how to troubleshoot the root cause of these errors and more details on suggested fixes, see the corresponding section below.
 
@@ -57,7 +57,7 @@ A bad gateway error indicates that the connector is unable to reach the backend 
 
 If you see a forbidden error, the user has not been assigned to the application. This could be either in Azure Active Directory or on the backend application.
 
-To learn how to assign users to the application in Azure, see the [configuration documentation](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal#add-a-test-user).
+To learn how to assign users to the application in Azure, see the [configuration documentation](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal#add-a-test-user).
 
 If you confirm the user is assigned to the application in Azure, check the user configuration in the backend application. If you are using Kerberos Constrained Delegation/Integrated Windows Authentication, you can see our KCD Troubleshoot page for some guidelines.
 
@@ -91,9 +91,9 @@ To verify that all required ports are open, see our documentation on opening por
 
 ## Check for other Connector Errors
 
-If none of the above resolve the issue, the next step is to look for issues or errors with the Connector itself. You can see some common errors in the [Troubleshoot document](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors). 
+If none of the above resolve the issue, the next step is to look for issues or errors with the Connector itself. You can see some common errors in the [Troubleshoot document](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors). 
 
-You can also look directly at the Connector logs to identify any errors. Many of our error messages be able to share more specific recommendations for fixes. To learn how to view the logs, see [our connectors documentation](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-understand-connectors#under-the-hood).
+You can also look directly at the Connector logs to identify any errors. Many of our error messages be able to share more specific recommendations for fixes. To learn how to view the logs, see [our connectors documentation](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors#under-the-hood).
 
 ## Additional Resolutions
 
@@ -105,7 +105,7 @@ Now open a browser and try to access the application again. You should be prompt
 
 If you continue to see the error, go to the machine where the Connector is installed, open a browser and attempt to reach the internal URL used for the application. The Connector acts like another client from the same machine. If you can’t reach the application, investigate why that machine is unable to reach the application, or use a connector on a server that is able to access the application.
 
-If you can reach the application from that machine, to look for issues or errors with the Connector itself. You can see some common errors in the [Troubleshoot document](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors). You can also look directly at the Connector logs to identify any errors. Many of our error messages be able to share more specific recommendations for fixes. To learn how to view the logs, see [our connectors documentation](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-understand-connectors#under-the-hood).
+If you can reach the application from that machine, to look for issues or errors with the Connector itself. You can see some common errors in the [Troubleshoot document](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors). You can also look directly at the Connector logs to identify any errors. Many of our error messages be able to share more specific recommendations for fixes. To learn how to view the logs, see [our connectors documentation](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors#under-the-hood).
 
 ## Next steps
 [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md)

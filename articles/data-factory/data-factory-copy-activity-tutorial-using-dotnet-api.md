@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Create a pipeline with Copy Activity using .NET API | Microsoft Docs'
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using .NET API.
 services: data-factory
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 
 ---
@@ -42,7 +42,7 @@ The Copy Activity performs the data movement in Azure Data Factory. The activity
 * Go through [Tutorial Overview and Pre-requisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) to get an overview of the tutorial and complete the **prerequisite** steps.
 * Visual Studio 2012 or 2013 or 2015
 * Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/)
-* Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application.
+* Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/overview) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application.
 
 ### Create an application in Azure Active Directory
 Create an Azure Active Directory application, create a service principal for the application, and assign it to the **Data Factory Contributor** role.
@@ -102,7 +102,7 @@ Create an Azure Active Directory application, create a service principal for the
 	```PowerShell
 	$azureAdApplication	
 	```
-    Note down the application ID (**applicationID** from the output).
+    Note down the application ID (applicationID) from the output.
 
 You should have following four values from these steps:
 
@@ -120,7 +120,7 @@ You should have following four values from these steps:
    5. Enter **DataFactoryAPITestApp** for the Name.
    6. Select **C:\ADFGetStarted** for the Location.
    7. Click **OK** to create the project.
-2. Click **Tools**, point to **Nuget Package Manager**, and click **Package Manager Console**.
+2. Click **Tools**, point to **NuGet Package Manager**, and click **Package Manager Console**.
 3. In the **Package Manager Console**, do the following steps:
    1. Run the following command to install Data Factory package: `Install-Package Microsoft.Azure.Management.DataFactories`
    2. Run the following command to install Azure Active Directory package (you use Active Directory API in the code): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
@@ -180,7 +180,7 @@ You should have following four values from these steps:
    > [!IMPORTANT]
    > Replace the value of **resourceGroupName** with the name of your Azure resource group.
    >
-   > Update name of the data factory (**dataFactoryName**) to be unique. Name of the data factory must be globally unique. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
+   > Update name of the data factory (dataFactoryName) to be unique. Name of the data factory must be globally unique. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
 
 7. Add the following code that creates a **data factory** to the **Main** method.
 
@@ -469,7 +469,7 @@ You should have following four values from these steps:
     }
     ```
 
-15. In the Solution Explorer, expand the project (**DataFactoryAPITestApp**), right-click **References**, and click **Add Reference**. Select check box for "**System.Configuration**" assembly and click **OK**.
+15. In the Solution Explorer, expand the project (DataFactoryAPITestApp), right-click **References**, and click **Add Reference**. Select check box for **System.Configuration** assembly. and click **OK**.
 16. Build the console application. Click **Build** on the menu and click **Build Solution**.
 17. Confirm that there is at least one file in the **adftutorial** container in your Azure blob storage. If not, create **Emp.txt** file in Notepad with the following content and upload it to the adftutorial container.
 
@@ -482,7 +482,7 @@ You should have following four values from these steps:
    * Linked service: **LinkedService_AzureStorage**
    * Dataset: **DatasetBlobSource** and **DatasetBlobDestination**.
    * Pipeline: **PipelineBlobSample**
-20. Verify that the two employee records are created in the "**emp**" table in the specified Azure SQL database.
+20. Verify that the two employee records are created in the **emp** table in the specified Azure SQL database.
 
 ## Next Steps
 | Topic | Description |

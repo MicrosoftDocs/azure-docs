@@ -25,6 +25,9 @@ You can copy data from any supported source data store to Azure Data Lake Store 
 > [!NOTE]
 > Create an Azure Data Lake Store account before creating a pipeline with a Copy Activity to move data to/from an Azure Data Lake store. To learn about Azure Data Lake Store, see [Get started with Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md).
 
+## Supported authentication types
+Azure Data Lake Store connector support **service principal** authentication and **user credential** (OAuth) authentication. You are suggested to use the former especially for scheduled data copy to avoid token expiration behavior with the latter. See [Linked service properties](#linked-service-properties) section with configuration details.
+
 ## Getting started
 You can create a pipeline with a copy activity that moves data to/from an Azure Data Lake Store by using different tools/APIs.
 

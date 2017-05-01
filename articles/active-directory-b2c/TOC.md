@@ -1,7 +1,7 @@
 # Overview
 ## [Overview](active-directory-b2c-overview.md)
 ## [Types of applications](active-directory-b2c-apps.md)
-## [Production-scale vs preview B2C tenants](active-directory-b2c-reference-tenant-type.md)
+## [Region availability & data residency](active-directory-b2c-reference-tenant-type.md)
 
 # Get Started
 ## [Create an Azure AD B2C Directory](active-directory-b2c-get-started.md)

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: how-to-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 ---
@@ -39,9 +39,16 @@ Once logged in, Docker caches the credentials, so you don't need to remember the
 >
 
 
-Service principals allow [role-based access](../active-directory/role-based-access-control-configure.md) to a registry. Available roles are Reader (pull only access), Contributor (pull and push), and Owner (pull, push, and assign roles to other users). You can assign multiple service principals to a registry, which allows you to define access for different users or applications. Service principals also enable "headless" connectivity to a registry in developer or DevOps scenarios such as the following examples:
+Service principals allow [role-based access](../active-directory/role-based-access-control-configure.md) to a registry. Available roles are:
+  * Reader (pull only access).
+  * Contributor (pull and push).
+  * Owner (pull, push, and assign roles to other users).
 
-  * Container deployments from a registry to orchestration systems including DC/OS, Docker Swarm and Kubernetes. You can also pull container registries to related Azure services such as [Container Service](../container-service/index.md), [App Service](../app-service/index.md), [Batch](../batch/index.md), and [Service Fabric](../service-fabric/index.md).
+Anonymous access is not available on Azure Container Registries. For public images you can use [Docker Hub](https://docs.docker.com/docker-hub/).
+
+You can assign multiple service principals to a registry, which allows you to define access for different users or applications. Service principals also enable "headless" connectivity to a registry in developer or DevOps scenarios such as the following examples:
+
+  * Container deployments from a registry to orchestration systems including DC/OS, Docker Swarm and Kubernetes. You can also pull container registries to related Azure services such as [Container Service](../container-service/index.md), [App Service](../app-service/index.md), [Batch](../batch/index.md), [Service Fabric](../service-fabric/index.md), and others.
 
   * Continuous integration and deployment solutions (such as Visual Studio Team Services or Jenkins) that build container images and push them to a registry.
 
