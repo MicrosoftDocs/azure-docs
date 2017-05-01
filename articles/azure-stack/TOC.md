@@ -20,7 +20,7 @@
 ## [Make VMs available](azure-stack-tutorial-tenant-vm.md)
 ## [Make databases available](azure-stack-tutorial-sql-server.md)
 ## [Make apps available](azure-stack-tutorial-app-service.md)
-## Deploy apps to Azure & Azure Stack
+## [Deploy apps to Azure & Azure Stack](azure-stack-solution-pipeline.md)
 
 # Manage
 ## Overview
