@@ -56,7 +56,7 @@ C:\Users\exampleuser\NewStorage.json
 
 Open the file, and notice that it is the exact template you used for deployment. The parameters and variables match the template from GitHub. You can redeploy this template.
 
-## Export Resource Manager template
+## Export resource group as template
 
 Instead of retrieving a template from the deployment history, you can retrieve a template that represents the current state of a resource group by using the [Export-​Azure​Rm​Resource​Group](/powershell/module/azurerm.resources/export-azurermresourcegroup) command. You use this command when you have made many changes to your resource group and no existing template represents all the changes.
 

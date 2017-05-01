@@ -50,7 +50,7 @@ az group deployment export --name NewStorage --resource-group ExampleGroup
 It returns the template. Copy the JSON, and save as a file. Notice that it is the exact template you used for deployment. The parameters and variables match the template from GitHub. You can redeploy this template.
 
 
-## Export Resource Manager template
+## Export resource group as template
 
 Instead of retrieving a template from the deployment history, you can retrieve a template that represents the current state of a resource group by using the [az group export](/cli/azure/group#export) command. You use this command when you have made many changes to your resource group and no existing template represents all the changes.
 
