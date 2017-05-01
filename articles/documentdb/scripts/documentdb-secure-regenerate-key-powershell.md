@@ -27,7 +27,7 @@ This sample regenerates any kind of Azure Cosmos DB account key using the Azure 
 
 ## Sample script
 
-`[!code-powershell[main](../../../powershell_scripts/documentdb/create-and-configure-database/create-and-configure-database.ps1?highlight=7-8 "Regenerate Azure Cosmos DB account keys")]`
+`[!code-powershell[main](../../../powershell_scripts/cosmosdb/regenerate-account-keys/regenerate-account-keys.ps1?highlight=36-41 "Regenerate Azure Cosmos DB account keys")]`
 
 ## Clean up deployment
 
@@ -45,6 +45,7 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
 | [New-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-3.8.0) | Creates a logical server that hosts a database or elastic pool. |
+| [Invoke-AzureRmResourceAction](https://docs.microsoft.com/powershell/module/azurerm.resources/invoke-azurermresourceaction?view=azurermps-3.8.0) | Invokes an action on the Azure CosmosDB account. |
 | [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 

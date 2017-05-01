@@ -1,6 +1,6 @@
 ---
 title: Indexers in Azure Search | Microsoft Docs
-description: Crawl Azure SQL database, DocumentDB, or Azure storage to extract searchable data and populate an Azure Search index.
+description: Crawl Azure SQL database, Azure Cosmos DB, or Azure storage to extract searchable data and populate an Azure Search index.
 services: search
 documentationcenter: ''
 author: HeidiSteen
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 05/01/2017
 ms.author: heidist
 ---
 
@@ -24,9 +24,9 @@ ms.author: heidist
 > * [Overview](search-indexer-overview.md)
 > * [Portal](search-import-data-portal.md)
 > * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-> * [DocumentDB](search-howto-index-documentdb.md)
-> * [Blob Storage (preview)](search-howto-indexing-azure-blob-storage.md)
-> * [Table Storage (preview)](search-howto-indexing-azure-tables.md)
+> * [Azure Cosmos DB](search-howto-index-documentdb.md)
+> * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
+> * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 >
 >
 
@@ -37,7 +37,7 @@ You can use an indexer as the sole means for data ingestion, or use a combinatio
 You can run indexers on demand or on a recurring data refresh schedule that runs as often as every fifteen minutes. More frequent updates require a push model that simultaneously updates data in both Azure Search and your external data source.
 
 ## Approaches for creating and managing indexers
-For generally available indexers like Azure SQL or DocumentDB, you can create and manage indexers using these approaches:
+For generally available indexers like Azure SQL or Azure Cosmos DB, you can create and manage indexers using these approaches:
 
 * [Portal > Import Data Wizard ](search-get-started-portal.md)
 * [Service REST API](https://msdn.microsoft.com/library/azure/dn946891.aspx)
@@ -53,7 +53,7 @@ An indexer will automate some tasks related to data ingestion, but creating an i
 An indexer pulls data from a **data source** which holds information such as a connection string. Currently the following data sources are supported:
 
 * [Azure SQL Database or SQL Server on an Azure virtual machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-documentdb.md)
 * [Azure Blob storage](search-howto-indexing-azure-blob-storage.md), used to extract text from PDF, Office documents, HTML, or XML
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 
@@ -66,8 +66,8 @@ The indexer definition is a construct specifying the index, data source, and a s
 Now that you have the basic idea, the next step is to review requirements and tasks specific to each data source type.
 
 * [Azure SQL Database or SQL Server on an Azure virtual machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-documentdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md), used to extract text from PDF, Office documents, HTML, or XML
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
-* [Indexing CSV blobs using the Azure Search Blob indexer (Preview)](search-howto-index-csv-blobs.md)
-* [Indexing JSON blobs with Azure Search Blob indexer (Preview)](search-howto-index-json-blobs.md)
+* [Indexing CSV blobs using the Azure Search Blob indexer](search-howto-index-csv-blobs.md)
+* [Indexing JSON blobs with Azure Search Blob indexer](search-howto-index-json-blobs.md)

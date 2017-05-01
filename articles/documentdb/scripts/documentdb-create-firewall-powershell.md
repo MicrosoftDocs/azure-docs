@@ -21,13 +21,13 @@ ms.author: mimig
 
 # Azure Cosmos DB: Create a firewall using PowerShell
 
-This sample PowerShell script creates a firewall for any kind of Azure Cosmos DB DocumentDB API account. 
+This sample PowerShell script creates a firewall for any kind of Azure Cosmos DB API account. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Sample script
 
-`[!code-powershell[main](../../../powershell_scripts/documentdb/create-and-configure-database/create-and-configure-database.ps1?highlight=7-8 "Create a firewall for Azure Cosmos DB")]`
+`[!code-powershell[main](../../../powershell_scripts/cosmosdb/create-firewall/create-firewall.ps1?highlight=35-36,39-43 "Create a firewall for Azure Cosmos DB")]`
 
 ## Clean up deployment
 
@@ -45,6 +45,7 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
 | [New-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-3.8.0) | Creates a logical server that hosts a database or elastic pool. |
+| [Set-AzureRMResource](https://docs.microsoft.com/powershell/module/azurerm.resources/set-azurermresource?view=azurermps-3.8.0) | Modifies the database account. |
 | [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 
