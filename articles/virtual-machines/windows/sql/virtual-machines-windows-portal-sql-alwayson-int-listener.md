@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/28/2017
+ms.date: 05/01/2017
 ms.author: mikeray 
 
 ---
@@ -237,7 +237,8 @@ After you have added an IP address for the listener, you can configure the addit
  
 5. [Set the cluster parameters in PowerShell](#setparam).
 
-## Guidelines and limitations
-Note the following guidelines on availability group listener in Azure using internal load balancer:
- 
-* With an internal load balancer, you only access the listener from within the same virtual network.
+After you configure the availability group to use the new IP address, configure the connection to the listener. 
+
+## Next steps
+
+- [Configure a SQL Server Always On Availability Group on Azure Virtual Machines in Different Regions](virtual-machines-windows-portal-sql-availability-group-dr.md)
