@@ -849,7 +849,13 @@ If a query name is provided to the `.pull(query, queryname)` method, then increm
 
 ### Handle Conflicts during Offline Synchronization
 
-<!-- TODO -->
+If a conflict happens during a `.push()` operation, a `MobileServiceConflictException` is thrown.   The server-issued item is embedded in the exception and can be retrieved by `.getItem()` on the exception.  Adjust the push by calling the following items on the MobileServiceSyncContext object:
+
+*  `.cancelAndDiscardItem()`
+*  `.cancelAndUpdateItem()`
+*  `.updateOperationAndItem()`
+
+Once all conflicts are marked as you wish, call `.push()` again to resolve all the conflicts.
 
 ## <a name="custom-api"></a>Call a custom API
 
@@ -1027,11 +1033,7 @@ MobileServiceUser user = mClient
     .get();
 ```
 
-As a best practice, create a filter that detects a 401 response from the server and tries to refresh the user token:
-
-```java
-<!-- TODO: Di will provide this soon! -->
-```
+As a best practice, create a filter that detects a 401 response from the server and tries to refresh the user token.
 
 ## Login with Client-flow Authentication
 
