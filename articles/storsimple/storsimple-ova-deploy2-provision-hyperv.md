@@ -213,7 +213,7 @@ If you face any other error during the initial configuration using the local web
 
 Watch the video to see how you can provision a StorSimple Virtual Array in Hyper-V.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Create-a-StorSimple-Virtual-Array/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Create-a-StorSimple-Virtual-Array/player]
 > 
 > 
 

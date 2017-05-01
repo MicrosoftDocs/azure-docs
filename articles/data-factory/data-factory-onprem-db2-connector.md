@@ -1,5 +1,5 @@
 ---
-title: Move data from DB2 | Microsoft Docs
+title: Move data from DB2 using Azure Data Factory | Microsoft Docs
 description: Learn about how move data from DB2 Database using Azure Data Factory
 services: data-factory
 documentationcenter: ''
@@ -13,21 +13,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 04/12/2017
 ms.author: jingwang
 
 ---
 # Move data from DB2 using Azure Data Factory
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to from DB2 to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity and supported data store combinations.
+This article outlines how you can use the Copy Activity in an Azure data factory to copy data from an on-premises DB2 database to any data store listed under Sink column in the [Supported Sources and Sinks](data-factory-data-movement-activities.md#supported-data-stores-and-formats) section. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity and supported data store combinations.
 
-Data factory supports connecting to on-premises DB2 sources using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway.
+Data factory currently supports only moving data from a DB2 database to [supported sink data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats), but not moving data from other data stores to a DB2 database.
+
+## Prerequisites
+Data Factory supports connecting to on-premises DB2 database using the Data Management Gateway. See [Data Management Gateway](data-factory-data-management-gateway.md) article to learn about Data Management Gateway and [Move data from on-premises to cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions on setting up the gateway a data pipeline to move data.
+
+Gateway is required even if the DB2 is hosted in an Azure IaaS VM. You can install the gateway on the same IaaS VM as the data store or on a different VM as long as the gateway can connect to the database.
+
+The Data Management Gateway provides a built-in DB2 driver, therefore you don't need to manually install any driver when copying data from DB2.
 
 > [!NOTE]
-> Use the gateway to connect to DB2 even if it is hosted in Azure IaaS VMs. If you are trying to connect to an instance of DB2 hosted in cloud, you can also install the gateway instance in the IaaS VM.
->
->
-
-Data factory currently supports only moving data from DB2 to other data stores, not from other data stores to DB2.
+> See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway related issues.
 
 ## Supported versions
 This DB2 connector supports the following IBM DB2 platforms and versions with Distributed Relational Database Architecture (DRDA) SQL Access Manager (SQLAM) version 9, 10 and 11:
@@ -40,28 +43,80 @@ This DB2 connector supports the following IBM DB2 platforms and versions with Di
 * IBM DB2 for LUW 10.5
 * IBM DB2 for LUW 10.1
 
-The Data Management Gateway provides a built-in DB2 driver, therefore you don't need to manually install any driver when copying data from DB2.
+> [!TIP]
+> If you hit error stating "The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805", user a high privilege account (power user or admin) to run the copy activity once, then the needed package will be auto created during copy. Afterwards, you can switch back to normal user for your subsequent copy runs.
+
+## Getting started
+You can create a pipeline with a copy activity that moves data from an on-premises DB2 data store by using different tools/APIs. 
+
+- The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
+- You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
+
+Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
+
+1. Create **linked services** to link input and output data stores to your data factory.
+2. Create **datasets** to represent input and output data for the copy operation. 
+3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output. 
+
+When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data from an on-premises DB2 data store, see [JSON example: Copy data from DB2 to Azure Blob](#json-example-copy-data-from-db2-to-azure-blob) section of this article. 
+
+The following sections provide details about JSON properties that are used to define Data Factory entities specific to a DB2 data store:
+
+## Linked service properties
+The following table provides description for JSON elements specific to DB2 linked service.
+
+| Property | Description | Required |
+| --- | --- | --- |
+| type |The type property must be set to: **OnPremisesDB2** |Yes |
+| server |Name of the DB2 server. |Yes |
+| database |Name of the DB2 database. |Yes |
+| schema |Name of the schema in the database. The schema name is case-sensitive. |No |
+| authenticationType |Type of authentication used to connect to the DB2 database. Possible values are: Anonymous, Basic, and Windows. |Yes |
+| username |Specify user name if you are using Basic or Windows authentication. |No |
+| password |Specify password for the user account you specified for the username. |No |
+| gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises DB2 database. |Yes |
+
+
+## Dataset properties
+For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
+
+The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type RelationalTable (which includes DB2 dataset) has the following properties.
+
+| Property | Description | Required |
+| --- | --- | --- |
+| tableName |Name of the table in the DB2 Database instance that linked service refers to. The tableName is case-sensitive. |No (if **query** of **RelationalSource** is specified) |
+
+## Copy activity properties
+For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policies are available for all types of activities.
+
+Whereas, properties available in the typeProperties section of the activity vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
+
+For Copy Activity, when source is of type **RelationalSource** (which includes DB2) the following properties are available in typeProperties section:
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| query |Use the custom query to read data. |SQL query string. For example: `"query": "select * from "MySchema"."MyTable""`. |No (if **tableName** of **dataset** is specified) |
 
 > [!NOTE]
-> See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway related issues.
->
->
+> Schema and table names are case-sensitive. Enclose the names in "" (double quotes) in the query.  
 
-## Copy Data wizard
-The easiest way to create a pipeline that copies data from a DB2 Database is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
+**Example:**
 
-The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from DB2 database and Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
+```sql
+"query": "select * from "DB2ADMIN"."Customers""
+```
 
-## Sample: Copy data from DB2 to Azure Blob
-This sample shows how to copy data from an on-premises DB2 database to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.  
+
+## JSON example: Copy data from DB2 to Azure Blob
+This example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). It shows how to copy data from DB2 database and Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
 
 The sample has the following data factory entities:
 
-1. A linked service of type [OnPremisesDb2](data-factory-onprem-db2-connector.md#db2-linked-service-properties).
-2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-3. An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](data-factory-onprem-db2-connector.md#db2-dataset-type-properties).
-4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](data-factory-onprem-db2-connector.md#db2-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+1. A linked service of type [OnPremisesDb2](data-factory-onprem-db2-connector.md#linked-service-properties).
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+3. An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](data-factory-onprem-db2-connector.md#dataset-properties).
+4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](data-factory-onprem-db2-connector.md#copy-activity-properties) and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 The sample copies data from a query result in a DB2 database to an Azure blob hourly. The JSON properties used in these samples are described in sections following the samples.
 
@@ -69,7 +124,7 @@ As a first step, install and configure a data management gateway. Instructions a
 
 **DB2 linked service:**
 
-```JSON
+```json
 {
     "name": "OnPremDb2LinkedService",
     "properties": {
@@ -89,7 +144,7 @@ As a first step, install and configure a data management gateway. Instructions a
 
 **Azure Blob storage linked service:**
 
-```JSON
+```json
 {
     "name": "AzureStorageLinkedService",
     "properties": {
@@ -107,7 +162,7 @@ The sample assumes you have created a table “MyTable” in DB2 and it contains
 
 Setting “external”: true informs the Data Factory service that this dataset is external to the data factory and is not produced by an activity in the data factory. Notice that the **type** is set to **RelationalTable**.
 
-```JSON
+```json
 {
     "name": "Db2DataSet",
     "properties": {
@@ -134,7 +189,7 @@ Setting “external”: true informs the Data Factory service that this dataset 
 
 Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
 
-```JSON
+```json
 {
     "name": "AzureBlobDb2DataSet",
     "properties": {
@@ -194,7 +249,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 
 The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the data from the Orders table.
 
-```JSON
+```json
 {
     "name": "CopyDb2ToBlob",
     "properties": {
@@ -238,55 +293,6 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 }
 ```
 
-## DB2 linked service properties
-The following table provides description for JSON elements specific to DB2 linked service.
-
-| Property | Description | Required |
-| --- | --- | --- |
-| type |The type property must be set to: **OnPremisesDB2** |Yes |
-| server |Name of the DB2 server. |Yes |
-| database |Name of the DB2 database. |Yes |
-| schema |Name of the schema in the database. The schema name is case-sensitive. |No |
-| authenticationType |Type of authentication used to connect to the DB2 database. Possible values are: Anonymous, Basic, and Windows. |Yes |
-| username |Specify user name if you are using Basic or Windows authentication. |No |
-| password |Specify password for the user account you specified for the username. |No |
-| gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises DB2 database. |Yes |
-
-See [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) for details about setting credentials for an on-premises DB2 data source. 
-
-## DB2 dataset type properties
-For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
-
-The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type RelationalTable (which includes DB2 dataset) has the following properties.
-
-| Property | Description | Required |
-| --- | --- | --- |
-| tableName |Name of the table in the DB2 Database instance that linked service refers to. The tableName is case-sensitive. |No (if **query** of **RelationalSource** is specified) |
-
-## DB2 copy activity type properties
-For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policies are available for all types of activities.
-
-Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
-
-For Copy Activity, when source is of type **RelationalSource** (which includes DB2) the following properties are available in typeProperties section:
-
-| Property | Description | Allowed values | Required |
-| --- | --- | --- | --- |
-| query |Use the custom query to read data. |SQL query string. For example: `"query": "select * from "MySchema"."MyTable""`. |No (if **tableName** of **dataset** is specified) |
-
-> [!NOTE]
-> Schema and table names are case-sensitive. Enclose the names in "" (double quotes) in the query.  
->
->
-
-**Example:**
-
-```JSON
-"query": "select * from "DB2ADMIN"."Customers""
-```
-
-
-[!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ## Type mapping for DB2
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, the Copy activity performs automatic type conversions from source types to sink types with the following 2-step approach:
@@ -339,9 +345,11 @@ When moving data to DB2, the following mappings are used from DB2 type to .NET t
 | Xml |Byte[] |
 | Char |String |
 
-[!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
+## Map source to sink columns
+To learn about mapping columns in source dataset to columns in sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
 
-[!INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
+## Repeatable read from relational sources
+When copying data from relational data stores, keep repeatability in mind to avoid unintended outcomes. In Azure Data Factory, you can rerun a slice manually. You can also configure retry policy for a dataset so that a slice is rerun when a failure occurs. When a slice is rerun in either way, you need to make sure that the same data is read no matter how many times a slice is run. See [Repeatable read from relational sources](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## Performance and Tuning
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.

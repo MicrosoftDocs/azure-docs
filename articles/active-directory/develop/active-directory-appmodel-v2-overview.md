@@ -1,5 +1,5 @@
 ---
-title: v2.0 Endpoint Overview | Microsoft Docs
+title: Resources for the Azure AD v2.0 endpoint | Microsoft Docs
 description: An introduction to building apps with both Microsoft Account and Azure Active Directory sign-in.
 services: active-directory
 documentationcenter: ''

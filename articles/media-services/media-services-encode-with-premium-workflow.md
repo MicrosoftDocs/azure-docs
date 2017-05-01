@@ -128,18 +128,10 @@ The following is a complete example. For information on how to set up with Media
 
                 Console.WriteLine("Created assetFile {0}", assetFile.Name);
 
-                var accessPolicy = _context.AccessPolicies.Create(assetName, TimeSpan.FromDays(30),
-                                                                    AccessPermissions.Write | AccessPermissions.List);
-
-                var locator = _context.Locators.CreateLocator(LocatorType.Sas, asset, accessPolicy);
-
                 Console.WriteLine("Upload {0}", assetFile.Name);
 
                 assetFile.Upload(singleFilePath);
                 Console.WriteLine("Done uploading {0}", assetFile.Name);
-
-                locator.Delete();
-                accessPolicy.Delete();
 
                 return asset;
             }

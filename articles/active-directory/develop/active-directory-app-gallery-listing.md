@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
-ms.author: mbaldwin
+ms.date: 04/27/2017
+ms.author: bryanla
 
 ---
 # Listing your application in the Azure Active Directory application gallery
@@ -45,7 +45,7 @@ To integrate your application with Azure AD, following the [developer instructio
 > 
 > Application Technical Support Website or Contact Info:
 > 
-> Client ID of the application, as shown in the application details at https://manage.windowsazure.com:
+> Application  ID of the application, as shown in the application details at https://portal.azure.com:
 > 
 > Application Sign-Up URL where customers go to sign up for and /or purchase the application:
 > 

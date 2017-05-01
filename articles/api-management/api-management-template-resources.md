@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
-ms.author: mijiang
+ms.author: apimpm
 ---
 # Azure API Management template resources
 Azure API Management provides the following types of resources for use in the developer portal templates.  
@@ -282,11 +282,11 @@ Azure API Management provides the following types of resources for use in the de
 |OAuth2AuthorizationServerCommunicationException|An HTTP connection to authorization server could not be established or it has been unexpectedly closed.|  
 |WebDocumentationOAuth2GeneralErrorMessage|Unexpected error occured.|  
 |AuthorizationServerCommunicationException|Authorization server communication exception has happened. Please contact administrator.|  
-|TextblockSubscriptionKeyHeaderDescription|Subscription key which provides access to this API. Found in your `<a href='/developer'\>Profile</a\>`.|  
+|TextblockSubscriptionKeyHeaderDescription|Subscription key which provides access to this API. Found in your <a href='/developer'\>Profile</a\>.|  
 |TextblockOAuthHeaderDescription|OAuth 2.0 access token obtained from <i\>{0}</i\>. Supported grant types: <i\>{1}</i\>.|  
 |TextblockContentTypeHeaderDescription|Media type of the body sent to the API.|  
-|ErrorMessageApiNotAccessible|The API you are trying to call is not accessible at this time. Please contact the API publisher `<a href="/issues"\>here</a\>`.|  
-|ErrorMessageApiTimedout|The API you are trying to call is taking longer than normal to get response back. Please contact the API publisher `<a href="/issues"\>here</a\>`.|  
+|ErrorMessageApiNotAccessible|The API you are trying to call is not accessible at this time. Please contact the API publisher <a href="/issues"\>here</a\>.|  
+|ErrorMessageApiTimedout|The API you are trying to call is taking longer than normal to get response back. Please contact the API publisher <a href="/issues"\>here</a\>.|  
 |BadRequestParameterExpected|"'{0}' parameter is expected"|  
 |TooltipTextDoubleClickToSelectAll|Double click to select all.|  
 |TooltipTextHideRevealSecret|Show/Hide|  

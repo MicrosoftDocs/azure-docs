@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting your Azure IoT gateway | Microsoft Docs
+title: 'SensorTag device & Azure IoT Gateway - Troubleshooting | Microsoft Docs'
 description: Troubleshooting page for Intel NUC gateway
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,15 @@ manager: timtl
 tags: ''
 keywords: 'iot issues, internet of things problems'
 
+ROBOTS: NOINDEX
+
 ms.assetid: 5f742c38-0e33-465a-9a0d-1e41e8d17187
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/18/2016
+ms.date: 04/18/2016
 ms.author: owend
 
 ---
@@ -75,6 +75,14 @@ In this sample, a user and a group are added to the Users role for the SalesBI d
   }
 }
 ```
+
+## Role-Based Access Control (RBAC)
+
+Subscription administrators can use **Access control** in the control blade to configure roles. This is not the same as server admins or database users, which as described above are configured at the server or database level. 
+
+![Access control in Azure portal](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
+
+Roles apply to users or accounts that need to perform tasks that can be completed in the portal or by using Azure Resource Manager templates. To learn more, see [Role-Based Access Control](../active-directory/role-based-access-control-what-is.md).
 
 ## Next steps
 If you haven't already deployed a tabular model to your server, now is a good time. To learn more, see [Deploy to Azure Analysis Services](analysis-services-deploy.md).

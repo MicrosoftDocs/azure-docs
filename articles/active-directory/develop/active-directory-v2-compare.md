@@ -1,5 +1,5 @@
 ---
-title: The Azure AD v2.0 endpoint | Microsoft Docs
+title: What is different in the Azure AD v2.0 endpoint? | Microsoft Docs
 description: An comparison between the original Azure AD and the v2.0 endpoints.
 services: active-directory
 documentationcenter: ''
@@ -26,7 +26,7 @@ If you're familiar with Azure Active Directory or have integrated apps with Azur
 >
 
 ## Microsoft accounts and Azure AD accounts
-the v2.0 endpoint allow developers to write apps that accept sign-in from both Microsoft Accounts and Azure AD accounts, using a single auth endpoint.  This gives you the ability to write your app completely account-agnostic; it can be ignorant of the type of account that the user signs in with.  Of course, you *can* make your app aware of the type of account being used in a particular session, but you don't have to.
+The v2.0 endpoint allow developers to write apps that accept sign-in from both Microsoft Accounts and Azure AD accounts, using a single auth endpoint.  This gives you the ability to write your app completely account-agnostic; it can be ignorant of the type of account that the user signs in with.  Of course, you *can* make your app aware of the type of account being used in a particular session, but you don't have to.
 
 For instance, if your app calls the [Microsoft Graph](https://graph.microsoft.io), some additional functionality and data will be available to enterprise users, such as their SharePoint sites or Directory data.  But for many actions, such as [Reading a user's mail](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), the code can be written exactly the same for both Microsoft Accounts and Azure AD accounts.  
 
@@ -110,7 +110,7 @@ If your app does not request the `offline_access` scope, it will not receive ref
 
 To learn more about OAuth 2.0, refresh_tokens, and access_tokens, check out the [v2.0 protocol reference](active-directory-v2-protocols.md).
 
-#### OpenID, profile, & email
+#### OpenID, profile and email
 In the original Azure Active Directory service, the most basic OpenID Connect sign-in flow would provide a wealth of information about the user in the resulting id_token.  The claims in an id_token can include the user's name, preferred username, email address, object ID, and more.
 
 We are now restricting the information that the `openid` scope affords your app access to.  The ‘openid’ scope will only allow your app to sign the user in, and receive an app-specific identifier for the user.  If you want to obtain personally identifiable information (PII) about the user in your app, your app will need to request additional permissions from the user.  We are introducing two new scopes – the `email` and `profile` scopes – which allow you to do so.

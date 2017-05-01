@@ -23,6 +23,9 @@ This document describes the retraining process for the following scenario:
 * You have a training experiment and a predictive experiment that you have deployed as an operationalized web service.
 * You have new data that you want your predictive web service to use to perform its scoring.
 
+> [!NOTE] 
+> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md). 
+
 Starting with your existing web service and experiments, you need to follow these steps:
 
 1. Update the model.

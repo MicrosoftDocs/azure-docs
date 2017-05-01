@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 02/27/2017
 ms.author: billmath
-
+ms.custom: H1Hack27Feb2017
 ---
-# Azure AD Connect sync: Synchronization Service Manager
+# Introduction to the Azure AD Connect Synchronization Service Manager UI
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/ssmui.png)
 

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 
 ---
@@ -59,7 +59,7 @@ Perform the following steps to provision a RHEL 7 virtual machine using the Azur
 The RHEL 7.2 virtual machine has been provisioned in Azure. The next task is to connect remotely to the virtual machine.
 
 **Connect to the RHEL 7.2 virtual machine**
-Follow the instructions in the article [How to log on to a virtual machine running Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Follow the instructions in the article [How to log on to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 The rest of the steps assume you use the PuTTY SSH client to connect to the RHEL virtual machine. For more information, see the [PuTTY Download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -150,6 +150,6 @@ Refer to the [Troubleshooting domain join](active-directory-ds-admin-guide-join-
 ## Related Content
 * [Azure AD Domain Services - Getting Started guide](active-directory-ds-getting-started.md)
 * [Join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
-* [How to log on to a virtual machine running Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [How to log on to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * [Installing Kerberos](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
 * [Red Hat Enterprise Linux 7 - Windows Integration Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)

@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/azure-resource-manager/resource-manager-resource-explorer
+redirect_url: /azure/azure-resource-manager/resource-manager-rest-api
 ---

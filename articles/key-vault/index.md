@@ -1,7 +1,19 @@
 ---
-layout: LandingPage
+title: Azure Key Vault Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use Key Vault to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
+services: key-vault
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:
+ms.service: key-vault
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
+
 # Key Vault Documentation
 
 Learn how to use Key Vault to safeguard and manage cryptographic keys and secrets used by cloud applications and services. Tutorials, API references, and other documentation show you how to create and maintain keys that access and encrypt your resources and solutions.
@@ -110,7 +122,7 @@ Learn how to use Key Vault to safeguard and manage cryptographic keys and secret
                     <div class="cardText">
                         <h3>Command-Line</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault">PowerShell</a></p>
-                         <p><a href="/cli/azure/keyvault">Azure 2​.0 CLI (Preview)</a></p>
+                         <p><a href="/cli/azure/keyvault">Azure CLI 2​.0</a></p>
                     </div>
                 </div>
             </div>

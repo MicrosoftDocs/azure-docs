@@ -1,10 +1,10 @@
 ---
-title: Data sources in Log Analytics | Microsoft Docs
+title: Configure data sources in OMS Log Analytics | Microsoft Docs
 description: Data sources define the data that Log Analytics collects from agents and other connected sources.  This article describes the concept of how Log Analytics uses data sources, explains the details of how to configure them, and provides a summary of the different data sources available.
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 
 ms.assetid: 67710115-c861-40f8-a377-57c7fa6909b4
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/06/2017
+ms.date: 01/23/2017
 ms.author: bwren
 
 ---

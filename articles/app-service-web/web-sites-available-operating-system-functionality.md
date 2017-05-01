@@ -4,7 +4,7 @@ description: Learn about the OS functionality available to web apps, mobile app 
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: mollybos
 
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914

@@ -4,7 +4,7 @@ description: 'Learn how to use Azure App Service Mobile Apps to authenticate use
 services: app-service\mobile
 documentationcenter: windows
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: ''
 
 ms.assetid: 6cffd951-893e-4ce5-97ac-86e3f5ad9466

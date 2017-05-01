@@ -1,5 +1,5 @@
 ---
-title: Consistency levels in DocumentDB | Microsoft Docs
+title: Consistency levels in Azure DocumentDB | Microsoft Docs
 description: DocumentDB has four consistency levels to help balance eventual consistency, availability, and latency trade-offs.
 keywords: eventual consistency, documentdb, azure, Microsoft azure
 services: documentdb
@@ -16,9 +16,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: syamk
+ms.custom: H1Hack27Feb2017
 
 ---
-# Consistency levels in DocumentDB
+# Tunable data consistency levels in DocumentDB
 Azure DocumentDB is designed from the ground up with global distribution in mind. It is designed to offer predictable low latency guarantees, a 99.99% availability SLA, and multiple well-defined relaxed consistency models. Currently, DocumentDB provides four consistency levels: strong, bounded-staleness, session, and eventual. Besides the **strong** and the **eventual consistency** models commonly offered by other NoSQL databases, DocumentDB also offers two carefully codified and operationalized consistency models – **bounded staleness** and **session**, and has validated their usefulness against real world use cases. Collectively these four consistency levels enable you to make well-reasoned trade-offs between consistency, availability, and latency. 
 
 ## Scope of consistency
@@ -72,7 +73,7 @@ The following table captures various consistency guarantees corresponding to the
 | **Consistent prefix guarantee** |Yes |Yes |Yes |Yes |
 | **Monotonic reads** |Yes |Yes, across   regions outside of the staleness window and within a region all the time. |Yes, for the given session |No |
 | **Monotonic writes** |Yes |Yes |Yes |Yes |
-| **Read your writes** |Yes |Yes |Yes (in the write region) |No |
+| **Read your writes** |Yes |Yes (in the write region) | Yes |No |
 
 ## Configuring the default consistency level
 1. In the [Azure portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB (NoSQL)**.

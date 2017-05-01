@@ -1,10 +1,10 @@
 ---
-title: Common DocumentDB use cases | Microsoft Docs
-description: 'Learn about the top five use cases for DocumentDB: user generated content, event logging, catalog data, user preferences data, and  Internet of Things (IoT).'
+title: Common use cases & NoSQL scenarios for Azure DocumentDB | Microsoft Docs
+description: 'Learn about the top five use cases for DocumentDB: user generated content, event logging, catalog data, user preferences data, and  Internet of Things (IoT).' 
 services: documentdb
 author: h0n
 manager: jhubbard
-editor: monicar
+editor: ''
 documentationcenter: ''
 
 ms.assetid: eca68a58-1a8c-4851-8cf8-6e4d2b889905
@@ -13,10 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 03/23/2017
 ms.author: hawong
 
 ---
+
 # Common DocumentDB use cases
 This article provides an overview of several common use cases for DocumentDB.  The recommendations in this article serve as a starting point as you develop your application with DocumentDB.   
 
@@ -60,7 +61,6 @@ Consider an example of a product catalog for an automotive parts supplier. Every
  In addition, data stored in DocumentDB can be integrated with HDInsight for big data analytics via Pig, Hive, or Map/Reduce jobs. For details on the Hadoop Connector for DocumentDB, see [Run a Hadoop job with DocumentDB and HDInsight](documentdb-run-hadoop-with-hdinsight.md).
 
  ![Azure DocumentDB retail orders reference architecture](./media/documentdb-use-cases/documentdb-retail-orders.png)
-
 ## Gaming
 The database tier is a crucial component of gaming applications. Modern games perform graphical processing on mobile/console clients, but rely on the cloud to deliver customized and personalized content like in-game stats, social media integration, and high-score leaderboards. Games often require single-millisecond latencies for reads and writes to provide an engaging in-game experience. A game database needs to be fast and be able to handle massive spikes in request rates during new game launches and feature updates.
 
@@ -75,7 +75,7 @@ DocumentDB is used by games like [The Walking Dead: No Man's Land](https://azure
 ![Azure DocumentDB gaming reference architecture](./media/documentdb-use-cases/documentdb-gaming-architecture.png)
 
 ## Web and mobile applications
-DocumentDB is commonly used within web and mobile applications, and is particularly well suited for modeling social interactions, integrating with third-party services, and for building rich personalized experiences. 
+DocumentDB is commonly used within web and mobile applications, and is particularly well suited for modeling social interactions, integrating with third-party services, and for building rich personalized experiences. The DocumentDB SDKs can be used build rich iOS and Android applications using the popular [Xamarin framework](documentdb-mobile-apps-with-xamarin.md).  
 
 ### Social Applications
 A common use case for DocumentDB is to store and query user generated content (UGC) for web and mobile applications, particularly social media applications. Some examples of UGC are chat sessions, tweets, blog posts, ratings, and comments. Often, the UGC in social media applications is a blend of free form text, properties, tags, and relationships that are not bounded by rigid structure. Content such as chats, comments, and posts can be stored in DocumentDB without requiring transformations or complex object to relational mapping layers.  Data properties can be added or modified easily to match requirements as developers iterate over the application code, thus promoting rapid development.  

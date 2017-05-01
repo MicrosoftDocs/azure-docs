@@ -1,5 +1,5 @@
 ---
-title: Azure Identity Management and Access Control Security Best Practices | Microsoft Docs
+title: Azure identity & access security best practices | Microsoft Docs
 description: This article provides a set of best practices for identity management and access control using built in Azure capabilities.
 services: security
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 01/30/2017
 ms.author: yurid
 
 ---

@@ -1,5 +1,5 @@
 ---
-title: v2.0 app registration | Microsoft Docs
+title: Register an application with the Azure AD v2.0 endpoint using the portal | Microsoft Docs
 description: How to register an app with Microsoft for enabling sign-in and accessing Microsoft services using the v2.0 endpoint
 services: active-directory
 documentationcenter: ''

@@ -28,8 +28,8 @@ The following are required to complete the tutorial:
 
 * An Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 * A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
-* .NET Framework 4.0 or later
-* Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express) or later versions.
+* .NET Framework 4.0 or later.
+* Visual Studio.
 
 This tutorial includes the following tasks:
 
@@ -76,7 +76,7 @@ To start the streaming endpoint, do the following:
 
 ## Create and configure a Visual Studio project
 
-1. Create a new C# Console Application in Visual Studio 2013, Visual Studio 2012, or Visual Studio 2010 SP1. Enter the **Name**, **Location**, and **Solution name**, and then click **OK**.
+1. Create a new C# Console Application in Visual Studio. Enter the **Name**, **Location**, and **Solution name**, and then click **OK**.
 2. Use the  [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) NuGet package to install **Azure Media Services .NET SDK Extensions**.  The Media Services .NET SDK Extensions is a set of extension methods and helper functions that will simplify your code and make it easier to develop with Media Services. Installing this package, also installs **Media Services .NET SDK** and adds all other required dependencies.
 
 	To add references by using NuGet do the following: in Solution Explorer, click the right mouse button on the project name, select **Manage NuGet packages**. Then, search for **windowsazure.mediaservices.extensions** and click **Install**.
@@ -226,7 +226,7 @@ Add the following method to the Program class.
 
         IJob job = _context.Jobs.CreateWithSingleTask(
             "Media Encoder Standard",
-            "H264 Multiple Bitrate 720p",
+            "Adaptive Streaming",
             asset,
             "Adaptive Bitrate MP4",
             options);

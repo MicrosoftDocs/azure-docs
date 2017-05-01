@@ -13,14 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2017
+ms.date: 04/18/2017
 ms.author: mimig
 
 ---
 # How to create a DocumentDB collection and database using the Azure portal
 To use Microsoft Azure DocumentDB, you must have a [DocumentDB account](documentdb-create-account.md), a database, a collection, and documents. This topic describes how to create a DocumentDB collection in the Azure portal.
 
-Not sure what a collection is? See [What is a DocumentDB collection?](#what-is-a-documentdb-collection)
+Not sure what a collection is? See [What is a DocumentDB collection?](#what-is-a-documentdb-collection).
+
+There are two ways to create a colletion in the portal, by using the Add Collection button, or by using [Data Explorer (preview)](#data-explorer).
+
+## Create a colletion using Add Collection button
 
 1. In the [Azure portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB (NoSQL)**, and then in the **DocumentDB (NoSQL)** blade, select the account in which to add a collection. If you don't have any accounts listed, you'll need to [create a DocumentDB account](documentdb-create-account.md).
 
@@ -37,7 +41,7 @@ Not sure what a collection is? See [What is a DocumentDB collection?](#what-is-a
 
     Set storage capcity to **10 GB** if you want a [single partition collection](documentdb-partition-data.md#single-partition-and-partitioned-collections) with throughput levels from 400-10,000 request units/second (RU/s). One RU corresponds to the throughput of a read of a 1KB document. For more information about request units, see [Request units](documentdb-request-units.md).
 
-    Set storage capacity to **250 GB** if you want a [partitioned collection](documentdb-partition-data.md#single-partition-and-partitioned-collections) that can scale to handle an unlimited amount of storage over multiple partitions, and can have throughput levels starting at 10,100 RU/s.
+    Set storage capacity to **250 GB** if you want a [partitioned collection](documentdb-partition-data.md#single-partition-and-partitioned-collections) that can scale to handle an unlimited amount of storage over multiple partitions, and can have throughput levels starting at 2,500 RU/s.
 
     Set storage capacity to **Custom** if you want to provision an amount other than 10 GB or 250 GB. DocumentDB has virtually limitless scale, so please include your requested storage size and throughput value in the support request.
 
@@ -50,6 +54,14 @@ Not sure what a collection is? See [What is a DocumentDB collection?](#what-is-a
 10. **Optional:** To modify the throughput of collection in the portal, click **Scale** on the Resource menu.
 
     ![Screen shot of the resource menu, with Scale selected](./media/documentdb-create-collection/docdb-collection-creation-scale.png)
+
+<a id="data-explorer"></a>
+## Create a collection by using Data Explorer (preview)
+
+The other method for creating a collection in the portal is to use the Data Explorer. To open Data Explorer, click **Data Explorer (preview)** on the navigation bar in the portal, then click the **New Collection** button, as shown in the following screencap.
+
+ ![Screen shot showing the New Collection button in the portal](./media/documentdb-create-collection/azure-documentdb-data-explorer.png)
+
 
 ## What is a DocumentDB collection?
 A collection is a container of JSON documents and the associated JavaScript application logic. A collection is a billable entity, where the [cost](documentdb-performance-levels.md) is determined by the provisioned throughput of the collection. Collections can span one or more partitions/servers and can scale to handle practically unlimited volumes of storage or throughput.
@@ -76,4 +88,4 @@ Now that you have a collection, the next step is to add documents or import docu
 * You can [import documents and data](documentdb-import-data.md) by using the DocumentDB Data Migration Tool, which enables you to import JSON and CSV files, as well as data from SQL Server, MongoDB, Azure Table storage, and other DocumentDB collections.
 * Or you can add documents by using one of the [DocumentDB SDKs](documentdb-sdk-dotnet.md). DocumentDB has .NET, Java, Python, Node.js, and JavaScript API SDKs. For C# code samples showing how to work with documents by using the DocumentDB .NET SDK, see the [C# document samples](documentdb-dotnet-samples.md#document-examples). For Node.js code samples showing how to work with documents by using the DocumentDB Node.js SDK, see the [Node.js document samples](documentdb-nodejs-samples.md#document-examples).
 
-After you have documents in a collection, you can use [DocumentDB SQL](documentdb-sql-query.md) to [execute queries](documentdb-sql-query.md#executing-sql-queries) against your documents by using the [Query Explorer](documentdb-query-collections-query-explorer.md) in the portal, the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), or one of the [SDKs](documentdb-sdk-dotnet.md). 
+After you have documents in a collection, you can use [DocumentDB SQL](documentdb-sql-query.md) to [execute queries](documentdb-sql-query.md#ExecutingSqlQueries) against your documents by using the [Query Explorer](documentdb-query-collections-query-explorer.md) in the portal, the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), or one of the [SDKs](documentdb-sdk-dotnet.md). 

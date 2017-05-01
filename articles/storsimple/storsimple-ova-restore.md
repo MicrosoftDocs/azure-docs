@@ -4,7 +4,7 @@ description: Learn more about how to restore a backup of your StorSimple Virtual
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: 4d0deb8c-e3c7-4bc4-b89d-9881041960cb
@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/07/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 
 ---
-# Restore from a backup of your StorSimple Virtual Array
+# Restore from a backup set of shares and volumes on your StorSimple Virtual Array
+
 ## Overview
 This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running March 2016 general availability (GA) release or later. This article describes step-by-step how to restore from a backup set of your shares or volumes on your StorSimple Virtual Array. The article also details how the item-level recovery works on your StorSimple Virtual Array that is configured as a file server.
 
@@ -95,7 +97,7 @@ Every share has a *.backups* folder that contains the most recent backups. The u
 
 Watch the video to see how you can create shares, back up shares, and restore data on a StorSimple Virtual Array.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Use-the-StorSimple-Virtual-Array/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Use-the-StorSimple-Virtual-Array/player]
 > 
 > 
 

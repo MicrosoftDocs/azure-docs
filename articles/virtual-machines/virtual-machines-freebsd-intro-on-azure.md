@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/09/2017
+ms.date: 02/28/2017
 ms.author: kyliel
 
 ---
@@ -34,10 +34,47 @@ The agent is responsible for communication between the FreeBSD VM and the Azure 
 As for future versions of FreeBSD, the strategy is to stay current and make the latest releases available shortly after they are published by the FreeBSD release engineering team.
 
 ## Deploying a FreeBSD virtual machine
-Deploying a FreeBSD virtual machine is a straightforward process using an image from the Azure Marketplace:
+Deploying a FreeBSD virtual machine is a straightforward process using an image from the Azure Marketplace from the Azure portal:
 
 - [FreeBSD 10.3 on the Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
 - [FreeBSD 11.0 on the Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/)
+
+### Create a FreeBSD VM through Azure CLI 2.0 on FreeBSD
+First you need to install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) though following command on a FreeBSD machine.
+
+```bash 
+    curl -L https://aka.ms/InstallAzureCli | bash
+```
+
+If bash is not installed on your FreeBSD machine, run following command before the installation. 
+
+```
+    sudo pkg install bash
+```
+
+If python is not installed on your FreeBSD machine, run following commands before the installation. 
+
+```
+    sudo pkg install python35
+    cd /usr/local/bin 
+    sudo rm /usr/local/bin/python 
+    sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
+```
+
+During the installation, you are asked `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)`. If you answer `y` and enter `/etc/rc.conf` as `a path to an rc file to update`, you may meet the problem `ERROR: [Errno 13] Permission denied`. To resolve this problem, you should grant the write right to current user against the file `etc/rc.conf`.
+
+Now you can log in Azure and create your FreeBSD VM. Below is an example to create a FreeBSD 11.0 VM. You can also add the parameter `--public-ip-address-dns-name` with a globally unique DNS name for a newly created Public IP. 
+
+```azurecli
+    az login 
+    az group create -n myResourceGroup -l westus az vm create -n myFreeBSD11 -g myResourceGroup --image MicrosoftOSTC:FreeBSD:11.0:latest --admin-username azureuser --ssh-key-value /etc/ssh/ssh_host_rsa_key.pub 
+```
+
+Then you can log in to your FreeBSD VM through the ip address that printed in the output of above deployment. 
+
+```bash
+    ssh azureuser@xx.xx.xx.xx -i /etc/ssh/ssh_host_rsa_key
+```   
 
 ## VM extensions for FreeBSD
 Following are supported VM extensions in FreeBSD.
@@ -64,7 +101,8 @@ The [CustomScript](https://github.com/Azure/azure-linux-extensions/tree/master/C
 * Remove BOM in shell and Python scripts automatically.
 * Protect sensitive data in CommandToExecute.
 
-[!NOTE]FreeBSD VM only supports CustomScript version 1.x by now.  
+> [!NOTE]
+> FreeBSD VM only supports CustomScript version 1.x by now.  
 
 ## Authentication: user names, passwords, and SSH keys
 When you're creating a FreeBSD virtual machine by using the Azure portal, you must provide a user name, password, or SSH public key.
@@ -75,15 +113,15 @@ Currently, only the RSA SSH key is supported. A multiline SSH key must begin wit
 The user account that is specified during virtual machine instance deployment on Azure is a privileged account. The package of sudo was installed in the published FreeBSD image.
 After you're logged in through this user account, you can run commands as root by using the command syntax.
 
+```
     $ sudo <COMMAND>
+```
 
 You can optionally obtain a root shell by using `sudo -s`.
 
 ## Known issues
-1. There is currently an outstanding issue with FreeBSD 11.0 on Hyper-V (and Azure) that may cause VMs to fail to boot if the operating system is patched using `freebsd-update`. The [proposed patch](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=212721) is included in the FreeBSD images on the Azure Marketplace. However, it has not been merged upstream by the FreeBSD team, so running `freebsd-update` replaces the kernel with an unpatched one. It is recommended that users on Azure do not install patches for FreeBSD 11.0 until the fix is published as an ERRATA.
-
-2. The [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.2 has a [known issue] (https://github.com/Azure/WALinuxAgent/pull/517) that causes the provision failure for FreeBSD VM on Azure. It is recommended that FreeBSD VM users on Azure use 2.2.1 or earlier release. The fix will be captured by [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.3. 
+The [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.2 has a [known issue] (https://github.com/Azure/WALinuxAgent/pull/517) that causes the provision failure for FreeBSD VM on Azure. The fix was captured by [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.3 and later releases. 
 
 ## Next steps
 * Go to [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) to create a FreeBSD VM.
-* If you want to bring your own FreeBSD to Azure, refer to [Create and upload a FreeBSD VHD to Azure](./virtual-machines-linux-classic-freebsd-create-upload-vhd.md).
+* If you want to bring your own FreeBSD to Azure, refer to [Create and upload a FreeBSD VHD to Azure](linux/classic/freebsd-create-upload-vhd.md).

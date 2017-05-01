@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync: Synchronization Service Manager UI | Microsoft Docs'
+title: Connectors in the Azure AD Synchronization Service Manager UI | Microsoft Docs'
 description: Understand the Connectors tab in the Synchronization Service Manager for Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 04/03/2017
 ms.author: billmath
-
+ms.custom: H1Hack27Feb2017
 ---
-# Azure AD Connect sync: Synchronization Service Manager
+# Using connectors with the Azure AD Connect Sync Service Manager
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectors.png)
 
@@ -62,48 +62,30 @@ Start by selecting a **scope**. You can search based on data (RDN, DN, Anchor, S
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchscope.png)  
 If you for example do a Sub-Tree search, you get all objects in one OU.  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchsubtree.png)  
-From this grid you can select an object, select **properties**, and [follow it](#follow-an-object-and-its-data-through-the-system) from the source connector space, through the metaverse, and to the target connector space.
+From this grid you can select an object, select **properties**, and [follow it](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) from the source connector space, through the metaverse, and to the target connector space.
 
-## Follow an object and its data through the system
-When you are troubleshooting a problem with data, follow an object from the source connector space, to the metaverse, and to the target connector space is a key procedure to understand why data does not have the expected values.
+### Changing the AD DS account password
+If you change the account password, the Synchronization Service will no longer be able to import/export changes to on-premises AD.   You may see the following:
 
-### Connector Space Object Properties
-**Import**  
-When you open a cs object, there are several tabs at the top. The **Import** tab shows the data that is staged after an import.  
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/csimport.png)  
-The **Old Value** shows what currently is stored in the system and the **New Value** what has been received from the source system and has not been applied yet. In this case, since there is a synchronization error, the change cannot be applied.
+- The import/export step for the AD connector fails with "no-start-credentials" error.
+- Under Windows Event Viewer, the application event log contains an error with Event ID 6000 and message “The management agent “contoso.com” failed to run because the credentials were invalid.”
 
-**Error**  
-The error page is only visible if there is a problem with the object. See the details on the operations page for more information on how to [troubleshoot synchronization errors](active-directory-aadconnectsync-service-manager-ui-operations.md#troubleshoot-errors-in-operations-tab).
+To resolve the issue, update the AD DS user account using the following:
 
-**Lineage**  
-The lineage tab shows how the connector space object is related to the metaverse object. You can see when the Connector last imported a change from the connected system and which rules applied to populate data in the metaverse.  
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cslineage.png)  
-In the **Action** column, you can see there is one **Inbound** sync rule with the action **Provision**. That indicates that as long as this connector space object is present, the metaverse object remains. If the list of sync rules instead shows a sync rule with direction **Outbound** and **Provision**, it indicates that this object is deleted when the metaverse object is deleted.  
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cslineageout.png)  
-You can also see in the **PasswordSync** column that the inbound connector space can contribute changes to the password since one sync rule has the value **True**. This password is then sent to Azure AD through the outbound rule.
 
-From the lineage tab, you can get to the metaverse by clicking [Metaverse Object Properties](#metaverse-object-properties).
+1. Start the Synchronization Service Manager (START → Synchronization Service).
+</br>![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)
+2. Go to the **Connectors** tab.
+3. Select the AD Connector which is configured to use the AD DS account.
+4. Under Actions, select **Properties**.
+5. In the pop-up dialog, select Connect to Active Directory Forest:
+6. The Forest name indicates the corresponding on-prem AD.
+7. The User name indicates the AD DS account used for synchronization.
+8. Enter the new password of the AD DS account in the Password textbox
+![Azure AD Connect Sync Encryption Key Utility](media/active-directory-aadconnectsync-encryption-key/key6.png)
+9. Click OK to save the new password and restart the Synchronization Service to remove the old password from memory cache.
 
-At the bottom of all tabs are two buttons: **Preview** and **Log**.
 
-**Preview**  
-The preview page is used to synchronize one single object. It is useful if you are troubleshooting some customer sync rules and want to see the effect of a change on a single object. You can select between **Full Sync** and **Delta sync**. You can also select between **Generate Preview**, which only keeps the change in memory, and **Commit Preview**, which stages all changes to target connector spaces.  
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/preview1.png)  
-You can inspect the object and which rule applied for a particular attribute flow.  
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/preview2.png)
-
-**Log**  
-The Log page is used to see the password sync status and history.
-
-### Metaverse Object Properties
-**Attributes**  
-On the attributes tab, you can see the values and which Connector contributed it.  
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvattributes.png)  
-**Connectors**  
-The Connectors tab shows all connector spaces that have a representation of the object.  
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvconnectors.png)  
-This tab also allows you to navigate to the [connector space object](#connector-space-object-properties).
 
 ## Next steps
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.

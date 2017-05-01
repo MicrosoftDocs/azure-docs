@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager policies for storage | Microsoft Docs
+title: Azure resource policies for storage accounts | Microsoft Docs
 description: Describes Azure Resource Manager policies for managing the deployment of storage accounts.
 services: azure-resource-manager
 documentationcenter: na
@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/19/2017
+ms.date: 03/30/2017
 ms.author: tomfitz
 
 ---
-# Apply Azure resource policies to storage accounts
-Through Azure Resource Manager policies, you define consistent rules for how resources are deployed in your organization. You create customized policies to ensure users in your organization do not break conventions that are needed to manage your organization's resources. This topic shows several policies that define rules for Azure Storage Accounts. For more information about policies, see [Use resource policies to manage resources](resource-manager-policy.md).
-
-The examples in this topic show hard-coded values in the policy rule. However, you can use parameters to pass in values that are used when assigning the policy. For more information, see [Policy parameters](resource-manager-policy.md#parameters).
+# Apply resource policies to storage accounts
+This topic shows several [resource policies](resource-manager-policy.md) you can apply to Azure storage accounts. These policies ensure consistency for the storage accounts deployed in your organization. 
 
 ## Define permitted storage account types
 
@@ -50,6 +48,8 @@ The following policy restricts which [storage account types](../storage/storage-
   }
 }
 ```
+
+A similar policy rule with a parameter for accepting the allowed SKUs is available as a built-in policy definition. The built-in policy has the resource ID of `/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1`. 
 
 ## Define permitted access tier
 
@@ -107,10 +107,9 @@ The following policy requires all storage accounts to enable [Storage service en
 }
 ```
 
-## Create and assign policies
-
-After defining a policy rule (as shown in the preceding examples), you need to create the policy and assign it to a scope. The scope can be a subscription, resource group, or resource. For examples on creating and assigning policies, see [Create and assign a policy](resource-manager-policy.md#create-and-assign-a-policy). 
+This policy rule is also available as a built-in policy definition with the resource ID of `/providers/Microsoft.Authorization/policyDefinitions/7c5a74bf-ae94-4a74-8fcf-644d1e0e6e6f`.
 
 ## Next steps
+* After defining a policy rule (as shown in the preceding examples), you need to create the policy definition and assign it to a scope. The scope can be a subscription, resource group, or resource. To assign policies through the portal, see [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md). To assign policies through REST API, PowerShell or Azure CLI, see [Assign and manage policies through script](resource-manager-policy-create-assign.md). 
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 

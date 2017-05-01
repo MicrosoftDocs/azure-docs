@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [Virtual networks](virtual-networks-overview.md)
 ## [User-defined routes and IP forwarding](virtual-networks-udr-overview.md)
 ## [Virtual network peering](virtual-network-peering-overview.md)
@@ -7,13 +7,9 @@
 ## IP addressing
 ### [Resource Manager](virtual-network-ip-addresses-overview-arm.md)
 ### [Classic](virtual-network-ip-addresses-overview-classic.md)
-## Virtual machines
-### [Network interfaces](virtual-network-network-interface-overview.md)
-### [Name resolution](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 # Get Started
-## [Create a virtual network](virtual-networks-create-vnet-arm-pportal.md)
-## [Deploy a VM to a virtual network](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+## [Create your first virtual network](virtual-network-get-started-vnet-subnet.md)
 
 # How To
 ## Plan and design
@@ -49,6 +45,10 @@
 #### [Portal](virtual-networks-create-vnetpeering-arm-portal.md)
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [Template](virtual-networks-create-vnetpeering-arm-template-click.md)
+
+### [Network interfaces](virtual-network-network-interface.md)
+
+### [Public IP addresses](virtual-network-public-ip-address.md)
 
 ### Virtual machines
 
@@ -97,12 +97,14 @@
 ##### [Sample application](virtual-networks-sample-app.md)
 
 ## Configure
-### Accelerated networking
+### Accelerated networking for VMs
 #### [Azure portal](virtual-network-accelerated-networking-portal.md)
 #### [PowerShell](virtual-network-accelerated-networking-powershell.md)
+### [Optimize VM network throughput](virtual-network-optimize-network-bandwidth.md)
 ### Access control lists
 #### [Classic portal](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
+### [Name resolution for VMs and cloud services](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ## Manage
 ### Network security groups
@@ -121,11 +123,12 @@
 ### Routes
 #### [Portal](virtual-network-routes-troubleshoot-portal.md)
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
+### [Throughput testing](virtual-network-bandwidth-testing.md)
 
 # Reference
-## [PowerShell (Resource manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
-## [PowerShell (Classic)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
-## [Azure CLI](/cli/azure/)
+## [PowerShell (Resource Manager)](/powershell/module/azurerm.network)
+## [PowerShell (Classic)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [Azure CLI](/cli/azure/network)
 ## [Java](/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
 ## [REST (Classic)](https://msdn.microsoft.com/library/jj157182.aspx)

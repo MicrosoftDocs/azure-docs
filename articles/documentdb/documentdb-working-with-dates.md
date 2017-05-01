@@ -85,6 +85,6 @@ You can learn more about DocumentDB's SQL query language and the LINQ provider a
 In this article, we looked at how to store, index, and query DateTimes in DocumentDB.
 
 ## Next Steps
-* Download and run the [Code samples on Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
+* Download and run the [Code samples on GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
 * Learn more about [DocumentDB Query](documentdb-sql-query.md)
 * Learn more about [DocumentDB Indexing Policies](documentdb-indexing-policies.md)

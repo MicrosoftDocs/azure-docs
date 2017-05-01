@@ -1,5 +1,5 @@
 ---
-title: 'Vehicle telemetry analytics solution playbook: deep dive into the solution | Microsoft Docs'
+title: Deep dive into predict vehicle health and driving habits - Azure | Microsoft Docs
 description: Use the capabilities of Cortana Intelligence to gain real-time and predictive insights on vehicle health and driving habits.
 services: machine-learning
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 
 ---
@@ -93,11 +93,6 @@ The vehicle model reference dataset contains VIN to the model mapping.
 | XUF99EW9OIQOMV7Q7 |Family Saloon |
 | 8OMCL3LGI7XNCC21U |Convertible |
 | ……. | |
-
-### To generate simulated data
-1. To download the data simulator package, click the arrow on the upper right of the Vehicle Telematics Simulator node . Save and extract the files locally on your machine. ![Vechicle telemetry analytics solution blueprint](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig2-vehicle-telemetry-blueprint.png) *Figure 2 – Vehicle Telemetry Analytics Solution Blueprint*
-2. On your local machine, go to the folder where you extracted the Vehicle Telematics Simulator package. ![Vehicle telematics simulator folder](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telematics-simulator-folder.png) *Figure 3 – Vehicle Telematics Simulator folder*
-3. Execute the application **CarEventGenerator.exe**.
 
 ### References
 [Vehicle Telematics Simulator Visual Studio Solution](http://go.microsoft.com/fwlink/?LinkId=717075) 
@@ -390,11 +385,9 @@ This pattern is also applicable to scenarios in which you want to integrate a Li
 Click [RealtimeDashboardApp download](http://go.microsoft.com/fwlink/?LinkId=717078) to download the RealtimeDashboardApp Visual Studio solution for customizations. 
 
 **To execute the Real-time Dashboard Application**
-
-1. Click the Power BI node on the diagram view and click the "Download Real-time Dashboard Application" link on the properties pane. ![Power BI dashboard setup instructions](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig15-vehicle-telematics-powerbi-dashboard-setup.png) *Figure 15 – Power BI dashboard setup instructions*
-2. Extract and save locally ![RealtimeDashboardApp folder](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-realtimedashboardapp-folder.png) *Figure 16 – RealtimeDashboardApp folder*  
-3. Execute the application RealtimeDashboardApp.exe
-4. Provide valid Power BI credentials, sign in and click Accept ![Real-time dashboard app sign-in to Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![Real-time dashboard app finish sign-in to Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
+1. Extract and save locally ![RealtimeDashboardApp folder](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-realtimedashboardapp-folder.png) *Figure 16 – RealtimeDashboardApp folder*  
+2. Execute the application RealtimeDashboardApp.exe
+3. Provide valid Power BI credentials, sign in and click Accept ![Real-time dashboard app sign-in to Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![Real-time dashboard app finish sign-in to Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
 
 *Figure 17 – RealtimeDashboardApp: Sign-in to Power BI*
 

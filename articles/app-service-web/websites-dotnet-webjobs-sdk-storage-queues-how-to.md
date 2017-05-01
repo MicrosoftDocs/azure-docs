@@ -3,8 +3,8 @@ title: How to use Azure queue storage with the WebJobs SDK
 description: Learn how to use Azure queue storage with the WebJobs SDK. Create and delete queues; insert, peek, get, and delete queue messages, and more.
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
-manager: wpickett
+author: ggailey777
+manager: erikre
 editor: jimbe
 
 ms.assetid: dbfac5d9-f4a0-4e3e-9ecc-af3d7bf80463
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
-ms.author: tdykstra
+ms.author: glenga
 
 ---
 # How to use Azure queue storage with the WebJobs SDK

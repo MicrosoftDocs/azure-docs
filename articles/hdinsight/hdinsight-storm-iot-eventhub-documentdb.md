@@ -9,11 +9,12 @@ editor: cgronlun
 
 ms.assetid: 78980635-8bef-4c33-96c3-fae50e932e31
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2016
+ms.date: 02/09/2017
 ms.author: larryfr
 
 ---

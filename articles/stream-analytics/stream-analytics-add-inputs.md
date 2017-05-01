@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 03/28/2017
 ms.author: jeffstok
 
 ---
@@ -72,7 +72,7 @@ To add an input to your Stream Analytics job:
     ![Test connection of the streaming data input](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)  
 
 ## Get help with streaming data inputs
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

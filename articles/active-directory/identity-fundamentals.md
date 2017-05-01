@@ -6,7 +6,9 @@ description:
 keywords:
 author: jeffgilb
 manager: femila
+
 ms.date: 5/1/2017
+
 ms.topic: article
 ms.prod:
 ms.service: azure
@@ -58,6 +60,7 @@ Azure AD [extends on-premises Active Directory](https://docs.microsoft.com/azure
 Microsoft identity and access management solutions help IT protect access to applications and resources across the corporate datacenter and into the cloud, enabling additional levels of validation such as [multi-factor authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-whats-next) and [conditional access policies](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). Monitoring suspicious activity through advanced security reporting, auditing and alerting helps mitigate potential security issues.
 
 The conditional access system in Azure AD Premium gives you, the enterprise admin, the ability to create policy-based access rules for any Azure AD-connected application (SaaS apps, custom apps running in the cloud or on-premises web applications). Azure AD evaluates these policies in real-time, and enforces them whenever a user attempts to access an application. Azure identity protection policies enable you to automatically take action if suspicious activity is discovered including blocking access to users at high risk, enforce multi-factor authentication, and reset passwords if it looks like credentials have been compromised.
+
 
 ## Azure Active Directory Privileged Identity Management
 

@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/20/2017
 ms.author: juliako
 
 ---
@@ -35,10 +35,10 @@ The following table provides the name and description of each available media pr
 | Media Encoder Premium Workflow |Lets you run encoding tasks using Media Encoder Premium Workflow. |[Overview and Comparison of Azure On Demand Media Encoders](media-services-encode-asset.md) |
 | Azure Media Indexer |Enables you to make media files and content searchable, as well as generate closed captioning tracks and keywords. |[Azure Media Indexer](media-services-index-content.md) |
 | Azure Media Hyperlapse (preview) |Enables you to smooth out the "bumps" in your video with video stabilization. Also allows you to speed up your content into a consumable clip. |[Azure Media Hyperlapse](media-services-hyperlapse-content.md) |
-| Azure Media Encoder |Depreciated | |
-| Storage Decryption |Depreciated | |
-| Azure Media Packager |Depreciated | |
-| Azure Media Encryptor |Depreciated | |
+| Azure Media Encoder |Deprecated | |
+| Storage Decryption |Deprecated | |
+| Azure Media Packager |Deprecated | |
+| Azure Media Encryptor |Deprecated | |
 
 ## Get MediaProcessor
 > [!NOTE]

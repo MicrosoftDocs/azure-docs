@@ -5,7 +5,7 @@ services: app-service\web
 tags: python
 documentationcenter: python
 author: huguesv
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: d8e70a29-aca1-4010-95f5-cfe769e3be06

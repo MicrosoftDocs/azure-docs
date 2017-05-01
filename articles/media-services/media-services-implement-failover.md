@@ -1,6 +1,6 @@
 ---
-title: Implementing failover streaming scenario | Microsoft Docs
-description: This topic shows how to implement failover streaming scenario.
+title: Implement failover streaming with Azure Media Services | Microsoft Docs
+description: This topic shows how to implement a failover streaming scenario.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -17,35 +17,34 @@ ms.date: 01/05/2017
 ms.author: juliako
 
 ---
-# Implementing failover streaming scenario
+# Implement failover streaming with Azure Media Services
 
-This walkthrough demonstrates how to copy content (blobs) from one asset into another in order to handle redundancy for On-Demand streaming. This scenario is useful to customers that want to set up their CDN to failover between two datacenters in the case of an outage in one of our data centers.
-This walkthrough uses Microsoft Azure Media Services SDK, Microsoft Azure Media Services REST API, and Azure Storage SDK to demonstrate the following tasks.
+This walkthrough demonstrates how to copy content (blobs) from one asset into another in order to handle redundancy for on-demand streaming. This scenario is useful if you want to set up Azure Content Delivery Network to fail over between two datacenters, in case of an outage in one datacenter. This walkthrough uses the Azure Media Services SDK, the Azure Media Services REST API, and the Azure Storage SDK to demonstrate the following tasks:
 
-1. Set up a Media Services account in ”Data Center A”.
+1. Set up a Media Services account in "Data Center A."
 2. Upload a mezzanine file into a source asset.
 3. Encode the asset into multi-bit rate MP4 files. 
-4. Create a read-only SAS locator for the source asset to have read access to the container in the Storage account that is associated with the source asset.
-5. Get the container name of the source asset from the read-only SAS locator created in the previous step. We need this information for copying blobs between storage accounts (explained later in the topic.)
+4. Create a read-only shared access signature locator. This is for the source asset to have read access to the container in the storage account that is associated with the source asset.
+5. Get the container name of the source asset from the read-only shared access signature locator created in the previous step. This is necessary for copying blobs between storage accounts (explained later in the topic.)
 6. Create an origin locator for the asset that was created by the encoding task. 
 
 Then, to handle the failover:
 
-1. Set up a Media Services account in ”Data Center B”.
+1. Set up a Media Services account in "Data Center B."
 2. Create a target empty asset in the target Media Services account.
-3. Create a write SAS locator for the target empty asset to have write access to the container in the target Storage account that is associated with the target asset.
-4. Use Azure Storage SDK to copy blobs (asset files) between the source storage account in "Data Center A" and target storage account in "Data Center B" (these storage accounts are associated with the assets of interest.)
+3. Create a write shared access signature locator. This is for the target empty asset to have write access to the container in the target storage account that is associated with the target asset.
+4. Use the Azure Storage SDK to copy blobs (asset files) between the source storage account in "Data Center A" and the target storage account in "Data Center B." These storage accounts are associated with the assets of interest.
 5. Associate blobs (asset files) that were copied to the target blob container with the target asset. 
-6. Create an origin locator for the asset in ”Data Center B” and specify the locator Id that was generated for the asset in ”Data Center A”. 
-7. This gives you the streaming URLs where the relative paths of the URLs are the same (only the base URLs are different). 
+6. Create an origin locator for the asset in "Data Center B", and specify the locator ID that was generated for the asset in "Data Center A."
 
-Then, to handle any outages, you can create a CDN on top of these origin locators. 
+This gives you the streaming URLs where the relative paths of the URLs are the same (only the base URLs are different). 
+
+Then, to handle any outages, you can create a Content Delivery Network on top of these origin locators. 
 
 The following considerations apply:
 
-* The current version of Media Services SDK does not support creating a locator with a specified locator id. To achieve this task, we will use Media Services REST API.
-* The current version of Media Services SDK does not support programmatically generating IAssetFile information that would associate an asset with asset files. To achieve this task, we will use the CreateFileInfos Media Services REST API. 
-* Storage encrypted assets (AssetCreationOptions.StorageEncrypted) are not supported for replication (since the encryption key will be different in both Media Services accounts). 
+* The current version of Media Services SDK does not support programmatically generating IAssetFile information that would associate an asset with asset files. Instead, use the CreateFileInfos Media Services REST API to do this. 
+* Storage encrypted assets (AssetCreationOptions.StorageEncrypted) are not supported for replication (because the encryption key is different in both Media Services accounts). 
 * If you want to take advantage of dynamic packaging, make sure the streaming endpoint from which you want to stream  your content is in the **Running** state.
 
 > [!NOTE]
@@ -55,18 +54,18 @@ The following considerations apply:
 
 ## Prerequisites
 * Two Media Services accounts in a new or existing Azure subscription. See [How to Create a Media Services Account](media-services-portal-create-account.md).
-* Operating Systems: Windows 7, Windows 2008 R2, or Windows 8.
+* Operating system: Windows 7, Windows 2008 R2, or Windows 8.
 * .NET Framework 4.5 or .NET Framework 4.
 * Visual Studio 2010 SP1 or later version (Professional, Premium, Ultimate, or Express).
 
 ## Set up your project
-In this section you will create and set up a C# Console Application project.
+In this section, you create and set up a C# Console Application project.
 
-1. Use Visual Studio to create a new solution that contains the C# Console Application project. Enter HandleRedundancyForOnDemandStreaming for the Name and then click OK.
-2. Create the SupportFiles folder on the same level as the HandleRedundancyForOnDemandStreaming.csproj project file. Under the SupportFiles folder create the OutputFiles and MP4Files folders. Copy an .mp4 file into the MP4Files folder (in this example the BigBuckBunny.mp4 file is used). 
-3. Use **Nuget** to add references to Media Services related DLLs. In Visual Studio Main Menu, select TOOLS -> Library Package Manager -> Package Manager Console. In the console window type Install-Package windowsazure.mediaservices and press enter.
+1. Use Visual Studio to create a new solution that contains the C# Console Application project. Enter **HandleRedundancyForOnDemandStreaming** for the name, and then click **OK**.
+2. Create the **SupportFiles** folder on the same level as the **HandleRedundancyForOnDemandStreaming.csproj** project file. Under the **SupportFiles** folder, create the **OutputFiles** and **MP4Files** folders. Copy an .mp4 file into the **MP4Files** folder. (In this example, the **BigBuckBunny.mp4** file is used.) 
+3. Use **Nuget** to add references to DLLs related to Media Services. In **Visual Studio Main Menu**, select **TOOLS** > **Library Package Manager** > **Package Manager Console**. In the console window, type **Install-Package windowsazure.mediaservices**, and press Enter.
 4. Add other references that are required for this project: System.Configuration, System.Runtime.Serialization, and System.Web.
-5. Replace using statements that were added to the Programs.cs file by default with the following ones:
+5. Replace **using** statements that were added to the **Programs.cs** file by default with the following ones:
    
         using System;
         using System.Configuration;
@@ -85,7 +84,7 @@ In this section you will create and set up a C# Console Application project.
         using Microsoft.WindowsAzure.Storage;
         using Microsoft.WindowsAzure.Storage.Blob;
         using Microsoft.WindowsAzure.Storage.Auth;
-6. Add the appSettings section to the .config file and update the values based on your Media Services and Storage key and name values. 
+6. Add the **appSettings** section to the **.config** file, and update the values based on your Media Services and Storage key and name values. 
    
         <appSettings>
           <add key="MediaServicesAccountNameSource" value="Media-Services-Account-Name-Source"/>
@@ -98,7 +97,9 @@ In this section you will create and set up a C# Console Application project.
           <add key="MediaServicesStorageAccountKeyTarget" value=" Media-Services-Storage-Account-Key-Target" />
         </appSettings>
 
-## Add code that handles redundancy for On-Demand streaming
+## Add code that handles redundancy for on-demand streaming
+In this section, you create the ability to handle redundancy.
+
 1. Add the following class-level fields to the Program class.
 	   
 		// Read values from the App.config file.
@@ -204,8 +205,11 @@ In this section you will create and set up a C# Console Application project.
 		        writeSasLocator.Delete();
 		}
 
-3. Method definitions that are called from Main.
-   
+3. The following method definitions are called from Main.
+
+	>[!NOTE]
+	>There is a limit of 1,000,000 policies for different Media Services policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days and access permissions. For example, use the same ID for policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this topic](media-services-dotnet-manage-entities.md#limit-access-policies).
+
         public static IAsset CreateAssetAndUploadSingleFile(CloudMediaContext context,
                                                         AssetCreationOptions assetCreationOptions,
                                                         string singleFilePath)
@@ -241,10 +245,10 @@ In this section you will create and set up a C# Console Application project.
                                                     "Media Encoder Standard");
    
             // Create a task with the encoding details, using a string preset.
-            // In this case "H264 Multiple Bitrate 720p" preset is used.
+            // In this case "Adaptive Streaming" preset is used.
             ITask task = job.Tasks.AddNew("My encoding task",
                 processor,
-                "H264 Multiple Bitrate 720p",
+                "Adaptive Streaming",
                 TaskOptions.ProtectedConfiguration);
    
             // Specify the input asset to be encoded.
@@ -468,8 +472,8 @@ In this section you will create and set up a C# Console Application project.
 
                 if (sourceCloudBlob.Properties.Length > 0)
                 {
-					// In AMS, the files are stored as block blobs. 
-					// Page blobs are not supported by AMS.  
+					// In Azure Media Services, the files are stored as block blobs. 
+					// Page blobs are not supported by Azure Media Services.  
                     var destinationBlob = targetContainer.GetBlockBlobReference(fileName);
                     destinationBlob.StartCopyFromBlob(new Uri(sourceBlob.Uri.AbsoluteUri + blobToken));
 
@@ -935,8 +939,8 @@ In this section you will create and set up a C# Console Application project.
         }
 
 
-## Next Steps
-You can now use a traffic manager to route requests between the two data centers and thus failover in the case of any outages.
+## Next steps
+You can now use a traffic manager to route requests between the two datacenters, and thus fail over in case of any outages.
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

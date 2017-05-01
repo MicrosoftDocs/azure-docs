@@ -56,7 +56,7 @@ For more information on configuring and trouble shooting the Hybrid Connection M
 Once your API app is created, you can now use the file connector as an action for your Logic app. To do this, you need to:
 
 1. Create a new Logic app and choose the same resource group which has the file connector. Follow instructions to [Create a new Logic app].
-2. Open “Triggers and Actions” within the created Logic app to open the Logic apps Designer and configure your flow.
+2. Open “Triggers and Actions” within the created Logic app to open the Logic App Designer and configure your flow.
 3. The file connector would appear in the “API Apps in this resource group” section in the gallery on the right hand side.
 4. You can drop the file connector API app into the editor by clicking on the “file connector”. file connector exposes one trigger and 4 Actions:  
    ![][5]

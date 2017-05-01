@@ -1,10 +1,10 @@
 ---
-title: Manage NSGs using PowerShell | Microsoft Docs
-description: Learn how to manage existing NSGs using PowerShell.
+title: Manage network security groups - Azure PowerShell | Microsoft Docs
+description: Learn how to manage network security groups using PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -16,9 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
-# Manage NSGs using PowerShell
+# Manage network security groups using PowerShell
 
 [!INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
 

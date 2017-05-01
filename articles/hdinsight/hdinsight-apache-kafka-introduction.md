@@ -9,11 +9,12 @@ editor: cgronlun
 
 ms.assetid: f284b6e3-5f3b-4a50-b455-917e77588069
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2016
+ms.date: 02/09/2017
 ms.author: larryfr
 ---
 # Introducing Apache Kafka on HDInsight (preview)
@@ -60,3 +61,4 @@ Use the following links to learn how to use Apache Kafka on HDInsight:
 
 * [Use Apache Spark with Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md)
 
+* [Connect to Kafka through an Azure Virtual Network](hdinsight-apache-kafka-connect-vpn-gateway.md)
