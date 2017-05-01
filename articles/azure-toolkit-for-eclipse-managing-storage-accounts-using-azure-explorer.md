@@ -54,7 +54,7 @@ To create a storage account by using the Azure Explorer, do the following:
 
    * **Performance**: Specifies which storage account offering to use from the selected publisher (for example, "Premium"). For more information, see [Azure storage scalability and performance targets].
 
-   * **Replication**: Specifies the replication for the storage account (for example, "Zone Redundant"). For more information, see [Azure storage replication].
+   * **Replication**: Specifies the replication for the storage account (for example, "Zone-Redundant"). For more information, see [Azure storage replication].
 
 4. When you have specified all of the preceding options, click **Create**.
 
