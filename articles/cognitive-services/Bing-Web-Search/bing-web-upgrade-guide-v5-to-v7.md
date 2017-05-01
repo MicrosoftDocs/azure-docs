@@ -65,5 +65,5 @@ Blocked|InvalidRequest.Blocked
 
 ### Object changes
 
-- Added the `someResultsRemoved` field to the [WebAnswer](assetId:///0db7e411-f55b-438e-b0f1-f404f49bacdd#webanswer) object. The field contains a Boolean value that indicates whether the response excluded some results from the web answer.  
+- Added the `someResultsRemoved` field to the [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference.md#webanswer) object. The field contains a Boolean value that indicates whether the response excluded some results from the web answer.  
 

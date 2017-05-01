@@ -77,7 +77,7 @@ The following shows the response to the previous query. As you can see Bing didn
 }
 ```
 
-Although Bing did not return video and news results in the previous response, it does not mean that video and news content does not exist. It simply means that the page didn't include them. However, if you [paged](./paging-webpages.md) through more results, the subsequent pages would likely include them. Also, if did call the [Video Search API](../bing-video-search/search-the-web.md) and [News Search API](../bing-news-search/search-the-web.md) endpoints directly, the response would likely contain results. 
+Although Bing did not return video and news results in the previous response, it does not mean that video and news content does not exist. It simply means that the page didn't include them. However, if you [page](./paging-webpages.md) through more results, the subsequent pages would likely include them. Also, if called the Video Search API and News Search API endpoints directly, the response would likely contain results. 
 
 You are discouraged from using `responseFilter` to get results from a single API. If you want content from a single Bing API, call that API directly. For example, to receive only images, you'd send the request to the Image Search API endpoint, `https://api.cognitive.microsoft.com/bing/v5.0/images/search` or one of the other [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-image-api-v5-reference.md/endpoints) endpoints. It's important not only for performance reasons but because the content-specific APIs offer richer results. For example, you can often use filters that are not available to the Web Search API to filter the results.  
   
@@ -108,7 +108,7 @@ Bing chooses answers that it includes in the response based on ranking. For exam
 }
 ```
 
-To limit the number of answers that Bing returns to the top two answers (webpages and images), set the [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md#answercount) query parameter to 2. 
+To limit the number of answers that Bing returns to the top two answers (webpages and images), set the [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference.md#answercount) query parameter to 2. 
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v5.0/search?q=sailing+dinghies&answerCount=2&mkt=en-us HTTP/1.1  
@@ -149,7 +149,7 @@ If you add the `responseFilter` query parameter to the previous query and set it
 
 ## Promoting answers that are not ranked
 
-This section builds on [Limiting the number of answers in the response](#limiting-the-number-of-answers-in-the-response). If you want Bing to include news in the response, specify the [promote](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md#promote) query parameter and set it to the answers that you want Bing to include in the response. 
+This section builds on [Limiting the number of answers in the response](#limiting-the-number-of-answers-in-the-response). If you want Bing to include news in the response, specify the [promote](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference.md#promote) query parameter and set it to the answers that you want Bing to include in the response. 
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v5.0/search?q=sailing+dinghies&promote=news&mkt=en-us HTTP/1.1  

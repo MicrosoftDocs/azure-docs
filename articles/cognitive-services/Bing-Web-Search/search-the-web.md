@@ -17,7 +17,7 @@ ms.author: scottwhi
 
 The Web Search API provides a similar (but not exact) experience to Bing.com/Search by returning search results that Bing determines are relevant to the specified user's query. The results include webpages and may include images, videos, and more. 
 
-If you're building a search results page that displays any content that's relevant to the user's search query, call this API instead of calling the other content-specific Bing APIs. The only time you should need to call the content-specific APIs, such as the [Image Search API](../bing-image-search/search-the-web.md) or [News Search API](../bing-news-search/search-the-web.md), is if you need answers from only that API. For example, if you're building an image-only search results page or a news-only search results page.
+If you're building a search results page that displays any content that's relevant to the user's search query, call this API instead of calling the other content-specific Bing APIs. The only time you should need to call the content-specific APIs, such as the Image Search API or News Search API, is if you need answers from only that API. For example, if you're building an image-only search results page or a news-only search results page.
 
 If Bing didn't find content from one of the content-specific APIs relevant enough, it would not include it in the search results. For example, the results could include webpages, news articles, and videos but not images. However, it's possible that if you called the Image Search API directly with the same query, it would return images.
 
@@ -122,7 +122,7 @@ You can also expand the thumbnail as the user hovers the cursor over it. Be sure
 
 If the user clicks the thumbnail, use `webSearchUrl` to take the user to Bing's search results page for images, which contains a collage of the images.
 
-For details about the image answer and images, see [Image Search API](../bing-image-search/search-the-web.md).
+For details about the image answer and images, see Image Search API.
 
 
 ### Related searches answer
@@ -196,7 +196,7 @@ If the user clicks the thumbnail, the following are the video viewing options:
 
 - Use `embdedHtml` to embed the video in your own experience 
 
-For details about the video answer and videos, see [Video Search API](../bing-video-search/search-the-web.md).
+For details about the video answer and videos, see Video Search API.
 
 
 ### News answer
@@ -231,7 +231,7 @@ The following shows an example of how you might display articles in a search res
 
 ![List of news articles](./media/cognitive-services-bing-web-api/bing-web-news-list.PNG)
 
-For details about the news answer and news articles, see [News Search API](../bing-news-search/search-the-web.md).
+For details about the news answer and news articles, see News Search API.
 
 
 ## Computation answer
@@ -477,7 +477,7 @@ Bing requires you to display the results in the order given. To learn how to use
 
 Bing returns only a subset of the possible results in each response. If you want to receive more than just the first page of results, see [Paging Webpages](./paging-webpages.md).
 
-To improve your search box user experience, see [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md). As the user enters their query term, you can call this API to get relevant query terms that were used by others.
+To improve your search box user experience, see Bing Autosuggest API. As the user enters their query term, you can call this API to get relevant query terms that were used by others.
 
 Be sure to read [Bing Use and Display Requirements](./useanddisplayrequirements.md) so you don't break any of the rules about using the search results.
 
