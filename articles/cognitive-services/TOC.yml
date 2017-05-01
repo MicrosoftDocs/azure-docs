@@ -56,7 +56,7 @@
   - name: Bing Autosuggest
     items:
     - name: Overview
-      href: Bing-Autosuggest/overview.md
+      href: Bing-Autosuggest/get-suggested-search-terms.md
     - name: Use and Display Requirements
       href: Bing-Autosuggest/UseAndDisplayRequirements.md
     - name: API reference

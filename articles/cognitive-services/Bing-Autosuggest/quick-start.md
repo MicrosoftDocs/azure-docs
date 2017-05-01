@@ -15,7 +15,7 @@ ms.author: scottwhi
 
 # Making Your First Autosuggest Query
 
-Before you can make your first call, you need to get a Cognitive Services subscription key. To get a key, see [Subscription Keys](https://www.microsoft.com/cognitive-services/subscriptions?mode=NewTrials).
+Before you can make your first call, you need to get a Cognitive Services subscription key. To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
 
 To get Web search results, you'd send a GET request to the following endpoint:  
 
@@ -149,4 +149,4 @@ BingAPIs-Market: en-US
 
 Try out the API. Go to [Autosuggest API Testing Console](https://dev.cognitive.microsoft.com/docs/services/56c7694ecf5ff801a090fbd1/operations/56c769a2cf5ff801a090fbd2). 
 
-For details about consuming the response objects, see [Getting Suggested Search Terms](./get-suggested-search-terms.md).
+For details about consuming the response objects, see Getting Suggested Search Terms.
