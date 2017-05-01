@@ -70,9 +70,9 @@ Change both **build.gradle** files:
 
 To access Azure, your app must have the INTERNET permission enabled. If it's not already enabled, add the following line of code to your **AndroidManifest.xml** file:
 
-    ```
-    <uses-permission android:name="android.permission.INTERNET" />
-    ```
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+```
 
 ## Create a Client Connection
 
