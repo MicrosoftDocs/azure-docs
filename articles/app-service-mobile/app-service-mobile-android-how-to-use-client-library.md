@@ -32,7 +32,7 @@ You can find the [Javadocs API reference][12] for the Android client library on 
 
 ## Supported Platforms
 
-The Azure Mobile Apps SDK for Android supports API levels 19 through 24 (KitKat through Nougat) for phone and tablet form factors.  Authentication, in particular, utilizes a common web framework approach to gather credentials.  This will not work with small form factor devices such as watches.
+The Azure Mobile Apps SDK for Android supports API levels 19 through 24 (KitKat through Nougat) for phone and tablet form factors.  Authentication, in particular, utilizes a common web framework approach to gather credentials.  Server-flow authentication will not work with small form factor devices such as watches.
 
 ## Setup and Prerequisites
 
@@ -83,7 +83,7 @@ Azure Mobile Apps provides four functions to your mobile application:
 * Authentication with Azure App Service Authentication and Authorization.
 * Push Notification Registration with Notification Hubs.
 
-Each of these first requires that you create a `MobileServiceClient` object.  Only one `MobileServiceClient` object should be created wihtin your mobile client (i.e. it should be a Singleton pattern).  To create a `MobileServiceClient` object:
+Each of these functions first requires that you create a `MobileServiceClient` object.  Only one `MobileServiceClient` object should be created within your mobile client (that is, it should be a Singleton pattern).  To create a `MobileServiceClient` object:
 
 ```java
 MobileServiceClient mClient = new MobileServiceClient(
@@ -93,7 +93,7 @@ MobileServiceClient mClient = new MobileServiceClient(
 
 The `<MobileAppUrl>` is either a string or a URL object that points to your mobile backend.  If you are using Azure App Service to host your mobile backend, then ensure you use the secure `https://` version of the URL.
 
-The client also requires access to the Activity or Context - the `this` parameter in the example.  The MobileServiceClient construction is generally placed within the `onCreate()` method of the Activity referenced in the `AndroidManifest.xml` file.  This is why `this` is appropriate.
+The client also requires access to the Activity or Context - the `this` parameter in the example.  The MobileServiceClient construction should happen within the `onCreate()` method of the Activity referenced in the `AndroidManifest.xml` file.
 
 As a best practice, you should abstract server communication into its own (singleton-pattern) class.  In this case, you should pass the Activity within the constructor to appropriately configure the service.  For example:
 
@@ -137,11 +137,11 @@ public AzureServiceAdapter {
 }
 ```
 
-You can now call `AzureServiceAdapter.Initialize(this);` in the `onCreate()` method of your main activity.  Any other methods needing access to the client will use `AzureServiceAdapter.getInstance();` to obtain a reference to the service adapter.
+You can now call `AzureServiceAdapter.Initialize(this);` in the `onCreate()` method of your main activity.  Any other methods needing access to the client use `AzureServiceAdapter.getInstance();` to obtain a reference to the service adapter.
 
 ## Data Operations
 
-The core of the Azure Mobile Apps SDK is to provide access to data stored within SQL Azure on the Mobile App backend.  You can access this data using strongly-typed classes (preferred) or untyped queries (not recommended).  The bulk of this section deals with using strongly-typed classes.
+The core of the Azure Mobile Apps SDK is to provide access to data stored within SQL Azure on the Mobile App backend.  You can access this data using strongly typed classes (preferred) or untyped queries (not recommended).  The bulk of this section deals with using strongly typed classes.
 
 ### Define client data classes
 
@@ -161,7 +161,7 @@ public class ToDoItem {
 }
 ```
 
-You should also add getter and setter methods for each field.  If your SQL Azure table contains more columns, you would add the corresponding fields to this class.  For example, if the DTO (data transfer object) had an integer Priority column, then you might add this field, along with its getter and setter methods:
+Add getter and setter methods for each field that you add.  If your SQL Azure table contains more columns, you would add the corresponding fields to this class.  For example, if the DTO (data transfer object) had an integer Priority column, then you might add this field, along with its getter and setter methods:
 
 ```java
 private Integer priority;
@@ -188,9 +188,9 @@ To learn how to create additional tables in your Mobile Apps backend, see [How t
 
 An Azure Mobile Apps backend table defines five special fields, four of which are available to clients:
 
-* `String id`: The globally unique ID for the record.  By convention, this is the String representation of a [UUID][17] object.
-* `DateTimeOffset updatedAt`: The date/time of the last update.  This is set by the server and should never be set by your client code.
-* `DateTimeOffset createdAt`: The date/time that the object was created.  This is set by the server and should never be set by your client code.
+* `String id`: The globally unique ID for the record.  As a best practice, make the id the String representation of a [UUID][17] object.
+* `DateTimeOffset updatedAt`: The date/time of the last update.  The updatedAt field is set by the server and should never be set by your client code.
+* `DateTimeOffset createdAt`: The date/time that the object was created.  The createdAt field is set by the server and should never be set by your client code.
 * `byte[] version`: Normally represented as a string, the version is also set by the server.
 * `boolean deleted`: Indicates that the record has been deleted but not purged yet.  Do not use `deleted` as a property in your class.
 
@@ -284,7 +284,7 @@ First, obtain a table reference.  Then execute a query on the table reference.  
 * A `.select()` [field selection clause](#selection).
 * A `.skip()` and `.top()` for [paged results](#paging).
 
-These clauses are described below.  They must be placed in the same order as the above list.
+The clauses must be presented in the preceding order.
 
 ### <a name="filter"></a> Filtering Results
 
@@ -297,7 +297,7 @@ List<MyDataTable> results = mDataTable
     .get()              // Converts the async into a sync result
 ```
 
-The above example returns all results (up to the maximum page size set by the server).  The `.execute()` method executes the query on the backend.  The query is converted to an [OData v3][19] query before transmission to the Mobile Apps backend.  On receipt, the Mobile Apps backend will convert the query into an SQL statement before executing it on the SQL Azure instance.  Since network activity takes some time, The `.execute()` method returns a [`ListenableFuture<E>`][18].
+The preceding example returns all results (up to the maximum page size set by the server).  The `.execute()` method executes the query on the backend.  The query is converted to an [OData v3][19] query before transmission to the Mobile Apps backend.  On receipt, the Mobile Apps backend converts the query into an SQL statement before executing it on the SQL Azure instance.  Since network activity takes some time, The `.execute()` method returns a [`ListenableFuture<E>`][18].
 
 ### <a name="filtering"></a>Filter returned data
 
@@ -399,7 +399,7 @@ The parameters to the select function are the string names of the table's column
 
 ### <a name="paging"></a>Return data in pages
 
-Data is **ALWAYS** returned in pages.  The maximum number of records returned is set by the server.  If the client requests more records, then the server will return the maximum number of records.  By default, the maximum page size on the server is 50 records.
+Data is **ALWAYS** returned in pages.  The maximum number of records returned is set by the server.  If the client requests more records, then the server returns the maximum number of records.  By default, the maximum page size on the server is 50 records.
 
 The first example shows how to select the top five items from a table. The query returns the items from a table of **ToDoItems**. **mToDoTable** is the reference to the backend table that you created previously:
 
@@ -436,7 +436,7 @@ do {
 } while (nResults > 0);
 ```
 
-Note that a request for all records using this method will create a minimum of 2 requests to the Mobile Apps backend.
+A request for all records using this method creates a minimum of two requests to the Mobile Apps backend.
 
 > [!TIP]
 > Choosing the right page size is a balance between memory usage while the request is happening, bandwidth usage and delay in receiving the data completely.  The default (50 records) is suitable for all devices.  If you exclusively operate on larger memory devices, increase up to 500.  We have found that increasing the page size beyond 500 records results in unacceptable delays and large memory issues.
@@ -506,7 +506,7 @@ In the preceding code, the *listitem* attribute specifies the id of the layout f
 ```
 
 #### <a name="adapter"></a>Define the adapter
-Since the data source of our view is an array of **ToDoItem**, we subclass our adapter from an **ArrayAdapter&lt;ToDoItem&gt;** class. This subclass produces a View for every **ToDoItem** using the **row_list_to_do** layout.  In our code we define the following class that is an extension of the **ArrayAdapter&lt;E&gt;** class:
+Since the data source of our view is an array of **ToDoItem**, we subclass our adapter from an **ArrayAdapter&lt;ToDoItem&gt;** class. This subclass produces a View for every **ToDoItem** using the **row_list_to_do** layout.  In our code, we define the following class that is an extension of the **ArrayAdapter&lt;E&gt;** class:
 
 ```java
 public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
@@ -616,9 +616,9 @@ ToDoItem entity = mToDoTable
     .get();
 ```
 
-The returned entity matches the data inserted into the backend table, included the ID and any other values (such as the `createdAt`, `updatedAt` and `version` fields) set on the backend.
+The returned entity matches the data inserted into the backend table, included the ID and any other values (such as the `createdAt`, `updatedAt`, and `version` fields) set on the backend.
 
-Mobile Apps tables require a primary key column named **id**. This column must be a string in most cases. The default value of the ID column is a GUID.  You can provide other unique values, such as email addresses or usernames. When a string ID value is not provided for an inserted record, the backend generates a new GUID.
+Mobile Apps tables require a primary key column named **id**. This column must be a string. The default value of the ID column is a GUID.  You can provide other unique values, such as email addresses or usernames. When a string ID value is not provided for an inserted record, the backend generates a new GUID.
 
 String ID values provide the following advantages:
 
@@ -760,7 +760,7 @@ The same set of filtering, filtering and paging methods that are available for t
 
 ## <a name="offline-sync"></a>Implement Offline Sync
 
-The Azure Mobile Apps Client SDK also implements offline synchronization of data by using a SQLite database to store a copy of the server data locally.  Operations performed on an offline table do not require mobile connectivity to work.  This aids in resilience and performance at the expense of more complex logic for conflict resolution.  The Azure Mobile Apps Client SDK implements the following features:
+The Azure Mobile Apps Client SDK also implements offline synchronization of data by using a SQLite database to store a copy of the server data locally.  Operations performed on an offline table do not require mobile connectivity to work.  Offline sync aids in resilience and performance at the expense of more complex logic for conflict resolution.  The Azure Mobile Apps Client SDK implements the following features:
 
 * Incremental Sync: Only updated and new records are downloaded, saving bandwidth and memory consumption.
 * Optimistic Concurrency: Operations are assumed to succeed.  Conflict Resolution is deferred until updates are performed on the server.
@@ -769,7 +769,7 @@ The Azure Mobile Apps Client SDK also implements offline synchronization of data
 
 ### Initialize Offline Sync
 
-Each offline table must be defined in the offline cache prior to use.  Normally, this is done immediately after the creation of the client:
+Each offline table must be defined in the offline cache before use.  Normally, this is done immediately after the creation of the client:
 
 ```java
 AsyncTask<Void, Void, Void> initializeStore(MobileServiceClient mClient)
@@ -887,7 +887,7 @@ The **invokeApi** method is called on the client, which sends a POST request to 
 
 Tutorials already describe in detail how to add these features.
 
-App Service supports [authenticating app users](app-service-mobile-android-get-started-users.md) using a variety of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in your backend.
+App Service supports [authenticating app users](app-service-mobile-android-get-started-users.md) using various external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in your backend.
 
 Two authentication flows are supported: a **server** flow and a **client** flow. The server flow provides the simplest authentication experience, as it relies on the identity providers web interface.  No additional SDKs are required to implement server flow authentication. Server flow authentication does not provide a deep integration into the mobile device and is only recommended for proof of concept scenarios.
 
@@ -904,7 +904,7 @@ You can set permissions on tables to restrict access for specific operations to 
 
 ### <a name="caching"></a>Authentication: Server Flow
 
-The following code starts a server flow login process using the Google provider.  Note that additional configuration is required because of the security requirements for the Google provider:
+The following code starts a server flow login process using the Google provider.  Additional configuration is required because of the security requirements for the Google provider:
 
 ```java
 MobileServiceUser user = mClient.login(MobileServiceAuthenticationProvider.Google, "{url_scheme_of_your_app}", GOOGLE_LOGIN_REQUEST_CODE);
@@ -985,7 +985,7 @@ dependencies {
 
 Obtain the ID of the logged-in user from a **MobileServiceUser** using the **getUserId** method. For an example of how to use Futures to call the asynchronous login APIs, see [Get started with authentication].
 
-> [!WARN]  The URL Scheme mentioned is case-sensitive.  Ensure that all occurences of `{url_scheme_of_you_app}` in the above samples matches with respect to case as well as content.
+> [!WARN]  The URL Scheme mentioned is case-sensitive.  Ensure that all occurrences of `{url_scheme_of_you_app}` match case.
 
 ### <a name="caching"></a>Cache authentication tokens
 
@@ -995,9 +995,9 @@ When you try to use an expired token, you receive a *401 unauthorized* response.
 
 ### <a name="refresh"></a>Use Refresh Tokens
 
-The token returned by Azure App Service Authentication and Authorization has a defined life time of 1 hour.  After this period, you must re-authenticate the user.  If you are using a long-lived token that you have received via client-flow authentication, then you can re-authenticate with Azure App Service Authentication and Authorization using the same token.  You will receive another Azure App Service token with a new lifetime.
+The token returned by Azure App Service Authentication and Authorization has a defined life time of one hour.  After this period, you must reauthenticate the user.  If you are using a long-lived token that you have received via client-flow authentication, then you can reauthenticate with Azure App Service Authentication and Authorization using the same token.  Another Azure App Service token is generated with a new lifetime.
 
-You can also register the provider to use Refresh Tokens.  A Refresh Token is not always available and generally needs to be configured:
+You can also register the provider to use Refresh Tokens.  A Refresh Token is not always available.  Additional configuration is required:
 
 * For **Azure Active Directory**, configure a client secret for the Azure Active Directory App.  Specify the client secret in the Azure App Service when configuring Azure Active Directory Authentication.  When calling `.login()`, pass `response_type=code id_token` as a parameter:
 
@@ -1035,12 +1035,12 @@ MobileServiceUser user = mClient
 
 As a best practice, create a filter that detects a 401 response from the server and tries to refresh the user token.
 
-## Login with Client-flow Authentication
+## Log in with Client-flow Authentication
 
 The general process for logging in with client-flow authentication is as follows:
 
 * Configure Azure App Service Authentication and Authorization as you would server-flow authentication.
-* Integrate the authentication provider SDK for authentication.  This will provide an access token.
+* Integrate the authentication provider SDK for authentication.  This provides an access token.
 * Call the `.login()` method as follows:
 
     ```java
@@ -1059,7 +1059,7 @@ The general process for logging in with client-flow authentication is as follows
     });
     ```
 
-Replace the `onSuccess()` method with whatever code you wish to use on a successful login.  The `{provider}` string is a valid provider: **aad** (Azure Active Directory), **facebook**, **google**, **microsoftaccount** or **twitter**.  If you have implemented custom authentication, then you can also use the custom authentication provider tag.
+Replace the `onSuccess()` method with whatever code you wish to use on a successful login.  The `{provider}` string is a valid provider: **aad** (Azure Active Directory), **facebook**, **google**, **microsoftaccount**, or **twitter**.  If you have implemented custom authentication, then you can also use the custom authentication provider tag.
 
 ### <a name="adal"></a>Authenticate users with the Active Directory Authentication Library (ADAL)
 
@@ -1260,7 +1260,7 @@ private class CustomHeaderFilter implements ServiceFilter {
 
 ### <a name="conversions"></a>Configure Automatic Serialization
 
-You can specify a conversion strategy that applies to every column by using the [gson][3] API. The Android client library uses [gson][3] behind the scenes to serialize Java objects to JSON data before the data is sent to Azure App Service.  The following code uses the **setFieldNamingStrategy()** method to set the strategy. This example will delete the initial character (an "m"), and then lower-case the next character, for every field name. For example, it would turn "mId" into "id."  This would prevent the need for `SerializedName()` annotations on most fields.
+You can specify a conversion strategy that applies to every column by using the [gson][3] API. The Android client library uses [gson][3] behind the scenes to serialize Java objects to JSON data before the data is sent to Azure App Service.  The following code uses the **setFieldNamingStrategy()** method to set the strategy. This example will delete the initial character (an "m"), and then lower-case the next character, for every field name. For example, it would turn "mId" into "id."  This prevents the need for `SerializedName()` annotations on most fields.
 
 ```java
 FieldNamingStrategy namingStrategy = new FieldNamingStrategy() {
