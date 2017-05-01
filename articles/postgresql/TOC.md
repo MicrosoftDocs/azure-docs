@@ -6,6 +6,7 @@
 # Quickstarts
 ## [Create DB - Portal](quickstart-create-server-database-portal.md)
 ## [Create DB - Azure CLI](quickstart-create-server-database-azure-cli.md)
+## Connect
 
 # Sample Scripts
 ## [Azure CLI](sample-scripts-azure-cli.md)

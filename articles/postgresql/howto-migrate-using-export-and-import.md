@@ -41,4 +41,4 @@ In this example, we will use psql and script file named **testdb.sql** from prev
 psql -f testdb.sql –host=mypgserver-20170401.postgres.database.azure.com --port 5432 --username=mylogin@mypgserver --password --dbname=newdb
 ```
 ## Next steps
-- To migrate a PostgreSQL database using import and export, see [Migrate your PostgreSQL database using dump and restore](howto-migrate-using-dump-and-restore.md)
+- To migrate a PostgreSQL database using dump and restore, see [Migrate your PostgreSQL database using dump and restore](howto-migrate-using-dump-and-restore.md)
