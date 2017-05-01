@@ -65,12 +65,8 @@ The Azure Database for PostgreSQL service creates a firewall at the server-level
 1.	After the deployment completes, click **Azure Database for PostgreSQL** from the left-hand menu and choose your newly created server **mypgserver-20170401**. The **Overview** page for your server opens and provides options for further configuration.
  ![Azure Database for PostgreSQL - Server Properties ](./media/postgresql-quickstart-create-database-portal/4-firewall-1.png)
 2.	Navigate to the Settings blade of the server. In the Settings blade, select **Connection Security**. 
-3.	Click in the text box under **Rule Name,** and add a new firewall rule to whitelist the IP range for connectivity. For this quick start, let's allow all IPs by typing in **Rule Name = AllowAllIps**, **Start IP = 0.0.0.0** and **End IP = 255.255.255.255** and then click **Save**. A server-level firewall rule is created for your specified IP address range.
+3.	Click in the text box under **Rule Name,** and add a new firewall rule to whitelist the IP range for connectivity. For this quick start, let's allow all IPs by typing in **Rule Name = AllowAllIps**, **Start IP = 0.0.0.0** and **End IP = 255.255.255.255** and then click **Save**. You can set a firewall rule that covers an IP range to be able to connect from your network.
  ![Azure Database for PostgreSQL - Create Firewall Rule](./media/postgresql-quickstart-create-database-portal/5-firewall-2.png)
-
-  > [!NOTE]  
-  > You can set a firewall rule that covers an IP range to be able to connect from your network.
-
 4.	Click **OK** and then click the **X** to close the **Connections Security** page.
 
   > [!NOTE]
