@@ -38,15 +38,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```  
 
-The deployment runs for a while. When it finishes, you see:
-
-```powershell
-DeploymentName          : NewStorage
-ResourceGroupName       : ExampleGroup
-ProvisioningState       : Succeeded
-...
-```
-
 ## Save template from deployment history
 
 You can retrieve a template from your deployment history by using the [Save-​Azure​Rm​Resource​Group​Deployment​Template](/powershell/module/azurerm.resources/save-azurermresourcegroupdeploymenttemplate) command. The following example saves the template that you previously deploy:
@@ -81,7 +72,7 @@ Path
 C:\Users\exampleuser\ExampleGroup.json
 ```
 
-Open the file, and notice that is is different than the template in GitHub. It has different parameters and no variables. The storage SKU and location are hard-coded to values. The following example shows the exported template, but your template will have a slightly different parameter name:
+Open the file, and notice that it is different than the template in GitHub. It has different parameters and no variables. The storage SKU and location are hard-coded to values. The following example shows the exported template, but your template has a slightly different parameter name:
 
 ```json
 {
@@ -113,7 +104,7 @@ Open the file, and notice that is is different than the template in GitHub. It h
 }
 ```
 
-You can redeploy this template, but it requires guessing a unique name for the storage account. The name of your parameter will be slightly different.
+You can redeploy this template, but it requires guessing a unique name for the storage account. The name of your parameter is slightly different.
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup `
@@ -123,7 +114,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup `
 
 ## Customize exported template
 
-Of course, you can modify this template to make it easier to use and more flexible. To allow for more locations, change the location property to use the same location as the resource group:
+You can modify this template to make it easier to use and more flexible. To allow for more locations, change the location property to use the same location as the resource group:
 
 ```json
 "location": "[resourceGroup().location]",

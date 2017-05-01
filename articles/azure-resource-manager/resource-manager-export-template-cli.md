@@ -39,12 +39,6 @@ az group deployment create \
     --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
 ```  
 
-The deployment runs for a while.When it finishes, you see a message that includes the result:
-
-```azurecli
-"provisioningState": "Succeeded",
-```
-
 ## Save template from deployment history
 
 You can retrieve a template from your deployment history by using the [az group deployment export](/cli/azure/group/deployment#export) command. The following example saves the template that you previously deploy:
@@ -64,7 +58,7 @@ Instead of retrieving a template from the deployment history, you can retrieve a
 az group export --name ExampleGroup
 ```
 
-It returns the template. Copy the JSON, and save as a file. Notice that is is different than the template in GitHub. It has different parameters and no variables. The storage SKU and location are hard-coded to values. The following example shows the exported template, but your template will have a slightly different parameter name:
+It returns the template. Copy the JSON, and save as a file. Notice that it is different than the template in GitHub. It has different parameters and no variables. The storage SKU and location are hard-coded to values. The following example shows the exported template, but your template has a slightly different parameter name:
 
 ```json
 {
@@ -96,7 +90,7 @@ It returns the template. Copy the JSON, and save as a file. Notice that is is di
 }
 ```
 
-You can redeploy this template, but it requires guessing a unique name for the storage account. The name of your parameter will be slightly different.
+You can redeploy this template, but it requires guessing a unique name for the storage account. The name of your parameter is slightly different.
 
 ```azurecli
 az group deployment create --name NewStorage --resource-group ExampleGroup \
@@ -106,7 +100,7 @@ az group deployment create --name NewStorage --resource-group ExampleGroup \
 
 ## Customize exported template
 
-Of course, you can modify this template to make it easier to use and more flexible. To allow for more locations, change the location property to use the same location as the resource group:
+You can modify this template to make it easier to use and more flexible. To allow for more locations, change the location property to use the same location as the resource group:
 
 ```json
 "location": "[resourceGroup().location]",
