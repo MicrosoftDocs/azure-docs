@@ -41,8 +41,10 @@ Perform the following tasks to create a new Git repository.
 1. Start a command-line tool, such as **GitBash** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the **Terminal** application.
 2. Navigate to the directory where the content to deploy would be located.
 3. Use the following command to initialize a new Git repository:
-   
-        git init
+
+```bash  
+git init
+```
 
 ## <a name="Step2"></a>Step 2: Commit your content
 App Service supports applications created in a variety of programming languages. 
@@ -52,11 +54,15 @@ App Service supports applications created in a variety of programming languages.
    * Using a text editor, create a new file named **index.html** at the root of the Git repository
    * Add the following text as the contents for the index.html file and save it: *Hello Git!*
 2. From the command-line, verify that you are under the root of your Git repository. Then use the following command to add files to your repository:
-   
-        git add -A 
+
+```bash  
+git add -A
+```
 3. Next, commit the changes to the repository by using the following command:
-   
-        git commit -m "Hello Azure App Service"
+
+```bash  
+git commit -m "Hello Azure App Service"
+```  
 
 ## <a name="Step3"></a>Step 3: Enable the App Service app repository
 Perform the following steps to enable a Git repository for your App Service app.
@@ -86,9 +92,10 @@ Use the following steps to publish your app to App Service using Local Git.
    > 
    > 
 4. Push your content to App Service using the new **azure** remote you just created.
-   
-        git push azure master
-   
+
+```bash  
+git push azure master
+```
     You will be prompted for the password you created earlier when you reset your deployment credentials in the Azure Portal. Enter the password (note that Gitbash does not echo asterisks to the console as you type your password). 
 5. Go back to your app in the Azure Portal. A log entry of your most recent push should be displayed in the **Deployments** blade. 
    
@@ -119,8 +126,9 @@ The following are errors or problems commonly encountered when using Git to publ
 
 **Resolution**: Perform the push operation again, specifying the master branch. For example:
 
-    git push azure master
-
+```bash  
+git push azure master
+```
 - - -
 **Symptom**: src refspec [branchname] does not match any.
 
@@ -128,8 +136,9 @@ The following are errors or problems commonly encountered when using Git to publ
 
 **Resolution**: Perform the push operation again, specifying the master branch. For example:
 
-    git push azure master
-
+```bash  
+git push azure master
+```
 - - -
 **Symptom**: RPC failed; result=22, HTTP code = 502.
 
@@ -137,8 +146,9 @@ The following are errors or problems commonly encountered when using Git to publ
 
 **Resolution**: Change the git configuration on the local machine to make the postBuffer bigger
 
-    git config --global http.postBuffer 524288000
-
+```bash  
+git config --global http.postBuffer 524288000
+```
 - - -
 **Symptom**: Error - Changes committed to remote repository but your web app not updated.
 
