@@ -54,11 +54,11 @@ The steps below are used to create an OWIN middleware Startup Class to configure
 > If your project doesn't have a `Startup.cs` file in the root folder:<br/>
 > 1. Right click on the project's root folder: >	`Add` > `New Item...` > `OWIN Startup class`<br/>
 > 2. Name it `Startup.cs`
->>> ** Note: **
->>> Make sure the class selected is an OWIN Startup Class and not a standard C# class. Confirm this by checking if you see `[assembly: OwinStartup(typeof({NameSpace}.App_Start.Startup))]` above the namespace:
+>> ** Note: **
+>> Make sure the class selected is an OWIN Startup Class and not a standard C# class. Confirm this by checking if you see `[assembly: OwinStartup(typeof({NameSpace}.App_Start.Startup))]` above the namespace:
 
 
-1. Add OWIN and Microsoft.IdentityModel references to `Startup.cs`:
+1. Add *OWIN* and *Microsoft.IdentityModel* references to `Startup.cs`:
 ```csharp
 using Microsoft.Owin;
 using Owin;
@@ -68,7 +68,7 @@ using Microsoft.Owin.Security.OpenIdConnect;
 using Microsoft.Owin.Security.Notifications;
 using Microsoft.IdentityModel.Protocols;
 ```
-2. Add the following two additional methods in `Startup.cs`:
+2. Replace Startup class code with below:
 
 ```csharp
 public class Startup
@@ -136,7 +136,9 @@ public class Startup
 ```
 <!--start-collapse-->
 > ### More Information
+
 > The parameters you provide in *OpenIDConnectAuthenticationOptions* serve as coordinates for the application to communicate with Azure AD. Because the OpenID Connect middleware uses cookies in the background, you also need to set up cookie authentication as the code above shows. The *ValidateIssuer* value tells OpenIdConnect to not restrict access to one specific organization.
+<!--end-collapse-->
 
 ### What is Next
 

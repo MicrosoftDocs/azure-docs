@@ -31,7 +31,7 @@ When you're ready to test, use a Microsoft Azure Active Directory (organizationa
 After sign-in, the user is redirected to the home page of your web site which is the HTTPS URL specified in your application registration information in the Microsoft Application Registration Portal. This page now shows *Hello {User}* and a link to sign-out, and a link to see the user’s claims – which is a link to the Authorize controller created earlier.
 
 ## See user claims
-Select the hyperlink to see the user claims. This leads you to the controller and view that is only available to users that are authenticated.
+Select the hyperlink to see the user's claims. This leads you to the controller and view that is only available to users that are authenticated.
 
 ### Expected Results
  You should see a table containing the basic properties of the logged user:
@@ -41,18 +41,10 @@ Select the hyperlink to see the user claims. This leads you to the controller an
 | Name | {User Full Name} | The user’s first and last name
 |Username | user@domain.com| The username used to identify the logged user
 | Subject| {Subject}|A string to uniquely identify the user logon across the web|
-| Tenant ID| {Guid}| A *guid* to uniquely represent the user’s organization. For Microsoft accounts, this guid represents the user.|
+| Tenant ID| {Guid}| A *guid* to uniquely represent the user’s Azure Active Directory organization.|
 
 In addition, you will see a table including all user claims included in authentication request. For a list of all claims in an Id Token and explanation please see this [article](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
-<!--start-collapse-->
-### Additional Information
->#### Protect your entire web site
-> To protect your entire web site, add the `AuthorizeAttribute` to `GlobalFilters` in `Global.asax` `Application_Start` method:
-> ```csharp
->GlobalFilters.Filters.Add(new AuthorizeAttribute());
->```
-<!--end-collapse-->
 
 ### (Optional) Test accessing a method that has an `[Authorize]` attribute
 In this step, you will test accessing the Authenticated controller as an anonymous user:<br/>
@@ -61,4 +53,27 @@ Now in your browser, type http://localhost:{port}/authenticated to access your c
 
 #### Expected results
 You should receive the prompt requiring you to authenticate to see the view.
+
+# Additional Information
+
+<!--start-collapse-->
+### Protect your entire web site
+To protect your entire web site, add the `AuthorizeAttribute` to `GlobalFilters` in `Global.asax` `Application_Start` method:
+ ```csharp
+GlobalFilters.Filters.Add(new AuthorizeAttribute());
+```
+<!--end-collapse-->
+
+<div></div>
+
+> [!NOTE]
+> **Restricting users from only one organization to sign in to your application**
+
+> By default, personal accounts (including outlook.com, live.com, and others) as well as work and school accounts from any company or organization that has integrated with Azure Active Directory can sign-in to your application. 
+
+> If you want your application to accept sign-ins from only one Azure Active Directory organization, replace the `Tenant` parameter in *web.config* from `Common` to the tenant name of the organization – example, *contoso.onmicrosoft.com*. After that, change the `ValidateIssuer` argument in your *OWIN Startup class* to `true`.
+
+> To allow users from only a list of specific organizations, set `ValidateIssuer` to true and use the `ValidIssuers` parameter to specify a list of organizations.
+
+> Another option is to implement a custom method to validate the issuers using IssuerValidator parameter. For more information about `TokenValidationParameters`, please see [this](https://msdn.microsoft.com/en-us/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) MSDN article.
 
