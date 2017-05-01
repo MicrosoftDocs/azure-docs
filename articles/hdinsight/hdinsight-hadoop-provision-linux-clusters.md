@@ -22,13 +22,13 @@ ms.author: jgao
 # Create Hadoop clusters in HDInsight
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks on the cluster. Azure abstracts the implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information. In this article,  you learn about these configuration settings.
+A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks on the cluster. Azure HDInsight abstracts the implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information. In this article,  you learn about these configuration settings.
 
 ## Basic configurations
 
-From the [Azure portal](https://portal.azure.com), you can create a HDInsight cluster using *Quick create* or *Custom*. This section covers the basic configuration settings used in the Quick create option. The Custom option includes the following configurations:
+From the [Azure portal](https://portal.azure.com), you can create an HDInsight cluster using *Quick create* or *Custom*. This section covers the basic configuration settings used in the Quick create option. The Custom option includes the following configurations:
 
-- [Applications (optional)](#hdinsight-applications)
+- [Applications](#hdinsight-applications)
 - [Cluster size](#cluster-size)
 - Advanced settings
 
