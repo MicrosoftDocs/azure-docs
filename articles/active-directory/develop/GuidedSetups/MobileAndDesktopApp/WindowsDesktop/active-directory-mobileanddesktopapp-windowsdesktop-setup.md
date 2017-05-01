@@ -49,7 +49,6 @@ This step will help you create a class to handle interaction with MSAL Library, 
 ```csharp
 using Microsoft.Identity.Client;
 ```
-
 2.	Update the App class to the following:
 
 ```csharp

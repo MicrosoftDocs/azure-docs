@@ -51,7 +51,6 @@ The package above installs the Microsoft Authentication Library (MSAL). MSAL han
 1.	Open: `activity_main.xml` under `res` > `layout`
 2.	Change the activity layout from `android.support.constraint.ConstraintLayout` to `LinearLayout`
 3.	Copy and paste the following code into the `LinearLayout` node:
-
 ```xml
 <TextView
     android:text="Welcome, "

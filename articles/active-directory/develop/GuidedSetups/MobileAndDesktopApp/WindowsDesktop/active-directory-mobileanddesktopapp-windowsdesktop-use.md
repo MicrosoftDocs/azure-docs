@@ -169,7 +169,7 @@ private void SignOutButton_Click(object sender, RoutedEventArgs e)
 Although the application in this sample is single-user, MSAL supports scenarios where multiple accounts can sign-in at the same time – an example is an email application where user has multiple accounts.
 <!--end-collapse-->
 
-## Display Basic Token Information
+# Display Basic Token Information
 
 1. Add the following additional method to display basic information about the token:
 

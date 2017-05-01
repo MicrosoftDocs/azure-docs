@@ -27,13 +27,13 @@ When you're ready to test, use a Microsoft Azure Active Directory (organizationa
 <br/><br/>
 ![Sign-in](../../media/active-directory-mobileanddesktopapp-android-test/usernameandpassword.png)
 
-### Consent
+## Consent
 The first time a user signs in to your application, they will be presented with a consent screen similar to the below, where they need to explicitly accept: 
 
 ![Consent](../../media/active-directory-mobileanddesktopapp-android-test/androidconsent.png)
 
 
-### Expected Results
+## Expected Results
 You should see the results of a call to Microsoft Graph API ‘me’ endpoint used to to obtain the user profile - https://graph.microsoft.com/v1.0/me. For a list of common Microsoft Graph endpoints, please see this [article](https://developer.microsoft.com/graph/docs#common-microsoft-graph-queries).
 
 <!--start-collapse-->

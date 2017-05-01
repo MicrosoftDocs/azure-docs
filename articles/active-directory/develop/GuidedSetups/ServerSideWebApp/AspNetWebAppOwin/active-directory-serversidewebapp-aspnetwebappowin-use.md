@@ -115,6 +115,7 @@ In Visual Studio, create a new view to add the sign-in button and display user i
 <!--start-collapse-->
 ### More Information
 > This page adds a sign-in button in SVG format with a black background:<br/>![Sign-in with Microsoft](../../media/active-directory-serversidewebapp-aspnetwebappowin-use/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, please go to the [this page](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines).
+<!--end-collapse-->
 
 # Add a controller to display user claims
 This controller demonstrates the uses of the `[Authorize]`s attribute to protect a controller. This attribute restricts access to the controller by only allowing authenticated users. The code below makes use of the attribute to display user claims that were retrieved as part of the sign-in.
@@ -153,9 +154,10 @@ public class ClaimsController : Controller
 }
 ```
 
-
+<!--start-collapse-->
 ### More Information
 > Because of the use of the `[Authorize]` attribute, all methods of this controller can only be executed if the user is authenticated. If the user is not authenticated and tries to access the controller, OWIN will initiate an authentication challenge and force the user to authenticate. The code above looks at the claims collection of the `ClaimsPrincipal.Current` instance for specific user attributes included in the user’s token. These attributes include the user’s full name and username, as well as the global user identifier subject. It also contains the *Tenant ID*, which represents the ID for the user’s organization. 
+<!--end-collapse-->
 
 # Create a view to display the user's claims
 
