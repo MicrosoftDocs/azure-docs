@@ -19,13 +19,13 @@ ms.author: andret
 ---
 <div id="RedirectURLUX"/>
 
-#Add the application’s registration information to your App
+# Add the application’s registration information to your App
 In this step, you need to add the Application Id to your project.
 
-1.	Open App.xaml.cs and replace the line containing the `ClientId` with:
+1.	Open `App.xaml.cs` and replace the line containing the `ClientId` with:
 
 ```csharp
-private static string ClientId = "your_application_id_here";
+private static string ClientId = "[Enter the application Id here]";
 ```
 
 ### What is Next

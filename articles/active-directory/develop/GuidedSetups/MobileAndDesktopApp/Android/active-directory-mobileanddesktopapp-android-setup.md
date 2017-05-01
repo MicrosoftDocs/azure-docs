@@ -23,7 +23,7 @@ This section provides step-by-step instructions for how to create a new project 
 
 | | |
 |---------|---------|
-|[![Download](../../media/active-directory-mobileanddesktopapp-android-setup/download.png)](http://github.com)|Prefer to download a sample Android Studio project instead? [Download a project](http://github.com) and skip to the [Configuration](active-directory-mobileanddesktopapp-android-configure.md) step to configure the code sample before executing.|
+|[![Download](../../media/active-directory-mobileanddesktopapp-android-setup/download.png)](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/complete.zip)|Prefer to download this sample's Android Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/complete.zip) and skip to the [Configuration](active-directory-mobileanddesktopapp-windowsdesktop-configure.md) step to configure the code sample before executing.|
 
 
 # Create a new project 
@@ -38,14 +38,13 @@ This section provides step-by-step instructions for how to create a new project 
 2.	Copy and paste the following code under `Dependencies`:
 
 ```ruby  
-compile('com.microsoft.aad:adal:1.2.+') {
-    exclude group: 'com.android.support'
-}
+compile 'com.microsoft.identity.client:msal:0.1.0'
 compile 'com.android.volley:volley:1.0.0'
 ```
 
 <!--start-collapse-->
 ### About this package: 
+
 The package above installs the Microsoft Authentication Library (MSAL). MSAL handles acquiring, caching and refreshing user tokens used to access APIs protected by Azure Active Directory v2 endpoint.
 <!--end-collapse-->
 

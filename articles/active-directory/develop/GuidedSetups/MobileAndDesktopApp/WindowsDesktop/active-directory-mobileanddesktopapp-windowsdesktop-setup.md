@@ -31,7 +31,7 @@ The application created by this guide exposes a button to graph and show results
 
 ## Creating your application
 1. In Visual Studio: `File` > `New` > `Project`<br/>
-2. Under *Templates*, select `Visual C#`.
+2. Under *Templates*, select `Visual C#`
 3. Select `WPF App` (or *WPF Application* depending on the version of your Visual Studio)
 
 # Adding Microsoft Authentication Library (MSAL) library to your project
