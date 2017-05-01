@@ -28,7 +28,7 @@ To use this preview, you need to install the preview SDK (version 255.255.x.x) t
 Create a Service Fabric application from a docker-compose.yml file by running the following command in PS:
 
 ```powershell
-New-ServiceFabricDockerComposeApplication -ApplicationName fabric:/TestContainerApp -Compose docker-compose.yml [-Overrides overrides.yml] [-RepositoryUserName <>] [-RepositoryPassword <>] [-PasswordEnctypted]
+New-ServiceFabricDockerComposeApplication -ApplicationName fabric:/TestContainerApp -Compose docker-compose.yml [-RepositoryUserName <>] [-RepositoryPassword <>] [-PasswordEnctypted]
 ```
 
 If you are using Azure CLI 2.0, run the following command:
