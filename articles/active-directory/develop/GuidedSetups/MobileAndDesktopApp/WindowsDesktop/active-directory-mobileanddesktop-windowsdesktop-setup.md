@@ -32,7 +32,7 @@ The application created by this guide exposes a button to graph and show results
 ## Creating your application
 1. In Visual Studio: `File` > `New` > `Project`<br/>
 2. Under *Templates*, select `Visual C#`.
-3. Select `WPF App` (or WPF Application depending on the version of your Visual Studio)
+3. Select `WPF App` (or *WPF Application* depending on the version of your Visual Studio)
 
 # Adding Microsoft Authentication Library (MSAL) library to your project
 1. In Visual Studio: `Tools` > `Nuget Package Manager` > `Package Manager Console`
@@ -54,18 +54,6 @@ using Microsoft.Identity.Client;
 ```
 
 2.	Update the App class to the following:
-
-```csharp
-using Microsoft.Owin;
-using Owin;
-using Microsoft.Owin.Security;
-using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.OpenIdConnect;
-using Microsoft.Owin.Security.Notifications;
-using Microsoft.IdentityModel.Protocols;
-```
-
-3. Copy/paste the following code into `Startup.cs`:
 
 ```csharp
 public partial class App : Application
