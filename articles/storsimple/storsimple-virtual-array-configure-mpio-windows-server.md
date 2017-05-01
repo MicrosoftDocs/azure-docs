@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 05/01/2017
 ms.author: alkohli
 ---
 # Configure Multipath I/O on Windows Server host for the StorSimple Virtual Array
@@ -42,7 +42,7 @@ This section details the configuration prerequisites for the Windows Server host
 ### On StorSimple Virtual Array
 * The virtual array should be configured as an iSCSI server. To learn more, see [set up virtual array as an iSCSI server](storsimple-virtual-array-deploy3-iscsi-setup.md). One or more network interfaces should be enabled on the array.   
 * The network interfaces on your virtual array should be reachable from the Windows Server host.
-* One or more volumes should be created on your StorSimple Virtual Array. To learn more, see [Add a volume](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume) on your StorSimple Virtual Array. In this procedure, we created 3 volumes (1 locally pinned and 2 tiered volumes as shown below) on the virtual array.
+* One or more volumes should be created on your StorSimple Virtual Array. To learn more, see [Add a volume](storsimple-virtual-array-deploy3-iscsi-setup.md#step-3-add-a-volume) on your StorSimple Virtual Array. In this procedure, we created 3 volumes (1 locally pinned and 2 tiered volumes as shown below) on the virtual array.
   
     ![mpio0](./media/storsimple-virtual-array-configure-mpio-windows-server/mpio0.png)
 
@@ -99,15 +99,15 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
     3. On the **Target Portal** IP drop-down list, select the IP of array interface.
     4. Click **OK** to return to the **iSCSI Initiator Properties** dialog box.
      
-        ![mpio3](./media/storsimple-ova-configure-mpio-windows-server/mpio3.png)
+        ![mpio3](./media/storsimple-virtual-array-configure-mpio-windows-server/mpio3.png)
 
 8. Click **Properties**. 
    
-    ![mpio4](./media/storsimple-ova-configure-mpio-windows-server/mpio4.png)
+    ![mpio4](./media/storsimple-virtual-array-configure-mpio-windows-server/mpio4.png)
 
 9. In the **Properties** dialog box, click **Add Session**.
    
-   ![mpio5](./media/storsimple-ova-configure-mpio-windows-server/mpio5.png)
+   ![mpio5](./media/storsimple-virtual-array-configure-mpio-windows-server/mpio5.png)
 10. In the **Connect to Target** dialog box, select the **Enable multi-path** check box. Click **Advanced**.
 11. In the **Advanced Settings** dialog box:                                        
     
