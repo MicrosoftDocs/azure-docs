@@ -245,7 +245,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  Is password writeback secure?  How can I be sure I won’t get hacked?**
 
-  > **A:** Yes, password writeback is secure. To read more about the four layers of security implemented by the password writeback service, check out the [Password writeback security model](active-directory-passwords-writeback.md#password-writeback-security-model) in How password writeback works.
+  > **A:** Yes, password writeback is secure. To read more about the four layers of security implemented by the password writeback service, check out the [Password writeback security model](active-directory-passwords-writeback.md#password-writeback-security-model) section in How password writeback works.
   >
   >
 

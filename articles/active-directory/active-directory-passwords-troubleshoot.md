@@ -196,7 +196,7 @@ If installing the latest version of the Azure AD Connect server does not resolve
 
 ## Azure AD forums
 
-If you have a general question about Azure AD and self-service password reset, you can ask the community for assistance on the [Azure Ad forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Members of the community include Engineers, Product Managers, MVPs, and fellow IT Professionals.
+If you have a general question about Azure AD and self-service password reset, you can ask the community for assistance on the [Azure AD forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Members of the community include Engineers, Product Managers, MVPs, and fellow IT Professionals.
 
 ## Contact Microsoft support
 

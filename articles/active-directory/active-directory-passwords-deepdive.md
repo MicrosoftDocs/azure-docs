@@ -156,7 +156,8 @@ Enabling this option requires a user who is enabled for password reset to comple
 
 Disabling this feature will still allow users to manually register their contact information by visiting [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) or by clicking the **register for password reset** link under the profile tab in the access panel.
 
-> [NOTE!] Users can dismiss the password reset registration portal by clicking cancel or closing the window but are prompted each time they login until they complete registration.
+> [NOTE!]
+> Users can dismiss the password reset registration portal by clicking cancel or closing the window but are prompted each time they login until they complete registration.
 >
 
 ### Number of days before users are asked to reconfirm their authentication information
@@ -201,7 +202,8 @@ If you are not sure what account the above refers to, open the Azure Active Dire
 
 Setting these permissions allow the MA service account for each forest to manage passwords on behalf of user accounts within that forest. **If you neglect to assign these permissions, then, even though writeback appears to be configured correctly, users encounter errors when attempting to manage their on-premises passwords from the cloud.**
 
-> [NOTE!] It could take up to an hour or more for these permissions to replicate to all objects in your directory.
+> [NOTE!]
+> It could take up to an hour or more for these permissions to replicate to all objects in your directory.
 >
 
 To set up the appropriate permissions for password writeback to occur

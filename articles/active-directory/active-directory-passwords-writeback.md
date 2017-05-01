@@ -45,8 +45,8 @@ When a federated or password hash synchronized user comes to reset or change the
 4. Upon clicking submit, we encrypt the plaintext password with a symmetric key that was created during the writeback setup process.
 5. After encrypting the password, we include it in a payload that gets sent over an HTTPS channel to your tenant-specific service bus relay (that we also set up for you during the writeback setup process). This relay is protected by a randomly generated password that only your on-premises installation knows.
 6. Once the message reaches service bus, the password reset endpoint automatically wakes up and sees that it has a reset request pending.
-7. The service then looks for the user in question by using the cloud anchor attribute.
-    For this lookup to succeed
+7. The service then looks for the user in question by using the cloud anchor attribute. For this lookup to succeed:
+
     * The user object must exist in the AD connector space
     * The user object must be linked to the corresponding MV object
     * The user object must be linked to the corresponding AAD connector object.
@@ -73,7 +73,7 @@ When a federated or password hash synchronized user comes to reset or change the
 
 We recommend that you use the auto-update feature of [Azure AD Connect](/connect/active-directory-aadconnect-get-started-express.md) if you want to use password writeback.
 
-Additional information about DirSync and Azure AD Sync support can be found [here](connect/active-directory-aadconnect-dirsync-deprecated.md)
+Additional information about [DirSync and Azure AD Sync support lifecycle](connect/active-directory-aadconnect-dirsync-deprecated.md)
 
 ## Licensing requirements for password writeback
 

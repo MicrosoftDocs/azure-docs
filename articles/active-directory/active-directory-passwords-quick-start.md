@@ -55,8 +55,8 @@ This guide assumes you already have a working trial or licensed Azure AD tenant.
 
 **At this point, you have configured SSPR for your Azure AD tenant**. You can stop here or continue on to configure synchronization of passwords to an on-premises AD domain.
 
-[!NOTE]
-Test SSPR with a user and not an administrator as Microsoft enforces strong authentication requirements for Azure administrator type accounts. For more information regarding the administrator password policy, see our [deep dive article](active-directory-passwords-deepdive.md).
+> [!NOTE]
+> Test SSPR with a user and not an administrator as Microsoft enforces strong authentication requirements for Azure administrator type accounts. For more information regarding the administrator password policy, see our [deep dive article](active-directory-passwords-deepdive.md).
 
 ## Configure synchronization to existing identity source
 
