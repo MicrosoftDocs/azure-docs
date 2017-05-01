@@ -88,9 +88,14 @@ A MainWindow.xaml file should automatically be created as a part of your project
 ```xml
 <Grid>
     <StackPanel Background="Azure">
-        <Button x:Name="SignOutButton" Content="Sign-Out" HorizontalAlignment="Right" Padding="5" Click="SignOutButton_Click" Margin="5"/>
-        <Label Content="API Call Results" Margin="0,0,0,-5" />
-        <TextBox x:Name="ResultText" TextWrapping="Wrap" MinHeight="120" Margin="5"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="CallGraphButton" Content="Call Microsoft Graph API" HorizontalAlignment="Right" Padding="5" Click="CallGraphButton_Click" Margin="5" FontFamily="Segoe Ui"/>
+            <Button x:Name="SignOutButton" Content="Sign-Out" HorizontalAlignment="Right" Padding="5" Click="SignOutButton_Click" Margin="5" Visibility="Collapsed" FontFamily="Segoe Ui"/>
+        </StackPanel>
+        <Label Content="API Call Results" Margin="0,0,0,-5" FontFamily="Segoe Ui" />
+        <TextBox x:Name="ResultText" TextWrapping="Wrap" MinHeight="120" Margin="5" FontFamily="Segoe Ui"/>
+        <Label Content="Token Info" Margin="0,0,0,-5" FontFamily="Segoe Ui" />
+        <TextBox x:Name="TokenInfoText" TextWrapping="Wrap" MinHeight="70" Margin="5" FontFamily="Segoe Ui"/>
     </StackPanel>
 </Grid>
 ```
