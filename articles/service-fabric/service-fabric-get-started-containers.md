@@ -107,7 +107,7 @@ Verify your image locally before pushing it the container registry.
     172.31.194.61
     ```
 
-3. Connect to the running container.  Open a web browser and browse to "http://172.31.194.61:8000". You should see the title "Hello World!" display in the browser.
+3. Connect to the running container.  Open a web browser and browse to "http://172.31.194.61:8000". You should see the heading "Hello World!" display in the browser.
 
 4. To stop your container, run:
 
@@ -121,10 +121,8 @@ Verify your image locally before pushing it the container registry.
     docker rm my-web-site
     ```
 
-    After packaging and deploying the container in a Service Fabric app, you can delete the image.  
-
 ## Push the image to the container registry
-After you verify that the container runs on your development machine, push the image to the Azure container registry.
+After you verify that the container runs on your development machine, push the image to your registry in Azure Container Registry.
 
 1. Run ``docker login`` to log in to your container registry with your [registry credentials](../container-registry/container-registry-authentication.md).
 
@@ -140,7 +138,7 @@ After you verify that the container runs on your development machine, push the i
     docker tag helloworldapp myregistry.azurecr.io/samples/helloworldapp
     ```
 
-3.  Push the image to your Azure container registry:
+3.  Push the image to your container registry:
 
     ```
     docker push myregistry.azurecr.io/samples/helloworldapp
@@ -179,10 +177,10 @@ Visual Studio provides a Service Fabric service template to help you deploy a co
     
 9. Save all files and build your project.  
 
-10. To package your app right-click on **MyFirstContainer** in Solution Explorer and select **Package**. 
+10. To package your app, right-click on **MyFirstContainer** in Solution Explorer and select **Package**. 
 
 ## Deploy the container app
-1. To publish your app right-click on **MyFirstContainer** in Solution Explorer and select **Publish**.
+1. To publish your app, right-click on **MyFirstContainer** in Solution Explorer and select **Publish**.
 
 2. Open Service Fabric Explorer and follow the app deployment.  The app is in an error state until the image is downloaded on the cluster nodes:
     ![Error][1]
@@ -190,13 +188,13 @@ Visual Studio provides a Service Fabric service template to help you deploy a co
 3. The app is in Ready state when it's ready:
     ![Ready][2]
 
-4. Open a browser and navigate to http://containercluster.westus2.cloudapp.azure.com:80. You should see the title "Hello World!" display in the browser.
+4. Open a browser and navigate to http://containercluster.westus2.cloudapp.azure.com. You should see the heading "Hello World!" display in the browser.
 
 ## Clean up
-Delete your cluster
-Delete the image from dev machine
+Delete your cluster.
+After you push the image to the container registry you can delete the local image from your development computer.  If you are completely done with this quick start and do not want to deploy your container app again on Service Fabric, delete the image from the container registry.
 
-## Complete application and Service manifests
+## Complete example Service Fabric application and service manifests
 ### ServiceManifest.xml
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
