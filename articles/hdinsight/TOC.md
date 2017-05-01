@@ -132,8 +132,9 @@
 ## Extend clusters
 ### [Customize clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Customize clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md)
-### [Add Hive libraries](hdinsight-hadoop-add-hive-libraries.md)
 ### [Develop script actions](hdinsight-hadoop-script-actions-linux.md)
+### [Install or update Mono](hdinsight-hadoop-install-mono.md)
+### [Add Hive libraries](hdinsight-hadoop-add-hive-libraries.md)
 ### [Use Giraph](hdinsight-hadoop-giraph-install-linux.md)
 ### [Use Hue](hdinsight-hadoop-hue-linux.md)
 ### [Use R](hdinsight-hadoop-r-scripts-linux.md)
