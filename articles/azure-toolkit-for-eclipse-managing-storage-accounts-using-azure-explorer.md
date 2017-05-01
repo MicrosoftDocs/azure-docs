@@ -46,7 +46,7 @@ To create a storage account by using the Azure Explorer, do the following:
 
    * **Resource Group**: Specifies the resource group for your virtual machine. Select one of the following options:
       * **Create New**: Specifies that you want to create a new resource group.
-      * **Use Existing**: Specifies that you will select from a list the resource groups that are associated with your Azure account.
+      * **Use Existing**: Specifies that you will select from a list of resource groups that are associated with your Azure account.
 
    * **Region**: Specifies the location where your storage account will be created (for example, "West US").
 
