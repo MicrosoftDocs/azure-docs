@@ -612,7 +612,7 @@ Host: api.cognitive.microsoft.com
 > Host: api.cognitive.microsoft.com
 > ```
 >
-> For differences in response format between v5 and v7, see [Recognizing Entities in an Image](recognizing-entities-in-an-image).
+> For differences in response format between v5 and v7, see [Recognizing Entities in an Image](#recognizing-entities-in-an-image).
 
   
 The response shows two recognized entities.  
@@ -686,7 +686,7 @@ Host: api.cognitive.microsoft.com
 > Host: api.cognitive.microsoft.com
 > ```
 >
-> For differences in response format between v5 and v7, see [Recognizing Entities in an Image](recognizing-entities-in-an-image).
+> For differences in response format between v5 and v7, see [Recognizing Entities in an Image](#recognizing-entities-in-an-image).
 
   
 The response shows one recognized entity.  
