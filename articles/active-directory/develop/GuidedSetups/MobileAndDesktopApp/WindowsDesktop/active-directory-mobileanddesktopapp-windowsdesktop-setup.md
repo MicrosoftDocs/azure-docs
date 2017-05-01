@@ -26,7 +26,7 @@ The application created by this guide exposes a button to graph and show results
 
 | | |
 |---------|---------|
-|[![Download](../../media/active-directory-mobileanddesktop-windowsdesktop-setup/download.png)](http://github.com)|Prefer to download this sample's Visual Studio project instead? [Download a project]() and skip to the [Configuration](active-directory-mobileanddesktop-windowsdesktop-configure.md) step to configure the code sample before executing.|
+|[![Download](../../media/active-directory-mobileanddesktopapp-windowsdesktop-setup/download.png)](http://github.com)|Prefer to download this sample's Visual Studio project instead? [Download a project]() and skip to the [Configuration](active-directory-mobileanddesktopapp-windowsdesktop-configure.md) step to configure the code sample before executing.|
 
 
 ## Creating your application
@@ -90,4 +90,4 @@ A MainWindow.xaml file should automatically be created as a part of your project
 
 ### What is next
 
-[Use](active-directory-mobileanddesktop-windowsdesktop-use.md)
+[Use](active-directory-mobileanddesktopapp-windowsdesktop-use.md)

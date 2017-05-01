@@ -30,4 +30,4 @@ private static string ClientId = "your_application_id_here";
 
 ### What is Next
 
-[Test and Validate](active-directory-mobileanddesktop-windowsdesktop-test.md)
+[Test and Validate](active-directory-mobileanddesktopapp-windowsdesktop-test.md)

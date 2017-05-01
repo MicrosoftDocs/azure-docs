@@ -348,4 +348,4 @@ Although the application in this sample supports a single user, MSAL supports sc
 
 ### What is Next
 
-[Configure](active-directory-mobileanddesktop-android-configure.md)
+[Configure](active-directory-mobileanddesktopapp-android-configure.md)

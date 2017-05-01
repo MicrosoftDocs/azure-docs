@@ -114,7 +114,7 @@ In Visual Studio, create a new view to add the sign-in button and display user i
 ```
 <!--start-collapse-->
 ### More Information
-> This page adds a sign-in button in SVG format with a black background:<br/>![Sign-in with Microsoft](../../media/active-directory-serversidewebapp-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, please go to the [this page](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines).
+> This page adds a sign-in button in SVG format with a black background:<br/>![Sign-in with Microsoft](../../media/active-directory-serversidewebapp-aspnetwebappowin-use/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, please go to the [this page](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines).
 
 # Add a controller to display user claims
 This controller demonstrates the uses of the `[Authorize]`s attribute to protect a controller. This attribute restricts access to the controller by only allowing authenticated users. The code below makes use of the attribute to display user claims that were retrieved as part of the sign-in.
@@ -200,4 +200,4 @@ In Visual Studio, create a new view to display the user's claims in a web page:
 
 ### What is Next
 
-[Configure](active-directory-serversidewebapp-aspnetwebapp-configure.md)
+[Configure](active-directory-serversidewebapp-aspnetwebappowin-configure.md)

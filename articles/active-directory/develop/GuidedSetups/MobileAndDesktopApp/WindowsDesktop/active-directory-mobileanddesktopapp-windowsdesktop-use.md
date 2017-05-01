@@ -197,4 +197,4 @@ Tokens acquired via *OpenID Connect* also contain a small subset of information 
 
 ### What is Next
 
-[Configure](active-directory-mobileanddesktop-windowsdesktop-configure.md)
+[Configure](active-directory-mobileanddesktopapp-windowsdesktop-configure.md)

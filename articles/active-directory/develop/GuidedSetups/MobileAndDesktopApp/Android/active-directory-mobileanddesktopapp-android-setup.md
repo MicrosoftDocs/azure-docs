@@ -23,7 +23,7 @@ This section provides step-by-step instructions for how to create a new project 
 
 | | |
 |---------|---------|
-|[![Download](../../media/active-directory-mobileanddesktop-android-setup/download.png)](http://github.com)|Prefer to download a sample Android Studio project instead? [Download a project](http://github.com) and skip to the [Configuration](active-directory-mobileanddesktop-android-configure.md) step to configure the code sample before executing.|
+|[![Download](../../media/active-directory-mobileanddesktopapp-android-setup/download.png)](http://github.com)|Prefer to download a sample Android Studio project instead? [Download a project](http://github.com) and skip to the [Configuration](active-directory-mobileanddesktopapp-android-configure.md) step to configure the code sample before executing.|
 
 
 # Create a new project 
@@ -112,4 +112,4 @@ The package above installs the Microsoft Authentication Library (MSAL). MSAL han
 
 ### What is Next
 
-[Use](active-directory-mobileanddesktop-android-use.md)
+[Use](active-directory-mobileanddesktopapp-android-use.md)

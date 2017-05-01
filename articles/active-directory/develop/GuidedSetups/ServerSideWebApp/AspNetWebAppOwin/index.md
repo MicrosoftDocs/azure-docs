@@ -1,3 +1,3 @@
 ---
-redirect_url: active-directory-serversidewebapp-aspnetwebapp-intro.md
+redirect_url: active-directory-serversidewebapp-aspnetwebappowin-intro.md
 ---

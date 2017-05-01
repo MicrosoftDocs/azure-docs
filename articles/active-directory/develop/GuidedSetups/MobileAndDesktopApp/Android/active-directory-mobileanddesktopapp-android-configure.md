@@ -1,6 +1,6 @@
 ---
-title: Implementing Sign-in with Microsoft on a Windows Desktop Application  - Configure
-description: How a Windows Desktop .NET (XAML) application can get an access token and call an API protected by Azure Active Directory v2 endpoint. | Microsoft Azure | Microsoft Azure
+title: Implementing Sign-in with Microsoft on an Android application - Configure
+description: How to  implement demonstrates how to implement Sign-In with Microsoft on a native Android application using the OpenID Connect standard | Microsoft Azure
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -20,7 +20,7 @@ ms.author: andret
 <!-- Docs -->
 # Create an application (Express)
 Now you need to register your application in the *Microsoft Application Registration Portal*:
-1. Register your application via the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&page=configure)
+1. Register your application via the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&page=configure)
 2.	Enter a name for your application and your email
 3.	Make sure the option for Guided Setup is checked
 4.	Follow the instructions to obtain the application ID and paste it into your code
@@ -31,12 +31,19 @@ Now you need to register your application in the *Microsoft Application Registra
 2. Enter a name for your application and your email 
 3. Make sure the option for Guided Setup is unchecked
 4. Click `Add Platforms`, then select `Native Application` and hit Save
-5. Copy the GUID in Application ID, go back to Visual Studio, open `App.xaml.cs` and replace `your_client_id_here` with the Application ID you just registered:
-
-```csharp
-private static string ClientId = "your_application_id_here";
+5.	Open `MainActivity` (under `app` > `java` > *`{host}.{namespace}`*)
+6.	Replace the line starting with `final static String CLIENT_ID` to:
+```java
+final static String CLIENT_ID = "[Enter the application Id here]";
 ```
+7. Open `AndroidManifest.xml` (under `app` > `manifests`)
+8. Add the following to `manifest\application\activity\intent-filter` node:
+```xml
+<data android:scheme="msal[Enter the application Id here]//"
+    android:host="auth" />
+```
+<!-- End Docs -->
 
 ### What is Next
 
-[Test and Validate](active-directory-mobileanddesktop-windowsdesktop-test.md)
+[Test and Validate](active-directory-mobileanddesktopapp-android-testvalidate.md)

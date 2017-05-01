@@ -19,7 +19,7 @@ ms.author: andret
 ---
 
 
-Prefer to download a sample Visual Studio project instead? [Download a project]() and skip to the [Configuration](active-directory-serversidewebapp-aspnetwebapp-configure.md) step to configure the code sample before executing.
+Prefer to download a sample Visual Studio project instead? [Download a project]() and skip to the [Configuration](active-directory-serversidewebapp-aspnetwebappowin-configure.md) step to configure the code sample before executing.
 
 # Setup your project
 
@@ -142,4 +142,4 @@ public class Startup
 
 ### What is Next
 
-[Add Sign-in](active-directory-serversidewebapp-aspnetwebapp-use.md)
+[Add Sign-in](active-directory-serversidewebapp-aspnetwebappowin-use.md)

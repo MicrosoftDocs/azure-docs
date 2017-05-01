@@ -23,14 +23,14 @@ Deploy your code to your device/ emulator.
 
 When you're ready to test, use a Microsoft Azure Active Directory (organizational account) or a Microsoft Account (live.com, outlook.com) account to sign in. 
 
-![Sample screen shot](../../media/active-directory-mobileanddesktop-android-test/mainwindow.png)
+![Sample screen shot](../../media/active-directory-mobileanddesktopapp-android-test/mainwindow.png)
 <br/><br/>
-![Sign-in](../../media/active-directory-mobileanddesktop-android-test/usernameandpassword.png)
+![Sign-in](../../media/active-directory-mobileanddesktopapp-android-test/usernameandpassword.png)
 
 ### Consent
 The first time a user signs in to your application, he/she will be presented with a consent screen similar to the below, where he/she needs to explicitly accept: 
 
-![Consent](../../media/active-directory-mobileanddesktop-android-test/androidconsent.png)
+![Consent](../../media/active-directory-mobileanddesktopapp-android-test/androidconsent.png)
 
 
 ### Expected Results

@@ -34,7 +34,7 @@ Now you need to register your application in the *Microsoft Application Registra
 5.	Go back to Visual Studio and, in Solution Explorer, select the project and look at the Properties window (if you don’t see a Properties window, press F4)
 6.	Change SSL Enabled to `True`
 
-<br/>![Project properties](../../media/active-directory-serversidewebapp-aspnetwebapp-intro/aspenetvspropertieslocalhost.png)<br />
+<br/>![Project properties](../../media/active-directory-serversidewebapp-aspnetwebappowin-intro/aspenetvspropertieslocalhost.png)<br />
 
 7.	Copy the SSL URL and add this URL to the list of Redirect URLs in the Registration Portal’s list of Redirect URLs
 8.	Add the following in `web.config` located in the root folder under the section `configuration\appSettings`:
@@ -57,4 +57,4 @@ Another option is to implement a custom method to validate the issuers using `Is
 
 ### What is Next
 
-[Test and Validate](active-directory-serversidewebapp-aspnetwebapp-test.md)
+[Test and Validate](active-directory-serversidewebapp-aspnetwebappowin-test.md)
