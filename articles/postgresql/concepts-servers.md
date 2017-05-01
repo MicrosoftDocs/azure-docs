@@ -12,12 +12,15 @@ ms.tgt_pltfrm: portal
 ms.topic: article
 ms.date: 05/10/2017
 ---
-# Servers
+# Azure Database for PostgreSQL Servers
+
 This topic provides considerations and guidelines for working with Azure Database for PostgreSQL servers.
 
 ## What is an Azure Database for PostgreSQL server?
+
 An Azure Database for PostgreSQL server is a central administrative point for multiple databases. It is the same PostgreSQL server construct that you may be familiar with in the on-premises world. Specifically, the PostgreSQL service is managed, provides performance guarantees, exposes access and features at server-level.
 An Azure Database for PostgreSQL server:
+
 - Is created within an Azure subscription
 - Is the parent resource for databases
 - Provides a namespace for databases
@@ -29,16 +32,18 @@ An Azure Database for PostgreSQL server:
 - Is extensible by users. For more information, see [PostgreSQL extensions](concepts-extensions.md)
 
 ## How do I connect and authenticate to an Azure Database for PostgreSQL server?
-- **Authentication and authorization**: Azure Database for PostgreSQL server supports SQL authentication. You can connect and authenticate to server with the server's admin login. For more information, see [Managing Users and Roles in Azure Database for PostgreSQL](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
+
+- **Authentication and authorization**: Azure Database for PostgreSQL server supports native PostgreSQL authentication. You can connect and authenticate to server with the server's admin login. For more information, see [Managing Users and Roles in Azure Database for PostgreSQL](/azure/sql-database/sql-database-manage-logins).
 - **Protocol**: The service supports message-based protocol used by PostgreSQL.
-- **TCP/IP**: The protocol is supported over TCP/IP and also over Unix-domain sockets.
+- **TCP/IP**: The protocol is supported over TCP/IP, and over Unix-domain sockets.
 - **Firewall**: To help protect your data, a firewall rule prevents all access to your database server or its databases until you specify which computers have permission. See [Azure Database for PostgreSQL Server firewall rules](concepts-firewall-rules.md).
 
-
 ## How do I manage a server?
+
 You can manage Azure Database for PostgreSQL servers using the Azure portal, Azure CLI, and rest APIs.
 
 ## Next steps
+
 - For an overview of the service, see [Azure Database for PostgreSQL Overview](overview.md)
 - For information about specific resource quotas and limitations based on your **service tier**, see [Service tiers](concepts-service-tiers.md)
 - For information on connecting to the service, see [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md).
