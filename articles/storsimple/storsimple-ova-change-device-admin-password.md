@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/storsimple/storsimple/storsimple-virtual-array-change-device-admin-password.md
+redirect_url: /azure/storsimple/storsimple-virtual-array-change-device-admin-password.md
 ---
