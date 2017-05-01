@@ -21,6 +21,13 @@ ms.author: andret
 
 Prefer to download a sample Visual Studio project instead? [Download a project]() and skip to the [Configuration](active-directory-serversidewebapp-aspnetwebappowin-configure.md) step to configure the code sample before executing.
 
+
+
+| | |
+|---------|---------|
+|[![Download](../../media/active-directory-mobileanddesktopapp-windowsdesktop-setup/download.png)](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/complete.zip)|Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/complete.zip) and skip to the [Configuration](active-directory-mobileanddesktopapp-windowsdesktop-configure.md) step to configure the code sample before executing.|
+
+
 # Setup your project
 
 <!--start-collapse-->
