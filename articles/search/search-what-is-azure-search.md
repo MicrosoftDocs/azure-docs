@@ -104,7 +104,7 @@ After populating an index, you can [issue search queries](/rest/api/searchservic
 
 ## How it compares
 
-Customers often ask how [full text search in Azure Search](search-lucene-query-architecture.md) compares with [full text search](shttps://en.wikipedia.org/wiki/Full_text_search) in their database product. Our response is that Azure Search language capabilities are richer and more flexible, with support for Lucene queries, language analyzers from Lucene and Microsoft, custom analyzers for phonetic or other specialized inputs, and the ability to merge data from multiple sources in the search index. 
+Customers often ask how [full text search in Azure Search](search-lucene-query-architecture.md) compares with [full text search](https://en.wikipedia.org/wiki/Full_text_search) in their database product. Our response is that Azure Search language capabilities are richer and more flexible, with support for Lucene queries, language analyzers from Lucene and Microsoft, custom analyzers for phonetic or other specialized inputs, and the ability to merge data from multiple sources in the search index. 
 
 Another inflection point is that a search solution addresses the entire search experience. For example, you might want custom scoring of results, faceted navigation for self-directed filtering, hit highlighting, and typeahead query suggestions. 
 
