@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/27/2017
+ms.date: 05/01/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -33,15 +33,21 @@ For N-series VM specs, storage capacities, and disk details, see [GPU Linux VM s
 
 The following distributions from the Azure Marketplace are supported to run NVIDIA graphics drivers on N-series Linux VMs.
 
-| OS | NC VMs (Tesla K80)<sup>1</sup> | NV VMs (Tesla M60)<sup>2</sup> |
-|-----|------|-------|
-| Ubuntu 16.04 LTS | yes | yes |
-| Red Hat Enterprise Linux 7.3 | yes | yes |
-| CentOS-based 7.3 | yes | yes |
+### NC VMs (Tesla K80 card)
+* Ubuntu 16.04 LTS 
+* Red Hat Enterprise Linux 7.3 
+* CentOS-based 7.3 
 
-<sup>1</sup> Supported drivers: NVIDIA CUDA 8.0, driver branch R375. [Installation steps](#install-CUDA-drivers-for-NC-VMs)
- 
-<sup>2</sup> Supported drivers: NVIDIA GRID 4.2, driver branch R367. [Installation steps](#install-GRID-drivers-for-NV-VMs)
+**Supported drivers**: NVIDIA CUDA 8.0, driver branch R375. [Installation steps](#install-CUDA-drivers-for-NC-VMs)
+
+
+### NV VMs (Tesla M60 card)
+* Ubuntu 16.04 LTS 
+* Red Hat Enterprise Linux 7.3 
+* CentOS-based 7.3 
+
+
+**Supported drivers**: NVIDIA GRID 4.2, driver branch R367. [Installation steps](#install-GRID-drivers-for-NV-VMs)
 
 
 > [!WARNING] 
@@ -114,7 +120,7 @@ sudo reboot
 
 Reconnect to the VM and continue installation with the following commands:
 
-```
+```bash
 sudo yum install kernel-devel
 
 sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
@@ -130,8 +136,8 @@ sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
 rm -f /tmp/${CUDA_REPO_PKG}
 
 sudo yum install cuda-drivers
-
 ```
+
 The installation can take several minutes. To optionally install the complete CUDA toolkit, type:
 
 ```bash
@@ -176,11 +182,35 @@ sudo yum update
 ```
 
 ## Install GRID drivers for NV VMs
-[!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 
-* We don't recommend installing X server or other systems that use the nouveau driver on Linux NC VMs. Before installing NVIDIA GPU drivers, disable the nouveau driver.  
 
-##
+## Incompatibility of Linux kernel 4.4.0.75 on Ubuntu 16.04 LTS
+
+There is a known issue with Azure N-series VMs running the 4.4.0-75 Linux kernel on Ubuntu 16.04 LTS. You should not upgrade past kernel version 4.4.0-72. Otherwise, the NVIDIA drivers may stop working on Ubuntu 16.04 LTS VMs.
+
+
+To explicitly install 4.4.0-72: 
+
+```bash
+sudo apt-get update && sudo apt-get install linux-image-4.4.0-72-generic linux-tools-4.4.0-72 linux-cloud-tools-4.4.0-72 linux-headers-4.4.0-72
+```
+
+
+To explicitly uninstall 4.4.0-75: 
+
+```bash
+dpkg -l | awk '{print $2}' | grep 4.4.0-75 | xargs sudo apt-get purge -y
+```
+
+To reinstall CUDA drivers (optional):
+
+```bash
+dpkg -l | awk '{print $2}' | grep nvidia | xargs sudo apt-get install --reinstall -y
+```
+
+After driver installation, reboot the VM.
+
+
 
 ## Next steps
 
