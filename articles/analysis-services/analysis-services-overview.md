@@ -31,7 +31,7 @@ Watch this video to learn more about how Azure Analysis Services fits in with Mi
 
 
 ## Built on SQL Server Analysis Services
-Azure Analysis Services is compatible with the same SQL Server 2016 Analysis Services Enterprise Edition you already know. Azure Analysis Services supports tabular models at the 1200 compatibility level. DirectQuery, partitions, row-level security, bi-directional relationships, and translations are all supported.
+Azure Analysis Services is compatible with the same SQL Server Analysis Services Enterprise Edition you already know. Azure Analysis Services supports tabular models at the 1200 or later compatibility levels. DirectQuery, partitions, row-level security, bi-directional relationships, and translations are all supported.
 
 ## Use the tools you already know
 ![BI developer tools](./media/analysis-services-overview/aas-overview-dev-tools.png)
