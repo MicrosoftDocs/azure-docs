@@ -18,11 +18,11 @@
 <!---[.NET](documentdb-connect-tables-dotnet.md)--->
 
 # Tutorials
-## 1 - Create Azure Cosmos DB
+## 1 - Create
 ### [DocumentDB](documentdb-tutorial-documentdb-create.md)
 ### MongoDB
 ### Table
-### [Graph](documentdb-tutorial-graph-dotnet.md)
+### [Graph](documentdb-tutorial-create-graph-dotnet.md)
 ## 2 - Import 
 ### [DocumentDB/Table/Graph](documentdb-import-data.md)
 ### [MongoDB](documentdb-mongodb-migrate.md)
@@ -48,8 +48,7 @@
 ## [Multi-model APIs](documentdb-resources.md)
 ### [DocumentDB API](documentdb-introduction.md)
 ### [MongoDB API](documentdb-protocol-mongodb.md)
-### Table API
-<!---### [Table API](documentdb-table-introduction.md)--->
+### [Table API](documentdb-table-introduction.md)
 ### [Graph API](documentdb-graph-introduction.md)
 ## [Global distribution](documentdb-distribute-data-globally.md)
 ## [Partition and scale](documentdb-partition-data.md)

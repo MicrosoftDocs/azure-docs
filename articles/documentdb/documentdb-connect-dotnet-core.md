@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/12/2017
+ms.date: 05/01/2017
 ms.author: mimig
 
 ---
@@ -51,7 +51,7 @@ Now let's clone a  DocumentDB API app from github, set the connection string, an
 2. Run the following command to clone the sample repository. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/documentdb-dotnet-todo-app.git
+    git clone https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started.git
     ```
 
 3. Then open the solution file in Visual Studio. 
