@@ -13,7 +13,7 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: 'na'
 ms.workload: big-data
-ms.date: 04/28/2017
+ms.date: 05/01/2017
 ms.author: larryfr
 ms.custom: hdinsightactive
 
