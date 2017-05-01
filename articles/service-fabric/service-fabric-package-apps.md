@@ -1,4 +1,4 @@
----
+﻿---
 title: Package an Azure Service Fabric app | Microsoft Docs
 description: How to package a Service Fabric application before deploying to a cluster.
 services: service-fabric
@@ -70,7 +70,7 @@ D:\Temp> msbuild HelloWorld.sfproj /t:Package
 ```
 
 ## Test the package
-You can verify the package structure locally through PowerShell by using the [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) command.
+You can verify the package structure locally through PowerShell by using the [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) command.
 This command checks for manifest parsing issues and verify all references. This command only verifies the structural correctness of the directories and files in the package.
 It doesn't verify any of the code or data package contents beyond checking that all necessary files are present.
 
@@ -107,7 +107,7 @@ True
 PS D:\temp>
 ```
 
-If your application has [application parameters](service-fabric-manage-multiple-environment-app-configuration.md) defined, you can pass them in [Test-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) for proper validation.
+If your application has [application parameters](service-fabric-manage-multiple-environment-app-configuration.md) defined, you can pass them in [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) for proper validation.
 
 If you know the cluster where the application will be deployed, it is recommended you pass in the image store connection string. In this case, the package is also validated against previous versions of the application
 that are already running in the cluster. For example, the validation can detect whether a package with the same version but different content was already deployed.  
@@ -121,10 +121,10 @@ When a package is large or has many files, you can compress it for faster deploy
 The deploy mechanism is same for compressed and uncompressed packages. If the package is compressed, it is stored as such in the cluster image store and it's uncompressed on the node before the application is run.
 The compression replaces the valid Service Fabric package with the compressed version. The folder must allow write permissions. Running compression on an already compressed package yields no changes. 
 
-You can compress a package by running the Powershell command [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) 
+You can compress a package by running the Powershell command [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) 
 with `CompressPackage` switch. You can uncompress the package with the same command, using `UncompressPackage` switch.
 
-The following command compresses the package without copying it to the image store. You can copy a compressed package to one or more Service Fabric clusters, as needed, using [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage)
+The following command compresses the package without copying it to the image store. You can copy a compressed package to one or more Service Fabric clusters, as needed, using [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps)
 without the `SkipCopy` flag. 
 The package now includes zipped files for the `code`, `config` and `data` packages. The application manifest and the service manifests are not zipped,
 because they are needed for many internal operations (like package sharing, application type name and version extraction for certain validations).
@@ -163,7 +163,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 ```
 
-Alternatively, you can compress and copy the package with [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) in one step.
+Alternatively, you can compress and copy the package with [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) in one step.
 If the package is large, provide a high enough timeout to allow time for both the package compression and the upload to the cluster.
 ```
 PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -ApplicationPackagePathInImageStore MyApplicationType -ImageStoreConnectionString fabric:ImageStore -CompressPackage -TimeoutSec 5400

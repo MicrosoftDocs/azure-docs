@@ -1,4 +1,4 @@
----
+﻿---
 title: Collect logs by using Azure Diagnostics | Microsoft Docs
 description: This article describes how to set up Azure Diagnostics to collect logs from a Service Fabric cluster running in Azure.
 services: service-fabric
@@ -33,7 +33,7 @@ You use these tools to perform some of the operations in this document:
 
 * [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) (related to Azure Cloud Services but has good information and examples)
 * [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell](/powershell/azure/overview)
 * [Azure Resource Manager client](https://github.com/projectkudu/ARMClient)
 * [Azure Resource Manager template](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
