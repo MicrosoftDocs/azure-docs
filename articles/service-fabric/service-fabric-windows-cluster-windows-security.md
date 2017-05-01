@@ -30,7 +30,6 @@ The sample *ClusterConfig.gMSA.Windows.MultiMachine.JSON* configuration file dow
 
 ```  
 "security": {  
-            "ServerCredentialType": "Windows",  
             "WindowsIdentities": {  
                 "ClustergMSAIdentity": "accountname@fqdn"  
                 "ClusterSPN": "fqdn"  
