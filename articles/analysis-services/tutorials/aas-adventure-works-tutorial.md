@@ -23,7 +23,7 @@ This tutorial provides lessons on how to create and deploy a tabular model at th
   
 ## What you'll learn   
   
--   How to create a new tabular model project at the 1400 compatibility level in SSDT.
+-   How to create a new tabular model project at the **1400 compatibility level** in SSDT.
   
 -   How to import data from a relational database into a tabular model project.  
   
@@ -37,7 +37,7 @@ This tutorial provides lessons on how to create and deploy a tabular model at th
   
 -   How to secure model objects and data by creating roles with user members.  
   
--   How to deploy a tabular model to an Azure Analysis Services server or an on-premises SQL Server vNext Analysis Services server.  
+-   How to deploy a tabular model to an **Azure Analysis Services** server or an on-premises SQL Server 2017 Analysis Services server.  
   
 ## Scenario  
 This tutorial is based on Adventure Works Cycles, a fictitious company. Adventure Works is a large, multinational manufacturing company that produces and distributes metal and composite bicycles to commercial markets in North America, Europe, and Asia. With headquarters in Bothell, Washington, the company employs 500 workers. Additionally, Adventure Works employs several regional sales teams throughout its market base. You are tasked with creating a tabular model for sales and marketing users to analyze Internet sales data in the AdventureWorksDW sample database.  
@@ -81,7 +81,7 @@ This tutorial includes the following lessons:
 |[Lesson 13: Deploy](../tutorials/aas-lesson-13-deploy.md)|5 minutes|  
   
 ## Supplemental lessons  
-This tutorial also includes supplemental lessons. These lessons are not required to complete the tutorial, but can be helpful in better understanding advanced tabular model authoring features.  
+These lessons are not required to complete the tutorial, but can be helpful in better understanding advanced tabular model authoring features.  
   
 |Lesson|Estimated time to complete|  
 |----------|------------------------------|  
@@ -90,8 +90,8 @@ This tutorial also includes supplemental lessons. These lessons are not required
 |[Ragged hierarchies](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)|20 minutes| 
 
   
-## Next step  
-To begin the tutorial, continue to the first lesson: [Lesson 1: Create a New Tabular Model Project](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
+## Next steps  
+To get started, see [Lesson 1: Create a New Tabular Model Project](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
   
   

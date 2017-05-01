@@ -18,7 +18,7 @@ ms.date: 04/05/2017
 ms.author: owend
 ---
 # Lesson 1: Create a new tabular model project
-In this lesson, using SQL Server Data Tool (SSDT), you will create a new tabular model project at the 1400 compatibility level. Once your new project is created, you can begin adding data and authoring your model. This lesson also gives you a brief introduction to the tabular model authoring environment in SSDT.  
+In this lesson, by using SQL Server Data Tool (SSDT) you will create a new tabular model project at the 1400 compatibility level. Once your new project is created, you can begin adding data and authoring your model. This lesson also gives you a brief introduction to the tabular model authoring environment in SSDT.  
   
 Estimated time to complete this lesson: **10 minutes**  
   
