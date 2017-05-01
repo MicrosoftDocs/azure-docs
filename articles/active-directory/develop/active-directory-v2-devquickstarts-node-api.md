@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory v2.0 Node.js web API | Microsoft Docs
+title: Secure an Azure Active Directory v2.0 web API by using Node.js | Microsoft Docs
 description: Learn how to build a Node.js web API that accepts tokens both from a personal Microsoft account and from work or school accounts.
 services: active-directory
 documentationcenter: nodejs
@@ -135,7 +135,7 @@ Restify has a powerful mechanism to trace REST calls by using DTrace. However, D
     ```
 
 ## 6: Add passport-azure-ad to your web API
-Next, add the OAuth strategy, by using passport-azuread. Passport-azuread is a suite of strategies that connect Azure AD with Passport. We use this strategy for bearer tokens in this REST API sample.
+Next, add the OAuth strategy, by using passport-azuread. `passport-azuread` is a suite of strategies that connect Azure AD with Passport. We use this strategy for bearer tokens in this REST API sample.
 
 > [!NOTE]
 > Although OAuth 2.0 provides a framework in which any known token type can be issued, certain token types are commonly used. Bearer tokens are commonly used to protect endpoints. Bearer tokens are the most widely issued type of token in OAuth 2.0. Many OAuth 2.0 implementations assume that bearer tokens are the only type of token issued.
@@ -146,7 +146,7 @@ Next, add the OAuth strategy, by using passport-azuread. Passport-azuread is a s
 
     `cd azuread`
 
-2.  Install the Passport.js passport-azure-ad module:
+2.  Install the Passport.js `passport-azure-ad` module:
 
     `npm install passport-azure-ad`
 
@@ -187,46 +187,28 @@ Install the remaining required modules.
 
 2.  Enter the following commands. The commands install the following modules in your node_modules directory:
 
-    `npm install crypto`
-
-    `npm install assert-plus`
-
-    `npm install posix-getopt`
-
-    `npm install util`
-
-    `npm install path`
-
-    `npm install connect`
-
-    `npm install xml-crypto`
-
-    `npm install xml2js`
-
-    `npm install xmldom`
-
-    `npm install async`
-
-    `npm install request`
-
-    `npm install underscore`
-
-    `npm install grunt-contrib-jshint@0.1.1`
-
-    `npm install grunt-contrib-nodeunit@0.1.2`
-
-    `npm install grunt-contrib-watch@0.2.0`
-
-    `npm install grunt@0.4.1`
-
-    `npm install xtend@2.0.3`
-
-    `npm install bunyan`
-
-    `npm update`
+    *   `npm install crypto`
+    *   `npm install assert-plus`
+    *   `npm install posix-getopt`
+    *   `npm install util`
+    *   `npm install path`
+    *   `npm install connect`
+    *   `npm install xml-crypto`
+    *   `npm install xml2js`
+    *   `npm install xmldom`
+    *   `npm install async`
+    *   `npm install request`
+    *   `npm install underscore`
+    *   `npm install grunt-contrib-jshint@0.1.1`
+    *   `npm install grunt-contrib-nodeunit@0.1.2`
+    *   `npm install grunt-contrib-watch@0.2.0`
+    *   `npm install grunt@0.4.1`
+    *   `npm install xtend@2.0.3`
+    *   `npm install bunyan`
+    *   `npm update`
 
 ## 9: Create a Server.js file for your dependencies
-A Server.js file holds the majority of the functionality for your Web API server. Add most of your code to this file. For production purposes, you can refactor the functionality into smaller files, like for separate routes and controllers. In this article, we use Server.js for this purpose.
+A Server.js file holds the majority of the functionality for your web API server. Add most of your code to this file. For production purposes, you can refactor the functionality into smaller files, like for separate routes and controllers. In this article, we use Server.js for this purpose.
 
 1.  At a command prompt, change the directory to **azuread**:
 
@@ -275,7 +257,7 @@ This code file passes the configuration parameters from your Azure AD portal to 
 
 ### Required values
 
-*   **IdentityMetadata**: This is where passport-azure-ad looks for your configuration data for the identity provider (IDP) and the keys to validate the JSON Web Tokens (JWTs). If you are using Azure AD, you probably don't want to change this.
+*   **IdentityMetadata**: This is where `passport-azure-ad` looks for your configuration data for the identity provider (IDP) and the keys to validate the JSON Web Tokens (JWTs). If you are using Azure AD, you probably don't want to change this.
 
 *   **audience**: Your redirect URI from the portal.
 
@@ -396,7 +378,7 @@ server.post('/service/:add/:object', createObject); // calls createObject on rou
 This is the pattern at the most basic level. Restify (and Express) provide much deeper functionality, like the ability to define application types, and complex routing across different endpoints.
 
 #### Add default routes to your server
-Add the basic CRUD routes: create, retrieve, update, and delete.
+Add the basic CRUD routes: **create**, **retrieve**, **update**, and **delete**.
 
 1.  At a command prompt, change the directory to **azuread**:
 
@@ -720,7 +702,7 @@ server.use(passport.session()); // Provides session support
 > 
 > 
 
-Next, use the Open ID Connect Bearer strategy that comes with passport-azure-ad. Put this after what you pasted earlier:
+Next, use the Open ID Connect Bearer strategy that comes with `passport-azure-ad`. Put this after what you pasted earlier:
 
 ```Javascript
 /**
@@ -765,10 +747,10 @@ return done(null, user, token);
 passport.use(oidcStrategy);
 ```
 
-Passport uses a similar pattern for all its strategies (Twitter, Facebook, and so on). All strategy writers adhere to the pattern. Pass the strategy a function() that uses a token and a "done" as parameters. The strategy is returned after it does all its work. Then, you’ll want to store the user and stash the token so you don’t need to ask for it again.
+Passport uses a similar pattern for all its strategies (Twitter, Facebook, and so on). All strategy writers adhere to the pattern. Pass the strategy a `function()` that uses a token and `done` as parameters. The strategy is returned after it does all its work. Store the user and stash the token so you don’t need to ask for it again.
 
 > [!IMPORTANT]
-> The preceding code takes any user that can authenticate to your server. This is known as auto registration. On a production server, you wouldn’t want to let anyone in without first having them go through a registration process that you choose. This is usually the pattern you see in consumer apps. The app might allow you to register with Facebook, but then it asks you to enter additional information. If you weren't using a command-line program for this tutorial, you could have extracted the email from the token object that is returned. Then, you might ask the user to enter additional information. Because this is a test server, you add them directly to the in-memory database.
+> The preceding code takes any user that can authenticate to your server. This is known as auto-registration. On a production server, you wouldn’t want to let anyone in without first having them go through a registration process that you choose. This is usually the pattern you see in consumer apps. The app might allow you to register with Facebook, but then it asks you to enter additional information. If you weren't using a command-line program for this tutorial, you could extract the email from the token object that is returned. Then, you might ask the user to enter additional information. Because this is a test server, you add the user directly to the in-memory database.
 > 
 > 
 
