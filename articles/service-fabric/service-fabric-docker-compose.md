@@ -18,9 +18,9 @@ ms.author: subramar
 ---
 
 
-The [Service Fabric application model](service-fabric-application-model.md) uses service types and application types, where you can have many application instances of the same type (for example, one application instance per customer). This type based model also supports having multiple versions of the same application type registerted with the runtime - for example, customer A could get type 1.0 of AppTypeA, customer B could get type 2.0 of AppTypeB and customer C could get type 1.0 of AppTypeA. AppTypeA and AppTypeB would be defined in application manifests, and you specify the application name and deployment parameters at the time of application creation.
+The [Service Fabric application model](service-fabric-application-model.md) uses service types and application types, where you can have many application instances of the same type (for example, one application instance per customer). This type based model supports multiple versions of the same application type registered with the runtime. For example, customer A can have an application instantiated with type 1.0 of AppTypeA and customer B can have another application instantiated with the same type and version. The application types are defined in application manifests, and the application name and deployment parameters are specified at the time of application creation.
 
-While this model offers maximum flexibility, we're also planning to support a simpler instance based deployment model where types are implicit from the manifest file. In this model, each application gets its own independent manifest. We're previewing this effort by adding support for docker-compose.yml which is an instance based deployment format used by Docker for defining container applications. 
+While this model offers flexibility, we're also planning to support a simpler instance based deployment model where types are implicit from the manifest file. In this model, each application gets its own independent manifest. We're previewing this effort by adding support for docker-compose.yml which is an instance based deployment format used by Docker for defining container applications. 
 
 
 ## Docker Compose support in Service Fabric (Preview)
