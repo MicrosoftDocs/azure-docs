@@ -67,6 +67,7 @@ using Microsoft.Owin.Security.Notifications;
 using Microsoft.IdentityModel.Protocols;
 ```
 2. Replace Startup class code with below:
+
 ```csharp
 public class Startup
 {        
