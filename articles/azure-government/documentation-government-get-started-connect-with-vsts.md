@@ -20,11 +20,11 @@ ms.author: shashban
 
 # Connecting from Visual Studio Team Services
 Continuous deployment (CD) means starting an automated deployment process whenever a code change is made to your application or whenever a new successful build is available. 
-Visual Studio Team Services (VSTS) is used by teams to configure continuous deployment for their applications hosted in their Azure subscriptions.
-Refer to [CI/CD for newbies](https://www.visualstudio.com/en-us/docs/build/get-started/ci-cd-part-1) for an overview of CI/CD with VSTS.
+Visual Studio Team Services is used by teams to configure continuous deployment for their applications hosted in their Azure subscriptions.
+Refer to [CI/CD for newbies](https://www.visualstudio.com/en-us/docs/build/get-started/ci-cd-part-1) for an overview of CI/CD with Team Services.
 
 > [!NOTE]
-> Visual Studio Team Services itself is not available in Azure Government Clouds. When CD is configured using VSTS to deploy apps to Azure Government clouds, artifact storage, build, and (or) deployment orchestration for the app would execute outside the government cloud.   
+> Visual Studio Team Services itself is not available in Azure Government Clouds. When CD is configured using Team Services to deploy apps to Azure Government clouds, artifact storage, build, and (or) deployment orchestration for the app would execute outside the government cloud.   
 > 
 > 
 
