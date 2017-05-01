@@ -435,6 +435,30 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[2999802] |Solid lines instead of dotted lines are printed in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2896881] |Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 
+[4015217]: http://support.microsoft.com/kb/4015217
+[4015546]: http://support.microsoft.com/kb/4015546
+[4015547]: http://support.microsoft.com/kb/4015547
+[4015548]: http://support.microsoft.com/kb/4015548
+[4014661]: http://support.microsoft.com/kb/4014661
+[4014550]: http://support.microsoft.com/kb/4014550
+[4014560]: http://support.microsoft.com/kb/4014560
+[4014562]: http://support.microsoft.com/kb/4014562
+[4014556]: http://support.microsoft.com/kb/4014556
+[4014574]: http://support.microsoft.com/kb/4014574
+[4014564]: http://support.microsoft.com/kb/4014564
+[4014572]: http://support.microsoft.com/kb/4014572
+[4014549]: http://support.microsoft.com/kb/4014549
+[4014566]: http://support.microsoft.com/kb/4014566
+[4014552]: http://support.microsoft.com/kb/4014552
+[4014573]: http://support.microsoft.com/kb/4014573
+[4014558]: http://support.microsoft.com/kb/4014558
+[4015217]: http://support.microsoft.com/kb/4015217
+[4015193]: http://support.microsoft.com/kb/4015193
+[4012215]: http://support.microsoft.com/kb/4012215
+[4012217]: http://support.microsoft.com/kb/4012217
+[4012216]: http://support.microsoft.com/kb/4012216
+
+
 [4013429]: http://support.microsoft.com/kb/4013429 
 [4012212]: http://support.microsoft.com/kb/4012212 
 [4012213]: http://support.microsoft.com/kb/4012213 
