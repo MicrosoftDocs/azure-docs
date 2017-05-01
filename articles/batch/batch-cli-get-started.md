@@ -22,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 
 The cross-platform Azure Command-Line Interface (Azure CLI) enables you to manage your Batch accounts and resources such as pools, jobs, and tasks in Linux, Mac, and Windows command shells. With the Azure CLI, you can perform and script many of the same tasks you carry out with the Batch APIs, Azure portal, and Batch PowerShell cmdlets.
 
-This article is based on [Azure CLI version 2.0](https://docs.microsoft.com/cli/azure/overview). See [Get started with Azure CLI 2.0](../get-started-with-azure-cli.md) for an overview of using the CLI with Azure. Also see the [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+This article is based on [Azure CLI version 2.0](https://docs.microsoft.com/cli/azure/overview). See [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli.md) for an overview of using the CLI with Azure.
 
 > [NOTE]
 > Microsoft recommends using the latest version of the Azure CLI, version 2.0. For more information about version 2.0, see [Azure Command Line 2.0 now generally available](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/).
@@ -30,8 +30,8 @@ This article is based on [Azure CLI version 2.0](https://docs.microsoft.com/cli/
 >
 
 ## Prerequisites
-* [Install the Azure CLI](../install-azure-cli.md)
-* [Log in to Azure](../get-started-with-azure-cli.md#log-in-to-azure)
+* [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli.md)
+* [Log in to Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli.md#log-in-to-azure)
 
 
 > [!TIP]
@@ -61,7 +61,7 @@ To create a new Batch account, you'll need to reference an existing resource gro
 
 ### Command
 
-[az group create](../cli/azure/group#create)
+[az group create](https://docs.microsoft.com/cli/azure/group#create)
 
 ### Example
 
