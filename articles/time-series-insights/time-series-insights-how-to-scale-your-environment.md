@@ -17,7 +17,7 @@ ms.workload: big-data
 ms.date: 04/19/2017
 ms.author: edett
 ---
-# How to
+# How to scale your Time Series Insights environment
 
 This tutorial covers how to scale your Time Series Insights environment.
 
