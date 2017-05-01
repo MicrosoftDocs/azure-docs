@@ -42,7 +42,7 @@ The following example creates a resource group, and deploys a template from your
 ```powershell
 Login-AzureRmAccount
  
-New-AzureRmResourceGroup -Name ExampleGroup -Location "South Central US"
+New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "South Central US"
 New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\MyTemplates\storage.json -storageAccountType Standard_GRS
 ```
