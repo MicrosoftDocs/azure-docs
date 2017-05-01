@@ -72,6 +72,12 @@
 
 # Reference
 ## [Template functions](resource-group-template-functions.md)
+### [Array and object functions](resource-group-template-functions-array.md)
+### [Comparison functions](resource-group-template-functions-comparison.md)
+### [Deployment functions](resource-group-template-functions-deployment.md)
+### [Numeric functions](resource-group-template-functions-numeric.md)
+### [Resource functions](resource-group-template-functions-resource.md)
+### [String functions](resource-group-template-functions-string.md)
 ## [PowerShell](/powershell/module/azurerm.resources)
 ## [Azure 2.0 CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)

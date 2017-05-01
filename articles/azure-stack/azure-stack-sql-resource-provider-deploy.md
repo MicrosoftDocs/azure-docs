@@ -76,6 +76,8 @@ To deploy the SQL provider on a system that does not have internet access, you c
 
 5. Run the DeploySqlProvider.ps1 script with the parameters listed below. Depending on your hardware and download speed, it may take up to 60 minutes for the resource provider to get up and running, and another 60 minutes for the configuration of the virtual machines to complete.
 
+The script performs these steps:
+
 * If necessary, download a compatible version of Azure PowerShell (only AzureRm version 1.2.9 is supported).
 * Create a wildcard certificate to secure communication between the resource provider and Azure Resource Manager.
 * Download an evaluation build of SQL Server SP1 from the internet or from a local file share.
@@ -123,7 +125,7 @@ Invoke-Webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip -
 Expand-Archive master.zip -DestinationPath . -Force
 
 Import-Module C:\AzureStack-Tools-master\Connect\AzureStack.Connect.psm1
-$aadTenant = Get-AADTenantGUID -AADTenantName "<your directory name>"  
+$aadTenant = Get-DirectoryTenantID -AADTenantName "<your directory name>"  
 
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)

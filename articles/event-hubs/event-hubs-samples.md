@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2017
+ms.date: 05/01/2017
 ms.author: jotaub;sethm
 ---
 
@@ -24,7 +24,7 @@ The Azure Event Hubs samples demonstrate key features in [Azure Event Hubs](/azu
 At the time of this writing, Event Hubs samples are located in several different places:
 
 - [MSDN developer code samples](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
-- [GitHub](https://github.com/Azure/azure-event-hubs-dotnet/tree/master/samples)
+- [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
 For more information about different versions of the .NET Framework, see [Frameworks and Targets](/dotnet/articles/standard/frameworks).
 
@@ -36,11 +36,11 @@ The following samples demonstrate how to send and receive events using the [Even
 
 ### Send events 
 
-The [Get started sending](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender) sample shows how to write a .NET Core console application that sends events to an event hub.
+The [Get started sending](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) sample shows how to write a .NET Core console application that sends events to an event hub.
 
 ### Receive events 
 
-The [Get started receiving with the Event Processor Host](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) sample is a .NET Core console application that receives messages from an event hub using the `Event Processor Host`.
+The [Get started receiving with the Event Processor Host](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) sample is a .NET Core console application that receives messages from an event hub using the `Event Processor Host`.
 
 ## .NET Framework	
 
