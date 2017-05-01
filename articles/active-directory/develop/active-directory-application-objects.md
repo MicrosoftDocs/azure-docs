@@ -60,9 +60,9 @@ In Step 2, when Contoso and Fabrikam administrators complete consent, a service 
 In Step 3, the consumer tenants of the HR application (Contoso and Fabrikam) each have their own service principal object. Each represents their use of an instance of the application at runtime, governed by the permissions consented by the respective administrator.
 
 ## Next steps
-An application's application object can be accessed via the Azure AD Graph API, the [Azure portal's][AZURE-Portal] application manifest editor, or [Azure AD PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azureadps-2.0), as represented by its OData [Application entity][AAD-Graph-App-Entity].
+An application's application object can be accessed via the Azure AD Graph API, the [Azure portal's][AZURE-Portal] application manifest editor, or [Azure AD PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), as represented by its OData [Application entity][AAD-Graph-App-Entity].
 
-An application's service principal object can be accessed via the Azure AD Graph API or [Azure AD PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azureadps-2.0), as represented by its OData [ServicePrincipal entity][AAD-Graph-Sp-Entity].
+An application's service principal object can be accessed via the Azure AD Graph API or [Azure AD PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), as represented by its OData [ServicePrincipal entity][AAD-Graph-Sp-Entity].
 
 The [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/) is useful for querying both the application and service principal objects.
 
