@@ -21,13 +21,13 @@ ms.author: padmavc
 # Logic Apps B2B cross region disaster recovery
 B2B workloads involve money transactions like orders, invoices.  For business, it is critical to quickly recover to meet business level SLAs as agreed with their partners during a disaster event.  This topic demonstrates building a business continuity plan for B2B workloads.  It covers
 
-* Create an integration account in secondary region
-* Establish a connection from primary region to secondary region 
-* Fail over to secondary region during a disaster event
+* Disaster Recovery readiness 
+* Fail over to secondary region during a disaster event 
 * Fall back to primary region post-disaster event
 
-## Create an integration account in secondary region
-1. Select a secondary region and create an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).  
+## Disaster Recovery readiness  
+
+1. Identify a secondary region and create an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) in secondary region 
 
 2. Add partners, schemas, and agreements for the required message flows where the run status needs to be replicated to secondary region integration account.
 
@@ -36,16 +36,15 @@ B2B workloads involve money transactions like orders, invoices.  For business, i
     > 
     > 
 
-3. The recommendation is to deploy all primary region resources (for example SQL Azure or DocumentDB databases, or Service Bus / Event Hubs used for messaging, APIM, Logic Apps) in the secondary region as well.  
+3. To pull the run status from the primary region, create a Logic App in the secondary region.  It should have a **trigger** and an **action**.  The trigger should connect to primary region integration account and the action should connect to secondary region integration account.  Based on the time interval, the trigger polls the primary region run status table pulls the new records if any and action updates them to secondary region integration account. This helps to get incremental runtime status from primary region to secondary region.
 
-## Establish a connection from primary to secondary 
-To pull the run status from the primary region, create a Logic App in the secondary region.  It should have a **trigger** and an **action**.  The trigger should connect to primary region integration account and the action should connect to secondary region integration account.  Based on the time interval, the trigger polls the primary region run status table pulls the new records if any and action updates them to secondary region integration account. This helps to get incremental runtime status from primary region to secondary region.
-
-Business continuity in Logic Apps integration account is designed to support based on B2B protocols - X12, AS2, and EDIFACT.  To find detailed steps, select respective links.
+4. Business continuity in Logic Apps integration account is designed to support based on B2B protocols - X12, AS2, and EDIFACT.  To find detailed steps, select respective links.
 
 * [X12](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md#x12)
 * [AS2](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md#as2)
 * EDIFACT (coming soon)
+
+5. The recommendation is to deploy all primary region resources (for example SQL Azure or DocumentDB databases, or Service Bus / Event Hubs used for messaging, APIM, Logic Apps) in the secondary region as well.  
 
 ## Fail over to secondary region during a disaster event
 During a disaster event, when the primary region is not available for business continuity, direct traffic to the secondary region. Secondary region helps recover business functions quickly to meet recovery time/point objectives (RPO/RTO) as agreed with their partners.  Also, minimizes efforts to fail over from one region to another region. 
