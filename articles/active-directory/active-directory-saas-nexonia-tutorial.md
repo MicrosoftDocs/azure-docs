@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 05/1/2017
 ms.author: jeedes
 
 ---
@@ -94,9 +94,6 @@ To configure and test Azure AD single sign-on with Nexonia, you need to complete
 
 In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Nexonia application.
 
->[!Note]
->If you have issues in the integration then refer this [link](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?WT.mc_id=UI_AAD_Enterprise_Apps_SupportOrTroubleshooting) for troubleshooting guide. If you still have not found the solution, then raise the support request from Azure Portal.
-
 **To configure Azure AD single sign-on with Nexonia, perform the following steps:**
 
 1. In the Azure portal, on the **Nexonia** application integration page, click **Single sign-on**.
@@ -114,7 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Reply URL** textbox, type a URL using the following pattern: `https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`
 
 	> [!NOTE] 
-	> This value is not real. Update this value with the actual Reply URL. Contact [Nexonia support team](http://www.nexonia.com/contact-us/) to get this value. 
+	> This value is not real. Update this value with the actual Reply URL. Contact [Nexonia support team](https://nexonia.zendesk.com/hc/requests/new) to get this value. 
 
 
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
@@ -128,8 +125,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 6. On the **Nexonia Configuration** section, click **Configure Nexonia** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_configure.png) 
-
-7. To get SSO configured for your application, contact [Nexonia support team](http://www.nexonia.com/contact-us/) and provide them with the following:
+<CS>
+7. To get SSO configured for your application, contact [Nexonia support team](https://nexonia.zendesk.com/hc/requests/new) and provide them with the following:
 
 	• The downloaded **certificate**
 
@@ -138,6 +135,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	• The **SAML Single Sign-On Service URL**
 
 	• The **Sign-Out URL**
+<CE>
+
+>[!Note]:
+>If you have issues in the integration then refer this [link](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?WT.mc_id=UI_AAD_Enterprise_Apps_SupportOrTroubleshooting) for troubleshooting guide. If you still have not found the solution, then raise the support request from Azure portal.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -177,7 +178,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Nexonia test user
 
-In this section, you create a user called Britta Simon in Nexonia. Work with [Nexonia support team](http://www.nexonia.com/contact-us/) to add the users in the Nexonia platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Nexonia. Work with [Nexonia support team](https://nexonia.zendesk.com/hc/requests/new) to add the users in the Nexonia platform. Users must be created and activated before you use single sign-on.
 
 
 ### Assigning the Azure AD test user
