@@ -64,6 +64,6 @@ Now that you've deployed the SQL Server resource provider and created an offer, 
 You can now use the new SQL database with your cloud-native apps, websites, and workloads.
 
 
-##Next steps
+## Next steps
 [Let users create web, mobile, and API apps]( azure-stack-tutorial-app-service.md)
 
