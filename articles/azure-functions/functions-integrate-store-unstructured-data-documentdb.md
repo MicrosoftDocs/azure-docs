@@ -49,7 +49,7 @@ az login
 
 ## Create a resource group
 
-A resource group is a way to manage sets or groups of resources in Azure, such as app services, function apps, and databases. To create a resource group, use [`az group create`](../../cli/azure/group#create).
+A resource group is a way to manage sets or groups of resources in Azure, such as app services, function apps, and databases. To create a resource group, use [az group create](/cli/azure/group#create).
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
