@@ -27,7 +27,7 @@ This sample gets an Azure Cosmos DB connection string for MongoDB apps using Pow
 
 ## Sample script
 
-`[!code-powershell[main](../../../powershell_scripts/documentdb/create-and-configure-database/create-and-configure-database.ps1?highlight=7-8 "Create an Azure Cosmos DB DocumentDB API account")]`
+`[!code-powershell[main](../../../powershell_scripts/documcosmosdbentdb/get-mongodb-connection-string/get-mongodb-connection-string.ps1?highlight=37-41 "Get the MongoDB connection string from an Azure Cosmos DB account")]`
 
 ## Clean up deployment
 
@@ -45,6 +45,7 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
 | [New-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-3.8.0) | Creates a logical server that hosts a database or elastic pool. |
+| [Invoke-AzureRmResourceAction](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/invoke-azurermresourceaction?view=azurermps-3.8.0) | Invokes an action on the Azure CosmosDB account. |
 | [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 
