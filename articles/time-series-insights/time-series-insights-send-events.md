@@ -231,4 +231,4 @@ Note that the property "location" is copied over to each of the event.
 
 ## Next steps
 
-* View your environment in [time series explorer](https://insights.timeseries.azure.com)
+* View your environment in [Time Series Insights Portal](https://insights.timeseries.azure.com)

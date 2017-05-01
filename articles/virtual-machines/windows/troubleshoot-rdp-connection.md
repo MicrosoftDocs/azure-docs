@@ -1,4 +1,4 @@
----
+﻿---
 title: Cannot connect with RDP to a Windows VM in Azure | Microsoft Docs
 description: Troubleshoot issues when you cannot connect to your Windows virtual machine in Azure using Remote Desktop
 keywords: Remote desktop error,remote desktop connection error,cannot connect to VM,remote desktop troubleshooting
@@ -110,12 +110,12 @@ After each troubleshooting step, try connecting to your VM again. If you still c
 If you are still encountering RDP issues, you can [open a support request](https://azure.microsoft.com/support/options/) or read [more detailed RDP troubleshooting concepts and steps](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Troubleshoot using Azure PowerShell
-If you haven't already, [install and configure the latest Azure PowerShell](/powershell/azureps-cmdlets-docs).
+If you haven't already, [install and configure the latest Azure PowerShell](/powershell/azure/overview).
 
 The following examples use variables such as `myResourceGroup`, `myVM`, and `myVMAccessExtension`. Replace these variable names and locations with your own values.
 
 > [!NOTE]
-> You reset the user credentials and the RDP configuration by using the [Set-AzureRmVMAccessExtension](https://msdn.microsoft.com/library/mt619447.aspx) PowerShell cmdlet. In the following examples, `myVMAccessExtension` is a name that you specify as part of the process. If you have previously worked with the VMAccessAgent, you can get the name of the existing extension by using `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` to check the properties of the VM. To view the name, look under the 'Extensions' section of the output.
+> You reset the user credentials and the RDP configuration by using the [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell cmdlet. In the following examples, `myVMAccessExtension` is a name that you specify as part of the process. If you have previously worked with the VMAccessAgent, you can get the name of the existing extension by using `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` to check the properties of the VM. To view the name, look under the 'Extensions' section of the output.
 > 
 > 
 

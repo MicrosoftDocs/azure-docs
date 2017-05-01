@@ -1,4 +1,4 @@
----
+﻿---
 title: Bind an existing custom SSL certificate to Azure Web Apps | Microsoft Docs 
 description: Learn to to bind a custom SSL certificate to your web app, mobile app backend, or API app in Azure App Service.
 services: app-service\web
@@ -219,7 +219,7 @@ For more information on the IIS URL Rewrite module, see the [URL Rewrite](http:/
 
 ## Automate with scripts
 
-You can automate SSL bindings for your web app with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azureps-cmdlets-docs/).
+You can automate SSL bindings for your web app with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview).
 
 ### Azure CLI
 

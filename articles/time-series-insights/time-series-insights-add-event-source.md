@@ -39,8 +39,8 @@ Time Series Insights Event Source is derived from an event broker, like Azure Ev
 7.	Select policy that has read permission in the event hub.
 8.	Specify event hub consumer group.
 
-> [!IMPORTANT]
-> Make sure this consumer group is not used by any other service (such as Stream Analytics job or another Time Series Insights environment). If consumer group is used by other services, read operation is negatively affected for this environment and the other services. If you are using “$Default” as the consumer group, it could lead to potential reuse by other readers.
+  > [!IMPORTANT]
+  > Make sure this consumer group is not used by any other service (such as Stream Analytics job or another Time Series Insights environment). If consumer group is used by other services, read operation is negatively affected for this environment and the other services. If you are using “$Default” as the consumer group, it could lead to potential reuse by other readers.
 
 9.	Click “Create.”
 
@@ -49,4 +49,4 @@ After creation of the event source, Time Series Insights will automatically star
 ## Next steps
 
 * [Send events](time-series-insights-send-events.md) to the event source
-* View your environment in [time series explorer](https://insights.timeseries.azure.com)
+* View your environment in [Time Series Insights Portal](https://insights.timeseries.azure.com)
