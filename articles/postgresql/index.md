@@ -15,22 +15,10 @@ ms.author: jasonh
 ---
 
 <div class="content">
-    <h1>Azure Database for PostgreSQL Documentation</h1>
-    <div class="introHolder" style="justify-content: space-between;">
-        <div class="intro" style="min-width: 200px">
-            <p>Azure Database for PostgreSQL is a relational database service in the Microsoft cloud built for developers based on the open source PostgreSQL database engine.</p>
-        </div>
-        <a href="https://azure.microsoft.com/en-us/resources/videos/create-sql-database-on-azure/">
-            <div class="calloutHolder" style="max-width: 250px">
-                <div>
-                    <img src="../sql-database/media/index/create-sql-database-on-azure.png" style="width: 250px;" />
-                </div>
-                <div>
-                    <p style="margin-top: 0; color: #6e6e6e">Create a SQL database on Azure. (3:12)</p>
-                </div>
-            </div>
-        </a>
-    </div>
+<h1>Azure Database for PostgreSQL Documentation</h1>
+
+<p>Azure Database for PostgreSQL is a relational database service in the Microsoft cloud built for developers based on the open source PostgreSQL database engine.</p>
+
 <h2 style="margin-top: 18px; margin-bottom: 0px;">5-Minute Quickstarts</h2>
 <div style="display: flex; justify-content: flex-start">
     <div style="margin-right: 3em">
@@ -50,23 +38,6 @@ ms.author: jasonh
             </div>
         </div>
     </div>
-    <div>
-        <p style="margin-top: 6px; margin-bottom: 6px;">Connect and Query PostgreSQL via:</p>
-        <div class="ico48Case">
-            <div class="ico48Link">
-                <a href="/azure/postgresql/postgresql-quickstart-connect-query-portal.md">
-                    <img src="https://docs.microsoft.com/media/common/placeholder.svg" alt="" data-linktype="external">
-                    <span>psql</span>
-                </a>
-            </div>
-            <div class="ico48Link">
-                <a href="/azure/postgresql/postgresql-quickstart-connect-query-pgadmin.md">
-                    <img src="https://docs.microsoft.com/media/common/placeholder.svg" alt="" data-linktype="external">
-                    <span>PgAdmin</span>
-                </a>
-            </div>
-        </div>
-    </div>
 </div>
 <h2 style="margin-top: 36px">Step-by-Step Tutorials</h2>
 <ol>
@@ -75,28 +46,6 @@ ms.author: jasonh
     <li><a href="/azure/sql-database/sql-database-design-first-database">Create a Web App with PostgreSQL: Azure Portal</a></li>
     <li><a href="/azure/sql-database/sql-database-design-first-database">Create a Web App with PostgreSQL: Azure Portal</a></li>
 </ol>
-
-<h2 style="margin-top: 36px">Free PluralSight Video Training</h2>
-<ul class="panelContent cardsW">
-    <li style="flex: 0 1 25%">
-        <a href="https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02"> 
-            <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card">
-                       <div class="cardImageOuter">
-                            <div class="cardImage">
-                                <img style="max-width: 100%" alt="" src="../sql-database/media/index/video-training-dotnet.png" data-linktype="external">
-                            </div>
-                        </div>
-                        <div class="cardText">
-                            <p>Developing with .NET</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </li>
-</ul>
 <h2 style="margin-top: 36px">Samples</h2>
 <p>Find scripts to manage common tasks</p>
 <ul class="spaced">
