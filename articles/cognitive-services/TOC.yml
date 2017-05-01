@@ -467,6 +467,8 @@
       href: QnAMaker/Guides/TrainKB.md
     - name: Update a knowledge base
       href: QnAMaker/Guides/UpdateKB.md
+    - name: Share a knowledge base
+      href: QnAMaker/Guides/share-knowledgebase-qnamaker.md
     - name: Authentication
       href: QnAMaker/SubscriptionKeys.md
     - name: API Reference
