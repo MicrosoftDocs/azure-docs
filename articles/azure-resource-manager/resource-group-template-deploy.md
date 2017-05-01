@@ -83,7 +83,7 @@ Rather than passing parameters as inline values in your script, you may find it 
 }
 ```
 
-Notice that the parameters section includes a parameter name that matches the parameter defined in your template (storageAccountType). The parameter file contains a value for the parameter. This values is automatically passed to the template during deployment. You can create multiple parameter files for different deployment scenarios, and then pass in the appropriate parameter file. 
+Notice that the parameters section includes a parameter name that matches the parameter defined in your template (storageAccountType). The parameter file contains a value for the parameter. This value is automatically passed to the template during deployment. You can create multiple parameter files for different deployment scenarios, and then pass in the appropriate parameter file. 
 
 Copy the preceding example and save it as a file named `storage.parameters.json`.
 
