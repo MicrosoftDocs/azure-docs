@@ -5,12 +5,16 @@
 
 # Quickstarts
 ## [Create function - portal](functions-create-first-azure-function.md)
+## [Create function - Azure CLI](functions-create-first-azure-function-azure-cli.md)
 ## Triggers
 ### [Timer](functions-create-scheduled-function.md)
 ### [GitHub webhook](functions-create-github-webhook-triggered-function.md)
 ### [Queue storage](functions-create-storage-queue-triggered-function.md)
 ## Integrate
 ### [Storage](functions-integrate-storage-queue-output-binding.md)
+
+# Samples
+## [Azure CLI](functions-cli-samples.md)
 
 # Tutorials
 ## [Use Azure Functions to perform a scheduled clean-up task](functions-scenario-database-table-cleanup.md)
