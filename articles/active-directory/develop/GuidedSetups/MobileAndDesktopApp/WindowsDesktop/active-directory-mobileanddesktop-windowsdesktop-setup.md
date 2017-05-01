@@ -42,7 +42,7 @@ The application created by this guide exposes a button to graph and show results
 Install-Package Microsoft.Identity.Client -Pre
 ```
 
-> The package above installs the Microsoft Authentication Library (MSAL). MSAL handles acquiring, caching and refreshing user toskens used to access APIs protected by Azure Active Directory v2 endpoint.|
+> The package above installs the Microsoft Authentication Library (MSAL). MSAL handles acquiring, caching and refreshing user toskens used to access APIs protected by Azure Active Directory v2 endpoint.
 
 # Add the code to initialize MSAL
 This step will help you create a class to handle interaction with MSAL Library, such as handling of tokens.
