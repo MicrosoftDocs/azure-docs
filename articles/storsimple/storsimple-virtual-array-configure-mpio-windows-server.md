@@ -99,15 +99,15 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
     3. On the **Target Portal** IP drop-down list, select the IP of array interface.
     4. Click **OK** to return to the **iSCSI Initiator Properties** dialog box.
      
-        ![mpio3](./media/storsimple-virtual-array-configure-mpio-windows-server/mpio3.png)
+        ![mpio3](./media/storsimple-ova-configure-mpio-windows-server/mpio3.png)
 
 8. Click **Properties**. 
    
-    ![mpio4](./media/storsimple-virtual-array-configure-mpio-windows-server/mpio4.png)
+    ![mpio4](./media/storsimple-ova-configure-mpio-windows-server/mpio4.png)
 
 9. In the **Properties** dialog box, click **Add Session**.
    
-   ![mpio5](./media/storsimple-virtual-array-configure-mpio-windows-server/mpio5.png)
+   ![mpio5](./media/storsimple-ova-configure-mpio-windows-server/mpio5.png)
 10. In the **Connect to Target** dialog box, select the **Enable multi-path** check box. Click **Advanced**.
 11. In the **Advanced Settings** dialog box:                                        
     
