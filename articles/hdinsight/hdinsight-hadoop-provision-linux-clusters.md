@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/28/2017
+ms.date: 05/01/2017
 ms.author: jgao
 
 ---
@@ -189,13 +189,13 @@ Metastore configuration is not available for HBase cluster types.
 >
 >
 
-## HDInsight applications
+## Install HDInsight applications
 
 An HDInsight application is an application that users can install on a Linux-based HDInsight cluster. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. For more information, see [Install third-party Hadoop applications on Azure HDInsight](hdinsight-apps-install-applications.md).
 
 Most of the HDInsight applications are installed on an empty edge node.  An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the head node. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. For more information, see [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md).
 
-## Cluster size
+## Configure Cluster size
 
 Customers are billed for the usage of those nodes for the duration of the cluster’s life. Billing starts when a cluster is created and stops when the cluster is deleted. Clusters can’t be de-allocated or put on hold.
 
