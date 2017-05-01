@@ -28,6 +28,7 @@ This document details how to use the Azure Cloud Shell in the [Azure portal](htt
 3. Select "Create storage"
 
 [!TIP]
+
 You are automatically authenticated for Azure CLI 2.0 every sesssion.
 
 ### Set your subscription
@@ -36,7 +37,9 @@ You are automatically authenticated for Azure CLI 2.0 every sesssion.
 2. Set your Cloud Shell to your preferred subscription: <br>
 `az account set --subscription my-subscription-name`
 
-**Tip:** Your subscription will be remembered for future sessions using `azureProfile.json` held in your $Home directory.
+[!TIP]
+
+Your subscription will be remembered for future sessions using `azureProfile.json` held in your $Home directory.
 
 ### Create a resource group
 Create a new resouce group in WestUS named "MyRG": <br>
@@ -47,6 +50,7 @@ Create an Ubuntu VM in your new resource group. The Azure CLI 2.0 will create ss
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS`
 
 [!NOTE]
+
 The public and private keys used to authenticate your VM are placed in `/User/.ssh/id_rsa` and `/User/.ssh/id_rsa.pub` of Cloud Shell. This is persisted in your attached Azure file share's 5-GB image. 
 
 Your username on this VM will be your username used in Cloud Shell ($User@Azure:).

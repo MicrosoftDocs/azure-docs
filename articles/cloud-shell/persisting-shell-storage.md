@@ -90,9 +90,11 @@ justin@Azure:~$
 You may detach a file share mounted to Cloud Shell at any time.
 
 [!NOTE]
+
 Cloud Shell requires a file share to access, you will be prompted to create and mount a new file share on next session if removed.
 
-[!WARNING] 
+[!WARNING]
+
 Deleting the resource group, storage account, or file share mapped to Cloud Shell will erase all files in your $Home directory and any files in your file share. This cannot be undone.
 
 To detach a file share from Cloud Shell:
@@ -105,6 +107,7 @@ Cloud Shell will no longer search for this file share on subsequent sessions. Th
 Run `createclouddrive` specifying a new file share
 
 [!NOTE]
+
 Your $Home directory will reset as your $Home disk image is held in the previous file share.
 
 ## Upload or download local files
