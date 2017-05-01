@@ -1,3 +1,18 @@
+---
+title: Upgrade from Bing Web Search API v5 to v7 | Microsoft Docs
+description: Identifies the parts of your application that you need to update to use version 7.
+services: cognitive-services
+author: swhite-msft
+manager: ehansen
+
+ms.assetid: E8827BEB-4379-47CE-B67B-6C81AD7DAEB1
+ms.service: cognitive-services
+ms.technology: bing-web-search
+ms.topic: article
+ms.date: 0151/2017
+ms.author: scottwhi
+---
+
 # Web Search API Upgrade Guide
 
 This upgrade guide identifies the changes between version 5 and version 7 of the Bing Web Search API. Use this guide to help you identify the parts of your application that you need to update to use version 7.
