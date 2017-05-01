@@ -1,7 +1,9 @@
-# Overview
+﻿# Overview
 ## [What is Azure DNS?](dns-overview.md)
 ## [DNS zones and records](dns-zones-records.md)
 ## [DNS delegation with Azure DNS](dns-domain-delegation.md)
+## [DNS FAQ](dns-faq.md)
+
 # Get Started
 
 ## Create a DNS zone and record
@@ -37,7 +39,7 @@
 ### [Troubleshooting guide](dns-troubleshoot.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns)
+## [PowerShell](/powershell/module/azurerm.dns)
 ## [Azure CLI](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](/java/api/com.microsoft.azure.management.dns)

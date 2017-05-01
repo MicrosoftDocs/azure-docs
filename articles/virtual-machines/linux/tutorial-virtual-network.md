@@ -20,7 +20,7 @@ ms.author: davidmu
 
 # Manage Azure Virtual Networks and Linux Virtual Machines with the Azure CLI
 
-In this tutorial, you learn about creating multiple virtual machines (VMs) in a virtual network and configure network connectivity between them. When completed a 'front-end' VM will be accessible from the internet on port 22 for SSH and port 80 for HTTP connections. A 'back-end' VM with a MySQL database will be accessible from the front-end VM on port 3306.
+In this tutorial, you learn about creating multiple virtual machines (VMs) in a virtual network and configure network connectivity between them. When completed a 'front-end' VM will be accessible from the internet on port 22 for SSH and port 80 for HTTP connections. A 'back-end' VM with a MySQL database will be isolated and only accessible from the front-end VM on port 3306.
 
 The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 

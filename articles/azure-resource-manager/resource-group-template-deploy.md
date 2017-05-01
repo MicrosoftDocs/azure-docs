@@ -1,4 +1,4 @@
----
+﻿---
 title: Deploy resources with PowerShell and template | Microsoft Docs
 description: Use Azure Resource Manager and Azure PowerShell to deploy a resources to Azure. The resources are defined in a Resource Manager template.
 services: azure-resource-manager
@@ -13,17 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2017
+ms.date: 04/27/2017
 ms.author: tomfitz
 
 ---
 # Deploy resources with Resource Manager templates and Azure PowerShell
 
-This topic explains how to use Azure PowerShell with Resource Manager templates to deploy your resources to Azure. Your template can be either a local file or an external file that is available through a URI.
+This topic explains how to use Azure PowerShell with Resource Manager templates to deploy your resources to Azure. The Resource Manager template you deploy can either be a local file on your machine, or an external file that is located in a repository like GitHub.
 
 You can get the template (storage.json) used in these examples from the [Create your first Azure Resource Manager template](resource-manager-create-first-template.md#final-template) article. To use the template with these examples, create a JSON file and add the copied content.
 
-## Deploy local template
+[!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install.md)]
+
+<a id="deploy-local-template" />
+
+## Deploy a template from your local machine
 To quickly get started with deployment, use the following cmdlets to deploy a local template with inline parameters. 
 
 ```powershell
@@ -42,7 +46,9 @@ ProvisioningState       : Succeeded
 
 The preceding example created the resource group in your default subscription. To use a different subscription, add the [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext) cmdlet after logging in.
 
-## Deploy external template
+## Deploy a template from an external source
+
+Instead of storing Resource Manager templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure Storage account for shared access in your organization. You can deploy directly from any external source that is accessible by URI. 
 
 To deploy an external template, use the **TemplateUri** parameter. The template can be at any publicly accessible URI (such as a file in storage account).
 
@@ -56,7 +62,7 @@ You can protect your template by requiring a shared access signature (SAS) token
 
 ## Parameter files
 
-The preceding examples showed how to pass parameters as inline values. You can specify parameter values in a file, and pass that file during deployment. 
+The preceding examples show how to pass parameters as inline values during template deployment.  You may find it easier to create a JSON file containing the parameters and use that during deployment. 
 
 The parameter file must be in the following format:
 
@@ -95,15 +101,35 @@ You can use inline parameters and a local parameter file in the same deployment 
 
 However, when you use an external parameter file, you cannot pass other values either inline or from a local file. When you specify a parameter file in the **TemplateParameterUri** parameter, all inline parameters are ignored. Provide all parameter values in the external file. If your template includes a sensitive value that you cannot include in the parameter file, either add that value to a key vault, or dynamically provide all parameter values inline.
 
-If your template includes a parameter with the same name as one of the parameters in the PowerShell command, PowerShell presents the parameter from your template with the postfix **FromTemplate**. For example, a parameter named **ResourceGroupName** in your template conflicts with the **ResourceGroupName** parameter in the [New-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/new-azurermresourcegroupdeployment) cmdlet. You are prompted to provide a value for **ResourceGroupNameFromTemplate**. In general, you should avoid this confusion by not naming parameters with the same name as parameters used for deployment operations.
+If your template includes a parameter with the same name as one of the parameters in the PowerShell command, PowerShell presents the parameter from your template with the postfix **FromTemplate**. For example, a parameter named **ResourceGroupName** in your template conflicts with the **ResourceGroupName** parameter in the [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet. You are prompted to provide a value for **ResourceGroupNameFromTemplate**. In general, you should avoid this confusion by not naming parameters with the same name as parameters used for deployment operations.
 
-## Test a deployment
+## Test a template deployment
 
-To test your template and parameter values without actually deploying any resources, use [Test-​Azure​Rm​Resource​Group​Deployment](/powershell/module/azurerm.resources/test-azurermresourcegroupdeployment). It has all the same options for using local or remote files.
+To test your template and parameter values without actually deploying any resources, use [Test-​Azure​Rm​Resource​Group​Deployment](/powershell/module/azurerm.resources/test-azurermresourcegroupdeployment). 
 
 ```powershell
 Test-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\MyTemplates\storage.json -storageNamePrefix contoso -storageSKU Standard_GRS
+```
+
+If no errors are detected with the template or the parameters, the command finishes without a response. If an error is detected, the command returns an error message. For example, attempting to pass an incorrect value for the storage account SKU, returns the following error:
+
+```powershell
+Test-AzureRmResourceGroupDeployment -ResourceGroupName testgroup `
+  -TemplateFile c:\MyTemplates\storage.json -storageSKU badSku
+
+Code    : InvalidTemplate
+Message : Deployment template validation failed: 'The provided value 'badSku' for the template parameter 'storageSKU'
+          at line '15' and column '24' is not valid. The parameter value is not part of the allowed value(s):
+          'Standard_LRS,Standard_ZRS,Standard_GRS,Standard_RAGRS,Premium_LRS'.'.
+Details :
+```
+
+If your template has a syntax error, the command returns an error indicating it could not parse the template. The message indicates the line number and position of the parsing error.
+
+```powershell
+Test-AzureRmResourceGroupDeployment : After parsing a value an unexpected character was encountered: 
+  ". Path 'variables', line 31, position 3.
 ```
 
 ## Log deployment content for debugging

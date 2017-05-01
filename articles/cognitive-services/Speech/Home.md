@@ -17,7 +17,7 @@ ms.author: prrajan
 Welcome to Bing Speech API, a cloud-based API that provides advanced algorithms to process spoken language. With Bing Speech API you can add speech driven actions to your apps, including real-time interaction with the user.
 
 Bing Speech API has two components:
-* [Speech Recognition API, Client Library, Service Library](#SpeechRecognition):  For apps converting spoken words to text.
+* [Speech To Text API](#SpeechRecognition):  For apps converting spoken words to text.
 * [Text To Speech API](#TextToSpeech): For apps converting text into audio that can be played back to the user. 
 
 Bing Speech APIs and libraries enables speech capabilities on all internet-connected devices. Every major platform including Android, iOS, Windows, and 3rd party IoT devices are supported. It offers industry-leading speech-to-text, text-to-speech, and language understanding capabilities delivered through the cloud.
@@ -29,9 +29,9 @@ Microsoft uses Bing Speech API for Windows applications like [Cortana](https://w
 Bing Speech Recognition API provides the ability to convert spoken audio to text by sending audio to Microsoft’s servers in the cloud. Developers have a choice of using the REST API, Client Library or the Service Library. 
 
 ### Speech Recognition - REST API versus Client Library versus Service Library
-* Using the REST API means getting only one reco result back with no partial results. Documentation for the REST API can be found [here](API-Reference-REST/BingVoiceRecognition.md) and code samples [here](https://oxfordportal.blob.core.windows.net/speech/doc/recognition/Program.cs). 
-*	Using the client library allows for real-time streaming, meaning that as audio is being sent or spoken to the server, partial recognition results are returned at the same time. Real-time streaming is supported on Android, iOS, and Windows. The client library also supports speech intent recognition in addition to returning recognized text from audio inputs.Structured information about the speech to apps that parse the intent of the speaker can also be retrieved to drive further actions. Models trained by [Project LUIS](https://www.luis.ai/) service are used to generate the intent. To use intent, you will need to train a model after getting an AppID and a Secret. Once you have a trained model, you can use the Speech Recognition API for intent parsing on reco results via the “WithIntent” clients.
-* Using the service library allows for real-time streaming audio from a service to the speech cloud allowing for partial results. Service Library is supported for Windows.  
+* Using the **REST API** means getting only one recognition result back with no partial results. Documentation for the REST API can be found [here](API-Reference-REST/BingVoiceRecognition.md) and code samples [here](https://oxfordportal.blob.core.windows.net/speech/doc/recognition/Program.cs). 
+*	Using the **client library** allows for real-time streaming, meaning that as audio is being sent or spoken to the server, partial recognition results are returned at the same time. Real-time streaming is supported on Android, iOS, and Windows. The client library also supports speech intent recognition in addition to returning recognized text from audio inputs. Structured information about the speech to apps that parse the intent of the speaker can also be retrieved to drive further actions. Models trained by [Project LUIS](https://www.luis.ai/) service are used to generate the intent. To use intent, you will need to train a model after getting an AppID and a Secret. Once you have a trained model, you can use the Speech Recognition API for intent parsing on reco results via the “WithIntent” clients.
+* Using the **service library** allows for real-time streaming audio from a service to the speech cloud allowing for partial results. Service Library is supported for Windows.  
 
 #### Supported languages
 Locales supported by the Speech Recognition API include:

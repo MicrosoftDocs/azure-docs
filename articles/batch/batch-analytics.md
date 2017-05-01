@@ -1,19 +1,20 @@
 ---
-title: "Batch Analytics - Azure | Microsoft Docs"
-ms.custom: ""
-ms.date: "2017-02-01"
-ms.prod: "azure"
-ms.reviewer: ""
-ms.service: "batch"
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
-ms.assetid: 2fda4d9c-f782-4088-9320-656b450e3100
-caps.latest.revision: 7
-author: "tamram"
-ms.author: "tamram"
-manager: "timlt"
+title: Azure Batch Analytics | Microsoft Docs
+description: Reference for Azure Batch Analytics.
+services: batch
+author: tamram
+manager: timlt
+
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: tamram
 ---
+
 # Batch Analytics
 The topics in Batch Analytics contain reference information for the events and alerts available for Batch service resources.
 

@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 3/13/2017
-ms.author: ryansoc
+ms.date: 4/25/2017
+ms.author: magoedte; ryansoc
 
 ---
 # Azure Government Monitoring + Management
@@ -22,11 +22,6 @@ This article outlines the monitoring and management services variations and cons
 
 ## Automation
 Automation is generally available in Azure Government.
-
-### Variations
-The following Automation features are not currently available in Azure Government.
-
-* Creation of a Service Principal credential for authentication
 
 For more information, see [Automation public documentation](../automation/automation-intro.md).
 
@@ -47,7 +42,6 @@ For more information, see [Site Recovery commercial documentation](../site-recov
 ### Variations
 The following Site Recovery features are not currently available in Azure Government:
 
-* Azure Resource Manager Site Recovery vaults
 * Email notification
 
 | Site Recovery | Classic | Resource Manager |

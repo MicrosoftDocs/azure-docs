@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [What is Load Balancer?](load-balancer-overview.md)
 ## [Internet Load Balancer](load-balancer-internet-overview.md)
 ## [Internal Load Balancer](load-balancer-internal-overview.md)
@@ -48,7 +48,7 @@
 ### [Troubleshoot Azure Load Balancer](load-balancer-troubleshoot.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network)
+## [PowerShell](/powershell/module/azurerm.network)
 ## [Azure CLI 2.0](/cli/azure/network/lb)
 ## [.NET](/dotnet/api/microsoft.azure.management.network.models)
 ## [Java](/java/api/com.microsoft.azure.management.network)
