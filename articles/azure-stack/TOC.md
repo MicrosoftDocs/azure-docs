@@ -5,7 +5,7 @@
 ## [POC architecture](azure-stack-architecture.md)
 
 # Quickstarts
-## Deploy Azure Stack
+## [Deploy Azure Stack](azure-stack-deploy-overview.md)
 ### [Deployment prerequisites](azure-stack-deploy.md)
 ### [Deploy](azure-stack-run-powershell-script.md)
 ### [Activate portals](azure-stack-run-powershell-script.md#activate-the-administrator-and-tenant-portals)
@@ -16,10 +16,11 @@
 ## [Create a storage account](azure-stack-provision-storage-account.md)
 
 # Tutorials
-## [Make VMs available](azure-stack-tutorial-tenant-vm.md)
-## [Deploy apps to Azure & Azure Stack](azure-stack-solution-pipeline.md)
+## [Basic administration](azure-stack-manage-basics.md)
 ## [Make VMs available](azure-stack-tutorial-tenant-vm.md)
 ## [Make databases available](azure-stack-tutorial-sql-server.md)
+## [Make apps available](azure-stack-tutorial-app-service.md)
+## [Deploy apps to Azure & Azure Stack](azure-stack-solution-pipeline.md)
 
 # Manage
 ## Overview
