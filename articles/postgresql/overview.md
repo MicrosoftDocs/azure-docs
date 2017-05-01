@@ -18,8 +18,6 @@ Azure Database for PostgreSQL is a relational database service in the Microsoft 
 This article is an introduction to Azure Database for PostgreSQL core concepts and features related to performance, scalability, and manageability, with links to explore details. See these quick starts to get you started:
 - [Create an Azure Database for PostgreSQL in the Azure portal](quickstart-create-server-database-portal.md)
 - [Create an Azure PostgreSQL server using the Azure CLI](quickstart-create-server-database-azure-cli.md)
-- [Connect and Query with psql](quickstart-connect-query-using-psql.md)
-- [Connect and Query with pgAdmin GUI tool](quickstart-connect-query-using-pgadmin.md)
 
 For a set of Azure CLI and PowerShell samples, see:
 -   [Azure CLI samples for Azure Database for PostgreSQL](./sample-scripts-azure-cli.md)

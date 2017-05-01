@@ -51,6 +51,4 @@ In this example, we will restore the data to the newly created database **newdb*
 pg_restore -v –host=mypgserver-20170401.postgres.database.azure.com --port 5432 --username= mylogin@mypgserver --password --dbname=newdb testdb.dump
 ```
 ## Next steps
-- To migrate a PostgreSQL database using import and export, see [Migrate your PostgreSQL database using dump and restore](howto-migrate-using-export-and-import.md)
-- To connect and query using pgAdmin GUI tool, see [Connect and Query with pgAdmin GUI tool](quickstart-connect-query-using-pgadmin.md)
-- To connect and query using psql command line tool, see [Connect and Query with psql](quickstart-connect-query-using-psql.md)
+- To migrate a PostgreSQL database using export and import, see [Migrate your PostgreSQL database using export and import](howto-migrate-using-export-and-import.md)
