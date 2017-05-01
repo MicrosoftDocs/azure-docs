@@ -74,7 +74,7 @@ If you deployed using AD FS, you need to create a user account first. If you dep
 
    Now you can log in to the portal as a user to provision a virtual machine using the subscription. 
 
-   To test that this works with a user account, follow the article, but log in with a user account instead of an administrator account. 
+   Follow the article to test that this works with a user account. Log in to the portal with a user account instead of an administrator account. 
 
 ## Next steps
 In this tutorial you've learned how to create an offer and verified that users can subscribe to the offer to start using resources on Azure Stack. Next, you can Deploy apps to Azure & Azure Stack.
