@@ -18,6 +18,8 @@
 # Tutorials
 ## [Make VMs available](azure-stack-tutorial-tenant-vm.md)
 ## Deploy apps to Azure & Azure Stack
+## [Make VMs available](azure-stack-tutorial-tenant-vm.md)
+## [Let users create SQL databases](azure-stack-tutorial-sql-server.md)
 
 # Manage
 ## Overview
