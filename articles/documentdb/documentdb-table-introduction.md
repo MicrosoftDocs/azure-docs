@@ -1,4 +1,4 @@
----
+﻿---
 title: Introduction to Azure Cosmos DB's Table API | Microsoft Docs
 description: Learn how you can use Azure Cosmos DB to store and query massive volumes of key-value data with low latency using the popular OSS MongoDB APIs.
 services: documentdb
@@ -28,13 +28,13 @@ Azure Cosmos DB provides the Table API for applications that need a key-value st
 ## When to use the preview Premium Table SDK
 **Low Latency** - Rely on less than 10 ms latency on reads and less than 15ms latency on writes for at least 99 percent of requests. The data is stored in solid state drives, and the requests are served from regions closest to your users by distributing your data around the world. 
 
-**Global Distribution** - With Azure Table Storage, data is replicated to 1 region with Geo-redundant storage (GRS) or Read-access geo-redundant storage (RA-GRS) account. The secondary region is determined based on primary region and cannot be changed. With RA-GRS, you can read from secondary region. Since, replication to the secondary region is done asynchronously, this provides an eventual consistent version of the data to read from. With Premium Table SDK, customer can now replicate data to all regions, you�ve associated with your account. You can dynamically add or remove regions, configure failover priority for automatic failover, do manual failover, configure read and write regions. Besides, you can also tune consistency to well-defined relaxed consistency levels. Read [here](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-distribute-data-globally#Latency-guarantees) for more details. 
+**Global Distribution** - With Azure Table Storage, data is replicated to 1 region with Geo-redundant storage (GRS) or Read-access geo-redundant storage (RA-GRS) account. The secondary region is determined based on primary region and cannot be changed. With RA-GRS, you can read from secondary region. Since, replication to the secondary region is done asynchronously, this provides an eventual consistent version of the data to read from. With Premium Table SDK, customer can now replicate data to all regions, you�ve associated with your account. You can dynamically add or remove regions, configure failover priority for automatic failover, do manual failover, configure read and write regions. Besides, you can also tune consistency to well-defined relaxed consistency levels. Read [here](documentdb-distribute-data-globally.md#Latency-guarantees) for more details. 
 
 **Automatic Indexing** - Azure Cosmos DB automatically indexes all the entities in the table and does not expect or require the schema or creation of secondary indices. You can also include/exclude paths to/from index.  
 
 **Limitless Scale** - With Azure Table Storage, you can reach up to 20,000 transactions per second and scale storage elastically. With Premium Table SDK, you can scale throughput and storage independently and elastically. You can add capacity to serve millions of requests per second with ease.
 
-**Tunable Consistency levels** - You can select from five well defined consistency levels: Strong, Session, Bounded-Staleness, Consistent Prefix and Eventual. Learn [more](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-consistency-levels) to maximize availability and performance. 
+**Tunable Consistency levels** - You can select from five well defined consistency levels: Strong, Session, Bounded-Staleness, Consistent Prefix and Eventual. Learn [more](documentdb-consistency-levels.md) to maximize availability and performance. 
 
 ## What changes with Azure Table storage?
 Now a part of Azure Cosmos DB, Azure Table storage customers will be able to get guaranteed low latency, rich queries over a flexible data model, predictable performance, tunable consistency levels, and/or global distribution to provide low-latency access to any number of regions for a single table. The table summarizes Azure Table storage previously, and now as offered as an API of Azure Cosmos DB.
