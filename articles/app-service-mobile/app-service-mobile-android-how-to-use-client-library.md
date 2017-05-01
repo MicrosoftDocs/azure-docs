@@ -1040,7 +1040,7 @@ As a best practice, create a filter that detects a 401 response from the server 
 The general process for logging in with client-flow authentication is as follows:
 
 * Configure Azure App Service Authentication and Authorization as you would server-flow authentication.
-* Integrate the authentication provider SDK for authentication.  This provides an access token.
+* Integrate the authentication provider SDK for authentication to produce an access token.
 * Call the `.login()` method as follows:
 
     ```java
