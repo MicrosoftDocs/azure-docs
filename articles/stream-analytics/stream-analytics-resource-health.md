@@ -1,5 +1,5 @@
 ---
-title:  Azure Stream Analytics - using the resource health blade | Microsoft Docs
+title:  Use the Resource health blade in Azure Stream Analytics | Microsoft Docs
 description: How to pinpoint issues when troubleshooting Stream Analytics jobs.
 keywords: troubleshoot flowchart, resource blade
 documentationcenter: ''
@@ -21,26 +21,26 @@ ms.author: jeffstok
 
 # Stream Analytics troubleshooting workflow
 
-Azure Resource Health shows the health of Azure Stream Analytics jobs and provides actionable guidance to troubleshoot problems. The goal of the Resource Health blade is to reduce the time spent in determining if the root of the problem lays inside the application or if it is caused by an event inside the Azure platform.
+The **Resource health** blade in the Azure portal shows the health of your Azure Stream Analytics jobs. It also shows actionable guidance that can help you troubleshoot problems. 
 
-The resource health check blade helps ensure that customers do not needlessly spend time troubleshooting issues that they cannot directly fix and need to open a support case to receive assistance.
+The **Resource health** blade is intended to help you determine more quickly whether the root of a problem is in the application, or if it is caused by an event in Azure. It can help you know when to open a support case to receive assistance.
 
 ## Troubleshooting workflow
 
-Resource Health can be seen by clocking on the “Resource Health” blade. 
+To see the resource health for your Stream Analytics jobs, select the **Resource health** blade. 
 
-![Stream Analytics troubleshooting flow](media/stream-analytics-resource-health/stream-analytics-access-troubleshooting.png)
+![Stream Analytics troubleshooting flow - access](media/stream-analytics-resource-health/stream-analytics-access-troubleshooting.png)
 
-With this in mind the following flow chart should help with making educated decisions on what to look for and when to open a support case.
+The following flowchart can help you make decisions about what to look for, and when to open a support case.
 
-![Stream Analytics troubleshooting flow](media/stream-analytics-resource-health/stream-analytics-troubleshooting-map.png)
+![Stream Analytics troubleshooting flow - map](media/stream-analytics-resource-health/stream-analytics-troubleshooting-map.png)
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For additional assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 ## Next steps
-* [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-* [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
-* [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Introduction to Stream Analytics](stream-analytics-introduction.md)
+* [Get started with Stream Analytics](stream-analytics-get-started.md)
+* [Scale Stream Analytics jobs](stream-analytics-scale-jobs.md)
+* [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
