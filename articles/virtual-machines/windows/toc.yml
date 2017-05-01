@@ -25,9 +25,11 @@
     href: tutorial-custom-images.md
   - name: 5 - Highly available VMs
     href: tutorial-availability-sets.md
-  - name: 6 - Load balance VMs
+  - name: 6 - Create a VM scale set
+    href: tutorial-create-vmss.md
+  - name: 7 - Load balance VMs
     href: tutorial-load-balancer.md
-  - name: 7 - Manage networking
+  - name: 8 - Manage networking
     href: tutorial-virtual-network.md
 - name: Samples
   items:
