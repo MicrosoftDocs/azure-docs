@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 05/01/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 
@@ -22,12 +22,17 @@ ms.custom: H1Hack27Feb2017
 
 The cross-platform Azure Command-Line Interface (Azure CLI) enables you to manage your Batch accounts and resources such as pools, jobs, and tasks in Linux, Mac, and Windows command shells. With the Azure CLI, you can perform and script many of the same tasks you carry out with the Batch APIs, Azure portal, and Batch PowerShell cmdlets.
 
-This article is based on Azure CLI version 0.10.5.
+This article is based on [Azure CLI version 2.0](https://docs.microsoft.com/cli/azure/overview). See [Get started with Azure CLI 2.0](../get-started-with-azure-cli.md) for an overview of using the CLI with Azure. Also see the [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+
+> [NOTE]
+> Microsoft recommends using the latest version of the Azure CLI, version 2.0. For more information about version 2.0, see [Azure Command Line 2.0 now generally available](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/).
+>
+>
 
 ## Prerequisites
-* [Install the Azure CLI](../cli-install-nodejs.md)
-* [Connect the Azure CLI to your Azure subscription](../xplat-cli-connect.md)
-* Switch to **Resource Manager mode**: `azure config mode arm`
+* [Install the Azure CLI](../install-azure-cli.md)
+* [Log in to Azure](../get-started-with-azure-cli.md#log-in-to-azure)
+
 
 > [!TIP]
 > We recommend that you update your Azure CLI installation frequently to take advantage of service updates and enhancements.
@@ -37,24 +42,56 @@ This article is based on Azure CLI version 0.10.5.
 ## Command help
 You can display help text for every command in the Azure CLI by appending `-h` as the only option after the command. For example:
 
-* To get help for the `azure` command, enter: `azure -h`
-* To get a list of all Batch commands in the CLI, use: `azure batch -h`
-* To get help on creating a Batch account, enter: `azure batch account create -h`
+* To get help for the `az` command, enter: `azure -h`
+* To get a list of all Batch commands in the CLI, use: `az batch -h`
+* To get help on creating a Batch account, enter: `az batch account create -h`
 
 When in doubt, use the `-h` command-line option to get help on any Azure CLI command.
 
+> [NOTE]
+> Earlier versions of the Azure CLI used `azure` to preface a CLI command. In version 2.0, all commands are now prefaced with `az`. Be sure to update your scripts to use the new syntax with version 2.0.
+>
+>  
+
+[!INCLUDE [batch-cli-sample-scripts-include](../../includes/batch-cli-sample-scripts-include.md)]
+
+## Create a new resource group
+
+To create a new Batch account, you'll need to reference an existing resource group. If you don't already have a resource group, create one before you create your Batch account. 
+
+### Command
+
+[az group create](../cli/azure/group#create)
+
+### Example
+
+```cli
+az group create --name myresourcegroup --location westus
+```
+
+
 ## Create a Batch account
+
 Usage:
 
-    azure batch account create [options] <name>
+```cli
+az batch account create --location
+                        --name
+                        --resource-group
+                        [--keyvault]
+                        [--storage-account]
+                        [--tags]
+```
+
+    az batch account create [options] <name>
 
 Example:
 
-    azure batch account create --location "West US"  --resource-group "resgroup001" "batchaccount001"
+```cli
+az batch account create --location westus --resource-group myresourcegroup --name mybatchaccount
+```
 
-Creates a new Batch account with the specified parameters. You must specify at least a location, resource group, and account name. If you don't already have a resource group, create one by running `azure group create`, and specify one of the Azure regions (such as "West US") for the `--location` option. For example:
-
-    azure group create --name "resgroup001" --location "West US"
+Creates a new Batch account with the specified parameters. You must specify at least a location, resource group, and account name. 
 
 > [!NOTE]
 > The Batch account name must be unique within the Azure region the account is created. It may contain only lowercase alphanumeric characters, and must be 3-24 characters in length. You can't use special characters like `-` or `_` in Batch account names.
@@ -62,7 +99,7 @@ Creates a new Batch account with the specified parameters. You must specify at l
 > 
 
 ### Linked storage account (autostorage)
-You can (optionally) link a **General purpose** Storage account to your Batch account when you create it. The [application packages](batch-application-packages.md) feature of Batch uses blob storage in a linked General purpose Storage account, as does the [Batch File Conventions .NET](batch-task-output.md) library. These optional features assist you in deploying the applications your Batch tasks run, and persisting the data they produce.
+You can (optionally) link a **general-purpose** Azure Storage account to your Batch account when you create it. The [application packages](batch-application-packages.md) feature of Batch uses Blob storage in a linked general-purpose storage account, as does the [Batch File Conventions .NET](batch-task-output.md) library. These optional features assist you in deploying the applications that your Batch tasks run, and persisting the data they produce.
 
 To link an existing Azure Storage account to a new Batch account when you create it, specify the `--autostorage-account-id` option. This option requires the fully qualified resource ID of the storage account.
 
@@ -262,6 +299,8 @@ This section is intended to provide you with resources to use when troubleshooti
 * Not every Batch resource operation is currently supported by the Azure CLI. For example, you can't currently specify an application package *version* for a pool, only the package ID. In such cases, you may need to supply a `--json-file` for your command instead of using command-line options. Be sure to stay up-to-date with the latest CLI version to pick up future enhancements.
 
 ## Next steps
+
+* See the [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview) for more information about the Azure CLI.
 * See [Application deployment with Azure Batch application packages](batch-application-packages.md) to find out how to use this feature to manage and deploy the applications you execute on Batch compute nodes.
 * See [Query the Batch service efficiently](batch-efficient-list-queries.md) for more about reducing the number of items and the type of information that is returned for queries to Batch.
 

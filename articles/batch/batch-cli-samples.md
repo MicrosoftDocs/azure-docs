@@ -13,22 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/20/2017
+ms.date: 05/01/2017
 ms.author: antisch
 ---
 
 # Azure Batch CLI Samples
 
-## Tutorials with sample shell scripts
+These samples show how to use the Azure CLI version 2.0 with the Batch Management service.
 
-The following table includes links to bash scripts built using the Azure CLI that demonstrate using the Batch service.
-
-| Script | Notes |
-|---|---|
-| [Create a Batch account](./scripts/batch-cli-sample-create-account.md) | Creates a Batch account. |
-| [Add an application](./scripts/batch-cli-sample-add-application.md) | Adds an application and uploads packaged binaries.|
-| [Manage Batch pools](./scripts/batch-cli-sample-manage-pool.md) | Demonstrates creating, resizing and managing pools. |
-| [Run a job and tasks with Batch](./scripts/batch-cli-sample-run-job.md) | Demonstrates running a job and adding tasks. |
+[!INCLUDE [batch-cli-sample-scripts-include](../../includes/batch-cli-sample-scripts-include.md)]
 
 ## Next steps
 
