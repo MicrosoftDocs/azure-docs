@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to create, manage, or delete a storage account in the Azure classic portal | Microsoft Docs
 description: Create a new storage account, manage your account access keys, or delete a storage account in the Azure portal. Learn about standard and premium storage accounts.
 services: storage
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/29/2017
+ms.date: 01/23/2017
 ms.author: robinsh
 
 ---
@@ -91,9 +91,6 @@ For example, if your storage account is named *mystorageaccount*, then the defau
 * File service: http://*mystorageaccount*.file.core.windows.net
 
 You can see the endpoints for your storage account on the storage dashboard in the [Azure Classic Portal](https://manage.windowsazure.com) once the account has been created.
-
-> [!NOTE]
-> Currently in public preview, [Azure Cosmos DB](https://aka.ms/premiumtables) supports throughput-optimized tables, and will be extended to support all existing and new tables. The Azure Cosmos DB service be accessed using the Azure Table storage APIs using the https://*myazurecosmosdb*.documents.azure.com endpoint. 
 
 The URL for accessing an object in a storage account is built by appending the object's location in the storage account to the endpoint. For example, a blob address might have this format: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
