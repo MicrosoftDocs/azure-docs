@@ -229,10 +229,10 @@ If needed, OCR corrects the rotation of the recognized text, in degrees, around 
 
 ![OCR Overview](./Images/vision-overview-ocr.png)
 Requirements for OCR:
-- The size of the input image must be between 40 x 40 and 32000 x 32000 pixels.
-- The image cannot be bigger than 100 megapixels.
+- The size of the input image must be between 40 x 40 and 3200 x 3200 pixels.
+- The image cannot be bigger than 10 megapixels.
 
-Input image can be rotated by any multiple of 90 degrees plus a small angle of up to '40 degrees.
+The input image can be rotated by any multiple of 90 degrees plus a small angle of up to '40 degrees.
 
 The accuracy of text recognition depends on the quality of the image. An inaccurate reading may be caused by the following situations:
 - Blurry images.
@@ -244,10 +244,6 @@ The accuracy of text recognition depends on the quality of the image. An inaccur
 - Subscript, superscript, or strikethrough text.
 
 Limitations: On photos where text is dominant, false positives may come from partially recognized words. On some photos, especially photos without any text, precision can vary a lot depending on the type of image.
-- Small text size
-- Complex backgrounds, shadows, or glare over text or perspective distortion
-- Oversized or missing capital letters at the beginnings of words
-- Subscript, superscript, or strikethrough text
 
 ## <a name="RecognizeText">Recognize Handwritten Text</a>
 This technology allows you to detect and extract handwritten text from notes, letters, essays, whiteboards, forms, etc. It works with different surfaces and backgrounds, such as white paper, yellow sticky notes, and whiteboards.
