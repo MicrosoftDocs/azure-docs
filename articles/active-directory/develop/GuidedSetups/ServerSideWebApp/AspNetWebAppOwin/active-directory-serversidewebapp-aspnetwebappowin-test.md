@@ -39,7 +39,7 @@ Select the hyperlink to see the user's claims. This leads you to the controller 
 | Property | Value | Description|
 |---|---|---|
 | Name | {User Full Name} | The user’s first and last name
-|Username | user@domain.com| The username used to identify the logged user
+|Username | <span>user@domain.com</span>| The username used to identify the logged user
 | Subject| {Subject}|A string to uniquely identify the user logon across the web|
 | Tenant ID| {Guid}| A *guid* to uniquely represent the user’s Azure Active Directory organization.|
 
