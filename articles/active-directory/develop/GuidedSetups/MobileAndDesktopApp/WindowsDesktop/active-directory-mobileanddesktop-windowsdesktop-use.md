@@ -85,6 +85,7 @@ public partial class MainWindow : Window
     }
 }
 ```
+
 <!--start-collapse-->
 ### More Information
 #### Getting a user token interactive
@@ -169,6 +170,8 @@ Although the application in this sample is single-user, MSAL supports scenarios 
 <!--end-collapse-->
 
 ## Display Basic Token Information
+
+1. Add the following additional method to display basic information about the token:
 
 ```csharp
 /// <summary>
