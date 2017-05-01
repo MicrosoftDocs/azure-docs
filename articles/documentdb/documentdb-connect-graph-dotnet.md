@@ -1,5 +1,5 @@
 ---
-title: Connect Azure Azure Cosmos DB to graph using .NET (C#) | Microsoft Docs
+title: Connect Azure Cosmos DB to graph using .NET (C#) | Microsoft Docs
 description: Presents a .NET code sample you can use to connect to and query Azure Azure Cosmos DB
 services: documentdb
 documentationcenter: ''
@@ -55,7 +55,6 @@ public class Vertex
     public Dictionary<string, List<Property>> Properties { get; set; }
 }
 ```
-See the complete sample for how to create a wrapper class for `Edge` and `Property`. 
 
 ## Adding vertices and edges
 
