@@ -138,7 +138,7 @@ $vnet = New-AzureRmVirtualNetwork `
   -Subnet $subnet
 $ipConfig = New-AzureRmVmssIpConfig `
   -Name "myIPConfig" `
-  -LoadBalancerBackendAddressPoolsId $lb.BackendAddressPools[0].Id ` `
+  -LoadBalancerBackendAddressPoolsId $lb.BackendAddressPools[0].Id `
   -SubnetId $vnet.Subnets[0].Id
 
 # Attach the virtual network to the config object
