@@ -46,6 +46,7 @@
 ### [Select IP configuration option](devtest-lab-shared-ip.md)
 
 # Reference
+## [Resource Manager templates](https://github.com/Azure/azure-devtestlab/tree/master/Samples)
 ## [CLI 2.0](/cli/azure/lab)
 ## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [Create or modify labs automatically](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
