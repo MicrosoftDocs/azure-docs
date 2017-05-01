@@ -24,19 +24,19 @@ This document explains how to use the Azure Cloud Shell window.
 * Click and drag the toolbar up or down to resize the Cloud Shell window
 
 ## Minimize & maximize Cloud Shell window
-* Click the minimize icon on the top right of the console to set window size to zero.
-* Click the restore icon on the top right or the console to restore console to previous size.
+* Click the minimize icon on the top right of the window to set window size to zero.
+* To restore window to previous size, click min or max again.
 
 ## Copy/paste
-* Windows: Ctrl-insert and Shift-insert or right-click dropdown to copy/paste
+* Windows: `Ctrl-insert` and `Shift-insert` or right-click dropdown to copy/paste
   * FireFox/IE may not support clipboard permissions properly
-* Mac OS: Cmd-c and Cmd-v or right-click dropdown to copy/paste
+* Mac OS: `Cmd-c` and `Cmd-v` or right-click dropdown to copy/paste
 
 ## Scrolling text display
 * Scroll with your mouse or touchpad
 
 ## Exit command
-Running `exit` will close Cloud Shell. This occurs by default after 10 minutes without interaction.
+Running `exit` closes Cloud Shell. This behavior occurs by default after 10 minutes without interaction.
 
 ## Next Steps
 [ACC Quickstart](acc-quickstart.md) 

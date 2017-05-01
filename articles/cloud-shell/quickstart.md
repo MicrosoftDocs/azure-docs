@@ -21,23 +21,21 @@ ms.author: juluk
 This document details how to use the Azure Cloud Shell in the [Azure portal](https://ms.portal.azure.com/).
 
 ## Start Cloud Shell
-Select the **Cloud Shell** icon in the top navigation bar of the Azure portal.
+1. Select the **Cloud Shell** icon in the top pane of the Azure portal.
 ![](media/shell-icon.png)
+2. Select a subscription to create a storage account and Azure file share
+![](media/storage-create.png)
+3. Select "Create"
 
-1. Select a subscription to create a storage account and Azure file share
-2. Select "Create"
-
-You are automatically authenticated for Azure CLI 2.0.
+**Tip:** You are automatically authenticated for Azure CLI 2.0 every sesssion.
 
 ### Set your subscription
-1. Check subscriptions you have access to: <br>
+1. List subscriptions you have access to: <br>
 `az account list`
-2. Enter the name or id of your target subscription from the json output: <br>
-`"name": "my-subscription-name"`
-3. Set your account to the chosen subscription: <br>
+2. Set your Cloud Shell to your preferred subscription: <br>
 `az account set --subscription my-subscription-name`
 
-**Tip:** Your set subscription is stored as default in `azureProfile.json` held in your $Home directory.
+**Tip:** Your subscription will be remembered for future sessions using `azureProfile.json` held in your $Home directory.
 
 ### Create a resource group
 Create a new resouce group in WestUS named "MyRG": <br>
@@ -47,7 +45,9 @@ Create a new resouce group in WestUS named "MyRG": <br>
 Create an Ubuntu VM in your new resource group. The Azure CLI 2.0 will create ssh keys and setup the VM with them. <br>
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS`
 
-**Note** The public and private keys used to authenticate your VM are placed in `/User/.ssh/id_rsa` and `/User/.ssh/id_rsa.pub` of Cloud Shell. This is persisted in your attached Azure file share's 5-GB image.
+**Note** The public and private keys used to authenticate your VM are placed in `/User/.ssh/id_rsa` and `/User/.ssh/id_rsa.pub` of Cloud Shell. This is persisted in your attached Azure file share's 5-GB image. 
+
+Your username on this VM will be your username used in Cloud Shell ($User@Azure:).
 
 ### SSH into your Linux VM
 1. Search for your VM name in the Azure portal search bar
