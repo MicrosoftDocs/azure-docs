@@ -55,6 +55,4 @@ You are ready to get started with Video Indexer. For more information, see the f
 - [Process content with Video Indexer REST API](video-indexer-use-apis.md)
 - [Embed visual widgets in your application](video-indexer-embed-widgets.md)
 
- ## See also
- 
- [The Video Indexer announcement](https://aka.ms/videoindexerblog).
+For more information, see the [Video Indexer announcement](https://aka.ms/videoindexerblog) blog.
