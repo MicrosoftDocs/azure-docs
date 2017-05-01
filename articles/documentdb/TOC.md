@@ -1,6 +1,6 @@
 
 # Overview
-## About Azure Cosmos DB
+## [About Azure Cosmos DB](documentdb-multi-model-introduction.md)
 ## [Comparison of services](documentdb-nosql-vs-sql.md)
 
 # Quickstarts
@@ -48,8 +48,7 @@
 ## [Multi-model APIs](documentdb-resources.md)
 ### [DocumentDB API](documentdb-introduction.md)
 ### [MongoDB API](documentdb-protocol-mongodb.md)
-### Table API
-<!---### [Table API](documentdb-table-introduction.md)--->
+### [Table API](documentdb-table-introduction.md)
 ### [Graph API](documentdb-graph-introduction.md)
 ## [Global distribution](documentdb-distribute-data-globally.md)
 ## [Partition and scale](documentdb-partition-data.md)
