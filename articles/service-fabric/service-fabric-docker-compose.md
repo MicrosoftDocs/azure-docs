@@ -17,13 +17,18 @@ ms.date: 05/01/2017
 ms.author: subramar
 ---
 
-# Docker Compose support in Service Fabric (Preview)
-Docker uses the [docker-compose.yml](https://docs.docker.com/compose) file for defining multi-container applications. To make it easy for customers familiar with Docker to orchestrate existing container applications on Service Fabric, we've included preview support for Docker Compose natively in the platform. Service Fabric can accept V3 versions of `docker-compose.yml` files. Since this support is in preview, only a subset of Compose directives are supported. For examples, application upgrades aren't supported. However, you can always remove and deploy applications instead of upgrading them.  
+
+The [Service Fabric application model](service-fabric-application-model.md) uses service types and application types, where you can have many application instances of the same type (for example, one application instance per customer). This type based model also supports having multiple versions of the same application type registerted with the runtime - for example, customer A could get type 1.0 of AppTypeA, customer B could get type 2.0 of AppTypeB and customer C could get type 1.0 of AppTypeA. AppTypeA and AppTypeB would be defined in application manifests, and you specify the application name and deployment parameters at the time of application creation.
+
+While this model offers maximum flexibility, we're also planning to support a simpler instance based deployment model where types are implicit from the manifest file. In this model, each application gets its own independent manifest. We're previewing this effort by adding support for docker-compose.yml which is an instance based deployment format used by Docker for defining container applications. 
+
+
+## Docker Compose support in Service Fabric (Preview)
+
+Docker Compose support makes it easy for customers familiar with Docker to orchestrate existing container applications on Service Fabric, we've included preview support for Docker Compose natively in the platform. Service Fabric can accept V3 versions of `docker-compose.yml` files. Since this support is in preview, only a subset of Compose directives are supported. For examples, application upgrades aren't supported. However, you can always remove and deploy applications instead of upgrading them.  
 
 To use this preview, you need to install the preview SDK (version 255.255.x.x) through the portal. 
 
-
-## Using a docker-compose.yml file with Service Fabric
 
 Create a Service Fabric application from a docker-compose.yml file by running the following command in PS:
 
