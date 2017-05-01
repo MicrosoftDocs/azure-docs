@@ -44,7 +44,7 @@ Service name requirements:
    * no consecutive dashes ("--")
 
 ## Select a subscription
-If you have more than one subscription, choose one that also has data or file storage services. Azure Search can auto-detect Azure Table and Blob storage, SQL Database, and Cosmos DB for indexing via *indexers*, but only for services in the same subscription.
+If you have more than one subscription, choose one that also has data or file storage services. Azure Search can auto-detect Azure Table and Blob storage, SQL Database, and Azure Cosmos DB for indexing via *indexers*, but only for services in the same subscription.
 
 ## Select a resource group
 A resource group is a collection of Azure services and resources used together. For example, if you are using Azure Search to index a SQL database, then both services should be part of the same resource group.

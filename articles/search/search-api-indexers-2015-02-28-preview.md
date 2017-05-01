@@ -126,7 +126,7 @@ Request contains the following properties:
 * `credentials`:
   * The required `connectionString` property specifies the connection string for the data source. The format of the connection string depends on the data source type: 
     * For Azure SQL, this is the usual SQL Server connection string. If you're using the Azure portal to retrieve the connection string, use the `ADO.NET connection string` option.
-    * For Cosmos DB, the connection string must be in the following format: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. All of the values are required. You can find them in the [Azure portal](https://portal.azure.com/).  
+    * For Azure Cosmos DB, the connection string must be in the following format: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. All of the values are required. You can find them in the [Azure portal](https://portal.azure.com/).  
     * For Azure Blob and Table Storage, this is the storage account connection string. The format is described [here](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/). HTTPS endpoint protocol is required.  
 * `container`, required: specifies the data to index using the `name` and `query` properties: 
   * `name`, required:
@@ -164,7 +164,7 @@ This policy can be specified as follows:
         "highWaterMarkColumnName" : "[a row version or last_updated column name]" 
     } 
 
-When using Cosmos DB data sources, you must use the `_ts` property provided by Cosmos DB. 
+When using Azure Cosmos DB data sources, you must use the `_ts` property provided by Azure Cosmos DB. 
 
 When using Azure Blob data sources, Azure Search automatically uses a high watermark change detection policy based on a blob's last-modified timestamp; you don't need to specify such a policy yourself.   
 
@@ -409,7 +409,7 @@ An indexer can optionally specify several parameters that affect its behavior. A
 * `maxFailedItems` : The number of items that can fail to be indexed before an indexer run is considered a failure. Default is 0. Information about failed items is returned by the [Get Indexer Status](#GetIndexerStatus) operation. 
 * `maxFailedItemsPerBatch` : The number of items that can fail to be indexed in each batch before an indexer run is considered a failure. Default is 0.
 * `base64EncodeKeys`: Specifies whether or not document keys will be base-64 encoded. Azure Search imposes restrictions on characters that can be present in a document key. However, the values in your source data may contain characters that are invalid. If it is necessary to index such values as document keys, this flag can be set to true. Default is `false`.
-* `batchSize`: Specifies the number of items that are read from the data source and indexed as a single batch in order to improve performance. The default depends on the data source type: it is 1000 for  Azure SQL and Cosmos DB, and 10 for Azure Blob Storage.
+* `batchSize`: Specifies the number of items that are read from the data source and indexed as a single batch in order to improve performance. The default depends on the data source type: it is 1000 for  Azure SQL and Azure Cosmos DB, and 10 for Azure Blob Storage.
 
 **Field Mappings**
 
