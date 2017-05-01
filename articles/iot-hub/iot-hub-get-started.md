@@ -1,11 +1,12 @@
 ---
-title: Azure IoT Hub get started | Microsoft Docs
-description: 'How to get started with the IoT Hub service'
+title: 'Azure IoT Hub - get started connecting IoT devices to the cloud | Microsoft Docs'
+description: 'Learn how to connect your IoT devices to Azure IoT Hub. Your devices can send telemtry to IoT Hub and Iot Hub can monitor and manage your devices.'
 services: iot-hub
 documentationcenter: ''
 author: dominicbetts
 manager: timlt
 editor: ''
+keywords: 'azure iot hub tutorial'
 
 ms.assetid: 24376318-5344-4a81-a1e6-0003ed587d53
 ms.service: iot-hub
@@ -13,50 +14,78 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 04/28/2017
 ms.author: dobett
 
 ---
-# Get started with Azure IoT Hub or Azure IoT Gateway SDK
+# Azure IoT Hub get started tutorials
 
-You can choose one of several tutorials to get started with the IoT Hub service or the Gateway SDK.
+You can use Azure IoT Hub and the Azure IoT device SDKs to build Internet of Things (IoT) solutions.
 
-## IoT Hub
+* Azure IoT Hub is a fully managed service in the cloud that securely connects, monitors, and manages your IoT devices. Use the Azure IoT Device SDKs to implement your IoT devices.
+* Use an IoT gateway in more complex IoT scenarios where you need to consider factors such as legacy devices, bandwidth costs, security and privacy policies, or edge data processing. In these scenarios, you use Azure IoT Gateway SDK to build a gateway device that connects devices to your IoT hub.
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of Internet of Things (IoT) devices and a solution back end.
+## What do the tutorials cover
 
-To get started with the IoT Hub service, you can:
+These tutorials introduce you to Azure IoT Hub and the device SDKs. The tutorials cover common IoT scenarios to demonstrate the capabilities of IoT Hub. The tutorials also illustrate how to combine IoT Hub with other Azure services and tools to build more powerful IoT solutions. In the tutorials you can choose to use either simulated or real IoT devices. In addition, you can learn how to use a gateway to enable devices to connect to your IoT hub.
 
-- Follow a tutorial that uses a simulated device running on your development machine. Choose a get started tutorial that uses your preferred programming language: [.NET][lnk-dotnet], [Java][lnk-java], or [Node.js][lnk-nodejs].
+## Device setup scenario: Connect IoT device or gateway to Azure IoT Hub
 
-- Follow a tutorial that uses a physical device. Choose a get started tutorial that uses your preferred hardware platform: [Raspberry Pi][lnk-rasp-pi], [Intel Edison][lnk-edison], or [Arduino][lnk-arduino]. These tutorials include information about how you can obtain the hardware devices.
+You can choose your real or simulated device to get started.
 
-- Read about using the C language to develop IoT devices, in the [Introduction to the Azure IoT device SDK for C][lnk-c-intro] article.
+| IoT device                       | Programming language |
+|---------------------------------|----------------------|
+| Raspberry Pi                    | [Node.js][Pi_Nd], [C][Pi_C]           |
+| Intel Edison                    | [Node.js][Ed_Nd], [C][Ed_C]           |
+| Adafruit Feather HUZZAH ESP8266 | [Arduino][Hu_Ard]              |
+| Sparkfun ESP8266 Thing Dev      | [Arduino][Th_Ard]              |
+| Adafruit Feather M0             | [Arduino][M0_Ard]              |
+| Simulated device                | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [Python][Sim_Pyth]              |
 
-## Gateway SDK
+In addition, you can use a gateway to enable devices to connect to your IoT hub.
 
-You can use the Gateway SDK to build a custom field gateway. A gateway performs tasks such as running analytics, making time-sensitive decisions to reduce latency, providing device management services, enforcing security and privacy constraints, and performing protocol translation.
+| Gateway device               | Programming language | Platform         |
+|------------------------------|----------------------|------------------|
+| Intel NUC (model DE3815TYKE) | C                    | [Wind River Linux][NUC_Lnx] |
+| Simulated gateway            | C                    | [Linux][Sim_Lnx], [Windows][Sim_Win] |
 
-To get started with the Gateway SDK, you can:
+## Extended IoT scenarios: Use other Azure services and tools
 
-- Follow a tutorial that uses a simulated gateway running on your development machine. You can choose a get started tutorial for either [Linux][lnk-linux] or [Windows][lnk-windows].
+When you have connected your device to IoT Hub, you can explore additional scenarios that use other Azure tools and services:
 
-- Follow a tutorial that uses a physical device. You can choose a get started tutorial that uses a [simulated device with an Intel NUC (Next Unit of Computing)][lnk-gateway-sim] or uses a [SensorTag device with an Intel NUC][lnk-gateway-tag].
+| Scenario                                    | Azure service or tool              |
+|---------------------------------------------|------------------------------------|
+| [Manage IoT Hub messages][Mg_IoT_Hub_Msg]                    | iothub-explorer tool               |
+| [Manage your IoT device][Mg_IoT_Dv]               | iothub-explorer tool               |
+| [Save IoT Hub messages to Azure storage][Sv_IoT_Msg_Stor]                      | Azure table storage               |
+| [Visualize sensor data][Vis_Data]             | Microsoft Power BI, Azure Web Apps |
+| [Forecast weather with sensor data][Weather_Forecast] | Azure Machine Learning             |
+| [Automatic anomaly detection and reaction][Anomaly_Detect]    | Azure Logic Apps                   |
 
 ## Next steps
 
-When you are finished with the get started tutorials, you can explore more features of IoT Hub and the Gateway SDK in the [Developer Guide][lnk-devguide] and [How To][lnk-howto] tutorials.
+When you have completed these tutorials, you can further explore the capabilities of IoT Hub in the [Developer guide][lnk-dev-guide]. You can find additional tutorials in the [How To][lnk-how-to] section.
 
-[lnk-dotnet]: ./iot-hub-csharp-csharp-getstarted.md
-[lnk-java]: ./iot-hub-java-java-getstarted.md
-[lnk-nodejs]: ./iot-hub-node-node-getstarted.md
-[lnk-c-intro]: ./iot-hub-device-sdk-c-intro.md
-[lnk-rasp-pi]: ./iot-hub-raspberry-pi-kit-node-get-started.md
-[lnk-edison]: ./iot-hub-intel-edison-kit-node-get-started.md
-[lnk-arduino]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md
-[lnk-linux]: ./iot-hub-linux-gateway-sdk-get-started.md
-[lnk-windows]: ./iot-hub-windows-gateway-sdk-get-started.md
-[lnk-gateway-sim]: ./iot-hub-gateway-kit-c-sim-get-started.md
-[lnk-gateway-tag]: ./iot-hub-gateway-kit-c-get-started.md
-[lnk-devguide]: ./iot-hub-devguide.md
-[lnk-howto]: ./iot-hub-how-to.md
+
+[Pi_Nd]: iot-hub-raspberry-pi-kit-node-get-started.md
+[Pi_C]: iot-hub-raspberry-pi-kit-c-get-started.md
+[Ed_Nd]: iot-hub-intel-edison-kit-node-get-started.md
+[Ed_C]: iot-hub-intel-edison-kit-c-get-started.md
+[Hu_Ard]: iot-hub-arduino-huzzah-esp8266-get-started.md
+[Th_Ard]: iot-hub-sparkfun-esp8266-thing-dev-get-started.md
+[M0_Ard]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md
+[Sim_NET]: iot-hub-csharp-csharp-getstarted.md
+[Sim_Jav]: iot-hub-java-java-getstarted.md
+[Sim_Nd]: iot-hub-node-node-getstarted.md
+[Sim_Pyth]: iot-hub-python-getstarted.md
+[NUC_Lnx]: iot-hub-gateway-kit-c-lesson1-set-up-nuc.md
+[Sim_Lnx]: iot-hub-linux-gateway-sdk-get-started.md
+[Sim_Win]: iot-hub-windows-gateway-sdk-get-started.md
+[Mg_IoT_Hub_Msg]: iot-hub-explorer-cloud-device-messaging.md
+[Mg_IoT_Dv]: iot-hub-device-management-iothub-explorer.md
+[Sv_IoT_Msg_Stor]: iot-hub-store-data-in-azure-table-storage.md
+[Vis_Data]: iot-hub-live-data-visualization-in-power-bi.md
+[Weather_Forecast]: iot-hub-weather-forecast-machine-learning.md
+[Anomaly_Detect]: iot-hub-monitoring-notifications-with-azure-logic-apps.md
+[lnk-dev-guide]: iot-hub-devguide.md
+[lnk-how-to]: iot-hub-how-to.md
