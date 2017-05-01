@@ -22,15 +22,15 @@ ms.author: aedwin
 The Reporting APIs enable Enterprise Azure customers to programmatically pull consumption and billing data into preferred data analysis tools. 
 
 ## Enabling data access to the API
-* **Generate\Retrieve the API Key** - Log in to the Enterprise portal and follow the tutorial under Help - Reporting APIs. The first section under this help article explains how to generate\retrieve the API key for the specified enrollment.  d
+* **Generate\Retrieve the API Key** - Log in to the Enterprise portal and follow the tutorial under Help - Reporting APIs. The first section under this help article explains how to generate\retrieve the API key for the specified enrollment.
 * **Passing keys in the API** - The API key needs to be passed for each call for Authentication and Authorization. The following property needs to be to the HTTP headers
 
 |Request Header Key | Value|
 |-|-|
-|Authorization| The value needs to be specified in this format: **bearer *{API_KEY}*** <br/> Example: bearer eyr....09|
+|Authorization| The value needs to be specified in this format: **bearer {API_KEY}** <br/> Example: bearer eyr....09|
 
 ## Consumption APIs
-A Swagger endpoint is available [here](https://consumption.azure.com/v1/swagger) for the APIs described below which should enable easy introspection of the API and the ability to generate client SDKs using AutoRest](https://github.com/Azure/AutoRest) or [Swagger CodeGen](http://swagger.io/swagger-codegen/). Data beginning May 1, 2014 is available through this API. 
+A Swagger endpoint is available [here](https://consumption.azure.com/v1/swagger) for the APIs described below which should enable easy introspection of the API and the ability to generate client SDKs using [AutoRest](https://github.com/Azure/AutoRest) or [Swagger CodeGen](http://swagger.io/swagger-codegen/). Data beginning May 1, 2014 is available through this API. 
 
 * **Balance and Summary** - The [Balance and Summary API](billing-enterprise-api-balance-summary.md) offers a monthly summary of information on balances, new purchases, Azure Marketplace service charges, adjustments and overage charges.
 
@@ -46,14 +46,12 @@ A Swagger endpoint is available [here](https://consumption.azure.com/v1/swagger)
 
 ## API Response Codes  
 |Response Status Code|Message|Description|
-|-|-|
-|200| OK|No error
-|401| Unauthorized| API Key not found
-|401| Unauthorized| API Key Invalid
-|401| Unauthorized| API Key Expired
-|404| Unavailable| Report endpoint not found
-|400| Bad Request| Invalid params – Date ranges, EA numbers etc.
-|500| Server Error| Internal please use the Tracking Id returned when raising support tickets 
+|-|-|-|
+|200| OK|No error|
+|401| Unauthorized| API Key not found, Invalid, Expired etc.|
+|404| Unavailable| Report endpoint not found|
+|400| Bad Request| Invalid params – Date ranges, EA numbers etc.|
+|500| Server Error| Internal please use the Tracking Id returned when raising support tickets| 
 
 
 

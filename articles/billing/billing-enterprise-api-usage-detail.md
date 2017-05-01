@@ -25,20 +25,21 @@ The Usage Detail API offers a daily breakdown of consumed quantities and estimat
 
 
 ##Request 
-Common header properties are specified in the [overview of](billing-enterprise-api.md) 
+Common header properties that need to be added are specified [here](billing-enterprise-api.md). If a billing period is not specified, then data for the current billing period is returned. Custom time ranges can be specified with the start and end date parameters which are in the format YYYY-MM-DD, the maximum supported time range is 36 months.  
 
 |Method | Request URI|
 |-|-|
+|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/usagedetails 
 |GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/usagedetails|
-
+|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/usagedetailsbycustomdate?startDate=2017-01-01&endDate=2017-01-10|
 
 ## Response
-[!NOTE]
-> Due to potentially large volume of data the result set is paged. The nextLink property, if present, specifies the link for the next page of data. If the link is empty it denoted that is the last page. 
 
+> Due to potentially large volume of data the result set is paged. The nextLink property, if present, specifies the link for the next page of data. If the link is empty it denoted that is the last page. 
+<br/>
 
 	{
-		"reportId": "string",
+		"id": "string",
 		"data": [
 			{
 			"enrollmentNumber": "string",
@@ -82,6 +83,15 @@ Common header properties are specified in the [overview of](billing-enterprise-a
 	}
 
 <br/>
+
+**Response property definitions**
+
+|Property Name| Type| Description
+|-|-|-|
+|id| string| The unique Id for this |
+|data| JSON array|  |
+|nextLink| string| When there are more pages of data the nextLink points to the URL to return the next page of data |
+
 ## See Also
 * [Billing Periods API](billing-enterprise-api-billing-periods.md)
 

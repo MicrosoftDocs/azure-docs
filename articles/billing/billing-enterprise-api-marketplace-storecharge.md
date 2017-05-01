@@ -23,16 +23,17 @@ ms.author: aedwin
 The Price Sheet API provides the applicable rate for each Meter for the given Enrollment and Billing Period?
 
 ##Request 
-Common header properties that need to be added are specified [here](billing-enterprise-api.md). If a billing period is not specified, then data for the current billing period is returned. 
+Common header properties that need to be added are specified [here](billing-enterprise-api.md). If a billing period is not specified, then data for the current billing period is returned. Custom time ranges can be specified with the start and end date parameters which are in the format YYYY-MM-DD, the maximum supported time range is 36 months.  
 
 |Method | Request URI|
 |-|-|
+|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/marketplace|
 |GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/marketplace|
-
+|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/marketplacechargesbycustomdate?startDate=2017-01-01&endDate=2017-01-10|
 
 ## Response
  
-	{
+	
 		[
 			{
 				"id": "id",
@@ -62,7 +63,7 @@ Common header properties that need to be added are specified [here](billing-ente
 			},
 			...
 		]
-	}
+	
 
 **Response property definitions**
 
@@ -71,9 +72,9 @@ Common header properties that need to be added are specified [here](billing-ente
 |id|string|Unique Id for the marketplace charge item|
 |subscriptionGuid|Guid|The Subscription Guid|
 |subscriptionName|string|The Subscription Name|
-|meterId|string|The |
-|usageStartDate|DateTime|Start time for usage|
-|usageEndDate|DateTime|End time of usage|
+|meterId|string|Id for the emitted Meter|
+|usageStartDate|DateTime|Start time for the usage record|
+|usageEndDate|DateTime|End time for the usage record|
 |offerName|string|The Offer name|
 |resourceGroup|s|The resource Group|
 |instanceId|string|Instance Id|
@@ -82,7 +83,7 @@ Common header properties that need to be added are specified [here](billing-ente
 |orderNumber|string|The order number|
 |unitOfMeasure|string|Unit of measure for the meter|
 |costCenter|string|The cost center|
-|accountId|int|The account Id.|
+|accountId|int|The account Id|
 |accountName|string |The Account Name|
 |accountOwnerId|string|The Account Owner Id|
 |departmentId|int|The department Id|

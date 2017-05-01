@@ -24,10 +24,11 @@ The Balance and Charge API offers a monthly summary of information on balances, 
 
 
 ##Request 
-Common header properties that need to be added are specified [here](billing-enterprise-api.md). 
+Common header properties that need to be added are specified [here](billing-enterprise-api.md). If a billing period is not specified, then data for the current billing period is returned.
 
 |Method | Request URI|
 |-|-|
+|GET| https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/balancesummary|
 |GET| https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/balancesummary|
 
 
@@ -69,9 +70,9 @@ Common header properties that need to be added are specified [here](billing-ente
 **Response property definitions**
 
 |Property Name| Type| Description
-|-|-|
+|-|-|-|
 |id|string|The unique Id for a specific billing period and enrollment.|
-|billingPeriodId|string |The billing period for the balance.|
+|billingPeriodId|string |The billing period Id.|
 |currencyCode|string |The currency code.|
 |beginningBalance|string| The beginning balance. |
 |endingBalance|decimal| The ending balance.|
@@ -83,8 +84,8 @@ Common header properties that need to be added are specified [here](billing-ente
 |totalOverage|decimal| The total overage.|
 |totalUsage|decimal| The total usage.|
 |azureMarketplaceServiceCharges|decimal| Total charges for Azure Marketplace.|
-|newPurchasesDetails|Array of Name Value Pairs|List of new purchases.|
-|adjustmentDetails| Array of Name Value Pairs|List of Adjustments (Promo credit, SIE credit etc.) |
+|newPurchasesDetails|JSON string array of Name Value pairs|List of new purchases.|
+|adjustmentDetails|JSON string array of Name Value pairs|List of Adjustments (Promo credit, SIE credit etc.) |
 
 
 <br/>

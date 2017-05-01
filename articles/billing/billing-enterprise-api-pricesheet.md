@@ -27,12 +27,13 @@ Common header properties that need to be added are specified [here](billing-ente
 
 |Method | Request URI|
 |-|-|
+|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/marketplace|
 |GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/pricesheet|
 
 
 ## Response
 
-	{
+	
   		[
     		{
     		  	"id": "enrollments/57354989/billingperiods/201601/products/343/pricesheets",
@@ -56,7 +57,7 @@ Common header properties that need to be added are specified [here](billing-ente
     		},
 			...
 		]
-	}
+	
 
 **Response property definitions**
 

@@ -34,8 +34,8 @@ Common header properties that need to be added are specified [here](billing-ente
 ## Response
  
 	
-	{
-  		"value": [
+	
+  	  [
 		    {
     		  	"billingPeriodId": "201704",
       			"billingStart": "2017-04-01T00:00:00Z",
@@ -46,20 +46,20 @@ Common header properties that need to be added are specified [here](billing-ente
       			"priceSheet": "/v1/enrollments/100/PriceSheet?billingPeriod=201704"
     		},    		
 			....
-  		]
-	}
+  	  ]
+	
 
 **Response property definitions**
 
 |Property Name| Type| Description
-|-|-|
-|billingPeriodId| string| The unique Id that represents a particular Billing period
-|billingStart| datetime| ISO 8601 string representing the period start date
-|billingEnd| datetime| ISO 8601 string representing the period end date
-|balanceSummary| string| The URL path that routes to the Balance Summary data for this period
-|usageDetails| string| The URL path that routes to the Usage Details data for this period
-|marketplaceCharges| string| The URL path that routes to the Marketplace Charges data for this period
-|priceSheet| string| The URL path that routes to the PriceSheet data for this period
+|-|-|-|
+|billingPeriodId| string| The unique Id that represents a particular Billing period|
+|billingStart| datetime| ISO 8601 string representing the period start date|
+|billingEnd| datetime| ISO 8601 string representing the period end date|
+|balanceSummary| string| The URL path that routes to the Balance Summary data for this period|
+|usageDetails| string| The URL path that routes to the Usage Details data for this period|
+|marketplaceCharges| string| The URL path that routes to the Marketplace Charges data for this period|
+|priceSheet| string| The URL path that routes to the PriceSheet data for this period|
 
 <br/>
 ## See Also
