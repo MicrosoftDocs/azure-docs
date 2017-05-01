@@ -207,7 +207,7 @@ When the Automation account is successfully created, several resources are autom
 | AzureClassicAutomationTutorial Runbook | An example graphical runbook that gets all the VMs that are created using the classic deployment model in a subscription by using the Classic Run As account (certificate), and then writes the VM name and status. |
 | AzureClassicAutomationTutorial Script Runbook | An example PowerShell runbook that gets all the classic VMs in a subscription by using the Classic Run As account (certificate), and then writes the VM name and status. |
 | AzureClassicRunAsCertificate | The automatically created certificate asset that you use to authenticate with Azure so that you can manage Azure classic resources from runbooks. The certificate has a one-year lifespan. |
-| AzureClassicRunAsConnection | The automatically created connection asset that you use to authenticate with Azure so that you can manage Azure classic resources from runbooks. |authenticate with Azure so that you can manage Azure classic resources from runbooks. |
+| AzureClassicRunAsConnection | The automatically created connection asset that you use to authenticate with Azure so that you can manage Azure classic resources from runbooks.|
 
 ## Next steps
 * You can confirm your new Automation account can authenticate against Azure resources by reviewing [test Azure Automation Run As account authentication](automation-verify-runas-authentication.md).

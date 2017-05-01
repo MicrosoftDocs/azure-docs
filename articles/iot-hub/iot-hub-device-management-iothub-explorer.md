@@ -20,6 +20,8 @@ ms.author: xshi
 ---
 # Use iothub-explorer for Azure IoT Hub device management
 
+![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/2.png)
+
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 [iothub-explorer](https://github.com/azure/iothub-explorer) is a CLI tool that you run on a host computer to manage device identities in your IoT hub registry. It comes with management options that you can use to perform various tasks.

@@ -1,4 +1,4 @@
----
+﻿---
 title: Migrate AWS VMs to Azure | Microsoft Docs
 description: Migrate an Amazon Web Services (AWS) EC2 instance to Azure Virtual Machines. This scenario uses Managed Disks to simplify your cloud storage.
 services: virtual-machines-windows
@@ -33,7 +33,7 @@ If you use PowerShell, make sure that you have the latest version of the AzureRM
 ```powershell
 Install-Module AzureRM.Compute -MinimumVersion 2.6.0
 ```
-For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
 
 
 ## Generalize the Windows VM using Sysprep
@@ -72,7 +72,7 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 
 
 ## Log in to Azure
-If you don't already have PowerShell version installed, read [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+If you don't already have PowerShell version installed, read [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 1. Open Azure PowerShell and sign in to your Azure account. A pop-up window opens for you to enter your Azure account credentials.
    
@@ -117,7 +117,7 @@ If you need to create a storage account, follow these steps:
     New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. Create a storage account named **mystorageaccount** in this resource group by using the [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet:
+2. Create a storage account named **mystorageaccount** in this resource group by using the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet:
    
     ```powershell
     New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
@@ -134,7 +134,7 @@ If you need to create a storage account, follow these steps:
 
 ## Upload the VHD to your storage account
 
-Use the [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) cmdlet to upload the VHD to a container in your storage account. This example uploads the file **myVHD.vhd** from `"C:\Users\Public\Documents\Virtual hard disks\"` to a storage account named **mystorageaccount** in the **myResourceGroup** resource group. The file will be placed into the container named **mycontainer** and the new file name will be **myUploadedVHD.vhd**.
+Use the [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) cmdlet to upload the VHD to a container in your storage account. This example uploads the file **myVHD.vhd** from `"C:\Users\Public\Documents\Virtual hard disks\"` to a storage account named **mystorageaccount** in the **myResourceGroup** resource group. The file will be placed into the container named **mycontainer** and the new file name will be **myUploadedVHD.vhd**.
 
 ```powershell
 $rgName = "myResourceGroup"

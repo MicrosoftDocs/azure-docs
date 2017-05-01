@@ -1,19 +1,20 @@
 ---
-title: "Pool create event - Azure | Microsoft Docs"
-ms.custom: ""
-ms.date: "2017-02-01"
-ms.prod: "azure"
-ms.reviewer: ""
-ms.service: "batch"
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
-ms.assetid: 8473bab4-6c16-4ee2-8d78-22fa3ca87487
-caps.latest.revision: 4
-author: "tamram"
-ms.author: "tamram"
-manager: "timlt"
+title: "Azure Batch pool create event | Microsoft Docs"
+description: Reference for Batch pool create event.
+services: batch
+author: tamram
+manager: timlt
+
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: tamram
 ---
+
 # Pool create event
 
  This event is emitted once a pool has been created. The content of the log will expose general information about the pool. Note that if the target size of the pool is greater than 0 compute nodes, a pool resize start event will follow immediately after this event.

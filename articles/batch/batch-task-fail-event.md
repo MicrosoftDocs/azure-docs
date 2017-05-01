@@ -1,19 +1,20 @@
 ---
-title: "Task fail event - Azure | Microsoft Docs"
-ms.custom: ""
-ms.date: "2017-02-01"
-ms.prod: "azure"
-ms.reviewer: ""
-ms.service: "batch"
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
-ms.assetid: 8c16a533-1ac7-4b65-a84e-8eafb937b3d7
-caps.latest.revision: 3
-author: "tamram"
-ms.author: "tamram"
-manager: "timlt"
+title: "Azure Batch task fail event | Microsoft Docs"
+description: Reference for Batch task fail event.
+services: batch
+author: tamram
+manager: timlt
+
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: tamram
 ---
+
 # Task fail event
 
  This event is emitted when a task completes with a failure. Currently all nonzero exit codes are considered failures. This event will be emitted *in addition to* a task complete event and can be used to detect when a task has failed.
