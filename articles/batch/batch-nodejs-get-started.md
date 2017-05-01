@@ -151,7 +151,7 @@ var numVMs = 4
 ```
 
 > [!Tip]
-> For the list of Linux VM images available for Azure Batch and their SKU IDs, see [List of virtual machine images](batch-linux-nodes#list-of-virtual-machine-images).
+> For the list of Linux VM images available for Azure Batch and their SKU IDs, see [List of virtual machine images](batch-linux-nodes.md#list-of-virtual-machine-images).
 >
 >
 
