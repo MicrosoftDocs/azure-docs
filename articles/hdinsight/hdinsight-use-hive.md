@@ -215,7 +215,7 @@ Now that you've learned what Hive is and how to use it with Hadoop in HDInsight,
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 

@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [What is Resource Manager?](resource-group-overview.md)
 ## [Supported services, regions, and API versions](resource-manager-supported-services.md)
 ## [Understand Resource Manager and Classic deployment](resource-manager-deployment-model.md)
@@ -72,7 +72,13 @@
 
 # Reference
 ## [Template functions](resource-group-template-functions.md)
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
+### [Array and object functions](resource-group-template-functions-array.md)
+### [Comparison functions](resource-group-template-functions-comparison.md)
+### [Deployment functions](resource-group-template-functions-deployment.md)
+### [Numeric functions](resource-group-template-functions-numeric.md)
+### [Resource functions](resource-group-template-functions-resource.md)
+### [String functions](resource-group-template-functions-string.md)
+## [PowerShell](/powershell/module/azurerm.resources)
 ## [Azure 2.0 CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)

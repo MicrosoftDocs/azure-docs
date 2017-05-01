@@ -152,7 +152,7 @@ change the plans and quotas it includes.
 > 
 
 ## Delegated provider customizes the offer
-Sign in as the delegated provider and create a new offer using the delegated offer as a template.
+Sign in to the **tenant portal** as the delegated provider and create a new offer using the delegated offer as a template.
 
 1. Click **New** &gt; **Tenant Offers + Plans** &gt; **Offer**.
 
