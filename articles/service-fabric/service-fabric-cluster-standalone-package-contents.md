@@ -33,6 +33,8 @@ In the [downloaded](http://go.microsoft.com/fwlink/?LinkId=730690) Service Fabri
 | EULA_ENU.txt |The license terms for the use of Microsoft Azure Service Fabric standalone Windows Server package. You can [download a copy of the EULA](http://go.microsoft.com/fwlink/?LinkID=733084) now. |
 | Readme.txt |A link to the release notes and basic installation instructions. It is a subset of the instructions in this document. |
 | ThirdPartyNotice.rtf |Notice of third-party software that is in the package. |
+| Tools\Microsoft.Azure.ServiceFabric.WindowsServer.SupportPackage.zip |StandaloneLogCollector.exe which is run on demand to collect and upload trace logs to Microsoft for support purpose. |
+| Tools\ServiceFabricUpdateService.zip |A tool used to enable auto code upgrade for clusters which don't have internet access. More details can be found [here](service-fabric-cluster-upgrade-windows-server.md)|
 
 **Templates** 
 | **File name** | **Short description** |
