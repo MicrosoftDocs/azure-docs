@@ -37,7 +37,7 @@ If your tenants want to create SQL databases, you must add a SQL Server resource
     > 
     >
 
-3.	[Create an offer](azure-stack-create-offer.md), name it **TestSQLServerOffer** and select the ** TestSQLServerPlan** plan.
+3.	[Create an offer](azure-stack-create-offer.md), name it **TestSQLServerOffer** and select the **TestSQLServerPlan** plan.
 
 ## As a tenant, create a database in Azure Stack
 
