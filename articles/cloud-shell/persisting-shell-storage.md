@@ -46,10 +46,8 @@ Your Cloud Shell must be provisioned in the same region as mounted storage.
 |Europe|North Europe, West Europe|
 |Asia Pacific|India Central, Southeast Asia|
 
-### Mount file share with `createclouddrive`
-To mount a file share with `createclouddrive`: <br>
-1. Start Cloud Shell <br>
-2. Run: <br>
+## Mount a file share with createclouddrive
+1. Run `createclouddrive` with the following parameters <br>
 
 ```
 createclouddrive -s mySubscription -g myRG -n storageAccountName -f fileShareName
@@ -67,7 +65,7 @@ Options:
   -? | -h | --help                  Shows this usage text.
 ```
 
-## List `clouddrive`
+## List clouddrive
 To find details on `clouddrive`:
 1. Run `df` 
 
@@ -87,7 +85,7 @@ shm                                                    65536       0      65536 
 justin@Azure:~$
 ```
 
-## Remove `clouddrive`
+## Remove clouddrive
 
 You may detach a file share mounted to Cloud Shell at any time.
 
@@ -97,9 +95,9 @@ You may detach a file share mounted to Cloud Shell at any time.
 
 To detach a file share from Cloud Shell:
 1. Run `removeclouddrive`
-2. Confirm prompts as your current session will terminate losing any state and you will lose access to Cloud Shell without a file share associated.
+2. Confirm prompts as your current session will be lost. $Home directory files will continue to exist in your file share. Cloud Shell cannot be accessed until a file share is associated.
 
-Cloud Shell will no longer search for this file share on subsequent sessions. The storage resources still exist for future mounting unless actively deleted.
+Cloud Shell will no longer search for this file share on subsequent sessions. The storage resources still exist unless actively deleted.
 
 ## Update `clouddrive`
 1. Run `createclouddrive` specifying a new file share
@@ -116,8 +114,8 @@ Editing/removing/adding files from within Cloud Shell is reflected in the File S
 3. Hit "Download"
 ![](media/download-storage.png)
 
-**Tip:** If you need to download a local file that exists in your $Home directory:
-1. Copy it to `clouddrive` <br>
+**Tip:** If you need to download a file that only exists in your $Home directory:
+1. Copy file to `/<User>/clouddrive` <br>
 2. Follow [previous steps](#upload-or-download-local-files) <br>
 
 ## Cloud Shell tagging
@@ -127,7 +125,7 @@ Cloud Shell adds a "tag" to mounted storage accounts using the format: <br>
 |:-------------:|:-------------:|
 |cloud-console-files-for-user@domain.com|fileshareName|
 
-Use these tags to see which users map to certain file shares and where $Home images can be found.
+Use these tags to see which users map to certain file shares and where certain $Home images can be found.
 
 ## Next steps
 [Cloud Shell Quickstart](quickstart.md) <br>
