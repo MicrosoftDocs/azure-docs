@@ -1,7 +1,7 @@
 # Overview
 ## [What is Azure Active Directory?](active-directory-whatis.md)
 ## [Choose edition](active-directory-editions.md)
-## [About Azure identity management](fundamentals-identity.md)
+## [About Azure identity management](identity-fundamentals.md)
 ## [Preview the Azure portal experience](active-directory-preview-explainer.md)
 
 
