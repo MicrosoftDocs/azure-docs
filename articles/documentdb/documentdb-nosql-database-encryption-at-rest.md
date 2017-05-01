@@ -46,6 +46,9 @@ A: There is no additional cost.
 ### Q: Who manages the encryption keys?
 A: The keys are managed by Microsoft.
 
+### Q: How often are encryption keys rotated?
+A: Microsoft has a set of internal guidelines, which DocumentDB follows.  While the specific guidelines are not published Microsoft does publish the (Security Development Lifecycle aka SDL)[https://www.microsoft.com/sdl/default.aspx] which is seen as a subset of internal guidance and has useful best practices for developers.
+
 ### Q: Can I use my own encryption keys?
 A: DocumentDB is a PaaS service and we have worked hard to keep the service easy to use.  We have noticed this question is
 often asked as a proxy question for meeting a compliance like PCI-DSS.  As part of building this feature we have worked with
@@ -54,6 +57,12 @@ This is why we currently do offer users the option to burden themselves with key
 
 ### Q: What regions have encryption turned on?
 A: All DocumentDB regions have encryption turned on for all user data.
+
+### Q: Does encryption affect the performance latency and throughput SLAs?
+A: There is no impact or changes to the performance SLAs now that encryption at rest is enabled for all existing and new accounts.  You can read more on the [Performance SLAs](https://azure.microsoft.com/support/legal/sla/documentdb) to see the latest guarantees.
+
+### Q: Does the local emulator support encryption at rest?
+A: The emulator is a stand-alone dev / test tool and does not have the integration into key management services that the production version of DocumentDB uses.  Our recommendation is to enable BitLocker on drives where you are storing sensitive emulator test data.  The (emulator supports changing the default data directory)[https://docs.microsoft.com/azure/documentdb/documentdb-nosql-local-emulator] as well as using a well-known location.
 
 ## Next steps
 
