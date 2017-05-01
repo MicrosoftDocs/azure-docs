@@ -68,7 +68,7 @@ Now, the webhook is configured to trigger your function when a new issue comment
 ## Test the function
 1. In your GitHub repository, open the **Issues** tab in a new browser window.
 
-2. In the new window, click **New Issue**, type a title then click **Submit new issue**. 
+2. In the new window, click **New Issue**, type a title, and then click **Submit new issue**. 
 
 2. In the issue, type a comment and click **Comment**. 
 
@@ -87,7 +87,7 @@ Now, the webhook is configured to trigger your function when a new issue comment
 
 You have created a function that runs when a request is received from a GitHub webhook. 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-For more information about webhook tiggers, see [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md). 
+For more information about webhook triggers, see [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md). 
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 

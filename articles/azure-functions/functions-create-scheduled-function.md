@@ -41,7 +41,7 @@ In this topic, you create a timer triggered function in your existing function a
     | Setting      |  Suggested value   | Description                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Name your function** | `TimerTriggerCSharp1` | Defines the name of your timer triggered function.
-    | **Schedule** | `0 */1 * * * *` | Timer will run your function every minute. |
+    | **Schedule** | `0 */1 * * * *` | Timer runs your function every minute. |
 
     A function is created in your chosen language that runs every minute. 
 
@@ -49,7 +49,7 @@ In this topic, you create a timer triggered function in your existing function a
 
     ![Functions log viewer in the Azure portal.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
-Now, you can change the function run run less often, such as once every hour. 
+Now, you can change the function's schedule so that it runs less often, such as once every hour. 
 
 ## Update the timer schedule
 
