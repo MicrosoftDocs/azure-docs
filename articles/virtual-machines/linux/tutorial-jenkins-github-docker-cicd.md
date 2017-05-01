@@ -30,6 +30,8 @@ runcmd:
   - wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
   - sh -c 'echo deb http://pkg.jenkins-ci.org/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
   - apt-get update && apt-get install jenkins -y
+  - curl -sSL https://get.docker.com/ | sh
+  - sudo usermod -aG docker azureuser
 ```
 
 Create a resource group:
@@ -42,7 +44,7 @@ Create a VM that uses the cloud-init file to install Jenkins:
 
 ```azurecli
 az vm create --resource-group myResourceGroupJenkins \
-    --name myJenkinsVM \
+    --name myVM \
 	--image UbuntuLTS \
 	--admin-username azureuser \
 	--generate-ssh-keys \
@@ -54,7 +56,8 @@ az vm create --resource-group myResourceGroupJenkins \
 Open port 8080 to access your Jenkins instance in a web browser:
 
 ```azurecli
-az vm open-port --resource-group myResourceGroupJenkins --name myJenkinsVM --port 8080
+az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001
+az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 1337 --priority 1002
 ```
 
 SSH to your VM using the `publicIpAddress` noted in the output of VM create:
@@ -111,37 +114,6 @@ Commit your changes.
 In Jenkins, a new build should start. Click the build and select **Console output**. Your code is pulled from GitHub, and then the build action triggers the message `Testing` to appear in the console.
 
 
-## Create Docker virtual machine
-To run your app and allow Jenkins to build new versions, create a Docker VM in Azure. Create a cloud-init file named `cloud-init-docker.txt` and paste the following contents:
-
-```yaml
-#cloud-config
-package_upgrade: true
-runcmd:
-  - curl -sSL https://get.docker.com/ | sh
-  - sudo usermod -aG docker azureuser
-```
-
-Create a VM that uses the cloud-init file to install Docker:
-
-```azurecli
-az vm create --resource-group myResourceGroupJenkins \
-    --name myDockerVM \
-	--image UbuntuLTS \
-	--admin-username azureuser \
-	--generate-ssh-keys \
-	--vnet-name myVnet \
-	--subnet mySubnet \
-	--custom-data cloud-init-docker.txt
-```
-
-Open port 1337 to access your app in a web browser after each build:
-
-```azurecli
-az vm open-port --resource-group myResourceGroupJenkins --name myDockerVM --port 1337
-```
-
-
 ## Configure Jenkins to use Docker
 In your Jenkins browser, install the required Docker plugins to allow Jenkins to build Docker images and manage containers:
 
@@ -153,22 +125,22 @@ Once Jenkins restarts, log back in to Jenkins. Now create the connection between
 
 - Click **Manage Jenkins**, then click **Configure System**
 - Under the **Docker builder** section, enter the URL to your host:
-  - **URL**: tcp://myDockerVM:2375
-- Click **Test Connection** and it should return `Connected to tcp://myDockerVM:2375`
+  - **URL**: tcp://localhost:2375
+- Click **Test Connection** and it should return `Connected to tcp://localhost:2375`
 - Under the **Cloud** section, click **Add a new cloud** and then select **Docker**. Enter the following info:
   - **Name**: docker-agent
-	- **URL**: tcp://myDockerVM:2375
+	- **URL**: tcp://localhost:2375
 - Click **Test Connection** and it should return your Docker info, such as `Version = 17.04.0-ce, API Version = 1.28`
 
 
 ## Define Docker build image
-For Jenkins to build an image that incorporates the latest code updates for GitHub, you use a Dockerfile. SSH to your Jenkins VM and create a directory to store the Dockerfile:
+For Jenkins to build an image that incorporates the latest code updates for GitHub, you use a Dockerfile. SSH to your VM and change to the workspace directory named after your Jenkins job:
 
 ```bash
-sudo mkdir /var/lib/jenkins/Dockerfiles
+cd /var/lib/jenkins/workspace/<yourJobName>
 ```
 
-Now create a file named `Dockerfile` in this new directory and paste the following contents:
+Now create a file named `Dockerfile` in this workspace directory and paste the following contents:
 
 ```yaml
 FROM ubuntu
@@ -176,8 +148,12 @@ FROM ubuntu
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y nodejs npm git
 
-RUN pwd
-RUN mkdir /var/www && cd /var/www/ && git clone https://github.com/iainfoulds/nodejs-docs-hello-world.git
+EXPOSE 1337
+
+WORKDIR /var/www
+COPY package.json /var/www/
+RUN npm install
+COPY index.js /var/www/
 ```
 
 
@@ -187,35 +163,34 @@ Earlier you created a basic Jenkins build rule. Now lets flesh that to actually 
 Go to your Jenkins instance in a web browser and click your **HelloWorld** job created in a previous step. Click **Configure** on the left-hand side and scroll down to the **Build** section:
 
 - Remove your existing `echo "Test"` build step
+- Click **Add build step**, select **Build / Publish Docker Containers**
+    - Leave the **Directory for Dockerfile** box blank to use the existing workspace location
+    - In the **Cloud** box, enter `docker-agent`
+    - In the **Image** box, enter `helloworld:$BUILD_NUMBER`. This appends the Jenkins build number to your image for version control.
 - Click **Add build step**, select **Execute Docker command**
     - Under the **Docker command** drop-down menu, select **Remove container(s)**
     - In the **Container ID(s)** box, enter `helloworld`
     - Click the **Advanced** button and check the boxes for **Ignore if not found** and **Force remove**
 - Click **Add build step**, select **Execute Docker command**
-    - Under the **Docker command** drop-down menu, select **Remove image**
-    - In the **Image name** box, enter `helloworld`
-    - Click the **Advanced** button and check the box for **Ignore if not found**
-- Click **Add build step**, select **Build / Publish Docker Containers**
-    - In the **Directory for Dockerfile** box, enter `/var/lib/jenkins/Dockerfiles`
-    - In the **Cloud** box, enter `docker-agent`
-    - In the **Image** box, enter `helloworld`
-- Click **Add build step**, select **Execute Docker command**
     - Under the **Docker command** drop-down menu, select **Create container**
-    - In the **Image name** box, enter `helloworld`
-    - In the **Command** box, enter `nodejs /var/www/nodejs-docs-hello-world/index.js`
+    - In the **Image name** box, enter `helloworld:$BUILD_NUMBER`
+    - In the **Command** box, enter `nodejs /var/www/index.js`
+    - In the **Hostname** box, enter `docker-agent`
     - In the **Container name** box, enter `helloworld`
-    - Click the **Advanced** button in the **Port bindings** box enter `1337:1337`
+    - Click the **Advanced** button, then in the **Port bindings** box enter `1337:1337`
 - Click **Add build step**, select **Execute Docker command**
     - Under the **Docker command** drop-down menu, select **Start container(s)**
     - In the **Container ID(s)** box, enter `helloworld`
 
 
 ## Test your pipeline
-Edit `index.js` in your forked repo and commit the change. A new job starts in Jenkins based on the webhook for GitHub, creates a Docker image, pulls the latest commit from GitHub, then starts your app in a new container.
+Edit `index.js` in your forked repo and commit the change. A new job starts in Jenkins based on the webhook for GitHub, creates a Docker image, then starts your app in a new container.
 
 Obtain the public IP address of your Docker VM with:
 
-
+```azurecli
+az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [fqdns] --o tsv
+```
 
 Open a web browser and enter `http://<publicIpAddress>:1337`. Your Node.js app is displayed. Make another edit and commit in GitHub, wait a few seconds for the job to complete in Jenkins, then refresh your web browser to see the updates.
 
