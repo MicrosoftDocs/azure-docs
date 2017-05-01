@@ -27,7 +27,7 @@ This sample gets an Azure Cosmos DB connection string for MongoDB apps using Pow
 
 ## Sample script
 
-`[!code-powershell[main](../../../powershell_scripts/documcosmosdbentdb/get-mongodb-connection-string/get-mongodb-connection-string.ps1?highlight=37-41 "Get the MongoDB connection string from an Azure Cosmos DB account")]`
+`[!code-powershell[main](../../../powershell_scripts/cosmosdb/get-mongodb-connection-string/get-mongodb-connection-string.ps1?highlight=37-41 "Get the MongoDB connection string from an Azure Cosmos DB account")]`
 
 ## Clean up deployment
 
