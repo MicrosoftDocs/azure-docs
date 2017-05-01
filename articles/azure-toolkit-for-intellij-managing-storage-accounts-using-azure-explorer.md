@@ -1,5 +1,5 @@
 ---
-title: Managing Storage Accounts using the Azure Explorer for IntelliJ | Microsoft Docs
+title: Manage storage accounts by using the Azure Explorer for IntelliJ | Microsoft Docs
 description: Learn how to manage your Azure storage accounts by using the Azure Explorer for IntelliJ.
 services: ''
 documentationcenter: java
@@ -18,127 +18,135 @@ ms.author: robmcm
 
 ---
 
-# Managing Storage Accounts using the Azure Explorer for IntelliJ
+# Manage storage accounts by using the Azure Explorer for IntelliJ
 
-The Azure Explorer, which is part of the Azure Toolkit for IntelliJ, provides Java developers with an easy-to-use solution for managing storage accounts in their Azure account from inside the IntelliJ IDE.
+The Azure Explorer, which is part of the Azure Toolkit for IntelliJ, provides Java developers with an easy-to-use solution for managing storage accounts in their Azure account from inside the IntelliJ integrated development environment (IDE).
 
 [!INCLUDE [azure-toolkit-for-intellij-prerequisites](../includes/azure-toolkit-for-intellij-prerequisites.md)]
 
 [!INCLUDE [azure-toolkit-for-intellij-show-azure-explorer](../includes/azure-toolkit-for-intellij-show-azure-explorer.md)]
 
-## Creating a Storage Account in IntelliJ
+## Create a storage account in IntelliJ
 
-The following steps will walk you through the steps to create a storage account using the Azure Explorer.
+To create a storage account by using the Azure Explorer, do the following:
 
-1. Sign in to your Azure account using the steps in the [Sign In Instructions for the Azure Toolkit for Eclipse] article.
+1. Sign in to your Azure account by using the [Sign-in instructions for the Azure Toolkit for Eclipse]. 
 
-1. In the **Azure Explorer** tool window, expand the **Azure** node, right-click **Storage Accounts** and then click **Create Storage Account**.
-   ![Create Storage Account Menu][CS01]
+2. In the **Azure Explorer** view, expand the **Azure** node, right-click **Storage Accounts**, and then click **Create Storage Account**.
 
-1. When the **Create Storage Account** dialog box appears, specify the following options:
-   ![Create New Storage Account Dialog Box][CS02]
+   ![Create Storage Account command][CS01]
 
-   a. **Name**: Specifies the name for the new storage account.
+3. In the **Create Storage Account** dialog box, specify the following options:
 
-   b. **Account kind**: Specifies the type of storage account to create; for example "Blob storage". (For more information, see [About Azure Storage Accounts].)
+   ![Create New Storage Account dialog box][CS02]
 
-   c. **Performance**: Specifies which the storage account which offering to use from the selected publisher; for example "Premium". (For more information, see [Azure Storage Scalability and Performance Targets].)
+   * **Name**: Specifies the name for the new storage account.
 
-   d. **Replication**: Specifies the replication for the storage account; for example "Zone Redundant". (For more information, see [Azure Storage Replication].)
+   * **Account kind**: Specifies the type of storage account to create (for example, "Blob storage"). For more information, see [About Azure storage accounts]. 
 
-   e. **Subscription**: Specifies the Azure subscription you want to use for the new storage account.
+   * **Performance**: Specifies which storage account offering to use from the selected publisher (for example, "Premium"). For more information, see [Azure storage scalability and performance targets]. 
 
-   f. **Location**: Specifies the location where your storage account will be created; for example "West US".
+   * **Replication**: Specifies the replication for the storage account (for example, "Zone-Redundant"). For more information, see [Azure storage replication]. 
 
-   g. **Resource Group**: Specifies the resource group for your virtual machine; you need to choose one of the following options:
-      * **Create New**: Specifies that you want to create a new resource group.
-      * **Use Existing**: Specifies that you will chose from a list resource groups associated with your Azure account.
+   * **Subscription**: Specifies the Azure subscription that you want to use for the new storage account.
 
-1. When you have specified all of the above options, click **OK**.
+   * **Location**: Specifies the location where your storage account will be created (for example, "West US").
 
-## Creating a Storage Container in IntelliJ
+   * **Resource Group**: Specifies the resource group for your virtual machine. Select one of the following options:
+      * **Create new**: Specifies that you want to create a new resource group.
+      * **Use existing**: Specifies that you will select from a list of resource groups that are associated with your Azure account.
 
-The following steps will walk you through the steps to create a storage container using the Azure Explorer.
+4. When you have specified all of the preceding options, click **OK**.
 
-1. In the Azure Explorer, right-click the storage account where you want to create a container, and then click **Create blob container**.
-   ![Create Storage Container Menu][CC01]
+## Create a storage container in IntelliJ
 
-1. When the **Create Blob Container** dialog box appears, specify the name for your container, and then click **OK**. (For more information about naming storage containers, see [Naming and Referencing Containers, Blobs, and Metadata].)
+To create a storage container by using the Azure Explorer, do the following:
+
+1. In the Azure Explorer view, right-click the storage account where you want to create a container, and then click **Create blob container**.
+
+   ![Create blob container command][CC01]
+
+2. In the **Create blob container** dialog box, specify the name for your container, and then click **OK**. For more information about naming storage containers, see [Naming and referencing containers, blobs, and metadata].
+
    ![Create Storage Container Dialog Box][CC02]
 
-## Deleting a Storage Container in IntelliJ
+## Delete a storage container in IntelliJ
 
-To delete a storage container using the Azure Explorer, use the following steps:
+To delete a storage container by using the Azure Explorer, do the following:
 
-1. In the Azure Explorer, right-click the storage container, and then click **Delete**.
-   ![Delete Storage Container Menu][DC01]
+1. In the Azure Explorer view, right-click the storage container, and then click **Delete**.
 
-1. Click **Yes** when prompted to delete the storage container.
-   ![Delete Storage Container Dialog Box][DC02]
+   ![Delete storage container command][DC01]
 
-## Deleting a Storage Account in IntelliJ
+2. In the confirmation window, click **Yes**.
 
-To delete a storage account using the Azure Explorer, use the following steps:
+   ![Delete storage container confirmation window][DC02]
 
-1. In the **Azure Explorer** tool window, right-click the storage account and chose **Delete**.
-   ![Delete Storage Account Menu][DS01]
+## Delete a storage account in IntelliJ
 
-1. Click **Yes** when prompted to delete the storage account.
-   ![Delete Storage Account Dialog Box][DS02]
+To delete a storage account by using the Azure Explorer, do the following:
 
-## See Also
-For more information about the Azure storage accounts, sizes and pricing, see the following links:
+1. In the **Azure Explorer** view, right-click the storage account, and then select **Delete**.
+
+   ![Delete storage account menu][DS01]
+
+2. In the confirmation window, click **Yes**.
+
+   ![Delete storage account confirmation window][DS02]
+
+## Next steps
+For more information about Azure storage accounts, sizes, and pricing, see the following resources:
 
 * [Introduction to Microsoft Azure Storage]
-* [About Azure Storage Accounts]
-* Azure Storage Account Sizes
-   * [Sizes for Windows storage accounts in Azure]
-   * [Sizes for Linux storage accounts in Azure]
-* Azure Storage Account Pricing
-   * [Windows Storage Accounts Pricing]
-   * [Linux Storage Accounts Pricing]
+* [About Azure storage accounts]
+* Azure storage-account sizes
+  * [Sizes for Windows storage accounts in Azure]
+  * [Sizes for Linux storage accounts in Azure]
+* Azure storage-account pricing
+  * [Windows storage-account pricing]
+  * [Linux storage-account pricing]
 
-For more information about the Azure Toolkits for Java IDEs, see the following links:
+For more information about Azure Toolkits for Java IDEs, see the following resources:
 
 * [Azure Toolkit for Eclipse]
-  * [What's New in the Azure Toolkit for Eclipse]
+  * [What's new in the Azure Toolkit for Eclipse]
   * [Installing the Azure Toolkit for Eclipse]
-  * [Sign In Instructions for the Azure Toolkit for Eclipse]
-  * [Create a Hello World Web App for Azure in Eclipse]
+  * [Sign-in instructions for the Azure Toolkit for Eclipse]
+  * [Create a Hello World web app for Azure in Eclipse]
 * [Azure Toolkit for IntelliJ]
-  * [What's New in the Azure Toolkit for IntelliJ]
+  * [What's new in the Azure Toolkit for IntelliJ]
   * [Installing the Azure Toolkit for IntelliJ]
-  * [Sign In Instructions for the Azure Toolkit for IntelliJ]
-  * [Create a Hello World Web App for Azure in IntelliJ]
+  * [Sign-in instructions for the Azure Toolkit for IntelliJ]
+  * [Create a Hello World web app for Azure in IntelliJ]
 
-For more information about using Azure with Java, see the [Azure Java Developer Center] and the [Java Tools for Visual Studio Team Services].
+For more information about using Azure with Java, see [Azure Java Developer Center] and [Java Tools for Visual Studio Team Services].
 
 <!-- URL List -->
 
 [Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse.md
 [Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md
-[Create a Hello World Web App for Azure in Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
-[Create a Hello World Web App for Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Create a Hello World web app for Azure in Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Create a Hello World web app for Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
-[Sign In Instructions for the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
-[Sign In Instructions for the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
-[What's New in the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
-[What's New in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
+[Sign-in instructions for the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Sign-in instructions for the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[What's new in the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[What's new in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
 [Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
 
 [Introduction to Microsoft Azure Storage]: /azure/storage/storage-introduction
-[About Azure Storage Accounts]: /azure/storage/storage-create-storage-account
-[Azure Storage Replication]: /azure/storage/storage-redundancy
-[Azure Storage Scalability and Performance Targets]: /azure/storage/storage-scalability-targets
-[Naming and Referencing Containers, Blobs, and Metadata]: http://go.microsoft.com/fwlink/?LinkId=255555
+[About Azure storage accounts]: /azure/storage/storage-create-storage-account
+[Azure storage replication]: /azure/storage/storage-redundancy
+[Azure storage scalability and Performance Targets]: /azure/storage/storage-scalability-targets
+[Naming and referencing containers, blobs, and metadata]: http://go.microsoft.com/fwlink/?LinkId=255555
 
 [Sizes for Windows storage accounts in Azure]: /azure/virtual-machines/virtual-machines-windows-sizes
 [Sizes for Linux storage accounts in Azure]: /azure/virtual-machines/virtual-machines-linux-sizes
-[Windows Storage Accounts Pricing]: /pricing/details/virtual-machines/windows/
-[Linux Storage Accounts Pricing]: /pricing/details/virtual-machines/linux/
+[Windows storage-account pricing]: /pricing/details/virtual-machines/windows/
+[Linux storage-account pricing]: /pricing/details/virtual-machines/linux/
 
 <!-- IMG List -->
 
