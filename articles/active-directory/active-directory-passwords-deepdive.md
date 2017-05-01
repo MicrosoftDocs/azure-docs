@@ -25,16 +25,19 @@ How does SSPR work? What does that option mean in the interface? Continue readin
 
 When a user navigates to the password reset portal, a workflow is kicked off to determine:
 
-   * Is the user account valid
-   * What organization does the user belong to
-   * Where the user’s password is managed
-   * Is the user licensed to use the feature
+   * How should the page be localized?
+   * Is the user account valid?
+   * What organization does the user belong to?
+   * Where the user’s password is managed?
+   * Is the user licensed to use the feature?
+
 
 Read through the steps below to learn about the logic behind the password reset page.
 
 1. User clicks the Can’t access your account link or goes directly to [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com).
-2. User enters a user id and passes a captcha.
-3. Azure AD verifies if the user is able to use this feature by doing the following:
+2. Based on the browser locale the experience is rendered in the appropriate language. The password reset experience is localized into the same languages as Office 365 supports.
+3. User enters a user id and passes a captcha.
+4. Azure AD verifies if the user is able to use this feature by doing the following:
    * Checks that the user has this feature enabled and an Azure AD license assigned.
      * If the user does not have this feature enabled or a license assigned, the user is asked to contact their administrator to reset their password.
    * Checks that the user has the right challenge data defined on their account in accordance with administrator policy.
@@ -45,7 +48,7 @@ Read through the steps below to learn about the logic behind the password reset 
    * Checks if the user’s password is managed on premises (federated or password hash synchronized).
      * If writeback is deployed and the user’s password is managed on premises, then the user is allowed to proceed to authenticate and reset their password.
      * If writeback is not deployed and the user’s password is managed on premises, then the user is asked to contact their administrator to reset their password.
-4. If it is determined that the user is able to successfully reset their password, then the user is guided through the reset process.
+5. If it is determined that the user is able to successfully reset their password, then the user is guided through the reset process.
 
 ## Authentication methods
 

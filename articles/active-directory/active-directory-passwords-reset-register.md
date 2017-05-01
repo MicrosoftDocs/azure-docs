@@ -20,7 +20,7 @@ ms.custom: end-user
 ---
 # Register for self-service password reset
 
-As an end user, you can reset your password or unlock you account without having to speak to a person using self-service password reset (SSPR). Before you can use this functionality, you have to register authentication methods or confirm the predefined authentication methods your administrator has populated.
+As an end user, you can reset your password or unlock your account without having to speak to a person using self-service password reset (SSPR). Before you can use this functionality, you have to register authentication methods or confirm the predefined authentication methods your administrator has populated.
 
 ## Register or confirm authentication data with SSPR
 
