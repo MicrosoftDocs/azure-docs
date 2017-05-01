@@ -1,5 +1,5 @@
 ---
-title: Store unstructured data using Azure Functions and DocumentDB
+title: Store unstructured data using Azure Functions and DocumentDB | Microsoft Docs
 description: Store unstructured data using Azure Functions and DocumentDB
 services: functions
 documentationcenter: functions
