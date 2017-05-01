@@ -19,24 +19,24 @@ ms.author: ryanwi
 ---
 
 # Create your first Service Fabric container app
-Running an existing web application in a Windows container on Service Fabric doesn't require any changes to your app. This quickstart walks you through creating a Docker image containing your app, packaging it, and deploying it to a cluster.  This article assumes a basic understanding of Docker. You can learn about Docker by reading the [Docker Overview](https://docs.docker.com/engine/understanding-docker/).
+Running an existing web application in a Windows container on Service Fabric doesn't require any changes to your app. This quick start walks you through creating a Docker image containing your app, packaging it, and deploying it to a cluster.  This article assumes a basic understanding of Docker. You can learn about Docker by reading the [Docker Overview](https://docs.docker.com/engine/understanding-docker/).
 
 ## Prerequisites
-The development computer must be running:
+A development computer running:
 * Visual Studio 2015 or Visual Studio 2017.
 * [Service Fabric SDK and tools](service-fabric-get-started.md).
 *  Docker for Windows.  [Get Docker CE for Windows (stable)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). After installing and starting Docker, right-click on the tray icon and select **Switch to Windows containers**. This is required to run Docker images based on Windows. This command takes a few seconds to execute.
 
-* A Windows cluster with 3 or more nodes running on Windows Server 2016 with Containers. Not a development cluster. [Create a cluster](service-fabric-get-started-azure-cluster.md)
+A Windows cluster with three or more nodes running on Windows Server 2016 with Containers. [Create a cluster](service-fabric-get-started-azure-cluster.md) or [Try Service Fabric for free](http://tryazureservicefabrictest.westus.cloudapp.azure.com/).
 
-* Azure container registry - Create a container registry in your Azure subscription. For example, use the Azure portal or the Azure CLI 2.0.
+Azure container registry - [Create a container registry](../container-registry/container-registry-get-started-portal.md) in your Azure subscription. 
 
 ## Create a simple web app
-Collect all the assets that you need to load into a Docker image in one place. For this quickstart, create a Hello World web app on your development computer.
+Collect all the assets that you need to load into a Docker image in one place. For this quick start, create a "Hello World" web app on your development computer.
 
-1. Create a new directory, such as *c:\temp\helloworldapp*.
+1. Create a directory, such as *c:\temp\helloworldapp*.
 2. Create a sub-directory *c:\temp\helloworldapp\content*.
-3. In *c:\temp\helloworldapp\content*, create a new file *index.html*.
+3. Create a file *index.html* in *c:\temp\helloworldapp\content*.
 4. Edit *index.html* and add the following line:
     ```
     <h1>Hello World!</h1>
@@ -44,11 +44,11 @@ Collect all the assets that you need to load into a Docker image in one place. F
 5. Save your changes to *index.html*.
 
 ## Build the Docker image
-Build an image based on the [microsft/iis image](https://hub.docker.com/r/microsoft/iis/) located on Docker Hub. The microsoft/iis base image is a Windows Server image which contains Windows Server Core and Internet Information Services (IIS).  Running this image in your container automatically starts IIS and installed websites.
+Build an image based on the [microsft/iis image](https://hub.docker.com/r/microsoft/iis/) located on Docker Hub. The microsoft/iis base image is a Windows Server image, which contains Windows Server Core and Internet Information Services (IIS).  Running this image in your container automatically starts IIS and installed websites.
 
-Define your Docker image in a Dockerfile. The Dockerfile contains instructions for the base image, additional components, the app you want to run, and other configuration images. The Dockerfile is the input to the docker build command, which creates the image. 
+Define your Docker image in a Dockerfile. The Dockerfile contains instructions for the base image, additional components, the app you want to run, and other configuration images. The Dockerfile is the input to the ```docker build``` command, which creates the image. 
 
-1. Create a new file *Dockerfile* (with no file extension) in *c:\temp\helloworldapp* and add the following:
+1. Create a file *Dockerfile* (with no file extension) in *c:\temp\helloworldapp* and add the following:
 
     ```
     # The `FROM` instruction specifies the base image. You are
@@ -70,14 +70,14 @@ Define your Docker image in a Dockerfile. The Dockerfile contains instructions f
     ADD content/ /site
     ```
 
-    There is no ```ENTRYPOINT``` command in this Dockerfile. You don't need one. When running Windows Server with IIS, the IIS process is the entrypoint, which is configured to start in the aspnet base image.
+    There is no ```ENTRYPOINT``` command in this Dockerfile. You don't need one. When running Windows Server with IIS, the IIS process is the entry point, which is configured to start in the base image.
 
-2. Run the Docker build command to create the image that runs your web app. Open a PowerShell window and navigate to *c:\temp\helloworldapp*. Run the following command:
+2. Run the ```docker build``` command to create the image that runs your web app. Open a PowerShell window and navigate to *c:\temp\helloworldapp*. Run the following command:
 
     ```
     docker build -t helloworldwebapp .
     ```
-    This command will build the new image using the instructions in your Dockerfile, naming (-t tagging) the image as helloworldwebapp. Building an image pulls the base image down from Docker Hub and then adds your app to that image.  The [microsft/iis image](https://hub.docker.com/r/microsoft/iis/) is 10.5 GB takes a while to download locally.  You might consider going out for a cup of coffee.
+    This command builds the new image using the instructions in your Dockerfile, naming (-t tagging) the image as helloworldwebapp. Building an image pulls the base image down from Docker Hub and then adds your app to that image.  The [microsft/iis image](https://hub.docker.com/r/microsoft/iis/) is 10.5 GB and takes time to download to your development computer.  Consider going out for lunch or a cup of coffee.
 
 3. Once the build command completes, run the ```docker images``` command to see information on the new image:
 
@@ -89,7 +89,7 @@ Define your Docker image in a Dockerfile. The Dockerfile contains instructions f
     ```
 
 ## Verify the image
-You can verify your image locally before pushing it the container registry.  
+Verify your image locally before pushing it the container registry.  
 
 1. Start the container with ```docker run```:
 
@@ -105,9 +105,9 @@ You can verify your image locally before pushing it the container registry.
     172.31.194.61
     ```
 
-3. Connect to the running container.  Open a web browser and browse to "http://172.31.194.61:8000". You should see the title "Hello World!".
+3. Connect to the running container.  Open a web browser and browse to "http://172.31.194.61:8000". You should see the title "Hello World!" display in the browser.
 
-4. To stop your container, issue a docker stop command:
+4. To stop your container, run:
 
     ```
     docker stop my-web-site
@@ -138,13 +138,13 @@ After you verify that the container runs on your development machine, push the i
     docker tag helloworldapp myregistry.azurecr.io/samples/helloworldapp
     ```
 
-3.  Push the image to your registry:
+3.  Push the image to your Azure container registry:
 
     ```
     docker push myregistry.azurecr.io/samples/helloworldapp
     ```
 
-## Package the container image in Visual Studio
+## Create and package the containerized service in Visual Studio
 Visual Studio provides a Service Fabric service template to help you deploy a container to a Service Fabric cluster.
 
 1. Run Visual Studio as administrator.  Select **File** > **New** > **Project**.
@@ -157,8 +157,8 @@ Visual Studio provides a Service Fabric service template to help you deploy a co
     ```xml
     <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
     ```
-    By providing the UriScheme this automatically registers the container endpoint with the Service Fabric Naming service for discoverability. The port can either be fixed (as shown in the preceding example) or dynamically allocated (left blank and a port is allocated from the designated application port range) just as you would with any service. You also need to configure the container port-to-host port mapping by specifying a PortBinding policy in the application manifest as described below.
-7. Add PortBinding.  If your container needs to authenticate with a private repository then add ```RepositoryCredentials```.
+    Providing the ```UriScheme``` automatically registers the container endpoint with the Service Fabric Naming service for discoverability. A full ServiceManifest.xml example file is provided at the end of this article. 
+7. Configure the container port-to-host port mapping by specifying a ```PortBinding``` policy in the ApplicationManifest.xml file.  If your container needs to authenticate with a private repository, then add ```RepositoryCredentials```.
 
     ```xml
     <Policies>
@@ -168,6 +168,8 @@ Visual Studio provides a Service Fabric service template to help you deploy a co
         </ContainerHostPolicies>
     </Policies>
     ```
+
+    A full ApplicationManifest.xml example file is provided at the end of this article.
 8. Open *Cloud.xml* under **PublishProfiles**.  Add the cluster name and connection port to **ClusterConnectionParameters**.  For example:
     ```xml
     <ClusterConnectionParameters ConnectionEndpoint="containercluster.westus2.cloudapp.azure.com:19000" />
@@ -177,22 +179,22 @@ Visual Studio provides a Service Fabric service template to help you deploy a co
 
 10. To package your app right-click on **MyFirstContainer** in Solution Explorer and select **Package**. 
 
-11. To publish your app right-click on **MyFirstContainer** in Solution Explorer and select **Publish**.
+## Deploy the container app
+1. To publish your app right-click on **MyFirstContainer** in Solution Explorer and select **Publish**.
 
-12. Open Service Fabric Explorer and follow the app deployment.  The app will be in error state until the image is downloaded on the cluster nodes:
+2. Open Service Fabric Explorer and follow the app deployment.  The app is in an error state until the image is downloaded on the cluster nodes:
     ![Error][1]
 
-13. App will be in Ready state when it's ready:
+3. The app is in Ready state when it's ready:
     ![Ready][2]
 
-## Deploy the container app
-
+4. Open a browser and navigate to http://containercluster.westus2.cloudapp.azure.com:80. You should see the title "Hello World!" display in the browser.
 
 ## Clean up
 Delete your cluster
 Delete the image from dev machine
 
-## Application and Service Manifests
+## Complete application and Service manifests
 ### ServiceManifest.xml
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -277,6 +279,9 @@ Delete the image from dev machine
 ```
 
 ## Next steps
+* [Learn more](service-fabric-containers-overview.md) about running containers on Service Fabric.
+* Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).
+* Checkout the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-dotnet-containers) on GitHub.
 
 [1]: ./media/service-fabric-get-started-containers/MyFirstContainerError.png
 [2]: ./media/service-fabric-get-started-containers/MyFirstContainerReady.png
