@@ -125,7 +125,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 6. On the **Nexonia Configuration** section, click **Configure Nexonia** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_configure.png) 
-<CS>
+
 7. To get SSO configured for your application, contact [Nexonia support team](https://nexonia.zendesk.com/hc/requests/new) and provide them with the following:
 
 	• The downloaded **certificate**
@@ -135,7 +135,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	• The **SAML Single Sign-On Service URL**
 
 	• The **Sign-Out URL**
-<CE>
 
 >[!Note]:
 >If you have issues in the integration then refer this [link](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?WT.mc_id=UI_AAD_Enterprise_Apps_SupportOrTroubleshooting) for troubleshooting guide. If you still have not found the solution, then raise the support request from Azure portal.
