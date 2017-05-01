@@ -149,7 +149,7 @@ If you add the `responseFilter` query parameter to the previous query and set it
 
 ## Promoting answers that are not ranked
 
-This section builds on [Limiting the number of answers in the response](limiting-the-number-of-answers-in-the-response). If you want Bing to include news in the response, specify the [promote](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md#promote) query parameter and set it to the answers that you want Bing to include in the response. 
+This section builds on [Limiting the number of answers in the response](#limiting-the-number-of-answers-in-the-response). If you want Bing to include news in the response, specify the [promote](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md#promote) query parameter and set it to the answers that you want Bing to include in the response. 
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v5.0/search?q=sailing+dinghies&promote=news&mkt=en-us HTTP/1.1  
