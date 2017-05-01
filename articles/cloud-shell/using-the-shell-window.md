@@ -17,7 +17,7 @@ ms.date: 05/10/2017
 ms.author: juluk
 ---
 
-# Using the Cloud Shell window
+# Using the Azure Cloud Shell window
 This document explains how to use the Azure Cloud Shell window.
 
 ## Resize Cloud Shell window

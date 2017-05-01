@@ -17,7 +17,12 @@ ms.date: 05/10/2017
 ms.author: juluk
 ---
 
-# Pricing
-Azure Cloud Shell is provided for free, but requires an attached Azure file share to use. Cloud Shell creates a default 5GB image in your file share to persist your $HOME directory. Azure file shares incur regular costs.
+# Azure Cloud Shell Pricing
+
+## Compute Cost
+Azure Cloud Shell runs on a machine provided for free, but requires an attached Azure file share to use. 
+
+## Storage Cost
+Cloud Shell creates a default 5GB image in your file share to persist your $HOME directory. Azure file shares incur regular costs.
 
 Check [here for details on Azure Files costs](https://azure.microsoft.com/en-us/pricing/details/storage/files/).

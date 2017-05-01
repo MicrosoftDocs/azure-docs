@@ -16,21 +16,26 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: juluk
 ---
-# Azure Cloud Shell (Preview) Overview
+# Overview of Azure Cloud Shell (Preview)
 Azure Cloud Shell is an interactive, browser-accessible shell for managing Azure resources.
 
-## Cloud-based Azure workstation
+## Features
+### Browser-based shell experience
+Cloud Shell enables access to a command-line experience built with Azure management tasks in mind. Leverage Cloud Shell to work untethered 
+from a local machine in a way only the cloud can provide.
+
+### Pre-configured Azure workstation
 Cloud Shell comes pre-installed with popular command-line tools and language support so you can work faster.
 See the [full tooling list for Azure Cloud Shell](features.md).
 
-## Secure automatic authentication
-Cloud Shell securely authenticates for instant access to the Azure CLI 2.0.
+### Automatic authentication
+Cloud Shell securely authenticates automatically on each session for instant access to your resources through the Azure CLI 2.0.
 
-## Persist your $HOME directory with Azure Files
-Since Cloud Shell machines are temporary, Cloud Shell requires an Azure file share to be attached to persist your $Home directory.
-On first launch Cloud Shell prompts for storage account and file share creation, this is a one-time step and will be automatically 
-attached on all future sessions. An LRS storage account is created on your behalf with an Azure file share containing a 5-GB image.
-This image is used to sync and persist your $Home directory. Regular storage costs apply.
+### Connect your Azure File storage
+Cloud Shell machines are allocated on-demand, thus Cloud Shell requires an Azure file share to be attached to persist your $Home directory.
+On first launch Cloud Shell asks to create a storage account and file share for you, this is a one-time step and will be automatically 
+attached on all sessions. An LRS storage account is created on your behalf with an Azure file share containing a default 5-GB disk image.
+This disk image is used to sync and persist your $Home directory. Regular storage costs apply.
 
 [Explore more about how Cloud Shell persists files] (persisting-shell-storage.md).
 

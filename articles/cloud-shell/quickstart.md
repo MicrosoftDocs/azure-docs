@@ -17,17 +17,18 @@ ms.date: 05/10/2017
 ms.author: juluk
 ---
 
-# Quickstart
+# Azure Cloud Shell Quickstart
 This document details how to use the Azure Cloud Shell in the [Azure portal](https://ms.portal.azure.com/).
 
 ## Start Cloud Shell
-1. Select the **Cloud Shell** icon in the top pane of the Azure portal.
+1. Select the **Cloud Shell** icon in the top pane of the Azure portal <br>
 ![](media/shell-icon.png)
-2. Select a subscription to create a storage account and Azure file share
+2. Select a subscription to create a storage account and Azure file share <br>
 ![](media/storage-create.png)
-3. Select "Create"
+3. Select "Create storage"
 
-**Tip:** You are automatically authenticated for Azure CLI 2.0 every sesssion.
+[!TIP]
+You are automatically authenticated for Azure CLI 2.0 every sesssion.
 
 ### Set your subscription
 1. List subscriptions you have access to: <br>
@@ -45,7 +46,8 @@ Create a new resouce group in WestUS named "MyRG": <br>
 Create an Ubuntu VM in your new resource group. The Azure CLI 2.0 will create ssh keys and setup the VM with them. <br>
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS`
 
-**Note** The public and private keys used to authenticate your VM are placed in `/User/.ssh/id_rsa` and `/User/.ssh/id_rsa.pub` of Cloud Shell. This is persisted in your attached Azure file share's 5-GB image. 
+[!NOTE]
+The public and private keys used to authenticate your VM are placed in `/User/.ssh/id_rsa` and `/User/.ssh/id_rsa.pub` of Cloud Shell. This is persisted in your attached Azure file share's 5-GB image. 
 
 Your username on this VM will be your username used in Cloud Shell ($User@Azure:).
 
@@ -60,7 +62,7 @@ Upon establishing the SSH connection, you should see the Ubuntu welcome prompt.
 
 ## Cleaning up 
 Delete your resource group and any resources within it: <br>
-1. Run `az group delete -n MyRG`
+Run `az group delete -n MyRG`
 
 ## Next Steps
 [Learn more about persisting storage on Cloud Shell](persisting-shell-storage.md) <br>
