@@ -1,14 +1,14 @@
 ---
 title: 'Azure Cosmos DB: Use .NET to connect & query data with DocumentDB API | Microsoft Docs'
 description: Presents a .NET code sample you can use to connect to and query the Azure Cosmos DB DocumentDB API
-services: documentdb
+services: cosmosdb
 documentationcenter: ''
 author: mimig1
 manager: jhubbard
 editor: ''
 
 ms.assetid: 
-ms.service: documentdb
+ms.service: cosmosdb
 ms.custom: quick start connect
 ms.workload: 
 ms.tgt_pltfrm: na
@@ -20,13 +20,13 @@ ms.author: mimig
 ---
 # Azure Cosmos DB: Use .NET (C#) to connect and query data with the DocumentDB API
 
-This quick start demonstrates how to use the Azure portal and [.NET](documentdb-sdk-dotnet.md) to connect to an Azure Cosmos DB account, create a database and collection, and then build and deploy a web app on the Windows platform.
+This quick start demonstrates how to use the [DocumentDB .NET API](documentdb-sdk-dotnet.md) for Azure Cosmos DB and the Azure portal to create an Azure Cosmos DB account, create a database and collection, and then build and deploy a web app on the Windows platform.
 
 If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Create database account
+## Create a database account
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -73,39 +73,40 @@ You can now add data to your new collection using Data Explorer.
 
 Now let's clone a  DocumentDB API app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
-Open a git terminal window, such as git bash, and `CD` to a working directory.  
+1. Open a git terminal window, such as git bash, and `CD` to a working directory.  
 
-Run the following command to clone the sample repository. 
+2. Run the following command to clone the sample repository. 
 
-```bash
-git clone https://github.com/Azure-Samples/documentdb-dotnet-todo-app.git
-```
-Then open the solution file in Visual Studio 2017. 
+    ```bash
+    git clone https://github.com/Azure-Samples/documentdb-dotnet-todo-app.git
+    ```
+
+3. Then open the solution file in Visual Studio. 
 
 ## Review the code
 
 Let's make a quick review of what's happening in the app. Open the DocumentDBRepository.cs file and you'll find that these lines of code create the DocumentDB resources. 
 
-1. The DocumentClient is initialized.
+* The DocumentClient is initialized.
 
-```charp
-client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
-```
+    ```csharp
+    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
+    ```
 
-2. A new database is created.
+* A new database is created.
 
-```csharp
-await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
-```
+    ```csharp
+    await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
+    ```
 
-3. A new collection is created.
+* A new collection is created.
 
-```csharp
-await client.CreateDocumentCollectionAsync(
-    UriFactory.CreateDatabaseUri(DatabaseId),
-    new DocumentCollection { Id = CollectionId },
-    new RequestOptions { OfferThroughput = 1000 });
-```
+    ```csharp
+    await client.CreateDocumentCollectionAsync(
+        UriFactory.CreateDatabaseUri(DatabaseId),
+        new DocumentCollection { Id = CollectionId },
+        new RequestOptions { OfferThroughput = 1000 });
+    ```
 
 ## Update your connection string
 
@@ -150,9 +151,11 @@ Now that your app is up and running, you'll want to ensure ensure business conti
 
 ## Next steps
 
-To learn more about the Azure Comsos DB DocumentDB API, see [What is the DocumentDB API?(documentdb-introduction). To learn more about the SQL query language which you can use in the Azure portal and programmatically, see [SQL](documentdb-sql-query.md).
-
 If you're not going to continue to use this app and Azure Cosmos DB, use the following steps to delete all resources created by this quick start in the Azure portal. If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. 
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you just created. 
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
+
+To learn more about the Azure Comsos DB DocumentDB API, see [What is the DocumentDB API?(documentdb-introduction). To learn more about the SQL query language which you can use in the Azure portal and programmatically, see [SQL](documentdb-sql-query.md).
+
+

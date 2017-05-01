@@ -1,6 +1,6 @@
 ---
-title: Create a collection with the DocumentDB API | Microsoft Docs
-description: Learn how to create an Azure Cosmos DB collection with a partition key
+title: `Azure Cosmos DB: Create a collection with the DocumentDB API | Microsoft Docs`
+description: Learn how to create an Azure Cosmos DB collection with a partition key by using the DocumentDB API
 services: cosmosdb
 documentationcenter: ''
 author: mimig1
@@ -10,7 +10,7 @@ tags: ''
 
 ms.assetid: 
 ms.service: cosmosdb
-ms.devlang: na
+ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
@@ -50,7 +50,7 @@ Please make sure you have the following:
 
 ## Create database account
 
-If you already have an account you want to use, you can skip ahead to [Setup yoru Visual Studio solution](#SetupVS). If you are using the DocumentDB Emulator, please follow the steps at [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md) to setup the emulator and skip ahead to [Setup your Visual Studio Solution](#SetupVS).
+If you already have an account you want to use, you can skip ahead to [Setup your Visual Studio solution](#SetupVS). If you are using the DocumentDB Emulator, please follow the steps at [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md) to setup the emulator and skip ahead to [Setup your Visual Studio Solution](#SetupVS).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -79,7 +79,7 @@ using Microsoft.Azure.Documents.Client;
 using Newtonsoft.Json;
 ```
 
-## <a id="add-references"></a>Connect your app to your Azure Cosmos DB account
+## <a id="add-references"></a>Connect your app
 
 Add these two constants and your *client* variable in your application.
 
@@ -97,7 +97,7 @@ Copy the URI from the portal and paste it into `<your endpoint URL>` in the prog
 
 ![Screen shot of the Azure Portal used by the NoSQL tutorial to create a C# console application. Shows a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
 
-## Instantiate the DocumentClient
+## <a id="instantiate"></a>Instantiate the DocumentClient
 
 Create a new instance of the **DocumentClient**.
 
@@ -105,7 +105,7 @@ Create a new instance of the **DocumentClient**.
 DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 ```
 
-## Create a database
+## <a id="create-database"></a>Create a database
 
 Create an Azure Cosmos DB [database](documentdb-resources.md#databases) by using the [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method or [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) method of the **DocumentClient** class from the [DocumentDB .NET SDK](documentdb-sdk-dotnet.md). A database is the logical container of JSON document storage partitioned across collections.
 

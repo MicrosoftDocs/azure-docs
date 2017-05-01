@@ -18,12 +18,11 @@
 <!---[.NET](documentdb-connect-tables-dotnet.md)--->
 
 # Tutorials
-
-## 1 - Create
-### [DocumentDB](documentdb-tutorial-documentdb-create.md) 
+## 1 - Create Azure Cosmos DB
+### [DocumentDB](documentdb-tutorial-documentdb-create.md)
 ### MongoDB
 ### Table
-### Graph
+### [Graph](documentdb-tutorial-graph-dotnet.md)
 ## 2 - Import 
 ### [DocumentDB/Table/Graph](documentdb-import-data.md)
 ### [MongoDB](documentdb-mongodb-migrate.md)

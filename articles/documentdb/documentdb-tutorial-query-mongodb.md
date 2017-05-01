@@ -1,7 +1,7 @@
 ---
-title: How to query in Azure Cosmos DB? | Microsoft Docs
-description: Learn to query with the different dat models in Azure Cosmos DB
-services: documentdb
+title: `Azure Cosmos DB: How to query using the DocumentDB API? | Microsoft Docs`
+description: Learn to query with the DocumentDB API for Azure Cosmos DB
+services: cosmosdb
 documentationcenter: ''
 author: mimig1
 manager: jhubbard
@@ -9,27 +9,19 @@ editor: ''
 tags: ''
 
 ms.assetid: 
-ms.service: documentdb
-ms.custom: tutorial-develop
+ms.service: cosmosdb
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 04/19/2017
+ms.date: 04/30/2017
 ms.author: mimig
 
 ---
 
-# Azure Cosmos DB: How to query with MongoDB API?
+# Azure Cosmos DB: How to query with API for MongoDB?
 
-Each of the Azure Cosmos DB data-models have their own query protocol, so creating queries for each model is slightly different. This article provides links to the query protocol for each model, as well as sample queries for the MongoDB API.
-
-**How to query each data model using Azure Cosmos DB?**
-
-|   |DocumentDB API|Tables API|Graph API|MongoDB API|
-|---|-----------------|--------------|-------------|---------------|
-|Query protocol|[SQL](documentdb-sql-query.md)|[OData](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities)<br>[LINQ](ttps://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service)|[Gremlin](http://tinkerpop.apache.org/gremlin.html)|[MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/)|
-|Example queries|[Document query](documentdb-tutorial-query-documentdb.md)|Table query|Graph query|[MongoDB query](#examplequery1)|
+The Azure Cosmos DB API for MongoDB supports [MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/) shell queries. This article provides sample documents and queries to get you started.
 
 The queries in this article use the following sample document.
 
