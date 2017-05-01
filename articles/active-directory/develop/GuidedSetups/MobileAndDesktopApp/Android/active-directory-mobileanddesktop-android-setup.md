@@ -19,7 +19,7 @@ ms.author: andret
 ---
 
 
-This section provides step-by-step instructions for how to create a new project to demonstrate how to integrate a Native Android applicaiton with Sign-In with Microsoft so it can query Web APIs that requires a token.
+This section provides step-by-step instructions for how to create a new project to demonstrate how to integrate a native Android application with sign-in with Microsoft so it can query Web APIs that require a token.
 
 | | |
 |---------|---------|
@@ -35,13 +35,13 @@ This section provides step-by-step instructions for how to create a new project 
 
 # Install Microsoft Authentication Library (MSAL)
 1.	In Android Studio, go to: `Gradle Scripts` > `build.gradle (Module: app)`
-2.	2.	Copy/ paste the following code under `Dependencies`:
+2.	Copy and paste the following code under `Dependencies`:
 
 ```ruby  
 compile('com.microsoft.aad:adal:1.2.+') {
     exclude group: 'com.android.support'
 }
-    compile 'com.android.volley:volley:1.0.0'
+compile 'com.android.volley:volley:1.0.0'
 ```
 
 <!--start-collapse-->
@@ -53,7 +53,7 @@ The package above installs the Microsoft Authentication Library (MSAL). MSAL han
 
 1.	Open: `activity_main.xml` under `res` > `layout`
 2.	Change the activity layout from `android.support.constraint.ConstraintLayout` to `LinearLayout`
-3.	Copy, paste the following code into the `LinearLayout` node:
+3.	Copy and paste the following code into the `LinearLayout` node:
 
 ```xml
 <TextView
