@@ -29,6 +29,8 @@ This quick start uses as its starting point the resources created in one of thes
 
 ## Install .NET
 
+The steps in this section assume that you are familar with developing using .NET and are new to working with Azure SQL Database. If you are new to developing with .NET, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) and select **C#** and then select your operating system.
+
 ### **Windows .NET framework and .NET core**
 
 Visual Studio 2017 Community is a fully-featured, extensible, free IDE for creating modern applications for Android, iOS, Windows, as well as web & database applications and cloud services. You can install either the full .NET framework or just .NET core. The code snippets in the quick start work with either. If you already have Visual Studio installed on your machine, skip the next few steps.

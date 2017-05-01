@@ -304,7 +304,7 @@ In this article, you have learned how to create an HDInsight cluster by using th
 
 * [Administer HDInsight Using Azure PowerShell](hdinsight-administer-use-powershell.md)
 * [Administer HDInsight Using Azure CLI](hdinsight-administer-use-command-line.md)
-* [Create HDInsight clusters](hdinsight-provision-clusters.md)
+* [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
 * [Use Hive in HDInsight](hdinsight-use-hive.md)
 * [Use Pig in HDInsight](hdinsight-use-pig.md)
 * [Use Sqoop in HDInsight](hdinsight-use-sqoop.md)

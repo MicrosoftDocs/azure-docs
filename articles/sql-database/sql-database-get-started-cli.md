@@ -41,18 +41,18 @@ Define variables for use in the scripts in this quick start.
 
 ```azurecli
 # The data center and resource name for your resources
-resourcegroupname = myResourceGroup
-location = westeurope
+export resourcegroupname = myResourceGroup
+export location = westeurope
 # The logical server name: Use a random value or replace with your own value (do not capitalize)
-servername = server-$RANDOM
+export servername = server-$RANDOM
 # Set an admin login and password for your database
-adminlogin = ServerAdmin
-password = ChangeYourAdminPassword1
+export adminlogin = ServerAdmin
+export password = ChangeYourAdminPassword1
 # The ip address range that you want to allow to access your DB
-startip = "0.0.0.0"
-endip = "0.0.0.1"
+export startip = "0.0.0.0"
+export endip = "0.0.0.1"
 # The database name
-databasename = mySampleDatabase
+export databasename = mySampleDatabase
 ```
 
 ## Create a resource group
@@ -95,7 +95,11 @@ az sql db create --resource-group $resourcegroupname --server $servername \
 
 ## Clean up resources
 
-Other quick starts in this collection build upon this quick start. If you plan to continue on to work with subsequent quick starts or with the tutorials, do not clean up the resources created in this quick start. If you do not plan to continue, use the following command to delete all resources created by this quick start.
+Other quick starts in this collection build upon this quick start. 
+
+> [!TIP]
+> If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. If you do not plan to continue, use the following steps to delete all resources created by this quick start in the Azure portal.
+>
 
 ```azurecli
 az group delete --name $resourcegroupname
@@ -103,11 +107,14 @@ az group delete --name $resourcegroupname
 
 ## Next steps
 
-- To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md)
-- To connect and query using Visual Studio Code, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
-- To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
-- To connect and query using PHP, see [Connect and query with PHP](sql-database-connect-query-php.md).
-- To connect and query using Node.js, see [Connect and query with Node.js](sql-database-connect-query-nodejs.md).
-- To connect and query using Java, see [Connect and query with Java](sql-database-connect-query-java.md).
-- To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
-- To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).
+Now that you have a database, you can connect and query using your favorite tools. Learn more by choosing your tool below:
+
+- [SQL Server Management Studio](sql-database-connect-query-ssms.md)
+- [Visual Studio Code](sql-database-connect-query-vscode.md)
+- [.NET](sql-database-connect-query-dotnet.md)
+- [PHP](sql-database-connect-query-php.md)
+- [Node.js](sql-database-connect-query-nodejs.md)
+- [Java](sql-database-connect-query-java.md)
+- [Python](sql-database-connect-query-python.md)
+- [Ruby](sql-database-connect-query-ruby.md)
+

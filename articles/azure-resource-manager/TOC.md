@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [What is Resource Manager?](resource-group-overview.md)
 ## [Supported services, regions, and API versions](resource-manager-supported-services.md)
 ## [Understand Resource Manager and Classic deployment](resource-manager-deployment-model.md)
@@ -9,6 +9,12 @@
 ## [Export template](resource-manager-export-template.md)
 ## [Create your first template](resource-manager-create-first-template.md)
 ## [Visual Studio with Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+
+# Samples
+## PowerShell
+### [Deploy template](resource-manager-samples-powershell-deploy.md)
+## Azure CLI
+### [Deploy template](resource-manager-samples-cli-deploy.md)
 
 # How to
 ## Create templates
@@ -26,8 +32,12 @@
 ### [Share state between linked templates](best-practices-resource-manager-state.md)
 ### [Patterns for designing templates](best-practices-resource-manager-design-templates.md)
 ## Deploy
-### [PowerShell](resource-group-template-deploy.md)
-### [Azure CLI](resource-group-template-deploy-cli.md)
+### PowerShell
+#### [Deploy template](resource-group-template-deploy.md)
+#### [Deploy private template with SAS token](resource-manager-powershell-sas-token.md)
+### Azure CLI
+#### [Deploy template](resource-group-template-deploy-cli.md)
+#### [Deploy private template with SAS token](resource-manager-cli-sas-token.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [Continuous integration with Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -62,7 +72,13 @@
 
 # Reference
 ## [Template functions](resource-group-template-functions.md)
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
+### [Array and object functions](resource-group-template-functions-array.md)
+### [Comparison functions](resource-group-template-functions-comparison.md)
+### [Deployment functions](resource-group-template-functions-deployment.md)
+### [Numeric functions](resource-group-template-functions-numeric.md)
+### [Resource functions](resource-group-template-functions-resource.md)
+### [String functions](resource-group-template-functions-string.md)
+## [PowerShell](/powershell/module/azurerm.resources)
 ## [Azure 2.0 CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)

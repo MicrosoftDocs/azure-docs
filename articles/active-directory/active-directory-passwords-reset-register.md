@@ -46,5 +46,6 @@ Administrators may require you to confirm your authentication methods after a pe
 * [How to change your password using self-service password reset](active-directory-passwords-update-your-own-password.md)
 * [Password reset registration page](http://aka.ms/ssprsetup)
 * [Password reset portal](https://passwordreset.microsoftonline.com/)
+* [Can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
 [Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "Password reset registration page showing registered methods and finish button"

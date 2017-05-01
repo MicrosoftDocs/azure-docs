@@ -1,4 +1,4 @@
----
+﻿---
 title: Connect to Kafka on HDInsight using virtual networks - Azure | Microsoft Docs
 description: Learn how to remotely connect to Kafka on HDInsight using the kafka-python client. The configuration in this document uses HDInsight inside an Azure Virtual Network. The remote client connects to the virtual network through a point-to-site VPN gateway.
 services: hdinsight
@@ -48,7 +48,7 @@ The following list contains information on the process of using Kafka on HDInsig
 
 ## Create: Using PowerShell
 
-The steps in this section create the following configuration using [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/):
+The steps in this section create the following configuration using [Azure PowerShell](/powershell/azure/overview):
 
 * Azure Virtual Network
 * Point-to-site VPN gateway

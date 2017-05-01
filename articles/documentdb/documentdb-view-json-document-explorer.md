@@ -146,7 +146,7 @@ Document Explorer supports bulk ingestion of one or more existing JSON documents
 5. Once the operation is complete, you can select up to another 100 documents to upload.
 
 <a id="data-explorer"></a>
-## Create a collection by using Data Explorer (preview)
+## Create a document by using Data Explorer (preview)
 
 The other method for creating, editing and querying documents in the portal is to use the Data Explorer. To open Data Explorer, click **Data Explorer (preview)** on the navigation bar in the portal, then expand your database name, expand your collection name, click **Documents**, and then click **New Document**, as shown in the following screencap.
 

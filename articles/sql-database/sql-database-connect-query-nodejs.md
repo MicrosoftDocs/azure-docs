@@ -29,6 +29,8 @@ This quick start uses as its starting point the resources created in any of thes
 
 ## Install Node.js 
 
+The steps in this section assume that you are familar with developing using Node.js and are new to working with Azure SQL Database. If you are new to developing with Node.js, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) and select **Node.js** and then select your operating system.
+
 ### **Mac OS**
 Enter the following commands to install **brew**, an easy-to-use package manager for Mac OS X and **Node.js**.
 

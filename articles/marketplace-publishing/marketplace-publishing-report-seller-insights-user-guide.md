@@ -23,7 +23,11 @@ ms.author: v-dabosl
 >[!NOTE]
 >Administrators only.
 
+
 ### Overview of roles
+
+This section will show you how to access the Seller Insights Portal for the first time.
+
 
 ![Type of account][5]
 
@@ -40,7 +44,8 @@ Ideally, before signing in to the Seller Insights Portal, the administrator shou
 To activate your service, the administrator should go to the URL that is listed in the invitation email (https://reports.azure.com).
 
 >[!NOTE]
->If the administrator email is listed as a Microsoft account and you've not created a Microsoft account that is associated with the email address from which you received the email, you will need to create the account before you sign in. To create the account, go to https://signup.live.command.
+>If the administrator email is listed as a Microsoft account and you have not created a Microsoft account that is associated with the email address from which you received the invitation, you'll need to create the account before you sign in. To create the account, go to https://signup.live.command.
+
 
 ### Sign in to the Seller Insights Portal
 
@@ -57,7 +62,13 @@ To activate your service, the administrator should go to the URL that is listed 
 Your administrator should advise you through email that your account is created, and share the URL for the Seller Insights Portal with you (https://reports.azure.com).
 
 >[!NOTE]
->The administrator is the owner of the account that publishes solutions to the Azure Marketplace. The owner of this account can provide access to others.  
+>The administrator is the owner of the account that actually publishes solutions to the Azure Marketplace.  The owner of this account can provide access to others.  If you have access to Publishing Portal as a co-administrator you can find the administrator address by following these steps:
+>1. Sign in to Publishing Portal.
+>2. Click the **Publishers** tab.
+>3. Open the publisher in question (usually there is just one).
+>4. Click **Administrators** on the lower left.
+>5. The administrator email address that you're looking for is labeled, *Owner*.
+
 
 You can sign in to the Seller Insights Portal by using a personal Microsoft account, or by using a company account. The kind of account depends on what your administrator sets up in your profile. Your administrator should advise you about the account you'll use.
 
@@ -152,7 +163,7 @@ D. In *Panel D*, the subscription data for each individual is listed.  Data is d
   ![Panel Map D][13]
 
   1. The **Order Detail** panel shows detailed order data.
-  2. Use the filters at the top of each column to filter the data by using a wide range of commands and values.
+  2. Use the filters at the top of each column to filter the data by using a range of commands and values.
 
   ![Orders monthly view Panel D filters][20]
 
@@ -221,12 +232,12 @@ D. In *Panel D*, the subscription data for each individual is listed.  Data is d
   3. Select the number of items per page that you want to view. 10, 20, or 50 items per page are available.
   4. Download the data in Excel or CSV format for offline analysis.
 
-![Usage monthly view Panel D 1][24]
-![Usage monthly view Panel D 2][25]
+![Usage monthly view panel d][24]
+![Usage monthly view panel d - download result][25]
 
 ### Accessing detailed customer data
 
-  1. From the **Order Detail** panel, click the Azure subscription ID that you're interested in.  You can only select the non-BYOL Marketplace License Type IDs, and BYOL subscription IDs are hashed out for security reasons.
+  1. From the **Order Detail** panel, click the Azure subscription ID that you're interested in.  You can only click the non-BYOL Marketplace License Type IDs, and BYOL subscription IDs are hashed out for security reasons.
 
   ![Orders and usage customer data panel][26]
 
@@ -253,7 +264,11 @@ D. In *Panel D*, the subscription data for each individual is listed.  Data is d
 >[!NOTE]
 >Administrators only.
 
+
 ### Add user
+
+This section will show you how to add new users or change their permissions in the Seller Insights Portal.
+
 
 1. Select the **User Management** tab.
 2. To add a user, select **Add User**.
@@ -315,7 +330,7 @@ D. In *Panel D*, the subscription data for each individual is listed.  Data is d
 
 1. *Validate that the account you're using is registered and the password doesn't work.* If you enter an account that has been registered in Azure Active Directory, it will automatically prompt you to choose how to sign in with the account. You'll use a work or school (Organizational account), or a personal Windows LiveID account.
 2. Go to https://reports.azure.com and sign out of any account you may be signed in with, or open it within a private window to ensure no other accounts are signed in.
-3. Enter the Publisher email address, but don't enter a password. It will redirect to *Step 4* if it's registered in Azure Active Directory (admin accounts are registered, as are any Organizational accounts that are set up by the admin account).
+3. Enter the Publisher email address, but don't enter a password. It will redirect to *Step 4* if it's registered in Azure Active Directory (administrator accounts are registered, as are any Organizational accounts that are set up by the administrator account).
 4. Choose **Work or school account**. Work or school accounts (also called Organizational accounts) are set up by companies that are registered with Azure. Personal accounts (also called LiveID accounts) are personal accounts that are registered with Microsoft.
 
 >[!NOTE]
@@ -331,7 +346,7 @@ D. In *Panel D*, the subscription data for each individual is listed.  Data is d
 Try to reset your password by using the Self-Service Password Reset wizard following the links below.
 
 >[!NOTE]
->For Organizational accounts that are set up by the admin account, if the admin turned on the capability to let you reset your own password, you will be able to reset your own password. Otherwise, the password reset form gives you the option to contact your admin.
+>For Organizational accounts that are set up by the administrator account, if the administrator turned on the capability to let you reset your own password, you will be able to reset your own password. Otherwise, the password reset form gives you the option to contact your administrator.
 
 ****Microsoft account (Live ID): https://account.live.com/ResetPassword.aspx****
 ![Password reset Microsoft account][3]

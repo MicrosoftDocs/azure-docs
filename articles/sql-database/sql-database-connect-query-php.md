@@ -28,6 +28,9 @@ This quick start uses as its starting point the resources created in one of thes
 - [Create DB - CLI](sql-database-get-started-cli.md)
 
 ## Install PHP and database communications software
+
+The steps in this section assume that you are familar with developing using PHP and are new to working with Azure SQL Database. If you are new to developing with PHP, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) and select **PHP** and then select your operating system.
+
 ### **Mac OS**
 Open your terminal and enter the following commands to install **brew**, **Microsoft ODBC Driver for Mac** and the **Microsoft PHP Drivers for SQL Server**. 
 
