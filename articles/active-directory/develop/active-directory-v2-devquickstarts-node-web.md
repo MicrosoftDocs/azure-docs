@@ -25,7 +25,7 @@ ms.author: xerners
 
 In this tutorial, we use Passport to do the following tasks:
 
-* In the app, sign in the user by using Azure Active Directory (Azure AD) and the v2.0 endpoint.
+* In a web app, sign in the user by using Azure Active Directory (Azure AD) and the v2.0 endpoint.
 * Display information about the user.
 * Sign the user out of the app.
 
@@ -134,7 +134,7 @@ Configure the Express middleware to use the OpenID Connect authentication protoc
   > 
   > 
 
-4.  Add the methods that you use to keep track of users who are logged in, as required by Passport. This includes serializing and deserializing the user's information:
+4.  Add the methods that you use to keep track of users who are signed in, as required by Passport. This includes serializing and deserializing the user's information:
 
   ```JavaScript
 
@@ -154,7 +154,7 @@ Configure the Express middleware to use the OpenID Connect authentication protoc
     });
   });
 
-  // Array to hold logged-in users
+  // Array to hold signed-in users
   var users = [];
 
   var findByEmail = function(email, fn) {
@@ -195,56 +195,56 @@ Configure the Express middleware to use the OpenID Connect authentication protoc
 
   ```
 
-6.  Add the POST routes that hand off the actual login requests to the `passport-azure-ad` engine:
+6.  Add the POST routes that hand off the actual sign-in requests to the `passport-azure-ad` engine:
 
-```JavaScript
+  ```JavaScript
 
-// Auth routes (section 3)
+  // Auth routes (section 3)
 
-// GET /auth/openid
-//   Use passport.authenticate() as route middleware to authenticate the
-//   request. The first step in OpenID authentication involves redirecting
-//   the user to the user's OpenID provider. After authenticating, the OpenID
-//   provider redirects the user back to this application at
-//   /auth/openid/return.
+  // GET /auth/openid
+  //   Use passport.authenticate() as route middleware to authenticate the
+  //   request. The first step in OpenID authentication involves redirecting
+  //   the user to the user's OpenID provider. After authenticating, the OpenID
+  //   provider redirects the user back to this application at
+  //   /auth/openid/return.
 
-app.get('/auth/openid',
-  passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
-  function(req, res) {
-    log.info('Authentication was called in the sample');
-    res.redirect('/');
-  });
+  app.get('/auth/openid',
+    passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
+    function(req, res) {
+      log.info('Authentication was called in the sample');
+      res.redirect('/');
+    });
 
-// GET /auth/openid/return
-//   Use passport.authenticate() as route middleware to authenticate the
-//   request. If authentication fails, the user is redirected back to the
-//   login page. Otherwise, the primary route function is called.
-//   In this example, it redirects the user to the home page.
-app.get('/auth/openid/return',
-  passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
-  function(req, res) {
+  // GET /auth/openid/return
+  //   Use passport.authenticate() as route middleware to authenticate the
+  //   request. If authentication fails, the user is redirected back to the
+  //   sign-in page. Otherwise, the primary route function is called.
+  //   In this example, it redirects the user to the home page.
+  app.get('/auth/openid/return',
+    passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
+    function(req, res) {
 
-    res.redirect('/');
-  });
+      res.redirect('/');
+    });
 
-// POST /auth/openid/return
-//   Use passport.authenticate() as route middleware to authenticate the
-//   request. If authentication fails, the user is redirected back to the
-//   login page. Otherwise, the primary route function is called. 
-//   In this example, it redirects the user to the home page.
+  // POST /auth/openid/return
+  //   Use passport.authenticate() as route middleware to authenticate the
+  //   request. If authentication fails, the user is redirected back to the
+  //   sign-in page. Otherwise, the primary route function is called. 
+  //   In this example, it redirects the user to the home page.
 
-app.post('/auth/openid/return',
-  passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
-  function(req, res) {
+  app.post('/auth/openid/return',
+    passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
+    function(req, res) {
 
-    res.redirect('/');
-  });
-```
+      res.redirect('/');
+    });
+  ```
 
 ## 4: Use Passport to issue sign-in and sign-out requests to Azure AD
-Your app is now properly configured to communicate with the v2.0 endpoint by using the OpenID Connect authentication protocol. The `passport-azure-ad` strategy takes care of all the details of crafting authentication messages, validating tokens from Azure AD, and maintaining the user session. All that is left to do is to give your users a way to sign in and sign out, and to gather more information about the user who is signed in.
+Your app is now set up to communicate with the v2.0 endpoint by using the OpenID Connect authentication protocol. The `passport-azure-ad` strategy takes care of all the details of crafting authentication messages, validating tokens from Azure AD, and maintaining the user session. All that is left to do is to give your users a way to sign in and sign out, and to gather more information about the user who is signed in.
 
-1.  Add the default, login, account, and logout methods to your App.js file:
+1.  Add the **default**, **login**, **account**, and **logout** methods to your App.js file:
 
   ```JavaScript
 
@@ -261,7 +261,7 @@ Your app is now properly configured to communicate with the v2.0 endpoint by usi
   app.get('/login',
     passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
     function(req, res) {
-      log.info('Login was called in the Sample');
+      log.info('Login was called in the sample');
       res.redirect('/');
   });
 
@@ -275,9 +275,9 @@ Your app is now properly configured to communicate with the v2.0 endpoint by usi
   Here are the details:
     
     * The `/` route redirects to the index.ejs view. It passes the user in the request (if it exists).
-    * The `/account` route first *ensures that you are authenticated* (you implement that in the following code). Then, it passes the user in the request. This is so that you can get more information about the user.
-    * The `/login` route calls your azuread-openidconnect authenticator from `passport-azuread`. If that doesn't succeed, it redirects the user back to /login.
-    * The `/logout` simply calls the logout.ejs (and route). This clears cookies and then returns the user back to index.ejs.
+    * The `/account` route first *ensures that you are authenticated* (you implement that in the following code). Then, it passes the user in the request. This is so you can get more information about the user.
+    * The `/login` route calls your `azuread-openidconnect` authenticator from `passport-azuread`. If that doesn't succeed, it redirects the user back to `/login`.
+    * The `/logout` route calls the logout.ejs view (and route). This clears cookies, and then returns the user back to index.ejs.
 
 2.  Add the **EnsureAuthenticated** method that you used earlier in `/account`:
 
@@ -288,7 +288,7 @@ Your app is now properly configured to communicate with the v2.0 endpoint by usi
   //   Use this route middleware on any resource that needs to be protected. If
   //   the request is authenticated (typically via a persistent login session),
   //   the request proceeds. Otherwise, the user is redirected to the
-  //   login page.
+  //   sign-in page.
   function ensureAuthenticated(req, res, next) {
     if (req.isAuthenticated()) { return next(); }
     res.redirect('/login')
@@ -305,7 +305,7 @@ Your app is now properly configured to communicate with the v2.0 endpoint by usi
   ```
 
 
-## 5: In Express, create the views and routes that you show your user on the website
+## 5: Create the views and routes in Express that you show your user on the website
 Add the routes and views that show information to the user. The routes and views also handle the `/logout` and `/login` routes that you created.
 
 1. In the root directory, create the `/routes/index.js` route.
@@ -334,27 +334,27 @@ Add the routes and views that show information to the user. The routes and views
   };
   ```
 
-  These simple routes pass along the request to your views, including the user, if present.
+  `/routes/index.js` and `/routes/user.js` are simple routes that pass along the request to your views, including the user, if present.
 
-3.  In the root directory, create the `/views/index.ejs` view. This page calls your login and logout methods. You also use it to capture account information. You can use the conditional `if (!user)` as the user being passed through in the request. It is evidence that you have a user logged in.
+3.  In the root directory, create the `/views/index.ejs` view. This page calls your **login** and **logout** methods. You also use the `/views/index.ejs` view to capture account information. You can use the conditional `if (!user)` as the user being passed through in the request. It is evidence that you have a user signed in.
 
   ```JavaScript
   <% if (!user) { %>
-      <h2>Welcome! Please log in.</h2>
-      <a href="/login">Log in</a>
+      <h2>Welcome! Please sign in.</h2>
+      <a href="/login">Sign in</a>
   <% } else { %>
       <h2>Hello, <%= user.displayName %>.</h2>
       <a href="/account">Account info</a></br>
-      <a href="/logout">Log out</a>
+      <a href="/logout">Sign out</a>
   <% } %>
   ```
 
-4.  In the root directory, create the `/views/account.ejs` view so that you can view additional information that `passport-azuread` has put in the user request.
+4.  In the root directory, create the `/views/account.ejs` view. The `/views/account.ejs` view allows you to view additional information that `passport-azuread` puts in the user request.
 
   ```Javascript
   <% if (!user) { %>
-      <h2>Welcome! Please log in.</h2>
-      <a href="/login">Log In</a>
+      <h2>Welcome! Please sign in.</h2>
+      <a href="/login">Sign in</a>
   <% } else { %>
   <p>displayName: <%= user.displayName %></p>
   <p>givenName: <%= user.name.givenName %></p>
@@ -364,7 +364,7 @@ Add the routes and views that show information to the user. The routes and views
   <p>Full Claimes</p>
   <%- JSON.stringify(user) %>
   <p></p>
-  <a href="/logout">Log Out</a>
+  <a href="/logout">Sign out</a>
   <% } %>
   ```
 
@@ -381,13 +381,13 @@ Add the routes and views that show information to the user. The routes and views
           <% if (!user) { %>
               <p>
               <a href="/">Home</a> |
-              <a href="/login">Log in</a>
+              <a href="/login">Sign in</a>
               </p>
           <% } else { %>
               <p>
               <a href="/">Home</a> |
               <a href="/account">Account</a> |
-              <a href="/logout">Log out</a>
+              <a href="/logout">Sign out</a>
               </p>
           <% } %>
           <%- body %>
@@ -395,16 +395,18 @@ Add the routes and views that show information to the user. The routes and views
   </html>
   ```
 
-6.  To build and run your app, run `node app.js`, and then go to `http://localhost:3000`.
+6.  To build and run your app, run `node app.js`. Then, go to `http://localhost:3000`.
 
-Sign in with either a personal Microsoft account or a work or school account. Note how the user's identity is reflected in the /account list. You now have a web app that is secured by using industry standard protocols. You can authenticate users in your app with by using user personal and work or school accounts.
+7.  Sign in with either a personal Microsoft account or a work or school account. Note that the user's identity is reflected in the /account list. 
+
+You now have a web app that is secured by using industry standard protocols. You can authenticate users in your app by using user personal and work or school accounts.
 
 ## Next steps
 For reference, the completed sample (without your configuration values) is provided as [a .zip file](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/complete.zip). You also can clone it from GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
 
-Now, you can move on to more advanced topics. You might want to try:
+Next, you can move on to more advanced topics. You might want to try:
 
 [Secure a Node.js web API by using the v2.0 endpoint](active-directory-v2-devquickstarts-node-api.md)
 
