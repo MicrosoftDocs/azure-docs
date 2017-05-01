@@ -27,7 +27,7 @@ The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cl
 ## Scale Set overview
 A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. Scale sets use the same components as you learned about in the previous tutorial to [Create highly available VMs](tutorial-availability-sets.md). VMs in a scale set are created in an availability set and distributed across logic fault and update domains.
 
-VMs are created as needed in a scale set. You can define autoscale rules to control how and when VMs are added or removed from the scale set. These rules can trigger based on metrics such as CPU load, memory usage, or network traffic.
+VMs are created as needed in a scale set. You define autoscale rules to control how and when VMs are added or removed from the scale set. These rules can trigger based on metrics such as CPU load, memory usage, or network traffic.
 
 Scale sets support up to 1,000 VMs when you use an Azure platform image. For production workloads, you may wish to [Create a custom VM image](tutorial-custom-images.md). You can create up to 100 VMs in a scale set when using a custom image.
 
@@ -87,7 +87,7 @@ Before you can create a scale set, create a resource group with [az group create
 az group create --name myResourceGroupScaleSet --location westus
 ```
 
-Now create a virtual machine scale set with [az vmss create](/cli/azure/vmss#create). The following example creates a scale set named `myScaleSet`, uses the cloud-int file to customize the VM, and generates SSH keys if they do not exist:
+Now create a virtual machine scale set with [az vmss create](/cli/azure/vmss#create). The following example creates a scale set named `myScaleSet`, uses the cloud-init file to customize the VM, and generates SSH keys if they do not exist:
 
 ```azurecli
 az vmss create \
@@ -188,6 +188,48 @@ To obtain connection information about the VMs in your scale sets, use [az vmss 
 
 ```azurecli
 az vmss list-instance-connection-info --resource-group myResourceGroupScaleSet --name myScaleSet
+```
+
+
+## Use data disks with scale sets
+You can create and use data disks with scale sets. In a previous tutorial, you learned how to [Manage Azure disks](tutorial-manage-disks.md) that outlines the best practices and performance improvements for building apps on data disks rather than the OS disk.
+
+### Create scale set with data disks
+To create a scale set and attach data disks, add the `--data-disk-sizes-gb` parameter to the **az vmss create** command. The following example creates a scale set with 50Gb data disks attached to each instance:
+
+```azurecli
+az vmss create \
+  --resource-group myResourceGroupScaleSet \
+  --name myScaleSetDisks \
+  --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+  --upgrade-policy-mode automatic \
+  --custom-data cloud-init.txt \
+  --admin-username azureuser \
+  --generate-ssh-keys \
+  --data-disk-sizes-gb 50
+```
+
+When instances are removed from a scale set, any attached data disks are also removed.
+
+### Add data disks
+To add a data disk to instances in your scale set, use [az vmss disk attach](/cli/azure/vmss/disk#attach). The following example adds a 50Gb disk to each instance:
+
+```azurecli
+az vmss disk attach `
+    --resource-group myResourceGroupScaleSet `
+    --name myScaleSet `
+    --size-gb 50 `
+    --lun 2
+```
+
+### Detach data disks
+To remove a data disk to instances in your scale set, use [az vmss disk detach](/cli/azure/vmss/disk#detach). The following example removes the data disk at LUN 2 from each instance:
+
+```azurecli
+az vmss disk detach `
+    --resource-group myResourceGroupScaleSet `
+    --name myScaleSet `
+    --lun 2
 ```
 
 
