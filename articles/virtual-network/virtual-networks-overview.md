@@ -78,6 +78,10 @@ Azure creates route tables that enable resources connected to any subnet in any 
 
 There is no charge for virtual networks, subnets, route tables, or network security groups. Outbound Internet bandwidth usage, public IP addresses, virtual network peering, VPN Gateways, and ExpressRoute each have their own pricing structures. View the [Virtual network](https://azure.microsoft.com/pricing/details/virtual-network), [VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway), and [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute) pricing pages for more information.
 
+## FAQ
+
+To review frequently asked questions about Virtual Network, see the [Virtual Network FAQ](virtual-networks-faq.md) article.
+
 
 ## <a name="next-steps"></a>Next steps
 
