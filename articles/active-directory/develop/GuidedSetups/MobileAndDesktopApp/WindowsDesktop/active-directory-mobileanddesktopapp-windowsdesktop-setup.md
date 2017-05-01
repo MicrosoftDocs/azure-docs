@@ -23,10 +23,7 @@ This section provides step-by-step instructions for how to create a new project 
 
 The application created by this guide exposes a button to graph and show results on screen and a sign-out button.
 
-
-| | |
-|---------|---------|
-|[![Download](../../media/active-directory-mobileanddesktopapp-windowsdesktop-setup/download.png)](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip)|Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip) and skip to the [Configuration](active-directory-mobileanddesktopapp-windowsdesktop-configure.md) step to configure the code sample before executing.|
+> Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip) and skip to the [Configuration](active-directory-mobileanddesktopapp-windowsdesktop-configure.md) step to configure the code sample before executing.
 
 
 ## Creating your application
