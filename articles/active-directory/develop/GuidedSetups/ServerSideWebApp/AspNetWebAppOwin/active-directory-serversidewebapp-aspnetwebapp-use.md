@@ -123,7 +123,7 @@ This controller demonstrates the uses of the `[Authorize]`s attribute to protect
 2.	Select `MVC {version} Controller – Empty`.
 3.	Click *Add*
 4.	Name it `ClaimsController`
-5.	Copy and paste the code below, which adds the `[Authorize]` attribute to the class, into the file:
+5.	Copy and paste the code below to replace the code of your controller class - this adds the `[Authorize]` attribute to the class:
 
 ```csharp
 [Authorize]
