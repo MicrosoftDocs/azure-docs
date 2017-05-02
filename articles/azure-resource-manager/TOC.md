@@ -35,9 +35,11 @@
 ### PowerShell
 #### [Deploy template](resource-group-template-deploy.md)
 #### [Deploy private template with SAS token](resource-manager-powershell-sas-token.md)
+#### [Export template and redeploy](resource-manager-export-template-powershell.md)
 ### Azure CLI
 #### [Deploy template](resource-group-template-deploy-cli.md)
 #### [Deploy private template with SAS token](resource-manager-cli-sas-token.md)
+#### [Export template and redeploy](resource-manager-export-template-cli.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [Continuous integration with Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
