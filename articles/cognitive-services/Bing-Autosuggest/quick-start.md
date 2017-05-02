@@ -149,4 +149,4 @@ BingAPIs-Market: en-US
 
 Try out the API. Go to [Autosuggest API Testing Console](https://dev.cognitive.microsoft.com/docs/services/56c7694ecf5ff801a090fbd1/operations/56c769a2cf5ff801a090fbd2). 
 
-For details about consuming the response objects, see Getting Suggested Search Terms.
+For details about consuming the response objects, see [Getting Suggested Search Terms](./get-suggested-search-terms.md).
