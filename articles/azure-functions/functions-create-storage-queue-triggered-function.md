@@ -40,11 +40,11 @@ Expand your function app, click the **+** button next to **Functions**, click th
 
 ![Create the storage queue triggered function.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
     
-    | Setting      |  Suggested value   | Description                                        |
-    | ------------ |  ----------------- | -------------------------------------------------- |
-    | **Queue name**   | `myqueue-items`    | Name of the queue to connect to in your Storage account. |
-    | **Storage account connection** | **AzureWebJobStorage** | You can use the storage account connection already being used by your function app, or create a new one.  |
-    | **Name your function** | _Unique in your function app_ | Name of this queue triggered function. |  
+| Setting      |  Suggested value   | Description                                        |
+| ------------ |  ----------------- | -------------------------------------------------- |
+| **Queue name**   | `myqueue-items`    | Name of the queue to connect to in your Storage account. |
+| **Storage account connection** | **AzureWebJobStorage** | You can use the storage account connection already being used by your function app, or create a new one.  |
+| **Name your function** | _Unique in your function app_ | Name of this queue triggered function. |  
 
 Next, you connect to your Azure Storage account and create the **myqueue-items** storage queue.
 
