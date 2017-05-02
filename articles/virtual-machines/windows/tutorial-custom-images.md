@@ -1,4 +1,4 @@
----
+﻿---
 title: Create custom VM images with the Azure PowerShell | Microsoft Docs
 description: Tutorial - Create a custom VM image using the Azure PowerShell.
 services: virtual-machines-windows
@@ -22,7 +22,7 @@ ms.author: cynthn
 
 In this tutorial, you learn how to create your own custom image of an Azure virtual machine. Custom images are like marketplace images, but you create them yourself. Custom images can be used to boot strap configurations such as preloading applications, application configurations, and other OS configurations. When creating a custom image, the VM plus all attached disks are included in the image. 
 
-The steps in this tutorial can be completed using the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) module.
+The steps in this tutorial can be completed using the latest [Azure PowerShell](/powershell/azure/overview) module.
 
 To complete the example in this tutorial, you must have an existing virtual machine. If needed, this [script sample](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) can create one for you. When working through the tutorial, replace the resource group and VM names where needed.
 
@@ -126,13 +126,11 @@ $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 New-AzureRmVM -ResourceGroupName myResourceGroupFromImage -Location westus -VM $vmConfig
 ```
 
-
-<!--
 ## Next steps
 
 In this tutorial, you have learned about creating custom VM images. Advance to the next tutorial to learn about how highly available virtual machines.
 
-[Create highly available VMs](tutorial-availability-sets.md).
+[Create highly available VMs](tutorial-availability-sets.md)
 
--->
+
 
