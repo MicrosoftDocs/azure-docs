@@ -78,7 +78,7 @@ OpenSSL 1.1.0e 7 Apr 2014
 
 ### Windows PC users - Download and install OpenSSL using a Windows PC
 Installing OpenSSL on a Windows PC can be done in the following ways:
-1. **(Recommended)** Using the built-in Bash for Windows functionality in Window 10 and above, OpenSSL is installed by default.  Instructions on how to enable Bash for Windows functionality in Windows 10 can be found [here](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide).
+1. **(Recommended)** Using the built-in Bash for Windows functionality in Window 10 and above, OpenSSL is installed by default.  Instructions on how to enable Bash for Windows functionality in Windows 10 can be found [here](https://msdn.microsoft.com/commandline/wsl/install_guide).
 2. Through downloading a Win32/64 application provided by the community.  While the OpenSSL Software Foundation does not provide or endorse any specific Windows installers, they provide a list of available installers [here](https://wiki.openssl.org/index.php/Binaries)
 
 ### Convert your .cer certificate to a local .pem
@@ -127,5 +127,5 @@ Configuring MySQL Workbench to connect securely over SSL requires you to navigat
 
 ![save customized tile](./media/concepts-ssl-connection-security/mysql-workbench-ssl.png)
 
-# Next steps
+## Next steps
 Review various application connectivity options following [Connection libraries for Azure Database for MySQL](concept-connectivity-libraries.md)
