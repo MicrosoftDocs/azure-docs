@@ -49,7 +49,9 @@ __Requirements__:
 
 For information on how to use this script with HDInsight, see the [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) document. You can use the script through the Azure portal, Azure PowerShell, or the Azure CLI.
 
-When using the information provided in the customization document, replace any example script action URI with the URI for this script (https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash).
+While following the script action document, use the following URI:
+
+    https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash
 
 > [!NOTE]
 > When configuring HDInsight with this script, mark the script as __Persisted__. This setting allows HDInsight to apply the script to worker nodes added through scaling operations.
