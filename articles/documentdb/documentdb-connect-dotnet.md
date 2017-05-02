@@ -18,7 +18,7 @@ ms.date: 04/30/2017
 ms.author: mimig
 
 ---
-# Azure Cosmos DB: Use .NET (C#) to connect and query data with the DocumentDB API
+# Azure Cosmos DB: Build a .NET (C#) and DocumentDB API web app
 
 This quick start demonstrates how to use the [DocumentDB .NET API](documentdb-sdk-dotnet.md) for Azure Cosmos DB and the Azure portal to create an Azure Cosmos DB account, create a database and collection, and then build and deploy a web app on the Windows platform.
 
@@ -122,7 +122,7 @@ Now go back to the Azure portal to get your connection string information and co
 
     `<add key="endpoint" value="FILLME" />`
 
-4. Then copy your PRIMARY KEY value from the portal aand make it the value of the authKey in web.congif. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
+4. Then copy your PRIMARY KEY value from the portal and make it the value of the authKey in web.config. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
     `<add key="authKey" value="FILLME" />`
     

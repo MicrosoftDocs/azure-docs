@@ -1,6 +1,6 @@
 ---
 title: Connect Azure Cosmos DB to graph using .NET (C#) | Microsoft Docs
-description: Presents a .NET code sample you can use to connect to and query Azure Azure Cosmos DB
+description: Presents a .NET code sample you can use to connect to and query Azure Cosmos DB
 services: documentdb
 documentationcenter: ''
 author: mimig1
@@ -18,13 +18,18 @@ ms.date: 04/26/2017
 ms.author: arramac
 
 ---
-# Azure Azure Cosmos DB: Connect to graph using .NET
-This article provides an overview of how to work with graph APIs in Azure Azure Cosmos DB using .NET. In this article, we cover:
+# Azure Cosmos DB: Connect to graph using .NET
+This article provides an overview of how to work with graph APIs in Azure Cosmos DB using .NET. In this article, we cover:
 
 * Setting up your development environment with Azure Cosmos DB graph APIs
 * Using a collection to store graphs
 * Adding, updating, and removing vertices and edges from the graph
 * Performing queries and traversals using Gremlin
+
+## Create a database account
+
+[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+
 
 ## Graphs in Azure Cosmos DB
 You can use Azure Cosmos DB to create, update, and query graphs using the `Microsoft.Azure.Graphs` library. The library offers extension methods on top of the `DocumentClient` class to execute [Gremlin queries](documentdb-gremlin-support.md). To work with the graph APIs, you must perform the following steps as a pre-requisite:
@@ -150,6 +155,6 @@ IDocumentQuery<Vertex> friendsOfFriendsOfThomas = client.CreateGremlinQuery<Vert
 You can build more complex queries and implement powerful graph traversal logic using Gremlin, including mixing filter expressions, performing looping using the `loop` step, and implementing conditional navigation using the `choose` step. Learn more about what you can do with [Gremlin support](documentdb-gremlin-support.md)!
 
 ## Next Steps
-* Read about [Gremlin support in Azure Azure Cosmos DB](documentdb-gremlin-support.md)
+* Read about [Gremlin support in Azure Cosmos DB](documentdb-gremlin-support.md)
 * View the samples for [Graphs in .NET](documentdb-graph-dotnet-samples.md)
 * Download the [Graph .NET library and read release notes](https://aka.ms/graphdbextension)

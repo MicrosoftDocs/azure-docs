@@ -51,7 +51,7 @@ Now let's clone a  DocumentDB API app from github, set the connection string, an
 2. Run the following command to clone the sample repository. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started.git
+    git clone https://github.com/Azure-Samples/documentdb-dotnet-todo-app.git
     ```
 
 3. Then open the solution file in Visual Studio. 
@@ -74,7 +74,11 @@ Now go back to the Azure portal to get your connection string information and co
 
     `<add key="endpoint" value="FILLME" />`
 
-4. Then copy your PRIMARY KEY value from the portal aand make it the value of the authKey in web.congif. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
+4. Then copy your PRIMARY KEY value from the portal and make it the value of the authKey in web.confif. 
+
+    `<add key="authKey" value="FILLME" />`
+
+You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
 ## Build and deploy the web app
 

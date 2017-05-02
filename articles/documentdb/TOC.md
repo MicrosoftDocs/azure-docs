@@ -1,7 +1,6 @@
 
 # Overview
 ## [About Azure Cosmos DB](documentdb-multi-model-introduction.md)
-## [Comparison of services](documentdb-nosql-vs-sql.md)
 
 # Quickstarts
 ## DocumentDB
@@ -29,14 +28,10 @@
 ## 3 - Query
 ### [DocumentDB](documentdb-tutorial-query-documentdb.md)
 ### [MongoDB](documentdb-tutorial-query-mongodb.md)
-### Table
-### Graph
-## 4 - Index
-## 5 - Tune consistency
-## 6 - Server-side business logic
-## [7 - Multi-region replication](documentdb-portal-global-replication.md)
-## 8 - Track changes
-## 9 - Develop locally
+### [Table](documentdb-tutorial-query-table.md)
+### [Graph](documentdb-tutorial-query-graph.md)
+## [4 - Multi-region replication](documentdb-portal-global-replication.md)
+## 5 - Develop locally
 ### [1 - Use the emulator](documentdb-nosql-local-emulator.md)
 ### [2 - Export certificates](documentdb-nosql-local-emulator-export-ssl-certificates.md)
 
@@ -66,9 +61,6 @@
 ### [Cost-effective reads and writes](documentdb-key-value-store-cost.md)
 ### [Request units](documentdb-request-units.md)
 ### [Connect to your MongoDB account](documentdb-connect-mongodb-account.md)
-### [Using MongoChef](documentdb-mongodb-mongochef.md)
-### [Using Robomongo](documentdb-mongodb-robomongo.md)
-### [Model your data](documentdb-modeling-data.md)
 ### [Expire data automatically](documentdb-time-to-live.md)
 ### [Back up and restore](documentdb-online-backup-and-restore.md)
 ### Automation
@@ -76,6 +68,10 @@
 #### [Azure CLI 1.0: Create an account](documentdb-automation-resource-manager-cli-nodejs.md)
 #### [Azure CLI 1.0: Add or remove regions](documentdb-automation-region-management.md)
 #### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
+### MongoDB
+#### [Using MongoChef](documentdb-mongodb-mongochef.md)
+#### [Using Robomongo](documentdb-mongodb-robomongo.md)
+#### [Model your data](documentdb-modeling-data.md)
 ### Security
 #### [Secure access to data](documentdb-secure-access-to-data.md)
 #### [Firewall support](documentdb-firewall-support.md)
@@ -110,15 +106,13 @@
 #### MongoDB
 ##### [Node.js console app](documentdb-mongodb-samples.md)
 ##### [.NET web app](documentdb-mongodb-application.md)
-#### Graph
-##### [Gremlin console](documentdb-graph-getting-started-console.md)
-##### [.NET](documentdb-connect-graph-dotnet.md)
 #### Table
 ##### .NET
 <!---### [Write your first Table API app](documentdb-dotnet-tables-get-started.md)--->
 ### Best practices
 #### [Multi-master setup](documentdb-multi-region-writers.md)
-#### [DateTimes](documentdb-working-with-dates.md)### Samples
+#### [DateTimes](documentdb-working-with-dates.md)
+### Samples
 #### DocumentDB API
 ##### [.NET samples](documentdb-dotnet-samples.md)
 ##### [Node.js samples](documentdb-nodejs-samples.md)
