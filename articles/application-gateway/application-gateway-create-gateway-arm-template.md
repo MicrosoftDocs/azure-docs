@@ -71,10 +71,6 @@ You can download the existing Azure Resource Manager template to create a virtua
   | **wafRuleSetType** | Ruleset type for WAF.  Currently OWASP is the only supported option. |
   | **wafRuleSetVersion** |Ruleset version. OWASP CRS 2.2.9 and 3.0 are currently the supported options. |
 
-
-   > [!IMPORTANT]
-   > Azure Resource Manager templates maintained in GitHub can change over time. Make sure that you check the template before using it.
-
 1. Check the content under **resources** and notice the following properties:
 
    * **type**. Type of resource being created by the template. In this case, the type is `Microsoft.Network/applicationGateways`, which represents an application gateway.
@@ -150,9 +146,9 @@ If you have never used Azure PowerShell, visit: [How to install and configure Az
 
 1. Choose which of your Azure subscriptions to use.
 
-```powershell
-Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
-```
+    ```powershell
+    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    ```
 
 1. If needed, create a resource group by using the **New-AzureResourceGroup** cmdlet. In the following example, you create a resource group called AppgatewayRG in East US location.
 
