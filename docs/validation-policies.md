@@ -205,6 +205,26 @@ This document describes the criteria that are used to validate that Office 365 w
 |13.3|Your custom visual must support Power BI Desktop, Power BI Online, Power BI mobile apps, and Power BI Windows universal apps. It must be compatible with Windows 10 and all versions of Internet Explorer 11 and later, and the latest versions of Microsoft Edge, Chrome, Firefox, and Safari (Mac OS). |
 |13.4|Your custom visual must support the core functions of Power BI including, but not limited to:<br/><br/>Pinning to dashboard<br/>Filtering<br/>Focus mode<br/>Formatting<br/>Various data types|
 
+## Microsoft Teams Apps<a name="bk_14"> </a>
+|Policy number|Description|
+|:-----|:-----|
+|14.1|Your Microsoft Teams app must be free.|
+|14.2|For bots, your bot may not transmit financial instrument details through the user to bot interface;|
+||However, your bot may transmit links to secure payment services to users, but you must disclose this in your app’s terms of use and privacy policy (and any profile page or website for the app) before a user agrees to use your bot.|
+|14.3|Your Microsoft Teams app must not launch functionality outside of the Microsoft Teams app experience without the explicit permission of the user.|
+|14.4|For tabs, no action should take more than three seconds to respond without some type of loading UX or warning.|
+|14.5|For bots, you must respond to user command with 1-2 seconds.  If longer processing is required, use a typing indicator.|
+|14.6|Your Microsoft Teams tab or bot must be fully functional on: Window 7 and above; Mac 10.10 and above; and web client: Microsoft Edge 12+, Internet Explorer 11+, Firefox 47.0+, and Chrome 51.0+.  Your bot experience must be fully function on iOS (9.0 and above), Android (4.4 and above) and Windows Phone (10.0.10586 and above).|
+|14.7|You must submit a Terms of Service link.|
+|14.8|For bots, you will need to ensure that you follow the privacy notice requirements as communicated in the Developer Code of Conduct for the Microsoft Bot Framework referenced here:  https://aka.ms/bf-conduct |
+|14.9|Your bot must operate in accordance with the requirements set forth in the Microsoft Bot Framework Online Services Agreement and Developer Code of Conduct for the Microsoft Bot Framework.|
+|14.10|Your Microsoft Team app’s package must be correctly formatted and conform to the current manifest schema.  This is currently manifest schema version 0.5.|
+|14.11|For bots, all manifest information must be consistent with your bot’s Bot Framework metadata: bot name, logo, privacy link, and terms of service link.|                
+||Your Microsoft Teams app name may not include “app” or “plug-in” or derivatives.|
+|14.12|The UI (buttons, links, text fields) of your Microsoft Teams app must be intuitive and obvious in their purpose. Users must not be required to read support content to perform basic operations.|
+|14.13|Microsoft's review and publication of your Microsoft Teams app to the Microsoft Teams gallery is not an endorsement of your Microsoft Teams app.|
+
+
 ## Conclusion
 <a name="bk_conclusion"> </a>
 
