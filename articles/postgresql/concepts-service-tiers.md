@@ -96,7 +96,7 @@ Standard service tier:
 
 ## Scaling up or down a single server
 
-After initially picking a service tier and performance level, you can scale the server up or down dynamically based on workload requirements. If you need to scale up or down, you can easily change the tier of your database, by using the [Azure portal](/azure/azure-portal-overview), [Azure CLI](/cli/azure/overview), or the [Azure REST API](/rest/api/).
+After initially choosing a service tier and performance level, you can scale the server up or down dynamically based on workload requirements. If you need to scale up or down, you can easily change the tier of your database by using the Azure portal or the Azure CLI.
 
 Changing the service tier and/or performance level of a database creates a replica of the original database at the new performance level, and then switches connections over to the replica. No data is lost during this process but during the brief moment when we switch over to the replica, connections to the database are disabled, so some transactions in flight may be rolled back. This window varies, but is on average under 4 seconds, and in more than 99% of cases is less than 30 seconds. If there are large numbers of transactions in flight at the moment connections are disabled, this window may be longer.
 
@@ -104,8 +104,8 @@ The duration of the entire scale-up process depends on both the size and service
 
 ### Documentation about the steps for scaling up or down
 
-- [Manage a single server in the Azure portal](postgresql-quickstart-create-server-database-portal.md)
-- [Manage a single database with Azure CLI](postgresql-quickstart-create-server-database-azure-cli.md)
+- [Manage a single server in the Azure portal](quickstart-create-server-database-portal.md)
+- [Manage a single database with Azure CLI](quickstart-create-server-database-azure-cli.md)
 
 ### Details about scaling up or down
 
