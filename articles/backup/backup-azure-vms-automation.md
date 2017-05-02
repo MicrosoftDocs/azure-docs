@@ -47,7 +47,7 @@ To view the AzureRmRecoveryServicesVault PowerShell cmdlet reference, see the [A
 ## Setup and Registration
 To begin:
 
-1. [Download the latest version of PowerShell](powershell/azure/install-azurerm-ps) (the minimum version required is: 1.4.0)
+1. [Download the latest version of PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (the minimum version required is: 1.4.0)
 2. Find the Azure Backup PowerShell cmdlets available by typing the following command:
 
 ```
@@ -96,7 +96,7 @@ The following tasks can be automated with PowerShell:
 ## Create a recovery services vault
 The following steps lead you through creating a Recovery Services vault. A Recovery Services vault is different than a Backup vault.
 
-1. If you are using Azure Backup for the first time, you must use the **[Register-AzureRmResourceProvider](../../../powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet to register the Azure Recovery Service provider with your subscription.
+1. If you are using Azure Backup for the first time, you must use the **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet to register the Azure Recovery Service provider with your subscription.
 
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
