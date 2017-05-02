@@ -21,7 +21,7 @@ ms.author: andret
 
 This section provides step-by-step instructions for how to create a new project to demonstrate how to integrate a native Android application with sign-in with Microsoft so it can query Web APIs that require a token.
 
-> Prefer to download this sample's Android Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/complete.zip) and skip to the [Configuration](active-directory-mobileanddesktopapp-android-configure.md) step to configure the code sample before executing.
+> Prefer to download this sample's Android Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip) and skip to the [Configuration](active-directory-mobileanddesktopapp-android-configure.md) step to configure the code sample before executing.
 
 
 # Create a new project 

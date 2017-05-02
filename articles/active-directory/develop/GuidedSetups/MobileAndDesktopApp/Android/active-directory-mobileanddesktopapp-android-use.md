@@ -23,6 +23,8 @@ ms.author: andret
 1.	Open: `MainActivity` (under `app` > `java` > `{companyName}.{appname}`)
 2.	Add the following the imports:
 ```java
+import android.app.Activity;
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -113,6 +115,18 @@ protected void onCreate(Bundle savedInstanceState) {
 
 }
 
+//
+// App callbacks for MSAL
+// ======================
+// getActivity() - returns activity so we can acquireToken within a callback
+// getAuthSilentCallback() - callback defined to handle acquireTokenSilent() case
+// getAuthInteractiveCallback() - callback defined to handle acquireToken() case
+//
+
+public Activity getActivity() {
+    return this;
+}
+
 /* Callback method for acquireTokenSilent calls 
  * Looks if tokens are in the cache (refreshes if necessary and if we don't forceRefresh)
  * else errors that we need to do an interactive request.
@@ -156,6 +170,7 @@ private AuthenticationCallback getAuthSilentCallback() {
     };
 }
 
+
 /* Callback used for interactive request.  If succeeds we use the access
      * token to call the Microsoft Graph. Does not check cache
      */
@@ -195,6 +210,16 @@ private AuthenticationCallback getAuthInteractiveCallback() {
             Log.d(TAG, "User cancelled login.");
         }
     };
+}
+
+/* Set the UI for successful token acquisition data */
+private void updateSuccessUI() {
+    callGraphButton.setVisibility(View.INVISIBLE);
+    signOutButton.setVisibility(View.VISIBLE);
+    findViewById(R.id.welcome).setVisibility(View.VISIBLE);
+    ((TextView) findViewById(R.id.welcome)).setText("Welcome, " +
+            authResult.getUser().getName());
+    findViewById(R.id.graphData).setVisibility(View.VISIBLE);
 }
 
 /* Use MSAL to acquireToken for the end-user
