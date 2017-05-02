@@ -46,7 +46,10 @@
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [Template](virtual-networks-create-vnetpeering-arm-template-click.md)
 
-### [Network interfaces](virtual-network-network-interface.md)
+### Network interfaces
+#### [Settings and tasks](virtual-network-network-interface.md)
+#### [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md)
+#### [Add or remove to or from virtual machines](virtual-network-network-interface-vm.md) 
 
 ### [Public IP addresses](virtual-network-public-ip-address.md)
 
