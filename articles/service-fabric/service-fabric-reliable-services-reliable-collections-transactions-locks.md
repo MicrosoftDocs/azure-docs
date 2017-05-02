@@ -22,8 +22,8 @@ ms.author: mcoskun
 ## Transaction
 A transaction is a sequence of operations performed as a single logical unit of work.
 A transaction must exhibit the following ACID properties. (see: https://technet.microsoft.com/en-us/library/ms190612)
-* **Atomicity**: A transaction must be an atomic unit of work; either all of its data modifications are performed, or none of them is performed.
-* Consistency: When completed, a transaction must leave all data in a consistent state. All internal data structures must be correct at the end of the transaction.
+* **Atomicity**: A transaction must be an atomic unit of work. In other words, either all its data modifications are performed, or none of them is performed.
+* **Consistency**: When completed, a transaction must leave all data in a consistent state. All internal data structures must be correct at the end of the transaction.
 * **Isolation**: Modifications made by concurrent transactions must be isolated from the modifications made by any other concurrent transactions. The isolation level used for an operation within an ITransaction is determined by the IReliableState performing the operation.
 * **Durability**: After a transaction has completed, its effects are permanently in place in the system. The modifications persist even in the event of a system failure.
 
@@ -32,7 +32,7 @@ Isolation level defines the degree to which the transaction must be isolated fro
 There are two isolation levels that are supported in Reliable Collections:
 
 * **Repeatable Read**: Specifies that statements cannot read data that has been modified but not yet committed by other transactions and that no other transactions can modify data that has been read by the current transaction until the current transaction finishes. For more details, see [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
-* **Snapshot**: Specifies that data read by any statement in a transaction will be the transactionally consistent version of the data that existed at the start of the transaction.
+* **Snapshot**: Specifies that data read by any statement in a transaction is the transactionally consistent version of the data that existed at the start of the transaction.
   The transaction can recognize only data modifications that were committed before the start of the transaction.
   Data modifications made by other transactions after the start of the current transaction are not visible to statements executing in the current transaction.
   The effect is as if the statements in a transaction get a snapshot of the committed data as it existed at the start of the transaction.
@@ -45,7 +45,7 @@ Following is the table that depicts isolation level defaults for Reliable Dictio
 | Operation \ Role | Primary | Secondary |
 | --- |:--- |:--- |
 | Single Entity Read |Repeatable Read |Snapshot |
-| Enumeration \ Count |Snapshot |Snapshot |
+| Enumeration, Count |Snapshot |Snapshot |
 
 > [!NOTE]
 > Common examples for Single Entity Operations are `IReliableDictionary.TryGetValueAsync`, `IReliableQueue.TryPeekAsync`.
@@ -56,7 +56,7 @@ In other words, any write within a transaction will be visible to a following re
 that belongs to the same transaction.
 
 ## Locks
-In Reliable Collections, all transactions implement Rigorous two-phase locking: a transaction does not release
+In Reliable Collections, all transactions implement rigorous two phase locking: a transaction does not release
 the locks it has acquired until the transaction terminates with either an abort or a commit.
 
 Reliable Dictionary uses row level locking for all single entity operations.
@@ -71,7 +71,7 @@ Any Repeatable Read operation by default takes Shared locks.
 However, for any read operation that supports Repeatable Read, the user can ask for an Update lock instead of the Shared lock.
 An Update lock is an asymmetric lock used to prevent a common form of deadlock that occurs when multiple transactions lock resources for potential updates at a later time.
 
-The lock compatibility matrix can be found below:
+The lock compatibility matrix can be found in the following table:
 
 | Request \ Granted | None | Shared | Update | Exclusive |
 | --- |:--- |:--- |:--- |:--- |
@@ -79,12 +79,12 @@ The lock compatibility matrix can be found below:
 | Update |No conflict |No conflict |Conflict |Conflict |
 | Exclusive |No conflict |Conflict |Conflict |Conflict |
 
-Note that a time-out argument in the Reliable Collections APIs is used for deadlock detection.
+Time-out argument in the Reliable Collections APIs is used for deadlock detection.
 For example, two transactions (T1 and T2) are trying to read and update K1.
 It is possible for them to deadlock, because they both end up having the Shared lock.
 In this case, one or both of the operations will time out.
 
-Note that the above deadlock scenario is a great example of how an Update lock can prevent deadlocks.
+This deadlock scenario is a great example of how an Update lock can prevent deadlocks.
 
 ## Next steps
 * [Working with Reliable Collections](service-fabric-work-with-reliable-collections.md)
