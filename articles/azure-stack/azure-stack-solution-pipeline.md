@@ -55,7 +55,7 @@ This topic also assumes that you have some pre-requisite knowledge of Azure and 
  - Deploy a [VSTS build agent](https://github.com/Azure/azure-quickstart-templates/tree/master/visual-studio-vstsbuildagent-vm) using a [template](azure-stack-deploy-template-portal.md) to Azure Stack.  This step creates a new VM that will be used to build and deploy your code.
  
 
-## Step 1 - Create ASP.NET app & push to VSTS
+## Step 1 - Create app & push to VSTS
 
 ### Create application
 In this section, you create a simple ASP.NET application and push it to VSTS.  These steps represent the normal developer experience, though could be adapted with other IDEs and languages. 
