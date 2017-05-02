@@ -213,7 +213,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 <!--start-collapse-->
 ### More Information
 #### Getting a user token interactive
-Calling the `AcquireTokenAsync` method results in a window prompting the user to sign in. Applications usually require a user to sign in interactively the first time they need to access a protected resource, or when a silent operation to acquire a token fails (e.g. the user’s password expired)
+Calling the `AcquireTokenAsync` method results in a window prompting the user to sign in. Applications usually require a user to sign in interactively the first time they need to access a protected resource, or when a silent operation to acquire a token fails (e.g. the user’s password expired).
 
 #### Getting a user token silently
 `AcquireTokenSilentAsync` handles token acquisitions and renewal without any user interaction. After `AcquireTokenAsync` is executed for the first time, `AcquireTokenSilentAsync` is the usual method used to obtain tokens used to access protected resources for subsequent calls - as calls to request or renew tokens are made silently.
