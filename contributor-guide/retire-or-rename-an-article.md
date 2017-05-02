@@ -5,7 +5,7 @@ First off, in our current repo configuration, you must not ever actually delete,
 
   - **Delete**: If you want to delete an article, you have to turn it into a redirect and leave the article in place.
   - **Move**: If you want to move an article, turn the current article into a redirect and then create a new article in the new folder location, and copy the content to the new article.
-  - **Rename**: Functionally, renaming is similar to moving. You turn the current article into a redirect and then create a new article with the same file name, but in the same folder location, and copy the content to the new article.
+  - **Rename**: Functionally, renaming is similar to moving. You turn the current article into a redirect and then create a new article with the new file name, but in the same folder location, and copy the content to the new article.
 
 If you're a member of our Azure community and you think an article should be retired for any reason, please leave a comment in the comment stream for the article to let the author know something is wrong with the article.
 

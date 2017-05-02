@@ -22,7 +22,7 @@ ms.author: marsma
 [Azure Storage Analytics](storage-analytics.md) provides metrics for all storage services, and logs for blobs, queues, and tables. You can use the [Azure portal](https://portal.azure.com) to configure which metrics and logs are recorded for your account, and configure charts that provide visual representations of your metrics data.
 
 > [!NOTE]
-> There are costs associated with examining monitoring data in the Azure portal. For more information, see [Storage Analytics and Billing](/rest/api/storageservices/fileservices/Storage-Analytics-and-Billing).
+> There are costs associated with examining monitoring data in the Azure portal. For more information, see [Storage Analytics and Billing](/rest/api/storageservices/Storage-Analytics-and-Billing).
 >
 > Azure File storage currently supports Storage Analytics metrics, but does not yet support logging.
 >
@@ -149,7 +149,7 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
 
 The diagnostics logs are saved in a blob container named $logs in your storage account. You can view the log data using a storage explorer like the [Microsoft Storage Explorer](http://storageexplorer.com), or programmatically using the storage client library or PowerShell.
 
-For information about accessing the $logs container, see [Enabling Storage Logging and Accessing Log Data](/rest/api/storageservices/fileservices/enabling-storage-logging-and-accessing-log-data).
+For information about accessing the $logs container, see [Enabling Storage Logging and Accessing Log Data](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data).
 
 ## Next steps
 

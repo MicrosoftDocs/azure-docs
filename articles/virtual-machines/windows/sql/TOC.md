@@ -1,6 +1,6 @@
 # Overview
 ## [What is SQL Server on Azure VMs?](virtual-machines-windows-sql-server-iaas-overview.md) 
-## [Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
+## [Pricing](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [FAQ](virtual-machines-windows-sql-server-iaas-faq.md)
  
 # Get Started

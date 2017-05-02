@@ -366,5 +366,5 @@ Retrieve existing the pool properties. Modify the values and execute the CreateO
 ## Additional Resources
 *  For SQL error codes for SQL Database client applications, database connection error and other issues, see [Error messages](sql-database-develop-error-messages.md).
 * [Azure Resource Management APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-* For elastic pool guidance, see [When should an elastic pool be used?](sql-database-elastic-pool-guidance.md)
+* For elastic pool guidance, see [When should an elastic pool be used?](sql-database-elastic-pool.md)
 

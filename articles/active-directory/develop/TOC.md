@@ -1,10 +1,11 @@
 # Overview
+## [Integrate with Azure AD](active-directory-how-to-integrate.md)
 ## [Developers Guide](active-directory-developers-guide.md)
 ## [Apps and Azure Active Directory](active-directory-how-applications-are-added.md)
 ## [Developer glossary](active-directory-dev-glossary.md)
-## [AAD Graph API](active-directory-graph-api.md)
+## [Azure AD Graph API](active-directory-graph-api.md)
 # Quickstarts
-## [How to get an AAD tenant](active-directory-howto-tenant.md)
+## [How to get an Azure AD tenant](active-directory-howto-tenant.md)
 ## [Integrating apps with AAD](active-directory-integrating-applications.md)
 ## Mobile and PC apps
 ### [iOS](active-directory-devquickstarts-ios.md)
@@ -23,9 +24,9 @@
 ## Web API
 ### [Web API and .NET](active-directory-devquickstarts-webapi-dotnet.md)
 ### [NodeJS](active-directory-devquickstarts-webapi-nodejs.md)
-## [AAD Graph API](active-directory-graph-api-quickstart.md)
+## [Azure AD Graph API](active-directory-graph-api-quickstart.md)
 # Guides
-## [Authentication patterns](active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad.md)
+## [Authentication patterns](active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
 ### [Native apps](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [Web apps](active-directory-authentication-scenarios.md#web-application-to-web-api)
 ### [Web API](active-directory-authentication-scenarios.md#web-application-to-web-api)
@@ -40,25 +41,25 @@
 ## [Branding guidelines](active-directory-branding-guidelines.md)
 ## Working with SAML
 ### [Azure AD and SAML](active-directory-saml-protocol-reference.md)
-### [View SAML Returned by Access Control](active-directory-java-view-saml-returned-by-access-control.md)
 ### [Customize Claims](active-directory-saml-claims-customization.md)
 ### [Debug SAML-based SSO](active-directory-saml-debugging.md)
 ### [Single Sign-On SAML protocol](active-directory-single-sign-on-protocol-reference.md)
 ### [Single Sign-Out SAML protocol](active-directory-single-sign-out-protocol-reference.md)
 ## Working with Visual Studio
-### [Getting Started with Azure Active Directory and Visual Studio connected services (MVC Projects.md)](vs-active-directory-dotnet-getting-started.md)
+### [Get started with Visual Studio connected services (MVC Projects.md)](vs-active-directory-dotnet-getting-started.md)
 ### [Error during authentication detection](vs-active-directory-error.md)
 ### [Get started with WebApi](vs-active-directory-webapi-getting-started.md)
 ### [What happened to my Web API project](vs-active-directory-webapi-what-happened.md)
 # Reference
 ## [Authentication libraries](active-directory-authentication-libraries.md)
-## [App and service prinicpal objects](active-directory-application-objects.md)
+## [App and service principal objects](active-directory-application-objects.md)
 ## [Authentication Protocols](active-directory-authentication-protocols.md)
 ### [Signing key rollover](active-directory-signing-key-rollover.md)
 ### [Supported Token and Claim Types](active-directory-token-and-claims.md)
 ### [Federation Metadata](active-directory-federation-metadata.md)
 ### [Oauth](active-directory-protocols-oauth-code.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
+### [Service to Service Calls](active-directory-protocols-oauth-service-to-service.md)
 # v2.0 endpoint
 ## [Overview](active-directory-appmodel-v2-overview.md)
 ### [Differences](active-directory-v2-compare.md)
@@ -82,12 +83,11 @@
 ## Reference
 ### [App registration reference](active-directory-v2-registration-portal.md)
 ### [Authentication libraries](active-directory-v2-libraries.md)
+### [v2.0 Authentication Protocols](active-directory-v2-protocols.md)
+#### [Token reference](active-directory-v2-tokens.md)
+#### [OAuth2.0 authorization code flow](active-directory-v2-protocols-oauth-code.md)
+#### [OpenID connect](active-directory-v2-protocols-oidc.md)
+#### [Implicit flow](active-directory-v2-protocols-implicit.md)
+#### [Oauth 2.0 client creds](active-directory-v2-protocols-oauth-client-creds.md)
 ### [Scopes](active-directory-v2-scopes.md)
-### [Token reference](active-directory-v2-tokens.md)
-### [OpenID connect](active-directory-v2-protocols-oidc.md)
-### [Implicit flow](active-directory-v2-protocols-implicit.md)
-### [OAuth2.0 authorization code flow](active-directory-v2-protocols-oauth-code.md)
-### [Oauth 2.0 client creds](active-directory-v2-protocols-oauth-client-creds.md)
-### [Oauth 2.0 and OpenID](active-directory-v2-protocols.md)
-### [Service to Service Calls](active-directory-protocols-oauth-service-to-service.md)
 # [Samples](active-directory-code-samples.md)

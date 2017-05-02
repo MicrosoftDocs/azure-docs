@@ -47,51 +47,51 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
-### <a name="2.0.1"/>[2.0.1](https://pypi.python.org/pypi/pydocumentdb/2.0.1)
+### <a name="2.0.1"/>2.0.1
 * Made editorial changes to documentation comments.
 
-### <a name="2.0.0"/>[2.0.0](https://pypi.python.org/pypi/pydocumentdb/2.0.0)
+### <a name="2.0.0"/>2.0.0
 * Added support for Python 3.5.
 * Added support for connection pooling using a requests module.
 * Added support for session consistency.
 * Added support for TOP/ORDERBY queries for partitioned collections.
 
-### <a name="1.9.0"/>[1.9.0](https://pypi.python.org/pypi/pydocumentdb/1.9.0)
+### <a name="1.9.0"/>1.9.0
 * Added retry policy support for throttled requests. (Throttled requests receive a request rate too large exception, error code 429.) By default, DocumentDB retries nine times for each request when error code 429 is encountered, honoring the retryAfter time in the response header. A fixed retry interval time can now be set as part of the RetryOptions property on the ConnectionPolicy object if you want to ignore the retryAfter time returned by server between the retries. DocumentDB now waits for a maximum of 30 seconds for each request that is being throttled (irrespective of retry count) and returns the response with error code 429. This time can also be overriden in the RetryOptions property on ConnectionPolicy object.
 * DocumentDB now returns x-ms-throttle-retry-count and x-ms-throttle-retry-wait-time-ms as the response headers in every request to denote the throttle retry count and the cummulative time the request waited between the retries.
 * Removed the RetryPolicy class and the corresponding property (retry_policy) exposed on the document_client class and instead introduced a RetryOptions class exposing the RetryOptions property on ConnectionPolicy class that can be used to override some of the default retry options.
 
-### <a name="1.8.0"/>[1.8.0](https://pypi.python.org/pypi/pydocumentdb/1.8.0)
+### <a name="1.8.0"/>1.8.0
 * Added the support for multi-region database accounts.
 
-### <a name="1.7.0"/>[1.7.0](https://pypi.python.org/pypi/pydocumentdb/1.7.0)
+### <a name="1.7.0"/>1.7.0
 * Added the support for Time To Live(TTL) feature for documents.
 
-### <a name="1.6.1"/>[1.6.1](https://pypi.python.org/pypi/pydocumentdb/1.6.1)
+### <a name="1.6.1"/>1.6.1
 * Bug fixes related to server side partitioning to allow special characters in partitionkey path.
 
-### <a name="1.6.0"/>[1.6.0](https://pypi.python.org/pypi/pydocumentdb/1.6.0)
+### <a name="1.6.0"/>1.6.0
 * Implemented [partitioned collections](documentdb-partition-data.md) and [user-defined performance levels](documentdb-performance-levels.md). 
 
-### <a name="1.5.0"/>[1.5.0](https://pypi.python.org/pypi/pydocumentdb/1.5.0)
+### <a name="1.5.0"/>1.5.0
 * Add Hash & Range partition resolvers to assist with sharding applications across multiple partitions.
 
-### <a name="1.4.2"/>[1.4.2](https://pypi.python.org/pypi/pydocumentdb/1.4.2)
+### <a name="1.4.2"/>1.4.2
 * Implement Upsert. New UpsertXXX methods added to support Upsert feature.
 * Implement ID Based Routing. No public API changes, all changes internal.
 
-### <a name="1.2.0"/>[1.2.0](https://pypi.python.org/pypi/pydocumentdb/1.2.0)
+### <a name="1.2.0"/>1.2.0
 * Supports GeoSpatial index.
 * Validates id property for all resources. Ids for resources cannot contain ?, /, #, \, characters or end with a space.
 * Adds new header "index transformation progress" to ResourceResponse.
 
-### <a name="1.1.0"/>[1.1.0](https://pypi.python.org/pypi/pydocumentdb/1.1.0)
+### <a name="1.1.0"/>1.1.0
 * Implements V2 indexing policy.
 
-### <a name="1.0.1"/>[1.0.1](https://pypi.python.org/pypi/pydocumentdb/1.0.1)
+### <a name="1.0.1"/>1.0.1
 * Supports proxy connection.
 
-### <a name="1.0.0"/>[1.0.0](https://pypi.python.org/pypi/pydocumentdb/1.0.0)
+### <a name="1.0.0"/>1.0.0
 * GA SDK.
 
 ## Release & retirement dates

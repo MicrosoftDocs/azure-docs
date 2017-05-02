@@ -12,12 +12,16 @@ ms.date: 10/26/2016
 ms.author: christw
 ---
 
-# Supported Languages
+# Supported languages
 
-There are three groups of supported languages in the Microsoft Translator API. Text, Speech and Text to Speech(tts). The languages API method will return the list of supported languages for each of the three groups. The languages method does not require an access token for authenticantion.
+There are three groups of supported languages in the Microsoft Translator API. Text, Speech, and Text-to-speech (TTS). 
+The languages API method returns the list of supported languages for each of the three groups. The languages method 
+does not require an access token for authentication.
 
-In the 'Scope' parameter of the method; add one or all three of the groups and the method will return the supported langauges in JSON format. After you have entered the scope parameters select the **'Try it out'** button. The list will appear in the 'Response Body'
+In the 'Scope' parameter of the method, add one or all three of the groups. After you have entered the scope parameters, 
+select the **Try it out!** button. The service returns the supported languages in JSON format. The response is visible
+in the 'Response Body' section.
 
-[Click here to try out the languages method.] (http://docs.microsofttranslator.com/languages.html)
+[Visit the API reference to try out the languages method.](http://docs.microsofttranslator.com/languages.html)
 
-[Click here to see the langauge list on our web site.] (https://www.microsoft.com/en-us/translator/languages.aspx)
+[See the list of languages on our web site.](https://www.microsoft.com/translator/languages.aspx)

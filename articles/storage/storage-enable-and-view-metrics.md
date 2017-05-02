@@ -210,4 +210,4 @@ The capacity used by the metrics tables is also billable: you can use the follow
 * The capacity table for blobs has two rows added each day (provided user has opted in for logs): this implies that every day the size of this table increases by up to approximately 300 bytes.
 
 ## Next steps
-[Enabling Storage Logging and Accessing Log Data](/rest/api/storageservices/fileservices/Enabling-Storage-Logging-and-Accessing-Log-Data)
+[Enabling Storage Logging and Accessing Log Data](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data)

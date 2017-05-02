@@ -44,7 +44,9 @@ You add a VM to a lab from a *base* that is either a [custom image](devtest-lab-
 1. Select **Virtual machine size** and select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
 1. Select **Artifacts** and - from the list of artifacts - select and configure the artifacts that you want to add to the base image.
     **Note:** If you're new to DevTest Labs or configuring artifacts, refer to the [Add an existing artifact to a VM](./devtest-lab-add-vm-with-artifacts.md#add-an-existing-artifact-to-a-vm) section, and then return here when finished.
-1. Select **Advanced settings** to configure the VM's network options and expiration options.
+1. Select **Advanced settings** to configure the VM's network options and expiration options. 
+
+   To set an expiration option, choose the calendar icon to specify a date on which the VM will be automatically deleted.  By default, the VM will never expire. 
 1. If you want to view or copy the Azure Resource Manager template, refer to the [Save Azure Resource Manager template](./devtest-lab-add-vm-with-artifacts.md#save-azure-resource-manager-template) section, and return here when finished.
 1. Select **Create** to add the specified VM to the lab.
 1. The lab blade displays the status of the VM's creation - first as **Creating**, then as **Running** after the VM has been started.

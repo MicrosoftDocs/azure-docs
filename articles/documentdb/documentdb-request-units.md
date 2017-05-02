@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 04/17/2017
 ms.author: syamk
 
 ---
@@ -134,7 +134,7 @@ For example, here's a table that shows how many request units to provision at th
             <td valign="top"><p>1 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 * 5) + (100 * 5) = 3,000 RU/s</p></td>
+            <td valign="top"><p>(500 * 1) + (500 * 5) = 3,000 RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>4 KB</p></td>

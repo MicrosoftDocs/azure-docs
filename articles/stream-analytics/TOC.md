@@ -45,7 +45,7 @@
 
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics)
-## [.NET](/dotnet/api/streamanalytics.tests.operationtests)
+## [.NET](/dotnet/api/microsoft.azure.management.streamanalytics)
 ## [Query language](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST](/rest/api/streamanalytics)
 

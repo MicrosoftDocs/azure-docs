@@ -1,10 +1,9 @@
 # Overview
 ## [Introduction to Azure Data Factory](data-factory-introduction.md)
 ## Concepts
-### [Datasets](data-factory-create-datasets.md)
 ### [Pipelines and activities](data-factory-create-pipelines.md)
+### [Datasets](data-factory-create-datasets.md)
 ### [Scheduling and execution](data-factory-scheduling-and-execution.md)
-### [Compute Linked Services](data-factory-compute-linked-services.md)
 
 # Get Started
 ## [Tutorial: Create a pipeline to copy data](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -21,6 +20,7 @@
 ### [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 ### [Azure Resource Manager template](data-factory-build-your-first-pipeline-using-arm.md)
 ### [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+## [Tutorial: Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md)
 ## [FAQ](data-factory-faq.md)
 
 # How To
@@ -60,7 +60,7 @@
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Web table](data-factory-web-table-connector.md)
 ### [Data Management Gateway](data-factory-data-management-gateway.md)
-### [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md)
+
 
 ## [Transform Data](data-factory-data-transformation-activities.md)
 ### [HDInsight Hive Activity](data-factory-hive-activity.md)
@@ -74,6 +74,9 @@
 ### [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
 ### [.NET custom activity](data-factory-use-custom-activities.md)
 ### [Invoke R scripts](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+### [Reprocess models in Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample)
+### [Compute Linked Services](data-factory-compute-linked-services.md)
+
 ## Develop
 ### [Azure Resource Manager template](data-factory-how-to-use-resource-manager-templates.md)
 ### [Samples](data-factory-samples.md)

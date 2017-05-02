@@ -41,7 +41,7 @@ This document guides you through the step by step process of creating an OpenAPI
 
 ## <a name="enable"></a>Enabling API Definition Support
 1. Navigate to `your function name` > `API Definition (preview)`
-1. Set `API Definition Source` to `Internal`
+1. Set `API Definition Source` to `Function`
   1. This step enables a suite of OpenAPI options for your Function App, including an endpoint to host an OpenAPI file from your Function App's domain, an inline copy of the [OpenAPI Editor](http://editor.swagger.io), and a quickstart definition generator.
 ![Enabled Definition](./media/functions-api-definition-getting-started/enabledefinition.png)
 

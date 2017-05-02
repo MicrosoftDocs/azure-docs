@@ -33,18 +33,19 @@
       href: sql-database-connect-query-python.md
     - name: Ruby
       href: sql-database-connect-query-ruby.md
+- name: Tutorials
+  items:
+  - name: 1 - Create/design new SQL DB
+    href: sql-database-design-first-database.md
+  - name: 2 - Migrate existing SQL Server
+    href: sql-database-migrate-your-sql-server-database.md 
 - name: Samples
   items:
   - name: Azure CLI
     href: sql-database-cli-samples.md
   - name: PowerShell
     href: sql-database-powershell-samples.md
-- name: Tutorials
-  items:
-  - name: Design a database
-    href: sql-database-design-first-database.md
-  - name: Migrate a database
-    href: sql-database-migrate-your-sql-server-database.md  
+ 
 - name: Concepts
   items:
   - name: DBs and servers
@@ -55,8 +56,6 @@
       href: sql-database-server-overview.md
     - name: Elastic pools
       href: sql-database-elastic-pool.md
-    - name: Use elastic pool?
-      href: sql-database-elastic-pool-guidance.md
   - name: Resources
     items:
     - name: Service tiers

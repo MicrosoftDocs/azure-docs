@@ -31,6 +31,12 @@ Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a pr
 Required permissions | For permissions required to apply an update, see [accounts and permissions](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## 1.1.486.0
+Released: April 2017
+
+**Fixed issues:**
+* Fixed the issue where Azure AD Connect will not install successfully on localized version of Windows Server.
+
 ## 1.1.484.0
 Released: April 2017
 

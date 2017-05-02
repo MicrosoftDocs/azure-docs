@@ -13,14 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 04/18/2017
 ms.author: mimig
 
 ---
 # How to create a DocumentDB collection and database using the Azure portal
 To use Microsoft Azure DocumentDB, you must have a [DocumentDB account](documentdb-create-account.md), a database, a collection, and documents. This topic describes how to create a DocumentDB collection in the Azure portal.
 
-Not sure what a collection is? See [What is a DocumentDB collection?](#what-is-a-documentdb-collection)
+Not sure what a collection is? See [What is a DocumentDB collection?](#what-is-a-documentdb-collection).
+
+There are two ways to create a colletion in the portal, by using the Add Collection button, or by using [Data Explorer (preview)](#data-explorer).
+
+## Create a colletion using Add Collection button
 
 1. In the [Azure portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB (NoSQL)**, and then in the **DocumentDB (NoSQL)** blade, select the account in which to add a collection. If you don't have any accounts listed, you'll need to [create a DocumentDB account](documentdb-create-account.md).
 
@@ -50,6 +54,14 @@ Not sure what a collection is? See [What is a DocumentDB collection?](#what-is-a
 10. **Optional:** To modify the throughput of collection in the portal, click **Scale** on the Resource menu.
 
     ![Screen shot of the resource menu, with Scale selected](./media/documentdb-create-collection/docdb-collection-creation-scale.png)
+
+<a id="data-explorer"></a>
+## Create a collection by using Data Explorer (preview)
+
+The other method for creating a collection in the portal is to use the Data Explorer. To open Data Explorer, click **Data Explorer (preview)** on the navigation bar in the portal, then click the **New Collection** button, as shown in the following screencap.
+
+ ![Screen shot showing the New Collection button in the portal](./media/documentdb-create-collection/azure-documentdb-data-explorer.png)
+
 
 ## What is a DocumentDB collection?
 A collection is a container of JSON documents and the associated JavaScript application logic. A collection is a billable entity, where the [cost](documentdb-performance-levels.md) is determined by the provisioned throughput of the collection. Collections can span one or more partitions/servers and can scale to handle practically unlimited volumes of storage or throughput.
