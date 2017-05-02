@@ -114,14 +114,14 @@
 ### User documents
 #### [Reset or change your password](active-directory-passwords-update-your-own-password.md)
 #### [Register for self-service password reset](active-directory-passwords-reset-register.md)
-### [Quick start: Self-service password reset](active-directory-passwords-quick-start.md)
+### [Quick start: Self-service password reset](active-directory-passwords-getting-started.md)
 ### [License SSPR](active-directory-passwords-licensing.md)
 ### [Deploy SSPR](active-directory-passwords-rollout.md)
 ### IT Admins: Reset passwords
 #### [Azure portal](active-directory-users-reset-password-azure-portal.md)
 #### [Azure classic portal](active-directory-create-users-reset-password.md)
 ### [Understand SSPR policies ](active-directory-passwords-policy.md)
-### [Understand password reset](active-directory-passwords-deepdive.md)
+### [Understand password reset](active-directory-passwords-how-it-works.md)
 ### [Customize SSPR](active-directory-passwords-customize.md)
 ### [Data used by SSPR](active-directory-passwords-data.md)
 ### [Reporting on SSPR](active-directory-passwords-reporting.md)

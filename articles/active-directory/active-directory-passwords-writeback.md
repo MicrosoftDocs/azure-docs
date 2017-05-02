@@ -167,14 +167,14 @@ The size of each of the message described above is typically under 1 kb, even un
 
 The following links provide additional information regarding password reset using Azure AD
 
-* [**Quick Start**](active-directory-passwords-quick-start.md) - Get up and running with Azure AD self service password management 
+* [**Quick Start**](active-directory-passwords-getting-started.md) - Get up and running with Azure AD self service password management 
 * [**Licensing**](active-directory-passwords-licensing.md) - Configure your Azure AD Licensing
 * [**Data**](active-directory-passwords-data.md) - Understand the data that is required and how it is used for password management
 * [**Rollout**](active-directory-passwords-rollout.md) - Plan and deploy SSPR to your users using the guidance found here
 * [**Customize**](active-directory-passwords-customize.md) - Customize the look and feel of the SSPR experience for your company.
 * [**Policy**](active-directory-passwords-policy.md) - Understand and set Azure AD password policies
 * [**Reporting**](active-directory-passwords-reporting.md) - Discover if, when, and where your users are accessing SSPR functionality
-* [**Technical Deep Dive**](active-directory-passwords-deepdive.md) - Go behind the curtain to understand how it works
+* [**Technical Deep Dive**](active-directory-passwords-how-it-works.md) - Go behind the curtain to understand how it works
 * [**Frequently Asked Questions**](active-directory-passwords-faq.md) - How? Why? What? Where? Who? When? - Answers to questions you always wanted to ask
 * [**Troubleshoot**](active-directory-passwords-troubleshoot.md) - Learn how to resolve common issues that we see with SSPR
 

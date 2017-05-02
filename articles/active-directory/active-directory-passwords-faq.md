@@ -253,7 +253,7 @@ This FAQ is split into the following sections:
 
 The following links provide additional information regarding password reset using Azure AD
 
-* [**Quick Start**](active-directory-passwords-quick-start.md) - Get up and running with Azure AD self service password management 
+* [**Quick Start**](active-directory-passwords-getting-started.md) - Get up and running with Azure AD self service password management 
 * [**Licensing**](active-directory-passwords-licensing.md) - Configure your Azure AD Licensing
 * [**Data**](active-directory-passwords-data.md) - Understand the data that is required and how it is used for password management
 * [**Rollout**](active-directory-passwords-rollout.md) - Plan and deploy SSPR to your users using the guidance found here
@@ -261,5 +261,5 @@ The following links provide additional information regarding password reset usin
 * [**Reporting**](active-directory-passwords-reporting.md) - Discover if, when, and where your users are accessing SSPR functionality
 * [**Policy**](active-directory-passwords-policy.md) - Understand and set Azure AD password policies
 * [**Password Writeback**](active-directory-passwords-writeback.md) - How does password writeback work with your on-premises directory
-* [**Technical Deep Dive**](active-directory-passwords-deepdive.md) - Go behind the curtain to understand how it works
+* [**Technical Deep Dive**](active-directory-passwords-how-it-works.md) - Go behind the curtain to understand how it works
 * [**Troubleshoot**](active-directory-passwords-troubleshoot.md) - Learn how to resolve common issues that we see with SSPR
