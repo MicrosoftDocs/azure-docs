@@ -19,7 +19,7 @@
 # Tutorials
 ## 1 - Create
 ### [DocumentDB](documentdb-tutorial-documentdb-create.md)
-### MongoDB
+### [MongoDB](documentdb-mongodb-application.md)
 ### Table
 ### [Graph](documentdb-tutorial-create-graph-dotnet.md)
 ## 2 - Import 
@@ -105,7 +105,6 @@
 ###### [Python Flask](documentdb-python-application.md)
 #### MongoDB
 ##### [Node.js console app](documentdb-mongodb-samples.md)
-##### [.NET web app](documentdb-mongodb-application.md)
 #### Table
 ##### .NET
 <!---### [Write your first Table API app](documentdb-dotnet-tables-get-started.md)--->

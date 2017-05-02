@@ -19,7 +19,7 @@ ms.author: mimig
 
 ---
 
-# Create a collection with the DocumentDB API
+# Azure CosmosDB: Create a collection with the DocumentDB API
 
 In this tutorial, you'll learn how to create an Azure Cosmos DB collection and use a partition key to partition your data. By defining a partition key at the start, your application is prepared to scale effortlessly as your data grows. 
 
