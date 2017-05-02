@@ -48,8 +48,12 @@ Otherwise, in the default cases for cloud services and classic VMs, an additiona
 Refer to this sample to learn how to [discover the host endpoint] (https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)
 
 ### Versioning 
-The Metadata Service uses a versioned API in the following format: http://{ip}/metadata/{version}/scheduledevents
-It is recommended that your service consumes the latest version available at: http://{ip}/metadata/latest/scheduledevents
+The Instance Metadata Service is versioned. Versions are mandatory and the current version is 2017-03-01
+
+> [!NOTE] 
+> Previous preview releases of scheduled events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
+>
+
 
 ### Using Headers
 When you query the Metadata Service, you must provide the following header *Metadata: true*. 
@@ -67,7 +71,8 @@ In both cases, the user initiated operation takes longer to complete since sched
 ### Query for events
 You can query for Scheduled Events simply by making the following call
 
-	curl -H Metadata:true http://169.254.169.254/metadata/latest/scheduledevents
+	curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
+
 
 A response contains an array of scheduled events. An empty array means that there are currently no events scheduled.
 In the case where there are scheduled events, the response contains an array of events: 
@@ -136,7 +141,7 @@ function HandleScheduledEvents($scheduledEvents)
 
 # Set up the scheduled events uri for VNET enabled VM
 $localHostIP = "169.254.169.254"
-$scheduledEventURI = 'http://{0}/metadata/latest/scheduledevents' -f $localHostIP 
+$scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2017-03-01' -f $localHostIP 
 
 
 # Get the document
@@ -170,7 +175,7 @@ The following sample is of a client surfacing APIs to communicate with the Metad
 
         public ScheduledEventsClient()
         {
-            scheduledEventsEndpoint = string.Format("http://{0}/metadata/latest/scheduledevents", defaultIpAddress);
+            scheduledEventsEndpoint = string.Format("http://{0}/metadata/scheduledevents?api-version=2017-03-01", defaultIpAddress);
         }
         /// Retrieve Scheduled Events 
         public string GetDocument()
@@ -293,7 +298,7 @@ import urllib2
 import socket
 import sys
 
-metadata_url="http://169.254.169.254/metadata/latest/scheduledevents"
+metadata_url="http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01"
 headers="{Metadata:true}"
 this_host=socket.gethostname()
 
@@ -329,3 +334,4 @@ if __name__ == '__main__':
 ```
 ## Next Steps 
 [Planned maintenance for virtual machines in Azure](linux/planned-maintenance.md)
+[Instance metadata service](virtual-machines-instancemetadataservice-overview.md)
