@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # Manage Batch resources with Azure CLI
 
-The cross-platform Azure Command-Line Interface (Azure CLI) enables you to manage your Batch accounts and resources such as pools, jobs, and tasks in Linux, Mac, and Windows command shells. With the Azure CLI, you can perform and script many of the same tasks you carry out with the Batch APIs, Azure portal, and Batch PowerShell cmdlets.
+You can use the cross-platform Azure Command-Line Interface (Azure CLI) to manage your Batch accounts and resources such as pools, jobs, and tasks in Linux, Mac, and Windows command shells. With the Azure CLI, you can perform and script many of the same tasks you carry out with the Batch APIs, Azure portal, and Batch PowerShell cmdlets.
 
 This article is based on [Azure CLI version 2.0](https://docs.microsoft.com/cli/azure/overview). See [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli.md) for an overview of using the CLI with Azure.
 
@@ -42,7 +42,7 @@ This article is based on [Azure CLI version 2.0](https://docs.microsoft.com/cli/
 ## Command help
 You can display help text for every command in the Azure CLI by appending `-h` as the only option after the command. For example:
 
-* To get help for the `az` command, enter: `azure -h`
+* To get help for the `az` command, enter: `az -h`
 * To get a list of all Batch commands in the CLI, use: `az batch -h`
 * To get help on creating a Batch account, enter: `az batch account create -h`
 
@@ -55,99 +55,101 @@ When in doubt, use the `-h` command-line option to get help on any Azure CLI com
 
 [!INCLUDE [batch-cli-sample-scripts-include](../../includes/batch-cli-sample-scripts-include.md)]
 
-## Create a new resource group
+Use the tutorials listed in the table above to learn how to use the Azure CLI to accomplish a set of related tasks.  
+
+## Manage Batch accounts
+
+Use the Batch Management service commands to create and delete Batch accounts and manage access keys. See [Batch accounts \- az batch account](https://docs.microsoft.com/cli/azure/batch/account) for the Azure CLI command reference for the Batch Management service. 
+
+### Create a new resource group
 
 To create a new Batch account, you'll need to reference an existing resource group. If you don't already have a resource group, create one before you create your Batch account. 
 
-### Command
+The command to create a new resource group is provided by Azure Resource Manager. See [Resource groups \- az group](https://docs.microsoft.com/cli/azure/group) for the Azure CLI command reference for resource groups.
+
+#### Command
 
 [az group create](https://docs.microsoft.com/cli/azure/group#create)
 
-### Example
+#### Example
 
-```cli
+```Azure CLI
 az group create --name myresourcegroup --location westus
 ```
 
+### Create a Batch account
 
-## Create a Batch account
-
-Usage:
-
-```cli
-az batch account create --location
-                        --name
-                        --resource-group
-                        [--keyvault]
-                        [--storage-account]
-                        [--tags]
-```
-
-    az batch account create [options] <name>
-
-Example:
-
-```cli
-az batch account create --location westus --resource-group myresourcegroup --name mybatchaccount
-```
-
-Creates a new Batch account with the specified parameters. You must specify at least a location, resource group, and account name. 
+Use this command to create a Batch account. When you create an account, specify a location, resource group, and account name, at a minimum. 
 
 > [!NOTE]
 > The Batch account name must be unique within the Azure region the account is created. It may contain only lowercase alphanumeric characters, and must be 3-24 characters in length. You can't use special characters like `-` or `_` in Batch account names.
 > 
 > 
 
-### Linked storage account (autostorage)
-You can (optionally) link a **general-purpose** Azure Storage account to your Batch account when you create it. The [application packages](batch-application-packages.md) feature of Batch uses Blob storage in a linked general-purpose storage account, as does the [Batch File Conventions .NET](batch-task-output.md) library. These optional features assist you in deploying the applications that your Batch tasks run, and persisting the data they produce.
+You can (optionally) link an existing **general-purpose** Azure Storage account to your Batch account when you create it. The [application packages](batch-application-packages.md) feature of Batch uses Blob storage in a linked general-purpose storage account, as does the [Batch File Conventions .NET](batch-task-output.md) library. These optional features assist you in deploying the applications that your Batch tasks run, and persisting the data they produce.
 
-To link an existing Azure Storage account to a new Batch account when you create it, specify the `--autostorage-account-id` option. This option requires the fully qualified resource ID of the storage account.
+To link an existing Azure Storage account to a new Batch account when you create it, specify the `--storage-account` option. Provide either the name or the fully qualified resource ID of the storage account.
 
-First, show your storage account's details:
+#### Command
 
-    azure storage account show --resource-group "resgroup001" "storageaccount001"
+[az batch account create](https://docs.microsoft.com/cli/azure/batch/account#create)
 
-Then use the **Url** value for the `--autostorage-account-id` option. The Url value starts with "/subscriptions/" and contains your subscription ID and resource path to the Storage account:
+#### Example
 
-    azure batch account create --location "West US"  --resource-group "resgroup001" --autostorage-account-id "/subscriptions/8ffffff8-4444-4444-bfbf-8ffffff84444/resourceGroups/resgroup001/providers/Microsoft.Storage/storageAccounts/storageaccount001" "batchaccount001"
+```Azure CLI
+az batch account create --location westus --resource-group myresourcegroup --name mybatchaccount --storage-account mystorageaccount
+```
 
-## Delete a Batch account
-Usage:
+### Delete a Batch account
 
-    azure batch account delete [options] <name>
+Use this command to delete a Batch account.
 
-Example:
+When you delete a Batch account with the Azure CLI, you can specify whether to be prompted to confirm that you want to remove the account. Note that account removal can take some time to complete.
 
-    azure batch account delete --resource-group "resgroup001" "batchaccount001"
+#### Command
 
-Deletes the specified Batch account. When prompted, confirm you want to remove the account (account removal can take some time to complete).
+[az batch account delete](https://docs.microsoft.com/cli/azure/batch/account#delete)
 
-## Manage account access keys
-You need an access key to [create and modify resources](#create-and-modify-batch-resources) in your Batch account.
+#### Example
+
+```Azure CLI
+az batch account delete --name mybatchaccount --resource-group myresourcegroup
+```
 
 ### List access keys
-Usage:
 
-    azure batch account keys list [options] <name>
+Use this command to list the account access keys associated with your Batch account. These keys are used for Shared Key authentication. See [Authenticate Requests to the Azure Batch Service](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service) for more information about authenticating with Shared Key.
 
-Example:
+You can list account access keys only for Batch accounts created with a poolAllocationMode of 'BatchService'. If the Batch account was created with a poolAllocationMode of 'UserSubscription', clients cannot use access to keys to authenticate, and must use Azure Active Directory instead. In this case, listing the keys will fail.
 
-    azure batch account keys list --resource-group "resgroup001" "batchaccount001"
+#### Command
 
-Lists the account keys for the given Batch account.
+[az batch account keys list](https://docs.microsoft.com/cli/azure/batch/account/keys#list)
 
-### Generate a new access key
-Usage:
+#### Example
 
-    azure batch account keys renew [options] --<primary|secondary> <name>
+```Azure CLI
+azure batch account keys list --resource-group "resgroup001" "batchaccount001"
+```
 
-Example:
+### Regenerate an access key
 
-    azure batch account keys renew --resource-group "resgroup001" --primary "batchaccount001"
+Use this command to regenerate an account key for your Batch account.
 
-Regenerates the specified account key for the given Batch account.
+#### Command
+
+[az batch account keys renew](https://docs.microsoft.com/cli/azure/batch/account/keys#renew)
+
+#### Example
+
+```Azure CLI
+azure batch account keys renew --key-name Primary --name mybatchaccount --resource-group myresourcegroup
+```
+
+
 
 ## Create and modify Batch resources
+
 You can use the Azure CLI to create, read, update, and delete (CRUD) Batch resources like pools, compute nodes, jobs, and tasks. These CRUD operations require your Batch account name, access key, and endpoint. You can specify these with the `-a`, `-k`, and `-u` options, or set [environment variables](#credential-environment-variables) which the CLI uses automatically (if populated).
 
 ### Credential environment variables
@@ -172,48 +174,72 @@ To find the JSON required to create a resource, refer to the [Batch REST API ref
 > 
 > 
 
-## Create a pool
-Usage:
+### Create a pool
 
-    azure batch pool create [options] [json-file]
+**Command:** [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#create)
 
-Example (Virtual Machine Configuration):
+Use this command to create a pool of compute nodes in the Batch service.
 
-    azure batch pool create --id "pool001" --target-dedicated 1 --vm-size "STANDARD_A1" --image-publisher "Canonical" --image-offer "UbuntuServer" --image-sku "14.04.2-LTS" --node-agent-id "batch.node.ubuntu 14.04"
-
-Example (Cloud Services Configuration):
-
-    azure batch pool create --id "pool002" --target-dedicated 1 --vm-size "small" --os-family "4"
-
-Creates a pool of compute nodes in the Batch service.
-
-As mentioned in the [Batch feature overview](batch-api-basics.md#pool), you have two options when you select an operating system for the nodes in your pool: **Virtual Machine Configuration** and **Cloud Services Configuration**. Use the `--image-*` options to create Virtual Machine Configuration pools, and `--os-family` to create Cloud Services Configuration pools. You can't specify both `--os-family` and `--image-*` options.
+As mentioned in the [Batch feature overview](batch-api-basics.md#pool), you have two options when you select an operating system for the nodes in your pool: **Virtual Machine Configuration** and **Cloud Services Configuration**. Use the `--image` option to create Virtual Machine Configuration pools, and the `--os-family` option to create Cloud Services Configuration pools. You can specify either the `--os-family` or the `--image` option, but not both.
 
 You can specify pool [application packages](batch-application-packages.md) and the command line for a [start task](batch-api-basics.md#start-task). To specify resource files for the start task, however, you must instead use a [JSON file](#json-files).
 
-Delete a pool with:
-
-    azure batch pool delete [pool-id]
-
 > [!TIP]
-> Check the [list of virtual machine images](batch-linux-nodes.md#list-of-virtual-machine-images) for values appropriate for the `--image-*` options.
+> Check the [list of virtual machine images](batch-linux-nodes.md#list-of-virtual-machine-images) for values appropriate for the `--image` option.
 > 
 > 
 
-## Create a job
-Usage:
+#### Command
 
-    azure batch job create [options] [json-file]
+[az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#create)
 
-Example:
+#### Example (Virtual Machine Configuration):
 
-    azure batch job create --id "job001" --pool-id "pool001"
+```Azure CLI
+az batch pool create \
+    --id mypool-linux \
+    --vm-size Standard_A1 \
+    --image canonical:ubuntuserver:16.04.0-LTS \
+    --node-agent-sku-id batch.node.ubuntu 16.04
+```
 
-Adds a job to the Batch account and specifies the pool on which its tasks execute.
+#### Example (Cloud Services Configuration):
 
-Delete a job with:
+```Azure CLI
+az batch pool create \
+    --id mypool-windows \
+    --os-family 4 \
+    --target-dedicated 3 \
+    --vm-size small \
+    --start-task-command-line "cmd /c xcopy %AZ_BATCH_APP_PACKAGE_MYAPP% %AZ_BATCH_NODE_SHARED_DIR%" \
+    --start-task-wait-for-success \
+    --application-package-references myapp
+```
 
-    azure batch job delete [job-id]
+### Delete a pool
+
+**Command:** [az batch pool delete](https://docs.microsoft.com/en-us/cli/azure/batch/pool#delete)
+
+Use this command to delete a pool.
+
+#### Example
+
+```Azure CLI
+az batch pool delete --pool-id mypool-windows
+```
+
+### Create a job
+
+**Command:** [az batch job create](https://docs.microsoft.com/en-us/cli/azure/batch/job#create)
+
+Use this command to add a job to the Batch account.
+
+#### Example
+
+```Azure CLI
+az batch job create --id job001 --pool-id mypool-windows
+```
+
 
 ## List pools, jobs, tasks, and other resources
 Each Batch resource type supports a `list` command that queries your Batch account and lists resources of that type. For example, you can list the pools in your account and the tasks in a job:
