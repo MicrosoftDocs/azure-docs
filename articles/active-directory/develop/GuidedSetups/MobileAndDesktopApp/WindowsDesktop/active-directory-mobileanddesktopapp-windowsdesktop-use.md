@@ -102,11 +102,11 @@ Eventually, `AcquireTokenSilentAsync` will fail – e.g. the user has signed out
 
 # Call the Microsoft Graph API using the token you just obtained
 
-1. Add the new method below to your `MainWindow.cs`. The method is used to make a GET against Graph API using an Authorize header
+1. Add the new method below to your `MainWindow.cs`. The method is used to make a `GET` request against Graph API using an Authorize header
 
 ```csharp
 /// <summary>
-/// Perform a HTTP GET to a URL using an HTTP Authorization header
+/// Perform an HTTP GET request to a URL using an HTTP Authorization header
 /// </summary>
 /// <param name="url">The URL</param>
 /// <param name="token">The token</param>
@@ -133,16 +133,16 @@ public async Task<string> GetHttpContentWithToken(string url, string token)
 <!--start-collapse-->
 ### Making a REST call against a protected API
 
-In this sample application, `GetHttpContentWithToken` method is used to make a HTTP `GET` request against a protected resource that requires a token and then return the content to the caller. This method adds the acquired token in the *HTTP Authorization header*. For this sample, the resource is the Microsoft Graph API *me* endpoint – which displays user profile’s information.
+In this sample application, the `GetHttpContentWithToken` method is used to make an HTTP `GET` request against a protected resource that requires a token and then return the content to the caller. This method adds the acquired token in the *HTTP Authorization header*. For this sample, the resource is the Microsoft Graph API *me* endpoint – which displays the user's profile information.
 <!--end-collapse-->
 
 # Setup Sign-out
 
-1. Add the following additional method to sign-out the user:
+1. Add the following additional method to sign out the user:
 
 ```csharp
 /// <summary>
-/// Sign-Out the current user
+/// Sign out the current user
 /// </summary>
 private void SignOutButton_Click(object sender, RoutedEventArgs e)
 {
@@ -166,7 +166,7 @@ private void SignOutButton_Click(object sender, RoutedEventArgs e)
 ### More info on Sign-Out
 
 `SignOutButton_Click` removes the user from MSAL user cache – this will effectively tell MSAL to forget the current user so a future request to acquire a token will only succeed if it is made to be interactive.
-Although the application in this sample is single-user, MSAL supports scenarios where multiple accounts can sign-in at the same time – an example is an email application where user has multiple accounts.
+Although the application in this sample supports a single user, MSAL supports scenarios where multiple accounts can be signed-in at the same time – an example is an email application where a user has multiple accounts.
 <!--end-collapse-->
 
 # Display Basic Token Information
@@ -192,7 +192,7 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 <!--start-collapse-->
 ### More Information
 
-Tokens acquired via *OpenID Connect* also contain a small subset of information pertinent to the user. `DisplayBasicTokenInfo` displays basic information contained in the token: for example, the user's display name and Id, as well as the token expiration date and the string representing the access token itself. This information is listed in the screen for your information. You can hit the *Call Microsoft Graph API* button multiple times and see that the same token was reused for subsequent requests. You can also see the expiration date being extended when MSAL decides it is time to renew the token.
+Tokens acquired via *OpenID Connect* also contain a small subset of information pertinent to the user. `DisplayBasicTokenInfo` displays basic information contained in the token: for example, the user's display name and ID, as well as the token expiration date and the string representing the access token itself. This information is displayed for you to see. You can hit the *Call Microsoft Graph API* button multiple times and see that the same token was reused for subsequent requests. You can also see the expiration date being extended when MSAL decides it is time to renew the token.
 <!--end-collapse-->
 
 ### What is Next
