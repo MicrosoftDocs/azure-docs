@@ -73,7 +73,7 @@ Open the **Microsoft Azure Command Prompt**, and log in.
 az login -u "username"
 ```
 
-> [NOTE]
+> [!NOTE]
 > You can also use `az login` without the switch for device login that will require entering a code at aka.ms/devicelogin.
 
 Once you type the preceding example, a code is provided. Navigate to https://aka.ms/devicelogin in a browser to continue the login process.
