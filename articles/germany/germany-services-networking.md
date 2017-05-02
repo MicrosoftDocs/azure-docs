@@ -28,7 +28,7 @@ Azure ExpressRoute is generally available in Azure Germany. For more information
 * By default, all Azure Germany ExpressRoute connectivity is configured as active-active redundant with support for bursting and delivers up to 10G circuit capacity.
 * Azure Germany ExpressRoute locations provide optimized pathways (including shortest hops, low latency, and high performance) for customers and Azure Germany geo-redundant regions.
 * The Azure Germany ExpressRoute private connection does not use, traverse, or depend on the Internet.
-* Azure Germany physical and logical infrastructure is physically dedicated and separated. <!-- * Microsoft owns and operates all fiber infrastructure between Azure Germany Regions and Azure Germany ER Meet-Me locations -->
+* The Azure Germany physical and logical infrastructure is physically dedicated and separated from the international Microsoft cloud network. <!-- * Microsoft owns and operates all fiber infrastructure between Azure Germany Regions and Azure Germany ER Meet-Me locations -->
 * Azure Germany ExpressRoute provides private connectivity to Microsoft Azure cloud services, but not to Office 365 or Dynamics 365 cloud services.
 
 ### Considerations
@@ -52,16 +52,11 @@ For network services to support Azure Germany customer applications and solution
 
 If you use a private connectivity architecture, validate that an appropriate implementation is established and maintained for the connection to the Gateway Network/Internet (GN/I) edge router demarcation point for Azure Germany. Similarly, your organization must establish network connectivity between your on-premises environment and Gateway Network/Customer (GN/C) edge router demarcation point for Azure Germany.
 
-## Support for BGP communities
-This section provides an overview of how Border Gateway Protocol (BGP) communities are used with ExpressRoute in Azure Germany. Microsoft will advertise routes in the public peering paths with routes tagged with appropriate community values. The rationale for doing so and the details on community values are described later in this section. However, Microsoft will not honor any community values tagged to routes advertised to Microsoft.
-
 If you are connecting to Microsoft through ExpressRoute at any one peering location in the Azure Germany region, you will have access to all Microsoft Azure cloud services across all regions within the German boundary. For example, if you connect to Microsoft in Berlin through ExpressRoute, you will have access to all Microsoft cloud services hosted in Azure Germany.
 
 For details on locations and partners, and a detailed list of ExpressRoute for Azure Germany peering locations, see the **Overview** tab in the [ExpressRoute global documentation](../expressroute/index.md).
 
-You can purchase more than one ExpressRoute circuit. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the public peering paths. This means you will have multiple paths from your network to Microsoft. This situation can potentially cause suboptimal routing decisions to be made in your network. As a result, you might experience suboptimal connectivity experiences to different services. 
-
-Microsoft will tag prefixes advertised through public peering with appropriate BGP community values that indicate the region where the prefixes are hosted. You can rely on the community values to make appropriate routing decisions to offer optimal routing to customers. For more information, see the **Get started** tab in the [ExpressRoute global documentation](../expressroute/index.md) and select **Optimize routing**.
+You can purchase more than one ExpressRoute circuit. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the public peering paths. This means you will have multiple paths from your network to Microsoft. This situation can potentially cause suboptimal routing decisions to be made in your network. As a result, you might experience suboptimal connectivity experiences to different services. For more information, see the **Get started** tab in the [ExpressRoute global documentation](../expressroute/index.md) and select **Optimize routing**.
 
 <!--
 | **National Clouds Azure Region**| **BGP community value** |
