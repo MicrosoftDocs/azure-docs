@@ -58,33 +58,33 @@ Docker containers are a widely used method for deploying web applications. By us
 
    b. The **Hosts** area displays any Docker hosts that you have already created. Do either of the following: 
       * If you have an existing Docker host, you can deploy your web app to it.
-      * To create a new Docker host, click the green plus sign ("**+**").  
+      * To create a Docker host, click the green plus sign (**+**).  
        The **Create Docker Host** dialog box opens. 
 
       ![Deploy Docker Container on Azure Wizard][PUB04a]
 
-4. In the **Configure the new virtual machine** window, specify the following options for your Docker host. (The wizard automatically generates most of the options for you, but you can modify any of them.) 
+4. In the **Configure the new virtual machine** window, provide the following information about your Docker host. (The wizard automatically generates most of the information for you, but you can modify any of them.) 
 
-      * **Name**: Enter a unique name for the Docker host. (It is not the same as the Docker image name that you specified earlier.) 
+      a. In the **Name** box, enter a unique name for the Docker host. (It is not the same as the Docker image name that you specified earlier.) 
     
-      * **Subscription**: Enter the Azure subscription that you use for your host. 
+      b. In the **Subscription** box, enter the Azure subscription that you use for your host. 
       
-      * **Region**: Enter the geographical region where your host is located.
+      c. In the **Region** box, enter the geographical region where your host is located.
       
-      * On the **OS and Size** tab:
+      d. On the **OS and Size** tab, do the following:
           * **Host OS**: Enter the operating system for the virtual machine that contains your host. 
           * **Size**: Enter the virtual-machine size for your host.
     
-      * On the **Resource Group** tab, select either of the following:
-          * **New resource group**: Allows you to create a new resource group for your host.
+      e. On the **Resource Group** tab, select either of the following:
+          * **New resource group**: Allows you to create a resource group for your host.
           * **Existing resource group**: Allows you to specify an existing resource group from your Azure account.
     
-      * On the **Network** tab, select either of the following:
-          * **New virtual network**: Allows you to create a new virtual network for your host.
+      f. On the **Network** tab, select either of the following:
+          * **New virtual network**: Allows you to create a virtual network for your host.
           * **Existing virtual network**: Allows you to specify an existing virtual network from your Azure account.
     
-      * On the **Storage** tab, select either of the following:
-          * **New storage account**: Allows you to create a new storage account for your host.
+      g. On the **Storage** tab, select either of the following:
+          * **New storage account**: Allows you to create a storage account for your host.
           * **Existing storage account**: Allows you to specify an existing storage account from your Azure account.
 
 5. Click **Next**.  
@@ -97,13 +97,13 @@ Docker containers are a widely used method for deploying web applications. By us
       * **Import credentials from Azure Key Vault**: Allows you to specify a previously saved set of credentials that are stored in your Azure subscription.
 
           > [!NOTE]
-          > An Azure Key Vault that's created with a specific account or service principal is not automatically accessible by another account or service principal that shares the same subscription. To allow another account or service principal to use the Key Vault, you must use the Azure portal to add the account or service principal.
+          > An Azure key vault that's created with a specific account or service principal is not automatically accessible by another account or service principal that shares the subscription. To allow another account or service principal to use the key vault, you must use the Azure portal to add the account or service principal.
 
       * **New log in credentials**: Allows you to create a new set of login credentials. If you select this option, do the following:
 
-        * On the **VM Credentials** tab, provide the following information for the virtual-machine login credentials of your Docker host:
+        a. On the **VM Credentials** tab, provide the following information for the virtual-machine login credentials of your Docker host:
              * **Username**: Enter the username for your virtual-machine login credentials.
-             * **Password** and **Confirm**: Enter the password for your virtual machine login credentials.
+             * **Password** and **Confirm**: Enter the password for your virtual-machine login credentials.
              * **SSH**: Enter the Secure Shell (SSH) settings for your Docker host. You can select one of the following options:
                 * **None**: Specifies that your virtual machine does not allow SSH connections.
                 * **Auto-generate**: Automatically creates the requisite settings for connecting via SSH.
@@ -111,7 +111,7 @@ Docker containers are a widely used method for deploying web applications. By us
                    * *id_rsa*: Contains the RSA identification for a user.
                    * *id_rsa.pub*: Contains the RSA public key that is used for authentication.
             
-        * On the **Docker Daemon Access** tab, provide the following information:
+        b. On the **Docker Daemon Access** tab, provide the following information:
 
           ![Create Docker Host][PUB06]
     
@@ -148,12 +148,11 @@ Docker containers are a widely used method for deploying web applications. By us
       * **Custom Dockerfile**: Allows you to specify a previously saved Dockerfile from your local computer.
 
         > [!NOTE]
-        > This is a more advanced feature for developers who want to deploy their own Dockerfile. However, it is up to developers who use this option to ensure that their Dockerfile is built correctly. Because the Azure Toolkit does not validate the content in a custom Dockerfile, the deployment might fail if the Dockerfile has issues. In addition, the Azure Toolkit expects the custom Dockerfile to contain a web app artifact, and it will attempt to open an HTTP connection. If developers publish a different type of artifact, they might receive innocuous errors after deployment.
+        > This is a more advanced feature for developers who want to deploy their own Dockerfile. However, it is up to developers who use this option to ensure that their Dockerfile is built correctly. Because the Azure Toolkit does not validate the content in a custom Dockerfile, the deployment might fail if the Dockerfile has issues. In addition, because the Azure Toolkit expects the custom Dockerfile to contain a web app artifact, it attempts to open an HTTP connection. If developers publish a different type of artifact, they might receive innocuous errors after deployment.
 
-   * **Port settings**: Enter the unique TCP port binding for your Docker container. 
+   c. In the **Port settings** box, enter the unique TCP port binding for your Docker container. 
 
-
-10. After you have completed all of the preceding steps, click **Finish**. 
+10. After you have completed the preceding steps, click **Finish**. 
 
 The Azure Toolkit begins deploying your web app to Azure in a Docker container. Unless you have configured IntelliJ to be deployed in the background, a **Deploying to Azure** progress bar appears. 
 
@@ -170,7 +169,7 @@ To create a deployment-ready artifact, do the following:
 
    ![The Project Structure command][ART01]
 
-3. To add an artifact, click the green plus sign ("**+**"), and then click **Web Application: Archive**.
+3. To add an artifact, click the green plus sign (**+**), and then click **Web Application: Archive**.
 
    ![The "Web Application: Archive" command][ART02]
 
