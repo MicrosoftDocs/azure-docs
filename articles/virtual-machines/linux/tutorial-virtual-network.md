@@ -199,3 +199,9 @@ exit
 ```
 
 MySQL is installed to show how an application can be installed on `myBackendVM`, it is not actually used in this tutorial.
+
+## Next steps
+
+In this tutorial, you learned about creating and securing Azure networks as related to virtual machines. Advance to the next tutorial to learn about monitoring VM security with Azure Security Center.
+
+[Manage virtual machine security](./tutorial-azure-security.md)
