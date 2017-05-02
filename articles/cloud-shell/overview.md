@@ -29,7 +29,7 @@ from a local machine in a way only the cloud can provide.
 ### Pre-configured Azure workstation
 Cloud Shell comes pre-installed with popular command-line tools and language support so you can work faster.
 
-[View the full tooling list for Azure Cloud Shell here.](features.md#Tools)
+[View the full tooling list for Azure Cloud Shell here.](features.md#tools)
 
 ### Automatic authentication
 Cloud Shell securely authenticates automatically on each session for instant access to your resources through the Azure CLI 2.0.
