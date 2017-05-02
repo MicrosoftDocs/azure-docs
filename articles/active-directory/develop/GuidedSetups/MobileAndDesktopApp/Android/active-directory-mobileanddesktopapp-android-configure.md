@@ -39,7 +39,7 @@ final static String CLIENT_ID = "[Enter the application Id here]";
 7. Open `AndroidManifest.xml` (under `app` > `manifests`)
 8. Add the following to `manifest\application\activity\intent-filter` node:
 ```xml
-<data android:scheme="msal[Enter the application Id here]//"
+<data android:scheme="msal[Enter the application Id here]//:"
     android:host="auth" />
 ```
 <!-- End Docs -->

@@ -40,7 +40,7 @@ You  should also see basic information about the token acquired via `AcquireToke
 |Property  |Format  |Description |
 |---------|---------|---------|
 |Name | {User Full name} |The user’s first and last name|
-|Username |user@domain.com         |The username used to identify the user|
+|Username |<span>user@domain.com</span> |The username used to identify the user|
 |Token Expires |{DateTime}         |The time on which the token expires. MSAL will extend the expiration date for you by renewing the token when necessary|
 |Access token |{String}         |The token string sent that will be sent to HTTP requests that require an authorization header|
 
