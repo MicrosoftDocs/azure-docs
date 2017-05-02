@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Pass-through Authentication | Microsoft Docs'
-description: This article describes Azure Active Directory (Azure AD) Pass-through Authentication and how it allows Azure AD sign-ins by validating users' passwords against your on-premises Active Directory.
+title: 'Azure AD Connect: pass-through authentication | Microsoft Docs'
+description: This article describes Azure Active Directory (Azure AD) pass-through authentication and how it allows Azure AD sign-ins by validating users' passwords against your on-premises Active Directory.
 services: active-directory
 keywords: what is Azure AD Connect Pass-through authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 04/24/2017
 ms.author: billmath
 ---
 
-# Configure user sign-in with Azure Active Directory Pass-through Authentication
+# Configure user sign-in with Azure Active Directory pass-through authentication
 
 ## What is Azure Active Directory pass-through authentication?
 
@@ -54,46 +54,47 @@ The following scenarios are fully supported during preview:
 
 The following scenarios are _not_ supported during preview:
 
-- Legacy Office client applications and Exchange ActiveSync (that is, native email applications on mobile devices).
-  - Organizations are encouraged to switch to modern authentication, if possible. This allows for pass-through authentication support, but also helps you secure your identities using [conditional access](../active-directory-conditional-access.md) features such as Multi-Factor Authentication.
+- Legacy Office client applications and Exchange ActiveSync (that is, native email applications on mobile devices).  
+
+  Organizations are encouraged to switch to modern authentication, if possible. This allows for pass-through authentication support, but also helps you secure your identities using [conditional access](../active-directory-conditional-access.md) features such as Multi-Factor Authentication.
 - Azure AD Join for Windows 10 devices.
 
 >[!IMPORTANT]
->As a workaround for scenarios that the pass-through authentication feature doesn't support today (legacy Office client applications, Exchange ActiveSync and Azure AD Join for Window 10 devices), password synchronization is also enabled by default when you enable pass-through authentication. Password synchronization acts as a fallback in these specific scenarios only. If you don't need this, you can turn off password synchronization on the [Optional Features](active-directory-aadconnect-get-started-custom.md#optional-features) page on Azure AD Connect wizard.
+>As a workaround for scenarios that the pass-through authentication feature doesn't support today (legacy Office client applications, Exchange ActiveSync, and Azure AD Join for Window 10 devices), password synchronization is also enabled by default when you enable pass-through authentication. Password synchronization acts as a fallback in these specific scenarios only. If you don't need this, you can turn off password synchronization on the [Optional Features](active-directory-aadconnect-get-started-custom.md#optional-features) page in Azure AD Connect wizard.
 
 ## How do I enable Azure AD pass-through authentication?
 
 ### Prerequisites
 
-Before you can enable Azure AD pass-through authentication, you need to have the following prerequisites in place:
+Before you can enable Azure AD pass-through authentication, you need to have a few things in place:
 
-- An Azure AD tenant for which you are a Global Administrator.
+- An Azure AD tenant for which you are a global administrator.
 
->[!NOTE]
+>>>[!NOTE]
 >We highly recommended that the Global Administrator account be a cloud-only account. This way, you can manage the configuration of your tenant should your on-premises services fail or become unavailable. Learn about [adding a cloud-only Global Administrator account](../active-directory-users-create-azure-portal.md).
 
-- Azure AD Connect version 1.1.486.0 or higher. It is recommended that you use the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
-- A server running Windows Server 2012 R2 or higher on which to run Azure AD Connect.
+- Azure AD Connect version 1.1.486.0 or later. We recommend that you use the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
+- A server running Windows Server 2012 R2 or later on which to run Azure AD Connect.
   - This server must be a member of the same AD forest as the users whose passwords need to be validated.
-  - Note that a pass-through authentication connector is installed on the same server as Azure AD Connect. Verify that the connector version is 1.5.58.0 or higher.
+  - Note that a pass-through authentication connector is installed on the same server as Azure AD Connect. Verify that the connector version is 1.5.58.0 or later.
 
->[!NOTE]
->Multi-forest environments are supported if there are forest trusts between the AD forests and name suffix routing is correctly configured.
+>>>>>[!NOTE]
+>Multi-forest environments are supported if there are forest trusts between the AD forests, and name suffix routing is correctly configured.
 
-- If you want high availability, you will need additional servers running Windows Server 2012 R2 or higher to install standalone connectors (version needs to be 1.5.58.0 or higher).
-- If there is a firewall between any of the connectors and Azure AD, make sure that:
+- If you want high availability, you will need additional servers running Windows Server 2012 R2 or later to install standalone connectors. (The connector version needs to be 1.5.58.0 or later).
+- If there is a firewall between any of the connectors and Azure AD:
 	- If URL filtering is enabled, ensure that the connectors can communicate with the following URLs:
 		-  \*.msappproxy.net
 		-  \*.servicebus.windows.net
-	- The connectors also make direct IP connections to the [Azure data center IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
-	- Ensure that the firewall does not perform SSL inspection as the connectors use client certificates to communicate with Azure AD.
+	- Ensure that the connectors also make direct IP connections to the [Azure data center IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
+	- Ensure that the firewall does not perform SSL inspection, because the connectors use client certificates to communicate with Azure AD.
 	- Ensure that the connectors can make outbound requests to Azure AD over ports 80 and 443.
-      - If your firewall enforces rules according to originating users, open these ports for traffic coming from Windows services running as a Network Service.
-      - The connectors make HTTP requests over port 80 for downloading SSL certificate revocation lists. This is also needed for the auto-update capability to function properly.
+      - If your firewall enforces rules according to originating users, open these ports for traffic coming from Windows services running as a network service.
+      - The connectors make HTTP requests over port 80 for downloading SSL certificate revocation lists. This is also needed for the automatic update capability to function properly.
       - The connectors make HTTPS requests over port 443 for all other operations such as enabling and disabling the feature, registering connectors, downloading connector updates, and handling all user sign-in requests.
 
->[!NOTE]
->We have recently made improvements to reduce the number of ports required by the connectors to communicate with our service. If you are running older versions of Azure AD Connect and / or standalone connectors, you should continue to keep those additional ports (5671, 8080, 9090, 9091, 9350, 9352, 10100-10120) open.
+>>>>>>>[!NOTE]
+>We have recently made improvements to reduce the number of ports required by the connectors to communicate with our service. If you are running older versions of Azure AD Connect and/or standalone connectors, you should continue to keep those additional ports (5671, 8080, 9090, 9091, 9350, 9352, 10100-10120) open.
 
 ### Enable Azure AD pass-through authentication
 
@@ -156,13 +157,13 @@ The following diagram illustrates the various steps. Note that all requests and 
 
 ### Password writeback
 
-You might have configured [password writeback](../active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) on your tenant for a specific user. If this is the case, and if the user signs in using pass-through authentication, they will be able to change or reset their passwords as before. The passwords are written back to on-premises Active Directory as expected.
+You might have a case where you have configured [password writeback](../active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) on your tenant for a specific user. In such a case, if the user signs in using pass-through authentication, they will be able to change or reset their passwords as before. The passwords are written back to your on-premises Active Directory as expected.
 
 However, if password writeback is not configured on your tenant or the user doesn't have a valid Azure AD license assigned to them, then the user will not be allowed to update their passwords in the cloud, even if their password has expired. The user will instead see this message: "Your organization doesn't allow you to update your password on this site. Please update it according to the method recommended by your organization, or ask your admin if you need help."
 
-## Troubleshoot installation of pass-through authentication
+## How do I troubleshoot installation of pass-through authentication?
 
-This section describes some common issues encountered during the installation, registration, or uninstallation of pass-through authentication connectors (either via Azure AD Connect or standalone). And during enabling and operating of the feature on your tenant.
+This section describes some common issues encountered during the installation, registration, or uninstallation of pass-through authentication connectors (either via Azure AD Connect or standalone). It also describes issues you might encounter during the enabling and operating of pass-through authentication on your tenant.
 
 ### Issues during installation of connectors (either via Azure AD Connect or standalone)
 
@@ -170,7 +171,7 @@ This section describes some common issues encountered during the installation, r
 
 A pass-through authentication connector cannot be installed on the same server as an [Azure AD Application Proxy](../../active-directory/active-directory-application-proxy-get-started.md) connector. You need to install the pass-through authentication connector on a separate server.
 
-#### An unexpected error occured
+#### An unexpected error occurred
 
 [Collect connector logs](#collecting-pass-through-authentication-connector-logs) from the server and contact Microsoft Support with your issue.
 
@@ -208,7 +209,7 @@ Ensure that the server on which Azure AD Connect is installed can communicate wi
 
 #### The enabling of the feature failed due to token or account authorization errors
 
-Use a cloud-only Global Administrator account when enabling the feature. There is a known issue with Global Administrator accounts that have  Multi-Factor Authentication turned on. Turn it off temporarily (only to complete the operation) as a workaround.
+Use a cloud-only Global Administrator account when enabling the feature. There is a known issue with Global Administrator accounts that have Multi-Factor Authentication turned on. Turn it off temporarily (only to complete the operation) as a workaround.
 
 ### Issues while operating the pass-through authentication feature
 
@@ -222,7 +223,7 @@ The pass-through authentication feature reports user-facing errors on the Azure 
 |AADSTS8002|A time-out occurred while connecting to Active Directory.|Ensure that Active Directory is available and is responding to requests from the connectors.
 |AADSTS80004|The username that was passed to the connector was not valid.|Ensure that the user is attempting to sign in with the right username.
 |AADSTS80005|Validation encountered an unpredictable WebException.|This is likely a transient error. Retry the request. If it continues to fail, contact Microsoft Support.
-|AADSTS80007|An error occurred while communicating with Active Directory.|Check the connector logs for more information and verify that Active Directory is operating as expected.
+|AADSTS80007|An error occurred while communicating with Active Directory.|Check the connector logs for more information, and verify that Active Directory is operating as expected.
 
 ### Collect pass-through authentication connector logs
 
@@ -232,7 +233,7 @@ The type of issue you encounter determines where you need to look for pass-throu
 
 For errors related to the connector, open up the Event Viewer application on the server and check under **Application and Service Logs\Microsoft\AadApplicationProxy\Connector\Admin**.
 
-To view detailed analytics and debugging logs, enable the "Session" log. During normal operations, don't run the connector with this log enabled; use it only for troubleshooting. Note that log contents are visible only after the log is disabled again.
+To view detailed analytics and debugging logs, enable the "Session" log. During normal operations, don't run the connector with this log enabled; use it only for troubleshooting. Note that log contents are visible only after the "Session" log is disabled again.
 
 #### Detailed trace logs
 
