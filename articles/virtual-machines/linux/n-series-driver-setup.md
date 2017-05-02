@@ -22,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 
 # Set up GPU drivers for N-series VMs running Linux
 
-To take advantage of the GPU capabilities of Azure N-series VMs running Linux, NVIDIA graphics drivers must be installed on each VM. This article provides driver setup steps after you deploy an N-series VM. Driver setup information is also available for [Windows VMs](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+To take advantage of the GPU capabilities of Azure N-series VMs running Linux, install NVIDIA graphics drivers on each VM. This article provides driver setup steps after you deploy an N-series VM. Driver setup information is also available for [Windows VMs](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
 For N-series VM specs, storage capacities, and disk details, see [GPU Linux VM sizes](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
@@ -47,7 +47,7 @@ The following distributions from the Azure Marketplace are supported to run NVID
 
 
 > [!WARNING] 
-> Installation of third-party software on Red Hat products affects the Red Hat support terms. See the [Red Hat Knowledgebase article](https://access.redhat.com/articles/1067).
+> Installation of third-party software on Red Hat products can affect the Red Hat support terms. See the [Red Hat Knowledgebase article](https://access.redhat.com/articles/1067).
 >
 
 
@@ -62,6 +62,7 @@ C and C++ developers can optionally install the full Toolkit to build GPU-accele
 
 > [!NOTE]
 > CUDA driver download links provided here are current at time of publication. For the latest drivers, visit the [NVIDIA](http://www.nvidia.com/) website.
+>
 
 To install CUDA Toolkit, make an SSH connection to each VM. To verify that the system has a CUDA-capable GPU, run the following command:
 
@@ -177,33 +178,13 @@ After the update completes, restart the VM.
 sudo yum update
 ```
 
+After the update completes, restart the VM.
 
 
-## Incompatibility of Linux kernel 4.4.0.75 on Ubuntu 16.04 LTS
 
-There is a known issue with Azure N-series VMs running the 4.4.0-75 Linux kernel on Ubuntu 16.04 LTS. To maintain driver function, don't upgrade past kernel version 4.4.0-72. Otherwise, the NVIDIA drivers may stop working on Ubuntu 16.04 LTS VMs.
+## Troubleshooting
 
-
-To explicitly install 4.4.0-72: 
-
-```bash
-sudo apt-get update && sudo apt-get install linux-image-4.4.0-72-generic linux-tools-4.4.0-72 linux-cloud-tools-4.4.0-72 linux-headers-4.4.0-72
-```
-
-
-To explicitly uninstall 4.4.0-75: 
-
-```bash
-dpkg -l | awk '{print $2}' | grep 4.4.0-75 | xargs sudo apt-get purge -y
-```
-
-To reinstall CUDA drivers, if required:
-
-```bash
-dpkg -l | awk '{print $2}' | grep nvidia | xargs sudo apt-get install --reinstall -y
-```
-
-After driver installation, reboot the VM.
+* There is a known issue with CUDA drivers on Azure N-series VMs running the 4.4.0-75 Linux kernel on Ubuntu 16.04 LTS. To maintain driver function when you upgrade the kernel, upgrade to at least kernel version 4.4.0-77. 
 
 
 
