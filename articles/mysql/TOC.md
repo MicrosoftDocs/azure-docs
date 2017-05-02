@@ -19,7 +19,7 @@
 ### [Connection libraries](concept-connectivity-libraries.md)
 ### [Application development](concept-database-application-development.md)
 ## Data access & security 
-### [SSL configuration](concepts-ssl-connection-security.md)
+### [SSL configuration](concept-ssl-connection-security.md)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/mysql/)
