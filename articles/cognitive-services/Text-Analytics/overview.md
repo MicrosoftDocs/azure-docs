@@ -26,11 +26,11 @@ Sentiment score is generated using classification techniques, and will return a 
 
 Automatically extract key phrases to quickly identify the main points. We employ techniques from Microsoft Office's sophisticated Natural Language Processing toolkit.
 
-For example, for the input text ‘The manual transmission is a bit twitchy. Also, the vehicle is old-school’, the service would return the main talking points: ‘manual transmission’, ‘vehicle’ and ‘old-school’.
+For example, for the input text ‘The food was delicious but and there were wonderful staff’, the service returns the main talking points: ‘food’ and ‘wonderful staff’.
 
 ## Topic Detection
 
-This service returns topics which have been detected in multiple text articles. The service is designed to work well for short, human written text such as reviews and user feedback, and can help you to understand the main issues or suggestions that customers are mentioning.
+This service returns topics that have been detected in multiple text articles. The service is designed to work well for short, human written text such as reviews and user feedback. It can help you to understand the main issues or suggestions that customers are mentioning.
 
 ## Language Detection
 
