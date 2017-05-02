@@ -124,7 +124,7 @@
   - name: Bing Video Search
     items:
     - name: Overview
-      href: Bing-Video-Search/overview.md
+      href: Bing-Video-Search/search-the-web.md
     - name: Use and Display Requirements
       href: Bing-Video-Search/UseAndDisplayRequirements.md
     - name: API reference
