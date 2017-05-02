@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/10/2017
+ms.date: 05/02/2017
 ms.author: owend
 ---
 # Lesson 7: Create Key Performance Indicators
@@ -36,7 +36,7 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
 3.  In the formula bar, above the table, type the following formula: 
  
     ```  
-    InternetCurrentQuarterSalesPerformance :=IFERROR([InternetCurrentQuarterSales]/[InternetPreviousQuarterSalesProportionToQTD],BLANK())  
+    InternetCurrentQuarterSalesPerformance :=DIVIDE([InternetCurrentQuarterSales]/[InternetPreviousQuarterSalesProportionToQTD],BLANK())  
     ```
 
     This measure will serve as the Base measure for the KPI.  

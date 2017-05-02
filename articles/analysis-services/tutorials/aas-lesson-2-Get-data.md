@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/10/2017
+ms.date: 05/02/2017
 ms.author: owend
 ---
 
@@ -23,7 +23,7 @@ In this lesson, you use Get Data in SSDT to connect to the AdventureWorksDW2014 
   
 By using Get Data, you can import data from a wide variety of sources: Azure SQL Database, Oracle, Sybase, OData Feed, Teradata, files and more. Data can also be queried using a Power Query M formula expression.
   
-Estimated time to complete this lesson: **20 minutes**  
+Estimated time to complete this lesson: **10 minutes**  
   
 ## Prerequisites  
 This topic is part of a tabular modeling tutorial, which should be completed in order. Before performing the tasks in this lesson, you should have completed the previous lesson: [Lesson 1: Create a new tabular model project](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  

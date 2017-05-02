@@ -19,7 +19,8 @@ ms.author: owend
 ---
 # Azure Analysis Services - Adventure Works tutorial
 This tutorial provides lessons on how to create and deploy a tabular model at the 1400 compatibility level by using [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
-  
+
+If you're new to Analysis Services and tabular modeling, completing this tutorial is the quickest way to learn about how to create a basic tabular model and deploy it to a real Analysis Services server. If you have all of the prerequisites in-place, it should take you between two or three hours to complete all of the regular lessons. If you want to learn advanced features, plan on another hour or two to complete supplemental lessons.  
   
 ## What you'll learn   
   
@@ -55,21 +56,23 @@ In order to complete this tutorial, you need the following:
 
 -   The latest version of [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).    
   
--   A SQL Server or Azure SQL Database with the [AdventureWorksDW2014 sample database](http://go.microsoft.com/fwlink/?LinkID=335807). This sample database includes the data necessary to complete this tutorial. Download [SQL Server free editions](https://www.microsoft.com/sql-server/sql-server-downloads). Sign up for a free [Azure SQL Database trial](https://azure.microsoft.com/services/sql-database/). 
+-   A SQL Server or Azure SQL Database with the [AdventureWorksDW2014 sample database](http://go.microsoft.com/fwlink/?LinkID=335807). This sample database includes the data necessary to complete this tutorial. Download [SQL Server free editions](https://www.microsoft.com/sql-server/sql-server-downloads). Or, sign up for a free [Azure SQL Database trial](https://azure.microsoft.com/services/sql-database/). 
 
-    **Important:** If you install the sample database on an on-premises SQL Server, and you deploy your model to an Azure Analysis Server, an [On-premises data gateway](../analysis-services-gateway.md) is required.
+    **Important:** If you install the sample database on an on-premises SQL Server, and you deploy your model to an Azure Analysis Services server, an [On-premises data gateway](../analysis-services-gateway.md) is required.
   
--   An Azure Analysis Services or SQL Server 2017 Analysis Services instance to deploy your model to. Sign up for a free [Azure Analysis Services trial](https://azure.microsoft.com/services/analysis-services/). Sign up and download [SQL Server vNext Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp). 
+-   An Azure Analysis Services or SQL Server 2017 Analysis Services instance to deploy your model to. Sign up for a free [Azure Analysis Services trial](https://azure.microsoft.com/services/analysis-services/). Or, sign up and download [SQL Server 2017 Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp). 
 
 -   A client application such as [Power BI Desktop](https://powerbi.microsoft.com/desktop/) or Excel. 
-  
+
+
+
 ## Lessons  
 This tutorial includes the following lessons:  
   
 |Lesson|Estimated time to complete|  
 |----------|------------------------------|  
 |[Lesson 1: Create a new tabular model project](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)|10 minutes|  
-|[Lesson 2: Get data](../tutorials/aas-lesson-2-get-data.md)|20 minutes|  
+|[Lesson 2: Get data](../tutorials/aas-lesson-2-get-data.md)|10 minutes|  
 |[Lesson 3: Mark as Date Table](../tutorials/aas-lesson-3-mark-as-date-table.md)|3 minutes|  
 |[Lesson 4: Create relationships](../tutorials/aas-lesson-4-create-relationships.md)|10 minutes|  
 |[Lesson 5: Create calculated columns](../tutorials/aas-lesson-5-create-calculated-columns.md)|15 minutes|
@@ -79,7 +82,7 @@ This tutorial includes the following lessons:
 |[Lesson 9: Create hierarchies](../tutorials/aas-lesson-9-create-hierarchies.md)|20 minutes|  
 |[Lesson 10: Create partitions](../tutorials/aas-lesson-10-create-partitions.md)|15 minutes|  
 |[Lesson 11: Create roles](../tutorials/aas-lesson-11-create-roles.md)|15 minutes|  
-|[Lesson 12: Analyze in Excel](../tutorials/aas-lesson-12-analyze-in-excel.md)|20 minutes| 
+|[Lesson 12: Analyze in Excel](../tutorials/aas-lesson-12-analyze-in-excel.md)|5 minutes| 
 |[Lesson 13: Deploy](../tutorials/aas-lesson-13-deploy.md)|5 minutes|  
   
 ## Supplemental lessons  

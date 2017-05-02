@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/10/2017
+ms.date: 05/02/2017
 ms.author: owend
 ---
 # Lesson 11: Create roles

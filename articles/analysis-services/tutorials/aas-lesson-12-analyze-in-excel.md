@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/10/2017
+ms.date: 05/02/2017
 ms.author: owend
 ---
 # Lesson 12: Analyze in Excel
@@ -22,7 +22,7 @@ In this lesson, you use the Analyze in Excel feature in SSDT to open Microsoft E
   
 In order to complete this lesson, Excel must be installed on the same computer as SSDT.
   
-Estimated time to complete this lesson: **20 minutes**  
+Estimated time to complete this lesson: **5 minutes**  
   
 ## Prerequisites  
 This topic is part of a tabular modeling tutorial, which should be completed in order. Before performing the tasks in this lesson, you should have completed the previous lesson: [Lesson 11: Create roles](../tutorials/aas-lesson-11-create-roles.md).  
