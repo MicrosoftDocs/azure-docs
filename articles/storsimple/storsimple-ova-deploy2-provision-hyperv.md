@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/11/2016
+ms.date: 01/12/2017
 ms.author: alkohli
 
 ---
@@ -192,7 +192,7 @@ Perform the following steps to start your virtual device and connect to it.
     
     1. To enable the FIPS mode, run the following cmdlet:
        
-        `Enter-HcsFIPSMode`
+        `Enable-HcsFIPSMode`
     2. Reboot your device after you have enabled the FIPS mode so that the cryptographic validations take effect.
        
        > [!NOTE]
