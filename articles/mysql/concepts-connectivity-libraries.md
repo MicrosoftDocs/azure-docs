@@ -23,15 +23,14 @@ MySQL offers standard database driver connectivity for using MySQL with applicat
 | **Language** | **Platform** | **Additional Resource** | **Download** |
 |--------------|----------------------------------------------|-------------------------------------------------------------------------------------------------|---------------------------------------------------------------|
 | PHP | Windows, Linux | [MySQL native driver for PHP - mysqlnd](https://dev.mysql.com/downloads/connector/php-mysqlnd/) | [Download](http://php.net/downloads.php) |
-| ODBC | Windows, Linux, Mac OS X, and Unix platforms | MySQL Connector/ODBC Developer Guide | [Download](https://dev.mysql.com/downloads/connector/odbc/) |
+| ODBC | Windows, Linux, Mac OS X, and Unix platforms | [MySQL Connector/ODBC Developer Guide](https://dev.mysql.com/doc/connector-odbc/en/) | [Download](https://dev.mysql.com/downloads/connector/odbc/) |
 | ADO.NET | Windows | [MySQL Connector/Net Developer Guide](https://dev.mysql.com/doc/connector-net/en/) | [Download](https://dev.mysql.com/downloads/connector/net/) |
-| JDBC | Platform independent | MySQL Connector/J 5.1 Developer Guide | [Download](https://dev.mysql.com/downloads/connector/j/) |
+| JDBC | Platform independent | [MySQL Connector/J 5.1 Developer Guide](https://dev.mysql.com/doc/connector-j/5.1/en/) | [Download](https://dev.mysql.com/downloads/connector/j/) |
 | Node.js | Windows, Linux, Mac OS X | [sidorares/node-mysql2](https://github.com/sidorares/node-mysql2/tree/master/documentation) | [Download](https://github.com/sidorares/node-mysql2) |
-| Python | Windows, Linux, Mac OS X | MySQL Connector/Python Developer Guide | [Download](https://dev.mysql.com/downloads/connector/python/) |
-| C++ | Windows, Linux, Mac OS X | MySQL Connector/C++ Developer Guide | [Download](https://dev.mysql.com/downloads/connector/python/) |
+| Python | Windows, Linux, Mac OS X | [MySQL Connector/Python Developer Guide](https://dev.mysql.com/doc/connector-python/en/) | [Download](https://dev.mysql.com/downloads/connector/python/) |
+| C++ | Windows, Linux, Mac OS X | [MySQL Connector/C++ Developer Guide](https://dev.mysql.com/doc/connector-cpp/en/) | [Download](https://dev.mysql.com/downloads/connector/python/) |
 | C | Windows, Linux, Mac OS X | [MySQL Connector/C Developer Guide](https://dev.mysql.com/doc/connector-c/en/) | [Download](https://dev.mysql.com/downloads/connector/c/) |
 
 ## Related links
 - For an overview of the service, see Azure Database for MySQL Overview. [What is Azure Database for MySQL? An overview](overview.md)
 - To create your first MySQL server, refer to [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md)
-
