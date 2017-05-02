@@ -44,7 +44,6 @@ If you're using System.Diagnostics.Trace, you need to add an entry to web.config
      </system.diagnostics>
    </configuration>
 ```
-
 ## Configure Application Insights to collect logs
 **[Add Application Insights to your project](app-insights-asp-net.md)** if you haven't done that yet. You'll see an option to include the log collector.
 
@@ -63,6 +62,7 @@ Use this method if your project type isn't supported by the Application Insights
 4. Select the appropriate package - one of:
 
    * Microsoft.ApplicationInsights.TraceListener (to capture System.Diagnostics.Trace calls)
+   * Microsoft.ApplicationInsights.EventSourceListener (to capture EventSource events)
    * Microsoft.ApplicationInsights.NLogTarget
    * Microsoft.ApplicationInsights.Log4NetAppender
 
@@ -77,6 +77,16 @@ If you prefer log4net or NLog:
 
     logger.Warn("Slow response - database01");
 
+## Using EventSource events
+If you use [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx), you can configure EventSource events to be sent to Application Insights as traces by editing the `TelemetryModules` section of the [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config) file.
+
+```xml
+    <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
+      <Sources>
+        <Add Name="MyCompany" Level="Verbose" />
+      </Sources>
+    </Add>
+```
 
 ## Using the Trace API directly
 You can call the Application Insights trace API directly. The logging adapters use this API.
