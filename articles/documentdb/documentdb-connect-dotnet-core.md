@@ -1,5 +1,5 @@
 ---
-title: Azure CosmosDB: Build a web app with .NET Core and DocumentDB API | Microsoft Docs
+title: 'Azure CosmosDB: Build a web app with .NET Core and DocumentDB API | Microsoft Docs'
 description: Presents a .NET core code sample you can use to connect to and query the Azure Cosmos DB DocumentDB API
 services: cosmosdb
 documentationcenter: ''
