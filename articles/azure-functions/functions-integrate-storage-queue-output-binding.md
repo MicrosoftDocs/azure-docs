@@ -36,7 +36,7 @@ You also need to download and install the [Microsoft Azure Storage Explorer](htt
 
 ## <a name="add-binding"></a>Add an output binding
  
-1. Expand your function app and click your function.
+1. Expand both your function app and your function.
 
 2. Click **Integrate** and **+ New output**, then click **Azure Queue storage** and click **Select**.
     
