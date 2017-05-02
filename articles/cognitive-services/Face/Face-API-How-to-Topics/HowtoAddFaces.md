@@ -20,10 +20,10 @@ This guide will demonstrate the best practice to add massive number of persons a
 
 Several variables are declared and a helper function is implemented to schedule the requests.
 
-- `PersonCount` is the toal number of persons.
+- `PersonCount` is the total number of persons.
 - `CallLimitPerSecond` is the maximum calls per second according to the subscription tier.
 - `_timeStampQueue` is a Queue to record the request timestamps.
-- `await WaitCallLimitPerSecondAsync()` will wait until it is valid to send next reqeust.
+- `await WaitCallLimitPerSecondAsync()` will wait until it is valid to send next request.
 
 ```CSharp
 const int PersonCount = 10000;
@@ -58,7 +58,7 @@ static async Task WaitCallLimitPerSecondAsync()
 When using a client library, the subscription key is passed in through the constructor of the FaceServiceClient class. For example:
 
 ```CSharp
-FaceServiceClient faceServiceClient = new FaceServiceClient("subscription key");
+FaceServiceClient faceServiceClient = new FaceServiceClient("Your subscription key");
 ```
 
 The subscription key can be obtained from the Marketplace page of your Azure management portal. See [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up).
@@ -93,7 +93,7 @@ Parallel.For(0, PersonCount, async i =>
 ## <a name="step5"></a> Step 5: Add faces to the persons
 
 Adding faces to different persons are processed concurrently, while it is recommended to add faces to one specific person sequentially.
-Again, `await WaitCallLimitPerSecondAsync()` is invoked to ensure the reqeust frequency is within the scope of limitation.
+Again, `await WaitCallLimitPerSecondAsync()` is invoked to ensure the request frequency is within the scope of limitation.
 
 ```CSharp
 Parallel.For(0, PersonCount, async i =>
@@ -117,7 +117,7 @@ Parallel.For(0, PersonCount, async i =>
 
 In this guide you have learned the process of creating a person group with massive number of persons and faces. Several reminders:
 
-- This strategy also applies to add faces to face lists, which is adviced to add face to different face lists concurrently, and same operation to one specific face list should be done sequentially.
+- This strategy also applies to add faces to face lists, which is advised to add face to different face lists concurrently, and same operation to one specific face list should be done sequentially.
 - To keep the simplicity, the handling of potential exception is omitted in this guide. If you want to enhance more robustness, proper retry policy should be applied.
 
 The following are a quick reminder of the features previously explained and demonstrated:
