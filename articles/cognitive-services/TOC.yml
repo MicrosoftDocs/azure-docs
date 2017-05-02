@@ -59,7 +59,7 @@
       items:
       - name: Get suggested search terms
         href: Bing-Autosuggest/get-suggested-search-terms.md
-      - name: Upgrade from v5 to V7 Preview
+      - name: Upgrade from v5 to v7 Preview
         href: Bing-Autosuggest/bing-autosuggest-upgrade-guide-v5-to-v7.md
       - name: Use and display requirements
         href: Bing-Autosuggest/UseAndDisplayRequirements.md
@@ -85,7 +85,7 @@
       items:
         - name: Search the web for images
           href: Bing-Image-Search/search-the-web.md
-        - name: Upgrade from v5 to V7 Preview
+        - name: Upgrade from v5 to v7 Preview
           href: Bing-Image-Search/bing-image-upgrade-guide-v5-to-v7.md
         - name: Use and display requirements
           href: Bing-Image-Search/UseAndDisplayRequirements.md
@@ -121,7 +121,7 @@
       items:
         - name: Search the web for news
           href: Bing-News-Search/search-the-web.md
-        - name: Upgrade from v5 to V7 Preview
+        - name: Upgrade from v5 to v7 Preview
           href: Bing-News-Search/bing-news-upgrade-guide-v5-to-v7.md
         - name: Use and display requirements
           href: Bing-News-Search/UseAndDisplayRequirements.md
@@ -191,7 +191,7 @@
       items:
         - name: Spell check text strings
           href: Bing-Spell-Check/proof-text.md
-        - name: Upgrade from v5 to V7 Preview
+        - name: Upgrade from v5 to v7 Preview
           href: Bing-Spell-Check/bing-spell-check-upgrade-guide-v5-to-v7.md
         - name: Use and display requirements
           href: Bing-Spell-Check/UseAndDisplayRequirements.md
@@ -217,7 +217,7 @@
       items:
         - name: Search the web for videos
           href: Bing-Video-Search/search-the-web.md
-        - name: Upgrade from v5 to V7 Preview
+        - name: Upgrade from v5 to v7 Preview
           href: Bing-Video-Search/bing-video-upgrade-guide-v5-to-v7.md
         - name: Use and display requirements
           href: Bing-Video-Search/UseAndDisplayRequirements.md
@@ -253,7 +253,7 @@
       items:
         - name: Search the web
           href: Bing-Web-Search/search-the-web.md
-        - name: Upgrade from v5 to V7 Preview
+        - name: Upgrade from v5 to v7 Preview
           href: Bing-Web-Search/bing-web-upgrade-guide-v5-to-v7.md
         - name: Use and display requirements
           href: Bing-Web-Search/UseAndDisplayRequirements.md
