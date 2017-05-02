@@ -3,7 +3,7 @@ title: 'Azure Active Directory B2C: Add your own attributes to custom policies a
 description: A Walkthrough on using extension properties, custom attributes, and including them in the user interface
 services: active-directory-b2c
 documentationcenter: ''
-author: joroja
+author: rojasja
 manager: krassk
 editor:
 
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
 ms.date: 04/29/2017
-ms.author: joroja
+ms.author: rojasja
 ---
 # Azure Active Directory B2C: Creating and using custom attributes in a custom profile edit policy.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-After completing the steps in this article, you will have created a custom attribute in your Azure AD B2C directory, (aka extension property) and will have used this new attribute as a custom claim in the profile edit user journey.
+In this article, you will have create a custom attribute in your Azure AD B2C directory and will use this new attribute as a custom claim in the profile edit user journey.
 
 ## Prerequisites
 
@@ -28,9 +28,9 @@ Complete the steps in the article [Getting Started with Custom Policies](active-
 
 # Use custom attributes to collect information about your customers in Azure Active Directory B2C using custom policies
 Your Azure Active Directory (Azure AD) B2C directory comes with a built-in set of attributes: Given Name, Surname, City, Postal Code, userPrincipalName, etc.  However, any of the following may create a need to create a custom attribute which is named an extension property in the Azure AD directory:
-* customer-facing application needs to persist an attribute such as "LoyaltyNumber"
-* an identity provider has a unique user identifier that must be saved such as "uniqueUserGUID"
-* a custom userjourney needs to persist the state of user sucha as "migrationStatus"
+* A customer-facing application needs to persist an attribute such as "LoyaltyNumber".
+* An identity provider has a unique user identifier that must be saved such as "uniqueUserGUID".
+* A custom user journey needs to persist the state of user such as "migrationStatus".
 With Azure AD B2C, you can extend the set of attributes stored on each user account. You can also read and write these attributes by using the [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md).
 
 *NOTE: We refer to a custom attribute or an extension property as a feature of the Azure AD B2C Directory.  Extension properties extend the schema of the user objects in the directory.  In order to user a custom attribute in a custom policy, it must also be defined in the policy in the `ClaimsSchema` element as will show later.*
@@ -42,29 +42,29 @@ NOTE: For additional information, see the article [DIRECTORY SCHEMA EXTENSIONS |
 
 *NOTE: Before extension properties can be stored, a new application must be created which is used by Azure AD B2C Custom policy for storing the Extension properties. The object id of that application is to be provided in the technical profile(s).*
 
-*NOTE: The Azure AD B2C directory typically includes a Web API App named `b2c-extensions-app`.  This application is primarily used by the b2c built-in  policies for the purpose of adding custom claims.  Using this application to register extensions for b2c custom policies is recommended for advanced users.*
+*NOTE: The Azure AD B2C directory typically includes a Web API App named `b2c-extensions-app`.  This application is primarily used by the b2c built-in  policies for the custom claims created via the Azure portal.  Using this application to register extensions for b2c custom policies is recommended only for advanced users.*
 
 
 ## Creating a new application to store the extension properties
 
 1. Open a browsing session and navigate to the [Azure porta](https://portal.azure.com) and sign in with administrative credentials of the B2C Directory you wish to configure.
 1. Click `Azure Active Directory` on the left navigation menu. You may need to find it by selecting More services>.
-1. Select `App registrations` and click on `New application registration`
+1. Select `App registrations` and click `New application registration`
 1. Provide the following recommended entries:
   * Specify a name for the web application: `WebApp-GraphAPI-DirectoryExtensions`
   * Application type: Web app/API
   * Sign-on URL:https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions
-1. Select `Create` . Successful completion will appear in the Notifications
+1. Select `Create` . Successful completion appears in the `notifications`
 1. Select the newly created web application: `WebApp-GraphAPI-DirectoryExtensions`
 1. Select Settings: `Required permissions`
 1. Select API `Windows Active Directory`
 1. Place a checkmark in Application Permissions: `Read and write directory data`, and `Save`
 1. Choose `Grant permissions` and confirm `Yes`.  Only admins of the necessary role can achieve this.
-1. Copy to your clipboard and save the following from WebApp-GraphAPI-DirectoryExtensions>Settings>Properties>
+1. Copy to your clipboard and save the following identifiers from WebApp-GraphAPI-DirectoryExtensions>Settings>Properties>
 *  `Application ID` . Example: `103ee0e6-f92d-4183-b576-8c3739027780`
-* `Object ID`. Example : `80d8296a-da0a-49ee-b6ab-fd232aa45201`
+* `Object ID`. Example: `80d8296a-da0a-49ee-b6ab-fd232aa45201`
 
-## Modifying your custom policy to add the object id of the application
+## Modifying your custom policy to add the `ApplicationObjectId`
 
 For every TechnicalProfile that will read or write extension attributes you must add a `<Metadata>` element with the two Items: ApplicationObjectId and ClientId which were obtained in earlier steps.
 
@@ -95,14 +95,15 @@ For every TechnicalProfile that will read or write extension attributes you must
       <IncludeTechnicalProfile ReferenceId="AAD-Common" />
 ```
 
-When the TechnicalProfile effects the first WRITE to the newly created extension property, it will be created if not found.  The very first time the extension property is used in the Directory, you may encounter an error.  Extension attributes in Graph API are named using the convention `extension_ApplicationObjectID_attributename`
+*NOTE: When the TechnicalProfile writes for the first time to the newly created extension property, the property will be created if not found.  You may experience a one-time error.*  
 
-## Using the new extension property / custom attribute in a userjourney
-Custom policies refer to extensions attributes as extension_attributename, thus ommitting the ApplicationObjectId
-We will modify the profile edit policy to collect an request a custom claim from the user and store it as a custom attribute (extension property)
+## Using the new extension property / custom attribute in a user journey
+*NOTE: Extension attributes in Graph API are named using the convention `extension_ApplicationObjectID_attributename`
+Custom policies refer to extensions attributes as extension_attributename, thus omitting the ApplicationObjectId
+We will modify the profile edit policy to collect a request a custom claim from the user and store it as a custom attribute (extension property)*
 
-1. Open the Relying Party(RP) file that describes your policy edit user journey.  If you are starting out, it may be advisable to dowload your already configured version of the RP-PolicyEdit file directly from the Azure B2C Custom Policy secion in the Azure Portal.  Alternative open your XML file from your storage folder.
-1. Add a custom claim `loyaltyId` as shown below.  By including the custom claim in the `<RelyingParty>` element, it will be expected from the UserJourney and included in the token for the application,
+1. Open the Relying Party(RP) file that describes your policy edit user journey.  If you are starting out, it may be advisable to download your already configured version of the RP-PolicyEdit file directly from the Azure B2C Custom Policy section in the Azure portal.  Alternatively, open your XML file from your storage folder.
+1. Add a custom claim `loyaltyId` as shown below.  By including the custom claim in the `<RelyingParty>` element, it be passed as a parameter to the UserJourney TechnicalProfiles and included in the token for the application.
 ```xml
 <RelyingParty>
    <DefaultUserJourney ReferenceId="ProfileEdit" />
@@ -132,9 +133,9 @@ We will modify the profile edit policy to collect an request a custom claim from
 </ClaimsSchema>
 ```
 1. Add the same claim definition to the Base policy file `TrustFrameworkBase.xml` .  
-NOTE: Adding a claimType definition in the base and the extensions file is normally not necessary, however since the next steps will add the extension_loyaltyId to TechnicalProfiles in the Base file, the policy validator will reject the upload of the base file without it.
+NOTE: Adding a `ClaimType` definition in both the base and the extensions file is normally not necessary, however since the next steps will add the extension_loyaltyId to TechnicalProfiles in the Base file, the policy validator will reject the upload of the base file without it.
 
-NOTE: It may be useful to trace the execution of the userjourney named "ProfileEdit" in the TrustFrameworkBase.xml file.  a. Search in your XML editor and observe that Orchestration Step 5 invokes the TechnicalProfileReferenceID="SelfAsserted-ProfileUpdate".  b. "SelfAsserted-ProfileUpdate" has two OPTIONAL input and OutputClaims as givenName and surname.
+NOTE: It may be useful to trace the execution of the user journey named "ProfileEdit" in the TrustFrameworkBase.xml file.  Search for the user journey of the same name in your editor and observe that Orchestration Step 5 invokes the TechnicalProfileReferenceID="SelfAsserted-ProfileUpdate".  Search and inspect this TechnicalProfile to familiarize yourself with the flow.
 
 1. Add loyaltyId as input and output claim in the TechnicalProfile "SelfAsserted-ProfileUpdate"
 
@@ -199,7 +200,7 @@ NOTE: It may be useful to trace the execution of the userjourney named "ProfileE
         </TechnicalProfile>
 ```
 1. Add claim in TechnicalProfile "AAD-UserReadUsingObjectId" to read the value of the extension attribute every time a user logs in.
-NOTE: Thus far the TechnicalProfiles have been changed in the flow of local accounts only.  If the new attribute is desired in the flow of a social/federated account, a different set of TechnicalProfiles need to be changed. Follow the journey step, by step to identify those profiles
+NOTE: Thus far the TechnicalProfiles have been changed in the flow of local accounts only.  If the new attribute is desired in the flow of a social/federated account, a different set of TechnicalProfiles need to be changed. See next steps.
 
 ```xml
 <!-- The following technical profile is used to read data after user authenticates. -->

@@ -3,7 +3,7 @@ title: 'Azure Active Directory B2C: Modify signup in custom policies and configu
 description: A walkthrough on adding claims to signup and configure the user input
 services: active-directory-b2c
 documentationcenter: ''
-author: joroja
+author: rojasja
 manager: krassk
 editor: tbd
 
@@ -14,18 +14,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
 ms.date: 04/29/2017
-ms.author: joroja
+ms.author: rojasja
 ---
 # Azure Active Directory B2C: Modify signup to add new claims and configure user input.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-After completing the steps in this article, you will have added a new user provided entry (i.e. a claim) to your signup user journey, configured the entry as dropdown, and determine required user entries
-
+In this article, you will add a new user provided entry (a claim) to your signup user journey.  You will configure the entry as a dropdown, and define if it is required.
 
 ## Prerequisites
 
-* Complete the steps in the article [Getting Started with Custom Policies](active-directory-b2c-get-started-custom.md).  Test the signup/signin userjourney to signup a new local account before proceeding.
+* Complete the steps in the article [Getting Started with Custom Policies](active-directory-b2c-get-started-custom.md).  Test the signup/signin user journey to signup a new local account before proceeding.
 
 
 Gathering initial data from your users is achieved via signup/signin.  Additional claims can be gathered later via profile edit user journeys. Anytime Azure AD B2C gathers information directly from the user interactively, the Identity Experience Framework uses its `selfasserted provider`. The steps below apply anytime this provider is used.
@@ -41,13 +40,13 @@ Lets ask the user for their city.  Add the following element to the `<ClaimsSche
 			<UserInputType>TextBox</UserInputType>
 		</ClaimType>
 ```
-There are additional choices you can make here to customize the claim.  For a full list, refer to the **Identity Experience Framework Technical Reference Guide** which describes the full schema.  This guide will be published soon and included in the reference section.
+There are additional choices you can make here to customize the claim.  For a full schema, refer to the **Identity Experience Framework Technical Reference Guide**.  This guide will be published soon in the reference section.
 
 * <DisplayName> is a string that defines the user-facing *label*
 
-* <UserHelpText> will be shown to the user to help them understand what is required
+* <UserHelpText> helps the user understand what is required
 
-* <UserInputType> has following four options highlighted below:
+* <UserInputType> has the following four options highlighted below:
     * `TextBox`
 ```
         <ClaimType Id="city">
@@ -112,7 +111,7 @@ Allows for the selection of one or more values.
       </ClaimType>
 ```
 
-## Add the claim to the singup/sign userjourney
+## Add the claim to the singup/sign user journey
 
 1. Add the claim as an `<OutputClaim ClaimTypeReferenceId="city"/>` to the TechnicalProfile `LocalAccountSignUpWithLogonEmail` (found in the TrustFrameworkBase policy file).  Note this TechnicalProfile uses the SelfAssertedAttributeProvider.
 
