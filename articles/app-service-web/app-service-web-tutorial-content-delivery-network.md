@@ -2,8 +2,8 @@
 title: Add a Content Delivery Network (CDN) to an Azure App Service | Microsoft Docs
 description: Add a Content Delivery Network (CDN) to an Azure App Service to cache and deliver your static files from servers close to your customers around the world.
 services: app-service
-author: tdykstra
-ms.author: tdykstra
+author: syntaxc4
+ms.author: cfowler
 ms.date: 05/01/2017
 ms.topic: hero-article
 ms.service: app-service-web
@@ -179,7 +179,7 @@ In a browser, navigate to the home page at the CDN endpoint, but include a query
 http://<endpointname>.azureedge.net/index.html?q=1
 ```
 
-The CDN caches and returns the current web app content, which includes "V2" in the heading.
+The CDN returns the current web app content, which includes "V2" in the heading. To ensure that this page is cached in the CDN, refresh the page. 
 
 Open *index.html* and change "V2" to "V3", and deploy the change. 
 
@@ -221,7 +221,7 @@ http://<endpointname>.azureedge.net/index.html?q=1
 
 ![V3 in title in CDN, query string 1](media/app-service-web-tutorial-content-delivery-network/v3-in-cdn-title-qs1.png)
 
-Because each query string is now treated as a different resource, the CDN retrieves, caches, and returns the current contents of the origin web app, with "V3" in the heading.
+Because each query string is now treated as a different resource, the CDN retrieves, caches, and returns the current contents of the origin web app, with "V3" in the heading. To ensure that this page is cached in the CDN, refresh the page. 
 
 Open *index.html* and change "V3" to "V4", and then deploy the change. 
 
