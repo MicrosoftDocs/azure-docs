@@ -138,7 +138,7 @@ SELECT * FROM inventory;
 ```
 
 ## Restore a database to a previous point in time
-Imagine you have accidentally deleted this table. This is something you cannot easily recover from. Azure Database for PostgreSQL allows you to go back to any point-in-time (in the last up to 7 days (Basic) and 35 days (Standard)) and restore this point in time to a new server. You can use this new server to recover your deleted data. The following steps restore the sample server to a point before the table was added.
+Imagine you have accidentally deleted this table. This is something you cannot easily recover from. Azure Database for PostgreSQL allows you to go back to any point-in-time (in the last up to 7 days (Basic) and 35 days (Standard)) and restore this point-in-time to a new server. You can use this new server to recover your deleted data. The following steps restore the sample server to a point before the table was added.
 
 1.	On the Azure Database for PostgreSQL page for your server, click **Restore** on the toolbar. The **Restore** page opens.
   ![Azure Portal - Restore form options](./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png)
