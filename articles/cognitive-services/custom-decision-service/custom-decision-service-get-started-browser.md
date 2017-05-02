@@ -3,7 +3,7 @@ title: Microsoft Azure Custom Decision Service get started (browser) | Microsoft
 description: How to get started with Microsoft Custom Decision Service, if you prefer to call our APIs directly from the browser.
 services: cognitive-services
 author: slivkins
-manager: slivkins@microsoft.com
+manager: slivkins
 
 ms.service: cognitive-services
 ms.topic: article
