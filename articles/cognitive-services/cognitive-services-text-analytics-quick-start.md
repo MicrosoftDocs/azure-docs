@@ -25,8 +25,6 @@ You can use these APIs to detect sentiment, key phrases, topics, and language fr
 
 Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
 
-This guide is for version 2 of the APIs. For details on version 1 of the APIs, [refer to this document](../machine-learning/machine-learning-apps-text-analytics.md).
-
 By the end of this tutorial, you will be able to programmatically detect:
 
 * **Sentiment** - Is text positive or negative?
