@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # How password management works in Azure Active Directory
 > [!IMPORTANT]
-> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-or-unlock-my-password-for-a-work-or-school-account).
 
 Password management in Azure Active Directory (Azure AD) consists of the following logical components:
 
@@ -113,7 +113,7 @@ For more information about Azure AD Connect, see [Get started: Azure AD Connect]
 
 To learn more, see the following Azure AD password reset pages:
 
-* **Are you here because you're having problems signing in?** If so, learn how to [change and reset your own password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+* **Are you here because you're having problems signing in?** If so, learn how to [change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-or-unlock-my-password-for-a-work-or-school-account).
 * [**Getting started**](active-directory-passwords-getting-started.md): Learn how to allow you users to reset and change their cloud or on-premises passwords.
 * [**Customize**](active-directory-passwords-customize.md): Learn how to customize the look, feel, and behavior of the service to your organization's needs.
 * [**Best practices**](active-directory-passwords-best-practices.md): Learn how to quickly deploy and effectively manage passwords in your organization.

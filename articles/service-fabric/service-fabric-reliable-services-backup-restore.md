@@ -236,7 +236,7 @@ When doing restore from a backup chain, similar to Reliable Services, the Backup
 It is important to ensure that critical data is being backed up, and can be restored from. This can be done by invoking the **Invoke-ServiceFabricPartitionDataLoss** cmdlet in PowerShell that can induce data loss in a particular partition to test whether the data backup and restore functionality for your service is working as expected.  It is also possible to programmatically invoke data loss and restore from that event as well.
 
 > [!NOTE]
-> You can find a sample implementation of backup and restore functionality in the Web Reference App on Github. Please look at the Inventory.Service service for more details.
+> You can find a sample implementation of backup and restore functionality in the Web Reference App on GitHub. Please look at the Inventory.Service service for more details.
 > 
 > 
 

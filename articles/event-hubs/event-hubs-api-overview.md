@@ -21,7 +21,7 @@ ms.author: jotaub
 
 ## Runtime APIs
 
-The following is a listing of all currently available Event Hubs runtime clients. While some of these libraries also include limited management functionality, there are also [specific libraries](#management-apis) dedicated to management operations. The core focus of these libraries is to send and receive messages from an Event Hub.
+The following is a listing of all currently available Azure Event Hubs runtime clients. While some of these libraries also include limited management functionality, there are also [specific libraries](#management-apis) dedicated to management operations. The core focus of these libraries is to send and receive messages from an event hub.
 
 See [additional information](#additional-information) for more details on the current status of each runtime library.
 
@@ -54,5 +54,5 @@ The following is a listing of all currently available management specific librar
 You can learn more about Event Hubs by visiting the following links:
 
 * [Event Hubs overview](event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](event-hubs-create.md)
+* [Create an event hub](event-hubs-create.md)
 * [Event Hubs FAQ](event-hubs-faq.md)

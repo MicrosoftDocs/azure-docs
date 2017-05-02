@@ -30,8 +30,8 @@
 #### [Route traffic through NGFW only](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
 
 ### [SQL service recommendations](security-center-sql-service-recommendations.md)
-#### [Enable auditing on SQL databases](security-center-enable-auditing-on-sql-databases.md)
-#### [Enable auditing on SQL servers](security-center-enable-auditing-on-sql-servers.md)
+#### [Enable auditing and threat detection on SQL databases](security-center-enable-auditing-on-sql-databases.md)
+#### [Enable auditing and threat detection on SQL servers](security-center-enable-auditing-on-sql-servers.md)
 #### [Enable Transparent Data Encryption](security-center-enable-transparent-data-encryption.md)
 
 ### [Virtual machine recommendations](security-center-virtual-machine-recommendations.md)

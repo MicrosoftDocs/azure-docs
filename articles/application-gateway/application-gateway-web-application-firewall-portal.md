@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 04/03/2017
 ms.author: gwallace
 
 ---
@@ -150,7 +150,7 @@ Next give the public IP address a friendly name and click **OK**
 
 ### Step 8
 
-Next, you set p the listener configuration.  If **http** is used, nothing is left to configure and **OK** can be clicked. To use **https**
+Next, you setup the listener configuration.  If **http** is used, nothing is left to configure and **OK** can be clicked. To use **https**
 further configuration is required.
 
 To use **https**, a certificate is required. The private key of the certificate is needed so a .pfx export of the certificate needs to be provided and the password for the file.

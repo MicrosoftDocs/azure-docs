@@ -24,7 +24,7 @@ Event Hubs is a highly scalable ingestion system that can intake millions of eve
 
 For more information, see the [Event Hubs overview][Event Hubs overview].
 
-This tutorial shows how to send events to an Event Hub using a console application in Java. To receive events using the Java Event Processor Host library, see [this article](event-hubs-java-get-started-receive-eph.md), or click the appropriate receiving language in the left-hand table of contents.
+This tutorial shows how to send events to an event hub by using a console application in Java. To receive events using the Java Event Processor Host library, see [this article](event-hubs-java-get-started-receive-eph.md), or click the appropriate receiving language in the left-hand table of contents.
 
 In order to complete this tutorial, you will need the following:
 
@@ -65,7 +65,7 @@ public class Send
     {
 ```
 
-Replace the namespace and Event Hub names with the values used when you created the Event Hub.
+Replace the namespace and event hub names with the values used when you created the event hub.
 
 ``` Java
     final String namespaceName = "----ServiceBusNamespaceName-----";
@@ -97,5 +97,5 @@ You can learn more about Event Hubs by visiting the following links:
 
 * [Receive events using the EventProcessorHost](event-hubs-java-get-started-receive-eph.md)
 * [Event Hubs overview](event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](event-hubs-create.md)
+* [Create an event hub](event-hubs-create.md)
 * [Event Hubs FAQ](event-hubs-faq.md)

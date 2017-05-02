@@ -1,6 +1,6 @@
 ---
-title: Active Directory authentication and Resource Manager | Microsoft Docs
-description: A developer's guide to authentication with the Azure Resource Manager API and Active Directory for integrating an app with other Azure subscriptions.
+title: Azure Active Directory authentication and Resource Manager | Microsoft Docs
+description: A developer's guide to authentication with the Azure Resource Manager API and Azure Active Directory for integrating an app with other Azure subscriptions.
 services: azure-resource-manager,active-directory
 documentationcenter: na
 author: dushyantgill
@@ -19,7 +19,7 @@ ms.author: dugill;tomfitz
 ---
 # Use Resource Manager authentication API to access subscriptions
 ## Introduction
-If you are a software developer who needs to create an app that manages customer's Azure resources, this topic shows you how to authenticate with the Azure Resource Manager APIs and gain access to resources in other subscriptions. 
+If you are a software developer who needs to create an app that manages customer's Azure resources, this topic shows you how to authenticate with the Azure Resource Manager APIs and gain access to resources in other subscriptions.
 
 Your app can access the Resource Manager APIs in couple of ways:
 
@@ -28,7 +28,7 @@ Your app can access the Resource Manager APIs in couple of ways:
 
 This topic provides step-by-step instructions to create an app that employs both these authorization methods. It shows how to perform each step with REST API or C#. The complete ASP.NET MVC application is available at [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
-All the code for this topic is running as a web app that you can try at [http://vipswapper.azurewebsites.net/cloudsense](http://vipswapper.azurewebsites.net/cloudsense). 
+All the code for this topic is running as a web app that you can try at [http://vipswapper.azurewebsites.net/cloudsense](http://vipswapper.azurewebsites.net/cloudsense).
 
 ## What the web app does
 The web app:
@@ -65,11 +65,11 @@ Manage your connected subscriptions:
 ![Connect subscription](./media/resource-manager-api-authentication/sample-ux-7.png)
 
 ## Register application
-Before you start coding, register your web app with Azure Active Directory (AD). The app registration creates a central identity for your app in Azure AD. It holds basic information about your application like OAuth Client ID, Reply URLs, and credentials that your application uses to authenticate and access Azure Resource Manager APIs. The app registration also records the various delegated permissions that your application needs when accessing Microsoft APIs on behalf of the user. 
+Before you start coding, register your web app with Azure Active Directory (AD). The app registration creates a central identity for your app in Azure AD. It holds basic information about your application like OAuth Client ID, Reply URLs, and credentials that your application uses to authenticate and access Azure Resource Manager APIs. The app registration also records the various delegated permissions that your application needs when accessing Microsoft APIs on behalf of the user.
 
-Because your app accesses other subscription, you must configure it as a multi-tenant application. To pass validation, provide a domain associated with your Active Directory. To see the domains associated with your Active Directory, log in to the [classic portal](https://manage.windowsazure.com). Select your Active Directory and then select **Domains**.
+Because your app accesses other subscription, you must configure it as a multi-tenant application. To pass validation, provide a domain associated with your Azure Active Directory. To see the domains associated with your Azure Active Directory, log in to the [classic portal](https://manage.windowsazure.com). Select your Azure Active Directory and then select **Domains**.
 
-The following example shows how to register the app by using Azure PowerShell. You must have the latest version (August 2016) of Azure PowerShell for this command to work. 
+The following example shows how to register the app by using Azure PowerShell. You must have the latest version (August 2016) of Azure PowerShell for this command to work.
 
     $app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
 
@@ -77,21 +77,21 @@ To log in as the AD application, you need the application id and password. To se
 
     $app.ApplicationId
 
-The following example shows how to register the app by using Azure CLI. 
+The following example shows how to register the app by using Azure CLI.
 
     azure ad app create --name {app name} --home-page https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available true
 
 The results include the AppId, which you need when authenticating as the application.
 
 ### Optional configuration - certificate credential
-Azure AD also supports certificate credentials for applications: you create a self-signed cert, keep the private key, and add 
-the public key to your Azure AD application registration. For authentication, your application sends a small payload to Azure AD 
+Azure AD also supports certificate credentials for applications: you create a self-signed cert, keep the private key, and add
+the public key to your Azure AD application registration. For authentication, your application sends a small payload to Azure AD
 signed using your private key, and Azure AD validates the signature using the public key that you registered.
 
-For information about creating an AD app with a certificate, see [Use Azure PowerShell to create a service principal to access resources](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate) or [Use Azure CLI to create a service principal to access resources](resource-group-authenticate-service-principal-cli.md#create-service-principal-with-certificate).
+For information about creating an AD app with a certificate, see [Use Azure PowerShell to create a service principal to access resources](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) or [Use Azure CLI to create a service principal to access resources](resource-group-authenticate-service-principal-cli.md#create-service-principal-with-certificate).
 
 ## Get tenant id from subscription id
-To request a token that can be used to call Resource Manager, your application needs to know the tenant ID of the Azure AD tenant that hosts the Azure subscription. Most likely, your users know their subscription ids, but they might not know their tenant ids for Active Directory. To get the user's tenant id, ask the user for the subscription id. Provide that subscription id when sending a request about the subscription:
+To request a token that can be used to call Resource Manager, your application needs to know the tenant ID of the Azure AD tenant that hosts the Azure subscription. Most likely, your users know their subscription ids, but they might not know their tenant ids for Azure Active Directory. To get the user's tenant id, ask the user for the subscription id. Provide that subscription id when sending a request about the subscription:
 
     https://management.azure.com/subscriptions/{subscription-id}?api-version=2015-01-01
 
@@ -133,7 +133,7 @@ An example Open ID Connect response is:
     code=AAABAAAAiL*****I4rDWd7zXsH6WUjlkIEQxIAA&id_token=eyJ0eXAiOiJKV1Q*****T3GrzzSFxg&state=M_12tMyKaM8&session_state=2d16bbce-d5d1-443f-acdf-75f6b0ce8850
 
 ### Token request (OAuth2.0 Code Grant Flow)
-Now that your application has received the authorization code from Azure AD, it is time to get the access token for Azure Resource Manager.  Post an OAuth2.0 Code Grant Token Request to the Azure AD Token endpoint: 
+Now that your application has received the authorization code from Azure AD, it is time to get the access token for Azure Resource Manager.  Post an OAuth2.0 Code Grant Token Request to the Azure AD Token endpoint:
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
@@ -150,7 +150,7 @@ The following example shows a request for code grant token with password credent
 
 When working with certificate credentials, create a JSON Web Token (JWT) and sign (RSA SHA256) using the private key of your application's certificate credential. The claim types for the token are shown in [JWT token claims](../active-directory/develop/active-directory-protocols-oauth-code.md#jwt-token-claims). For reference, see the [Active Directory Auth Library (.NET) code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) to sign Client Assertion JWT tokens.
 
-See the [Open ID Connect spec](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) for details on client authentication. 
+See the [Open ID Connect spec](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) for details on client authentication.
 
 The following example shows a request for code grant token with certificate credential:
 
@@ -161,14 +161,14 @@ The following example shows a request for code grant token with certificate cred
 
     grant_type=authorization_code&code=AAABAAAAiL9Kn2Z*****L1nVMH3Z5ESiAA&redirect_uri=http%3A%2F%2Flocalhost%3A62080%2FAccount%2FSignIn&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=eyJhbG*****Y9cYo8nEjMyA
 
-An example response for code grant token: 
+An example response for code grant token:
 
     HTTP/1.1 200 OK
 
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1432039858","not_before":"1432035958","resource":"https://management.core.windows.net/","access_token":"eyJ0eXAiOiJKV1Q****M7Cw6JWtfY2lGc5A","refresh_token":"AAABAAAAiL9Kn2Z****55j-sjnyYgAA","scope":"user_impersonation","id_token":"eyJ0eXAiOiJKV*****-drP1J3P-HnHi9Rr46kGZnukEBH4dsg"}
 
 #### Handle code grant token response
-A successful token response contains the (user + app) access token for Azure Resource Manager. Your application uses this access token to access Resource Manager on behalf of the user. The lifetime of access tokens issued by Azure AD is one hour. It is unlikely that your web application needs to renew the (user + app) access token. If it needs to renew the access token, use the refresh token that your application receives in the token response. Post an OAuth2.0 Token Request to the Azure AD Token endpoint: 
+A successful token response contains the (user + app) access token for Azure Resource Manager. Your application uses this access token to access Resource Manager on behalf of the user. The lifetime of access tokens issued by Azure AD is one hour. It is unlikely that your web application needs to renew the (user + app) access token. If it needs to renew the access token, use the refresh token that your application receives in the token response. Post an OAuth2.0 Token Request to the Azure AD Token endpoint:
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
@@ -186,7 +186,7 @@ The following example shows how to use the refresh token:
 Although refresh tokens can be used to get new access tokens for Azure Resource Manager, they are not suitable for offline access by your application. The refresh tokens lifetime is limited, and refresh tokens are bound to the user. If the user leaves the organization, the application using the refresh token loses access. This approach isn't suitable for applications that are used by teams to manage their Azure resources.
 
 ## Check if user can assign access to subscription
-Your application now has a token to access Azure Resource Manager on behalf of the user. The next step is to connect your app to the subscription. After connecting, your app can manage those subscriptions even when the user isn't present (long-term offline access). 
+Your application now has a token to access Azure Resource Manager on behalf of the user. The next step is to connect your app to the subscription. After connecting, your app can manage those subscriptions even when the user isn't present (long-term offline access).
 
 For each subscription to connect, call the [Resource Manager list permissions](https://docs.microsoft.com/rest/api/authorization/permissions) API to determine whether the user has access management rights for the subscription.
 
@@ -231,14 +231,14 @@ The [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgil
 
 The query string parameters that are available for this request are described in the [Request an Access Token](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#request-an-access-token) topic.
 
-An example request for client credential grant token: 
+An example request for client credential grant token:
 
     POST https://login.microsoftonline.com/62e173e9-301e-423e-bcd4-29121ec1aa24/oauth2/token HTTP/1.1
     Content-Type: application/x-www-form-urlencoded
     Content-Length: 187</pre>
     <pre>grant_type=client_credentials&client_id=a0448380-c346-4f9f-b897-c18733de9394&resource=https%3A%2F%2Fgraph.windows.net%2F &client_secret=olna8C*****Og%3D
 
-An example response for client credential grant token: 
+An example response for client credential grant token:
 
     HTTP/1.1 200 OK
 
@@ -255,7 +255,7 @@ The following example shows how to request an application's service principal. a
 
     Authorization: Bearer eyJ0eXAiOiJK*****-kKorR-pg
 
-The following example shows a response to the request for an application's service principal 
+The following example shows a response to the request for an application's service principal
 
     HTTP/1.1 200 OK
 
@@ -283,7 +283,7 @@ The following request example shows how to get Azure RBAC role identifier. 09cbd
 
     Authorization: Bearer eyJ0eXAiOiJKV*****fY2lGc5
 
-The response is in the following format: 
+The response is in the following format:
 
     HTTP/1.1 200 OK
 
@@ -308,12 +308,12 @@ Here are the well-known guids of commonly used built-in roles:
 | SQL DB Contributor |9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
 
 ### Assign RBAC role to application
-You have everything you need to assign the appropriate RBAC role to your service principal by using 
+You have everything you need to assign the appropriate RBAC role to your service principal by using
 the [Resource Manager create role assignment](https://docs.microsoft.com/rest/api/authorization/roleassignments) API.
 
 The [GrantRoleToServicePrincipalOnSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L170) method of the ASP.net MVC sample app implements this call.
 
-An example request to assign RBAC role to application: 
+An example request to assign RBAC role to application:
 
     PUT https://management.azure.com/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/microsoft.authorization/roleassignments/4f87261d-2816-465d-8311-70a27558df4c?api-version=2015-07-01 HTTP/1.1
 
@@ -332,7 +332,7 @@ In the request, the following values are used:
 | acdd72a7-3385-48ef-bd42-f606fba81ae7 |the id of the reader role |
 | 4f87261d-2816-465d-8311-70a27558df4c |a new guid created for the new role assignment |
 
-The response is in the following format: 
+The response is in the following format:
 
     HTTP/1.1 201 Created
 
@@ -341,7 +341,7 @@ The response is in the following format:
 ### Get app-only access token for Azure Resource Manager
 To validate that app has the desired access on the subscription, perform a test task on the subscription using an app-only token.
 
-To get an app-only access token, follow instructions from section [Get app-only access token for Azure AD Graph API](#app-azure-ad-graph), with a different value for the resource parameter: 
+To get an app-only access token, follow instructions from section [Get app-only access token for Azure AD Graph API](#app-azure-ad-graph), with a different value for the resource parameter:
 
     https://management.core.windows.net/
 
@@ -358,10 +358,9 @@ monitoring/managing it using app-only access tokens for Azure Resource Manager.
 
 If a subscription owner removes your application's role assignment using the classic portal or command-line tools, your application is no longer able to access that subscription. In that case, you should notify the user that the connection with the subscription was severed from outside the application and give them an option to "repair" the connection. "Repair" would simply re-create the role assignment that was deleted offline.
 
-Just as you enabled the user to connect subscriptions to your application, you must allow the user to disconnect subscriptions too. From an access management point of view, disconnect means removing the role assignment that the application's service principal has on the subscription. Optionally, any state in the application for the subscription might be removed too. 
+Just as you enabled the user to connect subscriptions to your application, you must allow the user to disconnect subscriptions too. From an access management point of view, disconnect means removing the role assignment that the application's service principal has on the subscription. Optionally, any state in the application for the subscription might be removed too.
 Only users with access management permission on the subscription are able to disconnect the subscription.
 
 The [RevokeRoleFromServicePrincipalOnSubscription method](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L200) of the ASP.net MVC sample app implements this call.
 
 That's it - users can now easily connect and manage their Azure subscriptions with your application.
-

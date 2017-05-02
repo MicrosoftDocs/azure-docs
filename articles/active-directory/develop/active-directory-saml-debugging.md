@@ -33,4 +33,4 @@ You can view the SAML token by selecting this line and then selecting the **Insp
 * [How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](active-directory-saml-claims-customization.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-saml-debugging/fiddler.png
+[1]: ../media/active-directory-saml-debugging/fiddler.png

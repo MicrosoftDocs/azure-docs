@@ -280,7 +280,7 @@ This topic provides a reference for the following API Management policies. For i
 <set-body>Hello world!</set-body>  
 ```  
   
-#### Example accessing the body as a string  
+#### Example accessing the body as a string. Note that we are preserving the original request body so that we can access it later in the pipeline.
   
 ```xml  
 <set-body>  
@@ -294,7 +294,7 @@ This topic provides a reference for the following API Management policies. For i
 </set-body>  
 ```  
   
-#### Example accessing the body as a JObject  
+#### Example accessing the body as a JObject. Note that since we are not reserving the original request body, accesing it later in the pipeline will result in an exception.  
   
 ```xml  
 <set-body>   

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom:
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 03/28/2017
 ms.author: gwallace
 
 ---
@@ -30,7 +30,7 @@ Application Gateway web application firewall provides protection for web applica
 
 ## View rule groups and rules
 
-Navigate to an application gateway and select **Web application firewall**.  Click **Configure disabled rules**.  This shows a table on the page of all the rule groups provided with the rule set chosen.
+Navigate to an application gateway and select **Web application firewall**.  Click **Advanced rule configuration**.  This shows a table on the page of all the rule groups provided with the rule set chosen.
 
 ![configure disabled rules][1]
 
@@ -40,9 +40,9 @@ The web application firewall settings blade provides the capability to filter th
 
 ![search for rules][2]
 
-## Disable rulegroups and rules
+## Disable rule groups and rules
 
-When disabling rules you can disable an entire rule group, or specific rules under one or more rule groups.  Once the rules that you want to disable are selected, click **Save**.  This saves the changes to the application gateway.
+When disabling rules you can disable an entire rule group, or specific rules under one or more rule groups.  Once the rules that you want to disable are unchecked, click **Save**.  This saves the changes to the application gateway.
 
 ![save changes][3]
 

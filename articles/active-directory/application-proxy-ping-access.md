@@ -1,5 +1,5 @@
 ---
-title: PingAccess for Azure AD Application Proxy | Microsoft Docs
+title: Header-based authentication with PingAccess for Azure AD Application Proxy | Microsoft Docs
 description: Publish applications with PingAccess and App Proxy to support header-based authentication.
 services: active-directory
 documentationcenter: ''
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 04/21/2017
 ms.author: kgremban
 ---
 
-# Publish applications that support header-based authentication with PingAccess for Azure AD
+# Publish applications that support header-based authentication with Azure AD Application Proxy and PingAccess
 
 Azure Active Directory Application Proxy and PingAccess have partnered together to provide Azure Active Directory customers with access to even more applications. PingAccess expands the [existing Application Proxy offerings](active-directory-application-proxy-get-started.md) to include remote access to applications that use headers for authentication. 
 
@@ -24,9 +24,9 @@ Azure Active Directory Application Proxy and PingAccess have partnered together 
 
 To give your users access to apps that use headers for authentication, you publish the app for remote access in both Application Proxy and PingAccess. Application Proxy treats these apps like any other, using Azure AD to authenticate access and then passing traffic through the connector service. PingAccess sits in front of the apps and translates the access token from Azure AD into a header so that the application receives the authentication in the format it can read. 
 
-Your users won’t notice anything different when they sign in to use your corporate apps. They can still work from anywhere on any device. When your users are at the office, Application Proxy doesn’t route their authentication requests, but PingAccess still acts as an intermediary to translate the tokens into headers. 
+Your users won’t notice anything different when they sign in to use your corporate apps. They can still work from anywhere on any device. When your users are at the office, neither Application Proxy nor PingAccess intercept the traffic, so your users get the same experience as always.
 
-Since the Application Proxy connectors direct traffic to all apps regardless of their authentication type, they’ll continue to load balance automatically, as well. 
+Since the Application Proxy connectors direct remote traffic to all apps regardless of their authentication type, they’ll continue to load balance automatically, as well. 
 
 ## How do I get access?
 
@@ -49,8 +49,8 @@ The Application Proxy connector is a Windows Server service that directs the tra
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator. 
 2. Select **Azure Active Directory** > **Application proxy**.
-3. Select **Enable** if Application Proxy is currently disabled. 
-4. Select **Connector** to start the Application Proxy connector download. Follow the installation instructions. 
+3. Select **Download Connector** to start the Application Proxy connector download. Follow the installation instructions. 
+4. Downloading the connector should automatically enable Application Proxy for your directory, but if not you can select **Enable Application Proxy**. 
 
 ![Enable Application Proxy and download the connector](./media/application-proxy-ping-access/install-connector.png)
 
@@ -65,7 +65,7 @@ There are two parts to this section. First, you need to publish the app to Azure
 3. Select **Add** at the top of the blade. 
 4. Select **On-premises application**.
 5. Fill out the required fields with information about your new app. Use the following guidance for the settings:
-  - **Internal URL**: Provide the URL that takes you to the app’s sign in page when you’re on the corporate network.
+  - **Internal URL**: Normally you provide the URL that takes you to the app’s sign in page when you’re on the corporate network. For this partnership the connector needs to treat the PingAccess proxy as the front page of the app. Use this format: `https://<host name of your PA server>:<port>/<App path name>`. The port is 3000 by default, but you can configure it in PingAccess.
   - **Pre-authentication method**: Azure Active Directory
   - **Translate URL in Headers**: No
 6. Select **Add** at the bottom of the blade. Your application is added, and the quick start menu opens. 
@@ -73,13 +73,18 @@ There are two parts to this section. First, you need to publish the app to Azure
 select **Assign a user for testing**, and add at least one user to the application. Make sure this test account has access to the on-premises application. 
 8. Select **Assign** to save the test user assignment. 
 9. On the app management blade, select **Single sign-on**. 
-10. Choose **Header-based sign-on** from the drop-down menu. Select **Save**. 
+10. Choose **Header-based sign-on** from the drop-down menu. Select **Save**.
+
+  ![Select header-based sign-on](./media/application-proxy-ping-access/sso-header.PNG)
+
 11. Close the Enterprise applications blade or scroll all the way to the left to return to the Azure Active Directory menu. 
 12. Select **App registrations**.
 13. Select the app you just added, then **Reply URLs**. 
 14. Check to see if the external URL that you assigned to your app in step 5 is in the Reply URLs list. If it’s not, add it now. 
 15. On the app settings blade, select **Required permissions**. 
-16. Select **Add**. For the API, choose **Windows Azure Active Directory**, then **Select**. For the permissions, choose **Read and write all applications**, then **Select** and **Done**.   
+16. Select **Add**. For the API, choose **Windows Azure Active Directory**, then **Select**. For the permissions, choose **Read and write all applications** and **Sign in and read user profile**, then **Select** and **Done**.  
+
+  ![Select permissions](./media/application-proxy-ping-access/select-permissions.png) 
 
 #### Collect information for the PingAccess steps
 

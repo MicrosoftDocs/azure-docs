@@ -1,3 +1,4 @@
 ---
-redirect_url: /azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-onprem-availability
+redirect_url: /azure/virtual-machines/windows/classic/sql-onprem-availability
+redirect_document_id: true
 ---

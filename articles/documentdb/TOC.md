@@ -4,7 +4,9 @@
 ## [What is DocumentDB: API for MongoDB?](documentdb-protocol-mongodb.md)
 ## [Core concepts](documentdb-resources.md)
 ## [Global distribution](documentdb-distribute-data-globally.md)
+## [Regional failovers](documentdb-regional-failovers.md)
 ## [Security](documentdb-nosql-database-security.md)
+## [Encryption at rest](documentdb-nosql-database-encryption-at-rest.md)
 ## [NoSQL TCO analysis](https://aka.ms/documentdb-tco-paper)
 ## Scenarios
 ### [Common use cases](documentdb-use-cases.md)
@@ -21,6 +23,7 @@
 ## Build a web app
 ### [.NET web app](documentdb-dotnet-application.md)
 ### [.NET web app for MongoDB API](documentdb-mongodb-application.md)
+### [Xamarin app](documentdb-mobile-apps-with-xamarin.md)
 ### [Node.js web app](documentdb-nodejs-application.md)
 ### [Java web app](documentdb-java-application.md)
 ### [Python Flask web app](documentdb-python-application.md)
@@ -46,7 +49,6 @@
 ### [Model your data](documentdb-modeling-data.md)
 ### [Expire data automatically](documentdb-time-to-live.md)
 ### [Back up and restore](documentdb-online-backup-and-restore.md)
-### [Regional failovers](documentdb-regional-failovers.md)
 ### Automation
 #### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
 #### [Azure CLI 1.0: Create an account](documentdb-automation-resource-manager-cli-nodejs.md)
@@ -84,6 +86,7 @@
 
 
 ## Integrate
+### [Connect to Spark](documentdb-spark-connector.md)
 ### [Deploy a website with Azure App Service](documentdb-create-documentdb-website.md)
 ### [Application logging with Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 ### [Bind to Azure Functions](../azure-functions/functions-bindings-documentdb.md)

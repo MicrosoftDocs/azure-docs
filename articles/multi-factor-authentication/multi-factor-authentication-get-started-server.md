@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/26/2017
+ms.date: 03/26/2017
 ms.author: kgremban
 ---
 
@@ -117,13 +117,13 @@ Now that the server is installed and configured you can quickly import users int
 ## Send users an email
 Now that you have imported your users into the MFA Server, send an email to inform them that they have been enrolled for two-step verification.
 
-The email you send should be determined by how you configured your users for two-step verification. For example, if you were able to import phone numbers from the company directory, the email should include the default phone numbers so that users know what to expect. If you didn't import phone numbers or users are going to use the mobile app, send them an email that directs them to complete their account enrollment through a hyperlink to the Azure Multi-Factor Authentication User Portal.
+The email you send should be determined by how you configured your users for two-step verification. For example, if you were able to import phone numbers from the company directory, the email should include the default phone numbers so that users know what to expect. If you didn't import phone numbers or users are going to use the mobile app, send them an email that directs them to complete their account enrollment. Include a hyperlink to the Azure Multi-Factor Authentication User Portal in the email.
 
 The content of the email also varies depending on the method of verification that has been set for the user (phone call, SMS, or mobile app).  For example, if the user is required to use a PIN when they authenticate, the email tells them what their initial PIN has been set to.  Users are required to change their PIN during their first verification.
 
 
 ### Configure email and email templates
-Click the email icon on the left to set up the settings for sending these emails. This is where you can enter the SMTP information of your mail server and send email by checking the **Send emails to users** check box.
+Click the email icon on the left to set up the settings for sending these emails. This page is where you can enter the SMTP information of your mail server and send email by checking the **Send emails to users** check box.
 
 ![Email Settings](./media/multi-factor-authentication-get-started-server/email1.png)
 
@@ -151,11 +151,7 @@ In addition to the fields above, the verification result (success/denial) and re
 
 - Set up and configure the [User Portal](multi-factor-authentication-get-started-portal.md) for user self-service.
 
-- Set up Azure Multi-Factor Authentication with [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md).
-
-- Set up and configure the Azure MFA Server with [RADIUS Authentication](multi-factor-authentication-get-started-server-radius.md). Using RADIUS allows you to integrate various third-party systems with Azure MFA Server. 
-
-- Set up and configuring the Azure MFA Server with [Windows Authentication](multi-factor-authentication-get-started-server-windows.md).
+- Set up and configure the Azure MFA Server with [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md), [RADIUS Authentication](multi-factor-authentication-get-started-server-radius.md), or [LDAP Authentication](multi-factor-authentication-get-started-server-ldap.md).
 
 - Set up and configure [Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](multi-factor-authentication-get-started-server-rdg.md). 
 

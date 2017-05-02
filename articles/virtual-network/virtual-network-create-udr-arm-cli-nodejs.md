@@ -20,6 +20,13 @@ ms.author: jdial
 ---
 # Create User-Defined Routes (UDR) using the Azure CLI 1.0
 
+> [!div class="op_single_selector"]
+> * [PowerShell](virtual-network-create-udr-arm-ps.md)
+> * [Azure CLI](virtual-network-create-udr-arm-cli.md)
+> * [Template](virtual-network-create-udr-arm-template.md)
+> * [PowerShell (Classic)](virtual-network-create-udr-classic-ps.md)
+> * [CLI (Classic)](virtual-network-create-udr-classic-cli.md)
+
 Create custom routing and virtual appliances using the Azure CLI.
 
 ## CLI versions to complete the task 

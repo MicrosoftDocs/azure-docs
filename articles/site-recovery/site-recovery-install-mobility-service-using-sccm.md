@@ -1,6 +1,6 @@
 ---
-title: Automate Mobility Service installation for Azure Site Recovery using software deployment tools | Microsoft Docs.
-description: This article helps you automate Mobility Service Installation using Software deployment tools like System Center Configuration Manager
+title: Automate Mobility Service installation for Azure Site Recovery by using software deployment tools | Microsoft Docs
+description: This article helps you automate Mobility Service installation by using software deployment tools like System Center Configuration Manager.
 services: site-recovery
 documentationcenter: ''
 author: AnoopVasudavan
@@ -16,44 +16,44 @@ ms.topic: article
 ms.date: 1/10/2017
 ms.author: anoopkv
 ---
-# Automate Mobility Service installation using software deployment tools
+# Automate Mobility Service installation by using software deployment tools
 
-This article provides you an example of how you can use System Center Configuration Manager (SCCM) to deploy the Azure Site Recovery Mobility Service in your datacenter. Using a software deployment tool like SCCM gives you the following advantages
-* Scheduling deployment -fresh installs and upgrades, during your planned maintenance window for software updates.
-* Deploy at scale to hundreds of servers simultaneously
+This article provides you an example of how you can use System Center Configuration Manager to deploy the Azure Site Recovery Mobility Service in your datacenter. Using a software deployment tool like Configuration Manager has the following advantages:
+* Scheduling deployment of fresh installations and upgrades, during your planned maintenance window for software updates
+* Scaling deployment to hundreds of servers simultaneously
 
 
 > [!NOTE]
-> This article uses System Center Configuration Manager 2012 R2 to demonstrate the deployment activity. You could also automate Mobility Service Installation using [Azure Automation and Desired State Configuration](site-recovery-automate-mobility-service-install.md) .
+> This article uses System Center Configuration Manager 2012 R2 to demonstrate the deployment activity. You could also automate Mobility Service installation by using [Azure Automation and Desired State Configuration](site-recovery-automate-mobility-service-install.md).
 
 ## Prerequisites
-1. A software deployment tool like System Center Configuration Manager(SCCM) that is already deployed in your environment.
-  * Create two [Device Collections](https://technet.microsoft.com/library/gg682169.aspx) one for all **Windows Servers** and another for all **Linux Servers** you want to protect using Azure Site Recovery.
-3. A Configuration Server that is already registered with Azure Site Recovery.
-4. A secure network file share (SMB share) that can be accessed by the SCCM Server.
+1. A software deployment tool, like Configuration Manager, that is already deployed in your environment.
+  Create two [device collections](https://technet.microsoft.com/library/gg682169.aspx), one for all **Windows servers**, and another for all **Linux servers**, that you want to protect by using Site Recovery.
+3. A configuration server that is already registered with Site Recovery.
+4. A secure network file share (Server Message Block share) that can be accessed by the Configuration Manager server.
 
-## Deploy Mobility Service on computers running Microsoft Windows Operating Systems
+## Deploy Mobility Service on computers running Windows
 > [!NOTE]
-> This article assumes the following
-> 1. The IP Address of the configuration server is 192.168.3.121
-> 2. The secure network file share is \\\ContosoSecureFS\MobilityServiceInstallers
+> This article assumes that the IP address of the configuration server is 192.168.3.121, and that the secure network file share is \\\ContosoSecureFS\MobilityServiceInstallers.
 
 ### Step 1: Prepare for deployment
-1. Create a folder on the network share and name it as **MobSvcWindows**
-2. Log on to your Configuration Server and open up an Administrative command prompt
-3. Run the following commands to generate a passphrase file.
+1. Create a folder on the network share, and name it **MobSvcWindows**.
+2. Sign in to your configuration server, and open an administrative command prompt.
+3. Run the following commands to generate a passphrase file:
 
     `cd %ProgramData%\ASR\home\svsystems\bin`
 
     `genpassphrase.exe -v > MobSvc.passphrase`
-6. Copy the MobSvc.passphrase file into the MobSvcWindows folder on your network share.
-5. Next browse to the installer repository on the Configuration Server by running the command.
+4. Copy the **MobSvc.passphrase** file into the **MobSvcWindows** folder on your network share.
+5. Browse to the installer repository on the configuration server by running the following command:
 
-  `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+
 6. Copy the **Microsoft-ASR\_UA\_*version*\_Windows\_GA\_*date*\_Release.exe** to the **MobSvcWindows** folder on your network share.
-7. Copy the code listed below and save it as **install.bat** into the **MobSvcWindows** folder
-> [!NOTE]
-> Remember to replace the [CSIP] place holders in the below script with the actual values of the IP Address of your Configuration Server.
+7. Copy the following code, and save it as **install.bat** into the **MobSvcWindows** folder.
+
+   > [!NOTE]
+   > Replace the [CSIP] placeholders in this script with the actual values of the IP address of your configuration server.
 
 ```
 Time /t >> C:\Temp\logfile.log
@@ -98,86 +98,93 @@ GOTO :ENDSCRIPT
 
 ```
 
-### Step 2: Create a Package
+### Step 2: Create a package
 
-1. Log in to your System Center Configuration Manager Console
-2. Browse to **Software Library** > **Application Management** > **Packages**
-3. Right-click the **Packages** and select **Create Package**
-4. Provide values for the Name, Description, Manufacturer, Language, Version.
-5. Tick the **This package contains source files** checkbox.
-6. Click the **Browse** button and select the network share where the installer is stored (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcWindows)
+1. Sign in to your Configuration Manager console.
+2. Browse to **Software Library** > **Application Management** > **Packages**.
+3. Right-click **Packages**, and select **Create Package**.
+4. Provide values for the name, description, manufacturer, language, and version.
+5. Select the **This package contains source files** check box.
+6. Click **Browse**, and select the network share where the installer is stored (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcWindows).
 
-  ![create-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/create_sccm_package.png)
+  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/create_sccm_package.png)
 
-7. In the **Choose the program type that you want to create** page, select **Standard Program**, and click **Next**
+7. On the **Choose the program type that you want to create** page, select **Standard Program**, and click **Next**.
 
-  ![create-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
-8. In the **Specify information about this standard program** page, provide the following inputs, and click **Next**. (The other inputs can be left to their default values)
+  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
 
-  ![sccm-package-properties](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties.png)   
-| **Parameter Name** | **Value** |
-|--|--|
-| Name | Install Microsoft Azure Mobility Service (Windows) |
-| Command line | install.bat |
-| Program can run | Whether or not a user is logged on |
-9. In the next page, select the target operating systems. Mobility Service can be installed only on Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2.
+8. On the **Specify information about this standard program** page, provide the following inputs, and click **Next**. (The other inputs can use their default values.)
+ 
+  | **Parameter name** | **Value** |
+  |--|--|
+  | Name | Install Microsoft Azure Mobility Service (Windows) |
+  | Command line | install.bat |
+  | Program can run | Whether or not a user is logged on |
 
-  ![sccm-package-properties-page2](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png)   
-10. Complete Next twice to complete the wizard.
+  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties.png)
+
+9. On the next page, select the target operating systems. Mobility Service can be installed only on Windows Server 2012 R2, Windows Server 2012, and Windows Server 2008 R2.
+
+  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png) 
+
+10. To complete the wizard, click **Next** twice.
+
 
 > [!NOTE]
-> The script supports both new installations of Mobility Service Agents and upgrade/update of already installed Agents.
+> The script supports both new installations of Mobility Service agents and updates to agents that are already installed.
 
-### Step 3: Deploy the Package
-1. In the SCCM Console, right-click your package and select **Distribute Content**
-  ![distribute-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
-2. Select the **[Distribution Points](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** on to which the packages should be copied over to.
-3. Once you complete the wizard, the package starts replicating to the specified distribution points
-4. Once the package distribution is done, right-click the package and select **Deploy**
-  ![deploy-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
-5. Select the Widows Server device collection you created in the prerequisites section as the target collection for deployment.
+### Step 3: Deploy the package
+1. In the Configuration Manager console, right-click your package, and select **Distribute Content**.
+  ![Screenshot of Configuration Manager console](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
+2. Select the **[distribution points](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** on to which the packages should be copied.
+3. Complete the wizard. The package then starts replicating to the specified distribution points.
+4. After the package distribution is done, right-click the package, and select **Deploy**.
+  ![Screenshot of Configuration Manager console](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
+5. Select the Windows Server device collection you created in the prerequisites section as the target collection for deployment.
 
-  ![sccm-select-target-collection](./media/site-recovery-install-mobility-service-using-sccm/sccm-select-target-collection.png)
-6. In the **Specify the content destination** page, select your **Distribution Points**
-7. In the **Specify setting to control how this software is deployed** page, ensure that the purpose is selected as required.
+  ![Screenshot of Deploy Software wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-select-target-collection.png)
 
-  ![sccm-deploy-select-purpose](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
-8. Specify a schedule in the **Specify the schedule for this deployment**. Read more about [scheduling packages](https://technet.microsoft.com/library/gg682178.aspx)
-9. Configure the properties on the **Distribution Points** page as per the needs of your Datacenter and complete the wizard.
+6. On the **Specify the content destination** page, select your **Distribution Points**.
+7. On the **Specify settings to control how this software is deployed** page, ensure that the purpose is **Required**.
+
+  ![Screenshot of Deploy Software wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
+
+8. On the **Specify the schedule for this deployment** page, specify a schedule. For more information, see [scheduling packages](https://technet.microsoft.com/library/gg682178.aspx).
+9. On the **Distribution Points** page, configure the properties according to the needs of your datacenter. Then complete the wizard.
 
 > [!TIP]
-> To avoid unnecessary reboots, schedule the package installation during your monthly maintenance window or Software Updates window.
+> To avoid unnecessary reboots, schedule the package installation during your monthly maintenance window or software updates window.
 
-You can monitor the deployment progress using the SCCM console by going to **Monitoring** > **Deployments** > *[your package name]*
-  ![monitor-sccm](./media/site-recovery-install-mobility-service-using-sccm/report.PNG)
+You can monitor the deployment progress by using the Configuration Manager console. Go to **Monitoring** > **Deployments** > *[your package name]*.
 
-## Deploy Mobility Service on computers running Linux Operating Systems
+  ![Screenshot of Configuration Manager option to monitor deployments](./media/site-recovery-install-mobility-service-using-sccm/report.PNG)
+
+## Deploy Mobility Service on computers running Linux
 > [!NOTE]
-> This article assumes the following
-> 1. The IP Address of the configuration server is 192.168.3.121
-> 2. The secure network file share is \\\ContosoSecureFS\MobilityServiceInstallers
+> This article assumes that the IP address of the configuration server is 192.168.3.121, and that the secure network file share is \\\ContosoSecureFS\MobilityServiceInstallers.
 
 ### Step 1: Prepare for deployment
-1. Create a folder on the network share and name it as **MobSvcLinux**
-2. Log on to your Configuration Server and open up an Administrative command prompt
-3. Run the following commands to generate a passphrase file.
+1. Create a folder on the network share, and name it as **MobSvcLinux**.
+2. Sign in to your configuration server, and open an administrative command prompt.
+3. Run the following commands to generate a passphrase file:
 
     `cd %ProgramData%\ASR\home\svsystems\bin`
 
     `genpassphrase.exe -v > MobSvc.passphrase`
-6. Copy the MobSvc.passphrase file into the MobSvcWindows folder on your network share.
-5. Next browse to the installer repository on the Configuration Server by running the command.
+4. Copy the **MobSvc.passphrase** file into the **MobSvcLinux** folder on your network share.
+5. Browse to the installer repository on the configuration server by running the command:
 
-  `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
-6. Copy the following files to the **MobSvcLinux** folder on your network share
-  * Microsoft-ASR\_UA\_*version*\_OEL-64\_GA\_*date*\_Release.tar.gz
-  * Microsoft-ASR\_UA\_*version*\_RHEL6-64\_GA\_*date*\_Release.tar.gz
-  * Microsoft-ASR\_UA\_*version*\_RHEL7-64\_GA\_*date*\_Release.tar.gz
-  * Microsoft-ASR\_UA\_*version*\_SLES11-SP3-64\_GA\_*date*\_Release.tar.gz
+   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
 
-7. Copy the code listed below and save it as **install_linux.sh** into the **MobSvcLinux** folder
-> [!NOTE]
-> Remember to replace the [CSIP] place holders in the below script with the actual values of the IP Address of your Configuration Server.
+6. Copy the following files to the **MobSvcLinux** folder on your network share:
+   * Microsoft-ASR\_UA\_*version*\_OEL-64\_GA\_*date*\_Release.tar.gz
+   * Microsoft-ASR\_UA\_*version*\_RHEL6-64\_GA\_*date*\_Release.tar.gz
+   * Microsoft-ASR\_UA\_*version*\_RHEL7-64\_GA\_*date*\_Release.tar.gz
+   * Microsoft-ASR\_UA\_*version*\_SLES11-SP3-64\_GA\_*date*\_Release.tar.gz
+
+7. Copy the following code, and save it as **install_linux.sh** into the **MobSvcLinux** folder.
+   > [!NOTE]
+   > Replace the [CSIP] placeholders in this script with the actual values of the IP address of your configuration server.
 
 ```
 #!/bin/sh
@@ -250,64 +257,69 @@ rm -rf /tm/MobSvc
 exit ${Error}
 ```
 
-### Step 2: Create a Package
+### Step 2: Create a package
 
-1. Log in to your System Center Configuration Manager Console
-2. Browse to **Software Library** > **Application Management** > **Packages**
-3. Right-click the **Packages** and select **Create Package**
-4. Provide values for the Name, Description, Manufacturer, Language, Version.
-5. Tick the **This package contains source files** checkbox.
-6. Click the **Browse** button and select the network share where the installer is stored (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcLinux)
+1. Sign in  to your Configuration Manager console.
+2. Browse to **Software Library** > **Application Management** > **Packages**.
+3. Right-click **Packages**, and select **Create Package**.
+4. Provide values for the name, description, manufacturer, language, and version.
+5. Select the **This package contains source files** check box.
+6. Click **Browse**, and select the network share where the installer is stored (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcLinux).
 
-  ![create-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/create_sccm_package-linux.png)
+  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/create_sccm_package-linux.png)
 
-7. In the **Choose the program type that you want to create** page, select **Standard Program**, and click **Next**
+7. On the **Choose the program type that you want to create** page, select **Standard Program**, and click **Next**.
 
-  ![create-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
-8. In the **Specify information about this standard program** page, provide the following inputs, and click **Next**. (The other inputs can be left to their default values)
+  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
 
-  ![sccm-package-properties](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-linux.png)   
-| **Parameter Name** | **Value** |
-|--|--|
-| Name | Install Microsoft Azure Mobility Service (Linux) |
-| Command line | ./install_linux.sh |
-| Program can run | Whether or not a user is logged on |
+8. On the **Specify information about this standard program** page, provide the following inputs, and click **Next**. (The other inputs can use their default values.)
 
-9. In the next page, select the **This program can run on any platform**
-  ![sccm-package-properties-page2](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2-linux.png)   
+    | **Parameter name** | **Value** |
+  |--|--|
+  | Name | Install Microsoft Azure Mobility Service (Linux) |
+  | Command line | ./install_linux.sh |
+  | Program can run | Whether or not a user is logged on |
 
-10. Click **Next** twice to complete the wizard.
+  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-linux.png)
+
+9. On the next page, select **This program can run on any platform**.
+  ![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2-linux.png)
+
+10. To complete the wizard, click **Next** twice. 
+ 
 > [!NOTE]
-> The script supports both new installations of Mobility Service Agents and upgrade/update of already installed Agents.
+> The script supports both new installations of Mobility Service agents and updates to agents that are already installed.
 
-### Step 3: Deploy the Package
-1. In the SCCM Console, right-click your package and select **Distribute Content**
-  ![distribute-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
-2. Select the **[Distribution Points](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** on to which the packages should be copied over to.
-3. Once you complete the wizard, the package starts replicating to the specified distribution points.
-4. Once the package distribution is done, right-click the package and select **Deploy**
-  ![deploy-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
+### Step 3: Deploy the package
+1. In the Configuration Manager console, right-click your package, and select **Distribute Content**.
+  ![Screenshot of Configuration Manager console](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
+2. Select the **[distribution points](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** on to which the packages should be copied.
+3. Complete the wizard. The package then starts replicating to the specified distribution points.
+4. After the package distribution is done, right-click the package, and select **Deploy**.
+  ![Screenshot of Configuration Manager console](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
 5. Select the Linux Server device collection you created in the prerequisites section as the target collection for deployment.
 
-  ![sccm-select-target-collection](./media/site-recovery-install-mobility-service-using-sccm/sccm-select-target-collection-linux.png)
-6. In the **Specify the content destination** page, select your **Distribution Points**
-7. In the **Specify setting to control how this software is deployed** page, ensure that the purpose is selected as required.
+  ![Screenshot of Deploy Software wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-select-target-collection-linux.png)
 
-  ![sccm-deploy-select-purpose](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
-8. Specify a schedule in the **Specify the schedule for this deployment**. Read more about [scheduling packages](https://technet.microsoft.com/library/gg682178.aspx)
-9. Configure the properties on the **Distribution Points** page as per the needs of your Datacenter and complete the wizard.
+6. On the **Specify the content destination** page, select your **Distribution Points**.
+7. On the **Specify settings to control how this software is deployed** page, ensure that the purpose is **Required**.
 
-Mobility Service gets installed on the Linux Server Device Collection as per the schedule you configured.
+  ![Screenshot of Deploy Software wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
 
-## Other methods to install mobility services
-Read more about other ways to install mobility services.
+8. On the **Specify the schedule for this deployment** page, specify a schedule. For more information, see [scheduling packages](https://technet.microsoft.com/library/gg682178.aspx).
+9. On the **Distribution Points** page, configure the properties according to the needs of your datacenter. Then complete the wizard.
+
+Mobility Service gets installed on the Linux Server Device Collection, according to the schedule you configured.
+
+## Other methods to install Mobility Service
+Here are some other options for installing Mobility Service:
 * [Manual Installation using GUI](http://aka.ms/mobsvcmanualinstall)
 * [Manual Installation using command-line](http://aka.ms/mobsvcmanualinstallcli)
-* [Push Installation using Configuration Server ](http://aka.ms/pushinstall)
+* [Push Installation using configuration server ](http://aka.ms/pushinstall)
 * [Automated Installation using Azure Automation & Desired State Configuration ](http://aka.ms/mobsvcdscinstall)
 
 ## Uninstall Mobility Service
-Just like installation you can create SCCM packages to uninstall Mobility Service. Use the below script to uninstall the Mobility Service.
+You can create Configuration Manager packages to uninstall Mobility Service. Use the following script to do so:
 
 ```
 Time /t >> C:\logfile.log
@@ -331,4 +343,4 @@ IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UNINSTALL
 ```
 
 ## Next steps
-You are now ready to [Enable protection](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-vmware-to-azure#step-6-replicate-applications) for your virtual machines.
+You are now ready to [enable protection](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-vmware-to-azure#step-6-replicate-applications) for your virtual machines.
