@@ -157,7 +157,7 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
         TBLPROPERTIES ('hbase.table.name' = 'Contacts');
 4. Run the following HiveQL script to query the data in the HBase table:
    
-         SELECT count(*) FROM hbasecontacts;
+         SELECT count(rowkey) FROM hbasecontacts;
 
 ## Use HBase REST APIs using Curl
 > [!NOTE]
