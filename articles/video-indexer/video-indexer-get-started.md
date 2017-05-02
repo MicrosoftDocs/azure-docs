@@ -8,7 +8,7 @@ manager: erikre
 
 ms.service: video-indexer
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 05/02/2017
 ms.author: juliako;
 
 ---
@@ -20,7 +20,7 @@ To read a detailed overview of the Video Indexer service, see the [overview](vid
 
 ## Sign up and sign in
 
-To start developing with Video Indexer, you must first [Sign up](https://www.videobreakdown.com) and sign in to the portal. 
+To start developing with Video Indexer, you must first Sign up and sign in to the [Video Indexer](https://www.vi.microsoft.com) portal. 
 
 You can sign up for the service using existing AAD, LinkedIn, Facebook, Google, or MSA account. 
 
