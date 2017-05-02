@@ -83,4 +83,4 @@ The downloaded snapshot contains any symbol files that were found on your web ap
 When your application starts, a separate snapshot uploader process is created that monitors your application for snapshot requests. When a snapshot is requested, a shadow copy of the running process is made in about 10-20 ms. The shadow process is then analyzed and a snapshot is created while the main process continues running and serving traffic to users. The snapshot is then uploaded to Application Insights along with any relevant symbol (.pdb) files needed to view the snapshot.
 
 ## Next Steps
-* For more information about working with exceptions in Application Insights, see [Diagnose exceptions in your web apps with Application Insights](app-insights-asp-net-exceptions.md)
+* For more information about working with exceptions in Application Insights, see [Diagnose exceptions in your web apps with Application Insights](app-insights-asp-net-exceptions.md).
