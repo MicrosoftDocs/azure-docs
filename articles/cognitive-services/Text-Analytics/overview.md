@@ -20,7 +20,7 @@ Use a few lines of code to easily analyze sentiment, extract key phrases, detect
 
 Find out what users think of your brand or topic by analyzing any text using sentiment analysis. You are now easily able to monitor the perception of your brand or topic over time.
 
-Sentiment score is generated using classification techniques, and will return a score between 0 and 1. The input features to the classifier include n-grams, features generated from part-of-speech tags, and embedded words. 
+Sentiment score is generated using classification techniques, and returns a score between 0 and 1. The input features to the classifier include n-grams, features generated from part-of-speech tags, and embedded words. 
 
 ## Key Phrase Extraction
 
