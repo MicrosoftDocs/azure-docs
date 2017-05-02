@@ -76,7 +76,7 @@ The first step is to retrieve your LinkedIn access token. If you are an Enterpri
 > When auto­assign licenses is not enabled, it means that only user
 > data is synced.
 
-![LinkedIn Elevate Provisioning](./media/active-directory-saas-linkedin-elevate--provisioning-tutorial/linkedin-elevate1.PNG)
+![LinkedIn Elevate Provisioning](./media/active-directory-saas-linkedin-elevate-provisioning-tutorial/linkedin-elevate1.PNG)
 
 > When auto­license assignment is enabled, you need to note the
 > application instance and license type. Licenses are assigned on a
@@ -98,7 +98,7 @@ The first step is to retrieve your LinkedIn access token. If you are an Enterpri
 
 10)	Set the **Provisioning Mode** to **Automatic**.
 
-![LinkedIn Elevate Provisioning](./media/active-directory-saas-linkedin-elevate--provisioning-tutorial/linkedin-elevate3.PNG)
+![LinkedIn Elevate Provisioning](./media/active-directory-saas-linkedin-elevate-provisioning-tutorial/linkedin-elevate3.PNG)
 
 11)  Fill in the following fields under **Admin Credentials** :
 
