@@ -77,9 +77,9 @@ The following shows the response to the previous query. As you can see Bing didn
 }
 ```
 
-Although Bing did not return video and news results in the previous response, it does not mean that video and news content does not exist. It simply means that the page didn't include them. However, if you [page](./paging-webpages.md) through more results, the subsequent pages would likely include them. Also, if called the Video Search API and News Search API endpoints directly, the response would likely contain results. 
+Although Bing did not return video and news results in the previous response, it does not mean that video and news content does not exist. It simply means that the page didn't include them. However, if you [page](./paging-webpages.md) through more results, the subsequent pages would likely include them. Also, if called the [Video Search API](../bing-video-search/search-the-web.md) and [News Search API](../bing-news-search/search-the-web.md) endpoints directly, the response would likely contain results. 
 
-You are discouraged from using `responseFilter` to get results from a single API. If you want content from a single Bing API, call that API directly. For example, to receive only images, you'd send the request to the Image Search API endpoint, `https://api.cognitive.microsoft.com/bing/v5.0/images/search` or one of the other [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-image-api-v5-reference.md/endpoints) endpoints. It's important not only for performance reasons but because the content-specific APIs offer richer results. For example, you can often use filters that are not available to the Web Search API to filter the results.  
+You are discouraged from using `responseFilter` to get results from a single API. If you want content from a single Bing API, call that API directly. For example, to receive only images, send a request to the Image Search API endpoint, `https://api.cognitive.microsoft.com/bing/v5.0/images/search` or one of the other [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-image-api-v5-reference.md/endpoints) endpoints. Calling the single API is important not only for performance reasons but because the content-specific APIs offer richer results. For example, you can use filters that are not available to the Web Search API to filter the results.  
   
 To get search results from a specific domain, include the [site:](http://msdn.microsoft.com/library/ff795613.aspx) query operator in the query string.  
 
@@ -92,13 +92,13 @@ https://api.cognitive.microsoft.com/bing/v5.0/search?q=sailing+dinghies+site:con
   
 ## Limiting the number of answers in the response
 
-Bing chooses answers that it includes in the response based on ranking. For example, if you query *sailing+dinghies*, Bing returns `webpages`, `images`, `videos`, and `relatedSearches`.
+Bing includes answers in the response based on ranking. For example, if you query *sailing+dinghies*, Bing returns `webpages`, `images`, `videos`, and `relatedSearches`.
 
 ```
 {
     "_type" : "SearchResponse",
     "queryContext" : {
-        "originalQuery" : "porsche racing"
+        "originalQuery" : "sailing dinghies"
     },
     "webPages" : {...},
     "images" : {...},
@@ -126,7 +126,7 @@ The response includes only `webPages` and `images`.
 {
     "_type" : "SearchResponse",
     "queryContext" : {
-        "originalQuery" : "porsche racing"
+        "originalQuery" : "sailing dinghies"
     },
     "webPages" : {...},
     "images" : {...},
@@ -140,7 +140,7 @@ If you add the `responseFilter` query parameter to the previous query and set it
 {
     "_type" : "SearchResponse",
     "queryContext" : {
-        "originalQuery" : "porsche racing"
+        "originalQuery" : "sailing dinghies"
     },
     "webPages" : {...},
     "rankingResponse" : {...}
@@ -149,10 +149,10 @@ If you add the `responseFilter` query parameter to the previous query and set it
 
 ## Promoting answers that are not ranked
 
-This section builds on [Limiting the number of answers in the response](#limiting-the-number-of-answers-in-the-response). If you want Bing to include news in the response, specify the [promote](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference.md#promote) query parameter and set it to the answers that you want Bing to include in the response. 
+If the top ranked answers that Bing returns for a query are webpages, images, videos, and relatedSearches, the response would include those answers. If you set [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference.md#answercount)) to two (2), Bing returns the top two ranked answers: webpages and images. If you want Bing to include images and videos in the response, specify the [promote](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference.md#promote) query parameter and set it to images and videos. 
 
 ```  
-GET https://api.cognitive.microsoft.com/bing/v5.0/search?q=sailing+dinghies&promote=news&mkt=en-us HTTP/1.1  
+GET https://api.cognitive.microsoft.com/bing/v5.0/search?q=sailing+dinghies&answerCount=2&promote=images%2Cvideos&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
 X-Search-ClientIP: 999.999.999.999  
@@ -161,34 +161,23 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-The following is the response to the above request.
+The following is the response to the above request. Bing returns the top two answers, webpages and images, and promotes videos into the answer.
 
 ```
 {
     "_type" : "SearchResponse",
     "queryContext" : {
-        "originalQuery" : "porsche racing"
+        "originalQuery" : "sailiing dinghies"
     },
     "webPages" : {...},
     "images" : {...},
-    "relatedSearches" : {...},
     "videos" : {...},
-    "news" : {...},
     "rankingResponse" : {...}
 }
 ```
 
-If previous request specified only the `responseFilter` parameter and set it to webpages and news, the response would include only `webPages` because news is not ranked. To ensure that you receive only webpages and news, if available, set `responseFilter` to webpages and news, and `promote` to news.
+If you set `promote` to news, the response doesn't include the news answer because it is not a ranked answer&mdash;you can promote only ranked answers.
 
+The answers that you want to promote do not count against the `answerCount` limit. For example, if the ranked answers are news, images, and videos, and you set `answerCount` to 1 and `promote` to news, the response contains news and images. Or, if the ranked answers are videos, images, and news, the response contains videos and news.
 
-```
-{
-    "_type" : "SearchResponse",
-    "queryContext" : {
-        "originalQuery" : "porsche racing"
-    },
-    "webPages" : {...},
-    "news" : {...},
-    "rankingResponse" : {...}
-}
-```
+You may use `promote` only if you specify the `answerCount` query parameter.
