@@ -15,7 +15,7 @@
 ### [Build a .NET web API](active-directory-b2c-devquickstarts-api-dotnet.md)
 ### [Build a Node.Js web app](active-directory-b2c-devquickstarts-web-node.md)
 ### [Build a Node.Js web API](active-directory-b2c-devquickstarts-api-node.md)
-### [Build a .Net desktop app](active-directory-b2c-devquickstarts-native-dotnet.md)
+### [Build a .NET desktop app](active-directory-b2c-devquickstarts-native-dotnet.md)
 ### [Use the Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md)
 ## [Frequently asked questions](active-directory-b2c-faqs.md)
 
