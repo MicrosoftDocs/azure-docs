@@ -36,7 +36,6 @@ In the following tables, services specified as Azure Resource Manager enabled ha
 | Batch | Yes | Yes |
 | Cloud Services | Yes | Yes |
 | Service Fabric | Yes | Yes |
-| Virtual machine scale sets | Yes | Yes |
 
 
 ## [Networking](./germany-services-networking.md)
