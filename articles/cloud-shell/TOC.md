@@ -1,6 +1,6 @@
 # [Overview](overview.md)
 
-# [QuickStart](quickstart.md)
+# [Quickstart](quickstart.md)
 
 # Concepts
 ## [Features](features.md)

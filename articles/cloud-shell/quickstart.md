@@ -17,7 +17,7 @@ ms.date: 05/10/2017
 ms.author: juluk
 ---
 
-# Azure Cloud Shell Quickstart
+# Azure Cloud Shell (Preview) Quickstart
 This document details how to use the Azure Cloud Shell in the [Azure portal](https://ms.portal.azure.com/).
 
 ## Start Cloud Shell
@@ -50,7 +50,7 @@ Create an Ubuntu VM in your new resource group. The Azure CLI 2.0 will create ss
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS`
 
 > [!NOTE]
-> The public and private keys used to authenticate your VM are placed in `/User/.ssh/id_rsa` and `/User/.ssh/id_rsa.pub` of Cloud Shell. This > is persisted in your attached Azure file share's 5-GB image. 
+> The public and private keys used to authenticate your VM are placed in `/User/.ssh/id_rsa` and `/User/.ssh/id_rsa.pub` by Azure CLI 2.0 by default. Your .ssh folder is persisted in your attached Azure file share's 5-GB image. 
 
 ![](media/storage-create.png)
 

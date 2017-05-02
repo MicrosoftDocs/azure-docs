@@ -17,7 +17,7 @@ ms.date: 05/10/2017
 ms.author: juluk
 ---
 
-# Azure Cloud Shell Pricing
+# Azure Cloud Shell (Preview) pricing
 
 ## Compute Cost
 Azure Cloud Shell runs on a machine provided for free, but requires an attached Azure file share to use. 

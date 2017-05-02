@@ -17,7 +17,7 @@ ms.date: 05/10/2017
 ms.author: juluk
 ---
 
-# Azure Cloud Shell Limitations
+# Azure Cloud Shell (Preview) limitations
 Azure Cloud Shell has the following known limitations.
 
 ## System state and persistence

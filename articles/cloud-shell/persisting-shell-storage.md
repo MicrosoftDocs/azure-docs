@@ -17,7 +17,7 @@ ms.date: 05/10/2017
 ms.author: juluk
 ---
 
-# Persisting Azure Cloud Shell files
+# Persisting Azure Cloud Shell (Preview) files
 On initial start, Azure Cloud Shell asks for your subscription to create an LRS storage account and Azure file share for you.
 
 ![](media/storage-create.png)
@@ -93,16 +93,16 @@ justin@Azure:~$
 You may unmount a file share mounted to Cloud Shell at any time.
 
 > [!NOTE]
-> Cloud Shell requires a file share to access, you will be prompted to create and mount a new file share on next session if removed.
-
-> [!WARNING]
-> Deleting the resource group, storage account, or file share mapped to Cloud Shell will erase all files in your $Home directory and any files > in your file share. This cannot be undone.
+> Cloud Shell requires a mounted file share, you will be prompted to create and mount a new file share on next session if removed.
 
 To detach a file share from Cloud Shell:
 1. Run `removeclouddrive`
-2. Confirm prompts as your current session will be lost. $Home directory files will continue to exist in your file share. Cloud Shell cannot be accessed until a file share is associated.
+2. Confirm prompts as your current session will be lost and you will be prompted to mount a new file share on your next Cloud Shell session. Your file share will continue to exist unless manually deleted.
 
-Cloud Shell will no longer search for this file share on subsequent sessions. The storage resources still exist unless actively deleted.
+Cloud Shell will no longer search for this file share on subsequent sessions.
+
+> [!WARNING]
+> Manually deleting the resource group, storage account, or file share mapped to Cloud Shell will erase your $Home directory disk image and any files in your file share. This cannot be undone.
 
 ## Update clouddrive
 Run `createclouddrive` specifying a new file share
