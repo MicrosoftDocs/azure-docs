@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric Reliable Collections Transaction and Locks | Microsoft Docs
+title: Transactions And Lock Modes in Azure Service Fabric Reliable Collections | Microsoft Docs
 description: Azure Service Fabric Reliable State Manager and Reliable Collections Transactions and Locking.
 services: service-fabric
 documentationcenter: .net
@@ -17,7 +17,7 @@ ms.date: 5/1/2017
 ms.author: mcoskun
 
 ---
-# Transactions And Lock Modes in Azure Service Fabric Reliable Collections
+# Transactions and lock modes in Azure Service Fabric Reliable Collections
 
 ## Transaction
 A transaction is a sequence of operations performed as a single logical unit of work.

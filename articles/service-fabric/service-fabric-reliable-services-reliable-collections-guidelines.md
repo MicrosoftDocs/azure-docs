@@ -1,6 +1,6 @@
 ---
-title: Reliable Collection Guidelines and Recommendations | Microsoft Docs
-description: Guidelines and Recommendations for using Azure Service Fabric Reliable Collections
+title: Guidelines & Recommendations for Reliable Collections in  Azure Service Fabric | Microsoft Docs
+description: Guidelines and Recommendations for using Service Fabric Reliable Collections
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -17,7 +17,7 @@ ms.date: 5/1/2017
 ms.author: mcoskun
 
 ---
-# Azure Service Fabric Reliable Collections Guidelines & Recommendations
+# Guidelines and recommendations for Reliable Collections in Azure Service Fabric
 * Do not modify an object of custom type returned by read operations (for example, `TryPeekAsync` or `TryGetValueAsync`). Reliable Collections, just like Concurrent Collections, return a reference to the objects and not a copy.
 * Do deep copy the returned object of a custom type before modifying it. Since structs and built-in types are pass-by-value, you do not need to do a deep copy on them.
 * Do not use `TimeSpan.MaxValue` for time-outs. Time-outs should be used to detect deadlocks.
@@ -41,7 +41,7 @@ Here are some things to keep in mind:
   This means that a version of data that is read from a single secondary might be false progressed.
   Reads from Primary are always stable: can never be false progressed.
 
-## Next steps
+### Next steps
 * [Working with Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transactions and Locks](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * [Reliable State Manager and Collection Internals](service-fabric-reliable-services-reliable-collections-internals.md)

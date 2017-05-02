@@ -1,5 +1,5 @@
 ---
-title: Reliable State Manager and Reliable Collection Internals | Microsoft Docs
+title: Azure Service Fabric Reliable State Manager and Reliable Collection internals | Microsoft Docs
 description: Deep dive on reliable collection concepts and design in Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -18,14 +18,14 @@ ms.author: mcoskun
 
 ---
 
-# Azure Service Fabric Reliable State Manager and Reliable Collection Internals
+# Azure Service Fabric Reliable State Manager and Reliable Collection internals
 This document delves inside Reliable State Manager and Reliable Collections to see how core components work behind the scenes.
 
 > [!NOTE]
 > This document is work in-progress. Add comments to this article to tell us what topic you would like to learn more about.
 >
 
-##  Local Persistence Model: Log & Checkpoint
+##  Local persistence model: log and checkpoint
 The Reliable State Manager and Reliable Collections follow a persistence model that is called Log and Checkpoint.
 In this model, each state change is logged on disk first and then applied in memory.
 The complete state itself is persisted only occasionally (a.k.a. Checkpoint).
