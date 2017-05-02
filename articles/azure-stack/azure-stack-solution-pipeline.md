@@ -41,7 +41,7 @@ This topic also assumes that you have some pre-requisite knowledge of Azure and 
 
 ### Azure
  - You can use any Azure subscription to get started.  If you don't have a subscription, you can create a [trial account](https://azure.microsoft.com/free/)
- - Create a [Web App](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md), and configure it for [FTP publishing](../app-service-web/app-service-deploy-ftp.md)..  Make note of the new Web App URL, as you use this in step 4.
+ - Create a [Web App](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md), and configure it for [FTP publishing](../app-service-web/app-service-deploy-ftp.md).  Make note of the new Web App URL, as you use this in step 4.
 
 
 ### Azure Stack
@@ -78,9 +78,9 @@ In this section, you create a simple ASP.NET application and push it to VSTS.  T
 2.  Select *Code*, and then *Files* from the dropdown menu.  You can see the solution you created.
 
 ## Step 2 - Create build definition
-The build process defines how your application will be built (compiled) and packaged for deployment on each commit of code change. In our example, we'll use a the included template to configure the build process for the ASP.NET app, though this could be adapted depending on your application.
+The build process defines how your application will be built (compiled) and packaged for deployment on each commit of code change. In our example, we'll use the included template to configure the build process for the ASP.NET app, though this could be adapted depending on your application.
 
-1.  Sign-in to your VSTS workspace from a web browser.
+1.  Sign in to your VSTS workspace from a web browser.
 2.  From the banner, select **Build & Release**  and then **Builds**.
 3.  Click **+ New definition**
 4.  From the list of templates, select **ASP.NET (Preview)** and select **Next**.
@@ -92,7 +92,7 @@ The build process defines how your application will be built (compiled) and pack
 ## Step 3 - Create release definition
 The release process defines how builds from the previous step are deployed to an environment.  In this case, we'll be publishing our ASP.NET app with FTP to an Azure Web App. At the end of this section, you can see your app running on Azure.  To configure a release to Azure, use the following steps:
 
-1.  Sign-in to your VSTS workspace from a web bowser.
+1.  Sign in to your VSTS workspace from a web browser.
 2.  From the banner, select **Build & Release**  and then **Releases**.
 3.  Click the green **+ New definition**, and select **Create release definition**. 
 4.  Select **Empty** and click **Next**
@@ -107,9 +107,9 @@ Now that you've created an empty release definition and tied it to the build, we
     | Parameter | Value |
     | ----- | ----- |
     |Authentication Method| Enter Credentials|
-    |Server URL | Web App FTP URL retrieved from Azure Portal |
+    |Server URL | Web App FTP URL retrieved from Azure portal |
     |Username | Username you configured when creating FTP Credentials for Web App |
-    |Password | Password you created when establishing FTP credentuials for Web App|
+    |Password | Password you created when establishing FTP credentials for Web App|
     |Source Directory | $(System.DefaultWorkingDirectory)\**\ |
     |Remote Directory | /site/wwwroot/ |
     
@@ -126,13 +126,13 @@ To see the power of a CI/CD pipeline, you will publish your app to Azure.
 
 
 ## Step 5 - Add Azure Stack
-Now that you've tested your CI/CD pipeline by deploying to Azure, it's time to add Azure Stack to the pipeline.  The following steps will guide you adding an FTP Upload task .  You also add a release approver, which will serve as a way to simulate signing off a code release to Azure Stack.  
+Now that you've tested your CI/CD pipeline by deploying to Azure, it's time to add Azure Stack to the pipeline.  The following steps will guide you adding an FTP Upload task.  You also add a release approver, which will serve as a way to simulate signing off a code release to Azure Stack.  
 
 1.  In the Release definition, select **+ Add Environment** and **Create new environment**
 2.  Select **Empty**, click **Next**.
 3.  Select **Create**
 4.  Rename the environment by selecting the existing name and typing *Azure Stack*
-5.  Now, selecton the Azure Stack environment, then select **Add tasks**
+5.  Now, selection the Azure Stack environment, then select **Add tasks**
 6.  Select the **FTP Upload** task and select **Add**, then select **Close**
 
 
@@ -144,25 +144,25 @@ Now that you've created a release, you'll configure the steps required for publi
     | Parameter | Value |
     | -----     | ----- |
     |Authentication Method| Enter Credentials|
-    |Server URL | Web App FTP URL retrieved from Azure Portal |
+    |Server URL | Web App FTP URL retrieved from Azure portal |
     |Username | Username you configured when creating FTP Credentials for Web App |
-    |Password | Password you created when establishing FTP credentuials for Web App|
+    |Password | Password you created when establishing FTP credentials for Web App|
     |Source Directory | $(System.DefaultWorkingDirectory)\**\ |
     |Remote Directory | /site/wwwroot/| 
 2.  Click **Save**
 
 
 ### Add release approver
-You may want to add a review step before publishing to prodution (Azure Stack).  This is useful where you want a person to approve the code before moving from testing to production.  Use the steps below to configure a code reviewer to approve or deny any releases destined for production.  
+You may want to add a review step before publishing to production (Azure Stack).  This is useful where you want a person to approve the code before moving from testing to production.  Use the steps below to configure a code reviewer to approve or deny any releases destined for production.  
 
 1. Open your VSTS workspace and navigate to **Build & Release** > **Release**
 2. Select the **...** on your release definition, and select **Edit**
-3. In the Azure Stack enviorment, select **...** > **Assign Approvers**
+3. In the Azure Stack environment, select **...** > **Assign Approvers**
 4. Select **Specific Users** for pre-deployment approver, and specify your account as an approver.  Click **Ok**
 
 
 ## Step 6 - Deploy new code
-You can now test the hybrid CI/CD pipeline, with the final step publishing to Azure Stack.  In this section, you modify the site's footer and start deployment through the pipeline.  Once complete, you'll see your changes deployed to Azure, then once you approce the release, they are published to Azure Stack.
+You can now test the hybrid CI/CD pipeline, with the final step publishing to Azure Stack.  In this section, you modify the site's footer and start deployment through the pipeline.  Once complete, you'll see your changes deployed to Azure, then once you approve the release, they are published to Azure Stack.
 
 1. In Visual Studio, open the .content/site.master file and change this line:
     ````
