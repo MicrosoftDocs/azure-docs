@@ -77,20 +77,6 @@ If the application persistently fails to connect to Azure SQL Database, it usual
 3. Verify your connection string and other connection settings. See the Connection String section in the [connectivity issues topic](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
 4. Check service health in the dashboard. If you think there’s a regional outage, see [Recover from an outage](sql-database-disaster-recovery.md) for steps to recover to a new region.
 
-## All topics for Azure SQL Database connection problems
-The following table lists every connection problem topic that applies directly to the Azure SQL Database service.
-
-| &nbsp; | Title | Description |
-| ---:|:--- |:--- |
-| 1 |[Troubleshoot connection issues to Azure SQL Database](sql-database-troubleshoot-common-connection-issues.md) |This is the landing page for troubleshooting connectivity issues in Azure SQL Database. It describes how to identify and resolve transient errors and persistent or non-transient errors in Azure SQL Database. |
-| 2 |[Troubleshoot, diagnose, and prevent SQL connection errors and transient errors for SQL Database](sql-database-connectivity-issues.md) |Learn how to troubleshoot, diagnose, and prevent a SQL connection error or transient error in Azure SQL Database. |
-| 3 |[General transient fault-handling guidance](../best-practices-retry-general.md) |Provides general guidance for transient fault handling when connecting to Azure SQL Database. |
-| 4 |[Troubleshoot connectivity issues with Microsoft Azure SQL Database](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database) |This tool helps identity your problem solve connection errors. |
-| 5 |[Troubleshoot "Database &lt;x&gt; on server &lt;y&gt; is not currently available. Please retry the connection later" error](sql-database-troubleshoot-connection.md) |Describes how to identify and resolve a 40613 error: "Database &lt;x&gt; on server &lt;y&gt; is not currently available. Please retry the connection later." |
-| 6 |[SQL error codes for SQL Database client applications: Database connection error and other issues](sql-database-develop-error-messages.md) |Provides info about SQL error codes for SQL Database client applications, such as common database connection errors, database copy issues, and general errors. |
-| 7 |[Azure SQL Database performance guidance for single databases](sql-database-performance-guidance.md) |Provides guidance to help you determine which service tier is right for your application. Also provides recommendations for tuning your application to get the most out of your Azure SQL Database. |
-| 8 |[SQL Database Development Overview](sql-database-develop-overview.md) |Provides links to code samples for various technologies that you can use to connect to and interact with Azure SQL Database. |
-
 ## Next steps
 * [Troubleshoot Azure SQL Database performance issues](sql-database-troubleshoot-performance.md)
 * [Search the documentation on Microsoft Azure](http://azure.microsoft.com/search/documentation/)

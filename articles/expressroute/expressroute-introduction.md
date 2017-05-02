@@ -94,6 +94,10 @@ You can pick a billing model that works best for you. Choose between the billing
   * Global connectivity for services. An ExpressRoute circuit created in any region (excluding national clouds) will have access to resources across any other region in the world. For example, a virtual network created in West Europe can be accessed through an ExpressRoute circuit provisioned in Silicon Valley.
   * Increased number of VNet links per ExpressRoute circuit from 10 to a larger limit, depending on the bandwidth of the circuit.
 
+## FAQ
+
+For frequently asked questions about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
+
 ## Next steps
 
 * Learn about [ExpressRoute connectivity models](expressroute-connectivity-models.md).

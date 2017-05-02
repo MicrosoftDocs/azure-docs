@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/24/2017
+ms.date: 04/06/2017
 ms.author: charwen
 
 ---
@@ -63,7 +63,7 @@ With ExpressRoute, you can enable Virtual Network to Virtual Network (which is a
 ![ExpressRoute Case 3 - suboptimal routing between virtual networks](./media/expressroute-optimize-routing/expressroute-case3-problem.png)
 
 ### Solution: assign a high weight to local connection
-The solution is simple. Since you know where the VNets and the circuits are, you can tell us which path each VNet should prefer. Specifically for this example, you assign a higher weight to the local connection than to the remote connection. When a VNet receives the prefix of the other VNet on multiple connections it will prefer the connection with the highest weight to send traffic destined for that prefix.
+The solution is simple. Since you know where the VNets and the circuits are, you can tell us which path each VNet should prefer. Specifically for this example, you assign a higher weight to the local connection than to the remote connection (see the configuration example [here](expressroute-howto-linkvnet-arm.md#modify-a-virtual-network-connection)). When a VNet receives the prefix of the other VNet on multiple connections it will prefer the connection with the highest weight to send traffic destined for that prefix.
 
 ![ExpressRoute Case 3 solution - assign high weight to local connection](./media/expressroute-optimize-routing/expressroute-case3-solution.png)
 

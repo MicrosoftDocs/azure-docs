@@ -17,7 +17,7 @@ ms.date: 03/27/2017
 ms.author: kgremban
 
 ---
-# Use role assignments to manage access to your Azure subscription resources
+# Use Role-Based Access Control to manage access to your Azure subscription resources
 > [!div class="op_single_selector"]
 > * [Manage access by user or group](role-based-access-control-manage-assignments.md)
 > * [Manage access by resource](role-based-access-control-configure.md)

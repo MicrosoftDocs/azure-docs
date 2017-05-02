@@ -1,4 +1,4 @@
----
+﻿---
 title: Assign and manage Azure resource policies | Microsoft Docs
 description: Describes how to apply Azure resource policies to subscriptions and resource groups, and how to view resource policies. 
 services: azure-resource-manager
@@ -137,6 +137,8 @@ The following example shows a definition of an alias. As you can see, an alias d
 ```
 
 ## PowerShell
+
+Before proceeding with the PowerShell examples, make sure you have [installed the latest version](/powershell/azure/install-azurerm-ps) of Azure PowerShell. Policy parameters were added in version 3.6.0. If you have an earlier version, the examples return an error indicating the parameter cannot be found.
 
 ### Create policy definition
 You can create a policy definition using the `New-AzureRmPolicyDefinition` cmdlet. The following example creates a policy definition for allowing resources only in North Europe and West Europe.

@@ -26,11 +26,13 @@ The on-premises data gateway supports these connections:
 *   File System
 *   Informix
 *   MQ
+*   MySQL
 *   Oracle Database 
 *   SAP Application Server 
 *   SAP Message Server
 *   SharePoint for HTTP only, not HTTPS
 *   SQL Server
+*   Teradata
 
 For more information about these connections, see 
 [Connectors for Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).

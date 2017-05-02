@@ -8,6 +8,9 @@ manager: timtl
 tags: ''
 keywords: 'data in the cloud, cloud data collection, iot cloud service, iot data'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
+
 ms.assetid: cc88be24-b5c0-4ef2-ba21-4e8f77f3e167
 ms.service: iot-hub
 ms.devlang: c

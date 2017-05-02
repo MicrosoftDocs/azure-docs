@@ -85,3 +85,7 @@ Currently the Logic App Designer doesn't support discovering a webhook trigger t
 
 You can see a sample of a webhook trigger in GitHub [here](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers)
 
+## Publish custom connectors to Azure
+
+To make your custom API Apps public and available to use in Azure, submit your nominations to the 
+[Microsoft Azure Certified program](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).

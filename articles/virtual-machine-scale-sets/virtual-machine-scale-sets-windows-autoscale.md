@@ -1,4 +1,4 @@
----
+﻿---
 title: Autoscale Windows Virtual Machine Scale Sets | Microsoft Docs
 description: Set up autoscaling for a Windows Virtual Machine Scale Set using Azure PowerShell
 services: virtual-machine-scale-sets
@@ -38,7 +38,7 @@ In this article, you deploy the following resources and extensions:
 For more information about Resource Manager resources, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## Step 1: Install Azure PowerShell
-See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to Azure.
+See [How to install and configure Azure PowerShell](/powershell/azure/overview) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to Azure.
 
 ## Step 2: Create a resource group and a storage account
 1. **Create a resource group** – All resources must be deployed to a resource group. Use [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx) to create a resource group named **vmsstestrg1**.

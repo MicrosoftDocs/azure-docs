@@ -13,7 +13,7 @@ ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: singhkay

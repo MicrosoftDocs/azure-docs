@@ -1,10 +1,9 @@
-# Overview
+﻿# Overview
 
 ## [Introduction](storage-introduction.md)
 
 # Get Started
 
-## [Quick start guide](storage-getting-started-guide.md)
 ## [Create a storage account](storage-create-storage-account.md)
 
 ## Blob Storage
@@ -67,7 +66,7 @@
 ### [Table design guide](storage-table-design-guide.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Use files
-### [Overview](/rest/api/storageservices/fileservices/File-Service-Concepts)
+### [Overview](/rest/api/storageservices/File-Service-Concepts)
 ### [Troubleshoot Azure Files](storage-troubleshoot-file-connection-problems.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Use disks
@@ -79,6 +78,7 @@
 ### [Frequently Asked Questions about Azure IaaS VM Disks](storage-faq-for-disks.md)
 ### Premium Storage
 #### [High-performance Premium Storage for VM Disks](storage-premium-storage.md)
+#### [Migrating to Premium Storage using Azure Site Recovery](storage-migrate-to-premium-storage-using-azure-site-recovery.md)
 #### [Design for high performance](storage-premium-storage-performance.md)
 ### Standard Storage
 #### [Cost-effective Standard Storage and unmanaged and managed VM Disks](storage-standard-storage.md)
@@ -165,7 +165,7 @@
 #### [Backing up drive manifests](storage-import-export-backing-up-drive-manifests.md)
 #### [Diagnostics and error recovery for Import/Export jobs](storage-import-export-diagnostics-and-error-recovery.md)
 # Reference
-## [PowerShell](/powershell/storage)
+## [PowerShell](/powershell/module/azure.storage)
 ## [Azure CLI](/cli/azure/storage)
 ## .NET
 ### [Resource Manager](/dotnet/api/microsoft.azure.management.storage)
@@ -179,7 +179,7 @@
 ## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [Blobs, Queues, Tables, and Files](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
+### [Blobs, Queues, Tables, and Files](/rest/api/storageservices)
 ### [Resource provider](/rest/api/storagerp)
 ### [Import/Export](/rest/api/storageimportexport)
 

@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 04/12/2017
 ms.author: sasubram
 
 ---
@@ -22,9 +22,9 @@ ms.author: sasubram
 # Dynamic groups and Azure Active Directory B2B collaboration
 
 ## What are dynamic groups?
-Dynamic configuration of security group membership for Azure Active Directory (Azure AD) is available in public preview in [the Azure portal](https://portal.azure.com). Administrators can set rules to populate groups that are created in Azure Active Directory based on user attributes (such as userType, department, or country). This allows members to be automatically added to or removed from a security group based on changes to their attributes. These groups can be used to provide access to applications or cloud resources (such as SharePoint sites and documents) and to assign licenses to members. Read more about dynamic groups in [Dedicated groups in Azure Active Directory](active-directory-accessmanagement-dedicated-groups.md).
+Dynamic configuration of security group membership for Azure Active Directory (Azure AD) is available in [the Azure portal](https://portal.azure.com). Administrators can set rules to populate groups that are created in Azure Active Directory based on user attributes (such as userType, department, or country). This allows members to be automatically added to or removed from a security group based on changes to their attributes. These groups can be used to provide access to applications or cloud resources (such as SharePoint sites and documents) and to assign licenses to members. Read more about dynamic groups in [Dedicated groups in Azure Active Directory](active-directory-accessmanagement-dedicated-groups.md).
 
-With an AAD Premium P1 or P2 subscription, the Azure portal now provides you with the ability to create advanced rules to enable more complex attribute-based dynamic memberships for Azure Active Directory preview groups. Learn more about creating advanced rules in [Using attributes to create advanced rules for group membership in Azure Active Directory preview](active-directory-groups-dynamic-membership-azure-portal.md).
+With an AAD Premium P1 or P2 subscription, the Azure portal now provides you with the ability to create advanced rules to enable more complex attribute-based dynamic memberships for Azure Active Directory groups. Learn more about creating advanced rules in [Using attributes to create advanced rules for group membership in Azure Active Directory preview](active-directory-groups-dynamic-membership-azure-portal.md).
 
 ## What are the built-in dynamic groups?
 The **All users** dynamic group enables tenant admins to create a group containing all users in the tenant with a single click. By default, the **All users** group includes all users in the directory, including Members and Guests.

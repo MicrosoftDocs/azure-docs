@@ -1,4 +1,4 @@
----
+﻿---
 title: Workflow actions and triggers - Azure Logic Apps | Microsoft Docs
 description: 
 services: logic-apps
@@ -431,6 +431,8 @@ Collection actions may contain many other actions within itself.
   
 -   **Workflow** \- This action represents a nested workflow.  
 
+-   **Function** \- This action represents an Azure Function.
+
 ### Collection actions
 
 -   **Scope** \- This action is a logical grouping of other actions.
@@ -487,7 +489,7 @@ if there are intermittent failures, for a total of three executions, with a 30-s
     "type": "http",
     "inputs": {
         "method": "GET",
-        "uri": "uri": "https://mynews.example.com/latest",
+        "uri": "https://mynews.example.com/latest",
         "retryPolicy" : {
             "type": "fixed",
             "interval": "PT30S",
@@ -704,6 +706,28 @@ The output from the `query` action is an array that has elements from the input 
 |from|Yes|Array|The source array.|
 |where|Yes|String|The condition to apply to each element of the source array.|
 
+## Select action
+
+The `select` action lets you project each element of an array into a new value.
+For example, to convert an array of numbers into an array of objects, you can use:
+
+```json
+"SelectNumbers" : {
+    "type": "select",
+    "inputs": {
+        "from": [ 1, 3, 0, 5, 4, 2 ],
+        "select": { "number": "@item()" }
+    }
+}
+```
+
+The output of the `select` action is an array that has the same cardinality as the input array, with each element transformed as defined by the `select` property. If the input is an empty array, the output is also an empty array.
+
+|Name|Required|Type|Description|
+|--------|------------|--------|---------------|
+|from|Yes|Array|The source array.|
+|select|Yes|Any|The projection to apply to each element of the source array.|
+
 ## Terminate action
 
 The Terminate action stops execution of the workflow run, aborting any in-flight actions, 
@@ -755,6 +779,71 @@ For example, you can use the compose action to merge outputs of multiple actions
 > The **Compose** action can be used to construct any output, 
 > including objects, arrays, and any other type natively supported by logic apps like XML and binary.
 
+## Table action
+
+The `table` allows you to convert an array of items into a **CVS** or **HTML** table.
+
+Suppose @triggerBody() is
+
+```json
+[{
+  "id": 0,
+  "name": "apples"
+},{
+  "id": 1, 
+  "name": "oranges"
+}]
+```
+
+And let the action be defined as
+
+```json
+"ConvertToTable" : {
+    "type": "table",
+    "inputs": {
+        "from": "@triggerBody()",
+        "format": "html"
+    }
+}
+```
+
+The above would produce
+
+<table><thead><tr><th>id</th><th>name</th></tr></thead><tbody><tr><td>0</td><td>apples</td></tr><tr><td>1</td><td>oranges</td></tr></tbody></table>"
+
+In order to cusomize the table, you can specify the columns explicitly. For example:
+
+```json
+"ConvertToTable" : {
+    "type": "table",
+    "inputs": {
+        "from": "@triggerBody()",
+        "format": "html",
+        "columns": [{
+          "header": "produce id",
+          "value": "@item().id"
+        },{
+          "header": "description",
+          "value": "@concat('fresh ', item().name)"
+        }]
+    }
+}
+```
+
+The above would produce
+
+<table><thead><tr><th>produce id</th><th>description</th></tr></thead><tbody><tr><td>0</td><td>fresh apples</td></tr><tr><td>1</td><td>fresh oranges</td></tr></tbody></table>"
+
+If the `from` property value is an empty array, the output is an empty table.
+
+|Name|Required|Type|Description|
+|--------|------------|--------|---------------|
+|from|Yes|Array|The source array.|
+|format|Yes|String|The format, either **CVS** or **HTML**.|
+|columns|No|Array|The columns. Allows to override the default shape of the table.|
+|column header|No|String|The header of the column.|
+|column value|Yes|String|The value of the column.|
+
 ## Workflow action   
 
 |Name|Required|Type|Description|  
@@ -795,6 +884,47 @@ meaning you need access to the workflow.
 The outputs from the `workflow` action are based on what you 
 defined in the `response` action in the child workflow. 
 If you have not defined any `response` action, then the outputs are empty.  
+
+## Function action   
+
+|Name|Required|Type|Description|  
+|--------|------------|--------|---------------|  
+|function id|Yes|String|The resource ID of the function that you want to invoke.|  
+|method|No|String|The HTTP method used to invoke the function. By default, it is `POST` when not specified.|  
+|queries|No|Object|Represents the query parameters to add to the URL. For example, `"queries" : { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL.|  
+|headers|No|Object|Represents each of the headers that is sent to the request. For example, to set the language and type on a request: `"headers" : { "Accept-Language": "en-us" }`.|  
+|body|No|Object|Represents the payload sent to the endpoint.|  
+
+```json
+"myfunc" : {
+    "type" : "Function",
+    "inputs" : {
+        "function" : {
+            "id" : "/subscriptions/xxxxyyyyzzz/resourceGroups/rg001/providers/Microsoft.Web/sites/myfuncapp/functions/myfunc"
+        },
+        "queries" : {
+            "extrafield" : "specialValue"
+        },  
+        "headers" : {
+            "x-ms-date" : "@utcnow()"
+        },
+        "method" : "POST",
+	"body" : {
+            "contentFieldOne" : "value100",
+            "anotherField" : 10.001
+        }
+    },
+    "runAfter": {}
+}
+```
+
+When you save the logic app, we perform some checks on the referenced function:
+-   You need to have access to the function.
+-   Only standard HTTP trigger or generic JSON webhook trigger is allowed.
+-   It should not have any route defined.
+-   Only "function" and "anonymous" authorization level is allowed.
+
+The trigger URL is retrieved, cached, and used at runtime. So if any operation invalidates the cached URL, the action fails at runtime. To work around this, save the logic app again, which will cause logic app to retrieve and cache the trigger URL again.
 
 ## Collection actions (scopes and loops)
 

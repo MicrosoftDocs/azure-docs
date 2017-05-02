@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 04/06/2017
 ms.author: walterov
 
 ---
@@ -118,7 +118,7 @@ You can run the ConfigureAzurePackConnector.ps1 script immediately after deploym
 
 4.	Test the configuration.
 
-    a. Open your browser and sign in to the Azure Stack user portal (https://publicportal.local.azurestack.external/).
+    a. Open your browser and sign in to the Azure Stack user portal (https://portal.local.azurestack.external/).
     
     b. After you sign in as a tenant and the portal loads, you'll see errors about not being able to fetch subscriptions or extensions from the Azure Pack cloud. Click **OK** to close these messages. (These error messages will go away after you configure Windows Azure Pack.)
 
@@ -147,13 +147,13 @@ For this preview release, use the Windows Azure Pack Connector only in test envi
     ```
      d. Change directories to **c:\inetpub** and verify that the three new sites are installed:
 
-    * MgmtSvc-Connector
+       * MgmtSvc-Connector
 
-    * MgmtSvc-ConnectorExtension
+       * MgmtSvc-ConnectorExtension
 
-    * MgmtSvc-ConnectorController
+       * MgmtSvc-ConnectorController
 
-     e. From the same **c:\temp\wapconnector\setup\scripts** folder, run the **Configure-Certificates.ps1** script to install certificates. By default, it will use the same certificate that is available for the Tenant Portal site in Windows Azure Pack. Make sure this is a valid certificate (trusted by the Azure Stack MAS-WASP01 virtual machine and any client computer that accesses the Azure Stack portal). Otherwise, communication won’t work. (Alternatively, you can explicitly pass a certificate thumbprint as a parameter by using the -Thumbprint parameter.)
+    e. From the same **c:\temp\wapconnector\setup\scripts** folder, run the **Configure-Certificates.ps1** script to install certificates. By default, it will use the same certificate that is available for the Tenant Portal site in Windows Azure Pack. Make sure this is a valid certificate (trusted by the Azure Stack MAS-WASP01 virtual machine and any client computer that accesses the Azure Stack portal). Otherwise, communication won’t work. (Alternatively, you can explicitly pass a certificate thumbprint as a parameter by using the -Thumbprint parameter.)
 
      ```powershell
         cd C:\temp\wapconnector\setup\scripts\
@@ -167,13 +167,13 @@ For this preview release, use the Windows Azure Pack Connector only in test envi
     | -------- | ------------- | ------- |  
     | TenantPortalFQDN | The Windows Azure Pack tenant portal FQDN. | tenant.contoso.com | 
     | TenantAPIFQDN | The Windows Azure Pack Tenant API FQDN. | tenantapi.contoso.com  |
-    | AzureStackPortalFQDN | The Azure Stack user portal FQDN. | publicportal.local.azurestack.external |
+    | AzureStackPortalFQDN | The Azure Stack user portal FQDN. | portal.local.azurestack.external |
     | | |
     
      ```powershell
     .\Configure-WapConnector.ps1 -TenantPortalFQDN "tenant.contoso.com" `
          -TenantAPIFQDN "tenantapi.contoso.com" `
-         -AzureStackPortalFQDN  "publicportal.local.azurestack.external"
+         -AzureStackPortalFQDN  "portal.local.azurestack.external"
     ```
     g. If you have multiple tenant portal virtual machines, repeat step 1 for each of these virtual machines.
 
@@ -238,7 +238,7 @@ cd C:\temp\WAPConnector\Setup\Scripts
 # Configure the Connector services
 .\Configure-WapConnector.ps1 -TenantPortalFQDN "wapcomputer.com" `
      -TenantAPIFQDN "wapcomputer.com" `
-     -AzureStackPortalFQDN "publicportal.local.azurestack.external"
+     -AzureStackPortalFQDN "portal.local.azurestack.external"
 
 # Install the updated TenantAPI
 .\Update-TenantAPI.ps1

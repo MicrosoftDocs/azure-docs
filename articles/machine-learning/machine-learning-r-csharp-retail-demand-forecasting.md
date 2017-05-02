@@ -1,24 +1,7 @@
 ---
-title: (deprecated) Forecasting - ETS + STL - Azure  | Microsoft Docs
-description: (deprecated) Forecasting - ETS + STL
-services: machine-learning
-documentationcenter: ''
-author: xueshanz
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 153eab4d-6293-45e1-9871-ec339e810dd9
-ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: deprecated
-ms.date: 01/06/2017
-ms.author: yijichen
 
 ROBOTS: NOINDEX, NOFOLLOW
-#To remove completely, uncomment the following metadata
-#redirect_url: https://gallery.cortanaintelligence.com/
+redirect_url: https://gallery.cortanaintelligence.com/
 
 ---
 # (deprecated) Forecasting - ETS + STL

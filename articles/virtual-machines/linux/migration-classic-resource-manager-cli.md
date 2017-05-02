@@ -101,6 +101,12 @@ Run the following command to get the deployment name for the cloud service from 
 
     azure service show <serviceName> -vv
 
+First, validate if you can migrate the cloud service using the following commands:
+
+```shell
+azure service deployment validate-migration <serviceName> <deploymentName> new "" "" ""
+```
+
 Prepare the virtual machines in the cloud service for migration. You have two options to choose from.
 
 If you want to migrate the VMs to a platform-created virtual network, use the following command.
@@ -137,6 +143,12 @@ The output will look something like this:
 ![Screenshot of the command line with the entire virtual network name highlighted.](../media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
 
 In the above example, the **virtualNetworkName** is the entire name **"Group classicubuntu16 classicubuntu16"**.
+
+First, validate if you can migrate the virtual network using the following command:
+
+```shell
+azure network vnet validate-migration <virtualNetworkName>
+```
 
 Prepare the virtual network of your choice for migration by using the following command.
 

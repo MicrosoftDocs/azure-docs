@@ -16,7 +16,7 @@ ms.date: 03/24/2017
 ms.author: jeedes
 
 ---
-# Tutorial: Azure AD integration with Slack
+# Tutorial: Azure Active Directory integration with Slack
 
 In this tutorial, you learn how to integrate Slack with Azure Active Directory (Azure AD).
 

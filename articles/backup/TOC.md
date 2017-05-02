@@ -1,4 +1,4 @@
-
+﻿
 # Overview
 ## [What is Azure Backup?](backup-introduction-to-azure-backup.md)
 
@@ -19,6 +19,7 @@
 ## Azure Backup Server
 ### [Prepare Azure Backup Server workloads in Azure portal](backup-azure-microsoft-azure-backup.md)
 ### [Prepare Azure Backup Server workloads in classic portal](backup-azure-microsoft-azure-backup-classic.md)
+### [Use Azure Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md)
 ### [Use Azure Backup Server to back up Exchange](backup-azure-exchange-mabs.md)
 ### [Use Azure Backup Server to back up a SharePoint farm](backup-azure-backup-sharepoint-mabs.md)
 ### [Use Azure Backup Server to back up SQL](backup-azure-sql-mabs.md)
@@ -75,9 +76,10 @@
 ## [Delete an Azure Backup vault](backup-azure-delete-vault.md)
 ## [Configure offline-backup](backup-azure-backup-import-export.md)
 ## [Replace your tape library](backup-azure-backup-cloud-as-tape.md)
+## [Application consistent backups of Linux VMs](backup-azure-linux-app-consistent.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/azurerm.recoveryservices.backup)
+## [PowerShell](/powershell/module/azurerm.recoveryservices.backup)
 ## [.NET](/dotnet/api/microsoft.azure.management.recoveryservices.backup)
 
 # Resources

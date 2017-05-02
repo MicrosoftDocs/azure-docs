@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: robmcm
 
 ---
@@ -34,11 +34,7 @@ Note for Tomcat web apps: Once you've uploaded your WAR file to the **webapps** 
 ## See Also
 For more information about using Azure with Java, see the [Azure Java Developer Center].
 
-[!INCLUDE [application-insights-app-insights-java-get-started](../application-insights/app-insights-java-get-started.md)]
-
-[!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
-
-[!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
+[application-insights-app-insights-java-get-started](../application-insights/app-insights-java-get-started.md)
 
 <!-- URL List -->
 

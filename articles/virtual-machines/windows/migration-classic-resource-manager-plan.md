@@ -25,7 +25,8 @@ While Azure Resource Manager offers a lot of amazing features, it is critical to
 > [!NOTE] 
 > The following guidance was heavily contributed to by the Azure Customer Advisory team and Cloud Solution architects working with customers on migrating large enviornments. As such this document will continue to get updated as new patterns of success emerge, so check back from time to time to see if there are any new recommendations.
 
-There are four general phases of the migration journey:
+There are four general phases of the migration journey:<br>
+
 ![Migration phases](../media/virtual-machines-windows-migration-classic-resource-manager/plan-labtest-migrate-beyond.png)
 
 ## Plan
