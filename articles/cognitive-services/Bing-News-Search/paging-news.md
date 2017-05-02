@@ -45,7 +45,7 @@ Host: api.cognitive.microsoft.com
 ```  
 
 > [!NOTE]
-> Version 7 request:
+> Version 7 Preview request:
 
 > ```  
 > GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies&count=20&offset=40&mkt=en-us HTTP/1.1  
@@ -62,7 +62,7 @@ Host: api.cognitive.microsoft.com
 ```  
 
 > [!NOTE]
-> Version 7 request:
+> Version 7 Preview request:
 
 > ```  
 > GET https://api.cognitive.microsoft.com/bing/v7.0/news/search??q=sailing+dinghies&offset=40&mkt=en-us HTTP/1.1  

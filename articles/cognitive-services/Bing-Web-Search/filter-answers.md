@@ -92,6 +92,9 @@ https://api.cognitive.microsoft.com/bing/v5.0/search?q=sailing+dinghies+site:con
   
 ## Limiting the number of answers in the response
 
+> [!NOTE]
+> Available in the Bing Web Search v7 Preview only.
+
 Bing includes answers in the response based on ranking. For example, if you query *sailing+dinghies*, Bing returns `webpages`, `images`, `videos`, and `relatedSearches`.
 
 ```
@@ -148,6 +151,9 @@ If you add the `responseFilter` query parameter to the previous query and set it
 ```
 
 ## Promoting answers that are not ranked
+
+> [!NOTE]
+> Available in the Bing Web Search v7 Preview only.
 
 If the top ranked answers that Bing returns for a query are webpages, images, videos, and relatedSearches, the response would include those answers. If you set [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference.md#answercount)) to two (2), Bing returns the top two ranked answers: webpages and images. If you want Bing to include images and videos in the response, specify the [promote](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference.md#promote) query parameter and set it to images and videos. 
 

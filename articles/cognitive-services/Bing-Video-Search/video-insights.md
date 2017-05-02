@@ -45,7 +45,7 @@ Host: api.cognitive.microsoft.com
 ``` 
 
 > [!NOTE]
-> Version 7 request:
+> Version 7 Preview request:
 >
 > To get all video insights, set the [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-image-api-v7-reference.md#modulesrequested) query parameter to All.
 >
@@ -105,7 +105,7 @@ The following is the response to the previous request. The top-level object is a
 ```
 
 > [!NOTE]
-> Version 7 request:
+> Version 7 Preview request:
 >
 > To get related video insights, set the [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-image-api-v7-reference.md#modulesrequested) query parameter to RelatedVideos.
 >

@@ -24,7 +24,7 @@ https://api.cognitive.microsoft.com/bing/v5.0/images/search
 ```
 
 > [!NOTE]
-> Version 7 Beta endpoint:
+> Version 7 Preview endpoint:
 > 
 > ```
 > https://api.cognitive.microsoft.com/bing/v7.0/images/search
@@ -60,7 +60,7 @@ Host: api.cognitive.microsoft.com
 ```  
 
 > [!NOTE]
-> Version 7 request:
+> Version 7 Preview request:
 >
 > ```  
 > GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies&mkt=en-us HTTP/1.1  
@@ -149,7 +149,7 @@ BingAPIs-Market: en-US
 ```
 
 > [!NOTE]
-> Version 7 response change:
+> Version 7 Preview response change:
 >
 > Renamed the `nextOffsetAddCount` to `nextOffset`. You use the field to page images. In v7, you set the [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference.md#offset) query parameter to the value of `nextOffset`. For more information, see [Paging Images](./paging-images.md).
 

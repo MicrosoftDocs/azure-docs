@@ -24,7 +24,7 @@ https://api.cognitive.microsoft.com/bing/v5.0/news/search
 ```
 
 > [!NOTE]
-> Version 7 Beta endpoint:
+> Version 7 Preview endpoint:
 > 
 > ```
 > https://api.cognitive.microsoft.com/bing/v7.0/news/search
@@ -60,7 +60,7 @@ Host: api.cognitive.microsoft.com
 ```  
 
 > [!NOTE]
-> Version 7 request:
+> Version 7 Preview request:
 >
 > ```  
 > GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies&mkt=en-us HTTP/1.1  
@@ -156,7 +156,7 @@ BingAPIs-Market: en-US
 ```
 
 > [!NOTE]
-> Version 7 response changes:
+> Version 7 Preview response changes:
 >
 > Added the `mentions` field to the [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference.md#newsarticle) object. The `mentions` field contains a list of entities (persons or places) that were found in the article.  
 > 

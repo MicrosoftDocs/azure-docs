@@ -49,7 +49,7 @@ Host: api.cognitive.microsoft.com
 ``` 
 
 > [!NOTE]
-> Version 7 changes to insights request.
+> Version 7 Preview changes to insights request.
 >
 > To get insights call the /images/details endpoint. 
 >
@@ -84,7 +84,7 @@ Host: api.cognitive.microsoft.com
 ``` 
 
 > [!NOTE]
-> Version 7 request:
+> Version 7 Preview request:
 >
 > ```
 > GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?q=sailing+dinghy&imgUrl=https%3A%2F%2Fwww.mydomain.com%2Fimages%2Fsunflower.png&modules=All&mkt=en-us HTTP/1.1  
@@ -192,7 +192,7 @@ The following is the response to the previous request. The top-level object is a
 
 
 > [!NOTE]
-> Version 7 changes to insights request.
+> Version 7 Preview changes to insights request.
 >
 > To get insights call the /images/details endpoint.
 >
@@ -431,7 +431,7 @@ The following shows the response to the previous request. Because the image cont
 ```  
 
 > [!NOTE]
-> Version 7 changes to recognized entities insights request.
+> Version 7 Preview changes to recognized entities insights request.
 >
 > To get insights call the /images/details endpoint.
 >
@@ -545,7 +545,7 @@ The following shows the response to the previous request.
 ```  
 
 > [!NOTE]
-> Version 7 changes to visually similar insights request.
+> Version 7 Preview changes to visually similar insights request.
 >
 > To get insights call the /images/details endpoint.
 >
@@ -600,7 +600,7 @@ Host: api.cognitive.microsoft.com
 ```  
 
 > [!NOTE]
-> Version 7 request:
+> Version 7 Preview request:
 >
 > ```
 > GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?modules=RecognizedEntities&imgurl=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.M0cbee6fadb43f35b2344e53da7a23ec1o0%26pid%3DApi&mkt=en-us HTTP/1.1  
@@ -674,7 +674,7 @@ Host: api.cognitive.microsoft.com
 ```  
 
 > [!NOTE]
-> Version 7 request:
+> Version 7 Preview request:
 >
 > ```
 > GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?cal=0.5&cat=0.0&car=1.0&cab=1.0&modules=RecognizedEntities&imgurl=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.M0cbee6fadb43f35b2344e53da7a23ec1o0%26pid%3DApi&mkt=en-us HTTP/1.1    
@@ -779,7 +779,7 @@ The following shows the response to the previous request. The response contains 
 ```  
 
 > [!NOTE]
-> Version 7 changes to visually similar product insights request.
+> Version 7 Preview changes to visually similar product insights request.
 >
 > To get insights call the /images/details endpoint.
 >
@@ -862,7 +862,7 @@ The following is the response to the previous request.
 
 
 > [!NOTE]
-> Version 7 changes to shopping sources insights request.
+> Version 7 Preview changes to shopping sources insights request.
 >
 > To get insights call the /images/details endpoint.
 >
