@@ -37,7 +37,7 @@ Now you need to register your application in the *Microsoft Application Registra
 final static String CLIENT_ID = "[Enter the application Id here]";
 ```
 7. Open `AndroidManifest.xml` (under `app` > `manifests`)
-8. Add the following activity to `manifest\application` node. This register a BrowserTabActivity to allow the OS to come back to your application after completing the authentication:
+8. Add the following activity to `manifest\application` node. This register a BrowserTabActivity to allow the OS to resume your application after completing the authentication:
 
 ```xml
 <!--Intent filter to capture System Browser calling back to our app after Sign In-->

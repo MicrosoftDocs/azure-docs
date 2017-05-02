@@ -24,12 +24,12 @@ ms.author: andret
 In this step, you need to add the Application ID to your project.
 
 1.	Open `MainActivity` (under `app` > `java` > *`{host}.{namespace}`*)
-2.	Replace the line starting with `final static String CLIENT_ID` to:
+2.	Replace the line starting with `final static String CLIENT_ID` with:
 ```java
 final static String CLIENT_ID = "[Enter the application Id here]";
 ```
 3. Open: `app` > `manifests` > `AndroidManifest.xml`
-4. Add the following activity to `manifest\application` node. This register a BrowserTabActivity to allow the OS to come back to your application after completing the authentication:
+4. Add the following activity to `manifest\application` node. This register a BrowserTabActivity to allow the OS to resume your application after completing the authentication:
 
 ```xml
 <!--Intent filter to capture System Browser calling back to our app after Sign In-->
