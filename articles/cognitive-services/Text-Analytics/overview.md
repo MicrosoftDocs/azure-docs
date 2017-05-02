@@ -26,7 +26,7 @@ Sentiment score is generated using classification techniques, and returns a scor
 
 Automatically extract key phrases to quickly identify the main points. We employ techniques from Microsoft Office's sophisticated Natural Language Processing toolkit.
 
-For example, for the input text ‘The food was delicious but and there were wonderful staff’, the service returns the main talking points: ‘food’ and ‘wonderful staff’.
+For example, for the input text ‘The food was delicious and there were wonderful staff’, the service returns the main talking points: ‘food’ and ‘wonderful staff’.
 
 ## Topic Detection
 
