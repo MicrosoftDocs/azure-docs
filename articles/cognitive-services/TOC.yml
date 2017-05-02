@@ -64,7 +64,7 @@
   - name: Bing Image Search
     items:
     - name: Overview
-      href: Bing-Image-Search/overview.md
+      href: Bing-Image-Search/search-the-web.md
     - name: Use and Display Requirements
       href: Bing-Image-Search/UseAndDisplayRequirements.md
     - name: API reference
