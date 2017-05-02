@@ -21,6 +21,9 @@ Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/9.6/stat
 ## PostgreSQL Version 9.5.6
 Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/9.6/static/release-9-5-6.html) to learn about improvements and fixes in PostgreSQL 9.5.6.
 
+## Managing updates and upgrades
+Azure Database for PostgreSQL automatically manages patching for minor version updates. Currently, in public preview, major version upgrade, for example from PostgreSQL 9.5 to PostgreSQL 9.6 is not supported.
+
 ## Next steps
 - For information about the support of different PostgreSQL extensions, see [PostgreSQL Extensions](concepts-extensions.md)
 
