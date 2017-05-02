@@ -1,3 +1,18 @@
+---
+title: Upgrade Bing Video API v5 to v7 | Microsoft Docs
+description: Identifies the parts of your application that you need to update to use version 7.
+services: cognitive-services
+author: swhite-msft
+manager: ehansen
+
+ms.assetid: FA7DDF07-97AC-4EBE-8C50-A9737D43B38E
+ms.service: cognitive-services
+ms.technology: bing-video-search
+ms.topic: article
+ms.date: 04/15/2017
+ms.author: scottwhi
+---
+
 # Video Search API Upgrade Guide
 
 This upgrade guide identifies the changes between version 5 and version 7 of the Bing Video Search API. Use this guide to help you identify the parts of your application that you need to update to use version 7.

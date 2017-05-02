@@ -15,7 +15,7 @@ ms.author: scottwhi
 
 # Your First Video Search Query
 
-Before you can make your first call, you need to get a Bing Search Cognitive Services subscription key. To get a key, see [Subscription Keys](https://www.microsoft.com/cognitive-services/subscriptions?mode=NewTrials).
+Before you can make your first call, you need to get a Bing Search Cognitive Services subscription key. To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=search-api).
 
 To get Video search results, you'd send a GET request to the following endpoint:  
   
