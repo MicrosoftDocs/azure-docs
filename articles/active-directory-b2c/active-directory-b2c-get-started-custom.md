@@ -5,7 +5,7 @@ services: active-directory-b2c
 documentationcenter: ''
 author: gsacavdm
 manager: krassk
-editor: parakhj
+editor: rojasja
 
 ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
 ms.service: active-directory-b2c
@@ -20,19 +20,20 @@ ms.author: gsacavdm
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-After completing the steps in this article, your custom policy will support "local account" sign-up or sign-in using an email and password. You will also prepare your environment for adding additional identity providers (like Facebook or Azure AD).  Completion of these steps is required before all other uses of the Azure AD B2C’s Identity Experience Engine and many essential concepts are introduced.
+After completing the steps in this article, your custom policy will support "local account" sign-up or sign-in using an email and password. You will also prepare your environment for adding additional identity providers (like Facebook or Azure AD).  Completion of these steps is required before all other uses of the Azure AD B2C’s Identity Experience Framework and many essential concepts are introduced.
 
 ## Prerequisites
 
 Before proceeding, ensure that you have an Azure AD B2C tenant. An Azure AD B2C tenant is a container for all your users, apps, policies, and more. If you don't have one already, you need to [create one](active-directory-b2c-get-started.md).
 
-### Confirming your B2C tenant
 
-Because custom policies are still in private preview, confirm that your Azure AD B2C tenant is enabled for custom policy upload:
+### Confirming your access to custom policies in your B2C tenant
 
-1. In the [Azure portal](https://portal.azure.com), [switch into the context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md) and open the Azure AD B2C blade.
-1. Click **All Policies**.
-1. Make sure **Upload Policy** is available.  If the button is disabled, email AADB2CPreview@microsoft.com.
+Access to custom policy editing requires a valid Azure subscription linked to your tenant. To confirm access:
+
+1. In the [Azure portal](https://portal.azure.com), [switch into the context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md) and open the Azure AD B2C settings blade.
+1. On the far left you should see **Identity Experience Framework** or **Custom Policies**
+1. Click and verify access to the +Add policy command.
 
 ## Set up keys for your custom policy
 
@@ -146,4 +147,4 @@ The base file that we used in this getting started guide already contains some o
 
 ## Reference
 
-* A **Technical Profile (TP)** is an element that defines an endpoint’s name, its metadata, its protocol, and details the exchange of claims that the Identity Experience Engine should perform.  The Local Account SignIn is the TechnicalProfile used by the Identity Experience Engine to perform a local account login.
+[Overview](active-directory-b2c-overview-custom.md)  of Custom Policies in Azure AD B2C using the Identity Experience Framework
