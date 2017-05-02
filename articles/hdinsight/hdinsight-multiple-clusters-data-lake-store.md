@@ -49,12 +49,14 @@ In the table,
 - **Service principal** is the Azure Active Directory (AAD) service principal associated with the account.
 - **FINGRP** is a user group created in AAD that contains users from the Finance organization.
 
+For instructions on how to create an AAD application (that also creates a Service Principal), see [Create an AAD application](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). For instructions on how to create a user group in AAD, see [Managing groups in Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups).
+
 Some key points to consider.
 
 - The two level folder structure (**/clusters/finance/**) must be created and provisioned with appropriate permissions by the Data Lake Store admin **before** using the storage account for clusters. This structure is not created automatically while creating clusters.
 - The example above recommends setting the owning group of **/clusters/finance** as **FINGRP** and permitting **r-x** access to FINGRP to the entire folder hierarchy starting from the root. This ensures that the members of FINGRP can navigate the folder structure starting from root.
-- In the case when different AAD Service Principals can create clusters under **/clusters/finance**, the sticky-bit (when set on the Finance folder above) ensures that folders created by one Service Principal cannot be deleted by the other.
-- Once the folder structure and permissions are in place, HDInsight cluster creation process creates a cluster-specific storage loaction under **/clusters/finance/**. For example, the storage for a cluster with the name fincluster01 could be **/clusters/finanace/fincluster01**. The ownership and permissions for the folders created by HDInsight cluster is shown in the table here.
+- In the case when different AAD Service Principals can create clusters under **/clusters/finance**, the sticky-bit (when set on the **finance** folder) ensures that folders created by one Service Principal cannot be deleted by the other.
+- Once the folder structure and permissions are in place, HDInsight cluster creation process creates a cluster-specific storage loaction under **/clusters/finance/**. For example, the storage for a cluster with the name fincluster01 could be **/clusters/finance/fincluster01**. The ownership and permissions for the folders created by HDInsight cluster is shown in the table here.
 
     |Folder  |Permissions  |Owning user  |Owning group  | Named user | Named user permissions | Named group | Named group permissions |
     |---------|---------|---------|---------|---------|---------|---------|---------|
@@ -72,7 +74,7 @@ The limit on the number of clusters that can share a single Data Lake Store acco
 
 ## Support for Default-ACLs
 
-When creating a Service Principal with named-user access (as shown in the table above), we recommend **not** adding the named-user with a default-ACL. Provisioning named-user access using default-ACLs results in the assignment of 770 permissions for owning-user, owning-group, and others. While this default value of 770 does not take away permissions from owning-user (7) or owning-group (7), it takes away all permissions for others (0). This results in a known issue with one particular use-case that is discussed in detail in the Known issues and workarounds section.
+When creating a Service Principal with named-user access (as shown in the table above), we recommend **not** adding the named-user with a default-ACL. Provisioning named-user access using default-ACLs results in the assignment of 770 permissions for owning-user, owning-group, and others. While this default value of 770 does not take away permissions from owning-user (7) or owning-group (7), it takes away all permissions for others (0). This results in a known issue with one particular use-case that is discussed in detail in the [Known issues and workarounds](#known-issues-and-workarounds) section.
 
 ## Known issues and workarounds
 
@@ -90,5 +92,9 @@ As stated in the YARN JIRA linked earlier, while localizing public resources, th
 
 #### Workaround
 Set read-execute permissions for **others** through the hierarchy, for example,  at **/**, **/clusters** and **/clusters/finance** as shown in the table above.
+
+## See also
+
+* [Create an HDInsight cluster with Data Lake Store as storage](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
 
 
