@@ -1,6 +1,6 @@
 ﻿---
 title: Create an Azure Service Fabric container app | Microsoft Docs
-description: Create your first container app on Azure Service Fabric.
+description: Create your first container app on Azure Service Fabric.  Build a Docker image with your app, push the image to a container registry, build and deploy a Service Fabric container app.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -19,7 +19,7 @@ ms.author: ryanwi
 ---
 
 # Create your first Service Fabric container app
-Running an existing application in a Windows container on a Service Fabric cluster doesn't require any changes to your app. This quick start walks you through creating a Docker image containing your app, packaging it, and deploying it to a cluster.  This article assumes a basic understanding of Docker. You can learn about Docker by reading the [Docker Overview](https://docs.docker.com/engine/understanding-docker/).
+Running an existing application in a Windows container on a Service Fabric cluster doesn't require any changes to your app. This quick start walks you through creating a Docker image containing a web app, pushing the new image to Azure Container Registry, creating a Service Fabric container app, and deploying the container app to a Service Fabric cluster.  This article assumes a basic understanding of Docker. You can learn about Docker by reading the [Docker Overview](https://docs.docker.com/engine/understanding-docker/).
 
 ## Prerequisites
 A development computer running:
@@ -58,7 +58,7 @@ Define your Docker image in a Dockerfile. The Dockerfile contains instructions f
     # Create a directory to hold the web app in the container.
     RUN mkdir C:\site
 
-    # Import and start IIS in the container.
+    # Create a new IIS site.
     RUN powershell -NoProfile -Command \
         Import-module IISAdministration; \
         New-IISSite -Name "Site" -PhysicalPath C:\site -BindingInformation "*:8000:"
@@ -158,7 +158,7 @@ The Service Fabric SDK and tools provide a service template to help you deploy a
     <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
     ```
     Providing the ```UriScheme``` automatically registers the container endpoint with the Service Fabric Naming service for discoverability. A full ServiceManifest.xml example file is provided at the end of this article. 
-7. Configure the container port-to-host port mapping by specifying a ```PortBinding``` policy in ```ContainerHostPolicies``` of the ApplicationManifest.xml file.  For this quick start, ```ContainerPort``` is 8000 (the container exposes port 8000, as specified in the Dockerfile) and ```EndpointRef``` is "Guest1TypeEndpoint" (the endpoint defined in the service manifest).  If your container needs to authenticate with a private repository, then add ```RepositoryCredentials```.  For this quick start, add the account name and password for the myregistry.azurecr.io container registry. 
+7. Configure the container port-to-host port mapping by specifying a ```PortBinding``` policy in ```ContainerHostPolicies``` of the ApplicationManifest.xml file.  For this quick start, ```ContainerPort``` is 8000 (the container exposes port 8000, as specified in the Dockerfile) and ```EndpointRef``` is "Guest1TypeEndpoint" (the endpoint defined in the service manifest).  Incoming requests to the service on port 80 are mapped to port 8000 on the container.  If your container needs to authenticate with a private repository, then add ```RepositoryCredentials```.  For this quick start, add the account name and password for the myregistry.azurecr.io container registry. 
 
     ```xml
     <Policies>
@@ -182,7 +182,7 @@ The Service Fabric SDK and tools provide a service template to help you deploy a
 ## Deploy the container app
 1. To publish your app, right-click on **MyFirstContainer** in Solution Explorer and select **Publish**.
 
-2. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is a web-based tool for inspecting and managing applications and nodes in a Service Fabric cluster. Open a browser and navigate to http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ and follow the app deployment.  The app is in an error state until the image is downloaded on the cluster nodes (which can take some time, depending on the image size):
+2. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is a web-based tool for inspecting and managing applications and nodes in a Service Fabric cluster. Open a browser and navigate to http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ and follow the app deployment.  The app deploys but is in an error state until the image is downloaded on the cluster nodes (which can take some time, depending on the image size):
     ![Error][1]
 
 3. The app is ready when it's in ```Ready``` state:
@@ -201,6 +201,8 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 
 ## Complete example Service Fabric application and service manifests
+Here are the complete service and application manifests used in this quick start.
+
 ### ServiceManifest.xml
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
