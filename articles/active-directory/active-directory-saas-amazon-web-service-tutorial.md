@@ -271,7 +271,7 @@ To ensure users can sign-in to Amazon Web Services (AWS) after it has been confi
  
 - To configure access polices for Amazon Web Services (AWS) users, see Access Policies.
  
-- For additional information on deploying single sign-on to users, see [this article](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-appssoaccess-whatis#deploying-azure-ad-integrated-applications-to-users).-->
+- For additional information on deploying single sign-on to users, see [this article](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#deploying-azure-ad-integrated-applications-to-users).-->
 
 
 ### Creating an Azure AD test user
