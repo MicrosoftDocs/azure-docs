@@ -35,17 +35,17 @@ Since Cloud Shell is built for interactive sessions, shells automatically termin
 |Source control         |git                    |
 |Build tools            |make<br> maven<br> npm<br> pip         |
 |Containers             |Kubectl<br> DC/OS CLI         |
-|Databases              |MySQL Client<br> PostgreSql Client<br> sqlcmd Utility      |
+|Databases              |MySQL client<br> PostgreSql client<br> sqlcmd Utility      |
 |Other                  |iPython Client |
 
 ### Language support
 |Language   |Version   |
 |---|---|
-|Python     |2.7 and 3.5|
-|Node.js    |6.9.4      |
 |.NET       |1.01       |
 |Go         |1.7        |
 |Java       |JRE/JDK 1.8|
+|Node.js    |6.9.4      |
+|Python     |2.7 and 3.5|
 
 ## Secure automatic authentication
 Cloud Shell securely and automatically authenticates account access for the Azure CLI 2.0.

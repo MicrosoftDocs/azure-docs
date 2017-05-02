@@ -20,15 +20,15 @@ ms.author: juluk
 # Azure Cloud Shell Limitations
 Azure Cloud Shell has the following known limitations.
 
+## System state and persistence
+The machine providing your Cloud Shell session is temporary and is recycled after your session is inactive for 10 minutes. Cloud Shell requires a file share to be mounted.
+* With mounted storage only modifications within your `$Home` directory or `clouddrive` directory are persisted
+  * File shares can only be mounted from [supported regions](persisting-shell-storage.md#supported-storage-regions)
+  * Azure Files only supports LRS and GRS storage accounts
+
 ## User permissions
 Permissions are set as regular users without sudo access. Any installation outside of your $Home will not persist.
 Certain commands such as `git clone` within the `clouddrive` directory do not have proper permissions, however your $Home directory does.
-
-## System state and persistence
-The machine providing your Cloud Shell session is temporary and is recycled after your session is inactive for 10 minutes. If a file share is not attached, no files will persist.
-* With attached storage only modifications within your `$Home` directory or `clouddrive` directory are persisted
-  * File shares can only be mounted from supported [regions](persisting-shell-storage.md)
-  * Azure Files only supports LRS and GRS storage accounts
 
 ## Browser support
 Cloud Shell supports the latest versions of Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozilla Firefox, and Apple Safari. Safari in private mode is not supported.

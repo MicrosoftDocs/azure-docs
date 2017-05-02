@@ -18,8 +18,11 @@ ms.author: juluk
 ---
 
 # Persisting Azure Cloud Shell files
-On initial start, Azure Cloud Shell asks for your subscription to create an LRS storage account and Azure file share for you. 
-This file share will mount as `clouddrive` under your $Home directory. This file share is also used to store a 5-GB image created for you that automatically updates and persists your $Home directory. This is a one-time action and automatically mounted for subsequent sessions.
+On initial start, Azure Cloud Shell asks for your subscription to create an LRS storage account and Azure file share for you.
+
+![](media/storage-create.png)
+
+This file share will mount as `clouddrive` under your $Home directory. This file share is also used to store a 5-GB image created for you that automatically updates and persists your $Home directory. This is a one-time action and automatically mounts for subsequent sessions.
 
 Cloud Shell persists files with both methods below:
 1. Create a disk image of your $Home directory to persist files within $Home. 
@@ -40,7 +43,7 @@ If mounting an existing file share, storage accounts must be:
 
 ### Supported storage regions
 Your storage account and file share must exist in one of the following regions.
-||Region|
+|Area|Region|
 |---|---|
 |Americas|East US, South Central US, West US|
 |Europe|North Europe, West Europe|
@@ -87,15 +90,13 @@ justin@Azure:~$
 
 ## Remove clouddrive
 
-You may detach a file share mounted to Cloud Shell at any time.
+You may unmount a file share mounted to Cloud Shell at any time.
 
-[!NOTE]
+> [!NOTE]
+> Cloud Shell requires a file share to access, you will be prompted to create and mount a new file share on next session if removed.
 
-Cloud Shell requires a file share to access, you will be prompted to create and mount a new file share on next session if removed.
-
-[!WARNING]
-
-Deleting the resource group, storage account, or file share mapped to Cloud Shell will erase all files in your $Home directory and any files in your file share. This cannot be undone.
+> [!WARNING]
+> Deleting the resource group, storage account, or file share mapped to Cloud Shell will erase all files in your $Home directory and any files > in your file share. This cannot be undone.
 
 To detach a file share from Cloud Shell:
 1. Run `removeclouddrive`
@@ -106,9 +107,8 @@ Cloud Shell will no longer search for this file share on subsequent sessions. Th
 ## Update clouddrive
 Run `createclouddrive` specifying a new file share
 
-[!NOTE]
-
-Your $Home directory will reset as your $Home disk image is held in the previous file share.
+> [!NOTE]
+> Your $Home directory will reset as your $Home disk image is held in the previous file share.
 
 ## Upload or download local files
 Utilize Azure portal to upload or download files to/from storage.
