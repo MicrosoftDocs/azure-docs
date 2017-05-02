@@ -6,7 +6,7 @@ keywords:
 author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
-ms.date: 04/24/2017
+ms.date: 05/02/2017
 ms.topic: hero-article
 ms.service: functions
 # ms.custom: can-be-multiple-comma-separated
@@ -20,7 +20,7 @@ This quickstart tutorial walks through how to use Azure Functions to create your
 
 You can follow the steps below using a Mac, Windows, or Linux computer. It should take you only about five minutes to complete all the steps in this topic.
 
-## Before you begin
+## Prerequisites 
 
 Before running this sample, you must have the following:
 
