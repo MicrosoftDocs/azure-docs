@@ -65,9 +65,9 @@ Each cluster type has its own number of nodes within the cluster, terminology fo
 | Type | Nodes | Diagram |
 | --- | --- | --- |
 | Hadoop |Head node (2), data node (1+) |![HDInsight Hadoop cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/HDInsight.Hadoop.roles.png) |
-| HBase |Head server (2), region server (1+), master/ZooKeeper node (3) |![HDInsight HBase cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/HDInsight.HBase.roles.png) |
-| Storm |Nimbus node (2), supervisor server (1+), ZooKeeper node (3) |![HDInsight Storm cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/HDInsight.Storm.roles.png) |
-| Spark |Head node (2), worker node (1+), ZooKeeper node (3) (free for A1 ZooKeeper VM size) |![HDInsight Spark cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/HDInsight.Spark.roles.png) |
+| HBase |Head server (2), region server (1+), master/ZooKeeper node (3) |![HDInsight HBase cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/HDInsight-HBase-roles.png) |
+| Storm |Nimbus node (2), supervisor server (1+), ZooKeeper node (3) |![HDInsight Storm cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/HDInsight-Storm-roles.png) |
+| Spark |Head node (2), worker node (1+), ZooKeeper node (3) (free for A1 ZooKeeper VM size) |![HDInsight Spark cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/HDInsight-Spark-roles.png) |
 
 The following tables list the default VM sizes for HDInsight:
 
@@ -210,7 +210,7 @@ Different cluster types have different node types, numbers of nodes, and node si
 
 When you use the Azure portal to configure the cluster, the node size is available through the **Node Pricing Tiers** blade. You can also see the cost associated with the different node sizes. The following screenshot shows the choices for a Linux-based Hadoop cluster.
 
-![HDInsight VM node sizes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight.node.sizes.png)
+![HDInsight VM node sizes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-node-sizes.png)
 
 The following tables show the sizes supported by HDInsight clusters, and the capacities they provide.
 
