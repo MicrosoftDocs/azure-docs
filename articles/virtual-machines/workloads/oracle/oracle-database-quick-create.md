@@ -18,7 +18,7 @@ ms.date: 04/26/2017
 ms.author: rclaus
 ---
 
-# Create an Oracle Database 12c database in an Azure virtual machine
+# Create an Oracle Database 12c database in an Azure VM
 
 You can use Azure CLI to create and manage Azure resources at a command prompt or in scripts. In this article, we use scripts in Azure CLI to deploy an Oracle 12c database from an Azure Marketplace gallery image.
 
@@ -42,7 +42,7 @@ The following example creates a resource group named `myResourceGroup` in the `w
 az group create --name myResourceGroup --location westus
 ```
 
-## Create a virtual machine
+## Create a VM
 
 To create a virtual machine (VM), use the [az vm create](/cli/azure/vm#create) command. 
 
@@ -229,7 +229,7 @@ PL/SQL procedure successfully completed.
 
 ## Automate database startup and shutdown
 
-The Oracle database by default doesn't automatically start when you start the VM. To set up the Oracle database to start when you start the VM, first sign in as root. Then, you create and update some system files.
+The Oracle database by default doesn't automatically start when you start the VM. To set up the Oracle database to start when you start the VM, first sign in as root. Then, create and update some system files.
 
 1.  Sign in as root:
 
@@ -381,4 +381,5 @@ az group delete --name myResourceGroup
 ## Next steps
 
 [Tutorial: Create highly available VMs](../../linux/create-cli-complete.md)
+
 [Explore VM deployment Azure CLI samples](../../linux/cli-samples.md)
