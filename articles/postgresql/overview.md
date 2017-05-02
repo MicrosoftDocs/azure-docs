@@ -14,7 +14,14 @@ ms.date: 05/10/2017
 ---
 # What is Azure Database for PostgreSQL?
 
-Azure Database for PostgreSQL is a relational database service in the Microsoft cloud built for developers based on the community version of open source [PostgreSQL](https://www.postgresql.org/) database engine. Azure Database for PostgreSQL delivers predictable performance at multiple service levels, dynamic scalability with no application downtime, built-in high availability, and data protection � all with near-zero administration and at no additional cost. These capabilities allow you to focus on rapid app development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. In addition, you can continue to develop your application with the open source tools and platform of your choice, and deliver with the speed and efficiency your business demands without having to learn new skills. 
+Azure Database for PostgreSQL is a relational database service in the Microsoft cloud built for developers based on the community version of open source [PostgreSQL](https://www.postgresql.org/) database engine. Azure Database for PostgreSQL delivers:
+
+- Predictable performance at multiple service levels
+- Dynamic scalability with no application downtime
+- Built-in high availability
+- Data protection
+
+All those capabilities require almost no administration, and all are provided at no additional cost. These capabilities allow you to focus on rapid app development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. In addition, you can continue to develop your application with the open source tools and platform of your choice, and deliver with the speed and efficiency your business demands without having to learn new skills. 
 
 This article is an introduction to Azure Database for PostgreSQL core concepts and features related to performance, scalability, and manageability, with links to explore details. See these quick starts to get you started:
 

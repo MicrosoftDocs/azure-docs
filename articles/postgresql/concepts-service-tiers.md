@@ -19,7 +19,7 @@ Azure Database for PostgreSQL offers three service tiers: Basic, Standard, and P
 In addition, it is also possible to change service tiers, for example, upgrade from Basic to Standard service tier and vice versa without application downtime, however, this feature will be available in the future. Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99%, flexible business continuity options, security features, and hourly billing. 
 
 > [!IMPORTANT]
-> The service, currently in public preview service does not provide an SLA.
+> The service is currently in public preview, and so does not yet provide a Service Level Agreement (SLA).
 
 You can create single PostgreSQL server with dedicated resources within a service tier at a specific performance level. You can then create one to several databases within the server in which the resources are shared across multiple databases. The resources available for single PostgreSQL server are expressed in terms of Compute Units and Storage Units. For more on Compute Units and Storage, see [Explaining Compute Unit and Storage Unit](concepts-compute-unit-and-storage.md)
 
@@ -36,7 +36,7 @@ The following table provides examples of the tiers best suited for different app
 
 To decide on a service tier, first start by determining if your workload need IOPS guarantee. Then determine the minimum features that you need:
 
-| **Service tier features** | **Basic** | **Standard** | **Premium\*** |
+| **Service tier features** | **Basic** | **Standard** | **Premium** * |
 | :------------------------ | :-------- | :----------- | :------------ |
 | Maximum Compute Units | 100 | 2000 | Not available in preview |
 | Maximum total storage | 1050 GB | 10000 GB | Not available in preview |
@@ -45,26 +45,25 @@ To decide on a service tier, first start by determining if your workload need IO
 | Database backup retention period | 7 days | 35 days | 35 days |
 | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 
-> [!IMPORTANT]
-> Standard service tier in preview currently supports up to 800 Compute Units, and a maximum of 1000 GB of storage.
+> [!NOTE]
+> The Standard service tier in preview currently supports up to 800 Compute Units, and a maximum of 1000 GB of storage.
 
 Once you have determined the minimum service tier, you are ready to determine the performance level for the PostgreSQL server (the Compute Units). The standard 200 and 400 Compute Units are often a good starting point for applications that require higher user concurrency for their web or analytical workloads. 
 
 However, you can scale up or down the Compute Units independent of Storage Units, based on the requirements of the workload. If the workload needs an adjustment of compute resources, you can dynamically increase or decrease the Compute Units. If your workload needs more IOPS or storage, then you can also scale Storage.
 
-> [!IMPORTANT]
+> [!NOTE]
 > In preview, the Basic and Standard tiers currently do not support the dynamic scaling of storage. We plan to add the feature in the future.
 
-> [!IMPORTANT]
-> With Standard service tier, IOPS scales proportionally to provisioned storage size in a fixed 3:1 ratio. The included storage of 125 GB provides guarantee for 375 provisioned IOPS, each with IO size of up to 256KB. If you provision 1000 GB, you will get 3000 provisioned IOPS. You must monitor the server compute units consumption, and scale up, to fully utilize the available provisioned IOPS.
+> [!NOTE]
+> At the Standard service tier, IOPS scales proportionally to provisioned storage size in a fixed 3:1 ratio. The included storage of 125 GB guarantees for 375 provisioned IOPS, each with an IO size of up to 256 KB. If you provision 1000 GB, you will get 3000 provisioned IOPS. You must monitor the server compute units consumption, and scale up, to fully utilize the available provisioned IOPS.
 
 ## Service tiers and performance levels
 
 Azure Database for PostgreSQL offers multiple performance levels within each service tier. You have the flexibility to choose the level that best meets your workload’s demands, by using one of the following:
 
 - [Azure portal](/azure/azure-portal-overview), located at [http://portal.azure.com](http://portal.azure.com)
-- [Azure CLI](/cli/azure/overview)
-- [Azure REST API](/rest/api/)
+- [Azure CLI](quickstart-create-server-database-azure-cli.md)
 
 Regardless of the number of databases hosted within each PostgreSQL server, your database gets a guaranteed set of resources and the expected performance characteristics of your server are not affected.
 
