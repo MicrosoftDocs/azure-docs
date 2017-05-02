@@ -20,13 +20,12 @@ ms.author: juluk
 # Azure Cloud Shell Features
 Azure Cloud Shell is a browser-based shell experience to manage and develop Azure resources.
 
-## Browser-accessible shell experience for Azure
 Cloud Shell offers a browser-accessible, pre-configured shell experience for managing Azure resources without the overhead of installing, versioning, and maintaining a machine yourself.
 
 Cloud Shell provisions machines on a per-request basis and as a result machine state will not persist across sessions. 
 Since Cloud Shell is built for interactive sessions, shells automatically terminate after 10 minutes of shell inactivity.
 
-### Tools
+## Tools
 |Category   |Name   |
 |---|---|
 |Linux shell interpreter|Bash<br> sh               |
@@ -38,7 +37,7 @@ Since Cloud Shell is built for interactive sessions, shells automatically termin
 |Databases              |MySQL client<br> PostgreSql client<br> sqlcmd Utility      |
 |Other                  |iPython Client |
 
-### Language support
+## Language support
 |Language   |Version   |
 |---|---|
 |.NET       |1.01       |
