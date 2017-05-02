@@ -80,10 +80,9 @@ az login
 
 ## Configure a Deployment User
 
-For FTP and local Git it is necessary to have a deployment user configured on the server to authenicate your deployment. Creating a deployment user is a one time configuration, take a note of the username and password as they will be used in a step below.
+For FTP and local Git it is necessary to have a deployment user configured on the server to authenticate your deployment. Creating a deployment user is a one time configuration, take a note of the `username` and `password` as they will be used in a step below.
 
 > [!NOTE]
-> A deployment user is required for FTP and Local Git deployment to a Web App.
 > The `username` and `password` are account-level, as such, are different from your Azure Subscription credentials. **These credentials are only required to be created once**.
 >
 
@@ -153,7 +152,7 @@ Now that an App Service plan has been created, create a Web App within the `quic
 In the command below please substitute your own unique app name where you see the `<app_name>` placeholder. The `<app_name>` will be used as the default DNS site for the web app, and so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the web app before you expose it to your users.
 
 ```azurecli
-az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
+az appservice web create --name **<app_name>** --resource-group myResourceGroup --plan quickStartPlan
 ```
 
 When the Web App has been created, the Azure CLI shows information similar to the following example.
@@ -181,15 +180,12 @@ When the Web App has been created, the Azure CLI shows information similar to th
 }
 ```
 
-Browse to the site to see your newly created Web App.
+Browse to *http://<app_name>.azurewebsites.net* to see your newly created Web App.
 
-```bash
-http://<app_name>.azurewebsites.net
-```
 
 ![app-service-web-service-created](media/app-service-web-get-started-python/app-service-web-service-created.png)
 
-We’ve now created an empty new Web App in Azure. Let’s now configure our Web App to use Python and deploy our app to it.
+We’ve now created an empty new Web App in Azure. Let’s configure our Web App to use Python and deploy our app to it.
 
 ## Configure to use Python
 
@@ -212,11 +208,8 @@ Use the [az appservice web source-control config-local-git](/cli/azure/appservic
 az appservice web source-control config-local-git --name <app_name> --resource-group myResourceGroup --query url --output tsv
 ```
 
-Copy the output from the terminal as it will be used in the next step.
+Copy the output from the terminal as it will be used in the next step. Now browse to *https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git*
 
-```bash
-https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
-```
 
 ## Push to Azure from Git
 
@@ -278,15 +271,10 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 ## Browse to the app
 
-Browse to the deployed application using your web browser.
-
-```bash
-http://<app_name>.azurewebsites.net
-```
+Browse to the deployed application at *http://<app_name>.azurewebsites.net* using your web browser.
 
 This time, the page that displays the Hello World message is running using our Python code running as an Azure App Service web app.
 
-![]()
 
 ## Updating and Deploying the Code
 

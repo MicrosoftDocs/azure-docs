@@ -20,7 +20,7 @@ ms.author: shlo
 ---
 # Introduction to Azure Data Factory Service, a data integration service in the cloud
 ## What is Azure Data Factory?
-In the world of big data, how is existing data leveraged in business? Is it possible to enrich data generated in the cloud by using reference data from on-premises data sources or other disparate data sources? Thus, what is needed is a platform for aggregating and processing data from a wide variety of sources. Azure Data Factory a cloud-based data integration service that orchestrates and automates the **movement** and **transformation** of data. You can create data integration solutions that can ingest input data from disparate data stores, transform/process the data, and publish output data to other data stores. 
+In the world of big data, how is existing data leveraged in business? Is it possible to enrich data generated in the cloud by using reference data from on-premises data sources or other disparate data sources? Thus, what is needed is a platform for aggregating and processing data from a wide variety of sources. Azure Data Factory is a cloud-based data integration service that orchestrates and automates the **movement** and **transformation** of data. You can create data integration solutions that can ingest input data from disparate data stores, transform/process the data, and publish output data to other data stores. 
 
 ![Diagram: Data Factory Overview, a data integration service](./media/data-factory-introduction/what-is-azure-data-factory.png)
 
@@ -45,7 +45,7 @@ The Azure Data Factory service lets you:
 
 	Enterprises have data of disparate types located in disparate sources. The first step in building an information production system is to connect to all the required sources of data and processing, such as SaaS services, file shares, FTP, web services, and move the data as-needed to a centralized location for subsequent processing.
 
-	Without Data Factory, enterprises must build custom data movement components or write custom services to integrate these data sources and processing. This is expensive, and hard to integrate and maintain such systems, and it often lacks the enterprise grade monitoring and alerting, and the controls that a fully managed service can offer.
+	Without Data Factory, enterprises must build custom data movement components or write custom services to integrate these data sources and processing. This is expensive, hard to integrate and maintain such systems. It also often lacks the enterprise grade monitoring, alerting, and the controls that a fully managed service can offer.
 
 	With Data Factory, you can use the Copy Activity in a data pipeline to move data from both on-premises and cloud source data stores to a centralization data store in the cloud for further analysis. For example, you can collect data in an Azure Data Lake Store and transform the data later by using an Azure Data Lake Analytics compute service. Or, collect data in an Azure Blob Storage and transform data later by using an Azure HDInsight Hadoop cluster.
 - **Transform data into trusted information**. 
@@ -61,8 +61,8 @@ There are three information production stages in an Azure Data Factory:
 ![Three information production stages](media/data-factory-introduction/three-information-production-stages.png)
 
 - **Connect & Collect**: In this stage, data from various data sources is collected in one place.
-- **Transform & Enrich**: In this stage, the collected data is processed or transformed.
-- **Publish**. In this stage, the data is published so that it can be consumed by BI tools, analytics tools, and other applications.
+- **Transform & Enrich**: Next, the collected data is processed or transformed.
+- **Publish**. Finally, the data is published so that it can be consumed by BI tools, analytics tools, and other applications.
 
 ## Key components
 An Azure subscription may have one or more Azure Data Factory instances (or data factories). Azure Data Factory is composed of four key components that work together to provide the platform on which you can compose simple to complex data movement and transformation orchestrations for your data flow.
