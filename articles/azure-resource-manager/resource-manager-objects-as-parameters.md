@@ -14,9 +14,11 @@ ms.author: mspnp
 
 ---
 
-# Patterns for extending the functionality of Azure Resource Manager templates - Objects as Parameters
+# Patterns for extending the functionality of Azure Resource Manager templates - objects as parameters
 
 Azure Resource Manager templates support parameters to specify values to customize a resource deployment. While this feature is useful and allows you to create complex deployments, a single template is limited to 255 parameters. If you use a parameter for each property in a resource and you have a large deployment, you might run out of parameters.
+
+## Create object as parameter
 
 One way to solve this problem is to use an object as a parameter. The pattern is to specify a parameter as an object in your template, then provide the object as a value or an array of values. You refer to its subproperties using the `parameter()` function and dot operator. For example:
 
@@ -96,6 +98,8 @@ The corresponding parameter file looks like:
 
 In this example all the values specified for the VNet come from a single parameter, `VNetSettings`. This pattern is useful for property value management because you to keep all the values for a particular resource in single object. And while this example uses an object as a parameter, you can also use an array of objects as a parameter. You refer to the objects using an index into the array.
 
+## Use object instead of multiple arrays
+
 You may have used a similar pattern to create multiple instances of a resource by creating multiple arrays of property values and iterating through each array to select the value. This pattern works well when creating multiple resources of the same type, but it can be troublesome when used to create child resources. 
 
 There's two reasons for this issue. First, Resource Manager attempts to deploy child resources in parallel, but your deployment fails when two child resources update the parent simultaneously. 
@@ -168,7 +172,9 @@ However, if you include all the properties a single object, it is much easier to
 }
 ```
 
-This pattern becomes even more useful when combined with the [sequential copy pattern](/azure/azure-resource-manager/resource-manager-sequential-loop), particularly for deploying child resources. The following example template deploys a network security group (NSG) with two security rules. The first resource named `NSG1` deploys the NSG. The second resource group named `loop-0` performs two functions: first, it `dependsOn` the NSG so its deployment doesn't begin until `NSG1` is completed, and it is the first iteration of the sequential loop. The third resource is a nested template that deploys the security rules using an object for its parameter values as in the last example.
+## Use with sequential copy
+
+This pattern becomes even more useful when combined with the [sequential copy pattern](resource-manager-sequential-loop.md), particularly for deploying child resources. The following example template deploys a network security group (NSG) with two security rules. The first resource named `NSG1` deploys the NSG. The second resource group named `loop-0` performs two functions: first, it `dependsOn` the NSG so its deployment doesn't begin until `NSG1` is completed, and it is the first iteration of the sequential loop. The third resource is a nested template that deploys the security rules using an object for its parameter values as in the last example.
 
 ```json
 {
