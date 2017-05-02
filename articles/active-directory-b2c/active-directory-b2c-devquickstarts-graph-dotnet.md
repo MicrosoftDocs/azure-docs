@@ -57,7 +57,7 @@ Now you need to configure your application to get all the required permissions t
 You now have an application that has permission to create, read and update users from your B2C tenant.
 
 ## Configure delete permissions for your application
-Currently, the *Read and write directory data* permission does **NOT** include the ability to do any deletions such as deleting users. If you want to give you application the ability to delete users, you'll need to do this extra steps that involve PowerShell, otherwise, you can skip to the next section.
+Currently, the *Read and write directory data* permission does **NOT** include the ability to do any deletions such as deleting users. If you want to give your application the ability to delete users, you'll need to do these extra steps that involve PowerShell, otherwise, you can skip to the next section.
 
 First, download and install the [Microsoft Online Services Sign-In Assistant](http://go.microsoft.com/fwlink/?LinkID=286152). Then download and install the [64-bit Azure Active Directory module for Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
 
@@ -89,7 +89,7 @@ Open the `B2CGraphClient\B2CGraphClient.sln` Visual Studio solution in Visual St
 
 ```
 <appSettings>
-    <add key="b2c:Tenant" value="contosob2c.onmicrosoft.com" />
+    <add key="b2c:Tenant" value="{Your Tenant Name}" />
     <add key="b2c:ClientId" value="{The ApplicationID from above}" />
     <add key="b2c:ClientSecret" value="{The Key from above}" />
 </appSettings>
