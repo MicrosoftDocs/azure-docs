@@ -218,7 +218,7 @@ az batch pool create \
 
 ### Delete a pool
 
-**Command:** [az batch pool delete](https://docs.microsoft.com/en-us/cli/azure/batch/pool#delete)
+**Command:** [az batch pool delete](https://docs.microsoft.com/cli/azure/batch/pool#delete)
 
 Use this command to delete a pool.
 
@@ -230,7 +230,7 @@ az batch pool delete --pool-id mypool-windows
 
 ### Create a job
 
-**Command:** [az batch job create](https://docs.microsoft.com/en-us/cli/azure/batch/job#create)
+**Command:** [az batch job create](https://docs.microsoft.com/cli/azure/batch/job#create)
 
 Use this command to add a job to the Batch account.
 
@@ -330,7 +330,7 @@ This section is intended to provide you with resources to use when troubleshooti
 * See [Application deployment with Azure Batch application packages](batch-application-packages.md) to find out how to use this feature to manage and deploy the applications you execute on Batch compute nodes.
 * See [Query the Batch service efficiently](batch-efficient-list-queries.md) for more about reducing the number of items and the type of information that is returned for queries to Batch.
 
-[batch_forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
+[batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
