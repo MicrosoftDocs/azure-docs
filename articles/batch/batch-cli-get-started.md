@@ -73,7 +73,7 @@ The command to create a new resource group is provided by Azure Resource Manager
 
 #### Example
 
-```Azure CLI
+```
 az group create --name myresourcegroup --location westus
 ```
 
@@ -96,7 +96,7 @@ To link an existing Azure Storage account to a new Batch account when you create
 
 #### Example
 
-```Azure CLI
+```
 az batch account create --location westus --resource-group myresourcegroup --name mybatchaccount --storage-account mystorageaccount
 ```
 
@@ -112,7 +112,7 @@ When you delete a Batch account with the Azure CLI, you can specify whether to b
 
 #### Example
 
-```Azure CLI
+```
 az batch account delete --name mybatchaccount --resource-group myresourcegroup
 ```
 
@@ -128,7 +128,7 @@ You can list account access keys only for Batch accounts created with a poolAllo
 
 #### Example
 
-```Azure CLI
+```
 azure batch account keys list --resource-group "resgroup001" "batchaccount001"
 ```
 
@@ -142,7 +142,7 @@ Use this command to regenerate an account key for your Batch account.
 
 #### Example
 
-```Azure CLI
+```
 azure batch account keys renew --key-name Primary --name mybatchaccount --resource-group myresourcegroup
 ```
 
@@ -195,7 +195,7 @@ You can specify pool [application packages](batch-application-packages.md) and t
 
 #### Example (Virtual Machine Configuration):
 
-```Azure CLI
+```
 az batch pool create \
     --id mypool-linux \
     --vm-size Standard_A1 \
@@ -205,7 +205,7 @@ az batch pool create \
 
 #### Example (Cloud Services Configuration):
 
-```Azure CLI
+```
 az batch pool create \
     --id mypool-windows \
     --os-family 4 \
@@ -224,7 +224,7 @@ Use this command to delete a pool.
 
 #### Example
 
-```Azure CLI
+```
 az batch pool delete --pool-id mypool-windows
 ```
 
@@ -236,7 +236,7 @@ Use this command to add a job to the Batch account.
 
 #### Example
 
-```Azure CLI
+```
 az batch job create --id job001 --pool-id mypool-windows
 ```
 
