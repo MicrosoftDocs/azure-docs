@@ -34,7 +34,7 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 
 ## Automated cluster creation
 
-You can automate the creation of HDInsight R Servers using ARM templates, the SDK, and also PowerShell.
+You can automate the creation of HDInsight R Servers using Azure Resource Manager templates, the SDK, and also PowerShell.
 
 * To create an R Server using an Azure Resource Management template, see [Deploy an R server HDInsight cluster.](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
 * To create an R Server using the .NET SDK, see [create Linux-based clusters in HDInsight using the .NET SDK.](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
@@ -581,7 +581,7 @@ remoteLogin(
 )
 ```
 
-## How to scale Microsoft R Server Operationalization compute nodes on HDInsight worker nodes?
+## How to scale Microsoft R Server Operationalization compute nodes on HDInsight worker nodes
 
 
 ### Decommission the worker node(s)
