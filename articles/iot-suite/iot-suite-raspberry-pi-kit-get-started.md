@@ -21,21 +21,13 @@ ms.author: dobett
 
 The tutorials in this section help you learn how to connect a Raspberry Pi 3 device to the remote monitoring solution. Choose the tutorial appropriate to your preferred programming language and the whether you have the sensor hardware available to use with your Raspberry Pi.
 
-## Node.js tutorials
+## The tutorials
 
-| Tutorial | Notes |
-| -------- | ----- |
-| [Simulated telemetry][lnk-node-simulator] (Basic)| Simulates sensor data. Uses a standalone Raspberry Pi. |
-| [Real sensor][lnk-node-basic] (Intermediate) | Uses data from a BME280 sensor connected to your Raspberry Pi. |
-| [Implement firmware update][lnk-node-advanced] (Advanced)| Uses data from a BME280 sensor connected to your Raspberry Pi. Enables remote firmware updates on your Raspberry Pi. |
-
-## C tutorials
-
-| Tutorial | Notes |
-| -------- | ----- |
-| [Simulated telemetry][lnk-c-simulator] (Basic)| Simulates sensor data. Uses a standalone Raspberry Pi. |
-| [Real sensor][lnk-c-basic] (Intermediate)| Uses data from a BME280 sensor connected to your Raspberry Pi. |
-| [Implement firmware update][lnk-c-advanced] (Advanced)| Uses data from a BME280 sensor connected to your Raspberry Pi. Enables remote firmware updates on your Raspberry Pi. |
+| Tutorial | Notes | Languages |
+| -------- | ----- | --------- |
+| Simulated telemetry (Basic)| Simulates sensor data. Uses a standalone Raspberry Pi. | [C][lnk-c-simulator] [Node.js][lnk-node-simulator] |
+| Real sensor (Intermediate) | Uses data from a BME280 sensor connected to your Raspberry Pi. | [C][lnk-c-basic] [Node.js][lnk-node-basic] |
+| Implement firmware update (Advanced)| Uses data from a BME280 sensor connected to your Raspberry Pi. Enables remote firmware updates on your Raspberry Pi. | [C][lnk-c-advanced] [Node.js][lnk-node-advanced] |
 
 ## Next steps
 

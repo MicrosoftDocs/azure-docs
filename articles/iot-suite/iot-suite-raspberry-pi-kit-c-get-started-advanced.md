@@ -31,7 +31,16 @@ The tutorial uses:
 - Raspbian OS, the C programming language, and the Microsoft Azure IoT SDK for C to implement a sample device.
 - The IoT Suite remote monitoring preconfigured solution as the cloud-based back end.
 
-[!INCLUDE [iot-suite-raspberry-pi-kit-overview](../../includes/iot-suite-raspberry-pi-kit-overview.md)]
+## Overview
+
+In this tutorial, you complete the following steps:
+
+- Deploy an instance of the remote monitoring preconfigured solution to your Azure subscription. This step automatically deploys and configures multiple Azure services.
+- Set up your device and sensors to communicate with your computer and the remote monitoring solution.
+- Update the sample device code to connect to the remote monitoring solution, and send telemetry that you can view on the solution dashboard.
+- Use the sample device code to update the client application.
+
+[!INCLUDE [iot-suite-raspberry-pi-kit-prerequisites(../../includes/iot-suite-raspberry-pi-kit-prerequisites.md)]
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 

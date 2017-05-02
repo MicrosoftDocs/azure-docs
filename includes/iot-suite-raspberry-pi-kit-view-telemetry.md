@@ -8,7 +8,7 @@ The Raspberry Pi is now sending telemetry to the remote monitoring solution. You
 
 ![Display telemetry from the Raspberry Pi][img-telemetry-display]
 
-## Call a method
+## Act on the device
 
 From the solution dashboard, you can invoke methods on your Raspberry Pi. When the Raspberry Pi connects to the remote monitoring solution, it sends information about the methods it supports.
 
