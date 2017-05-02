@@ -1,5 +1,5 @@
 ---
-title: Connect to Azure Cosmos DB by using .NET Core (C#) and the DocumentDB API | Microsoft Docs
+title: Build a web app with .NET Core and the DocumentDB API | Microsoft Docs
 description: Presents a .NET core code sample you can use to connect to and query the Azure Cosmos DB DocumentDB API
 services: cosmosdb
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 05/01/2017
 ms.author: mimig
 
 ---
-# Azure Cosmos DB: Build a .NET Core (C#) and DocumentDB API web app
+# Azure Cosmos DB: Build a web app with .NET Core and the DocumentDB API
 
 This quick start demonstrates how to use the [DocumentDB .NET Core API](documentdb-sdk-dotnet-core.md) for Azure Cosmos DB and the Azure portal to create an Azure Cosmos DB account, create a database and collection, and then build and deploy a web app on the Windows platform.
 

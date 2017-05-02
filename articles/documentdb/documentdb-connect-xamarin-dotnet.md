@@ -1,5 +1,5 @@
 ---
-title: Connect Azure Cosmos DB to Xamarin using .NET (C#) | Microsoft Docs
+title: 'Azure Cosmos DB: Build a web app .NET and Xamarin | Microsoft Docs'
 description: Presents a .NET code sample you can use to connect to and query Azure Cosmos DB
 services: documentdb
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 04/14/2017
 ms.author: mimig
 
 ---
-# Azure Cosmos DB: Connect to Xamarin using .NET
+# Azure Cosmos DB: Build a web app .NET and Xamarin
 
 This quick start demonstrates how to use [Xamarin](https://www.xamarin.com/), the [DocumentDB .NET API](documentdb-sdk-dotnet-core.md) for Azure Cosmos DB, and the Azure portal to create an Azure Cosmos DB account and use DocumentDB's built-in authorization engine to implement per-user data pattern for a Xamarin mobile app. It is a simple multi-user ToDo list app allowing users to login using Facebook Auth and manage their to do items.
 
