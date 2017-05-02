@@ -1,5 +1,5 @@
 > [!NOTE]
-> We are working to improve this experience. The following steps will soon be deprecated.
+> We plan to improve this experience and deprecate the following steps.
 
 ### Create an administrator credential in the Azure AD B2C tenant.
 
@@ -11,13 +11,13 @@ For the next section, you will need to use a credential that uses the domain of 
 1. Click **+ New user**.
     * Set **Name** = `Admin`.
     * Set **Username** = `admin@{tenantName}.onmicrosoft.com` where `{tenantName}` is the name of your Azure AD B2C tenant.
-1. Under **Directory role** choose **Global administrator** and hit **Ok**.
+1. Under **Directory role**, choose **Global administrator** and hit **Ok**.
 1. Click **Create** to create the admin user.
 1. Check **Show password** and copy the password.
 
 ### Set up the key container
 
-The key container is what you will use to store keys. To set one up:
+The key container is used to store keys. To set one up:
 
 1. Open a new powershell command prompt.  One method is **Windows Logo Key + R**, type `powershell`, and hit enter.
 1. Download this repro to get the powershell ExploreAdmin tool.
@@ -38,27 +38,34 @@ The key container is what you will use to store keys. To set one up:
     Import-Module .\ExploreAdmin.dll
     ```
 
-1. Confirm the TokenSigningKeyContainer does not yet exist.  Replace `{tenantName}` with the name of your tenant.
+1. Confirm `b2c_1a_TokenSigningKeyContainer` does not yet exist.  Replace `{tenantName}` with the name of your tenant.
 
     ```powershell
-    Get-CpimKeyContainer -TenantId {tenantName}.onmicrosoft.com -StorageReferenceId TokenSigningKeyContainer -ForceAuthenticationPrompt
+    Get-CpimKeyContainer -TenantId {tenantName}.onmicrosoft.com -StorageReferenceId b2c_1a_TokenSigningKeyContainer -ForceAuthenticationPrompt
     ```
 
-    a. You will be prompted to log in.  Use the admin account you created in the previous section.
+    a. When the login prompt appears, use the admin account you created in the previous section.
 
-    b. You will be prompted to set up your phone number as a second factor and to change your password.
+    b. When prompted, you must enter your phone number to set up multi-factor authentication.
 
-    c. You should receive an error that 'TokenSigningKeyContainer' cannot be found.  If you have already completed these steps previously you scan skip the rest of this section.
+    c. When prompted, change your password.
 
+    d. **An error is expected!**  The error should state that `b2c_1a_TokenSigningKeyContainer` cannot be found.  If there is no error because you already completed these steps, skip the rest of this section.
 
-1. Create the TokenSigningKeyContainer.  Replace `{tenantName}` with the name of your tenant.
+1. Create `b2c_1a_TokenSigningKeyContainer`.  Replace `{tenantName}` with the name of your tenant.
 
     ```powershell
-    New-CpimKeyContainer {tenantName}.onmicrosoft.com TokenSigningKeyContainer TokenSigningKeyContainer rsa 2048 0 0
+    New-CpimKeyContainer {tenantName}.onmicrosoft.com  b2c_1a_TokenSigningKeyContainer  b2c_1a_TokenSigningKeyContainer rsa 2048 0 0
     ```
 
-1. Create the TokenEncryptionKeyContainer.  Replace `{tenantName}` with the name of your tenant.
+1. Create `b2c_1a_TokenEncryptionKeyContainer`.  Replace `{tenantName}` with the name of your tenant.
 
     ```powershell
-    New-CpimKeyContainer {tenantName}.onmicrosoft.com TokenEncryptionKeyContainer TokenEncryptionKeyContainer rsa 2048 0 0
+    New-CpimKeyContainer {tenantName}.onmicrosoft.com b2c_1a_TokenEncryptionKeyContainer b2c_1a_TokenEncryptionKeyContainer rsa 2048 0 0
+    ```
+
+1. Create `b2c_1a_FacebookSecret`.  Replace `{tenantName}` with the name of your tenant.
+
+    ```powershell
+    New-CpimKeyContainer {tenantName}.onmicrosoft.com  b2c_1a_FacebookSecret  b2c_1a_FacebookSecret rsa 2048 0 0
     ```
