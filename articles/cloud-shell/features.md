@@ -58,5 +58,5 @@ Once completed Cloud Shell will automatically attach your storage for all future
 [Learn more about attaching Azure file shares to Cloud Shell.](persisting-shell-storage.md).
 
 ## Next steps
-[Get Started with Quickstart](quickstart.md) <br>
-[Learn more about Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/) <br>
+- [Get Started with Quickstart](quickstart.md) 
+- [Learn more about Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/) 

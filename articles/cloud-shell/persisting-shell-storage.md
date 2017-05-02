@@ -134,6 +134,6 @@ Cloud Shell adds a "tag" to mounted storage accounts using the format: <br>
 Use these tags to see which users map to certain file shares and where certain $Home images can be found.
 
 ## Next steps
-[Cloud Shell Quickstart](quickstart.md) <br>
-[Learn about Azure File storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
-[Learn more about Storage tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>
+- [Cloud Shell Quickstart](quickstart.md) 
+- [Learn about Azure File storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) 
+- [Learn more about Storage tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) 

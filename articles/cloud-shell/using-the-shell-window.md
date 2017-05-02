@@ -41,4 +41,4 @@ This document explains how to use the Azure Cloud Shell window.
 Running `exit` terminates the active session. This behavior occurs by default after 10 minutes without interaction.
 
 ## Next Steps
-[Cloud Shell Quickstart](quickstart.md) 
+[Cloud Shell Quickstart](quickstart.md)  

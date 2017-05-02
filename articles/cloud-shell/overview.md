@@ -60,7 +60,7 @@ This disk image is used to sync and persist your $Home directory. Regular storag
 * Simultaneously manage resources via Azure portal and Azure CLI 2.0
 * Test-drive Azure CLI 2.0
 
-[Try out all these examples at the Cloud Shell quickstart.](quickstart.md)
+[Try out all these examples at the Cloud Shell quickstart](quickstart.md).
 
 ## Pricing
 The machine hosting Cloud Shell is free, with a pre-requisite of 5-GB of Azure File storage. 

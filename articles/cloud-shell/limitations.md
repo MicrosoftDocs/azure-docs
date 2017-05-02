@@ -44,5 +44,5 @@ Cloud Shell is intended for interactive use cases, as a result any long-running 
 Any latency in the Cloud Shell is subject to local internet connectivity, Cloud Shell will continue to attempt functioning to any instructions sent.
 
 ## Next steps
-[Quickstart](quickstart.md) <br>
-[Persist files by attaching a file share to Cloud Shell](persisting-shell-storage.md) 
+- [Quickstart](quickstart.md) 
+- [Persist files by attaching a file share to Cloud Shell](persisting-shell-storage.md) 
