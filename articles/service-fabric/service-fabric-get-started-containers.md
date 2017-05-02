@@ -287,7 +287,7 @@ Here are the complete service and application manifests used in this quick start
 ```
 
 ## Next steps
-* [Learn more](service-fabric-containers-overview.md) about running containers on Service Fabric.
+* Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
 * Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).
 * Checkout the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-dotnet-containers) on GitHub.
 
