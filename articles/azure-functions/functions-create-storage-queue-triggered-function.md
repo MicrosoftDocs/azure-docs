@@ -37,19 +37,22 @@ You also need to download and install the [Microsoft Azure Storage Explorer](htt
 ## <a name="create-function"></a>Create a Queue triggered function
 
 Expand your function app, click the **+** button next to **Functions**, click the **QueueTrigger** template for your desired language. Use the following settings and then click **Create**.
+
+![Create the storage queue triggered function.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
     
     | Setting      |  Suggested value   | Description                                        |
     | ------------ |  ----------------- | -------------------------------------------------- |
-    | **Queue name**   | `myqueue-items`    | The name of the queue to connect to in your Storage account. |
-    | **Storage account connection** | **AzureWebJobStorage** | You can use the the storage account connection already being used by your function app, or create a new one.  |
+    | **Queue name**   | `myqueue-items`    | Name of the queue to connect to in your Storage account. |
+    | **Storage account connection** | **AzureWebJobStorage** | You can use the storage account connection already being used by your function app, or create a new one.  |
+    | **Name your function** | _Unique in your function app_ | Name of this queue triggered function. |  
 
-Next, you create the **myqueue-items** queue in your storage account.
+Next, you connect to your Azure Storage account and create the **myqueue-items** storage queue.
 
 ## Create the queue
 
-1. In your function, click **Integrate**, expand **Documentation**, and copy both **Account name** and **Account key**. You use these credentials to connect to the storage account.
+1. In your function, click **Integrate**, expand **Documentation**, and copy both **Account name** and **Account key**. You use these credentials to connect to the storage account. If you have already connected your storage account, skip to step 4.
  
-    ![Get the Storage account connection credentials.](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)
+    ![Get the Storage account connection credentials.](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)v
 
 2. Run the [Microsoft Azure Storage Explorer](http://storageexplorer.com/) tool, click the connect icon on the left, choose **Use a storage account name and key**, and click **Next**.
 
