@@ -106,7 +106,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 3. On the **Wingspan eTMF Domain and URLs** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-wingspanetmf-tutorial/tutorial_wingspanetmf_url1.png)
+	![Configure Single Sign-On](./media/active-directory-saas-wingspanetmf-tutorial/tutorial_wingspanetmf_url11.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<customer name>.<instance name>.mywingspan.com/saml`
 
