@@ -21,16 +21,17 @@ ms.author: jdial
 
 # Add or remove network interfaces to or from virtual machines
 
-Learn how to add a network interface (NIC) to a virtual machine (VM) when creating a VM. A NIC enables an Azure Virtual Machine (VM) to communicate with Internet, Azure, and on-premises resources. A VM can have one or more NICs. You can add and remove NICs to or from an existing VM in the stopped (deallocated) state. If you need to add or remove IP addresses for a NIC, read the [Add, change, or remove IP addresses for Azure network interfaces](virtual-network-network-interface-addresses.md) article. If you need to create, change, or delete NICs, read the [Network interface settings and tasks](virtual-network-network-interface.md) article.
+Learn how to add an existing network interface (NIC) when creating a VM or add or remove NICs from an existing VM in the stopped (deallocated) state. A NIC enables an Azure Virtual Machine (VM) to communicate with Internet, Azure, and on-premises resources. A VM can have one or more NICs. 
+
+If you need to add or remove IP addresses for a NIC, read the [Add, change, or remove IP addresses for Azure network interfaces](virtual-network-network-interface-addresses.md) article. If you need to create, change, or delete NICs, read the [Network interface settings and tasks](virtual-network-network-interface.md) article.
 
 ## <a name="before"></a>Before you begin
 
 Complete the following tasks before completing any steps in any section of this article:
 
-1. Have a requirement to add an existing NIC to a new VM, or add or remove NICs from an existing VM.
-2. Login to the Azure portal, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [free trial account](https://azure.microsoft.com/free).
-3. If using PowerShell commands to complete tasks in this article, install and configure Azure PowerShell by completing the steps in the [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure PowerShell commandlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
-4. If using Azure Command-line interface (CLI) commands to complete tasks in this article, install and configure the Azure CLI by completing the steps in the [How to install and configure the Azure CLI 2.0](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure CLI installed.To get help for CLI commands, type `az <command> -h`.
+1. Log in to the Azure portal, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [free trial account](https://azure.microsoft.com/free).
+2. If using PowerShell commands to complete tasks in this article, install and configure Azure PowerShell by completing the steps in the [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure PowerShell commandlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
+3. If using Azure Command-line interface (CLI) commands to complete tasks in this article, install and configure the Azure CLI by completing the steps in the [How to install and configure the Azure CLI 2.0](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure CLI installed.To get help for CLI commands, type `az <command> -h`.
 
 ## <a name="about"></a>About NICs and VMs
 
@@ -39,27 +40,27 @@ You can add (attach) an existing NIC to a VM when you create it. You can add or 
 - Specify an existing NIC to add when creating the VM
 - Create a VM with multiple NICs
 - Specify a name for the NIC (the portal creates the NIC with a default name)
-- Specify static as the assigment method for a private IP address. The portal automatically assigns a dynamic private IP address, though you can change the assignment method after the portal creates the NIC. To learn more about IP addresses for a NIC, read the [Add, change, or remove IP addresses for Azure network interfaces](virtual-network-network-interface-addresses.md) article.
+- Specify static as the assignment method for a private IP address. The portal automatically assigns a dynamic private IP address, though you can change the assignment method after the portal creates the NIC. To learn more about IP addresses for a NIC, read the [Add, change, or remove IP addresses for Azure network interfaces](virtual-network-network-interface-addresses.md) article.
 
 You can use Azure PowerShell or the CLI to create a NIC or VM with all the previous attributes that you cannot use the portal for. Before completing the tasks in the following sections, consider the following constraints and behaviors:
 
 - All VM sizes support at least two NICs, but some VM sizes support more than two NICs. In the past, some VM sizes only supported one NIC. To learn more about how many NICs each VM size supports, read the [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes articles. 
 - In the past, NICs could only be added to VMs that supported multiple NICs and were created with at least two NICs. You could not add a NIC to a VM that was created with one NIC, even if the VM size supported multiple NICs. Conversely, you could only remove NICs from a VM with at least three NICs, because VMs created with at least two NICs always had to have at least two NICs. Neither of these constraints apply anymore. You can now create a VM with any number of NICs (up to the number supported by the VM size) and add or remove any number of NICs, as long as the VM always has at least one NIC.
 - By default, the first NIC in a VM is defined as the *primary* NIC. All other NICs in the VM are *secondary* NICs.
-- By default, all outbound traffic from the VM is sent out the IP address assigned to the primary IP configuration of the primary NIC. You can of course, control which IP address is used for outbound traffic within the VM's operating system.
+- By default, all outbound traffic from the VM is sent out the IP address assigned to the primary IP configuration of the primary NIC. You can control which IP address is used for outbound traffic within the VM's operating system.
 - In the past, all VMs within the same availability set were required to have a single, or multiple, NICs. VMs with any number of NICs can now exist in the same availability set. A VM can only be added to an availability set when it's created though. To learn more about availability sets, read the [Manage the availability of Windows virtual machines in Azure](../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) article.
 - While NICs in the same VM can be connected to different subnets within a VNet, the NICs must all be connected to the same VNet.
 - You can add any IP address for any IP configuration of any primary or secondary NIC to an Azure Load Balancer back-end pool. In the past, only the primary IP address for the primary NIC could be added to a back-end pool.
 - Deleting a VM does not delete the NICs that are attached to it. When a VM is deleted, the NICs are detached from the VM. You can add the NICs to different VMs, or delete them.
 
-## <a name="vm-create"></a>Add existing NIC(s) to a new VM
+## <a name="vm-create"></a>Add existing NICs to a new VM
 
 You can add as many NICs to a VM as the VM size you're creating supports. To learn more about how many NICs each VM size supports, read the [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes articles. You cannot add existing NICs to a new VM, or create a VM with multiple NICs using the Azure portal. You can use the following Azure CLI or PowerShell commands to add one or more existing NICs when creating a VM:
 
 - **CLI:** [az vm create](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#create)
 - **PowerShell:** [New-AzureRmVM](/powershell/resourcemanager/azurerm.compute/v2.5.0/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
-## <a name="vm-add-nic"></a>Add existing NIC(s) to an existing VM
+## <a name="vm-add-nic"></a>Add existing NICs to an existing VM
 
 You can add as many NICs to a VM as the VM size you're adding NICs to supports. To learn more about how many NICs each VM size supports, read the [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes articles. The VM you want to add a NIC to must support multiple NICs and be in the stopped (deallocated) state. You cannot add NICs to an existing VM using the Azure portal. You can use the following Azure CLI or PowerShell commands to add NICs to VMs:
 

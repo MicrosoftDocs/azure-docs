@@ -21,17 +21,18 @@ ms.author: jdial
 
 # Add, change, or remove IP addresses for Azure network interfaces
 
-Learn how to add, change, and remove public and private IP addresses for network interfaces (NIC). A NIC enables an Azure Virtual Machine (VM) to communicate with Internet, Azure, and on-premises resources. If you need to create, change, or delete NICs, read the [Network interface settings and tasks](virtual-network-network-interface.md) article. If you need to add or remove NICs to or from VMs, read the [Add or remove network interfaces to or from virtual machines](virtual-network-network-interface-vm.md) article. 
+Learn how to add, change, and remove public and private IP addresses for network interfaces (NIC). Private IP addresses assigned to a NIC in a VM enable a VM to communicate to the Internet and with other resources connected to an Azure virtual network (VNet). Public IP addresses assigned to a NIC in a VM enable inbound communication to a VM from the Internet. 
+
+If you need to create, change, or delete NICs, read the [Network interface settings and tasks](virtual-network-network-interface.md) article. If you need to add or remove NICs to or from VMs, read the [Add or remove network interfaces to or from virtual machines](virtual-network-network-interface-vm.md) article. 
 
 
 ## <a name="before"></a>Before you begin
 
 Complete the following tasks before completing any steps in any section of this article:
 
-1. Have a requirement to change add or remove public or private IP addresses or change default IP addess settings for a NIC.
-2. Login to the Azure portal, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [free trial account](https://azure.microsoft.com/free).
-3. If using PowerShell commands to complete tasks in this article, install and configure Azure PowerShell by completing the steps in the [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure PowerShell commandlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
-4. If using Azure Command-line interface (CLI) commands to complete tasks in this article, install and configure the Azure CLI by completing the steps in the [How to install and configure the Azure CLI 2.0](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure CLI installed.To get help for CLI commands, type `az <command> -h`.
+1. Log in to the Azure portal, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [free trial account](https://azure.microsoft.com/free).
+2. If using PowerShell commands to complete tasks in this article, install and configure Azure PowerShell by completing the steps in the [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure PowerShell commandlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
+3. If using Azure Command-line interface (CLI) commands to complete tasks in this article, install and configure the Azure CLI by completing the steps in the [How to install and configure the Azure CLI 2.0](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> -h`.
 
 ## <a name="about"></a>About NICs and IP addresses
 
@@ -89,14 +90,14 @@ You may need to change the allocation method of an IP address to meet your requi
 >If the primary NIC has multiple IP configurations and you change the private IP address of the primary IP configuration, you must manually reassign all secondary IP addresses to the NIC within Windows (not required for Linux). To manually assign IP addresses to a NIC within an operating system, read the [Assign multiple IP addresses to virtual machines](virtual-network-multiple-ip-addresses-portal.md#os-config) article. Do not add any public IP addresses to the VM operating system.
 
 >[!WARNING]
->To change the private IP address of a secondary IP configuration associated with a secondary NIC, the steps above must be completed after the VM is placed into the stopped (deallocated) state.
+>To change the private IP address of a secondary IP configuration associated with a secondary NIC, the previous steps must be completed after the VM is placed into the stopped (deallocated) state.
 
 |**Tool**|**Command**|
 |---|---|
 |**CLI**|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
 |**PowerShell**|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
-## <a name="delete-ip-config"></a>Remove an IP address
+## <a name="delete-ip-config"></a>Remove IP addresses
 
 You can remove private and public IP addresses from a NIC, but a NIC must always have at least one private IP address assigned to it.
 
