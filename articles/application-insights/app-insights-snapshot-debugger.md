@@ -19,13 +19,22 @@ ms.author: dantaylo
 
 *This feature is in preview.*
 
-Automatically collect debug snapshots the moment exceptions are thrown to get visibility into the state of source code and variables. The Snapshot Debugger monitors exception telemetry and collects snapshots on your top throwing exceptions so that you have the information you need to diagnose issues in production. Include the [snapshot collector NuGet package](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) into your application, optionally configure collection parameters in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), and snapshots appear on [exceptions](app-insights-asp-net-exceptions.md) in the Application Insights portal.
+Automatically collect a debug snapshot from your live web application when an exception occurs. The snapshot shows the state of source code and variables the moment the exception was thrown. The Snapshot Debugger in [Application Insights](app-insights-overview.md) monitors exception telemetry from your web app. It collects snapshots on your top-throwing exceptions so that you have the information you need to diagnose issues in production. Include the [snapshot collector NuGet package](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) into your application, and optionally configure collection parameters in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Snapshots appear on [exceptions](app-insights-asp-net-exceptions.md) in the Application Insights portal.
 
 You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. To get a more powerful debugging experience with source code, open snapshots with Visual Studio 2017 Enterprise by [downloading the Snapshot Debugger extension for Visual Studio](https://aka.ms/snapshotdebugger).
 
+Snapshot collection is available for:
+
+* ASP.NET web apps running on .NET Framework 4.6 and above, hosted either on IIS or in Azure.
+* Windows apps running on .NET Core 2.0 and above.
+
 ## Configure Snapshot Collection
 
-To collect snapshots, include the [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package into your app. This package adds a default exception collection plan into your [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) file that collects snapshots exceptions and sends them to Application Insights.
+1. If you haven't done this yet, [enable Application Insights in your web app](app-insights-asp-net.md).
+
+2. Include the [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package into your app. 
+
+3. Review the default options that the package has added to [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
 
 ```xml
   <TelemetryProcessors>
@@ -53,9 +62,7 @@ To collect snapshots, include the [Microsoft.ApplicationInsights.SnapshotCollect
 
 Snapshots are only collected on exceptions that are visible to the Application Insights SDK. In some cases, you may need to [configure exception collection](app-insights-asp-net-exceptions.md#exceptions) to see exceptions with snapshots appearing in the portal.
 
-Snapshot collection is available for:
-* Apps running on .NET Framework 4.6 and above
-* Windows apps running on .NET Core 2.0 and above
+
 
 ## Debugging snapshots in the Application Insights Portal
 
@@ -83,4 +90,6 @@ The downloaded snapshot contains any symbol files that were found on your web ap
 When your application starts, a separate snapshot uploader process is created that monitors your application for snapshot requests. When a snapshot is requested, a shadow copy of the running process is made in about 10-20 ms. The shadow process is then analyzed and a snapshot is created while the main process continues running and serving traffic to users. The snapshot is then uploaded to Application Insights along with any relevant symbol (.pdb) files needed to view the snapshot.
 
 ## Next Steps
-* For more information about working with exceptions in Application Insights, see [Diagnose exceptions in your web apps with Application Insights](app-insights-asp-net-exceptions.md).
+
+* [Diagnose exceptions in your web apps](app-insights-asp-net-exceptions.md) explains how to make more exceptions visible to Application Insights. 
+* [Smart Detection](app-insights-proactive-diagnostics.md) automatically discovers performance anomalies.
