@@ -55,7 +55,7 @@ text=when+its+your+turn+turn,+john,+come+runing
 ```  
 
 > [!NOTE]
-> Version 7 request.
+> Version 7 Preview request.
 >
 > ```  
 > POST https://api.cognitive.microsoft.com/bing/v5.0/spellcheck?mode=proof&mkt=en-us HTTP/1.1  

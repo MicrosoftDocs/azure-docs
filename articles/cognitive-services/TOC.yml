@@ -59,6 +59,8 @@
       items:
       - name: Get suggested search terms
         href: Bing-Autosuggest/get-suggested-search-terms.md
+      - name: Upgrade from v5 to V7 Preview
+        href: Bing-Autosuggest/bing-autosuggest-upgrade-guide-v5-to-v7.md
       - name: Use and display requirements
         href: Bing-Autosuggest/UseAndDisplayRequirements.md
     - name: Quickstarts
@@ -77,14 +79,14 @@
         href: https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api
       - name: Try it!
         href: https://dev.cognitive.microsoft.com/docs/services/56c7694ecf5ff801a090fbd1/operations/56c769a2cf5ff801a090fbd2
-      - name: Upgrade guide
-        href: Bing-Autosuggest/bing-autosuggest-upgrade-guide-v5-to-v7.md
   - name: Bing Image Search
     items:
     - name: Overview
       items:
         - name: Search the web for images
           href: Bing-Image-Search/search-the-web.md
+        - name: Upgrade from v5 to V7 Preview
+          href: Bing-Image-Search/bing-image-upgrade-guide-v5-to-v7.md
         - name: Use and display requirements
           href: Bing-Image-Search/UseAndDisplayRequirements.md
     - name: Quickstarts
@@ -113,14 +115,14 @@
         href: https://azure.microsoft.com/try/cognitive-services/?api=search-api
       - name: Try it!
         href: https://dev.cognitive.microsoft.com/docs/services/56b43f0ccf5ff8098cef3808/operations/571fab09dbe2d933e891028f
-      - name: Upgrade guide
-        href: Bing-Image-Search/bing-image-upgrade-guide-v5-to-v7.md
   - name: Bing News Search
     items:
     - name: Overview
       items:
         - name: Search the web for news
           href: Bing-News-Search/search-the-web.md
+        - name: Upgrade from v5 to V7 Preview
+          href: Bing-News-Search/bing-news-upgrade-guide-v5-to-v7.md
         - name: Use and display requirements
           href: Bing-News-Search/UseAndDisplayRequirements.md
     - name: Quickstarts
@@ -147,8 +149,6 @@
         href: https://azure.microsoft.com/try/cognitive-services/?api=search-api
       - name: Try it!
         href: https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553
-      - name: Upgrade guide
-        href: Bing-News-Search/bing-news-upgrade-guide-v5-to-v7.md
   - name: Bing Speech
     items:
     - name: Overview
@@ -191,6 +191,8 @@
       items:
         - name: Spell check text strings
           href: Bing-Spell-Check/proof-text.md
+        - name: Upgrade from v5 to V7 Preview
+          href: Bing-Spell-Check/bing-spell-check-upgrade-guide-v5-to-v7.md
         - name: Use and display requirements
           href: Bing-Spell-Check/UseAndDisplayRequirements.md
     - name: Quickstarts
@@ -209,14 +211,14 @@
         href: https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api
       - name: Try it!
         href: https://dev.cognitive.microsoft.com/docs/services/56e73033cf5ff80c2008c679/operations/57855119bca1df1c647bc358
-      - name: Upgrade guide
-        href: Bing-Spell-Check/bing-spell-check-upgrade-guide-v5-to-v7.md
   - name: Bing Video Search
     items:
     - name: Overview
       items:
         - name: Search the web for videos
           href: Bing-Video-Search/search-the-web.md
+        - name: Upgrade from v5 to V7 Preview
+          href: Bing-Video-Search/bing-video-upgrade-guide-v5-to-v7.md
         - name: Use and display requirements
           href: Bing-Video-Search/UseAndDisplayRequirements.md
     - name: Quickstarts
@@ -245,14 +247,14 @@
         href: https://azure.microsoft.com/try/cognitive-services/?api=search-api
       - name: Try it!
         href: https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8
-      - name: Upgrade guide
-        href: Bing-Video-Search/bing-video-upgrade-guide-v5-to-v7.md
   - name: Bing Web Search
     items:
     - name: Overview
       items:
         - name: Search the web
           href: Bing-Web-Search/search-the-web.md
+        - name: Upgrade from v5 to V7 Preview
+          href: Bing-Web-Search/bing-web-upgrade-guide-v5-to-v7.md
         - name: Use and display requirements
           href: Bing-Web-Search/UseAndDisplayRequirements.md
     - name: Quickstarts
@@ -275,7 +277,7 @@
       items:
       - name: REST v5
         href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md
-      - name: REST v7 Beta
+      - name: REST v7 Preview
         href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference.md
     - name: Resources
       items:
@@ -283,8 +285,6 @@
         href: https://azure.microsoft.com/try/cognitive-services/?api=search-api
       - name: Try it!
         href: https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d
-      - name: Upgrade guide
-        href: Bing-Web-Search/bing-web-upgrade-guide-v5-to-v7.md
   - name: Computer Vision
     items:
     - name: Overview

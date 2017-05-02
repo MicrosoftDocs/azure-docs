@@ -24,7 +24,7 @@ https://api.cognitive.microsoft.com/bing/v5.0/Suggestions
 ```  
 
 > [!NOTE]
-> Version 7 Beta endpoint:
+> Version 7 Preview endpoint:
 > 
 > ```
 > https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
@@ -61,7 +61,7 @@ Host: api.cognitive.microsoft.com
 ```  
 
 > [!NOTE]
-> Version 7 request:
+> Version 7 Preview request:
 
 > ```  
 > GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1  
