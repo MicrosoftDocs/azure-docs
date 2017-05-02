@@ -29,7 +29,7 @@ ms.author: andret
 > 2. Under *Visual C#\Web*, select `ASP.NET Web Application (.NET Framework)`.
 > 3. Name your application and click *OK*
 > 4. Select `Empty` and select the checkbox to add `MVC` references
-<!--end -collapse-->
+<!--end-collapse-->
 
 # Add authentication components
 

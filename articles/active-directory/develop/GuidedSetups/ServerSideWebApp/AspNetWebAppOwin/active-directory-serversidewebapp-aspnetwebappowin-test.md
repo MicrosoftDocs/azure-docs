@@ -59,6 +59,7 @@ You should receive the prompt requiring you to authenticate to see the view.
 <!--start-collapse-->
 ### Protect your entire web site
 To protect your entire web site, add the `AuthorizeAttribute` to `GlobalFilters` in `Global.asax` `Application_Start` method:
+
 ```csharp
 GlobalFilters.Filters.Add(new AuthorizeAttribute());
 ```
