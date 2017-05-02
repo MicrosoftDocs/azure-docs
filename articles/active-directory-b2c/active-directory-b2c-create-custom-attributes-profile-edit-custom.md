@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
 ms.date: 04/29/2017
-ms.author: rojasja
+ms.author: joroja
 ---
 # Azure Active Directory B2C: Creating and using custom attributes in a custom profile edit policy.
 
@@ -224,7 +224,7 @@ NOTE: Thus far the TechnicalProfiles have been changed in the flow of local acco
        </OutputClaims>
        <IncludeTechnicalProfile ReferenceId="AAD-Common" />
      </TechnicalProfile>
-     ```
+```
 
 NOTE: The IncludeTechnicalProfile element above adds all the elements of AAD-Common to this TechnicalProfile.
 

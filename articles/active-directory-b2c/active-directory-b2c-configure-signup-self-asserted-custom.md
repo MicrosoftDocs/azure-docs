@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
 ms.date: 04/29/2017
-ms.author: rojasja
+ms.author: joroja
 ---
 # Azure Active Directory B2C: Modify signup to add new claims and configure user input.
 
@@ -275,9 +275,9 @@ The signup screen in test mode should look similar to this:
 }
 ```
 
-## OPTIONAL - Remove email verification from signup journey
+## Optional Remove email verification from signup journey
 
-To skip email verification, the policy author can choose to remove `PartnerClaimType="Verified.Email"`. The email address will be required but not verified, unless “Required” = true is removed.
+To skip email verification, the policy author can choose to remove `PartnerClaimType="Verified.Email"`. The email address will be required but not verified, unless “Required” = true is removed.  Carefully consider if this option is right for your use cases!
 
 Verified email is enabled by default in the `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` in the TrustFrameworkBase policy file in the starter pack:
 ```
@@ -287,7 +287,7 @@ Verified email is enabled by default in the `<TechnicalProfile Id="LocalAccountS
 ## Next steps
 
 
-#Add the new claim to the flows for social account logins by changing the TechnicalProfiles listed below. These are used by social/federated account logins to write and read the user data using the alternativeSecurityId as the locator.
+Add the new claim to the flows for social account logins by changing the TechnicalProfiles listed below. These are used by social/federated account logins to write and read the user data using the alternativeSecurityId as the locator.
 ```
   <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
   <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
