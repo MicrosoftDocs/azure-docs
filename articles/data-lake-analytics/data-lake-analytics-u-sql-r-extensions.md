@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2016
+ms.date: 05/01/2017
 ms.author: saveenr
 
 ---
@@ -73,3 +73,8 @@ The following example illustrates the basic steps for deploying R code:
 * U-SQL datasets column names must be strings.
 * Column names must be the same in U-SQL and R scripts.
 * Readonly column cannot be part of the output dataframe. Because readonly columns are automatically injected back in the U-SQL table if it is a part of output schema of UDO.
+
+## Next Steps
+* [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
+* [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [Using U-SQL window functions for Azure Data Lake Analytics jobs](data-lake-analytics-use-window-functions.md)
