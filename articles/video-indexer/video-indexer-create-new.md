@@ -8,7 +8,7 @@ manager: erikre
 
 ms.service: video-indexer
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 05/02/2017
 ms.author: juliako;
 
 ---
@@ -16,7 +16,7 @@ ms.author: juliako;
 
 This topic shows you how to create and publish video insights based on some other video.
 
-1. Sign in to your Video Indexer account.
+1. Sign in to your [Video Indexer](https://www.vi.microsoft.com) account.
 2. Find a video from which you want to create your video insights.
 3. Press **Play**.
 
