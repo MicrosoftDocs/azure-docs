@@ -41,13 +41,13 @@ This topic also assumes that you have some pre-requisite knowledge of Azure and 
 
 ### Azure
  - You can use any Azure subscription to get started.  If you don't have a subscription, you can create a [trial account](https://azure.microsoft.com/free/)
- - Create a [Web App](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md), and configure it for [FTP publishing](../app-service-web/app-service-deploy-ftp.md)
+ - Create a [Web App](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md), and configure it for [FTP publishing](../app-service-web/app-service-deploy-ftp.md)..  Make note of the new Web App URL, as you use this in step 4.
 
 
 ### Azure Stack
  - Make sure you've [deployed Azure Stack](azure-stack-run-powershell-script.md).  This usually takes about a day to complete, so make sure you plan accordingly.
  - Deploy [SQL](azure-stack-sql-resource-provider-deploy.md) and [App Service](azure-stack-app-service-deploy.md) PaaS services to Azure Stack.
- - Create Web App and configure it for [FTP publishing](azure-stack-app-service-enable-ftp.md).
+ - Create Web App and configure it for [FTP publishing](azure-stack-app-service-enable-ftp.md).  Make note of the new Web App URL, since you'll need it for Step 6.  
 
 ### Dev tools
  - Create a [VSTS workspace](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services) and [project](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#create-your-team-project-in-visual-studio-team-services)
@@ -58,7 +58,7 @@ This topic also assumes that you have some pre-requisite knowledge of Azure and 
 ## Step 1 - Create ASP.NET app & push to VSTS
 
 ### Create application
-This section creates a simple ASP.NET application you can use to test the CI/CD pipeline.
+In this section, you create a simple ASP.NET application and push it to VSTS.  These steps represent the normal developer experience, though could be adapted with other IDEs and languages. 
 
 1.  Open Visual Studio
 2.  Click **File** > **New** > **Project**
@@ -90,7 +90,7 @@ The build process defines how your application will be built (compiled) and pack
 
 
 ## Step 3 - Create release definition
-The release defines how builds from the previous step are deployed to an environment.  In this case, we'll be publishing our ASP.NET app with FTP to an Azure Web App. At the end of this section, you can see your app running on Azure.  To configure a release to Azure, use the following steps:
+The release process defines how builds from the previous step are deployed to an environment.  In this case, we'll be publishing our ASP.NET app with FTP to an Azure Web App. At the end of this section, you can see your app running on Azure.  To configure a release to Azure, use the following steps:
 
 1.  Sign-in to your VSTS workspace from a web bowser.
 2.  From the banner, select **Build & Release**  and then **Releases**.
@@ -122,7 +122,7 @@ To see the power of a CI/CD pipeline, you will publish your app to Azure.
 2.  Click the **...** on the build definition previously created, and select **Queue new build**
 3.  Accept the defaults and click **Ok**.  The build will now begin and display progress.
 4.  Once the build is complete, you can track the status through the release dashboard.
-5.  After the build is complete, visit the website url created for the Web App.    
+5.  After the build is complete, visit the website URL created for the Web App.    
 
 
 ## Step 5 - Add Azure Stack
@@ -153,7 +153,7 @@ Now that you've created a release, you'll configure the steps required for publi
 
 
 ### Add release approver
-You may want to add a review step before publishing to prodution (Azure Stack).  This is useful where you want a person to approve the code before moving from testing to production.  In this section, you'll configure a configure a code reviewer to approve or deny any releases destined for production.  
+You may want to add a review step before publishing to prodution (Azure Stack).  This is useful where you want a person to approve the code before moving from testing to production.  Use the steps below to configure a code reviewer to approve or deny any releases destined for production.  
 
 1. Open your VSTS workspace and navigate to **Build & Release** > **Release**
 2. Select the **...** on your release definition, and select **Edit**
