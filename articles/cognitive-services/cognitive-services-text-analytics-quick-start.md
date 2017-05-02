@@ -66,7 +66,8 @@ Note that the supported languages are as follows:
 | Feature | Supported language codes |
 |:--- |:--- |
 | Sentiment |`en` (English), `es` (Spanish), `fr` (French), `pt` (Portuguese) |
-| Key phrases |`en` (English), `es` (Spanish), `de` (German), `ja` (Japanese) |
+| Key Phrases |`en` (English), `es` (Spanish), `de` (German), `ja` (Japanese) |
+| Topics |`en` (English) |
 
 1. You will need to set the headers to the following. Note that JSON is currently the only accepted input format for the APIs. XML is not supported.
    
