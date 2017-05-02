@@ -37,7 +37,7 @@ We are working with our partners to get cloud-init included and working in the i
 | CoreOS |CoreOS |CoreOS |Stable |latest |
 
 
-## Create config file
+## Create cloud-init config file
 To see cloud-init in action, create a VM that installs NGINX and runs a simple 'Hello World' Node.js app. The following cloud-init configuration installs the required packages, creates a Node.js app, then initialize and starts the app.
 
 Create a file named `cloud-init.txt` and paste the following configuration:
@@ -87,7 +87,7 @@ runcmd:
 For more information about cloud-init configuration options, see [cloud-init config examples](https://cloudinit.readthedocs.io/en/latest/topics/examples.html)]
 
 
-## Create virtual machine
+## Create a VM with cloud-init
 Before you can create a VM, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named `myResourceGroupAutomate` in the `westus` location:
 
 ```azurecli
