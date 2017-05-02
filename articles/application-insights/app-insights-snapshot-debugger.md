@@ -1,9 +1,9 @@
 ---
-title: Snapshot Debugger for .NET apps | Microsoft Docs
+title: Azure Application Insights Snapshot Debugger for .NET apps | Microsoft Docs
 description: Debug snapshots automatically collected when exceptions are thrown in production .NET apps
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: qubitron
 manager: carmonm
 
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2017
-ms.author: awills
+ms.author: dantaylo
 
 ---
 # Debug Snapshots on Exceptions in .NET Apps
@@ -51,7 +51,7 @@ To collect snapshots, include the [Microsoft.ApplicationInsights.SnapshotCollect
   </TelemetryProcessors>
 ```
 
-Snapshots are only collected on exceptions that are visible to the Application Insights SDK. In some cases, you may need to [configure exception collection](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-asp-net-exceptions#exceptions) to see exceptions with snapshots appearing in the portal.
+Snapshots are only collected on exceptions that are visible to the Application Insights SDK. In some cases, you may need to [configure exception collection](app-insights-asp-net-exceptions.md#exceptions) to see exceptions with snapshots appearing in the portal.
 
 Snapshot collection is available for:
 * Apps running on .NET Framework 4.6 and above
@@ -82,5 +82,5 @@ The downloaded snapshot contains any symbol files that were found on your web ap
 
 When your application starts, a separate snapshot uploader process is created that monitors your application for snapshot requests. When a snapshot is requested, a shadow copy of the running process is made in about 10-20 ms. The shadow process is then analyzed and a snapshot is created while the main process continues running and serving traffic to users. The snapshot is then uploaded to Application Insights along with any relevant symbol (.pdb) files needed to view the snapshot.
 
-## Related articles
-* [Diagnose exceptions in your web apps with Application Insights](app-insights-asp-net-exceptions.md)
+## Next Steps
+* See [Diagnose exceptions in your web apps with Application Insights](app-insights-asp-net-exceptions.md) for more information about working with exceptions
