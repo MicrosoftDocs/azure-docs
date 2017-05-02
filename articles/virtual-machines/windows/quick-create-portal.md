@@ -84,7 +84,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## View the IIS welcome page
 
-With IIS installed and port 80 now open on your VM from the Internet, you can use a web browser of your choice to view the default IIS welcome page. Get the **Public IP address** from the blade for the VM and use it to visit the default web page. 
+With IIS installed and port 80 now open on your VM from the Internet, you can use a web browser of your choice to view the default IIS welcome page. Get the *Public IP address* from the blade for the VM and use it to visit the default web page. 
 
 ![IIS default site](./media/quick-create-powershell/default-iis-website.png) 
 
