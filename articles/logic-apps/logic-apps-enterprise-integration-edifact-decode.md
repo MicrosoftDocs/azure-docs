@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc
+ms.author: padmavc; LADocs
 
 ---
 
@@ -96,11 +96,23 @@ The Decode EDIFACT connector performs these tasks:
   * Checks the group control number against other group control numbers in the interchange. 
   * Checks the transaction set control number against other transaction set control numbers in that group.
 * Generates an XML document for each transaction set.
-* Converts the entire interchange to XML 
-  * Split Interchange as transaction sets - suspend transaction sets on error: Parses each transaction set in an interchange into a separate XML document. If one or more transaction sets in the interchange fail validation, then EDIFACT Decode suspends only those transaction sets. 
-  * Split Interchange as transaction sets - suspend interchange on error: Parses each transaction set in an interchange into a separate XML document.  If one or more transaction sets in the interchange fail validation, then EDIFACT Decode suspends the entire interchange.
-  * Preserve Interchange - suspend transaction sets on error: Creates an XML document for the entire batched interchange. EDIFACT Decode suspends only those transaction sets that fail validation, while continuing to process all other transaction sets
-  * Preserve Interchange - suspend interchange on error: Creates an XML document for the entire batched interchange. If one or more transaction sets in the interchange fail validation, then EDIFACT Decode suspends the entire interchange, 
+* Splits the interchange into transaction sets, or preserves the entire interchange:
+  * Split Interchange as transaction sets - suspend transaction sets on error: 
+  Splits interchange into transaction sets and parses each transaction set. 
+  The X12 Decode action outputs only those transaction sets 
+  that fail validation to `badMessages`, and outputs the remaining transactions sets to `goodMessages`.
+  * Split Interchange as transaction sets - suspend interchange on error: 
+  Splits interchange into transaction sets and parses each transaction set. 
+  If one or more transaction sets in the interchange fail validation, 
+  the X12 Decode action outputs all the transaction sets in that interchange to `badMessages`.
+  * Preserve Interchange - suspend transaction sets on error: 
+  Preserve the interchange and process the entire batched interchange. 
+  The X12 Decode action outputs only those transaction sets that fail validation to `badMessages`, 
+  and outputs the remaining transactions sets to `goodMessages`.
+  * Preserve Interchange - suspend interchange on error: 
+  Preserve the interchange and process the entire batched interchange. 
+  If one or more transaction sets in the interchange fail validation, 
+  the X12 Decode action outputs all the transaction sets in that interchange to `badMessages`.
 * Generates a Technical (control) and/or Functional acknowledgment (if configured).
   * A Technical Acknowledgment or the CONTRL ACK reports the results of a syntactical check of the complete received interchange.
   * A functional acknowledgment acknowledges accept or reject a received interchange or a group
