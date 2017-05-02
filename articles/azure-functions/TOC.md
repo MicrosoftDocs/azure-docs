@@ -30,6 +30,7 @@
 #### [Notification Hubs](functions-bindings-notification-hubs.md)
 #### [Mobile Apps](functions-bindings-mobile-apps.md)
 #### [External file](functions-bindings-external-file.md)
+#### [External table](functions-bindings-external-table.md)
 ### [Define Functions proxies](functions-proxies.md)
 ### [Create a function app from the Azure portal](functions-create-function-app-portal.md)
 ### [Perform a scheduled clean-up task](functions-scenario-database-table-cleanup.md)
