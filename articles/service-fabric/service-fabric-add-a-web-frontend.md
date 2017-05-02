@@ -165,6 +165,7 @@ Our stateful service is now ready to receive traffic from other services. So all
    
     ```c#
     using MyStatefulService.Interface;
+    using Microsoft.ServiceFabric.Services.Client;
     using Microsoft.ServiceFabric.Services.Remoting.Client;
    
     ...
