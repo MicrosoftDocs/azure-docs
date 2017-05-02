@@ -22,7 +22,7 @@ ms.author: davidmu
 
 In this tutorial, you learn about creating multiple virtual machines (VMs) in an virtual network (VNet) and configure network connectivity between them. When completed, a 'front-end' VM will be accessible from the internet on port 80 for HTTP connections. A 'back-end' VM with a SQL Server database will be isolated and only accessible from the front-end VM on port 1433.
 
-This tutorial requires the Azure PowerShell module version 3.6 or later. To find the module version run `get-module -ListAvailable -Name AzureRM`. If you need to upgrade, see [Install and configure Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 ## Create VNet
 

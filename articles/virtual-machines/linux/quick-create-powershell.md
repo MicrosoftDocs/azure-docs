@@ -25,7 +25,7 @@ The Azure PowerShell module is used to create and manage Azure resources from th
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) before you begin.
 
-This tutorial requires the Azure PowerShell module version 3.6 or later. To find the module version run `get-module -ListAvailable -Name AzureRM`. If you need to upgrade, see [Install and configure Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 Finally, a public SSH key with the name `id_rsa.pub` needs to be stored in the `.ssh` directory of your Windows user profile. For detailed information on creating SSH keys for Azure, see [Create SSH keys for Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

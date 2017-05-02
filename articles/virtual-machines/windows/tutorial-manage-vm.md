@@ -22,7 +22,7 @@ ms.author: nepeters
 
 This tutorial covers basic Azure Virtual Machine creation items such as selecting a VM size, selecting a VM image, and deploying a VM. This tutorial also covers basic management operations such as managing state, deleting, and resizing a VM.
 
-This tutorial requires the Azure PowerShell module version 3.6 or later. To find the module version run `get-module -ListAvailable -Name AzureRM`. If you need to upgrade, see [Install and configure Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 ## Create resource group
 

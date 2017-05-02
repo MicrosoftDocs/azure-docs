@@ -22,7 +22,7 @@ ms.author: cynthn
 
 In this tutorial, you learn how to create your own custom image of an Azure virtual machine. Custom images are like marketplace images, but you create them yourself. Custom images can be used to boot strap configurations such as preloading applications, application configurations, and other OS configurations. When creating a custom image, the VM plus all attached disks are included in the image. 
 
-This tutorial requires the Azure PowerShell module version 3.6 or later. To find the module version run `get-module -ListAvailable -Name AzureRM`. If you need to upgrade, see [Install and configure Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 To complete the example in this tutorial, you must have an existing virtual machine. If needed, this [script sample](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) can create one for you. When working through the tutorial, replace the resource group and VM names where needed.
 
