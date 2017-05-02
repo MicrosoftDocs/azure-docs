@@ -204,3 +204,8 @@ New-AzureRmVM -ResourceGroupName myRGNetwork -Location westus -VM $backendVM
 
 The image that is used has SQL Server installed, but is not used in this tutorial. It is included to show you how you can configure a VM to handle web traffic and a VM to handle database management.
 
+## Next steps
+
+In this tutorial, you learned about creating and securing Azure networks as related to virtual machines. Advance to the next tutorial to learn about monitoring VM security with Azure Security Center.
+
+[Manage virtual machine security](./tutorial-azure-security.md)
