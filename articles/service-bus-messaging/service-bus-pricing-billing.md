@@ -34,9 +34,7 @@ The **Standard** tier introduces graduated pricing for operations performed with
 
 The **Premium** tier provides resource isolation at the CPU and memory layer so that each customer workload runs in isolation. This resource container is called a *messaging unit*. Each premium namespace is allocated at least one messaging unit. You can purchase 1, 2, or 4 messaging units for each Service Bus Premium namespace. A single workload or entity can span multiple messaging units and the number of messaging units can be changed at will, although billing is in 24-hour or daily rate charges. The result is predictable and repeatable performance for your Service Bus-based solution. Not only is this performance more predictable and available, but it is also faster.
 
-Note that the standard base charge is charged only once per month per Azure subscription. This means that after you create a single Standard or Premium tier Service Bus namespace, you will be able to create as many additional Standard or Premium tier namespaces as you want under that same Azure subscription, without incurring additional base charges.
-
-Any existing Service Bus namespaces created prior to November 1, 2014 were automatically placed into the Standard tier. This ensures that you continue to have access to all features currently available with Service Bus. You can use the [Azure portal][Azure portal] to downgrade to the Basic tier if desired.
+Note that the Standard tier base charge is charged only once per month per Azure subscription. This means that after you create a single Standard tier Service Bus namespace, you will be able to create as many additional Standard namespaces as you want under that same Azure subscription, without incurring additional base charges.
 
 The [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/) table summarizes the functional differences between the Basic, Standard, and Premium tiers.
 
@@ -49,14 +47,14 @@ As part of the new pricing model, billing for queues and topics/subscriptions is
 | Messaging |Sending and receiving messages with queues or topics/subscriptions. |
 | Session state |Getting or setting session state on a queue or topic/subscription. |
 
-The prices listed on the [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/) page were effective November 1, 2014.
+For cost details, see the prices listed on the [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/) page.
 
 ## Brokered connections
 *Brokered connections* accommodate customer usage patterns that involve a large number of "persistently connected" senders/receivers against queues, topics, or subscriptions. Persistently connected senders/receivers are those that connect using either AMQP or HTTP with a non-zero receive timeout (for example, HTTP long polling). HTTP senders and receivers with an immediate timeout do not generate brokered connections.
 
-Previously, queues and topics/subscriptions had a limit of 100 concurrent connections per URL. The current billing scheme removes the per-URL limit for queues and topics/subscriptions, and implements quotas and metering on brokered connections at the Service Bus namespace and Azure subscription levels.
+For connection quotas and other service limits, see the [Service Bus quotas](service-bus-quotas.md) article.
 
-The Basic tier includes, and is strictly limited to, 100 brokered connections per Service Bus namespace. Connections above this number will be rejected in the Basic tier. The Standard tier removes the per-namespace limit and counts aggregate brokered connection usage across the Azure subscription. In the Standard tier, 1,000 brokered connections per Azure subscription will be allowed at no extra cost (beyond the base charge). Using more than a total of 1,000 brokered connections across Standard-tier Service Bus namespaces in an Azure subscription will be billed on a graduated schedule, as shown in the [Brokered connections](https://azure.microsoft.com/pricing/details/service-bus/) table.
+The Standard tier removes the per-namespace brokered connection limit and counts aggregate brokered connection usage across the Azure subscription. For more information, see the [Brokered connections](https://azure.microsoft.com/pricing/details/service-bus/) table.
 
 > [!NOTE]
 > 1,000 brokered connections are included with the Standard messaging tier (via the base charge) and can be shared across all queues, topics, and subscriptions within the associated Azure subscription.
@@ -76,12 +74,7 @@ The Basic tier includes, and is strictly limited to, 100 brokered connections pe
 
 For more information about brokered connections, see the [FAQ](#faq) section later in this topic.
 
-## WCF Relay
-WCF Relays are available only in Standard tier namespaces. Otherwise, pricing and connection quotas for relays remain unchanged. This means that relays will continue to be charged on the number of messages (not operations), and relay hours. For more information, see the [Hybrid Connections and WCF Relays](https://azure.microsoft.com/pricing/details/service-bus/) table on the pricing details page.
-
 ## FAQ
-### How is the WCF Relay Hours meter calculated?
-See [this topic](service-bus-faq.md).
 
 ### What are brokered connections and how do I get charged for them?
 A brokered connection is defined as one of the following:
