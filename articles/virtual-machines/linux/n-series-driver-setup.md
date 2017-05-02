@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/01/2017
+ms.date: 05/02/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -22,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 
 # Set up GPU drivers for N-series VMs running Linux
 
-To take advantage of the GPU capabilities of Azure N-series VMs running a supported Linux distribution, NVIDIA graphics drivers must be installed on each VM. This article provides driver setup steps after you deploy an N-series VM. Driver setup information is also available for [Windows VMs](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+To take advantage of the GPU capabilities of Azure N-series VMs running Linux, NVIDIA graphics drivers must be installed on each VM. This article provides driver setup steps after you deploy an N-series VM. Driver setup information is also available for [Windows VMs](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
 For N-series VM specs, storage capacities, and disk details, see [GPU Linux VM sizes](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
@@ -30,6 +30,9 @@ For N-series VM specs, storage capacities, and disk details, see [GPU Linux VM s
 
 
 ## Supported distributions and drivers
+
+> [!IMPORTANT]
+> Currently, Linux GPU driver support is only available on Azure NC VMs. 
 
 The following distributions from the Azure Marketplace are supported to run NVIDIA graphics drivers on N-series Linux VMs.
 
@@ -41,13 +44,6 @@ The following distributions from the Azure Marketplace are supported to run NVID
 **Supported drivers**: NVIDIA CUDA 8.0, driver branch R375. [Installation steps](#install-CUDA-drivers-for-NC-VMs)
 
 
-### NV VMs (Tesla M60 card)
-* Ubuntu 16.04 LTS 
-* Red Hat Enterprise Linux 7.3 
-* CentOS-based 7.3 
-
-
-**Supported drivers**: NVIDIA GRID 4.2, driver branch R367. [Installation steps](#install-GRID-drivers-for-NV-VMs)
 
 
 > [!WARNING] 
@@ -59,13 +55,13 @@ The following distributions from the Azure Marketplace are supported to run NVID
 
 ## Install CUDA drivers for NC VMs
 
-Here are steps to involve NVIDIA drivers on Linux NC VMs from the NVIDIA CUDA Toolkit 8.0. 
+Here are steps to install NVIDIA drivers on Linux NC VMs from the NVIDIA CUDA Toolkit 8.0. 
 
 C and C++ developers can optionally install the full Toolkit to build GPU-accelerated applications. For more information, see the [CUDA Installation Guide](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
 
 > [!NOTE]
-> Driver download links provided here are current at time of publication. For the latest drivers, visit the [NVIDIA](http://www.nvidia.com/) website.
+> CUDA driver download links provided here are current at time of publication. For the latest drivers, visit the [NVIDIA](http://www.nvidia.com/) website.
 
 To install CUDA Toolkit, make an SSH connection to each VM. To verify that the system has a CUDA-capable GPU, run the following command:
 
@@ -181,12 +177,11 @@ After the update completes, restart the VM.
 sudo yum update
 ```
 
-## Install GRID drivers for NV VMs
 
 
 ## Incompatibility of Linux kernel 4.4.0.75 on Ubuntu 16.04 LTS
 
-There is a known issue with Azure N-series VMs running the 4.4.0-75 Linux kernel on Ubuntu 16.04 LTS. You should not upgrade past kernel version 4.4.0-72. Otherwise, the NVIDIA drivers may stop working on Ubuntu 16.04 LTS VMs.
+There is a known issue with Azure N-series VMs running the 4.4.0-75 Linux kernel on Ubuntu 16.04 LTS. To maintain driver function, don't upgrade past kernel version 4.4.0-72. Otherwise, the NVIDIA drivers may stop working on Ubuntu 16.04 LTS VMs.
 
 
 To explicitly install 4.4.0-72: 
@@ -202,7 +197,7 @@ To explicitly uninstall 4.4.0-75:
 dpkg -l | awk '{print $2}' | grep 4.4.0-75 | xargs sudo apt-get purge -y
 ```
 
-To reinstall CUDA drivers (optional):
+To reinstall CUDA drivers, if required:
 
 ```bash
 dpkg -l | awk '{print $2}' | grep nvidia | xargs sudo apt-get install --reinstall -y
@@ -218,4 +213,4 @@ After driver installation, reboot the VM.
     * [NVIDIA Tesla K80](http://www.nvidia.com/object/tesla-k80.html) (for Azure NC VMs)
     * [NVIDIA Tesla M60](http://www.nvidia.com/object/tesla-m60.html) (for Azure NV VMs)
 
-* If you want to capture an image of a Linux VM on which you installed NVIDIA drivers, see [How to generalize and capture a Linux virtual machine](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* To capture a Linux VM image with your installed NVIDIA drivers, see [How to generalize and capture a Linux virtual machine](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
