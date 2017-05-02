@@ -6,7 +6,7 @@
     href: app-service-web-overview.md
   - name: Compare hosting options
     href: choose-web-site-cloud-service-vm.md
-- name: Quickstart
+- name: Quickstarts
   expanded: true
   items:
   - name: Create .NET app

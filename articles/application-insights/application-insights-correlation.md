@@ -4,41 +4,41 @@ description: Application Insights telemetry correlation
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov-ms
+manager: carmonm
 
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 04/25/2017
 ms.author: sergkanz
 
 ---
 # Telemetry correlation in Application Insights
 
-In the world of micro services, every logical operation requires work done in various components of the service. UI component communicates with authentication provider component to validate user credentials and API component to get data for visualization. API component in its turn can query data from other services and use cache-provider components and notify the billing component about this call. Application Insights supports distributed telemetry correlation. It allows to detect which component is responsible for UI failure or performance degradation.
+In the world of micro services, every logical operation requires work done in various components of the service. Each of these components can be separately monitored by [Application Insights](app-insights-overview.md). The web app component communicates with authentication provider component to validate user credentials, and with the API component to get data for visualization. The API component in its turn can query data from other services and use cache-provider components and notify the billing component about this call. Application Insights supports distributed telemetry correlation. It allows you to detect which component is responsible for failures or performance degradation.
 
-This article explains the data model Application Insights uses. It covers the context propagation techniques and protocols. It also covers the implementation of the correlation concepts on different languages and platforms.
+This article explains the data model used by Application Insights to correlate telemetry sent by multiple components. It covers the context propagation techniques and protocols. It also covers the implementation of the correlation concepts on different languages and platforms.
 
 ## Telemetry correlation data model
 
-Application Insights defines the [data model](/application-insights-data-model.md) for distributes telemetry correlation. To associate telemetry with the logical operation - every telemetry item have the context field called `operation_Id`. This identifier is shared by every telemetry item in the distributed trace. So even with the loss of telemetry from a single layer you still can associate telemetry reported by other components.
+Application Insights defines a [data model](application-insights-data-model.md) for distributed telemetry correlation. To associate telemetry with the logical operation, every telemetry item has a context field called `operation_Id`. This identifier is shared by every telemetry item in the distributed trace. So even with loss of telemetry from a single layer you still can associate telemetry reported by other components.
 
-Distributed logical operation typically consists of a set of smaller operations - requests processed by one of the components. Those operations defined by [request telemetry](/application-insights-data-model-request-telemetry.md). Every request telemetry has its own `id` that uniquely globally identifies it. And all telemetry - traces, exceptions, etc. associated with this request should set the `operation_parentId` to the value of the request `id`.
+Distributed logical operation typically consists of a set of smaller operations - requests processed by one of the components. Those operations are defined by [request telemetry](application-insights-data-model-request-telemetry.md). Every request telemetry has its own `id` that uniquely globally identifies it. And all telemetry - traces, exceptions, etc. associated with this request should set the `operation_parentId` to the value of the request `id`.
 
-Every outgoing operation like http call to another component represented by [dependency telemetry](/application-insights-data-model-dependency-telemetry.md). Dependency telemetry also defines its own `id` that is globally unique. Request telemetry, initiated by this dependency call, uses it as `operation_parentId`.
+Every outgoing operation like http call to another component represented by [dependency telemetry](application-insights-data-model-dependency-telemetry.md). Dependency telemetry also defines its own `id` that is globally unique. Request telemetry, initiated by this dependency call, uses it as `operation_parentId`.
 
 You can build the view of distributed logical operation using `operation_Id`, `operation_parentId`, and `request.id` with `dependency.id`. Those fields also define the causality order of telemetry calls.
 
 In micro services environment, traces from components may go to the different storages. Every component may have its own instrumentation key in Application Insights. To get telemetry for the logical operation, you need to query data from every storage. When number of storages is huge, you need to have a hint on where to look next.
 
-Application Insights data model defines two fields - `request.source` and `dependency.target` to solve this problem. First field defines the component that initiated the request and second - which component returned the response of the dependency call.
+Application Insights data model defines two fields to solve this problem: `request.source` and `dependency.target`. The first field identifies the component that initiated the dependency request, and the second identifies which component returned the response of the dependency call.
 
 
 ## Example
 
-Let's take an example of an application STOCK PRICES showing the current market price of a stock using the external API called STOCKS API. STOCK PRICES application has a page `Stock page` making an ajax call `GET /Home/Stock` to the server that processes this AJAX call. To return result application queries STOCK API using http call `GET /api/stock/value`.
+Let's take an example of an application STOCK PRICES showing the current market price of a stock using the external API called STOCKS API. The STOCK PRICES application has a page `Stock page` opened by the client web browser using `GET /Home/Stock`. The application queries the STOCK API by using an HTTP call `GET /api/stock/value`.
 
 You can analyze resulting telemetry running a query:
 
@@ -80,7 +80,7 @@ Application Insights defines the [extension](https://github.com/lmolkova/correla
 - `operation_Id` maps to **TraceId**
 - `operation_ParentId` maps to **Reference** of type `ChileOf`
 
-See [data model](/application-insights-data-model.md) for Application Insights types and data model.
+See [data model](application-insights-data-model.md) for Application Insights types and data model.
 
 See [specification](https://github.com/opentracing/specification/blob/master/specification.md) and [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) for definitions of Open Tracing concepts.
 
@@ -103,6 +103,7 @@ Application Insights SDK starting version `2.4.0-beta1` uses DiagnosticsSource a
 
 ## Next steps
 
-- Onboard all components of your micro service on Application Insights. Check out [supported platforms](/app-insights-platforms.md).
-- See [data model](/application-insights-data-model.md) for Application Insights types and data model.
-- Learn how to [extend and filter telemetry](/app-insights-api-filtering-sampling.md).
+- [Write custom telemetry](app-insights-api-custom-events-metrics.md)
+- Onboard all components of your micro service on Application Insights. Check out [supported platforms](app-insights-platforms.md).
+- See [data model](application-insights-data-model.md) for Application Insights types and data model.
+- Learn how to [extend and filter telemetry](app-insights-api-filtering-sampling.md).
