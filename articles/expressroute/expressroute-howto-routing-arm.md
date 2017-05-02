@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'How to configure routing (peering) for an ExpressRoute circuit: Resource Manager: PowerShell: Azure | Microsoft Docs'
 description: This article walks you through the steps for creating and provisioning the private, public and Microsoft peering of an ExpressRoute circuit. This article also shows you how to check the status, update, or delete peerings for your circuit.
 documentationcenter: na
@@ -31,9 +31,6 @@ ms.author: ganesr;cherylmc
 
 This article walks you through the steps to create and manage routing configuration for an ExpressRoute circuit using PowerShell and the Azure Resource Manager deployment model.  The steps below also show you how to check the status, update, or delete and deprovision peerings for an ExpressRoute circuit. 
 
-**About Azure deployment models**
-
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## Configuration prerequisites
 * You will need the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview). 

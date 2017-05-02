@@ -52,6 +52,7 @@ The following table summarizes the functional differences between the Basic and 
 | Large messages |No |Yes |
 | ForwardTo |No |Yes |
 | SendVia |No |Yes |
+| Message Size |256 KB |256 KB/1 MB |
 | Brokered connections (included) |100 per Service Bus namespace |1,000 per Azure subscription |
 | Brokered connections (overage allowed) |No |Yes (billable) |
 
@@ -80,7 +81,7 @@ The following prices were effective starting November 1, 2014:
 
 | Premium | Cost |
 | --- | --- |
-| Daily |$11.13 fixed rate per Message Unit |
+| Daily |$22.26 fixed rate per Message Unit |
 
 ## Brokered connections
 *Brokered connections* accommodate customer usage patterns that involve a large number of "persistently connected" senders/receivers against queues, topics, or subscriptions. Persistently connected senders/receivers are those that connect using either AMQP or HTTP with a non-zero receive timeout (for example, HTTP long polling). HTTP senders and receivers with an immediate timeout do not generate brokered connections.
