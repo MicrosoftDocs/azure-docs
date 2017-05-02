@@ -50,7 +50,7 @@
 #### [Dependencies](app-insights-asp-net-dependencies.md)
 #### [Release annotations](app-insights-annotations.md)
 #### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
-
+#### [Snapshot Debugger](app-insights-snapshot-debugger.md)
 
 ### J2EE
 #### [Log traces](app-insights-java-trace-logs.md)
