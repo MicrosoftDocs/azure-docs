@@ -7,6 +7,7 @@
 ## [Create a Batch account](batch-account-create-portal.md)
 ## [Batch .NET tutorial](batch-dotnet-get-started.md)
 ## [Batch Python tutorial](batch-python-tutorial.md)
+## [Batch Node.js tutorial](batch-nodejs-get-started.md)
 # How To
 ## Develop
 ### [Application packages](batch-application-packages.md)
