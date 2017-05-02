@@ -23,6 +23,8 @@ ms.author: gwallace
 > * [Azure portal](application-gateway-web-application-firewall-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-web-application-firewall-powershell.md)
 
+Learn how to create an web application firewall enabled application gateway or add web application firewall to an existing application gateway.
+
 The web application firewall (WAF) in Azure Application Gateway protects web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks.
 
 Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. To find a complete list of supported features, visit Application Gateway Overview
@@ -71,7 +73,7 @@ Make sure that you are using the latest version of Azure PowerShell. More info i
 
 1. Configure the WAF settings as defined in the following example:
 
-   For the **WafMode** setting, the available values are Prevention and Detection.
+   For **FirewallMode**, the available values are Prevention and Detection.
 
     ```powershell
     $gw | Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention
@@ -91,30 +93,23 @@ The following steps take you through the entire process from beginning to end fo
 
 Make sure that you are using the latest version of Azure PowerShell. More info is available at [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
 
-1. Log in to Azure, you are prompted to authenticate with your credentials.
+1. Log in to Azure by running `Login-AzureRmAccount`, you are prompted to authenticate with your credentials.
 
-    ```powershell
-    Login-AzureRmAccount
-    ```
-
-1. Check the subscriptions for the account.
-
-    ```powershell
-    Get-AzureRmSubscription
-    ```
+1. Check the subscriptions for the account by running `Get-AzureRmSubscription`
 
 1. Choose which of your Azure subscriptions to use.
 
     ```powershell
     Select-AzureRmsubscription -SubscriptionName "<Subscription name>"
     ```
+
 ### Create a resource group
 
-This step creates a resource group to create the applciation gateway in.
+Create a resource group for the application gateway.
 
-    ```powershell
-    New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
-    ```
+```powershell
+New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
+```
 
 Azure Resource Manager requires that all resource groups specify a location. This location is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway uses the same resource group.
 
