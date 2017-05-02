@@ -1,5 +1,5 @@
 ---
-title: `Azure Cosmos DB: How to query using the DocumentDB API? | Microsoft Docs`
+title: 'Azure Cosmos DB: How to query using the DocumentDB API? | Microsoft Docs'
 description: Learn to query with the DocumentDB API for Azure Cosmos DB
 services: cosmosdb
 documentationcenter: ''

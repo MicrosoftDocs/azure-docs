@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB:  Create a collection with the Graph API | Microsoft Docs
+title: 'Azure Cosmos DB:  Create a collection with the Graph API | Microsoft Docs'
 description: Learn how to create an Azure Cosmos DB collection with a partition key by using the DocumentDB API
 services: cosmosdb
 documentationcenter: ''
