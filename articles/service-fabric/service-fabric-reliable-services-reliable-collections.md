@@ -56,7 +56,7 @@ Today, **Microsoft.ServiceFabric.Data.Collections** contains two collections:
 * [Working with Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Reliable State Manager and Collection Internals](service-fabric-reliable-services-reliable-collections-internals.md)
 * Managing Data
-  * [Backup and Restore][Reliable Services backup and restore (disaster recovery)]
+  * [Backup and Restore](service-fabric-reliable-services-backup-restore.md)
   * [Notifications](service-fabric-reliable-services-notifications.md)
   * [Serialization and Upgrade](service-fabric-application-upgrade-data-serialization.md)
   * [Reliable State Manager configuration](service-fabric-reliable-services-configuration.md)
