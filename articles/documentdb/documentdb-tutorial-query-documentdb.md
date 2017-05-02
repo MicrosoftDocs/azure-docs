@@ -15,25 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 04/19/2017
+ms.date: 05/01/2017
 ms.author: mimig
 
 ---
 
 # How to query with Azure Cosmos DB?
 
-Each of the Azure Cosmos DB data-models have their own query protocol, so creating queries for each model is slightly different. This article provides links to the query protocol for each model, as well as sample queries for the DocumentDB API.
+The Azure Cosmos DB DocumentDB API supports supports querying documents using SQL (Structured Query Language). This article provides a sample document and two sample queries and results using SQL.
 
-**How to query each data model using Azure Cosmos DB?**
+The SQL queries in this article use the following sample document.
 
-|   |DocumentDB API|Tables API|Graph API|MongoDB API|
-|---|-----------------|--------------|-------------|---------------|
-|Query protocol|[SQL](documentdb-sql-query.md)|[OData](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities)<br>[LINQ](ttps://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service)|[Gremlin](http://tinkerpop.apache.org/gremlin.html)|[MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/)|
-|Example queries|[Document query](#documentdbquery)|Table query|Graph query|[MongoDB query](documentdb-tutorial-query-mongodb.md)|
-
-The queries in this article use the following sample document.
-
-## Sample Family document
+**Sample family document**
 
 ```json
 {
@@ -64,7 +57,7 @@ The queries in this article use the following sample document.
 }
 ```
 
-## <a id="documentdbquery"></a> How to query with DocumentDB API?
+## Example query 1
 
 Given the sample family document above, following SQL query returns the documents where the id field matches `WakefieldFamily`. Since it's a `SELECT *` statement, the output of the query is the complete JSON document:
 
@@ -93,6 +86,8 @@ Given the sample family document above, following SQL query returns the document
         "creationDate": 1431620472,
         "isRegistered": true
     }]
+
+## Example query 2
 
 The next query returns all the given names of children in the family whose id matches `WakefieldFamily` ordered by their grade.
 

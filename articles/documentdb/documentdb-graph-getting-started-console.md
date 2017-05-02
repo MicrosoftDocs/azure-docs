@@ -30,8 +30,6 @@ We'll cover:
 * Traversing the graph
 * Dropping a vertex
 
-Afterwards, please use the voting buttons at the top or bottom of this page to give us feedback. If you'd like us to contact you directly, feel free to include your email address in your comments.
-
 Now let's get started!
 
 ## Prerequisites

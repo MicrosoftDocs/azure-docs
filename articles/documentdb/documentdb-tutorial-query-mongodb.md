@@ -25,7 +25,7 @@ The Azure Cosmos DB API for MongoDB supports [MongoDB](https://docs.mongodb.com/
 
 The queries in this article use the following sample document.
 
-## Sample Family document
+**Sample family document**
 
 ```json
 {
@@ -139,4 +139,4 @@ The next query returns all the children in the family.
 
 ## Next steps
 
-For more information about the MongoDB APIs, see [What is Azure Cosmos DB: API for MongoDB?](documentdb-protocol-mongodb.md).
+For more information about the MongoDB APIs, see [What is Azure Cosmos DB: API for MongoDB?](documentdb-protocol-mongodb.md)
