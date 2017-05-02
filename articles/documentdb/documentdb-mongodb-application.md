@@ -18,15 +18,7 @@ ms.date: 04/28/2017
 ms.author: anhoh
 
 ---
-# Web application development with Azure Cosmos DB's API for MongoDB
-> [!div class="op_single_selector"]
-> * [.NET](documentdb-dotnet-application.md)
-> * [.NET for MongoDB](documentdb-mongodb-application.md)
-> * [Node.js](documentdb-nodejs-application.md)
-> * [Java](documentdb-java-application.md)
-> * [Python](documentdb-python-application.md)
-> 
-> 
+# Azure Cosmos DB: Connect to a MongoDB app using .NET
 
 This example shows you how to build an API for MongoDB web app using .NET.
 

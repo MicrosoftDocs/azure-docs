@@ -9,15 +9,15 @@
     
     ![Screen shot of the four programming models Azure Cosmos DB provides](./media/documentdb-create-dbaccount/account-type.png)
     
-    In this quick start we'll be programming against the DocumentDB API, so you'll choose **DocumentDB** as you fill out the form. But if you have graph data for a social media app, or key/value (table) data, or data migrated from a MongoDB app, realize that Azure Cosmos DB can provide a highly available, globally-distributed database service platform for all your mission-critical applications.
+    In this quick start we'll be programming against the Table API so you'll choose **Table** as you fill out the form. But if you have graph data for a social media app, document data from a catalog app, or data migrated from a MongoDB app, realize that Azure Cosmos DB can provide a highly available, globally-distributed database service platform for all your mission-critical applications.
 
     Fill out the New account blade using the information in the screenshot as a guide, the exact values you choose will be slightly different.
  
     ![Screen shot of the New Azure Cosmos DB blade](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
    
    * In the **ID** box, enter a unique name you choose to identify the Azure Cosmos DB account. *documents.azure.com* is appended to the ID you provide to create your URI, so use a unique but identifyable ID. The **ID** may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters.
-   * In the **NoSQL API** box, select **DocumentDB** as we'll be programming against the DocumentDB API later in this article.
-   * For **Subscription**, select the Azure subscription that you want to use for the Azure Cosmos DB account. 
+   * In the **NoSQL API** box, select **Table** as we'll be programming against the Table API later in this article.
+   * For **Subscription**, select the Azure subscription that you want to use for the DocumentDB account. 
    * In **Resource Group**, create a new resource group for your account. For simplicity, you can use the same name as your ID. 
    * Use **Location** to specify the geographic location in which to host your Azure Cosmos DB account. Choose the location closest to your users to give them the fastest access to the data.
 4. Click **Create** to create the account.

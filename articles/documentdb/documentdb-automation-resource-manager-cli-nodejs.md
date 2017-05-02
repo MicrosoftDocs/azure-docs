@@ -25,7 +25,7 @@ ms.author: mimig
 > * [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
 > * [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 
-This article shows you how to create an Azure Azure Cosmos DB DocumentDB API account by using Azure Resource Manager templates or directly with Azure Command-Line Interface (CLI) 1.0. To create an Azure Cosmos DB account using the Azure portal, see [Create an Azure Cosmos DB database account using the Azure portal](documentdb-create-account.md).
+This article shows you how to create an Azure Cosmos DB DocumentDB API account by using Azure Resource Manager templates or directly with Azure Command-Line Interface (CLI) 1.0. To create an Azure Cosmos DB account using the Azure portal, see [Create an Azure Cosmos DB database account using the Azure portal](documentdb-create-account.md).
 
 Azure Cosmos DB DocumentDB API and MongoDB API database accounts are currently the only Azure Cosmos DB resources that can be created using Resource Manager templates and Azure CLI 1.0.
 

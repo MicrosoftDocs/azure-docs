@@ -93,4 +93,3 @@ Don't have an Azure account? You can:
 Then, when you're ready to learn more, visit our [learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) to navigate all the learning resources available to you. 
 
 [1]: ./media/documentdb-introduction/json-database-resources1.png
-
