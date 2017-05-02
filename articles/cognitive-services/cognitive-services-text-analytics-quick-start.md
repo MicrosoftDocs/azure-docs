@@ -39,7 +39,7 @@ By the end of this tutorial, you will be able to programmatically detect:
 ## General overview
 This document is a step-by-step guide. Our objective is to walk you through the steps necessary to train a model, and to point you to resources that will allow you to put it in production. This exercise takes about 30 minutes.
 
-For these tasks, you will need an editor and call the RESTful endpoints in your language of choice.
+For these tasks, you need an editor and call the RESTful endpoints in your language of choice.
 
 Let's get started!
 
@@ -47,7 +47,7 @@ Let's get started!
 In this task, you will sign up for the text analytics service.
 
 1. Navigate to **Cognitive Services** in the [Azure portal](//go.microsoft.com/fwlink/?LinkId=761108) and ensure **Text Analytics** is selected as the 'API type'.
-2. Select a plan. You may select the **free tier for 5,000 transactions/month**. As is a free plan, you will not be charged for using the service. You need to login to your Azure subscription. 
+2. Select a plan. You may select the **free tier for 5,000 transactions/month**. As is a free tier, there are no charges for using the service. You need to login to your Azure subscription to sign up for the service. 
 3. Complete the other fields and create your account.
 4. After you sign up for Text Analytics, find your **API Key**. Copy the primary key, as you need it when using the API services.
 
@@ -67,12 +67,12 @@ The supported languages are as follows:
 | Key Phrases |`en` (English), `es` (Spanish), `de` (German), `ja` (Japanese) |
 | Topics |`en` (English) |
 
-1. Set the headers to the following. JSON is currently the only accepted input format for the APIs. XML is not supported.
+1. Set the headers as shown below. JSON is currently the only accepted input format for the APIs. XML is not supported.
    
         Ocp-Apim-Subscription-Key: <your API key>
         Content-Type: application/json
         Accept: application/json
-2. Next, format your input rows in JSON. For sentiment, key phrases and language, the format is the same. Each ID should be unique and is the ID returned by the system. The maximum size of a single document that can be submitted is 10KB, and the total maximum size of submitted input is 1 MB. No more than 1,000 documents may be submitted in one call. Rate limiting exists at a rate of 100 calls per minute - we therefore recommend that you submit large quantities of documents in a single call. Language is an optional parameter that should be specified if analyzing non-English text. An example of input is shown below, where the optional parameter `language` for sentiment analysis or key phrase extraction is included:
+2. Next, format your input rows in JSON. For sentiment, key phrases and language, the format is the same. Each ID should be unique and is the ID returned by the system. The maximum size of a single document that can be submitted is 10 KB, and the total maximum size of submitted input is 1 MB. No more than 1,000 documents may be submitted in one call. Rate limiting exists at a rate of 100 calls per minute - we therefore recommend that you submit large quantities of documents in a single call. Language is an optional parameter that should be specified if analyzing non-English text. An example of input is shown below, where the optional parameter `language` for sentiment analysis or key phrase extraction is included:
    
         {
             "documents": [
@@ -156,11 +156,11 @@ The supported languages are as follows:
 ## Task 3 - Detect topics in a corpus of text
 This API returns the top detected topics for a list of submitted text records. A topic is identified with a key phrase, which can be one or more related words. The API is designed to work well for short, human written text such as reviews and user feedback.
 
-This API requires **a minimum of 100 text records** to be submitted, but is designed to detect topics across hundreds to thousands of records. Any non-English records or records with fewer than three words are be discarded and therefore are not assigned to topics. For topic detection, the maximum size of a single document that can be submitted is 30KB, and the total maximum size of submitted input is 30MB. Topic detection is rate limited to five submissions every five minutes.
+This API requires **a minimum of 100 text records** to be submitted, but is designed to detect topics across hundreds to thousands of records. Any non-English records or records with fewer than three words are discarded and therefore are not assigned to topics. For topic detection, the maximum size of a single document that can be submitted is 30 KB, and the total maximum size of submitted input is 30 MB. Topic detection is rate limited to five submissions every five minutes.
 
 There are two additional **optional** input parameters that can help to improve the quality of results:
 
-* **Stop words.**  These words and their close forms (for example, plurals) are excluded from the entire topic detection pipeline. Use this for common words (for example, “issue”, “error” and “user” may be appropriate choices for customer complaints about software). Each string should be a single word.
+* **Stop words.**  These words and their close forms (for example, plurals) are excluded from the entire topic detection pipeline. Use this parameter for common words (for example, “issue”, “error” and “user” may be appropriate choices for customer complaints about software). Each string should be a single word.
 * **Stop phrases** - These phrases are excluded from the list of returned topics. Use this to exclude generic topics that you don’t want to see in the results. For example, “Microsoft” and “Azure” would be appropriate choices for topics to exclude. Strings can contain multiple words.
 
 Follow these steps to detect topics in your text.
@@ -195,7 +195,7 @@ Follow these steps to detect topics in your text.
 4. Query the returned `operation-location` periodically with a **GET** request. Once per minute is recommended.
    
         GET https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>
-5. The endpoint returns a response including `{"status": "notStarted"}` before processing, `{"status": "Running"}` while processing and `{"status": "Succeeded"}` with the output once completed. You can then consume the output which is in the following format (note details like error format and dates have been excluded from this example):
+5. The endpoint returns a response including `{"status": "notStarted"}` before processing, `{"status": "Running"}` while processing and `{"status": "Succeeded"}` with the output once completed. You can then consume the output, which is in the following format (note details like error format and dates have been excluded from this example):
    
         {
             "status": "Succeeded",
@@ -263,7 +263,7 @@ Explanations for each part of this response are as follows:
 | Key | Description |
 |:--- |:--- |
 | documentId |Identifier for the document. Equates to the ID included in the input. |
-| topicId |The topic ID which the document has been assigned to. |
+| topicId |The topic ID, which the document has been assigned to. |
 | distance |Document-to-topic affiliation score between 0 and 1. The lower a distance score the stronger the topic affiliation is. |
 
 **errors**
@@ -274,7 +274,7 @@ Explanations for each part of this response are as follows:
 | message |Error message. |
 
 ## Next steps
-Congratulations! You have now completed using text analytics on your data. You may now wish to look into using a tool such as [Power BI](//powerbi.microsoft.com) to visualize your data, and automating your insights to give you a real-time view of your text data.
+Congratulations! You have now completed using text analytics on your data. You may now wish to look into using a tool such as [Power BI](//powerbi.microsoft.com) to visualize your data. You can also use the insights to provide a streaming view of what customers are saying.
 
 To see how Text Analytics capabilities, such as sentiment, can be used as part of a bot, see the [Emotional Bot](http://docs.botframework.com/en-us/bot-intelligence/language/#example-emotional-bot) example on the Bot Framework site.
 
