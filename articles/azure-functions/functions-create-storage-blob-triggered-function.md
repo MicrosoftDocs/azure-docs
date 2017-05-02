@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/01/2017
+ms.date: 05/02/2017
 ms.author: glenga
 
 ---
@@ -26,7 +26,7 @@ Learn how to create a function triggered when files are uploaded to or updated i
 
 It should take you less than five minutes to complete all the steps in this topic.
 
-## Before you begin
+## Prerequisites
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-previous-topics.md)]
 
@@ -36,7 +36,7 @@ You also need to download and install the [Microsoft Azure Storage Explorer](htt
 
 ## <a name="create-function"></a>Create a Blob storage triggered function
 
-Expand your function app, click the **+** button next to **Functions**, click the **BlobTrigger** template for your desired language. Use the following settings and then click **Create**.
+Expand your function app, click the **+** button next to **Functions**, click the **BlobTrigger** template for your desired language. Then, use the settings as specified in the table and click **Create**.
 
 ![Create the Blob storage triggered function.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
     

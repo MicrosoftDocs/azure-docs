@@ -20,7 +20,7 @@ ms.author: glenga
 ---
 # Create your first function in the Azure portal
 
-Learn how to use Azure Functions to create a "hello world" function in the Azure portal. Functions lets you execute your code in a serverless environment without having to first create a VM or publish a web application. 
+Azure Functions lets you execute your code in a serverless environment without having to first create a VM or publish a web application. In this topic, learn how to use Functions to create a "hello world" function in the Azure portal.  
 
 ![Create function app in the Azure portal](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
@@ -38,7 +38,7 @@ You must have a function app to host the execution of your functions. A function
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
-2. Click **Compute** > **Function App**, select your **Subscription**, and enter values for the required function app settings.
+2. Click **Compute** > **Function App**, select your **Subscription**. Then, use the function app settings as specified in the table.
  
      ![Create function app in the Azure portal](./media/functions-create-first-azure-function/function-app-create-flow.png)
 

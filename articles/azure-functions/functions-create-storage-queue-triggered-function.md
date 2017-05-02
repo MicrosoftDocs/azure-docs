@@ -26,7 +26,7 @@ Learn how to create a function triggered when messages are submitted to an Azure
 
 It should take you less than five minutes to complete all the steps in this topic.
 
-## Before you begin
+## Prerequisites
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-previous-topics.md)]
 
@@ -36,7 +36,7 @@ You also need to download and install the [Microsoft Azure Storage Explorer](htt
 
 ## <a name="create-function"></a>Create a Queue triggered function
 
-Expand your function app, click the **+** button next to **Functions**, click the **QueueTrigger** template for your desired language. Use the following settings and then click **Create**.
+Expand your function app, click the **+** button next to **Functions**, click the **QueueTrigger** template for your desired language. Then, use the settings as specified in the table, and then click **Create**.
 
 ![Create the storage queue triggered function.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
     
