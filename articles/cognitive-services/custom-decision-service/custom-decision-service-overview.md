@@ -43,7 +43,7 @@ For all the applications that sign up for this mode, we learn a single model to 
 
 ## Advanced scenario
 
-For applications with sufficient traffic, the global model might not be ideal as the user preferences on your content are also merged with their preferences in other applications. When your data volume permits, we recommend you opt for the advanced scenario. For this version, you are required to specify an [Azure storage account key](https://docs.microsoft.com/en-us/azure/storage/storage-create-storage-account), in addition to all the information required for the simple scenario.
+For applications with sufficient traffic, the global model might not be ideal as the user preferences on your content are also merged with their preferences in other applications. When your data volume permits, we recommend you opt for the advanced scenario. For this version, you are required to specify an [Azure storage account key](../../storage/storage-create-storage-account.md), in addition to all the information required for the simple scenario.
 
 In this usage mode, Custom Decision Service creates a deployment of the *entire learning pipeline for your application*. Hence, the learning is done only based on your user interaction with your content. The data collected by the system is also logged to your Azure account based on the key provided. You can access this data offline and derive further insights from it regarding user preferences.
 
