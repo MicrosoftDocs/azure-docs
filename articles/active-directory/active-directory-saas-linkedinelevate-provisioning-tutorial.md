@@ -76,13 +76,13 @@ The first step is to retrieve your LinkedIn access token. If you are an Enterpri
 > When auto­assign licenses is not enabled, it means that only user
 > data is synced.
 
-![LinkedIn Elevate Provisioning](./media/active-directory-saas-linkedin-elevate-provisioning-tutorial/linkedin-elevate1.PNG)
+![LinkedIn Elevate Provisioning](./media/active-directory-saas-linkedin-elevate-provisioning-tutorial/linkedin_elevate1.PNG)
 
 > When auto­license assignment is enabled, you need to note the
 > application instance and license type. Licenses are assigned on a
 > first come, first serve basis until all the licenses are taken.
 
-![LinkedIn Elevate Provisioning](./media/active-directory-saas-linkedin-elevate--provisioning-tutorial/linkedin-elevate2.PNG)
+![LinkedIn Elevate Provisioning](./media/active-directory-saas-linkedin-elevate-provisioning-tutorial/linkedin_elevate2.PNG)
 
 5)  Click **Generate token**. You should see your access token display
     under the **Access token** field.
@@ -98,7 +98,7 @@ The first step is to retrieve your LinkedIn access token. If you are an Enterpri
 
 10)	Set the **Provisioning Mode** to **Automatic**.
 
-![LinkedIn Elevate Provisioning](./media/active-directory-saas-linkedin-elevate-provisioning-tutorial/linkedin-elevate3.PNG)
+![LinkedIn Elevate Provisioning](./media/active-directory-saas-linkedin-elevate-provisioning-tutorial/linkedin_elevate3.PNG)
 
 11)  Fill in the following fields under **Admin Credentials** :
 
@@ -115,7 +115,7 @@ The first step is to retrieve your LinkedIn access token. If you are an Enterpri
 
 14) In the **Attribute Mappings** section, review the user and group attributes that will be synchronized from Azure AD to LinkedIn Elevate. Note that the attributes selected as **Matching** properties will be used to match the user accounts and groups in LinkedIn Elevate for update operations. Select the Save button to commit any changes.
 
-![LinkedIn Elevate Provisioning](./media/active-directory-saas-linkedin-elevate-provisioning-tutorial/linkedin-elevate4.PNG)
+![LinkedIn Elevate Provisioning](./media/active-directory-saas-linkedin-elevate-provisioning-tutorial/linkedin_elevate4.PNG)
 
 15) To enable the Azure AD provisioning service for LinkedIn Elevate, change the **Provisioning Status** to **On** in the **Settings** section
 
