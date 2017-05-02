@@ -48,9 +48,9 @@ You also need to download and install the [Microsoft Azure Storage Explorer](htt
 
     | Setting      |  Suggested value   | Description                              |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Queue name**   | `myqueue-items`    | The name of the queue to connect to in your Storage account. |
-    | **Storage account connection** | **AzureWebJobStorage** | You can use the storage account connection already being used by your function app, or create a new one.  |
-    | **Message parameter name** | `outQueueItem` | The name of the output binding parameter. | 
+    | **Queue name**   | myqueue-items    | The name of the queue to connect to in your Storage account. |
+    | **Storage account connection** | AzureWebJobStorage | You can use the storage account connection already being used by your function app, or create a new one.  |
+    | **Message parameter name** | outQueueItem | The name of the output binding parameter. | 
 
 Now that you have an output binding defined, you need to update the code to use the binding to add messages to a queue.  
 

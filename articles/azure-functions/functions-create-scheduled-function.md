@@ -40,8 +40,8 @@ In this topic, you create a timer triggered function in your existing function a
 
     | Setting      |  Suggested value   | Description                              |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Name your function** | `TimerTriggerCSharp1` | Defines the name of your timer triggered function.
-    | **Schedule** | `0 */1 * * * *` | Timer runs your function every minute. |
+    | **Name your function** | TimerTriggerCSharp1 | Defines the name of your timer triggered function.
+    | **Schedule** | 0 */1 * * * * | Timer runs your function every minute. |
 
     A function is created in your chosen language that runs every minute. 
 

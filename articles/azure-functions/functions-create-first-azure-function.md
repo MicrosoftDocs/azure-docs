@@ -44,10 +44,10 @@ You must have a function app to host the execution of your functions. A function
 
     | Setting      | Suggested value  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **App name** | _Globally unique name_ | Name that identifies your new function app. | 
-    | **[Resource Group](../azure-resource-manager/resource-group-overview.md)** |  `myResourceGroup` | Name for the new resource group in which to create your function app. | 
-    | **[Hosting plan](functions-scale.md)** |   **Consumption plan** | Hosting plan that defines how resources are allocated to your function app. In the default **Consumption Plan**, resources are added dynamically as required by your functions. You only pay for the time your functions run.   |
-    | **[Storage account](../storage/storage-create-storage-account.md#create-a-storage-account)** |  _Globally unique name_ |  Name of the new storage account used by your function app. | 
+    | **App name** | Globally unique name | Name that identifies your new function app. | 
+    | **[Resource Group](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Name for the new resource group in which to create your function app. | 
+    | **[Hosting plan](functions-scale.md)** |   Consumption plan | Hosting plan that defines how resources are allocated to your function app. In the default **Consumption Plan**, resources are added dynamically as required by your functions. You only pay for the time your functions run.   |
+    | **[Storage account](../storage/storage-create-storage-account.md#create-a-storage-account)** |  Globally unique name |  Name of the new storage account used by your function app. | 
 
 3. Click **Create** to provision and deploy the function app.  
 
