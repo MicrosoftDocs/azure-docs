@@ -71,7 +71,7 @@ When the VM has been created, the Azure CLI shows information similar to the fol
 
 ## Open port 80 for web traffic 
 
-By default only RDP connections are allowed into Windows virtual machines deployed in Azure. If this VM is going to be a webserver, you need to open port 80 from the Internet. Use the [az vm open-port](/cli/azure/vm#open-port) command to open the desired port.  
+By default only RDP connections are allowed in to Windows virtual machines deployed in Azure. If this VM is going to be a webserver, you need to open port 80 from the Internet. Use the [az vm open-port](/cli/azure/vm#open-port) command to open the desired port.  
  
  ```azurecli 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -88,7 +88,7 @@ mstsc /v:<Public IP Address>
 
 ## Install IIS using PowerShell
 
-Now that you have logged into the Azure VM, you can use a single line of PowerShell to install IIS and enable the local firewall rule to allow web traffic. Open a PowerShell prompt and run the following command:
+Now that you have logged in to the Azure VM, you can use a single line of PowerShell to install IIS and enable the local firewall rule to allow web traffic. Open a PowerShell prompt and run the following command:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools

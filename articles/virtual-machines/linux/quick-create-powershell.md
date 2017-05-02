@@ -130,7 +130,7 @@ From a system with SSH installed, used the following command to connect to the v
 ssh <Public IP Address>
 ```
 
-When prompted, the login user name is *azureuser*. If a passphrase was entered when creating SSH keys, you will need to enter this as well.
+When prompted, the login user name is *azureuser*. If a passphrase was entered when creating SSH keys, you need to enter this as well.
 
 
 ## Install NGINX
