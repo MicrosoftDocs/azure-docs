@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/26/2017
+ms.date: 05/01/2017
 ms.author: cynthn
 ---
-# Back up Windos virtual machines in Azure
+# Back up Windows virtual machines in Azure
 
 ## Backup overview
 
@@ -44,6 +44,8 @@ This table explains the types of consistency and the conditions that they occur 
 The cost of backing up Azure VMs is based on the number of protected instances. For a definition of a protected instance, see [What is a protected instance](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). For an example of calculating the cost of backing up a virtual machine, see [How are protected instances calculated](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances). See the Azure Backup Pricing page for information about [Backup Pricing](https://azure.microsoft.com/pricing/details/backup/).
 
 
+## Create a file on the VM
+
 ## Create a backup
 Create a simple daily backup schedule to a Recovery Services Vault. The Recovery Services Vault by deafult is geo-redundant storage.
 
@@ -51,7 +53,7 @@ Create a simple daily backup schedule to a Recovery Services Vault. The Recovery
 2. In the menu on the left, select **Virtual machines**. 
 3. From the list, select a VM to back up.
 4. On the VM blade, in the **Settings** section, click **Backup**. The **Enable backup** blade opens.
-5. For the [Recovery Services vault](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm), click **Create new** and provide the name for the new vault. A new vault is created in the same Resource Group and same location as the virtual machine.
+5. For the [Recovery Services vault](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm), click **Create new** and provide the name for the new vault. A new vault is created in the same Resource Group and same location as the virtual machine. Make a note of the name of the vault so that we can use it later.
 6. Click **Backup policy**. The default policy is to create a backup daily at 8:30 PM and to retain the backup for 180 days. Keep the defaults for this example and click **OK**.
 
     ![Select backup policy](./media/tutorial-backup-vms/policy.png)
@@ -69,51 +71,12 @@ Create a simple daily backup schedule to a Recovery Services Vault. The Recovery
 
 Deployment notifications let you know the backup job has been triggered, and that you can monitor the progress of the job on the Backup jobs page.
 
-## Restore the VM
+## Delete the file
+
+
+## Restore the file
 
 Protect your data by taking snapshots of your data at defined intervals. These snapshots are known as recovery points, and they are stored in recovery services vaults. If or when it is necessary to repair or rebuild a VM, you can restore the VM from any of the saved recovery points. When you restore a recovery point, you can create a new VM which is a point-in-time representation of your backed-up VM, or restore disks and use the template that comes along with it to customize the restored VM or do an individual file recovery. This article explains how to restore a VM to a new VM or restore all backed-up disks. For individual file recovery, refer to [Recover files from Azure VM backup](backup-azure-restore-files-from-vm.md)
 
-1. In the blade for the VM, click **Backup**.
-2. In the Backup blade, click **Restore VM** from the menu to open the **Select Restore point** blade.
 
-    ![restore blade](../../backup/media/backup-azure-arm-restore-vms/recovery-point-selector.png)
-
-    By default, the dialog displays all restore points from the last 30 days. Use the **Filter** to alter the time range of the restore points displayed. By default, restore points of all consistency are displayed. Modify **All Restore points** filter to select a specific consistency of restore points. For more information about each type of restoration point, see the explanation of [Data consistency](backup-azure-vms-introduction.md#data-consistency).  
-
-   * **Restore point consistency** from this list choose:
-     * Crash consistent restore points,
-     * Application consistent restore points,
-     * File system consistent restore points
-     * All restore points.  
-8. Choose a Restore point and click **OK**.
-
-    ![choose restore point](../../backup/media/backup-azure-arm-restore-vms/select-recovery-point.png)
-
-    The **Restore** blade shows the Restore point is set.
-
-    ![restore point is set](../../backup/media/backup-azure-arm-restore-vms/recovery-point-set.png)
-9. On the **Restore** blade, **Restore configuration** opens automatically after restore point is set.
-
-Once restore point is selected, on the **Restore configuration** blade, enter or select values for each of the following fields:
-
-* **Restore Type** - Create virtual machine.
-* **Virtual machine name** - Provide a name for the VM. The name must be unique to the resource group (for a Resource Manager-deployed VM) or cloud service (for a Classic VM). You cannot replace the virtual machine if it already exists in the subscription.
-* **Resource group** - Use an existing resource group, or create a new one. If you are restoring a Classic VM, use this field to specify the name of a new cloud service. If you are creating a new resource group/cloud service, the name must be globally unique. Typically, the cloud service name is associated with a public-facing URL - for example: [cloudservice].cloudapp.net. If you attempt to use a name for the cloud resource group/cloud service that has already been used, Azure assigns the resource group/cloud service the same name as the VM. Azure displays resource groups/cloud services and VMs not associated with any affinity groups. For more information, see [How to migrate from Affinity Groups to a Regional Virtual Network (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
-* **Virtual Network** - Select the virtual network (VNET) when creating the VM. The field provides all VNETs associated with the subscription. Resource group of the VM is displayed in parentheses.
-* **Subnet** - If the VNET has subnets, the first subnet is selected by default. If there are additional subnets, select the desired subnet.
-* **Storage account** - This menu lists the storage accounts in the same location as the Recovery Services vault. Storage accounts that are Zone redundant are not supported. If there are no storage accounts with the same location as the Recovery Services vault, you must create one before starting the restore operation. The storage account's replication type is mentioned in parentheses.
-
-![restore configuration wizard is set](../../backup/media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
-
-On the **Restore configuration** blade, click **OK** to finalize the restore configuration. On the **Restore** blade, click **Restore** to trigger the restore operation.
-
-
-## Post-Restore steps
-* If you are using a cloud-init based Linux distribution such as Ubuntu, for security reasons, password is blocked post restore. Please use VMAccess extension on the restored VM to [reset the password](../virtual-machines/linux/classic/reset-access.md). We recommend using SSH keys on these distributions to avoid resetting password post restore.
-* Extensions present during the backup config will be installed, however they won't be enabled. Please reinstall extensions if you see any issue. 
-* If the backed-up VM has static IP, post restore, restored VM will have a dynamic IP to avoid conflict when creating restored VM. Learn more on how you can [add a static IP to restored VM](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
-* Restored VM will not have availability value set. We recommend using restore disks option and [adding availability set](../virtual-machines/windows/create-availability-set.md#use-powershell-to-create-an-availability-set) when creating a VM from PowerShell or templates using restored disks. 
-
-## Backup for restored VMs
-If you have restored VM to same Resource Group with the same name as originally backed up VM, backup continues on the VM post restore. If you have either restored VM to a different Resource group or specified a different name for restored VM, this is treated as a new VM and you need to setup backup for restored VM.
 
