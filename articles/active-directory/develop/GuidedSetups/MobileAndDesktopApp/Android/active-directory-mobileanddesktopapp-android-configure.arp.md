@@ -29,10 +29,22 @@ In this step, you need to add the Application ID to your project.
 final static String CLIENT_ID = "[Enter the application Id here]";
 ```
 3. Open: `app` > `manifests` > `AndroidManifest.xml`
-4. Add the following to `manifest\application\activity\intent-filter` node:
+4. Add the following activity to `manifest\application` node. This register a BrowserTabActivity to allow the OS to come back to your application after completing the authentication:
+
 ```xml
-<data android:scheme="msal[Enter the application Id here]//:"
-    android:host="auth" />
+<!--Intent filter to capture System Browser calling back to our app after Sign In-->
+<activity
+    android:name="com.microsoft.identity.client.BrowserTabActivity">
+    <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+
+        <!--Add in your scheme/host from registered redirect URI-->
+        <data android:scheme="msal[Enter the application Id here]"
+            android:host="auth" />
+    </intent-filter>
+</activity>
 ```
 
 ### What is Next

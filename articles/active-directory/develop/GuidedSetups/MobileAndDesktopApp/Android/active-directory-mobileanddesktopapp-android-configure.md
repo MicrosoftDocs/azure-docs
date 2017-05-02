@@ -32,16 +32,30 @@ Now you need to register your application in the *Microsoft Application Registra
 3. Make sure the option for Guided Setup is unchecked
 4. Click `Add Platforms`, then select `Native Application` and hit Save
 5.	Open `MainActivity` (under `app` > `java` > *`{host}.{namespace}`*)
-6.	Replace the line starting with `final static String CLIENT_ID` to:
+6.	Replace the *[Enter the application Id here]* in the line starting with `final static String CLIENT_ID` with the application Id you just registered:
 ```java
 final static String CLIENT_ID = "[Enter the application Id here]";
 ```
 7. Open `AndroidManifest.xml` (under `app` > `manifests`)
-8. Add the following to `manifest\application\activity\intent-filter` node:
+8. Add the following activity to `manifest\application` node. This register a BrowserTabActivity to allow the OS to come back to your application after completing the authentication:
+
 ```xml
-<data android:scheme="msal[Enter the application Id here]//:"
-    android:host="auth" />
+<!--Intent filter to capture System Browser calling back to our app after Sign In-->
+<activity
+    android:name="com.microsoft.identity.client.BrowserTabActivity">
+    <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+
+        <!--Add in your scheme/host from registered redirect URI-->
+        <data android:scheme="msal[Enter the application Id here]"
+            android:host="auth" />
+    </intent-filter>
+</activity>
 ```
+9. Replace *[Enter the application Id here]* with the the application Id for the application you just registered the the Application Registration Portal
+
 <!-- End Docs -->
 
 ### What is Next
