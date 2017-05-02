@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 04/14/2017
 ms.author: jingwang
 
 ---
@@ -21,6 +21,9 @@ ms.author: jingwang
 This article explains how to use the Copy Activity in Azure Data Factory to move data to/from Azure SQL Database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.  
 
 You can copy data from any supported source data store to Azure SQL Database or from Azure SQL Database to any supported sink data store. For a list of data stores supported as sources or sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table.
+
+## Supported authentication type
+Azure SQL Database connector support basic authentication.
 
 ## Getting started
 You can create a pipeline with a copy activity that moves data to/from an Azure SQL Database by using different tools/APIs.
@@ -45,7 +48,7 @@ An Azure SQL linked service links an Azure SQL database to your data factory. Th
 | Property | Description | Required |
 | --- | --- | --- |
 | type |The type property must be set to: **AzureSqlDatabase** |Yes |
-| connectionString |Specify information needed to connect to the Azure SQL Database instance for the connectionString property. |Yes |
+| connectionString |Specify information needed to connect to the Azure SQL Database instance for the connectionString property. Only basic authentication is supported. |Yes |
 
 > [!IMPORTANT]
 > Configure [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) the database server to [allow Azure Services to access the server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Additionally, if you are copying data to Azure SQL Database from outside Azure including from on-premises data sources with data factory gateway, configure appropriate IP address range for the machine that is sending data to Azure SQL Database.
@@ -77,7 +80,7 @@ In copy activity, when the source is of type **SqlSource**, the following proper
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Use the custom query to read data. |SQL query string. Example: `select * from MyTable`. |No |
-| sqlReaderStoredProcedureName |Name of the stored procedure that reads data from the source table. |Name of the stored procedure. |No |
+| sqlReaderStoredProcedureName |Name of the stored procedure that reads data from the source table. |Name of the stored procedure. The last SQL statement must be a SELECT statement in the stored procedure. |No |
 | storedProcedureParameters |Parameters for the stored procedure. |Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. |No |
 
 If the **sqlReaderQuery** is specified for the SqlSource, the Copy Activity runs this query against the Azure SQL Database source to get the data. Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters).
@@ -101,6 +104,7 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
     }
 }
 ```
+
 **The stored procedure definition:**
 
 ```SQL
@@ -153,7 +157,7 @@ GO
 ## JSON examples
 The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure SQL Database and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
 
-## Sample: Copy data from Azure SQL Database to Azure Blob
+## Example: Copy data from Azure SQL Database to Azure Blob
 The same defines the following Data Factory entities:
 
 1. A linked service of type [AzureSqlDatabase](#linked-service-properties).
@@ -345,7 +349,7 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 
 See the [Sql Source](#sqlsource) section and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) for the list of properties supported by SqlSource and BlobSink.
 
-## Sample: Copy data from Azure Blob to Azure SQL Database
+## Example: Copy data from Azure Blob to Azure SQL Database
 The sample defines the following Data Factory entities:  
 
 1. A linked service of type [AzureSqlDatabase](#linked-service-properties).
@@ -602,13 +606,18 @@ Notice that the target table has an identity column.
 
 Notice that as your source and target table have different schema (target has an additional column with identity). In this scenario, you need to specify **structure** property in the target dataset definition, which doesn’t include the identity column.
 
-Then, you map columns from source dataset to columns in the destination dataset. See [Column mapping samples](#column-mapping-samples) section for an example.
+## Map source to sink columns
+To learn about mapping columns in source dataset to columns in sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
 
-[!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
+## Repeatable copy
+When copying data to SQL Server Database, the copy activity appends data to the sink table by default. To perform an UPSERT instead,  See [Repeatable write to SqlSink](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink) article. 
 
-[!INCLUDE [data-factory-sql-invoke-stored-procedure](../../includes/data-factory-sql-invoke-stored-procedure.md)]
+When copying data from relational data stores, keep repeatability in mind to avoid unintended outcomes. In Azure Data Factory, you can rerun a slice manually. You can also configure retry policy for a dataset so that a slice is rerun when a failure occurs. When a slice is rerun in either way, you need to make sure that the same data is read no matter how many times a slice is run. See [Repeatable read from relational sources](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
-### SQL Database to .NET type mapping
+## Invoke stored procedure from SQL sink
+For an example of invoking a stored procedure from SQL sink in a copy activity of a pipeline, see [Invoke stored procedure for SQL sink in copy activity](data-factory-invoke-stored-procedure-from-copy-activity.md) article. 
+
+## SQL Database to .NET type mapping
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article Copy activity performs automatic type conversions from source types to sink types with the following 2-step approach:
 
 1. Convert from native source types to .NET type
@@ -650,8 +659,6 @@ When moving data to and from Azure SQL, the following mappings are used from SQL
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
-
-You can map columns from source dataset to columns from sink dataset. For details, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
 
 ## Performance and Tuning
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.

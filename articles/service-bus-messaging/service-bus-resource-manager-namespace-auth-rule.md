@@ -1,5 +1,5 @@
 ---
-title: Create Azure Service Bus authorization rule using template | Microsoft Docs
+title: Create Service Bus authorization rule using Azure Resource Manager template | Microsoft Docs
 description: Create a Service Bus authorization rule for namespace and queue using Azure Resource Manager template
 services: service-bus-messaging
 documentationcenter: .net
@@ -13,16 +13,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/18/2017
+ms.date: 04/18/2017
 ms.author: sethm;shvija
 
 ---
 # Create a Service Bus authorization rule for namespace and queue using an Azure Resource Manager template
+
 This article shows how to use an Azure Resource Manager template that creates an [authorization rule](service-bus-authentication-and-authorization.md#shared-access-signature-authentication) for a Service Bus namespace and queue. You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
 For more information about creating templates, please see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
 
-For the complete template, see the [Service Bus auth rule template][Service Bus auth rule template] on GitHub.
+For the complete template, see the [Service Bus authorization rule template][Service Bus auth rule template] on GitHub.
 
 > [!NOTE]
 > The following Azure Resource Manager templates are available for download and deployment.
@@ -39,13 +40,14 @@ For the complete template, see the [Service Bus auth rule template][Service Bus 
 ## What will you deploy?
 With this template, you will deploy a Service Bus authorization rule for a namespace and messaging entity (in this case, a queue).
 
-This template uses [Shared Access Signature (SAS)](service-bus-sas-overview.md) for authentication. SAS enables applications to authenticate to Service Bus using an access key configured on the namespace, or on the messaging entity (queue or topic) with which specific rights are associated. You can then use this key to generate a SAS token that clients can in turn use to authenticate to Service Bus.
+This template uses [Shared Access Signature (SAS)](service-bus-sas.md) for authentication. SAS enables applications to authenticate to Service Bus using an access key configured on the namespace, or on the messaging entity (queue or topic) with which specific rights are associated. You can then use this key to generate a SAS token that clients can in turn use to authenticate to Service Bus.
 
 To run the deployment automatically, click the following button:
 
 [![Deploy to Azure](./media/service-bus-resource-manager-namespace-auth-rule/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F301-servicebus-create-authrule-namespace-and-queue%2Fazuredeploy.json)
 
 ## Parameters
+
 With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called `Parameters` that contains all of the parameter values. You should define a parameter for those values that will vary based on the project you are deploying or based on the environment you are deploying to. Do not define parameters for values that will always stay the same. Each parameter value is used in the template to define the resources that are deployed.
 
 The template defines the following parameters.

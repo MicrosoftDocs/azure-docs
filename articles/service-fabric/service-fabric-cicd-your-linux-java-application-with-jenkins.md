@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/27/2017
@@ -84,8 +84,8 @@ You need to have Docker installed. The following commands can be used to install
 Now when you run ``docker info`` in the terminal, you should see in the output that the Docker service is running.
 
 ### Steps
-  1. Pull the Service Fabric Jenkins container image: ``docker pull servicefabric-microsoft.azurecr.io/jenkins:v1``
-  2. Run the container image: ``docker run -itd -p 8080:8080 servicefabric-microsoft.azurecr.io/jenkins:v1``
+  1. Pull the Service Fabric Jenkins container image: ``docker pull raunakpandya/jenkins:v1``
+  2. Run the container image: ``docker run -itd -p 8080:8080 raunakpandya/jenkins:v1``
   3. Get the ID of the container image instance. You can list all the Docker containers with the command ``docker ps –a``
   4. Sign in to the Jenkins portal by using the following steps:
 

@@ -633,5 +633,5 @@ For more information about analyzing web server logs, see the following resource
 ### Analyzing failed request tracing logs
 The Microsoft TechNet website includes a [Using Failed Request Tracing](http://www.iis.net/learn/troubleshoot/using-failed-request-tracing) section which may be helpful for understanding how to use these logs. However, this documentation focuses mainly on configuring failed request tracing in IIS, which you can't do in Azure Web Apps.
 
-[GetStarted]: web-sites-dotnet-get-started.md
+[GetStarted]: app-service-web-get-started-dotnet.md
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md

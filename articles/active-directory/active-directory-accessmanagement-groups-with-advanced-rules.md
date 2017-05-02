@@ -30,6 +30,7 @@ When any attributes of a user change, the system evaluates all dynamic group rul
 > * The administrator who manages the rule on a group
 > * All members of the group
 >
+> Please also not that although you can create a dynamic group for devices or users, you cannot create a rule that selects both user and device objects. 
 
 ## To create the advanced rule
 1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory**, and then open your organization’s directory.

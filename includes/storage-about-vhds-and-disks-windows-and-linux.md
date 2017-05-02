@@ -1,17 +1,7 @@
-### Disk Persistence 
-
-The following table illustrates the different states for the different disks in an Azure VM and whether the data is persisted or not in each state.
-
-| Disk | Start | Stop/<br>Deallocate | Pause | Re-<br>boot | Shut-<br>down | Delete | Failure | Resize | 
-| ---- | ----- | ---- | ---- | ---- | ----  | ------ | ------- | ------ | 
-| OS Disk | Yes | Yes  | Yes | Yes | Yes  | No | No  | Yes | 
-| RAM  | Yes | Yes | Yes | Yes | No   | No | No | No | 
-| Local Temp Disk | Yes | No | Yes | No | No  | No | No | No | 
-| Attached Data Disk | Yes | Yes | Yes | Yes | Yes  | Yes | Yes | Yes | 
 
 ## About VHDs
 
-The VHDs used in Azure are .vhd files stored as page blobs in a standard or premium storage account in Azure. For details about page blobs, see [Understanding block blobs and page blobs](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). For details about premium storage, see [High-performance premium storage and Azure VMs](../articles/storage/storage-premium-storage.md).
+The VHDs used in Azure are .vhd files stored as page blobs in a standard or premium storage account in Azure. For details about page blobs, see [Understanding block blobs and page blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). For details about premium storage, see [High-performance premium storage and Azure VMs](../articles/storage/storage-premium-storage.md).
 
 Azure supports the fixed disk VHD format. The fixed format lays the logical disk out linearly within the file, so that disk offset X is stored at blob offset X. A small footer at the end of the blob describes the properties of the VHD. Often, the fixed format wastes space because most disks have large unused ranges in them. However, Azure stores .vhd files in a sparse format, so you receive the benefits of both the fixed and dynamic disks at the same time. For more details, see [Getting started with virtual hard disks](https://technet.microsoft.com/library/dd979539.aspx).
 

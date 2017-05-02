@@ -1,4 +1,4 @@
----
+﻿---
 title: Create HDInsight clusters with Data Lake Store as default storage by using PowerShell | Microsoft Docs'
 description: Use Azure PowerShell to create and use HDInsight clusters with Azure Data Lake Store
 services: data-lake-store,hdinsight
@@ -40,12 +40,12 @@ To configure HDInsight to work with Data Lake Store by using PowerShell, follow 
 Before you begin this tutorial, make sure that you meet the following requirements:
 
 * **An Azure subscription**: Go to [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure PowerShell 1.0 or greater**: See [How to install and configure PowerShell](/powershell/azureps-cmdlets-docs).
+* **Azure PowerShell 1.0 or greater**: See [How to install and configure PowerShell](/powershell/azure/overview).
 * **Windows Software Development Kit (SDK)**: To install Windows SDK, go to [Downloads and tools for Windows 10](https://dev.windows.com/en-us/downloads). You use Windows SDK to create a security certificate.
 * **Azure Active Directory service principal**: This tutorial describes how to create a service principal in Azure Active Directory (Azure AD). However, to create a service principal, you must be an Azure AD administrator. If you are an administrator, you can skip this prerequisite and proceed with the tutorial.
 
 	>[!NOTE]
-	>You can create a service principal only if you are an Azure AD administrator. Your Azure AD administrator must create a service principal before you can create an HDInsight cluster with Data Lake Store. The service principal must be created with a certificate, as described in [Create a service principal with certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+	>You can create a service principal only if you are an Azure AD administrator. Your Azure AD administrator must create a service principal before you can create an HDInsight cluster with Data Lake Store. The service principal must be created with a certificate, as described in [Create a service principal with certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority).
 	>
 
 ## Create a Data Lake Store account
@@ -67,7 +67,7 @@ To create a Data Lake Store account, do the following:
 
 	> [!NOTE]
 	> If you register the Data Lake Store resource provider and receive an error similar to `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`, your subscription might not be whitelisted for Data Lake Store. To enable your Azure subscription for the Data Lake Store public preview, follow the instructions in [Get started with Azure Data Lake Store by using the Azure portal](data-lake-store-get-started-portal.md).
-	> 
+	>
 
 2. When you are prompted to sign in, sign in as one of the subscription administrators or owners.
 3. A Data Lake Store account is associated with an Azure resource group. Start by creating a resource group.

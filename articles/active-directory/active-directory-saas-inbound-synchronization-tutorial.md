@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configuring Workday for Inbound Synchronization | Microsoft Docs'
+title: 'Tutorial: Configure Workday for Inbound Synchronization | Microsoft Docs'
 description: Learn how to use Inbound Synchronization with Azure Active Directory to enable single sign-on, automated provisioning, and more!
 services: active-directory
 author: jeevansd
@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/19/2017
+ms.date: 03/23/2017
 ms.author: jeedes
 
 ---
-# Tutorial: Configuring Workday for Inbound Synchronization
-> [!NOTE]
-> Azure Active Directory (AD) Premium is available for customers in China using the worldwide instance of Azure AD.    
-> Azure AD Premium is not currently supported in the Microsoft Azure service operated by 21Vianet in China.    
+# Tutorial: Configure Workday for Inbound Synchronization
+
+The objective of this tutorial is to show you the steps you need to perform in Workday and Microsoft Azure AD to import people from Workday to Microsoft Azure AD.    
+
+>[!NOTE]
+>Azure Active Directory (AD) Premium is available for customers in China using the worldwide instance of Azure AD. Azure AD Premium is not currently supported in the Microsoft Azure service operated by 21Vianet in China.    
 > 
 > 
 
-The objective of this tutorial is to show you the steps you need to perform in Workday and Microsoft Azure AD to import people from Workday to Microsoft Azure AD.    
- The scenario outlined in this tutorial assumes that you already have the following items:  
+The scenario outlined in this tutorial assumes that you already have the following items:  
 
 * A valid Azure subscription  
 * A tenant in Workday  
@@ -39,10 +40,11 @@ The scenario outlined in this tutorial consists of the following building blocks
 6. Activating security policy changes  
 7. Configuring user import in Microsoft Azure AD  
 
-## Enabling the application integration for Workday
+## Enable the application integration for Workday
 The objective of this section is to outline how to enable the application integration for Salesforce.    
 
-### To enable the application integration for Workday, perform the following steps:
+**To enable the application integration for Workday, perform the following steps:**
+
 1. In the Azure Management Portal, on the left navigation pane, click **Active Directory**.    
    
    ![Active Directory](./media/active-directory-saas-inbound-synchronization-tutorial/IC700993.png "Active Directory")  
@@ -60,17 +62,17 @@ The objective of this section is to outline how to enable the application integr
    
    ![Workday](./media/active-directory-saas-inbound-synchronization-tutorial/IC701022.png "Workday")  
 
-## Creating an integration system user
+## Create an integration system user
 1. In the **Workday Workbench**, enter **create user** in the search box, and then click on the link, **Create Integration System User**.     
    
    ![create user](./media/active-directory-saas-inbound-synchronization-tutorial/IC750979.png "create user")  
-2. Complete the Create Integration System User task by supplying a user name and password for a new Integration System User.  Leave the Require New Password at Next Sign In option unchecked, because this user will be logging on programmatically.    
-
- Leave the Session Timeout Minutes with its default value of 0, which will prevent the user’s sessions from timing out prematurely.    
+2. Complete the Create Integration System User task by supplying a user name and password for a new Integration System User.  
+ * Leave the **Require New Password at Next Sign In** option unchecked, because this user will be logging on programmatically.    
+ * Leave the **Session Timeout Minutes** with its default value of 0, which will prevent the user’s sessions from timing out prematurely.    
    
    ![Create Integration System User](./media/active-directory-saas-inbound-synchronization-tutorial/IC750980.png "Create Integration System User")  
 
-## Creating a security group
+## Create a security group
 For the scenario outlined in this tutorial, you need to create an unconstrained integration system security group and assign the user to it.    
 
 1. Enter create security group in the search box, and then click on the link, Create Security Group.     
@@ -80,7 +82,7 @@ For the scenario outlined in this tutorial, you need to create an unconstrained 
    
    ![CreateSecurity Group](./media/active-directory-saas-inbound-synchronization-tutorial/IC750982.png "CreateSecurity Group")  
 
-## Assigning the integration system user to the security group
+## Assign the integration system user to the security group
 1. Enter edit security group in the search box, and then click on the link,  **Edit Security Group**.     
    
    ![Edit Security Group](./media/active-directory-saas-inbound-synchronization-tutorial/IC750983.png "Edit Security Group")  
@@ -91,7 +93,7 @@ For the scenario outlined in this tutorial, you need to create an unconstrained 
    
    ![System Security Group](./media/active-directory-saas-inbound-synchronization-tutorial/IC750985.png "System Security Group")  
 
-## Configuring security group options
+## Configure security group options
 In this step, you grant to the new security group permissions for Get and Put operations on the objects secured by the following domain security policies:  
 
 * External Account Provisioning  
@@ -99,8 +101,6 @@ In this step, you grant to the new security group permissions for Get and Put op
 * Worker Data: All Positions  
 * Worker Data: Current Staffing Information  
 * Worker Data: Business Title on Worker Profile  
-
-&nbsp;  
 
 1. Enter domain security policies in the search box, and then click on the link, Domain Security Policies for Functional Area.     
    
@@ -126,7 +126,7 @@ In this step, you grant to the new security group permissions for Get and Put op
    
    ![Domain Security Policies](./media/active-directory-saas-inbound-synchronization-tutorial/IC750991.png "Domain Security Policies")  
 
-## Activating security policy changes
+## Activate security policy changes
 1. Enter activate in the search box, and then click on the link,Activate Pending Security Policy Changes.    
    
    ![Activate](./media/active-directory-saas-inbound-synchronization-tutorial/IC750992.png "Activate")  
@@ -137,10 +137,11 @@ In this step, you grant to the new security group permissions for Get and Put op
    
    ![Activate Pending Security](./media/active-directory-saas-inbound-synchronization-tutorial/IC750994.png "Activate Pending Security")  
 
-## Configuring user import in Microsoft Azure AD
+## Configure user import in Microsoft Azure AD
 The objective of this section is to outline how Microsoft Azure AD to import people from Workday.    
 
-### To configure user import in Microsoft Azure AD, perform the following steps:
+**To configure user import in Microsoft Azure AD, perform the following steps:**
+
 1. On the **Workday** application integration page, click **Configure user import** to open the **Configure Provisioning** dialog.    
 2. On the **Settings and admin credentials** page, perform the following steps, and then click Next:    
    

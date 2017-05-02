@@ -121,9 +121,16 @@ Here are some things you can do to reduce your data volume:
 * Switch off collection modules you don't need by [editing ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). For example, you might decide that performance counters or dependency data are inessential.
 * Split your telemetry to separate instrumentation keys. 
 * Pre-aggregate metrics. If you have put calls to TrackMetric in your app, you can reduce traffic by using the overload that accepts your calculation of the average and standard deviation of a batch of measurements. Or you can use a [pre-aggregating package](https://www.myget.org/gallery/applicationinsights-sdk-labs).
-* Lastly, you can reduce the daily volume cap which will limit the data collected but will result is a loss of data for the remainder of the day. To change it, open **Features+pricing**, **Data management**.
 
-    ![Adjusting the daily telemetry volume cap](./media/app-insights-pricing/daily-cap.png) 
+## Managing the maximum daily data volume
+
+You can use the daily volume cap to limit the data collected, but if the cap is met, it will result in a loss of all telemetery sent from your application for the remainder of the day. It is **not advisable** to have your application to hit the daily cap since you are unable to track the health and performance of your application after it is hit. 
+
+Instead, use  [Sampling](app-insights-sampling.md) to tune the data volume to the level you'd like, and use the daily cap only as a "last resort" in case your application starts sending much higher volumes of telemetery unexpectedly. 
+
+To change the daily cap, open **Features+pricing**, **Data management**.
+
+![Adjusting the daily telemetry volume cap](./media/app-insights-pricing/daily-cap.png) 
 
 ## Sampling
 [Sampling](app-insights-sampling.md) is a method of reducing the rate at which telemetry is sent to your app, while still retaining the ability to find related events during diagnostic searches, and still retaining correct event counts. 

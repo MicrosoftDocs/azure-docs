@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 04/12/2017
 ms.author: markvi
 
 ---
 # Do you need help with MyApps?
 
-You have probably reached this page because you were unfortunately running into an issue when using the MyApps portal. While there are cases that require you to contact helpdesk or your administrator to get a problem solved, we are capturing in this topic steps to common questions you can try out yourself, first. 
+You have probably reached this page because you were unfortunately running into an issue when using the MyApps portal. While there are cases that require you to contact helpdesk or your administrator to get a problem solved, we are capturing in this topic steps to common questions you can try out yourself, first.
 
-If you are looking for help related to password management, try [this](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).#how-to-reset-your-password).
-  
+If you are looking for help related to password management, try [this](active-directory-passwords-update-your-own-password.md).
+
 
 ## What is the MyApps portal?
 
@@ -31,9 +31,9 @@ MyApps is a web portal that allows you to:
 
 - Manage and launch cloud-based applications
 - Manage your group memberships
-- Manage your profile settings 
+- Manage your profile settings
 
-![Access Panel][1] 
+![Access Panel][1]
 
 
 
@@ -45,7 +45,7 @@ MyApps is a web portal that allows you to:
 3.	Type your old password, and then type a new password and confirm it.
 4.	Click **Submit**.
 
-For more details, see [How to update your own password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+For more details, see [How to update your own password](active-directory-passwords-update-your-own-password.md).
 
 
 ## How do I setup password reset?
@@ -54,7 +54,7 @@ For more details, see [How to update your own password](active-directory-passwor
 2.	Under **Manage Account**, click **Set up self service password reset**.
 3.	Follow the steps in the dialogue box and submit.
 
-For more details, see [How to reset your password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+For more details, see [How to reset your password](active-directory-passwords-update-your-own-password.md).
 
 
 ## How can I add a new app?
@@ -80,7 +80,9 @@ For more details, see [How to reset your password](active-directory-passwords-up
 - Clicking a group you are a member of allows you to view details and leave the group.
 - Clicking a group you are an owner of allows you to view details, add or remove members, and leave the group.
 
+## Next steps
 
+For troubleshooting related information, see [Problems using the application access panel website or mobile application](active-directory-application-access-panel-content-map.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-user-help/01.png

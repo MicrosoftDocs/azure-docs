@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: 98be5893-2c6f-4dfa-95ec-d4d8b5b7dcb5
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -27,7 +28,7 @@ Learn how to create an HDInsight cluster using an Azure Resource Manager templat
 The Azure REST API allows you to perform management operations on services hosted in the Azure platform, including the creation of new resources such as HDInsight clusters.
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## Prerequisites
 
@@ -47,10 +48,6 @@ The Azure REST API allows you to perform management operations on services hoste
   > `Remove-item alias:curl`
   >
   > Once the alias has been removed, you should be able to use the version of cURL that you have installed on your system.
-
-### Access control requirements
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Create a template
 
@@ -388,6 +385,10 @@ curl -X "GET" "https://management.azure.com/subscriptions/SubscriptionID/resourc
 ```
 
 This command returns a JSON document containing information about the deployment operation. The `"provisioningState"` element contains the status of the deployment. If this contains a value of `"Succeeded"`, then the deployment has completed successfully.
+
+## Troubleshoot
+
+If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## Next steps
 

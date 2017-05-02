@@ -9,6 +9,7 @@ editor: cgronlun
 
 ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: ''
 ms.topic: hero-article
 ms.tgt_pltfrm: na
@@ -31,19 +32,11 @@ You must have the following to successfully complete this Apache Kafka tutorial:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **Familiarity with SSH and SCP**. For more information on using SSH and SCP with HDInsight, see the following documents:
-  
-   * **Linux, Unix, OS X, and Windows 10 clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X, Unix, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
-   
-   * **Windows clients**: See [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* **Familiarity with SSH and SCP**. For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or an equivalent, such as OpenJDK.
 
 * [Apache Maven](http://maven.apache.org/) 
-
-### Access control requirements
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Create a Kafka cluster
 
@@ -104,14 +97,7 @@ Replace **SSHUSER** with the SSH username you provided during cluster creation. 
 
 When prompted, enter the password you used for the SSH account.
 
-> [!NOTE]
-> If you have a version of Windows that does not include the SSH command, see the[Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md) document. It contains information on using the PuTTY SSH client for Windows.
-
-For information on using SSH with HDInsight, see the following documents:
-
-* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, OS X, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-* [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ##<a id="getkafkainfo"></a>Get the Zookeeper and Broker host information
 
@@ -340,6 +326,10 @@ The streaming API was added to Kafka in version 0.10.0; earlier versions rely on
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
+## Troubleshoot
+
+If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
+
 ## Next steps
 
 In this document, you have learned the basics of working with Apache Kafka on HDInsight. Use the following to learn more about working with Kafka:
@@ -348,4 +338,4 @@ In this document, you have learned the basics of working with Apache Kafka on HD
 * [Use MirrorMaker to create a replica of Kafka on HDInsight](hdinsight-apache-kafka-mirroring.md)
 * [Use Apache Storm with Kafka on HDInsight](hdinsight-apache-storm-with-kafka.md)
 * [Use Apache Spark with Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md)
-
+* [Connect to Kafka through an Azure Virtual Network](hdinsight-apache-kafka-connect-vpn-gateway.md)

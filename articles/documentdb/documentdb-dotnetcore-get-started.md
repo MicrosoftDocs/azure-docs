@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/23/2017
+ms.date: 03/28/2017
 ms.author: arramac
 
 ---
@@ -310,7 +310,7 @@ private async Task CreateFamilyDocumentIfNotExists(string databaseName, string c
 
 And insert two documents, one each for the Andersen Family and the Wakefield Family.
 
-Copy and paste the following code to your **GetStartedDemo** method underneath the document collection creation.
+Copy and paste the code that follows `// ADD THIS PART TO YOUR CODE` to your **GetStartedDemo** method underneath the document collection creation.
 
 ```csharp
 await this.CreateDatabaseIfNotExists("FamilyDB_oa");
@@ -514,7 +514,7 @@ private async Task DeleteFamilyDocument(string databaseName, string collectionNa
 
 Copy and paste the following code to your **GetStartedDemo** method underneath the second query execution.
 
-```cshrp
+```csharp
 await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
 
 this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");

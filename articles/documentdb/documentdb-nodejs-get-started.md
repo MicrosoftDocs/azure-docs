@@ -600,7 +600,7 @@ You should see the output of your get started app. The output should match the e
 Congratulations! You've created you've completed the Node.js tutorial and have your first DocumentDB console application!
 
 ## <a id="GetSolution"></a>Get the complete Node.js tutorial solution
-If you didn't have time to complete the steps in this tutorial, or just want to download the code, you can get it from [Github](https://github.com/Azure-Samples/documentdb-node-getting-started).
+If you didn't have time to complete the steps in this tutorial, or just want to download the code, you can get it from [GitHub](https://github.com/Azure-Samples/documentdb-node-getting-started).
 
 To run the GetStarted solution that contains all the samples in this article, you will need the following:
 

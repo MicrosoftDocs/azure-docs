@@ -103,7 +103,7 @@ When Azure completes app deployment you see another notification.
     ![Umbraco configuration - first Umbraco in Azure App Service](./media/app-service-web-get-started-dotnet-portal/umbraco-config.png)
     
 ## Next steps
-* [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](web-sites-dotnet-get-started.md) - Learn how to create a 
+* [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](app-service-web-get-started-dotnet.md) - Learn how to create a 
 new Azure web app from Visual Studio, using any one of the included application templates.
 * [Deploy your code to Azure App Service](web-sites-deploy.md)- Learn how to deploy from FTP or from source control repositories.
 * [Add functionality to your first web app](app-service-web-get-started-2.md) - Take your Azure app to the next level. Authenticate your users. 

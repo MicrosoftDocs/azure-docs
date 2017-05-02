@@ -13,13 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 03/21/2017
 ms.author: kgremban
 
 ms.custom: H1Hack27Feb2017
 ---
 # Create custom roles for Azure Role-Based Access Control
 Create a custom role in Azure Role-Based Access Control (RBAC) if none of the built-in roles meet your specific access needs. Custom roles can be created using [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Azure Command-Line Interface](role-based-access-control-manage-access-azure-cli.md) (CLI), and the [REST API](role-based-access-control-manage-access-rest.md). Just like built-in roles, custom roles can be assigned to users, groups, and applications at subscription, resource group, and resource scopes. Custom roles are stored in an Azure AD tenant and can be shared across all subscriptions that use that tenant as the Azure AD directory for the subscription.
+
+Each tenant can create up to 2000 custom roles. 
 
 The following is an example of a custom role for monitoring and restarting virtual machines:
 

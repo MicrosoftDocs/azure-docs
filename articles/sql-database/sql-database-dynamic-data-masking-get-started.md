@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 4b36d78e-7749-4f26-9774-eed1120a9182
 ms.service: sql-database
-ms.custom: secure and protect
+ms.custom: security-protect
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA

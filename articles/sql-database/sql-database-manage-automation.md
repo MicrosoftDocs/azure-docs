@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage Azure SQL Databases using Azure Automation | Microsoft Docs
 description: Learn about how the Azure Automation service can be used to manage Azure SQL databases at scale.
 services: sql-database, automation
@@ -9,7 +9,7 @@ editor: monicar
 
 ms.assetid: 77c262a1-9b93-456d-b3c7-b2f23bdfcd61
 ms.service: sql-database
-ms.custom: overview
+ms.custom: manage-how-to
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -29,7 +29,7 @@ Azure Automation provides a highly-reliable and highly-available workflow execut
 Lower operational overhead and free up IT / DevOps staff to focus on work that adds business value by moving your cloud management tasks to be run automatically by Azure Automation.
 
 ## How can Azure Automation help manage Azure SQL databases?
-Azure SQL Database can be managed in Azure Automation by using the [Azure SQL Database PowerShell cmdlets](https://docs.microsoft.com/powershell/servicemanagement/azure.sqldatabase/v1.6.1/azure.sqldatabase/) that are available in the [Azure PowerShell tools](https://docs.microsoft.com/en-us/powershell/). Azure Automation has these Azure SQL Database PowerShell cmdlets available out of the box, so that you can perform all of your SQL DB management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.
+Azure SQL Database can be managed in Azure Automation by using the [Azure SQL Database PowerShell cmdlets](https://docs.microsoft.com/powershell/servicemanagement/azure.sqldatabase/v1.6.1/azure.sqldatabase/) that are available in the [Azure PowerShell tools](/powershell/azure/overview). Azure Automation has these Azure SQL Database PowerShell cmdlets available out of the box, so that you can perform all of your SQL DB management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.
 
 Azure Automation also has the ability to communicate with SQL servers directly, by issuing SQL commands using PowerShell.
 

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2017
+ms.date: 04/25/2017
 ms.author: dobett
 
 ---
@@ -60,7 +60,7 @@ IoT Hub provides device command acknowledgment.
 The **event processor host** runs in an Azure Web Job. The **event processor** takes the average sensor values for a completed cycle. It then passes those values to an API that exposes trained model to calculate the RUL for an engine. The API is exposed by a Machine Learning workspace that is provisioned as part of the solution.
 
 ## Machine Learning
-The Machine Learning component uses a model derived from data collected from real aircraft engines. You can navigate to the Machine Learning workspace from the tile on the [azureiotsuite.com][lnk-azureiotsuite] page for your provisioned solution when it’s in the **Ready** state.
+The Machine Learning component uses a model derived from data collected from real aircraft engines. You can navigate to the Machine Learning workspace from the tile on the [azureiotsuite.com][lnk-azureiotsuite] page for your provisioned solution when the solution is in the **Ready** state.
 
 
 ## Next steps

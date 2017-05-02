@@ -40,7 +40,7 @@ Before you begin this article, you must have the following:
 
 An HDInsight cluster comes with the Distcp utility, which can be used to copy data from different sources into an HDInsight cluster. If you have configured the HDInsight cluster to use Data Lake Store as an additional storage, the Distcp utility can be used out-of-the-box to copy data to and from a Data Lake Store account as well. In this section we look at how to use the Distcp utility.
 
-1. From your desktop, use SSH to connect to the cluster. See [Connect to a Linux-based HDInsight cluster](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect). Run the commands from the SSH prompt.
+1. From your desktop, use SSH to connect to the cluster. See [Connect to a Linux-based HDInsight cluster](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md). Run the commands from the SSH prompt.
 
 2. Verify whether you can access the Azure Storage Blobs (WASB). Run the following command:
 

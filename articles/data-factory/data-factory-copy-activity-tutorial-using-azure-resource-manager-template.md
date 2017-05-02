@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Create a pipeline using Resource Manager Template | Microsoft Docs'
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using Azure Resource Manager template.
 services: data-factory
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 
 ---
@@ -39,7 +39,7 @@ This tutorial shows you how to create and monitor an Azure data factory using an
 
 ## Prerequisites
 * Go through [Tutorial Overview and Prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) and complete the **prerequisite** steps.
-* Follow instructions in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) article to install latest version of Azure PowerShell on your computer. In this tutorial, you use PowerShell to deploy Data Factory entities. 
+* Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/overview) article to install latest version of Azure PowerShell on your computer. In this tutorial, you use PowerShell to deploy Data Factory entities. 
 * (optional) See [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md) to learn about Azure Resource Manager templates.
 
 ## In this tutorial
@@ -352,7 +352,7 @@ You can also use Monitor and Manage App to monitor your data pipelines. See [Mon
 
 ## Data Factory entities in the template
 ### Define data factory
-You define a data factory in the resource manager template as shown in the following sample:  
+You define a data factory in the Resource Manager template as shown in the following sample:  
 
 ```json
 "resources": [
@@ -370,7 +370,7 @@ The dataFactoryName is defined as:
 "dataFactoryName": "[concat('AzureBlobToAzureSQLDatabaseDF', uniqueString(resourceGroup().id))]"
 ```
 
-It is an unique string based on the resource group ID.  
+It is a unique string based on the resource group ID.  
 
 ### Defining Data Factory entities
 The following Data Factory entities are defined in the JSON template: 
@@ -580,7 +580,7 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 
 Notice that the first command uses parameter file for the development environment, second one for the test environment, and the third one for the production environment.  
 
-You can also reuse the template to perform repeated tasks. For example, you need to create many data factories with one or more pipelines that implement the same logic but each data factory uses different Azure storage and Azure SQL Database accounts. In this scenario, you use the same template in the same environment (dev, test, or production) with different parameter files to create data factories.   
+You can also reuse the template to perform repeated tasks. For example, you need to create many data factories with one or more pipelines that implement the same logic but each data factory uses different Storage and SQL Database accounts. In this scenario, you use the same template in the same environment (dev, test, or production) with different parameter files to create data factories.   
 
 ## See Also
 | Topic | Description |
