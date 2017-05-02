@@ -198,7 +198,7 @@ In Batch .NET, specify one or more [CloudPool][net_cloudpool].[ApplicationPackag
 CloudPool myCloudPool =
     batchClient.PoolOperations.CreatePool(
         poolId: "myPool",
-        targetDedicated: "1",
+        targetDedicated: 1,
         virtualMachineSize: "small",
         cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
 

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/06/2017
+ms.date: 04/26/2017
 ms.author: nepeters
 
 ---
@@ -52,7 +52,7 @@ For information on supported operating systems and installation instructions, se
 Many different VM extensions are available for use with Azure virtual machines. To see a complete list, run the following command with the Azure CLI, replacing the example location with the location of your choice.
 
 ```azurecli
-azure vm extension-image list westus
+az vm extension image list --location westus -o table
 ```
 
 ## Run VM extensions
@@ -63,12 +63,15 @@ The following methods can be used to run an extension against an existing virtua
 
 ### Azure CLI
 
-Azure virtual machine extensions can be run against an existing virtual machine by using the `azure vm extension set` command. This example runs the custom script extension against a virtual machine.
+Azure virtual machine extensions can be run against an existing virtual machine by using the `az vm extension set` command. This example runs the custom script extension against a virtual machine.
 
 ```azurecli
-azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-  --auto-upgrade-minor-version \
-  --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
+az vm extension set `
+  --resource-group exttest `
+  --vm-name exttest `
+  --name customScript `
+  --publisher Microsoft.Azure.Extensions `
+  --settings '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
 ```
 
 The script produces output similar to the following text:
@@ -201,18 +204,15 @@ The following troubleshooting steps apply to all virtual machine extensions.
 After a virtual machine extension has been run against a virtual machine, use the following Azure CLI command to return extension status. Replace example parameter names with your own values.
 
 ```azurecli
-azure vm extension get myResourceGroup myVM
+az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
 The output looks like the following text:
 
 ```azurecli
-info:    Executing command vm extension get
-+ Looking up the VM "myVM"
-data:    Publisher                   Name             Version  State
-data:    --------------------------  ---------------  -------  ---------
-data:    Microsoft.Azure.Extensions  DockerExtension  1.0      Succeeded
-info:    vm extension get command OK         :
+AutoUpgradeMinorVersion    Location    Name          ProvisioningState    Publisher                   ResourceGroup      TypeHandlerVersion  VirtualMachineExtensionType
+-------------------------  ----------  ------------  -------------------  --------------------------  ---------------  --------------------  -----------------------------
+True                       westus      customScript  Succeeded            Microsoft.Azure.Extensions  exttest                             2  customScript
 ```
 
 Extension execution status can also be found in the Azure portal. To view the status of an extension, select the virtual machine, choose **Extensions**, and select the desired extension.
@@ -222,7 +222,7 @@ Extension execution status can also be found in the Azure portal. To view the st
 There may be cases in which a virtual machine extension needs to be rerun. You can rerun an extension by removing it, and then rerunning the extension with an execution method of your choice. To remove an extension, run the following command with the Azure CLI. Replace example parameter names with your own values.
 
 ```azurecli
-azure vm extension set myResourceGroup myVM --uninstall CustomScript Microsoft.Azure.Extensions 2.0
+az vm extension delete --name customScript --resource-group myResourceGroup --vm-name myVM
 ```
 
 You can remove an extension by using the following steps in the Azure portal:
