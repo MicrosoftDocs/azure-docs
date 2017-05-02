@@ -47,7 +47,7 @@ Create an [Azure PostgreSQL server](overview.md) using the **az postgres server 
 
 The following example creates a server called `mypgserver-20170401` in your resource group `myresourcegroup` with server admin login `mylogin`. Name of a server maps to DNS name and is thus required to be globally unique. Substitute the `<server_admin_password>` with your own value.
 ```azurecli
-az postgres server create --resource-group myresourcegroup --name mypgserver-20170401  --location westus --user mylogin --password <server_admin_password> --performance-tier Basic --compute-units 50 --version 9.6
+az postgres server create --resource-group myresourcegroup --name mypgserver-20170401  --location westus --admin-user mylogin@mypgserver-20170401 --admin-password <server_admin_password> --performance-tier Basic --compute-units 50 --version 9.6
 ```
 
 > [!IMPORTANT]
