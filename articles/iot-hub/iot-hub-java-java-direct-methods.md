@@ -51,18 +51,13 @@ In this section, you create a Java console app that responds to a method called 
 
 1. At your command prompt, navigate to the simulated-device folder.
 
-1. Using a text editor, open the pom.xml file in the simulated-device folder and add the following dependencies to the **dependencies** node. This dependency enables you to use the iot-device-client package in your app to communicate with your IoT hub and to serialize Java objects to JSON:
+1. Using a text editor, open the pom.xml file in the simulated-device folder and add the following dependencies to the **dependencies** node. This dependency enables you to use the iot-device-client package in your app to communicate with your IoT hub:
 
     ```xml
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
       <version>1.1.24</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.code.gson</groupId>
-      <artifactId>gson</artifactId>
-      <version>2.3.1</version>
     </dependency>
     ```
 
