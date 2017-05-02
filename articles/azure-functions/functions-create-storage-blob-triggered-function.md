@@ -22,7 +22,7 @@ ms.author: glenga
 
 Learn how to create a function triggered when files are uploaded to or updated in Azure Blob storage.  
 
-![View message in the logs.](./media/functions-create-storage-blob-triggered-function/functions-queue-storage-trigger-view-logs.png)
+![View message in the logs.](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
 
 It should take you less than five minutes to complete all the steps in this topic.
 
