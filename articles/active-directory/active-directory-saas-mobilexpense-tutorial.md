@@ -106,15 +106,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 3. On the **MobileXpense Domain and URLs** section, If you wish to configure the application in **IDP** initiated mode:
 
-	![Configure Single Sign-On](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_url1.png)
+	![Configure Single Sign-On](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_url11.png)
 
-   	In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.mobilexpense.com/SSO/SAML20/SAML/AssertionConsumerService.aspx`
+   	In the **Reply URL** textbox, type a URL using the following pattern: `https://xp1.mobilexpense.com/SSO/SAML20/SAML/AssertionConsumerService.aspx`
 
 4. Check **Show advanced URL settings**, If you wish to configure the application in **SP** initiated mode:
 
-	![Configure Single Sign-On](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_url2.png)
+	![Configure Single Sign-On](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_url22.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern:: `https://<subdomain>.mobilexpense.com/<customername>`
+    In the **Sign-on URL** textbox, type a URL using the following pattern:: `https://xp1.mobilexpense.com/<customername>`
 	 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [MobileXpense Client support team](http://www.mobilexpense.net/contact) to get these values. 
