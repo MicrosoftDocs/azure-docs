@@ -38,7 +38,7 @@ az login
 
 Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
-The following example creates a resource group named `myResourceGroup` in the `westeurope` location.
+The following example creates a resource group named *myResourceGroup* in the *westeurope* location.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
@@ -48,7 +48,7 @@ az group create --name myResourceGroup --location westeurope
 
 Create a VM with the [az vm create](/cli/azure/vm#create) command. 
 
-The following example creates a VM named `myVM` and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
+The following example creates a VM named *myVM* and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
 
 ```azurecli
 az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
@@ -71,7 +71,7 @@ When the VM has been created, the Azure CLI shows information similar to the fol
 
 ## Open port 80 for web traffic 
 
-By default only SSH connections are allowed into Linux virtual machines deployed in Azure. If this VM is going to be a webserver, you need to open port 80 from the Internet.  A single command is required to open the desired port.  
+By default only SSH connections are allowed into Linux virtual machines deployed in Azure. If this VM is going to be a webserver, you need to open port 80 from the Internet. Use the [az vm open-port(/cli/azure/vm#open-port)] command to open the desired port.  
  
  ```azurecli 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -79,7 +79,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## SSH into your VM
 
-Use the following command to create an SSH session with the virtual machine. Make sure to replace `<publicIpAddress>` with the correct public IP address of your virtual machine.  In our example above our IP address was `40.68.254.142`.
+Use the following command to create an SSH session with the virtual machine. Make sure to replace *<publicIpAddress>* with the correct public IP address of your virtual machine.  In our example above our IP address was *40.68.254.142*.
 
 ```bash 
 ssh <publicIpAddress>
@@ -101,14 +101,14 @@ apt-get -y install nginx
 
 ## View the NGIX welcome page
 
-With NGINX installed and port 80 now open on your VM from the Internet - you can use a web browser of your choice to view the default NGINX welcome page. Be sure to use the `publicIpAddress` you documented above to visit the default page. 
+With NGINX installed and port 80 now open on your VM from the Internet - you can use a web browser of your choice to view the default NGINX welcome page. Be sure to use the *publicIpAddress* you documented above to visit the default page. 
 
 ![NGINX default site](./media/quick-create-cli/nginx.png) 
 
 
 ## Delete virtual machine
 
-When no longer needed, the following command can be used to remove the Resource Group, VM, and all related resources.
+When no longer needed, you can use [az group delete](/cli/azure/group#delete) command to remove the resource group, VM, and all related resources.
 
 ```azurecli
 az group delete --name myResourceGroup
