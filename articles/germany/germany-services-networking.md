@@ -28,7 +28,7 @@ Azure ExpressRoute is generally available in Azure Germany. For more information
 * By default, all Azure Germany ExpressRoute connectivity is configured as active-active redundant with support for bursting and delivers up to 10G circuit capacity.
 * Azure Germany ExpressRoute locations provide optimized pathways (including shortest hops, low latency, and high performance) for customers and Azure Germany geo-redundant regions.
 * The Azure Germany ExpressRoute private connection does not use, traverse, or depend on the Internet.
-* The Azure Germany physical and logical infrastructure is physically dedicated and separated from the international Microsoft cloud network. <!-- * Microsoft owns and operates all fiber infrastructure between Azure Germany Regions and Azure Germany ER Meet-Me locations -->
+* The Azure Germany physical and logical infrastructure is physically dedicated and separated from the international Microsoft cloud network.
 * Azure Germany ExpressRoute provides private connectivity to Microsoft Azure cloud services, but not to Office 365 or Dynamics 365 cloud services.
 
 ### Considerations
@@ -37,12 +37,6 @@ Two basic services provide private network connectivity to Azure Germany: Expres
 You can use ExpressRoute to create private connections between Azure Germany datacenters and your on-premises infrastructure, or in a colocation environment. ExpressRoute connections do not go over the public Internet. They offer more reliability, faster speeds, and lower latencies than typical Internet connections. In some cases, using ExpressRoute connections to transfer data between on-premises systems and Azure yields significant cost benefits.   
 
 With ExpressRoute, you establish connections to Azure at an ExpressRoute location, such as an ExpressRoute Exchange provider facility. Or you directly connect to Azure from your existing WAN, such as a multiprotocol label switching (MPLS) VPN that's supplied by a network service provider.
-
-<!--
-(graphics needed)
-![alt text](./media/azure-germany-capability-private-connectivity-options.png)  
-![alt text](./media/germany-capability-expressroute.png)  
--->
 
 For network services to support Azure Germany customer applications and solutions, we strongly recommend that you implement ExpressRoute (private connectivity) to connect to Azure Germany. If you use VPN connections, consider the following:
 
@@ -57,15 +51,6 @@ If you are connecting to Microsoft through ExpressRoute at any one peering locat
 For details on locations and partners, and a detailed list of ExpressRoute for Azure Germany peering locations, see the **Overview** tab in the [ExpressRoute global documentation](../expressroute/index.md).
 
 You can purchase more than one ExpressRoute circuit. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the public peering paths. This means you will have multiple paths from your network to Microsoft. This situation can potentially cause suboptimal routing decisions to be made in your network. As a result, you might experience suboptimal connectivity experiences to different services. For more information, see the **Get started** tab in the [ExpressRoute global documentation](../expressroute/index.md) and select **Optimize routing**.
-
-<!--
-| **National Clouds Azure Region**| **BGP community value** |
-| --- | --- |
-| **Azure Germany** |  |
-| Azure Germany Central | 12076:51109 |
-| US Germany Northeast | 12076:51105 |
--->
-
 
 ## Support for Load Balancer
 Azure Load Balancer is generally available in Azure Germany. For more information, see the [Load Balancer global documentation](../load-balancer/load-balancer-overview.md). 
