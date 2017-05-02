@@ -22,6 +22,8 @@
 ## [Measure Traffic Manager performance](traffic-manager-performance-considerations.md)
 ## [Use PowerShell to manage Traffic Manager](traffic-manager-powershell-arm.md)
 ## [Point your Internet domain to Traffic Manager](traffic-manager-point-internet-domain.md)
+## Troubleshoot
+### [Troubleshoot degraded state on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 
 # Reference
 ## [PowerShell](/powershell/module/azurerm.trafficmanager)
