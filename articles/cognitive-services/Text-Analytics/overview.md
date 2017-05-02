@@ -14,15 +14,13 @@ ms.author: onewth
 
 # Text Analytics API
 
-Understanding and analyzing unstructured text is an increasingly popular field and includes a wide spectrum of problems such as sentiment analysis, key phrase extraction, topic modeling/extraction, aspect extraction and more.
-
-Text Analytics API is a suite of text analytics services built with Azure Machine Learning. We currently offer APIs for sentiment analysis, key phrase extraction and topic detection for English text, as well as language detection for 120 languages.In this initial preview release, we offer APIs for sentiment analysis and key phrase extraction of English text. No labeled or training data is needed to use the service - just bring your text data. This service is based on research and engineering that originated in Microsoft Research and which has been battle-tested and improved over the past few years by product teams such as Bing and Office.
+Use a few lines of code to easily analyze sentiment, extract key phrases, detect topics, and detect language for any kind of text.
 
 ## Sentiment Analysis
 
 Let's say you run a website to sell handicrafts. Your users submit feedback on your site, and you'd like to find out what users think of your brand, and how that changes over time as you release new products and features to your site. Sentiment analysis can help here - given a piece of text, the Azure ML Text Analytics service returns a score between 0 and 1 denoting overall sentiment in the input text. Scores close to 1 indicate positive sentiment, while scores close to 0 indicate negative sentiment.
 
-Sentiment score is generated using classification techniques. The input features to the classifier include n-grams, features generated from part-of-speech tags, and embedded words. The classifier was trained in part using Sentiment140 data.
+Sentiment score is generated using classification techniques. The input features to the classifier include n-grams, features generated from part-of-speech tags, and embedded words. 
 
 ## Key Phrase Extraction
 
@@ -45,4 +43,5 @@ Note that the supported languages are as follows:
 | Feature | Supported language codes |
 |:--- |:--- |
 | Sentiment |`en` (English), `es` (Spanish), `fr` (French), `pt` (Portuguese) |
-| Key phrases |`en` (English), `es` (Spanish), `de` (German), `ja` (Japanese) |
+| Key Phrases |`en` (English), `es` (Spanish), `de` (German), `ja` (Japanese) |
+| Topics |`en` (English) |
