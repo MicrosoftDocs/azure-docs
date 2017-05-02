@@ -72,7 +72,7 @@
   - name: Bing News Search
     items:
     - name: Overview
-      href: Bing-News-Search/overview.md
+      href: Bing-News-Search/search-the-web.md
     - name: Use and Display Requirements
       href: Bing-News-Search/UseAndDisplayRequirements.md
     - name: API reference
