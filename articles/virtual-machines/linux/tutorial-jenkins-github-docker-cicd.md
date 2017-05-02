@@ -42,7 +42,7 @@ runcmd:
   - sh -c 'echo deb http://pkg.jenkins-ci.org/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
   - apt-get update && apt-get install jenkins -y
   - curl -sSL https://get.docker.com/ | sh
-  - sudo usermod -aG docker azureuser
+  - sudo usermod -aG docker azureuser,jenkins
 ```
 
 Create a resource group:
