@@ -116,7 +116,7 @@
   - name: Bing Spell Check
     items:
     - name: Overview
-      href: Bing-Spell-Check/Home.md
+      href: Bing-Spell-Check/proof-text.md
     - name: Use and Display Requirements
       href: Bing-Spell-Check/UseAndDisplayRequirements.md
     - name: API reference
