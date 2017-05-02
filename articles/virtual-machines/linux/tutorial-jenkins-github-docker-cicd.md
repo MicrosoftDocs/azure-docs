@@ -123,25 +123,6 @@ Commit your changes.
 In Jenkins, a new build should start. Click the build and select **Console output**. Your code is pulled from GitHub, and then the build action triggers the message `Testing` to appear in the console.
 
 
-## Configure Jenkins to use Docker
-In your Jenkins browser, install the required Docker plugins to allow Jenkins to build Docker images and manage containers:
-
-- Click **Manage Jenkins**, select **Manage plugins**, then click the **Available** tab
-- In the filter box, enter **Docker**, then select both **Docker plugin** and **Docker build step**
-- Click **Download and restart**
-
-Once Jenkins restarts, log back in to Jenkins. Now create the connection between Jenkins and Docker:
-
-- Click **Manage Jenkins**, then click **Configure System**
-- Under the **Docker builder** section, enter the URL to your host:
-  - **URL**: tcp://localhost:2375
-- Click **Test Connection** and it should return `Connected to tcp://localhost:2375`
-- Under the **Cloud** section, click **Add a new cloud** and then select **Docker**. Enter the following info:
-  - **Name**: docker-agent
-	- **URL**: tcp://localhost:2375
-- Click **Test Connection** and it should return your Docker info, such as `Version = 17.04.0-ce, API Version = 1.28`
-
-
 ## Define Docker build image
 For Jenkins to build an image that incorporates the latest code updates for GitHub, you use a Dockerfile. SSH to your VM and change to the workspace directory named after your Jenkins job:
 
@@ -172,25 +153,14 @@ Earlier you created a basic Jenkins build rule. Now lets flesh that to actually 
 Go to your Jenkins instance in a web browser and click your **HelloWorld** job created in a previous step. Click **Configure** on the left-hand side and scroll down to the **Build** section:
 
 - Remove your existing `echo "Test"` build step
-- Click **Add build step**, select **Build / Publish Docker Containers**
-    - Leave the **Directory for Dockerfile** box blank to use the existing workspace location
-    - In the **Cloud** box, enter `docker-agent`
-    - In the **Image** box, enter `helloworld:$BUILD_NUMBER`. This appends the Jenkins build number to your image for version control.
-- Click **Add build step**, select **Execute Docker command**
-    - Under the **Docker command** drop-down menu, select **Remove container(s)**
-    - In the **Container ID(s)** box, enter `helloworld`
-    - Click the **Advanced** button and check the boxes for **Ignore if not found** and **Force remove**
-- Click **Add build step**, select **Execute Docker command**
-    - Under the **Docker command** drop-down menu, select **Create container**
-    - In the **Image name** box, enter `helloworld:$BUILD_NUMBER`
-    - In the **Command** box, enter `nodejs /var/www/index.js`
-    - In the **Hostname** box, enter `docker-agent`
-    - In the **Container name** box, enter `helloworld`
-    - Click the **Advanced** button, then in the **Port bindings** box enter `1337:1337`
-- Click **Add build step**, select **Execute Docker command**
-    - Under the **Docker command** drop-down menu, select **Start container(s)**
-    - In the **Container ID(s)** box, enter `helloworld`
+- Click **Add build step**, select **Execute shell**
+- In the **Command** box, enter the following:
 
+  ```bash
+  docker build --tag helloworld:$BUILD_NUMBER .
+  docker stop helloworld && docker rm helloworld
+  docker run --name helloworld -p 1337:1337 helloworld:$BUILD_NUMBER nodejs /var/www/index.js &
+  ```
 
 ## Test your pipeline
 Edit `index.js` in your forked repo and commit the change. A new job starts in Jenkins based on the webhook for GitHub, creates a Docker image, then starts your app in a new container.
