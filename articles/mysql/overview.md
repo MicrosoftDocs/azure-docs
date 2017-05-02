@@ -41,4 +41,4 @@ Azure database services have a tradition of data security that Azure Database fo
 Now that you've read an introduction to Azure Database for MySQL and answered the question "What is Azure Database for MySQL?", you're ready to:
 - See the pricing page for cost comparisons and calculators. [Pricing](https://azure.microsoft.com/pricing/details/mysql/)
 - Get started by creating your first server. [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md)
-- Build your first app in Python, PHP, Ruby, C\#, Java, Node.js: [Connectivity libraries used to connect to Azure Database for MySQL](concept-connectivity-libraries.md)
+- Build your first app in Python, PHP, Ruby, C\#, Java, Node.js: [Connectivity libraries used to connect to Azure Database for MySQL](concepts-connectivity-libraries.md)
