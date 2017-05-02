@@ -4,11 +4,13 @@ To get information about users who acquire your add-in, you can submit lead conf
 
 You can use leads to follow up with customers directly to ensure that they have a successful experience with your solution. 
 
-For customers who acquire your add-in via the Office Store or AppSource, the following details are sent to your lead management system:
+For customers who acquire your add-in via AppSource, the following details are sent to your lead management system:
 
 - First Name
 - Last Name
 - Email Address
+
+>**Note:** Leads support for acquisitions made via the Office Store and in-client experiences are coming soon.
 
 ## Add lead management information to the Seller Dashboard
 
