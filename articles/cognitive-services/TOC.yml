@@ -85,7 +85,7 @@
       items:
         - name: Search the web for images
           href: Bing-Image-Search/search-the-web.md
-        - name: Use and Display Requirements
+        - name: Use and display requirements
           href: Bing-Image-Search/UseAndDisplayRequirements.md
     - name: Quickstarts
       items:
@@ -121,7 +121,7 @@
       items:
         - name: Search the web for news
           href: Bing-News-Search/search-the-web.md
-        - name: Use and Display Requirements
+        - name: Use and display requirements
           href: Bing-News-Search/UseAndDisplayRequirements.md
     - name: Quickstarts
       items:
@@ -191,7 +191,7 @@
       items:
         - name: Spell check text strings
           href: Bing-Spell-Check/proof-text.md
-        - name: Use and Display Requirements
+        - name: Use and display requirements
           href: Bing-Spell-Check/UseAndDisplayRequirements.md
     - name: Quickstarts
       items:
@@ -217,7 +217,7 @@
       items:
         - name: Search the web for videos
           href: Bing-Video-Search/search-the-web.md
-        - name: Use and Display Requirements
+        - name: Use and display requirements
           href: Bing-Video-Search/UseAndDisplayRequirements.md
     - name: Quickstarts
       items:
@@ -253,7 +253,7 @@
       items:
         - name: Search the web
           href: Bing-Web-Search/search-the-web.md
-        - name: Use and Display Requirements
+        - name: Use and display requirements
           href: Bing-Web-Search/UseAndDisplayRequirements.md
     - name: Quickstarts
       items:
