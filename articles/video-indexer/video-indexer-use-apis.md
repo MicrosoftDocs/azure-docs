@@ -8,7 +8,7 @@ manager: erikre
 
 ms.service: video-indexer
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 05/02/2017
 ms.author: juliako;
 
 ---
@@ -22,7 +22,7 @@ This article shows how the developers can take advantage of the Video Indexer AP
 
 1. Sign in.
 
-	To start developing with Video Indexer, you must first [Sign In](https://videobreakdown.portal.azure-api.net/signin?ReturnUrl=%2Fget-started) to the portal. 
+	To start developing with Video Indexer, you must first Sign In to the [Video Indexer](https://www.vi.microsoft.com) portal. 
 	
 	![Sign up](./media/video-indexer-use-apis/video-indexer-api01.png)
 
@@ -30,7 +30,6 @@ This article shows how the developers can take advantage of the Video Indexer AP
 	
 	1. 	Contact us to register your AAD organization’s domain (contoso.onmicrosoft.com).
 	2. 	Your AAD organization’s admin must first sign in to grant the portal permissions to your org. 
-	
 	
 2. Subscribe.
 
