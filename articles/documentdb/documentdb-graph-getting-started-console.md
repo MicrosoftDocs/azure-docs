@@ -59,7 +59,7 @@ Let's create a Cosmos DB account. If you already have an account you want to use
 
 Great! Now that we finished the setup, let's start running some console commands.
 
-## Step 3: Create vertices and edges
+## Create vertices and edges
 
 Let's begin by adding four person vertices for *Thomas*, *Mary Kay*, *Robin*, and *Ben*.
 
@@ -121,7 +121,7 @@ Output:
 
     ==>[id:889c4d3c-549e-4d35-bc21-a3d1bfa11e00,label:knows,type:edge,inVLabel:person,outVLabel:person,inV:40fd641d-546e-412a-abcc-58fe53891aab,outV:3e324073-ccfc-4ae1-8675-d450858ca116]
 
-## Step 4: Update a vertex
+## Update a vertex
 
 Let's update the *Thomas* vertex with a new age of *45*.
 
@@ -133,7 +133,7 @@ Output:
 
     ==>[id:ae36f938-210e-445a-92df-519f2b64c8ec,label:person,type:vertex,properties:[firstName:[[id:872090b6-6a77-456a-9a55-a59141d4ebc2,value:Thomas]],lastName:[[id:7ee7a39a-a414-4127-89b4-870bc4ef99f3,value:Andersen]],age:[[id:a2a75d5a-ae70-4095-806d-a35abcbfe71d,value:45]]]]
 
-## Step 5: Query your graph
+## Query your graph
 
 Now, let's run a variety of queries against your graph.
 
@@ -167,7 +167,7 @@ Output:
 
 
 
-## Step 6: Traverse your graph
+## Traverse your graph
 
 Let's traverse the graph to return all of Thomas's friends.
 
@@ -190,7 +190,7 @@ Output:
 
     ==>[id:a801a0cb-ee85-44ee-a502-271685ef212e,label:person,type:vertex,properties:[firstName:[[id:b9489902-d29a-4673-8c09-c2b3fe7f8b94,value:Ben]],lastName:[[id:e084f933-9a4b-4dbc-8273-f0171265cf1d,value:Miller]]]]
 
-## Step 7: Drop a vertex
+## Drop a vertex
 
 Let's now delete a vertex from the graph database.
 
@@ -198,7 +198,7 @@ Input (drop Robin vertex):
 
     :> g.V().hasLabel('person').has('firstName', 'Robin').drop()
 
-## Step 8: Clear your graph
+## Clear your graph
 
 Finally, let's clear the database of all vertices and edges.
 
