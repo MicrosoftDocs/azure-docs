@@ -159,7 +159,7 @@ Enabling this option requires a user who is enabled for password reset to comple
 
 Disabling this feature will still allow users to manually register their contact information by visiting [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) or by clicking the **register for password reset** link under the profile tab in the access panel.
 
-> [NOTE!]
+> [!NOTE]
 > Users can dismiss the password reset registration portal by clicking cancel or closing the window but are prompted each time they login until they complete registration.
 >
 
@@ -180,6 +180,24 @@ If this option is set to yes, then the user who is resetting their password rece
 If this option is set to yes, then **all administrators** receive an email to their primary email address on file in Azure AD notifying them that another administrator has changed their password using SSPR.
 
 Example: There are four administrators in an environment. Administrator "A" resets their password using SSPR. Administrators B, C, and D receive an email alerting them of this happening.
+
+## On-premises integration
+
+If you have installed, configured, and enabled Azure AD Connect you will have additional options for on-premises integrations.
+
+### Write back passwords to your on-premises directory
+
+Controls whether or not password writeback is enabled for this directory and, if writeback is on, indicates the status of the on-premises writeback service. This is useful if you want to temporarily disable the password writeback without re-configuring Azure AD Connect.
+
+* If the switch is set to yes, then writeback will be enabled, and federated and password hash synchronized users will be able to reset their passwords.
+* If the switch is set to no, then writeback will be disabled, and federated and password hash synchronized users will not be able to reset their passwords.
+
+### Allow users to unlock accounts without resetting their password
+
+Designates whether or not users who visit the password reset portal should be given the option to unlock their on-premises Active Directory accounts without resetting their password. By default, Azure AD will always unlock accounts when performing a password reset, this setting allows you to separate those two operations. 
+
+* If set to “yes”, then users will be given the option to reset their password and unlock the account, or to unlock without resetting the password.
+* If set to “no”, then users will only be able to perform a combined password reset and account unlock operation.
 
 ## Network requirements
 
@@ -205,7 +223,7 @@ If you are not sure what account the above refers to, open the Azure Active Dire
 
 Setting these permissions allow the MA service account for each forest to manage passwords on behalf of user accounts within that forest. **If you neglect to assign these permissions, then, even though writeback appears to be configured correctly, users encounter errors when attempting to manage their on-premises passwords from the cloud.**
 
-> [NOTE!]
+> [!NOTE]
 > It could take up to an hour or more for these permissions to replicate to all objects in your directory.
 >
 
@@ -226,8 +244,8 @@ To set up the appropriate permissions for password writeback to occur
 Password reset and change are fully supported with all B2B configurations.  Read below for the three explicit B2B cases supported by password reset.
 
 1. **Users from a partner org with an existing Azure AD tenant** - If the organization you are partnering with has an existing Azure AD tenant, we **respect whatever password reset policies are enabled in that tenant**. For password reset to work, the partner organization just needs to make sure Azure AD SSPR is enabled, which is no additional charge for O365 customers, and can be enabled by following the steps in our [Getting Started with Password Management](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) guide.
-2. **Users who signed up using [self-service sign-up](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)** - If the organization you are partnering with used the [self-service sign-up](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup) feature to get into a tenant, we let them reset with the email they registered.
-3. **B2B users** - Any new B2B users created using the new [Azure AD B2B capabilities](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) will also be able to reset their passwords with the email they registered during the invite process.
+2. **Users who signed up using [self-service sign-up](active-directory-self-service-signup.md)** - If the organization you are partnering with used the [self-service sign-up](active-directory-self-service-signup.md) feature to get into a tenant, we let them reset with the email they registered.
+3. **B2B users** - Any new B2B users created using the new [Azure AD B2B capabilities](active-directory-b2b-what-is-azure-ad-b2b.md) will also be able to reset their passwords with the email they registered during the invite process.
 
 To test this, go to http://passwordreset.microsoftonline.com with one of these partner users. As long as they have an alternate email or authentication email defined, password reset works as expected.
 

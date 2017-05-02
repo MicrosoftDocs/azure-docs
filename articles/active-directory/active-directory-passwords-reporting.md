@@ -170,8 +170,8 @@ The following activity types appear in the **Self-Service Password Management** 
 * [**Reset password (by admin)**](#activity-type-reset-password-by-admin) - Indicates an administrator performed a password reset on behalf of a user from the Azure portal.
 * [**Reset password (self-service)**](#activity-type-reset-password-self-service) - Indicates a user successfully reset their password from the [Azure AD Password Reset Portal](https://passwordreset.microsoftonline.com).
 * [**Self-service password reset flow activity progress**](#activity-type-self-serve-password-reset-flow-activity-progress) - Indicates each specific step a user proceeds through (such as passing a specific password reset authentication gate) as part of the password reset process.
-* [**Unlock user account (self-service)**](#activity-type-unlock-user-account-self-service) - Indicates a user successfully unlocked their Active Directory account without resetting their password from the [Azure AD Password Reset Portal](https://passwordreset.microsoftonline.com) using the [AD account unlock without reset](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-customize#allow-users-to-unlock-accounts-without-resetting-their-password) feature.
-* [**User registered for self-service password reset**](#activity-type-user-registered-for-self-service-password-reset) - Indicates a user has registered all the required information to be able to reset their password in accordance with the currently specified tenant password reset policy. 
+* [**Unlock user account (self-service)**](#activity-type-unlock-user-account-self-service) - Indicates a user successfully unlocked their Active Directory account without resetting their password from the [Azure AD Password Reset Portal](https://passwordreset.microsoftonline.com) using the AD account unlock without reset feature.
+* [**User registered for self-service password reset**](#activity-type-user-registered-for-self-service-password-reset) - Indicates a user has registered all the required information to be able to reset their password in accordance with the currently specified tenant password reset policy.
 
 ### Activity type: Blocked from self-service password reset
 
@@ -238,7 +238,7 @@ The following list explains this activity in detail:
 
 The following list explains this activity in detail:
 
-* **Activity Description** – Indicates a user successfully unlocked their Active Directory account without resetting their password from the [Azure AD Password Reset Portal](https://passwordreset.microsoftonline.com) using the [AD account unlock without reset](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-customize#allow-users-to-unlock-accounts-without-resetting-their-password) feature.
+* **Activity Description** – Indicates a user successfully unlocked their Active Directory account without resetting their password from the [Azure AD Password Reset Portal](https://passwordreset.microsoftonline.com) using the AD account unlock without reset feature.
 * **Activity Actor** - the user who unlocked their account without resetting their password. May be an end user or an administrator.
 * **Activity Target** - the user who unlocked their account without resetting their password. May be an end user or an administrator.
 * **Allowed Activity Statuses**
