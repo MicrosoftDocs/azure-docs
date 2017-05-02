@@ -21,7 +21,7 @@ ms.author: cynthn
 
 # How to use availability sets
 
-In this tutorial, you learn about increasing the availability of your virtual machines (VMs) by putting them into a logical grouping called an availability set. When you create VMs within an availability set, the Azure platform distributes the VMs across the underlying infrastructure. If there is a hardware fault or planned maintenance on the platform, the use of availability sets ensures that at least one VM remains running.
+To protect application workload from downtime during maintenance or hardware fault, virtual machines need to be made highly available. In this tutorial, you learn about increasing the availability of your virtual machines (VMs) by putting them into a logical grouping called availability sets.
 
 This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 

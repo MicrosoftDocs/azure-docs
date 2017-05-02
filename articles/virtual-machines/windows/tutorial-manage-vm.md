@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Create and Manage Windows VMs with the Azure PowerShell module
 
-This tutorial covers basic Azure Virtual Machine creation items such as selecting a VM size, selecting a VM image, and deploying a VM. This tutorial also covers basic management operations such as managing state, deleting, and resizing a VM.
+Azure virtual machines provide a fully configurable and flexible computing environment. This tutorial covers basic Azure Virtual Machine creation items such as selecting a VM size, selecting a VM image, and deploying a VM. Also covered is basic management operations such as managing state, deleting, and resizing a VM.
 
 This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
