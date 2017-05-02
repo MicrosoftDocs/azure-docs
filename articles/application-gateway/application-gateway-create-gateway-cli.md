@@ -73,7 +73,7 @@ Open the **Microsoft Azure Command Prompt**, and log in.
 az login -u "username"
 ```
 
->[NOTE]
+> [!NOTE]
 > You can also use `az login` without the switch for device login that will require entering a code at aka.ms/devicelogin.
 
 Once you type the preceding example, a code is provided. Navigate to https://aka.ms/devicelogin in a browser to continue the login process.
@@ -144,6 +144,14 @@ az network application-gateway create \
 This example creates a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. It also configures SSL offload. You can modify these settings to suit your deployment once the provisioning is successful.
 If you already have your web application defined with the backend pool in the preceding steps, once created, load balancing begins.
 
+## Delete all resources
+
+To delete all resources created in this article, complete the following steps:
+
+```azurecli
+az group delete --name AdatumAppGatewayRG
+```
+ 
 ## Next steps
 
 Learn how to create custom health probes by visiting [Create a custom health probe](application-gateway-create-probe-portal.md)
