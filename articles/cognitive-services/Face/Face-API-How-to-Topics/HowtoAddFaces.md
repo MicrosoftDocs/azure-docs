@@ -14,7 +14,7 @@ ms.author: anroth
 
 # How to Add Faces
 
-This guide will demonstrate the best practice to add massive number of persons and faces to a person group, which also applies to face lists. The samples are written in C# using the Face API client library.
+This guide demonstrates the best practice to add massive number of persons and faces to a person group, which also applies to face lists. The samples are written in C# using the Face API client library.
 
 ## <a name="step1"></a> Step 1: Initialization
 
@@ -61,12 +61,12 @@ When using a client library, the subscription key is passed in through the const
 FaceServiceClient faceServiceClient = new FaceServiceClient("Your subscription key");
 ```
 
-The subscription key can be obtained from the Marketplace page of your Azure management portal. See [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up).
+The subscription key can be obtained from the Marketplace page of your Azure portal. See [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up).
 
 ## <a name="step3"></a> Step 3: Create the person group
 
-A person group named "MyPersonGroup" is create to save the persons.
-Note that we also enqueue the request time to `_timeStampQueue` to ensure the overall validation.
+A person group named "MyPersonGroup" is created to save the persons.
+We also enqueue the request time to `_timeStampQueue` to ensure the overall validation.
 
 ```CSharp
 const string personGroupId = "mypersongroupid";
@@ -115,9 +115,9 @@ Parallel.For(0, PersonCount, async i =>
 
 ## <a name="summary"></a> Summary
 
-In this guide you have learned the process of creating a person group with massive number of persons and faces. Several reminders:
+In this guide, you have learned the process of creating a person group with massive number of persons and faces. Several reminders:
 
-- This strategy also applies to add faces to face lists, which is advised to add face to different face lists concurrently, and same operation to one specific face list should be done sequentially.
+- This strategy also applies to add faces to face lists. Adding/Deleting faces to different face lists can be processed concurrently, and same operations to one specific face list should be done sequentially.
 - To keep the simplicity, the handling of potential exception is omitted in this guide. If you want to enhance more robustness, proper retry policy should be applied.
 
 The following are a quick reminder of the features previously explained and demonstrated:
