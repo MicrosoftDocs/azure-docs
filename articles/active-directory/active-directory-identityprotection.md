@@ -79,7 +79,7 @@ To load balance the management activities around your Identity Protection implem
 | Security admin       | Full access to Identity Protection except resetting password for a user |
 | Security reader      | Ready-only access to Identity Protection |
 
-For more details, see [Assigning administrator roles in Azure Active Directory](active-directory/active-directory-assign-admin-roles.md)
+For more details, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
 
 
 
