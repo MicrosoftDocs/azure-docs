@@ -23,7 +23,8 @@ ms.author: andret
 # Setup your project
 
 <!--start-collapse-->
-### Creating your ASP.NET project
+> ### Creating your ASP.NET project
+
 > 1. In Visual Studio: `File` > `New` > `Project`<br/>
 > 2. Under *Visual C#\Web*, select `ASP.NET Web Application (.NET Framework)`.
 > 3. Name your application and click *OK*
