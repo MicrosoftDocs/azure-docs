@@ -20,7 +20,7 @@ ms.author: davidmu
 
 # Manage Azure Virtual Networks and Windows Virtual Machines with Azure PowerShell
 
-In this tutorial, you learn about creating multiple virtual machines (VMs) in an virtual network (VNet) and configure network connectivity between them. When completed, a 'front-end' VM will be accessible from the internet on port 80 for HTTP connections. A 'back-end' VM with a SQL Server database will be isolated and only accessible from the front-end VM on port 1433.
+In this tutorial, you learn about creating multiple virtual machines (VMs) in an virtual network (VNet) and configure network connectivity between them. When completed, a 'front-end' VM is accessible from the internet on port 80 for HTTP connections. A 'back-end' VM with a SQL Server database is isolated and only accessible from the front-end VM on port 1433.
 
 The steps in this tutorial can be completed using the latest [Azure PowerShell](/powershell/azure/overview) module.
 
@@ -174,7 +174,7 @@ $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 ```
 
-Add a new network security group named *myBackendNSG* with [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup):
+Add a network security group named *myBackendNSG* with [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup):
 
 ```powershell
 $nsgBackend = New-AzureRmNetworkSecurityGroup `
