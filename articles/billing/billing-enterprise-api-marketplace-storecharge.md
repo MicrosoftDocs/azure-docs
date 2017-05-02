@@ -20,16 +20,16 @@ ms.author: aedwin
 ---
 # Reporting APIs for Enterprise customers - Marketplace Charges (Preview)
 
-The Price Sheet API provides the applicable rate for each Meter for the given Enrollment and Billing Period?
+The Marketplace Store Charge API returns the usage-based marketplace charges breakdown by day for the specified Billing Period or start and end dates (one time fees are not included).
 
 ##Request 
-Common header properties that need to be added are specified [here](billing-enterprise-api.md). If a billing period is not specified, then data for the current billing period is returned. Custom time ranges can be specified with the start and end date parameters which are in the format YYYY-MM-DD, the maximum supported time range is 36 months.  
+Common header properties that need to be added are specified [here](billing-enterprise-api.md). If a billing period is not specified, then data for the current billing period is returned. Custom time ranges can be specified with the start and end date parameters which are in the format yyyy-MM-dd, the maximum supported time range is 36 months.  
 
 |Method | Request URI|
 |-|-|
-|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/marketplace|
-|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/marketplace|
-|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/marketplacechargesbycustomdate?startDate=2017-01-01&endDate=2017-01-10|
+|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/marketplacecharges|
+|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/marketplacecharges|
+|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/marketplacechargesbycustomdate?startTime=2017-01-01&endTime=2017-01-10|
 
 ## Response
  
@@ -76,7 +76,7 @@ Common header properties that need to be added are specified [here](billing-ente
 |usageStartDate|DateTime|Start time for the usage record|
 |usageEndDate|DateTime|End time for the usage record|
 |offerName|string|The Offer name|
-|resourceGroup|s|The resource Group|
+|resourceGroup|string|The resource Group|
 |instanceId|string|Instance Id|
 |additionalInfo|string|Additional info JSON string|
 |tags|string|Tag JSON string|

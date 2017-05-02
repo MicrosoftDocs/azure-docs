@@ -27,7 +27,7 @@ The Reporting APIs enable Enterprise Azure customers to programmatically pull co
 
 |Request Header Key | Value|
 |-|-|
-|Authorization| The value needs to be specified in this format: **bearer {API_KEY}** <br/> Example: bearer eyr....09|
+|Authorization| Specify the value in this format: **bearer {API_KEY}** <br/> Example: bearer eyr....09|
 
 ## Consumption APIs
 A Swagger endpoint is available [here](https://consumption.azure.com/v1/swagger) for the APIs described below which should enable easy introspection of the API and the ability to generate client SDKs using [AutoRest](https://github.com/Azure/AutoRest) or [Swagger CodeGen](http://swagger.io/swagger-codegen/). Data beginning May 1, 2014 is available through this API. 
@@ -51,7 +51,7 @@ A Swagger endpoint is available [here](https://consumption.azure.com/v1/swagger)
 |401| Unauthorized| API Key not found, Invalid, Expired etc.|
 |404| Unavailable| Report endpoint not found|
 |400| Bad Request| Invalid params – Date ranges, EA numbers etc.|
-|500| Server Error| Internal please use the Tracking Id returned when raising support tickets| 
+|500| Server Error| Unexoected error processing request| 
 
 
 

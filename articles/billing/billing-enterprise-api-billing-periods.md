@@ -40,10 +40,10 @@ Common header properties that need to be added are specified [here](billing-ente
     		  	"billingPeriodId": "201704",
       			"billingStart": "2017-04-01T00:00:00Z",
       			"billingEnd": "2017-04-30T11:59:59Z",
-				"balanceSummary": "/v1/enrollments/100/BalanceSummary?billingPeriod=201704",
-      			"usageDetails": "/v1/enrollments/100/UsageDetails?billingPeriod=201704",
-      			"marketplaceCharges": "",
-      			"priceSheet": "/v1/enrollments/100/PriceSheet?billingPeriod=201704"
+				"balanceSummary": "/v1/enrollments/100/billingperiods/201704/balancesummary",
+      			"usageDetails": "/v1/enrollments/100/billingperiods/201704/usagedetails",
+      			"marketplaceCharges": "/v1/enrollments/100/billingperiods/201704/marketplacecharges",
+      			"priceSheet": "/v1/enrollments/100/billingperiods/201704/pricesheet"
     		},    		
 			....
   	  ]

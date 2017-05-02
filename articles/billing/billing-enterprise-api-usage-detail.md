@@ -25,25 +25,23 @@ The Usage Detail API offers a daily breakdown of consumed quantities and estimat
 
 
 ##Request 
-Common header properties that need to be added are specified [here](billing-enterprise-api.md). If a billing period is not specified, then data for the current billing period is returned. Custom time ranges can be specified with the start and end date parameters which are in the format YYYY-MM-DD, the maximum supported time range is 36 months.  
+Common header properties that need to be added are specified [here](billing-enterprise-api.md). If a billing period is not specified, then data for the current billing period is returned. Custom time ranges can be specified with the start and end date parameters that are in the format yyyy-MM-dd. The maximum supported time range is 36 months.  
 
 |Method | Request URI|
 |-|-|
 |GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/usagedetails 
 |GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/usagedetails|
-|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/usagedetailsbycustomdate?startDate=2017-01-01&endDate=2017-01-10|
+|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/usagedetailsbycustomdate?startTime=2017-01-01&endTime=2017-01-10|
 
 ## Response
 
-> Due to potentially large volume of data the result set is paged. The nextLink property, if present, specifies the link for the next page of data. If the link is empty it denoted that is the last page. 
+> Due to the potentially large volume of data the result set is paged. The nextLink property, if present, specifies the link for the next page of data. If the link is empty, it denotes that is the last page. 
 <br/>
 
 	{
 		"id": "string",
 		"data": [
-			{
-			"enrollmentNumber": "string",
-			"cost": 0,
+			{						
 			"accountId": 0,
 			"productId": 0,
 			"resourceLocationId": 0,
@@ -88,8 +86,8 @@ Common header properties that need to be added are specified [here](billing-ente
 
 |Property Name| Type| Description
 |-|-|-|
-|id| string| The unique Id for this |
-|data| JSON array|  |
+|id| string| The unique Id for the API call. |
+|data| JSON array| The Array of daily usage details for every instance\meter|
 |nextLink| string| When there are more pages of data the nextLink points to the URL to return the next page of data |
 
 ## See Also

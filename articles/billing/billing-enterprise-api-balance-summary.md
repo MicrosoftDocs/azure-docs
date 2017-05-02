@@ -36,7 +36,7 @@ Common header properties that need to be added are specified [here](billing-ente
 
 		{
 		    "id": "enrollments/100/billingperiods/201507/balancesummaries",
-      		"billingMonth": 201507,
+      		"billingPeriodId": 201507,
       		"currencyCode": "USD",
       		"beginningBalance": 0,
       		"endingBalance": 1.1,
@@ -71,20 +71,20 @@ Common header properties that need to be added are specified [here](billing-ente
 
 |Property Name| Type| Description
 |-|-|-|
-|id|string|The unique Id for a specific billing period and enrollment.|
-|billingPeriodId|string |The billing period Id.|
-|currencyCode|string |The currency code.|
-|beginningBalance|string| The beginning balance. |
-|endingBalance|decimal| The ending balance.|
-|newPurchases|decimal| Total new purchase amount.|
-|adjustments|decimal| Total adjustment amount.|
-|utilized|decimal| Total Utilized.|
-|serviceOverage|decimal| Service Overage.|
-|chargesBilledSeparately|decimal| Charges Billed separately.|
-|totalOverage|decimal| The total overage.|
-|totalUsage|decimal| The total usage.|
-|azureMarketplaceServiceCharges|decimal| Total charges for Azure Marketplace.|
-|newPurchasesDetails|JSON string array of Name Value pairs|List of new purchases.|
+|id|string|The unique Id for a specific billing period and enrollment|
+|billingPeriodId|string |The billing period Id|
+|currencyCode|string |The currency code|
+|beginningBalance|decimal| The beginning balance for the billing period|
+|endingBalance|decimal| The ending balance for the billing period (for open periods this will be updated daily)|
+|newPurchases|decimal| Total new purchase amount|
+|adjustments|decimal| Total adjustment amount|
+|utilized|decimal| Total Commitment usage|
+|serviceOverage|decimal| Overage for Azure services|
+|chargesBilledSeparately|decimal| Charges Billed separately|
+|totalOverage|decimal| serviceOverage + chargesBilledSeparately|
+|totalUsage|decimal| Azure service commitment + total Overage|
+|azureMarketplaceServiceCharges|decimal| Total charges for Azure Marketplace|
+|newPurchasesDetails|JSON string array of Name Value pairs|List of new purchases|
 |adjustmentDetails|JSON string array of Name Value pairs|List of Adjustments (Promo credit, SIE credit etc.) |
 
 
