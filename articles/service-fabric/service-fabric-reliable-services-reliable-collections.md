@@ -53,8 +53,8 @@ Today, **Microsoft.ServiceFabric.Data.Collections** contains two collections:
 
 ## Next steps
 * [Transactions and Locks](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-* [Reliable State Manager and Collection Internals](service-fabric-work-with-reliable-collections-internals.md)
 * [Working with Reliable Collections](service-fabric-work-with-reliable-collections.md)
+* [Reliable State Manager and Collection Internals](service-fabric-reliable-services-reliable-collections-internals.md)
 * Managing Data
   * [Backup and Restore][Reliable Services backup and restore (disaster recovery)]
   * [Notifications](service-fabric-reliable-services-notifications.md)
