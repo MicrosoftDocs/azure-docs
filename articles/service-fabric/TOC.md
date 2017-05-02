@@ -43,7 +43,7 @@
 ### Build a container service
 #### [Overview](service-fabric-containers-overview.md)
 #### [Deploy Windows container](service-fabric-deploy-container.md)
-#### [Deploy Docker container](service-fabric-deploy-container-linux.md)
+#### [Deploy Linux container](service-fabric-deploy-container-linux.md)
 
 ### Build a Reliable Service service
 #### [Overview](service-fabric-reliable-services-introduction.md)
