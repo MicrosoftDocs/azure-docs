@@ -18,27 +18,27 @@ Use a few lines of code to easily analyze sentiment, extract key phrases, detect
 
 ## Sentiment Analysis
 
-Let's say you run a website to sell handicrafts. Your users submit feedback on your site, and you'd like to find out what users think of your brand, and how that changes over time as you release new products and features to your site. Sentiment analysis can help here - given a piece of text, the Azure ML Text Analytics service returns a score between 0 and 1 denoting overall sentiment in the input text. Scores close to 1 indicate positive sentiment, while scores close to 0 indicate negative sentiment.
+Find out what users think of your brand or topic by analyzing any text using sentiment analysis. You are now easily able to monitor the perception of your brand or topic over time.
 
-Sentiment score is generated using classification techniques. The input features to the classifier include n-grams, features generated from part-of-speech tags, and embedded words. 
+Sentiment score is generated using classification techniques, and will return a score between 0 and 1. The input features to the classifier include n-grams, features generated from part-of-speech tags, and embedded words. 
 
 ## Key Phrase Extraction
 
-This service can also extract key phrases, which denote the main talking points in the text. We employ techniques from Microsoft Office's sophisticated Natural Language Processing toolkit.
+Automatically extract key phrases to quickly identify the main points. We employ techniques from Microsoft Office's sophisticated Natural Language Processing toolkit.
 
 For example, for the input text ‘The manual transmission is a bit twitchy. Also, the vehicle is old-school’, the service would return the main talking points: ‘manual transmission’, ‘vehicle’ and ‘old-school’.
 
 ## Topic Detection
 
-This is a new service which returns the topics which have been detected in multiple text articles. The service is designed to work well for short, human written text such as reviews and user feedback, and can help you to understand the main issues or suggestions that customers are mentioning.
+This service returns topics which have been detected in multiple text articles. The service is designed to work well for short, human written text such as reviews and user feedback, and can help you to understand the main issues or suggestions that customers are mentioning.
 
 ## Language Detection
 
-The service can be used to detect which language the input text is written in.
+The service can be used to detect which language the input text is written in. 120 languages are supported.
 
 ## Supported Languages
 
-Note that the supported languages are as follows:
+The supported languages are as follows:
 
 | Feature | Supported language codes |
 |:--- |:--- |
