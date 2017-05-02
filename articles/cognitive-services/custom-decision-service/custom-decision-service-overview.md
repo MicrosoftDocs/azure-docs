@@ -3,7 +3,7 @@ title: Microsoft Azure Custom Decision Service overview | Microsoft Docs
 description: This article overviews Microsoft Custom Decision Service, a cloud-based API for contextual decision-making that sharpens with experience.
 services: cognitive-services
 author: alekh
-manager: tysonn@microsoft.com
+manager: slivkins@microsoft.com
 
 ms.service: cognitive-services
 ms.topic: article
