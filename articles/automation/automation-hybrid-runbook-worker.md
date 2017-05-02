@@ -65,6 +65,7 @@ If you have an Automation account defined for a specific region and you want to 
 | --- | --- |
 | South Central US |scus-jobruntimedata-prod-su1.azure-automation.net |
 | East US 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
+| West Central US | wcus-jobruntimedata-prod-su1.azure-automation.net |
 | West Europe |we-jobruntimedata-prod-su1.azure-automation.net |
 | North Europe |ne-jobruntimedata-prod-su1.azure-automation.net |
 | Canada Central |cc-jobruntimedata-prod-su1.azure-automation.net |
@@ -72,6 +73,8 @@ If you have an Automation account defined for a specific region and you want to 
 | Central India |cid-jobruntimedata-prod-su1.azure-automation.net |
 | Japan East |jpe-jobruntimedata-prod-su1.azure-automation.net |
 | Australia South East |ase-jobruntimedata-prod-su1.azure-automation.net |
+| UK South | uks-jobruntimedata-prod-su1.azure-automation.net |
+| US Gov Virginia | usge-jobruntimedata-prod-su1.azure-automation.us |
 
 For a list of IP addresses instead of names, download and review the [Azure Datacenter IP address](https://www.microsoft.com/download/details.aspx?id=41653) xml file from the Microsoft Download Center. 
 
