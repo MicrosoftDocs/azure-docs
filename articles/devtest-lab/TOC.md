@@ -3,6 +3,7 @@
 ## [Concepts](devtest-lab-concepts.md)
 ## Scenarios
 ### [Use labs for training](devtest-lab-training-lab.md)
+### [Use labs for developer machine](devtest-lab-devmachine.md)
 
 # Get Started
 ## [Create lab](devtest-lab-create-lab.md)
