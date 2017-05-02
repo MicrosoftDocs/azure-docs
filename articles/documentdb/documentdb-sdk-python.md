@@ -48,8 +48,8 @@ ms.custom: H1Hack27Feb2017
 
 ## Release notes
 ### <a name="2.1.0"/>2.1.0
-* Added the support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG).
-* Added the option for disabling SSL verification when running against DocumentDB Emulator.
+* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG).
+* Added an option for disabling SSL verification when running against DocumentDB Emulator.
 * Removed the restriction of dependent requests module to be exactly 2.10.0.
 * Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s. REST API version bumped to '2017-01-19' with this change.
 * Added support for enabling script logging during stored procedure execution.
