@@ -70,7 +70,7 @@ Ranking API allows the following parameters:
 Parameters can be combined in standard query string syntax, for example, `details=2&dnt=1`.
 
 > [!IMPORTANT]
-> `dnt=1` should be the default setting in Europe until the end user agrees to the cookie banner.
+> `dnt=1` should be the default setting in Europe until the end user agrees to the cookie banner. It should also be the default setting for websites that target minors, see [terms of use](https://www.microsoft.com/cognitive-services/en-us/legal/CognitiveServicesTerms20160804) for more details.
 
 `details=1` inserts each article's `guid`, if it is served by the Action Set API. Then HTTP response looks like this:
 
