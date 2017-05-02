@@ -115,7 +115,7 @@ for ($i=1; $i -le 2; $i++)
 
    $vm = Set-AzureRmVMOperatingSystem `
         -VM $vm `
-        -Windows -ComputerName myVM$i     
+        -Windows -ComputerName myVM$i `   
         -Credential $cred `
         -ProvisionVMAgent `
         -EnableAutoUpdate

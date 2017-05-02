@@ -36,7 +36,7 @@ Sysprep removes all your personal account information, among other things, and p
 
 
 1. Connect to the virtual machine.
-2. Open the Command Prompt window as an administrator. Change the directory to *%windir%\system32\sysprep*, and then run `sysprep.exe`.
+2. Open the Command Prompt window as an administrator. Change the directory to *%windir%\system32\sysprep*, and then run *sysprep.exe*.
 3. In the **System Preparation Tool** dialog box, select *Enter System Out-of-Box Experience (OOBE)*, and make sure that the *Generalize* check box is selected.
 4. In **Shutdown Options**, select *Shutdown* and then click **OK**.
 5. When Sysprep completes, it shuts down the virtual machine. **Do not restart the VM**.
