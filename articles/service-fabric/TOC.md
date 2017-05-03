@@ -32,12 +32,7 @@
 #### [Service partitioning](service-fabric-concepts-partitioning.md)
 #### [Availability of services](service-fabric-availability-services.md)
 #### [Scalability of applications](service-fabric-concepts-scalability.md)
-#### [Service communication](service-fabric-connect-and-communicate-with-services.md)
 #### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
-#### Migrate from Cloud Services
-##### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
-##### [Migrate to Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
-##### [Recommended practices](/azure/architecture/service-fabric/migrate-from-cloud-services)
 
 ### [Plan app capacity](service-fabric-capacity-planning.md)
 
@@ -48,7 +43,7 @@
 ### Build a container service
 #### [Overview](service-fabric-containers-overview.md)
 #### [Deploy Windows container](service-fabric-deploy-container.md)
-#### [Deploy Docker container](service-fabric-deploy-container-linux.md)
+#### [Deploy Linux container](service-fabric-deploy-container-linux.md)
 
 ### Build a Reliable Service service
 #### [Overview](service-fabric-reliable-services-introduction.md)
@@ -74,7 +69,7 @@
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
 ##### [Secure communications - C#](service-fabric-reliable-services-secure-communication.md)
 ##### [Secure communications - Java](service-fabric-reliable-services-secure-communication-java.md)
-##### [Reverse proxy](service-fabric-reverseproxy.md)
+
 #### [Advanced usage](service-fabric-reliable-services-advanced-usage.md)
 
 ### Build a Reliable Actor service
@@ -97,6 +92,10 @@
 #### [Configure communications settings](service-fabric-reliable-actors-fabrictransportsettings.md) 
 #### [Configure ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
+### Communicate with services
+#### [Service communication](service-fabric-connect-and-communicate-with-services.md)
+#### [Reverse proxy](service-fabric-reverseproxy.md)
+
 ### [Add a web front end](service-fabric-add-a-web-frontend.md)
 
 ### Work in an IDE
@@ -117,6 +116,11 @@
 ### Monitor and diagnose locally
 #### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 #### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
+
+### Migrate from Cloud Services
+#### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
+#### [Migrate to Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
+#### [Recommended practices](/azure/architecture/service-fabric/migrate-from-cloud-services)
 
 ## Manage application lifecycle
 ### [Overview](service-fabric-application-lifecycle.md)

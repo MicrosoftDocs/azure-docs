@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/24/2017
+ms.date: 05/02/2017
 ms.author: cherylmc
 
 ---
@@ -79,7 +79,7 @@ DNS is not required for Site-to-Site connections. However, if you want to have n
 
 The virtual network gateway uses a gateway subnet that contains the IP addresses that are used by the VPN gateway services. When you create a gateway subnet, it must be named 'GatewaySubnet'. If you name it something else, your connection configuration fails.
 
-The size of the gateway subnet that you specify depends on the VPN gateway configuration that you want to create. While it is possible to create a gateway subnet as small as /29, we recommend that you create a larger subnet that includes more addresses by selecting /27 or /28. The size of the gateway subnet that you specify depends on the VPN gateway configuration that you want to create. While it is possible to create a gateway subnet as small as /29, we recommend that you create a larger subnet that includes more addresses by selecting /27 or /28. Using a larger gateway subnet allows for enough IP addresses to accommodate possible future configurations.
+The size of the gateway subnet that you specify depends on the VPN gateway configuration that you want to create. While it is possible to create a gateway subnet as small as /29, we recommend that you create a larger subnet that includes more addresses by selecting /27 or /28. Using a larger gateway subnet allows for enough IP addresses to accommodate possible future configurations.
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-s2s-rm-portal-include.md)]
 
@@ -109,7 +109,9 @@ Create the Site-to-Site VPN connection between your virtual network gateway and 
 
 [!INCLUDE [Azure portal](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 
-## Next steps
-*  Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
-*  For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
 
+## Next steps
+
+*  For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
+*  For information about Forced Tunneling, see [About Forced Tunneling](vpn-gateway-forced-tunneling-rm.md)
+*  For information about Highly Available Active-Active connections, see [Highly Available cross-premises and VNet-to-VNet connectivity](vpn-gateway-highlyavailable.md).

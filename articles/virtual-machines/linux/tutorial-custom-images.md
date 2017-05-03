@@ -32,7 +32,7 @@ To create an image of a virtual machine, you need to prepare the VM by deprovisi
 
 ### Deprovision the VM 
 
-Deprovisioning generalizes the VM by removing machine-specific information. This generalization makes it possible to deploy many VMs from a single image. During deprovisioning, the host name is reset to `localhost.localdomain`. SSH host keys, nameserver configurations, root password, and cached DHCP leases are also deleted.
+Deprovisioning generalizes the VM by removing machine-specific information. This generalization makes it possible to deploy many VMs from a single image. During deprovisioning, the host name is reset to *localhost.localdomain*. SSH host keys, nameserver configurations, root password, and cached DHCP leases are also deleted.
 
 To deprovision the VM, use the Azure VM agent (waagent). The Azure VM agent is installed on the VM and manages provisioning and interacting with the Azure Fabric Controller. For more information, see the [Azure Linux Agent user guide](agent-user-guide.md).
 
@@ -61,20 +61,28 @@ Finally, set the state of the VM as generalized with [az vm generalize](/cli//az
 az vm generalize --resource-group myResourceGroupImages --name myVM
 ```
 
-## Create VM from image
+## Create the image
 
-Now you can create an image of the VM by using [az image create](/cli//azure/image#create). The following example creates an image named `myImage` from a VM named `myVM`.
+Now you can create an image of the VM by using [az image create](/cli//azure/image#create). The following example creates an image named *myImage* from a VM named *myVM*.
    
 ```azurecli
-az image create --resource-group myResourceGroupImages --name myImage --source myVM
+az image create \
+    --resource-group myResourceGroupImages \
+    --name myImage \
+    --source myVM
 ```
  
-## Create a VM from an image
+## Create VMs from the image
 
-You can create a VM using an image with [az vm create](/cli/azure/vm#create). The following example creates a VM named `myVMfromImage` from the image named `myImage`.
+Now that you have an image, you can create one or more new VMs from the image using [az vm create](/cli/azure/vm#create). The following example creates a VM named *myVMfromImage* from the image named *myImage*.
 
 ```azurecli
-az vm create --resource-group myResourceGroupImages --name myVMfromImage --image myImage --admin-username azureuser --generate-ssh-keys
+az vm create \
+    --resource-group myResourceGroupImages \
+    --name myVMfromImage \
+    --image myImage \
+    --admin-username azureuser \
+    --generate-ssh-keys
 ```
 
 ## Next steps
