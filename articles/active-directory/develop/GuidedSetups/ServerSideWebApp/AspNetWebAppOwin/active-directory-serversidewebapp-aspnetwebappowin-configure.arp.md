@@ -36,4 +36,4 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 
 ### What is Next
 
-[Test and Validate](active-directory-serversidewebapp-aspnetwebappowin-testvalidate.md)
+[Test and Validate](active-directory-serversidewebapp-aspnetwebappowin-test.md)
