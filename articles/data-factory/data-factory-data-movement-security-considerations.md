@@ -51,7 +51,28 @@ All data transfers between data movement services in Data Factory and a cloud da
 > All connections to **Azure SQL Database** and **Azure SQL Data Warehouse** always require encryption (SSL/TLS) while data is in transit to and from the database. While authoring a pipeline using a JSON editor, add the **encryption** property and set it to **true** in the **connection string**. When you use the [Copy Wizard](data-factory-azure-copy-wizard.md), the wizard sets this property by default. For **Azure Storage**, you can use **HTTPS** in the connection string.
 
 ### Data encryption at rest
-Many data stores support encryption of data at rest. We suggest that you enable data encryption mechanism for those data stores. For example, enable Transparent Data Encryption (TDE) for Azure SQL Database and Azure SQL Data Warehouse. 
+Many data stores support encryption of data at rest. We suggest that you enable data encryption mechanism for those data stores. 
+
+#### Azure SQL Data Warehouse
+Transparent Data Encryption (TDE) in Azure SQL Data Warehouse helps with protecting against the threat of malicious activity by performing real-time encryption and decryption of your data at rest. This is transparent to the client. For more information, see [Secure a database in SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
+
+#### Azure SQL Database
+Azure SQL Database also supports transparent data encryption (TDE), which helps with protecting against the threat of malicious activity by performing real-time encryption and decryption of the data without requiring changes to the application. This is transparent to the client. For more information, see [Transparent Data Encryption with Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
+
+#### Azure Data Lake Store
+Azure Data Lake store also provides encryption for data stored in the account. When enabled, Data Lake store automatically encrypts data prior to persisting and decrypts prior to retrieval, making it transparent to the client accessing the data. For more information, see [Security in Azure Data Lake Store](../data-lake-store/data-lake-store-security-overview.md). 
+
+#### Azure Blob Storage and Azure Table Storage
+Azure Blob Storage and Azure Table storage supports Storage Service Encryption (SSE), which automatically encrypts your data prior to persisting to storage and decrypts prior to retrieval. For more information, see [](../storage/storage-service-encryption.md).
+
+#### Amazon S3
+Amazon S3 supports both client and server side encryption of data at Rest. For more information, see [Protecting Data Using Encryption](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html). Currently, Data Factory does not support Amazon S3 inside a virtual private cloud (VPC).
+
+#### Amazon Redshift
+Amazon Redshift supports cluster encryption for data at rest. For more information, see [Amazon Redshift Database Encryption](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). Currently, Data Factory does not support Amazon Redshift inside a VPC. 
+
+#### Salesforce
+Salesforce supports Shield Platform Encryption that allows encryption of all files, attachments, custom fields. For more information, see [Understanding the Web Server OAuth Authentication Flow](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
 
 ## Hybrid Scenarios (using Data Management Gateway)
 Hybrid scenarios require Data Management Gateway to be installed in an on-premises network or inside a virtual network (Azure) or a virtual private cloud (Amazon). The gateway must be able to access the local data stores. For more information about the gateway, see [Data Management Gateway](data-factory-data-management-gateway.md). 
