@@ -9,7 +9,7 @@
 ### [Xamarin](create-documentdb-xamarin-dotnet.md)
 ## MongoDB
 ### [Node.js](create-mongodb-nodejs.md)
-## Graph
+## Gremlin graph
 ### [.NET](create-graph-dotnet.md)
 ### [Gremlin console](create-graph-gremlin-console.md)
 ## Table
@@ -21,7 +21,7 @@
 ### [DocumentDB](tutorial-develop-documentdb-dotnet.md)
 ### [MongoDB](tutorial-develop-mongodb.md)
 ### Table
-### [Graph](tutorial-develop-graph-dotnet.md)
+### [Gremlin graph](tutorial-develop-graph-dotnet.md)
 ## 2 - Import 
 ### [DocumentDB/Table/Graph](../documentdb/documentdb-import-data.md)
 ### [MongoDB](../documentdb/documentdb-mongodb-migrate.md)
@@ -29,7 +29,7 @@
 ### [DocumentDB](tutorial-query-documentdb.md)
 ### [MongoDB](tutorial-query-mongodb.md)
 ### [Table](tutorial-query-table.md)
-### [Graph](tutorial-query-graph.md)
+### [Gremlin graph](tutorial-query-graph.md)
 ## [4 - Replicate globally](../documentdb/documentdb-portal-global-replication.md)
 ## 5 - Develop locally
 ### [1 - Use the emulator](../documentdb/documentdb-nosql-local-emulator.md)
