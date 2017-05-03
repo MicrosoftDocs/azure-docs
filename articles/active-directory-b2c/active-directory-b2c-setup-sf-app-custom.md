@@ -208,18 +208,18 @@ You’ll need to register Azure AD B2C as a Connected App in Salesforce.
 1. [Login to Salesforce](https://login.salesforce.com/) 
 1. On the left menu, under **Settings**, expand **Identity** and click on **Identity Provider**
 1. On the bottom **Service Providers** section, click on **Service Providers are now created via Connected Apps. Click here.**
-1. Provide the required **Basic Information** for your Connected App
+1. Provide the required **Basic Information** for your Connected App.
 1. Now, in the **Web App Settings** section:
     1. Check **Enable SAML**
     1. Enter the following URL in the **Entity ID** field, make sure your replace the `tenantName`. 
     
         ```
-        https://login.microsoftonline.com/te/<tenantName\>.onmicrosoft.com/B2C\_1A\_base
+        https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_base
         ```
 
     1. Enter the following URL in the **ACS URL** field, make sure your replace the `tenantName`. 
         ```
-        https://login.microsoftonline.com/te/<tenantName\>.onmicrosoft.com/B2C\_1A\_base/samlp/sso/assertionconsumer
+        https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_base/samlp/sso/assertionconsumer
         ```
 
     1. Leave all other settings with their defaults
@@ -230,7 +230,7 @@ You’ll need to register Azure AD B2C as a Connected App in Salesforce.
 
 Test out the custom policy that you just uploaded by opening its blade and clicking on "Run now". In case something fails, see how to [troubleshoot](active-directory-b2c-troubleshoot-custom.md).
 
-## Next Steps
+## Next steps
  
 Provide feedback to [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com).
 
