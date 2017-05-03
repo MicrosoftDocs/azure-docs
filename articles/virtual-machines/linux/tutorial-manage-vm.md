@@ -28,10 +28,10 @@ The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cl
 
 Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group#create) command. 
 
-An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. In this example, a resource group named *myResourceGroupVM* is created in the *westus* region. 
+An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. In this example, a resource group named *myResourceGroupVM* is created in the *eastus* region. 
 
 ```azurecli
-az group create --name myResourceGroupVM --location westus
+az group create --name myResourceGroupVM --location eastus
 ```
 
 The resource group is specified when creating or modifying a VM, which can be seen throughout this tutorial.
@@ -52,7 +52,7 @@ Once the VM has been created, the Azure CLI outputs information about the VM. Ta
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
-  "location": "westus",
+  "location": "eastus",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
@@ -151,7 +151,7 @@ The following table categorizes sizes into use cases.
 To see a list of VM sizes available in a particular region, use the [az vm list-sizes](/cli/azure/vm#list-sizes) command. 
 
 ```azurecli
-az vm list-sizes --location westus --output table
+az vm list-sizes --location eastus --output table
 ```
 
 Partial output:
