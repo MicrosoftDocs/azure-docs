@@ -75,7 +75,7 @@ We will start by creating the interface to act as the contract between the state
     ![Creating an interface project for your stateful service][vs-add-class-library-project]
 
 3. In order for an interface to be usable by `ServiceProxy`, it must derive from the IService interface. This interface is included in one of the Service Fabric NuGet packages. To add the package, right-click your new class library project and choose **Manage NuGet Packages**.
-4. Search for the **Microsoft.ServiceFabric.Services** package and install it.
+4. Search for the **Microsoft.ServiceFabric.Services.Remoting** package and install it.
    
     ![Adding the Services NuGet package][vs-services-nuget-package]
 
