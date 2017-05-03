@@ -280,6 +280,13 @@ This section will show you how to add new users or change their permissions in t
 
 ##Help
 
+1. Select the 'Help' tab.
+2. Select either 'Orders & Usage' or 'Support & Documentation'.
+3. 'Orders & Usage' provides definitions of terms used in the Orders & Usage section.
+4. 'Support & Documentation' provides links to a training video, this document, and a link to submit a support request (see below).
+
+![Get help][35]
+
 ##Support requests
 
 
@@ -382,3 +389,4 @@ Try to reset your password by using the Self-Service Password Reset wizard follo
 [32]: ./media/marketplace-publishing-report-seller-insights-user-guide/support-information.png
 [33]: ./media/marketplace-publishing-report-seller-insights-user-guide/support-fill-out-and-submit.png
 [34]: ./media/marketplace-publishing-report-seller-insights-user-guide/feedback-form.png
+[35]: ./media/marketplace-publishing-report-seller-insights-user-guide/help.png
