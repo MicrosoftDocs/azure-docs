@@ -20,14 +20,13 @@ ms.author: juluk
 # Using the Azure Cloud Shell (Preview) window
 This document explains how to use the Azure Cloud Shell window.
 
-## Resize Cloud Shell window
-![](media/storage-create.png)
-* Click and drag the toolbar up or down to resize the Cloud Shell window
-
 ## Minimize & maximize Cloud Shell window
-![](media/storage-create.png)
-* Click the minimize icon on the top right of the window to set window size to zero.
-* To restore window to previous size, click restore.
+![](media/minmax.png)
+* Click the minimize icon on the top right of the window to hide. Click Cloud Shell icon again to unhide.
+* Click the maximize icon to set window to max height. To restore window to previous size, click restore.
+
+## Resize Cloud Shell window
+* Click and drag the top edge of the toolbar up or down to resize the Cloud Shell window.
 
 ## Copy/paste
 * Windows: `Ctrl-insert` and `Shift-insert` or right-click dropdown to copy/paste
