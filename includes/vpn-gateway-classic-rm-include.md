@@ -1,0 +1,2 @@
+It's important to know that Azure currently works with two deployment models: Resource Manager and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. You'll need to know which model that you want to work in. For information about the deployment models, see [Understanding deployment models](../articles/resource-manager-deployment-model.md).
+
