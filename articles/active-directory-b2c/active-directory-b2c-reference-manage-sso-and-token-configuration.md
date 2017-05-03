@@ -68,7 +68,16 @@ In your `<OutputClaims>` item, add this element:
 For ACR, remove the `<Item>` with the Key="AuthenticationContextReferenceClaimPattern".
 
 **Subject (sub) claim**
+This option is defaulted to ObjectID, if you would like to switch this to `Not Supported`, do the following:
 
+Replace this line 
+```XML
+<OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
+```
+with this line:
+```XML
+<OutputClaim ClaimTypeReferenceId="sub" />
+```
 
 ## Session behavior and SSO
 To change your session behavior and SSO configurations, you need to add a `<UserJourneyBehaviors>` element inside of the `<RelyingParty>` element.  The `<UserJourneyBehaviors>` element must immediately follow the `<DefaultUserJourney>`.  The inside of your `<UserJourneyBehavors>` element should look like this:
