@@ -28,16 +28,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 You need an SSH key pair to complete this quick start. If you have an existing SSH key pair, this step can be skipped.
 
-From a Bash shell, run this command and follow the on-screen directions. The command output includes the file name of the public key file.
+From a Bash shell, run this command and follow the on-screen directions. The command output includes the file name of the public key file. Copy the contents of the public key file to the clipboard.
 
 ```bash
 ssh-keygen -t rsa -b 2048
-```
-
-Copy the public key to the clipboard. The following command can be used if on macOS.
-
-```bash
-pbcopy < ~/.ssh/id_rsa.pub
 ```
 
 ## Log in to Azure 
@@ -50,7 +44,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 2. Select **Compute**, select **Ubuntu Server 16.04 LTS**, and ensure that **Resource Manager** is the selected deployment model. Click the **Create** button. 
 
-3. Enter the virtual machine information. For **Authentication type**, select **SSH**. When pasting in your SSH public key, take care to remove any leading or trailing white space. When complete, click **OK**.
+3. Enter the virtual machine information. For **Authentication type**, select **SSH public key**. When pasting in your SSH public key, take care to remove any leading or trailing white space. When complete, click **OK**.
 
     ![Enter basic information about your VM in the portal blade](./media/quick-create-portal/create-vm-portal-basic-blade.png)
 
@@ -64,16 +58,6 @@ Log in to the Azure portal at http://portal.azure.com.
 
 7. The VM will be pinned to the Azure portal dashboard. Once the deployment has completed, the VM summary blade automatically opens.
 
-## Open port 80 for web traffic 
-
-A Network security group (NSG) secures inbound and outbound traffic. When a VM is created from the Azure portal, an inbound rule is created on port 22 for SSH connections. In this quick start a webserver will be installed. To access the webserver, an NSG rule will also need to be created for port 80.
-
-1. On the virtual machine, click the name of the **Resource group**.
-2. Select the **network security group**.
-3. Click the **Inbound Security Rule** heading to open the list of inbound rules.
-4. Click on **Add**.
-5. In **Name**, type **http**. Make sure **Port range** is set to 80 and **Action** is set to **Allow**. 
-6. Click **OK**.
 
 ## Connect to virtual machine
 
@@ -103,11 +87,24 @@ apt-get -y update
 apt-get -y install nginx
 ```
 
+## Open port 80 for web traffic 
+
+A Network security group (NSG) secures inbound and outbound traffic. When a VM is created from the Azure portal, an inbound rule is created on port 22 for SSH connections. To access the NGINX webserver, an NSG rule will need to be created for port 80. Back in the the Azure portal, complete the following.
+
+1. On the virtual machine, click the name of the **Resource group**.
+2. Select the **network security group**.
+3. Click on **Inbound security rules** to open the list of inbound rules.
+4. Click on **Add**.
+5. In **Name**, type **http**. Make sure **Port range** is set to 80 and **Action** is set to **Allow**. 
+6. Click **OK**.
+
+
 ## View the NGIX welcome page
 
-With NGINX installed and port 80 now open on your VM from the Internet - you can use a web browser of your choice to view the default NGINX welcome page. Be sure to use the `publicIpAddress` you documented to visit the default page. 
+With NGINX installed, and port 80 open to your VM, the webserver can now be accessed from the internet. Open a web browser, and enter the public IP address of the VM.
 
 ![NGINX default site](./media/quick-create-cli/nginx.png) 
+
 ## Delete virtual machine
 
 When no longer needed, delete the resource group, virtual machine, and all related resources. To do so, select the resource group from the virtual machine blade and click **Delete**.
