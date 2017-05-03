@@ -24,7 +24,7 @@ The Azure CLI 2.0 is Azure's new command-line experience for managing Azure reso
 
 This article provides an overview of using [Azure CLI version 2.0](https://docs.microsoft.com/cli/azure/overview) with Batch. See [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli.md) for an overview of using the CLI with Azure.
 
-> [NOTE]
+> [!NOTE]
 > Microsoft recommends using the latest version of the Azure CLI, version 2.0. For more information about version 2.0, see [Azure Command Line 2.0 now generally available](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/).
 >
 >
@@ -51,7 +51,7 @@ You can display help text for every command in the Azure CLI by appending `-h` t
 
 When in doubt, use the `-h` command-line option to get help on any Azure CLI command.
 
-> [NOTE]
+> [!NOTE]
 > Earlier versions of the Azure CLI used `azure` to preface a CLI command. In version 2.0, all commands are now prefaced with `az`. Be sure to update your scripts to use the new syntax with version 2.0.
 >
 >  
