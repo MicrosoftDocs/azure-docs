@@ -38,6 +38,7 @@ This tutorial uses an [HDInsight Storm][HDInsight Storm] installation, which com
 6. Select the **maven-archetype-quickstart** archetype, then click **Next**
 7. Insert a **GroupId** and **ArtifactId**, then click **Finish**
 8. In **pom.xml**, add the following dependencies in the `<dependency>` node.
+
     ```xml  
     <dependency>
         <groupId>org.apache.storm</groupId>
@@ -67,6 +68,7 @@ This tutorial uses an [HDInsight Storm][HDInsight Storm] installation, which com
         <scope>provided</scope>
     </dependency>
     ```
+
 9. In the **src** folder, create a file called **Config.properties** and copy the following content, substituting the following values:
 
 	```java
