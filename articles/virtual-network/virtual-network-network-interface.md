@@ -30,10 +30,10 @@ If you need to add or remove IP addresses for a NIC, read the [Add, change, or r
 
 Complete the following tasks before completing any steps in any section of this article:
 
-1. Review the [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article to learn about limits for NICs.
-2. Log in to the Azure portal, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [free trial account](https://azure.microsoft.com/free).
-3. If using PowerShell commands to complete tasks in this article, install and configure Azure PowerShell by completing the steps in the [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure PowerShell commandlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
-4. If using Azure Command-line interface (CLI) commands to complete tasks in this article, install and configure the Azure CLI by completing the steps in the [How to install and configure the Azure CLI 2.0](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> -h`.
+- Review the [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article to learn about limits for NICs.
+- Log in to the Azure portal, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [free trial account](https://azure.microsoft.com/free).
+- If using PowerShell commands to complete tasks in this article, install and configure Azure PowerShell by completing the steps in the [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure PowerShell commandlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
+- If using Azure Command-line interface (CLI) commands to complete tasks in this article, install and configure the Azure CLI by completing the steps in the [How to install and configure the Azure CLI 2.0](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> -h`.
 
 ## <a name="create-nic"></a>Create a NIC
 You can create a NIC with custom settings and attach the NIC to a VM when creating it. You can also create a NIC and add it to an existing VM. To learn how to create a VM with a custom NIC and add or remove NICs from existing VMs, read the [Add or remove network interfaces to or from virtual machines](virtual-network-network-interface-vm.md) article.
@@ -162,10 +162,12 @@ When you delete a NIC, any MAC or IP addresses assigned to it are released.
 |**PowerShell**|[Remove-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.1.0/remove-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
-## <a name="next-steps"></a>Next Steps
-To create a VM with multiple NICs or IP addresses using PowerShell or the CLI, read the following articles:
+## <a name="next-steps"></a>Next steps
+To create a VM with multiple NICs or IP addresses, read the following articles:
 
-|**Tutorial**|**Tool**|
+|Task|Tool|
 |---|---|
-|Create a VM with multiple NICs|[CLI](virtual-network-deploy-multinic-arm-cli.md) and [PowerShell](virtual-network-deploy-multinic-arm-ps.md)|
-|Create a single NIC VM with multiple IP addresses|[CLI](virtual-network-multiple-ip-addresses-cli.md) and [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
+|Create a VM with multiple NICs|[CLI](/virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-supporting-resources)|
+||[PowerShell](/virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-core-resources)|
+|Create a single NIC VM with multiple IP addresses|[CLI](virtual-network-multiple-ip-addresses-cli.md)|
+||[PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
