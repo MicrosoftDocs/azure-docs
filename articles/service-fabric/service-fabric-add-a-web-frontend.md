@@ -159,12 +159,13 @@ Our stateful service is now ready to receive traffic from other services. So all
 
 1. In your ASP.NET project, add a reference to the class library that contains the `ICounter` interface.
 
-2. Add the Microsoft.ServiceFabric.Services package to the ASP.NET project, just as you did for the class library project earlier. This will provide the `ServiceProxy` class.
+2. Add the Microsoft.ServiceFabric.Services.Remoting package to the ASP.NET project, just as you did for the class library project earlier. This will provide the `ServiceProxy` class.
 
 4. In the **Controllers** folder, open the `ValuesController` class. Note that the `Get` method currently just returns a hard-coded string array of "value1" and "value2"--which matches what we saw earlier in the browser. Replace this implementation with the following code:
    
     ```c#
     using MyStatefulService.Interface;
+    using Microsoft.ServiceFabric.Services.Client;
     using Microsoft.ServiceFabric.Services.Remoting.Client;
    
     ...
