@@ -66,7 +66,6 @@
 ## [Service updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [C# code samples](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-## [CLI samples](batch-cli-samples.md)
 ## [Big Compute resources](big-compute-resources.md)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 05/01/2017
+ms.date: 05/02/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 
@@ -64,10 +64,10 @@ The sample scripts listed in the following table show how to use Azure CLI comma
 
 | Script | Notes |
 |---|---|
-| [Create a Batch account](../articles/batch/scripts/batch-cli-sample-create-account.md) | Creates a Batch account and associates it with a storage account. |
-| [Add an application](../articles/batch/scripts/batch-cli-sample-add-application.md) | Adds an application and uploads packaged binaries.|
-| [Manage Batch pools](../articles/batch/scripts/batch-cli-sample-manage-pool.md) | Demonstrates creating, resizing, and managing pools. |
-| [Run a job and tasks with Batch](../articles/batch/scripts/batch-cli-sample-run-job.md) | Demonstrates running a job and adding tasks. |
+| [Create a Batch account](./scripts/batch-cli-sample-create-account.md) | Creates a Batch account and associates it with a storage account. |
+| [Add an application](./scripts/batch-cli-sample-add-application.md) | Adds an application and uploads packaged binaries.|
+| [Manage Batch pools](./scripts/batch-cli-sample-manage-pool.md) | Demonstrates creating, resizing, and managing pools. |
+| [Run a job and tasks with Batch](./scripts/batch-cli-sample-run-job.md) | Demonstrates running a job and adding tasks. |
 
 ## JSON files for resource creation
 
@@ -81,29 +81,24 @@ While you can create most Batch resources using only command-line options, some 
 
 To see the JSON syntax required to create a resource, refer to the [Batch REST API reference][rest_api] documentation. Each "Add *resource type*" topic in the REST API reference contains sample JSON scripts for creating that resource. You can use those sample JSON scripts as templates for JSON files to use with the Azure CLI. For example, to see the JSON syntax for pool creation, refer to [Add a pool to an account][rest_add_pool].
 
-For a sample script that specifies a JSON file, see [Run a job and tasks with Batch](../articles/batch/scripts/batch-cli-sample-run-job.md).
+For a sample script that specifies a JSON file, see [Run a job and tasks with Batch](./scripts/batch-cli-sample-run-job.md).
 
 > [!NOTE]
 > If you specify a JSON file when you create a resource, all other parameters that you specify on the command line for that resource are ignored.
 > 
 > 
 
-## List pools, jobs, tasks, and other resources
+## Efficient queries for Batch resources
 
 Each Batch resource type supports a `list` command that queries your Batch account and lists resources of that type. For example, you can list the pools in your account and the tasks in a job:
 
 ```azurecli
-azure batch pool list
-azure batch task list --job-id job001
+az batch pool list
+az batch task list --job-id job001
 ```
 
-To query the Batch service efficiently, you can specify the **select**, **filter**, or **expand** OData clauses for `list` operations. Use these clauses to limit the amount of data returned by the Batch service. Because all filtering occurs server-side, only the data you request crosses the wire. Use these clauses to save bandwidth (and therefore time) when you perform list operations.
+When you query the Batch service with a `list` operation, you can specify an OData clause to limit the amount of data returned. Because all filtering occurs server-side, only the data you request crosses the wire. Use these clauses to save bandwidth (and therefore time) when you perform list operations.
 
-For example, the following command returns only pools whose IDs start with the string "renderTask":
-
-```azurecli
-azure batch task list --job-id job001 --filter-clause startswith(id, 'renderTask')
-```
 The following table describes the OData clauses supported by the Batch service:
 
 | Clause | Description |
@@ -112,62 +107,9 @@ The following table describes the OData clauses supported by the Batch service:
 | `--filter-clause [filter-clause]` | Returns only entities that match the specified OData expression. |
 | `--expand-clause [expand-clause]` | Obtains the entity information in a single underlying REST call. The expand clause supports only the `stats` property at this time. |
 
-For details on performing list queries with the OData clauses, see [Query the Azure Batch service efficiently](batch-efficient-list-queries.md).
+For a sample script that shows how to use an OData clause, see [Run a job and tasks with Batch](./scripts/batch-cli-sample-run-job.md).
 
-For a sample script that shows how to use an OData clause, see [Run a job and tasks with Batch](../articles/batch/scripts/batch-cli-sample-run-job.md).
-
-## Application package management
-Application packages provide a simplified way to deploy applications to the compute nodes in your pools. With the Azure CLI, you can upload application packages, manage package versions, and delete packages.
-
-To create a new application and add a package version:
-
-**Create** an application:
-
-    azure batch application create "resgroup001" "batchaccount001" "MyTaskApplication"
-
-**Add** an application package:
-
-    azure batch application package create "resgroup001" "batchaccount001" "MyTaskApplication" "1.10-beta3" package001.zip
-
-**Activate** the package:
-
-    azure batch application package activate "resgroup001" "batchaccount001" "MyTaskApplication" "1.10-beta3" zip
-
-Set the **default version** for the application:
-
-    azure batch application set "resgroup001" "batchaccount001" "MyTaskApplication" --default-version "1.10-beta3"
-
-### Deploy an application package
-You can specify one or more application packages for deployment when you create a new pool. When you specify a package at pool creation time, it is deployed to each node as the node joins pool. Packages are also deployed when a node is rebooted or reimaged.
-
-Specify the `--app-package-ref` option when creating a pool to deploy an application package to the pool's nodes as they join the pool. The `--app-package-ref` option accepts a semicolon-delimited list of application ids to deploy to the compute nodes.
-
-    azure batch pool create --pool-id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
-
-When you create a pool by using command-line options, you cannot currently specify *which* application package version to deploy to the compute nodes, for example "1.10-beta3". Therefore, you must first specify a default version for the application with `azure batch application set [options] --default-version <version-id>` before you create the pool (see previous section). You can, however, specify a package version for the pool if you use a [JSON file](#json-files) instead of command line options when you create the pool.
-
-You can find more information on application packages in [Application deployment with Azure Batch application packages](batch-application-packages.md).
-
-> [!IMPORTANT]
-> You must [link an Azure Storage account](#linked-storage-account-autostorage) to your Batch account to use application packages.
-> 
-> 
-
-### Update a pool's application packages
-To update the applications assigned to an existing pool, issue the `azure batch pool set` command with the `--app-package-ref` option:
-
-    azure batch pool set --pool-id "pool001" --app-package-ref "MyTaskApplication2"
-
-To deploy the new application package to compute nodes already in an existing pool, you must restart or reimage those nodes:
-
-    azure batch node reboot --pool-id "pool001" --node-id "tvm-3105992504_1-20160930t164509z"
-
-> [!TIP]
-> You can obtain a list of the nodes in a pool, along with their node ids, with `azure batch node list`.
-> 
-> 
-
-Keep in mind that you must already have configured the application with a default version prior to deployment (`azure batch application set [options] --default-version <version-id>`).
+For additional details on performing efficient list queries with OData clauses, see [Query the Azure Batch service efficiently](batch-efficient-list-queries.md).
 
 ## Troubleshooting tips
 
@@ -181,8 +123,8 @@ The following tips may help when you are troubleshooting Azure CLI issues:
 ## Next steps
 
 * See the [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview) for more information about the Azure CLI.
+* See [Overview of Azure Batch for developers](batch-api-basics.md) for more information about Batch resources.
 * See [Application deployment with Azure Batch application packages](batch-application-packages.md) to find out how to use this feature to manage and deploy the applications you execute on Batch compute nodes.
-* See [Query the Batch service efficiently](batch-efficient-list-queries.md) for more about reducing the number of items and the type of information that is returned for queries to Batch.
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
