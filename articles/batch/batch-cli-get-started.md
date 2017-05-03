@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # Manage Batch resources with Azure CLI
 
-You can use the cross-platform Azure Command-Line Interface (Azure CLI) to manage your Azure Batch accounts and to manage resources such as pools, jobs, and tasks in Linux, Mac, and Windows command shells. With the Azure CLI, you can script many of the same tasks you carry out with the Batch APIs, Azure portal, and Batch PowerShell cmdlets.
+The Azure CLI 2.0 is Azure's new command-line experience for managing Azure resources. It can be used on macOS, Linux, and Windows. Azure CLI 2.0 is optimized for managing and administering Azure resources from the command line. You can use the Azure CLI to manage your Azure Batch accounts and to manage resources such as pools, jobs, and tasks. With the Azure CLI, you can script many of the same tasks you carry out with the Batch APIs, Azure portal, and Batch PowerShell cmdlets.
 
 This article provides an overview of using [Azure CLI version 2.0](https://docs.microsoft.com/cli/azure/overview) with Batch. See [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli.md) for an overview of using the CLI with Azure.
 
@@ -31,7 +31,7 @@ This article provides an overview of using [Azure CLI version 2.0](https://docs.
 
 ## Set up the Azure CLI
 
-Before you can begin using the Azure CLI with Batch, you'll need to install it and log into your Azure account. Follow these steps: 
+Before you can begin using the Azure CLI with Batch, you'll need to install it and log in to your Azure account. Follow these steps: 
 
 * [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli.md)
 * [Log in to Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli.md#log-in-to-azure)
@@ -43,7 +43,7 @@ Before you can begin using the Azure CLI with Batch, you'll need to install it a
 
 ## Command help
 
-You can display help text for every command in the Azure CLI by appending `-h` as the only option after the command. For example:
+You can display help text for every command in the Azure CLI by appending `-h` to the command. Omit any other options. For example:
 
 * To get help for the `az` command, enter: `az -h`
 * To get a list of all Batch commands in the CLI, use: `az batch -h`
@@ -84,7 +84,7 @@ To see the JSON syntax required to create a resource, refer to the [Batch REST A
 For a sample script that specifies a JSON file, see [Run a job and tasks with Batch](./scripts/batch-cli-sample-run-job.md).
 
 > [!NOTE]
-> If you specify a JSON file when you create a resource, all other parameters that you specify on the command line for that resource are ignored.
+> If you specify a JSON file when you create a resource, any other parameters that you specify on the command line for that resource are ignored.
 > 
 > 
 
@@ -105,25 +105,25 @@ The following table describes the OData clauses supported by the Batch service:
 |---|---|
 | `--select-clause [select-clause]` | Returns a subset of properties for each entity. |
 | `--filter-clause [filter-clause]` | Returns only entities that match the specified OData expression. |
-| `--expand-clause [expand-clause]` | Obtains the entity information in a single underlying REST call. The expand clause supports only the `stats` property at this time. |
+| `--expand-clause [expand-clause]` | Obtains the entity information in a single underlying REST call. The expand clause currently supports only the `stats` property. |
 
 For a sample script that shows how to use an OData clause, see [Run a job and tasks with Batch](./scripts/batch-cli-sample-run-job.md).
 
-For additional details on performing efficient list queries with OData clauses, see [Query the Azure Batch service efficiently](batch-efficient-list-queries.md).
+For more information on performing efficient list queries with OData clauses, see [Query the Azure Batch service efficiently](batch-efficient-list-queries.md).
 
 ## Troubleshooting tips
 
 The following tips may help when you are troubleshooting Azure CLI issues:
 
 * Use `-h` to get **help text** for any CLI command
-* Use `-v` and `-vv` to display **verbose** command output; `-vv` is "extra" verbose and displays the actual REST requests and responses. These switches are handy for displaying full error output.
+* Use `-v` and `-vv` to display **verbose** command output. When the `-vv` flag is included, the Azure CLI displays the actual REST requests and responses. These switches are handy for displaying full error output.
 * You can view **command output as JSON** with the `--json` option. For example, `az batch pool show pool001 --json` displays pool001's properties in JSON format. You can then copy and modify this output to use in a `--json-file` (see [JSON files](#json-files) earlier in this article).
 * The [Batch forum][batch_forum] is monitored by Batch team members. You can post your questions there if you run into issues or would like help with a specific operation.
 
 ## Next steps
 
-* See the [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview) for more information about the Azure CLI.
-* See [Overview of Azure Batch for developers](batch-api-basics.md) for more information about Batch resources.
+* For more information about the Azure CLI, see the [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+* For more information about Batch resources, see [Overview of Azure Batch for developers](batch-api-basics.md).
 * See [Application deployment with Azure Batch application packages](batch-application-packages.md) to find out how to use this feature to manage and deploy the applications you execute on Batch compute nodes.
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
