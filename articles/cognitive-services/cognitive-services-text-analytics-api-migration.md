@@ -23,7 +23,7 @@ This guide will take you through the process of upgrading your code from using t
 If you have not used the API and would like to learn more, you can **[learn more about the API here](//go.microsoft.com/fwlink/?LinkID=759711)** or **[follow the Quick Start Guide](//go.microsoft.com/fwlink/?LinkID=760860)**. For technical reference, refer to the **[API Definition](//go.microsoft.com/fwlink/?LinkID=759346)**.
 
 ### Part 1. Get a new key
-First, you will need to get a new API key from the **Azure Portal**:
+First, you will need to get a new API key from the **Azure portal**:
 
 1. Navigate to the Text Analytics service through the [Cortana Intelligence Gallery](//gallery.cortanaintelligence.com/MachineLearningAPI/Text-Analytics-2). Here, you will also find links to the documentation and code samples.
 2. Click **Sign Up**. This link will take you to the Azure management portal, where you can sign up for the service.
