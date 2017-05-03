@@ -149,7 +149,7 @@ In this article, you use the **PySpark** kernel. For more information about the 
 Here are some common issues that you might run into while working with HDInsight clusters.
 
 ### Access control requirements
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+If you run into an issue with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## Delete the cluster
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
