@@ -182,7 +182,9 @@ By default, Azure Toolkit for IntelliJ lists the Spark clusters from all your Az
 You can use Azure Toolkit for IntelliJ to run Spark Scala applications locally on your workstation. Typically, these applications don't need access to cluster resources such as a storage container, and you can run and test them locally.
 
 ### Prerequisite
-While you're running the local Spark Scala application on a Windows computer, you might get an exception as explained in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). This exception occurs because WinUtils.exe is missing on Windows. To resolve this error, you must [download the executable](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) to a location like **C:\WinUtils\bin**, and then add an environment variable **HADOOP_HOME** and set the value of the variable to **C\WinUtils**.
+While you're running the local Spark Scala application on a Windows computer, you might get an exception as explained in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). This exception occurs because WinUtils.exe is missing on Windows. 
+
+To resolve this error, you must [download the executable](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) to a location like **C:\WinUtils\bin**. Then, add the environment variable **HADOOP_HOME** and set the value of the variable to **C\WinUtils**.
 
 ### Run a local Spark Scala application
 1. Start IntelliJ IDEA and create a project. In the **New Project** dialog box, make the following choices, and then click **Next**.
@@ -208,8 +210,8 @@ While you're running the local Spark Scala application on a Windows computer, yo
    
    ![Spark application local run result](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-local-run-result.png)
 
-## Convert existing IntelliJ IDEA applications to use the HDInsight tools in Azure Toolkit for IntelliJ
-You can convert your existing Spark Scala applications created in IntelliJ IDEA to be compatible with Azure Toolkit for IntelliJ. You can then use the tool to submit the applications to an HDInsight Spark cluster.
+## Convert existing IntelliJ IDEA applications to use Azure Toolkit for IntelliJ
+You can convert your existing Spark Scala applications created in IntelliJ IDEA to be compatible with Azure Toolkit for IntelliJ. You can then use the plug-in to submit the applications to an HDInsight Spark cluster.
 
 1. For an existing Spark Scala application created through IntelliJ IDEA, open the associated .iml file.
 2. At the root level, you see a **module** element like this:
@@ -248,7 +250,7 @@ These errors happen because the heap size is not large enough for Spark to run. 
 ## Feedback and known issues
 Currently, viewing Spark outputs directly is not supported.
 
-If you have any suggestions or feedback, or if you encounter any problems when using this tool, send us an email at hdivstool@microsoft.com.
+If you have any suggestions or feedback, or if you encounter any problems when using this plug-in, send us an email at hdivstool@microsoft.com.
 
 ## <a name="seealso"></a>See also
 * [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
@@ -260,7 +262,7 @@ If you have any suggestions or feedback, or if you encounter any problems when u
 * [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
 * [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
-### Create and run applications
+### Creating and running applications
 * [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
 * [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
@@ -272,7 +274,7 @@ If you have any suggestions or feedback, or if you encounter any problems when u
 * [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
-### Manage resources
+### Managing resources
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md)
 
