@@ -1,6 +1,6 @@
 ---
-title: Create a CiCd pipeline in Azure with Jenkins | Microsoft Docs
-description: Learn how to create a Jenkins instance in Azure that pulls from GitHub on each code commit and builds a new Docker container to test your app
+title: Create a CI/CD pipeline in Azure with Jenkins | Microsoft Docs
+description: Learn how to create a Jenkins instance in Azure that pulls from GitHub on each code commit and builds a new Docker container to run your app
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -18,10 +18,15 @@ ms.date: 05/03/2017
 ms.author: iainfou
 ---
 
-# Create a CiCd infrastructure in Azure that uses Jenkins, GitHub, and Docker
+# Create a CI/CD infrastructure on a Linux VM in Azure that uses Jenkins, GitHub, and Docker
+To automate the build and test phase of application development, you can use a continuous integration and deployment pipeline (CI/CD). In this tutorial, you learn how to create a CI/CD pipeline on an Azure VM. You build a VM that runs Jenkins, has a webhook for GitHub integration, and then builds Docker images and containers to run an app.
+
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Create Jenkins instance
-In a previous tutorial on [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with cloud-init. This tutorial uses a cloud-init file to install Jenkins and Docker on a VM. Create a cloud-init file named *cloud-init-jenkins.txt* and paste the following contents:
+In a previous tutorial on [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with cloud-init. This tutorial uses a cloud-init file to install Jenkins and Docker on a VM. 
+
+Create a cloud-init file named *cloud-init-jenkins.txt* and paste the following contents:
 
 ```yaml
 #cloud-config
@@ -53,7 +58,7 @@ Before you can create a VM, create a resource group with [az group create](/cli/
 az group create --name myResourceGroupJenkins --location eastus
 ```
 
-Now create a VM with [az vm create](/cli/azure/vm#create). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the *cloud-init-jenkins.txt* config if you saved the file outside of your present working directory.
+Now create a VM with [az vm create](/cli/azure/vm#create). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to *cloud-init-jenkins.txt* if you saved the file outside of your present working directory.
 
 ```azurecli
 az vm create --resource-group myResourceGroupJenkins \
@@ -81,10 +86,10 @@ To access your Jenkins instance, obtain the public IP address of your VM:
 az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publicIps] --o tsv
 ```
 
-Open a web browser and go to `http://<publicIpAddress>:8080`. The Jenkins configure page is displayed. For security purposes, you need to enter the initial admin password that is stored in a text file on your VM. Use the public IP address obtained in the previous step to SSH to your VM:
+Open a web browser and go to `http://<publicIps>:8080`. The Jenkins configure page is displayed. For security purposes, you need to enter the initial admin password that is stored in a text file on your VM. Use the public IP address obtained in the previous step to SSH to your VM:
 
 ```bash
-ssh azureuser@<publicIpAddress>
+ssh azureuser@<publicIps>
 ```
 
 View the `initialAdminPassword` for your Jenkins install and copy it:
@@ -191,11 +196,11 @@ az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publi
 
 Open a web browser and enter *http://<publicIpAddress>:1337*. Your Node.js app is displayed and reflects the latest commits in your GitHub fork as follows:
 
-![Running Node.js app](media/tutorial-jenkins-github-docker-cicd/running_nodejs_app.png)
+![Running Node.js app](media/tutorial-jenkins-github-docker-CI/CD/running_nodejs_app.png)
 
 Now make another edit to the *index.js* file in GitHub and commit the change. Wait a few seconds for the job to complete in Jenkins, then refresh your web browser to see the updated version of your app running in a new container as follows:
 
-![Running Node.js app after another GitHub commit](media/tutorial-jenkins-github-docker-cicd/another_running_nodejs_app.png)
+![Running Node.js app after another GitHub commit](media/tutorial-jenkins-github-docker-CI/CD/another_running_nodejs_app.png)
 
 ## Next steps
 In this tutorial, you have learned how to configure Jenkins to pull from a GitHub repo and deploy a Docker container to test your app.
