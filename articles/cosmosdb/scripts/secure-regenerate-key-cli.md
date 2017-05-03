@@ -1,19 +1,19 @@
 ---
 title: Azure CLI Script-Regenerate Azure Cosmos DB account key | Microsoft Docs
 description: Azure CLI Script Sample - Regenerate an Azure Cosmos DB account key
-services: documentdb
-documentationcenter: documentdb
+services: cosmosdb
+documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: ''
 tags: azure-service-management
 
 ms.assetid:
-ms.service: documentdb
+ms.service: cosmosdb
 ms.custom: sample
 ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: documentdb
+ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 04/20/2017
 ms.author: mimig
@@ -27,7 +27,7 @@ This sample regenerates any kind of Azure Cosmos DB account key using the Azure 
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/documentdb/secure-documentdb-regenerate-keys/secure-documentdb-regenerate-keys.sh?highlight=30-34 "Regenerate Azure Cosmos DB account keys")]
+[!code-azurecli[main](../../../cli_scripts/cosmosdb/secure-cosmosdb-regenerate-keys/secure-cosmosdb-regenerate-keys.sh?highlight=30-34 "Regenerate Azure Cosmos DB account keys")]
 
 ## Clean up deployment
 
@@ -44,12 +44,12 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 | [az group create](/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az documentdb create](/cli/azure/documentdb/name#create) | Updates a DocumentDB account. |
-| [az documentdb regenerate-key](/cli/azure/documentdb/regenerate-key) | Regeneratates DocumentDB account keys. |
+| [az cosmosdb create](/cli/azure/cosmosdb/name#create) | Updates an Azure Cosmos DB account. |
+| [az cosmosdb regenerate-key](/cli/azure/cosmosdb/regenerate-key) | Regeneratates Azure Cosmos DB account keys. |
 | [az group delete](/cli/azure/resource#delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI documentation](../documentdb-cli-samples.md).
+Additional Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI documentation](../cli-samples.md).

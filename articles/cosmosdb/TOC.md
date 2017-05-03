@@ -30,7 +30,7 @@
 ### [MongoDB](tutorial-query-mongodb.md)
 ### [Table](tutorial-query-table.md)
 ### [Graph](tutorial-query-graph.md)
-## [4 - Multi-region replication](../articles/documentdb/documentdb-portal-global-replication.md)
+## [4 - Replicate globally](../articles/documentdb/documentdb-portal-global-replication.md)
 ## 5 - Develop locally
 ### [1 - Use the emulator](../articles/documentdb/documentdb-nosql-local-emulator.md)
 ### [2 - Export certificates](../articles/documentdb/documentdb-nosql-local-emulator-export-ssl-certificates.md)

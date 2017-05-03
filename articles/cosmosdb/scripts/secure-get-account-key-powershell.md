@@ -1,25 +1,25 @@
 ---
-title: Azure PowerShell Script-Get account keys for DocumentDB | Microsoft Docs
-description: Azure PowerShell Script Sample - Get account keys for DocumentDB
-services: documentdb
-documentationcenter: documentdb
+title: Azure PowerShell Script-Get account keys for cosmosdb | Microsoft Docs
+description: Azure PowerShell Script Sample - Get account keys for cosmosdb
+services: cosmosdb
+documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: ''
 tags: azure-service-management
 
 ms.assetid:
-ms.service: documentdb
+ms.service: cosmosdb
 ms.custom: sample
 ms.devlang: PowerShell
 ms.topic: article
-ms.tgt_pltfrm: documentdb
+ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 04/20/2017
 ms.author: mimig
 ---
 
-# Get account keys for DocumentDB using PowerShell
+# Get account keys for Azure Cosmos DB using PowerShell
 
 This sample gets account keys for any kind of Azure Cosmos DB account.  
 
@@ -53,4 +53,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/).
 
-Additional Azure Cosmos DB PowerShell script samples can be found in the [Azure Cosmos DB PowerShell scripts](../documentdb-powershell-samples.md).
+Additional Azure Cosmos DB PowerShell script samples can be found in the [Azure Cosmos DB PowerShell scripts](../powershell-samples.md).

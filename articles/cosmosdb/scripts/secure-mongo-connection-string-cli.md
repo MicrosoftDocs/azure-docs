@@ -1,19 +1,19 @@
 ---
 title: Azure CLI Script-Get Azure Cosmos DB connection string for MongoDB apps| Microsoft Docs
 description: Azure CLI Script Sample - Get Azure Cosmos DB connection string for MongoDB apps
-services: documentdb
-documentationcenter: documentdb
+services: cosmosdb
+documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: ''
 tags: azure-service-management
 
 ms.assetid:
-ms.service: documentdb
+ms.service: cosmosdb
 ms.custom: sample
 ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: documentdb
+ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 04/20/2017
 ms.author: mimig
@@ -27,7 +27,7 @@ This sample gets an Azure Cosmos DB connection string for MongoDB apps using the
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/documentdb/secure-documentdb-get-mongodb-connection-string/secure-documentdb-get-mongodb-connection-string.sh?highlight=38-41  "Get Azure Cosmos DB connection string for MongoDB apps")]
+[!code-azurecli[main](../../../cli_scripts/cosmosdb/secure-cosmosdb-get-mongodb-connection-string/secure-cosmosdb-get-mongodb-connection-string.sh?highlight=38-41  "Get Azure Cosmos DB connection string for MongoDB apps")]
 
 ## Clean up deployment
 
@@ -44,12 +44,12 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 | [az group create](/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az documentdb update](/cli/azure/documentdb/name#update) | Updates a DocumentDB account. |
-| [az documentdb list-connection-strings](/cli/azure/documentdb/list-connection-strings) | Gets the connection string for the account.|
+| [az cosmosdb update](/cli/azure/cosmosdb/name#update) | Updates an Azure Cosmos DB account. |
+| [az cosmosdb list-connection-strings](/cli/azure/cosmosdb/list-connection-strings) | Gets the connection string for the account.|
 | [az group delete](/cli/azure/resource#delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI documentation](../documentdb-cli-samples.md).
+Additional Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI documentation](../cli-samples.md).

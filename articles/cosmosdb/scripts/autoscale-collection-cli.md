@@ -1,19 +1,19 @@
 ---
 title: Azure CLI Script-Autoscale an Azure Cosmos DB collection | Microsoft Docs
 description: Azure CLI Script Sample - Autoscale an Azure Cosmos DB collection
-services: documentdb
-documentationcenter: documentdb
+services: cosmosdb
+documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: ''
 tags: azure-service-management
 
 ms.assetid:
-ms.service: documentdb
+ms.service: cosmosdb
 ms.custom: sample
 ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: documentdb
+ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 04/20/2017
 ms.author: mimig
@@ -27,7 +27,7 @@ This sample CLI script autoscales an Azure Cosmos DB collection.
 
 ## Sample script
 
-`[!code-azurecli[main](../../../cli_scripts/documentdb/scale-documentdb-autoscale-collection/scale-documentdb-autoscale-collection.sh "Autoscale an Azure Cosmos DB collection")]`
+`[!code-azurecli[main](../../../cli_scripts/cosmosdb/scale-cosmosdb-autoscale-collection/scale-cosmosdb-autoscale-collection.sh "Autoscale an Azure Cosmos DB collection")]`
 
 ## Clean up deployment
 
@@ -50,4 +50,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB documentation](../documentdb-cli-samples.md).
+Additional Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB documentation](../cli-samples.md).
