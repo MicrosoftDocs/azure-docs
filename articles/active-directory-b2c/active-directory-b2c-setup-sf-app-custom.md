@@ -50,7 +50,7 @@ This tutorial assumes you already have:
 1. **Select the certificate** you want Salesforce to use when communicating with Azure AD B2C and click **Save**. You can use the default certificate.
 1. Click on the now available **Download Metadata** button and save the metadata file which you'll use in a later step.
 
-## Add SAML Assertion/Messaging certificates to Azure AD B2C
+## Add a SAML Signing certificate to Azure AD B2C
 You need to store upload the Salesforce certificate to your Azure AD B2C tenant. To do this:
 
 1. Open PowerShell and navigate to the working directory `active-directory-b2c-advanced-policies`.
@@ -66,19 +66,19 @@ You need to store upload the Salesforce certificate to your Azure AD B2C tenant.
     Import-Module .\ExploreAdmin.dll
     ```
 
-1. In the following command, replace `tenantName` with the name of your Azure AD B2C tenant (e.g. fabrikamb2c.onmicrosoft.com), `SecretReferenceId` with a name that you will use to reference the secret (e.g. ContosoAppSecret), and `ClientSecret` with the `contoso.com` application key. Run the command.
+1. In the following command, replace `tenantName` with the name of your Azure AD B2C tenant (e.g. fabrikamb2c.onmicrosoft.com), `certificateId` with a name for the certificate that will use to reference it in the policy later on (e.g. ContosoSalesforceCert) and finally `pathToCert` and `password` with the path and password of the certificate. Run the command.
 
     ```PowerShell
-    Set-CpimKeyContainer -Tenant {tenantName} -StorageReferenceId {SecretReferenceId} -UnencodedAsciiKey {ClientSecret}
+    Set-CpimCertificate -TenantId {tenantName} -CertificateId {certificateId} -CertificateFileName {pathToCert} - CertificatePassword {password}
     ```
 
-    When you run the command, make sure you sign in with the onmicrosoft.com admin account local to the Azure AD B2C tenant. If you receive an error that says 'TokenSigningKeyContainer' cannot be found, go through the [getting started](active-directory-b2c-get-started-custom.md) guide.
+    When you run the command, make sure you sign in with the onmicrosoft.com admin account local to the Azure AD B2C tenant. 
 
 1. Close PowerShell.
 
-## Add a claims provider in your base policy
+## Create the Salesforce SAML claims provider in your base policy
 
-In order to allow users to log in using Azure AD, you need to define Azure AD as a claims provider. In other words, you need to specify an endpoint that Azure AD B2C will communicate with. The endpoint will *provide* a set of *claims* that are used by Azure AD B2C to verify that a specific user has authenticated. You can do this by adding Azure AD as a `<ClaimsProvider>` in the extension file of your policy.
+In order to allow users to log in using Salesforce, you need to define Salesforce as a claims provider. In other words, you need to specify the endpoint that Azure AD B2C will communicate with. The endpoint will *provide* a set of *claims* that are used by Azure AD B2C to verify that a specific user has authenticated. You can do this by adding a `<ClaimsProvider>` for Salesforce in the extension file of your policy.
 
 1. Open the extension file from your working directory (TrustFrameworkExtensions.xml).
 1. Find the section `<ClaimsProviders>`. If it does not exist, add it under the root node.
@@ -86,43 +86,42 @@ In order to allow users to log in using Azure AD, you need to define Azure AD as
 
     ```XML
     <ClaimsProvider>
-        <Domain>Contoso</Domain>
-        <DisplayName>Login using Contoso</DisplayName>
-        <TechnicalProfiles>
-        <TechnicalProfile Id="ContosoProfile">
-            <DisplayName>Contoso Employee</DisplayName>
-            <Description>Login with your Contoso account</Description>
-            <Protocol Name="OpenIdConnect"/>
-            <OutputTokenFormat>JWT</OutputTokenFormat>
-            <Metadata>
-                <Item Key="METADATA">https://login.windows.net/contoso.com/.well-known/openid-configuration</Item>
-                <Item Key="ProviderName">https://sts.windows.net/00000000-0000-0000-0000-000000000000/</Item>
-                <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
-                <Item Key="IdTokenAudience">00000000-0000-0000-0000-000000000000</Item>
-                <Item Key="response_types">id_token</Item>
-                <Item Key="UsePolicyInRedirectUri">false</Item>
-            </Metadata>
-            <CryptographicKeys>
-            <Key Id="client_secret" StorageReferenceId="ContosoAppSecret"/>
-            </CryptographicKeys>
-            <OutputClaims>
-                <OutputClaim ClaimTypeReferenceId="userId" PartnerClaimType="oid"/>
-                <OutputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="tid"/>
-                <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
-                <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
-                <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
-                <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="contosoAuthentication" />
-                <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="AzureADContoso" />
-            </OutputClaims>
-            <OutputClaimsTransformations>
-                <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName"/>
-                <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName"/>
-                <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId"/>
-                <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId"/>
-            </OutputClaimsTransformations>
-            <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop"/>
+      <Domain>contoso</Domain>
+      <DisplayName>Contoso</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="Contoso">
+          <DisplayName>Contoso</DisplayName>
+          <Description>Login with your Contoso account</Description>
+          <Protocol Name="SAML2"/>
+          <Metadata>
+            <Item Key="RequestsSigned">false</Item>
+            <Item Key="WantsEncryptedAssertions">false</Item>
+            <Item Key="PartnerEntity">
+    <![CDATA[ <md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://contoso.com" validUntil="2026-10-05T23:57:13.854Z" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"><md:KeyDescriptor use="signing"><ds:KeyInfo><ds:X509Data><ds:X509Certificate>MIIErDCCA….qY9SjVXdu7zy8tZ+LqnwFSYIJ4VkE9UR1vvvnzO</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat><md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://contoso.com/idp/endpoint/HttpPost"/><md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://contoso.com/idp/endpoint/HttpRedirect"/></md:IDPSSODescriptor></md:EntityDescriptor>]]>
+            </Item>
+          </Metadata>       
+          <CryptographicKeys>
+            <Key Id="SamlAssertionSigning" StorageReferenceId="ContosoIdpSamlCert"/>
+            <Key Id="SamlMessageSigning" StorageReferenceId="ContosoIdpSamlCert "/>
+          </CryptographicKeys>
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="userId" PartnerClaimType="userId"/>
+            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="SAML Idp" />
+            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name"/>
+            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name"/>
+            <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email"/>
+            <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name"/>
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="externalIdp"/>
+          </OutputClaims>
+          <OutputClaimsTransformations>
+            <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName"/>
+            <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName"/>
+            <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId"/>
+            <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId"/>
+          </OutputClaimsTransformations>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop"/>
         </TechnicalProfile>
-        </TechnicalProfiles>
+      </TechnicalProfiles>
     </ClaimsProvider>
     ```
 
@@ -131,27 +130,18 @@ In order to allow users to log in using Azure AD, you need to define Azure AD as
 
 ### Update the technical profile
 
-In order to get a token from the Azure AD endpoint, you need to define the protocols that Azure AD B2C should use to communicate with Azure AD. This is done inside the `<TechnicalProfile>` element of the `<ClaimsProvider>`.
+In order to get a SAML token from Salesforce, you need to define the protocols that Azure AD B2C should use to communicate with Azure AD. This is done inside the `<TechnicalProfile>` element of the `<ClaimsProvider>`.
 
 1. Update the id of the `<TechnicalProfile>` node. This id is used to refer to this technical profile from other parts of the policy.
 1. Update the value for `<DisplayName>`. This value will be displayed on the login button in your login screen.
 1. Update the value for `<Description>`.
-1. Azure AD uses the OpenID Connect protocol, so ensure that `<Protocol>` is "OpenIDConnect".
+1. Azure AD uses the OpenID Connect protocol, so ensure that `<Protocol>` is "SAML2".
 
-You need to update the `<Metdata>` section in the XML above to reflect the configuration settings for your specific Azure AD tenant. In the XML, update the metadata values as following:
+You need to update the `<Metadata>` section in the XML above to reflect the configuration settings for your specific Azure AD tenant. In the XML, update the metadata values as following:
 
-1. Set `<Item Key="METADATA">` to `https://login.windows.net/{tenantName}/.well-known/openid-configuration`, where `tenantName` is your Azure AD tenant name (e.g. contoso.com).
-1. Open your browser and navigate to the `Metadata` URL that you just updated.
-1. In the browser, look for the 'issuer' object and copy its value. It should look like the following `https://sts.windows.net/{tenantId}/`.
-1. Paste the value for `<Item Key="ProviderName">` in the XML.
-1. Set `<Item Key="client_id">` to the `Application ID` from the app registration.
-1. Set `<Item Key="IdTokenAudience">` to the `Application ID` from the app registration.
-1. Ensure that `<Item Key="response_types">` is set to `id_token`.
-1. Ensure that `<Item Key="UsePolicyInRedirectUri">` is set to `false`.
+1. Update the value of the `<Item Key="PartnerEntity">`, with the contents of the Metadata.xml you downloaded from Salesforce. **Make sure you encapsulate it with <![CDATA[ …metadata… ]]>**.
 
-You also need to link the [Azure AD secret that you registered in your Azure AD B2C tenant](#add-the-azure-ad-key-to-azure-ad-b2c) to the Azure AD `<ClaimsProvider>`.
-
-1. In the `<CryptographicKeys>` section in the XML above, update the value for `StorageReferenceId` to the reference ID of the secret that you defined (e.g. ContosoAppSecret).
+1. In the `<CryptographicKeys>` section in the XML above, update the value for both `StorageReferenceId` to the certificate ID that you defined (e.g. ContosoSalesforceCert).
 
 ### Upload the extension file for verification
 
@@ -161,9 +151,9 @@ By now, you will have configured your policy so that Azure AD B2C knows how to c
 1. Check the box for **Overwrite the policy if it exists**.
 1. Upload the extension file (TrustFrameworkExtensions.xml) and ensure it does not fail the validation.
 
-## Register the Azure AD claims provider to a User Journey
+## Register the Salesforce SAML claims provider to a User Journey
 
-You now need to add the Azure AD identity provider into one of your user journeys. At this point, the identity provider has been set up, but it’s not available in any of the sign-up / sign-in screens. To do so, we will create a duplicate of an existing template user journey, and then modify it so that it also has the Azure AD identity provider.
+You now need to add the Salesforce SAML identity provider into one of your user journeys. At this point, the identity provider has been set up, but it’s not available in any of the sign-up / sign-in screens. To do so, we will create a duplicate of an existing template user journey, and then modify it so that it also has the Azure AD identity provider.
 
 1. Open the base file of your policy (e.g TrustFrameworkBase.xml)
 1. Find the `<UserJourneys>` element and copy the entire `<UserJourney>` with Id=”SignUpOrSignIn”.
@@ -173,7 +163,7 @@ You now need to add the Azure AD identity provider into one of your user journey
 
 ### Display the "button"
 
-The `<ClaimsProviderSelection>` element is analagous to an identity provider button on a sign-up/sign-in screen. By adding an `<ClaimsProviderSelection>` element for Azure AD, a new button will show up when a user lands on the page. To do this:
+The `<ClaimsProviderSelection>` element is analagous to an identity provider button on a sign-up/sign-in screen. By adding an `<ClaimsProviderSelection>` element for Salesforce, a new button will show up when a user lands on the page. To do this:
 
 1. Find the `<OrchestrationStep>` with `Order="1"` in the `<UserJourney>` that you just created.
 1. Add the following:
@@ -186,7 +176,7 @@ The `<ClaimsProviderSelection>` element is analagous to an identity provider but
 
 ### Link the "button" to an action
 
-Now that you have a "button" in place, you need to link it to an action. The action, in this case, is for Azure AD B2C to communicate with Azure AD to receive a token. You can do this by linking the technical profile for your Azure AD claims provider.
+Now that you have a "button" in place, you need to link it to an action. The action, in this case, is for Azure AD B2C to communicate with Salesforce to receive a SAML token. You can do this by linking the technical profile for your Salesforce SAML claims provider.
 
 1. Find the `<OrchestrationStep>` with `Order="2"` in the `<UserJourney>` node
 1. Add the following:
