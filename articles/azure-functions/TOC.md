@@ -1,6 +1,5 @@
 # Overview
 ## [About Functions](functions-overview.md)
-## [Compare serverless options](functions-compare-serverless-options.md)
 ## [Choose between Flow, Logic Apps, Functions, and WebJobs](functions-compare-logic-apps-ms-flow-webjobs.md)
 
 # Quickstarts
@@ -14,7 +13,6 @@
 
 # Concepts
 ## [Hosting plans](functions-scale.md)
-## [Function App](functions-concepts-function-app.md)
 ## [Triggers and bindings](functions-triggers-bindings.md)
 
 # How-to guides
