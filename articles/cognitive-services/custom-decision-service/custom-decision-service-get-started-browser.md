@@ -27,7 +27,7 @@ If you are not already signed in, the portal prompts you to sign in with your [M
 
 To register your application, click the *New* button. A pop-up should open for registering a new app. Let us see how to register an application in the *pooled learning mode* that was described in the [Overview](custom-decision-service-overview.md). Choose an identifier for your application. Custom Decision Service expects a unique identifier for each application. If someone else has already taken this id, the system asks you to pick a different id. You can also create a name for an action set feed, along with an RSS or Atom end point currently. This feed communicates the available content for your app to the Custom Decision Service. An example for creating the RSS feed is described later.
 
-If you want to register your application in the *application-specific learning mode*, then click the check box *Advanced* in the bottom-left corner of the dialog. At this point, you can specify an [Azure Storage Account Connection String](../../storage/storage-configure-connection-string.md). This account will contain all the data related to your application by Custom Decision Service.
+If you want to register your application in the *application-specific learning mode*, then click the check box *Advanced* in the bottom-left corner of the dialog. Enter a [connection string](../../storage/storage-configure-connection-string.md) for the Azure Storage account where your application data would be logged. For more information on how to create an Azure Storage account, see [here](../../storage/storage-create-storage-account.md).
 
 ## Using our APIs
 
