@@ -51,7 +51,8 @@ When your data volume permits, we recommend the application-specific learning mo
 
 Then Custom Decision Service creates a deployment of the *entire learning pipeline* for your application. You can also access the collected data offline to derive further insights about user preferences.
 
-To use this learning mode, you need to have an [Azure storage account](../../storage/storage-create-storage-account.md) where your data would be logged. Choose "advanced options" when registering a new application on the portal, and enter the connection string for the storage account.
+To use this learning mode, you need to have an [Azure storage account](../../storage/storage-create-storage-account.md) where your data would be logged. Choose "advanced options" when registering a new application on the portal, and enter the
+[connection string](../../storage/storage-configure-connection-string.md) for the storage account.
 
 ## API usage modes
 
