@@ -1,6 +1,6 @@
 ---
 title: Encryption in Azure Data Lake Store | Microsoft Docs
-description: Understand how encryption and key rotation works in Azure Data Lake Store
+description: Understand how encryption and key rotation work in Azure Data Lake Store
 services: data-lake-store
 documentationcenter: ''
 author: yagupta
@@ -17,60 +17,60 @@ ms.date: 4/14/2017
 ms.author: yagupta
 ---
 
-# Encryption of Data in Azure Data Lake Store
+# Encryption of data in Azure Data Lake Store
 
-## Overview of Encryption in Azure Data Lake Store
+Encryption in Azure Data Lake Store (ADLS) helps you protect your data, implement enterprise security policies, and meet regulatory compliance requirements. This article provides an overview of the design, and discusses some of the technical aspects of implementation.
 
-Encryption in Azure Data Lake Store (ADLS) provides you the ability to protect your data, implement enterprise security policies and meet regulatory compliance requirements. This article provides you an overview of the design and discusses technical aspects of how the data lake store implements data encryption.
+ADLS supports encryption of data both at rest and in transit. For data at rest, ADLS supports "on by default," transparent encryption. Here is what these terms mean in a bit more detail:
 
-ADLS supports on by default, transparent, encryption of data at rest. Here is what these terms mean in a bit more detail:
+* **On by default:** When you create a new ADLS account, the default setting enables encryption. Thereafter, data that is stored in ADLS is always encrypted prior to storing on persistent media. This is the behavior for all data, and it cannot be changed after an account is created.
+* **Transparent:** ADLS automatically encrypts data prior to persisting, and decrypts data prior to retrieval. The encryption is configured and managed at the ADLS level by an administrator. No changes are made to the data access APIs. Thus, no changes are required in applications and services that interact with ADLS because of encryption.
 
-* On by Default: When creating a new Azure Data Lake Store account, the default setting enables encryption. Thereafter, data that is stored in the data lake store is always encrypted prior to storing on persistent media. This is the behavior for all data and it cannot be changed after an account is created.
-* Transparent: ADLS automatically encrypts data prior to persisting and decrypts data prior to retrieval. The encryption is configured and managed at the data lake store level by an administrator. No changes are made to the data access APIs and thus no changes are required in applications and services that interact with the data lake store because of encryption.
+Data in transit (also known as data in motion) is also always encrypted in ADLS. In addition to encrypting data prior to storing to persistent media, the data is also always secured in transit by using HTTPS. HTTPS is the only protocol that is supported for the ADLS REST interfaces. The following diagram shows how data becomes encrypted in ADLS:
 
-Data in transit (aka data in motion) is also always encrypted in the data lake store. In addition to encrypting data prior to storing to persistent media, the data is also always secured in transit or in motion by using HTTPS (HTTP over Secure Sockets Layer). HTTPS is the only protocol that is supported for the data lake store REST interfaces.
-
-![Figure 1](./media/data-lake-store-encryption/fig1.png)
+![Diagram of data encryption in ADLS](./media/data-lake-store-encryption/fig1.png)
 
 
-## Setting up Encryption with Azure Data Lake Store
+## Set up encryption with Data Lake Store
 
-Encryption for Azure Data Lake store is set up during account creation, it is always enabled by default. Customers have the choice to either manage keys or allow Azure Data Lake Store (default) to manage the keys for them.
+Encryption for ADLS is set up during account creation, and it is always enabled by default. You can either manage the keys yourself, or allow ADLS to manage them for you (this is the default).
 
-To learn how to set up Encryption with Azure Data Lake Store, see – [Getting Started](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)
+For more information, see [Getting started](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
-## Under the Hood – How Encryption works in Azure Data Lake Store
+## How encryption works in Data Lake Store
 
-### Master Encryption Keys
+The following information covers how to manage master encryption keys, and also explains the three different types of keys you can use in data encryption for ALDS.
 
-Azure Data Lake Store provides two modes for management of master encryption keys (MEKs). The usage of master encryption keys is explained in greater detail further below. For now, assume that the master encryption key is the top-level key. Access to the master encryption key is required to decrypt any data that is stored in the data lake store.
+### Master encryption keys
+
+ADLS provides two modes for management of master encryption keys (MEKs). For now, assume that the master encryption key is the top-level key. Access to the master encryption key is required to decrypt any data stored in ADLS.
 
 The two modes for managing the master encryption key are as follows:
 
-1.	Service Managed Keys
-2.	customer-managed Keys
+*	Service managed keys
+*	Customer managed keys
 
-In both modes, the master encryption key is secured by storing it Azure Key Vault. Azure Key Vault is a fully managed, highly secure service on Azure that can be used to safeguard cryptographic keys. You can read more about Azure Key Vault [here](https://azure.microsoft.com/services/key-vault)
+In both modes, the master encryption key is secured by storing it in Azure Key Vault. Key Vault is a fully managed, highly secure service on Azure that can be used to safeguard cryptographic keys. For more information, see [Key Vault](https://azure.microsoft.com/services/key-vault).
 
 Here is a brief comparison of capabilities provided by the two modes of managing the MEKs.
 
-|  | Service Managed Keys | Customer Managed Keys |
+|  | Service managed keys | Customer managed keys |
 | --- | --- | --- |
-|How is data stored?|Always encrypted prior to being stored|Always encrypted prior to being stored|
-|Where is the Master Encryption Key Stored?|Azure Key Vault|Azure Key Vault|
-|Are any encryption keys stored in the clear outside of Azure Key Vault|No|No|
-|Can the MEK be retrieved the Azure Key Vault?|No. Once stored in the key vault it can only be used for encryption and decryption.|No. Once stored in the key vault it can only be used for encryption and decryption.|
-|Who owns the Azure Key Vault and the MEK?|Azure Data Lake Store service.|The customer owns the Azure Key Vault, which belongs in their own Azure subscription. The MEK in the key vault can be software or hardware (HSM) managed.|
-|Can the customer revoke access to the MEK for the Azure Data Lake Store service?|No|Yes. They can manage access control lists on the Azure Key Vault and remove access control entries to the service identity for the Azure Data Lake Store service.|
-|Can the customer permanently delete the MEK?|No|Yes. If the customer deletes the MEK from the Azure Key Vault, the data in the ADLS account cannot be decrypted by anybody including the Azure Data Lake Store service. <br><br> If the MEK explicitly backed up by the customer prior to deleting from Azure Key Vault, then it can be restored and the data can then be recovered. However, if the MEK is not backed up by the customer prior to deleting from Azure Key Vault then the data in the ADLS account can never be decrypted thereafter.|
+|How is data stored?|Always encrypted prior to being stored.|Always encrypted prior to being stored.|
+|Where is the Master Encryption Key stored?|Azure Key Vault|Azure Key Vault|
+|Are any encryption keys stored in the clear outside of Key Vault? |No|No|
+|Can the MEK be retrieved by the Key Vault?|No. Once stored in the Key Vault, it can only be used for encryption and decryption.|No. Once stored in the Key Vault, it can only be used for encryption and decryption.|
+|Who owns the Key Vault and the MEK?|The ADLS service|You own the Azure Key Vault, which belongs in your own Azure subscription. The MEK in the Key Vault can be managed by software or hardware.|
+|Can you revoke access to the MEK for the ADLS service?|No|Yes. You can manage access control lists on the Key Vault, and remove access control entries to the service identity for the ADLS service.|
+|Can you permanently delete the MEK?|No|Yes. If you delete the MEK from the Key Vault, the data in the ADLS account cannot be decrypted by anyone, including the ADLS service. <br><br> If you have explicitly backed up the MEK prior to deleting it from Key Vault, the MEK can be restored, and the data can then be recovered. However, if you have not backed up the MEK prior to deleting it from Key Vault, the data in the ADLS account can never be decrypted thereafter.|
 
 
-Aside from the top-level difference, of who manages the MEK and the Key Vault in which it resides, the rest of the design is the same for both modes.
+Aside from this difference of who manages the MEK and the Key Vault in which it resides, the rest of the design is the same for both modes.
 
-There are a few important aspects to remember related to choosing the mode for the master encryption keys.
+It's important to remember the following when you choose the mode for the master encryption keys:
 
-1.	You can choose whether to use customer-managed keys or ADLS- managed keys when you provision an ADLS account
-2.	Once an ADLS account is provisioned, the mode cannot be changed
+*	You can choose whether to use customer managed keys or service managed keys when you provision an ADLS account.
+*	Once an ADLS account is provisioned, the mode cannot be changed.
 
 ### Encryption and Decryption of Data
 
