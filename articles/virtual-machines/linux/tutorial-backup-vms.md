@@ -70,43 +70,31 @@ Create a simple daily backup schedule to a Recovery Services Vault. The Recovery
 
 Deployment notifications let you know the backup job has been triggered, and that you can monitor the progress of the job on the Backup jobs page.
 
-## Restore the VM
+## Restore a file
 
 Protect your data by taking snapshots of your data at defined intervals. These snapshots are known as recovery points, and they are stored in recovery services vaults. If or when it is necessary to repair or rebuild a VM, you can restore the VM from any of the saved recovery points. When you restore a recovery point, you can create a new VM which is a point-in-time representation of your backed-up VM, or restore disks and use the template that comes along with it to customize the restored VM or do an individual file recovery. This article explains how to restore a VM to a new VM or restore all backed-up disks. For individual file recovery, refer to [Recover files from Azure VM backup](backup-azure-restore-files-from-vm.md)
 
-1. In the blade for the VM, click **Backup**.
-2. In the Backup blade, click **Restore VM** from the menu to open the **Select Restore point** blade.
+1. Go to the Azure portal.
+2. In the left menu, click on Virtual Machines.
+3. Select your VM from the list.
+4. In the blade for your VM, select **Backup**.
+5. On the Backup blade, click **File Recovery** from the meu at the top.
+6. Select a recover point from the drop-down. Choose a recent recovery point that contains the file you want to restore.
+7. Click **Download script** to download the script file locally.
+8. Open a Bash prompt and type the following, replacing *Linux_myVM_05-02-2017.sh* with the correct path and filename for the script that you downloaded, *azureuser* with the username for the VM and *52.166.121.3* with the public IP address for your VM:
+    ```bash
+	scp test.sh azureuser@52.166.121.3:
+	```
+9. Open an SSH connection to the VM.
+    ```bash
+	ssh <publicIpAddress>
+	```
+10. Add execute permissions to the script file.
+    ```bash
+	chmod +x Linux_myVM_05-02-2017.sh
+	```
+11. Run the script to mount the recovery point as a filesystem.
 
-    ![restore blade](../../backup/media/backup-azure-arm-restore-vms/recovery-point-selector.png)
-
-    By default, the dialog displays all restore points from the last 30 days. Use the **Filter** to alter the time range of the restore points displayed. By default, restore points of all consistency are displayed. Modify **All Restore points** filter to select a specific consistency of restore points. For more information about each type of restoration point, see the explanation of [Data consistency](backup-azure-vms-introduction.md#data-consistency).  
-
-   * **Restore point consistency** from this list choose:
-     * Crash consistent restore points,
-     * Application consistent restore points,
-     * File system consistent restore points
-     * All restore points.  
-8. Choose a Restore point and click **OK**.
-
-    ![choose restore point](../../backup/media/backup-azure-arm-restore-vms/select-recovery-point.png)
-
-    The **Restore** blade shows the Restore point is set.
-
-    ![restore point is set](../../backup/media/backup-azure-arm-restore-vms/recovery-point-set.png)
-9. On the **Restore** blade, **Restore configuration** opens automatically after restore point is set.
-
-Once restore point is selected, on the **Restore configuration** blade, enter or select values for each of the following fields:
-
-* **Restore Type** - Create virtual machine.
-* **Virtual machine name** - Provide a name for the VM. The name must be unique to the resource group (for a Resource Manager-deployed VM) or cloud service (for a Classic VM). You cannot replace the virtual machine if it already exists in the subscription.
-* **Resource group** - Use an existing resource group, or create a new one. If you are restoring a Classic VM, use this field to specify the name of a new cloud service. If you are creating a new resource group/cloud service, the name must be globally unique. Typically, the cloud service name is associated with a public-facing URL - for example: [cloudservice].cloudapp.net. If you attempt to use a name for the cloud resource group/cloud service that has already been used, Azure assigns the resource group/cloud service the same name as the VM. Azure displays resource groups/cloud services and VMs not associated with any affinity groups. For more information, see [How to migrate from Affinity Groups to a Regional Virtual Network (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
-* **Virtual Network** - Select the virtual network (VNET) when creating the VM. The field provides all VNETs associated with the subscription. Resource group of the VM is displayed in parentheses.
-* **Subnet** - If the VNET has subnets, the first subnet is selected by default. If there are additional subnets, select the desired subnet.
-* **Storage account** - This menu lists the storage accounts in the same location as the Recovery Services vault. Storage accounts that are Zone redundant are not supported. If there are no storage accounts with the same location as the Recovery Services vault, you must create one before starting the restore operation. The storage account's replication type is mentioned in parentheses.
-
-![restore configuration wizard is set](../../backup/media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
-
-On the **Restore configuration** blade, click **OK** to finalize the restore configuration. On the **Restore** blade, click **Restore** to trigger the restore operation.
 
 
 ## Post-Restore steps
