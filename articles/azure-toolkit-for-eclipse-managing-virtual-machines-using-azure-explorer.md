@@ -75,7 +75,7 @@ To create a virtual machine by using the Azure Explorer, do the following:
 
    * **Resource Group**: Specifies the resource group for your virtual machine. Select one of the following options:
       * **Create new**: Specifies that you want to create a new resource group.
-      * **Use existing**: Specifies that you want to select from a list of resource groups that are associated with your Azure account.
+      * **Use existing**: Specifies that you want to select a resource group that is already associated with your Azure account.
 
       ![The Create New Storage Account dialog box][CR05]
 
@@ -165,8 +165,8 @@ For more information about using Azure with Java, see [Azure Java Developer Cent
 
 [Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse.md
 [Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md
-[Create a Hello World Web App for Azure in Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
-[Create a Hello World Web App for Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Create a Hello World web app for Azure in Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Create a Hello World web app for Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
 [Sign-in instructions for the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
