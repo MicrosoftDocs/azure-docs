@@ -1,5 +1,5 @@
 ---
-title: Create a function that runs on a schedule | Microsoft Docs
+title: Create a function that runs on a schedule in Azure | Microsoft Docs
 description: Learn how to create a function in Azure that runs based on a schedule that you define.
 services: functions
 documentationcenter: na
