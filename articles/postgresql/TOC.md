@@ -12,7 +12,7 @@
 ## [Azure CLI](sample-scripts-azure-cli.md)
 
 # Tutorials
-## Design a Database
+## 1 - Design a Database
 ### [Azure portal](tutorial-design-database-using-azure-portal.md)
 ### [Azure CLI](tutorial-design-database-using-azure-cli.md)
 
@@ -50,4 +50,3 @@
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDatabaseforPostgreSQL)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/)
 ## [Region availability](https://azure.microsoft.com/regions/services/)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/)
