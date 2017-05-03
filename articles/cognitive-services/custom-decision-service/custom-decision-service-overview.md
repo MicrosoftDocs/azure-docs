@@ -7,8 +7,8 @@ manager: slivkins
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/02/2017
-ms.author: alekha
+ms.date: 05/03/2017
+ms.author: alekha;slivkins
 ---
 
 # Custom Decision Service
@@ -28,28 +28,39 @@ Some common use cases for the Custom Decision Service include:
 * Optimizing ad placements or web pages that the ad directs to.
 * Ranking recommended items on a shopping website.
 
+We support integration from webpages and from smartphone apps.
+
 Applications not in the content personalization domain could still benefit from Custom Decision Service. Such applications might be a good fit for a custom preview. Contact us to learn more.
 
-Currently, we offer two modes of using the Custom Decision Service, which follow next. Regardless of which scenario you use, the APIs are identical.
+## Learning mode: pooled or application specific
 
-- Simple scenario: global models for *low-traffic applications*.
-- Advanced scenario: application-specific models for *high-traffic applications*.
+Custom Decision Service can be used in two learning modes, as follows. The APIs are identical, regardless of which learning mode you use.
 
-## Simple scenario
+- Pooled learning mode: one model all applications, suitable for *low-traffic applications*.
+- Application-specific learning mode, suitable for *high-traffic applications*.
 
-Custom Decision Service learns from the click patterns of the users in response to the content presented in your application. Hence, learning can be tricky if your application has relatively low traffic. This problem is pronounced for dynamic content such as news. In such applications, the system has relatively little time to learn the quality of an article and apply this learning before new content arrives. If your application has sufficient traffic to learn rapidly enough, Custom Decision Service will get good results. However, for *low-traffic applications with dynamic content*, the recommended usage mode is for you to subscribe into a global model.
+#### Pooled learning mode
 
-For all the applications that sign up for this mode, we learn a single model to customize content across all of them by pooling their data. Your **privacy** is respected as the raw data is never shared with any individual application, but only the decisions made by the system. This mode allows you to promote a breaking news story if users on other websites are interested in it, before anyone has read it on your website.
+Custom Decision Service learns from the click patterns of the users in response to the content presented in your application. Learning can be slow if your application has relatively low traffic. This problem is pronounced for dynamic content such as news. Such applications may not have enough time to learn the quality of an article and apply this learning before new content arrives.
 
-## Advanced scenario
+Thus, for *low-traffic applications with dynamic content*, we recommend to pool data across multiple applications. Using the pooled data, we learn a single model for all applications that sign up for this learning mode, and use this model to customize their content. For example, you would be able to promote a breaking news story if users on other websites are interested in it, even before anyone has read it on your website. Your **privacy** is respected, as the raw data is never shared with any individual application, but only the decisions made by the system.
 
-For applications with sufficient traffic, the global model might not be ideal as the user preferences on your content are also merged with their preferences in other applications. When your data volume permits, we recommend you opt for the advanced scenario. For this version, you are required to specify an [Azure storage account key](../../storage/storage-create-storage-account.md), in addition to all the information required for the simple scenario.
+#### Application-specific learning mode
 
-In this usage mode, Custom Decision Service creates a deployment of the *entire learning pipeline for your application*. Hence, the learning is done only based on your user interaction with your content. The data collected by the system is also logged to your Azure account based on the key provided. You can access this data offline and derive further insights from it regarding user preferences.
+When your data volume permits, we recommend the application-specific learning mode. Then Custom Decision Service learns a model only based on how *your* users interact with *your* content. Such model would perform better than one learned in the pooled mode, because other applications' users and content may be different from yours.
+
+Then Custom Decision Service creates a deployment of the *entire learning pipeline* for your application. You can also access the collected data offline to derive further insights about user preferences.
+
+To use this learning mode, you need to have an [Azure Storage account](../../storage/storage-create-storage-account.md) where your data would be logged. Choose "advanced options" when registering a new application on the portal, and enter the
+[connection string](../../storage/storage-configure-connection-string.md) for the Azure Storage account.
+
+## API usage modes
+
+Custom Decision Service can be applied to webpages and to smartphone apps. The API usage is similar on both modes, but some of the details are different.
 
 ## Glossary of terms
 
-Finally, there are a few terms that will keep coming up as you read this documentation, which we introduce next.
+Finally, let us introduce several terms that frequently occur in our documentation.
 
 * *Action Sets*: The set of content items for the Custom Decision Service to rank. This set can be specified as an *RSS* or *Atom* endpoint.
 * *Ranking*: Each request to the Custom Decision Service specifies one or more action sets. The system responds by picking all the content options from these sets, and returns a ranked order of them.
@@ -58,5 +69,5 @@ Finally, there are a few terms that will keep coming up as you read this documen
 
 ## Next steps:
 
-1. Get started with Custom Decision Service [using browser API calls](custom-decision-service-get-started-browser.md) or [using server-side API calls](custom-decision-service-get-started-server.md).
+1. Get started with Custom Decision Service [to optimize a webpage](custom-decision-service-get-started-browser.md) or [to optimize a smartphone app](custom-decision-service-get-started-app.md).
 2. Consult [API reference](custom-decision-service-api-reference.md) to learn more about the provided functionality.
