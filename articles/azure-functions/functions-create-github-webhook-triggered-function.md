@@ -28,7 +28,7 @@ It should take you less than five minutes to complete all the steps in this topi
 
 ## Prerequisites 
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-previous-topics.md)]
+[!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
 You also need a GitHub account with at least one project. You can [sign up for a free GitHub account](https://github.com/join), if you don't already have one.
 

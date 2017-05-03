@@ -95,7 +95,7 @@ Next, you can connect to your storage account to verify the new queue and the me
 
 ## Connect to the queue
 
-Skip the first three steps if you have already installed Storage Explorer and connected it to your storage account.
+Skip the first three steps if you have already installed Storage Explorer and connected it to your storage account.    
 
 1. In your function, click **Integrate** and the new **Azure Queue storage** output binding, then expand **Documentation**. Copy both **Account name** and **Account key**. You use these credentials to connect to the storage account.
  
