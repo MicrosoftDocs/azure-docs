@@ -53,8 +53,8 @@
     - name: Samples
       href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face
     - name: Glossary
-      href: Face/Glossary.md
+      href: Glossary.md
     - name: FAQ
-      href: Face/FAQ.md
+      href: FAQ.md
     - name: Release notes
-      href: Face/ReleaseNotes.md
+      href: ReleaseNotes.md
