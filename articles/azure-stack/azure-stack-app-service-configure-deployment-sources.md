@@ -29,7 +29,7 @@ App Service on Azure Stack supports on-demand deployment from multiple Source Co
 
 ## View Deployment Sources in App Service Administration
 
-1. Log in to the Azure Stack portal as the service administrator.
+1. Log in to the Azure Stack Admin Portal (https://adminportal.local.azurestack.external) as the service administrator.
 2. Browse to **Resource Providers** and select the **App Service Resource Provider Admin**.
     ![App Service Resource Provider Admin][1]
 3. Click **Source control configuration**.  Here you see the list of all Deployment Sources configured.
