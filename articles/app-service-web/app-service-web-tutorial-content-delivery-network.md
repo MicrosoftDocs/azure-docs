@@ -19,9 +19,9 @@ You'll work with a sample app that you create in the [static HTML quickstart](ap
 
 When you're finished, you'll know how to create CDN endpoints, refresh cached assets, use query strings to control cached versions, and use a custom domain.
 
-## Before you begin
+## Prerequisites
 
-To complete this tutorial, you'll work with a sample application deployed in a web app in Azure App Service. To create the web app, follow the [static HTML quickstart](app-service-web-get-started-html.md). In that tutorial, skip the **Update and redeploy** and **Clean up resources** steps. When you finish that tutorial, keep the command prompt open so that you can deploy additional changes to the web app later in this tutorial.
+Before you begin this tutorial, follow the [static HTML quickstart](app-service-web-get-started-html.md) to create the web app that you'll work with. In that tutorial, skip the **Update and redeploy** and **Clean up resources** steps. When you finish that tutorial, keep the command prompt open so that you can deploy additional changes to the web app later in this tutorial.
 
 ### Have a custom domain ready
 
