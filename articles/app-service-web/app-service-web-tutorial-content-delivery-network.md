@@ -92,7 +92,7 @@ At times you might need to refresh the CDN before the TTL expiration -- for exam
 
 In this section of the tutorial, you deploy a change to the web app and purge the CDN to trigger the CDN to refresh its cache.
 
-## Deploy a change to the web app
+### Deploy a change to the web app
 
 Open the *index.html* file and add "- V2" to the H1 heading, as shown in the following example: 
 
