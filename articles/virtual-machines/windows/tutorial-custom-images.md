@@ -51,7 +51,7 @@ Deallocated the VM using [Stop-AzureRmVM](/powershell/module/azurerm.compute/sto
 Stop-AzureRmVM -ResourceGroupName myResourceGroupImages -Name myVM -Force
 ```
 
-Set the status of the virtual machine to **Generalized** using [Set-AzureRmVm](/powershell/module/azurerm.compute/set-azurermvm). 
+Set the status of the virtual machine to **Generalized** using [Set-AzureRmVm](/powershell/module/azurerm.compute/set-azurermvm) so the Azure platform knows the VM has been generalized. You can only create an image from a generalized VM.
    
 ```powershell
 Set-AzureRmVM -ResourceGroupName myResourceGroupImages -Name myVM -Generalized
