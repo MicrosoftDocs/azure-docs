@@ -12,7 +12,7 @@
 ## [Create a VM](azure-stack-provision-vm.md)
 
 # Tutorials
-## [Basic administration](azure-stack-manage-basics.md)
+## [Administration basics](azure-stack-manage-basics.md)
 ## [Make VMs available](azure-stack-tutorial-tenant-vm.md)
 ## [Make SQL databases available](azure-stack-tutorial-sql-server.md)
 ## [Make apps available](azure-stack-tutorial-app-service.md)
