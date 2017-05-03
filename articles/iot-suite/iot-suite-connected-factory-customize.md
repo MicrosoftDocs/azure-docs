@@ -22,7 +22,7 @@ ms.author: dobett
 
 ## Introduction
 
-The connected factory solution aggregates and displays data from the OPC UA servers connected to the solution. In some cases, you can control devices connected to your OPC UA servers by sending messages from the solution through the OPC UA servers.
+The connected factory solution aggregates and displays data from the OPC UA servers connected to the solution. In some scenarios, you can send commands to devices through the OPC UA servers in your solution.
 
 Examples of aggregated data in the solution include the Overall Equipment Efficiency (OEE) and Key Performance Indicators (KPIs) that you can view in the dashboard at the factory, line, and station levels. The following screenshot shows the OEE and KPI values for the **Assembly** station, on **Production line 1**, in the **Munich** factory:
 
@@ -32,7 +32,7 @@ The solution enables you to view detailed information from specific data items f
 
 ![Plots of number of manufactured items][img-manufactured-items]
 
-You can explore the data further using Time Series Insights (TSI) if you click on one of the graphs:
+If you click one of the graphs, you can explore the data further using Time Series Insights (TSI):
 
 ![Explore data using Time Series Insights][img-tsi]
 
@@ -51,7 +51,7 @@ You can browse the data items that a connected OPC UA server can send to your so
 
     ![Navigate to the Select an OPC UA server view][img-select-server]
 
-1. Select a server an click **Connect**. Click **Proceed** when the security warning appears.
+1. Select a server and click **Connect**. Click **Proceed** when the security warning appears.
 
 1. You can now browse the data items that the server can send to the solution. Items that are being sent to the solution have a green check mark:
 
@@ -63,13 +63,18 @@ You can browse the data items that a connected OPC UA server can send to your so
 
 The connected factory solution maps and aggregates the published data items from the OPC UA server to the various views in the solution. A JSON file in the Visual Studio connected factory solution stores this mapping information. The connected factory Visual Solution deploys to your Azure account when you provision the solution. You can view and modify this JSON configuration file in the connected factory Visual Studio solution and redeploy it.
 
+You can use the configuration file to:
+
+- Edit the existing simulated factories, production lines, and stations.
+- Map data from real OPC UA servers that you connect to the solution.
+
 To clone a copy of the connected factory Visual Studio solution, use the following git command:
 
 `git clone https://github.com/Azure/azure-iot-connected-factory.git`
 
 The file **ContosoTopologyDescription.json** defines the mapping from the OPC UA server data items to the views in the connected factory solution dashboard. You can find this configuration in the **Contoso\Topology** folder in the **WebApp** project in the Visual Studio solution.
 
-The content of the JSON file is organized as a hierarchy of factoriy, production line, and station nodes. This hierarchy defines the navigation hierarchy in the connected factory dashboard. Values at each node of the hierarchy determine the information displayed in the dashboard. For example, the JSON file contains the following values for the Munich factory:
+The content of the JSON file is organized as a hierarchy of factory, production line, and station nodes. This hierarchy defines the navigation hierarchy in the connected factory dashboard. Values at each node of the hierarchy determine the information displayed in the dashboard. For example, the JSON file contains the following values for the Munich factory:
 
 ```json
 "Guid": "73B534AE-7C7E-4877-B826-F1C0EA339F65",
@@ -84,13 +89,13 @@ The content of the JSON file is organized as a hierarchy of factoriy, production
 "Image": "munich.jpg"
 ```
 
-The name, description and location (if you have [enabled dynamic mapping][lnk-faq]) appear on this view in the dashboard:
+The name, description, and location (if you have [enabled dynamic mapping][lnk-faq]) appear on this view in the dashboard:
 
 ![Munich data in the dashboard][img-munich]
 
 Each factory, production line, and station has an image property. You can find these JPEG files in the **Content\img** folder in the **WebApp** project. These image files display in the connected factory dashboard.
 
-Each station includes a number of detailed properties that define the mapping from the OPC UA data items. These properities are described in the following sections:
+Each station includes several detailed properties that define the mapping from the OPC UA data items. These properties are described in the following sections:
 
 ### OpcUri
 
@@ -106,7 +111,7 @@ The information in the **Simulation** node is specific to the OPC UA simulators 
 
 ### Kpi1 and Kpi2
 
-These nodes describe how data from the station contributes to the two KPI values in the dashboard. In a default deployment these KPI values are units per hour and kWh per hour. The solution calculates KPI vales at the level of a station and aggregates them at the production line and factory levels.
+These nodes describe how data from the station contributes to the two KPI values in the dashboard. In a default deployment, these KPI values are units per hour and kWh per hour. The solution calculates KPI vales at the level of a station and aggregates them at the production line and factory levels.
 
 Each KPI has a minimum, maximum, and target value. Each KPI value can also define alert actions to display in the dashboard. The following snippet shows the KPI definitions for the assembly station on production line 1 in Munich:
 
@@ -151,6 +156,10 @@ Other values associated with each node are summarized in the following table:
 | ConstValue | A constant value used in a calculation. |
 
 ## Deploy the changes
+
+When you have finished making changes to the **ContosoTopologyDescription.json** file, you must redeploy the connected factory Visual Studio solution to your Azure account.
+
+The **azure-iot-connected-factory** repository includes a **build.ps1** PowerShell script you can use to rebuild and deploy the solution.
 
 ## Next Steps
 
