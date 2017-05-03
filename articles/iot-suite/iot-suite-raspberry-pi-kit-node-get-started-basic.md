@@ -75,13 +75,13 @@ If you haven't already done so, clone the required repositories by running the f
 
 `cd ~`
 
-`git clone --recursive https://github.com/IoTChinaTeam/azure-remote-monitoring-raspberry-pi-node.git`
+`git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit.git`
 
 ### Update the device connection string
 
 Open the sample source file in the **nano** editor using the following command:
 
-`nano ~/azure-remote-monitoring-raspberry-pi-node/basic/remote_monitoring.js`
+`nano ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic/remote_monitoring.js`
 
 Find the line:
 
@@ -95,13 +95,13 @@ Replace the placeholder values with the device and IoT Hub information you creat
 
 Run the following commands to install the prerequisite packages for the sample:
 
-`cd ~/azure-remote-monitoring-raspberry-pi-node/basic`
+`cd ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic`
 
 `npm install`
 
 You can now run the sample program on the Raspberry Pi. Enter the command:
 
-`sudo node ~/azure-remote-monitoring-raspberry-pi-node/basic/remote_monitoring.js`
+`sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic/remote_monitoring.js`
 
 The following sample output is an example of the output you see at the command prompt on the Raspberry Pi:
 

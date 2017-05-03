@@ -47,13 +47,13 @@ If you haven't already done so, clone the required repositories by running the f
 
 `cd ~`
 
-`git clone --recursive https://github.com/IoTChinaTeam/azure-remote-monitoring-raspberry-pi-c.git`
+`git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit.git`
 
 ### Update the device connection string
 
 Open the sample source file in the **nano** editor using the following command:
 
-`nano ~/azure-remote-monitoring-raspberry-pi-c/simulator/remote_monitoring/remote_monitoring.c`
+`nano ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/simulator/remote_monitoring/remote_monitoring.c`
 
 Locate the following lines:
 
@@ -74,9 +74,9 @@ Install the prerequisite packages for the Microsoft Azure IoT Device SDK for C b
 
 You can now build the updated sample solution on the Raspberry Pi:
 
-`chmod +x ~/azure-remote-monitoring-raspberry-pi-c/simulator/build.sh`
+`chmod +x ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/simulator/build.sh`
 
-`~/azure-remote-monitoring-raspberry-pi-c/simulator/build.sh`
+`~/iot-remote-monitoring-c-raspberrypi-getstartedkit/simulator/build.sh`
 
 You can now run the sample program on the Raspberry Pi. Enter the command:
 

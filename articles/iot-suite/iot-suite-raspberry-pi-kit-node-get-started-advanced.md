@@ -82,13 +82,13 @@ If you haven't done so already, clone the required repositories by running the f
 
 `cd ~`
 
-`git clone --recursive https://github.com/IoTChinaTeam/azure-remote-monitoring-raspberry-pi-node.git`
+`git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit.git`
 
 ### Update the device connection string
 
 Open the sample configuration file in the **nano** editor using the following command:
 
-`nano ~/azure-remote-monitoring-raspberry-pi-node/advanced/config/deviceinfo`
+`nano ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advanced/config/deviceinfo`
 
 Replace the placeholder values with the device id and IoT Hub information you created and saved at the start of this tutorial.
 
@@ -105,13 +105,13 @@ Save your changes (**Ctrl-O**, **Enter**) and exit the editor (**Ctrl-X**).
 
 Run the following commands to install the prerequisite packages for the sample:
 
-`cd ~/azure-remote-monitoring-raspberry-pi-node/advance/1.0`
+`cd ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advance/1.0`
 
 `npm install`
 
 You can now run the sample program on the Raspberry Pi. Enter the command:
 
-`sudo node ~/azure-remote-monitoring-raspberry-pi-node/advanced/1.0/remote_monitoring.js`
+`sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advanced/1.0/remote_monitoring.js`
 
 The following sample output is an example of the output you see at the command prompt on the Raspberry Pi:
 
@@ -127,7 +127,7 @@ Press **Ctrl-C** to exit the program at any time.
 
 1. On the **Invoke Method** page, choose **InitiateFirmwareUpdate** in the **Method** dropdown.
 
-1. In the **FWPackageURI** field, enter **https://raw.githubusercontent.com/IoTChinaTeam/azure-remote-monitoring-raspberry-pi-node/master/advanced/2.0/raspberry.js**. This file contains the implementation of version 2.0 of the firmware.
+1. In the **FWPackageURI** field, enter **https://raw.githubusercontent.com/IoTChinaTeam/iot-remote-monitoring-node-raspberrypi-getstartedkit/master/advanced/2.0/raspberry.js**. This file contains the implementation of version 2.0 of the firmware.
 
 1. Choose **InvokeMethod**. The app on the Raspberry Pi sends an acknowledgment back to the solution dashboard. It then starts the firmware update process by downloading the new version of the firmware:
 

@@ -61,13 +61,13 @@ If you haven't done so already, clone the required repositories by running the f
 
 `cd ~`
 
-`git clone --recursive https://github.com/IoTChinaTeam/azure-remote-monitoring-raspberry-pi-c.git`
+`git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit.git`
 
 ### Update the device connection string
 
 Open the sample configuration file in the **nano** editor using the following command:
 
-`nano ~/azure-remote-monitoring-raspberry-pi-c/advanced/config/deviceinfo`
+`nano ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/config/deviceinfo`
 
 Replace the placeholder values with the device ID and IoT Hub information you created and saved at the start of this tutorial.
 
@@ -90,9 +90,9 @@ If you have not already done so, install the prerequisite packages for the Micro
 
 You can now build the sample solution on the Raspberry Pi:
 
-`chmod +x ~/azure-remote-monitoring-raspberry-pi-c/advanced/1.0/build.sh`
+`chmod +x ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/1.0/build.sh`
 
-`~/azure-remote-monitoring-raspberry-pi-c/advanced/1.0/build.sh`
+`~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/1.0/build.sh`
 
 You can now run the sample program on the Raspberry Pi. Enter the command:
 
@@ -112,7 +112,7 @@ Press **Ctrl-C** to exit the program at any time.
 
 1. On the **Invoke Method** page, choose **InitiateFirmwareUpdate** in the **Method** dropdown.
 
-1. In the **FWPackageURI** field, enter **https://github.com/IoTChinaTeam/azure-remote-monitoring-raspberry-pi-c/raw/master/advanced/2.0/package/remote_monitoring.zip**. This archive file contains the implementation of version 2.0 of the firmware.
+1. In the **FWPackageURI** field, enter **https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit/raw/master/advanced/2.0/package/remote_monitoring.zip**. This archive file contains the implementation of version 2.0 of the firmware.
 
 1. Choose **InvokeMethod**. The app on the Raspberry Pi sends an acknowledgment back to the solution dashboard. It then starts the firmware update process by downloading the new version of the firmware:
 
