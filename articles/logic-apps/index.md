@@ -939,6 +939,49 @@ Learn how to develop Logic Apps that simplify and integrate scalable workflows i
             </div>
         </div>
     </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Connectors</h3>
+                        <p><a href="/azure/logic-apps/logic-apps-enterprise-integration-as2/">AS2</a></p>
+                        <p><a href="/azure/connectors/connectors-create-api-azureblobstorage/">Azure Blob Storage</a></p>
+                        <p><a href="/azure/logic-apps/logic-apps-azure-functions/">Azure Functions</a></p>
+                        <p><a href="/azure/logic-apps/logic-apps-http-endpoint/">Azure Logic Apps</a></p>
+                        <p><a href="/azure/connectors/connectors-create-api-sqlazure/">Azure SQL Database</a></p>
+                        <p><a href="/azure/logic-apps/logic-apps-create-api-app/">Custom APIs / web apps</a></p>
+                        <p><a href="/azure/connectors/connectors-create-api-db2/">DB2</a></p>
+                        <p><a href="/azure/connectors/connectors-create-api-crmonline/">Dynamics 365 CRM Online</a></p>
+                        <p><a href="/azure/logic-apps/logic-apps-enterprise-integration-edifact/">EDIFACT</a></p>
+                        <p><a href="/azure/connectors/connectors-create-api-azure-event-hubs/">Event Hubs</a></p>
+                        <p><a href="/azure/logic-apps/logic-apps-using-file-connector/">File System</a></p>
+                        <p><a href="/azure/logic-apps/logic-apps-enterprise-integration-flatfile/">Flat file</a></p>
+                        <p><a href="/azure/connectors/connectors-create-api-ftp/">FTP</a></p>
+                        <p><a href="/azure/connectors/connectors-native-http/">HTTP</a></p>
+                        <p><a href="/azure/connectors/connectors-native-http-swagger/">HTTP + Swagger</a></p>
+                        <p><a href="/azure/connectors/connectors-native-webhook/">HTTP Webhook</a></p>
+                        <p><a href="/azure/connectors/connectors-create-api-informix/">Informix</a></p>
+                        <p><a href="/azure/logic-apps/logic-apps-enterprise-integration-metadata/">Integration Account</a></p>
+                        <p><a href="/azure/connectors/connectors-create-api-office365-outlook/">Office 365 Outlook</a></p>
+                        <p><a href="/azure/connectors/connectors-create-api-oracledatabase/">Oracle Database</a></p>
+                        <p><a href="/azure/connectors/connectors-native-reqres/">Request / Response</a></p>
+                        <p><a href="/azure/connectors/connectors-create-api-salesforce/">Salesforce</a></p>
+                        <p><a href="/azure/logic-apps/logic-apps-using-sap-connector/">SAP</a></p>
+                        <p><a href="/azure/connectors/connectors-native-recurrence/">Schedule</a></p>
+                        <p><a href="/azure/connectors/connectors-create-api-servicebus/">Service Bus</a></a></p>
+                        <p><a href="/azure/connectors/connectors-create-api-sharepointonline/">SharePoint Online</a></p>
+                        <p><a href="/azure/connectors/connectors-create-api-sharepointonline/">SharePoint Server</a></p>
+                        <p><a href="/azure/connectors/connectors-create-api-sqlazure/">SQL Server</a></p>
+                        <p><a href="/azure/logic-apps/logic-apps-enterprise-integration-transform/">Transform XML</a></p>
+                        <p><a href="/azure/connectors/connectors-create-api-twitter/">Twitter</a></p>
+                        <p><a href="/azure/logic-apps/logic-apps-enterprise-integration-x12/">X12</a></p>
+                        <p><a href="/azure/logic-apps/logic-apps-enterprise-integration-xml-validation/">XML Validation</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
 </ul>
 
 
