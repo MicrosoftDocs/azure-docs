@@ -57,7 +57,7 @@ To activate your service, the administrator should go to the URL that is listed 
 
 ![Sign in page][6]
 
-## Signing in
+## Sign in
 
 Your administrator should advise you through email that your account is created, and share the URL for the Seller Insights Portal with you (https://reports.azure.com).
 
@@ -76,9 +76,9 @@ You can sign in to the Seller Insights Portal by using a personal Microsoft acco
 
 
 
-***Welcome to the Seller Insights Portal!***
+**Welcome to the Seller Insights Portal!**
 
-1. Once you've signed in you will land on the **Summary** page.
+1. After you've signed in you will land on the **Summary** page.
 2. Please take a few minutes to read the Privacy Policy.
 3. You can **Contact Us** at any time, via email, with questions you may have that are related to the Seller Insights Portal.
 4. You can move around in the Seller Insights Portal by using the tabs at the top of the page.  Look out for the tabs at the top of the pages in this guide to help orient you in the Seller Insights Portal.
@@ -114,7 +114,7 @@ D. In *Panel D*, the subscription data for each individual is listed.  Data is d
 ![Orders overview map][9]
 
 ### Orders
-#### Monthly view - Panel A
+#### Monthly view: Panel A
 
 ![Panel Map A][10]
 
@@ -125,21 +125,23 @@ D. In *Panel D*, the subscription data for each individual is listed.  Data is d
 
 ![Orders monthly view Panel A][14]
 
-#### Monthly view - Panel B
+#### Monthly view: Panel B
 
   ![Panel Map B][11]
 
   1. Select **Monthly View**.
-  2. Order summary details are shown by channel - CSP, Direct Enterprise, Indirect Enterprise, and Web Direct.
-  3. For the **Monthly View**, the **Orders Summary Details** panel provides chart views of:
-    - Orders By Market (Top 10)
-    - Orders By Offer Title (Top 10)
-    - Orders By Azure License Type
-    - Orders By Marketplace License Type
+  2. Order summary details are shown by channel: CSP, Direct Enterprise, Indirect Enterprise, and Web Direct.
+  3. For the **Monthly View**, the **Orders Summary Details** panel provides the following chart views:
+
+* Orders By Market (Top 10)
+* Orders By Offer Title (Top 10)
+* Orders By Azure License Type)
+* Orders By Marketplace License Type
+
 
 ![Orders monthly view Panel B][15]
 
-#### Trend view - Panel C
+#### Trend view: Panel C
 
   ![Panel Map C][12]
 
@@ -148,7 +150,7 @@ D. In *Panel D*, the subscription data for each individual is listed.  Data is d
 
   ![Orders monthly view Panel C Subject Area list][17]
 
-  3. Use the filter symbol to select **All** data or **Top 10** for all of your selections.  The default is **Top 10**.
+  3. Use the filter symbol to select **All** data or **Top 10** for all of your selections. The default is **Top 10**.
 
   ![Orders monthly view Panel C filter symbol][18]
 
@@ -158,7 +160,7 @@ D. In *Panel D*, the subscription data for each individual is listed.  Data is d
 ![Orders trend view Panel C][16]
 
 
-#### Detailed orders data - Panel D
+#### Detailed orders data: Panel D
 
   ![Panel Map D][13]
 
@@ -173,7 +175,7 @@ D. In *Panel D*, the subscription data for each individual is listed.  Data is d
 ![Orders detailed orders view of Panel D][19]
 
 ### Usage
-#### Monthly view - Panel A
+#### Monthly view: Panel A
 
   ![Panel Map A][10]
 
@@ -184,29 +186,31 @@ D. In *Panel D*, the subscription data for each individual is listed.  Data is d
 
 ![Usage monthly view Panel A][21]
 
-#### Monthly view - Panel B
+#### Monthly view: Panel B
 
 ![Panel Map B][11]
 
   1. Select **Monthly View**.
   2. Usage summary details are shown, in hours.
-  3. For the **Monthly View**, the **Orders Summary Details** panel provides chart views of:
-    - Orders By Market (Top 10)
-    - Orders By Offer Title (Top 10)
-    - Orders By Azure License Type
-    - Orders By Marketplace License Type
+  3. For the **Monthly View**, the **Orders Summary Details** panel provides the following chart views:
+
+* Orders By Market (Top 10)
+* Orders By Offer Title (Top 10)
+* Orders By Azure License Type
+* Orders By Marketplace License Type
+
 
 >[!NOTE]
 >The slicers in Panel A are used to filter the data that appears in Panel B. For example, the charts are set up for **Normalized Usage**.
 
 ![Usage monthly view Panel B][22]
 
-#### Trend view - Panel C
+#### Trend view: Panel C
 
   ![Panel Map C][12]
 
   1. Select **Trend View**.
-  2. Select the items that you want to view from the **Subject Area** list, and then click **Apply**.  The default is **Select All**.
+  2. Select the items that you want to view from the **Subject Area** list, and then click **Apply**. The default is **Select All**.
 
   ![Usage monthly view Panel C Subject Area list][17]
 
@@ -220,7 +224,7 @@ D. In *Panel D*, the subscription data for each individual is listed.  Data is d
 ![Usage trend view Panel C][23]
 
 
-#### Detailed usage data - Panel D
+#### Detailed usage data: Panel D
 
   ![Panel Map D][13]
 
@@ -232,16 +236,16 @@ D. In *Panel D*, the subscription data for each individual is listed.  Data is d
   3. Select the number of items per page that you want to view. 10, 20, or 50 items per page are available.
   4. Download the data in Excel or CSV format for offline analysis.
 
-![Usage monthly view panel d][24]
-![Usage monthly view panel d - download result][25]
+![Usage monthly view Panel D][24]
+![Usage monthly view Panel D download result][25]
 
 ### Accessing detailed customer data
 
-  1. From the **Order Detail** panel, click the Azure subscription ID that you're interested in.  You can only click the non-BYOL Marketplace License Type IDs, and BYOL subscription IDs are hashed out for security reasons.
+  1. From the **Order Detail** panel, click the Azure subscription ID that you're interested in.  You can only click the non-BYOL Marketplace License Type IDs. BYOL subscription IDs are hashed out for security reasons.
 
   ![Orders and usage customer data panel][26]
 
-  2. You are redirected to the **Customers Detailed Data** panel. The data, for the customer with whom the subscription ID is associated, is retrieved.
+  2. You are redirected to the **Customers Detailed Data** panel. The data for the customer is retrieved.
   3. You can download the data in Excel or CSV format.
 
 
@@ -276,7 +280,7 @@ This section will show you how to add new users or change their permissions in t
 4. As an administrator, you can assign read-only report access to users.
 5. Enter the user details, **First Name**, **Last Name**, and **Email**, and then click **Continue**.
 6. Select the permissions that you want to allocate to the user, and then click **Continue**.
-7. Ensure the information you've entered is correct, and then click **Save** to continue.  You've successfully added a User.
+7. Ensure the information you've entered is correct, and then click **Save** to continue.  You've successfully added a user.
 
 ![Add a user panel][29]
 
@@ -317,41 +321,45 @@ This section will show you how to add new users or change their permissions in t
 ### Fill out and submit the request
 
 1. Enter your contact information, time zone, region, and language preferences, and then select **Continue**.
-2. Give your incident a title and provide as much informaiton as possible.  You can also upload supporting files like a screenshots, and then select **Submit**.
-3. You will receive a confirmation that your support request has been successfully submitted.
+2. Give your incident a title and provide as much information as possible.  You can also upload supporting files like a screenshot, and then select **Submit**.
+3. You'll receive a confirmation that your support request is successful.
 4. You can check the status of your support request at any time.
 
 ![Access the support form][33]
 
 
-## Resetting a password
+## Reset a password
 
-***Account and password validation***
+**Account and password validation**
 
-1. *Validate that the account you're using is registered and the password doesn't work.* If you enter an account that has been registered in Azure Active Directory, it will automatically prompt you to choose how to sign in with the account. You'll use a work or school (Organizational account), or a personal Windows LiveID account.
-2. Go to https://reports.azure.com and sign out of any account you may be signed in with, or open it within a private window to ensure no other accounts are signed in.
-3. Enter the Publisher email address, but don't enter a password. It will redirect to *Step 4* if it's registered in Azure Active Directory (administrator accounts are registered, as are any Organizational accounts that are set up by the administrator account).
+1. *Validate that the account you're using is registered and the password doesn't work.* If you enter an account that is registered in Azure Active Directory, it automatically prompts you to choose how to sign in with the account. You'll use a work or school (Organizational account), or a personal Windows LiveID account.
+2. Go to https://reports.azure.com and sign out of any account that you may be signed in with. You can also open it within a private window to ensure no other accounts are signed in.
+3. Enter the Publisher email address, but don't enter a password. It will redirect to *Step 4* if it's registered in Azure Active Directory.
+
+>[!NOTE]
+>Administrator accounts are registered, as are any Organizational accounts that are set up by the administrator account.
+
 4. Choose **Work or school account**. Work or school accounts (also called Organizational accounts) are set up by companies that are registered with Azure. Personal accounts (also called LiveID accounts) are personal accounts that are registered with Microsoft.
 
 >[!NOTE]
->It's possible that a user has previously set up a LiveID account by using their company email address. The company later onboarded to Azure, and the same email address was registered as an Organizational account. This means this user can have a LiveID account with the password that they used to create the LiveID, and also have an Organizational account with a separate password that is used by the company.
+>It's possible that a user set up a LiveID account by using their company email address. In this scenario, the company later onboards to Azure, and the same email address is registered as an Organizational account. This means this user can have a LiveID account with the password that they used to create the LiveID account. The user can also have an Organizational account with a separate password that is used by the company.
 
 
-5. For the Seller Insights Portal, when you select **Work or school account**, ensure you use your Organizational account password combination, and not a LiveID password combination.
-6. For an Organizational account, this redirects to the Publisher login page.
-7. From here, validate that the password for the Organizational account works or doesn't work. If it doesn't work, continue to the "Password reset" section of this article.
+5. For the Seller Insights Portal, when you select **Work or school account**, ensure that you use your Organizational account password combination, and not a LiveID password combination.
+6. An Organizational account redirects to the publisher login page.
+7. From here, validate that the password for the Organizational account works. If it doesn't work, continue to the "Password reset" section of this article.
 
-***Password reset***
+**Password reset**
 
-Try to reset your password by using the Self-Service Password Reset wizard following the links below.
+Try to reset your password by using the following links.
 
 >[!NOTE]
 >For Organizational accounts that are set up by the administrator account, if the administrator turned on the capability to let you reset your own password, you will be able to reset your own password. Otherwise, the password reset form gives you the option to contact your administrator.
 
-****Microsoft account (Live ID): https://account.live.com/ResetPassword.aspx****
+**Microsoft account (Live ID): https://account.live.com/ResetPassword.aspx**
 ![Password reset Microsoft account][3]
 
-****Work or school account (Organization ID): https://passwordreset.microsoftonline.com/****
+**Work or school account (Organization ID): https://passwordreset.microsoftonline.com/**
 ![Password reset work or school account][4]
 
 
