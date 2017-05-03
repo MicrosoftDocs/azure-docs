@@ -384,6 +384,18 @@
       href: https://azure.microsoft.com/resources/samples/?service=cognitive-services
     - name: FAQ
       href: Content-Moderator/FAQs.md
+  - name: Custom Decision Service
+    items:
+    - name: Overview
+      href: custom-decision-service/custom-decision-service-overview.md
+    - name: Get started
+      items:
+      - name: Call API from a browser
+        href: custom-decision-service/custom-decision-service-get-started-browser.md
+      - name: Call API from an app
+        href: custom-decision-service/custom-decision-service-get-started-server.md
+    - name: API reference
+      href: custom-decision-service/custom-decision-service-api-reference.md
   - name: Custom Speech Service
     items:
     - name: Overview
