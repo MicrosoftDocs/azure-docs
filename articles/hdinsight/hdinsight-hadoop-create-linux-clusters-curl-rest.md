@@ -49,10 +49,6 @@ The Azure REST API allows you to perform management operations on services hoste
   >
   > Once the alias has been removed, you should be able to use the version of cURL that you have installed on your system.
 
-### Access control requirements
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
-
 ## Create a template
 
 Azure Resource Manager templates are JSON documents that describe a **resource group** and all resources in it (such as HDInsight.) This template-based approach allows you to define the resources that you need for HDInsight in one template.
@@ -389,6 +385,10 @@ curl -X "GET" "https://management.azure.com/subscriptions/SubscriptionID/resourc
 ```
 
 This command returns a JSON document containing information about the deployment operation. The `"provisioningState"` element contains the status of the deployment. If this contains a value of `"Succeeded"`, then the deployment has completed successfully.
+
+## Troubleshoot
+
+If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## Next steps
 
