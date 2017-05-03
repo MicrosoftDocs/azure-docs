@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Also, make sure that the latest version of the Azure PowerShell module has been installed. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
-Finally, a public SSH key with the name `id_rsa.pub` needs to be stored in the `.ssh` directory of your Windows user profile. For detailed information on creating SSH keys for Azure, see [Create SSH keys for Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Finally, a public SSH key with the name *id_rsa.pub* needs to be stored in the *.ssh* directory of your Windows user profile. For detailed information on creating SSH keys for Azure, see [Create SSH keys for Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Log in to Azure
 
@@ -39,7 +39,7 @@ Login-AzureRmAccount
 
 ## Create resource group
 
-Create an Azure resource group. A resource group is a logical container into which Azure resources are deployed and managed. 
+Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. 
 
 ```powershell
 New-AzureRmResourceGroup -Name myResourceGroup -Location westeurope
@@ -80,7 +80,7 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Locat
 -Name myNetworkSecurityGroup -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 ```
 
-Create a network card for the virtual machine. The network card connects the virtual machine to a subnet, network security group, and public IP address.
+Create a network card with [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) for the virtual machine. The network card connects the virtual machine to a subnet, network security group, and public IP address.
 
 ```powershell
 # Create a virtual network card and associate with public IP address and NSG
@@ -108,7 +108,7 @@ $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
 Add-AzureRmVMSshPublicKey -VM $vmconfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 ```
 
-Create the virtual machine.
+Create the virtual machine with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
 ```powershell
 New-AzureRmVM -ResourceGroupName myResourceGroup -Location westeurope -VM $vmConfig
@@ -118,7 +118,7 @@ New-AzureRmVM -ResourceGroupName myResourceGroup -Location westeurope -VM $vmCon
 
 After the deployment has completed, create an SSH connection with the virtual machine.
 
-Run the following commands to return the public IP address of the virtual machine.
+Use the [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) command to return the public IP address of the virtual machine.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
@@ -130,7 +130,7 @@ From a system with SSH installed, used the following command to connect to the v
 ssh <Public IP Address>
 ```
 
-When prompted, the login user name is `azureuser`. If a passphrase was entered when creating SSH keys, you will need to enter this as well.
+When prompted, the login user name is *azureuser*. If a passphrase was entered when creating SSH keys, you need to enter this as well.
 
 
 ## Install NGINX
@@ -149,12 +149,12 @@ apt-get -y install nginx
 
 ## View the NGIX welcome page
 
-With NGINX installed and port 80 now open on your VM from the Internet - you can use a web browser of your choice to view the default NGINX welcome page. Be sure to use the `publicIpAddress` you documented above to visit the default page. 
+With NGINX installed and port 80 now open on your VM from the Internet - you can use a web browser of your choice to view the default NGINX welcome page. Be sure to use the public IP address you documented above to visit the default page. 
 
 ![NGINX default site](./media/quick-create-cli/nginx.png) 
 ## Delete virtual machine
 
-When no longer needed, the following command can be used to remove the Resource Group, VM, and all related resources.
+When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to remove the resource group, VM, and all related resources.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
