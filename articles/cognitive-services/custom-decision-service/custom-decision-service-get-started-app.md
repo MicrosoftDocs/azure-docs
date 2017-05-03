@@ -1,29 +1,29 @@
 ---
 title: Microsoft Azure Custom Decision Service get started (server) | Microsoft Docs
-description: How to get started with Microsoft Custom Decision Service, if you prefer to call our APIs from a server hosting your application.
+description: How to get started with Microsoft Custom Decision Service, if you call our APIs from a smartphone app.
 services: cognitive-services
 author: slivkins
 manager: slivkins
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 05/03/2017
 ms.author: slivkins
 ---
 
-# Getting started with Custom Decision Service (server-side API calls)
+# Getting started with Custom Decision Service (app version)
 
-This article explains how to get started with some basic options. The example here is for when you want to make calls to the Custom Decision Service APIs from a server hosting your application.
+This article explains how to get started with some basic options. The example here is for when you want to make calls to the Custom Decision Service APIs from a smartphone app.
 
 ## Registering a new app on the portal
 
 To start using Custom Decision Service for your application, the first step is to register it on our portal. Click the *My Portal* menu item in the top ribbon, highlighted in the image.
 
-![Custom Decision Service home page](./media/custom-decision-service-get-started-server/home.JPG)
+![Custom Decision Service home page](./media/custom-decision-service-get-started-app/home.JPG)
 
 If you are not already signed in, the portal prompts you to sign in with your [Microsoft Account](https://account.microsoft.com/account). Once signed in, you should see the portal with your Microsoft account in the top right corner of the page.
 
-![Custom Decision Service portal](./media/custom-decision-service-get-started-server/portal.PNG)
+![Custom Decision Service portal](./media/custom-decision-service-get-started-app/portal.PNG)
 
 To register your application, click the *New* button. A pop-up should open for registering a new app. Let us see how to register an application in the *simple mode* that was described in the [Overview](custom-decision-service-overview.md). Choose an identifier for your application. Custom Decision Service expects a unique identifier for each application. If someone else has already taken this id, the system asks you to pick a different id. You can also create a name for an action set feed, along with an RSS or Atom end point currently. This feed communicates the available content for your app to the Custom Decision Service. An example for creating the RSS feed is described later.
 
@@ -31,7 +31,7 @@ If you want to register your application in the *advanced mode*, then click the 
 
 ## Using our APIs
 
-The basic usage of our APIs is fairly easy (but see the API reference for additional options and features). There are two API calls you make from your server to the Custom Decision Service: a call to Ranking API to obtain a ranked list of your content, and a call to Reward API to report a reward. Here we provide the sample calls in [cURL](https://en.wikipedia.org/wiki/CURL).
+The basic usage of our APIs is fairly easy (but see the API reference for additional options and features). There are two API calls you make from your smartphone app to the Custom Decision Service: a call to Ranking API to obtain a ranked list of your content, and a call to Reward API to report a reward. Here we provide the sample calls in [cURL](https://en.wikipedia.org/wiki/CURL).
 
 We start with the call to Ranking API. First create a file `<request.json>`, which contains the name of the action set end point that specifies your content.
 
