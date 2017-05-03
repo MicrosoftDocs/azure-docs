@@ -20,9 +20,7 @@ ms.author: aelnably
 ---
 # Docker Hub Continuous Deployment with App Service on Linux
 
-App Service on Linux is currently in Public Preview and enables customers to run their web apps natively on a Linux platform. This allows for better application compatibility for certain kinds of applications and makes it easier to migrate existing web apps hosted on a Linux platform elsewhere onto Azure App Services.
-
-Customers can create web apps on Linux only within a Linux enabled App Service Plan and this App Service Plan can only host Linux-based web apps.
+App Service on Linux is currently in Public Preview and enables customers to run their web apps natively on a Linux platform.
 
 In this tutorial, you configure continuous deployment for a custom container image from [Docker Hub](https://hub.docker.com).
 
@@ -46,7 +44,7 @@ In your Docker Hub page, click **Webhooks**, then **CREATE A WEBHOOK**.
 
 ![insert image of adding webhook 1](./media/app-service-webapp-service-linux-ci-cd/step3-1.png)
 
-For the Webhook URL, you need to have the following endpoint
+For the Webhook URL, you need to have the following endpoint:
 `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
 
 ![insert image of adding webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-2.png)
