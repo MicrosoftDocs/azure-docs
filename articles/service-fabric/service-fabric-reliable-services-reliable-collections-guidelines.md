@@ -13,11 +13,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 5/1/2017
+ms.date: 5/3/2017
 ms.author: mcoskun
 
 ---
 # Guidelines and recommendations for Reliable Collections in Azure Service Fabric
+This section provides guidelines for using Reliable State Manager and Reliable Collections. The goal is to help users avoid common pitfalls.
+
+The guidelines are organized as simple recommendations prefixed with the terms *Do*, *Consider*, *Avoid* and *Do not*.
+
 * Do not modify an object of custom type returned by read operations (for example, `TryPeekAsync` or `TryGetValueAsync`). Reliable Collections, just like Concurrent Collections, return a reference to the objects and not a copy.
 * Do deep copy the returned object of a custom type before modifying it. Since structs and built-in types are pass-by-value, you do not need to do a deep copy on them.
 * Do not use `TimeSpan.MaxValue` for time-outs. Time-outs should be used to detect deadlocks.
