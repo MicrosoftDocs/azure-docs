@@ -13,12 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 5/1/2017
+ms.date: 5/5/2017
 ms.author: victorh
 
 ---
 # Make virtual machines available to your Azure Stack users
-As an Azure Stack administrator, you can create offers that your users (sometimes referred to as tenants) can subscribe to. Using their subscription, users can then consumer Azure Stack services. For example they can then add a virtual machine or whatever else you make available in your offer.
+As an Azure Stack administrator, you can create offers that your users (sometimes referred to as tenants) can subscribe to. Using their subscription, users can then consumer Azure Stack services. For example they can then add a virtual machine or whatever else you make available in your offer. Your users can now serve themselves when they need additional resources. You are then free to do other tasks, like perhaps make new services avaialble that your users can consume.
+
+This article shows you how to create an offer, and then test it. 
+For the test, you will log in to the portal as a user, subscribe to the offer, and then create a virtual machine using the subscription. 
 
 In Azure Stack, services are delivered to users using subscriptions, offers, and plans. Users can subscribe to multiple offers. Offers can have one or more plans, and plans can have one or more services.
 
@@ -77,4 +80,4 @@ If you deployed using AD FS, you need to create a user account first. If you dep
    Follow the article to test that this works with a user account. Log in to the portal with a user account instead of an administrator account. 
 
 ## Next steps
-In this tutorial you've learned how to create an offer and verified that users can subscribe to the offer to start using resources on Azure Stack. Next, you can Deploy apps to Azure & Azure Stack.
+You've learned how to create an offer and verified that users can subscribe to the offer and create virtual machines on Azure Stack. Next, you can [give Azure Stack users the ability to create web, mobile, and API apps](azure-stack-tutorial-app-service.md).
