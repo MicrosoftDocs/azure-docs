@@ -79,7 +79,7 @@ If you plan to configure a domain environment and Windows Authentication, you do
 ## Steps for configuring SQL Server connectivity in an Azure VM
 The following steps demonstrate how to connect to the SQL Server instance over the internet using SQL Server Management Studio (SSMS). However, the same steps apply to making your SQL Server virtual machine accessible for your applications, running both on-premises and in Azure.
 
-Before you can connect to the instance of SQL Server from another VM or the internet, you must complete the following tasks. These tasks are described in the sections that follow:
+Before you can connect to the instance of SQL Server from another VM or the internet, you must complete the following tasks:
 
 * [Create a TCP endpoint for the virtual machine](#create-a-tcp-endpoint-for-the-virtual-machine)
 * [Open TCP ports in the Windows firewall](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
