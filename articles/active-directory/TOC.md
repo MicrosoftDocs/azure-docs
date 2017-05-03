@@ -165,7 +165,7 @@
 ##### [SSO in Azure portal](application-proxy-sso-azure-portal.md)
 ##### [SSO with KCD](active-directory-application-proxy-sso-using-kcd.md)
 ##### [SSO with headers](application-proxy-ping-access.md)
-#### Understand best practices]
+#### Understand best practices
 ##### [Connectors](application-proxy-understand-connectors.md)
 ##### [Security](application-proxy-security-considerations.md)
 ##### [Networks](application-proxy-network-topology-considerations.md)
