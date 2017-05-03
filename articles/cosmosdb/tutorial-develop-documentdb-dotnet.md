@@ -276,10 +276,10 @@ In the next section, we look at how you can move to partitioned collections from
 
 
 ## Next steps
-* Want a more DocuementDB API tutorials? See [Use .NET (C#) to connect and query data with the DocumentDB API](../documentdb/documentdb-connect-dotnet.md) and [Build a web application with ASP.NET MVC using DocumentDB](../documentdb/documentdb-dotnet-application.md).
+* Want a more DocuementDB API tutorials? See [Use .NET (C#) to connect and query data with the DocumentDB API](documentdb-connect-dotnet.md) and [Build a web application with ASP.NET MVC using DocumentDB](../documentdb/documentdb-dotnet-application.md).
 * Want to perform scale and performance testing with DocumentDB? See [Performance and Scale Testing with Azure DocumentDB](../documentdb/documentdb-performance-testing.md)
 * Learn how to [monitor a DocumentDB account](../documentdb/documentdb-monitor-accounts.md).
 * Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
 
 [documentdb-create-account]: ../documentdb/documentdb-create-account.md
-[keys]: media/documentdb-get-started/nosql-tutorial-keys.png
+[keys]: media/tutorial-develop-documentdb-dotnet/nosql-tutorial-keys.png
