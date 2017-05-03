@@ -73,11 +73,14 @@ Azure Active Directory Identity Protection is more than a monitoring and reporti
 
 To load balance the management activities around your Identity Protection implementation, you can assign several roles. Azure AD Identity Protection supports 3 directory roles:
 
-| Role                 | Capability                         |
-| :--                  | ---                                |
-| Global administrator | Full access to Identity Protection |
-| Security admin       | Full access to Identity Protection except resetting password for a user |
-| Security reader      | Ready-only access to Identity Protection |
+| Role                         | Can do                          | Cannot do
+| :--                          | ---                                |  ---   |
+| Global administrator         | Full access to Identity Protection, Onboard Identity Protection| |
+| Security administrator       | Full access to Identity Protection | Onboard Identity Protection,  reset passwords for a user |
+| Security reader              | Ready-only access to Identity Protection | Onboard Identity Protection, remidiate users, configiger policies,  reset passwords |
+
+
+
 
 For more details, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
 
