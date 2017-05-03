@@ -11,7 +11,7 @@ manager: erikre
 ---
 # Add a Content Delivery Network (CDN) to an Azure App Service
 
-The [Azure Content Delivery Network (CDN)](../cdn/cdn-overview.md) caches static web content at strategically placed locations to provide maximum throughput for delivering content to users. This tutorial shows how to add a [Content Delivery Network (CDN)](../cdn/cdn-overview.md) to a web app in Azure App Service. 
+The [Azure Content Delivery Network (CDN)](../cdn/cdn-overview.md) caches static web content at strategically placed locations to provide maximum throughput for delivering content to users. This tutorial shows how to add a CDN) to a web app in Azure App Service. 
 
 You'll work with a sample app that you create in the [static HTML quickstart](app-service-web-get-started-html.md).
 
@@ -288,9 +288,9 @@ In a browser, navigate to the *index.html* file using your custom domain (for ex
 For more information about Azure CDN, see the following resources:
 
 * [What is Azure CDN](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
-* [Purge an Azure CDN endpoint](/cdn/cdn-purge-endpoint.md)
+* [Purge an Azure CDN endpoint](../cdn/cdn-purge-endpoint.md)
 * [Control Azure CDN caching behavior with query strings](../cdn/cdn-query-string.md)
-* [Map Azure CDN content to a custom domain](cdn/cdn-map-content-to-custom-domain.md)
+* [Map Azure CDN content to a custom domain](../cdn/cdn-map-content-to-custom-domain.md)
 * [Enable HTTPS on an Azure CDN custom domain](../cdn/cdn-custom-ssl.md)
 * [Improve performance by compressing files in Azure CDN](../cdn/cdn-improve-performance.md)
 * [Pre-load assets on an Azure CDN endpoint](../cdn/cdn-preload-endpoint.md)
