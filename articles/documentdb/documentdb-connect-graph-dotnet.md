@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/26/2017
+ms.date: 04/30/2017
 ms.author: arramac
 
 ---
@@ -27,38 +27,26 @@ This article provides an overview of how to work with graph APIs in Azure Cosmos
 * Performing queries and traversals using Gremlin
 
 ## Graphs in Azure Cosmos DB
-You can use Azure Cosmos DB to create, update, and query graphs using the `Microsoft.Azure.Graphs` library. The library offers extension methods on top of the `DocumentClient` class to execute [Gremlin queries](documentdb-gremlin-support.md).
+You can use Azure Cosmos DB to create, update, and query graphs using the `Microsoft.Azure.Graphs` library. The library offers extension methods on top of the `DocumentClient` class to execute [Gremlin queries](gremlin-support.md). 
 
 ## Prerequisites
-
 Please make sure you have the following:
 * An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). 
     * Alternatively, you can use the [Azure Cosmos DB Emulator](documentdb-nosql-local-emulator.md) for this tutorial.
-* [Visual Studio](http://www.visualstudio.com/).
+* [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com/).
 
-## Create a database account
+## Step 1: Create an Azure Cosmos DB account with Graph API
+Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip this step. If you are using the DocumentDB Emulator, please follow the steps at [Azure Cosmos DB Emulator](documentdb-nosql-local-emulator.md) to setup the emulator.
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## Create a collection
+## Step 2: Create an Azure Cosmos DB collection
 
-You can now use Data Explorer to create a collection and add data to your database. 
+Create a collection for storing graphs. You can configure the partition key, indexing policy, and provision collection throughput programmatically or [via the Azure portal](documentdb-create-collection.md).
 
-1. In the Azure portal, in the navigation menu, under **Collections**, click **Data Explorer (Preview)**. 
-2. In the Data Explorer blade, click **New Collection**, then fill in the page using the following information.
-    * In the **Database id** box, enter *Items* as ID for your new database. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space.
-    * In the **Collection id** box, enter *ToDoList* as the ID for your new collection. Collection names have the same character requirements as database IDs.
-    * In the **Storage Capacity** box, leave the default 10 GB selected.
-    * In the **Throughput** box, leave the default 400 RUs selected. You can scale up the throughput later if you want to reduce latency.
-    * In the **Partition key** box, for the purpose of this sample, enter the value */category*, so that tasks in the todo app you create can be partitioned by category. Selecting the correct partition key is important in creating a performant collection, read more about it in [Designing for partitioning](documentdb-partition-data.md#designing-for-partitioning).
+## Step 3: Setup your Visual Studio solution
 
-   ![Data Explorer in the Azure portal](./media/documentdb-connect-graph-dotnet/azure-cosmosdb-data-explorer.png)
-
-3. Once the form is filled out, click **OK**.
-
-## Setup your Visual Studio solution
-
-1. Open **Visual Studio** on your computer.
+1. Open **Visual Studio 2015** on your computer.
 2. On the **File** menu, select **New**, and then choose **Project**.
 3. In the **New Project** dialog, select **Templates** / **Visual C#** / **Console Application**, name your project, and then click **OK**.
    ![Screen shot of the New Project window](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
@@ -80,26 +68,7 @@ You can now use Data Explorer to create a collection and add data to your databa
 
 Great! Now that we finished the setup, let's start writing some code. You can find a completed code project of this tutorial at [GitHub](https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started/blob/master/Program.cs).
 
-## Update your connection string
-
-Now go back to the Azure portal to get your connection string information and copy it into the app.
-
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the web.config file in the next step.
-
-    ![View and copy an access key in the Azure Portal, Keys blade](./media/documentdb-connect-dotnet/keys.png)
-
-2. In Visual Studio 2017, open the web.config file. 
-
-3. Copy your URI value from the portal (using the copy button) and make it the value of the endpoint key in web.config. 
-
-    `<add key="endpoint" value="FILLME" />`
-
-4. Then copy your PRIMARY KEY value from the portal and make it the value of the authKey in web.config. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
-
-    `<add key="authKey" value="FILLME" />`
-    
-
-## Add the contextual code
+## Step 4: Adding the contextual code
 The `Microsoft.Azure.Graph` library provides a single extension method `CreateGraphQuery` for executing Gremlin operations. Let's begin by adding the following setup to code before we dive into the Gremlin queries.
 
 ```cs
@@ -183,27 +152,13 @@ public class Program
     }
 }
 ```
-## Build and deploy the web app
-1. In Visual Studio, right-click on the project in **Solution Explorer** and then click **Manage NuGet Packages**. 
 
-2. In the NuGet **Browse** box, type ***Azure DocumentDB***.
-
-3. From the results, install the **.NET Client library for Azure DocumentDB**. This installs the DocumentDB package as well as all dependencies.
-
-4. Click CTRL + F5 to run the application. Your app displays in your browser. 
-
-5. Click **Create New** in the browser and create a few new tasks in your to-do app.
-
-   ![Todo app with sample data](./media/documentdb-connect-dotnet/azure-documentdb-todo-app-list.png)
-
-You can now go back to Data Explorer and see query, modify, and work with this new data. 
-
-## Serializing vertices and edges to .NET objects
-Azure Cosmos DB uses the [GraphSON wire format](documentdb-gremlin-support.md), which defines a JSON schema for vertices, edges, and properties. The Azure Cosmos DB .NET SDK includes JSON.NET as a dependency, and this allows us to serialize/deserialize GraphSON into .NET objects that we can work with in code.
+## Step 5: Serializing vertices and edges to .NET objects
+Azure Cosmos DB uses the [GraphSON wire format](gremlin-support.md), which defines a JSON schema for vertices, edges, and properties. The Azure Cosmos DB .NET SDK includes JSON.NET as a dependency, and this allows us to serialize/deserialize GraphSON into .NET objects that we can work with in code.
 
 As an example, let's work with a simple social network with four people. We look at how to create `Person` vertices, add `Knows` relationships between them, then query and traverse the graph to find "friend of friend" relationships. 
 
-To start with, let's create some .NET classes to represent vertices and edges based on the GraphSON format (alternatively, you can skip this step to work with dynamics). The following class can be used for a vertex:
+To start with, let's create some .NET classes to represent vertices and edges based on the GraphSON format (alternatively, you can skip this step to work with dynamics). The following class can be used for a vertex and property:
 
 ```cs
 public class Vertex
@@ -217,102 +172,110 @@ public class Vertex
     [JsonProperty("properties")]
     public Dictionary<string, List<Property>> Properties { get; set; }
 }
-```
+
+public class Property
+{
+    /// <summary>
+    /// Gets or sets the key of the property.
+    /// </summary>
+    [JsonProperty("id")]
+    public string Key { get; set; }
+
+    /// <summary>
+    /// Gets or sets the value of the property.
+    /// </summary>
+    [JsonProperty("value")]
+    public object Value { get; set; }
+}
+``` 
 
 ## Adding vertices and edges
 
-Let's create some vertices using Gremlin's `addV` method. Here's a snippet that shows how to create a vertex for "Thomas Andersen" with properties for first name, last name, and age.
+Let's create some vertices using Gremlin's `addV` method. We'll create four vertices for Thomas, Mary, Ben, and Robin. Add the following four queries to your dictionary of gremlin queries.
 
 ```cs
-// Create a vertex
-IDocumentQuery<Vertex> createVertexQuery = client.CreateGremlinQuery<Vertex>(
-    graphCollection, 
-    "g.addV('person').property('firstName', 'Thomas')");
-
-while (createVertexQuery.HasMoreResults)
+Dictionary<string, string> gremlinQueries = new Dictionary<string, string>
 {
-    Vertex thomas = (await create.ExecuteNextAsync<Vertex>()).First();
-}
+    { "Cleanup",        "g.V().drop()" },
+
+    /* Add all Gremlin queries here */
+    { "AddVertex 1",    "g.addV('person').property('id', 'thomas').property('firstName', 'Thomas').property('age', 44)" },
+    { "AddVertex 2",    "g.addV('person').property('id', 'mary').property('firstName', 'Mary').property('lastName', 'Andersen').property('age', 39)" },
+    { "AddVertex 3",    "g.addV('person').property('id', 'ben').property('firstName', 'Ben').property('lastName', 'Miller')" },
+    { "AddVertex 4",    "g.addV('person').property('id', 'robin').property('firstName', 'Robin').property('lastName', 'Wakefield')" }
+};
 ```
 
-Let's create some edges between these vertices using Gremlin's `addE` method. 
+Let's create some edges between these vertices using Gremlin's `addE` method. Add the following four queries to your dictionary of gremlin queries.
 
 ```cs
-// Add a "knows" edge
-IDocumentQuery<Edge> createEdgeQuery = client.CreateGremlinQuery<Edge>(
-    graphCollection, 
-    $"g.V('{thomas.Id}').addE('knows').to(g.V('{mary.Id}'))");
-
-while (create.HasMoreResults)
-{
-    Edge thomasKnowsMaryEdge = (await create.ExecuteNextAsync<Edge>()).First();
-}
+{ "AddEdge 1",      "g.V('thomas').addE('knows').to(g.V('mary'))" },
+{ "AddEdge 2",      "g.V('thomas').addE('knows').to(g.V('ben'))" },
+{ "AddEdge 3",      "g.V('ben').addE('knows').to(g.V('robin'))" }
 ```
 
-We can update an existing vertex by using `properties` step in Gremlin. We skip the call to execute the query via `HasMoreResults` and `ExecuteNextAsync` for the rest of the examples.
+We can update an existing vertex by using `properties` step in Gremlin. 
 
 ```cs
 // Update a vertex
-client.CreateGremlinQuery<Vertex>(graphCollection, $"g.V('{thomas.Id}').property('age', 45)");
+{ "UpdateVertex",   "g.V('thomas').property('age', 44)" }
 ```
 
-You can drop edges and vertices using Gremlin's `drop` step. Here's a snippet that shows how to delete a vertex and an edge. Note that dropping a vertex performs a cascading delete of the associated edges.
-
-```cs
-// Drop an edge
-client.CreateGremlinQuery(graphCollection, $"g.E('{thomasKnowsRobin.Id}').drop()");
-
-// Drop a vertex
-client.CreateGremlinQuery(graphCollection, $"g.V('{robin.Id}').drop()");
-```
+Press **F5** to run what we have until now to create your new vertices and edges.
 
 ## Querying the graph
 
-You can perform queries and traversals also using Gremlin. For example, the following snippet shows how to count the number of vertices in the graph:
+You can perform queries and traversals also using Gremlin. Add the following query to your dictionary of gremlin queries to count the number of vertices:
 
 ```cs
-// Run a query to count vertices
-IDocumentQuery<int> countQuery = client.CreateGremlinQuery<int>(graphCollection, "g.V().count()");
+// A query to count vertices
+{ "CountVertices",  "g.V().count()" }
 ```
+
 You can perform filters using Gremlin's `has` and `hasLabel` steps, and combine them using `and`, `or`, and `not` to build more complex filters:
 
 ```cs
-// Run a query with filter
-IDocumentQuery<Vertex> personsByAge = client.CreateGremlinQuery<Vertex>(
-  graphCollection, 
-  $"g.V().hasLabel('person').has('age', gt(40))");
+// A query with filter
+{ "Filter Range",   "g.V().hasLabel('person').has('age', gt(40))" }
 ```
 
 You can project certain properties in the query results using the `values` step:
 
 ```cs
-// Run a query with projection
-IDocumentQuery<string> firstNames = client.CreateGremlinQuery<string>(
-  graphCollection, 
-  $"g.V().hasLabel('person').values('firstName')");
+// A query with projection
+{ "Project",        "g.V().hasLabel('person').values('firstName')" }
 ```
 
 So far, we've only seen query operators that work in any database. Graphs are fast and efficient for traversal operations when you need to navigate to related edges and vertices. Let's find all friends of Thomas. We do this by using Gremlin's `outE` step to find all the out-edges from Thomas, then traversing to the in-vertices from those edges using Gremlin's `inV` step:
 
 ```cs
 // Run a traversal (find friends of Thomas)
-IDocumentQuery<Vertex> friendsOfThomas = client.CreateGremlinQuery<Vertex>(
-  graphCollection,
-  $"g.V('{thomas.Id}').outE('knows').inV().hasLabel('person')");
+{ "Traverse",       "g.V('thomas').outE('knows').inV().hasLabel('person')" }
 ```
 
 The next query performs two hops to find all of Thomas' "friends of friends", by calling `outE` and `inV` two times. 
 
 ```cs
 // Run a traversal (find friends of friends of Thomas)
-IDocumentQuery<Vertex> friendsOfFriendsOfThomas = client.CreateGremlinQuery<Vertex>(
-  graphCollection,
-  $"g.V('{thomas.Id}').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')");
+{ "Traverse 2x",    "g.V('thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')" }
 ```
 
-You can build more complex queries and implement powerful graph traversal logic using Gremlin, including mixing filter expressions, performing looping using the `loop` step, and implementing conditional navigation using the `choose` step. Learn more about what you can do with [Gremlin support](documentdb-gremlin-support.md)!
+## Drop an edge and vertex
+
+You can drop edges and vertices using Gremlin's `drop` step. Here's a snippet that shows how to delete a vertex and an edge. Note that dropping a vertex performs a cascading delete of the associated edges. Add the following query to your dictionary of gremlin queries to droip an edge, then a vertex.
+
+```cs
+// Drop an edge
+{ "DropEdge",       "g.V('thomas').outE('knows').where(inV().has('id', 'mary')).drop()" },
+{ "CountEdges",     "g.E().count()" },
+
+// Drop a vertex
+{ "DropVertex",     "g.V('thomas').drop()" }
+```
+
+You can build more complex queries and implement powerful graph traversal logic using Gremlin, including mixing filter expressions, performing looping using the `loop` step, and implementing conditional navigation using the `choose` step. Learn more about what you can do with [Gremlin support](gremlin-support.md)!
 
 ## Next Steps
-* Read about [Gremlin support in Azure Cosmos DB](documentdb-gremlin-support.md)
-* View the samples for [Graphs in .NET](documentdb-graph-dotnet-samples.md)
+* Read about [Gremlin support in Azure Azure Cosmos DB](gremlin-support.md)
+* View the samples for [Graphs in .NET](graph-dotnet-samples.md)
 * Download the [Graph .NET library and read release notes](https://aka.ms/graphdbextension)
