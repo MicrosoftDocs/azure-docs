@@ -20,7 +20,7 @@ ms.author: mimig
 ---
 # Azure Cosmos DB: Build a web app .NET with the DocumentDB API
 
-This quick start demonstrates how to use the [DocumentDB .NET API](../articles/documentdb/documentdb-sdk-dotnet.md) for Azure Cosmos DB and the Azure portal to create an Azure Cosmos DB account, create a database and collection, and then build and deploy a web app on the Windows platform.
+This quick start demonstrates how to use the [DocumentDB .NET API](../documentdb/documentdb-sdk-dotnet.md) for Azure Cosmos DB and the Azure portal to create an Azure Cosmos DB account, create a database and collection, and then build and deploy a web app on the Windows platform.
 
 If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
@@ -40,7 +40,7 @@ You can now use Data Explorer to create a collection and add data to your databa
     * In the **Collection id** box, enter *ToDoList* as the ID for your new collection. Collection names have the same character requirements as database IDs.
     * In the **Storage Capacity** box, leave the default 10 GB selected.
     * In the **Throughput** box, leave the default 400 RUs selected. You can scale up the throughput later if you want to reduce latency.
-    * In the **Partition key** box, for the purpose of this sample, enter the value */category*, so that tasks in the todo app you create can be partitioned by category. Selecting the correct partition key is important in creating a performant collection, read more about it in [Designing for partitioning](../articles/documentdb/documentdb-partition-data.md#designing-for-partitioning).
+    * In the **Partition key** box, for the purpose of this sample, enter the value */category*, so that tasks in the todo app you create can be partitioned by category. Selecting the correct partition key is important in creating a performant collection, read more about it in [Designing for partitioning](../documentdb/documentdb-partition-data.md#designing-for-partitioning).
 
    ![Data Explorer in the Azure portal](./media/create-documentdb-dotnet-core/azure-cosmosdb-data-explorer.png)
 
@@ -156,6 +156,6 @@ If you're not going to continue to use this app and Azure Cosmos DB, use the fol
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you just created. 
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
-To learn more about the Azure Comsos DB DocumentDB API, see [What is the DocumentDB API?(../articles/documentdb/documentdb-introduction). To learn more about the SQL query language which you can use in the Azure portal and programmatically, see [SQL](../articles/documentdb/documentdb-sql-query.md).
+To learn more about the Azure Comsos DB DocumentDB API, see [What is the DocumentDB API?(../documentdb/documentdb-introduction). To learn more about the SQL query language which you can use in the Azure portal and programmatically, see [SQL](../documentdb/documentdb-sql-query.md).
 
 

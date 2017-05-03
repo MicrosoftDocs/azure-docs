@@ -48,7 +48,7 @@ Azure Cosmos DB offers the following differentiated capabilities compared to oth
 
 * **Multi-region replication**: Azure Cosmos DB transparently replicates your graph data to all regions you've associated with your account, enabling you to develop applications that require global access to data while providing tradeoffs between consistency, availability and performance, all with corresponding guarantees. Azure Cosmos DB provides transparent regional failover with multi-homing APIs, and the ability to elastically scale throughput and storage across the globe.
 
-* **Fast queries and traversals with familiar Gremlin syntax**: Store heterogeneous vertices and edges and query these documents through a familiar Gremlin syntax (enhanced-SQL will also be available soon). Azure Cosmos DB utilizes a highly concurrent, lock free, log structured indexing technology to automatically index all content. This enables rich real-time queries and traversals without the need to specify schema hints, secondary indexes, or views. Learn more in [Query Graphs using Gremlin](../articles/documentdb/documentdb-gremlin-support.md).
+* **Fast queries and traversals with familiar Gremlin syntax**: Store heterogeneous vertices and edges and query these documents through a familiar Gremlin syntax (enhanced-SQL will also be available soon). Azure Cosmos DB utilizes a highly concurrent, lock free, log structured indexing technology to automatically index all content. This enables rich real-time queries and traversals without the need to specify schema hints, secondary indexes, or views. Learn more in [Query Graphs using Gremlin](../documentdb/documentdb-gremlin-support.md).
 
 * **Fully managed**: Eliminate the need to manage database and machine resources. As a fully-managed Microsoft Azure service, you do not need to manage virtual machines, deploy and configure software, manage scaling, or deal with complex data-tier upgrades. Every graph is automatically backed up and protected against regional failures. You can easily add a Azure Cosmos DB account and provision capacity as you need it, allowing you to focus on your application instead of operating and managing your database.
 
@@ -56,7 +56,7 @@ Azure Cosmos DB offers the following differentiated capabilities compared to oth
 
 * **Compatibility with TinkerPop**: Azure Cosmos DB natively supports the open-source TinkerPop framework, and can be queried using the Gremlin language and integrated with other TinkerPop-enabled graph systems. So, you can easily migrate from an another different graph database like Titan or Neo4j, or use graph analytics frameworks that are written on top of TinkerPop.
 
-* **Tunable consistency levels:** Select from four well defined consistency levels to achieve optimal trade-off between consistency and performance. For queries and read operations, DocumentDB offers four distinct consistency levels: strong, bounded-staleness, session, and eventual. These granular, well-defined consistency levels allow you to make sound trade-offs between consistency, availability, and latency. Learn more in [Using consistency levels to maximize availability and performance in DocumentDB](../articles/documentdb/documentdb-consistency-levels.md).
+* **Tunable consistency levels:** Select from four well defined consistency levels to achieve optimal trade-off between consistency and performance. For queries and read operations, DocumentDB offers four distinct consistency levels: strong, bounded-staleness, session, and eventual. These granular, well-defined consistency levels allow you to make sound trade-offs between consistency, availability, and latency. Learn more in [Using consistency levels to maximize availability and performance in DocumentDB](../documentdb/documentdb-consistency-levels.md).
 
 Azure Cosmos DB also provides the ability to use multiple models like document and graph within the same collections/databases. You can use a document collection to store graph data side by side with documents, and use both SQL queries over JSON and Gremlin queries to query the collection. 
 
@@ -71,14 +71,14 @@ The following table shows popular Gremlin drivers that you can start using again
 | [Node.js](https://www.npmjs.com/package/gremlin) |[Gremlin-JavaScript on Github](https://github.com/jbmusso/gremlin-javascript) |
 | [Gremlin console](https://tinkerpop.apache.org/downloads.html) |[TinkerPop docs](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |
 
-Azure Cosmos DB also provides first-party .NET and .NET Core libraries via Nuget that provide Gremlin extension methods on top of the [Azure Cosmos DB SDKs](../articles/documentdb/documentdb-sdk-dotnet.md). These libraries provide an "in-proc" Gremlin server that can be used to connect directly to DocumenDB collections. 
+Azure Cosmos DB also provides first-party .NET and .NET Core libraries via Nuget that provide Gremlin extension methods on top of the [Azure Cosmos DB SDKs](../documentdb/documentdb-sdk-dotnet.md). These libraries provide an "in-proc" Gremlin server that can be used to connect directly to DocumenDB collections. 
 
 | Download | Documentation |
 | --- | --- |
 | [.NET](https://www.nuget.org/packages/Microsoft.Azure.Graph/) |[Microsoft.Azure.Graphs](https://msdn.microsoft.com/library/azure/dn948556.aspx) |
 | [.NET Core](https://www.nuget.org/packages/Microsoft.Azure.Graph.Core/) |[Microsoft.Azure.Graphs](https://msdn.microsoft.com/library/azure/dn948556.aspx) |
 
-Using the [Azure Cosmos DB Emulator](../articles/documentdb/documentdb-nosql-local-emulator.md), you can develop and test locally using the Graph API, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Emulator, you can switch to using an Azure Cosmos DB account in the cloud.
+Using the [Azure Cosmos DB Emulator](../documentdb/documentdb-nosql-local-emulator.md), you can develop and test locally using the Graph API, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Emulator, you can switch to using an Azure Cosmos DB account in the cloud.
 
 ## Scenarios for Azure Cosmos DB's Graph support
 Here are some scenarios where Azure Cosmos DB's graph support can be used: 
@@ -94,5 +94,5 @@ Here are some scenarios where Azure Cosmos DB's graph support can be used:
 ## Next steps
 To learn more about graph support in Azure Cosmos DB, see:
 
-* Get started with the [Azure Cosmos DB graph tutorial](../articles/documentdb/documentdb-connect-graph-dotnet.md)
-* Learn about how to [query graphs in Azure Cosmos DB using Gremlin](../articles/documentdb/documentdb-gremlin-support.md)
+* Get started with the [Azure Cosmos DB graph tutorial](../documentdb/documentdb-connect-graph-dotnet.md)
+* Learn about how to [query graphs in Azure Cosmos DB using Gremlin](../documentdb/documentdb-gremlin-support.md)

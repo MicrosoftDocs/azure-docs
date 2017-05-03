@@ -20,7 +20,7 @@ ms.author: mimig
 ---
 # Azure Cosmos DB: Build a web app with .NET Core and the DocumentDB API
 
-This quick start demonstrates how to use the [DocumentDB .NET Core API](../articles/documentdb/documentdb-sdk-dotnet-core.md) for Azure Cosmos DB and the Azure portal to create an Azure Cosmos DB account, create a database and collection, and then build and deploy a web app on the Windows platform.
+This quick start demonstrates how to use the [DocumentDB .NET Core API](../documentdb/documentdb-sdk-dotnet-core.md) for Azure Cosmos DB and the Azure portal to create an Azure Cosmos DB account, create a database and collection, and then build and deploy a web app on the Windows platform.
 
 If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
@@ -107,4 +107,4 @@ If you're not going to continue to use this app and Azure Cosmos DB, use the fol
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you just created. 
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
-To learn more about the Azure Comsos DB DocumentDB API, see [What is the DocumentDB API?(../articles/documentdb/documentdb-introduction). To learn more about the SQL query language which you can use in the Azure portal and programmatically, see [SQL](../articles/documentdb/documentdb-sql-query.md).
+To learn more about the Azure Comsos DB DocumentDB API, see [What is the DocumentDB API?(../documentdb/documentdb-introduction). To learn more about the SQL query language which you can use in the Azure portal and programmatically, see [SQL](../documentdb/documentdb-sql-query.md).

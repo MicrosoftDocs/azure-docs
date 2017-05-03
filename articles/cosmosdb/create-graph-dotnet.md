@@ -33,7 +33,7 @@ You can use Azure Cosmos DB to create, update, and query graphs using the `Micro
 
 Please make sure you have the following:
 * An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). 
-    * Alternatively, you can use the [Azure Cosmos DB Emulator](../articles/documentdb/documentdb-nosql-local-emulator.md) for this tutorial.
+    * Alternatively, you can use the [Azure Cosmos DB Emulator](../documentdb/documentdb-nosql-local-emulator.md) for this tutorial.
 * [Visual Studio](http://www.visualstudio.com/).
 
 ## Create a database account
@@ -50,7 +50,7 @@ You can now use Data Explorer to create a collection and add data to your databa
     * In the **Collection id** box, enter *ToDoList* as the ID for your new collection. Collection names have the same character requirements as database IDs.
     * In the **Storage Capacity** box, leave the default 10 GB selected.
     * In the **Throughput** box, leave the default 400 RUs selected. You can scale up the throughput later if you want to reduce latency.
-    * In the **Partition key** box, for the purpose of this sample, enter the value */category*, so that tasks in the todo app you create can be partitioned by category. Selecting the correct partition key is important in creating a performant collection, read more about it in [Designing for partitioning](../articles/documentdb/documentdb-partition-data.md#designing-for-partitioning).
+    * In the **Partition key** box, for the purpose of this sample, enter the value */category*, so that tasks in the todo app you create can be partitioned by category. Selecting the correct partition key is important in creating a performant collection, read more about it in [Designing for partitioning](../documentdb/documentdb-partition-data.md#designing-for-partitioning).
 
    ![Data Explorer in the Azure portal](./media/create-graph-dotnet/azure-cosmosdb-data-explorer.png)
 
@@ -310,9 +310,9 @@ IDocumentQuery<Vertex> friendsOfFriendsOfThomas = client.CreateGremlinQuery<Vert
   $"g.V('{thomas.Id}').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')");
 ```
 
-You can build more complex queries and implement powerful graph traversal logic using Gremlin, including mixing filter expressions, performing looping using the `loop` step, and implementing conditional navigation using the `choose` step. Learn more about what you can do with [Gremlin support](../articles/documentdb/documentdb-gremlin-support.md)!
+You can build more complex queries and implement powerful graph traversal logic using Gremlin, including mixing filter expressions, performing looping using the `loop` step, and implementing conditional navigation using the `choose` step. Learn more about what you can do with [Gremlin support](../documentdb/documentdb-gremlin-support.md)!
 
 ## Next Steps
-* Read about [Gremlin support in Azure Cosmos DB](../articles/documentdb/documentdb-gremlin-support.md)
-* View the samples for [Graphs in .NET](../articles/documentdb/documentdb-graph-dotnet-samples.md)
+* Read about [Gremlin support in Azure Cosmos DB](../documentdb/documentdb-gremlin-support.md)
+* View the samples for [Graphs in .NET](../documentdb/documentdb-graph-dotnet-samples.md)
 * Download the [Graph .NET library and read release notes](https://aka.ms/graphdbextension)

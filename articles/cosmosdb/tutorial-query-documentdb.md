@@ -109,4 +109,4 @@ The next query returns all the given names of children in the family whose id ma
 
 ## Next steps
 
-For more information about querying document data with SQL queries, see [SQL](../articles/documentdb/documentdb-sql-query.md), and print out the [SQL Query Cheat Sheet](../articles/documentdb/documentdb-sql-query-cheat-sheet.md).
+For more information about querying document data with SQL queries, see [SQL](../documentdb/documentdb-sql-query.md), and print out the [SQL Query Cheat Sheet](../documentdb/documentdb-sql-query-cheat-sheet.md).

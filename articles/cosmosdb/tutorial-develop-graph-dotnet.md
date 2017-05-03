@@ -26,24 +26,24 @@ This article provides an overview of how to work with graph APIs in Azure Cosmos
 * Performing queries and traversals using Gremlin
 
 ## Graphs in Azure Cosmos DB
-You can use Azure Cosmos DB to create, update, and query graphs using the `Microsoft.Azure.Graphs` library. The library offers extension methods on top of the `DocumentClient` class to execute [Gremlin queries](../articles/documentdb/documentdb-gremlin-support.md). To work with the graph APIs, you must perform the following steps as a pre-requisite:
+You can use Azure Cosmos DB to create, update, and query graphs using the `Microsoft.Azure.Graphs` library. The library offers extension methods on top of the `DocumentClient` class to execute [Gremlin queries](../documentdb/documentdb-gremlin-support.md). To work with the graph APIs, you must perform the following steps as a pre-requisite:
 
 - Create a Azure Cosmos DB account. You can configure the endpoint name, associate any number of read and writes regions, and configure the default consistency level while creating the account. You can also use an existing Azure Cosmos DB account to work with graphs. 
 - Create a database.
 - Create a collection for storing graphs. You can configure the partition key, indexing policy, and provision collection throughput programmatically or via the Azure portal.
 
-Once you create the account, you can start working in .NET by downloading the [Microsoft.Azure.Azure Cosmos DB](../articles/documentdb/documentdb-sdk-dotnet.md) package and the [Microsoft.Azure.Graph](https://aka.ms/graphdbextension) extension library, and include them within your project. The `Microsoft.Azure.Graph` library provides a single extension method `CreateGraphQuery` for executing Gremlin operations. Gremlin is a functional programming language that supports write operations (DML) and query and traversal operations. We cover a few examples in this article to get your started with Gremlin. [Gremlin queries](../articles/documentdb/documentdb-gremlin-support.md) has a detailed walkthrough of Gremlin capabilities in Azure Cosmos DB.
+Once you create the account, you can start working in .NET by downloading the [Microsoft.Azure.Azure Cosmos DB](../documentdb/documentdb-sdk-dotnet.md) package and the [Microsoft.Azure.Graph](https://aka.ms/graphdbextension) extension library, and include them within your project. The `Microsoft.Azure.Graph` library provides a single extension method `CreateGraphQuery` for executing Gremlin operations. Gremlin is a functional programming language that supports write operations (DML) and query and traversal operations. We cover a few examples in this article to get your started with Gremlin. [Gremlin queries](../documentdb/documentdb-gremlin-support.md) has a detailed walkthrough of Gremlin capabilities in Azure Cosmos DB.
 
 ## Prerequisites
 Please make sure you have the following:
 
 * An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). 
-    * Alternatively, you can use the [Azure DocumentDB Emulator](../articles/documentdb/documentdb-nosql-local-emulator.md) for this tutorial.
+    * Alternatively, you can use the [Azure DocumentDB Emulator](../documentdb/documentdb-nosql-local-emulator.md) for this tutorial.
 * [Visual Studio](http://www.visualstudio.com/).
 
 ## Create database account
 
-If you already have an account you want to use, you can skip ahead to [Setup your Visual Studio solution](#SetupVS). If you are using the DocumentDB Emulator, please follow the steps at [Azure DocumentDB Emulator](../articles/documentdb/documentdb-nosql-local-emulator.md) to setup the emulator and skip ahead to [Setup your Visual Studio Solution](#SetupVS).
+If you already have an account you want to use, you can skip ahead to [Setup your Visual Studio solution](#SetupVS). If you are using the DocumentDB Emulator, please follow the steps at [Azure DocumentDB Emulator](../documentdb/documentdb-nosql-local-emulator.md) to setup the emulator and skip ahead to [Setup your Visual Studio Solution](#SetupVS).
 
 [!INCLUDE [cosmosdb-create-dbaccount-graph](../../includes/cosmosdb-create-dbaccount-graph.md)]
 
@@ -56,14 +56,14 @@ If you already have an account you want to use, you can skip ahead to [Setup you
     
     ![Screen shot of the Right Clicked Menu for the Project](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 5. In the **Nuget** tab, click **Browse**, and type **azure cosmos db** in the search box.
-6. Within the results, find **[Microsoft.Azure.Azure Cosmos DB](../articles/documentdb/documentdb-sdk-dotnet.md)** and click **Install**.
+6. Within the results, find **[Microsoft.Azure.Azure Cosmos DB](../documentdb/documentdb-sdk-dotnet.md)** and click **Install**.
    The package ID for the DocumentDB Client Library is [Microsoft.Azure.Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB).
 
     If you get a messages about reviewing changes to the solution, click **OK**. If you get a message about license acceptance, click **I accept**.
 
 6. Now search for **[Microsoft.Azure.Graph](https://aka.ms/graphdbextension)** extension library and click **Install**.
    
-The `Microsoft.Azure.Graph` library provides a single extension method `CreateGraphQuery` for executing Gremlin operations. Gremlin is a functional programming language that supports write operations (DML) and query and traversal operations. We cover a few examples in this article to get your started with Gremlin. [Gremlin queries](../articles/documentdb/documentdb-gremlin-support.md) has a detailed walkthrough of Gremlin capabilities in Azure Cosmos DB.
+The `Microsoft.Azure.Graph` library provides a single extension method `CreateGraphQuery` for executing Gremlin operations. Gremlin is a functional programming language that supports write operations (DML) and query and traversal operations. We cover a few examples in this article to get your started with Gremlin. [Gremlin queries](../documentdb/documentdb-gremlin-support.md) has a detailed walkthrough of Gremlin capabilities in Azure Cosmos DB.
 
 ## <a id="Connect"></a>Add references to your project
 First, add these references to your application.
@@ -81,14 +81,14 @@ When working with a graph app, the steps and code required are similar to workin
 
 To connect your app and create core resources, complete the following steps in the DocumentDB API tutorial:
 
-* [Connect your app](../articles/documentdb/documentdb-tutorial-documentdb-create.md#add-references)
-* [Instantiate the DocumentClient](../articles/documentdb/documentdb-tutorial-documentdb-create.md#instantiate)
-* [Create a database](../articles/documentdb/documentdb-tutorial-documentdb-create.md#create-database)
-* [Create a collection](../articles/documentdb/documentdb-tutorial-documentdb-create.md#CreateColl)
+* [Connect your app](../documentdb/documentdb-tutorial-documentdb-create.md#add-references)
+* [Instantiate the DocumentClient](../documentdb/documentdb-tutorial-documentdb-create.md#instantiate)
+* [Create a database](../documentdb/documentdb-tutorial-documentdb-create.md#create-database)
+* [Create a collection](../documentdb/documentdb-tutorial-documentdb-create.md#CreateColl)
 
 
 ## <a id="serializing"></a>Serializing vertices and edges to .NET objects
-Azure Cosmos DB uses the [GraphSON wire format](../articles/documentdb/documentdb-gremlin-support.md), which defines a JSON schema for vertices, edges, and properties. The Azure Cosmos DB .NET SDK includes JSON.NET as a dependency, and this allows us to serialize/deserialize GraphSON into .NET objects that we can work with in code.
+Azure Cosmos DB uses the [GraphSON wire format](../documentdb/documentdb-gremlin-support.md), which defines a JSON schema for vertices, edges, and properties. The Azure Cosmos DB .NET SDK includes JSON.NET as a dependency, and this allows us to serialize/deserialize GraphSON into .NET objects that we can work with in code.
 
 As an example, let's work with a simple social network with four people. We look at how to create `Person` vertices, add `Knows` relationships between them, then query and traverse the graph to find "friend of friend" relationships. 
 
@@ -199,9 +199,9 @@ IDocumentQuery<Vertex> friendsOfFriendsOfThomas = client.CreateGremlinQuery<Vert
   $"g.V('{thomas.Id}').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')");
 ```
 
-You can build more complex queries and implement powerful graph traversal logic using Gremlin, including mixing filter expressions, performing looping using the `loop` step, and implementing conditional navigation using the `choose` step. Learn more about what you can do with [Gremlin support](../articles/documentdb/documentdb-gremlin-support.md)!
+You can build more complex queries and implement powerful graph traversal logic using Gremlin, including mixing filter expressions, performing looping using the `loop` step, and implementing conditional navigation using the `choose` step. Learn more about what you can do with [Gremlin support](../documentdb/documentdb-gremlin-support.md)!
 
 ## Next Steps
-* Read about [Gremlin support in Azure Cosmos DB](../articles/documentdb/documentdb-gremlin-support.md)
-* View the samples for [Graphs in .NET](../articles/documentdb/documentdb-graph-dotnet-samples.md)
+* Read about [Gremlin support in Azure Cosmos DB](../documentdb/documentdb-gremlin-support.md)
+* View the samples for [Graphs in .NET](../documentdb/documentdb-graph-dotnet-samples.md)
 * Download the [Graph .NET library and read release notes](https://aka.ms/graphdbextension)

@@ -35,11 +35,11 @@ Now let's get started!
 ## Prerequisites
 Please make sure you have the following:
 * An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). 
-    * Alternatively, you can use the [Azure Cosmos DB Emulator](../articles/documentdb/documentdb-nosql-local-emulator.md) for this tutorial.
+    * Alternatively, you can use the [Azure Cosmos DB Emulator](../documentdb/documentdb-nosql-local-emulator.md) for this tutorial.
 * [Gremlin Console](http://tinkerpop.apache.org/) 3.2.4 and above
 
 ## Create a Cosmos DB account with Graph API
-Let's create a Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Connect to your app service](#ConnectAppService). If you are using the DocumentDB Emulator, please follow the steps at [Azure DocumentDB Emulator](../articles/documentdb/documentdb-nosql-local-emulator.md) to setup the emulator and skip ahead to [Setup your Visual Studio Solution](#SetupVS).
+Let's create a Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Connect to your app service](#ConnectAppService). If you are using the DocumentDB Emulator, please follow the steps at [Azure DocumentDB Emulator](../documentdb/documentdb-nosql-local-emulator.md) to setup the emulator and skip ahead to [Setup your Visual Studio Solution](#SetupVS).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -208,4 +208,4 @@ Congratulations! You've completed this Cosmos DB: Graph API tutorial!
 
 ## Next steps
 
-For more information about the Graph API, see [Introduction to Graph support in Azure Cosmos DB](../articles/documentdb/documentdb-graph-introduction.md).
+For more information about the Graph API, see [Introduction to Graph support in Azure Cosmos DB](../documentdb/documentdb-graph-introduction.md).

@@ -20,7 +20,7 @@ ms.author: mimig
 ---
 # Azure Cosmos DB: Build a Node.js and MongoDB web app 
 
-This tutorial shows you how to use an existing MongoDB app written in Node.js and connect it to your Azure Cosmos DB database, which supports MongoDB client connections. When you are done, you will have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running on [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). For more information about running MongoDB apps with an Azure Cosmos DB database, see [What is the Azure Cosmos DB MongoDB API?](../articles/documentdb/documentdb-protocol-mongodb.md)
+This tutorial shows you how to use an existing MongoDB app written in Node.js and connect it to your Azure Cosmos DB database, which supports MongoDB client connections. When you are done, you will have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running on [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). For more information about running MongoDB apps with an Azure Cosmos DB database, see [What is the Azure Cosmos DB MongoDB API?](../documentdb/documentdb-protocol-mongodb.md)
 
 In this tutorial, you connect a MongoDB app to an Azure Cosmos DB database. In other words, your Node.js application only knows that it's connecting to a database using MongoDB APIs. The fact that data is stored in Azure Cosmos DB is completely transparent to the application.
 
@@ -225,11 +225,11 @@ git commit -m "configured MongoDB connection string"
 
 Now that you've successfully built and run a MongoDB Node.js app, and connected it to an Azure Cosmos DB database, you can learn more about the options available for working with MongoDB apps in Azure Cosmos DB. For more information, see:
 
-* [MongoDB data model](../articles/documentdb/documentdb-protocol-mongodb.md)
-* [Import to API for MongoDB](../articles/documentdb/documentdb-mongodb-migrate.md)
-* [Connect to your MongoDB account](../articles/documentdb/documentdb-connect-mongodb-account.md)
-* [Using MongoChef](../articles/documentdb/documentdb-mongodb-mongochef.md)
-* [Using Robomongo](../articles/documentdb/documentdb-mongodb-robomongo.md)
-* [Node.js console app for MongoDB API](../articles/documentdb/documentdb-mongodb-samples.md)
-* [.NET web app for MongoDB API](../articles/documentdb/documentdb-mongodb-application.md)
+* [MongoDB data model](../documentdb/documentdb-protocol-mongodb.md)
+* [Import to API for MongoDB](../documentdb/documentdb-mongodb-migrate.md)
+* [Connect to your MongoDB account](../documentdb/documentdb-connect-mongodb-account.md)
+* [Using MongoChef](../documentdb/documentdb-mongodb-mongochef.md)
+* [Using Robomongo](../documentdb/documentdb-mongodb-robomongo.md)
+* [Node.js console app for MongoDB API](../documentdb/documentdb-mongodb-samples.md)
+* [.NET web app for MongoDB API](../documentdb/documentdb-mongodb-application.md)
 

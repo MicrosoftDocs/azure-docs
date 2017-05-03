@@ -30,9 +30,9 @@ Azure Cosmos DB provides multi-model support for the following data models and A
 
 |Data model| APIs supported|
 |---|---|
-|Key-value (table) data| [Tables API](../articles/documentdb/documentdb-table-introduction.md)|
-|Document data|[Native DocumentDB support](../articles/documentdb/documentdb-introduction.md) plus support for [MongoDB APIs](../articles/documentdb/documentdb-protocol-mongodb.md)|
-|Graph data|[Gremlin graph APIs](../articles/documentdb/documentdb-graph-introduction.md)|
+|Key-value (table) data| [Tables API](../documentdb/documentdb-table-introduction.md)|
+|Document data|[Native DocumentDB support](../documentdb/documentdb-introduction.md) plus support for [MongoDB APIs](../documentdb/documentdb-protocol-mongodb.md)|
+|Graph data|[Gremlin graph APIs](../documentdb/documentdb-graph-introduction.md)|
  
 > [!NOTE]
 > Currently in public preview, Azure Table storage is offered as part of Azure Cosmos DB, and supports the same capabilities as DocumentDB and graph APIs like global distribution, automatic indexing. Azure Cosmos DB will be extended to support all existing and new tables using the Azure Table storage SDKs and APIs. To learn more, see [Azure Cosmos DB: Tables API](https://aka.ms/premiumtables).
@@ -41,7 +41,7 @@ Azure Cosmos DB provides multi-model support for the following data models and A
 Azure Cosmos DB offers the following key capabilities and benefits:
 
 * **Global distribution and ability to add any number of regions anywhere in the globe:** 
-Azure Cosmos DB transparently replicates your data to all regions you've associated with your Azure Cosmos DB account, enabling you to develop applications that require global access to data while providing tradeoffs between consistency, availability and performance, all with corresponding guarantees. Azure Cosmos DB provides transparent regional failover with multi-homing APIs, and the ability to elastically scale throughput and storage across the globe. Learn more in [Distribute data globally with Azure Cosmos DB](../articles/documentdb/documentdb-distribute-data-globally.md).
+Azure Cosmos DB transparently replicates your data to all regions you've associated with your Azure Cosmos DB account, enabling you to develop applications that require global access to data while providing tradeoffs between consistency, availability and performance, all with corresponding guarantees. Azure Cosmos DB provides transparent regional failover with multi-homing APIs, and the ability to elastically scale throughput and storage across the globe. Learn more in [Distribute data globally with Azure Cosmos DB](../documentdb/documentdb-distribute-data-globally.md).
 
 * **Elastically scalable throughput and storage:** Easily scale up or scale down your Azure Cosmos DB database to meet your application needs. Your data is stored on solid state disks (SSD) for guaranteed and predictable low latencies. Azure Cosmos DB can scale to virtually unlimited storage sizes and provisioned throughput. You can elastically scale Azure Cosmos DB with predictable performance seamlessly as your application grows. 
 
@@ -49,13 +49,13 @@ Azure Cosmos DB transparently replicates your data to all regions you've associa
 
 * **High Availability and Failovers:** Azure Cosmos DB supports both manual and automatic failovers to ensure that accounts and applications are globally available. By using Azure Cosmos DB's global replication support, you can improve end-to-end latency and ensure that your applications are highly available even in the event of region failures.
 
-* **Tunable consistency levels:** Select from five well-defined consistency levels to achieve optimal trade-off between consistency and performance. For queries and read operations, Azure Cosmos DB offers five distinct consistency levels: strong, bounded-staleness, session, consistent prefix and eventual. These granular, well-defined consistency levels allow you to make sound trade-offs between consistency, availability, and latency. Learn more in [Using consistency levels to maximize availability and performance in Azure Cosmos DB](../articles/documentdb/documentdb-consistency-levels.md).
+* **Tunable consistency levels:** Select from five well-defined consistency levels to achieve optimal trade-off between consistency and performance. For queries and read operations, Azure Cosmos DB offers five distinct consistency levels: strong, bounded-staleness, session, consistent prefix and eventual. These granular, well-defined consistency levels allow you to make sound trade-offs between consistency, availability, and latency. Learn more in [Using consistency levels to maximize availability and performance in Azure Cosmos DB](../documentdb/documentdb-consistency-levels.md).
 
-* **No schema or indexes ever needed:** By default, Azure Cosmos DB automatically indexes all the data in the database and does not expect or require any schema or creation of secondary indices. Don't want to index everything? Don't worry, you can [opt out](../articles/documentdb/documentdb-indexing-policies.md) too.
+* **No schema or indexes ever needed:** By default, Azure Cosmos DB automatically indexes all the data in the database and does not expect or require any schema or creation of secondary indices. Don't want to index everything? Don't worry, you can [opt out](../documentdb/documentdb-indexing-policies.md) too.
 
 * **Industry-leading comprehensive SLAs:** Rest assured your apps are running on world-class infrastructure, with a battle-tested service, in the most trusted cloud. Azure Cosmos DB is the first and only service to offer industry-leading 99.99% SLAs for latency at the 99th percentile, guaranteed throughput, consistency and high availability.
 
-* **Multi-model and Multi-API support:** Only Azure Cosmos DB allows you to use key-value, graph, and document data in one service, at global scale and without worrying about schema or index management. Azure Cosmos DB automatically indexes all data, and allows you to use your favorite NoSQL API including SQL, JavaScript, Gremlin, MongoDB, and Azure Table Storage to query your data. Because Azure Cosmos DB utilizes a highly concurrent, lock free, log structured indexing technology to automatically index all data content. This enables rich real-time queries without the need to specify schema hints, secondary indexes, or views. Learn more in [Query Azure Cosmos DB](../articles/documentdb/documentdb-sql-query.md). 
+* **Multi-model and Multi-API support:** Only Azure Cosmos DB allows you to use key-value, graph, and document data in one service, at global scale and without worrying about schema or index management. Azure Cosmos DB automatically indexes all data, and allows you to use your favorite NoSQL API including SQL, JavaScript, Gremlin, MongoDB, and Azure Table Storage to query your data. Because Azure Cosmos DB utilizes a highly concurrent, lock free, log structured indexing technology to automatically index all data content. This enables rich real-time queries without the need to specify schema hints, secondary indexes, or views. Learn more in [Query Azure Cosmos DB](../documentdb/documentdb-sql-query.md). 
 
 * **Fully managed:** Eliminate the need to manage database and machine resources. As a fully managed Microsoft Azure service, you do not need to manage virtual machines, deploy and configure software, manage scaling, or deal with complex data-tier upgrades. Every database is automatically backed up and protected against regional failures. You can easily add a Azure Cosmos DB account and provision capacity as you need it, allowing you to focus on your application instead of operating and managing your database. 
 
@@ -81,13 +81,13 @@ Azure Cosmos DB is a cloud born distributed database that gives you the best of 
 With security and privacy embedded at the core of the platform, Azure Cosmos DB makes security and privacy a priority at each step, from development to incident response. All the data stored and accessed as part of Azure Cosmos DB is always encrypted at rest and in motion. As a core Azure service, Azure Cosmos DB also provides the most comprehensive compliance coverage. 
 
 ## Next steps
-Already have an Azure account? Then you can get started with Azure Cosmos DB in the [Azure Portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB) by [creating an Azure Cosmos DB database account](../articles/documentdb/documentdb-create-account.md).
+Already have an Azure account? Then you can get started with Azure Cosmos DB in the [Azure Portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB) by [creating an Azure Cosmos DB database account](../documentdb/documentdb-create-account.md).
 
 Don't have an Azure account? You can:
 
 * Sign up for an [Azure free trial](https://azure.microsoft.com/free/), which gives you 30 days and $200 to try all the Azure services. 
 * If you have an MSDN subscription, you are eligible for [$150 in free Azure credits per month](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) to use on any Azure service. 
-* Download the [Azure Cosmos DB Emulator](../articles/documentdb/documentdb-nosql-local-emulator.md) to develop your application locally.
+* Download the [Azure Cosmos DB Emulator](../documentdb/documentdb-nosql-local-emulator.md) to develop your application locally.
 
 Then, when you're ready to learn more, visit our [learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) to navigate all the learning resources available to you. 
 

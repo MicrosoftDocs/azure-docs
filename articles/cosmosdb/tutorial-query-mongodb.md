@@ -139,4 +139,4 @@ The next query returns all the children in the family.
 
 ## Next steps
 
-For more information about the MongoDB APIs, see [What is Azure Cosmos DB: API for MongoDB?](../articles/documentdb/documentdb-protocol-mongodb.md)
+For more information about the MongoDB APIs, see [What is Azure Cosmos DB: API for MongoDB?](../documentdb/documentdb-protocol-mongodb.md)

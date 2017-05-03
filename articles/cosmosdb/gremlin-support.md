@@ -156,7 +156,7 @@ Each property can store multiple values within an array.
 
 ## Gremlin partitioning
 
-In Azure Cosmos DB, graphs are stored within containers that can scale independently in terms of storage and throughput (expressed in normalized requests per second). Each collection must define an optional, but recommended partition key property that determines a logical partition boundary for related data. Every vertex/edge must have an `id` property that is unique for entities within that partition key value. The details are covered in [Partitioning in Azure Cosmos DB](../articles/documentdb/documentdb-partition-data.md).
+In Azure Cosmos DB, graphs are stored within containers that can scale independently in terms of storage and throughput (expressed in normalized requests per second). Each collection must define an optional, but recommended partition key property that determines a logical partition boundary for related data. Every vertex/edge must have an `id` property that is unique for entities within that partition key value. The details are covered in [Partitioning in Azure Cosmos DB](../documentdb/documentdb-partition-data.md).
 
 Gremlin operations work seamlessly across graph data that span multiple partitions in Azure Cosmos DB. However, it is recommended to choose a partition key for your graphs that is commonly used as a filter in queries, has many distinct values, and similar frequency of access these values. 
 
@@ -202,5 +202,5 @@ Now let's look at the Gremlin steps supported by Azure Cosmos DB. For a complete
 Azure Cosmos DB's write-optimized engine supports automatic indexing of all properties within vertices and edges by default. Therefore, queries with filters, range queries, sorting, or aggregates on any property are processed from the index, and served efficiently. For more information on how indexing works in Azure Cosmos DB, see our paper on [schema-agnostic indexing](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
 ## Next Steps
-* Get started building a graph application [using our SDKs](../articles/documentdb/documentdb-connect-graph-dotnet.md) 
+* Get started building a graph application [using our SDKs](../documentdb/documentdb-connect-graph-dotnet.md) 
 * Learn more about [Azure Cosmos DB's graph support](graph-introduction.md)
