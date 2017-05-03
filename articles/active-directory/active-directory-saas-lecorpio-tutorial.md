@@ -108,9 +108,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-lecorpio-tutorial/tutorial_lecorpio_url.png)
 
-    a. In the **Sign-on URL** textbox, type the value using the following pattern: `https://<instance name>.lecorpio.com/UPS`
+    a. In the **Sign-on URL** textbox, type the value using the following pattern: `https://<instance name>.lecorpio.com/<customer name>`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<instance name>.lecorpio.com/UPS`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<instance name>.lecorpio.com/<customer name>`
 
 	> [!NOTE] 
 	> These values are not the real. Update these values with the actual Sign-on URL and Identifier. Here we suggest you to use the unique value of string in the Identifier. Contact [Lecorpio Client support team](mailto:info@lecorpio.com) to get these values. 
