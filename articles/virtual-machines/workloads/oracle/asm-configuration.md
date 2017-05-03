@@ -311,7 +311,7 @@ no label, UUID=80bd7816-b3a2-4eec-a824-733209644fc5
 ```
 ## Prepare the client and VM to run X11(For Windows client only)
 
-Login as root, edit the /etc/ssh/ssh_config file, change the setting of Forwardx11 to yes
+Log in as root, edit the /etc/ssh/ssh_config file, change the setting of Forwardx11 to yes
 
 ```
 ForwardX11 yes
@@ -338,7 +338,7 @@ $ cd .ssh
 ```
 create a file call authorized_keys and paste the content of the key to this file and save it.
 
-Start Putty, select SSH, then select Auth and browse the key you generated eariler.
+Start Putty, select SSH, then select Auth and browse the key you generated earlier.
 
 ![Diagram of setprivatekey screen](./media/asm-configuration/setprivatekey.png)
 
@@ -350,7 +350,7 @@ Click Session and enter the host information and click the Open button
 
 ![Diagram of puttysession screen](./media/asm-configuration/puttysession.png)
 
-Login as "grid", you should be able to login without prompt for a password. Note: make sure Xming is running prior to start the installation
+Log in as grid, you should be able to log in without prompt for a password. Note: make sure Xming is running prior to start the installation
 
 ```bash
 $ cd /opt/grid
@@ -423,7 +423,7 @@ You may be prompt "Are you sure you want to continue", click Yes to continue
 
 Start the ASM configuration Assistant
 
-Login as grid from your x11 session
+Log in as grid from your x11 session
 
 ```bash
 $ cd /u01/app/grid/product/12.1.0/grid/bin
