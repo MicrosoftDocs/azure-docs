@@ -14,7 +14,7 @@ ms.devlang: c#
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2017
+ms.date: 05/04/2017
 ms.author: dobett
 
 ---
@@ -61,7 +61,7 @@ You can browse the data items that a connected OPC UA server can send to your so
 
 ## Map the data
 
-The connected factory solution maps and aggregates the published data items from the OPC UA server to the various views in the solution. A JSON file in the Visual Studio connected factory solution stores this mapping information. The connected factory Visual Solution deploys to your Azure account when you provision the solution. You can view and modify this JSON configuration file in the connected factory Visual Studio solution and redeploy it.
+The connected factory solution maps and aggregates the published data items from the OPC UA server to the various views in the solution. The connected factory Visual Solution deploys to your Azure account when you provision the solution. A JSON file in the Visual Studio connected factory solution stores this mapping information. You can view and modify this JSON configuration file in the connected factory Visual Studio solution and redeploy it.
 
 You can use the configuration file to:
 
@@ -113,7 +113,7 @@ The information in the **Simulation** node is specific to the OPC UA simulators 
 
 These nodes describe how data from the station contributes to the two KPI values in the dashboard. In a default deployment, these KPI values are units per hour and kWh per hour. The solution calculates KPI vales at the level of a station and aggregates them at the production line and factory levels.
 
-Each KPI has a minimum, maximum, and target value. Each KPI value can also define alert actions to display in the dashboard. The following snippet shows the KPI definitions for the assembly station on production line 1 in Munich:
+Each KPI has a minimum, maximum, and target value. Each KPI value can also define alert actions for the connected factory solution to perform. The following snippet shows the KPI definitions for the assembly station on production line 1 in Munich:
 
 ```json
 "Kpi1": {
