@@ -88,7 +88,7 @@ Perform the following steps to add the Update Management solution to your OMS wo
 You can deploy the solution using the following methods:
 
 * From Azure Marketplace in the Azure portal by selecting either the Automation & Control offering or Update Management solution
-* From the OMS Solutions Gallery in your OMS workspace.
+* From the OMS Solutions Gallery in your OMS workspace
 
 If you already have an Automation account and OMS workspace linked together in the same resource group and region, selecting Automation & Control will verify your configuration and only install the solution and configure it in both services.  Selecting the Update Management solution from Azure Marketplace delivers the same behavior.  If you do not have either services deployed in your subscription, follow the steps in the **Create new Solution** blade and confirm you want to install the other pre-selected recommended solutions.  Optionally, you can add the Update Management solution to your OMS workspace using the steps described in [Add OMS solutions](../log-analytics/log-analytics-add-solutions.md) from the Solutions Gallery.  
 
