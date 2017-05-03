@@ -71,7 +71,7 @@
 ##### [CLI (Classic)](virtual-networks-static-private-ip-classic-cli.md)
 
 #### Multiple network interfaces
-##### [PowerShell](v../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [PowerShell (Classic)](virtual-network-deploy-multinic-classic-ps.md)
 ##### [CLI (Classic)](virtual-network-deploy-multinic-classic-cli.md)
