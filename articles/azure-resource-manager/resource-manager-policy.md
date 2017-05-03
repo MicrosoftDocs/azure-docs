@@ -324,7 +324,7 @@ The following example shows the use of wildcard, which is supported by the **lik
 }
 ```
 
-To specify that resource names match a pattern, use the match condition. The following example requires names to start with `contoso` and contain 6 additonal letters:
+To specify that resource names match a pattern, use the match condition. The following example requires names to start with `contoso` and contain six additional letters:
 
 ```json
 {
