@@ -58,7 +58,7 @@ public partial class App : Application
     //You have to replace the below with the Application Id for your app registration
     private static string ClientId = "your_client_id_here";
 
-    private static PublicClientApplication _clientApp = new PublicClientApplication(ClientId);
+    public static PublicClientApplication PublicClientApp = new PublicClientApplication(ClientId);
 
 }
 ```

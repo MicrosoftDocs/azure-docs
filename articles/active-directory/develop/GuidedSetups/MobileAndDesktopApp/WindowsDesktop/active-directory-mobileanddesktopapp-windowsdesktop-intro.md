@@ -23,7 +23,7 @@ This guide demonstrates how a Windows Desktop .NET (XAML) application can get an
 
 At the end of this guide, your application will be able to call a protected API using personal accounts (including outlook.com, live.com, and others) as well as work and school accounts from any company or organization that has Azure Active Directory.  
 
-> For this tutorial, we assume you’re using Visual Studio 2015 Update 3 or Visual Studio 2017.  Don’t have it?  [Download Visual Studio 2017 for free](https://www.visualstudio.com/downloads/)
+> For this tutorial, we assume you’re using Visual Studio 2015 Update 3 or Visual Studio 2017.  Don’t have it? [Download Visual Studio 2017 for free](https://www.visualstudio.com/downloads/)
 
 ## How this sample works
 
