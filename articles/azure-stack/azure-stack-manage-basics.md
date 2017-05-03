@@ -19,7 +19,7 @@ ms.author: twooley
 ---
 # Azure Stack administration basics
 
-There are several things you need to know if you're new to Azure Stack administration. This guidance provides an overview of your responsibilities, and what you need to communicate to your users to become productive quickly.
+There are several things you need to know if you're new to Azure Stack administration. This guidance provides an overview of your responsibilities, and what you need to communicate to your users for them to become productive quickly.
 
 For the Azure Stack Technical Preview 3 (TP3) timeframe, this guidance is scoped to the Azure Stack Proof of Concept (POC).
 
@@ -103,7 +103,7 @@ Your users will want to know how to [access the user portal ](azure-stack-manage
 
 **Subscribe to an offer**
 
-Before a user can access services, they must [subscribe to an offer](azure-stack-subscribe-plan-provision-vm.md) that you have created as an administrator.
+Before a user can access services, they must [subscribe to an offer](azure-stack-subscribe-plan-provision-vm.md) that you've created as an administrator.
 
 ## Where to get support
 
