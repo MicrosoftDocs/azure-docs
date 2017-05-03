@@ -36,27 +36,28 @@ If you have a question, please comment on the article and we'll answer it as soo
 
 ## Management
 
-**Q:** I pressed the restart button in the Azure portal, but my web app didn't restart. How come?
+**Q:** What will happen when I press the restart button in the Azure portal?
 
-**A:** We're working on enabling the restart button in the near future. Right now, you have two options:
-- Add or change a dummy application setting. This will force your web app to restart.
-- Stop and then start your web app.
+**A:** This is the equivalent of Docker restart.
 
 **Q:** Can I use Secure Shell (SSH) to connect to the app container virtual machine (VM)?
 
-**A:** No. We'll be providing a way to use SSH to connect to your app container in a future release.
+**A:** Yes, you can do that through the SCM site, check the following article for more information [SSH support for App Service on Linux](./app-service-linux-ssh-support.md)
 
 ## Continuous integration/deployment
 
 **Q:** My web app still uses an old Docker container image after I've updated the image on Docker Hub. Do you support continuous integration/deployment of custom containers?
 
-**A:** You can refresh the container by stopping and then starting your web app. Or you can change or add a dummy application setting to force a refresh of your container. We're planning to have a continuous integration/deployment feature for custom containers in a future release.
+**A:** You can setup continous integration/deployment for DockerHub images by checking the following article [Docker CI/CD article](LINK to the article). For private registries, you can refresh the container by stopping and then starting your web app. Or you can change or add a dummy application setting to force a refresh of your container.
+
+**Q:** Do you support staging environments?
+**A:** Yes.
 
 ## Language support
 
 **Q:** Do you support uncompiled .NET Core apps?
 
-**A:** No. You need to deploy compiled .NET Core apps with all the dependencies. We're planning a full deployment and build experience in a future release.
+**A:** Yes.
 
 **Q:** Do you support Composer as a dependency manager for PHP apps?
 
@@ -90,7 +91,7 @@ If you have a question, please comment on the article and we'll answer it as soo
 
 **Q:** My custom container listens to a port other than port 80. How can I configure my app to route the requests to that port?
 
-**A:** You can specify an application setting called **PORT**, and give it the value of the expected port number.
+**A:** We have auto port detection, also you can specify an application setting called **PORT**, and give it the value of the expected port number.
 
 **Q:** Do I need to implement HTTPS in my custom container.
 
@@ -115,3 +116,5 @@ If you have a question, please comment on the article and we'll answer it as soo
 ## Next steps
 * [What is App Service on Linux?](app-service-linux-intro.md)
 * [Creating web apps in App Service on Linux](app-service-linux-how-to-create-a-web-app.md)
+* [SSH support for App Service on Linux](./app-service-linux-ssh-support.md)
+* [Set up staging environments in Azure App Service](./web-sites-staged-publishing.md)
