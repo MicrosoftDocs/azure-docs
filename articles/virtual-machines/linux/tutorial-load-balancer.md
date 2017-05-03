@@ -37,10 +37,10 @@ If you followed the previous tutorial to [create a virtual machine scale set](tu
 
 
 ## Create Azure load balancer
-This section details how you can create and configure each component of the load balancer. Before you can create your load balancer, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myRGLoadBalancer* in the *westus* location:
+This section details how you can create and configure each component of the load balancer. Before you can create your load balancer, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myRGLoadBalancer* in the *eastus* location:
 
 ```azurecli
-az group create --name myRGLoadBalancer --location westus
+az group create --name myRGLoadBalancer --location eastus
 ```
 
 ### Create a public IP address
