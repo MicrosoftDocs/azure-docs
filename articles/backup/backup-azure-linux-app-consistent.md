@@ -54,7 +54,7 @@ In this scenario, it's important to ensure application-consistent VM backup. The
    >
 
 5. Configure **VMSnapshotScriptPluginConfig.json** as described here:
-    - **pluginName**: Leave this field as is, otherwise your scripts might not work as expected.
+    - **pluginName**: Leave this field as is or your scripts might not work as expected.
 
     - **preScriptLocation**: Provide the full path of the pre-script on the VM that's going to be backed up.
 
@@ -86,10 +86,10 @@ Make sure you add appropriate logging while writing your pre-script and post-scr
 |	Post-ScriptExecutionFailed |	The post-script returned an error that might impact application state. |	Look at the failure logs for your script to fix the issue and check the application state. |
 | Pre-ScriptNotFound |	The pre-script was not found at the location that's specified in the **VMSnapshotScriptPluginConfig.json** config file. |	Make sure that pre-script is present at the path that's specified in the config file to ensure application-consistent backup.|
 | Post-ScriptNotFound |	The post-script wasn't found at the location that's specified in the **VMSnapshotScriptPluginConfig.json** config file. |	Make sure that post-script is present at the path that's specified in the config file to ensure application-consistent backup.|
-| IncorrectPluginhostFile |	The **Pluginhost** file, which comes with the VmSnapshotLinux extension, is corrupted, so pre-script and post-script cannot run and the backup won't be application-consistent.	| Uninstall the VmSnapshotLinux extension, and it will automatically be reinstalled with the next backup to fix the problem. |
+| IncorrectPluginhostFile |	The **Pluginhost** file, which comes with the VmSnapshotLinux extension, is corrupted, so pre-script and post-script cannot run and the backup won't be application-consistent.	| Uninstall the **VmSnapshotLinux** extension, and it will automatically be reinstalled with the next backup to fix the problem. |
 | IncorrectJSONConfigFile | The **VMSnapshotScriptPluginConfig.json** file is incorrect, so pre-script and post-script cannot run and the backup won't be application-consistent | Download the copy from [Github](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) and configure it again. |
-| InsufficientPermissionforPre-Script | For running scripts, "root" user should be the owner of the file and the file should have “700” permissions (that is, only "owner" should have “read”, “write”, and “execute” permissions). | Make sure “root” user is the “owner” of the script file and that only "owner" has “read”, “write” and “execute” permissions). |
-| InsufficientPermissionforPost-Script | For running scripts, root user should be the owner of the file and the file should have “700” permissions (that is, only "owner" should have “read”, “write”, and “execute” permissions | Make sure “root” user is the “owner” of the script file and that only "owner" has “read”, “write” and “execute” permissions. |
+| InsufficientPermissionforPre-Script | For running scripts, "root" user should be the owner of the file and the file should have “700” permissions (that is, only "owner" should have “read”, “write”, and “execute” permissions). | Make sure “root” user is the “owner” of the script file and that only "owner" has “read”, “write” and “execute” permissions. |
+| InsufficientPermissionforPost-Script | For running scripts, root user should be the owner of the file and the file should have “700” permissions (that is, only "owner" should have “read”, “write”, and “execute” permissions). | Make sure “root” user is the “owner” of the script file and that only "owner" has “read”, “write” and “execute” permissions. |
 | Pre-ScriptTimeout | The execution of the application-consistent backup pre-script timed-out. | Check the script and increase the timeout in the **VMSnapshotScriptPluginConfig.json** file that's located at **/etc/azure**. |
 | Post-ScriptTimeout | The execution of the application-consistent backup post-script timed out. | Check the script and increase the timeout in the **VMSnapshotScriptPluginConfig.json** file that's located at **/etc/azure**. |
 
