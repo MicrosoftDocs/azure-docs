@@ -49,7 +49,7 @@ This guide uses the following libraries:
 
 |Library|Description|
 |---|---|
-|[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft Authentication Library (MSAL)|
+|com.microsoft.identity.client|Microsoft Authentication Library (MSAL)|
 
 ### What is Next
 

@@ -49,7 +49,8 @@ The package above installs the Microsoft Authentication Library (MSAL). MSAL han
 # Create your application’s UI
 
 1.	Open: `activity_main.xml` under `res` > `layout`
-2.	Change the activity layout from `android.support.constraint.ConstraintLayout` to `LinearLayout`
+2.	Change the activity layout from `android.support.constraint.ConstraintLayout` or other to `LinearLayout`
+3.	Add `android:orientation="vertical"` property to `LinearLayout` node
 3.	Copy and paste the following code into the `LinearLayout` node:
 ```xml
 <TextView
@@ -58,40 +59,83 @@ The package above installs the Microsoft Authentication Library (MSAL). MSAL han
     android:textSize="50px"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="15dp"
     android:id="@+id/welcome"
-    android:visibility="invisible"
-    tools:layout_editor_absoluteY="0dp"
-    tools:layout_editor_absoluteX="0dp" />
+    android:visibility="invisible"/>
 
 <Button
     android:id="@+id/callGraph"
     android:text="Call Microsoft Graph"
     android:textColor="#FFFFFF"
     android:background="#00a1f1"
-    android:layout_width="88dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:textAllCaps="false"
-    tools:layout_editor_absoluteY="0dp"
-    tools:layout_editor_absoluteX="8dp" />
+    android:layout_marginTop="200dp"
+    android:textAllCaps="false" />
 
 <TextView
     android:text="Getting Graph Data..."
     android:textColor="#3f3f3f"
-    android:layout_width="0dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
     android:id="@+id/graphData"
-    android:visibility="invisible"
-    tools:layout_editor_absoluteY="0dp"
-    tools:layout_editor_absoluteX="13dp" />
+    android:visibility="invisible"/>
 
 <LinearLayout
-    android:layout_width="0dp"
-    android:layout_height="0dp"
+    android:layout_width="match_parent"
+    android:layout_height="0dip"
     android:layout_weight="1"
     android:gravity="center|bottom"
-    android:orientation="vertical"
-    tools:layout_editor_absoluteY="0dp"
-    tools:layout_editor_absoluteX="8dp">
+    android:orientation="vertical" >
+
+    <Button
+        android:text="Sign Out"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:textColor="#FFFFFF"
+        android:background="#00a1f1"
+        android:textAllCaps="false"
+        android:id="@+id/clearCache"
+        android:visibility="invisible" />
+</LinearLayout>    <TextView
+    android:text="Welcome, "
+    android:textColor="#3f3f3f"
+    android:textSize="50px"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="15dp"
+    android:id="@+id/welcome"
+    android:visibility="invisible"/>
+
+<Button
+    android:id="@+id/callGraph"
+    android:text="Call Microsoft Graph"
+    android:textColor="#FFFFFF"
+    android:background="#00a1f1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="200dp"
+    android:textAllCaps="false" />
+
+<TextView
+    android:text="Getting Graph Data..."
+    android:textColor="#3f3f3f"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:id="@+id/graphData"
+    android:visibility="invisible"/>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dip"
+    android:layout_weight="1"
+    android:gravity="center|bottom"
+    android:orientation="vertical" >
 
     <Button
         android:text="Sign Out"
