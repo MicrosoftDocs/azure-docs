@@ -1,9 +1,7 @@
 - name: Bing Speech Documentation
-  href: Home.md
+  href: ../index.md
 - name: Overview
-  Items: 
-  - name: Learn about the Bing Speech API
-    href: Home.md
+  href: Home.md
 - name: Get started
   items:
   - name: Objective C on iOS
@@ -24,9 +22,9 @@
     href: GetStarted/GetStartedJS.md
 - name: Reference
   items: 
-  - name: REST - Speech recognition
+  - name: Speech recognition API reference
     href: API-Reference-REST/BingVoiceRecognition.md
-  - name: REST - Text-to-speech
+  - name: Text-to-speech API reference
     href: API-Reference-REST/BingVoiceOutput.md
   - name: SDKs
     items:
@@ -38,3 +36,4 @@
       href: https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript
     - name: Windows
       href: https://github.com/Microsoft/Cognitive-Speech-STT-Windows
+  

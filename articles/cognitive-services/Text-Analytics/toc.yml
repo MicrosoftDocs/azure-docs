@@ -1,5 +1,5 @@
 - name: Text Analytics Documentation
-  href: overview.md
+  href: ../index.md
 - name: Overview
   items: 
   - name: Learn about Text Analytics

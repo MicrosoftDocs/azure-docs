@@ -1,14 +1,18 @@
 - name: Emotion API Documentation
-  href: Home.md
+  href: ../index.md
 - name: Overview
-  items: 
-  - name: Learn about the Emotion API 
-    href: Home.md
+  href: Home.md
+- name: How to
+  items:
+  - name: Call the Emotion API for video
+    href: emotion-api-how-to-topics/HowtoCallEmotionForVideo.md
+  - name: Analyze videos in real time
+    href: emotion-api-how-to-topics/HowtoAnalyzeVideo_Emotion.md
 - name: Quickstarts
   items:
   - name: cURL
     href: QuickStarts/curl.md
-  - name: .NET
+  - name: C#
     href: QuickStarts/CSharp.md
   - name: Java
     href: QuickStarts/Java.md
@@ -22,21 +26,15 @@
     href: QuickStarts/Ruby.md
 - name: Tutorials
   items:
-  - name: .NET
+  - name: C#
     href: Tutorials/CSharpTutorial.md
   - name: Python
     href: Tutorials/PythonTutorial.md
-- name: How-to guides
-  items:
-  - name: Call the Emotion API for video
-    href: emotion-api-how-to-topics/HowtoCallEmotionForVideo.md
-  - name: Analyze videos in real time
-    href: emotion-api-how-to-topics/HowtoAnalyzeVideo_Emotion.md
 - name: Reference
   items: 
-  - name: API Reference for images
+  - name: Emotion Reference
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89
-  - name: API Reference for Video
+  - name: Emotion Recognition Video
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/56f8d40e1984551ec0a0984e
   - name: SDKs
     items:
@@ -50,3 +48,4 @@
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services
   - name: FAQ
     href: FAQ.md
+    
