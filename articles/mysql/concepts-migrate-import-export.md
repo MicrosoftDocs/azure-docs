@@ -26,7 +26,8 @@ To step through this how-to guide, you need:
 - MySQL Workbench
 - WinSCP to upload your dump file to Azure Server
 
-## With WinSCP you can easily upload and manage the dump files on your Microsoft Azure instance/service over SFTP protocol or FTPS protocol. 
+## Upload Files
+With WinSCP you can easily upload and manage the dump files on your Microsoft Azure instance/service over SFTP protocol or FTPS protocol. 
 
 ## Create a database on the target Azure MySQL server
 You must create an empty database on the target Azure Database for MySQL server where you want to migrate the data using MySQL Workbench, Toad, Navicat or any third party free tool for MySQL. The database can have the same name as the database that is contained the dumped data or you can create a database with a different name.

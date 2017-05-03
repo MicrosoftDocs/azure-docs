@@ -1,5 +1,5 @@
 ---
-title: Backup and Restore in Azure Database for MySQL | Microsoft Docs
+title: Backup and restore in Azure Database for MySQL | Microsoft Docs
 description: Introduces backing up and restoring databases in Azure Database for MySQL 
 services: mysql
 author: v-chenyh
@@ -13,26 +13,24 @@ ms.topic: article
 ms.tgt_pltfrm: portal
 ms.date: 05/10/2017
 ---
-# Backup and Restore in Azure Database for MySQL
-Azure Database for MySQL automatically creates a database dump (backup) at no additional charge. You don't need to do anything to make them happen. Database dumps are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. 
-## What is a MySQL Database dump (backup)?
-MySQL Database uses MySQL native Dump to create full and Incremental (Point in Time Recovery from Binary Log) dump(backup). Incremental dump, allow you to restore a database to a specific point-in-time to the same server that hosts the database. When you restore a database, the service figures out which full, Incremental dumps need to be restored.
-You can use these dumps to: + 
+# Backup and restore in Azure Database for MySQL
+Azure Database for MySQL creates database dumps (backups) automatically and periodically. Database dumps are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. 
+## What is a MySQL database dump (backup)?
+MySQL database uses MySQL native dump to create full and incremental (Point in Time Recovery from Binary Log) dump(backup). Incremental dump allows you to restore a database to a specific point-in-time to the same server that hosts the database. When you restore a database, the service figures out which full or incremental dumps need to be restored.
+You can use these dumps to: 
 - Restore a database to a point-in-time within the retention period (data corruption or accidental deletion). This operation will create a new database in the same server as the original database.
 - Restore a deleted database to the time it was deleted or any time within the retention period. The deleted database can only be restored in the same server where the original database was created.
 - Restore a database to another geographical region. This allows you to recover from a geographic disaster when you cannot access your server and database. It creates a new database in any existing server anywhere in the world. 
 - Restore a database from a specific dump stored in your Azure Recovery Services vault. This allows you to restore an old version of the database to satisfy a compliance request or to run an old version of the application. 
 - To perform a restore, see restore database from backups.
 
-
 ## How often do backups happen?
 Full database backups happen Daily, Incremental database backups generally happen every 15 minutes. The first full backup is scheduled immediately after a database is created. It usually completes within 30 minutes, but it can take longer when the database is of a significant size. For example, the initial backup can take longer on a restored database or a database copy. After the first full backup, all further backups are scheduled automatically and managed silently in the background. The exact timing of all database backups is determined by the MySQL Database service as it balances the overall system workload.
 
 ## How long do you keep my backups?
-Each MySQL Database backup has a retention period that is based on the service-tier of the database. The retention period for a database in the: + 
+Each MySQL Database backup has a retention period that is based on the service-tier of the database. The retention period for a database in the:
 - Basic service tier is 7 days.
 - Standard service tier is 35 days.
-
 
 If you downgrade your database from the Standard service tiers to Basic, the backups are saved for seven days. All existing backups older than seven days are no longer available.
 
@@ -60,7 +58,7 @@ To backup an existing MySQL database on-prem or in a VM, run the following comma
 $ mysqldump --opt -u [uname] -p[pass] [dbname] > [backupfile.sql]
 ```
 
-The paramters to provide are:
+The parameters to provide are:
 - [uname] Your database username 
 - [pass] The password for your database (note there is no space between -p and the password) 
 - [dbname] The name of your database 
@@ -87,7 +85,8 @@ If you want to back up all the databases in the server at one time you should us
 $ mysqldump -u root -p --all-databases > alldb_backup.sql 
 ```
 
-## With WinSCP you can easily upload and manage the dump files on your Microsoft Azure instance/service over SFTP protocol or FTPS protocol. 
+## Uploading dump files
+With WinSCP you can easily upload and manage the dump files on your Microsoft Azure instance/service over SFTP protocol or FTPS protocol.
 
 ## Create a database on the target Azure MySQL server
 You must create an empty database on the target Azure Database for MySQL server where you want to migrate the data using MySQL Workbench, Toad, Navicat or any third party free tool for MySQL. The database can have the same name as the database that is contained the dumped data or you can create a database with a different name.
@@ -122,8 +121,4 @@ Importing your database is easy just like exporting. Make the following:
 - Create an appropriately named database and select it by clicking the database name in the list on the left of the screen. If you would like to rewrite the import over an existing database then click on the database name, select all the check boxes next to the table names and select Drop to delete all existing tables in the database. 
 - Click the SQL link. This should bring up a new screen where you can either type in SQL commands, or upload your SQL file. 
 - Use the browse button to find the database file. 
-- Click Go button. This will export the backup, execute the SQL commands and re-create your database.
-
-
-
-## Next steps
+- Click the Go button. This will export the backup, execute the SQL commands and re-create your database.

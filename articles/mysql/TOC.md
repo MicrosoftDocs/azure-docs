@@ -20,6 +20,9 @@
 ### [Application development](concepts-database-application-development.md)
 ## Data access & security 
 ### [SSL configuration](concepts-ssl-connection-security.md)
+## Migrate your database
+### [Dump & restore](concepts-migrate-dump-restore.md)
+### [Import & export](concepts-migrate-import-export.md)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/mysql/)
