@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 04/20/2017
+ms.date: 05/01/2017
 ms.author: jeffstok
 
 ---
 
-# Stream Analytics troubleshooting workflow
+# Stream Analytics Resource health blade
 
 The **Resource health** blade in the Azure portal shows the health of your Azure Stream Analytics jobs. It also shows actionable guidance that can help you troubleshoot problems. 
 
