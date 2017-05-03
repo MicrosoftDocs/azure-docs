@@ -1,6 +1,6 @@
 - name: Bing Video Search Documentation
-  href: overview.md
-- name: ../index.md        
+  href: ../index.md
+- name: Overview        
   items:
     - name: Search the web for videos
       href: search-the-web.md
