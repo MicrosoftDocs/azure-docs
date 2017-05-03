@@ -28,7 +28,7 @@ It should take you less than five minutes to complete all the steps in this topi
 
 ## Prerequisites 
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-previous-topics.md)]
+[!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
 In this topic, you create a timer triggered function in your existing function app. 
 
@@ -41,7 +41,7 @@ In this topic, you create a timer triggered function in your existing function a
     | Setting      |  Suggested value   | Description                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Name your function** | TimerTriggerCSharp1 | Defines the name of your timer triggered function.
-    | **Schedule** | 0 */1 * * * * | Timer runs your function every minute. |
+    | **[Schedule](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 */1 * * * * | A six field [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that schedules your function to run every minute. |
 
     A function is created in your chosen language that runs every minute. 
 
