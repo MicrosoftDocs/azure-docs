@@ -21,9 +21,9 @@ ms.author: helaw
 # Deploy apps to Azure and Azure Stack
 A hybrid [continuous integration](https://www.visualstudio.com/learn/what-is-continuous-integration/)/[continuous delivery](https://www.visualstudio.com/learn/what-is-continuous-delivery/)(CI/CD) pipeline enables you to:
  
- 1. Initiate a new build based on code commits to your master branch in Visual Studio Team Services (VSTS).
- 2. Automatically deploy your newly built code to Azure for user acceptance testing.
- 3. Once your code has passed testing, automatically deploy to production on Azure Stack. 
+ - Initiate a new build based on code commits to your master branch in Visual Studio Team Services (VSTS).
+ - Automatically deploy your newly built code to Azure for user acceptance testing.
+ - Once your code has passed testing, automatically deploy to production on Azure Stack. 
 
 This topic guides you through the configuration of a simple hybrid CI/CD pipeline for an ASP.NET app using Visual Studio, VSTS, Azure, and Azure Stack.  We understand these steps take time to complete, but when you're finished you'll have a functioning CI/CD pipeline to test app deployment across multiple clouds.  
 
