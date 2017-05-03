@@ -245,7 +245,7 @@
       - name: Call API from a browser
         href: custom-decision-service/custom-decision-service-get-started-browser.md
       - name: Call API from an app
-        href: custom-decision-service/custom-decision-service-get-started-server.md
+        href: custom-decision-service/custom-decision-service-get-started-app.md
     - name: API reference
       href: custom-decision-service/custom-decision-service-api-reference.md
   - name: Custom Speech Service
