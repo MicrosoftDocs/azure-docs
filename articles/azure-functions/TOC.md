@@ -1,6 +1,6 @@
 # Overview
 ## [About Functions](functions-overview.md)
-## [Compare Serverless options](functions-compare-serverless-options.md)
+## [Compare serverless options](functions-compare-serverless-options.md)
 ## [Choose between Flow, Logic Apps, Functions, and WebJobs](functions-compare-logic-apps-ms-flow-webjobs.md)
 
 # Quickstarts
@@ -11,10 +11,6 @@
 ### [Queue storage](functions-create-storage-queue-triggered-function.md)
 ## Integrate
 ### [Storage](functions-integrate-storage-queue-output-binding.md)
-
-# Tutorials
-## [Use Azure Functions to perform a scheduled clean-up task](functions-scenario-database-table-cleanup.md)
-## [Create an OpenAPI definition (preview)](functions-api-definition-getting-started.md)
 
 # Concepts
 ## [Hosting plans](functions-scale.md)
@@ -28,7 +24,7 @@
 ## [Develop and debug locally](functions-run-local.md)
 ## [Configure settings for a function app](functions-how-to-use-azure-function-app-settings.md)
 ## [Continuous deployment for Azure Functions](functions-continuous-deployment.md)
-## [Deploy Functions using Infrastructure as Code](functions-infrastructure-as-code.md)
+## [Deploy Functions using infrastructure as code](functions-infrastructure-as-code.md)
 ## [Monitoring Azure Functions](functions-monitoring.md)
 
 # Reference
