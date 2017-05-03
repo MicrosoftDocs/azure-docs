@@ -19,7 +19,7 @@ ms.author: twooley
 ---
 # Azure Stack administration basics
 
-There are several things you need to know if you're new to Azure Stack administration. This guidance provides a quick rundown of your responsibilities, and what you need to communicate to your users.
+There are several things you need to know if you're new to Azure Stack administration. This guidance provides an overview of your responsibilities, and what you need to communicate to your users to become productive quickly.
 
 For the Azure Stack Technical Preview 3 (TP3) timeframe, this guidance is scoped to the Azure Stack Proof of Concept (POC).
 
@@ -35,7 +35,7 @@ You'll need an awareness of which services you can make available to your users.
 
 **Foundational services**
 
-By default, Azure Stack includes the following set of "foundational services" that are included when you deploy Azure Stack:
+By default, Azure Stack includes the following "foundational services" when you deploy Azure Stack:
 
 - Compute
 - Storage
@@ -52,7 +52,7 @@ Currently, we support the following additional Platform-as-a-Service (PaaS) serv
 - Azure Functions
 - SQL and MySQL databases
 
-These services require additional configuration before you can make them available to your users. For more information, see the "Tutorials" and the "Offer services" sections of our documentation.
+These services require additional configuration before you can make them available to your users. For more information, see the "Tutorials" and the "How-to guides\Offer services" sections of our documentation.
 
 **Service roadmap**
 
@@ -71,11 +71,11 @@ Your users want to use services. From their perspective, your main role is to ma
 You'll also need to add items to the marketplace, such as virtual machine images. The easiest way is to [download marketplace items from Azure to Azure Stack](azure-stack-download-azure-marketplace-item.md).
 
 > [!NOTE]
-> If you want to test your plans, offers, and services, you should use the user portal; not the administrator portal.
+> If you want to test your plans, offers, and services, you should use the [user portal](azure-stack-manage-portals.md); not the administrator portal.
 
-In addition to providing services, you must perform all the regular  duties of a cloud administrator to keep the environment up and running. The following list is scoped to what you can do in the TP3 POC environment.
+In addition to providing services, you must perform all the regular  duties of a cloud administrator to keep Azure Stack up and running. The following list is scoped to what you can do in the TP3 POC environment.
 
-- Add user accounts (for [Azure Active Directory](azure-stack-add-new-user-aad.md) deployment or [Active Directory Federation Services](azure-stack-add-users-adfs.md) deployment)
+- Add user accounts (for [Azure Active Directory](azure-stack-add-new-user-aad.md) deployment or for [Active Directory Federation Services](azure-stack-add-users-adfs.md) deployment)
 - Assign role-based access control (RBAC) roles
 - [Monitor infrastructure health](azure-stack-monitor-health.md)
 - Manage [network](azure-stack-viewing-public-ip-address-consumption.md) and [storage](azure-stack-manage-storage-accounts.md) resources
@@ -87,7 +87,7 @@ You'll need to let your users know how to work with services in Azure Stack, how
 
 **Understand how to work with services in Azure Stack**
 
-Users must learn about what to consider when they use services and build apps in an Azure Stack environment. For example, there are specific PowerShell and API version requirements. Also, there are some feature deltas between a service in Azure and the equivalent service in Azure Stack. Azure Stack users should review the following articles:
+Users must learn about what to consider when they use services and build apps in an Azure Stack environment. For example, there are specific PowerShell and API version requirements. Also, there are some feature deltas between a service in Azure and the equivalent service in Azure Stack. Your users should review the following articles:
 
 - [Key considerations: Using services or building apps for Azure Stack](azure-stack-considerations.md)
 - [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md)
@@ -97,13 +97,13 @@ The information in these articles summarizes the differences between a service i
 
 **Connect to Azure Stack as a user**
 
-In a POC environment, if a user doesn't have Remote Desktop access to the POC host, they must configure a virtual private network (VPN) connection before they can access Azure Stack. Refer your users to [Connect to Azure Stack](azure-stack-connect-azure-stack.md). 
+In a POC environment, if a user doesn't have Remote Desktop access to the POC host, they must configure a virtual private network (VPN) connection before they can access Azure Stack. See [Connect to Azure Stack](azure-stack-connect-azure-stack.md). 
 
 Your users will want to know how to [access the user portal ](azure-stack-manage-portals.md) or how to connect through PowerShell. If using PowerShell, users may have to register resource providers before they can use services. (A resource provider manages a service. For example, the networking resource provider manages resources such as virtual networks, network interfaces, and load balancers.) They must [install](azure-stack-powershell-install.md) PowerShell, [download](azure-stack-powershell-download.md) additional modules, and [configure](azure-stack-powershell-configure.md) PowerShell (which includes resource provider registration).
 
 **Subscribe to an offer**
 
-Before a user can user services, they must [subscribe to an offer](azure-stack-subscribe-plan-provision-vm.md).
+Before a user can access services, they must [subscribe to an offer](azure-stack-subscribe-plan-provision-vm.md) that you have created as an administrator.
 
 ## Where to get support
 
