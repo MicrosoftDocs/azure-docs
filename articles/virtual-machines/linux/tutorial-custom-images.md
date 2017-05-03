@@ -55,7 +55,7 @@ To create an image, the VM needs to be deallocated. Deallocate the VM using [az 
 az vm deallocate --resource-group myRGCaptureImage --name myVM
 ```
 
-Finally, set the state of the VM as generalized with [az vm generalize](/cli//azure/vm#generalize).
+Finally, set the state of the VM as generalized with [az vm generalize](/cli//azure/vm#generalize) so the Azure platform knows the VM has been generalized. You can only create an image from a generalized VM.
    
 ```azurecli
 az vm generalize --resource-group myResourceGroupImages --name myVM
