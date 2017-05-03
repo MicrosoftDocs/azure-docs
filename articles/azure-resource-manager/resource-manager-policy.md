@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 05/03/2017
 ms.author: tomfitz
 
 ---
@@ -168,12 +168,15 @@ The condition evaluates whether a **field** meets certain criteria. The supporte
 
 * `"equals": "value"`
 * `"like": "value"`
+* `"match": "value"`
 * `"contains": "value"`
 * `"in": ["value1","value2"]`
 * `"containsKey": "keyName"`
 * `"exists": "bool"`
 
 When using the **like** condition, you can provide a wildcard (*) in the value.
+
+When using the **match** condition, provide `#` to represent a digit, `?` for a letter, and any other character to represent that actual character. For examples, see [Set naming convention](#set-naming-convention).
 
 ### Fields
 Conditions are formed by using fields. A field represents properties in the resource request payload that is used to describe the state of the resource.  
@@ -317,6 +320,36 @@ The following example shows the use of wildcard, which is supported by the **lik
   },
   "then": {
     "effect": "deny"
+  }
+}
+```
+
+To specify that resource names match a pattern, use the match condition. The following example requires names to start with `contoso` and contain six additional letters:
+
+```json
+{
+  "if": {
+    "not": {
+      "field": "name",
+      "match": "contoso??????"
+    }
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
+```
+
+To require a date pattern of two digits, dash, three letters, dash, and four digits, use:
+
+```json
+{
+  "if": {
+    "field": "tags.date",
+    "match": "##-???-####"
+  },
+  "then": {
+    "effect": "deny"
   }
 }
 ```
