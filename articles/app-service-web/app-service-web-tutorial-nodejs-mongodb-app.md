@@ -138,8 +138,8 @@ az documentdb create --name <documentdb_name> --resource-group myResourceGroup -
 
 The `--kind MongoDB` parameter enables MongoDB client connections.
 
-> ![NOTE]
-> `<documentdb_name>` must contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters.
+> [!NOTE]
+> `<documentdb_name>` must contain only lowercase letters, numbers, and the `-` character, and must be between 3 and 50 characters.
 >
 >
 
