@@ -18,8 +18,8 @@ ms.author: helaw
 
 ---
 
-# Build a hybrid CI/CD pipeline with Azure Stack
-A hybrid continuous integration/continuous delivery(CI/CD) pipeline enables you to automatically build, test, and deploy your application to multiple clouds. Consider how you could take advantage of the following scenario:
+# Deploy apps to Azure and Azure Stack
+A hybrid [continuous integration](https://www.visualstudio.com/learn/what-is-continuous-integration/)/[continuous delivery](https://www.visualstudio.com/learn/what-is-continuous-delivery/)(CI/CD) pipeline enables you to:
  
  1. Initiate a new build based on code commits to your master branch in Visual Studio Team Services (VSTS).
  2. Automatically deploy your newly built code to Azure for user acceptance testing.
@@ -36,18 +36,16 @@ This topic also assumes that you have some pre-requisite knowledge of Azure and 
 
 - [Azure Basics](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure)
 - [Azure Stack Key Concepts](azure-stack-key-features.md)
-- [What is continuous integration?](https://www.visualstudio.com/learn/what-is-continuous-integration/)
-- [What is continuous delivery?](https://www.visualstudio.com/learn/what-is-continuous-delivery/)
 
 ### Azure
  - You can use any Azure subscription to get started.  If you don't have a subscription, you can create a [trial account](https://azure.microsoft.com/free/)
- - Create a [Web App](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md), and configure it for [FTP publishing](../app-service-web/app-service-deploy-ftp.md).  Make note of the new Web App URL, as you use this in step 4.
+ - Create a [Web App](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md), and configure it for [FTP publishing](../app-service-web/app-service-deploy-ftp.md).  Make note of the new Web App URL, as you use this later.
 
 
 ### Azure Stack
  - Make sure you've [deployed Azure Stack](azure-stack-run-powershell-script.md).  This usually takes about a day to complete, so make sure you plan accordingly.
  - Deploy [SQL](azure-stack-sql-resource-provider-deploy.md) and [App Service](azure-stack-app-service-deploy.md) PaaS services to Azure Stack.
- - Create Web App and configure it for [FTP publishing](azure-stack-app-service-enable-ftp.md).  Make note of the new Web App URL, since you'll need it for Step 6.  
+ - Create Web App and configure it for [FTP publishing](azure-stack-app-service-enable-ftp.md).  Make note of the new Web App URL, as you use this later.  
 
 ### Dev tools
  - Create a [VSTS workspace](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services) and [project](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#create-your-team-project-in-visual-studio-team-services)
@@ -77,7 +75,7 @@ In this section, you create a simple ASP.NET application and push it to VSTS.  T
 1.  Once you've commit a changed and pushed to VSTS, check your code from the VSTS portal.
 2.  Select *Code*, and then *Files* from the dropdown menu.  You can see the solution you created.
 
-## Step 2 - Create build definition
+## Create build definition
 The build process defines how your application will be built (compiled) and packaged for deployment on each commit of code change. In our example, we'll use the included template to configure the build process for the ASP.NET app, though this could be adapted depending on your application.
 
 1.  Sign in to your VSTS workspace from a web browser.
@@ -125,7 +123,7 @@ To see the power of a CI/CD pipeline, you will publish your app to Azure.
 5.  After the build is complete, visit the website URL created for the Web App.    
 
 
-## Add Azure Stack
+## Add Azure Stack to pipeline
 Now that you've tested your CI/CD pipeline by deploying to Azure, it's time to add Azure Stack to the pipeline.  The following steps will guide you adding an FTP Upload task.  You also add a release approver, which will serve as a way to simulate signing off a code release to Azure Stack.  
 
 1.  In the Release definition, select **+ Add Environment** and **Create new environment**
