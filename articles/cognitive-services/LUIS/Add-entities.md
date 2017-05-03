@@ -111,6 +111,67 @@ In the TravelAgent app example, a user may say “Book 2 adult business tickets 
     >[!NOTE]
     >To delete a child (in case of a mistake), click the trash icon next to it.
 
+### List Entities
+A list entity is an entity that is defined by a list of all its values. This entity type is identified in utterances, not by active learning of context, but by the direct matching of utterance text to the defined values.   
+
+In some use cases, you may have a closed list of definite values for an entity. In this case, you can create a list entity including these values. For each value, you define a standard form "Canonical Form" and variant forms "Synonyms". Your app will identify this entity in an utterance if the utterance includes an exact match of any of the entity values (canonical forms/synonyms), so the list entity will be predicted as existing in the utterance, with a prediction score of 100%.
+
+For example, in the TravelAgent app, we can create a list entity named “Coastal Cities”; including values such as “Barcelona, Venice, Miami, etc.” as canonical forms. For each canonical form, you can add synonyms. For example, synonyms of “Barcelona” can be “Capital City of Catalonia”, “BCN”, “Barna” and “Second Spanish City”. 
+
+List entity values can be added individually, or collectively by importing them as a JSON file. Furthermore, if your app culture is English, LUIS can propose some relevant values which you can add to your list. The following procedures explain how to add a list entity, and how to add its values by different methods.
+ 
+
+**To add a list entity:**
+
+1. Open the TravelAgent app by clicking its name on **My Apps** page and click **Entities** in the app's left panel.
+2. On the **Entities** page, click **Add custom entity**.
+3. In the **Add Entity** dialog box, type "Coastal Cities" in the **Entity name** box and select **List** as the **Entity type**.
+ 
+  ![Add a list entity](/Images/Add-List-Entity.JPG)
+  
+4. Click **Save**. The list entity "Coastal Cities" will be added and its details page will be displayed where you should define its values.
+
+ ![List entity details page](/Images/List-entity.JPG)
+
+**To add list entity values individually:**
+
+1. On the "Coastal Cities" list entity page, type a standard form for each value in the **Canonical Form** column (e.g. Barcelona), and type other forms of it in **Synonyms** (e.g. "BCN", "Barna", etc.). After typing each synonym, press Enter.
+
+2. When you finish typing all synonyms, click **Add**.
+
+ ![Add list entity values](/Images/List-entity-values.JPG)
+ 
+3. Repeat the above two steps to add more values to the entity list.
+
+**To import a list of values as a JSON file:**
+
+ 1. On the "Coastal Cities" list entity page, click **Import Lists**.
+ 2. In **Import New Entries** dialog box, click **Choose File** and select the JSON file including the list.
+
+  ![Import list entity values](/Images/List-entity-import.JPG)
+  
+ 3. To learn about the supported list syntax in JSON, click **Learn about supported list syntax** to expand the dialog and display an example of allowed syntax. To collapse the dialog and hide syntax, click it again.
+
+ ![Allowed syntax of imported lists](/Images/List-entity-import-syntx.JPG)
+  
+ 4. Click **Import**.
+
+**To get a list of proposed values (only for English culture apps):**
+
+1. On the "Coastal Cities" list entity page, with at least one canonical form added (e.g. Barcelona), click **Show Related Values**.
+
+ ![Show Related Values](/Images/List-entity-relatedValues.JPG)
+ 
+2. Click **Recommend**. You'll get a number of proposed values that are semantically related to the added canonical form (Barcelona in this example). The following screenshot shows the proposed values.
+
+ ![Proposed Values](/Images/List-entity-proposedValues.JPG)
+ 
+3. Click a value to add it to your list as a canonical form, or click **Add All** to add all values.
+
+ > **Notes:**
+> 
+* The proposed values are added as canonical forms not synonyms; synonyms should be typed manually.
+* To delete an added canonical form, click the trash bin button corresponding to it.
 
 ## Edit/Delete Entities
 You can edit or delete entities from the **Entities list** on the **Entities** page of your app. 
