@@ -32,12 +32,12 @@ Now you need to register your application in the *Microsoft Application Registra
 3. Make sure the option for Guided Setup is unchecked
 4. Click `Add Platforms`, then select `Native Application` and hit Save
 5.	Open `MainActivity` (under `app` > `java` > *`{host}.{namespace}`*)
-6.	Replace the *[Enter the application Id here]* in the line starting with `final static String CLIENT_ID` with the application Id you just registered:
+6.	Replace the *[Enter the application Id here]* in the line starting with `final static String CLIENT_ID` with the application ID you just registered:
 ```java
 final static String CLIENT_ID = "[Enter the application Id here]";
 ```
 7. Open `AndroidManifest.xml` (under `app` > `manifests`)
-8. Add the following activity to `manifest\application` node. This register a BrowserTabActivity to allow the OS to resume your application after completing the authentication:
+8. Add the following activity to `manifest\application` node. This registers a BrowserTabActivity to allow the OS to resume your application after completing the authentication:
 
 ```xml
 <!--Intent filter to capture System Browser calling back to our app after Sign In-->
@@ -54,10 +54,10 @@ final static String CLIENT_ID = "[Enter the application Id here]";
     </intent-filter>
 </activity>
 ```
-9. Replace *[Enter the application Id here]* with the the application Id for the application you just registered the the Application Registration Portal
+9. Replace *[Enter the application Id here]* with the the application ID for the application you just registered in the Application Registration Portal
 
 <!-- End Docs -->
 
 ### What is Next
 
-[Test and Validate](active-directory-mobileanddesktopapp-android-testvalidate.md)
+[Test and Validate](active-directory-mobileanddesktopapp-android-test.md)

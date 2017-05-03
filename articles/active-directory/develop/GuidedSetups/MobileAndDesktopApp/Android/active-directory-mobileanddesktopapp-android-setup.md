@@ -26,7 +26,7 @@ This section provides step-by-step instructions for how to create a new project 
 
 # Create a new project 
 1.	Open Android Studio, go to: `File` > `New` > `New Project`
-2.	Name your Application and click `Next`
+2.	Name your application and click `Next`
 3.	Make sure to select *API 21 or newer (Android 5.0)* and click `Next`
 4.	Leave `Empty Activity`, click `Next`, then `Finish`
 
