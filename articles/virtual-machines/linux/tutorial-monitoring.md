@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/27/2017
+ms.date: 05/03/2017
 ms.author: davidmu
 ---
 
@@ -26,7 +26,7 @@ The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cl
 
 ## Create VM
 
-Before you can create any other Azure resources, you need to create a resource group with az group create. The following example creates a resource group named `myRGNetwork` in the `westus` location:
+Before you can create any other Azure resources, you need to create a resource group with az group create. The following example creates a resource group named `myRGMonitor` in the `westus` location:
 
 ```azurecli
 az group create --name myRGMonitor --location westus
@@ -50,7 +50,7 @@ Before you can enable boot diagnostics, you will need a storage account in myRGM
 
 ```azurecli
 az storage account create \
-  --resource-group myRGMonitor \ 
+  --resource-group myRGMonitor \
   --name mydiagnosticsstorage \
   --sku Standard_LRS \
   --location westus
@@ -75,7 +75,7 @@ You can get the boot diagnostic data from myMonitorVM with [az vm boot-diagnosti
 
 ```azurecli
 az vm boot-diagnostics get-boot-log \
-  -–resource-group myRGMonitor \ 
+  -–resource-group myRGMonitor \
   -–name myMonitorVM
 ```
 
@@ -92,25 +92,11 @@ A Linux VM has a dedicated Host VM in Azure that it interacts with. Metrics are 
 
 [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) enables the collection of diagnostic data on a VM. You can use the same storage account that you created for boot diagnostics to collect diagnostics data.
 
-You can get the default diagnostics configuration with [az vm diagnostics get-default-config](https://docs.microsoft.com/cli/azure/vm/diagnostics#get-default-config):
+You can get the default diagnostics configuration with [az vm diagnostics get-default-config](https://docs.microsoft.com/cli/azure/vm/diagnostics#get-default-config). You can get the primary access key for your storage account with [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#list):
 
 ```azurecli
-default_config=$(az vm diagnostics get-default-config \
-  --query "merge(@, {storageAccount: 'mydiagnosticsstorage'})")
-```
-
-You need the primary access key for your storage account. You can get it with [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#list):
-
-```azurecli
-storage_key=$(az storage account keys list \
-  -g myRGMonitor \
-  -n mydiagnosticsstorage \
-  --query "[?keyName=='key1'] | [0].value" -o tsv)
-```
-
-With the storage key, you can configure the extension settings:
-
-```azurecli
+default_config=$(az vm diagnostics get-default-config --query "merge(@, {storageAccount: 'mydiagnosticsstorage'})")
+storage_key=$(az storage account keys list -g myRGMonitor -n mydiagnosticsstorage --query "[?keyName=='key1'] | [0].value" -o tsv)
 settings="{'storageAccountName': 'mydiagnosticsstorage', 'storageAccountKey': '${storage_key}'}"
 ```
 
@@ -118,8 +104,8 @@ Now you can install the extension using the diagnostics configuration and settin
 
 ```azurecli
 az vm diagnostics set \
-  --settings '${default_config}' \
-  --protected-settings '${settings}' \
+  --settings "${default_config}" \
+  --protected-settings "${settings}" \
   --vm-name myMonitorVM \
   --resource-group myRGMonitor
 ```
@@ -144,18 +130,18 @@ az monitor activity-log list \
 
 ## Create alerts
 
-Alerts are a method of monitoring Azure resource metrics, events, or logs and being notified when a condition you specify is met.
+Alerts are a method of monitoring Azure resource metrics, events, or logs and being notified when a condition you specify is met. In this section, you create an alert that sends email when the percentage of CPU usage goes over the threshold of 1
 
-The following alert that you can create with [az monitor alert-rules create](https://docs.microsoft.com/cli/azure/monitor/alert-rules#create) sends an email when the percentage of CPU usage goes over the threshold of 1:
+Before creating an alert with [az monitor alert-rules create](https://docs.microsoft.com/cli/azure/monitor/alert-rules#create), replace {sub-id} with the identifier of your Azure subscription:
 
 ```azurecli
 az monitor alert-rules create \
   --alert-rule-resource-name cpu-alert \
-  -g myRGMonitor \
-  -l westus \
+  --resource-group myRGMonitor \
+  --location westus \
   --is-enabled true \
-  --condition '{"odatatype": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition", "data_source": { "odatatype": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource", "resource_uri": "/subscriptions/{sub-id}/resourceGroups/myRGMonitor/providers/Microsoft.Compute/virtualMachines/monitor-rule", "metric_name": "Percentage CPU" }, "operator": "GreaterThan", "threshold": 1, "window_size": "PT5M"}’ 
-  --actions '[{"odatatype": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction", "send_to_service_owners": true}]
+  --condition '{"odatatype": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition", "data_source": { "odatatype": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource", "resource_uri": "/subscriptions/{sub-id}/resourceGroups/myRGMonitor/providers/Microsoft.Compute/virtualMachines/myMonitorVM", "metric_name": "Percentage CPU", }, "operator": "GreaterThan", "threshold": 1, "window_size": "PT5M"}' 
+  --actions '[{"odatatype": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction", "send_to_service_owners": true}]'
   ```
 
 ## Advanced monitoring 
