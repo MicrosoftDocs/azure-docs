@@ -18,7 +18,7 @@ ms.author: cephalin
 
 ---
 # Build a Node.js and MongoDB web app in Azure
-This tutorial shows you how to create a Node.js web app in Azure and connect it to a MongoDB database. When you are done, you will have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running on [Azure App Service Web Apps](app-service-web-overview.md).
+This tutorial shows you how to create a Node.js web app in Azure and connect it to a MongoDB database. When you are done, you will have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running on [Azure App Service Web Apps](app-service-web-overview.md). For simplicity, the sample application uses the [MEAN.js web framework](http://meanjs.org/).
 
 ![MEAN.js app running in Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -28,8 +28,8 @@ Before running this sample, install the following prerequisites locally:
 
 1. [Download and install git](https://git-scm.com/)
 1. [Download and install Node.js and NPM](https://nodejs.org/)
-1. [Install Gulp.js](http://gulpjs.com/)
-1. [Download, install, and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/). 
+1. [Install Gulp.js](http://gulpjs.com/) (required by [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
+1. [Download, install, and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
 1. [Download and install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -45,7 +45,7 @@ Run `mongo` in the terminal to connect to your local MongoDB server.
 mongo
 ```
 
-If your connection is successful, then your MongoDB database is already running. If not, make sure that your local MongoDB database is started by following the steps at [Download, install, and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/).
+If your connection is successful, then your MongoDB database is already running. If not, make sure that your local MongoDB database is started by following the steps at [Download, install, and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/). In many cases, MongoDB is installed, but you still need to start it by running `mongod`. 
 
 When you are done testing your MongoDB database, type `Ctrl`+`C` in the terminal. 
 
@@ -64,7 +64,7 @@ Run the following commands to clone the sample repository.
 git clone https://github.com/Azure-Samples/meanjs.git
 ```
 
-This sample repository contains a [MEAN.js](http://meanjs.org/) application. 
+This sample repository contains a copy of the [MEAN.js repository](https://github.com/meanjs/mean). It is minimally modified to run on App Service (for more information, see [README](https://github.com/Azure-Samples/meanjs/blob/master/README.md)).
 
 ### Run the application
 
@@ -138,6 +138,11 @@ az documentdb create --name <documentdb_name> --resource-group myResourceGroup -
 
 The `--kind MongoDB` parameter enables MongoDB client connections.
 
+> [!NOTE]
+> `<documentdb_name>` must contain only lowercase letters, numbers, and the `-` character, and must be between 3 and 50 characters.
+>
+>
+
 When the DocumentDB account is created, the Azure CLI shows information similar to the following example:
 
 ```json
@@ -208,7 +213,7 @@ Save your changes.
 
 ### Test the application in production mode 
 
-Like some other Node.js web frameworks, MEAN.js uses `gulp prod` to minify and bundle scripts for the production environment. This generates the files needed by the production environment. 
+Like some other Node.js web frameworks, MEAN.js uses `gulp` to minify and bundle scripts for the production environment. This generates the files needed by the production environment. 
 
 Run `gulp prod` now.
 
