@@ -35,20 +35,22 @@ write_files:
   - path: /etc/docker/daemon.json
     content: |
       {
-        "hosts": ["tcp://127.0.0.1:2375"]
+        "hosts": ["fd://","tcp://127.0.0.1:2375"]
       }
 runcmd:
   - wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
   - sh -c 'echo deb http://pkg.jenkins-ci.org/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
   - apt-get update && apt-get install jenkins -y
   - curl -sSL https://get.docker.com/ | sh
-  - sudo usermod -aG docker azureuser,jenkins
+  - usermod -aG docker azureuser
+  - usermod -aG docker jenkins
+  - service jenkins restart
 ```
 
 Create a resource group:
 
 ```azurecli
-az group create --name myResourceGroupJenkins --location westus
+az group create --name myResourceGroupJenkins --location eastus
 ```
 
 Create a VM that uses the cloud-init file to install Jenkins:
@@ -56,10 +58,10 @@ Create a VM that uses the cloud-init file to install Jenkins:
 ```azurecli
 az vm create --resource-group myResourceGroupJenkins \
     --name myVM \
-	--image UbuntuLTS \
-	--admin-username azureuser \
-	--generate-ssh-keys \
-	--custom-data cloud-init-jenkins.txt
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --custom-data cloud-init-jenkins.txt
 ```
 
 Open port 8080 to access your Jenkins instance in a web browser:
@@ -69,7 +71,13 @@ az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 1337 --priority 1002
 ```
 
-SSH to your VM using the `publicIpAddress` noted in the output of VM create:
+Obtain the public IP address of your VM:
+
+```azurecli
+az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publicIps] --o tsv
+```
+
+SSH to your VM:
 
 ```bash
 ssh azureuser@<publicIpAddress>
@@ -85,7 +93,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ## Configure Jenkins
 To access your Jenkins instance, open a web browser and go to `http://<publicIpAddress>:8080`. Follow through the initial Jenkins set up:
 
-- Enter `initialAdminPassword` copied from the VM in the previous step
+- Enter `initialAdminPassword` obtained from the VM in the previous step
 - Click **Select plugins to install**
 - Search for and select **GitHub plugin**, then click **Install**
 - Create first admin user
@@ -127,16 +135,13 @@ In Jenkins, a new build should start. Click the build and select **Console outpu
 For Jenkins to build an image that incorporates the latest code updates for GitHub, you use a Dockerfile. SSH to your VM and change to the workspace directory named after your Jenkins job:
 
 ```bash
-cd /var/lib/jenkins/workspace/<yourJobName>
+cd /var/lib/jenkins/workspace/GitHub
 ```
 
 Now create a file named `Dockerfile` in this workspace directory and paste the following contents:
 
 ```yaml
-FROM ubuntu
-
-RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y nodejs npm git
+FROM node:alpine
 
 EXPOSE 1337
 
@@ -159,16 +164,16 @@ Go to your Jenkins instance in a web browser and click your **HelloWorld** job c
   ```bash
   docker build --tag helloworld:$BUILD_NUMBER .
   docker stop helloworld && docker rm helloworld
-  docker run --name helloworld -p 1337:1337 helloworld:$BUILD_NUMBER nodejs /var/www/index.js &
+  docker run --name helloworld -p 1337:1337 helloworld:$BUILD_NUMBER node /var/www/index.js &
   ```
 
 ## Test your pipeline
 Edit `index.js` in your forked repo and commit the change. A new job starts in Jenkins based on the webhook for GitHub, creates a Docker image, then starts your app in a new container.
 
-Obtain the public IP address of your Docker VM with:
+If needed, obtain the public IP address of your VM again:
 
 ```azurecli
-az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [fqdns] --o tsv
+az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publicIps] --o tsv
 ```
 
 Open a web browser and enter `http://<publicIpAddress>:1337`. Your Node.js app is displayed. Make another edit and commit in GitHub, wait a few seconds for the job to complete in Jenkins, then refresh your web browser to see the updates.
