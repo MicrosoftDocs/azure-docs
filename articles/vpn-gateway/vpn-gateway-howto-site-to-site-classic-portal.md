@@ -6,7 +6,7 @@ documentationcenter: na
 author: cherylmc
 manager: timlt
 editor: ''
-tags: azure-resource-manager
+tags: azure-service-management
 
 ms.assetid: 
 ms.service: vpn-gateway
@@ -44,7 +44,7 @@ Verify that you have met the following criteria before beginning configuration:
 * A compatible VPN device and someone who is able to configure it. For more information about compatible VPN devices and device configuration, see [About VPN Devices](vpn-gateway-about-vpn-devices.md).
 * An externally facing public IPv4 IP address for your VPN device. This IP address cannot be located behind a NAT.
 * If you are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you. When you create this configuration, you must specify the IP address range prefixes that Azure will route to your on-premises location. None of the subnets of your on-premises network can over lap with the virtual network subnets that you want to connect to.
-* Currently, PowerShell is required to specify the shared key and create the VPN gateway connection. Install the latest version of the Azure Service Management (SM) PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). When working with PowerShell for this configuration, make sure that you are running as administrator. 
+* Currently, PowerShell is required to specify the shared key and create the VPN gateway connection. Install the latest version of the Azure Service Management (SM) PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview). When working with PowerShell for this configuration, make sure that you are running as administrator. 
 
 ### <a name="values"></a>Sample configuration values for this exercise
 

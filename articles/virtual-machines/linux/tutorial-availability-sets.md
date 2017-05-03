@@ -33,7 +33,7 @@ Availability sets provide high availability to the VMs. You should also ensure y
 
 ## Create an availability set
 
-You can create an availability set using [az vm availability-set create](/cli/azure/availability-set#create). In this example, we set both the number of update and fault domains at **2** for the availability set named **myAvailabilitySet** in the **myResourceGroupAvailability** resource group.
+You can create an availability set using [az vm availability-set create](/cli/azure/availability-set#create). In this example, we set both the number of update and fault domains at *2* for the availability set named *myAvailabilitySet* in the *myResourceGroupAvailability* resource group.
 
 ```azurecli
 az vm availability-set create \
@@ -45,7 +45,7 @@ az vm availability-set create \
 
 ## Create VMs inside an availability set
 
-VMs need to be created within the availability set to make sure they are correclty distributed across the hardware. You can't add an existing VM to an availability set after it is created. 
+VMs need to be created within the availability set to make sure they are correctly distributed across the hardware. You can't add an existing VM to an availability set after it is created. 
 
 The hardware in a location is divided in to multiple update domains and fault domains. An **update domain** is a group of VMs and underlying physical hardware that can be rebooted at the same time. VMs in the same **fault domain** share common storage as well as a common power source and network switch. 
 
@@ -69,7 +69,7 @@ We now have 2 virtual machines distributed across the underlying hardware.
 
 ## Check for available VM sizes 
 
-You can add more VMs to the availability set later, but you need to know what VM sizes are available on the hardware. Use `az vm availability-set list-sizes` to list all the available sizes on the hardware cluster for the availability set.
+You can add more VMs to the availability set later, but you need to know what VM sizes are available on the hardware. Use [az vm availability-set list-sizes](/cli/azure/availability-set#list-sizes) to list all the available sizes on the hardware cluster for the availability set.
 
 ```azurecli
 az vm availability-set list-sizes \
