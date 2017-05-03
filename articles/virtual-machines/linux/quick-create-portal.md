@@ -79,11 +79,11 @@ A Network security group (NSG) secures inbound and outbound traffic. When a VM i
 
 After the deployment has completed, create an SSH connection with the virtual machine.
 
-Click the **Connect** button on the virtual machine blade. The connect button displays an SSH connection string that can be used to connect to the virtual machine.
+1. Click the **Connect** button on the virtual machine blade. The connect button displays an SSH connection string that can be used to connect to the virtual machine.
 
-![Portal 9](./media/quick-create-portal/portal-quick-start-9.png) 
+    ![Portal 9](./media/quick-create-portal/portal-quick-start-9.png) 
 
-Run the following command to create an SSH session. Replace the connection string with the one you copied from the Azure portal.
+2. Run the following command to create an SSH session. Replace the connection string with the one you copied from the Azure portal.
 
 ```bash 
 ssh azureuser@40.112.21.50
