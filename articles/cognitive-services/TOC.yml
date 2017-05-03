@@ -242,9 +242,9 @@
       href: custom-decision-service/custom-decision-service-overview.md
     - name: Get started
       items:
-      - name: call API from a browser
+      - name: Call API from a browser
         href: custom-decision-service/custom-decision-service-get-started-browser.md
-      - name: call API from an app
+      - name: Call API from an app
         href: custom-decision-service/custom-decision-service-get-started-server.md
     - name: API reference
       href: custom-decision-service/custom-decision-service-api-reference.md
