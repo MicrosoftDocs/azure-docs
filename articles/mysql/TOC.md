@@ -1,7 +1,7 @@
 # Azure DB for MySQL Docs
 
 # Overview
-# [Azure DB for MySQL](overview.md)
+## [Azure DB for MySQL](overview.md)
 
 # Quickstart
 ## [Create DB - Portal](quickstart-create-mysql-server-database-using-azure-portal.md)
@@ -11,7 +11,7 @@
 ## [Azure CLI](sample-scripts-azure-cli.md)
 
 # Tutorials
-## Design a Database
+## 1 - Design a Database
 ### [Azure portal](tutorial-design-database-using-portal.md)
 
 # Concepts
@@ -29,4 +29,3 @@
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDatabaseforMySQL)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/)
 ## [Region availability](https://azure.microsoft.com/regions/services/)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/)
