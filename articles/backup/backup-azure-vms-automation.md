@@ -166,7 +166,7 @@ DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 P
 >
 >
 
-A backup protection policy is associated with at least one retention policy. Retention policy defines how long a recovery point is kept before it is deleted. Use **[Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject)** to view the default retention policy.  Similarly you can use **[Get-AzureRmRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupschedulepolicyobject)** to obtain the default schedule policy. The **[New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)** cmdlet creates a PowerShell object that holds backup policy information. The schedule and retention policy objects are used as inputs to the **[New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)** cmdlet. The following example defines variables for the schedule policy and the retention policy, and uses those variables to create a new protection policy, NewPolicy, for Azure virtual machines.
+A backup protection policy is associated with at least one retention policy. Retention policy defines how long a recovery point is kept before it is deleted. Use **[Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject)** to view the default retention policy.  Similarly you can use **[Get-AzureRmRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupschedulepolicyobject)** to obtain the default schedule policy. The **[New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)** cmdlet creates a PowerShell object that holds backup policy information. The schedule and retention policy objects are used as inputs to the **[New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)** cmdlet. The following example defines variables for the schedule policy and the retention policy, and uses those variables to create a protection policy, *NewPolicy*, for Azure virtual machines.
 
 ```
 PS C:\> $schPol = Get-AzureRmRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
@@ -238,9 +238,7 @@ V2VM              Backup               InProgress            4/23/2016 5:00:30 P
 >
 
 ## Monitoring a backup job
-Most long-running operations in Azure Backup are modeled as a job. This makes it easy to track progress without having to keep the Azure portal open always.
-
-To get the latest status of an in-progress job, use the Get-AzureRmRecoveryservicesBackupJob cmdlet.
+You can monitor long-running operations, such as backup jobs, without having the Azure portal open. To get the status of an in-progress job, use the Get-AzureRmRecoveryservicesBackupJob cmdlet.
 
 ```
 PS C:\ > $joblist = Get-AzureRmRecoveryservicesBackupJob –Status InProgress
@@ -336,7 +334,7 @@ Once you restore the disks, go to the next section for information on creating t
 After you have restored the disks, use these steps to create and configure the virtual machine from disk.
 
 > [!NOTE]
-> If you are using restored disks to create encrypted VMs, your Azure role must have permission to perform the action, **Microsoft.KeyVault/vaults/deploy/action**. If your role does not have this permission, create a custom role with this action. For more details, refer to [Custom Roles in Azure RBAC](../active-directory/role-based-access-control-custom-roles.md).
+> To create encrypted VMs from restored disks, your Azure role must have permission to perform the action, **Microsoft.KeyVault/vaults/deploy/action**. If your role does not have this permission, create a custom role with this action. For more information, see [Custom Roles in Azure RBAC](../active-directory/role-based-access-control-custom-roles.md).
 >
 >
 
@@ -404,4 +402,4 @@ After you have restored the disks, use these steps to create and configure the v
     ```
 
 ## Next steps
-If you prefer to use PowerShell to engage with your Azure resources, see the PowerShell article, [Deploy and Manage Backup for Windows Server](backup-client-automation.md). There is also a PowerShell article for managing DPM backups, [Deploy and Manage Backup for DPM](backup-dpm-automation.md). Both of these articles have a version for Resource Manager deployments and Classic deployments.  
+If you prefer to use PowerShell to engage with your Azure resources, see the PowerShell article, [Deploy and Manage Backup for Windows Server](backup-client-automation.md). If you manage DPM backups, see the article, [Deploy and Manage Backup for DPM](backup-dpm-automation.md). Both of these articles have a version for Resource Manager deployments and Classic deployments.  
