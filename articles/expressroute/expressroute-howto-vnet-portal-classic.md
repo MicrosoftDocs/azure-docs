@@ -23,6 +23,8 @@ The steps in this article will walk you through configuring a virtual network an
 
 If you are looking instructions for the Resource Manager deployment model, you can use the following articles: [Create a virtual network by using PowerShell](../virtual-network/virtual-networks-create-vnet-arm-ps.md) and [Add a VPN Gateway to a Resource Manager VNet for ExpressRoute](expressroute-howto-add-gateway-resource-manager.md).
 
+[!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
+
 **About Azure deployment models**
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
