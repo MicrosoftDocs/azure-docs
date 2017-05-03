@@ -88,10 +88,13 @@ This can happen if your refesh token has not been updated. Try these steps to en
 2. Try to refresh the credentials for the Dashboard
 
 ### 502 Bad Gateway
-This is usually caused by a query that returns too much data. You should try using a smaller time range or by using the [ago](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#ago) or [startofweek/startofmonth](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#startofweek) functions only [project](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#project-operator) the fields you need. If reducing the amount of data does not help, please open a support ticket.
+This is usually caused by an Analytics query that returns too much data. You should try using a smaller time range or by using the [ago](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#ago) or [startofweek/startofmonth](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#startofweek) functions only [project](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#project-operator) the fields you need. If reducing the amount of data does not help, please open a support ticket.
+
+If reducing the dataset coming from the Analytics query doesn't meet your requirements you should consider using the [API](https://dev.applicationinsights.io/documentation/overview) to pull a larger dataset. Use [this article](https://dev.applicationinsights.io/documentation/Using-the-API/Power-BI) to get started.
 
 ## About sampling
 If your application sends a lot of data, the adaptive sampling feature may operate and send only a percentage of your telemetry. The same is true if you have manually set sampling either in the SDK or on ingestion. [Learn more about sampling.](app-insights-sampling.md)
+
 
 ## Next steps
 * [Power BI - Learn](http://www.powerbi.com/learning/)
