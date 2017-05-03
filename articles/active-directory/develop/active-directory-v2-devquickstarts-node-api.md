@@ -25,7 +25,7 @@ ms.author: xerners
 
 When you use the Azure Active Directory (Azure AD) v2.0 endpoint, you can use [OAuth 2.0](active-directory-v2-protocols.md) access tokens to protect your web API. With OAuth 2.0 access tokens, users who have both a personal Microsoft account and work or school accounts can securely access your web API.
 
-**Passport** is authentication middleware for Node.js. Flexible and modular, you can unobtrusively drop Passport into any Express-based or restify web application. In Passport, a comprehensive set of strategies support authentication by using a username and password, Facebook, Twitter, or other options. We have developed a strategy for Azure AD. In this article, we show you how to install the module, and then add the Azure AD `passport-azure-ad` plug-in.
+*Passport* is authentication middleware for Node.js. Flexible and modular, Passport can be unobtrusively dropped into any Express-based or restify web application. In Passport, a comprehensive set of strategies support authentication by using a username and password, Facebook, Twitter, or other options. We have developed a strategy for Azure AD. In this article, we show you how to install the module, and then add the Azure AD `passport-azure-ad` plug-in.
 
 ## Download
 The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs). To follow the tutorial, you can [download the app's skeleton as a .zip file](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/skeleton.zip), or clone the skeleton:
