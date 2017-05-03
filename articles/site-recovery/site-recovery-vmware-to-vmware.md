@@ -113,7 +113,7 @@ Fixes that are added from ASR Scout update4 to update5 are specific to Master Ta
 at the time of re-protection, the same set of disks are active on each of the cluster nodes as they were when initially protected. If not, then there are manual steps as mentioned in section 12 of [ASR Scout Release Notes](https://aka.ms/asr-scout-release-notes) to  move the target side disks to the correct datastore path to re-use them during re-protection. If you reprotect the MSCS cluster in P2V mode without following upgrade steps then it will create new disk on the target ESXi server. You need to manually delete the old disks from  the datastore.
 > 
 > * Whenever source SLES11 or SLES11 with any service pack server is rebooted gracefully, then one should manually mark the **root** disk replication pairs for re-sync as it will not be notified in CX UI. If you dont' mark the root disk for resync, you may see data integrity (DI) issues.
-
+> 
 
 ### Azure Site Recovery Scout 8.0.1 Update 4
 Scout Update 4 is a cumulative update. It has all the fixes of update1 till update3 and following new bug fixes and enhancements.
