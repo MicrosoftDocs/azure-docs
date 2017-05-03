@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 05/03/2017
 ms.author: jeedes
 ---
 
@@ -44,6 +44,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 - If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
+
 In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
@@ -51,6 +52,7 @@ The scenario outlined in this tutorial consists of two main building blocks:
 2. Configuring and testing Azure AD single sign-on
 
 ## Adding Neota Logic Studio from the gallery
+
 To configure the integration of Neota Logic Studio into Azure AD, you need to add Neota Logic Studio from the gallery to your list of managed SaaS apps.
 
 **To add Neota Logic Studio from the gallery, perform the following steps:**
@@ -76,6 +78,7 @@ To configure the integration of Neota Logic Studio into Azure AD, you need to ad
 	![Creating an Azure AD test user](./media/active-directory-saas-neotalogicstudio-tutorial/tutorial_neotalogicstudio_addfromgallery.png)
 
 ##  Configuring and testing Azure AD single sign-on
+
 In this section, you configure and test Azure AD single sign-on with Neota Logic Studio based on a test user called "Britta Simon."
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in Neota Logic Studio is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Neota Logic Studio needs to be established.
@@ -106,16 +109,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 3. On the **Neota Logic Studio Domain and URLs** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-neotalogicstudio-tutorial/tutorial_neotalogicstudio_url1.png)
+	![Configure Single Sign-On](./media/active-directory-saas-neotalogicstudio-tutorial/tutorial_neotalogicstudio_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<sub domain>.neotalogic.com/a/<sub application>`
 
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<sub domain>.neotalogic.com/wb`
 
-	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<sub domain>.neotalogic.com/sso/callback?client_name=<client name>`
-
 	> [!NOTE] 
-	> These values are not the real. Update these values with the actual Sign-On URL, Identifier & Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [Neota Logic Studio Client support team](https://www.neotalogic.com/contact-us/) to get these values. 
+	> These values are not the real. Update these values with the actual Sign-On URL & Identifier. Here we suggest you to use the unique value of string in the Identifier. Contact [Neota Logic Studio Client support team](https://www.neotalogic.com/contact-us/) to get these values. 
  
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -199,7 +200,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-Click the Neota Logic Studio tile in the Access Panel, you will be redirected to Organization sign on page. After successful login, you will be signed-on to your Neota Logic Studio application. For more information about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
+Click the Neota Logic Studio tile in the Access Panel, you will be redirected to Organization sign-on page. After successful login, you will be signed-on to your Neota Logic Studio application. For more information about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
 
 For more information about the Access Panel, see [introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586). 
 
