@@ -180,7 +180,7 @@ Refer to ‘SQL Server DR Solution ’ companion guide for considerations specif
 6.	Click ✓ to start the ‘Failback’ process.
 
 
-Follow [this guidance](site-recovery-failback-azure-to-vmware-classicmd) when you are doing a failback.
+Follow [this guidance](site-recovery-failback-azure-to-vmware.md) when you are doing a failback.
 
 ##Summary
 Using Azure Site Recovery, you can create a complete automated disaster recovery plan for your Dynamics AX application. You can initiate the failover within seconds from anywhere in the event of a disruption and get the application up and running in minutes.
