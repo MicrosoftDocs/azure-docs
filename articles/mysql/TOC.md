@@ -15,6 +15,8 @@
 ### [Azure portal](tutorial-design-database-using-portal.md)
 
 # Concepts
+## MySQL Servers
+### [Supported versions](concepts-supported-versions.md)
 ## Development
 ### [Connection libraries](concepts-connectivity-libraries.md)
 ### [Application development](concepts-database-application-development.md)
