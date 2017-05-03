@@ -11,19 +11,19 @@
   - name: Academic Knowledge
     href: Academic-Knowledge/Home.md
   - name: Bing Autosuggest
-    href: Bing-Autosuggest/overview.md
+    href: Bing-Autosuggest/get-suggested-search-terms.md
   - name: Bing Image Search
-    href: Bing-Image-Search/overview.md
+    href: Bing-Image-Search/search-the-web.md
   - name: Bing News Search
-    href: Bing-News-Search/overview.md
+    href: Bing-News-Search/search-the-web.md
   - name: Bing Speech
     href: Speech/Home.md
   - name: Bing Spell Check
-    href: Bing-Spell-Check/Home.md
+    href: Bing-Spell-Check/proof-text.md
   - name: Bing Video Search
-    href: Bing-Video-Search/overview.md
+    href: Bing-Video-Search/search-the-web.md
   - name: Bing Web Search
-    href: Bing-Web-Search/overview.md
+    href: Bing-Web-Search/search-the-web.md
   - name: Computer Vision
     href: Computer-vision/Home.md
   - name: Content Moderator
