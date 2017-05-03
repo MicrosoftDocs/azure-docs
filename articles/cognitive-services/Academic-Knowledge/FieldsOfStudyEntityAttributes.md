@@ -28,4 +28,3 @@ ECC		|Field of total estimated citation count|Int32		|none
 FL		|Level in fields of study hierarchy 	|Int32		|Equals, <br/>IsBetween
 FP.FN	|Parent field of study name 			|String		|Equals
 FP.FId 	|Parent field of study ID 				|Int64 		|Equals
-SSD		|Satori data 							|String		|none
