@@ -38,8 +38,14 @@ To deprovision the VM, use the Azure VM agent (waagent). The Azure VM agent is i
 
 Connect to your VM using SSH and run the command to deprovision the VM. With the `+user` argument, the last provisioned user account and any associated data are also deleted. Replace the example IP address with the public IP address of your VM.
 
+SSH to the VM.
 ```bash
-ssh azureuser@52.174.34.95 sudo waagent -deprovision+user -force
+ssh azureuser@52.174.34.95
+```
+Deprovision the VM.
+
+```bash
+sudo waagent -deprovision+user -force
 ```
 Close the SSH session.
 
@@ -55,7 +61,7 @@ To create an image, the VM needs to be deallocated. Deallocate the VM using [az 
 az vm deallocate --resource-group myRGCaptureImage --name myVM
 ```
 
-Finally, set the state of the VM as generalized with [az vm generalize](/cli//azure/vm#generalize).
+Finally, set the state of the VM as generalized with [az vm generalize](/cli//azure/vm#generalize) so the Azure platform knows the VM has been generalized. You can only create an image from a generalized VM.
    
 ```azurecli
 az vm generalize --resource-group myResourceGroupImages --name myVM
