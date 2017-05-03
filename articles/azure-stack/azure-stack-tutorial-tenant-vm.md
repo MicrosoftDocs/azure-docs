@@ -18,7 +18,7 @@ ms.author: victorh
 
 ---
 # Make virtual machines available to your Azure Stack users
-As an Azure Stack administrator, you can create offers that your users (sometimes referred to as tenants) can subscribe to. Using their subscription, users can then consumer Azure Stack services. For example they can then add a virtual machine or whatever else you make available in your offer. Your users can now serve themselves when they need additional resources. You are then free to do other tasks, like perhaps make new services avaialble that your users can consume.
+As an Azure Stack administrator, you can create offers that your users (sometimes referred to as tenants) can subscribe to. Using their subscription, users can then consumer Azure Stack services. For example, they can then add a virtual machine or whatever else you make available in your offer. Your users can now serve themselves when they need additional resources. You are then free to do other tasks, like perhaps make new services available that your users can consume.
 
 This article shows you how to create an offer, and then test it. 
 For the test, you will log in to the portal as a user, subscribe to the offer, and then create a virtual machine using the subscription. 
@@ -31,7 +31,7 @@ To learn more, see [Key features and concepts in Azure Stack](azure-stack-key-fe
 
 ## Create an offer
 
-Now you can get things ready for your users. You will create an offer that they can then subscribe to.
+Now you can get things ready for your users. Create an offer that they can then subscribe to.
 1. [Set quotas](azure-stack-setting-quotas.md).
 
     Quotas define the limits of resources that a tenant subscription can provision or consume. For example, a quota might allow a tenant to create up to five VMs. To add a service to a plan, the administrator must configure the quota settings for that service.
@@ -48,7 +48,7 @@ Now you can get things ready for your users. You will create an offer that they 
 
 Before you can provision virtual machines, you must add an image to the Azure Stack marketplace. This example shows you how to add a Windows Server 2016 image, but you can add the image of your choice, including Linux images.
 
-For more information see [The Azure Stack Marketplace](azure-stack-marketplace.md).
+For more information, see [The Azure Stack Marketplace](azure-stack-marketplace.md).
 
 > [!NOTE]
 > This step can take almost an hour to complete!
@@ -70,14 +70,14 @@ If you deployed using AD FS, you need to create a user account first. If you dep
 
 2. [Subscribe to an offer](azure-stack-subscribe-plan-provision-vm.md).
 
-   Now you can login to the portal as a user to subscribe to an offer.
+   Now you can log in to the portal as a user to subscribe to an offer.
 
 
 3. [Provision a virtual machine](azure-stack-provision-vm.md).
 
    Now you can log in to the portal as a user to provision a virtual machine using the subscription. 
 
-   Follow the article to test that this works with a user account. Log in to the portal with a user account instead of an administrator account. 
+   Follow this article to test that it works with a user account. Log in to the portal with a user account instead of an administrator account. 
 
 ## Next steps
 You've learned how to create an offer and verified that users can subscribe to the offer and create virtual machines on Azure Stack. Next, you can [give Azure Stack users the ability to create web, mobile, and API apps](azure-stack-tutorial-app-service.md).
