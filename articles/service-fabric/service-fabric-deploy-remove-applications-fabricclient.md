@@ -56,7 +56,7 @@ Uploading the application package puts it in a location that's accessible by the
 
 The [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API uploads the application package to the cluster image store. 
 
-If the application package is large and/or has many files, to improve the uploading time, you can [compress it](service-fabric-package-apps.md#compress-a-package) before copying it to the image store using PowerShell. The compression reduces the size and the number of files.
+If the application package is large and/or has many files, you can [compress it](service-fabric-package-apps.md#compress-a-package) and copy it to the image store using PowerShell. The compression reduces the size and the number of files.
 
 See [Understand the image store connection string](service-fabric-image-store-connection-string.md) for supplementary information about the image store and image store connection string.
 
