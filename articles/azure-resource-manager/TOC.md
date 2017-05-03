@@ -25,7 +25,6 @@
 ### Copy loop to create multiple instances
 #### [Basic syntax](resource-group-create-multiple.md)
 #### [Sequential loop](resource-manager-sequential-loop.md)
-#### [Property copy](resource-manager-property-copy.md)
 ### [Set location](resource-manager-template-location.md)
 ### [Assign tags](resource-manager-template-tags.md)
 ### [Set child resource name and type](resource-manager-template-child-resource.md)
