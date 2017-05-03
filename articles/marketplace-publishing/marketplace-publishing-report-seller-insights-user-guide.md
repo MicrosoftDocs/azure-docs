@@ -111,6 +111,7 @@ D. *Panel D*: this panel provides data relating to each individual subscription.
 ![Orders overview map][9]
 
 ###Orders
+
 ####Monthly view - Panel A
 
 ![Panel map a][10]
@@ -144,9 +145,11 @@ D. *Panel D*: this panel provides data relating to each individual subscription.
   2. Select the items you want to view from the 'Subject Area' dropdown; click 'Apply'.  Default is 'Select All'.
 
   ![Orders monthly view panel c subject area dropdown][17]
+
   3. Use the filter symbol to select 'All' data or 'Top 10' for all of your selections.  Default is 'Top 10'.
 
   ![Orders monthly view panel c filter symbol][18]
+
   4. Roll-over each bar in the charts you have selected to reveal the underlying data.
   5. Toggle the '+' symbol to show data beneath each of the charts you have selected to view.
 
@@ -161,12 +164,14 @@ D. *Panel D*: this panel provides data relating to each individual subscription.
   2. Use the filters at the top of each column to filter the data using a wide range of commands and values.
 
   ![Orders monthly view panel d filters][20]
+
   3. Select the number of items per page you wish to view - 10, 20, or 50.
   4. Download the data in Excel or csv format for offline analysis.
 
 ![Orders detailed orders view panel d][19]
 
 ###Usage
+
 ####Monthly view - Panel A
 
   ![Panel map a][10]
@@ -203,9 +208,11 @@ D. *Panel D*: this panel provides data relating to each individual subscription.
   2. Select the items you want to view from the 'Subject Area' dropdown; click Apply'.  Default is 'Select All'.
 
   ![Usage monthly view panel c subject area dropdown][17]
+
   3. Use the filter symbol to select 'All' data or 'Top 10' for all of your selections.  Default is 'Top 10'.
 
   ![Usage monthly view panel c filter symbol][18]
+
   4. Roll-over each bar in the charts you have selected to reveal the underlying data.
   5. Toggle the '+' symbol to show data beneath each of the charts you have selected to view.
 
@@ -220,6 +227,7 @@ D. *Panel D*: this panel provides data relating to each individual subscription.
   2. Use the filters at the top of each column to filter the data using a wide range of commands and values.
 
   ![Usage monthly view panel d filters][20]
+
   3. Select the number of items per page you wish to view - 10, 20, or 50.
   4. Download the data in Excel or csv format for offline analysis.
 
@@ -231,6 +239,7 @@ D. *Panel D*: this panel provides data relating to each individual subscription.
   1. From the Order Detail panel under 'Orders' or 'Usage' click on the Azure subscription ID which you are interested in.  Note that only non-BYOL Marketplace License Types will be clickable, and BYOL subscription ID's will be hashed out for security reasons.
 
   ![Orders and usage customer detail panel detail][26]
+  
   2. You will be redirected to the 'Customer' tab and detailed data for the customer with whom the subscription ID is associated will be retrieved.
   3. You can download the data in Excel or csv format.
 
