@@ -3,13 +3,13 @@
 
 # Quickstarts
 ## [Deploy Azure Stack](azure-stack-deploy-overview.md)
-### [Deployment prerequisites](azure-stack-deploy.md)
+### [Prerequisites](azure-stack-deploy.md)
 ### [Deploy](azure-stack-run-powershell-script.md)
 ### [Activate portals](azure-stack-run-powershell-script.md#activate-the-administrator-and-tenant-portals)
 ### [Register](azure-stack-register.md)
 ## [Connect to Azure Stack POC](azure-stack-connect-azure-stack.md)
 ## [Add default image](azure-stack-add-default-image.md)
-## [Provision a virtual machine](azure-stack-provision-vm.md)
+## [Create a VM](azure-stack-provision-vm.md)
 
 # Tutorials
 ## [Basic administration](azure-stack-manage-basics.md)
@@ -84,7 +84,7 @@
 #### [Create VM-PowerShell](azure-stack-quick-create-vm-powershell.md)
 ### Storage
 #### [Overview](azure-stack-storage-overview.md)
-#### [Differences and considerations](azure-stack-acs-differences-tp2.md)
+#### [Storage considerations](azure-stack-acs-differences-tp2.md)
 ### Network
 #### [iDNS for Azure Stack](azure-stack-understanding-dns.md)
 #### [DNS in Azure Stack](azure-stack-dns.md)
@@ -98,7 +98,6 @@
 
 ## Build apps
 ### [Develop for Azure Stack](azure-stack-developer.md)
-### [Connect to Azure Stack](azure-stack-connect-azure-stack.md)
 ### Set up development environment
 #### [Install PowerShell](azure-stack-powershell-install.md)
 #### [Download tools](azure-stack-powershell-download.md)
