@@ -31,15 +31,23 @@ This article provides an overview of using [Azure CLI version 2.0](https://docs.
 
 ## Set up the Azure CLI
 
-Before you can begin using the Azure CLI with Batch, you'll need to install it and log in to your Azure account. Follow these steps: 
+To install the Azure CLI, follow the steps outlined in [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli.md).
 
-* [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli.md)
-* [Log in to Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli.md#log-in-to-azure)
+To manage Batch resources from the Azure CLI, you'll need to log in. How you log in depends on whether you are accessing resources in the Batch Management API, or the Batch service API.
 
 > [!TIP]
 > We recommend that you update your Azure CLI installation frequently to take advantage of service updates and enhancements.
 > 
 > 
+
+### Log in to use Batch Management 
+
+* [Log in to Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli.md#log-in-to-azure)
+
+
+### Log in to use Batch service
+
+
 
 ## Command help
 
