@@ -19,17 +19,17 @@ ms.author: twooley
 ---
 # Azure Stack administration basics
 
-There are several things you need to know if you're new to Azure Stack administration. This guidance provides an overview of your responsibilities, and what you need to communicate to your users for them to become productive quickly.
+There are several things you need to know if you're new to Azure Stack administration. This guidance provides an overview of your role as an administrator, and what you need to tell your users for them to become productive quickly.
 
 For the Azure Stack Technical Preview 3 (TP3) timeframe, this guidance is scoped to the Azure Stack Proof of Concept (POC).
 
-## About Azure Stack POC builds
+## Understand Azure Stack POC builds
 
-Review the [What is Azure Stack?](azure-stack-poc.md) article to make sure you understand the purpose of the POC, and its limitations. You should use the POC as a "sandbox," where you can evaluate Azure Stack, and develop and test your apps in a non-production environment. 
+Review the [What is Azure Stack?](azure-stack-poc.md) article to make sure you understand the purpose of the POC, and its limitations. You should use the POC as a "sandbox," where you can evaluate Azure Stack, and develop and test your apps in a non-production environment. (For deployment information, see the [Azure Stack POC deployment](azure-stack-deploy-overview.md) quickstart.)
 
-Like Azure, we innovate rapidly. We'll regularly release new builds so that you can try out the latest features. When you want to move to the latest build, you must [redeploy Azure Stack](azure-stack-redeploy.md). The POC documentation on our website reflects the latest official build.
+Like Azure, we innovate rapidly. We'll regularly release new builds. When you want to move to the latest build, you must [redeploy Azure Stack](azure-stack-redeploy.md). This takes time, but the reward is that you can try out the latest features. The POC documentation on our website reflects the latest official build.
 
-## Available services
+## Learn about available services
 
 You'll need an awareness of which services you can make available to your users. Azure Stack supports a subset of Azure services. The list of supported services will continue to evolve.
 
@@ -58,13 +58,13 @@ These services require additional configuration before you can make them availab
 
 Azure Stack will continue to add support for Azure services. For the projected roadmap, see the [Hybrid Application Innovation with Azure and Azure Stack](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) whitepaper. You can also monitor the [Azure Stack blog posts](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) for new announcements.
 
-## How to manage Azure Stack
+## What tools do I use to manage?
  
 You can use the [administrator portal](azure-stack-manage-portals.md) or PowerShell to manage Azure Stack. The easiest way to learn the basic concepts is through the portal. If you want to use PowerShell, there are preparation steps. You must [install](azure-stack-powershell-install.md) PowerShell, [download](azure-stack-powershell-download.md) additional modules, and [configure](azure-stack-powershell-configure.md) PowerShell.
 
 Azure Stack uses Azure Resource Manager as its underlying deployment, management, and organization mechanism. If you're going to manage Azure Stack and help support users, you should learn about Resource Manager. See the [Getting Started with Azure Resource Manager](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) whitepaper.
 
-## Your responsibilities
+## Your typical responsibilities
 
 Your users want to use services. From their perspective, your main role is to make these services available to them. You must decide which services to offer, and make those services available by creating [quotas](azure-stack-setting-quotas.md), [plans](azure-stack-create-plan.md), and [offers](azure-stack-create-offer.md). 
 
@@ -76,7 +76,7 @@ You'll also need to add items to the marketplace, such as virtual machine images
 In addition to providing services, you must perform all the regular  duties of a cloud administrator to keep Azure Stack up and running. The following list is scoped to what you can do in the TP3 POC environment.
 
 - Add user accounts (for [Azure Active Directory](azure-stack-add-new-user-aad.md) deployment or for [Active Directory Federation Services](azure-stack-add-users-adfs.md) deployment)
-- Assign role-based access control (RBAC) roles
+- [Assign role-based access control (RBAC) roles](azure-stack-manage-permissions.md)
 - [Monitor infrastructure health](azure-stack-monitor-health.md)
 - Manage [network](azure-stack-viewing-public-ip-address-consumption.md) and [storage](azure-stack-manage-storage-accounts.md) resources
 - Replace bad hardware
@@ -87,7 +87,7 @@ You'll need to let your users know how to work with services in Azure Stack, how
 
 **Understand how to work with services in Azure Stack**
 
-Users must learn about what to consider when they use services and build apps in an Azure Stack environment. For example, there are specific PowerShell and API version requirements. Also, there are some feature deltas between a service in Azure and the equivalent service in Azure Stack. Your users should review the following articles:
+There are important things for a user to understand before they use services and build apps in Azure Stack. For example, there are specific PowerShell and API version requirements. Also, there are some feature deltas between a service in Azure and the equivalent service in Azure Stack. Your users should review the following articles:
 
 - [Key considerations: Using services or building apps for Azure Stack](azure-stack-considerations.md)
 - [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md)
