@@ -21,7 +21,7 @@ ms.author: andret
 <div id="RedirectURLUX"/>
 
 # Add the application’s registration information to your app
-In this step, you need to add the Application ID to your project.
+In this step, you need to add the Client ID to your project.
 
 1.	Open `MainActivity` (under `app` > `java` > *`{host}.{namespace}`*)
 2.	Replace the line starting with `final static String CLIENT_ID` with:

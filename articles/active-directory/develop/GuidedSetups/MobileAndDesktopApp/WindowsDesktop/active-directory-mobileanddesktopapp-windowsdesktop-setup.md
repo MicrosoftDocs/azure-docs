@@ -19,7 +19,7 @@ ms.author: andret
 ---
 
 
-This section provides step-by-step instructions for how to create a new project to demonstrate how to integrate a Windows Desktop .NET application (XAML) with Sign-In with Microsoft so it can query Web APIs that requires a token.
+This section provides step-by-step instructions for how to create a new project to demonstrate how to integrate a Windows Desktop .NET application (XAML) with *Sign-In with Microsoft* so it can query Web APIs that requires a token.
 
 The application created by this guide exposes a button to graph and show results on screen and a sign-out button.
 
