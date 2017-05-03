@@ -20,7 +20,7 @@ ms.author: cynthn
 
 # Create a custom image of an Azure VM using PowerShell
 
-In this tutorial, you learn how to create your own custom image of an Azure virtual machine. Custom images are like marketplace images, but you create them yourself. Custom images can be used to boot strap configurations such as preloading applications, application configurations, and other OS configurations. When creating a custom image, the VM plus all attached disks are included in the image. 
+In this tutorial, you will learn how to define your own custom image of an Azure virtual machine. Custom images enable you to create VMs using an image that you have already configured. Custom images can be used to bootstrap the pre-loading of binaries and applications, application configurations, VM data disk definitions, and other OS configurations. When creating a custom image, the VM you customize plus all attached disks will be included in the image.
 
 The steps in this tutorial can be completed using the latest [Azure PowerShell](/powershell/azure/overview) module.
 
