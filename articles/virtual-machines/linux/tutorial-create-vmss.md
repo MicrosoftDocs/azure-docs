@@ -81,10 +81,10 @@ runcmd:
 
 
 ## Create a scale set
-Before you can create a scale set, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroupScaleSet* in the *westus* location:
+Before you can create a scale set, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroupScaleSet* in the *eastus* location:
 
 ```azurecli
-az group create --name myResourceGroupScaleSet --location westus
+az group create --name myResourceGroupScaleSet --location eastus
 ```
 
 Now create a virtual machine scale set with [az vmss create](/cli/azure/vmss#create). The following example creates a scale set named *myScaleSet*, uses the cloud-init file to customize the VM, and generates SSH keys if they do not exist:
@@ -156,8 +156,8 @@ The output is similar to the following example:
 ```azurecli
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup            VmId
 ------------  --------------------  ----------  ------------  -------------------  -----------------------  ------------------------------------
-           1  True                  westus      myScaleSet_1  Succeeded            MYRESOURCEGROUPSCALESET  c72ddc34-6c41-4a53-b89e-dd24f27b30ab
-           3  True                  westus      myScaleSet_3  Succeeded            MYRESOURCEGROUPSCALESET  44266022-65c3-49c5-92dd-88ffa64f95da
+           1  True                  eastus      myScaleSet_1  Succeeded            MYRESOURCEGROUPSCALESET  c72ddc34-6c41-4a53-b89e-dd24f27b30ab
+           3  True                  eastus      myScaleSet_3  Succeeded            MYRESOURCEGROUPSCALESET  44266022-65c3-49c5-92dd-88ffa64f95da
 ```
 
 

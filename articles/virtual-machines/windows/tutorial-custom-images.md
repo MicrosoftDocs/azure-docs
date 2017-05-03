@@ -75,7 +75,7 @@ $vm = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroupImages
 Create the image configuration.
 
 ```powershell
-$image = New-AzureRmImageConfig -Location westus -SourceVirtualMachineId $vm.ID 
+$image = New-AzureRmImageConfig -Location EastUS -SourceVirtualMachineId $vm.ID 
 ```
 
 Create the image.
@@ -97,7 +97,7 @@ The script creates a VM named *myVMfromImage* from our custom image in a new res
 ```powershell
 $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
 
-New-AzureRmResourceGroup -Name myResourceGroupFromImage -Location westus
+New-AzureRmResourceGroup -Name myResourceGroupFromImage -Location EastUS
 
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
     -Name mySubnet `
@@ -105,14 +105,14 @@ $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
 
 $vnet = New-AzureRmVirtualNetwork `
     -ResourceGroupName myResourceGroupFromImage `
-    -Location westus `
+    -Location EastUS `
     -Name MYvNET `
     -AddressPrefix 192.168.0.0/16 `
     -Subnet $subnetConfig
 
 $pip = New-AzureRmPublicIpAddress `
     -ResourceGroupName myResourceGroupFromImage `
-    -Location westus `
+    -Location EastUS `
     -Name "mypublicdns$(Get-Random)" `
     -AllocationMethod Static `
     -IdleTimeoutInMinutes 4
@@ -130,14 +130,14 @@ $pip = New-AzureRmPublicIpAddress `
 
   $nsg = New-AzureRmNetworkSecurityGroup `
     -ResourceGroupName myResourceGroupFromImage `
-    -Location westus `
+    -Location EastUS `
     -Name myNetworkSecurityGroup `
     -SecurityRules $nsgRuleRDP
 
 $nic = New-AzureRmNetworkInterface `
     -Name myNic `
     -ResourceGroupName myResourceGroupFromImage `
-    -Location westus `
+    -Location EastUS `
     -SubnetId $vnet.Subnets[0].Id `
     -PublicIpAddressId $pip.Id `
     -NetworkSecurityGroupId $nsg.Id
@@ -160,7 +160,7 @@ $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 
 New-AzureRmVM `
     -ResourceGroupName myResourceGroupFromImage `
-    -Location westus `
+    -Location EastUS `
     -VM $vmConfig
 ```
 
