@@ -109,6 +109,6 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this quick start, you’ve deployed a simple virtual machine, a network security group rule, and installed a web server. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
+In this quick start, you’ve deployed a simple virtual machine, a network security group rule, and installed a web server. To learn more about Azure virtual machines, continue to the tutorial for Windows VMs.
 
-[Azure Linux virtual machine tutorials](./tutorial-manage-vm.md)
+[Azure LiWindows virtual machine tutorials](./tutorial-manage-vm.md)
