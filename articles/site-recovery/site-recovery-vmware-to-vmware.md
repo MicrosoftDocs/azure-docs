@@ -107,7 +107,7 @@ Fixes that are added from ASR Scout update4 to update5 are specific to Master Ta
 
 > [!NOTE]
 > 
-> * Above P2V cluster fixes are applicable to only those physical MSCS cluster that are  freshly protected with ASR Scout update5. To avail the cluster fixes on the already protected P2V MSCS cluster with older updates, you need to follow the upgrade steps that are mentioned in the section 12, Upgrade protected P2V MSCS cluster to Scout Update5 of [ASR Scout Release Notes](https://aka.ms/asr-scout-release-notes)].
+> * Above P2V cluster fixes are applicable to only those physical MSCS cluster that are  freshly protected with ASR Scout update5. To avail the cluster fixes on the already protected P2V MSCS cluster with older updates, you need to follow the upgrade steps that are mentioned in the section 12, Upgrade protected P2V MSCS cluster to Scout Update5 of [ASR Scout Release Notes](https://aka.ms/asr-scout-release-notes).
 > 
 > * Re-protect of physical MSCS cluster can reuse existing target disks only if
 at the time of re-protection, the same set of disks are active on each of the cluster nodes as they were when initially protected. If not, then there are manual steps as mentioned in section 12 of [ASR Scout Release Notes](https://aka.ms/asr-scout-release-notes) to  move the target side disks to the correct datastore path to re-use them during re-protection. If you reprotect the MSCS cluster in P2V mode without following upgrade steps then it will create new disk on the target ESXi server. You need to manually delete the old disks from  the datastore.
