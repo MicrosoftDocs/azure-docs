@@ -118,7 +118,7 @@ In the preceding example, we created a resource group called "appgw-RG" and loca
 > [!NOTE]
 > If you need to configure a custom probe for your application gateway, see [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md). Check out [custom probes and health monitoring](application-gateway-probe-overview.md) for more information.
 
-### Create a virtual network
+### Configure virtual network
 
 Application Gateway requires a subnet of its own. In this step you create a virtual network with an address space of 10.0.0.0/16 and two subnets, one for the application gateway and one for backend pool members.
 
@@ -131,10 +131,20 @@ $nicSubnet = New-AzureRmVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPr
 
 # Create the virtual network with the previous created subnets
 $vnet = New-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet, $nicSubnet
+```
 
+### Configure public IP address
+
+In order to handle external requests, application gateway requires a public IP address. This public IP address must not have a `DomainNameLabel` defined to be used by the application gateway.
+
+```powershell
 # Create a public IP address for use with the application gateway. Defining the domainnamelabel during creation is not supported for use with application gateway
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name 'appgwpip' -Location "West US" -AllocationMethod Dynamic
+```
 
+### Configure the application gateway
+
+```powershell
 # Create a IP configuration. This configures what subnet the Application Gateway uses. When Application Gateway starts, it picks up an IP address from the subnet configured and routes network traffic to the IP addresses in the back-end IP pool.
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
 
