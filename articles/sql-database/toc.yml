@@ -38,7 +38,9 @@
   - name: 1 - Create/design new SQL DB
     href: sql-database-design-first-database.md
   - name: 2 - Migrate existing SQL Server
-    href: sql-database-migrate-your-sql-server-database.md 
+    href: sql-database-migrate-your-sql-server-database.md
+  - name: 3 - Secure your SQL Database
+    href: sql-database-security-tutorial.md
 - name: Samples
   items:
   - name: Azure CLI
