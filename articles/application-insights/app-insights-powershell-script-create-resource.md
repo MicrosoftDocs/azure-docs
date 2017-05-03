@@ -48,7 +48,7 @@ See the relevant cmdlet specs:
 # If running manually, uncomment before the first 
 # execution to login to the Azure Portal:
 
-# Add-AzureRmAccount
+# Add-AzureRmAccount / Login-AzureRmAccount
 
 # Set the name of the Application Insights Resource
 
@@ -74,10 +74,10 @@ Select-AzureSubscription -SubscriptionName "MySubscription"
 
 $resource = New-AzureRmResource `
   -ResourceName $appInsightsName `
-  -ResourceGroupName Fabrikam `
-  -Tag @{ applicationType = "web", applicationName = $applicationTagName} `
+  -ResourceGroupName $resourceGroupName `
+  -Tag @{ applicationType = "web"; applicationName = $applicationTagName} `
   -ResourceType "Microsoft.Insights/components" `
-  -Location "East US" `  // or North Europe, West Europe, South Central US
+  -Location "East US" `  # or North Europe, West Europe, South Central US
   -PropertyObject @{"Application_Type"="web"} `
   -Force
 
