@@ -20,7 +20,7 @@ ms.author: v-shiuma
 
 # ASM Configuration on Oracle Linux Azure VM
 
-The document present the installation and configuration of Oracle ASM on Azure VM.
+This document presents the installation and configuration of Oracle ASM on Azure VM.
 
 This guide details using the Azure CLI to deploy an Oracle 12c Database from the Marketplace gallery image.
 
@@ -255,7 +255,7 @@ Change folder permission
 
 [Oracle ASM download page](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html). 
 
-There should be 2 zip files to download under the tite "Oracle Database 12c Release 1 Grid Infrastructure (12.1.0.2.0) for Linux x86-64"
+There should be 2 zip files to download under the title "Oracle Database 12c Release 1 Grid Infrastructure (12.1.0.2.0) for Linux x86-64"
 
 Once these zips are download to your client machine, you can SCP (secure copy) to your VM
 
@@ -289,7 +289,7 @@ Turn off the firewall
 # service iptables stop
 ```
 
-Check availble swap space, you will need at lease 6GB of swap space to install Grid
+Check available swap space, you will need at lease 6GB of swap space to install Grid
 ```bash
 # swapon -s
 ```
@@ -316,7 +316,7 @@ Login as root, edit the /etc/ssh/ssh_config file, change the setting of Forwardx
 ```
 ForwardX11 yes
 ```
-Dowload Putty and Xming onto your Windows machine
+Download Putty and Xming onto your Windows machine
 
 http://www.putty.org/
 https://xming.en.softonic.com/
@@ -326,7 +326,7 @@ Once you install Putty, go to the folder and located puttygen.exe
 
 For example: C:\Program Files\PuTTY, run puttygen.exe
 
-![Diagram of Puttykeygen screen](./media/asm/puttykeygen.png)
+![Diagram of Puttykeygen screen](./media/asm-configuration/puttykeygen.png)
 
 Click the Generate button to generate a key, copy the content of the key (Control-C), then click the Save private key, ignore the warming and click ok.
 
@@ -338,17 +338,17 @@ $ cd .ssh
 ```
 create a file call authorized_keys and paste the content of the key to this file and save it.
 
-Start Putty, select SSH, then select Auth and browse the key you generated earier.
+Start Putty, select SSH, then select Auth and browse the key you generated eariler.
 
-![Diagram of setprivatekey screen](./media/asm/setprivatekey.png)
+![Diagram of setprivatekey screen](./media/asm-configuration/setprivatekey.png)
 
 Select the X11 from the side menu and check the x11 box
 
-![Diagram of enablex11 screen](./media/asm/enablex11.png)
+![Diagram of enablex11 screen](./media/asm-configuration/enablex11.png)
 
 Click Session and enter the host information and click the Open button
 
-![Diagram of puttysession screen](./media/asm/puttysession.png)
+![Diagram of puttysession screen](./media/asm-configuration/puttysession.png)
 
 Login as "grid", you should be able to login without prompt for a password. Note: make sure Xming is running prior to start the installation
 
@@ -358,39 +358,39 @@ $ ./runInstaller
 ```
 It may take a few minutes before the Oracle installer to start.
 
-![Diagram of install screen](./media/asm/install01.png)
+![Diagram of install screen](./media/asm-configuration/install01.png)
 
 Select the "Install and Configure Oracle Grid Infrastructure for a Standalone Server", then click next
 
-![Diagram of install screen](./media/asm/install02.png)
+![Diagram of install screen](./media/asm-configuration/install02.png)
 
 Select "English" or other language desired, click next to continue
 
-![Diagram of install screen](./media/asm/install03.png)
+![Diagram of install screen](./media/asm-configuration/install03.png)
 
 Enter the Disk group name and check the ORCLASMSP box, click next to continue
 
-![Diagram of install screen](./media/asm/install04.png)
+![Diagram of install screen](./media/asm-configuration/install04.png)
 
 Select the option for the passwords and enter password/passwords, click next to continue
 
-![Diagram of install screen](./media/asm/install05.png)
+![Diagram of install screen](./media/asm-configuration/install05.png)
 
-Register the Enterprise Maanger (EM) Cloud Control (optional), click next to continue
+Register the Enterprise Manager (EM) Cloud Control (optional), click next to continue
 
-![Diagram of install screen](./media/asm/install06.png)
-
-Use default setting, click next to continue
-
-![Diagram of install screen](./media/asm/install07.png)
+![Diagram of install screen](./media/asm-configuration/install06.png)
 
 Use default setting, click next to continue
 
-![Diagram of install screen](./media/asm/install08.png)
+![Diagram of install screen](./media/asm-configuration/install07.png)
+
+Use default setting, click next to continue
+
+![Diagram of install screen](./media/asm-configuration/install08.png)
 
 Use default setting or any location you selected, click next to continue
 
-![Diagram of install screen](./media/asm/install09.png)
+![Diagram of install screen](./media/asm-configuration/install09.png)
 
 Open a new putty session to the VM
 
@@ -402,22 +402,22 @@ Click ok to continue after the script ran successful
 
 Check the box for Automatically run configuration scripts and select the credential, click next to continue
 
-![Diagram of install screen](./media/asm/install10.png)
+![Diagram of install screen](./media/asm-configuration/install10.png)
 
-Review the settings, click istall to begin installation
+Review the settings, click install to begin installation
 
-![Diagram of install screen](./media/asm/install11.png)
+![Diagram of install screen](./media/asm-configuration/install11.png)
 
 Screen showing install in progress
 
-![Diagram of install screen](./media/asm/install12.png)
+![Diagram of install screen](./media/asm-configuration/install12.png)
 You may be prompt "Are you sure you want to continue", click Yes to continue
 
 
-![Diagram of install screen](./media/asm/install13.png)
+![Diagram of install screen](./media/asm-configuration/install13.png)
 
 
-![Diagram of install screen](./media/asm/install14.png)
+![Diagram of install screen](./media/asm-configuration/install14.png)
 
 ## Configure ASM
 
@@ -429,22 +429,22 @@ Login as grid from your x11 session
 $ cd /u01/app/grid/product/12.1.0/grid/bin
 $ ./asmca
 ```
-![Diagram of install screen](./media/asm/asm01.png)
+![Diagram of install screen](./media/asm-configuration/asm01.png)
 
 Click Create button, the click “Show advanced option”
-![Diagram of install screen](./media/asm/asm02.png)
+![Diagram of install screen](./media/asm-configuration/asm02.png)
 
 Enter the Disk Group Name, check the ORCL_DATA and ORCL_DATA1 boxes and change the Allocation Unit Size to 4, click OK to continue
 
-![Diagram of install screen](./media/asm/asm03.png)
+![Diagram of install screen](./media/asm-configuration/asm03.png)
 
 Click Create button, the click “Show advanced option”
 
-![Diagram of install screen](./media/asm/asm04.png)
+![Diagram of install screen](./media/asm-configuration/asm04.png)
 
 Enter the Disk Group Name, change setting from Normal to External, check the ORCL_FRA box and change the Allocation Unit Size to 4, click OK to continue
 
-![Diagram of install screen](./media/asm/asm05.png)
+![Diagram of install screen](./media/asm-configuration/asm05.png)
 Click Exit button to exit
 
 ## Create Database
@@ -456,23 +456,23 @@ $ sudo su - oracle
 $ cd /u01/app/oracle/product/12.1.0/dbhome_1/bin
 $ ./dbca
 ```
-![Diagram of install screen](./media/asm/createdb01.png)
+![Diagram of install screen](./media/asm-configuration/createdb01.png)
 
 Select "Create Database", click next to continue
 
-![Diagram of install screen](./media/asm/createdb02.png)
+![Diagram of install screen](./media/asm-configuration/createdb02.png)
 
 Enter the Database name and select Storage Type "Automatic Storage Management (ASM)
 
 Select the Database Files Location and Fast Recovery Area
 
-![Diagram of install screen](./media/asm/createdb03.png)
+![Diagram of install screen](./media/asm-configuration/createdb03.png)
 
-Review the summary and Finish to begin installation
-![Diagram of install screen](./media/asm/createdb04.png)
+Review the summary, click "Finish" to begin installation
+![Diagram of install screen](./media/asm-configuration/createdb04.png)
 You may change the passwords (optional step)
 
-
+This completes the installation and configuration of ASM on Oracle linux.
 
 ## Delete virtual machine
 
