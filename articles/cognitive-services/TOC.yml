@@ -27,9 +27,9 @@
     - name: Reference
       items:
       - name: REST v5
-        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference.md
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference
       - name: REST v7 Preview
-        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference.md
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference
     - name: Resources
       items:
       - name: Subscription key
@@ -63,9 +63,9 @@
     - name: Reference
       items:
       - name: REST v5
-        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference.md
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference
       - name: REST v7 Preview
-        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference.md
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference
     - name: Resources
       items:
       - name: Subscription key
@@ -97,9 +97,9 @@
     - name: Reference
       items:
       - name: REST v5
-        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference.md
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference
       - name: REST v7 Preview
-        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference.md
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference
     - name: Resources
       items:
       - name: Subscription key
@@ -125,9 +125,9 @@
     - name: Reference
       items:
       - name: REST v5
-        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference.md
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference
       - name: REST v7 Preview
-        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference.md
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference
     - name: Resources
       items:
       - name: Subscription key
@@ -161,9 +161,9 @@
     - name: Reference
       items:
       - name: REST v5
-        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference.md
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference
       - name: REST v7 Preview
-        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference.md
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference
     - name: Resources
       items:
       - name: Subscription key
@@ -199,9 +199,9 @@
     - name: Reference
       items:
       - name: REST v5
-        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference
       - name: REST v7 Preview
-        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference.md
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference
     - name: Resources
       items:
       - name: Subscription key
