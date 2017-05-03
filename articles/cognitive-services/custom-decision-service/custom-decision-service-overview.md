@@ -7,8 +7,8 @@ manager: slivkins
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/02/2017
-ms.author: alekha
+ms.date: 05/03/2017
+ms.author: alekha;slivkins
 ---
 
 # Custom Decision Service
