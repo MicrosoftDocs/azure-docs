@@ -87,7 +87,7 @@ To complete the example in this tutorial, you must have an existing virtual mach
 Create the initial configuration with [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig). The following example configures a disk that is 128 gigabytes in size.
 
 ```powershell
-$diskConfig = New-AzureRmDiskConfig -Location westus -CreateOption Empty -DiskSizeGB 128
+$diskConfig = New-AzureRmDiskConfig -Location EastUS -CreateOption Empty -DiskSizeGB 128
 ```
 
 Create the data disk with the [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk) command.
