@@ -1,5 +1,5 @@
 ---
-title: Custom Speech Service overview | Microsoft Docs
+title: Custom Speech Service overview on Azure | Microsoft Docs
 description: The Custom Speech Service is a cloud-based service that enables users to customize speech models for speech-to-text transcription.
 services: cognitive-services
 author: PanosPeriorellis
@@ -39,6 +39,6 @@ For example, if you were building an app to search MSDN by voice, it’s likely 
 
 For more details about how to use the Custom Speech Service, refer to the [Custom Speech Service Portal] (https://cris.ai).
 
- * [Get Started](GetStarted.md)
- * [FAQ](FAQ.md)
- * [Glossary](Glossary.md)
+* [Get Started](cognitive-services-custom-speech-get-started.md)
+* [FAQ](cognitive-services-custom-speech-faq.md)
+* [Glossary](cognitive-services-custom-speech-glossary.md)

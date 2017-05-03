@@ -1,5 +1,5 @@
 ---
-title: Create an acoustic model with Custom Speech Service | Microsoft Docs
+title: Create an acoustic model with Custom Speech Service on Azure| Microsoft Docs
 description: Learn how to create an acoustic model with the Custom Speech Service in Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
@@ -12,7 +12,7 @@ ms.date: 02/08/2017
 ms.author: panosper
 ---
 
-## Creating a custom acoustic model
+# Creating a custom acoustic model
 To customize the acoustic model to a particular domain, a collection of speech data is required. This collection consists of a set of audio files of speech data, and a text file of transcriptions of each audio file. The audio data should be representative of the scenario in which you would like to use the recognizer.
 
 For example:
@@ -21,10 +21,10 @@ For example:
 <a name="Preparing data to customize the acoustic model"></a>
 *   If you are interested in optimizing performance for a single speaker, e.g. you would like to transcribe all of FDR’s Fireside Chats, then the audio files should consist of many examples of that speaker only.
 
-### Preparing your data to customize the acoustic model
+## Preparing your data to customize the acoustic model
 An acoustic data set for customizing the acoustic model consists of two parts: (1) a set of audio files containing the speech data and (2) a file containing the transcriptions of all audio files.
 
-#### Audio Data Recommendations
+### Audio Data Recommendations
 
 *   All audio files in the data set should be stored in the WAV (RIFF) audio format.
 *   The audio must have a sampling rate of 8 kHz or 16 kHz and the sample values should be stored as uncompressed PCM 16-bit signed integers (shorts).
@@ -35,7 +35,9 @@ An acoustic data set for customizing the acoustic model consists of two parts: (
 *   Each audio file to in the data set should have a unique filename and the extension “wav”.
 *   The set of audio files should be placed in a single folder without subdirectories and the entire set of audio files should be packaged as a single ZIP file archive.
 
-**Note** that data imports via the web portal are currently limited to 2 GB, so this is the maximum size of an acoustic data set. This corresponds to approximately 17 hours of audio recorded at 16 kHz or 34 hours of audio recorded at 8 kHz. The main requirements for the audio data are summarized in the following table.
+> [!NOTE]
+> Data imports via the web portal are currently limited to 2 GB, so this is the maximum size of an acoustic data set. This corresponds to approximately 17 hours of audio recorded at 16 kHz or 34 hours of audio recorded at 8 kHz. The main requirements for the audio data are summarized in the following table.
+>
 
 | Property | Value |
 |----------	|----------|
@@ -61,13 +63,13 @@ The transcriptions for all WAV files should be contained in a single plain-text 
   speech03.wav  the lazy dog was not amused
 ```
 
-The transcriptions will be text-normalized so they can be processed by the system. However, there are some very important normalizations that must be done by the user _prior_ to uploading the data to the Custom Speech Service. Please consult the section on [transcription guidelines](TranscriptionGuidelines.md) for the appropriate language when preparing your transcriptions.
+The transcriptions will be text-normalized so they can be processed by the system. However, there are some very important normalizations that must be done by the user _prior_ to uploading the data to the Custom Speech Service. Please consult the section on [transcription guidelines](cognitive-services-custom-speech-transcription-guidelines.md) for the appropriate language when preparing your transcriptions.
 
-### Importing the acoustic data set
+## Step 1: Importing the acoustic data set
 
 Once the audio files and transcriptions have been prepared, they are ready to be imported to the service web portal.
 
-To do so, first ensure you are signed into the system. Then click the “Menu” drop-down menu on the top ribbon and select “Acoustic Data”. If this is your first time uploading data to the Custom Speech Service, you will see an empty table called “Acoustic Data”. The current locale is reflected in the table title. If you would like to import acoustic data of a different language, click on “Change Locale”. Additional information on supported languages can be found in the section on [changing locale](HowToChangeLocale.md).
+To do so, first ensure you are signed into the system. Then click the “Menu” drop-down menu on the top ribbon and select “Acoustic Data”. If this is your first time uploading data to the Custom Speech Service, you will see an empty table called “Acoustic Data”. The current locale is reflected in the table title. If you would like to import acoustic data of a different language, click on “Change Locale”. Additional information on supported languages can be found in the section on [changing locale](cognitive-services-custom-speech-change-locale.md).
 
 Click the “Import New” button, located directly below the table title and you will be taken to the page for uploading a new data set.
 
@@ -85,7 +87,7 @@ When the status is “Complete” you can click “View Report” to see the aco
 
 At some point, if you would like to change the Name or Description of the data set, you can click the “Edit” link and change these entries. Note that you cannot modify the audio files or transcriptions.
 
-### Creating a custom acoustic model
+## Step 2: Creating a custom acoustic model
 
 Once the status of your acoustic data set is “Complete”, it can be used to create a custom acoustic model. To do so, click “Acoustic Models” in the “Menu” drop-down menu. You will see a table called "Your models” that lists all of your custom acoustic models. This table will be empty if this is your first use. The current locale is shown in the table title. Currently, acoustic models can be created for US English only.
 
@@ -95,7 +97,7 @@ Next, select the acoustic data you wish to use to perform the customization usin
 
 ![try](../media/AcousticModels_Create2.png)
 
-You can optionally choose to perform offline testing of your new model when the processing is complete. This will run a speech-to-text evaluation on a specified acoustic data set using the customized acoustic model and report the results. To perform this testing, select the “Offline Testing” check box. Then select a language model from the drop-down menu. If you have not created any custom language models, only the base language models will be in the drop-down list. Please see the [description](HowToCreateALanguageModel.md) of the base language models in the guide and select the one that is most appropriate.
+You can optionally choose to perform offline testing of your new model when the processing is complete. This will run a speech-to-text evaluation on a specified acoustic data set using the customized acoustic model and report the results. To perform this testing, select the “Offline Testing” check box. Then select a language model from the drop-down menu. If you have not created any custom language models, only the base language models will be in the drop-down list. Please see the [description](cognitive-services-custom-speech-create-language-model.md) of the base language models in the guide and select the one that is most appropriate.
 
 Finally, select the acoustic data set you would like to use to evaluate the custom model. If you perform offline testing, it is important to select an acoustic data that is different from the one used for the model creation to get a realistic sense of the model’s performance. Also note that offline testing is limited to 1000 utterances. If the acoustic dataset for testing is larger than that, only the first 1000 utterances will be evaluated.
 
@@ -105,6 +107,6 @@ You will now see a new entry in the acoustic models table corresponding to this 
 
 ![try](../media/AcousticModels_Creating.png)
 
-### Next steps
-* Start create your [custom language model](HowToCreateALanguageModel.md)
-* [Create a custom speech-to-text endpoint](HowToCreateAnEndoint.md)
+## Next steps
+* Start create your [custom language model](cognitive-services-custom-speech-create-language-model.md)
+* Learn how to [create a custom speech-to-text endpoint](cognitive-services-custom-speech-create-endpoint.md)

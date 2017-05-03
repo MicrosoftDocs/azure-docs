@@ -1,5 +1,5 @@
 ---
-title: Get subscription keys for the Custom Speech Service | Microsoft Docs
+title: Get subscription keys for the Custom Speech Service on Azure | Microsoft Docs
 description: Learn how to get subscription keys for calls to the Custom Speech Service in Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
@@ -12,7 +12,7 @@ ms.date: 02/08/2017
 ms.author: panosper
 ---
 
-## Obtaining Subscription Keys
+# Obtaining Subscription Keys
 To get started using the Custom Speech Service, you first need to link your user account to an Azure subscription. Subscriptions to **free** and **paid** tiers are available. For information about the tiers, please visit the [pricing page](https://www.microsoft.com/cognitive-services/en-us/pricing).
 
 Please follow the steps to get a subscription key from Azure portal:
@@ -28,7 +28,7 @@ Please follow the steps to get a subscription key from Azure portal:
     * or go directly to the [Cognitive Services APIs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServices) blade.
     * Now, fill in the required fields:
       *   For the _Account name_ use something which works for you. This name you have to remember to find your Cognitive Service subscription within the all resources list.
-      *   For _Subscription_ select one from your Azure subcriptions
+      *   For _Subscription_ select one from your Azure subscriptions
       *   As _API type_ please select 'Custom Speech Service (Preview)'
       *   _Location_ is currently 'West US'
       *   For _Pricing tier_ select the one which works for you. F0 is the free tier with given quotas as explained on the [pricing page](https://www.microsoft.com/cognitive-services/en-us/pricing)
@@ -62,7 +62,7 @@ To get a subscription id please go to your Azure portal and search for cognitive
 
 [!Note]: The subscription key is required later in this process.
 
-### Next steps
+## Next steps
 * Check [pricing options for Microsoft Cognitive APIs](https://www.microsoft.com/cognitive-services/en-us/pricing)
-* Start create your [custom acoustic model](HowToCreateAnAcousticModel.md)
-* Start create your [custom language model](HowToCreateALanguageModel.md)
+* Start create your [custom acoustic model](cognitive-services-custom-speech-create-acoustic-model.md)
+* Start create your [custom language model](cognitive-services-custom-speech-create-language-model.md)

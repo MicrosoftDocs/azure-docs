@@ -1,5 +1,5 @@
 ---
-title: Use a custom speech endpoint with Custom Speech Service | Microsoft Docs
+title: Use a custom speech endpoint with Custom Speech Service on Azure | Microsoft Docs
 description: Learn how to use a custom speech-to-text endpoint with the Custom Speech Service in Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
@@ -12,16 +12,16 @@ ms.date: 02/08/2017
 ms.author: panosper
 ---
 
-## Using a custom speech-to-text endpoint
+# Using a custom speech-to-text endpoint
 Requests can be sent to a Custom Speech Service speech-to-text endpoint in a very similar manner as the default Microsoft Cognitive Services speech endpoint. Note that these endpoints are functionally identical to the default endpoints of the Speech API. Thus, the same functionality available via the client library or REST API for the Speech API is also the available for your custom endpoint.
 
 Please note that the endpoints created via this service can process different numbers of concurrent requests depending on the tier the subscription is associated to. If more recognitions than that are requested, they will return the error code 429 (Too many requests). For more information, please visit the pricing information. In the free tier, there is a monthly limit of requests. If you exceed this limit, the service returns the error code 403 (Forbidden).
 
 The service assumes that data is transmitted in real-time. If it is sent faster, the request is considered running until its audio duration in real-time has passed.
 
-### Sending requests via the client library
+## Sending requests via the client library
 
-To send requests to your custom endpoint using the speech client library, instantiate the recognition client using the Client Speech SDK from [nuget](http://nuget.org/) (search for "speech recognition" and select Microsoft's speech recognition nuget for your platform). Some sample code can be found [here](https://github.com/Microsoft/Cognitive-Speech-STT-Windows). The Client Speeck SDK provides a factory class _SpeechRecognitionServiceFactory_ which offers 4 methods:
+To send requests to your custom endpoint using the speech client library, instantiate the recognition client using the Client Speech SDK from [nuget](http://nuget.org/) (search for "speech recognition" and select Microsoft's speech recognition nuget for your platform). Some sample code can be found [here](https://github.com/Microsoft/Cognitive-Speech-STT-Windows). The Client Speech SDK provides a factory class _SpeechRecognitionServiceFactory_ which offers 4 methods:
 
   *   ```CreateDataClient(...)```: A data recognition client
   *   ```CreateDataClientWithIntent(...)```: A data recognition client with intent
@@ -57,13 +57,15 @@ var dataClient = SpeechRecognitionServiceFactory.CreateDataClient(
 dataClient.AuthenticationUri = "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
 ```
 
-Note that when using Create methods in the SDK you must provide the subscription id twice. This is because of overloading of the Create methods.
+> [!NOTE]
+> When using Create methods in the SDK you must provide the subscription id twice. This is because of overloading of the Create methods.
+>
 
 Also, note that the Custom Speech Service uses two different URLs for short form and long form recognition, both listed on the "Deployments" page. Please use the correct endpoint URL for the specific form you want to use.
 
 More details on invoking the various recognition clients with your custom endpoint can be found on the MSDN page describing the [SpeechRecognitionServiceFactory](https://www.microsoft.com/cognitive-services/en-us/Speech-api/documentation/GetStarted/GetStartedCSharpDesktop) class. Note that the documentation on this page refers to Acoustic Model adaptation but it applies to all endpoints created via the Custom Speech Service.
 
-### Sending requests via HTTP
+## Sending requests via HTTP
 
 Sending a request to your custom endpoint via HTTP post is similar to sending a request by HTTP to the Microsoft Cognitive Services Bing Speech API, except the URL needs to be modified to reflect the address of your custom deployment.
 
@@ -88,6 +90,6 @@ curl -X POST --data-binary @@example.wav -H "Authorization: Bearer <token>" -H "
 
   Please refer to documentation on the [Microsoft Cognitive Services Bing Speech HTTP API](https://www.microsoft.com/cognitive-services/en-us/speech-api/documentation/API-Reference-REST/BingVoiceRecognition#SampleImplementation) for more information about HTTP post parameters and the response format.
 
-### Next steps
-* Improve accuracy with your [custom acoustic model](HowToCreateAnAcousticModel.md)
-* Improve accuracy with a [custom language model](HowToCreateALanguageModel.md)
+## Next steps
+* Improve accuracy with your [custom acoustic model](cognitive-services-custom-speech-create-acoustic-model.md)
+* Improve accuracy with a [custom language model](cognitive-services-custom-speech-create-language-model.md)

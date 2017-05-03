@@ -1,5 +1,5 @@
 ---
-title: Create a language model with Custom Speech Service | Microsoft Docs
+title: Create a language model with Custom Speech Service on Azure| Microsoft Docs
 description: Learn how to create a language model with the Custom Speech Service in Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
@@ -12,10 +12,10 @@ ms.date: 02/08/2017
 ms.author: panosper
 ---
 
-## Creating a custom language model
+# Creating a custom language model
 The procedure for creating a custom language model is similar to creating an acoustic model except there is no audio data, only text. The text should consist of many examples of queries or utterances you expect users to say or have logged users saying (or typing) in your application.
 
-### Preparing the data for a custom language model
+## Preparing the data for a custom language model
 
 In order to create a custom language model for your application, you need to provide a list of example utterances to the system, for example:
 
@@ -39,11 +39,11 @@ The main requirements for the language data are summarized in the following tabl
 | Remarks | no special characters like '\t' or any other UTF-8 character above U+00A1 in [Unicode characters table](http://www.utf8-chartable.de/)|
 | Remarks | URIs will also be rejected since there is no unqiue way to pronounce a URI|
 
-When the text is imported, it will be text-normalized so it can be processed by the system. However, there are some very important normalizations that must be done by the user _prior_ to uploading the data. Please consult the section on [Transcription Guidelines](TranscriptionGuidelines.md)) for the appropriate language when preparing your language data.
+When the text is imported, it will be text-normalized so it can be processed by the system. However, there are some very important normalizations that must be done by the user _prior_ to uploading the data. Please consult the section on [Transcription Guidelines](cognitive-services-custom-speech-transcription-guidelines.md) for the appropriate language when preparing your language data.
 
-### Importing the language data set
+## Importing the language data set
 
-When you are ready to import your language data set, click “Language Data” from the “Menu” drop-down menu. A table called “Language Data” that contains your language data sets is shown. If you have not yet uploaded any language data, the table will be empty. The current locale is reflected in the table title. If you would like to import language data of a different language, click on “Change Locale”. Additional information on supported languages can be found in the section on [Changing Locale](HowToChangeLocale,md).
+When you are ready to import your language data set, click “Language Data” from the “Menu” drop-down menu. A table called “Language Data” that contains your language data sets is shown. If you have not yet uploaded any language data, the table will be empty. The current locale is reflected in the table title. If you would like to import language data of a different language, click on “Change Locale”. Additional information on supported languages can be found in the section on [Changing Locale](cognitive-services-custom-speech-change-locale.md).
 
 To import a new data set, click “Import New” under the table title. Enter a Name and Description to help you identify the data set in the future. Next, use the “Choose File” button to locate the text file of language data. After that, click “Import” and the data set will be uploaded. Depending on the size of the data set, this may take several minutes.
 
@@ -59,9 +59,9 @@ When the status of the language data set is “Complete”, it can be used to cr
 
 ![try](../media/LanguageDatasets.png)
 
-### Creating a custom language model
+## Creating a custom language model
 
-Once your language data is ready, click “Language Models” from the “Menu” drop-down menu to start the process of custom language model creation. This page contains a table called “Language Models” with your current custom language models. If you have not yet created any custom language models, the table will be empty. The current locale is reflected in the table title. If you would like to create a language model for a different language, click on “Change Locale”. Additional information on supported languages can be found in the section on [Changing Locale](HowToChangeLocale,md). To create a new model, click the “Create New” link below the table title.
+Once your language data is ready, click “Language Models” from the “Menu” drop-down menu to start the process of custom language model creation. This page contains a table called “Language Models” with your current custom language models. If you have not yet created any custom language models, the table will be empty. The current locale is reflected in the table title. If you would like to create a language model for a different language, click on “Change Locale”. Additional information on supported languages can be found in the section on [Changing Locale](cognitive-services-custom-speech-change-locale.md). To create a new model, click the “Create New” link below the table title.
 
 On the "Create Language Model" page, enter a "Name" and "Description" to help you keep track of pertinent information about this model, such as the data set used. Next, select the “Base Language Model” from the drop-down menu. This model will be the starting point for your customization. There are two base language models to choose from. The _Microsoft Search and Dictation LM_ is appropriate for speech directed at an application, such as such as commands, search queries, or dictation. The _Microsoft Conversational LM_ is appropriate for recognizing speech spoken in a conversational style. This type of speech is typically directed at another person and occurs in call centers or meetings.
 
@@ -81,6 +81,6 @@ When the model has reached the “Complete” state, it can be deployed to an en
 
 If you would like to change the "Name" or "Description"" of the model at some point, you can use the “Edit” link in the appropriate row of the language models table.
 
-### Next steps
-* Try to create your [custom acoustic model](HowToCreateAnAcousticModel)
-* [Create a custom speech-to-text endpoint](HowToCreateAnEndoint.md)
+## Next steps
+* Try to create your [custom acoustic model](cognitive-services-custom-speech-create-acoustic-model.md) to improve recognition accuracy
+* [Create a custom speech-to-text endpoint](cognitive-services-custom-speech-create-endpoint.md) which you can use from app

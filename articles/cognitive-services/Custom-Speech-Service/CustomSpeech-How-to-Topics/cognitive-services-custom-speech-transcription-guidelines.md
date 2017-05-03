@@ -1,6 +1,6 @@
 ---
-title: Transcription guidelines in Custom Speech Service | Microsoft Docs
-description: Leanr how to prepapre your data for Custom Speech Service in Cognitive Services.
+title: Transcription guidelines in Custom Speech Service on Azure  | Microsoft Docs
+description: Learn how to prepare your data for Custom Speech Service in Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -12,10 +12,10 @@ ms.date: 02/08/2017
 ms.author: panosper
 ---
 
-## Transcription guidelines (en-US)
+# Transcription guidelines
 To ensure the best use of your text data for acoustic and language model customization, the following transcription guidelines should be followed.
 
-### Text format for transcriptions and text data
+## Transcription guidelines (en-US)
 
 Text data uploaded to this service should in written in plain text using only the ASCII printable character set. Each line of the file should contain the text for a single utterance only.
 
@@ -81,9 +81,6 @@ The process of converting “raw” unformatted text back to formatted text, i.e
 
 
 ## Transcription guidelines (zh-CN)
-To ensure the best use of your text data for acoustic and language model customization, the following transcription guidelines should be followed.
-
-### Text format for transcriptions and text data
 
 Text data uploaded to the Custom Speech Service should in written in plain text using only the UTF-8 encoding (BOM is optional). Each line of the file should contain the text for a single utterance only.
 
@@ -137,7 +134,7 @@ Here are some examples
 
 The process of converting “raw” unformatted text back to formatted text, i.e. with capitalization and punctuation, is called inverse text normalization (ITN). ITN is performed on results returned by the Microsoft Cognitive Services Speech API. A custom endpoint deployed using the Custom Speech Service uses the same ITN as the Microsoft Cognitive Services Speech API. However, this service does not currently support custom ITN, so new terms introduced by a custom language model will not be formatted in the recognition results.
 
-### Related Links:
-* [How to create a custom acoustic model](HowToCreateAnAcousticModel.md)
-* [How to create a custom language model](HowToCreateALanguageModel.md)
-* [How to create a custom speech-to-text endpoint](HowToCreateAnEndoint.md)
+## Next steps
+* [How to use a custom speech-to-text endpoint](cognitive-services-custom-speech-create-endpoint.md)
+* Improve accuracy with your [custom acoustic model](cognitive-services-custom-speech-create-acoustic-model.md)
+* Improve accuracy with a [custom language model](cognitive-services-custom-speech-create-language-model.md)

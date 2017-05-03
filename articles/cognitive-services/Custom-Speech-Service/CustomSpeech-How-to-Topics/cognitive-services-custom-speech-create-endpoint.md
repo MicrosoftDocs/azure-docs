@@ -1,6 +1,6 @@
 ---
-title: Create an custom speech endpoint with Custom Speech Service | Microsoft Docs
-description: Learn how to create an custom speech-to-text endpoint with the Custom Speech Service in Cognitive Services.
+title: Create a custom speech endpoint with Custom Speech Service on Azure | Microsoft Docs
+description: Learn how to create a custom speech-to-text endpoint with the Custom Speech Service in Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -12,8 +12,8 @@ ms.date: 02/08/2017
 ms.author: panosper
 ---
 
-## Creating a custom speech-to-text endpoint
-When you have created custom acoustic models and/or language models, they can be deployed in a custom speech-to-text endpoint. To create a new custom endpoint, click “Deployments” from the “Menu” menu on the top of the page. This takes you to a table called “Deployments” of current custom endpoints. If you have not yet created any endpoints, the table will be empty. The current locale is reflected in the table title. If you would like to create a deployment for a different language, click on “Change Locale”. Additional information on supported languages can be found in the section on [changing locale](HowToChangeLocale.md).
+# Creating a custom speech-to-text endpoint
+When you have created custom acoustic models and/or language models, they can be deployed in a custom speech-to-text endpoint. To create a new custom endpoint, click “Deployments” from the “Menu” menu on the top of the page. This takes you to a table called “Deployments” of current custom endpoints. If you have not yet created any endpoints, the table will be empty. The current locale is reflected in the table title. If you would like to create a deployment for a different language, click on “Change Locale”. Additional information on supported languages can be found in the section on [changing locale](cognitive-services-custom-speech-change-locale.md).
 
 To create a new endpoint, click the “Create New” link under the table title. On the "Create Deployment"" screen, enter a "Name" and "Description" of your custom deployment. From the "Acoustic Model" drop-down, select the desired acoustic model, and from the "Language Model" drop-down, select the desired language model. The choices for acoustic and language models always include the base Microsoft models. The selection of the base model limits the combinations. You cannot mix conversational base models with search and dictate base models.
 
@@ -27,7 +27,7 @@ You’ll notice that when the deployment is ready, the Name of the deployment is
 
 ![try](../media/Deployment_Info2.png)
 
-### Next steps
-* [How to use a custom speech-to-text endpoint](HowToUseACustomEndpoint.md)
-* Improve accuracy with your [custom acoustic model](HowToCreateAnAcousticModel.md)
-* Improve accuracy with a [custom language model](HowToCreateALanguageModel.md)
+## Next steps
+* [How to use a custom speech-to-text endpoint](cognitive-services-custom-speech-create-endpoint.md)
+* Improve accuracy with your [custom acoustic model](cognitive-services-custom-speech-create-acoustic-model.md)
+* Improve accuracy with a [custom language model](cognitive-services-custom-speech-create-language-model.md)
