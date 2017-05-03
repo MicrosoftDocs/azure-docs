@@ -123,7 +123,7 @@ To connect to Azure PostgreSQL server using the GUI tool _pgAdmin_
     - Enter the fully qualified server name (for example, **mypgserver-20170401.postgres.database.azure.com**) in the **Host Name/ Address** box. 
     - Enter port 5432 into the **Port** box. 
     - Enter the **Server admin login (user@mypgserver)** obtained earlier in this quickstart and password you entered when you created the server into the **Username** and **Password** boxes, respectively.
-    - Select **SSL Mode** as **Require**. By default, all Azure PostgreSQL servers are created with SSL enforcing turned ON. To turn OFF SSL enforcing, see instructions for Configuring [Enforcing SSL](./placeholder.md).
+    - Select **SSL Mode** as **Require**. By default, all Azure PostgreSQL servers are created with SSL enforcing turned ON. To turn OFF SSL enforcing, see details in [Enforcing SSL](./concepts-ssl-connection-security.md).
     
     ![pgAdmin - Create - Server](./media/postgresql-quickstart-create-database-portal/10-pgadmin-create-server.png)
 5.	Click **Save**.
