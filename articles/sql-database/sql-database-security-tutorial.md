@@ -21,7 +21,7 @@ ms.author: daredis
 ---
 # Secure your Azure SQL database
 
-In this tutorial, you will walk through the basics of securing your SQL database. With just a few simple steps, you can take any database and greatly improve its protection against malicious users or unauthorized access.
+In this tutorial, you walk through the basics of securing your SQL database. With just a few simple steps, you can take any database and greatly improve its protection against malicious users or unauthorized access.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -54,9 +54,9 @@ You can now connect to any database in the server with the specified IP address 
 > SQL Database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL Database server unless your IT department opens port 1433.
 >
 
-If you require different firewall settings for different databases within the same logical server, you must create a database-level rule for each database. Database-level firewall rules can only be configured by using Transact-SQL statements and only after you have configured the first server-level firewall rule. Follows these steps to create a database specific firewall rule.
+If you require different firewall settings for different databases within the same logical server, you must create a database-level rule for each database. Database-level firewall rules can only be configured by using Transact-SQL statements and only after you have configured the first server-level firewall rule. Follows these steps to create a database-specific firewall rule.
 
-1. Connect to your database for example using [SSMS](./sql-database-connect-query-ssms.md).
+1. Connect to your database, for example using [SSMS](./sql-database-connect-query-ssms.md).
 
 2. In Object Explorer, right-click on the database you want to add a firewall rule for and click **New Query**. A blank query window opens that is connected to your database.
 
@@ -70,8 +70,8 @@ If you require different firewall settings for different databases within the sa
 
 ## Connect to the database using a secure connection string
 
-To ensure a secure, encrypted connection between the client and SQL Database, the connection string has to be configured to 1) request an encrypted connection and 2) does not trust the server's certificate. This will establish a connection using Transport Layer Security (TLS) and reduces the risk of man-in-the-middle attacks. 
-You can obtain correctly configured connection strings for your Azure SQL Database for supported client drivers from the Azure Portal as shown for ADO.net in this screenshot.
+To ensure a secure, encrypted connection between the client and SQL Database, the connection string has to be configured to 1) request an encrypted connection and 2) does not trust the server's certificate. This establishes a connection using Transport Layer Security (TLS) and reduces the risk of man-in-the-middle attacks. 
+You can obtain correctly configured connection strings for your Azure SQL Database for supported client drivers from the Azure portal as shown for ADO.net in this screenshot.
 
 1. Select **SQL databases** from the left-hand menu, and click your database on the **SQL databases** page.
 
@@ -94,7 +94,7 @@ If you want to use [Azure Active Directory](./sql-database-aad-authentication.md
 
 Follow these steps to create a user using SQL Authentication:
 
-1. Connect to your database for example using [SSMS](./sql-database-connect-query-ssms.md) using your server admin credentials.
+1. Connect to your database, for example using [SSMS](./sql-database-connect-query-ssms.md) using your server admin credentials.
 
 2. In Object Explorer, right-click on the database you want to add a new user on and click **New Query**. A blank query window opens that is connected to the selected database.
 
@@ -106,7 +106,7 @@ Follow these steps to create a user using SQL Authentication:
 
 4. On the toolbar, click **Execute** to create the user.
 
-5. By default, the user can connect to the database, but has no permissions to read or write data. To grant these permissions to the newly created uer, execute the following two commands in a new query window
+5. By default, the user can connect to the database, but has no permissions to read or write data. To grant these permissions to the newly created user, execute the following two commands in a new query window
 
     ```sql
     ALTER ROLE db_datareader ADD MEMBER ApplicationUserUser;
@@ -132,7 +132,7 @@ The encryption process starts in the background. You can monitor the progress by
 
 ## Enable SQL Database auditing
 
-Azure SQL Database Auditing tracks database events and writes them to an audit log in your Azure Storage account. Auditing can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations. Follow these steps to create a default auditing policy for you database:
+Azure SQL Database Auditing tracks database events and writes them to an audit log in your Azure Storage account. Auditing can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations. Follow these steps to create a default auditing policy for your database:
 
 1. Select **SQL databases** from the left-hand menu, and click your database on the **SQL databases** page.
 
