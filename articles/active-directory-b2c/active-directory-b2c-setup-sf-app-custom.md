@@ -44,6 +44,7 @@ This tutorial assumes you already have:
 ## Get the Salesforce SAML metadata
 >[!NOTE]
 > This tutorial assumes you are using the [Salesforce Lighting Experience](https://developer.salesforce.com/page/Lightning_Experience_FAQ).
+
 1. [Login to Salesforce](https://login.salesforce.com/) 
 1. On the left menu, under **Settings**, expand **Identity** and click on **Identity Provider**
 1. Click on **Enable Identity Provider**
@@ -200,6 +201,30 @@ You now need to update the RP file that will initiate the user journey that you 
 1. Open the new file and update the `PolicyId` attribute for `<TrustFrameworkPolicy>` with an unique value. This will be the name of your policy (e.g. SignUpOrSignInWithAAD).
 1. Modify the `ReferenceId` attribute in `<DefaultUserJourney>` to match the id of the new user journey that you created (e.g. SignUpOrSignUsingContoso).
 1. Save your changes and upload the file.
+
+## Create a Connected App in Salesforce
+You’ll need to register Azure AD B2C as a Connected App in Salesforce.
+
+1. [Login to Salesforce](https://login.salesforce.com/) 
+1. On the left menu, under **Settings**, expand **Identity** and click on **Identity Provider**
+1. On the bottom **Service Providers** section, click on **Service Providers are now created via Connected Apps. Click here.**
+1. Provide the required **Basic Information** for your Connected App
+1. Now, in the **Web App Settings** section:
+    1. Check **Enable SAML**
+    1. Enter the following URL in the **Entity ID** field, make sure your replace the `tenantName`. 
+    
+        ```
+        https://login.microsoftonline.com/te/<tenantName\>.onmicrosoft.com/B2C\_1A\_base
+        ```
+
+    1. Enter the following URL in the **ACS URL** field, make sure your replace the `tenantName`. 
+        ```
+        https://login.microsoftonline.com/te/<tenantName\>.onmicrosoft.com/B2C\_1A\_base/samlp/sso/assertionconsumer
+        ```
+
+    1. Leave all other settings with their defaults
+1. Scroll all the way to the bottom and click on the **Save** button
+
 
 ## Troubleshooting
 
