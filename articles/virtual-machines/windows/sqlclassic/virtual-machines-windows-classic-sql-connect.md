@@ -1,5 +1,5 @@
 ---
-title: Connect to a SQL Server Virtual Machine (Classic) | Microsoft Docs
+title: Connect to a SQL Server Virtual Machine on Azure (Classic) | Microsoft Docs
 description: Learn how to connect to SQL Server running on a Virtual Machine in Azure. This topic uses the classic deployment model. The scenarios differ depending on the networking configuration and the location of the client.
 services: virtual-machines-windows
 documentationcenter: na
