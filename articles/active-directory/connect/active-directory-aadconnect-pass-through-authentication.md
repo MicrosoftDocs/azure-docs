@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: Pass-through authentication | Microsoft Docs'
-description: This article describes Azure Active Directory (Azure AD) pass-through authentication and how it allows Azure AD sign-ins by validating users' passwords against your on-premises Active Directory.
+description: This article describes Azure Active Directory (Azure AD) pass-through authentication and how it allows Azure AD sign-ins by validating users' passwords against on-premises Active Directory.
 services: active-directory
 keywords: what is Azure AD Connect Pass-through authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
@@ -24,7 +24,7 @@ Allowing your users to use the same credentials (passwords) to sign into both on
 
 One way many organizations provide users with the same credentials across on-premises resources and cloud-based services is by using [Azure Active Directory (Azure AD) password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md). This is a feature of [Azure AD Connect](active-directory-aadconnect.md) that synchronizes users' passwords from on-premises Active Directory to Azure AD. However, other organizations require that passwords, even in a hashed form, do not leave their internal organizational boundaries.
 
-The Azure AD pass-through authentication feature provides a simple solution for these organizations. When users sign in to Azure AD, this feature ensures that users' passwords are directly validated against your on-premises Active Directory. This feature also provides the following benefits:
+The Azure AD pass-through authentication feature provides a simple solution for these organizations. When users sign in to Azure AD, this feature ensures that users' passwords are directly validated against on-premises Active Directory. This feature also provides the following benefits:
 
 - Easy to use
   - Password validation is performed without the need for complex on-premises deployments or network configuration.
@@ -71,16 +71,16 @@ Before you can enable Azure AD pass-through authentication, you need to have a f
 
 - An Azure AD tenant for which you are a global administrator.
 
->>>[!NOTE]
->We highly recommended that the Global Administrator account be a cloud-only account. This way, you can manage the configuration of your tenant should your on-premises services fail or become unavailable. Learn about [adding a cloud-only Global Administrator account](../active-directory-users-create-azure-portal.md).
+  >[!NOTE]
+  >We highly recommended that the Global Administrator account be a cloud-only account. This way, you can manage the configuration of your tenant should your on-premises services fail or become unavailable. Learn about [adding a cloud-only Global Administrator account](../active-directory-users-create-azure-portal.md).
 
 - Azure AD Connect version 1.1.486.0 or later. We recommend that you use the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 - A server running Windows Server 2012 R2 or later on which to run Azure AD Connect.
   - This server must be a member of the same AD forest as the users whose passwords need to be validated.
   - A pass-through authentication connector is installed on the same server as Azure AD Connect. Verify that the connector version is 1.5.58.0 or later.
 
->>>>>[!NOTE]
->Multi-forest environments are supported if there are forest trusts between the AD forests, and name suffix routing is correctly configured.
+    >[!NOTE]
+    >Multi-forest environments are supported if there are forest trusts between the AD forests, and name suffix routing is correctly configured.
 
 - If you want high availability, you will need additional servers running Windows Server 2012 R2 or later to install standalone connectors. (The connector version needs to be 1.5.58.0 or later).
 - If there is a firewall between any of the connectors and Azure AD:
@@ -94,8 +94,8 @@ Before you can enable Azure AD pass-through authentication, you need to have a f
       - The connectors make HTTP requests over port 80 for downloading SSL certificate revocation lists. This is also needed for the automatic update capability to function properly.
       - The connectors make HTTPS requests over port 443 for all other operations such as enabling and disabling the feature, registering connectors, downloading connector updates, and handling all user sign-in requests.
 
->>>>>>[!NOTE]
->We have recently made improvements to reduce the number of ports required by the connectors to communicate with our service. If you are running older versions of Azure AD Connect and/or standalone connectors, you should continue to keep those additional ports (5671, 8080, 9090, 9091, 9350, 9352, 10100-10120) open.
+     >[!NOTE]
+     >We have recently made improvements to reduce the number of ports required by the connectors to communicate with our service. If you are running older versions of Azure AD Connect and/or standalone connectors, you should continue to keep those additional ports (5671, 8080, 9090, 9091, 9350, 9352, 10100-10120) open.
 
 ### Enable Azure AD pass-through authentication
 
@@ -130,6 +130,7 @@ In this step, you download and install the connector software on your server.
 `
 AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 `
+
 >[!NOTE]
 >You can install only a single connector per server.
 
@@ -148,8 +149,8 @@ When a user attempts to sign into Azure AD (and if pass-through authentication i
 
 1. The user enters their username and password into the Azure AD sign-in page. Our service places the username and password (encrypted by using a public key) on a queue for validation.
 2. One of the available on-premises connectors makes an outbound call to the queue and retrieves the username and password.
-3. The connector then validates the username and password against your Active Directory by using standard Windows APIs (a similar mechanism to what is used by AD FS). Note that the username can be either the on-premises default username (usually, "userPrincipalName") or another attribute (known as "Alternate ID") configured in Azure AD Connect.
-4. The on-premises domain contoller then evaluates the request and returns a response (success or failure) to the connector.
+3. The connector then validates the username and password against Active Directory by using standard Windows APIs (a similar mechanism to what is used by AD FS). Note that the username can be either the on-premises default username (usually, "userPrincipalName") or another attribute (known as "Alternate ID") configured in Azure AD Connect.
+4. The on-premises domain controller then evaluates the request and returns a response (success or failure) to the connector.
 5. The connector, in turn, returns this response back to Azure AD.
 6. Azure AD then evaluates the response and responds to the user as appropriate. For example, it issues a token back to the application or asks for Multi-Factor Authentication.
 
@@ -159,7 +160,7 @@ The following diagram illustrates the various steps. All requests and responses 
 
 ### Password writeback
 
-There might be a case where you have configured [password writeback](../active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) on your tenant for a specific user. In such a case, if the user signs in by using pass-through authentication, they are able to change or reset their passwords as before. The passwords are written back to your on-premises Active Directory as expected.
+There might be a case where you have configured [password writeback](../active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) on your tenant for a specific user. In such a case, if the user signs in by using pass-through authentication, they are able to change or reset their passwords as before. The passwords are written back to on-premises Active Directory as expected.
 
 However, if password writeback is not configured on your tenant or the user doesn't have a valid Azure AD license assigned to them, then the user will not be allowed to update their password in the cloud. This is true even if their password has expired. The user will instead see this message: "Your organization doesn't allow you to update your password on this site. Please update it according to the method recommended by your organization, or ask your admin if you need help."
 
