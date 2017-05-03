@@ -202,5 +202,5 @@ Now let's look at the Gremlin steps supported by Azure Cosmos DB. For a complete
 Azure Cosmos DB's write-optimized engine supports automatic indexing of all properties within vertices and edges by default. Therefore, queries with filters, range queries, sorting, or aggregates on any property are processed from the index, and served efficiently. For more information on how indexing works in Azure Cosmos DB, see our paper on [schema-agnostic indexing](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
 ## Next Steps
-* Get started building a graph application [using our SDKs](../documentdb/documentdb-connect-graph-dotnet.md) 
+* Get started building a graph application [using our SDKs](create-graph-dotnet.md) 
 * Learn more about [Azure Cosmos DB's graph support](graph-introduction.md)

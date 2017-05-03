@@ -197,7 +197,7 @@ To view, query, and work with the JSON documents you created in Step 3, login to
 
 In the top Search box, type DocumentDB. When your DocumentDB account blade opens, select your DocumentDB account. In the left navigation, click Data Explorer. Expand your collection in the Collections pane, and then you can view the documents in the collection, query the data, and even create and run stored procedures, triggers, and UDFs. 
 
-![Data Explorer in the Azure portal](./media/documentdb-connect-mongodb-app/documentdb-connect-mongodb-data-explorer.png)
+![Data Explorer in the Azure portal](./media/create-mongodb-nodejs/cosmosdb-connect-mongodb-data-explorer.png)
 
 
 ## Deploy the Node.js application to Azure

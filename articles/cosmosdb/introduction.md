@@ -30,7 +30,7 @@ Azure Cosmos DB provides multi-model support for the following data models and A
 
 |Data model| APIs supported|
 |---|---|
-|Key-value (table) data| [Tables API](../documentdb/documentdb-table-introduction.md)|
+|Key-value (table) data| [Tables API](table-introduction.md)|
 |Document data|[Native DocumentDB support](../documentdb/documentdb-introduction.md) plus support for [MongoDB APIs](../documentdb/documentdb-protocol-mongodb.md)|
 |Graph data|[Gremlin graph APIs](graph-introduction.md)|
  
@@ -62,7 +62,7 @@ Azure Cosmos DB transparently replicates your data to all regions you've associa
 ## Multi-model support in Azure Cosmos DB
 Azure Cosmos DB is a comprehensive database service that provides true multi-model support. If you're looking for a high performance key-value store, document database, or a graph database, Azure Cosmos DB has you covered. A common journey for a highly scalable and performant database often start with simple key-value needs, but then as your data grows and new scenario needs arise, you need more sophisticated models like documents and  graph. This often results in application re-writes or fragmented application backends, using multiple databases. With Azure Cosmos DB, you can just start using a new set of APIs and capabilities that are directly integrated with the database and leverage the more advanced capabilities for their application without any application re-write or change in their data infrastructure.  
 
-![The new Azure Cosmos DB multi-model approach for document, table, and Gremlin graph data, and MongoDB apps](./media/documentdb-multi-model-introduction/azure-cosmos-db-overview.png)
+![The new Azure Cosmos DB multi-model approach for document, table, and Gremlin graph data, and MongoDB apps](./media/introduction/azure-cosmos-db-overview.png)
 
 **Popular OSS APIs**: With popular open source APIs and frameworks, it is easy for you to start developing an application and bring it to life. The challenging part is when you need to move the application into production and you need to address issues like scale, cost, availability and maintenance. In a world where applications can go viral in a matter of hours, it is not easy to plan for these challenges ahead of time. Now, you can easily lift, and shift applications built for popular NoSQL databases like MongoDB to Azure Cosmos DB without having to worry about the cost or elastic needs of your application. Also, Azure Cosmos DB provides the MongoDB, graph and tabular application the same level of enterprise guarantees for availability, performance, throughput and consistency without requiring a single line of application change. 
 
@@ -90,5 +90,3 @@ Don't have an Azure account? You can:
 * Download the [Azure Cosmos DB Emulator](../documentdb/documentdb-nosql-local-emulator.md) to develop your application locally.
 
 Then, when you're ready to learn more, visit our [learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) to navigate all the learning resources available to you. 
-
-[1]: ./media/documentdb-introduction/json-database-resources1.png

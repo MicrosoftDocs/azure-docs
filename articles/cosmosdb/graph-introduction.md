@@ -94,5 +94,5 @@ Here are some scenarios where Azure Cosmos DB's graph support can be used:
 ## Next steps
 To learn more about graph support in Azure Cosmos DB, see:
 
-* Get started with the [Azure Cosmos DB graph tutorial](../documentdb/documentdb-connect-graph-dotnet.md)
+* Get started with the [Azure Cosmos DB graph tutorial](create-graph-dotnet.md)
 * Learn about how to [query graphs in Azure Cosmos DB using Gremlin](gremlin-support.md)

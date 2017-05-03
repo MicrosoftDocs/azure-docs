@@ -156,6 +156,6 @@ If you're not going to continue to use this app and Azure Cosmos DB, use the fol
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you just created. 
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
-To learn more about the Azure Comsos DB DocumentDB API, see [What is the DocumentDB API?](../documentdb/documentdb-introduction). To learn more about the SQL query language which you can use in the Azure portal and programmatically, see [SQL](../documentdb/documentdb-sql-query.md).
+To learn more about the Azure Comsos DB DocumentDB API, see [What is the DocumentDB API?](../documentdb/documentdb-introduction.md). To learn more about the SQL query language which you can use in the Azure portal and programmatically, see [SQL](../documentdb/documentdb-sql-query.md).
 
 
