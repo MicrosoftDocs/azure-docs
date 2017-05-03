@@ -48,7 +48,7 @@ If you have a question, please comment on the article and we'll answer it as soo
 
 **Q:** My web app still uses an old Docker container image after I've updated the image on Docker Hub. Do you support continuous integration/deployment of custom containers?
 
-**A:** You can setup continous integration/deployment for DockerHub images by checking the following article [Docker CI/CD article](LINK to the article). For private registries, you can refresh the container by stopping and then starting your web app. Or you can change or add a dummy application setting to force a refresh of your container.
+**A:** You can setup continous integration/deployment for DockerHub images by checking the following article [Docker Hub Continuous Deployment with App Service on Linux](./app-service-linux-ci-cd.md). For private registries, you can refresh the container by stopping and then starting your web app. Or you can change or add a dummy application setting to force a refresh of your container.
 
 **Q:** Do you support staging environments?
 **A:** Yes.
@@ -118,3 +118,4 @@ If you have a question, please comment on the article and we'll answer it as soo
 * [Creating web apps in App Service on Linux](app-service-linux-how-to-create-a-web-app.md)
 * [SSH support for App Service on Linux](./app-service-linux-ssh-support.md)
 * [Set up staging environments in Azure App Service](./web-sites-staged-publishing.md)
+* [Docker Hub Continuous Deployment with App Service on Linux](./app-service-linux-ci-cd.md)
