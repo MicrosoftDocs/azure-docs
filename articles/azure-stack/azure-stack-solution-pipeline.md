@@ -25,8 +25,6 @@ A hybrid [continuous integration](https://www.visualstudio.com/learn/what-is-con
  2. Automatically deploy your newly built code to Azure for user acceptance testing.
  3. Once your code has passed testing, automatically deploy to production on Azure Stack. 
 
-![image of Hybrid CI/CD pipeline](./media/azure-stack-solution-pipeline/image1.png)
-
 This topic guides you through the configuration of a simple hybrid CI/CD pipeline for an ASP.NET app using Visual Studio, VSTS, Azure, and Azure Stack.  We understand these steps take time to complete, but when you're finished you'll have a functioning CI/CD pipeline to test app deployment across multiple clouds.  
 
 ## Before you begin
