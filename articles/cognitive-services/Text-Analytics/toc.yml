@@ -4,12 +4,6 @@
   items: 
   - name: Learn about Text Analytics
     href: overview.md
-- name: Quickstarts
-  items: 
-  - name: Get started with Text Analytics
-    href: cognitive-services-text-analytics-quick-start.md
-  - name: API migration
-    href: cognitive-services-text-analytics-api-migration.md
 - name: Reference
   items: 
   - name: API Reference content
