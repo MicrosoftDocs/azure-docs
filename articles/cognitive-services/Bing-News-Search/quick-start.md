@@ -15,7 +15,7 @@ ms.author: scottwhi
 
 # Your First News Search Query
 
-Before you can make your first call, you need to get a Cognitive Services subscription key. To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=search-api).
+Before you can make your first call, you need to get a Cognitive Services subscription key. To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api).
 
 To get News-only search results, you'd send a GET request to the following endpoint:  
   
