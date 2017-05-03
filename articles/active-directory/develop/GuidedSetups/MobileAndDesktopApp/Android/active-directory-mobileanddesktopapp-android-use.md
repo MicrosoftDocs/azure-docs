@@ -42,7 +42,7 @@ import com.microsoft.identity.client.*;
 3.	Copy and paste the following code into the `MainActivity` class:
 
 ```java
-final static String CLIENT_ID = "Your_Client_Id_Here";
+final static String CLIENT_ID = "[Enter the application Id here]";
 final static String SCOPES [] = {"https://graph.microsoft.com/User.Read"};
 final static String MSGRAPH_URL = "https://graph.microsoft.com/v1.0/me";
 

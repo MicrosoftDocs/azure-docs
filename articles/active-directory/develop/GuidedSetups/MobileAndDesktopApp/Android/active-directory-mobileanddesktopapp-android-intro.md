@@ -33,6 +33,7 @@ The sample created by this guide is based on a scenario where an Android applica
 ## Pre-Requisites:
 * This guided setup is focused on Android Studio, but any other Android application development environment is also acceptable. 
 * Android SDK 21 or newer is required.
+* Google Chrome or a Web Browser implementing Chrome Tabs are required for this release of Microsoft Authentication Library (MSAL) for Android.
 
 
 # Handling token acquisition for accessing protected Web APIs
