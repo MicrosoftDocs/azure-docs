@@ -1,5 +1,4 @@
-# [Overview](security-get-started-overview.md)
-## [Introduction to Azure security](azure-security.md)
+# [Overview](azure-security.md)
 ## [Network security](security-network-overview.md)
 ## [Storage security](security-storage-overview.md)
 ## [Compute security](security-virtual-machines-overview.md)
