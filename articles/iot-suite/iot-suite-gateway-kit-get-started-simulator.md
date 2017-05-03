@@ -70,7 +70,7 @@ Locate the following lines in the configuration for the IoTHub module:
 }
 ```
 
-Replace the placeholder values with the IoT Hub information you created and saved at the start of this tutorial. The value for IoTHubName looks like **yourrmsolution37e08**, and the value for IoTSuffix is typically **azure-devices.net**. Change the **Transport** value to **amqp**.
+Replace the placeholder values with the IoT Hub information you created and saved at the start of this tutorial. The value for IoTHubName looks like **yourrmsolution37e08**, and the value for IoTSuffix is typically **azure-devices.net**. Change the **Transport** value to **HTTP**.
 
 Locate the following lines in the configuration for the mapping module:
 
@@ -105,6 +105,9 @@ The gateway starts on the Intel NUC and sends simulated telemetry to the remote 
 ![Gateway generates simulated telemetry][img-simulated telemetry]
 
 Press **Ctrl-C** to exit the program at any time.
+
+> [!NOTE]
+> Because of the shortage of storage on the Intel NUC, you used a temporary filesystem to build the gateway. If you want to save your compiled gateway, copy the **build** folder and the **/tmp/azure-remote-monitoring-gateway-intelnuc/samples/simulated\_device\_cloud\_upload/src/simulated\_device\_cloud\_upload\_lin.json** file to your home folder.
 
 ## View the telemetry
 

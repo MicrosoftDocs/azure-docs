@@ -128,7 +128,7 @@ Locate the following lines in the configuration for the IoTHub module:
 }
 ```
 
-Replace the placeholder values with the IoT Hub information you created and saved at the start of this tutorial. The value for IoTHubName looks like **yourrmsolution37e08**, and the value for IoTSuffix is typically **azure-devices.net**.
+Replace the placeholder values with the IoT Hub information you created and saved at the start of this tutorial. The value for IoTHubName looks like **yourrmsolution37e08**, and the value for IoTSuffix is typically **azure-devices.net**. Change the Transport value to **HTTP**.
 
 Locate the following lines in the configuration for the mapping module:
 
@@ -171,8 +171,8 @@ Save your changes to the configuration file.
 You can now run the gateway using the following command:
 
 ```bash
-cd /tmp/azure-remote-monitoring-gateway-intelnuc/build
-sudo ./samples/ble_gateway/ble_gateway ../samples/ble_gateway/src/gateway_sample.json
+cd /tmp/azure-remote-monitoring-gateway-intelnuc
+sudo ./build/samples/ble_gateway/ble_gateway ../samples/ble_gateway/src/gateway_sample.json
 ```
 
 The gateway starts on the Intel NUC and forwards telemetry from the SensorTag device to the remote monitoring solution:
@@ -180,6 +180,9 @@ The gateway starts on the Intel NUC and forwards telemetry from the SensorTag de
 ![Gateway forwards SensorTag telemetry][img-simulated telemetry]
 
 Press **Ctrl-C** to exit the program at any time.
+
+> [!NOTE]
+> Because of the shortage of storage on the Intel NUC, you used a temporary filesystem to build the gateway. If you want to save your compiled gateway, copy the **build** folder and the **/tmp/azure-remote-monitoring-gateway-intelnuc/samples/ble\_gateway/src/gateway\_sample.json** file to your home folder.
 
 ## View the telemetry
 
