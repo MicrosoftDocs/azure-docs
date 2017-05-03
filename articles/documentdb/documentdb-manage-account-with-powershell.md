@@ -191,9 +191,9 @@ Example:
 
 ## Next steps
 
-* To connect using .NET, see [Connect and query with .NET](documentdb-connect-dotnet.md).
-* To connect using .NET Core, see [Connect and query with .NET Core](documentdb-connect-dotnet-core.md).
-* To connect using Node.js, see [Connect and query with Node.js and a MongoDB app](documentdb-connect-mongodb-app.md).
+* To connect using .NET, see [Connect and query with .NET](../cosmosdb/create-documentdb-dotnet.md).
+* To connect using .NET Core, see [Connect and query with .NET Core](../cosmosdb/create-documentdb-dotnet-core.md).
+* To connect using Node.js, see [Connect and query with Node.js and a MongoDB app](../cosmosdb/create-mongodb-nodejs.md).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [powershell-install-configure]: https://docs.microsoft.com/azure/powershell-install-configure

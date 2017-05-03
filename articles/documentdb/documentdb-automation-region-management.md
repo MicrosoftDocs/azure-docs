@@ -515,7 +515,7 @@ After you have documents in a collection, you can use [SQL](documentdb-sql-query
 
 To learn more about Azure Cosmos DB, explore these resources:
 
--	[Introduction to Azure Cosmos DB](documentdb-multi-model-introduction.md)
+-	[Introduction to Azure Cosmos DB](../cosmosdb/introduction.md)
 
 For more templates you can use, see [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/).
 

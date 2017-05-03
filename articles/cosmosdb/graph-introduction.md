@@ -48,7 +48,7 @@ Azure Cosmos DB offers the following differentiated capabilities compared to oth
 
 * **Multi-region replication**: Azure Cosmos DB transparently replicates your graph data to all regions you've associated with your account, enabling you to develop applications that require global access to data while providing tradeoffs between consistency, availability and performance, all with corresponding guarantees. Azure Cosmos DB provides transparent regional failover with multi-homing APIs, and the ability to elastically scale throughput and storage across the globe.
 
-* **Fast queries and traversals with familiar Gremlin syntax**: Store heterogeneous vertices and edges and query these documents through a familiar Gremlin syntax (enhanced-SQL will also be available soon). Azure Cosmos DB utilizes a highly concurrent, lock free, log structured indexing technology to automatically index all content. This enables rich real-time queries and traversals without the need to specify schema hints, secondary indexes, or views. Learn more in [Query Graphs using Gremlin](../documentdb/documentdb-gremlin-support.md).
+* **Fast queries and traversals with familiar Gremlin syntax**: Store heterogeneous vertices and edges and query these documents through a familiar Gremlin syntax (enhanced-SQL will also be available soon). Azure Cosmos DB utilizes a highly concurrent, lock free, log structured indexing technology to automatically index all content. This enables rich real-time queries and traversals without the need to specify schema hints, secondary indexes, or views. Learn more in [Query Graphs using Gremlin](gremlin-support.md).
 
 * **Fully managed**: Eliminate the need to manage database and machine resources. As a fully-managed Microsoft Azure service, you do not need to manage virtual machines, deploy and configure software, manage scaling, or deal with complex data-tier upgrades. Every graph is automatically backed up and protected against regional failures. You can easily add a Azure Cosmos DB account and provision capacity as you need it, allowing you to focus on your application instead of operating and managing your database.
 
@@ -95,4 +95,4 @@ Here are some scenarios where Azure Cosmos DB's graph support can be used:
 To learn more about graph support in Azure Cosmos DB, see:
 
 * Get started with the [Azure Cosmos DB graph tutorial](../documentdb/documentdb-connect-graph-dotnet.md)
-* Learn about how to [query graphs in Azure Cosmos DB using Gremlin](../documentdb/documentdb-gremlin-support.md)
+* Learn about how to [query graphs in Azure Cosmos DB using Gremlin](gremlin-support.md)

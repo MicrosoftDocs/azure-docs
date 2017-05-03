@@ -23,7 +23,7 @@ ms.author: mimig
 
 In this tutorial, you'll learn how to create an Azure Cosmos DB collection and use a partition key to partition your data. By defining a partition key at the start, your application is prepared to scale effortlessly as your data grows. 
 
-In this tutorial, you'll perform the following operations using the [DocumentDB .NET SDK](../documentdb/documentdb-sdk-dotnet.md):
+In this tutorial, you'll perform the following operations using the [DocumentDB .NET SDK](../articles/documentdb/documentdb-sdk-dotnet.md):
 
 * Connect to your account
 * Create a database
@@ -39,18 +39,18 @@ In this tutorial, you'll perform the following operations using the [DocumentDB 
 
 Partitioned collections are configured with a partition key property. A partition key is a property (or path) within your documents that can be used to distribute your data among multiple servers or partitions. All documents with the same partition key will be stored in the same partition. By using a partition key and partitioned collections, Azure Cosmos DB can efficiently index and query your big-data solutions.   
 
-Learn more about partitioning and scaling in, [How to partition and scale in Azure Cosmos DB?](../documentdb/documentdb-partition-data.md)
+Learn more about partitioning and scaling in, [How to partition and scale in Azure Cosmos DB?](../articles/documentdb/documentdb-partition-data.md)
 
 ## Prerequisites
 Please make sure you have the following:
 
 * An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). 
-    * Alternatively, you can use the [Azure Cosmos DB Emulator](../documentdb/documentdb-nosql-local-emulator.md) for this tutorial.
+    * Alternatively, you can use the [Azure Cosmos DB Emulator](../articles/documentdb/documentdb-nosql-local-emulator.md) for this tutorial.
 * [Visual Studio](http://www.visualstudio.com/).
 
 ## Create database account
 
-If you already have an account you want to use, you can skip ahead to [Setup your Visual Studio solution](#SetupVS). If you are using the Azure Cosmos DB Emulator, please follow the steps at [Azure Cosmos DB Emulator](../documentdb/documentdb-nosql-local-emulator.md) to setup the emulator and skip ahead to [Setup your Visual Studio Solution](#SetupVS).
+If you already have an account you want to use, you can skip ahead to [Setup your Visual Studio solution](#SetupVS). If you are using the Azure Cosmos DB Emulator, please follow the steps at [Azure Cosmos DB Emulator](../articles/documentdb/documentdb-nosql-local-emulator.md) to setup the emulator and skip ahead to [Setup your Visual Studio Solution](#SetupVS).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -107,7 +107,7 @@ DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 
 ## <a id="create-database"></a>Create a database
 
-Create an Azure Cosmos DB [database](../documentdb/documentdb-resources.md#databases) by using the [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method or [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) method of the **DocumentClient** class from the [DocumentDB .NET SDK](../documentdb/documentdb-sdk-dotnet.md). A database is the logical container of JSON document storage partitioned across collections.
+Create an Azure Cosmos DB [database](../articles/documentdb/documentdb-resources.md#databases) by using the [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method or [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) method of the **DocumentClient** class from the [DocumentDB .NET SDK](../articles/documentdb/documentdb-sdk-dotnet.md). A database is the logical container of JSON document storage partitioned across collections.
 
 ```csharp
 await client.CreateDatabaseAsync(new Database { Id = "db" });
@@ -119,7 +119,7 @@ await client.CreateDatabaseAsync(new Database { Id = "db" });
 > 
 > 
 
-A [collection](../documentdb/documentdb-resources.md#collections) can be created by using the [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) method or [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) method of the **DocumentClient** class. A collection is a container of JSON documents and associated JavaScript application logic.
+A [collection](../articles/documentdb/documentdb-resources.md#collections) can be created by using the [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) method or [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) method of the **DocumentClient** class. A collection is a container of JSON documents and associated JavaScript application logic.
 
 ```csharp
 // Collection for device telemetry. Here the JSON property deviceId will be used as the partition key to 
@@ -143,9 +143,9 @@ await client.CreateDocumentCollectionAsync(
 This method makes a REST API call to Azure Cosmos DB, and the service will provision a number of partitions based on the requested throughput. You can change the throughput of a collection as your performance needs evolve.
 
 ## <a id="CreateDoc"></a>Create JSON documents
-Let's insert some JSON documents into Azure Cosmos DB. A [document](../documentdb/documentdb-resources.md#documents) can be created by using the [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) method of the **DocumentClient** class. Documents are user defined (arbitrary) JSON content. This sample class contains a device reading, and a call to CreateDocumentAsync to insert a new device reading into a collection.
+Let's insert some JSON documents into Azure Cosmos DB. A [document](../articles/documentdb/documentdb-resources.md#documents) can be created by using the [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) method of the **DocumentClient** class. Documents are user defined (arbitrary) JSON content. This sample class contains a device reading, and a call to CreateDocumentAsync to insert a new device reading into a collection.
 
- If you already have data you'd like to store in your database, you can use Azure Cosmos DB's [Data Migration tool](../documentdb/documentdb-import-data.md) to import the data into a database.
+ If you already have data you'd like to store in your database, you can use Azure Cosmos DB's [Data Migration tool](../articles/documentdb/documentdb-import-data.md) to import the data into a database.
 
 ```csharp
 public class DeviceReading
@@ -241,7 +241,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 ```
 
-Azure Cosmos DB supports [aggregate functions](../documentdb/documentdb-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, `SUM` and `AVG` over partitioned collections using SQL starting with SDKs 1.12.0 and above. Queries must include a single aggregate operator, and must include a single value in the projection.
+Azure Cosmos DB supports [aggregate functions](../articles/documentdb/documentdb-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, `SUM` and `AVG` over partitioned collections using SQL starting with SDKs 1.12.0 and above. Queries must include a single aggregate operator, and must include a single value in the projection.
 
 ## Parallel query execution
 The Azure Cosmos DB DocumentDB SDKs 1.9.0 and above support parallel query execution options, which allow you to perform low latency queries against partitioned collections, even when they need to touch a large number of partitions. For example, the following query is configured to run in parallel across partitions.
@@ -276,10 +276,10 @@ In the next section, we look at how you can move to partitioned collections from
 
 
 ## Next steps
-* Want a more DocuementDB API tutorials? See [Use .NET (C#) to connect and query data with the DocumentDB API](../documentdb/documentdb-connect-dotnet.md) and [Build a web application with ASP.NET MVC using DocumentDB](../documentdb/documentdb-dotnet-application.md).
-* Want to perform scale and performance testing with DocumentDB? See [Performance and Scale Testing with Azure DocumentDB](../documentdb/documentdb-performance-testing.md)
-* Learn how to [monitor a DocumentDB account](../documentdb/documentdb-monitor-accounts.md).
+* Want a more DocuementDB API tutorials? See [Use .NET (C#) to connect and query data with the DocumentDB API](../articles/documentdb/documentdb-connect-dotnet.md) and [Build a web application with ASP.NET MVC using DocumentDB](../articles/documentdb/documentdb-dotnet-application.md).
+* Want to perform scale and performance testing with DocumentDB? See [Performance and Scale Testing with Azure DocumentDB](../articles/documentdb/documentdb-performance-testing.md)
+* Learn how to [monitor a DocumentDB account](../articles/documentdb/documentdb-monitor-accounts.md).
 * Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
 
-[documentdb-create-account]: ../documentdb/documentdb-create-account.md
+[documentdb-create-account]: ../articles/documentdb/documentdb-create-account.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png

@@ -608,7 +608,7 @@ After creating your database, you need to [add one or more collections](document
 
 After you have documents in a collection, you can use [SQL](documentdb-sql-query.md) to [execute queries](documentdb-sql-query.md#ExecutingSqlQueries) against your documents by using the [Query Explorer](documentdb-query-collections-query-explorer.md) in the portal, the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), or one of the [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-To learn more about Azure Cosmos DB, see the [Azure Cosmos DB multi-model introduction](documentdb-multi-model-introduction.md).
+To learn more about Azure Cosmos DB, see the [Azure Cosmos DB multi-model introduction](../cosmosdb/introduction.md).
 
 For more templates you can use, see [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/).
 

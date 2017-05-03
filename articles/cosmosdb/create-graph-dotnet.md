@@ -310,9 +310,9 @@ IDocumentQuery<Vertex> friendsOfFriendsOfThomas = client.CreateGremlinQuery<Vert
   $"g.V('{thomas.Id}').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')");
 ```
 
-You can build more complex queries and implement powerful graph traversal logic using Gremlin, including mixing filter expressions, performing looping using the `loop` step, and implementing conditional navigation using the `choose` step. Learn more about what you can do with [Gremlin support](../documentdb/documentdb-gremlin-support.md)!
+You can build more complex queries and implement powerful graph traversal logic using Gremlin, including mixing filter expressions, performing looping using the `loop` step, and implementing conditional navigation using the `choose` step. Learn more about what you can do with [Gremlin support](gremlin-support.md)!
 
 ## Next Steps
-* Read about [Gremlin support in Azure Cosmos DB](../documentdb/documentdb-gremlin-support.md)
-* View the samples for [Graphs in .NET](../documentdb/documentdb-graph-dotnet-samples.md)
+* Read about [Gremlin support in Azure Cosmos DB](gremlin-support.md)
+* View the samples for [Graphs in .NET](graph-dotnet-samples.md)
 * Download the [Graph .NET library and read release notes](https://aka.ms/graphdbextension)
