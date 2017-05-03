@@ -24,7 +24,7 @@ ms.author: dobett
 
 The connected factory solution aggregates and displays data from the OPC UA servers connected to the solution. In some cases, you can control devices connected to your OPC UA servers by sending messages from the solution through the OPC UA servers.
 
-Examples of the data aggregated by the solution include the Overall Equipment Efficiency (OEE) and Key Performance Indicators (KPIs) that you can see in the dashboard at the factory, line, and station levels. The following screenshot shows the OEE and KPI values for the **Assembly** station, on **Production line 1**, in the **Munich** factory:
+Examples of aggregated data in the solution include the Overall Equipment Efficiency (OEE) and Key Performance Indicators (KPIs) that you can view in the dashboard at the factory, line, and station levels. The following screenshot shows the OEE and KPI values for the **Assembly** station, on **Production line 1**, in the **Munich** factory:
 
 ![Example of OEE and KPI values in the solution][img-oee-kpi]
 
@@ -43,7 +43,7 @@ This article describes:
 
 ## Data sources
 
-The data displayed in the connected factory solution comes from OPC UA servers connected to the solution. The default installation includes several OPC UA simulators. You can add real OPC UA servers  that [connect through a gateway][lnk-connect-cf] to your solution.
+The connected factory solution displays data from the OPC UA servers connected to the solution. The default installation includes several OPC UA simulators. You can add real OPC UA servers that [connect through a gateway][lnk-connect-cf] to your solution.
 
 You can browse the data items that a connected OPC UA server can send to your solution in the dashboard:
 
@@ -61,15 +61,15 @@ You can browse the data items that a connected OPC UA server can send to your so
 
 ## Map the data
 
-The connected factory solution maps and aggregates the published data items from the OPC UA server to the various views in the solution. The mapping is stored in a JSON file that is part of the solution deployed to your Azure account. You can view and modify this JSON file in the connected factory Visual Studio solution.
+The connected factory solution maps and aggregates the published data items from the OPC UA server to the various views in the solution. A JSON file in the Visual Studio connected factory solution stores this mapping information. The connected factory Visual Solution deploys to your Azure account when you provision the solution. You can view and modify this JSON configuration file in the connected factory Visual Studio solution and redeploy it.
 
 To clone a copy of the connected factory Visual Studio solution, use the following git command:
 
 `git clone https://github.com/Azure/azure-iot-connected-factory.git`
 
-The mapping from the OPC UA server data items to the connected factory solution views is defined in the file ContosoTopologyDescription.json. This configuration file is located in the Contoso\Topology folder in the WebApp project.
+The file **ContosoTopologyDescription.json** defines the mapping from the OPC UA server data items to the views in the connected factory solution dashboard. You can find this configuration in the **Contoso\Topology** folder in the **WebApp** project in the Visual Studio solution.
 
-The content of the JSON file is organized into a hierarchy of factories, production lines, and stations. This hierarchy defines the navigation hierarchy in the connected factory dashboard. Values at each node of the hierarchy determine the information displayed in the dashboard. For example, the JSON file contains the following values for the Munich factory:
+The content of the JSON file is organized as a hierarchy of factoriy, production line, and station nodes. This hierarchy defines the navigation hierarchy in the connected factory dashboard. Values at each node of the hierarchy determine the information displayed in the dashboard. For example, the JSON file contains the following values for the Munich factory:
 
 ```json
 "Guid": "73B534AE-7C7E-4877-B826-F1C0EA339F65",
@@ -84,9 +84,73 @@ The content of the JSON file is organized into a hierarchy of factories, product
 "Image": "munich.jpg"
 ```
 
-The name, description and location (if you have enabled dynamic mapping) appear on this view in the dashboard:
+The name, description and location (if you have [enabled dynamic mapping][lnk-faq]) appear on this view in the dashboard:
 
 ![Munich data in the dashboard][img-munich]
+
+Each factory, production line, and station has an image property. You can find these JPEG files in the **Content\img** folder in the **WebApp** project. These image files display in the connected factory dashboard.
+
+Each station includes a number of detailed properties that define the mapping from the OPC UA data items. These properities are described in the following sections:
+
+### OpcUri
+
+The **OpcUri** value is a URI that identifies the data source in the OPC UA server. For example, the **OpcUri** value for the assembly station on production line 1 in Munich looks like this: **urn:scada2194:ua:munich:productionline0:assemblystation**.
+
+You can view the URIs of the connected OPC UA servers in the solution dashboard:
+
+![View OPC UA server URIs][img-server-uris]
+
+### Simulation
+
+The information in the **Simulation** node is specific to the OPC UA simulators provisioned by default. It is not present for a real OPC UA server.
+
+### Kpi1 and Kpi2
+
+These nodes describe how data from the station contributes to the two KPI values in the dashboard. In a default deployment these KPI values are units per hour and kWh per hour. The solution calculates KPI vales at the level of a station and aggregates them at the production line and factory levels.
+
+Each KPI has a minimum, maximum, and target value. Each KPI value can also define alert actions to display in the dashboard. The following snippet shows the KPI definitions for the assembly station on production line 1 in Munich:
+
+```json
+"Kpi1": {
+  "Minimum": 150,
+  "Target": 300,
+  "Maximum": 600
+},
+"Kpi2": {
+  "Minimum": 50,
+  "Target": 100,
+  "Maximum": 200,
+  "MinimumAlertActions": [
+    {
+      "Type": "None"
+    }
+  ]
+}
+```
+
+The following screenshot shows the KPI data in the dashboard.
+
+![KPI information in the dashboard][lnk-kpi]
+
+### OpcNodes
+
+The **OpcNodes** nodes identify the published data items from the OPC UA server to use and specify how to process that data.
+
+The **NodeId** value identifies the specific data item from the OPC UA server. The first node in the assembly station for production line 1 in Munich has a value **ns=2;i=385**. A **NodeId** value specifies the data stream to read from the OPC UA server, and the **SymbolicName** provides a user-friendly name to use in the dashboard for that data.
+
+Other values associated with each node are summarized in the following table:
+
+| Value | Description |
+| ----- | ----------- |
+| Relevance  | The KPI and OEE values this data contributes to. |
+| OpCode     | How the data is aggregated. |
+| Units      | The units to use in the dashboard.  |
+| Visible    | Whether to display this value in the dashboard. Some values are used in calculations but not displayed.  |
+| Maximum    | The maximum value that triggers an alert in the dashboard. |
+| MaximumAlertActions | An action to take in response to an alert. For example, send a command to open a valve on a station. |
+| ConstValue | A constant value used in a calculation. |
+
+## Deploy the changes
 
 ## Next Steps
 
@@ -104,6 +168,8 @@ Learn more about the connected factory preconfigured solution by reading the fol
 [img-select-server]: ./media/iot-suite-connected-factory-customize/selectserver.png
 [img-published]: ./media/iot-suite-connected-factory-customize/published.png
 [img-munich]: ./media/iot-suite-connected-factory-customize/munich.png
+[img-server-uris]: ./media/iot-suite-connected-factory-customize/serveruris.png
+[lnk-kpi]: ./media/iot-suite-connected-factory-customize/kpidisplay.png
 
 [lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
 [lnk-connect-cf]: iot-suite-connected-factory-gateway-deployment.md
