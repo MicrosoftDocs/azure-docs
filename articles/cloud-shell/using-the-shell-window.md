@@ -29,7 +29,7 @@ This document explains how to use the Azure Cloud Shell window.
 * Click the minimize icon on the top right of the window to set window size to zero.
 * To restore window to previous size, click restore.
 
-## Copy/paste
+## Copy and paste
 * Windows: `Ctrl-insert` and `Shift-insert` or right-click dropdown to copy/paste
   * FireFox/IE may not support clipboard permissions properly
 * Mac OS: `Cmd-c` and `Cmd-v` or right-click dropdown to copy/paste

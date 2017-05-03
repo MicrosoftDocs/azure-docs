@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Shell (Preview) Overview | Microsoft Docs
+title: Azure Cloud Shell (Preview) overview | Microsoft Docs
 description: Overview of the Azure Cloud Shell.
 services: 
 documentationcenter: ''

@@ -35,7 +35,7 @@ This disk image is saved in your specified file share as `<User>.img` at `filesh
 Cloud Shell allows users to run a command called `createclouddrive` that enables manually associating an existing or new Azure file share to Cloud Shell. When successfully run, Cloud Shell searches for this file share on every start-up to mount and provide access to files held in the file share.
 
 ### Pre-requisites for manual mounting
-Cloud Shell will create a storage account and file share for you on first launch, however you may update the file share with the `createclouddrive` command. Storage is subject to [regular Azure Files pricing.](https://azure.microsoft.com/en-us/pricing/details/storage/files/)
+Cloud Shell will create a storage account and file share for you on first launch, however you may update the file share with the `createclouddrive` command. Storage is subject to [regular Azure Files pricing.](https://azure.microsoft.com/pricing/details/storage/files/)
 
 If mounting an existing file share, storage accounts must be:
 1. LRS or GRS to support file shares.

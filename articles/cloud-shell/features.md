@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Shell (Preview) Features | Microsoft Docs
+title: Azure Cloud Shell (Preview) features | Microsoft Docs
 description: Overview of features of Azure Cloud Shell
 services: 
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 05/10/2017
 ms.author: juluk
 ---
 
-# Azure Cloud Shell Features
+# Azure Cloud Shell features
 Azure Cloud Shell is a browser-based shell experience to manage and develop Azure resources.
 
 Cloud Shell offers a browser-accessible, pre-configured shell experience for managing Azure resources without the overhead of installing, versioning, and maintaining a machine yourself.
@@ -58,4 +58,4 @@ Once completed Cloud Shell will automatically attach your storage for all future
 
 ## Next steps
 - [Get Started with Quickstart](quickstart.md) 
-- [Learn more about Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/) 
+- [Learn more about Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) 
