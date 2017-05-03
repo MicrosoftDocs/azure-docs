@@ -96,4 +96,4 @@ When no longer needed, delete the resource group, virtual machine, and all relat
 
 In this quick start, you’ve deployed a simple virtual machine, a network security group rule, and installed a web server. To learn more about Azure virtual machines, continue to the tutorial for Windows VMs.
 
-[Azure LiWindows virtual machine tutorials](./tutorial-manage-vm.md)
+[Azure Windows virtual machine tutorials](./tutorial-manage-vm.md)
