@@ -89,7 +89,7 @@ Data disks can be created and attached at VM creation time or to an existing VM.
 Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group#create) command. 
 
 ```azurecli
-az group create --name myResourceGroupDisk --location westus
+az group create --name myResourceGroupDisk --location eastus
 ```
 
 Create a VM using the [az vm create]( /cli/azure/vm#create) command. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. To create and attach more than one disk, use a space-delimited list of disk size values. In the following example, a VM is created with two data disks, both 128 GB. Because the disk sizes are 128 GB, these disks are both configured as P10s, which provide maximum 500 IOPS per disk.

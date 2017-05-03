@@ -28,10 +28,10 @@ The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cl
 
 An Azure Virtual Network (VNet) is a representation of your own network in the cloud. A VNet is a logical isolation of the Azure cloud dedicated to your subscription. Within a VNet, you find subnets, rules for connectivity to those subnets, and connections from the VMs to the subnets. Azure CLI makes it easy for you to create all the network-related resources that you need to support access to your VMs. 
 
-Before you can create any other Azure resources, you need to create a resource group with az group create. The following example creates a resource group named *myRGNetwork* in the *westus* location:
+Before you can create any other Azure resources, you need to create a resource group with az group create. The following example creates a resource group named *myRGNetwork* in the *eastus* location:
 
 ```azurecli
-az group create --name myRGNetwork --location westus
+az group create --name myRGNetwork --location eastus
 ```
 
 When you create a virtual machine using Azure CLI, the network resources that it needs are automatically created at the same time. Create *myFrontendVM* and its supporting network resources with [az vm create](https://docs.microsoft.com/cli/azure/vm#create):
@@ -50,7 +50,7 @@ After the VM is created, take note of the public IP address. This address is use
 {
   "fqdns": "",
   "id": "/subscriptions/{id}/resourceGroups/myRGNetwork/providers/Microsoft.Compute/virtualMachines/myFrontendVM",
-  "location": "westus",
+  "location": "eastus",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
