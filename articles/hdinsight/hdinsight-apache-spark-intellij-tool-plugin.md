@@ -96,7 +96,7 @@ For installation instructions, see [Installing the Azure Toolkit for IntelliJ](.
    
    1. In **Project Explorer**, right-click **src**, point to **New**, and then click **Scala Class**.
       
-       ![Commands for creating a new Scala class from Project Explorer](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-scala-code.png)
+       ![Commands for creating a Scala class from Project Explorer](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-scala-code.png)
    2. In the **Create New Scala Class** dialog box, provide a name, select **Object** in the **Kind** box, and then click **OK**.
       
        ![Create New Scala Class dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-scala-code-object.png)
@@ -173,7 +173,7 @@ You can also open the Spark history UI and the YARN UI (at the application level
 2. When you're prompted, enter the admin credentials for the cluster. You specified these credentials during the cluster provisioning process.
 
 ### Manage Azure subscriptions
-By default, Azure Toolkit for IntelliJ lists the Spark clusters from all your Azure subscriptions. If required, you can specify the subscriptions for which you want to access the cluster. 
+By default, Azure Toolkit for IntelliJ lists the Spark clusters from all your Azure subscriptions. If necessary, you can specify the subscriptions for which you want to access the cluster. 
 
 1. In Azure Explorer, right-click the **Azure** root node, and then click **Manage Subscriptions**. 
 2. In the dialog box, clear the check boxes for the subscription that you don't want to access, and then click **Close**. You can also click **Sign Out** if you want to sign out of your Azure subscription.
