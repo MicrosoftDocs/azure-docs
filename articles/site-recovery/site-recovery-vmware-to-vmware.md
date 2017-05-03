@@ -84,7 +84,7 @@ To update the unified agent, copy **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Ap
 ## Updates
 ### Azure Site Recovery Scout 8.0.1 Update 5
 Scout Update 5 is a cumulative update. It has all the fixes of update1 till update4 and following new bug fixes and enhancements.
-Fixes that are added from ASR Scout update4 to update5 are specific to Master Target. If all your source servers, Master Target, Configuration Server, Process Server and RX are already on ASR Scout update4 then you need to apply update 5 only on Master Target. 
+Fixes that are added from ASR Scout update4 to update5 are specific to Master Target and vContinuum components. If all your source servers, Master Target, Configuration Server, Process Server and RX are already on ASR Scout update4 then you need to apply update 5 only on Master Target server. 
 
 **New platform support**
 * SUSE Linux Enterprise Server 11 Service Pack 4(SP4)
@@ -92,23 +92,26 @@ Fixes that are added from ASR Scout update4 to update5 are specific to Master Ta
 > [!NOTE]
 > SLES 11 SP4 64 bit  **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** is packaged with base Scout GA package **InMage_Scout_Standard_8.0.1 GA.zip**. Download Scout GA package from portal as mentioned in [step 1](#step-1-create-a-vault).
 >
->
 
 **Bug fixes and enhancements**
 
 * Increase Windows Cluster support reliability
-	* Fixed- Some of the P2V MSCS cluster disks become RAW after recovery
+	* Fixed- Sometime some of the P2V MSCS cluster disks become RAW after recovery
 	* Fixed- P2V MSCS cluster recovery fails due to disk order mismatch
-	* Fixed- Cluster add disks operation fails with disk size mismatch
-	* Fixed- Source cluster with RDM LUNs mapping readiness check fails in size verification
+	* Fixed- MSCS cluster add disks operation fails with disk size mismatch
+	* Fixed- Source MSCS cluster with RDM LUNs mapping readiness check fails in size verification
 	* Fixed- Single node cluster protection fails due to SCSI mismatch issue 
-	* Fixed- Re-protect of the P2V Windows cluster server fails if target cluster disks are present. [Applicable to only those P2V MCSC cluster that are protected freshly protected with ASR Scout update5. To upgrade protected P2V MSCS cluster to Update5 refer to section 12, Upgrade protected P2V MSCS cluster to Scout Update5 of [ASR Scout Release Notes](https://aka.ms/asr-scout-release-notes)].
-
+	* Fixed- Re-protect of the P2V Windows cluster server fails if target cluster disks are present. 
+	
 * During failback protection, if selected MT is not on the same ESXi server as that of the protected source machine (during forward protection), then vContinuum picks up the wrong MT during Failback Recovery and subsequently recovery operation fails.
 
 > [!NOTE]
 > 
-> * For MSCS clusters protected in P2V mode, the earlier protected disks on the target ESX datastore will be re-used during re-protection if at the time of re-protection, the same set of disks are active on each of the cluster nodes as they were when initially protected. If not, then there are manual steps to move the target side disks to the correct datastore path to re-use them during re-protection.
+> * Above P2V cluster fixes are applicable to only those physical MSCS cluster that are  freshly protected with ASR Scout update5. To avail the cluster fixes on the already protected P2V MSCS cluster with older updates, you need to follow the upgrade steps that are mentioned in the section 12, Upgrade protected P2V MSCS cluster to Scout Update5 of [ASR Scout Release Notes](https://aka.ms/asr-scout-release-notes)].
+> 
+> * Re-protect of physical MSCS cluster can reuse existing target disks only if
+at the time of re-protection, the same set of disks are active on each of the cluster nodes as they were when initially protected. If not, then there are manual steps as mentioned in section 12 of [ASR Scout Release Notes](https://aka.ms/asr-scout-release-notes) to  move the target side disks to the correct datastore path to re-use them during re-protection. If you reprotect the MSCS cluster in P2V mode without following upgrade steps then it will create new disk on the target ESXi server. You need to manually delete the old disks from  the datastore.
+> 
 > * Whenever source SLES11 or SLES11 with any service pack server is rebooted gracefully, then one should manually mark the **root** disk replication pairs for re-sync as it will not be notified in CX UI. If you dont' mark the root disk for resync, you may see data integrity (DI) issues.
 
 
