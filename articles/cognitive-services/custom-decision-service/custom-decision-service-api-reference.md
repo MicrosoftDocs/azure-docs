@@ -7,13 +7,13 @@ manager: slivkins
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 05/03/2017
 ms.author: slivkins
 ---
 
 # Custom Decision Service API reference
 
-Microsoft Custom Decision Service provides two APIs that are invoked for each decision: [Ranking API](#ranking-api) to input the ranking of actions, and [Reward API](#reward-api) to output the reward. Further, you should provide an [Action Set API](#action-set-api-customer-provided) to specify the actions to Custom Decision Service. This article covers these three APIs.
+Microsoft Custom Decision Service provides two APIs that are invoked for each decision: [Ranking API](#ranking-api) to input the ranking of actions, and [Reward API](#reward-api) to output the reward. Further, you should provide an [Action Set API](#action-set-api-customer-provided) to specify the actions to Custom Decision Service. This article covers these three APIs. For ease of presentation, we focus on a typical scenario when Custom Decision Service optimizes the ranking of articles.
 
 ## Ranking API
 
@@ -60,19 +60,27 @@ The parameter to the call-back function in the preceding example has the followi
 - `appId` allows the callback function to distinguish between multiple applications of Custom Decision Service running on the same webpage.
 - `actionSets` element lists each action set used in the Ranking API call, along with the UTC timestamp of the last successful refresh. (Recall that action sets are periodically refreshed via supplied RSS/Atom feeds.) For example, the callback function may need to fall back to their default ranking if some of the action sets are not current.
 
+> [!IMPORTANT]
+> The specified action sets are processed, and possibly pruned, to form the "default ranking" of articles. The default ranking then gets reordered and returned in the HTTP response. The default ranking is defined as follows:
+>
+> -  Each specified action set is pruned to 15 most recent articles (if more than 15 are returned).
+> - When multiple action sets are specified, they are merged in the same order as in the API call.  The original ordering of the articles is preserved within each action set. Duplicates are removed in favor of the earlier copies.
+> - All but the first `n` articles are discarded, where `n=20` by default.
+
 ### Ranking API with parameters
 
 Ranking API allows the following parameters:
 
 - `details=1` and `details=2` insert auxiliary details about each article listed in `ranking`.
+- `limit=<n>` specifies the maximal number of articles in the default ranking. `n` must be between `2` and `30` (else it is truncated to `2` or `30`, respectively).
 - `dnt=1` disables user cookies.
 
 Parameters can be combined in standard query string syntax, for example, `details=2&dnt=1`.
 
 > [!IMPORTANT]
-> `dnt=1` should be the default setting in Europe until the end user agrees to the cookie banner. It should also be the default setting for websites that target minors, see [terms of use](https://www.microsoft.com/cognitive-services/en-us/legal/CognitiveServicesTerms20160804) for more details.
+> `dnt=1` should be the default setting in Europe until the end user agrees to the cookie banner. It should also be the default setting for websites that target minors. For more information, see [terms of use](https://www.microsoft.com/cognitive-services/en-us/legal/CognitiveServicesTerms20160804).
 
-`details=1` inserts each article's `guid`, if it is served by the Action Set API. Then HTTP response looks like this:
+`details=1` inserts each article's `guid`, if it is served by the Action Set API. Then HTTP response looks as follows:
 
 ```json
 callback({
@@ -93,7 +101,7 @@ callback({
 - `ds_id` from `<meta name=”microsoft:ds_id” content="..." />`.
 
 
-The HTTP response then looks like this:
+The HTTP response then looks as follows:
 
 ```json
 callback({
@@ -134,7 +142,6 @@ The simplest way to report rewards is to insert the following code snippet into 
 >
 > The "inferred URL" of an article is defined as the "canonical link", whenever specified, and as the URL in the user's browser otherwise.
 
-
 Otherwise, reward reporting should be implemented differently. The following line should be added on the front page inside the code that handles clicks on the articles:
 
 ```javascript
@@ -147,7 +154,7 @@ window.DecisionService.trackPageView({'id':'action id'});
 >
 
 > [!TIP]
-> For testing only, Reward API can be invoked via Curl:
+> For testing only, Reward API can be invoked via [cURL](https://en.wikipedia.org/wiki/CURL):
 >
 >```sh
 >curl -v https://ds.microsoft.com/<appid>/reward/<eventId> -X POST -d 1 -H "Content-Type: application/json
@@ -160,6 +167,7 @@ window.DecisionService.trackPageView({'id':'action id'});
 On a high level, Action Set API returns a list of articles (a.k.a. "actions"). Each article is specified by a URL of an article and (optionally) article title and publication date. Recall that you can specify multiple action sets on the portal. A different Action Set API should be specified for each action set, as a distinct URL.
 
 Each Action Set API can be implemented in two ways: as an RSS feed or as an Atom feed. Either should conform to the respective standard, and return a correct XML. For RSS, a representative example is as follows:
+
 ```xml
 <rss version="2.0">
 <channel>
