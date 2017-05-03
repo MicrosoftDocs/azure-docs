@@ -15,9 +15,7 @@
 # Concepts
 ## [Hosting plans](functions-scale.md)
 ## [Function App](functions-concepts-function-app.md)
-## [Function]()
 ## [Triggers and bindings](functions-triggers-bindings.md)
-## [Sandbox](../app-service/app-service-concepts-sandbox.md?toc=%2fazure%2fazure-functions%2ftoc.json)
 
 # How-to guides
 ## [Testing Azure Functions](functions-test-a-function.md)
