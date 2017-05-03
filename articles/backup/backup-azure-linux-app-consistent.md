@@ -28,9 +28,9 @@ This article talks about the Linux pre- and post-script framework, and how it ca
 
 ## How the framework works
 
-The framework provides an option to run custom pre- and post-scripts while you're taking VM snapshots. Pre-scripts are run just before you take the VM snapshot, and post-scripts are run immediately after VM snapshot completion. This gives you the flexibility to control your application and environment while you're taking VM snapshots.
+The framework provides an option to run custom pre- and post-scripts while you're taking VM snapshots. Pre-scripts are run just before you take the VM snapshot, and post-scripts are run immediately after you take the VM snapshot. This gives you the flexibility to control your application and environment while you're taking VM snapshots.
 
-In this scenario, it's important to ensure application-consistent VM backup. The pre-script can invoke application-native APIs to quiesce the IOs and flush in-memory content to the disk. This ensures that the snapshot is application-consistent (that is, that the application comes  up when the VM is booted post-restore). Post-script can be used to thaw the IOs. It does this by using application-native APIs so that the application can resume normal operations post VM snapshot.
+In this scenario, it's important to ensure application-consistent VM backup. The pre-script can invoke application-native APIs to quiesce the IOs and flush in-memory content to the disk. This ensures that the snapshot is application-consistent (that is, that the application comes up when the VM is booted post-restore). Post-script can be used to thaw the IOs. It does this by using application-native APIs so that the application can resume normal operations post-VM snapshot.
 
 ## Steps to configure pre-script and post-script
 
@@ -44,7 +44,7 @@ In this scenario, it's important to ensure application-consistent VM backup. The
 
    - **VMSnapshotScriptPluginConfig.json**: Permission “600.” For example, only “root” user should have “read” and “write” permissions to this file, and no user should have “execute” permissions.
 
-   - **Pre-script file**: Permission “700.”  For example, only “root” user should have “read”, “write”, and “execute” permissions to this file.Permission “600.”
+   - **Pre-script file**: Permission “700.”  For example, only “root” user should have “read”, “write”, and “execute” permissions to this file.
   
    - **Post-script** Permission “700.” For example, only “root” user should have “read”, “write”, and “execute” permissions to this file.
 
@@ -64,7 +64,7 @@ In this scenario, it's important to ensure application-consistent VM backup. The
 
     - **postScriptParams**: Provide the optional parameters that need to be passed to the post-script. All parameters should be in quotes, and should be comma-separated if there are multiple parameters.
 
-    - **preScriptNoOfRetries**: Set the number of times the pre-script should be retried if there es any error before terminating. Zero means only one try and no retry if there is a  failure.
+    - **preScriptNoOfRetries**: Set the number of times the pre-script should be retried if there is any error before terminating. Zero means only one try and no retry if there is a failure.
 
     - **postScriptNoOfRetries**:  Set the number of times the post-script should be retried if there is any error before terminating. Zero means only one try and no retry if there is a failure.
     
@@ -72,7 +72,7 @@ In this scenario, it's important to ensure application-consistent VM backup. The
 
     - **continueBackupOnFailure**: Set this value to **true** if you want Azure Backup to fall back to a file system consistent/crash consistent backup if pre-script or post-script fails. Setting this to **false** fails the backup in case of script failure (except when you have single-disk VM that falls back to crash-consistent backup regardless of this setting).
 
-    - **fsFreezeEnabled**: Specify whether Linux fsfreeze should be called while taking the VM snapshot to ensure file system consistency. We recommend keeping this setting set to **true** unless your application has a dependency on disabling fsfreeze.
+    - **fsFreezeEnabled**: Specify whether Linux fsfreeze should be called while you're taking the VM snapshot to ensure file system consistency. We recommend keeping this setting set to **true** unless your application has a dependency on disabling fsfreeze.
 
 6. The script framework is now configured. If the VM backup is already configured, the next backup invokes the scripts and triggers application-consistent backup. If the VM backup is not configured, configure it by using [Back up Azure virtual machines to Recovery Services vaults.](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
 
@@ -82,13 +82,13 @@ Make sure you add appropriate logging while writing your pre-script and post-scr
 
 | Error | Error message | Recommended action |
 | ------------------------ | -------------- | ------------------ |
-| Pre-ScriptExecutionFailed |The pre-script returned an error, so backup might not be application consistent.	| Look at the failure logs for your script to fix the issue.|  
+| Pre-ScriptExecutionFailed |The pre-script returned an error, so backup might not be application-consistent.	| Look at the failure logs for your script to fix the issue.|  
 |	Post-ScriptExecutionFailed |	The post-script returned an error that might impact application state. |	Look at the failure logs for your script to fix the issue and check the application state. |
 | Pre-ScriptNotFound |	The pre-script was not found at the location that's specified in the **VMSnapshotScriptPluginConfig.json** config file. |	Make sure that pre-script is present at the path that's specified in the config file to ensure application-consistent backup.|
 | Post-ScriptNotFound |	The post-script wasn't found at the location that's specified in the **VMSnapshotScriptPluginConfig.json** config file. |	Make sure that post-script is present at the path that's specified in the config file to ensure application-consistent backup.|
-| IncorrectPluginhostFile |	The **Pluginhost** file, which comes with the VmSnapshotLinux extension, is corrupted, so pre-script and post-script cannot run and the backup won't be application-consistent.	| Uninstall the VmSnapshotLinux extension, and it will automatically be reinstalled with next backup to fix the problem. |
+| IncorrectPluginhostFile |	The **Pluginhost** file, which comes with the VmSnapshotLinux extension, is corrupted, so pre-script and post-script cannot run and the backup won't be application-consistent.	| Uninstall the VmSnapshotLinux extension, and it will automatically be reinstalled with the next backup to fix the problem. |
 | IncorrectJSONConfigFile | The **VMSnapshotScriptPluginConfig.json** file is incorrect, so pre-script and post-script cannot run and the backup won't be application-consistent | Download the copy from [Github](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) and configure it again. |
-| InsufficientPermissionforPre-Script | For running scripts, "root" user should be the owner of the file and the file should have “700” permissions (that is, only owner should have “read”, “write”, and “execute” permissions). | Make sure “root” user is the “owner” of the script file and that only "owner" has “read”, “write” and “execute” permissions. |
+| InsufficientPermissionforPre-Script | For running scripts, "root" user should be the owner of the file and the file should have “700” permissions (that is, only "owner" should have “read”, “write”, and “execute” permissions). | Make sure “root” user is the “owner” of the script file and that only "owner" has “read”, “write” and “execute” permissions). |
 | InsufficientPermissionforPost-Script | For running scripts, root user should be the owner of the file and the file should have “700” permissions (that is, only "owner" should have “read”, “write”, and “execute” permissions | Make sure “root” user is the “owner” of the script file and that only "owner" has “read”, “write” and “execute” permissions. |
 | Pre-ScriptTimeout | The execution of the application-consistent backup pre-script timed-out. | Check the script and increase the timeout in the **VMSnapshotScriptPluginConfig.json** file that's located at **/etc/azure**. |
 | Post-ScriptTimeout | The execution of the application-consistent backup post-script timed out. | Check the script and increase the timeout in the **VMSnapshotScriptPluginConfig.json** file that's located at **/etc/azure**. |
