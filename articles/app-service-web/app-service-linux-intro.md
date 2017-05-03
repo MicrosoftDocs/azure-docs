@@ -54,7 +54,7 @@ For application scaling:
 * Customers can scale web apps up and down by changing the tier in their App Service plan
 * Customers can scale out applications and run multiple app instances within the confines of their SKU
 
-For Kudu, some of the basic functionality works with the following:
+For Kudu, some of the basic functionality:
 
 * Environments
 * Deployments
@@ -69,7 +69,7 @@ For devops:
 ## Limitations
 The Azure portal shows only features that currently work for App Service on Linux and hides the rest. As we enable more features, they will be visible on the portal.
 
-Some features, such as virtual network integration, Azure Active Directory/third-party authentication, or Kudu site extensions, are not complete. Once we complete these features, we will update our documentation and blog about the changes.
+Some features, such as virtual network integration, Azure Active Directory/third-party authentication, or Kudu site extensions, are not available yet. Once these features are available, we will update our documentation and blog about the changes.
 
 This public preview is currently only available in the following regions:
 

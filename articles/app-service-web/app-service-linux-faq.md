@@ -22,7 +22,7 @@ ms.author: aelnably
 # Azure App Service web apps on Linux FAQ
 
 With the release of Azure App Service on Linux (currently in preview), we're working on adding features and making improvements to our platform. Here are some frequently asked questions (FAQ) that our customers have been asking us over the last months.
-If you have a question, please comment on the article and we'll answer it as soon as possible.
+If you have a question, comment on the article and we'll answer it as soon as possible.
 
 ## Built-in images
 
@@ -36,7 +36,7 @@ If you have a question, please comment on the article and we'll answer it as soo
 
 ## Management
 
-**Q:** What will happen when I press the restart button in the Azure portal?
+**Q:** What happens when I press the restart button in the Azure portal?
 
 **A:** This is the equivalent of Docker restart.
 
@@ -48,7 +48,7 @@ If you have a question, please comment on the article and we'll answer it as soo
 
 **Q:** My web app still uses an old Docker container image after I've updated the image on Docker Hub. Do you support continuous integration/deployment of custom containers?
 
-**A:** You can setup continous integration/deployment for DockerHub images by checking the following article [Docker Hub Continuous Deployment with App Service on Linux](./app-service-linux-ci-cd.md). For private registries, you can refresh the container by stopping and then starting your web app. Or you can change or add a dummy application setting to force a refresh of your container.
+**A:** To set up continuous integration/deployment for DockerHub images by check the following article [Docker Hub Continuous Deployment with App Service on Linux](./app-service-linux-ci-cd.md). For private registries, you can refresh the container by stopping and then starting your web app. Or you can change or add a dummy application setting to force a refresh of your container.
 
 **Q:** Do you support staging environments?
 **A:** Yes.
@@ -61,17 +61,17 @@ If you have a question, please comment on the article and we'll answer it as soo
 
 **Q:** Do you support Composer as a dependency manager for PHP apps?
 
-**A:** No. You need to deploy your PHP apps with all the dependencies. We're planning a full deployment experience in a future release.
+**A:** No. You will need to deploy your PHP apps with all the dependencies. We're planning a full deployment experience in a future release.
 
 ## Custom containers
 
-**Q:** I'm using my own custom container. My app resides in the \home\ directory, but I can't find my files when I browse the content by using the [SCM site](https://github.com/projectkudu/kudu) or an FTP client. Where are my files?
+**Q:** I'm using my own custom container. My app resides in the `\home\` directory, but I can't find my files when I browse the content by using the [SCM site](https://github.com/projectkudu/kudu) or an FTP client. Where are my files?
 
-**A:** We mount an SMB share to the \home\ directory. This overrides any content that's there.
+**A:** We mount an SMB share to the `\home\` directory. This will override any content that's there.
 
 **Q:** What is the format for private registry server url?
 
-**A:** You need to enter the full registry url including "http://" or "https://".
+**A:** You need to provide the full registry url including `http://` or `https://`.
 
 **Q:** What is the format for the image name in private registry option?
 
@@ -101,7 +101,7 @@ If you have a question, please comment on the article and we'll answer it as soo
 
 **Q:** What's the pricing while you're using the public preview?
 
-**A:** You'll be charged half the number of hours that your app runs, with the normal Azure App Service pricing. This means that you get a 50 percent discount on normal Azure App Service pricing.
+**A:** You are charged half the number of hours that your app runs, with the normal Azure App Service pricing. This means that you get a 50 percent discount on normal Azure App Service pricing.
 
 ## Other
 
@@ -111,7 +111,7 @@ If you have a question, please comment on the article and we'll answer it as soo
 
 **Q:** Where can I request new features?
 
-**A:** You can submit your idea at the [Web Apps feedback forum](https://aka.ms/webapps-uservoice). Please add "[Linux]" to the title of your idea.
+**A:** You can submit your idea at the [Web Apps feedback forum](https://aka.ms/webapps-uservoice). Add "[Linux]" to the title of your idea.
 
 ## Next steps
 * [What is App Service on Linux?](app-service-linux-intro.md)
