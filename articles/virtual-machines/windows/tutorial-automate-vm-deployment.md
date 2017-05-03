@@ -33,10 +33,10 @@ You can use the Custom Script Extension with both Windows and Linux VMs.
 
 
 ## Create virtual machine
-Before you can create a VM, create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resource group named *myResourceGroupAutomate* in the *westus* location:
+Before you can create a VM, create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resource group named *myResourceGroupAutomate* in the *EastUS* location:
 
 ```powershell
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroupAutomate -Location westus
+New-AzureRmResourceGroup -ResourceGroupName myResourceGroupAutomate -Location EastUS
 ```
 
 Set an administrator username and password for the VMs with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
@@ -56,7 +56,7 @@ $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
 # Create a virtual network
 $vnet = New-AzureRmVirtualNetwork `
     -ResourceGroupName myResourceGroupAutomate `
-    -Location westus `
+    -Location EastUS `
     -Name myVnet `
     -AddressPrefix 192.168.0.0/16 `
     -Subnet $subnetConfig
@@ -64,7 +64,7 @@ $vnet = New-AzureRmVirtualNetwork `
 # Create a public IP address and specify a DNS name
 $publicIP = New-AzureRmPublicIpAddress `
     -ResourceGroupName myResourceGroupAutomate `
-    -Location westus `
+    -Location EastUS `
     -AllocationMethod Static `
     -IdleTimeoutInMinutes 4 `
     -Name "myPublicIP"
@@ -96,7 +96,7 @@ $nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
 # Create a network security group
 $nsg = New-AzureRmNetworkSecurityGroup `
     -ResourceGroupName myResourceGroupAutomate `
-    -Location westus `
+    -Location EastUS `
     -Name myNetworkSecurityGroup `
     -SecurityRules $nsgRuleRDP,$nsgRuleWeb
 
@@ -104,7 +104,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
 $nic = New-AzureRmNetworkInterface `
     -Name myNic `
     -ResourceGroupName myResourceGroupAutomate `
-    -Location westus `
+    -Location EastUS `
     -SubnetId $vnet.Subnets[0].Id `
     -PublicIpAddressId $publicIP.Id `
     -NetworkSecurityGroupId $nsg.Id
@@ -116,7 +116,7 @@ Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer `
     -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
 Add-AzureRmVMNetworkInterface -Id $nic.Id
 
-New-AzureRmVM -ResourceGroupName myResourceGroupAutomate -Location westus -VM $vmConfig
+New-AzureRmVM -ResourceGroupName myResourceGroupAutomate -Location EastUS -VM $vmConfig
 ```
 
 It takes a few minutes for the resources and VM to be created.
@@ -133,7 +133,7 @@ Set-AzureRmVMExtension -ResourceGroupName myResourceGroupAutomate `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-    -Location westus
+    -Location EastUS
 ```
 
 
