@@ -149,7 +149,7 @@
         href: https://azure.microsoft.com/try/cognitive-services/?api=search-api
       - name: Try it!
         href: https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553
-  - name: Bing Speech
+  - name: Speech
     items:
     - name: Overview
       href: Speech/Home.md
@@ -163,10 +163,6 @@
         href: Speech/GetStarted/GetStartedCSharpDesktop.md
       - name: C# for .NET - Service Library
         href: Speech/GetStarted/GetStartedCSharpServiceLibrary.md
-      - name: C# for .NET Universal Apps on Windows 10
-        href: Speech/GetStarted/GetStartedCSharpWin10.md
-      - name: C# for .NET on Windows Phone 8.1
-        href: Speech/GetStarted/GetStartedCSharpWinPhone.md
       - name: Java on Android
         href: Speech/GetStarted/GetStartedJavaAndroid.md
       - name: JavaScript
@@ -177,14 +173,8 @@
       href: Speech/API-Reference-REST/BingVoiceOutput.md
     - name: SDKs
       items:
-      - name: Android
-        href: https://github.com/Microsoft/Cognitive-Speech-STT-Android
-      - name: iOS
-        href: https://github.com/Microsoft/Cognitive-Speech-STT-iOS
       - name: JavaScript
-        href: https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript
-      - name: Windows
-        href: https://github.com/Microsoft/Cognitive-Speech-STT-Windows
+        href: https://github.com/azure-samples/SpeechToText-WebSockets-Javascript
   - name: Bing Spell Check
     items:
     - name: Overview
