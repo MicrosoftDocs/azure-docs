@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Shell (Preview) Limitations | Microsoft Docs
+title: Azure Cloud Shell (Preview) limitations | Microsoft Docs
 description: Overview of limitations of Azure Cloud Shell
 services: 
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 05/10/2017
 ms.author: juluk
 ---
 
-# Azure Cloud Shell (Preview) limitations
+# Azure Cloud Shell limitations
 Azure Cloud Shell has the following known limitations.
 
 ## System state and persistence
@@ -33,7 +33,7 @@ Certain commands such as `git clone` within the `clouddrive` directory do not ha
 ## Browser support
 Cloud Shell supports the latest versions of Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozilla Firefox, and Apple Safari. Safari in private mode is not supported.
 
-## Copy/paste
+## Copy and paste
 Ctrl-v and Ctrl-c do not function on Windows, please us Ctrl-insert and Shift-insert to copy/paste respectively.
 Utilize right-click copy paste options if needed as well, however Firefox and Internet Explorer do not support right-click permissions.
 
@@ -44,5 +44,5 @@ Cloud Shell is intended for interactive use cases, as a result any long-running 
 Any latency in the Cloud Shell is subject to local internet connectivity, Cloud Shell will continue to attempt functioning to any instructions sent.
 
 ## Next steps
-[Quickstart](quickstart.md) <br>
-[Persist files by attaching a file share to Cloud Shell](persisting-shell-storage.md) 
+- [Quickstart](quickstart.md) 
+- [Persist files by attaching a file share to Cloud Shell](persisting-shell-storage.md) 

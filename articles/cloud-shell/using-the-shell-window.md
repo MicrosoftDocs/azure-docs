@@ -28,7 +28,7 @@ This document explains how to use the Azure Cloud Shell window.
 ## Resize Cloud Shell window
 * Click and drag the top edge of the toolbar up or down to resize the Cloud Shell window.
 
-## Copy/paste
+## Copy and paste
 * Windows: `Ctrl-insert` and `Shift-insert` or right-click dropdown to copy/paste
   * FireFox/IE may not support clipboard permissions properly
 * Mac OS: `Cmd-c` and `Cmd-v` or right-click dropdown to copy/paste
@@ -40,4 +40,4 @@ This document explains how to use the Azure Cloud Shell window.
 Running `exit` terminates the active session. This behavior occurs by default after 10 minutes without interaction.
 
 ## Next Steps
-[Cloud Shell Quickstart](quickstart.md) 
+[Cloud Shell Quickstart](quickstart.md)  

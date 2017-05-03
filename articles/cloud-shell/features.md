@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Shell (Preview) Features | Microsoft Docs
+title: Azure Cloud Shell (Preview) features | Microsoft Docs
 description: Overview of features of Azure Cloud Shell
 services: 
 documentationcenter: ''
@@ -17,16 +17,15 @@ ms.date: 05/10/2017
 ms.author: juluk
 ---
 
-# Azure Cloud Shell (Preview) features
+# Azure Cloud Shell features
 Azure Cloud Shell is a browser-based shell experience to manage and develop Azure resources.
 
-## Browser-accessible shell experience for Azure
 Cloud Shell offers a browser-accessible, pre-configured shell experience for managing Azure resources without the overhead of installing, versioning, and maintaining a machine yourself.
 
 Cloud Shell provisions machines on a per-request basis and as a result machine state will not persist across sessions. 
 Since Cloud Shell is built for interactive sessions, shells automatically terminate after 10 minutes of shell inactivity.
 
-### Tools
+## Tools
 |Category   |Name   |
 |---|---|
 |Linux shell interpreter|Bash<br> sh               |
@@ -38,7 +37,7 @@ Since Cloud Shell is built for interactive sessions, shells automatically termin
 |Databases              |MySQL client<br> PostgreSql client<br> sqlcmd Utility      |
 |Other                  |iPython Client |
 
-### Language support
+## Language support
 |Language   |Version   |
 |---|---|
 |.NET       |1.01       |
@@ -58,5 +57,5 @@ Once completed Cloud Shell will automatically attach your storage for all future
 [Learn more about attaching Azure file shares to Cloud Shell.](persisting-shell-storage.md).
 
 ## Next steps
-[Get Started with Quickstart](quickstart.md) <br>
-[Learn more about Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/) <br>
+- [Get Started with Quickstart](quickstart.md) 
+- [Learn more about Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) 

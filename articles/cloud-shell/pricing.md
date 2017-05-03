@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Shell Pricing (Preview) | Microsoft Docs
+title: Azure Cloud Shell pricing (Preview) | Microsoft Docs
 description: Overview of pricing of Azure Cloud Shell
 services: 
 documentationcenter: ''
@@ -25,4 +25,4 @@ Azure Cloud Shell runs on a machine provided for free, but requires an attached 
 ## Storage Cost
 Cloud Shell creates a default 5GB image in your file share to persist your $HOME directory. Azure file shares incur regular costs.
 
-Check [here for details on Azure Files costs](https://azure.microsoft.com/en-us/pricing/details/storage/files/).
+Check [here for details on Azure Files costs](https://azure.microsoft.com/pricing/details/storage/files/). 
