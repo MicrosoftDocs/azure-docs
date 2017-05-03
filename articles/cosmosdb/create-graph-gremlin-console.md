@@ -19,7 +19,7 @@ ms.author: anhoh
 ---
 # Azure Cosmos DB tutorial: Get started with Graph API in the Gremlin Console
 
-Welcome to the Azure Cosmos DB tutorial for the Graph API Gremlin Console! After following this tutorial, you'll have ran through creating and querying vertices and edges with Cosmos DB's Graph API.
+This quickstart demonstrates how to use the Graph API in the Gremlin Console. In this tutorial, you'll create and querying vertices and edges with the Azure Cosmos DB Graph API.
 
 We'll cover:
 
@@ -38,20 +38,20 @@ Please make sure you have the following:
     * Alternatively, you can use the [Azure Cosmos DB Emulator](../documentdb/documentdb-nosql-local-emulator.md) for this tutorial.
 * [Gremlin Console](http://tinkerpop.apache.org/) 3.2.4 and above
 
-## Create a Cosmos DB account with Graph API
-Let's create a Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Connect to your app service](#ConnectAppService). If you are using the DocumentDB Emulator, please follow the steps at [Azure DocumentDB Emulator](../documentdb/documentdb-nosql-local-emulator.md) to setup the emulator and skip ahead to [Setup your Visual Studio Solution](#SetupVS).
+## Create an Azure Cosmos DB account with the Graph API
+Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Connect to your app service](#ConnectAppService). If you are using the Azure Cosmos DB Emulator, please follow the steps at [Azure Cosmos DB Emulator](../documentdb/documentdb-nosql-local-emulator.md) to setup the emulator and then skip ahead to [Setup your Visual Studio Solution](#SetupVS).
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [cosmosdb-create-dbaccount-graph](../../includes/cosmosdb-create-dbaccount-graph.md)]
 
 ## <a id="ConnectAppService"></a>Connect to your app service
 1. Before beginning the Gremlin Console, create or modify your *remote-secure.yaml* configuration file in the *apache-tinkerpop-gremlin-console-3.2.4/conf* directory.
 2. Fill in your *host*, *port*, *username*, *password*, *connectionPool*, and *serializer* configurations:
-    * hosts: [fillin.azurewebsites.net]
-    * port: 443
-    * username: fill in
-    * password: fill in
-    * connectionPool: {enableSsl: true}
-    * serializer: { className:            org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0, config: { serializeResultToString: true }}
+    * Hosts: [fillin.azurewebsites.net]
+    * Port: 443
+    * Username: fill in
+    * Password: fill in
+    * ConnectionPool: {enableSsl: true}
+    * Serializer: { className:org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0, config: { serializeResultToString: true }}
 3. In your terminal, run *bin/gremlin.bat* or *bin/gremlin.sh* to start the [Gremlin Console](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/).
 4. In your terminal, run *:remote connect tinkerpop.server conf/remote-secure.yaml* to connect to your app service.
 
@@ -155,13 +155,13 @@ Output:
 
     ==>Thomas
 
-Next, let's return every person's first name in a sorted order.
+<!--Next, let's return every person's first name in a sorted order.
 
 Input (projection + order by query):
 
 
 
-Output:
+Output:-->
 
 
 
@@ -204,7 +204,7 @@ Input:
 
     :> g.V().drop()
 
-Congratulations! You've completed this Cosmos DB: Graph API tutorial!
+Congratulations! You've completed this Azure Cosmos DB: Graph API tutorial!
 
 ## Next steps
 

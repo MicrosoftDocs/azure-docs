@@ -182,7 +182,7 @@ public class Program
 
 2. In the NuGet **Browse** box, type ***Azure Cosmos DB***.
 
-3. From the results, install the **.NET Client library for Azure Azure Cosmos DB**. This installs the Azure Cosmos DB package as well as all dependencies.
+3. From the results, install the **.NET Client library for Azure Cosmos DB**. This installs the Azure Cosmos DB package as well as all dependencies.
 
 4. Click CTRL + F5 to run the application. Your app displays in your browser. 
 

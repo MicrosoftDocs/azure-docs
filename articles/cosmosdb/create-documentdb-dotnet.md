@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: Build a web app .NET with the DocumentDB API | Microsoft Docs'
+title: 'Azure Cosmos DB: Build a web app with .NET and the DocumentDB API | Microsoft Docs'
 description: Presents a .NET code sample you can use to connect to and query the Azure Cosmos DB DocumentDB API
 services: cosmosdb
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 04/30/2017
 ms.author: mimig
 
 ---
-# Azure Cosmos DB: Build a web app .NET with the DocumentDB API
+# Azure Cosmos DB: Build a web app with .NET and the DocumentDB API
 
 This quick start demonstrates how to use the [DocumentDB .NET API](../documentdb/documentdb-sdk-dotnet.md) for Azure Cosmos DB and the Azure portal to create an Azure Cosmos DB account, create a database and collection, and then build and deploy a web app on the Windows platform.
 
@@ -52,7 +52,7 @@ You can now add data to your new collection using Data Explorer.
 
 1. In Data Explorer, the new database appears in the Collections pane. Expand the **Items** database, expand the **ToDoList** collection, click **Documents**, and then click **New Documents**. 
 
-   ![Create new documents in Data Explorer in the Azure portal](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-emulator-new-document.png)
+   ![Create new documents in Data Explorer in the Azure portal](./media/create-documentdb-dotnet/azure-comosdb-data-explorer-emulator-new-document.png)
   
 2. Now add a few new documents to the collection with the following structure, where you insert unique values for id in each document and change the other properties as you see fit. Your new documents can have any structure you want as Azure Cosmos DB doesn't impose any schema on your data.
 
