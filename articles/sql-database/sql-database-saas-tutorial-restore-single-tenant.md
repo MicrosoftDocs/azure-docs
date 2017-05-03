@@ -21,12 +21,12 @@ ms.author: billgib;sstein
 ---
 # Restore a single tenant database
 
-The Wingtip SaaS app is built using a single-tenant data model, with each venue (tenant) having their own database. One of the benefits of this model is that it is easy to restore a single tenant’s data in isolation without impacting other tenants.
+The Wingtip SaaS app is built using a single-tenant data model, where each venue (tenant) has their own database. One of the benefits of this model is that it is easy to restore a single tenant’s data in isolation without impacting other tenants.
 
 This tutorial presents two data recovery patterns:
 
-1. Restoring data from a prior point into a parallel database (side-by-side), which can be used by the tenant for review, auditing, compliance, etc... The original database remains online and unchanged, continuing in its current state.
-1. Restoring data in-place, to recover a tenant to a prior point in time if the tenant has accidentally corrupted their data in some way. The original database is taken offline, and replaced with the new database, restored to a previous point in time.
+1. Restoring to a prior point of time into a parallel database (side-by-side), which can be used by the tenant for review, auditing, compliance, etc... The original database remains online and unchanged.
+1. Restoring data in-place, to recover a tenant to a prior point in time if the tenant has accidentally corrupted their data in some way. The original database is taken offline, and replaced with the new database, restored to a point in time before the data was compromised.
 
 To complete this tutorial, make sure of the following:
 
@@ -44,21 +44,27 @@ In the second pattern, which assumes that the tenant has suffered a serious, pos
 
 ## Simulate a user accidently deleting data
 
-To demonstrate these recovery scenarios, the tutorial requires the creation and removal of tickets. In this section, the scripts being executed will create ticket purchases and then remove them from a specific venue to simulate a scenario where a user mistakenly deletes records from the database (oops!).
+To demonstrate these recovery scenarios we need to 'accidently' delete some data in one of the tenant databases. While we can use any tool that can run a query, lets delete one of the Contoso Concert Hall events using the new **Query editor** in the Azure portal.
 
-### Create ticket sales (the records to delete)
 
-1. Open the following scripts in the **PowerShell ISE**
-   1. ...\\Learning Modules\\Utilities\\_Demo-TicketGenerator.ps1_
-        * At this point ticket purchases will have been generated for all venues registered on the Wingtip platform. The ticket generator always leaves the last event with no tickets sold, which allows the event to be deleted. You can generate tickets again if you want to try deleting another event at the same venue.
+1. Open the [Azure portal](https://portal.azure.com) and browse to the **contosoconcerthall** database, then click **Tools**:
 
-1. Open ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\_Demo-RestoreTenant.ps1_
-1. Delete event with no ticket sales from the Contoso Concert Hall Venue. This deleted event will be restored later in the tutorial.
-    1. **Modify $DemoScenario** to **1** to select the ‘delete event with no ticket sales’ scenario.
-    1. Execute using **F5**
-    1. This script opens the Contoso Concert Hall events page in your browser, and then separately deletes an event from Contoso Concert Hall. Additionally, it sets a recovery point (5 minutes before event deletion) that will be used in the restore scripts later in this tutorial.
-    1. Verify that the event is deleted by refreshing the events page on your browser and looking for the deleted event that was output to the console.
+   ![tools](media/sql-database-saas-tutorial-restore-single-tenant/db-tools.png)
 
+1. Click **Query editor**, then click **Login**. The *contosoconcerthall* database is on the *tenants1-<User>* server so you're logging on with the server credentials; Login = *developer*, Password = *P@ssword1*.
+
+   ![login](media/sql-database-saas-tutorial-restore-single-tenant/login.png)
+
+1. Run the following query: ```SELECT * FROM dbo.Events``` to see the current list of events.
+1. Delete event 11. You can delete any event, but to easily get past referential integrity constraints delete the *Seriously Strauss* event (we purposely sold no tickets for this event!). Run the following two delete queries to simulate a tenant admin mistakenly deleting an event from their database:
+
+   ```SQL
+   DELETE FROM dbo.EventSections WHERE EventId = '11'
+   DELETE FROM dbo.Events WHERE EventId = '11'
+   ```
+1. Query again for the list of events and verify that event 11 is gone: ```SELECT * FROM dbo.Events```.
+
+Now lets restore the database to a point in time before the _Seriously Strauss_ event was deleted. 
 
 ## Restore a tenant database in parallel with the production database
 
