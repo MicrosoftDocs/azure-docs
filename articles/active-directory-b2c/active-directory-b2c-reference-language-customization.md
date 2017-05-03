@@ -17,7 +17,7 @@ ms.author: sama
 ---
 # Azure Active Directory B2C: Using language customization
 
->[!NOTE] This feature is in public preview.  It is recommended that you use a test tenant when using this feature.  We don't plan on any breaking changes from the preview to the general availabilty release, but we reserve the right to make changes to improve the feature.  Once you've had a chance to experiment with the feature, please provide feedback on your experiences and how we can make it better.  You can provide feedback through the Azure portal.   If you intend to go to production using this feature, inform us ahead of time so we may provide you with the proper guidance and assistance.  You can contact us at aadb2cpreview@microsoft.com
+>[!NOTE] This feature is in public preview.  It is recommended that you use a test tenant when using this feature.  We don't plan on any breaking changes from the preview to the general availability release, but we reserve the right to make such changes to improve the feature.  Once you've had a chance to try feature, please provide feedback on your experiences and how we can make it better.  You can provide feedback through the Azure portal with the smiley face tool on the top right.   If there is a business requirement for you to go live using this feature during the preview phase, please let us know your scenarios and we can provide you with the proper guidance and assistance.  You can contact us at aadb2cpreview@microsoft.com
 
 Language customization allows you to change your user journey to a different language to suit your customer needs.  We provide translations for 37 languages (see [What languages are supported]([#what-languages-are-supported)).  Even if your experience is only provided for a single language, you can customize any text on the pages to suit your needs.  
 
@@ -71,11 +71,13 @@ If you are looking to change the string for a custom user attribute, or want to 
       "ElementType": "ClaimType",
       "ElementId": "extension_<ExtensionAttribute>",
       "StringId": "DisplayName",
+      "Override": false,
       "Value": "<ExtensionAttributeValue>"
     }
     [...]
 }
 ```
+>[!IMPORTANT]If you need to override a string, make sure to set the `Override` value to `true`.  If this isn't changed, the entry is ignored. 
 
 Replace <ExtensionAttribute> with the name of your custom user attribute and the <ExtensionAttributeValue> with the new string to be displayed.
 
@@ -89,6 +91,7 @@ If you want to provide a set list of values for responses, you need to create a 
       "ElementType":"ClaimType", 
       "ElementId":"<UserAttribute>",
       "TargetCollection":"Restriction",
+      "Override": false,
       "Items":[
            {
                 "Name":"<Response1>",
@@ -102,6 +105,9 @@ If you want to provide a set list of values for responses, you need to create a 
   }]
 }
 ```
+
+>[!IMPORTANT]If you need to override a string, make sure to set the `Override` value to `true`.  If this isn't changed, the entry is ignored. 
+
 * `ElementId` is the user attribute that this `LocalizedCollections` is a response to
 * `Name` is the value shown to the user
 * `Value` is what is returned in the claim when this option is selected
@@ -128,7 +134,10 @@ We will continuously improve translations and keep them in compliance for you.  
 ### Social Identity provider translations
 Currently, we are providing the ui_locales OIDC parameter social logins such as Facebook and Google, but some of them are not honoring this parameter to the OIDC specifications. 
 ### Known issues
-There are some problems with the Multi Factor Authentication page that requires improvement.  Issues include page title translations in certain languages and you can't upload a language resource for a the MFA page in a Profile Edit policy.
+* Uploading language resources for a the MFA page in a Profile Edit policy is currently unavailable.
+* `LocalizedCollections` aren't generated for values when it is required by the response type
+### What can I do if I want a language that isn't supported?
+We are planning to provide an extension of this feature that will allow you to upload a JSON resource towards 'custom languages'.  This means you would be able to specify the name and language code for any language and provide *all* the translations for that language.  If you have a need for this feature, please send us your scenario at aadb2cpreview@microsoft.com.  
 ### What languages are supported?
 | Language              | Language code |
 |-----------------------|---------------|
