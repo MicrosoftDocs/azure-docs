@@ -24,6 +24,10 @@ In this tutorial, you learn how to create your own custom image of an Azure virt
 
 The steps in this tutorial can be completed using the latest [Azure PowerShell](/powershell/azure/overview) module.
 
+## Before you begin
+
+The steps below detail how to take an existing VM and turn it into a re-usable custom image that you can use to create new VM instances.
+
 To complete the example in this tutorial, you must have an existing virtual machine. If needed, this [script sample](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) can create one for you. When working through the tutorial, replace the resource group and VM names where needed.
 
 ## Prepare VM
