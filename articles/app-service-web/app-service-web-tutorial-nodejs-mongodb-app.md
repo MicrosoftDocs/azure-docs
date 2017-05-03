@@ -45,7 +45,7 @@ Run `mongo` in the terminal to connect to your local MongoDB server.
 mongo
 ```
 
-If your connection is successful, then your MongoDB database is already running. If not, make sure that your local MongoDB database is started by following the steps at [Download, install, and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/). In many cases, MongoDB is installed, but you need to manually start it. 
+If your connection is successful, then your MongoDB database is already running. If not, make sure that your local MongoDB database is started by following the steps at [Download, install, and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/). In many cases, MongoDB is installed, but you still need to start it by running `mongod`. 
 
 When you are done testing your MongoDB database, type `Ctrl`+`C` in the terminal. 
 
