@@ -56,27 +56,99 @@
   - name: Bing Autosuggest
     items:
     - name: Overview
-      href: Bing-Autosuggest/overview.md
-    - name: Use and Display Requirements
-      href: Bing-Autosuggest/UseAndDisplayRequirements.md
-    - name: API reference
-      href: https://msdn.microsoft.com/library/mt711395.aspx
+      items:
+      - name: Get suggested search terms
+        href: Bing-Autosuggest/get-suggested-search-terms.md
+      - name: Upgrade from v5 to v7 Preview
+        href: Bing-Autosuggest/bing-autosuggest-upgrade-guide-v5-to-v7.md
+      - name: Use and display requirements
+        href: Bing-Autosuggest/UseAndDisplayRequirements.md
+    - name: Quickstarts
+      items:
+      - name: Get started
+        href: Bing-Autosuggest/quick-start.md
+    - name: Reference
+      items:
+      - name: REST v5
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference.md
+      - name: REST v7 Beta
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference.md
+    - name: Resources
+      items:
+      - name: Subscription key
+        href: https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api
+      - name: Try it!
+        href: https://dev.cognitive.microsoft.com/docs/services/56c7694ecf5ff801a090fbd1/operations/56c769a2cf5ff801a090fbd2
   - name: Bing Image Search
     items:
     - name: Overview
-      href: Bing-Image-Search/overview.md
-    - name: Use and Display Requirements
-      href: Bing-Image-Search/UseAndDisplayRequirements.md
-    - name: API reference
-      href: https://msdn.microsoft.com/library/dn760791.aspx
+      items:
+        - name: Search the web for images
+          href: Bing-Image-Search/search-the-web.md
+        - name: Upgrade from v5 to v7 Preview
+          href: Bing-Image-Search/bing-image-upgrade-guide-v5-to-v7.md
+        - name: Use and display requirements
+          href: Bing-Image-Search/UseAndDisplayRequirements.md
+    - name: Quickstarts
+      items:
+      - name: Get started
+        href: Bing-Image-Search/quick-start.md
+    - name: How to
+      items:
+      - name: Get image insights
+        href: Bing-Image-Search/image-insights.md
+      - name: Get trending images
+        href: Bing-Image-Search/trending-images.md
+      - name: Page images
+        href: Bing-Image-Search/paging-images.md
+      - name: Resize and crop thumbnails
+        href: Bing-Image-Search/resize-and-crop-thumbnails.md
+    - name: Reference
+      items:
+      - name: REST v5
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference.md
+      - name: REST v7 Beta
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference.md
+    - name: Resources
+      items:
+      - name: Subscription key
+        href: https://azure.microsoft.com/try/cognitive-services/?api=search-api
+      - name: Try it!
+        href: https://dev.cognitive.microsoft.com/docs/services/56b43f0ccf5ff8098cef3808/operations/571fab09dbe2d933e891028f
   - name: Bing News Search
     items:
     - name: Overview
-      href: Bing-News-Search/overview.md
-    - name: Use and Display Requirements
-      href: Bing-News-Search/UseAndDisplayRequirements.md
-    - name: API reference
-      href: https://msdn.microsoft.com/library/dn760793.aspx
+      items:
+        - name: Search the web for news
+          href: Bing-News-Search/search-the-web.md
+        - name: Upgrade from v5 to v7 Preview
+          href: Bing-News-Search/bing-news-upgrade-guide-v5-to-v7.md
+        - name: Use and display requirements
+          href: Bing-News-Search/UseAndDisplayRequirements.md
+    - name: Quickstarts
+      items:
+      - name: Get started
+        href: Bing-News-Search/quick-start.md
+    - name: How to
+      items:
+      - name: Handle hit highlighting
+        href: Bing-News-Search/hit-highlighting.md
+      - name: Page news
+        href: Bing-News-Search/paging-news.md
+      - name: Resize and crop thumbnails
+        href: Bing-News-Search/resize-and-crop-thumbnails.md
+    - name: Reference
+      items:
+      - name: REST v5
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference.md
+      - name: REST v7 Beta
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference.md
+    - name: Resources
+      items:
+      - name: Subscription key
+        href: https://azure.microsoft.com/try/cognitive-services/?api=search-api
+      - name: Try it!
+        href: https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553
   - name: Bing Speech
     items:
     - name: Overview
@@ -116,27 +188,103 @@
   - name: Bing Spell Check
     items:
     - name: Overview
-      href: Bing-Spell-Check/Home.md
-    - name: Use and Display Requirements
-      href: Bing-Spell-Check/UseAndDisplayRequirements.md
-    - name: API reference
-      href: https://msdn.microsoft.com/library/mt711410.aspx
+      items:
+        - name: Spell check text strings
+          href: Bing-Spell-Check/proof-text.md
+        - name: Upgrade from v5 to v7 Preview
+          href: Bing-Spell-Check/bing-spell-check-upgrade-guide-v5-to-v7.md
+        - name: Use and display requirements
+          href: Bing-Spell-Check/UseAndDisplayRequirements.md
+    - name: Quickstarts
+      items:
+      - name: Get started
+        href: Bing-Spell-Check/quick-start.md
+    - name: Reference
+      items:
+      - name: REST v5
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference.md
+      - name: REST v7 Beta
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference.md
+    - name: Resources
+      items:
+      - name: Subscription key
+        href: https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api
+      - name: Try it!
+        href: https://dev.cognitive.microsoft.com/docs/services/56e73033cf5ff80c2008c679/operations/57855119bca1df1c647bc358
   - name: Bing Video Search
     items:
     - name: Overview
-      href: Bing-Video-Search/overview.md
-    - name: Use and Display Requirements
-      href: Bing-Video-Search/UseAndDisplayRequirements.md
-    - name: API reference
-      href: https://msdn.microsoft.com/en-US/library/dn760795.aspx
+      items:
+        - name: Search the web for videos
+          href: Bing-Video-Search/search-the-web.md
+        - name: Upgrade from v5 to v7 Preview
+          href: Bing-Video-Search/bing-video-upgrade-guide-v5-to-v7.md
+        - name: Use and display requirements
+          href: Bing-Video-Search/UseAndDisplayRequirements.md
+    - name: Quickstarts
+      items:
+      - name: Get started
+        href: Bing-Video-Search/quick-start.md
+    - name: How to
+      items:
+      - name: Get video insights
+        href: Bing-Video-Search/video-insights.md
+      - name: Get trending videos
+        href: Bing-Video-Search/trending-videos.md
+      - name: Page videos
+        href: Bing-Video-Search/paging-videos.md
+      - name: Resize and crop thumbnails
+        href: Bing-Video-Search/resize-and-crop-thumbnails.md
+    - name: Reference
+      items:
+      - name: REST v5
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference.md
+      - name: REST v7 Beta
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference.md
+    - name: Resources
+      items:
+      - name: Subscription key
+        href: https://azure.microsoft.com/try/cognitive-services/?api=search-api
+      - name: Try it!
+        href: https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8
   - name: Bing Web Search
     items:
     - name: Overview
-      href: Bing-Web-Search/overview.md
-    - name: Use and Display Requirements
-      href: Bing-Web-Search/UseAndDisplayRequirements.md
-    - name: API reference
-      href: https://msdn.microsoft.com/en-US/library/dn760794.aspx
+      items:
+        - name: Search the web
+          href: Bing-Web-Search/search-the-web.md
+        - name: Upgrade from v5 to v7 Preview
+          href: Bing-Web-Search/bing-web-upgrade-guide-v5-to-v7.md
+        - name: Use and display requirements
+          href: Bing-Web-Search/UseAndDisplayRequirements.md
+    - name: Quickstarts
+      items:
+      - name: Get started
+        href: Bing-Web-Search/quick-start.md
+    - name: How to
+      items:
+      - name: Filter answer
+        href: Bing-Web-Search/filter-answers.md
+      - name: Rank results
+        href: Bing-Web-Search/rank-results.md
+      - name: Handle hit highlighting
+        href: Bing-Web-Search/hit-highlighting.md
+      - name: Page webpages
+        href: Bing-Web-Search/paging-webpages.md
+      - name: Resize and crop thumbnails
+        href: Bing-Web-Search/resize-and-crop-thumbnails.md
+    - name: Reference
+      items:
+      - name: REST v5
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md
+      - name: REST v7 Preview
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference.md
+    - name: Resources
+      items:
+      - name: Subscription key
+        href: https://azure.microsoft.com/try/cognitive-services/?api=search-api
+      - name: Try it!
+        href: https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d
   - name: Computer Vision
     items:
     - name: Overview
