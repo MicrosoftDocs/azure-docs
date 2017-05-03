@@ -15,7 +15,7 @@ ms.author: alch
 # Field Of Study Entity
 
 <sub>
-*Below attributes are specific to field of study entity. (Ty = '6')
+*Following attributes are specific to field of study entity. (Ty = '6')
 </sub>
 
 Name	|Description							|Type       | Operations

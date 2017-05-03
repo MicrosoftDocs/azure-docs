@@ -15,7 +15,7 @@ ms.author: alch
 # Affiliation Entity
 
 <sub>
-*Below attributes are specific to affiliation entity. (Ty = '5')
+*Following attributes are specific to affiliation entity. (Ty = '5')
 </sub>
 
 Name	|Description							|Type       | Operations

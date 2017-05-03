@@ -15,7 +15,7 @@ ms.author: alch
 # Conference Instance Entity
 
 <sub>
-*Below attributes are specific to conference instance entity. (Ty = '4')
+*Following attributes are specific to conference instance entity. (Ty = '4')
 </sub>
 
 Name	|Description							|Type       | Operations

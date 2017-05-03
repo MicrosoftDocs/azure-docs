@@ -15,7 +15,7 @@ ms.author: alch
 # Conference Series Entity
 
 <sub>
-*Below attributes are specific to conference series entity. (Ty = '3')
+*Following attributes are specific to conference series entity. (Ty = '3')
 </sub>
 
 Name	|Description							|Type       | Operations
