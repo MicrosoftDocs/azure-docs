@@ -61,7 +61,7 @@ Finally, set the state of the VM as generalized with [az vm generalize](/cli//az
 az vm generalize --resource-group myResourceGroupImages --name myVM
 ```
 
-## Create VM from image
+## Create the image
 
 Now you can create an image of the VM by using [az image create](/cli//azure/image#create). The following example creates an image named *myImage* from a VM named *myVM*.
    
@@ -72,9 +72,9 @@ az image create \
     --source myVM
 ```
  
-## Create a VM from an image
+## Create VMs from the image
 
-You can create a VM using an image with [az vm create](/cli/azure/vm#create). The following example creates a VM named *myVMfromImage* from the image named *myImage*.
+Now that you have an image, you can create one or more new VMs from the image using [az vm create](/cli/azure/vm#create). The following example creates a VM named *myVMfromImage* from the image named *myImage*.
 
 ```azurecli
 az vm create \
