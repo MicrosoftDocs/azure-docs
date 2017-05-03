@@ -10,7 +10,6 @@
 ## [Connect to Azure Stack POC](azure-stack-connect-azure-stack.md)
 ## [Add default image](azure-stack-add-default-image.md)
 ## [Provision a virtual machine](azure-stack-provision-vm.md)
-## [Create a storage account](azure-stack-provision-storage-account.md)
 
 # Tutorials
 ## [Basic administration](azure-stack-manage-basics.md)
@@ -27,8 +26,7 @@
 # How-to guides
 
 ## Manage
-### Overview
-#### [Region management](azure-stack-region-management.md)
+### [Region management](azure-stack-region-management.md)
 ### [Using the portals](azure-stack-manage-portals.md)
 ### [Connect to Azure Stack](azure-stack-connect-azure-stack.md)
 ### Set up management environment
