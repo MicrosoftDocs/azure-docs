@@ -101,7 +101,7 @@ Policies affect the run-time behavior of an activity, specifically when the slic
 | longRetryInterval |TimeSpan |00:00:00 |The delay between long retry attempts |
 
 ### typeProperties section
-The typeProperties section is different for each activity. Transformation activities have just the type properties. See [DATA TRANSFORMATION ACTIVITIES](#data-transformation-activities) section in this article for JSON samples that define transformation activities in a pipeline. 
+The typeProperties section is different for each activity. Transformation activities have just the type properties. See [DATA TRANSFORMATION ACTIVITIES](#transformation-activites) section in this article for JSON samples that define transformation activities in a pipeline. 
 
 **Copy activity** has two subsections in the typeProperties section: **source** and **sink**. See [DATA STORES](#data-stores) section in this article for JSON samples that show how to use a data store as a source and/or sink. 
 
@@ -215,7 +215,7 @@ Note the following points:
 * The Hive script file, **partitionweblogs.hql**, is stored in the Azure storage account (specified by the scriptLinkedService, called **AzureStorageLinkedService**), and in **script** folder in the container **adfgetstarted**.
 * The **defines** section is used to specify the runtime settings that are passed to the hive script as Hive configuration values (e.g `${hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
 
-See [DATA TRANSFORMATION ACTIVITIES](#data-transformation-activities) section in this article for JSON samples that define transformation activities in a pipeline.
+See [DATA TRANSFORMATION ACTIVITIES](#transformation-activities) section in this article for JSON samples that define transformation activities in a pipeline.
 
 For a complete walkthrough of creating this pipeline, see [Tutorial: Build your first pipeline to process data using Hadoop cluster](data-factory-build-your-first-pipeline.md). 
 
