@@ -76,7 +76,7 @@ Learn how to enable natural and contextual interaction within your applications 
     </li>
 
 <li>
-        <a href="/azure/cognitive-services/bing-web-search/overview">
+        <a href="/azure/cognitive-services/bing-web-search/search-the-web">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -94,7 +94,7 @@ Learn how to enable natural and contextual interaction within your applications 
         </a>
     </li>
     <li>
-        <a href="/azure/cognitive-services/bing-web-search/search-the-web">
+        <a href="/azure/cognitive-services/custom-speech-service/home">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
