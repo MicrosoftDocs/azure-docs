@@ -96,6 +96,57 @@ A more complex implementation could include the information from [operations mon
 > [!NOTE]
 > If an IoT solution needs the device connection state solely to determine whether to send cloud-to-device messages, and messages are not broadcast to large sets of devices, a simpler pattern to consider is using a short Expiry time. This pattern achieves the same result as maintaining a device connection state registry using the heartbeat pattern, while being more efficient. It is also possible, by requesting message acknowledgements, to be notified by IoT Hub of which devices are able to receive messages and which are not online or are failed.
 
+## Device lifecycle notifications
+
+IoT Hub can notify your IoT solution when a device identity is created or deleted by sending device lifecycle notifications. In order to do so, your IoT solution needs to create a new route and set the Data Source equal to *DeviceLifecycleEvents*. By default, no lifecycle notifications are sent, i.e. no such routes pre-exist.
+
+The notification message has 3 sections:
+1. System properties
+2. Properties
+3. Body
+
+The format is as follows:
+
+| System Property | Value |
+| --- | --- |
+Content-type | application/json |
+EnqueuedTime |  Time when the notification was sent |
+MessageSchema | deviceLifecycleNotification |
+
+
+| Property | Value |
+| --- | --- |
+opType | “createDeviceIdentity” or “deleteDeviceIdentity” |
+hubName | Name of IoT Hub |
+deviceId | Id of the device |
+operationTimestamp | ISO8601 timestamp of operation |
+iothub-message-schema | deviceLifecycleNotification |
+iothub-connection-device-id | Id of the device |
+
+
+| Body |
+| --- |
+JSON with the twin of the created device identity, e.g.
+ 
+        {
+            "properties": {
+                "desired": {
+                    "$metadata": {
+                        "$lastUpdated": "2016-02-30T16:24:48.789Z"
+                    },
+                    "$version": 1
+                },
+                "reported": {
+                    "$metadata": {
+                        "$lastUpdated": "2016-02-30T16:24:48.789Z"
+                    },
+                    "$version": 1
+                }
+            }
+        }
+
+
+
 ## Reference topics:
 
 The following reference topics provide you with more information about the identity registry.

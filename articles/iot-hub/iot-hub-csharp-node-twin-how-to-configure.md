@@ -210,7 +210,7 @@ In this section, you will create a .NET console app that updates the *desired pr
     After that, it queries the device twins stored in the IoT hub every 10 seconds, and prints the desired and reported telemetry configurations. Refer to the [IoT Hub query language][lnk-query] to learn how to generate rich reports across all your devices.
    
    > [!IMPORTANT]
-   > This application queries IoT Hub every 10 seconds for illustrative purposes. Use queries to generate user-facing reports across many devices, and not to detect changes. If your solution requires real-time notifications of device events use [device-to-cloud messages][lnk-d2c].
+   > This application queries IoT Hub every 10 seconds for illustrative purposes. Use queries to generate user-facing reports across many devices, and not to detect changes. If your solution requires real-time notifications of device events use [twin notifications][lnk-twin-notifications].
    > 
    > 
 1. Finally, add the following lines to the **Main** method:
@@ -250,7 +250,7 @@ Use the following resources to learn how to:
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-query]: iot-hub-devguide-query-language.md
-[lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-twin-notifications]: iot-hub-devguide-device-twins#back-end-operations
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
