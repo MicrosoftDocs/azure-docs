@@ -45,7 +45,7 @@ You can also create a pipeline with the following tools:
 * .NET API
 * REST API
  
- For step-by-step instructions, see [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+ For step-by-step instructions, see the [Copy Activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Whether you use the tools or APIs, the following steps create a pipeline that moves data from a source data store to a sink data store:
 
@@ -76,7 +76,7 @@ To use service principal authentication, register an application entity in Azure
 * Tenant ID
 
 > [!IMPORTANT]
-> If you are using the Copy Wizard to author data pipelines, make sure that you grant the service principal at least a **Reader** role in Access control (IAM) for the Data Lake Store account. Also, grant the service principal at least **Read + Execute** permission to your Data Lake Store root ("/") and its children. Otherwise you see the message "The credentials provided are invalid."<br/><br/>
+> If you are using the Copy Wizard to author data pipelines, make sure that you grant the service principal at least a **Reader** role in access control (identity and access management) for the Data Lake Store account. Also, grant the service principal at least **Read + Execute** permission to your Data Lake Store root ("/") and its children. Otherwise you might see the message "The credentials provided are invalid."<br/><br/>
 After you create or update a service principal in Azure AD, it can take a few minutes for the changes to take effect. Check the service principal and Data Lake Store access control list (ACL) configurations. If you still see the message "The credentials provided are invalid," wait a while and try again.
 
 Use service principal authentication by specifying the following properties:
@@ -243,11 +243,11 @@ The following examples provide sample JSON definitions. You can use these sample
 ### Example: Copy data from Azure Blob Storage to Azure Data Lake Store
 The example code in this section shows:
 
-* A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
-* A linked service of type [AzureDataLakeStore](#linked-service-properties)
-* An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties)
-* An output [dataset](data-factory-create-datasets.md) of type [AzureDataLakeStore](#dataset-properties)
-* A [pipeline](data-factory-create-pipelines.md) with a copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) and [AzureDataLakeStoreSink](#copy-activity-properties)
+* A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+* A linked service of type [AzureDataLakeStore](#linked-service-properties).
+* An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+* An output [dataset](data-factory-create-datasets.md) of type [AzureDataLakeStore](#dataset-properties).
+* A [pipeline](data-factory-create-pipelines.md) with a copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) and [AzureDataLakeStoreSink](#copy-activity-properties).
 
 The examples show how time-series data from Azure Blob Storage is copied to Data Lake Store every hour. 
 
@@ -428,11 +428,11 @@ In the following example, the pipeline contains a copy activity that is configur
 ### Example: Copy data from Azure Data Lake Store to an Azure blob
 The example code in this section shows:
 
-* A linked service of type [AzureDataLakeStore](#linked-service-properties)
-* A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
-* An input [dataset](data-factory-create-datasets.md) of type [AzureDataLakeStore](#dataset-properties)
-* An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties)
-* A [pipeline](data-factory-create-pipelines.md) with a copy activity that uses [AzureDataLakeStoreSource](#copy-activity-properties) and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)
+* A linked service of type [AzureDataLakeStore](#linked-service-properties).
+* A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+* An input [dataset](data-factory-create-datasets.md) of type [AzureDataLakeStore](#dataset-properties).
+* An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+* A [pipeline](data-factory-create-pipelines.md) with a copy activity that uses [AzureDataLakeStoreSource](#copy-activity-properties) and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 The code copies time-series data from Data Lake Store to an Azure blob every hour. 
 
