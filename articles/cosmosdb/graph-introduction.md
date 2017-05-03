@@ -29,7 +29,7 @@ A [graph](http://mathworld.wolfram.com/Graph.html) is a structure composed of [v
 
 For example, the following diagram sample graph that shows the relationship between people, mobile devices, interests, and operating systems. 
 
-![Sample database showing persons, devices, and interests](./media/documentdb-graph-introduction/sample-graph.png) 
+![Sample database showing persons, devices, and interests](./media/graph-introduction/sample-graph.png) 
 
 Graphs are useful in understanding a wide diversity of datasets in science, technology, and business. Graph databases provide the ability to model and store graphs naturally and efficiently, which makes them appealing for a number of scenarios. Graph databases are typically NoSQL databases, because these use cases often also need schema flexibility and rapid iteration. 
 
@@ -40,7 +40,7 @@ You can combine the fast traversals provided by graph databases with graph algor
 ## Planet-scale graphs with Azure Cosmos DB
 Azure Cosmos DB is a fully-managed graph database that offers global distribution, elastic scaling of storage and throughput, automatic indexing and query, tunable consistency levels, and supports the TinkerPop standard.  
 
-![Azure Cosmos DB graph architecture](./media/documentdb-graph-introduction/documentdb-graph-architecture.png) 
+![Azure Cosmos DB graph architecture](./media/graph-introduction/cosmosdb-graph-architecture.png) 
 
 Azure Cosmos DB offers the following differentiated capabilities compared to other graph databases in the market: 
 

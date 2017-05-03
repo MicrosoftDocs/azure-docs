@@ -66,7 +66,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the web.config file in the next step.
 
-    ![View and copy an access key in the Azure Portal, Keys blade](./media/documentdb-connect-dotnet-core/keys.png)
+    ![View and copy an access key in the Azure Portal, Keys blade](./media/create-documentdb-dotnet-core/keys.png)
 
 2. In Visual Studio 2017, open the web.config file. 
 
@@ -92,7 +92,7 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 5. Click **Create New** in the browser and create a few new tasks in your to-do app.
 
-   ![Todo app with sample data](./media/documentdb-connect-dotnet-core/azure-documentdb-todo-app-list.png)
+   ![Todo app with sample data](./media/create-documentdb-dotnet-core/azure-cosmosdb-todo-app-list.png)
 
 You can now go back to Data Explorer and see query, modify, and work with this new data. 
 

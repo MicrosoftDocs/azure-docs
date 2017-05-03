@@ -32,7 +32,7 @@ You can use Azure Cosmos DB to create, update, and query graphs using the `Micro
 - Create a database.
 - Create a collection for storing graphs. You can configure the partition key, indexing policy, and provision collection throughput programmatically or via the Azure portal.
 
-Once you create the account, you can start working in .NET by downloading the [Microsoft.Azure.Azure Cosmos DB](../documentdb/documentdb-sdk-dotnet.md) package and the [Microsoft.Azure.Graph](https://aka.ms/graphdbextension) extension library, and include them within your project. The `Microsoft.Azure.Graph` library provides a single extension method `CreateGraphQuery` for executing Gremlin operations. Gremlin is a functional programming language that supports write operations (DML) and query and traversal operations. We cover a few examples in this article to get your started with Gremlin. [Gremlin queries](gremlin-support.md) has a detailed walkthrough of Gremlin capabilities in Azure Cosmos DB.
+Once you create the account, you can start working in .NET by downloading the [Microsoft.Azure.AzureCosmosDB](../documentdb/documentdb-sdk-dotnet.md) package and the [Microsoft.Azure.Graph](https://aka.ms/graphdbextension) extension library, and include them within your project. The `Microsoft.Azure.Graph` library provides a single extension method `CreateGraphQuery` for executing Gremlin operations. Gremlin is a functional programming language that supports write operations (DML) and query and traversal operations. We cover a few examples in this article to get your started with Gremlin. [Gremlin queries](gremlin-support.md) has a detailed walkthrough of Gremlin capabilities in Azure Cosmos DB.
 
 ## Prerequisites
 Please make sure you have the following:
@@ -51,13 +51,10 @@ If you already have an account you want to use, you can skip ahead to [Setup you
 1. Open **Visual Studio** on your computer.
 2. On the **File** menu, select **New**, and then choose **Project**.
 3. In the **New Project** dialog, select **Templates** / **Visual C#** / **Console Application**, name your project, and then click **OK**.
-   ![Screen shot of the New Project window](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
 4. In the **Solution Explorer**, right click on your new console application, which is under your Visual Studio solution, and then click **Manage NuGet Packages...**
-    
-    ![Screen shot of the Right Clicked Menu for the Project](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 5. In the **Nuget** tab, click **Browse**, and type **azure cosmos db** in the search box.
-6. Within the results, find **[Microsoft.Azure.Azure Cosmos DB](../documentdb/documentdb-sdk-dotnet.md)** and click **Install**.
-   The package ID for the DocumentDB Client Library is [Microsoft.Azure.Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB).
+6. Within the results, find **[Microsoft.Azure.AzureCosmosDB](../documentdb/documentdb-sdk-dotnet.md)** and click **Install**.
+   The package ID for the DocumentDB Client Library is [Microsoft.Azure.AzureCosmosDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB).
 
     If you get a messages about reviewing changes to the solution, click **OK**. If you get a message about license acceptance, click **I accept**.
 

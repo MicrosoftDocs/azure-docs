@@ -52,7 +52,7 @@ You can now add data to your new collection using Data Explorer.
 
 1. In Data Explorer, the new database appears in the Collections pane. Expand the **Items** database, expand the **ToDoList** collection, click **Documents**, and then click **New Documents**. 
 
-   ![Create new documents in Data Explorer in the Azure portal](./media/create-documentdb-dotnet-core/azure-cosmosdb-data-explorer-emulator-new-document.png)
+   ![Create new documents in Data Explorer in the Azure portal](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-emulator-new-document.png)
   
 2. Now add a few new documents to the collection with the following structure, where you insert unique values for id in each document and change the other properties as you see fit. Your new documents can have any structure you want as Azure Cosmos DB doesn't impose any schema on your data.
 
@@ -137,7 +137,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 5. Click **Create New** in the browser and create a few new tasks in your to-do app.
 
-   ![Todo app with sample data](./media/create-documentdb-dotnet/azure-cosmosdb-todo-app-list.png)
+   ![Todo app with sample data](./media/create-documentdb-dotnet/azure-comosdb-todo-app-list.png)
 
 You can now go back to Data Explorer and see query, modify, and work with this new data. 
 
@@ -147,7 +147,7 @@ Now that your app is up and running, you'll want to ensure ensure business conti
 
 * In the Azure portal, in the left menu, under **Monitoring**, click **Metrics**.
 
-   ![Todo app with sample data](./media/create-documentdb-dotnet/azure-cosmosdb-portal-metrics-slas.png)
+   ![Todo app with sample data](./media/create-documentdb-dotnet/azure-comosdb-portal-metrics-slas.png)
 
 ## Next steps
 
@@ -156,6 +156,6 @@ If you're not going to continue to use this app and Azure Cosmos DB, use the fol
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you just created. 
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
-To learn more about the Azure Comsos DB DocumentDB API, see [What is the DocumentDB API?(../documentdb/documentdb-introduction). To learn more about the SQL query language which you can use in the Azure portal and programmatically, see [SQL](../documentdb/documentdb-sql-query.md).
+To learn more about the Azure Comsos DB DocumentDB API, see [What is the DocumentDB API?](../documentdb/documentdb-introduction). To learn more about the SQL query language which you can use in the Azure portal and programmatically, see [SQL](../documentdb/documentdb-sql-query.md).
 
 

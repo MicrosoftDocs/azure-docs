@@ -208,4 +208,4 @@ Congratulations! You've completed this Cosmos DB: Graph API tutorial!
 
 ## Next steps
 
-For more information about the Graph API, see [Introduction to Graph support in Azure Cosmos DB](../documentdb/documentdb-graph-introduction.md).
+For more information about the Graph API, see [Introduction to Graph support in Azure Cosmos DB](graph-introduction.md).

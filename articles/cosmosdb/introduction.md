@@ -32,7 +32,7 @@ Azure Cosmos DB provides multi-model support for the following data models and A
 |---|---|
 |Key-value (table) data| [Tables API](../documentdb/documentdb-table-introduction.md)|
 |Document data|[Native DocumentDB support](../documentdb/documentdb-introduction.md) plus support for [MongoDB APIs](../documentdb/documentdb-protocol-mongodb.md)|
-|Graph data|[Gremlin graph APIs](../documentdb/documentdb-graph-introduction.md)|
+|Graph data|[Gremlin graph APIs](graph-introduction.md)|
  
 > [!NOTE]
 > Currently in public preview, Azure Table storage is offered as part of Azure Cosmos DB, and supports the same capabilities as DocumentDB and graph APIs like global distribution, automatic indexing. Azure Cosmos DB will be extended to support all existing and new tables using the Azure Table storage SDKs and APIs. To learn more, see [Azure Cosmos DB: Tables API](https://aka.ms/premiumtables).

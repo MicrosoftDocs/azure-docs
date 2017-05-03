@@ -24,7 +24,7 @@ This tutorial shows you how to use an existing MongoDB app written in Node.js an
 
 In this tutorial, you connect a MongoDB app to an Azure Cosmos DB database. In other words, your Node.js application only knows that it's connecting to a database using MongoDB APIs. The fact that data is stored in Azure Cosmos DB is completely transparent to the application.
 
-![MEAN.js app running in Azure App Service](./media/documentdb-connect-mongodb-app/meanjs-in-azure.png)
+![MEAN.js app running in Azure App Service](./media/create-mongodb-nodejs/meanjs-in-azure.png)
 
 ## Before you begin
 
@@ -187,7 +187,7 @@ Navigate to `http://localhost:3000` in a browser. Click **Sign Up** in the top m
 
 The MEAN.js sample application stores user data in the database. If you are successful and MEAN.js automatically signs into the created user, then your an Azure Cosmos DB connection is working. 
 
-![MEAN.js connects successfully to MongoDB](./media/documentdb-connect-mongodb-app/mongodb-connect-success.png)
+![MEAN.js connects successfully to MongoDB](./media/create-mongodb-nodejs/mongodb-connect-success.png)
 
 ## View data in Data Explorer
 

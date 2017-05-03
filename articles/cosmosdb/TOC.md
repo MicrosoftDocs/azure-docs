@@ -1,6 +1,6 @@
 
 # Overview
-## [About Azure Cosmos DB](cosmosdb-introduction.md)
+## [About Azure Cosmos DB](introduction.md)
 
 # Quickstarts
 ## DocumentDB
