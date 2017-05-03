@@ -21,7 +21,7 @@ ms.author: cherylmc
 # Create a self-signed root certificate for Point-to-Site connections using makecert
 
 > [!IMPORTANT]
-> Use these instructions only when you don't have access to a Windows 10 computer to generate self-signed certificates for Point-to-Site connections. Makecert is being deprecated. Additionally, makecert cannot create a SHA-2 certificate, only SHA-1 (which is still valid for P2S). For these reasons, we recommend that you use the [PowerShell steps](vpn-gateway-certificates-point-to-site.md), if possible. The certificates that you create using either PowerShell or makecert can be installed on any [supported client operating system](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq), not just the operating system that you used to create them.
+> Use these instructions only when you don't have access to a Windows 10 computer to generate self-signed certificates for Point-to-Site connections. Makecert is being deprecated. Additionally, makecert cannot create a SHA-2 certificate, only SHA-1 (which is still valid for P2S). For these reasons, we recommend that you use the [PowerShell steps](vpn-gateway-certificates-point-to-site.md), if possible. The certificates that you create, using either PowerShell or makecert, can be installed on any [supported client operating system](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq), not just the operating system that you used to create them.
 >
 >
 
@@ -63,7 +63,7 @@ Point-to-Site connections require the public key (.cer) to be uploaded to Azure.
 4. On the **File to Export**, **Browse** to the location to which you want to export the certificate. For **File name**, name the certificate file. Then, click **Next**.
 5. Click **Finish** to export the certificate. You see **The export was successful**. Click **OK** to close the wizard.
 
-### Export the self-signed certificate (optional)
+### Export the self-signed certificate to store it (optional)
 
 You may want to export the self-signed root certificate and store it safely. If need be, you can later install it on another computer and generate more client certificates, or export another .cer file. To export the self-signed root certificate as a .pfx, select the root certificate and use the same steps as described in [Export a client certificate](#clientexport).
 
