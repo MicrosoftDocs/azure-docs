@@ -60,4 +60,4 @@ final static String CLIENT_ID = "[Enter the application Id here]";
 
 ### What is Next
 
-[Test and Validate](active-directory-mobileanddesktopapp-android-testvalidate.md)
+[Test and Validate](active-directory-mobileanddesktopapp-android-test.md)
