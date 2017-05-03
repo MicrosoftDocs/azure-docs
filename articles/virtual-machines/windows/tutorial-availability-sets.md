@@ -38,7 +38,7 @@ You can create an availability set using [New-AzureRmAvailabilitySet](/powershel
 
 ```powershell
 New-AzureRmAvailabilitySet `
-   -Location westus `
+   -Location EastUS `
    -Name myAvailabilitySet `
    -ResourceGroupName myResourceGroupAvailability `
    -Managed `
@@ -68,7 +68,7 @@ $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
     -AddressPrefix 192.168.1.0/24
 $vnet = New-AzureRmVirtualNetwork `
     -ResourceGroupName myResourceGroupAvailability `
-    -Location westus `
+    -Location EastUS `
     -Name MYvNET `
     -AddressPrefix 192.168.0.0/16 `
     -Subnet $subnetConfig
@@ -77,7 +77,7 @@ for ($i=1; $i -le 2; $i++)
 {
    $pip = New-AzureRmPublicIpAddress `
         -ResourceGroupName myResourceGroupAvailability `
-        -Location westus `
+        -Location EastUS `
         -Name "mypublicdns$(Get-Random)" `
         -AllocationMethod Static `
         -IdleTimeoutInMinutes 4
@@ -95,14 +95,14 @@ for ($i=1; $i -le 2; $i++)
 
    $nsg = New-AzureRmNetworkSecurityGroup `
         -ResourceGroupName myResourceGroupAvailability `
-        -Location westus `
+        -Location EastUS `
         -Name myNetworkSecurityGroup$i `
         -SecurityRules $nsgRuleRDP
 
    $nic = New-AzureRmNetworkInterface `
         -Name myNic$i `
         -ResourceGroupName myResourceGroupAvailability `
-        -Location westus `
+        -Location EastUS `
         -SubnetId $vnet.Subnets[0].Id `
         -PublicIpAddressId $pip.Id `
         -NetworkSecurityGroupId $nsg.Id
@@ -134,7 +134,7 @@ for ($i=1; $i -le 2; $i++)
    $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
    New-AzureRmVM `
         -ResourceGroupName myResourceGroupAvailability `
-        -Location westus `
+        -Location EastUS `
         -VM $vm
 }
 

@@ -28,10 +28,10 @@ The steps in this tutorial can be completed using the latest [Azure PowerShell](
 
 A VNet is a representation of your own network in the cloud. A VNet is a logical isolation of the Azure cloud dedicated to your subscription. Within a VNet, you find subnets, rules for connectivity to those subnets, and connections from the VMs to the subnets.
 
-Before you can create any other Azure resources, you need to create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resource group named *myRGNetwork* in the *westus* location:
+Before you can create any other Azure resources, you need to create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resource group named *myRGNetwork* in the *EastUS* location:
 
 ```powershell
-New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location westus
+New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location EastUS
 ```
 
 A subnet is a child resource of a VNet, and helps define segments of address spaces within a CIDR block, using IP address prefixes. NICs can be added to subnets, and connected to VMs, providing connectivity for various workloads.
@@ -49,7 +49,7 @@ Create a VNET named *myVNet* using *myFrontendSubnet* with [New-AzureRmVirtualNe
 ```powershell
 $vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName myRGNetwork `
-  -Location westus `
+  -Location EastUS `
   -Name myVNet `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $frontendSubnet
@@ -64,7 +64,7 @@ Create a public IP address with [New-AzureRmPublicIpAddress](/powershell/module/
 ```powershell
 $pip = New-AzureRmPublicIpAddress `
   -ResourceGroupName myRGNetwork `
-  -Location westus `
+  -Location EastUS `
   -AllocationMethod Static `
   -Name myPublicIPAddress
 ```
@@ -75,7 +75,7 @@ Create a NIC with [New-AzureRmNetworkInterface](/powershell/module/azurerm.netwo
 ```powershell
 $frontendNic = New-AzureRmNetworkInterface `
   -ResourceGroupName myRGNetwork `
-  -Location westus `
+  -Location EastUS `
   -Name myFrontendNic `
   -SubnetId $vnet.Subnets[0].Id `
   -PublicIpAddressId $pip.Id
@@ -117,7 +117,7 @@ $frontendVM = Add-AzureRmVMNetworkInterface `
     -Id $frontendNic.Id
 New-AzureRmVM `
     -ResourceGroupName myRGNetwork `
-    -Location westus `
+    -Location EastUS `
     -VM $frontendVM
 ```
 
@@ -179,7 +179,7 @@ Add a network security group named *myBackendNSG* with [New-AzureRmNetworkSecuri
 ```powershell
 $nsgBackend = New-AzureRmNetworkSecurityGroup `
   -ResourceGroupName myRGNetwork `
-  -Location westus `
+  -Location EastUS `
   -Name myBackendNSG `
   -SecurityRules $nsgBackendRule
 ```
@@ -208,7 +208,7 @@ Create *myBackendNic*:
 ```powershell
 $backendNic = New-AzureRmNetworkInterface `
   -ResourceGroupName myRGNetwork `
-  -Location westus `
+  -Location EastUS `
   -Name myBackendNic `
   -SubnetId $vnet.Subnets[1].Id
 ```
@@ -249,7 +249,7 @@ $backendVM = Add-AzureRmVMNetworkInterface `
   -Id $backendNic.Id
 New-AzureRmVM `
   -ResourceGroupName myRGNetwork `
-  -Location westus `
+  -Location EastUS `
   -VM $backendVM
 ```
 
