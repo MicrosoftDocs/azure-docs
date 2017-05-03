@@ -11,7 +11,7 @@ manager: erikre
 ---
 # Add a Content Delivery Network (CDN) to an Azure App Service
 
-The [Azure Content Delivery Network (CDN)](../cdn/cdn-overview.md) caches static web content at strategically placed locations to provide maximum throughput for delivering content to users. This tutorial shows how to add a CDN) to a web app in Azure App Service. 
+The [Azure Content Delivery Network (CDN)](../cdn/cdn-overview.md) caches static web content at strategically placed locations to provide maximum throughput for delivering content to users. Another benefit of a CDN is it decreases server load on your web app. This tutorial shows how to add a CDN to a [web app in Azure App Service](app-service-web-overview.md). 
 
 You'll work with a sample app that you create in the [static HTML quickstart](app-service-web-get-started-html.md).
 
@@ -39,11 +39,11 @@ In the left navigation, select **App Services**, and then select the app that yo
 
 ![Select App Service app in the portal](media/app-service-web-tutorial-content-delivery-network/portal-select-app-services.png)
 
-In the App Service blade, enter *cdn* in the **Search** box, and then select **Networking > Configure Azure CDN for your app**.
+In the App Service page, enter *cdn* in the **Search** box, and then select **Networking > Configure Azure CDN for your app**.
 
 ![Select CDN in the portal](media/app-service-web-tutorial-content-delivery-network/portal-select-cdn.png)
 
-In the **Azure Content Delivery Network** blade, provide the **New endpoint** settings as specified in the table.
+In the **Azure Content Delivery Network** page, provide the **New endpoint** settings as specified in the table.
 
 ![Create profile and endpoint in the portal](media/app-service-web-tutorial-content-delivery-network/portal-new-endpoint.png)
 
@@ -57,13 +57,13 @@ In the **Azure Content Delivery Network** blade, provide the **New endpoint** se
 
 Select **Create**.
 
-Azure creates the profile and endpoint. The new endpoint appears in the **Endpoints** list on the same blade, and when it's provisioned the status is **Running**. The provisioning process may take a few minutes.
+Azure creates the profile and endpoint. The new endpoint appears in the **Endpoints** list on the same page, and when it's provisioned the status is **Running**. The provisioning process may take a few minutes.
 
 ![New endpoint in list](media/app-service-web-tutorial-content-delivery-network/portal-new-endpoint-in-list.png)
 
 ### Test the CDN endpoint
 
-Now that the CDN endpoint is provisioned, you can access content from it.
+Once the CDN endpoint is provisioned, you can access content from it.
 
 The sample app has an *index.html* file and *css*, *img*, and *js* folders that contain other static assets. The content paths for all of these files are the same at the CDN endpoint. For example, both of the following URLs access the *bootstrap.css* file in the *css* folder:
 
@@ -135,15 +135,15 @@ In the list of resources, select your CDN endpoint.
 
 ![Select endpoint](media/app-service-web-tutorial-content-delivery-network/portal-select-endpoint.png)
 
-At the top of the **Endpoint** blade, click **Purge**.
+At the top of the **Endpoint** page, click **Purge**.
 
 ![Select Purge](media/app-service-web-tutorial-content-delivery-network/portal-select-purge.png)
 
 Enter the content paths you wish to purge. You can pass a complete file path to purge an individual file, or a path segment to purge and refresh all content in a folder. Since you changed *index.html*, make sure that is one of the paths.
 
-At the bottom of the blade, select **Purge**.
+At the bottom of the page, select **Purge**.
 
-![Purge blade](media/app-service-web-tutorial-content-delivery-network/app-service-web-purge-cdn.png)
+![Purge page](media/app-service-web-tutorial-content-delivery-network/app-service-web-purge-cdn.png)
 
 ### Verify that the CDN is updated
 
@@ -203,7 +203,7 @@ This output shows that the query string makes no difference in what cached infor
 
 ### Change the cache behavior
 
-In the Azure portal **CDN Endpoint** blade, select **Cache**.
+In the Azure portal **CDN Endpoint** page, select **Cache**.
 
 Select **Cache every unique URL** from the **Query string caching behavior** drop-down list.
 
@@ -251,13 +251,13 @@ If you don't have a custom domain, consider following the [App Service domain tu
 
 ### Find the hostname to use with the CNAME
 
-In the Azure portal **Endpoint** blade, make sure **Overview** is selected in the left navigation, and then select the **+ Custom Domain** button at the top of the blade.
+In the Azure portal **Endpoint** page, make sure **Overview** is selected in the left navigation, and then select the **+ Custom Domain** button at the top of the page.
 
 ![Select Add Custom Domain](media/app-service-web-tutorial-content-delivery-network/portal-select-add-domain.png)
 
-In the **Add a custom domain** blade, you see the endpoint host name to use in creating a CNAME record. The host name is derived from your CDN endpoint URL: **&lt;EndpointName>.azureedge.net**. 
+In the **Add a custom domain** page, you see the endpoint host name to use in creating a CNAME record. The host name is derived from your CDN endpoint URL: **&lt;EndpointName>.azureedge.net**. 
 
-![Add Domain blade](media/app-service-web-tutorial-content-delivery-network/portal-add-domain.png)
+![Add Domain page](media/app-service-web-tutorial-content-delivery-network/portal-add-domain.png)
 
 ### Configure the CNAME with your domain registrar
 
@@ -269,7 +269,7 @@ Create a new CNAME record that maps your chosen subdomain (for example, **static
 
 ### Enter the custom domain in Azure
 
-Return to the **Add a custom domain** blade, and enter your custom domain, including the subdomain, in the dialog box. For example, enter `cdn.contoso.com`.   
+Return to the **Add a custom domain** page, and enter your custom domain, including the subdomain, in the dialog box. For example, enter `cdn.contoso.com`.   
    
 Azure verifies that the CNAME record exists for the domain name you have entered. If the CNAME is correct, your custom domain is validated.
 
