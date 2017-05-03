@@ -38,8 +38,14 @@ To deprovision the VM, use the Azure VM agent (waagent). The Azure VM agent is i
 
 Connect to your VM using SSH and run the command to deprovision the VM. With the `+user` argument, the last provisioned user account and any associated data are also deleted. Replace the example IP address with the public IP address of your VM.
 
+SSH to the VM.
 ```bash
-ssh azureuser@52.174.34.95 sudo waagent -deprovision+user -force
+ssh azureuser@52.174.34.95
+```
+Deprovision the VM.
+
+```bash
+sudo waagent -deprovision+user -force
 ```
 Close the SSH session.
 
