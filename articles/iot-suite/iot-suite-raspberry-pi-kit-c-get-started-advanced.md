@@ -40,7 +40,7 @@ In this tutorial, you complete the following steps:
 - Update the sample device code to connect to the remote monitoring solution, and send telemetry that you can view on the solution dashboard.
 - Use the sample device code to update the client application.
 
-[!INCLUDE [iot-suite-raspberry-pi-kit-prerequisites(../../includes/iot-suite-raspberry-pi-kit-prerequisites.md)]
+[!INCLUDE [iot-suite-raspberry-pi-kit-prerequisites](../../includes/iot-suite-raspberry-pi-kit-prerequisites.md)]
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
