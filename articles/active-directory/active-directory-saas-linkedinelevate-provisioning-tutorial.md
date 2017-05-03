@@ -30,7 +30,8 @@ The scenario outlined in this tutorial assumes that you already have the followi
 *   A LinkedIn Elevate tenant 
 *   An administrator account in LinkedIn Elevate with access to the LinkedIn Account Center
 
-Note: Azure Active Directory integrates with LinkedIn Elevate using the [SCIM](http://www.simplecloud.info/) protocol.
+> [!NOTE]
+> Azure Active Directory integrates with LinkedIn Elevate using the [SCIM](http://www.simplecloud.info/) protocol.
 
 ## Assigning users to LinkedIn Elevate
 
@@ -51,7 +52,7 @@ Before configuring and enabling the provisioning service, you will need to decid
 
 This section guides you through connecting your Azure AD to LinkedIn Elevate's SCIM user account provisioning API, and configuring the provisioning service to create, update and disable assigned user accounts in LinkedIn Elevate based on user and group assignment in Azure AD.
 
-**Tip:** You may also choose to enabled SAML-based Single Sign-On for LinkedIn Elevate, following the instructions provided in (Azure portal)[https://portal.azure.com]. Single sign-on can be configured independently of automatic provisioning, though these two features complement each other.
+**Tip:** You may also choose to enabled SAML-based Single Sign-On for LinkedIn Elevate, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features complement each other.
 
 
 ### To configure automatic user account provisioning to LinkedIn Elevate in Azure AD:
@@ -59,9 +60,9 @@ This section guides you through connecting your Azure AD to LinkedIn Elevate's S
 
 The first step is to retrieve your LinkedIn access token. If you are an Enterprise administrator, you can self-provision an
     access token. In your account center, go to **Settings &gt; Global Settings** and open the **SCIM Setup** panel.
->
-> **Note:** If you are accessing the account center directly rather than
-> through a link, you can reach it using the following steps.
+
+> [!NOTE]
+> If you are accessing the account center directly rather than through a link, you can reach it using the following steps.
 
 1)  Sign in to Account Center.
 
