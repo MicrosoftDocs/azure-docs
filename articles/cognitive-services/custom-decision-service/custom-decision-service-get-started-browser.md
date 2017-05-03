@@ -1,17 +1,17 @@
 ---
 title: Microsoft Azure Custom Decision Service get started (browser) | Microsoft Docs
-description: How to get started with Microsoft Custom Decision Service, if you prefer to call our APIs directly from the browser.
+description: How to get started with Microsoft Custom Decision Service to optimize a webpage, making API calls directly from a browser.
 services: cognitive-services
 author: slivkins
 manager: slivkins
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 05/03/2017
 ms.author: slivkins
 ---
 
-# Getting started with Custom Decision Service (browser API calls)
+# Getting started with Custom Decision Service (browser version)
 
 This article explains how to get started with some basic options. The example here is for when you want to make calls to the Custom Decision Service APIs directly from the browser.
 
