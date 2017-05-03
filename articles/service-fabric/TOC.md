@@ -53,10 +53,10 @@
 
 #### Reliable Collections
 ##### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
-##### [Reliable Collection Guidelines & Recommendations](service-fabric-reliable-services-reliable-collections-guidelines.md)
+##### [Reliable Collection guidelines & recommendations](service-fabric-reliable-services-reliable-collections-guidelines.md)
 ##### [Working with Reliable Collections](service-fabric-work-with-reliable-collections.md)
-##### [Transactions and Locks](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-##### [Reliable State Manager and Reliable Collection Internals](service-fabric-reliable-services-reliable-collections-internals.md)
+##### [Transactions and locks](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+##### [Reliable State Manager and Reliable Collection internals](service-fabric-reliable-services-reliable-collections-internals.md)
 
 #### Get started
 ##### [C# on Windows](service-fabric-reliable-services-quick-start.md)
