@@ -40,7 +40,7 @@ The following example illustrates the basic steps for deploying R code:
     
     @RScriptOutput = REDUCE … USING new Extension.R.Reducer(command:@myRScript, rReturnType:"dataframe");
 
-The following example illustrates a more complex usage. In this case the R code is deployed as a RESOURCE that is the U-SQL script.
+The following example illustrates a more complex usage. In this case, the R code is deployed as a RESOURCE that is the U-SQL script.
 
 --
 
