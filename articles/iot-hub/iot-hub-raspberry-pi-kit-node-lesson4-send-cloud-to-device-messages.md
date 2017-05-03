@@ -1,5 +1,7 @@
 ---
-title: Run the sample application to receive cloud-to-device messages | Microsoft Docs
+featureFlags: 
+- usabilla
+title: 'Connect Raspberry Pi (Node) to Azure IoT - Lesson 4: Cloud-to-device | Microsoft Docs'
 description: The sample application runs on Pi and monitors incoming messages from your IoT hub. A new gulp task sends messages to Pi from your IoT hub to blink the LED.
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +10,16 @@ manager: timlt
 tags: ''
 keywords: 'cloud to device, message from cloud'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started
+
 ms.assetid: 6ae6539e-1163-4490-8d72-fdf7803e3054
 ms.service: iot-hub
 ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

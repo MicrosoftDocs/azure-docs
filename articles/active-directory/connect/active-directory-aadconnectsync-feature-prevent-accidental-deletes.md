@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/01/2016
+ms.date: 02/08/2017
 ms.author: billmath
 
 ---
@@ -22,6 +22,7 @@ This topic describes the prevent accidental deletes (preventing accidental delet
 
 When installing Azure AD Connect, prevent accidental deletes is enabled by default and configured to not allow an export with more than 500 deletes. This feature is designed to protect you from accidental configuration changes and changes to your on-premises directory that would affect many users and other objects.
 
+## What is prevent accidental deletes
 Common scenarios when you see many deletes include:
 
 * Changes to [filtering](active-directory-aadconnectsync-configure-filtering.md) where an entire [OU](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) or [domain](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) is unselected.
@@ -35,7 +36,7 @@ If there are too many deletes staged to be exported to Azure AD, then the export
 ![Prevent Accidental deletes email](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
 
 > *Hello (technical contact). At (time) the Identity synchronization service detected that the number of deletions exceeded the configured deletion threshold for (organization name). A total of (number) objects were sent for deletion in this Identity synchronization run. This met or exceeded the configured deletion threshold value of (number) objects. We need you to provide confirmation that these deletions should be processed before we will proceed. Please see the preventing accidental deletions for more information about the error listed in this email message.*
-> 
+>
 > 
 
 You can also see the status `stopped-deletion-threshold-exceeded` when you look in the **Synchronization Service Manager** UI for the Export profile.
@@ -53,14 +54,14 @@ If this was unexpected, then investigate and take corrective actions. To see whi
 
 If all the deletes are desired, then do the following:
 
-1. To temporarily disable this protection and let those deletes go through, run the PowerShell cmdlet: `Disable-ADSyncExportDeletionThreshold`. Provide an Azure AD Global Administrator account and password.
+1. To retrieve the current deletion threshold, run the PowerShell cmdlet `Get-ADSyncExportDeletionThreshold`. Provide an Azure AD Global Administrator account and password. The default value is 500.
+2. To temporarily disable this protection and let those deletes go through, run the PowerShell cmdlet: `Disable-ADSyncExportDeletionThreshold`. Provide an Azure AD Global Administrator account and password.
    ![Credentials](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/credentials.png)
-2. With the Azure Active Directory Connector still selected, select the action **Run** and select **Export**.
-3. To re-enable the protection, run the PowerShell cmdlet: `Enable-ADSyncExportDeletionThreshold`.
+3. With the Azure Active Directory Connector still selected, select the action **Run** and select **Export**.
+4. To re-enable the protection, run the PowerShell cmdlet: `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`. Replace 500 with the value you noticed when retrieving the current deletion threshold. Provide an Azure AD Global Administrator account and password.
 
 ## Next steps
 **Overview topics**
 
 * [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-

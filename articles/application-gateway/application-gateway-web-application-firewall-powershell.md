@@ -1,5 +1,5 @@
 ---
-title: Configure Web Application Firewall on new or existing Application Gateway | Microsoft Docs
+title: Configure web application firewall - Azure Application Gateway | Microsoft Docs
 description: This article provides guidance on how to start using web application firewall on an existing or new application gateway.
 documentationcenter: na
 services: application-gateway
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 03/22/2017
 ms.author: gwallace
 
 ---
-# Configure Web Application Firewall on a new or existing Application Gateway
+# Configure web application firewall on a new or existing Application Gateway
 
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-web-application-firewall-portal.md)
@@ -37,7 +37,7 @@ If you have read [Create an Application Gateway with PowerShell](application-gat
 
 **SKU** - A normal application gateway without WAF supports **Standard\_Small**, **Standard\_Medium**, and **Standard\_Large** sizes. With the introduction of WAF, there are two additional SKUs, **WAF\_Medium** and **WAF\_Large**. WAF is not supported on small application gateways.
 
-**Tier** - The available values are **Standard** or **WAF**. When using Web Application Firewall, **WAF** must be chosen.
+**Tier** - The available values are **Standard** or **WAF**. When using web application firewall, **WAF** must be chosen.
 
 **Mode** - This setting is the mode of WAF. allowed values are **Detection** and **Prevention**. When WAF is set up in detection mode, all threats are stored in a log file. In prevention mode, events are still logged but the attacker receives a 403 unauthorized response from the application gateway.
 
@@ -63,7 +63,7 @@ Select-AzureRmSubscription -SubscriptionName "<Subscription name>"
 
 ### Step 3
 
-Retrieve the gateway that you are adding Web Application Firewall to.
+Retrieve the gateway that you are adding web application firewall to.
 
 ```powershell
 $gw = Get-AzureRmApplicationGateway -Name "AdatumGateway" -ResourceGroupName "MyResourceGroup"
@@ -95,11 +95,11 @@ Update the application gateway with the settings defined in the preceding step.
 Set-AzureRmApplicationGateway -ApplicationGateway $gw
 ```
 
-This command updates the application gateway with Web Application Firewall. It is recommended to view [Application Gateway Diagnostics](application-gateway-diagnostics.md) to understand how to view logs for your application gateway. Due to the security nature of WAF, logs need to be reviewed regularly to understand the security posture of your web applications.
+This command updates the application gateway with web application firewall. It is recommended to view [Application Gateway Diagnostics](application-gateway-diagnostics.md) to understand how to view logs for your application gateway. Due to the security nature of WAF, logs need to be reviewed regularly to understand the security posture of your web applications.
 
-## Create an Application Gateway with Web Application Firewall
+## Create an Application Gateway with web application firewall
 
-The following steps take you through the entire process from beginning to end for creating an Application Gateway with Web Application Firewall.
+The following steps take you through the entire process from beginning to end for creating an Application Gateway with web application firewall.
 
 Make sure that you are using the latest version of Azure PowerShell. More info is available at [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
 
@@ -284,7 +284,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name WAF_Medium -Tier WAF -Capacity 2
 Configure the mode for WAF, acceptable values are **Prevention** and **Detection**.
 
 ```powershell
-$config = New-AzureRmApplicationGatewayWafConfig -Enabled $true -WafMode "Prevention"
+$config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
 ```
 
 ### Step 21
@@ -294,6 +294,9 @@ Create an application gateway with all configuration items from the preceding st
 ```powershell
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert -AuthenticationCertificates $authcert
 ```
+
+> [!NOTE]
+> Application gateways created with the basic web application firewall configuration are configured with CRS 3.0 for protections.
 
 ## Get application gateway DNS name
 
@@ -327,6 +330,6 @@ DnsSettings              : {
 
 ## Next steps
 
-Learn how to configure diagnostic logging, to log the events that are detected or prevented with Web Application Firewall by visiting [Application Gateway Diagnostics](application-gateway-diagnostics.md)
+Learn how to configure diagnostic logging, to log the events that are detected or prevented with web application firewall by visiting [Application Gateway Diagnostics](application-gateway-diagnostics.md)
 
 [scenario]: ./media/application-gateway-web-application-firewall-powershell/scenario.png

@@ -1,5 +1,5 @@
 ---
-title: Use Apache Spark with Kafka on HDInsight | Microsoft Docs
+title: Use Apache Spark with Kafka on Azure HDInsight | Microsoft Docs
 description: 'Learn how to use Spark on HDInsight to read and write data to a Kafka on HDInsight cluster. This example uses Scala in a Jupyter Notebook to write random data to Kafka on HDInsight, then read it back using Spark streaming.'
 services: hdinsight
 documentationcenter: ''
@@ -9,11 +9,12 @@ editor: cgronlun
 
 ms.assetid: dd8f53c1-bdee-4921-b683-3be4c46c2039
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/14/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 ---
 # Use Apache Spark with Kafka (preview) on HDInsight
@@ -29,11 +30,7 @@ Apache Spark can be used to stream data into or out of Apache Kafka. In this doc
 
 * An Azure subscription
 
-* An SSH client (you need the `ssh` and `scp` commands) - For more information on using SSH with HDInsight, see the following documents:
-
-    * [Use SSH with Linux-based HDInsight from Linux, Unix, and Mac OS](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-    * [Use SSH with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* An SSH client (you need the `ssh` and `scp` commands) - For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * [cURL](https://curl.haxx.se/) - A cross platform utility for making HTTP requests.
 
@@ -128,7 +125,7 @@ From your development environment, use the following commands to retrieve the br
 
     > [!IMPORTANT]
     > When using this command from Windows PowerShell, you may receive an error about shell quoting. If so, use the following command:
-    > `curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["""\(.host_components[].HostRoles.host_name):9092"""] | join(""",""")'
+    > `curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["""\(.host_components[].HostRoles.host_name):9092"""] | join(""",""")'`
 
 * To get the __Zookeeper host__ information:
 

@@ -1,5 +1,5 @@
 ---
-title: Replace the battery on a StorSimple device | Microsoft Docs
+title: Replace battery on Microsoft Azure StorSimple device | Microsoft Docs
 description: Describes how to remove, replace, and maintain the backup battery module on your StorSimple device.
 services: storsimple
 documentationcenter: ''

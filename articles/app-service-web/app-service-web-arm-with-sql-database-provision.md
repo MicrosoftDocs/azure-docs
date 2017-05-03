@@ -4,7 +4,7 @@ description: Use an Azure Resource Manager template to deploy a web app that inc
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: fb9648e1-9bf2-4537-bc4a-ab8d4953168c
@@ -457,7 +457,7 @@ you must provide a login name and password for the database server administrator
     azure config mode arm
     azure group deployment create -g {resource-group-name} --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
-### Azure CLI 2.0 (Preview)
+### Azure CLI 2.0
 
     az resource deployment create -g {resource-group-name} --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json --parameters '@azuredeploy.parameters.json'
 

@@ -15,7 +15,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 01/13/2017
 ms.author: juliako
 
 ---
@@ -75,7 +75,7 @@ If your **version "1.0"** streaming endpoint has >=1 premium streaming units (SU
 Feature|Standard|Premium
 ---|---|---
 Free first 15 days| Yes |No
-Throughput |Up to 600 Mbps when Azure CDN is not used and scales with CDN.|200 Mbps per streaming unit (SU) and scales with CDN.
+Throughput |Up to 600 Mbps when Azure CDN is not used. Scales with CDN.|200 Mbps per streaming unit (SU). Scales with CDN.
 SLA | 99.9|99.9(200 Mbps per SU).
 CDN|Azure CDN, third party CDN, or no CDN.|Azure CDN, third party CDN, or no CDN.
 Billing is prorated| Daily|Daily
@@ -84,7 +84,7 @@ Dynamic packaging|Yes|Yes
 Scale|Auto scales up to the targeted throughput.|Additional streaming units
 IP filtering/G20/Custom host|Yes|Yes
 Progressive download|Yes|Yes
-Recommended usage |Recommended for the vast majority of streaming scenarios.|Professional usage.<br/>If you think you may have needs beyond Standard.
+Recommended usage |Recommended for the vast majority of streaming scenarios.|Professional usage.<br/>If you think you may have needs beyond Standard. Contact us (amsstreaming at microsoft.com) if you expect a concurrent audience size larger than 50,000 viewers.
 
 
 ## Migration between types

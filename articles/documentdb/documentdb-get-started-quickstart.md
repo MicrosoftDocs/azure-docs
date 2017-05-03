@@ -1,20 +1,4 @@
-title: 'NoSQL tutorial: DocumentDB .NET SDK | Microsoft Docs'
-description: A NoSQL tutorial that creates an online database and C# console application using the DocumentDB .NET SDK. DocumentDB is a NoSQL database for JSON.
-keywords: nosql tutorial, online database, c# console application
-services: documentdb
-documentationcenter: .net
-author: mimig1
-manager: jhubbard
-editor: monicar
-
-ms.assetid: 4c084dab-52a4-4b84-9952-6d36a3bbb731
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 01/05/2016
-ms.author: mimig
+---
 redirect_url: https://azure.microsoft.com/services/documentdb/
 ROBOTS: NOINDEX, NOFOLLOW
 
@@ -474,7 +458,7 @@ The following diagram illustrates how the DocumentDB SQL query syntax is called 
 
 ![Diagram illustrating the scope and meaning of the query used by the NoSQL tutorial to create a C# console application](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
 
-The [FROM](documentdb-sql-query.md#from-clause) keyword is optional in the query because DocumentDB queries are already scoped to a single collection. Therefore, "FROM Families f" can be swapped with "FROM root r", or any other variable name you choose. DocumentDB will infer that Families, root, or the variable name you chose, reference the current collection by default.
+The [FROM](documentdb-sql-query.md#FromClause) keyword is optional in the query because DocumentDB queries are already scoped to a single collection. Therefore, "FROM Families f" can be swapped with "FROM root r", or any other variable name you choose. DocumentDB will infer that Families, root, or the variable name you chose, reference the current collection by default.
 
 ## <a id="ReplaceDocument"></a>Step 8: Replace JSON document
 DocumentDB supports replacing JSON documents.  

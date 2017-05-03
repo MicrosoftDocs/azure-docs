@@ -1,6 +1,7 @@
 # Overview
 ## [What is Azure Multi-Factor Authentication?](multi-factor-authentication.md)
 ## [How it Works](multi-factor-authentication-how-it-works.md)
+## [How to get Azure MFA](multi-factor-authentication-versions-plans.md)
 
 # Get started
 ## [Choose where to deploy](multi-factor-authentication-get-started.md)
@@ -14,17 +15,19 @@
 ### [Create an Auth Provider](multi-factor-authentication-get-started-auth-provider.md)
 ### [Configure settings](multi-factor-authentication-whats-next.md)
 ### [Reports in MFA](multi-factor-authentication-manage-reports.md)
+### [Use existing network policy servers](multi-factor-authentication-nps-extension.md)
 ### Azure MFA on-premises
 #### [Install the users portal](multi-factor-authentication-get-started-portal.md)
 #### [Advanced VPN Configurations](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [Mobile App Web Service](multi-factor-authentication-get-started-server-webservice.md)
 #### [Windows Authentication](multi-factor-authentication-get-started-server-windows.md)
+#### [Upgrade MFA Server](multi-factor-authentication-server-upgrade.md)
 #### [Upgrade from PhoneFactor](multi-factor-authentication-get-started-server-upgrade.md)
 
 ## Manage users
-### [Assign licenses](multi-factor-authentication-get-started-assign-licenses.md)
 ### [Enable or disable MFA](multi-factor-authentication-get-started-user-states.md)
 ### [User and device settings](multi-factor-authentication-manage-users-and-devices.md)
+### [MFA user guide](./end-user/multi-factor-authentication-end-user.md)
 
 ## Integrate
 ### [Federation Services](multi-factor-authentication-get-started-adfs.md)
@@ -38,9 +41,10 @@
 ### [IIS web apps](multi-factor-authentication-get-started-server-iis.md)
 ### [Remote Desktop Gateway](multi-factor-authentication-get-started-server-rdg.md)
 
-## Develop 
+## Develop
 ### [Building into Custom Apps (SDK)](multi-factor-authentication-sdk.md)
 
 ## Troubleshoot
 ### [FAQ](multi-factor-authentication-faq.md)
 ### [Ask a question](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
+### [NPS extension errors](multi-factor-authentication-nps-errors.md)

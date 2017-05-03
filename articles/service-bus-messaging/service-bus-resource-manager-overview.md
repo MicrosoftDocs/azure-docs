@@ -1,5 +1,5 @@
----
-title: Create Service Bus resources using Azure Resource Manager templates | Microsoft Docs
+﻿---
+title: Create Azure Service Bus resources using Azure Resource Manager templates | Microsoft Docs
 description: Use Azure Resource Manager templates to automate the creation of Service Bus resources
 services: service-bus-messaging
 documentationcenter: .net
@@ -13,14 +13,15 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/14/2016
+ms.date: 04/18/2017
 ms.author: sethm
 
 ---
 # Create Service Bus resources using Azure Resource Manager templates
+
 This article describes how to create and deploy Service Bus resources using Azure Resource Manager templates, PowerShell, and the Service Bus resource provider.
 
-Azure Resource Manager templates help you define the resources to deploy for a solution, and to specify parameters and variables that enable you to input values for different environments. The template consists of JSON and expressions that you can use to construct values for your deployment. For detailed information about writing Azure Resource Manager templates, and a discussion of the template format, see [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
+Azure Resource Manager templates help you define the resources to deploy for a solution, and to specify parameters and variables that enable you to input values for different environments. The template consists of JSON and expressions that you can use to construct values for your deployment. For detailed information about writing Azure Resource Manager templates, and a discussion of the template format, see [structure and syntax of Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
 > [!NOTE]
 > The examples in this article show how to use Azure Resource Manager to create a Service Bus namespace and messaging entity (queue). For other template examples, visit the [Azure Quickstart Templates gallery][Azure Quickstart Templates gallery] and search for "Service Bus."
@@ -28,6 +29,7 @@ Azure Resource Manager templates help you define the resources to deploy for a s
 >
 
 ## Service Bus Resource Manager templates
+
 These Service Bus Azure Resource Manager templates are available for download and deployment. Click the following links for details about each one, with links to the templates on GitHub:
 
 * [Create a Service Bus namespace](service-bus-resource-manager-namespace.md)
@@ -37,6 +39,7 @@ These Service Bus Azure Resource Manager templates are available for download an
 * [Create a Service Bus namespace with topic, subscription, and rule](service-bus-resource-manager-namespace-topic-with-rule.md)
 
 ## Deploy with PowerShell
+
 The following procedure describes how to use PowerShell to deploy an Azure Resource Manager template that creates a **Standard** tier Service Bus namespace, and a queue within that namespace. This example is based on the [Create a Service Bus namespace with queue](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue) template. The approximate workflow is as follows:
 
 1. Install PowerShell.
@@ -50,12 +53,14 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 For complete information about deploying Azure Resource Manager templates, see [Deploy resources with Azure Resource Manager templates][Deploy resources with Azure Resource Manager templates].
 
 ### Install PowerShell
-Install Azure PowerShell by following the instructions in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+
+Install Azure PowerShell by following the instructions in [Getting started with Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ### Create a template
+
 Clone or copy the [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) template from GitHub:
 
-```
+```json
 {
     "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
@@ -122,9 +127,10 @@ Clone or copy the [201-servicebus-create-queue](https://github.com/Azure/azure-q
 ```
 
 ### Create a parameters file (optional)
+
 To use an optional parameters file, copy the [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json) file. Replace the value of `serviceBusNamespaceName` with the name of the Service Bus namespace you want to create in this deployment, and replace the value of `serviceBusQueueName` with the name of the queue you want to create.
 
-```
+```json
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
@@ -142,37 +148,39 @@ To use an optional parameters file, copy the [201-servicebus-create-queue](https
 }
 ```
 
-For more information, see the [Parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-precedence) topic.
+For more information, see the [Parameters](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) topic.
 
 ### Log in to Azure and set the Azure subscription
+
 From a PowerShell prompt, run the following command:
 
-```
+```powershell
 Login-AzureRmAccount
 ```
 
 You are prompted to log on to your Azure account. After logging on, run the following command to view your available subscriptions.
 
-```
+```powershell
 Get-AzureRMSubscription
 ```
 
 This command returns a list of available Azure subscriptions. Choose a subscription for the current session by running the following command. Replace `<YourSubscriptionId>` with the GUID for the Azure subscription you want to use.
 
-```
+```powershell
 Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 ```
 
 ### Set the resource group
+
 If you do not have an existing resource group, create a new resource group with the **New-AzureRmResourceGroup ** command. Provide the name of the resource group and location you want to use. For example:
 
-```
+```powershell
 New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"
 ```
 
 If successful, a summary of the new resource group is displayed.
 
-```
+```powershell
 ResourceGroupName : MyDemoRG
 Location          : westus
 ProvisioningState : Succeeded
@@ -181,43 +189,45 @@ ResourceId        : /subscriptions/<GUID>/resourceGroups/MyDemoRG
 ```
 
 ### Test the deployment
+
 Validate your deployment by running the `Test-AzureRmResourceGroupDeployment` cmdlet. When testing the deployment, provide parameters exactly as you would when executing the deployment.
 
-```
+```powershell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
 ### Create the deployment
-To create the new deployment, run the `New-AzureRmResourceGroupDeployment` command, and provide the necessary parameters when prompted. The parameters include a name for your deployment, the name of your resource group, and the path or URL to the template file. If the **Mode** parameter is not specified, the default value of **Incremental** is used. For more information, see [Incremental and complete deployments](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments).
+
+To create the new deployment, run the `New-AzureRmResourceGroupDeployment` cmdlet, and provide the necessary parameters when prompted. The parameters include a name for your deployment, the name of your resource group, and the path or URL to the template file. If the **Mode** parameter is not specified, the default value of **Incremental** is used. For more information, see [Incremental and complete deployments](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments).
 
 The following command prompts you for the three parameters in the PowerShell window:
 
-```
+```powershell
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
 To specify a parameters file instead, use the following command.
 
-```
+```powershell
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
 ```
 
 You can also use inline parameters when you run the deployment cmdlet. The command is as follows:
 
-```
+```powershell
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
 To run a [complete](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) deployment, set the **Mode** parameter to **Complete**:
 
-```
+```powershell
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
 ### Verify the deployment
 If the resources are deployed successfully, a summary of the deployment is displayed in the PowerShell window:
 
-```
+```powershell
 DeploymentName    : MyDemoDeployment
 ResourceGroupName : MyDemoRG
 ProvisioningState : Succeeded
@@ -237,8 +247,8 @@ Parameters        :
 You've now seen the basic workflow and commands for deploying an Azure Resource Manager template. For more detailed information, visit the following links:
 
 * [Azure Resource Manager overview][Azure Resource Manager overview]
-* [Deploy resources with Azure Resource Manager templates][Deploy resources with Azure Resource Manager templates]
-* [Authoring templates](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Deploy resources with Resource Manager templates and Azure PowerShell][Deploy resources with Azure Resource Manager templates]
+* [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md)
 
 [Azure Resource Manager overview]: ../azure-resource-manager/resource-group-overview.md
 [Deploy resources with Azure Resource Manager templates]: ../azure-resource-manager/resource-group-template-deploy.md

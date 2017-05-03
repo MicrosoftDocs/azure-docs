@@ -1,5 +1,5 @@
 ﻿---
-title: Run a sample application to receive cloud-to-device messages from Azure IoT Hub | Microsoft Docs
+title: 'Connect Intel Edison (Node) to Azure IoT - Lesson 4: Receive messages | Microsoft Docs'
 description: A sample application runs on Edison and monitors incoming messages from your IoT hub. A new gulp task sends messages to Edison from your IoT hub to blink the LED.
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'arduino control led from web, arduino control led via web'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-node-get-started
+
 ms.assetid: bc738bf6-e38d-4024-82d7-39b6c2d4bacb
 ms.service: iot-hub
 ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

@@ -1,6 +1,6 @@
 ---
-title: Add , rollover and remove certificates used in a Service Fabric cluster in Azure | Microsoft Docs
-description: Describes how to use add new certificates, perform rollover of certificate and to remove the certificate from being used by the cluster for security
+title: Manage certificates in an Azure Service Fabric cluster | Microsoft Docs
+description: Describes how to add new certificates, rollover certificate, and remove certificate to or from a Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 03/09/2017
 ms.author: chackdan
 
 ---
@@ -50,19 +50,19 @@ If your intent is to remove the certificate that is marked primary, then you wil
 These steps assume that you are familiar with how Resource Manager works and have deployed atleast one Service Fabric cluster using a Resource Manager template, and have the template that you used to set up the cluster handy. It is also assumed that you are comfortable using JSON.
 
 > [!NOTE]
-> If you are looking for a sample template and parameters that you can use to follow along or as a starting point, then download it from this [git-repo.](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 
+> If you are looking for a sample template and parameters that you can use to follow along or as a starting point, then download it from this [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 
 > 
 > 
 
 ### Edit your Resource Manager template
 
-For ease of following along, sample 5-VM-1-NodeTypes-Secure_Step2.JSON contains all the edits we will be making. the sample is available at [git-repo.](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample).
+For ease of following along, sample 5-VM-1-NodeTypes-Secure_Step2.JSON contains all the edits we will be making. the sample is available at [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample).
 
 **Make sure to follow all the steps**
 
-**Step 1:** Open up the Resource Manager template you used to deploy you Cluster.  (If you have downloaded the sample from the above repo, then Use 5-VM-1-NodeTypes-Secure_Step1.JSON to deploy a secure cluster and then open up that template).
+**Step 1:** Open up the Resource Manager template you used to deploy you Cluster. (If you have downloaded the sample from the above repo, then Use 5-VM-1-NodeTypes-Secure_Step1.JSON to deploy a secure cluster and then open up that template).
 
-**Step 2:** Add **two new parameters** "secCertificateThumbprint" and "secCertificateUrlValue" of type "string" to the parameter section of your template. You can copy the following code snippet and add to the template. Depending on the source of your template, you may already have these defined, if so move to the next step. 
+**Step 2:** Add **two new parameters** "secCertificateThumbprint" and "secCertificateUrlValue" of type "string" to the parameter section of your template. You can copy the following code snippet and add it to the template. Depending on the source of your template, you may already have these defined, if so move to the next step. 
  
 ```JSON
    "secCertificateThumbprint": {
@@ -80,7 +80,7 @@ For ease of following along, sample 5-VM-1-NodeTypes-Secure_Step2.JSON contains 
 
 ```
 
-**Step 3:** Make changes to the **Microsoft.ServiceFabric/clusters** resource - Locate the "Microsoft.ServiceFabric/clusters" resource definition in your template. Under properties of that definition, you will find "Certificate" JSON tag, which should look something like the following JSON snippet.
+**Step 3:** Make changes to the **Microsoft.ServiceFabric/clusters** resource - Locate the "Microsoft.ServiceFabric/clusters" resource definition in your template. Under properties of that definition, you will find "Certificate" JSON tag, which should look something like the following JSON snippet:
 
    
 ```JSON
@@ -104,7 +104,7 @@ So now the resource definition should look like the following (depending on your
      }
 ``` 
 
-If you want to **rollover the cert**, then specify the new cert as primary and moving the current primary as secondary.  This results in the rollover of your current primary certificate to the new certificate in one deployment step.
+If you want to **rollover the cert**, then specify the new cert as primary and moving the current primary as secondary. This results in the rollover of your current primary certificate to the new certificate in one deployment step.
 
 ```JSON
       "properties": {
@@ -116,7 +116,7 @@ If you want to **rollover the cert**, then specify the new cert as primary and m
 ``` 
 
 
-**Step 4:** Make changes to **all** the **Microsoft.Compute/virtualMachineScaleSets** resource definitions  - Locate the Microsoft.Compute/virtualMachineScaleSets resource definition. Scroll to the "publisher": "Microsoft.Azure.ServiceFabric", under "virtualMachineProfile".
+**Step 4:** Make changes to **all** the **Microsoft.Compute/virtualMachineScaleSets** resource definitions - Locate the Microsoft.Compute/virtualMachineScaleSets resource definition. Scroll to the "publisher": "Microsoft.Azure.ServiceFabric", under "virtualMachineProfile".
 
 In the service fabric publisher settings, you should see something like this.
 
@@ -137,7 +137,7 @@ The properties should now look like this
 
 ![Json_Pub_Setting2][Json_Pub_Setting2]
 
-if you do not want to **rollover the cert**, then specify the new cert as primary and moving the current primary as secondary. This results in the rollover of your current certificate to the new certificate in one deployment step. 
+If you want to **rollover the cert**, then specify the new cert as primary and moving the current primary as secondary. This results in the rollover of your current certificate to the new certificate in one deployment step. 
 
 
 ```JSON
@@ -199,7 +199,7 @@ Edit your Resource Manager Template parameter File, add the two new parameters f
 ### Deploy the template to Azure
 
 - You are now ready to deploy your template to Azure. Open an Azure PS version 1+ command prompt.
-- Login to your Azure Account and select the specific azure subscription. This is an important step for folks who have access to more than one azure subscription.
+- Log in to your Azure Account and select the specific azure subscription. This is an important step for folks who have access to more than one azure subscription.
 
 ```powershell
 Login-AzureRmAccount

@@ -1,4 +1,4 @@
----
+﻿---
 title: Automated Backup for SQL Server Virtual Machines (Classic) | Microsoft Docs
 description: 'Explains the Automated Backup feature for SQL Server running in Azure Virtual Machines using Resource Manager. '
 services: virtual-machines-windows
@@ -9,23 +9,23 @@ editor: ''
 tags: azure-service-management
 
 ms.assetid: 3333e830-8a60-42f5-9f44-8e02e9868d7b
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
-ms.date: 09/26/2016
+ms.workload: iaas-sql-server
+ms.date: 01/18/2017
 ms.author: jroth
 
 ---
 # Automated Backup for SQL Server in Azure Virtual Machines (Classic)
 > [!div class="op_single_selector"]
 > * [Resource Manager](../sql/virtual-machines-windows-sql-automated-backup.md)
-> * [Classic](virtual-machines-windows-classic-sql-automated-backup.md)
+> * [Classic](../classic/sql-automated-backup.md)
 > 
 > 
 
-Automated Backup automatically configures [Managed Backup to Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) for all existing and new databases on an Azure VM running SQL Server 2014 Standard or Enterprise. This enables you to configure regular database backups that utilize durable Azure blob storage. Automated Backup depends on the [SQL Server IaaS Agent Extension](virtual-machines-windows-classic-sql-server-agent-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Automated Backup automatically configures [Managed Backup to Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) for all existing and new databases on an Azure VM running SQL Server 2014 Standard or Enterprise. This enables you to configure regular database backups that utilize durable Azure blob storage. Automated Backup depends on the [SQL Server IaaS Agent Extension](../classic/sql-server-agent-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 > [!IMPORTANT] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. To view the Resource Manager version of this article, see [Automated Backup for SQL Server in Azure Virtual Machines Resource Manager](../sql/virtual-machines-windows-sql-automated-backup.md).
@@ -54,11 +54,11 @@ To use Automated Backup, consider the following prerequisites:
 
 **Azure PowerShell**:
 
-* [Install the latest Azure PowerShell commands](/powershell/azureps-cmdlets-docs).
+* [Install the latest Azure PowerShell commands](/powershell/azure/overview).
 
 **SQL Server IaaS Extension**:
 
-* [Install the SQL Server IaaS Extension](virtual-machines-windows-classic-sql-server-agent-extension.md).
+* [Install the SQL Server IaaS Extension](../classic/sql-server-agent-extension.md).
 
 ## Settings
 The following table describes the options that can be configured for Automated Backup. For classic VMs, you must use PowerShell to configure these settings.
@@ -69,7 +69,8 @@ The following table describes the options that can be configured for Automated B
 | **Retention Period** |1-30 days (30 days) |The number of days to retain a backup. |
 | **Storage Account** |Azure storage account (the storage account created for the specified VM) |An Azure storage account to use for storing Automated Backup files in blob storage. A container is created at this location to store all backup files. The backup file naming convention includes the date, time, and machine name. |
 | **Encryption** |Enable/Disable (Disabled) |Enables or disables encryption. When encryption is enabled, the certificates used to restore the backup are located in the specified storage account in the same automaticbackup container using the same naming convention. If the password changes, a new certificate is generated with that password, but the old certificate remains to restore prior backups. |
-| **Password** |Password text (None) |A password for encryption keys. This is only required if encryption is enabled. In order to restore an encrypted backup, you must have the correct password and related certificate that was used at the time the backup was taken. |
+| **Password** |Password text (None) |A password for encryption keys. This is only required if encryption is enabled. In order to restore an encrypted backup, you must have the correct password and related certificate that was used at the time the backup was taken. | **Backup system databases** | Enable/Disable (Disabled) | Take full backups of Master, Model, and MSDB |
+| **Configure backup schedule** | Manual/Automated (Automated) | Select **Automated** to automatically take full and log backups based on log growth. Select **Manual** to specify the schedule for full and log backups. |
 
 ## Configuration with PowerShell
 In the following PowerShell example, Automated Backup is configured for an existing SQL Server 2014 VM. The **New-AzureVMSqlServerAutoBackupConfig** command configures the Automated Backup settings to store backups in the Azure storage account specified by the $storageaccount variable. These backups will be retained for 10 days. The **Set-AzureVMSqlServerExtension** command updates the specified Azure VM with these settings.
@@ -106,7 +107,7 @@ Automated Backup configures Managed Backup on Azure VMs. So it is important to [
 
 You can find additional backup and restore guidance for SQL Server on Azure VMs in the following topic: [Backup and Restore for SQL Server in Azure Virtual Machines](../sql/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
 
-For information about other available automation tasks, see [SQL Server IaaS Agent Extension](virtual-machines-windows-classic-sql-server-agent-extension.md).
+For information about other available automation tasks, see [SQL Server IaaS Agent Extension](../classic/sql-server-agent-extension.md).
 
 For more information about running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
 

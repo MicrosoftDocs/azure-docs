@@ -1,5 +1,5 @@
 ---
-title: Submit Spark jobs remotely using Livy | Microsoft Docs
+title: Use Livy to submit jobs remotely to Spark on Azure HDInsight | Microsoft Docs
 description: Learn how to use Livy with HDInsight clusters to submit Spark jobs remotely.
 services: hdinsight
 documentationcenter: ''
@@ -10,15 +10,17 @@ tags: azure-portal
 
 ms.assetid: 2817b779-1594-486b-8759-489379ca907d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 03/24/2017
 ms.author: nitinme
 
 ---
-# Submit Spark jobs remotely to an Apache Spark cluster on HDInsight Linux using Livy
+# Submit Spark jobs remotely to an Apache Spark cluster on HDInsight using Livy
+
 Apache Spark cluster on Azure HDInsight includes Livy, a REST interface for submitting jobs remotely to a Spark cluster. For detailed documentation, see [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
 
 You can use Livy to run interactive Spark shells or submit batch jobs to be run on Spark. This article talks about using Livy to submit batch jobs. The syntax below uses Curl to make REST calls to the Livy endpoint.
@@ -28,7 +30,7 @@ You can use Livy to run interactive Spark shells or submit batch jobs to be run 
 You must have the following:
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* An Apache Spark cluster on HDInsight Linux. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## Submit a batch job
 Before you submit a batch job, you must upload the application jar on the cluster storage associated with the cluster. You can use [**AzCopy**](../storage/storage-use-azcopy.md), a command line utility, to do so. There are a lot of other clients you can use to upload data. You can find more about them at [Upload data for Hadoop jobs in HDInsight](hdinsight-upload-data.md).
@@ -160,6 +162,16 @@ HDInsight 3.5 cluster, by default, disables use of local file paths to access sa
 2. From the left navigation, click **Livy**, and then click **Configs**.
 
 3. Under **livy-default** add the property name `livy.file.local-dir-whitelist` and set it's value to **"/"** if you want to allow full access to file system. If you want to allow access only to a specific directory, provide the path to that directory as the value.
+
+## Troubleshooting
+
+Here are some issues that you might run into while using Livy for remote job submission to Spark clusters.
+
+### Using an external jar from the additional storage is not supported
+
+**Problem:** If you are running a Spark job using Livy referencing an external jar from the additional storage associated with the cluster, the job will fail.
+
+**Resolution:** Make sure that the jar you want to use is available in the default storage associated with the HDInsight cluster.
 
 
 ## <a name="seealso"></a>See also

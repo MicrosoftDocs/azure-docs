@@ -1,11 +1,11 @@
 ---
-title: Working with Custom Domains in Azure AD Application Proxy | Microsoft Docs
-description: Covers how work with custom domains in Azure AD Application Proxy.
+title: Custom domains in Azure AD Application Proxy | Microsoft Docs
+description: Manage custom domains in Azure AD Application Proxy so that the URL for the app is the same regardless of where your users access it. 
 services: active-directory
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: ''
+editor: harshja
 
 ms.assetid: 2fe9f895-f641-4362-8b27-7a5d08f8600f
 ms.service: active-directory
@@ -13,19 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2016
+ms.date: 02/03/2017
 ms.author: kgremban
 
 ---
 # Working with custom domains in Azure AD Application Proxy
-Using a default domain enables you to set the same URL as the internal and external URL for accessing the application so that your users only have one URL to remember to access the app, no matter where they are accessing from. This also lets you create a single shortcut in the Access Panel for the application. If you use the default domain provided by Azure AD Application Proxy, there’s no additional configuration you need to enable your domain. In the event that you use a custom domain, there are a few things you need to do to make sure that Application Proxy recognizes your domain and validates its certificates.
+Using a default domain enables you to set the same URL as the internal and external URL for accessing the application so that your users only have one URL to remember to access the app, no matter where they are accessing from. This also lets you create a single shortcut in the Access Panel for the application. If you use the default domain provided by Azure AD Application Proxy, there’s no additional configuration you need to enable your domain. If you use a custom domain, there are a few things you need to do to make sure that Application Proxy recognizes your domain and validates its certificates.
 
 ## Selecting your custom domain
 1. Publish your application according to the instructions in [Publish applications with Application Proxy](active-directory-application-proxy-publish.md).
 2. After the application appears in the list of applications, select it and click **Configure**.
 3. Under **External URL**, enter your custom domain.
 4. If your external URL is https, you will be prompted to upload a certificate so that Azure can validate the URL of the application. You can also upload a wildcard certificate that matches the External URL of the application. This domain must be within the list of your [Azure verified domains](https://msdn.microsoft.com/library/azure/jj151788.aspx). Azure must have a certificate for the domain URL of the application or a wildcard certificate that matches the External URL for the application.
-5. Make sure to add a DNS record that routes the internal URL to the application that enables you to have the same URL for internal and external access and a single shortcut to the application in the user’s applications list.
+5. Add a DNS record that routes the internal URL to the application. This record enables you to have the same URL for internal and external access to the app, and a single shortcut in the user’s applications list.
 
 ## Frequently asked questions about working with custom domains
 Q: Can I select an already-uploaded certificate without uploading it again?  
@@ -67,11 +67,9 @@ A: Yes, self-signed certificates are allowed. Note that if you’re using a priv
 Q: Is there a place to see all the certificates for my tenant?  
 A: This is not supported in the current version.  
 
-## See also
-* [Publish applications with Application Proxy](active-directory-application-proxy-publish.md)
-* [Enable single sign-on](active-directory-application-proxy-sso-using-kcd.md)
-* [Enable conditional access](active-directory-application-proxy-conditional-access.md)
+## Next steps
+* [Enable single sign-on](active-directory-application-proxy-sso-using-kcd.md) to your published apps with Azure AD authentication.
+* [Enable conditional access](active-directory-application-proxy-conditional-access.md) to your published apps.
 * [Add your custom domain name to Azure AD](active-directory-add-domain.md)
 
-For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
 

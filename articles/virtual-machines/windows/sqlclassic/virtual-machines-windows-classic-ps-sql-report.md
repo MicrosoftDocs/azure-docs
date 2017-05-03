@@ -9,12 +9,12 @@ editor: monicar
 tags: azure-service-management
 
 ms.assetid: 553af55b-d02e-4e32-904c-682bfa20fa0f
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
-ms.date: 10/04/2016
+ms.workload: iaas-sql-server
+ms.date: 01/11/2017
 ms.author: asaxton
 
 ---
@@ -28,14 +28,12 @@ This topic describes and walks you through the deployment and configuration of a
 > If you do not require **HTTPS** on the report server, **skip step 2**.
 > 
 > After creating the VM in step 1, go to the section Use script to configure the report server and HTTP. After you run the script, the report server is ready to use.
-> 
-> 
 
 ## Prerequisites and Assumptions
 * **Azure Subscription**: Verify the number of cores available in your Azure Subscription. If you create the recommended VM size of **A3**, you need **4** available cores. If you use a VM size of **A2**, you need **2** available cores.
   
   * To verify the core limit of your subscription, in the Azure classic portal, click SETTINGS in the left pane and then Click USAGE in the top menu.
-  * To increase the core quota, contact [Azure Support](https://azure.microsoft.com/support/options/). For VM size information, see [Virtual Machine Sizes for Azure](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  * To increase the core quota, contact [Azure Support](https://azure.microsoft.com/support/options/). For VM size information, see [Virtual Machine Sizes for Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * **Windows PowerShell Scripting**: The topic assumes that you have a basic working knowledge of Windows PowerShell. For more information about using Windows PowerShell, see the following:
   
   * [Starting Windows PowerShell on Windows Server](https://technet.microsoft.com/library/hh847814.aspx)
@@ -76,7 +74,7 @@ This topic describes and walks you through the deployment and configuration of a
    * **ENDPOINTS** Keep the **Remote Desktop** and **PowerShell** endpoints and then add either an HTTP or HTTPS endpoint, depending on your environment.
      
      * **HTTP**: The default public and private ports are **80**. Note that if you use a private port other than 80, modify **$HTTPport = 80** in the http script.
-     * **HTTPS**: The default public and private ports are **443**. A security best practice is to change the private port and configure your firewall and the report server to use the private port. For more information on endpoints, see [How to Set Up Communication with a Virtual Machine](../../virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Note that if you use a port other than 443, change the parameter **$HTTPsport = 443** in the HTTPS script.
+     * **HTTPS**: The default public and private ports are **443**. A security best practice is to change the private port and configure your firewall and the report server to use the private port. For more information on endpoints, see [How to Set Up Communication with a Virtual Machine](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Note that if you use a port other than 443, change the parameter **$HTTPsport = 443** in the HTTPS script.
    * Click next . ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. On the last page of the wizard, keep the default **Install the VM agent** selected. The steps in this topic do not utilize the VM agent but if you plan to keep this VM, the VM agent and extensions will allow you to enhance he CM.  For more information on the VM agent, see [VM Agent and Extensions – Part 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). One of the default extensions installed ad running is the “BGINFO” extension that displays on the VM desktop, system information such as internal IP and free drive space.
 9. Click complete . ![ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
@@ -85,8 +83,6 @@ This topic describes and walks you through the deployment and configuration of a
 ## Step 2: Create a Server Certificate
 > [!NOTE]
 > If you do not require HTTPS on the report server, you can **skip step 2** and go to the section **Use script to configure the report server and HTTP**. Use the HTTP script to quickly configure the report server and the report server will be ready to use.
-> 
-> 
 
 In order to use HTTPS on the VM, you need a trusted SSL certificate. Depending on your scenario, you can use one of the following two methods:
 
@@ -107,8 +103,7 @@ In order to use HTTPS on the VM, you need a trusted SSL certificate. Depending o
      
      > [!NOTE]
      > The **issued to** field of the trusted SSL certificate should be the same as the **Cloud Service DNS NAME** you used for the new VM.
-     > 
-     > 
+
 2. **Install the server certificate on the Web server**. The Web server in this case is the VM that hosts the report server and the website is created in later steps when you configure Reporting Services. For more information about installing the server certificate on the Web server by using the Certificate MMC snap-in, see [Install a Server Certificate](https://technet.microsoft.com/library/cc740068).
    
     If you want to use the script included with this topic, to configure the report server, the value of the certificates **Thumbprint** is required as a parameter of the script. See the next section for details on how to obtain the thumbprint of the certificate.
@@ -596,8 +591,6 @@ The following table summarizes some of the options available to publish existing
 ## Minimize cost if you are not using the VM
 > [!NOTE]
 > To minimize charges for your Azure Virtual Machines when not in use, shut down the VM from the Azure classic portal. If you use the Windows power options inside a VM to shut down the VM, you are still charged the same amount for the VM. To reduce charges, you need to shut down the VM in the Azure classic portal. If you no longer need the VM, remember to delete the VM and the associated .vhd files to avoid storage charges.For more information, see the FAQ section at [Virtual Machines Pricing Details](https://azure.microsoft.com/pricing/details/virtual-machines/).
-> 
-> 
 
 ## More Information
 ### Resources

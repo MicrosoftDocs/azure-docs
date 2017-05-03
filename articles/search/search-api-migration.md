@@ -40,7 +40,7 @@ Version 2016-09-01 is the second generally available release of the Azure Search
 If you are upgrading from version 2015-02-28, you probably won't have to make any changes to your code, other than to change the version number. The only situations in which you may need to change code are when:
 
 * Your code fails when unrecognized properties are returned in an API response. By default your application should ignore properties that it does not understand.
-* Your code persists API requests and tries to re-send them to the new API version. For example, this might happen if your application persists continuation tokens returned from the Search API (for more information, look for `@search.nextPageParameters` in the [Search API Reference](https://msdn.microsoft.com/library/azure/dn798927.aspx#Anchor_1)).
+* Your code persists API requests and tries to resend them to the new API version. For example, this might happen if your application persists continuation tokens returned from the Search API (for more information, look for `@search.nextPageParameters` in the [Search API Reference](https://msdn.microsoft.com/library/azure/dn798927.aspx#Anchor_1)).
 
 If either of these situations apply to you, then you may need to change your code accordingly. Otherwise, no changes should be necessary unless you want to start using the [new features](#WhatsNew) of version 2016-09-01.
 

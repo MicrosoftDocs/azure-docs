@@ -1,4 +1,4 @@
-# [Overview](cdn-overview.md)
+﻿# [Overview](cdn-overview.md)
 ## [What is Azure CDN?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
 
 # Get Started
@@ -12,6 +12,7 @@
 ### [Cross-origin resource sharing](cdn-cors.md)
 
 ## Manage
+### [Enable HTTPS on a custom domain](cdn-custom-ssl.md)
 ### [Manage with PowerShell](cdn-manage-powershell.md)
 ### Configure time-to-live
 #### [Web Apps/Cloud Services, ASP.NET, or IIS content](cdn-manage-expiration-of-cloud-service-content.md)
@@ -44,7 +45,7 @@
 ### [File compression](cdn-troubleshoot-compression.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn)
+## [PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)

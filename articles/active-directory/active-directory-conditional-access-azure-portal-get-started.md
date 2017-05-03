@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2016
+ms.date: 02/23/2017
 ms.author: markvi
 
 ---
@@ -124,7 +124,7 @@ If you need more details about Trusted IPs, see [Trusted IPs](../multi-factor-au
 
 12. On the **Conditions** blade, click **Done**.
 
-13. On the **New** blade, to open the **Grand** blade, in the **Controls** section, click **Grant**.
+13. On the **New** blade, to open the **Grant** blade, in the **Controls** section, click **Grant**.
 
     ![Conditional access](./media/active-directory-conditional-access-azure-portal-get-started/13.png)
 

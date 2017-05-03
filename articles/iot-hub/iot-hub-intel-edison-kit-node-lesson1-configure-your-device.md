@@ -1,5 +1,5 @@
 ---
-title: Create and deploy the blink application into the Azure IoT Starter Kit | Microsoft Docs
+title: 'Connect Intel Edison (Node) to Azure IoT - Lesson 1: Configure device | Microsoft Docs'
 description: Configure Intel Edison for first-time use.
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'arduino set up, connect arduino to pc, setup arduino, arduino board'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-node-get-started
+
 ms.assetid: 372c9b6d-e701-4ff6-8151-d262aa76aa55
 ms.service: iot-hub
 ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/7/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

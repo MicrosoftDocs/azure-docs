@@ -8,6 +8,7 @@
 ## [Get started with the preconfigured solutions](iot-suite-getstarted-preconfigured-solutions.md)
 ## [Permissions on azureiotsuite.com](iot-suite-permissions.md)
 ## [Predictive maintenance solution overview](iot-suite-predictive-overview.md)
+## [Connected factory solution overview](iot-suite-connected-factory-overview.md)
 ## [Remote monitoring solution walkthrough](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Predictive maintenance solution walkthrough](iot-suite-predictive-walkthrough.md)
 
@@ -21,6 +22,7 @@
 ## [Use dynamic telemetry with the remote monitoring solution](iot-suite-dynamic-telemetry.md)
 ## [Create a custom rule in the remote monitoring solution](iot-suite-custom-rule.md)
 ## [Device information in the remote monitoring solution](iot-suite-remote-monitoring-device-info.md)
+## [Deploy a gateway for connected factory](iot-suite-connected-factory-gateway-deployment.md)
 
 # Reference
 ## [Security architecture](iot-security-architecture.md)

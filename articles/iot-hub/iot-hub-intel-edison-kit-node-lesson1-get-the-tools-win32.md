@@ -1,5 +1,5 @@
 ---
-title: Get the tools for your Azure IoT Starter Kit (Windows 7 or later) | Microsoft Docs
+title: 'Connect Intel Edison (Node) to Azure IoT - Lesson 1: Get tools (Windows) | Microsoft Docs'
 description: Download and install the necessary tools and software for the first sample application for Edison on Windows 7 and later versions.
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'arduino development tools, iot development, iot software, internet of things software, install git on windows, install node js windows'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-node-get-started
+
 ms.assetid: 4164b5a1-5a42-4d8a-9ff6-441e79fcc936
 ms.service: iot-hub
 ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

@@ -92,7 +92,7 @@ retrieves all device twins located in the US configured to send telemetry less o
         SELECT * FROM devices
         WHERE property.reported.connectivity IN ['wired', 'wifi']
 
-retrieves all device twins that reported wifi or wired connectivity. It is often necessary to identify all device twins that contain a specific property. IoT Hub supports the function `is_defined()` for this purpose. For instance,
+retrieves all device twins that reported WiFi or wired connectivity. It is often necessary to identify all device twins that contain a specific property. IoT Hub supports the function `is_defined()` for this purpose. For instance,
 
         SELECT * FROM devices
         WHERE is_defined(property.reported.connectivity)
@@ -167,6 +167,11 @@ Note how the **query** object is instantiated with a page size (up to 1000), and
 Note that the query object exposes multiple **next\***, depending on the deserialization option required by the query, such as device twin or job objects, or plain JSON to be used when using projections.
 
 ### Limitations
+> [!IMPORTANT]
+> Query results can have a few minutes of delay with respect to the latest values in device twins. If querying individual device twins by id, it is always preferable to use the retrieve device twin API, which always contains the latest values and has higher throttling limits.
+>
+>
+
 Currently, comparisons are supported only between primitive types (no objects), for instance `... WHERE properties.desired.config = properties.reported.config` is supported only if those properties have primitive values.
 
 ## Get started with jobs queries
@@ -243,15 +248,31 @@ Using [device-to-cloud routes][lnk-devguide-messaging-routes], you can configure
 The route [condition][lnk-query-expressions] uses the same IoT Hub query language as conditions in twin and job queries. Route conditions are evaluated on the message properties assuming the following JSON representation:
 
         {
+            "$messageId": "",
+            "$enqueuedTime": "",
+            "$to": "",
+            "$expiryTimeUtc": "",
+            "$correlationId": "",
+            "$userId": "",
+            "$ack": "",
+            "$connectionDeviceId": "",
+            "$connectionDeviceGenerationId": "",
+            "$connectionAuthMethod": "",
+            "$content-type": "",
+            "$content-encoding": ""
+
             "userProperty1": "",
             "userProperty2": ""
         }
+
+Message system properties are prefixed with the `'$'` symbol.
+User properties are always accessed with their name. If a user property name happens to coincide with a system property (such as `$to`), the user property will be retrieved with the `$to` expression.
+You can always access the system property using brackets `{}`: for instance, you can use the expression `{$to}` to access the system property `to`. Bracketed property names always retrieve the corresponding system property.
 
 Remember that property names are case insensitive.
 
 > [!NOTE]
 > All message properties are strings. System properties, as described in the [developer guide][lnk-devguide-messaging-format], are currently not available to use in queries.
->
 >
 
 For example, if you use a `messageType` property, you might want to route all telemetry to one endpoint, and all alerts to another endpoint. You can write the following expression to route the telemetry:
@@ -447,8 +468,8 @@ Learn how to execute queries in your apps using [Azure IoT SDKs][lnk-hub-sdks].
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-devguide-messaging-routes]: iot-hub-devguide-messaging.md#device-to-cloud-configuration-options
-[lnk-devguide-messaging-format]: iot-hub-devguide-messaging.md#message-format 
+[lnk-devguide-messaging-routes]: iot-hub-devguide-messaging.md#routing-rules
+[lnk-devguide-messaging-format]: iot-hub-devguide-messaging.md#message-format
 
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md

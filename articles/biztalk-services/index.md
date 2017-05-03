@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Biztalk Services Documentation - Tutorials | Microsoft Docs
 description: Learn how to use BizTalk services to provide cloud to on-premises and line-of-business application integration for SAP, Oracle EBS, SQL Server, and PeopleSoft.
+services: biztalk-services
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: biztalk-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Biztalk Services Documentation
 
@@ -63,13 +74,4 @@ Learn how to use BizTalk services to provide cloud to on-premises and line-of-bu
     </li>
 </ul>
 
----
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/biztalk-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Biztalk Services Documentation
-        </div>
-    </a>
-</div>

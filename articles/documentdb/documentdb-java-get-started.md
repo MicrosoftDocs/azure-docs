@@ -22,8 +22,9 @@ ms.author: arramac
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
+> * [Node.js for MongoDB](documentdb-mongodb-samples.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
@@ -55,12 +56,12 @@ Make sure you have the following:
 * [Maven](http://maven.apache.org/download.cgi).
 
 ## Step 1: Create a DocumentDB account
-Let's create a DocumentDB account. If you already have an account you want to use, you can skip ahead to [Clone the Github project](#GitClone). If you are using the DocumentDB Emulator, follow the steps at [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md) to set up the emulator and skip ahead to [Clone the Github project](#GitClone).
+Let's create a DocumentDB account. If you already have an account you want to use, you can skip ahead to [Clone the GitHub project](#GitClone). If you are using the DocumentDB Emulator, follow the steps at [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md) to set up the emulator and skip ahead to [Clone the GitHub project](#GitClone).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a id="GitClone"></a>Step 2: Clone the Github project
-You can get started by cloning the Github repository for [Get Started with DocumentDB and Java](https://github.com/Azure-Samples/documentdb-java-getting-started). For example, from a local directory run the following to retrieve the sample project locally.
+## <a id="GitClone"></a>Step 2: Clone the GitHub project
+You can get started by cloning the GitHub repository for [Get Started with DocumentDB and Java](https://github.com/Azure-Samples/documentdb-java-getting-started). For example, from a local directory run the following to retrieve the sample project locally.
 
     git clone git@github.com:Azure-Samples/documentdb-java-getting-started.git
 
