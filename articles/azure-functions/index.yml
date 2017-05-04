@@ -1,0 +1,44 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Functions Documentation
+metadata:
+  title: Azure Functions Documentation - Tutorials | Microsoft Docs
+  description: Learn how to develop and deploy functions in the language of your choice to run tasks in the background or on a schedule without special infrastructure.
+  services: functions
+  author: apexprodleads
+  manager: carolz
+  ms.service: virtual-machines\linux
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01/23/2017
+  ms.author: carolz
+abstract:
+  description: Learn how to use Functions to develop and deploy small pieces of code in the language of your choice and in the cloud without setting up infrastructure. Tutorials, templates, and other documentation show you how to create functions for tasks you want to run in a background thread or on a schedule.
+sections:
+- itle: Resources
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items: 
+    - title: Learn about Azure Functions
+      image: 
+        src: https://docs.microsoft.com/en-us/azure/azure-functions/media/index/azure-functions.svg
+      href: /azure/azure-functions/functions-overview
+    - title: Get started with Azure Functions
+      image: 
+        src: https://docs.microsoft.com/en-us/azure/azure-functions/media/index/get-started.svg
+      href: /azure/azure-functions/functions-create-first-azure-function
+    - title: Get Started with a webhook function
+      image: 
+        src: https://docs.microsoft.com/en-us/azure/azure-functions/media/index/get-started.svg
+      href: /azure/azure-functions/functions-create-a-web-hook-or-api-function
+    - title: Get Started with an Azure connected function
+      image: 
+        src: https://docs.microsoft.com/en-us/azure/azure-functions/media/index/get-started.svg
+      href: /azure/azure-functions/functions-create-an-azure-connected-function
+    - title: Get Started with an event processing function
+      image: 
+        src: https://docs.microsoft.com/en-us/azure/azure-functions/media/index/get-started.svg
+      href: /azure/azure-functions/functions-create-an-event-processing-function
