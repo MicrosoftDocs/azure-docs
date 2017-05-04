@@ -29,7 +29,7 @@ The best experience is obtained by installing Application Insights both in your 
 
 2. **Web page code:** Open the [Azure portal](https://portal.azure.com), open the Application Insights resource for your app, and then open **Getting Started > Monitor and Diagnose Client-Side**. 
 
-    ![Copy the script into the head of your master web page.](./media/app-insights-web-track-usage/02-monitor-web-page.png)
+    ![Copy the script into the head of your master web page.](./media/app-insights-usage-overview/02-monitor-web-page.png)
 
 
 3. **Get telemetry:** Run your project in debug mode for a few minutes, and then look for results in the Overview blade in Application Insights.
@@ -55,7 +55,7 @@ Insights on the right point out interesting patterns in the set of data.
 
 From the Usage blade, click through the Page Views tile to get a breakdown of your most popular pages:
 
-![From the Overview blade, click the Page views chart](./media/app-insights-web-track-usage/05-games.png)
+![From the Overview blade, click the Page views chart](./media/app-insights-usage-overview/05-games.png)
 
 The example above is from a games web site. From the charts, we can instantly see:
 
