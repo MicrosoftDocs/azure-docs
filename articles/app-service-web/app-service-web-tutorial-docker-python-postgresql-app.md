@@ -18,9 +18,9 @@ ms.author: berndverst
 
 ---
 # Build a Docker Python and PostgreSQL web app in Azure
-This tutorial shows you how to create a Docker container based Python web app in Azure and connect it to a PostgreSQL database. When you are done, you will have a Python Flask application running within a Docker container on [Azure App Service Web Apps](app-service-web-overview.md).
+This tutorial shows you how to create a basic Docker container based Python web app in Azure and connect it to a PostgreSQL database. When you are done, you will have a Python Flask application running within a Docker container on [Azure App Service Web Apps](app-service-web-overview.md).
 
-![MEAN.js app running in Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
+![Docker Python Flask app in Azure App Service](./media/app-service-web-tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
 ## Before you begin
 
@@ -48,9 +48,9 @@ If your connection is successful, then your PostgreSQL database is already runni
 Create a database called `eventregistration` and set up a separate database user named `manager` with password `supersecretpass`.
 
 ```bash
-postgres=> CREATE DATABASE eventregistration;
-postgres=> CREATE USER manager WITH PASSWORD 'supersecretpass';
-postgres=> GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
+CREATE DATABASE eventregistration;
+CREATE USER manager WITH PASSWORD 'supersecretpass';
+GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
 ```
 Type `\q` to exit the PostgreSQL client. 
 
@@ -80,36 +80,13 @@ This sample repository contains a [Flask](http://http://flask.pocoo.org/) applic
 
 Install the required packages and start the application.
 
-Mac / Linux:
 ```bash
 pip install virtualenv
 virtualenv venv
 source venv/bin/activate
 pip install -r requirements.txt
 cd app
-export FLASK_APP=app.py
-export DBHOST="localhost";
-export DBUSER="manager";
-export DBNAME="eventregistration";
-export DBPASS="supersecretpass";
-flask db upgrade
-flask run
-```
-
-Windows:
-```bash
-pip install virtualenv
-virtualenv venv
-venv\Scripts\activate.bat
-pip install -r requirements.txt
-cd app
-set FLASK_APP=app.py
-set DBHOST="localhost";
-set DBUSER="manager";
-set DBNAME="eventregistration";
-set DBPASS="supersecretpass"
-flask db upgrade
-flask run
+FLASK_APP=app.py;DBHOST="localhost";DBUSER="manager";DBNAME="eventregistration";DBPASS="supersecretpass";flask db upgrade;flask run
 ```
 
 When the app is fully loaded, you should see something similar to the following message:
@@ -122,12 +99,11 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-Navigate to `http://localhost:5000` in a browser. Click **Register!** and try to create a dummy registration. 
+Navigate to `http://127.0.0.1:5000` in a browser. Click **Register!** and try to create a dummy registration.
+
+![Python Flask application running locally](./media/app-service-web-tutorial-docker-python-postgresql-app/local-app.png)
 
 The Flask sample application stores user data in the database. If you are successful and able to view your registration in the app, then your app is writing data to the local PostgreSQL database.
-
-![MEAN.js connects successfully to MongoDB](./media/app-service-web-tutorial-nodejs-mongodb-app/mongodb-connect-success.png)
-
 
 To stop the Flask server at anytime, type `Ctrl`+`C` in the terminal. 
 
@@ -229,35 +205,19 @@ psql -h <postgresql_name>.database.windows.net -U <my_admin_username>@<postgresq
 
 Then create the database and user from the PostgreSQL CLI.
 ```
-postgres=> CREATE DATABASE eventregistration;
-postgres=> CREATE USER manager WITH PASSWORD 'supersecretpass';
-postgres=> GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
+CREATE DATABASE eventregistration;
+CREATE USER manager WITH PASSWORD 'supersecretpass';
+GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
 ```
 
 Type `\q` to exit the PostgreSQL client.
 
-### Test the application in production mode 
+### Test the application locally against the Azure PostgreSQL database 
 
-Going back now to the `app` folder of the cloned Github repository, we can run our Python Flask application simply by replacing the values of database environment variables.
+Going back now to the `app` folder of the cloned Github repository, we can run our Python Flask application simply by updating our database environment variables.
 
-Linux / Mac
 ```bash
-export DBHOST="<postgresql_name>.database.windows.net";
-export DBUSER="manager@<postgresql_name>";
-export DBNAME="eventregistration";
-export DBPASS="supersecretpass";
-flask db upgrade
-flask run
-```
-
-Windows
-```bash
-set DBHOST="<postgresql_name>.database.windows.net";
-set DBUSER="manager@<postgresql_name>";
-set DBNAME="eventregistration";
-set DBPASS="supersecretpass"
-flask db upgrade
-flask run
+FLASK_APP=app.py;DBHOST="<postgresql_name>.database.windows.net";DBUSER="manager@<postgresql_name>";DBNAME="eventregistration";DBPASS="supersecretpass";flask db upgrade;flask run
 ```
 
 When the app is fully loaded, once again you should see something similar to the following message:
@@ -270,7 +230,9 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-Navigate to `http://localhost:5000` in a browser. Click **Register!** and try to create a dummy registration. You are now writing data to the production database in Azure.
+Navigate to `http://127.0.0.1:5000` in a browser. Click **Register!** and try to create a dummy registration. You are now writing data to the production database in Azure.
+
+![Python Flask application running locally](./media/app-service-web-tutorial-docker-python-postgresql-app/local-app.png)
 
 ### Running the application from a Docker Container
 
@@ -284,28 +246,22 @@ docker build -t flask-postgresql-sample .
 Docker will display a confirmation that it successfully created the container.
 
 ```
-Sending build context to Docker daemon 31.82 MB
-Step 1/7 : FROM python:3.6.1
- ---> a0d32d529a0a
-Step 2/7 : COPY requirements.txt /
- ---> 4562b61e3469
-Step 3/7 : RUN pip install -r ./requirements.txt
- ---> 557b1cf333ee
-Step 4/7 : COPY app/ /app/
- ---> a9468d5b11d4
-Step 5/7 : WORKDIR /app
- ---> adeef3caf680
-Step 6/7 : ENV FLASK_APP app.py
- ---> 7ffadd086cb4
-Step 7/7 : CMD flask db upgrade && flask run -h 0.0.0.0 -p 5000
- ---> 7548f983a36b
 Successfully built 7548f983a36b
 ```
 
-We will now run the app from within the Docker container. We expose our Database environment variables to the Docker container and map the default Flask port 5000 to our local port 5000.
+Let's add our database environment variables to an environment variable file `db.env`.
+
+```
+DBHOST="<postgresql_name>.database.windows.net"
+DBUSER="manager@<postgresql_name>"
+DBNAME="eventregistration"
+DBPASS="supersecretpass"
+```
+
+We will now run the app from within the Docker container. We specify the environment variable file and map the default Flask port 5000 to our local port 5000.
 
 ```bash
-docker run -it --env DBHOST --env DBUSER --env DBPASS --env DBNAME -p 5000:5000 flask-postgresql-sample
+docker run -it --env-file db.env -p 5000:5000 flask-postgresql-sample
 ```
 
 Not surpringly, the output is similar as before. However, the initial database migration no longer needs to be performed and therefore is skipped.
@@ -315,6 +271,10 @@ INFO  [alembic.runtime.migration] Will assume transactional DDL.
  * Serving Flask app "app"
  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
  ```
+
+ The database already contains the registration we created previously.
+
+ ![Docker container-based Python Flask application running locally](./media/app-service-web-tutorial-docker-python-postgresql-app/local-docker.png)
 
 ## Upload the Docker container to a container registry
 In this step, you will upload the Docker container we created to a container registry. We will use Azure Container Registry, however, you could also use other popular ones such as Docker Hub.
@@ -381,22 +341,6 @@ You will be shown two passwords. Make note of the username and the first passwor
 docker login <registry_name>.azurecr.io -u <registry_name> -p "<registry_password>"
 docker tag flask-postgresql-sample <registry_name>.azurecr.io/flask-postgresql-sample
 docker push <registry_name>.azurecr.io/flask-postgresql-sample
-```
-
-Output
-```
-The push refers to a repository [<registry_name>.azurecr.io/flask-postgresql-sample]
-a6cd8251e07d: Pushed
-c298b29e305f: Pushed
-500d7cb0f165: Pushed
-ade6994ee59e: Pushed
-9762e6b181bb: Pushed
-a7f774767e3f: Pushed
-eda5b29538df: Pushed
-d359ab38b013: Pushed
-682e7cee9d37: Pushed
-295d6a056bfd: Pushed
-latest: digest: sha256:539bcaec8d7799c355eff99e91e6164290277ccd82c85900dde7b63c040c82a8 size: 2423
 ```
 
 ## Deploy the Docker Python Flask application to Azure
@@ -528,9 +472,9 @@ http://<app_name>.azurewebsites.net
 > [!NOTE]
 > The very first time you access your web app since making a change to the container configuration please allow for additional time for the container to be downloaded and started.
 
-Click **Register!** and try to create a dummy user. You will see previously registered users that were saved in the Azure production database.
+You will see previously registered guests that were saved to the Azure production database in the previous step.
 
-![MEAN.js app running in Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
+ ![Docker container-based Python Flask application running locally](./media/app-service-web-tutorial-docker-python-postgresql-app/docker-app-deployed.png)
 
 **Congratulations!** You're running a Docker container-based Python Flask app in Azure App Service.
 
@@ -558,29 +502,12 @@ Mac / Linux:
 ```bash
 source venv/bin/activate
 cd app
-export FLASK_APP=app.py
-export DBHOST="localhost";
-export DBUSER="manager";
-export DBNAME="eventregistration";
-export DBPASS="supersecretpass";
-flask db upgrade
-flask run
+FLASK_APP=app.py;DBHOST="localhost";DBUSER="manager";DBNAME="eventregistration";DBPASS="supersecretpass";flask db upgrade;flask run
 ```
 
-Windows:
-```bash
-venv\Scripts\activate.bat
-cd app
-set FLASK_APP=app.py
-set DBHOST="localhost";
-set DBUSER="manager";
-set DBNAME="eventregistration";
-set DBPASS="supersecretpass"
-flask db upgrade
-flask run
-```
+Navigate to `http://127.0.0.1:5000` in your browser to view the changes. Create a new dummy registration.
 
-Navigate to `http://127.0.0.1:5000` in your browser to view the changes.
+![Docker container-based Python Flask application running locally](./media/app-service-web-tutorial-docker-python-postgresql-app/local-app-v2.png)
 
 ### Publish changes to Azure
 
@@ -593,11 +520,13 @@ docker push <registry_name>.azurecr.io/flask-postgresql-sample
 az appservice web restart --resource-group myResourceGroup --name <app_name>
 ```
 
-Navigate to your Azure web app and try out the new functionality again.
+Navigate to your Azure web app and try out the new functionality again. Create another event registration.
 
 ```bash 
 http://<app_name>.azurewebsites.net 
 ```
+
+![Docker Python Flask app in Azure App Service](./media/app-service-web-tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
 ## Manage your Azure web app
 
@@ -607,13 +536,13 @@ To do this, sign in to [https://portal.azure.com](https://portal.azure.com).
 
 From the left menu, click **App Service**, then click the name of your Azure web app.
 
-![Portal navigation to Azure web app](./media/app-service-web-tutorial-nodejs-mongodb-app/access-portal.png)
+![Portal navigation to Azure web app](./media/app-service-web-tutorial-docker-python-postgresql-app/app-resource.png)
 
 You have landed in your web app's _blade_ (a portal page that opens horizontally).
 
 By default, your web app's blade shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the blade show the different configuration pages you can open.
 
-![App Service blade in Azure portal](./media/app-service-web-tutorial-nodejs-mongodb-app/web-app-blade.png)
+![App Service blade in Azure portal](./media/app-service-web-tutorial-docker-python-postgresql-app/app-mgmt.png)
 
 These tabs in the blade show the many great features you can add to your web app. The following list gives you just a few of the possibilities:
 
