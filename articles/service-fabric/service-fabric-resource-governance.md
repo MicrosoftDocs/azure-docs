@@ -44,7 +44,7 @@ Capacity should be defined manually in each node type in the cluster as follows:
 ```xml
     <NodeType Name="MyNodeType">
       <Capacities>
-        <Capacity Name="ServiceFabric:/_CPUCores" Value="4"/>
+        <Capacity Name="ServiceFabric:/_CpuCores" Value="4"/>
         <Capacity Name="ServiceFabric:/_MemoryInMB" Value="2048"/>
       </Capacities>
     </NodeType>
@@ -70,21 +70,21 @@ Resource governance limits are specified in the application manifest (ServiceMan
   <Parameters>
   </Parameters>
   <!--
-  ServicePackageA will have number of CPU cores defined, but won't have MemoryInMB.
-  In this case, LRM will summarize limits on code packages and will use the sum as 
-  overall SP limit.
+  ServicePackageA has the number of CPU cores defined, but doesn't have the MemoryInMB defined.
+  In this case, Service Fabric will sum the limits on code packages and uses the sum as 
+  the overall ServicePackage limit.
   -->
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName='ServicePackageA' ServiceManifestVersion='v1'/>
     <Policies>
-      <ServicePackageResourceGovernancePolicy CPUCores="1"/>
+      <ServicePackageResourceGovernancePolicy CpuCores="1"/>
       <ResourceGovernancePolicy CodePackageRef="CodeA1" CpuShares="512" MemoryInMB="1000" />
       <ResourceGovernancePolicy CodePackageRef="CodeA2" CpuShares="256" MemoryInMB="1000" />
     </Policies>
   </ServiceManifestImport>
 ```
   
-In this example, service package ServicePackageA gets one core on the nodes where it is placed. This service package contains two code packages (CodeA1 and CodeA2), and both specify the CPUShares parameter. The proportion of CpuShares 512:256  divides the core across the two code packages. Thus, in this example, CodeA1 gets two-thirds of a core, and  CodeA2 gets one-third of a core (and a soft-guarantee reservation of the same). In case when CpuShares are not specified for code packages, Service Fabric divides the cores equally among them.
+In this example, service package ServicePackageA gets one core on the nodes where it is placed. This service package contains two code packages (CodeA1 and CodeA2), and both specify the `CpuShares` parameter. The proportion of CpuShares 512:256  divides the core across the two code packages. Thus, in this example, CodeA1 gets two-thirds of a core, and  CodeA2 gets one-third of a core (and a soft-guarantee reservation of the same). In case when CpuShares are not specified for code packages, Service Fabric divides the cores equally among them.
 
 Memory limits are absolute, so both code packages are limited to 1024 MB of memory (and a soft-guarantee reservation of the same). Code packages (containers or processes) are not able to allocate more memory than this limit, and attempting to do so results in an out-of-memory exception. For resource limit enforcement to work, all code packages within a service package should have memory limits specified.
 
