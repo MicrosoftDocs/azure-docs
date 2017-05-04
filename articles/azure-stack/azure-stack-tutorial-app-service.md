@@ -77,8 +77,9 @@ Now that you've deployed the App Service resource provider and created an offer,
 5. Click **Database** and enter the information for the SQL database you created earlier.
 6. Click **Create**.
 
-You now have a DNN app ready for your use!
+## Next steps
 
-
+> [!NEXT]
+> Now that you've created an offer to let users create applications, you can [deploy apps to Azure and Azure Stack](azure-stack-solution-pipeline.md)
 
 
