@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 05/04/2017
 ms.author: jingwang
 
 ---
@@ -311,7 +311,7 @@ If you are copying data from **Blob storage** to **SQL Data Warehouse**, conside
   * **Batch size**: The **writeBatchSize** property sets the number of parallel requests to the DocumentDB service to create documents. You can expect better performance when you increase **writeBatchSize** because more parallel requests are sent to DocumentDB. However, watch for throttling when you write to DocumentDB (the error message is "Request rate is large"). Various factors can cause throttling, including document size, the number of terms in the documents, and the target collection's indexing policy. To achieve higher copy throughput, consider using a better collection, for example, S3.
 
 ## Considerations for serialization and deserialization
-Serialization and deserialization can occur when your input data set or output data set is a file. Currently, Copy Activity supports Avro and Text (for example, CSV and TSV) data formats.
+Serialization and deserialization can occur when your input data set or output data set is a file. See [Supported file and compression formats](data-factory-supported-file-and-compression-formats.md) with details on supported file formats by Copy Activity.
 
 **Copy behavior**:
 
