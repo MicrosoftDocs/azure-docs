@@ -19,6 +19,8 @@ ms.author: cynthn
 ---
 # Back up Linux  virtual machines in Azure
 
+Protect your data by taking snapshots of your data at defined intervals. These snapshots are known as recovery points, and they are stored in recovery services vaults. If or when it is necessary to repair or rebuild a VM, you can restore the VM from any of the saved recovery points. When you restore a recovery point, you can create a new VM which is a point-in-time representation of your backed-up VM, or restore disks and use the template that comes along with it to customize the restored VM or do an individual file recovery. This article explains how to restore a VM to a new VM or restore all backed-up disks. For individual file recovery, refer to [Recover files from Azure VM backup](backup-azure-restore-files-from-vm.md)
+
 ## Backup overview
 
 When the Azure Backup service initiates a backup job at the scheduled time, it triggers the backup extension to take a point-in-time snapshot. The Azure Backup service uses the _VMSnapshotLinux_ extension in Linux. The extension is installed during the first VM backup if the VM is running. If the VM is not running, the Backup service takes a snapshot of the underlying storage (since no application writes occur while the VM is stopped).
@@ -72,14 +74,17 @@ Deployment notifications let you know the backup job has been triggered, and tha
 
 ## Restore a file
 
-Protect your data by taking snapshots of your data at defined intervals. These snapshots are known as recovery points, and they are stored in recovery services vaults. If or when it is necessary to repair or rebuild a VM, you can restore the VM from any of the saved recovery points. When you restore a recovery point, you can create a new VM which is a point-in-time representation of your backed-up VM, or restore disks and use the template that comes along with it to customize the restored VM or do an individual file recovery. This article explains how to restore a VM to a new VM or restore all backed-up disks. For individual file recovery, refer to [Recover files from Azure VM backup](backup-azure-restore-files-from-vm.md)
 
-1. Go to the Azure portal.
-2. In the left menu, click on Virtual Machines.
-3. Select your VM from the list.
-4. In the blade for your VM, select **Backup**.
-5. On the Backup blade, click **File Recovery** from the meu at the top.
-6. Select a recover point from the drop-down. Choose a recent recovery point that contains the file you want to restore.
+/var/www/html/index.nginx-debian.html
+
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+6. In the menu on the left, select **Virtual machines**. 
+7. From the list, select the VM.
+8. On the VM blade, in the **Settings** section, click **Backup**. The **Backup** blade opens. 
+9. In the menu at the top of the blade, select **File Recovery (Preview)**. The **File Recovery (Preview) blade opens.
+10. In **Step 1: Select recovery point**, select a recovery point from the drop-down.
+11. In **Step 2: Download script to browse and recover files**, click the **Download Executable** button. Save the downloaded file to your local computer.
 7. Click **Download script** to download the script file locally.
 8. Open a Bash prompt and type the following, replacing *Linux_myVM_05-02-2017.sh* with the correct path and filename for the script that you downloaded, *azureuser* with the username for the VM and *52.166.121.3* with the public IP address for your VM:
     ```bash
@@ -96,13 +101,7 @@ Protect your data by taking snapshots of your data at defined intervals. These s
 11. Run the script to mount the recovery point as a filesystem.
 
 
+## Next steps
 
-## Post-Restore steps
-* If you are using a cloud-init based Linux distribution such as Ubuntu, for security reasons, password is blocked post restore. Please use VMAccess extension on the restored VM to [reset the password](../virtual-machines/linux/classic/reset-access.md). We recommend using SSH keys on these distributions to avoid resetting password post restore.
-* Extensions present during the backup config will be installed, however they won't be enabled. Please reinstall extensions if you see any issue. 
-* If the backed-up VM has static IP, post restore, restored VM will have a dynamic IP to avoid conflict when creating restored VM. Learn more on how you can [add a static IP to restored VM](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
-* Restored VM will not have availability value set. We recommend using restore disks option and [adding availability set](../virtual-machines/windows/create-availability-set.md#use-powershell-to-create-an-availability-set) when creating a VM from PowerShell or templates using restored disks. 
 
-## Backup for restored VMs
-If you have restored VM to same Resource Group with the same name as originally backed up VM, backup continues on the VM post restore. If you have either restored VM to a different Resource group or specified a different name for restored VM, this is treated as a new VM and you need to setup backup for restored VM.
 

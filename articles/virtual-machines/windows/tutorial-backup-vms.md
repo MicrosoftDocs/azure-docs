@@ -93,6 +93,7 @@ For this example, we are showing a Windows VM with IIS installed. We will delete
 15. Open file explorer and navigate to the drive letter that was used for the file share.
 16. Navigate to \inetpub\wwwroot and copy **iisstart.png** from the file share and paste it into \inetpub\wwwroot. For example, copy F:\inetpub\wwwroot\iisstart.png and paste it into c:\inetpub\wwwroot to recover the file.
 17. On your local machine, open the browser tab where you are connected to the VM and the IIS default page. Press CTRL + F5 to refersh the browser page and you should now see that the image has been restored.
+18. When you are done recovering files, got back to the browser and in **Step 3: Unmount the disks after recovery** click the **Unmount Disks** button.
 
 
 
