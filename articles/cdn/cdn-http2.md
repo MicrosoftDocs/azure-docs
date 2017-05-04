@@ -1,4 +1,23 @@
-## HTTP/2 Support in Azure CDN
+---
+title: HTTP/2 support in Azure CDN | Microsoft Docs
+description: Learn about HTTP/2 and CDN support.
+services: cdn
+documentationcenter: ''
+author: lichard
+manager: erikre
+editor: ''
+
+ms.service: cdn
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 5/04/2017
+ms.author: rli
+
+---
+
+# HTTP/2 Support in Azure CDN
 
 HTTP/2 is a major revision to HTTP/1.1\. It provides faster web performance, reduced response time, and improved user experience, while maintaining the familiar HTTP methods, status codes, and semantics. Though HTTP/2 is designed to work with HTTP and HTTPS, many client web browsers only support HTTP/2 over TLS.
 
@@ -23,67 +42,13 @@ The benefits of HTTP/2 include:
 
 All of the major browsers have implemented HTTP/2 support in their current versions. Non-supported browsers will automatically fallback to HTTP/1.1.
 
-<table summary="table" responsive="true">
-
-<thead>
-
-<tr responsive="true">
-
-<th scope="col">Browser</th>
-
-<th scope="col">Minimum Version</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td data-th="Browser">Microsoft Edge</td>
-
-<td data-th="Minimum Version">12</td>
-
-</tr>
-
-<tr>
-
-<td data-th="Browser">Google Chrome</td>
-
-<td data-th="Minimum Version">43</td>
-
-</tr>
-
-<tr>
-
-<td data-th="Browser">Mozilla Firefox</td>
-
-<td data-th="Minimum Version">38</td>
-
-</tr>
-
-<tr>
-
-<td data-th="Browser">Opera</td>
-
-<td data-th="Minimum Version">32</td>
-
-</tr>
-
-<tr>
-
-<td data-th="Browser">Safari</td>
-
-<td data-th="Minimum Version">9</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-<div>
+|Browser|Minimum Version|
+|-------------|------------|
+|Microsoft Edge| 12|
+|Google Chrome| 43|
+|Mozilla Firefox| 38|
+|Opera| 32|
+|Safari| 9|
 
 ##Enabling HTTP/2 Support in Azure CDN
 
