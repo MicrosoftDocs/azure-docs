@@ -83,7 +83,7 @@ Before you can provision virtual machines, you must add the Windows Server VM im
    ```
    To ensure that the Windows Server 2016 VM image has the latest cumulative update, include the `IncludeLatestCU` parameter when running the previous cmdlet. 
 
-   When you run the New-Server2016VMImage cmdlet, the output displays a warning message that says, “Unable to acquire token for tenant ‘Common’”, which you can ignore and the download continues. The output also displays the “Downloading” message for a while and if the download is successful, it ends with the “StatusCode : Created” message.
+   When you run the `New-Server2016VMImage` cmdlet, the output displays a warning message that says, “Unable to acquire token for tenant ‘Common’”, which you can ignore and the download continues. The output also displays the “Downloading” message for a while and if the download is successful, it ends with the “StatusCode : Created” message.
 
 ## Parameters
 
