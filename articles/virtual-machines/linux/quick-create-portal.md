@@ -59,18 +59,6 @@ Log in to the Azure portal at http://portal.azure.com.
 7. The VM will be pinned to the Azure portal dashboard. Once the deployment has completed, the VM summary blade automatically opens.
 
 
-## Open port 80 for web traffic 
-
-A Network security group (NSG) secures inbound and outbound traffic. When a VM is created from the Azure portal, an inbound rule is created on port 22 for SSH connections. Because this VM will host a webserver, an NSG rule will need to be created for port 80.
-
-1. On the virtual machine, click the name of the **Resource group**.
-2. Select the **network security group**.
-3. Click on **Inbound security rules** to open the list of inbound rules.
-4. Click on **Add**.
-5. In **Name**, type **http**. Make sure **Port range** is set to 80 and **Action** is set to **Allow**. 
-6. Click **OK**.
-
-
 ## Connect to virtual machine
 
 Create an SSH connection with the virtual machine.
@@ -98,6 +86,18 @@ apt-get -y update
 # install NGINX
 apt-get -y install nginx
 ```
+
+## Open port 80 for web traffic 
+
+A Network security group (NSG) secures inbound and outbound traffic. When a VM is created from the Azure portal, an inbound rule is created on port 22 for SSH connections. Because this VM hosts a webserver, an NSG rule needs to be created for port 80.
+
+1. On the virtual machine, click the name of the **Resource group**.
+2. Select the **network security group**.
+3. Click on **Inbound security rules** to open the list of inbound rules.
+4. Click on **Add**.
+5. In **Name**, type **http**. Make sure **Port range** is set to 80 and **Action** is set to **Allow**. 
+6. Click **OK**.
+
 
 ## View the NGIX welcome page
 
