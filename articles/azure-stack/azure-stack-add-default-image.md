@@ -103,5 +103,6 @@ Before you can provision virtual machines, you must add the Windows Server VM im
 |CUUri |No |Set this value to choose the Windows Server 2016 cumulative update from a specific URI. |
 |CUPath |No |Set this value to choose the Windows Server 2016 cumulative update from a local path. This option is helpful if you have deployed Azure Stack in a disconnected environment.|
 
-> [!NEXT]
-> [Provision a virtual machine](azure-stack-provision-vm.md)
+## Next Steps
+
+[Provision a virtual machine](azure-stack-provision-vm.md)
