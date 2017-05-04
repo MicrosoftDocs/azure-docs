@@ -167,18 +167,21 @@ You can deploy the most commonly used Azure Site Recovery scripts into your Auto
 
 4. Add a manual step to restore search application from a backup or start a new search service.
 
-	####Restore Search Service Application from a backup 
+5. For restoring Search service application from a backup, follow below steps. 
+
 	* This method assumes that a backup of the Search Service Application was performed prior to the catastrophic event and that the backup is available at the DR site. *This can easily be achieved by scheduling the backup (for example, once daily) and using a copy procedure to place the backup at the DR site. Copy procedures could include scripted programs such as AzCopy (Azure Copy) or setting up DFSR (Distributed File Services Replication).
 	* Now that the SharePoint farm is running, navigate the Central Administration, Backup and Restore and select Restore. The restore will interrogate the backup location specified (you may need to update the value). Select the Search Service Application backup you would like to restore.
 	* Search will be restored. Keep in mind that the restore expect to find the same topology (same number of servers) and same hard drive letters assigned to those servers. For more information refer to ['Restore Search service application in SharePoint 2013'](https://technet.microsoft.com/library/ee748654.aspx) document.
 
-	####Start with a new Search Service Application
+
+6. For starting with a new Search service application, follow below steps.
+
 	* This method assumes that a backup of the “Search Administration” database is available at the DR site. 
 	* Since the other Search Service Application databases are not replicated, they will need to be re-created. To do so, navigate to Central Administration and delete the Search Service Application. On any servers which host the Search Index, delete the index files.
 	* Re-create the Search Service Application, this will re-create the databases. It is strongly recommended to have a prepared script that will re-create this service application since it is not possible to perform all actions via the GUI. For example, setting the index drive location and configuring the search topology are only possible by using SharePoint PowerShell cmdlets. Use the Windows PowerShell cmdlet Restore-SPEnterpriseSearchServiceApplication and specify the log-shipped and replicated Search Administration database, Search_Service__DB. This cmdlet gives the search configuration, schema, managed properties, rules, and sources and creates a default set of the other components.
 	* Once the Search Service Application has be re-created, you must start a full crawl for each content source to restore the Search Service. Note that you lose some analytics information from the on-premises farm, such as search recommendations. 
 
-5. Once all the steps are completed, save the recovery plan and the final recovery plan will look like below.
+7. Once all the steps are completed, save the recovery plan and the final recovery plan will look like below.
 
 	![Saved RP](./media/site-recovery-sharepoint/RP-Saved-Final.png)
 
