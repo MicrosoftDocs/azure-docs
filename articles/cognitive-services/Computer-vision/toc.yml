@@ -1,9 +1,15 @@
 - name: Computer Vision Documentation
-  href: Home.md
+  href: ../index.md
 - name: Overview
-  items: 
-  - name: Learn about Computer Vision
-    href: Home.md
+  href: Home.md
+- name: How-to
+  items:
+  - name: Obtain subscription keys
+    href: Vision-API-How-to-Topics/HowToSubscribe.md
+  - name: Call the Computer Vision API
+    href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
+  - name: Analyze videos in real time
+    href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Quickstarts
   items:
   - name: cURL
@@ -26,17 +32,9 @@
     href: Tutorials/CSharpTutorial.md
   - name: Python
     href: Tutorials/PythonTutorial.md
-- name: How-to Guides
-  items:
-  - name: Obtain subscription keys
-    href: Vision-API-How-to-Topics/HowToSubscribe.md
-  - name: Call the Computer Vision API
-    href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
-  - name: Analyze videos in real time
-    href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Reference
   items: 
-  - name: Reference API
+  - name: API reference
     href: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
   - name: SDKs
     items:
@@ -46,13 +44,13 @@
       href: https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK
     - name: Windows
       href: https://github.com/Microsoft/Cognitive-vision-windows
-  - name: Code Samples
+- name: Resources
+  items: 
+  - name: Samples
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services
   - name: Category taxonomy
     href: Category-Taxonomy.md
-- name: Resources
-  items: 
   - name: FAQ
     href: FAQ.md
-  - name: Research papers
+  - name: Research papers    
     href: Research.md

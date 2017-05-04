@@ -1,14 +1,20 @@
 - name: Face API Documentation
-  href: Overview.md
+  href: ../index.md
 - name: Overview
-  items: 
-  - name: Learn about the Face API
-    href: Overview.md
+  href: Overview.md
+- name: How to
+  items:
+  - name: Detect faces in image
+    href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
+  - name: Identify faces in image
+    href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
+  - name: Analyze videos in real time
+    href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
 - name: Quickstarts
   items:
   - name: cURL
     href: QuickStarts/curl.md
-  - name: .NET
+  - name: C#
     href: QuickStarts/CSharp.md
   - name: Java
     href: QuickStarts/Java.md
@@ -22,23 +28,15 @@
     href: QuickStarts/Ruby.md
 - name: Tutorials
   items:
-  - name: .NET
+  - name: C#
     href: Tutorials/FaceAPIinCSharpTutorial.md
   - name: Java for Android
     href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
   - name: Python
     href: Tutorials/FaceAPIinPythonTutorial.md
-- name: How-to Guides
-  items:
-  - name: Detect faces in image
-    href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-  - name: Identify faces in image
-    href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
-  - name: Analyze videos in real time
-    href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
 - name: Reference
   items: 
-  - name: Use API Reference for Face
+  - name: Face API reference
     href: APIReference.md
   - name: SDKs
     items:
@@ -52,11 +50,11 @@
       href: https://github.com/Microsoft/Cognitive-Face-Windows
 - name: Resources
   items: 
-  - name: Samples
-    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face
-  - name: Glossary
-    href: Glossary.md
-  - name: FAQ
-    href: FAQ.md
-  - name: Release notes
-    href: ReleaseNotes.md
+    - name: Samples
+      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face
+    - name: Glossary
+      href: Glossary.md
+    - name: FAQ
+      href: FAQ.md
+    - name: Release notes
+      href: ReleaseNotes.md

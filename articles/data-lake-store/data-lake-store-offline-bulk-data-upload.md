@@ -184,7 +184,7 @@ In this section, we provide you with the JSON definitions that you can use to cr
     }
 }
 ````
-For more information, see [Move data from Azure Storage blob to Azure Data Lake Store using Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#example-copy-data-from-azure-blob-to-azure-data-lake-store).
+For more information, see [Move data from Azure Storage blob to Azure Data Lake Store using Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md).
 
 ## Reconstruct the data files in Azure Data Lake Store
 We started with a file that was 319 GB, and broke it down into files of smaller size so that it could be transferred by using the Azure Import/Export service. Now that the data is in Azure Data Lake Store, we can reconstruct the file to its original size. You can use the following Azure PowerShell cmldts to do so.

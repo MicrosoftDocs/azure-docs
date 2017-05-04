@@ -1,5 +1,5 @@
 - name: Knowledge Exploration Service Documentation
-  href: Overview.md
+  href: ../index.md
 - name: Overview
   items: 
   - name: Learn about the Knowledge Exploration Service 
@@ -27,5 +27,5 @@
       href: evaluateMethod.md
     - name: interpret
       href: interpretMethod.md
-- name: Structured query expressions
-  href: Expressions.md
+  - name: Structured query expressions
+    href: Expressions.md

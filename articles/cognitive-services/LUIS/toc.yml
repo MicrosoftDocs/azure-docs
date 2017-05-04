@@ -1,5 +1,5 @@
 - name: LUIS Documentation
-  href: Home.md
+  href: ../index.md
 - name: Overview
   items: 
   - name: Learn about Language Understading Intelligent Services

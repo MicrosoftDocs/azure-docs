@@ -1,5 +1,5 @@
 - name: Content Moderator Documentation
-  href: overview.md
+  href: ../index.md
 - name: Overview
   items: 
   - name: Learn about the Content Moderator API
