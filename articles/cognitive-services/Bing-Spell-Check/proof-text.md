@@ -33,13 +33,13 @@ This spell-checker can handle any word-processing scenario:
 
 ## Spell Check Modes
 
-The API supports two proofing modes, Proof and Spell. The default mode is Proof. The Proof spelling mode provides the most comprehensive checks, but it's available only in the en-US (English-United States) market. For all other markets, set the [mode](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference.md#mode) query parameter to Spell. The Spell mode finds most spelling mistakes but doesn't find some of the grammar errors that Proof catches (for example, capitalization and repeated words).
+The API supports two proofing modes, Proof and Spell. The default mode is Proof. The Proof spelling mode provides the most comprehensive checks, but it's available only in the en-US (English-United States) market. For all other markets, set the [mode](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#mode) query parameter to Spell. The Spell mode finds most spelling mistakes but doesn't find some of the grammar errors that Proof catches (for example, capitalization and repeated words).
 
 ## POST vs. GET
 
 The API supports either HTTP POST or HTTP GET. Which you use depends on the length of text you plan to proof. If the strings are always less than 1,500 character, you'd use a GET. But if you want to support strings up to 10,000 characters, you'd use POST. The text string may contain any valid UTF-8 character.
 
-The following shows a POST request to check the spelling and grammar of a text string. The example includes the [mode](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference.md#mode) query parameter for completeness (it could have been left out since `mode` defaults to Proof). The [text](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference.md#text) query parameter contains the string to be proofed.
+The following shows a POST request to check the spelling and grammar of a text string. The example includes the [mode](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#mode) query parameter for completeness (it could have been left out since `mode` defaults to Proof). The [text](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#text) query parameter contains the string to be proofed.
   
 ```  
 POST https://api.cognitive.microsoft.com/bing/v5.0/spellcheck?mode=proof&mkt=en-us HTTP/1.1  
@@ -72,7 +72,7 @@ text=when+its+your+turn+turn,+john,+come+runing
 
 If you use HTTP GET, you'd include the `text` query parameter in the URL's query string
   
-The following shows the response to the previous request. The response contains a [SpellCheck](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference.md#spellcheck) object. 
+The following shows the response to the previous request. The response contains a [SpellCheck](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#spellcheck) object. 
   
 ```  
 {  
@@ -116,7 +116,7 @@ The following shows the response to the previous request. The response contains 
 }  
 ```  
   
-The [flaggedTokens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference.md#flaggedtokens) field lists the spelling and grammar errors that the API found in the [text](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference.md#text) string. The `token` field contains the word to be replaced. You'd use the zero-based offset in the `offset` field to find the token in the `text` string. You'd then replace the word at that location with the word in the `suggestion` field. 
+The [flaggedTokens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#flaggedtokens) field lists the spelling and grammar errors that the API found in the [text](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#text) string. The `token` field contains the word to be replaced. You'd use the zero-based offset in the `offset` field to find the token in the `text` string. You'd then replace the word at that location with the word in the `suggestion` field. 
 
 If the `type` field is RepeatedToken, you'd still replace the token with `suggestion` but you'd also likely need to remove the trailing space.
 
