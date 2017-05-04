@@ -12,7 +12,7 @@ ms.date: 03/01/2017
 ms.author: cahann
 ---
 
-# Add Entities
+# Add entities
 Entities are key data in your application’s domain. An entity represents a class including a collection of similar objects (places, things, people, events or concepts). Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task. For example, a News Search app may include entities such as “topic”, “source”, “keyword” and “publishing date”, which are key data to search for news. In a travel booking app, the “location”, “date”, "airline", "travel class" and "tickets" are key information for flight booking (relevant to the "Bookflight" intent). So, we'll add them as entities. 
 
 You do not need to create entities for every concept in your app, but only for those required for the app to take action. You can add up to **10** entities in a single LUIS app. 
@@ -20,7 +20,7 @@ You do not need to create entities for every concept in your app, but only for t
 You can add, edit or delete entities in your app through the **Entities list** on the **Entities** page. Luis offers many types of entities; prebuilt entities, custom machine learned entities and close list entities.
 
 
-## Add Prebuilt Entities
+## Add prebuilt entities
 LUIS provides a set of prebuilt (system-defined) entities, covering many examples of the most common knowledge concepts such as date, age, temperature, percentage, dimension, cardinal and ordinal numbers, etc.  
 
 For example, the TravelAgent app may receive a request like "Book me a flight to Boston on May 4". This will require your app to understand date and time words in order to interpret the request properly. Rather than creating entities for such concepts from scratch, you can enable a ready-made prebuilt entity called "datetime". 
@@ -40,7 +40,7 @@ For a full list of prebuilt entities and their use, see [Prebuilt Entities List]
     ![Add prebuilt entity dialog box](./Images/AddPrebuilt-Dialogbox.JPG)
 
 
-## Custom Entities
+## Custom entities
 Custom entities are the entities you create in your app. There are three types of custom entities:
 
 * **Simple:** a generic entity.
@@ -48,7 +48,7 @@ Custom entities are the entities you create in your app. There are three types o
 * **Composite:** a compound of two or more separate entities combined together forming a composite and treated as a single entity.
 
 
-## Add Simple Entities
+## Add simple entities
 A simple entity is a generic entity that describes a single concept. In the example of the TravelAgent app, a user may say "Book me a flight to London tomorrow on British Airways", where "British Airways" is the name of an airline company. In order to capture the notion of airline names, let's create the entity "Airline". 
 
 **To add a simple entity:**
@@ -60,7 +60,7 @@ A simple entity is a generic entity that describes a single concept. In the exam
     ![Add Entity Dialog box - Simple](./Images/AddSimpleEntity.jpg)
 
 
-## Hierarchical Entities
+## Hierarchical entities
 You can define relationships between entities based on hereditary hierarchical patterns, where the generic entity acts as the parent and the children are sub-types under the parent, and they share the same characteristics. For example, in the TravelAgent app, you can add three hierarchical entities:
 
 * “Location”, including the entity children “FromLocation” and “ToLocation”, representing source and destination locations.
@@ -85,7 +85,7 @@ Do the following steps to add hierarchical entities and make sure to add the chi
 6. Click **Save**.
 
  
-## Composite Entities
+## Composite entities
 You can also define relationships between entities based on associative patterns by creating “composite entities”. A composite entity is created by combining two or more existing entities (simple or hierarchical) and treating them as one entity. Unlike a hierarchical entity, the composite entity and the children forming it are not in a parent-child relationship; they are independent of each other and they do not share common characteristics. The composite pattern enables your app to identify entities, not only individually, but also in groups. 
 
 In the TravelAgent app example, a user may say “Book 2 adult business tickets to Paris next Monday”. In this example, we can create a composite entity called “TicketsOrder”, including three children entities: “number”, “category” and "class" which describe the tickets to be booked. Before creating a composite entity, you must first add the entities forming it, if they do not already exist. 
@@ -111,7 +111,7 @@ In the TravelAgent app example, a user may say “Book 2 adult business tickets 
     >[!NOTE]
     >To delete a child (in case of a mistake), click the trash icon next to it.
 
-## List Entities
+## List entities
 A list entity is an entity that is defined by a list of all its values. This entity type is identified in utterances, not by active learning of context, but by the direct matching of utterance text to the defined values.   
 
 In some use cases, you may have a closed list of definite values for an entity. In this case, you can create a list entity including these values. For each value, you define a standard form "Canonical Form" and variant forms "Synonyms". Your app will identify this entity in an utterance if the utterance includes an exact match of any of the entity values (canonical forms/synonyms), so the list entity will be predicted as existing in the utterance, with a prediction score of 100%.
@@ -173,7 +173,7 @@ List entity values can be added individually, or collectively by importing them 
 * The proposed values are added as canonical forms not synonyms; synonyms should be typed manually.
 * To delete an added canonical form, click the trash bin button corresponding to it.
 
-## Edit/Delete Entities
+## Edit or delete entities
 You can edit or delete entities from the **Entities list** on the **Entities** page of your app. 
 
 **To edit an entity:**
@@ -196,7 +196,7 @@ You can edit or delete entities from the **Entities list** on the **Entities** p
     >* Deleting a composite entity deletes only the composite and breaks the composite relationship, but doesn't delete the entities forming it.
 
 
-## Review Labeled Utterances for Entities
+## Review labeled utterances for entities
 To review the labeled utterances that contain a specific entity, click the **Labeled Utterances** tab on the **Entities** page, and choose the entity for which you want to display all labeled utterances. You can modify entity labels in labeled utterances, if required, and then click **Save**.
 
 ![Labeled Utterances for an entity](./Images/Entities-LabeledUtter.JPG)
