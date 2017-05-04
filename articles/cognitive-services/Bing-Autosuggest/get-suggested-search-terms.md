@@ -19,7 +19,7 @@ Your user experience must provide a search box where the user enters a search qu
 
 You'd call this API each time the user types a new character in the search box. The completeness of the query string impacts the relevance of the suggested query terms that the API returns. The more complete the query string, the more relevant the list of suggested query terms are. For example, the suggestions that the API may return for *s* are likely to be less relevant than the queries it returns for *sailing dinghies*. 
 
-The following example shows a request that returns the suggested query strings for *sail*. Remember to URL encode the user's partial query term when you set the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference.md#query) query parameter. For example, if the user entered *sailing les*, set `q` to *sailing+les* or *sailing%20les*.
+The following example shows a request that returns the suggested query strings for *sail*. Remember to URL encode the user's partial query term when you set the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query) query parameter. For example, if the user entered *sailing les*, set `q` to *sailing+les* or *sailing%20les*.
   
 ```  
 GET https://api.cognitive.microsoft.com/bing/v5.0/suggestions?q=sail&mkt=en-us HTTP/1.1  
@@ -44,7 +44,7 @@ Host: api.cognitive.microsoft.com
 > ```  
 
 
-The response contains a list of [SearchAction](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference.md#searchaction) objects that contain the suggested query terms.
+The response contains a list of [SearchAction](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#searchaction) objects that contain the suggested query terms.
 
 ```
         {  
