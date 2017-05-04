@@ -165,7 +165,7 @@ Only R 3.2.2 is supported.
 Every vertex has a limited amount of memory assigned to it. Because the input and output DataFrames must exist in memory in the R code, the total size for the input and output cannot exceed 500 MB.
 
 ### Sample Code
-More sample code is available in your Data Lake Store torage account after you install the U-SQL Advanced Analytics extensions. The path for more sample code is: <your_account_address>/usqlext/samples/R. 
+More sample code is available in your Data Lake Store account after you install the U-SQL Advanced Analytics extensions. The path for more sample code is: <your_account_address>/usqlext/samples/R. 
 
 ## Deploying Custom R modules with U-SQL
 
