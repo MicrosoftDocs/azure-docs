@@ -18,7 +18,7 @@ ms.author: nisoneji
 
 ---
 # Azure Site Recovery deployment planner
-This article is the Azure Site Recovery user guide for VMware-to-Azure production deployments.
+This article is the Azure Site Recovery Deployment Planner user guide for VMware-to-Azure production deployments.
 
 ## Overview
 
@@ -32,7 +32,7 @@ The tool provides the following details:
 
 **Compatibility assessment**
 
-* A VM eligibility assessment, based on number of disks, disk size, IOPS, and churn
+* A VM eligibility assessment, based on number of disks, disk size, IOPS, churn and boot type(EFI/BIOS)
 * The estimated network bandwidth that's required for delta replication
 
 **Network bandwidth need versus RPO assessment**
@@ -200,6 +200,8 @@ After profiling is complete, you can run the tool in report-generation mode. The
 | -StartDate | (Optional) The start date and time in MM-DD-YYYY:HH:MM (24-hour format). *StartDate* must be specified along with *EndDate*. When StartDate is specified, the report is generated for the profiled data that's collected between StartDate and EndDate. |
 | -EndDate | (Optional) The end date and time in MM-DD-YYYY:HH:MM (24-hour format). *EndDate* must be specified along with *StartDate*. When EndDate is specified, the report is generated for the profiled data that's collected between StartDate and EndDate. |
 | -GrowthFactor | (Optional) The growth factor, expressed as a percentage. The default is 30 percent. |
+
+to a single storage account placement is caculated considering Failover/Test Test failover of virtual machines is done on Managed Disk instead of Unmanaged disk. |
 
 #### Example 1: Generate a report with default values when the profiled data is on the local drive
 ```
