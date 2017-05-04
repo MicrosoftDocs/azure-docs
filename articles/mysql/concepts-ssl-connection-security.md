@@ -34,7 +34,9 @@ In some cases, applications require a local certificate file (.pem) generated fr
 The certificate needed to communicate over SSL with your Azure Database for PostgreSQL server is located [here](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt).  Download the certificate file to your local drive (with this tutorial, we will use **c:\ssl**).
 
 ### Download and install OpenSSL on your PC 
-To generate the local **.pem** file needed for your application to connect securely to your database server, you need to install OpenSSL on your local computer.  For Linux PCs, **Step 2a** guides you through this process.  For Windows PCs, **Step 2b** guides you through this process.
+To generate the local **.pem** file needed for your application to connect securely to your database server, you need to install OpenSSL on your local computer.  
+
+The following sections describe the approach you could use, either from a Linux or Windows PC, depending on your preferred OS, and you only need to follow one.
 
 ### Linux Users - Download and install OpenSSL using a Linux PC
 The OpenSSL libraries are provided in source code directly from the [OpenSSL Software Foundation](http://www.openssl.org).  The following instructions guide you through the steps necessary to install OpenSSL on your Linux PC.  For this guide, we will be showing commands for Ubuntu 12.04 and higher.

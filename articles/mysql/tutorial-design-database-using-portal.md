@@ -1,4 +1,4 @@
-﻿---
+---
 title: Design your first Azure Database for MySQL database - Azure Portal | Microsoft Docs
 description: This tutorial explains how to create and manage Azure Database for MySQL server and database using Azure Portal.
 services: mysql
@@ -102,7 +102,6 @@ Now that we have a table, we can insert some data into it. At the open command p
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
 ```
-
 Now you have two rows of sample data into the table you created earlier.
 
 ## Query and update the data in the tables
