@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: aelnably
+ms.author: aelnably;wesmc
 
 ---
 # Docker Hub Continuous Deployment with App Service on Linux
