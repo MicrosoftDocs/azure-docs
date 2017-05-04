@@ -138,6 +138,6 @@ To create a VPN connection to the Azure Stack PoC computer, use the following st
 
 To test the portal connection, open an Internet browser and navigate to either the user portal (https://portal.local.azurestack.external/) or the administrator portal (https://adminportal.local.azurestack.external/), sign in and create resources.  
 
-## Next steps
-* [Add the Windows Server 2016 VM image to the Azure Stack marketplace](azure-stack-add-default-image.md)
+> [!NEXT]
+> [Add the Windows Server 2016 VM image to the Azure Stack marketplace](azure-stack-add-default-image.md)
 
