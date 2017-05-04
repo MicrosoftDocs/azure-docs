@@ -32,7 +32,8 @@ App Service can backup the following information:
 * File content
 * Any SQL Azure, [Azure Database for MySQL](https://azure.microsoft.com/en-us/services/mysql) or [Azure Database for PostgreSQL](https://azure.microsoft.com/en-us/services/postgres) databases connected to your web app (you can choose which ones to include 
   in the backup). 
-> [!NOTE]
+
+>[!NOTE]
 > For MySQL, backup feature is also supported for both [ClearDB MySQL](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SuccessBricksInc.ClearDBMySQLDatabase?tab=Overview) and [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app) 
 > 
 
