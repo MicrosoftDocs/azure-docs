@@ -34,40 +34,32 @@ You can import the Azure Storage iOS library into your application either by usi
 
 ## CocoaPod
 1. If you haven't done so already, [Install CocoaPods](https://guides.cocoapods.org/using/getting-started.html#toc_3) on your computer by opening a terminal window and running the following command
-
-```shell   
-sudo gem install cocoapods
-```
-
+    ```shell   
+    sudo gem install cocoapods
+    ```
 2. Next, in the project directory (the directory containing your .xcodeproj file), create a new file called _Podfile_(no file extension). Add the following to _Podfile_ and save.
-   
-```ruby
-platform :ios, '8.0'
+    ```ruby
+    platform :ios, '8.0'
 
-target 'TargetName' do 
-  use_frameworks!
-  pod 'AZSClient'
-end
-```
-
+    target 'TargetName' do 
+      use_frameworks!
+      pod 'AZSClient'
+    end
+    ```
 3. In the terminal window, navigate to the project directory and run the following command
-
-```shell    
-pod install
-```
-
+    ```shell    
+    pod install
+    ```
 4. If your .xcodeproj is open in Xcode, close it. In your project directory open the newly created project file which will have the .xcworkspace extension. This is the file you'll work from for now on.
-
 5. Import statement:
+    ```objc
+    // Include the following import statement to use blob APIs.
+    #import <AZSClient/AZSClient.h>
+    ```
 
-```objc
-// Include the following import statement to use blob APIs.
-#import <AZSClient/AZSClient.h>
-```
-
-```swift
-import AZSClient
-```
+    ```swift
+    import AZSClient
+    ```
 
 ## Framework
 In order to use the Azure Storage iOS library, you will first need to build the framework file.
@@ -80,7 +72,7 @@ In order to use the Azure Storage iOS library, you will first need to build the 
 You can then import the framework file into your application by doing the following:
 
 1. Create a new project or open up your existing project in Xcode.
-2. Drag&Drop the `AZSClient.framework` into your Xcode project navigator.
+2. Drag and drop the `AZSClient.framework` into your Xcode project navigator.
 3. Select *Copy items if needed*, and click on "Finish".
 4. Click on your project in the left-hand navigation and click the *General* tab at the top of the project editor.
 5. Under the *Linked Frameworks and Libraries* section, click the Add button (+).
@@ -93,11 +85,11 @@ Finally, if you are using Objective-C, you should put the import statement in th
 #import <AZSClient/AZSClient.h>
 ```
 
-However, if you using Swift, then you will need to create a bridging header:
+However, if you are using Swift, then you will need to create a bridging header:
 1. Create a header file "Bridging-Header.h", and add the above import statement.
 2. Go to the *Build Settings* tab, and search for `Objective-C Bridging Header`.
-3. Double click on the field of `Objective-C Bridging Header` and add the path to your header file: `ProjectName/Bridging-Header.h`
-4. Build the project (⌘+B) to verify that the briding header was picked up by Xcode.
+3. Double-click on the field of `Objective-C Bridging Header` and add the path to your header file: `ProjectName/Bridging-Header.h`
+4. Build the project (⌘+B) to verify that the bridging header was picked up by Xcode.
 5. Start using the framework directly in any Swift file, there is no need for import statements.
 
 [!INCLUDE [storage-mobile-authentication-guidance](../../includes/storage-mobile-authentication-guidance.md)]
@@ -146,7 +138,7 @@ A container's permissions are configured for **Private** access by default. Howe
 * **Blob**: Blob data within this container can be read via anonymous request, but container data is not available. Clients cannot enumerate blobs within the container via anonymous request.
 * **Container**: Container and blob data can be read via anonymous request. Clients can enumerate blobs within the container via anonymous request, but cannot enumerate containers within the storage account.
 
-The following example shows you how to create a container with **Container** access permissions which will allow public, read-only access for all users on the Internet:
+The following example shows you how to create a container with **Container** access permissions, which will allow public, read-only access for all users on the Internet:
 
 ```objc
 -(void)createContainerWithPublicAccess{
@@ -175,7 +167,7 @@ The following example shows you how to create a container with **Container** acc
 ```
 
 ## Upload a blob into a container
-As mentioned in the [Blob service concepts](#blob-service-concepts) section, Blob Storage offers three different types of blobs: block blobs, append blobs, and page blobs. The Azure Storage iOS library supports all three types of blobs. In the majority of cases, block blob is the recommended type to use.
+As mentioned in the [Blob service concepts](#blob-service-concepts) section, Blob Storage offers three different types of blobs: block blobs, append blobs, and page blobs. The Azure Storage iOS library supports all three types of blobs. In most cases, block blob is the recommended type to use.
 
 The following example shows how to upload a block blob from an NSString. If a blob with the same name already exists in this container, the contents of this blob will be overwritten.
 
@@ -216,18 +208,18 @@ The following example shows how to upload a block blob from an NSString. If a bl
 }
 ```
 
-You can confirm that this works by looking at the [Microsoft Azure Storage Explorer](http://storageexplorer.com) and verifying that the container, *containerpublic*, contains the blob, *sampleblob*. In this sample, we used a public container so you can also verify that this worked by going to the blobs URI:
+You can confirm that this works by looking at the [Microsoft Azure Storage Explorer](http://storageexplorer.com) and verifying that the container, *containerpublic*, contains the blob, *sampleblob*. In this sample, we used a public container so you can also verify that this application worked by going to the blobs URI:
 
     https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
 
-In addition to uploading a block blob from an NSString, similar methods exist for NSData, NSInputStream or a local file.
+In addition to uploading a block blob from an NSString, similar methods exist for NSData, NSInputStream, or a local file.
 
 ## List the blobs in a container
 The following example shows how to list all blobs in a container. When performing this operation, be mindful of the following parameters:     
 
 * **continuationToken** - The continuation token represents where the listing operation should start. If no token is provided, it will list blobs from the beginning. Any number of blobs can be listed, from zero up to a set maximum. Even if this method returns zero results, if `results.continuationToken` is not nil, there may be more blobs on the service that have not been listed.
 * **prefix** - You can specify the prefix to use for blob listing. Only blobs that begin with this prefix will be listed.
-* **useFlatBlobListing** - As mentioned in the [Naming and referencing containers and blobs](#naming-and-referencing-containers-and-blobs) section, although the Blob service is a flat storage scheme, you can create a virtual hierarchy by naming blobs with path information. However, non-flat listing is currently not supported; this is coming soon. For now, this value should be **YES**.
+* **useFlatBlobListing** - As mentioned in the [Naming and referencing containers and blobs](#naming-and-referencing-containers-and-blobs) section, although the Blob service is a flat storage scheme, you can create a virtual hierarchy by naming blobs with path information. However, non-flat listing is currently not supported. This feature is coming soon. For now, this value should be **YES**.
 * **blobListingDetails** - You can specify which items to include when listing blobs
   * _AZSBlobListingDetailsNone_: List only committed blobs, and do not return blob metadata.
   * _AZSBlobListingDetailsSnapshots_: List committed blobs and blob snapshots.
@@ -395,6 +387,6 @@ Now that you've learned how to use Blob Storage from iOS, follow these links to 
 * [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage)
 
-If you have questions regarding this library feel free to post to our [MSDN Azure forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) or [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+If you have questions regarding this library, feel free to post to our [MSDN Azure forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) or [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 If you have feature suggestions for Azure Storage, please post to [Azure Storage Feedback](https://feedback.azure.com/forums/217298-storage/).
 
