@@ -19,7 +19,7 @@ ms.author: sama
 
 >[!NOTE] 
 >This feature is in public preview.  It is recommended that you use a test tenant when using this feature.  We don't plan on any breaking changes from the preview to the general availability release, but we reserve the right to make such changes to improve the feature.  Once you've had a chance to try feature, please provide feedback on your experiences and how we can make it better.  You can provide feedback through the Azure portal with the smiley face tool on the top right.   If there is a business requirement for you to go live using this feature during the preview phase, let us know your scenarios and we can provide you with the proper guidance and assistance.  You can contact us at aadb2cpreview@microsoft.com
->
+
 Language customization allows you to change your user journey to a different language to suit your customer needs.  We provide translations for 37 languages (see [Additional information](#additional-information)).  Even if your experience is only provided for a single language, you can customize any text on the pages to suit your needs.  
 
 ## How does Language customization work?
