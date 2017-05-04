@@ -56,7 +56,7 @@ After you download the tools, navigate to the downloaded folder and import the *
 ```PowerShell
 Import-Module .\Connect\AzureStack.Connect.psm1 
 ```
-When you import the module, if you receive an error that says “**AzureStack.Connect.psm1** is not digitally signed. The script will not execute on the system”. To resolve this issue, run the following command in an elevated PowerShell session:
+When you import the module, if you receive an error that says AzureStack.Connect.psm1 is not digitally signed. The script will not execute on the system”. To resolve this issue, run the following command in an elevated PowerShell session:
 
 ```PowerShell
 Set-ExecutionPolicy Unrestricted
@@ -74,11 +74,14 @@ To create a VPN connection to the Azure Stack PoC computer, use the following st
     $hostIP = "<Azure Stack host IP address>"
     
     # Change the password in the following command to administrator password that is provided when deploying Azure Stack. 
-    $Password = ConvertTo-SecureString "<Administrator password provided when deploying Azure Stack>" -AsPlainText -Force
+    $Password = ConvertTo-SecureString `
+    "<Administrator password provided when deploying Azure Stack>" -AsPlainText -Force
     
     #Add host IP and certificate authority to the to trusted hosts
-    Set-Item wsman:\localhost\Client\TrustedHosts -Value $hostIP -Concatenate
-    Set-Item wsman:\localhost\Client\TrustedHosts -Value mas-ca01.azurestack.local -Concatenate
+    Set-Item wsman:\localhost\Client\TrustedHosts `
+    -Value $hostIP -Concatenate
+    Set-Item wsman:\localhost\Client\TrustedHosts `
+    -Value mas-ca01.azurestack.local -Concatenate
     ```
 
 2. Get the Azure Stack host computer’s NAT IP address. If you do not remember the NAT IP address of the Azure Stack PoC instance you are trying to connect to, you can get it by using the **Get-AzureStackNatServerAddress** command:
@@ -119,15 +122,12 @@ To create a VPN connection to the Azure Stack PoC computer, use the following st
 
     ![connect with UI](media/azure-stack-connect-azure-stack/image5.png)  
 
-    At the sign-in prompt, enter the username (AzureStack\AzureStackAdmin) and the password. If the connection succeeds, the azurestack VPN should be in a **connected** state.
+    At the sign-in prompt, enter the username (AzureStack\AzureStackAdmin) and the password. If the connection succeeds, the azurestack VPN should be in a connected state.
 
-### Validate the VPN connectivity
+### Test the VPN connectivity
 
 To test the portal connection, open an Internet browser and navigate to either the user portal (https://portal.local.azurestack.external/) or the administrator portal (https://adminportal.local.azurestack.external/), sign in and create resources.  
 
 ## Next steps
 * [Add the Windows Server 2016 VM image to the Azure Stack marketplace](azure-stack-add-default-image.md)
-* [Provision a virtual machine](azure-stack-provision-vm.md)
-* [Provision a storage account](azure-stack-provision-storage-account.md)
-* [Develop for Azure Stack](azure-stack-developer.md)
 

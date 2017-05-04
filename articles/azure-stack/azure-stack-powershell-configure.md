@@ -61,10 +61,10 @@ Use the following steps to configure your Azure Stack environment:
     
     ```PowerShell
     # Use this command to get the GUID value in the administrator's environment. 
-    $TenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackAdmin
+    $TenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com"` -EnvironmentName AzureStackAdmin
 
     # Use this command to get the GUID value in the user's environment. 
-    $TenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com" -EnvironmentName AzureStackUser
+    $TenantID = Get-DirectoryTenantID -AADTenantName "<myaadtenant>.onmicrosoft.com"` -EnvironmentName AzureStackUser
     ```
     b. **Active Directory Federation Services**, use one of the following cmdlets:
     
@@ -91,10 +91,12 @@ After the AzureRM environment is registered to target the Azure Stack instance, 
 
     ```powershell
     # Use this command to sign-in to the administrative portal.
-    Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID -Credential $Credential
+    Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID `
+    -Credential $Credential
 
     # Use this command to sign-in to the user portal.
-    Login-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId $TenantID -Credential $Credential
+    Login-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId $TenantID `
+    -Credential $Credential
     ```
 
 ## Register resource providers 

@@ -73,7 +73,11 @@ If the VM image VHD is available locally on the console VM (or another externall
      $Password='<Admin password provided when deploying Azure Stack>'|ConvertTo-SecureString -Force -AsPlainText
      $Credential=New-Object PSCredential($UserName,$Password)
 
-     Add-VMImage -publisher "Canonical" -offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0" -osType Linux -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' -TenantId $TenantID -EnvironmentName "AzureStackAdmin" -azureStackCredentials $Credential
+     Add-VMImage -publisher "Canonical" -offer "UbuntuServer" `
+     -sku "14.04.3-LTS" -version "1.0.0" -osType Linux `
+     -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' `
+     -TenantId $TenantID -EnvironmentName "AzureStackAdmin" `
+     -azureStackCredentials $Credential
      ```
 
 The command does the following:
