@@ -37,7 +37,7 @@ This article shows you how to create a self-signed root certificate, export the 
 > 
 > 
 
-Point-to-Site connections use certificates to authenticate. When you configure a Point-to-Site connection, you need to upload the public key (.cer file) of a root certificate to Azure. Next, client certificates must be generated from the root certificate and installed on every client computer that connects to the VNet. The client certificate allows the client to authenticate.
+Point-to-Site connections use certificates to authenticate. When you configure a Point-to-Site connection, you need to upload the public key (.cer file) of a root certificate to Azure. Additionally, client certificates must be generated from the root certificate and installed on every client computer that connects to the VNet. The client certificate allows the client to authenticate.
 
 ## <a name="rootcert"></a>Create a self-signed root certificate
 
