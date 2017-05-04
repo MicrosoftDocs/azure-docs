@@ -25,21 +25,20 @@ This tutorial demonstrates how to send emails via [SparkPost](https://sparkpost.
 The example application is written in Node.js, however, same technique can be used in any language/framework.
 
 ## Prerequisites
-- A Microsoft Azure Account. If you don't have an account, you can sign up for a free trial.
+- A Microsoft Azure Account. If you don't have an account, you can sign up for a free trial
 - A SparkPost Account
 - Node.js 4x
-- NPM 3x
 - Git
 
 
 ## What is the SparkPost?
-SparkPost is he world’s fastest-growing email delivery service, providing a developer friendly robust cloud API for apps and websites to send and receive email.
+SparkPost is the world’s fastest-growing email delivery service, providing a developer friendly robust cloud API for apps and websites to send and receive email.
 
 
 For more information about SparkPost, visit [https://sparkpost.com](https://sparkpost.com).
 
 ## Create a SparkPost Account
-SparkPost provides 100K free emails per month including access to APIs and analytics. This free account is enough to get started however, feel free to choose [sparkpost packages] based on your sending volume requirements.
+SparkPost provides 100K free emails per month including access to APIs and analytics. This free account is enough to get started. However, feel free to choose [appropriate package][sparkpost packages] based on your sending volume requirements.
 
 
 ### To sign up for a SparkPost account
@@ -62,12 +61,15 @@ SparkPost provides 100K free emails per month including access to APIs and analy
     ![sparkpost-all-resources][sparkpost-all-resources]
 
 1. Click on the SparkPost resource name.
+
     ![sparkpost-resource][sparkpost-resource]
 
 1. Click **All Settings**, and then **Key Management**
+
     ![sparkpost-resource-all-settings][sparkpost-resource-all-settings]
 
 1. In Key Management pane, it'll automatically generate one API Key. Copy the API Key, we'll use it momentarily.
+
     ![sparkpost-resource-key-mgt][sparkpost-resource-key-mgt]
 
 
@@ -257,7 +259,7 @@ A successful request will respond with something like following.
   "maxNumberOfWorkers": null,
   "microService": "false",
   "name": "<app_name>",
-  "outboundIpAddresses": "13.93.220.109,40.118.160.111,13.64.239.21,13.91.92.146,13.93.200.235",
+  "outboundIpAddresses": "retracted",
   "premiumAppDeployed": null,
   "repositorySiteName": "<app_name>",
   "reserved": true,
@@ -276,7 +278,7 @@ A successful request will respond with something like following.
 }
 ```
 
-You should be able to browse your newly created Web App.
+You should be able to browse your newly created web application using the following URL.
 
 ```
 http://<app_name>.azurewebsites.net
@@ -284,17 +286,30 @@ http://<app_name>.azurewebsites.net
 
 ![default-app][default-app]
 
-This is default web app in Azure. We'll now configure it to use Node.js.
+This is default web app in Azure. We'll now configure it to use Node.js and then push our sample app.
+
+## Set SparkPost API Key in environment variable
+In an earlier step, we've created API Key. Now we'll save this API Key to application's settings which will be available in environment variable. In our code we've already referenced to this environment variable, hence, it should work without any further modification.
+
+```azurecli
+az appservice web config appsettings update --name <app_name> --resource-group testResource --settings SPARKPOST_API_KEY=<api_key>
+```
+
+>[!Tip]
+> If you ever modify API Key, you'll only need to update this environment variable. No code updates necessary.
+
+Replace <api_key> with the API Key that you've noted earlier.
 
 ## Configure to use Node.js
 
 Use the [az appservice web config update](/cli/azure/appservice/web/config#update) command to configure the Web App to use Node.js. We'll use Node `v4.4.7` for this tutorial.
 
 ```azurecli
-az appservice web config update --linux-fx-version "NODE|4.4.7" --startup-file process.json --name <app_name> --resource-group testResource
+az appservice web config update --linux-fx-version "NODE|4.4.7"  --name <app_name> --resource-group testResource
 ```
 
 ## Configure local git deployment
+
 ```azurecli
 az appservice web source-control config-local-git --name <app_name> --resource-group testResource --query url --output tsv
 ```
@@ -323,17 +338,15 @@ Once prompted, enter the password we've used during creation of deployment user.
 During deployment, Azure App Service will communicate it's progress with Git.
 
 ```bash
-Counting objects: 12, done.
+Counting objects: 3, done.
 Delta compression using up to 8 threads.
-Compressing objects: 100% (9/9), done.
-Writing objects: 100% (12/12), 11.21 KiB | 0 bytes/s, done.
-Total 12 (delta 0), reused 0 (delta 0)
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 358 bytes | 0 bytes/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
 remote: Updating branch 'master'.
 remote: Updating submodules.
-remote: Preparing deployment for commit id '1e0352efa1'.
+remote: Preparing deployment for commit id '20bf09ec70'.
 remote: Generating deployment script.
-remote: Generating deployment script for node.js Web Site
-remote: Generated deployment script files
 remote: Running deployment command...
 remote: Handling node.js deployment.
 remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
@@ -343,29 +356,41 @@ remote: Copying file: 'app.yaml'
 remote: Copying file: 'package.json'
 remote: Copying file: 'server.js'
 remote: Copying file: 'yarn.lock'
-remote: Deleting file: 'hostingstart.html'
 remote: Ignoring: .git
 remote: Copying file: 'views/index.pug'
 remote: Using start-up script server.js from package.json.
 remote: Node.js versions available on the platform are: 4.4.7, 4.5.0, 6.2.2, 6.6.0, 6.9.3, 6.10.2.
-remote: Selected node.js version 6.10.2. Use package.json file to choose a different version.
-remote: Selected npm version 3.10.10
-remote: npm WARN deprecated pug@0.1.0: Please update to the latest version of pug, at time of writing that is pug@2.0.0-alpha6
-remote: .
-remote: npm WARN deprecated pug-loader@0.0.0: Please use pug-load for pug-loader@<=1.0.2.
-remote: ..............................................................................
-remote: azure-sparkpost@0.0.1 /home/site/wwwroot
-remote: npm WARN azure-sparkpost@0.0.1 No repository field.
+remote: Selected node.js version 4.4.7. Use package.json file to choose a different version.
+remote: Selected npm version 2.15.8
+remote: .............................
 remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
-To https://hello-sparkpost.scm.azurewebsites.net/hello-sparkpost.git
+To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
+If everything went well, you should be able to browser your application using your application's DNS name.
+
+```
+http://<app_name>.azurewebsites.net
+```
+
+![run-azure][run-azure]
+
+
+## What's Next?
+- Learn more about SparkPost's [Node.js client library](nodejs-client-library).
+- Learn more about our APIs on [SparkPost DevHub].
+
+
 <!--images-->
 [run-locally]: ../../includes/media/sparkpost/sparkpost-run-app-locally.png
+[run-azure]: ../../includes/media/sparkpost/sparkpost-run-app-azure.png
 [default-app]: ../../includes/media/sparkpost/sparkpost-default-app.png
+
 <!--links-->
 [azure-cli]: https://docs.microsoft.com/en-us/cli/azure/overview
 [resource group]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview
+[nodejs-client-library]: https://github.com/SparkPost/node-sparkpost
+[Sparkpost DevHub]: https://developers.sparkpost.com/
