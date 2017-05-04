@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
 ---
-# Design your first Azure Database for PostgreSQL
+# Design your first Azure Database for PostgreSQL using Azure CLI 
 In this tutorial, you will use the Azure CLI to create a server with a server-level firewall. You will then use [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility to create a database, table in the database, load data into that table, query the table, and update data in the table. Finally, you will use the service's automated backups to restore the database to an earlier point-in-time before you added this new table.
 
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
