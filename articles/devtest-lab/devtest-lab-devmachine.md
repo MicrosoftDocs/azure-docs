@@ -21,15 +21,16 @@ Azure DevTest labs
 
 Prerequisites: 
 
-* If a lab has not been created, please create one using the instructions from [create lab](devtest-lab-create-lab.md)
+* If a lab has not been created, create one using the instructions from [create lab](devtest-lab-create-lab.md)
 
 * [Install CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) 
 
 1. Create a VM from a marketplace image with ssh authentication.
+'''azcli
+az lab vm create --lab-name sampleLabName --resource-group sampleResourceGroup --name sampleVMName --image "Ubuntu Server 16.04 LTS" --image-type gallery --size Standard_DS1_v2 --authentication-type  ssh  --ssh-key  ~/.ssh/id_rsa.pub
+'''
 
-* az lab vm create --lab-name sampleLabName --resource-group sampleResourceGroup --name sampleVMName --image "Ubuntu Server 16.04 LTS" --image-type gallery --size Standard_DS1_v2 --authentication-type  ssh  --ssh-key  ~/.ssh/id_rsa.pub
-
-2. Create a VM from a custom image already in the Lab with password authentication.
+2. Create a Jenkins VM from a custom image already in the Lab with password authentication.
 
 * az lab vm create --lab-name sampleLabName --resource-group sampleResourceGroup --name sampleVMName --image "jenkins_custom" --image-type custom --size Standard_DS1_v2
 
@@ -37,7 +38,7 @@ Prerequisites:
 
 * az lab vm create --lab-name sampleLabName --resource-group sampleResourceGroup --name sampleVMName --formula MyFormula --artifacts @/artifacts.json
 
-4. List my VMs. 
+4. List my VMs in the lab. 
 
 * az lab vm list --lab-name sampleLabName  --resource-group sampleResourceGroup  
 
@@ -54,13 +55,13 @@ az lab vm list --lab-name sampleLabName  --resource-group sampleResourceGroup  -
     SSH
     https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys
     ssh userName@ipAddress -p portNumber
+    ** note: DTL doesn't use port 22, port number is found in the essentials section (add a screen cap?)
     
     Remote Desktop
     https://docs.microsoft.com/en-us/azure/virtual-machines/windows/connect-logon
-to connect to linux vm we can use “ssh” while to connect to windows vms we can use any RDP protocol
-** note: DTL doesn't use port 22
 
 9. List artifacts 
+* az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup --expand "properties(\$expand=artifacts)"
 
 
 10. Apply artifacts to a VM
