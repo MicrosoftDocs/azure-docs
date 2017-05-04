@@ -57,8 +57,6 @@ Use this method if your project type isn't supported by the Application Insights
 1. If you plan to use log4Net or NLog, install it in your project.
 2. In Solution Explorer, right-click your project and choose **Manage NuGet Packages**.
 3. Search for "Application Insights"
-
-    ![Get the prerelease version of the appropriate adapter](./media/app-insights-asp-net-trace-logs/appinsights-36nuget.png)
 4. Select the appropriate package - one of:
 
    * Microsoft.ApplicationInsights.TraceListener (to capture System.Diagnostics.Trace calls)
@@ -79,7 +77,7 @@ If you prefer log4net or NLog:
     logger.Warn("Slow response - database01");
 
 ## Using EventSource events
-If you use [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx), you can configure EventSource events to be sent to Application Insights as traces by editing the `TelemetryModules` section of the [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config) file.
+You can configure [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) events to be sent to Application Insights as traces. First, install the `Microsoft.ApplicationInsights.EventSourceListener` NuGet package. Then edit `TelemetryModules` section of the [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) file.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -92,15 +90,18 @@ If you use [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/l
 For each source, you can set the following parameters:
  * `Name` specifies the name of the EventSource to collect.
  * `Level` specifies the logging level to collect. Can be one of `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
- * `Keywords` (Optional) specifies the integer value of keywords combinations to use
+ * `Keywords` (Optional) specifies the integer value of keywords combinations to use.
 
 ## Using ETW events
-You can configure ETW events to be sent to Application Insights as traces by editing the `TelemetryModules` section of the [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config) file. ETW events can only be collected if the process hosting the SDK is running under an identity that is a member of “Performance Log Users” or Administrators.
+You can configure ETW events to be sent to Application Insights as traces. First, install the `Microsoft.ApplicationInsights.EtwCollector` NuGet package. Then edit `TelemetryModules` section of the [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) file.
+
+> [!NOTE] 
+> ETW events can only be collected if the process hosting the SDK is running under an identity that is a member of "Performance Log Users" or Administrators.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EtwCollector.EtwCollectorTelemetryModule, Microsoft.ApplicationInsights.EtwCollector">
       <Sources>
-        <Add ProviderName="MyCompany" Level="Verbose" />
+        <Add ProviderName="MyCompanyEventSourceName" Level="Verbose" />
       </Sources>
     </Add>
 ```
