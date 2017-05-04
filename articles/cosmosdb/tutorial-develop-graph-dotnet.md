@@ -18,12 +18,9 @@ ms.author: arramac
 
 ---
 # Azure Cosmos DB: Connect to graph using .NET
-This article provides an overview of how to work with graph APIs in Azure Cosmos DB using .NET. In this article, we cover:
+Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-* Setting up your development environment with the Azure Cosmos DB Graph API
-* Using a collection to store graphs
-* Adding, updating, and removing vertices and edges from the graph
-* Performing queries and traversals using Gremlin
+This quick start demonstrates how to create an Azure Cosmos DB account using the Azure portal, and how to create a database and collection to store a graph using the [DocumentDB API](../documentdb/documentdb-sdk-dotnet.md). The application then creates a simple social network with four people using the [Graph API](graph-sdk-dotnet.md), then traverses and queries the graph using Gremlin.
 
 ## Graphs in Azure Cosmos DB
 You can use Azure Cosmos DB to create, update, and query graphs using the `Microsoft.Azure.Graphs` library. The library offers extension methods on top of the `DocumentClient` class to execute [Gremlin queries](gremlin-support.md). To work with the graph APIs, you must perform the following steps as a pre-requisite:

@@ -72,6 +72,14 @@ IDocumentQuery<Vertex> friendsOfFriendsOfThomas = client.CreateGremlinQuery<Vert
   graphCollection,
   $"g.V('{thomas.Id}').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')");
 ```
+
+## Clean up resources
+
+If you're not going to continue to use this app, use the following steps to delete all resources created by this quickstart in the Azure portal. If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. 
+
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
+2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
+
 ## Next steps
 
 You can build more complex queries and implement powerful graph traversal logic using Gremlin, including mixing filter expressions, performing looping using the `loop` step, and implementing conditional navigation using the `choose` step. Learn more about what you can do with [Gremlin support](gremlin-support.md)!

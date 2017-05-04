@@ -21,13 +21,10 @@ ms.author: mimig
 
 # Azure CosmosDB: Create a collection with the DocumentDB API
 
-In this tutorial, you'll learn how to create an Azure Cosmos DB collection and use a partition key to partition your data. By defining a partition key at the start, your application is prepared to scale effortlessly as your data grows. 
+Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-In this tutorial, you'll perform the following operations using the [DocumentDB .NET SDK](../documentdb/documentdb-sdk-dotnet.md):
+This quick start demonstrates how to create an Azure Cosmos DB account using the Azure portal, and how to create a document database and collection with a partition key. By defining a partition key at the start, your application is prepared to scale effortlessly as your data grows. You'll also do the following by using the [DocumentDB .NET API](../documentdb/documentdb-sdk-dotnet.md):
 
-* Connect to your account
-* Create a database
-* Create a partitioned collection
 * Create JSON documents
 * Update a document
 * Query partitioned collections
@@ -37,7 +34,7 @@ In this tutorial, you'll perform the following operations using the [DocumentDB 
 
 ## What are partitioned collections?
 
-Partitioned collections are configured with a partition key property. A partition key is a property (or path) within your documents that can be used to distribute your data among multiple servers or partitions. All documents with the same partition key will be stored in the same partition. By using a partition key and partitioned collections, Azure Cosmos DB can efficiently index and query your big-data solutions.   
+Partitioned collections are containers for storing data, they are logical resources and span one or more physical partitions or servers. A partition key is a property (or path) within your documents that is used to distribute your data among the servers or partitions. All documents with the same partition key are stored in the same partition. By using a partition key and partitioned collections, Azure Cosmos DB can efficiently index and query your big-data solutions.   
 
 Learn more about partitioning and scaling in, [How to partition and scale in Azure Cosmos DB?](../documentdb/documentdb-partition-data.md)
 

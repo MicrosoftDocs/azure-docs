@@ -18,7 +18,7 @@ ms.date: 04/30/2017
 ms.author: mimig
 
 ---
-# Azure Cosmos DB: Build a web app with .NET and the DocumentDB API
+# Azure Cosmos DB: Build a DocumentDB API web app with .NET and the Azure portal
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
