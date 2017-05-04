@@ -19,14 +19,14 @@ This tutorial will show you the most common way to import and export the data in
 
 ## Before you begin
 To step through this how-to guide, you need:
-- An Azure Database for MySQL server [Design your first Azure MySQL database](quickstart-create-mysql-server-database-using-azure-portal)
+- An Azure Database for MySQL server [Design your first Azure MySQL database](quickstart-create-mysql-server-database-using-azure-portal.md)
 - MySQL Workbench [MySQL Workbench Download](https://dev.mysql.com/downloads/workbench/)
 - WinSCP to upload your dump file to Azure Server [WinSCP Download](https://winscp.net/eng/download.php)
 
 ## Use common tools
 Use common tools such as MySQL Workbench, Toad, or Navicat to remotely connect and import or export data into Azure Database for MySQL. Simply point the connection attributes of your database tools to the Azure Database for MySQL server and database to interact with it. 
 
-For more information on connecting, see _Get the connection information_ heading in [this article](quickstart-create-mysql-server-database-using-azure-portal.md#get-the-connection-information)
+For more information on connecting, see _Get the connection information_ heading in [this article](quickstart-create-mysql-server-database-using-azure-portal.md)
 
 Use file transfer tools such as WinSCP to import and export your files in your existing MySQL environment. You do not need to move your import and export files to any special cloud location when migrating to Azure Database for MySQL. 
 

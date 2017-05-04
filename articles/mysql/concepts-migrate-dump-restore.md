@@ -21,14 +21,14 @@ This article explains you two   common ways to backup and restore databases in y
 
 ## Before you begin
 To step through this how-to guide, you need to have:
-- [Create Azure Database for MySQL server - Azure portal](quickstart-create-mysql-server-database-using-azure-portal)
+- [Create Azure Database for MySQL server - Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md)
 - [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) command line utility installed on a machine
 - MySQL Workbench [MySQL Workbench Download](https://dev.mysql.com/downloads/workbench/), Toad, Navicat or any third party MySQL tool
 
 ## Use common tools
 Use common tools such as MySQL Workbench, Toad, or Navicat to remotely connect and import or export data into Azure Database for MySQL. Simply point the connection attributes of your database tools to the Azure Database for MySQL server and database to interact with it. 
 
-For more information on connecting, see _Get the connection information_ heading in [this article](quickstart-create-mysql-server-database-using-azure-portal.md#get-the-connection-information)
+For more information on connecting, see _Get the connection information_ heading in [this article](quickstart-create-mysql-server-database-using-azure-portal.md)
 
 Use file transfer tools such as WinSCP to import and export your files in your existing MySQL environment. You do not need to move your import and export files to any special cloud location when migrating to Azure Database for MySQL. 
 
