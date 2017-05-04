@@ -11,17 +11,18 @@ manager: erikre
 ---
 # Add a Content Delivery Network (CDN) to an Azure App Service
 
-The [Azure Content Delivery Network (CDN)](../cdn/cdn-overview.md) caches static web content at strategically placed locations to provide maximum throughput for delivering content to users. Another benefit of a CDN is it decreases server load on your web app. This tutorial shows how to add a CDN to a [web app in Azure App Service](app-service-web-overview.md). 
+This tutorial shows how to add [Azure Content Delivery Network (CDN)](../cdn/cdn-overview.md) to a [web app in Azure App Service](app-service-web-overview.md). A CDN caches static web content at strategically placed locations to provide maximum throughput for delivering content to users. Another benefit of a CDN is it decreases server load on your web app. 
 
-You'll work with a sample app that you create in the [static HTML quickstart](app-service-web-get-started-html.md).
+You'll work with a static HTML site running in a web app. When you're finished, you'll know how to create CDN endpoints, refresh cached assets, use query strings to control cached versions, and use a custom domain.
 
 ![Sample app home page](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page.png)
 
-When you're finished, you'll know how to create CDN endpoints, refresh cached assets, use query strings to control cached versions, and use a custom domain.
+## Create the web app
 
-## Prerequisites
+To create the web app that you'll work with, follow the [static HTML quickstart](app-service-web-get-started-html.md), but don't do the
+**Clean up resources** step.
 
-Before you begin this tutorial, follow the [static HTML quickstart](app-service-web-get-started-html.md) to create the web app that you'll work with. In that tutorial, skip the **Update and redeploy** and **Clean up resources** steps. When you finish that tutorial, keep the command prompt open so that you can deploy additional changes to the web app later in this tutorial.
+When you finish the tutorial, keep the command prompt open so that you can deploy additional changes to the web app later in this tutorial.
 
 ### Have a custom domain ready
 
@@ -39,15 +40,13 @@ In the left navigation, select **App Services**, and then select the app that yo
 
 ![Select App Service app in the portal](media/app-service-web-tutorial-content-delivery-network/portal-select-app-services.png)
 
-In the App Service page, enter *cdn* in the **Search** box, and then select **Networking > Configure Azure CDN for your app**.
+In the **App Service** page, in the **Settings** section, select **Networking > Configure Azure CDN for your app**.
 
 ![Select CDN in the portal](media/app-service-web-tutorial-content-delivery-network/portal-select-cdn.png)
 
 In the **Azure Content Delivery Network** page, provide the **New endpoint** settings as specified in the table.
 
 ![Create profile and endpoint in the portal](media/app-service-web-tutorial-content-delivery-network/portal-new-endpoint.png)
-
-![Create profile and endpoint in the portal - detail of New endpoint input boxes](media/app-service-web-tutorial-content-delivery-network/portal-new-endpoint-detail.png)
 
 | Setting | Suggested value | Description |
 | ------- | --------------- | ----------- |
@@ -65,10 +64,13 @@ Azure creates the profile and endpoint. The new endpoint appears in the **Endpoi
 
 Once the CDN endpoint is provisioned, you can access content from it.
 
-The sample app has an *index.html* file and *css*, *img*, and *js* folders that contain other static assets. The content paths for all of these files are the same at the CDN endpoint. For example, both of the following URLs access the *bootstrap.css* file in the *css* folder:
+The sample app has an `index.html` file and *css*, *img*, and *js* folders that contain other static assets. The content paths for all of these files are the same at the CDN endpoint. For example, both of the following URLs access the *bootstrap.css* file in the *css* folder:
 
 ```
 http://<appname>.azurewebsites.net/css/bootstrap.css
+```
+
+```
 http://<endpointname>.azureedge.net/css/bootstrap.css
 ```
 
@@ -94,7 +96,7 @@ In this section of the tutorial, you deploy a change to the web app and purge th
 
 ### Deploy a change to the web app
 
-Open the *index.html* file and add "- V2" to the H1 heading, as shown in the following example: 
+Open the `index.html` file and add "- V2" to the H1 heading, as shown in the following example: 
 
 ```
 <h1>Azure App Service - Sample Static HTML Site - V2</h1>
@@ -139,7 +141,7 @@ At the top of the **Endpoint** page, click **Purge**.
 
 ![Select Purge](media/app-service-web-tutorial-content-delivery-network/portal-select-purge.png)
 
-Enter the content paths you wish to purge. You can pass a complete file path to purge an individual file, or a path segment to purge and refresh all content in a folder. Since you changed *index.html*, make sure that is one of the paths.
+Enter the content paths you wish to purge. You can pass a complete file path to purge an individual file, or a path segment to purge and refresh all content in a folder. Since you changed `index.html`, make sure that is one of the paths.
 
 At the bottom of the page, select **Purge**.
 
@@ -151,7 +153,7 @@ Wait until the purge request finishes processing, typically a couple of minutes.
 
 ![Purge notification](media/app-service-web-tutorial-content-delivery-network/portal-purge-notification.png)
 
-Browse to the CDN endpoint URL for *index.html*, and now you see the V2 that you added to the title on the home page. This shows that the CDN cache has been refreshed.
+Browse to the CDN endpoint URL for `index.html`, and now you see the V2 that you added to the title on the home page. This shows that the CDN cache has been refreshed.
 
 ```
 http://<endpointname>.azureedge.net/index.html
@@ -171,36 +173,6 @@ The first of these is the default, which means there is only one cached version 
 
 In this section of the tutorial, you change the caching behavior to cache every unique URL.
 
-### Verify that query strings are currently ignored
-
-In a browser, navigate to the home page at the CDN endpoint, but include a query string: 
-
-```
-http://<endpointname>.azureedge.net/index.html?q=1
-```
-
-The CDN returns the current web app content, which includes "V2" in the heading. To ensure that this page is cached in the CDN, refresh the page. 
-
-Open *index.html* and change "V2" to "V3", and deploy the change. 
-
-```bash
-git commit -am "version 3"
-git push azure master
-```
-
-In a browser, go to the web app URL. The "V3" in the heading confirms that your change and deployment were successful. Then go to the CDN endpoint URL with the query string, and you still see  "V2". Try other query string values such as "q=2" and you still see "V2" because all query strings are treated as one for caching purposes.
-
-```
-http://<endpointname>.azureedge.net/index.html?q=1
-http://<endpointname>.azureedge.net/index.html?q=2
-```
-
-![V2 in title in CDN, query string 1](media/app-service-web-tutorial-content-delivery-network/v2-in-cdn-title-qs1.png)
-
-![V2 in title in CDN, query string 2](media/app-service-web-tutorial-content-delivery-network/v2-in-cdn-title-qs2.png)
-
-This output shows that the query string makes no difference in what cached information the CDN returns.
-
 ### Change the cache behavior
 
 In the Azure portal **CDN Endpoint** page, select **Cache**.
@@ -211,37 +183,40 @@ Select **Save**.
 
 ![Select query string caching behavior](media/app-service-web-tutorial-content-delivery-network/portal-select-caching-behavior.png)
 
-### Verify that query strings are no longer ignored
+### Verify that unique URLs are cached separately
 
-In a browser, navigate to the home page at the CDN endpoint, including the first query string you tried earlier. 
+In a browser, navigate to the home page at the CDN endpoint, but include a query string: 
 
 ```
 http://<endpointname>.azureedge.net/index.html?q=1
 ```
 
-![V3 in title in CDN, query string 1](media/app-service-web-tutorial-content-delivery-network/v3-in-cdn-title-qs1.png)
+The CDN returns the current web app content, which includes "V2" in the heading. 
 
-Because each query string is now treated as a different resource, the CDN retrieves, caches, and returns the current contents of the origin web app, with "V3" in the heading. To ensure that this page is cached in the CDN, refresh the page. 
+To ensure that this page is cached in the CDN, refresh the page. 
 
-Open *index.html* and change "V3" to "V4", and then deploy the change. 
+Open `index.html` and change "V2" to "V3", and deploy the change. 
 
 ```bash
-git commit -am "version 4"
+git commit -am "version 3"
 git push azure master
 ```
 
-In a browser, navigate to the CDN endpoint URL with the same query string you tried earlier and with a new one:
+In a browser, go to the CDN endpoint URL with a new query string such as `q=2`. The CDN gets the current `index.html` file and displays "V3".  But if you navigate to the CDN endpoint with the the `q=1` query string, you see "V2".
 
 ```
-http://<endpointname>.azureedge.net/index.html?q=1
 http://<endpointname>.azureedge.net/index.html?q=2
 ```
 
-![V3 in title in CDN, query string 1](media/app-service-web-tutorial-content-delivery-network/v3-in-cdn-title-qs1.png)
+![V3 in title in CDN, query string 2](media/app-service-web-tutorial-content-delivery-network/v3-in-cdn-title-qs2.png)
 
-![V4 in title in CDN, query string 2](media/app-service-web-tutorial-content-delivery-network/v4-in-cdn-title-qs2.png)
+```
+http://<endpointname>.azureedge.net/index.html?q=1
+```
 
-Each query string is treated differently:  q=1 was used before, so cached contents are returned (V3), while q=2 is new, so the latest web app contents are retrieved and returned (v4).
+![V2 in title in CDN, query string 1](media/app-service-web-tutorial-content-delivery-network/v2-in-cdn-title-qs1.png)
+
+This output shows that each query string is treated differently:  q=1 was used before, so cached contents are returned (V2), while q=2 is new, so the latest web app contents are retrieved and returned (V3).
 
 ## Map a custom domain to a CDN endpoint
 
@@ -277,9 +252,9 @@ It can take time for the CNAME record to propagate to name servers on the Intern
 
 ### Test the custom domain
 
-In a browser, navigate to the *index.html* file using your custom domain (for example, `cdn.contoso.com/index.html`) to verify that it is showing CDN assets. You see the home page with the current H1 heading ("V4").
+In a browser, navigate to the `index.html` file using your custom domain (for example, `cdn.contoso.com/index.html`) to verify that the result is the same as when you go directly to `<endpointname>azureedge.net/index.html`.
 
-![V4 in title in CDN, custom domain](media/app-service-web-tutorial-content-delivery-network/v4-in-cdn-title-custom-domain.png)
+![CDN via custom domain](media/app-service-web-tutorial-content-delivery-network/home-page-custom-domain.png)
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
