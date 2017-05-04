@@ -19,7 +19,7 @@ ms.author: iainfou
 ---
 
 # Create a CI/CD infrastructure on a Linux VM in Azure that uses Jenkins, GitHub, and Docker
-To automate the build and test phase of application development, you can use a continuous integration and deployment pipeline (CI/CD). In this tutorial, you learn how to create a CI/CD pipeline on an Azure VM. You build a VM that runs Jenkins, has a webhook for GitHub integration, and then builds Docker images and containers to run an app.
+To automate the build and test phase of application development, you can use a continuous integration and deployment (CI/CD) pipeline. In this tutorial, you learn how to create a CI/CD pipeline on an Azure VM. You build a VM that runs Jenkins, has a webhook for GitHub integration, and then builds Docker images and containers to run an app.
 
 This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
@@ -107,10 +107,10 @@ Now complete the initial Jenkins setup:
 - When finished, click **Start using Jenkins**.
 
 
-## Fork GitHub repo for Node.js app
+## Create GitHub webhook
 To configure the integration with GitHub, open the [Node.js Hello World sample app](https://github.com/Azure-Samples/nodejs-docs-hello-world) from the Azure samples repo. To fork the repo to your own GitHub account, click the **Fork** button in the top right-hand corner.
 
-To configure the Jenkins integration, create a webhook inside the fork you created:
+Create a webhook inside the fork you created:
 
 - Click **Settings**, then select **Integrations & services** on the left-hand side.
 - Click **Add service**, then enter *Jenkins* in filter box
@@ -120,7 +120,9 @@ To configure the Jenkins integration, create a webhook inside the fork you creat
 
 
 ## Create Jenkins job
-To have Jenkins respond to an event in GitHub such as committing code, create a Jenkins job. Back in your Jenkins website, click **Create new jobs** from the home page:
+To have Jenkins respond to an event in GitHub such as committing code, create a Jenkins job. 
+
+In your Jenkins website, click **Create new jobs** from the home page:
 
 - Enter *HelloWorld* as job name. Select **Freestyle project**, then click **OK**.
 - Under the **General** section, select **GitHub** project and enter your forked repo URL, such as *https://github.com/iainfoulds/nodejs-docs-hello-world*
@@ -145,7 +147,9 @@ In Jenkins, a new build starts under the **Build history** section of the bottom
 
 
 ## Define Docker build image
-To see the Node.js app running based on your GitHub commits, lets build a Docker image to run the app. The image is built from a Dockerfile that defines how to configure the container that runs the app. From the SSH connection to your VM, change to the Jenkins workspace directory named after the job you created in a previous step. In our example, that was named *HelloWorld*.
+To see the Node.js app running based on your GitHub commits, lets build a Docker image to run the app. The image is built from a Dockerfile that defines how to configure the container that runs the app. 
+
+From the SSH connection to your VM, change to the Jenkins workspace directory named after the job you created in a previous step. In our example, that was named *HelloWorld*.
 
 ```bash
 cd /var/lib/jenkins/workspace/HelloWorld
