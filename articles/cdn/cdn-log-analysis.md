@@ -135,8 +135,6 @@ Here is how you can use the tool:
 4.	Run the tool
 5.	Resulting CSV file shows the analytics data in a simple flat hierarchy.
 
-[Sample CSV](./media/cdn-diagnostics-log/result.csv)
-
 ## Diagnostic logs types
 
 Only Core Analytics is available currently. More coming in the future.
