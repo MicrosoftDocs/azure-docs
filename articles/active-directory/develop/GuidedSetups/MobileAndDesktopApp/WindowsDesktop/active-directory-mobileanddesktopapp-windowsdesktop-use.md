@@ -19,7 +19,7 @@ ms.author: andret
 ---
 
 # Use Microsoft Authentication Library (MSAL) to get a token for the Microsoft Graph API
-1.	Add the reference for MSAL library to the class:
+1.	In `MainWindow.xaml.cs`, add the reference for MSAL library to the class:
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -106,7 +106,7 @@ Eventually, `AcquireTokenSilentAsync` will fail – e.g. the user has signed out
 
 # Call the Microsoft Graph API using the token you just obtained
 
-1. Add the new method below to your `MainWindow.cs`. The method is used to make a `GET` request against Graph API using an Authorize header
+1. Add the new method below to your `MainWindow.xaml.cs`. The method is used to make a `GET` request against Graph API using an Authorize header
 
 ```csharp
 /// <summary>
