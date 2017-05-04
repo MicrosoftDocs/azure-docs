@@ -63,7 +63,7 @@ Add the following activity to `manifest\application` node. This registers a Brow
 <!-- Workaround for Docs conversion bug -->
 <ol start="9">
 <li>
-Replace *[Enter the application Id here]* with the the application ID for the application you just registered in the Application Registration Portal
+In the `BrowserTabActivity`, replace *[Enter the application Id here]* with the the application ID.
 </li>
 </ol>
 <!-- End Docs -->
