@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create HDInsight clusters with Data Lake Store as default storage by using PowerShell | Microsoft Docs'
 description: Use Azure PowerShell to create and use HDInsight clusters with Azure Data Lake Store
 services: data-lake-store,hdinsight
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/02/2017
+ms.date: 05/04/2017
 ms.author: nitinme
 
 ---
@@ -31,8 +31,6 @@ Here are some important considerations for using HDInsight with Data Lake Store:
 * The option to create HDInsight clusters with access to Data Lake Store as default storage is available for HDInsight version 3.5.
 
 * The option to create HDInsight clusters with access to Data Lake Store as default storage is *not available* for HDInsight Premium clusters.
-
-* For HBase clusters (Windows and Linux), Data Lake Store is *not supported* as a storage option for either default and additional storage.
 
 To configure HDInsight to work with Data Lake Store by using PowerShell, follow the instructions in the next five sections.
 
