@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2017
+ms.date: 05/04/2017
 ms.author: dobett
 
 ---
 
 # Configure IoT Hub file uploads using Azure CLI
+
 To use the [file upload functionality in IoT Hub][lnk-upload], you must first associate an Azure Storage account with your IoT hub. You can use an existing storage account or create a new one.
 
 To complete this tutorial, you need the following:
@@ -54,7 +55,7 @@ Sign in to your Azure account and select your subscription.
 
 ## Retrieve your storage account details
 
-The following steps assume that you created your storage account using the **Resource manager** deployment model, and not the **Classic** deployment model.
+The following steps assume that you created your storage account using the **Resource Manager** deployment model, and not the **Classic** deployment model.
 
 You need the connection string of an Azure storage account in the same subscription as your IoT hub to configure file uploads from your devices. You also need the name of a blob container in the storage account. Use the following command to retrieve your storage account keys:
 
@@ -127,6 +128,7 @@ az iot hub show --name {your iot hub name}
 ```
 
 ## Next steps
+
 For more information about the file upload capabilities of IoT Hub, see [Upload files from a device][lnk-upload] in the IoT Hub developer guide.
 
 Follow these links to learn more about managing Azure IoT Hub:
