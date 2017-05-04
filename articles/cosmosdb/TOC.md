@@ -117,10 +117,6 @@
 ##### [Python samples](../documentdb/documentdb-python-samples.md)
 ##### [SQL syntax](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 ##### [SQL grammar cheat sheet](../documentdb/documentdb-sql-query-cheat-sheet.md)
-#### Table API
-##### [.NET samples](table-dotnet-samples.md)
-#### Graph API
-##### [.NET samples](graph-dotnet-samples.md)
 
 ## Use the portal
 ### [Create a database account](../documentdb/documentdb-create-account.md)
@@ -150,13 +146,19 @@
 ### [Leverage the ODBC driver for data visualization](../documentdb/documentdb-nosql-odbc-driver.md)
 
 # Reference
-## [Java](../documentdb/documentdb-sdk-java.md)
-## [.NET](../documentdb/documentdb-sdk-dotnet.md)
-## [.NET Core](../documentdb/documentdb-sdk-dotnet-core.md)
-## [Node.js](../documentdb/documentdb-sdk-node.md)
-## [Python](../documentdb/documentdb-sdk-python.md)
-## [REST](/rest/api/documentdb/)
-## [REST Resource Provider](/rest/api/documentdbresourceprovider/)
+## DocumentDB APIs
+### [Java](../documentdb/documentdb-sdk-java.md)
+### [.NET](../documentdb/documentdb-sdk-dotnet.md)
+### [.NET Core](../documentdb/documentdb-sdk-dotnet-core.md)
+### [Node.js](../documentdb/documentdb-sdk-node.md)
+### [Python](../documentdb/documentdb-sdk-python.md)
+### [REST](/rest/api/documentdb/)
+### [REST Resource Provider](/rest/api/documentdbresourceprovider/)
+## Table APIs
+### [.NET](table-sdk-dotnet.md)
+## Graph APIs
+### [.NET](graph-sdk-dotnet.md)
+
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/documentdb/)
