@@ -87,7 +87,7 @@ You'll need to let your users know how to work with services in Azure Stack, how
 
 **Understand how to work with services in Azure Stack**
 
-There are important things for a user to understand before they use services and build apps in Azure Stack. For example, there are specific PowerShell and API version requirements. Also, there are some feature deltas between a service in Azure and the equivalent service in Azure Stack. Your users should review the following articles:
+There's information your users must understand before they use services and build apps in Azure Stack. For example, there are specific PowerShell and API version requirements. Also, there are some feature deltas between a service in Azure and the equivalent service in Azure Stack. Direct your users to the following articles:
 
 - [Key considerations: Using services or building apps for Azure Stack](azure-stack-considerations.md)
 - [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md)
