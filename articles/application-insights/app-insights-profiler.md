@@ -17,7 +17,7 @@ ms.author: awills
 ---
 # Profiling live Azure web apps with Application Insights
 
-*This feature of Application Insights is in preview.*
+*This feature of Application Insights is GA for App Services and in preview for Compute.*
 
 Find out how much time is spent in each method in your live web application by using the profiling tool of [Azure Application Insights](app-insights-overview.md). It shows you detailed profiles of live requests that were served by your app, and highlights the 'hot path' that is using the most time. It automatically selects examples that have different response times. The profiler uses various techniques to minimize overhead.
 
