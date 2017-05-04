@@ -148,6 +148,10 @@ To enable the advanced developer tools within App Service - Kudu - and to enable
 4. In the Credential window provide your **Azure Active Directory Service Admin account** and **password**, and then Click **Ok**.
 5. Provide the **certificate file path** and **certificate password** for the [certificate created earlier](# Create certificates to be used by App Service on Azure Stack).  The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**
 6. The script creates a new application in the Tenant Azure Active Directory and generate a new PowerShell Script.
+
+>[!NOTE]
+> Make note of the **ApplicationID** that will is returned in the PowerShell output.  You will need this to search for it in step 13.
+
 7. Copy the identity app certificate file and the generated script to the **CN0-VM** (use a remote desktop session).
 8. On the CN0-VM machine, open an **Administrator PowerShell window** and browse to the directory where the script file and certificate were copied to.
 9. Now run the script file.  This script file enters the properties in the App Service on Azure Stack configuration and initiates a repair operation on all Front-End and Management roles.
