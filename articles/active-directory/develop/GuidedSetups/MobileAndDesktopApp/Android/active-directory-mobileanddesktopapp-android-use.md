@@ -20,8 +20,9 @@ ms.author: andret
 
 # Use Microsoft Authentication Library (MSAL) to get a token for the Microsoft Graph API
 
-1.	Open: `MainActivity` (under `app` > `java` > `{companyName}.{appname}`)
-2.	Add the following the imports:<br/>
+1.	Open: `MainActivity` (under `app` > `java` > `{domain}.{appname}`)
+2.	Add the following the imports:
+
 ```java
 import android.app.Activity;
 import android.content.Intent;
@@ -39,7 +40,12 @@ import java.util.List;
 import java.util.Map;
 import com.microsoft.identity.client.*;
 ```
-3.	Replace the `MainActivity` class with below:
+<!-- Workaround for Docs conversion bug -->
+<ol start="3">
+<li>
+Replace the `MainActivity` class with below:
+</li>
+</ol>
 
 ```java
 public class MainActivity extends AppCompatActivity {

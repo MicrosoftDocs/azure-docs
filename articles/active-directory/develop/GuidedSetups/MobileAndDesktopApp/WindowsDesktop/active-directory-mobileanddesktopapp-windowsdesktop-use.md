@@ -24,8 +24,12 @@ ms.author: andret
 ```csharp
 using Microsoft.Identity.Client;
 ```
-
-2.	Copy the code below and replace MainWindow class code with:
+<!-- Workaround for Docs conversion bug -->
+<ol start="2">
+<li>
+Copy the code below and replace MainWindow class code with:
+</li>
+</ol>
 
 ```csharp
 public partial class MainWindow : Window
