@@ -108,17 +108,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 3. On the **SAML SSO for Confluence by resolution GmbH Domain and URLs** section, If you wish to configure the application in **IDP** initiated mode:
 
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_url.png)
+	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_url_1.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<sub-domain>.lab.resolution.de/plugins/servlet/samlsso`
+    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<server-base-url>/plugins/servlet/samlsso`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<sub-domain>.lab.resolution.de/plugins/servlet/samlsso`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<server-base-url>/plugins/servlet/samlsso`
 
 4. Check **Show advanced URL settings**. If you wish to configure the application in **SP** initiated mode:
 
-	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_url1.png)
+	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_url_2.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<sub-domain>.lab.resolution.de/plugins/servlet/samlsso`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<server-base-url>/plugins/servlet/samlsso`
 	 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [SAML SSO for Confluence by resolution GmbH Client support team](mailto:c.eitel@resolution.de) to get these values. 
@@ -162,7 +162,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	d. Click **Load** button.
 
     e. It reads the IdP metadata and populates the fields as highlighted in the screenshot.	
-
 13. Click **Save settings** button to save the settings.
 
 	![Configure Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon6.png)
