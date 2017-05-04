@@ -54,7 +54,7 @@ LUIS may be unable to recognize rare and proprietary words, as well as foreign w
 
 **To delete a phrase list:** 
 
-* Click the trash bin button ![Trash bin button](./Images/trashbin-button.JPG) next to the phrase list name on the **Features** page.
+* Click the trash bin button ![Trash bin button](./Images/trashbin-button.png) next to the phrase list name on the **Features** page.
 
 ## Pattern features
 You can create a structured “pattern” to represent a certain class of objects (e.g. flight numbers, product codes, etc.). A pattern is defined in regular expression (Regex). This will help LUIS easily recognize the string of the defined pattern in utterances, and thus classify it correctly. For example, in a travel app, flight numbers might follow a regular pattern of two letters followed by three digits. 
