@@ -48,7 +48,7 @@ To add a new version to the listed SKU and republish your offer, follow these st
 6. In the **OS VHD URL** box, enter the shared access signature URI created for the operating system VHD and save the changes.
 
    > [!IMPORTANT]
-   > You can't increment/decrement the data disk count of a listed SKU. You need to create a new SKU in this case. For detailed guidance, refer to the section [Add a new SKU under a listed offer](add-a-new-sku-under-a-listed-offer).
+   > You can't increment/decrement the data disk count of a listed SKU. You need to create a new SKU in this case. For detailed guidance, refer to the section [Add a new SKU under a listed offer](#add-a-new-sku-under-a-listed-offer).
    >
    >
 7. Go to the **PUBLISH** tab, and click **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment, see [Test your VM offer for the Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
@@ -222,7 +222,7 @@ To add a new SKU in your live offer, follow these steps:
     ![Add a SKU](media/marketplace-publishing-vm-image-post-publishing/img03_09-02.png)
 
 ## Change the data disk count for a listed SKU
-You can't increment/decrement the data disk count of a listed SKU. You need to create a new SKU in this case. For detailed guidance, refer to the section [Add a new SKU under a listed offer](add-a-new-sku-under-a-listed-offer).
+You can't increment/decrement the data disk count of a listed SKU. You need to create a new SKU in this case. For detailed guidance, refer to the section [Add a new SKU under a listed offer](#add-a-new-sku-under-a-listed-offer).
 
 ## Delete a listed offer from the Marketplace
 Various aspects need to be taken care of in the case of a request to remove a live offer. To get guidance from the support team to remove a listed offer from the Marketplace, follow these steps:
