@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2017
+ms.date: 05/04/2017
 ms.author: mihauss
 ---
 # Using the Azure CDN to access blobs with custom domains over HTTPS
@@ -98,9 +98,9 @@ features](../cdn/cdn-rules-engine-reference-features.md).
 ## Pricing and billing
 
 When you access blobs through an Azure CDN, you pay [Blob storage
-prices](https://azure.microsoft.com/en-us/pricing/details/storage/blobs/) for
+prices](https://azure.microsoft.com/pricing/details/storage/blobs/) for
 traffic between the edge nodes and the origin (Blob storage), and [CDN
-prices](https://azure.microsoft.com/en-us/pricing/details/cdn/) for data
+prices](https://azure.microsoft.com/pricing/details/cdn/) for data
 accessed from the edge nodes.
 
 For example, say you have a storage account in West US that is being accessed
@@ -113,7 +113,7 @@ charges as specified in the Blob storage pricing, and then access the file on
 the edge node, which will result in CDN billing.
 
 When looking at the [CDN pricing
-page](https://azure.microsoft.com/en-us/pricing/details/cdn/), note that HTTPS
+page](https://azure.microsoft.com/pricing/details/cdn/), note that HTTPS
 support for custom domain names is only available for Azure CDN from Verizon
 products (Standard and Premium).
 
