@@ -115,7 +115,7 @@ To configure the Jenkins integration, create a webhook inside the fork you creat
 - Click **Settings**, then select **Integrations & services** on the left-hand side.
 - Click **Add service**, then enter *Jenkins* in filter box
 - Select *Jenkins (GitHub plugin)*
-- For the **Jenkins hook URL**, enter *http://<publicIpAddress>:8080/github-webhook/*. Make sure you include the trailing /
+- For the **Jenkins hook URL**, enter `http://<publicIps>:8080/github-webhook/`. Make sure you include the trailing /
 - Click **Add service**
 
 
@@ -194,7 +194,7 @@ If needed, obtain the public IP address of your VM again:
 az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publicIps] --o tsv
 ```
 
-Open a web browser and enter *http://<publicIpAddress>:1337*. Your Node.js app is displayed and reflects the latest commits in your GitHub fork as follows:
+Open a web browser and enter `http://<publicIps>:1337`. Your Node.js app is displayed and reflects the latest commits in your GitHub fork as follows:
 
 ![Running Node.js app](media/tutorial-jenkins-github-docker-cicd/running_nodejs_app.png)
 
