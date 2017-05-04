@@ -50,7 +50,6 @@ This guide uses the following NuGet packages:
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft Authentication Library (MSAL)|
 
 ### What is Next
-<table style="width:100%">
-<tr style="width:100%">[Setup](active-directory-mobileanddesktopapp-windowsdesktop-setup.md)<td><tr>[Previous - Intro](active-directory-mobileanddesktopapp-windowsdesktop-intro.md)<td>
-</table>
+
+[Setup](active-directory-mobileanddesktopapp-windowsdesktop-setup.md)
 

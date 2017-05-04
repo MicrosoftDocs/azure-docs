@@ -344,7 +344,7 @@ private void onSignOutClicked() {
     } catch (MsalClientException e) {
         Log.d(TAG, "MSAL Exception Generated while getting users: " + e.toString());
 
-    } catch (IndexOutOfBoundssException e) {
+    } catch (IndexOutOfBoundsException e) {
         Log.d(TAG, "User at this position does not exist: " + e.toString());
     }
 }
