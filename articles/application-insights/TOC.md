@@ -93,13 +93,13 @@
 #### [Retention](app-insights-usage-retention.md)
 #### [Users, Sessions, Events](app-insights-usage-segmentation.md)
 
-## Analytics
+### Analytics
 
-### [Overview](app-insights-analytics.md)
-### [Tour](app-insights-analytics-tour.md)
-### [Using](app-insights-analytics-using.md)
-### [Import](app-insights-analytics-import.md)
-### [Diagnostics](app-insights-analytics-diagnostics.md)
+#### [Overview](app-insights-analytics.md)
+#### [Tour](app-insights-analytics-tour.md)
+#### [Using](app-insights-analytics-using.md)
+#### [Import](app-insights-analytics-import.md)
+#### [Diagnostics](app-insights-analytics-diagnostics.md)
 
 ## Automate
 
