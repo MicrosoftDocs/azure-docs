@@ -20,7 +20,7 @@ ms.author: sngun
 
 # Create a Windows virtual machine by using PowerShell in Azure Stack
 
-This guide details using PowerShell to create a virtual machine running Windows Server 2016 in Azure Stack. You can run the steps described in this article either from the Azure Stack POC, or from a Windows-based external client if you are connected through VPN. 
+Virtual machines in Azure Stack gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. This guide details using PowerShell to create a virtual machine running Windows Server 2016 in Azure Stack. You can run the steps described in this article either from the Azure Stack POC, or from a Windows-based external client if you are connected through VPN. 
 
 ## Prerequisites
 
