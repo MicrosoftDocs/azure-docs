@@ -92,7 +92,7 @@ You can log in to the Seller Insights Portal using a personal Microsoft account 
 3. New Orders trend data for the 3 month period you have selected is shown here.
 4. New Orders for the selected period will be shown here by Channel and Offer Type.
 5. Select a view of your Top 5 Markets, Top 5 Performing Offers, or Top 5 Customers from this panel.
-6. ayout trend for the selected period will be shown here for paid offers. If you have only BYOL or 1st Party offers, this panel will not be shown.
+6. Payout trend for the selected period will be shown here for paid offers. If you have only BYOL or 1st Party offers, this panel will not be shown.
 
 ![summary view][7]
 
@@ -239,7 +239,7 @@ D. *Panel D*: this panel provides data relating to each individual subscription.
   1. From the Order Detail panel under 'Orders' or 'Usage' click on the Azure subscription ID which you are interested in.  Note that only non-BYOL Marketplace License Types will be clickable, and BYOL subscription ID's will be hashed out for security reasons.
 
   ![Orders and usage customer detail panel detail][26]
-  
+
   2. You will be redirected to the 'Customer' tab and detailed data for the customer with whom the subscription ID is associated will be retrieved.
   3. You can download the data in Excel or csv format.
 
