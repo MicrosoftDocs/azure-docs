@@ -143,25 +143,23 @@ A recovery plan allows sequencing the failover of various tiers in a multi-tier 
 
 ### Adding scripts to the recovery plan
 
-You can deploy the most commonly used Azure Site Recovery scripts into your Automation account clicking the 'Deploy to Azure' button below.
+You can deploy the most commonly used Azure Site Recovery scripts into your Automation account clicking the 'Deploy to Azure' button below. When you are using any published script, ensure you follow the guidance in the script.
 
 [![Deploy to Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
-1. Add a pre action script to 'Group 1' to failover SQL. Use the 'ASR-AddSingleLoadBalancer' script published in the sample scripts.
+1. Add a pre action script to 'Group 1' to failover SQL. Use the 'ASR-SQL-FailoverAG' script published in the sample scripts. Ensure you follow the guidance in the script to make the required changes appropriately.
 
+	![Add-AG-Script-Step-1](./media/site-recovery-sharepoint/RP-Add-AG-script-step-1.png) 
 
-	![Add-AG-Script-Step 1](./media/site-recovery-sharepoint/RP-Add-AG-script-step-1.png) 
+	![Add-AG-Script-Step-2](./media/site-recovery-sharepoint/RP-Add-AG-script-step-2.png)
 
-	![Add-AG-Script-Step 2](./media/site-recovery-sharepoint/RP-Add-AG-script-step-2.png)
-
-2. Add a post action script to attach a load balancer on the failed over virtual machines of Web tier (Group 2). Use the 'ASR-AddSingleLoadBalancer' script published in the sample scripts.
+2. Add a post action script to attach a load balancer on the failed over virtual machines of Web tier (Group 2). Use the 'ASR-AddSingleLoadBalancer' script published in the sample scripts. Ensure you follow the guidance in the script to make the required changes appropriately.
 
     ![Add-LB-Script-Step-1](./media/site-recovery-sharepoint/RP-Add-LB-script-step-1.png)
 
- 
     ![Add-LB-Script-Step-2](./media/site-recovery-sharepoint/RP-Add-LB-script-step-2.png)
 
-3. Add a manual step to update the DNS records to point to the new farm in Azure. 
+3. Add a manual step to update the DNS records to point to the new farm in Azure.
 
 	* For internet facing sites, no DNS update are required post failover. Follow the steps described in the 'Networking guidance' section to configure Traffic Manager. If the Traffic Manager profile has been setup as described in the previous section, add a script to open dummy port (800 in the example) on the Azure VM.
 
