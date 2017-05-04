@@ -1,5 +1,5 @@
 ---
-title: Create a Windows virtual machine with PowerShell in Azure Stack | Microsoft Docs
+title: Create a Windows virtual machine by using PowerShell in Azure Stack | Microsoft Docs
 description: Create a Windows virtual machine with PowerShell in Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -18,26 +18,25 @@ ms.author: sngun
 
 ---
 
-# Create a Windows virtual machine with PowerShell in Azure Stack
+# Create a Windows virtual machine by using PowerShell in Azure Stack
 
-This guide details using PowerShell to create a virtual machine running Windows Server 2016 in Azure Stack. You can run the steps described in this article either from MAS-CON01, Azure Stack host computer, or from a Windows-based external client if you are connected through VPN. 
+This guide details using PowerShell to create a virtual machine running Windows Server 2016 in Azure Stack. You can run the steps described in this article either from the Azure Stack POC, or from a Windows-based external client if you are connected through VPN. 
 
 ## Prerequisites
 
-1. The Azure Stack Marketplace doesn't contain the Windows Server 2016 image by default. So, before you can create a virtual machine, make sure that the Azure Stack administrator [adds the Windows Server 2016 image to the Azure Stack Marketplace](azure-stack-add-default-image.md). 
-2. Azure Stack requires specific version of Azure PowerShell module to create and manage Azure Stack resources. Use the steps described in [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md) topic to install the required version.
+1. The Azure Stack marketplace doesn't contain the Windows Server 2016 image by default. So, before you can create a virtual machine, make sure that the Azure Stack administrator [adds the Windows Server 2016 image to the Azure Stack marketplace](azure-stack-add-default-image.md). 
+2. Azure Stack requires specific version of Azure PowerShell module to create and manage the resources. Use the steps described in [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) topic to install the required version.
 3. [Configure PowerShell to connect to Azure Stack.](azure-stack-powershell-configure.md)
 
 ## Create a resource group
 
-Create a resource group. A resource group is a logical container into which Azure Stack resources are deployed and managed.
+A resource group is a logical container into which Azure Stack resources are deployed and managed. Use the following code block to create a resource group. We have assigned values for all variables in this document, you can use them as is or assign a different value.  
 
 ```powershell
-# Create variables to store the location and resource group names
+# Create variables to store the location and resource group names.
 $location = "local"
 $ResourceGroupName = "myResourceGroup"
 
-# Create a new resource group
 New-AzureRmResourceGroup -Name $ResourceGroupName -Location $location
 ```
 
@@ -54,7 +53,8 @@ $SkuName = "Standard_LRS"
 $StorageAccount = New-AzureRMStorageAccount -Location $location `
 -ResourceGroupName $ResourceGroupName -Type $SkuName -Name $StorageAccountName
 
-Set-AzureRmCurrentStorageAccount -StorageAccountName $storageAccountName -ResourceGroupName $resourceGroupName
+Set-AzureRmCurrentStorageAccount -StorageAccountName $storageAccountName `
+-ResourceGroupName $resourceGroupName
 
 # Create a storage container to store the virtual machine image
 $containerName = 'osdisks'
@@ -67,11 +67,12 @@ Create a virtual network, subnet, and a public IP address. These resources are u
 
 ```powershell
 # Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet `
+-AddressPrefix 192.168.1.0/24
 
 # Create a virtual network
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName $ResourceGroupName -Location $location `
--Name MyVnet -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+$vnet = New-AzureRmVirtualNetwork -ResourceGroupName $ResourceGroupName `
+-Location $location -Name MyVnet -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
 
 # Create a public IP address and specify a DNS name
 $pip = New-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName -Location $location `
@@ -80,7 +81,7 @@ $pip = New-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName -Locatio
 
 ### Create a network security group and a network security group rule
 
-The network security group secures the virtual machine by using inbound and outbound rules. In this case, an inbound rule is created for port 3389 to allow incoming Remote Desktop connections. You should also create an inbound rule for port 80 to allow incoming web traffic.
+The network security group secures the virtual machine by using inbound and outbound rules. Lets create an inbound rule for port 3389 to allow incoming Remote Desktop connections and an inbound rule for port 80 to allow incoming web traffic.
 
 ```powershell
 # Create an inbound network security group rule for port 3389
@@ -140,7 +141,7 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $location -VM $Vir
 
 ## Connect to the virtual machine
 
-After the virtual machine is successfully created, open a Remote Desktop connection to the virtual machine from MAS-CON01 or Azure Stack host computer, or from a Windows-based external client if you are connected through VPN. To remote into the virtual machine that you created in the previous step, you need its public IP address. Run the following command to get the public IP address of the virtual machine: 
+After the virtual machine is successfully created, open a Remote Desktop connection to the virtual machine from the Azure Stack POC, or from a Windows-based external client if you are connected through VPN. To remote into the virtual machine that you created in the previous step, you need its public IP address. Run the following command to get the public IP address of the virtual machine: 
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName | Select IpAddress
