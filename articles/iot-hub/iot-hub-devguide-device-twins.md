@@ -157,7 +157,7 @@ The solution back end operates on the device twin using the following atomic ope
         }
 3. **Replace desired properties**. This operation enables the solution back end to completely overwrite all existing desired properties and substitute a new JSON document for `properties/desired`.
 4. **Replace tags**. This operation enables the solution back end to completely overwrite all existing tags and substitute a new JSON document for `tags`.
-5. **Receive twin notifications**. This operation allows the solution back end to be notified when the twin is modified. In order to do so, your IoT solution needs to create a new route and set the Data Source equal to *twinChangeEvents*. By default, no twin notifications are sent, i.e. no such routes pre-exist. If the rate of change becomes too high, or for other reasons due to internal failures or conditions, the IoT Hub can combine multiple changes in a single notification that contains all changes. So, if your application needs reliable auditing and logging of all intermediate states, then it is still recommended that you use D2C messages. The twin notification message includes sections for system properties, properties, and body. It has the following format:
+5. **Receive twin notifications**. This operation allows the solution back end to be notified when the twin is modified. In order to do so, your IoT solution needs to create a route and set the Data Source equal to *twinChangeEvents*. By default, no twin notifications are sent, that is, no such routes pre-exist. If the rate of change is too high, or for other reasons, such as to internal failures, the IoT Hub might send only one notification that contains all changes. So, if your application needs reliable auditing and logging of all intermediate states, then it is still recommended that you use D2C messages. The twin notification message includes sections for system properties, properties, and body. It has the following format:
 
     | System Property | Value |
     | --- | --- |
@@ -175,8 +175,8 @@ The solution back end operates on the device twin using the following atomic ope
 
     | Body |
     | --- |
-    This is the JSON containing the twin changes using the same format as PATCH, with the difference that it can contain all twin sections: tags, properties.reported, properties.desired, and that it contains the  “$metadata” elements, e.g.
-    
+    This section includes all the twin changes in a JSON format. It uses the same format as a patch, with the difference that it can contain all twin sections: tags, properties.reported, properties.desired, and that it contains the “$metadata” elements. For example,
+    ```
             {
                 "properties": {
                     "desired": {
@@ -193,7 +193,7 @@ The solution back end operates on the device twin using the following atomic ope
                     }
                 }
             }
-
+   ```
 All the preceding operations support [Optimistic concurrency][lnk-concurrency] and require the **ServiceConnect** permission, as defined in the [Security][lnk-security] article.
 
 In addition to these operations, the solution back end can:

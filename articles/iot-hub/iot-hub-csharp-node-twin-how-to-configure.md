@@ -92,7 +92,7 @@ In this section, you create a Node.js console app that connects to your hub as *
    
     The **Client** object exposes all the methods required to interact with device twins from the device. This code initializes the **Client** object, retrieves the device twin for **myDeviceId**, and then attaches a handler for the update on *desired properties*. The handler verifies that there is an actual configuration change request by comparing the configIds, then invokes a method that starts the configuration change.
    
-    Note that for the sake of simplicity, this code uses a hard-coded default for the inital configuration. A real app would probably load that configuration from a local storage.
+    Note that for the sake of simplicity, this code uses a hard-coded default for the initial configuration. A real app would probably load that configuration from a local storage.
    
    > [!IMPORTANT]
    > Desired property change events are always emitted once at device connection. Make sure to check that there is an actual change in the desired properties before performing any action.
@@ -250,7 +250,7 @@ Use the following resources to learn how to:
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-query]: iot-hub-devguide-query-language.md
-[lnk-twin-notifications]: iot-hub-devguide-device-twins#back-end-operations
+[lnk-twin-notifications]: iot-hub-devguide-device-twins.md#back-end-operations
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md

@@ -98,9 +98,9 @@ A more complex implementation could include the information from [operations mon
 
 ## Device lifecycle notifications
 
-IoT Hub can notify your IoT solution when a device identity is created or deleted by sending device lifecycle notifications. In order to do so, your IoT solution needs to create a new route and set the Data Source equal to *DeviceLifecycleEvents*. By default, no lifecycle notifications are sent, i.e. no such routes pre-exist.
+IoT Hub can notify your IoT solution when a device identity is created or deleted by sending device lifecycle notifications. To do so, your IoT solution needs to create a route and set the Data Source equal to *DeviceLifecycleEvents*. By default, no lifecycle notifications are sent, that is, no such routes pre-exist.
 
-The notification message has 3 sections:
+The notification message has three sections:
 1. System properties
 2. Properties
 3. Body
@@ -126,8 +126,8 @@ iothub-connection-device-id | Id of the device |
 
 | Body |
 | --- |
-JSON with the twin of the created device identity, e.g.
- 
+JSON with the twin of the created device identity. For example,
+``` 
         {
             "properties": {
                 "desired": {
@@ -144,8 +144,7 @@ JSON with the twin of the created device identity, e.g.
                 }
             }
         }
-
-
+```
 
 ## Reference topics:
 
