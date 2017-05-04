@@ -24,7 +24,7 @@ ms.custom: H1Hack27Feb2017
 # Get started with Kubernetes and Windows containers in Container Service
 
 
-This article shows how to create a Kubernetes cluster in Azure Container Service that contains Windows nodes to run Windows containers. Get started with the `az acs` Azure CLI 2.0 commands to create the Kubernetes cluster in Azure Container Service. Then, use the Kubernetes `kubectl` command-line tool to start working with Docker container apps in the cluster. 
+This article shows you how to create a Kubernetes cluster in Azure Container Service that contains Windows nodes to run Windows containers. Get started with the `az acs` Azure CLI 2.0 commands to create the Kubernetes cluster in Azure Container Service. Then, use the Kubernetes `kubectl` command-line tool to start working with Windows apps built from Docker images. 
 
 > [!NOTE]
 > Support for Windows containers with Kubernetes in Azure Container Service is in preview. 
@@ -49,7 +49,7 @@ For more background, see the [Azure Container Service introduction](container-se
 ## Prerequisites
 To create an Azure Container Service cluster using the Azure CLI 2.0, you must:
 * have an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/))
-* have installed and logged into the [Azure CLI 2.0](/cli/azure/install-az-cli2)
+* have installed and logged in to the [Azure CLI 2.0](/cli/azure/install-az-cli2)
 
 You also need the following for your Kubernetes cluster. You can prepare these in advance, or you can use `az acs create` command options to generate them automatically during cluster deployment. The command example in this article generates the SSH keys and service principal.
 
@@ -76,7 +76,7 @@ Create a Kubernetes cluster in your resource group by using the `az acs create` 
 
 The following command creates a Container Service cluster named *myKubernetesClusterName*, with a DNS prefix *myPrefix* for the management node and the specified credentials to reach the Windows nodes.
 
-The `--generate-ssh-keys` option  generates the necessary SSH public and private key files for the Linux master if they don't exist in the default `~/.ssh/` directory. 
+The `--generate-ssh-keys` option  generates the necessary SSH public and private key files for the Linux master, assuming they don't exist in the default `~/.ssh/` directory. 
 
 This example also automatically generates the [Azure Active Directory service principal](container-service-kubernetes-service-principal.md) needed for a Kubernetes cluster in Azure. 
 
@@ -119,7 +119,7 @@ az acs kubernetes install-cli
 > [!IMPORTANT]
 > By default, this command installs the `kubectl` binary to `/usr/local/bin/kubectl` on a Linux or macOS system, or `C:\Program Files (x86)\kubectl.exe` on Windows. If you don't have permissions to install in that location, the installation fails. To specify a different installation path, use the `--install-location` parameter.
 >
-> After `kubectl` is installed, ensure that its directory in your system path, or add it to the path. 
+> After `kubectl` is installed, ensure that its directory is in your system path, or add it to the path. 
 
 
 Then, run the following command to download the master Kubernetes cluster configuration to the local `~/.kube/config` file:
@@ -140,9 +140,9 @@ Verify that you can see a list of the machines in your cluster.
 
 ## Create your first Kubernetes service
 
-After creating the cluster and connecting with `kubectl`, try starting a Windows app from a Docker container and expose it to the internet. In this example, you specify a Microsoft IIS container using a JSON file, and then create it using `kubctl apply`. (This example )
+After creating the cluster and connecting with `kubectl`, try starting a Windows app from a Docker container and expose it to the internet. In this basic example, you use a JSON file to specify a Microsoft IIS container, and then create it using `kubctl apply`. 
 
-1. Create a local file named `iis.json` and copy the following. This file tells Kubernetes how to run IIS on Windows Server 2016 Server Core, using a public image from [Docker Hub](https://hub.docker.com/r/microsoft/iis/).  
+1. Create a local file named `iis.json` and copy the following. This file tells Kubernetes to run IIS on Windows Server 2016 Server Core, using a public image from [Docker Hub](https://hub.docker.com/r/microsoft/iis/). The container uses port 80, but at this point is only accessible within the cluster network.
 
   ```JSON
   {
@@ -185,50 +185,49 @@ After creating the cluster and connecting with `kubectl`, try starting a Windows
   ```
   While the container is deploying, the status is `ContainerCreating`. 
 
-  ![IIS container in ContainerCreating state](media/container-service-kubernetes-walkthrough/iis-pod-creating.png)   
+  ![IIS container in ContainerCreating state](media/container-service-kubernetes-windows-walkthrough/iis-pod-creating.png)   
 
   Because of the size of the IIS image, it can take several minutes for the container to enter the `Running` state.
 
-  ![IIS container in Running state](media/container-service-kubernetes-walkthrough/iis-pod-running.png)
+  ![IIS container in Running state](media/container-service-kubernetes-windows-walkthrough/iis-pod-running.png)
 
-4. To expose the service to the world, create a Kubernetes `Service` of type `LoadBalancer`:
+4. To expose the container to the world, type the following command:
 
   ```bash
-  kubectl expose deployments iis --port=80 --type=LoadBalancer
+  kubectl expose pods iis --port=80 --type=LoadBalancer
   ```
 
-This command causes Kubernetes to create an Azure load balancer rule with a public IP address. The change
+With this command, Kubernetes creates an Azure load balancer rule with a public IP address. The change
 takes a few minutes to propagate to the load balancer. For details, see [Load balance containers in a Kubernetes cluster in Azure Container Service](container-service-kubernetes-load-balancing.md).
 
 5. Run the following command to see the status of the service.
 
   ```bash
-  watch 'kubectl get svc'
+  kubectl get svc
   ```
   
-  Initially the IP address appears as`pending`:
+  Initially the IP address appears as `pending`:
 
-  ![Pending external IP address](media/container-service-kubernetes-walkthrough/iis-svc-expose.png)
+  ![Pending external IP address](media/container-service-kubernetes-windows-walkthrough/iis-svc-expose.png)
 
   After a few minutes, the IP address is set:
   
-  ![External IP address for IIS](media/container-service-kubernetes-walkthrough/iis-svc-expose-public.png)
+  ![External IP address for IIS](media/container-service-kubernetes-windows-walkthrough/iis-svc-expose-public.png)
 
 
 6. After the external IP address is available, you can browse to it in your browser:
 
-  ![Image of browsing to IIS](media/container-service-kubernetes-walkthrough/kubernetes-iis.png)  
+  ![Image of browsing to IIS](media/container-service-kubernetes-windows-walkthrough/kubernetes-iis.png)  
 
-7. To delete the service, type
+7. To delete the IIS pod, type:
+
+  ```bash
+  kubectl delete pods iis
+  ```
 
 ## Next steps
 
-* To use the Kubernetes UI, run the `kubectl proxy` proxy, and then browse to http://localhost:8001/ui.
+* To use the Kubernetes UI, run the `kubectl proxy` command. Then, browse to http://localhost:8001/ui.
 
-* 
+* For steps to build a custom IIS website and run it in a Windows container, see the guidance at [Docker Hub](https://hub.docker.com/r/microsoft/iis/).
 
-Here are recommended links to learn more about Kubernetes:
-
-* [Kubernetes Bootcamp](https://kubernetesbootcamp.github.io/kubernetes-bootcamp/index.html) - shows you how to deploy, scale, update, and debug containerized applications.
-* [Kubernetes User Guide](https://kubernetes.io/docs/home/) - provides information on running programs in an existing Kubernetes cluster.
-* [Kubernetes Examples](https://github.com/kubernetes/kubernetes/tree/master/examples) - provides examples on how to run real applications with Kubernetes.
