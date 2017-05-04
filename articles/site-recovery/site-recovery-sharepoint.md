@@ -150,16 +150,16 @@ You can deploy the most commonly used Azure Site Recovery scripts into your Auto
 1. Add a pre action script to 'Group 1' to failover SQL. Use the 'ASR-AddSingleLoadBalancer' script published in the sample scripts.
 
 
-	![Add AG Script Step 1](./media/site-recovery-sharepoint/RP-Add-AG-script-step-1.png) 
+	![Add-AG-Script-Step 1](./media/site-recovery-sharepoint/RP-Add-AG-script-step-1.png) 
 
-	![Add AG Script Step 2](./media/site-recovery-sharepoint/RP-Add-AG-script-step-2.png)
+	![Add-AG-Script-Step 2](./media/site-recovery-sharepoint/RP-Add-AG-script-step-2.png)
 
 2. Add a post action script to attach a load balancer on the failed over virtual machines of Web tier (Group 2). Use the 'ASR-AddSingleLoadBalancer' script published in the sample scripts.
 
-	![Add LB Script Step 1](./media/site-recovery-sharepoint/RP-Add-LB-script-step-1.png)
+    ![Add-LB-Script-Step-1](./media/site-recovery-sharepoint/RP-Add-LB-script-step-1.png)
 
  
-	![Add LB Script Step 2](./media/site-recovery-sharepoint/RP-Add-LB-script-step-2.png)
+    ![Add-LB-Script-Step-2](./media/site-recovery-sharepoint/RP-Add-LB-script-step-2.png)
 
 3. Add a manual step to update the DNS records to point to the new farm in Azure. 
 	
@@ -207,7 +207,7 @@ Follow [this guidance](site-recovery-failover.md) for doing a failover.
 1.	Go to Azure portal and select your Recovery Services vault.
 2.	Click on the recovery plan created for SharePoint application.
 3.	Click on 'Failover'.
-4.	Select recovery point to start the failover process.
+4.	Select recovery point to start the failover process. 
 
 ## Next steps
 You can learn more about [replicating other applications](site-recovery-workload.md) using Site Recovery. 
