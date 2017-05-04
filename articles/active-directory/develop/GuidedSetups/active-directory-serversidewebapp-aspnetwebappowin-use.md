@@ -18,7 +18,7 @@ ms.author: andret
 
 ---
 
-# Add a controller to handle sign-in requests
+## Add a controller to handle sign-in requests
 
 Create a new controller to expose sign-in and sign-out methods.
 
@@ -36,7 +36,7 @@ using Microsoft.Owin.Security.OpenIdConnect;
 <!-- Workaround for Docs conversion bug -->
 <ol start="6">
 <li>
-6.	Add the two methods below to handle sign in and sign out to your controller by initiating an authentication challenge via code:
+Add the two methods below to handle sign in and sign out to your controller by initiating an authentication challenge via code:
 </li>
 </ol>
 
@@ -66,7 +66,7 @@ public void SignOut()
 }
 ```
 
-# Create the app's home page to sign in users via a sign-in button
+## Create the app's home page to sign in users via a sign-in button
 
 In Visual Studio, create a new view to add the sign-in button and display user information after authentication:
 
@@ -119,11 +119,11 @@ In Visual Studio, create a new view to add the sign-in button and display user i
 </html>
 ```
 <!--start-collapse-->
-### More Information
+#### More Information
 > This page adds a sign-in button in SVG format with a black background:<br/>![Sign-in with Microsoft](media/active-directory-serversidewebapp-aspnetwebappowin-use/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, please go to the [this page](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines).
 <!--end-collapse-->
 
-# Add a controller to display user claims
+## Add a controller to display user claims
 This controller demonstrates the uses of the `[Authorize]`s attribute to protect a controller. This attribute restricts access to the controller by only allowing authenticated users. The code below makes use of the attribute to display user claims that were retrieved as part of the sign-in.
 
 1.	Right click the `Controllers` folder: `Add` > `Controller`
@@ -161,11 +161,11 @@ public class ClaimsController : Controller
 ```
 
 <!--start-collapse-->
-### More Information
+#### More Information
 > Because of the use of the `[Authorize]` attribute, all methods of this controller can only be executed if the user is authenticated. If the user is not authenticated and tries to access the controller, OWIN will initiate an authentication challenge and force the user to authenticate. The code above looks at the claims collection of the `ClaimsPrincipal.Current` instance for specific user attributes included in the user’s token. These attributes include the user’s full name and username, as well as the global user identifier subject. It also contains the *Tenant ID*, which represents the ID for the user’s organization. 
 <!--end-collapse-->
 
-# Create a view to display the user's claims
+## Create a view to display the user's claims
 
 In Visual Studio, create a new view to display the user's claims in a web page:
 
@@ -207,6 +207,6 @@ In Visual Studio, create a new view to display the user's claims in a web page:
 </html>
 ```
 
-### What is Next
+#### What is Next
 
 [Configure](active-directory-serversidewebapp-aspnetwebappowin-configure.md)
