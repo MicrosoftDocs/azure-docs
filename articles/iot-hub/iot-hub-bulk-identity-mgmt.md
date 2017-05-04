@@ -116,7 +116,7 @@ The following example shows the output data:
 {"id":"Device5","eTag":"MA==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"abc=","secondaryKey":"def="}}}
 ```
 
-If a device has twin data, then the twin data will also be exported together with the device data. The following example shows this. All data from the "twinETag" line until the end are twin data.
+If a device has twin data, then the twin data are also exported together with the device data. The following example shows this format. All data from the "twinETag" line until the end are twin data.
 ```
 {
   "id":"export-6d84f075-0",
@@ -182,7 +182,7 @@ The following C# code snippet shows how to initiate an import job:
 JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 ```
 
-This method can also be used to import the data for the device twin. The format for the data input is the same as what was shown in the section for **ExportDevicesAsync**. This way, the exported data can also be re-imported. The $metadata is optional.
+This method can also be used to import the data for the device twin. The format for the data input is the same as what was shown in the section for **ExportDevicesAsync**. This way, the exported data can also be reimported. The $metadata is optional.
 
 ## Import behavior
 
