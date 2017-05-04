@@ -24,6 +24,13 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
 
 This tutorial demonstrates how to create an Azure Cosmos DB account using the Azure portal, and how to create a database and collection to store data using the [MongoDB API](../documentdb/documentdb-protocol-mongodb.md). 
 
+This tutorial covers the following tasks:
+
+> [!div class="checklist"]
+> * Create an Azure Cosmos DB account 
+> * Update your connection string
+> * Setup your MongoDB app
+
 ## Create a database account
 
 [!INCLUDE [cosmosdb-create-dbaccount-mongodb](../../includes/cosmosdb-create-dbaccount-mongodb.md)]
@@ -184,14 +191,19 @@ You can use the [Create a web app in Azure that connects to MongoDB running on a
 
 3. Use the app!
 
+That's it, this Azure Cosmos DB tutorial is complete! In this tutorial, you've done the following:
+
+> [!div class="checklist"]
+> * Created an Azure Cosmos DB account 
+> * Updated your connection string
+> * Created your MongoDB app
+
 ## Clean up resources
 
 If you're not going to continue to use this app, use the following steps to delete all resources created by this quickstart in the Azure portal. If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. 
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
-
-
 
 ## Next steps
 * Learn how to [use MongoChef](../documentdb/documentdb-mongodb-mongochef.md) and [use RoboMongo](../documentdb/documentdb-mongodb-robomongo.md) with your Azure Cosmos DB's API for MongoDB account.

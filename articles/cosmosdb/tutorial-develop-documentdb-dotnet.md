@@ -23,14 +23,19 @@ ms.author: mimig
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account using the Azure portal, and how to create a document database and collection with a partition key. By defining a partition key at the start, your application is prepared to scale effortlessly as your data grows. You'll also do the following by using the [DocumentDB .NET API](../documentdb/documentdb-sdk-dotnet.md):
+This quick start demonstrates how to create an Azure Cosmos DB account using the Azure portal, and how to create a document database and collection with a partition key using the [DocumentDB .NET API](../documentdb/documentdb-sdk-dotnet.md). By defining a partition key at the start, your application is prepared to scale effortlessly as your data grows. 
 
-* Create JSON documents
-* Update a document
-* Query partitioned collections
-* Run stored procedures
-* Delete a document
-* Delete a database
+This tutorial covers the following tasks by using the [DocumentDB .NET API](../documentdb/documentdb-sdk-dotnet.md):
+
+> [!div class="checklist"]
+> * Create an Azure Cosmos DB account
+> * Create a database and collection with a partition key
+> * Create JSON documents
+> * Update a document
+> * Query partitioned collections
+> * Run stored procedures
+> * Delete a document
+> * Delete a database
 
 ## What are partitioned collections?
 
@@ -268,6 +273,18 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
     new RequestOptions { PartitionKey = new PartitionKey("XMS-001") }, 
     "XMS-001-FE24C");
 ```
+
+That's it, this Azure Cosmos DB tutorial is complete! In this tutorial, you've done the following:
+
+> [!div class="checklist"]
+> * Created an Azure Cosmos DB account
+> * Created a database and collection with a partition key
+> * Created JSON documents
+> * Updated a document
+> * Queried partitioned collections
+> * Ran a stored procedure
+> * Deleted a document
+> * Deleted a database
 
 ## Clean up resources
 

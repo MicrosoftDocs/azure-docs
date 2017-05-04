@@ -22,8 +22,17 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
 
 This quick start demonstrates how to create an Azure Cosmos DB account using the Azure portal, and how to create a database and collection to store a graph using the [DocumentDB API](../documentdb/documentdb-sdk-dotnet.md). The application then creates a simple social network with four people using the [Graph API](graph-sdk-dotnet.md), then traverses and queries the graph using Gremlin.
 
+This tutorial covers the following tasks:
+
+> [!div class="checklist"]
+> * Create an Azure Cosmos DB account 
+> * Create a database and collection
+> * Serialize vertices and edges to .NET objects
+> * Add vertices and edges
+> * Query the graph using Gremlin
+
 ## Graphs in Azure Cosmos DB
-You can use Azure Cosmos DB to create, update, and query graphs using the `Microsoft.Azure.Graphs` library. The library offers extension methods on top of the `DocumentClient` class to execute [Gremlin queries](gremlin-support.md). To work with the graph APIs, you must perform the following steps as a pre-requisite:
+You can use Azure Cosmos DB to create, update, and query graphs using the `Microsoft.Azure.Graphs` library in the G. The library offers extension methods on top of the `DocumentClient` class to execute [Gremlin queries](gremlin-support.md). To work with the graph APIs, you must perform the following steps as a pre-requisite:
 
 - Create a Azure Cosmos DB account. You can configure the endpoint name, associate any number of read and writes regions, and configure the default consistency level while creating the account. You can also use an existing Azure Cosmos DB account to work with graphs. 
 - Create a database.
@@ -195,14 +204,21 @@ IDocumentQuery<Vertex> friendsOfFriendsOfThomas = client.CreateGremlinQuery<Vert
 
 You can build more complex queries and implement powerful graph traversal logic using Gremlin, including mixing filter expressions, performing looping using the `loop` step, and implementing conditional navigation using the `choose` step. Learn more about what you can do with [Gremlin support](gremlin-support.md)!
 
+That's it, this Azure Cosmos DB tutorial is complete! In this tutorial, you've done the following:
+
+> [!div class="checklist"]
+> * Created an Azure Cosmos DB account 
+> * Created a database and collection
+> * Serialized vertices and edges to .NET objects
+> * Added vertices and edges
+> * Queried the graph using Gremlin
+
 ## Clean up resources
 
 If you're not going to continue to use this app, use the following steps to delete all resources created by this quickstart in the Azure portal. If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. 
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
-
-
 
 ## Next Steps
 * Read about [Gremlin support in Azure Cosmos DB](gremlin-support.md)
