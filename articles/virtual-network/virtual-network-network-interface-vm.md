@@ -63,7 +63,7 @@ When you create a VM through the portal, the portal creates a NIC with default s
 
 ## <a name="vm-add-nic"></a>Add existing NICs to an existing VM
 
-You can add as many NICs to a VM as the VM size you're adding NICs to supports. To learn how many NICs each VM size supports, read the [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes articles. The VM you want to add a NIC to must support multiple NICs and be in the stopped (deallocated) state. The NICs you want to add cannot currently be attached to another VM. You cannot add NICs to an existing VM using the Azure portal, you must use the CLI or PowerShell to add NICs to an existing VM.
+You can add as many NICs to a VM as the VM size you're adding NICs to supports. To learn how many NICs each VM size supports, read the [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes articles. The VM you want to add a NIC to must support multiple NICs and be in the stopped (deallocated) state. The NICs you want to add cannot currently be attached to another VM. You cannot add NICs to an existing VM using the Azure portal. You must use the CLI or PowerShell to add NICs to an existing VM.
 
 |Tool|Command|
 |---|---|
@@ -77,7 +77,7 @@ You can view the NICs currently attached to a VM to learn about each NIC's confi
 1. Log in to the [Azure portal](https://portal.azure.com) with an account that is assigned the Owner, Contributor, or Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles to accounts.
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *virtual machines*. When **virtual machines** appears in the search results, click it.
 3. In the **Virtual machines** blade that appears, click the name of the VM you want to view NICs for.
-4. In the **SETTINGS** section of the virtual machine blade that appears for the VM you selected, click **Network interfaces**. To learn about NIC settings and how to change them, read the [NIC settings and tasks](virtual-network-network-interface.md) article. To learn about adding, chaning, or removing IP addresses assigned to a NIC, read the [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md) article.
+4. In the **SETTINGS** section of the virtual machine blade that appears for the VM you selected, click **Network interfaces**. To learn about NIC settings and how to change them, read the [NIC settings and tasks](virtual-network-network-interface.md) article. To learn about adding, changing, or removing IP addresses assigned to a NIC, read the [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md) article.
 
 |Tool|Command|
 |---|---|
