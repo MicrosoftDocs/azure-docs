@@ -18,22 +18,20 @@ ms.date: 04/25/2017
 ms.author: anhoh
 
 ---
-# How to import data in Azure Cosmos DB?
+# How to import data into Azure Cosmos DB for the DocumentDB API?
 
-**How to import data to Azure Cosmos DB for each data model?**
+This article provides instructions on using the Azure Cosmos DB Data Migration tool, which can import data from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB and DocumentDB collections into Azure Cosmos DB. The Data Migration tool can also be used when migrating from a single partition collection to a multi-partition collection for the DocumentDB API.
 
-|   |DocumentDB API|Tables API|Graph API|MongoDB API|
-|---|-----------------|--------------|-------------|---------------|
-|Import tool|Data Migration tool|Future release of the Data Migration tool|Future release of the Data Migration tool|[mongoimport.exe or mongorestore.exe](documentdb-mongodb-migrate.md)|
+The Data Migration tool only works when importing data into Azure Cosmos DB for use with the DocumentDB API. Importing data for use with the Table API or Graph API is not supported at this time. 
 
-This article provides instructions on using the Data Migration tool, which can import from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB and DocumentDB collections. The Data Migration tool can also be used when migrating from a single partition collection to a multi-partition collection.
+To import data for use with the MongoDB API, see [Azure Cosmos DB: How to migrate data for the MongoDB API?](documentdb-mongodb-migrate.md).
 
 ## <a id="Prerequisites"></a>Prerequisites
 Before following the instructions in this article, ensure that you have the following installed:
 
 * [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) or higher.
 
-## <a id="Overviewl"></a>Overview of the Data Migration Tool
+## <a id="Overviewl"></a>Overview of the Data Migration tool
 The Data Migration tool is an open source solution that imports data to DocumentDB from a variety of sources, including:
 
 * JSON files
@@ -47,13 +45,31 @@ The Data Migration tool is an open source solution that imports data to Document
 
 While the import tool includes a graphical user interface (dtui.exe), it can also be driven from the command line (dt.exe). In fact, there is an option to output the associated command after setting up an import through the UI. Tabular source data (e.g. SQL Server or CSV files) can be transformed such that hierarchical relationships (subdocuments) can be created during import. Keep reading to learn more about source options, sample command lines to import from each source, target options, and viewing import results.
 
-## <a id="Install"></a>Installing the Data Migration tool
+## <a id="Install"></a>Install the Data Migration tool
 The migration tool source code is available on GitHub in [this repository](https://github.com/azure/azure-documentdb-datamigrationtool) and a compiled version is available from [Microsoft Download Center](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d). You may either compile the solution or simply download and extract the compiled version to a directory of your choice. Then run either:
 
 * **Dtui.exe**: Graphical interface version of the tool
 * **Dt.exe**: Command-line version of the tool
 
-## <a id="JSON"></a>Import JSON files
+## Import data
+
+Once you've installed the tool, it's time to import your data. What kind of data do you want to import?
+
+* [JSON files](#JSON)
+* [MongoDB](#MongoDB)
+* [MongoDB Export files](#MongoDBExport)
+* [SQL Server](#SQL)
+* [CSV files](#CSV)
+* [Azure Table storage](#AzureTableSource)
+* [Amazon DynamoDB](#DynamoDBSource)
+* [Blob](#BlobImport)
+* [DocumentDB collections](#DocumentDBSource)
+* [HBase](#HBaseSource)
+* [DocumentDB bulk import](#DocumentDBBulkImport)
+* [DocumentDB sequential record import](#DocumentDSeqTarget)
+
+
+## <a id="JSON"></a>To import JSON files
 The JSON file source importer option allows you to import one or more single document JSON files or JSON files that each contain an array of JSON documents. When adding folders that contain JSON files to import, you have the option of recursively searching for files in subfolders.
 
 ![Screenshot of JSON file source options - Database migration tools](./media/documentdb-import-data/jsonsource.png)
@@ -75,7 +91,7 @@ Here are some command line samples to import JSON files:
     #Import a single JSON file and partition the data across 4 collections
     dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionThroughput:2500
 
-## <a id="MongoDB"></a>Import from MongoDB
+## <a id="MongoDB"></a>To import from MongoDB
 
 > [!IMPORTANT]
 > If you are importing to a DocumentDB account with Support for MongoDB, follow these [instructions](documentdb-mongodb-migrate.md).
@@ -105,7 +121,7 @@ Here are some command line samples to import from MongoDB:
     #Import documents from a MongoDB collection which match the query and exclude the loc field
     dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<port>/<database> /s.Collection:zips /s.Query:{pop:{$gt:50000}} /s.Projection:{loc:0} /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:BulkZipsTransform /t.IdField:_id/t.CollectionThroughput:2500
 
-## <a id="MongoDBExport"></a>Import MongoDB export files
+## <a id="MongoDBExport"></a>To import MongoDB export files
 
 > [!IMPORTANT]
 > If you are importing to a DocumentDB account with Support for MongoDB, follow these [instructions](documentdb-mongodb-migrate.md).
@@ -122,7 +138,7 @@ Here is a command line sample to import from MongoDB export JSON files:
 
     dt.exe /s:MongoDBExport /s.Files:D:\mongoemployees.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:employees /t.IdField:_id /t.Dates:Epoch /t.CollectionThroughput:2500
 
-## <a id="SQL"></a>Import from SQL Server
+## <a id="SQL"></a>To import from SQL Server
 The SQL source importer option allows you to import from an individual SQL Server database and optionally filter the records to be imported using a query. In addition, you can modify the document structure by specifying a nesting separator (more on that in a moment).  
 
 ![Screenshot of SQL source options - database migration tools](./media/documentdb-import-data/sqlexportsource.png)
@@ -167,7 +183,7 @@ Here are some command line samples to import from SQL Server:
     #Import records from sql which match a query and create hierarchical relationships
     dt.exe /s:SQL /s.ConnectionString:"Data Source=<server>;Initial Catalog=AdventureWorks;User Id=advworks;Password=<password>;" /s.Query:"select CAST(BusinessEntityID AS varchar) as Id, Name, AddressType as [Address.AddressType], AddressLine1 as [Address.AddressLine1], City as [Address.Location.City], StateProvinceName as [Address.Location.StateProvinceName], PostalCode as [Address.PostalCode], CountryRegionName as [Address.CountryRegionName] from Sales.vStoreWithAddresses WHERE AddressType='Main Office'" /s.NestingSeparator:. /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:StoresSub /t.IdField:Id /t.CollectionThroughput:2500
 
-## <a id="CSV"></a>Import CSV files - Convert CSV to JSON
+## <a id="CSV"></a>To import CSV files and convert CSV to JSON
 The CSV file source importer option enables you to import one or more CSV files. When adding folders that contain CSV files for import, you have the option of recursively searching for files in subfolders.
 
 ![Screenshot of CSV source options - CSV to JSON](media/documentdb-import-data/csvsource.png)
@@ -202,8 +218,8 @@ Here is a command line sample for CSV import:
 
     dt.exe /s:CsvFile /s.Files:.\Employees.csv /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Employees /t.IdField:EntityID /t.CollectionThroughput:2500
 
-## <a id="AzureTableSource"></a>Import from Azure Table storage
-The Azure Table storage source importer option allows you to import from an individual Azure Table storage table and optionally filter the table entities to be imported.  
+## <a id="AzureTableSource"></a>To import from Azure Table storage
+The Azure Table storage source importer option allows you to import from an individual Azure Table storage table and optionally filter the table entities to be imported. Note that you cannot use the Data Migration tool to import Azure Table storage data into Azure Cosmos DB for use with the Table API. Only importing to Azure Cosmos DB for use with the DocumentDB API is supported at this time.
 
 ![Screenshot of Azure Table storage source options](./media/documentdb-import-data/azuretablesource.png)
 
@@ -231,7 +247,7 @@ Here is a command line sample to import from Azure Table storage:
 
     dt.exe /s:AzureTable /s.ConnectionString:"DefaultEndpointsProtocol=https;AccountName=<Account Name>;AccountKey=<Account Key>" /s.Table:metrics /s.InternalFields:All /s.Filter:"PartitionKey eq 'Partition1' and RowKey gt '00001'" /s.Projection:ObjectCount;ObjectSize  /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:metrics /t.CollectionThroughput:2500
 
-## <a id="DynamoDBSource"></a>Import from Amazon DynamoDB
+## <a id="DynamoDBSource"></a>To import from Amazon DynamoDB
 The Amazon DynamoDB source importer option allows you to import from an individual Amazon DynamoDB table and optionally filter the entities to be imported. Several templates are provided so that setting up an import is as easy as possible.
 
 ![Screenshot of Amazon DynamoDB source options - database migration tools](./media/documentdb-import-data/dynamodbsource1.png)
@@ -251,7 +267,7 @@ Here is a command line sample to import from Amazon DynamoDB:
 
     dt.exe /s:DynamoDB /s.ConnectionString:ServiceURL=https://dynamodb.us-east-1.amazonaws.com;AccessKey=<accessKey>;SecretKey=<secretKey> /s.Request:"{   """TableName""": """ProductCatalog""" }" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:catalogCollection /t.CollectionThroughput:2500
 
-## <a id="BlobImport"></a>Import files from Azure Blob storage
+## <a id="BlobImport"></a>To import files from Azure Blob storage
 The JSON file, MongoDB export file, and CSV file source importer options allow you to import one or more files from Azure Blob storage. After specifying a Blob container URL and Account Key, simply provide a regular expression to select the file(s) to import.
 
 ![Screenshot of Blob file source options](./media/documentdb-import-data/blobsource.png)
@@ -260,7 +276,7 @@ Here is command line sample to import JSON files from Azure Blob storage:
 
     dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.windows.net:443/importcontainer/.*" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:doctest
 
-## <a id="DocumentDBSource"></a>Import from DocumentDB
+## <a id="DocumentDBSource"></a>To import from DocumentDB
 The DocumentDB source importer option allows you to import data from one or more DocumentDB collections and optionally filter documents using a query.  
 
 ![Screenshot of DocumentDB source options](./media/documentdb-import-data/documentdbsource.png)
@@ -315,7 +331,7 @@ Here are some command line samples to import from DocumentDB:
 > 
 > 
 
-## <a id="HBaseSource"></a>Import from HBase
+## <a id="HBaseSource"></a>To import from HBase
 The HBase source importer option allows you to import data from an HBase table and optionally filter the data. Several templates are provided so that setting up an import is as easy as possible.
 
 ![Screenshot of HBase source options](./media/documentdb-import-data/hbasesource1.png)
@@ -335,7 +351,7 @@ Here is a command line sample to import from HBase:
 
     dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<username>;Password=<password> /s.Table:Contacts /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:hbaseimport
 
-## <a id="DocumentDBBulkTarget"></a>Import to DocumentDB (Bulk Import)
+## <a id="DocumentDBBulkTarget"></a>To import to DocumentDB (Bulk Import)
 The DocumentDB Bulk importer allows you to import from any of the available source options, using a DocumentDB stored procedure for efficiency. The tool supports import to one single-partitioned DocumentDB collection, as well as sharded import whereby data is partitioned across multiple single-partitioned DocumentDB collections. For more information about partitioning data, see [Partitioning and scaling in Azure DocumentDB](documentdb-partition-data.md). The tool will create, execute, and then delete the stored procedure from the target collection(s).  
 
 ![Screenshot of DocumentDB bulk options](./media/documentdb-import-data/documentdbbulk.png)
@@ -403,7 +419,7 @@ The DocumentDB Bulk importer has the following additional advanced options:
 > 
 > 
 
-## <a id="DocumentDBSeqTarget"></a>Import to DocumentDB (Sequential Record Import)
+## <a id="DocumentDBSeqTarget"></a>To import to DocumentDB (Sequential Record Import)
 The DocumentDB sequential record importer allows you to import from any of the available source options on a record by record basis. You might choose this option if you’re importing to an existing collection that has reached its quota of stored procedures. The tool supports import to a single (both single-partition and multi-partition) DocumentDB collection, as well as sharded import whereby data is partitioned across multiple single-partition and/or multi-partition DocumentDB collections. For more information about partitioning data, see [Partitioning and scaling in Azure DocumentDB](documentdb-partition-data.md).
 
 ![Screenshot of DocumentDB sequential record import options](./media/documentdb-import-data/documentdbsequential.png)
@@ -549,4 +565,4 @@ Then, choose whether to log all, critical, or no error messages. Finally, decide
     ![Screenshot of DocumentDB JSON export option](./media/documentdb-import-data/newimport.png)
 
 ## Next steps
-* To learn more about DocumentDB, see the [Learning Path](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
+Once you've imported data into Azure Cosmos DB, the next thing to do is [Query](../documentdb/documentdb-sql-query.md) your data, review your data in [Data Explorer](documentdb-view-json-document-explorer.md#create-a-document-by-using-data-explorer-preview) in the Azure portal, and [globally replicate](documentdb-distribute-data-globally) it so that it's closest to your users.
