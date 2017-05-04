@@ -19,16 +19,14 @@ ms.author: erikje
 ---
 # Make web, mobile, and API apps available to your Azure Stack users
 
-As an Azure Stack administrator, you can create offers that let your users (tenants) create Azure Functions and web, mobile, and API applications. To set this up, you must deploy the App Service resource provider (it will take a couple hours to install and for all the worker roles to appear) and create an offer that includes the resource provider. Users can then subscribe to the offer so they create their apps.
+As an Azure Stack administrator, you can create offers that let your users (tenants) create Azure Functions and web, mobile, and API applications. To set this up, you must deploy the App Service resource provider and create an offer that includes the resource provider. Users can then subscribe to the offer so they create their apps.
 
 ## Deploy the App Service resource provider
-
-The deployment process is described in detail in the Use SQL databases on Azure Stack article, and is comprised of the following primary steps:
 
 1. [Prepare the POC host](azure-stack-app-service-before-you-get-started.md).
 2. [Download the installer and helper scripts](azure-stack-app-service-deploy.md#download-the-required-components).
 3. [Run the helper script to create required certificates](azure-stack-app-service-deploy.md#create-certificates-required-by-app-service-on-azure-stack).
-4. [Install the App Service resource provider](azure-stack-app-service-deploy.md#use-the-installer-to-download-and-install-app-service-on-azure-stack).
+4. [Install the App Service resource provider](azure-stack-app-service-deploy.md#use-the-installer-to-download-and-install-app-service-on-azure-stack) (it will take a couple hours to install and for all the worker roles to appear).
 5. [Validate the installation](azure-stack-app-service-deploy.md#validate-app-service-on-azure-stack-installation).
 
 ## Create an offer
