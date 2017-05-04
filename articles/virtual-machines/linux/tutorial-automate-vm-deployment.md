@@ -14,20 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/17/2017
+ms.date: 05/02/2017
 ms.author: iainfou
 ---
 
 # How to customize a Linux virtual machine on first boot
 To create virtual machines (VMs) in a quick and consistent manner, some form of automation is typically desired. A common approach to customize a VM on first boot is to use [cloud-init](https://cloudinit.readthedocs.io). This tutorial describes how to use cloud-init to automatically install packages, configure the NGINX web server, and deploy a Node.js app.
 
-The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
-
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Cloud-init overview
 [Cloud-init](https://cloudinit.readthedocs.io) is a widely used approach to customize a Linux VM as it boots for the first time. You can use cloud-init to install packages and write files, or to configure users and security. As cloud-init runs during the initial boot process, there are no additional steps or required agents to apply your configuration.
 
-Cloud-init also works across distributions. For example, you don't use `apt-get install` or `yum install` to install a package. Instead you can define a list of packages to install and cloud-init automatically uses the native package management tool for the distro you select.
+Cloud-init also works across distributions. For example, you don't use **apt-get install** or **yum install** to install a package. Instead you can define a list of packages to install and cloud-init automatically uses the native package management tool for the distro you select.
 
 We are working with our partners to get cloud-init included and working in the images that they provide to Azure. The following table outlines the current cloud-init availability on Azure platform images:
 
@@ -37,10 +36,10 @@ We are working with our partners to get cloud-init included and working in the i
 | CoreOS |CoreOS |CoreOS |Stable |latest |
 
 
-## Create config file
+## Create cloud-init config file
 To see cloud-init in action, create a VM that installs NGINX and runs a simple 'Hello World' Node.js app. The following cloud-init configuration installs the required packages, creates a Node.js app, then initialize and starts the app.
 
-Create a file named `cloud-init.txt` and paste the following configuration:
+Create a file named *cloud-init.txt* and paste the following configuration:
 
 ```yaml
 #cloud-config
@@ -86,15 +85,14 @@ runcmd:
 
 For more information about cloud-init configuration options, see [cloud-init config examples](https://cloudinit.readthedocs.io/en/latest/topics/examples.html)]
 
-
 ## Create virtual machine
-Before you can create a VM, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named `myResourceGroupAutomate` in the `westus` location:
+Before you can create a VM, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroupAutomate* in the *eastus* location:
 
 ```azurecli
-az group create --name myResourceGroupAutomate --location westus
+az group create --name myResourceGroupAutomate --location eastus
 ```
 
-Now create a VM with [az vm create](/cli/azure/vm#create). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the `cloud-init.txt` config if you saved the file outside of your present working directory. The following example creates a VM named `myAutomatedVM`:
+Now create a VM with [az vm create](/cli/azure/vm#create). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the *cloud-init.txt* config if you saved the file outside of your present working directory. The following example creates a VM named *myAutomatedVM*:
 
 ```azurecli
 az vm create \
@@ -115,7 +113,7 @@ az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
 ```
 
 ## Test web app
-Now you can open a web browser and enter `http://<publicIpAddress>` in the address bar. Provide your own public IP address from the VM create process. Your Node.js app is displayed as in the following example:
+Now you can open a web browser and enter *http://<publicIpAddress>* in the address bar. Provide your own public IP address from the VM create process. Your Node.js app is displayed as in the following example:
 
 ![View running NGINX site](./media/tutorial-automate-vm-deployment/nginx.png)
 
@@ -133,11 +131,14 @@ The following steps show how you can:
 - Create a VM and inject the certificate
 
 ### Create an Azure Key Vault
-First, create a Key Vault with [az keyvault create](/cli/azure/keyvault#create) and enable it for use when you deploy a VM. Each Key Vault requires a unique name, and should be all lower case. Replace `<mykeyvault>` in the following example with your own unique Key Vault name:
+First, create a Key Vault with [az keyvault create](/cli/azure/keyvault#create) and enable it for use when you deploy a VM. Each Key Vault requires a unique name, and should be all lower case. Replace *<mykeyvault>* in the following example with your own unique Key Vault name:
 
 ```azurecli
 keyvault_name=<mykeyvault>
-az keyvault create --resource-group myResourceGroupAutomate --name $keyvault_name --enabled-for-deployment
+az keyvault create \
+    --resource-group myResourceGroupAutomate \
+    --name $keyvault_name \
+    --enabled-for-deployment
 ```
 
 ### Generate certificate and store in Key Vault
@@ -164,9 +165,9 @@ vm_secret=$(az vm format-secret --secret "$secret")
 
 
 ### Create cloud-init config to secure NGINX
-When you create a VM, certificates and keys are stored in the protected `/var/lib/waagent/` directory. To automate adding the certificate to the VM and configuring NGINX, you can expand on the cloud-init config from the previous example.
+When you create a VM, certificates and keys are stored in the protected */var/lib/waagent/* directory. To automate adding the certificate to the VM and configuring NGINX, you can expand on the cloud-init config from the previous example.
 
-Create a file named `cloud-init-secured.txt` and paste the following configuration:
+Create a file named *cloud-init-secured.txt* and paste the following configuration:
 
 ```yaml
 #cloud-config
@@ -236,11 +237,14 @@ It takes a few minutes for the VM to be created, the packages to install, and th
 To allow secure web traffic to reach your VM, open port 443 from the Internet with [az vm open-port](/cli/azure/vm#open-port):
 
 ```azurecli
-az vm open-port --port 443 --resource-group myResourceGroupAutomate --name myVMSecured
+az vm open-port \
+    --resource-group myResourceGroupAutomate \
+    --name myVMSecured \
+    --port 443
 ```
 
 ### Test secure web app
-Now you can open a web browser and enter `https://<publicIpAddress>` in the address bar. Provide your own public IP address from the VM create process. Accept the security warning if you used a self-signed certificate:
+Now you can open a web browser and enter *https://<publicIpAddress>* in the address bar. Provide your own public IP address from the VM create process. Accept the security warning if you used a self-signed certificate:
 
 ![Accept web browser security warning](./media/tutorial-automate-vm-deployment/browser-warning.png)
 
