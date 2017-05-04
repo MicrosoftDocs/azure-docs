@@ -84,10 +84,10 @@ az group create --name myResourceGroup --location "West Europe"
 
 Create an Azure Cosmos DB account with the [az documentdb create](/cli/azure/documentdb#create) command.
 
-In the following command, please substitute your own unique Azure Cosmos DB account name where you see the `<documentdb_name>` placeholder. This unique name will be used as part of your Azure Cosmos DB endpoint (`https://<documentdb_name>.documents.azure.com/`), so the name needs to be unique across all Azure Cosmos DB accounts in Azure. 
+In the following command, please substitute your own unique Azure Cosmos DB account name where you see the `<comosddb_name>` placeholder. This unique name will be used as part of your Azure Cosmos DB endpoint (`https://<cosmosdb_name>.documents.azure.com/`), so the name needs to be unique across all Azure Cosmos DB accounts in Azure. 
 
 ```azurecli
-az documentdb create --name <documentdb_name> --resource-group myResourceGroup --kind MongoDB
+az documentdb create --name <cosmosdb_name> --resource-group myResourceGroup --kind MongoDB
 ```
 
 The `--kind MongoDB` parameter enables MongoDB client connections.
@@ -97,17 +97,17 @@ When the Azure Cosmos DB account is created, the Azure CLI shows information sim
 ```json
 {
   "databaseAccountOfferType": "Standard",
-  "documentEndpoint": "https://<documentdb_name>.documents.azure.com:443/",
+  "documentEndpoint": "https://<cosmostdb_name>.documents.azure.com:443/",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Document
-DB/databaseAccounts/<documentdb_name>",
+DB/databaseAccounts/<cosmosdb_name>",
   "kind": "MongoDB",
   "location": "West Europe",
-  "name": "<documentdb_name>",
+  "name": "<cosmosdb_name>",
   "readLocations": [
     {
-      "documentEndpoint": "https://<documentdb_name>-westeurope.documents.azure.com:443/",
+      "documentEndpoint": "https://<cosmosdb_name>-westeurope.documents.azure.com:443/",
       "failoverPriority": 0,
-      "id": "<documentdb_name>-westeurope",
+      "id": "<cosmosdb_name>-westeurope",
       "locationName": "West Europe",
       "provisioningState": "Succeeded"
     }
@@ -116,9 +116,9 @@ DB/databaseAccounts/<documentdb_name>",
   "type": "Microsoft.DocumentDB/databaseAccounts",
   "writeLocations": [
     {
-      "documentEndpoint": "https://<documentdb_name>-westeurope.documents.azure.com:443/",
+      "documentEndpoint": "https://<cosmosdb_name>-westeurope.documents.azure.com:443/",
       "failoverPriority": 0,
-      "id": "<documentdb_name>-westeurope",
+      "id": "<cosmosdb_name>-westeurope",
       "locationName": "West Europe",
       "provisioningState": "Succeeded"
     }
@@ -135,7 +135,7 @@ In this step, you connect your MEAN.js sample application to the an Azure Cosmos
 In order to connect to the an Azure Cosmos DB database, you need the database key. Use the [az documentdb list-keys](/cli/azure/documentdb#list-keys) command to retrieve the primary key.
 
 ```azurecli
-az documentdb list-keys --name <documentdb_name> --resource-group myResourceGroup
+az documentdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
 ```
 
 The Azure CLI outputs information similar to the following example. 
@@ -156,14 +156,14 @@ Copy the value of `primaryMasterKey` to a text editor. You need this information
 
 In your MEAN.js repository, open `config/env/local-development.js`.
 
-Replace the content of this file with the following code. Be sure to also replace the two `<documentdb_name>` placeholders with your an Azure Cosmos DB account name, and the `<primary_master_key>` placeholder with the key you copied in the previous step.
+Replace the content of this file with the following code. Be sure to also replace the two `<cosmosdb_name>` placeholders with your an Azure Cosmos DB account name, and the `<primary_master_key>` placeholder with the key you copied in the previous step.
 
 ```javascript
 'use strict';
 
 module.exports = {
   db: {
-    uri: 'mongodb://<documentdb_name>:<primary_master_key>@<documentdb_name>.documents.azure.com:10250/mean-dev?ssl=true&sslverifycertificate=false'
+    uri: 'mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean-dev?ssl=true&sslverifycertificate=false'
   }
 };
 ```
@@ -213,7 +213,7 @@ In your MEAN.js repository, open `config/env/production.js`.
 In the `db` object, replace the value of `uri` as show in the following example. Be sure to replace the placeholders as before.
 
 ```javascript
-'mongodb://<documentdb_name>:<primary_master_key>@<documentdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false',
+'mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false',
 ```
 
 In the terminal, commit all your changes into Git. You can copy both commands to run them together.
