@@ -19,13 +19,13 @@ ms.author: helaw
 ---
 
 # Deploy apps to Azure and Azure Stack
-A hybrid [continuous integration](https://www.visualstudio.com/learn/what-is-continuous-integration/)/[continuous delivery](https://www.visualstudio.com/learn/what-is-continuous-delivery/)(CI/CD) pipeline enables you to:
+A hybrid [continuous integration](https://www.visualstudio.com/learn/what-is-continuous-integration/)/[continuous delivery](https://www.visualstudio.com/learn/what-is-continuous-delivery/)(CI/CD) pipeline enables you to build, test, and deploy your app to multiple clouds.  As an example, you can use a hybrid CI/CD pipe line to:
  
  - Initiate a new build based on code commits to your master branch in Visual Studio Team Services (VSTS).
  - Automatically deploy your newly built code to Azure for user acceptance testing.
  - Once your code has passed testing, automatically deploy to production on Azure Stack. 
 
-This topic guides you through the configuration of a simple hybrid CI/CD pipeline for an ASP.NET app using Visual Studio, VSTS, Azure, and Azure Stack.  We understand these steps take time to complete, but when you're finished you'll have a functioning CI/CD pipeline to test app deployment across multiple clouds.  
+This topic provides steps to create a simple hybrid CI/CD pipeline for an ASP.NET app using Visual Studio, VSTS, Azure, and Azure Stack.  We understand these steps take time to complete, but when you're finished you'll have a functioning CI/CD pipeline to test app deployment across multiple clouds.  
 
 ## Before you begin
 You need a few components to build a hybrid CI/CD pipeline, and you may have some of them already.  If you already have some of these items configured, review the following list, and make sure your environment meet the requirements.
@@ -81,7 +81,6 @@ The build process defines how your application will be built (compiled) and pack
 3.  Click **+ New definition**
 4.  From the list of templates, select **ASP.NET (Preview)** and select **Next**.
 5.  You can select the defaults for repository source if this is your first project, or if not, select the appropriate repository.  Check the box for **Continuous Integration**, which tells VSTS to create a build any time changes are committed to the master branch. Select **Create**
-6. < Fix this - add step depending on release steps >
 7.  click "Save"
 
 
@@ -112,7 +111,7 @@ Now that you've created an empty release definition and tied it to the build, we
 4.  Click **Save**
 
 ## Deploy your app to Azure
-To see the power of a CI/CD pipeline, you will publish your app to Azure.  
+This step uses your newly built CI/CD pipeline to deploy the ASP.NET app to a Web App on Azure. 
 
 1.  From the banner in VSTS, select **Build & Release**, and then select **Builds**.
 2.  Click the **...** on the build definition previously created, and select **Queue new build**
