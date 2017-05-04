@@ -27,12 +27,18 @@ Create a new controller to expose sign-in and sign-out methods.
 3.	Click *Add*
 4.	Name it `HomeController`
 5.	Add *OWIN* references to the class:
+
 ```csharp
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OpenIdConnect;
 ```
+<!-- Workaround for Docs conversion bug -->
+<ol start="6">
+<li>
 6.	Add the two methods below to handle sign in and sign out to your controller by initiating an authentication challenge via code:
+</li>
+</ol>
 
 ```csharp
  /// <summary>
@@ -166,6 +172,7 @@ In Visual Studio, create a new view to display the user's claims in a web page:
 1.	Right click the `Views\Home` folder and: `Add View`
 2.	Name it `Index`.
 3.	Add the following HTML to the file:
+
 ```html
 <html>
 <head>
