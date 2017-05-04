@@ -15,7 +15,7 @@ ms.author: prrajan
 Welcome to Speech Service – Microsoft’s speech recognition and text to speech cloud offering which helps users to voice enable their applications and bring in a delightful conversational experience. 
 
 Microsoft Speech service has two APIs:
-* Speech To Text  : 
+* Speech To Text  :   
 	Using REST API : For apps converting short spoken commands(upto 12 seconds) to text without real-time streaming or user feedback.
 	Using Websocket API : For apps converting long audio(upto 10 minutes) to text with intermediate results.
 * Text To Speech API : For apps converting text into audio that can be played back to the user. 
@@ -38,40 +38,42 @@ Use this comparison chart to help you choose the API that fits your needs.
 | Subscription Key Authorization | Yes | No |
 | Reco Results | Lexical, Itn, Masked | Lexical, Itn, Masked |
 | N-Best | Up to 5 | Up to 5 |
-| Confidence | Yes| Yes |
-## Supported languages
-Locales supported by the speech to text (recognition) API include:
-language-Country |language-Country | language-Country |language-Country 
----------|----------|--------|------------------
-ar-EG*   |  en-NZ  | it-IT  |  ru-RU
-ca-ES    |  en-US  | ja-JP  |  sv-SE
-da-DK    |  es-ES  | ko-KR  |  zh-CN
-de-DE    |  es-MX  | nb-NO  |  zh-HK
-en-AU    |  fi-FI  | nl-NL  |  zh-TW
-en-CA    |  fr-CA  | pl-PL  |    
-en-GB    |  fr-FR  | pt-BR  |      
-en-IN    |  hi-IN  | pt-PT  |
-*ar-EG supports Modern Standard Arabic (MSA)
+| Confidence | Yes| Yes |  
+
+## Supported languages  
+Locales supported by the speech to text (recognition) API include:    
+
+|language-Country |language-Country | language-Country |language-Country   
+|---------|----------|--------|---------------  
+|ar-EG    |  en-NZ  | it-IT  |  ru-RU  
+|ca-ES    |  en-US  | ja-JP  |  sv-SE  
+|da-DK    |  es-ES  | ko-KR  |  zh-CN  
+|de-DE    |  es-MX  | nb-NO  |  zh-HK  
+|en-AU    |  fi-FI  | nl-NL  |  zh-TW  
+|en-CA    |  fr-CA  | pl-PL  |      
+|en-GB    |  fr-FR  | pt-BR  |        
+|en-IN    |  hi-IN  | pt-PT  |  
+
 
 ## Text to speech (Speech Synthesis)
 The speech synthesis REST API provides real-time text to speech conversion in a variety of different voices and languages. The maximum amount of audio returned for any single request must not exceed 15 seconds. 
 
-### Supported languages
-Locales supported by the text to speech (synthesis) API include:
-language-Country |language-Country | language-Country | language-Country
----------|----------|------------|------------
-ar-EG*   |   en-GB  |   hi-IN  |   pt-PT
-ar-SA    |   en-IE  |   hu-HU  |   ro-RO
-ca-ES    |   en-IN  |   id-ID  |   ru-RU
-cs-CZ    |   en-US  |   it-IT  |   sk-SK
-da-DK    |   es-ES  |   ja-JP  |   sv-SE
-de-AT    |   es-MX  |   ko-KR  |   th-TH
-de-CH    |   fi-FI  |   nb-NO  |   tr-TR
-de-DE    |   fr-CA  |   nl-NL  |   zh-CN
-el-GR    |   fr-CH  |   pl-PL  |   zh-HK
-en-AU    |   fr-FR  |   pt-BR  |   zh-TW  
-*ar-EG supports Modern Standard Arabic (MSA)
+### Supported languages  
+Locales supported by the text to speech (synthesis) API include:  
 
-## Next Steps
-* [Custom speech service](~/cognitive-services/Custom-Speech-Service/Home.md)
+language-Country |language-Country | language-Country | language-Country  
+---------|----------|------------|------------  
+ar-EG    |   en-GB  |   hi-IN  |   pt-PT  
+ar-SA    |   en-IE  |   hu-HU  |   ro-RO  
+ca-ES    |   en-IN  |   id-ID  |   ru-RU  
+cs-CZ    |   en-US  |   it-IT  |   sk-SK  
+da-DK    |   es-ES  |   ja-JP  |   sv-SE  
+de-AT    |   es-MX  |   ko-KR  |   th-TH  
+de-CH    |   fi-FI  |   nb-NO  |   tr-TR  
+de-DE    |   fr-CA  |   nl-NL  |   zh-CN  
+el-GR    |   fr-CH  |   pl-PL  |   zh-HK  
+en-AU    |   fr-FR  |   pt-BR  |   zh-TW    
+ 
+
+
 
