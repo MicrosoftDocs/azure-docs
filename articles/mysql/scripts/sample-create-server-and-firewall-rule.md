@@ -1,16 +1,17 @@
 ﻿---
-title: "Azure CLI Script - Create an Azure Database for MySQL | Microsoft Docs"
-description: Creates an Azure Database for MySQL server and configures a server-level firewall rule.
+title: Azure CLI samples to create a single Azure Database for MySQL server and configure a firewall rule | Microsoft Docs
+description: This sample CLI script creates an Azure Database for MySQL server and configures a server-level firewall rule.
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
 editor: jasonh
-ms.assetid:
+ms.assetid: 
 ms.service: mysql-database
-ms.devlang: na
-ms.topic: article
 ms.tgt_pltfrm: portal
+ms.devlang: azurecli
+ms.topic: article
+ms.custom: sample
 ms.date: 05/10/2017
 ---
 
@@ -20,8 +21,7 @@ This sample CLI script creates an Azure Database for MySQL server and configures
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Sample Script
-Azure CLI
-```azurecli
+```bash
 #!/bin/bash
 
 # Set an admin login and password for your server

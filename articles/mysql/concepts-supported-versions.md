@@ -2,19 +2,18 @@
 title: Supported versions in Azure Database for MySQL | Microsoft Docs
 description: Describes the supported versions in Azure Database for MySQL.
 services: mysql
-author: JasonMAnderson
-ms.author: janders
-editor: jasonh
+author: v-chenyh
+ms.author: v-chenyh
 manager: jhubbard
-ms.assetid: 
+editor: jasonh
+ms.assetid:
 ms.service: mysql-database
 ms.tgt_pltfrm: portal
-ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ---
-# Overview
-Azure Database for MySQL has been developed from MySQL Community Edition [MySQL Community Edition] (https://www.mysql.com/products/community/), using the InnoDB engine.  Azure Database for MySQL currently supports the following versions.
+# Supported Azure Database for MySQL server versions
+Azure Database for MySQL has been developed from MySQL Community Edition [MySQL Community Edition](https://www.mysql.com/products/community/), using the InnoDB engine.  Azure Database for MySQL currently supports the following versions.
 
 ## MySQL Version 5.6.35
 Refer to the MySQL [documentation] (https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-35.html) to learn more about improvements and fixes in MySQL 5.6.35.
@@ -24,3 +23,8 @@ Refer to the MySQL [documentation] (https://dev.mysql.com/doc/relnotes/mysql/5.7
 
 ## Managing updates and upgrades
 Azure Database for MySQL automatically manages patching for minor version updates. Currently, in public preview, major version upgrade, for example from MySQL 5.6 to MySQL 5.7 is not supported.
+
+## Next steps
+- For an overview of the service, see [Azure Database for MySQL Overview](./overview.md)
+- For information about specific resource quotas and limitations based on your **service tier**, see [Service tiers](./concepts-service-tiers.md)
+- For information on connecting to the service, see [Connection libraries for Azure Database for MySQL](./concepts-connection-libraries.md).
