@@ -1,6 +1,6 @@
 ﻿---
-title: 'Design your first Azure Database for MySQL using Azure portal | Microsoft Docs'
-description: This tutorial shows how to Design your first Azure Database for MySQL using the Azure portal.
+title: Design your first Azure Database for MySQL database - Azure Portal | Microsoft Docs
+description: This tutorial explains how to create and manage Azure Database for MySQL server and database using Azure Portal.
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
@@ -13,180 +13,129 @@ ms.topic: article
 ms.tgt_pltfrm: portal
 ms.date: 05/10/2017
 ---
-# Design your first Azure MySQL database
-In this tutorial, you build a database for a university to track student grades and courses enrollment. This tutorial demonstrates how to use the [Azure portal](https://portal.azure.com/) and [MySQL Workbench](https://dev.mysql.com/doc/refman/5.6/en/workbench.html) to create an Azure MySQL database on an Azure MySQL cloud server, add tables to the database, load data into the tables, and query the database. It also demonstrates how to use MySQL Database point in time restore capabilities to restore the database to an earlier point in time.
-
-To complete this tutorial, make sure you have installed the newest version of [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/).
+# Design your first Azure Database for MySQL database
+In this tutorial, you will use the Azure portal to create a server with a server-level firewall. You will then use Workbench GUI tool to create a database, a table in the database, load data into that table, query table, and update data in the table. Finally, you will use the server’s automated backups to restore the database to an earlier point-in-time before you added this new table. 
 
 ## Log in to the Azure portal
-Open your favorite web browser, and visit [Microsoft Azure Portal](https://portal.azure.com/). Enter your credential to log in to the portal. The default view is your service dashboard.
+Open your favorite web browser, and visit [Microsoft Azure Portal](https://portal.azure.com/). Enter your credential to login to the portal. The default view is your service dashboard.
 
-![Portal log in](./media/tutorial-design-database-using-portal/1_1-portal-login.png)
+## Create an Azure Database for MySQL server
+An Azure Database for MySQL server is created with a defined set of [compute and storage resources](./concepts-compute-unit-and-storage.md). The server is created within an [Azure resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
 
-## Create an Azure MySQL server
-1. Navigate to **Databases** -> **MySQL**. If you cannot find MySQL Server under **Databases** category, click **See all** to show all available database services. You can also type **MySQL** in the search box to quickly find the service.
-  ![Navigate to MySQL](./media/tutorial-design-database-using-portal/2_1-Navigate-to-MySQL.png)
-> [!TIP]
-> An Azure MySQL server is created with a defined set of compute and storage resources. The database is created within an Azure resource group and in an Azure Database for MySQL server.
-2. Click **MySQL** icon, and then click **Create**.
+1.	Navigate to **Databases** -> **MySQL**. If you cannot find MySQL Server under **Databases** category, click **See all** to show all available database services. You can also type **MySQL** in the search box to quickly find the service.
+![2-1 Navigate to MySQL](./media/tutorial-design-database-using-portal/2_1-Navigate-to-MySQL.png)
+
+2.	Click **MySQL** icon, and then click **Create**.
+
 In our example, fill out the Azure Database for MySQL form with the following information:
-- **Server name:** mysqlserver4demo (server name is globally unique)
-- **Subscription:** MySQLaaS (select from drop-down)
-- **Resource group:** myresource (create a new resource group or use an existing one)
-- **Server admin login:** myadmin (setup admin account name)
-- **Password** (setup admin account password)
-- **Confirm password** (confirm admin account password)
-- **Location:** North Europe (select between **North Europe** and **West US**)
-- **Version:** 5.6 (choose MySQL server version)
-- **Configure performance:** Basic (choose **Performance tier**, **Compute Units**, **Storage** and click **OK**)
 
-In a minute or two, you will have a new MySQL server running in the cloud. You can click **Notifications** button on the toolbar to monitor the deployment process.
+- **Server name**: mysqlserver4demo (server name is globally unique)
+-	**Subscription**: MySQLaaS (select from drop down)
+-	**Resource group**: myresource (create a new resource group or use an existing one)
+-	**Server admin login**: myadmin (setup admin account name)
+-	**Password**: (setup admin account password)
+-	**Confirm password**: (confirm admin account password)
+-	**Location**: North Europe (select between **North Europe** and **West US**)
+-	**Version**: 5.6 (choose MySQL server version)
+-	**Configure performance**: Basic (choose **Performance tier**, **Compute Units**, **Storage** and click **OK**)
 
->[!TIP]
->We strongly recommend that you put Azure services in the same region and select the location closest to you. In addition, you can check **Pin to dashboard** option to allow easy tracking of your deployments.
+Then, click **Create**. In a minute or two, you will have a new Azure Database for MySQL server running in the cloud. You can click **Notifications** button on the toolbar to monitor the deployment process.
 
-![Create server](./media/tutorial-design-database-using-portal/2_2-Create-server.png)
+> We strongly recommend that you put Azure services in the same region and select the location closest to you. In addition, you can check **Pin to dashboard** option to allow easy tracking of your deployments.
+
+![2-2 Create server](./media/tutorial-design-database-using-portal/2_2-Create-server.png)
 
 ## Configure firewall
 Azure Databases for MySQL are protected by a firewall. By default, all connections to the server and the databases inside the server are rejected. Before connecting to Azure Database for MySQL from your client for the first time, you must configure the firewall and add the client’s public network IP address (or IP address range) to the whitelist.
-1. Click your newly created server, and then click **Connection security**.
-  ![Connection security](./media/tutorial-design-database-using-portal/3_1-Connection-security.png)
-2. You can **Add My IP**, or configure firewall rules here. Remember to click **Save** after you have created the rules.
+
+1.	Click your newly created server, and then click **Connection security**.
+
+![3-1 Connection security](./media/tutorial-design-database-using-portal/3_1-Connection-security.png)
+
+2.	You can **Add My IP**, or configure firewall rules here. Remember to click **Save** after you have created the rules.
+
 You can now connect to the server using mysql command line tool or MySQL Workbench GUI tool.
 
->[!TIP]
->Azure MySQL server communicates over port 3306. If you are trying to connect from within a corporate network, outbound traffic over port 3306 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure MySQL server unless your IT department opens port 3306.
+> Azure MySQL server communicates over port 3306. If you are trying to connect from within a corporate network, outbound traffic over port 3306 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure MySQL server unless your IT department opens port 3306.
 
 ## Get connection information
-Get the fully qualified server name for your Azure MySQL server in the Azure portal. You use the fully qualified server name to connect to your server using MySQL Workbench.
-1. In [Azure portal](https://portal.azure.com/), click **All resources** from the left-hand menu, and click your Azure MySQL server.
-2. Click **Properties**. Note down **SERVER NAME** and **SERVER ADMIN LOGIN**.
-  ![Azure portal - MySQL Server - properties](./media/tutorial-design-database-using-portal/4_2-server-properties.png)
+Get the fully qualified server name for your Azure MySQL server in the Azure portal. You use the fully qualified server name to connect to your server using mysql command line tool.
 
+1.	In [Azure portal](https://portal.azure.com/), click **All resources** from the left-hand menu, and click your Azure Database for MySQL server.
+
+2.	Click **Properties**. Note down **SERVER NAME** and **SERVER ADMIN LOGIN**.
+![4-2 server properties](./media/tutorial-design-database-using-portal/4_2-server-properties.png)
 In this example, the server name is *mysql4doc.database.windows.net*, and the server admin login is *mysqladmin@mysql4doc*.
 
-## Connect to your server using MySQL Workbench
-Use [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/) to establish a connection to your Azure MySQL server.
-1. Open MySQL Workbench.
-2. In **Setup New Connection** dialog box, enter the following information on **Parameters** tab:
-  - **Connection Name**: specify a name for this connection
-  - **Connection Method**: choose Standard (TCP/IP)
-  - **Hostname**: mysqlserver4demo.database.windows.net (SERVER NAME you note down in step 4)
-  - **Port**: 3306
-  - **Username**: myadmin@mysqlserver4demo (SERVER ADMIN LOGIN you note down in step 4)
-  - **Password**: you can store admin account password in vault
-  ![Setup new connection](./media/tutorial-design-database-using-portal/5_2-setup-new-connection.png)
-3. Click **Test Connection** to test if all parameters are correctly configured.
-4. Now, you can click the connection to the connect to the server.
-> [!TIP]
-> SSL is enforced by default while server is created, which means you need extra configuration to enable connection. You could go to "connection security" on the portal to disable enforcing SSL or learn how to configure SSL in MySQL Workbench. It is recommended to enforce SSL to ensure higher security.
-
-## Create a blank database using MySQL Workbench
-An Azure MySQL database is created with a defined set of compute and storage resources. The database is created within an [Azure resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) and in an Azure MySQL Database logical server. 
-Follow these steps to create a blank MySQL database using MySQL Workbench.
-1. Click **Create a new schema in the connected server** button.
-2. Fill out database name: **mysampledatabase**, then click **Apply**.
-
-![Create a blank database](./media/tutorial-design-database-using-portal/6_2-create-a-blank-database.png)
-
-## Create tables using MySQL Workbench
-Create four tables that model a student management system for universities using MySQL Workbench:
-- Person
-- Course
-- Student
-- Credit
-
-The following diagram shows how these tables are related to each other. Some of these tables reference columns in other tables. For example, the Student table references the **PersonId** column of the **Person** table. Study the diagram to understand how the tables in this tutorial are related to one another. For an in-depth look at how to create effective database tables, see [Create effective database tables](https://msdn.microsoft.com/library/cc505842.aspx). For information about choosing data types, see [Data types](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql).
-
-![Table relation](./media/tutorial-design-database-using-portal/7_1-table-relation.png)
-
-1. Double-click on the database name in the **SCHEMAS** of **Navigator Window**. This will select the database for operation.
-2. Click **Create a new SQL tab for executing queries** button. A blank query window opens. In the query window, execute the following query to create four tables in your database:
-```sql
- -- Create Person table
- CREATE TABLE Person
- (
- PersonId INT AUTO_INCREMENT PRIMARY KEY,
- FirstName NVARCHAR(128) NOT NULL,
- MiddelInitial NVARCHAR(10),
- LastName NVARCHAR(128) NOT NULL,
- DateOfBirth DATE NOT NULL
- );
-
- -- Create Student table
- CREATE TABLE Student
- (
- StudentId INT AUTO_INCREMENT PRIMARY KEY,
- PersonId INT REFERENCES Person (PersonId),
- Email NVARCHAR(256)
- );
-
- -- Create Course table
- CREATE TABLE Course
- (
- CourseId INT AUTO_INCREMENT PRIMARY KEY,
- Name NVARCHAR(50) NOT NULL,
- Teacher NVARCHAR(256) NOT NULL
- );
-
- -- Create Credit table
- CREATE TABLE Credit
- (
- StudentId INT REFERENCES Student (StudentId),
- CourseId INT REFERENCES Course (CourseId),
- Grade DECIMAL(5,2) CHECK (Grade <= 100.00),
- Attempt TINYINT,
- );
+## Connect to the server using mysql
+Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to establish a connection to your Azure Database for MySQL server. In this example, the command is:
+```cmd
+mysql -h mysqlserver4demo.database.windows.net -u myadmin@mysqlserver4demo -p
 ```
-  You can expand the **Tables** node in the **Navigator Window** to see the tables you created.
-  ![Create tables](./media/tutorial-design-database-using-portal/7-2-create-tables.png)
+
+## Create a blank database
+Once you’re connected to the server, create a blank database to work with.
+```sql
+mysql> CREATE DATABASE mysampledb;
+```
+
+At the prompt, run the following command to switch connection to this newly created database:
+```sql
+mysql> USE mysampledb;
+```
+
+## Create tables in the database
+Now that you know how to connect to the Azure Database for MySQL database, we can go over how to complete some basic tasks.
+
+First, we can create a table and load it with some data. Let's create a table that stores inventory information.
+```sql
+CREATE TABLE inventory (
+	id serial PRIMARY KEY, 
+	name VARCHAR(50), 
+	quantity INTEGER
+);
+```
 
 ## Load data into the tables
-1. Create a folder called **SampleTableData** in your Downloads folder to store sample data for your database.
-2. Right-click the following links and save them into the **SampleTableData** folder.
-  - [SampleCourseData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCourseData)
-  - [SamplePersonData](https://sqldbtutorial.blob.core.windows.net/tutorials/SamplePersonData)
-  - [SampleStudentData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleStudentData)
-  - [SampleCreditData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCreditData)
-3. Open a command prompt window, and run the following command to connect to the Azure MySQL server using mysql command line interface.
-```dos
-C:\>mysql -h mysqlserver4demo.database.windows.net -u myadmin@mysqlserver4demo -p
+Now that we have a table, we can insert some data into it. At the open command prompt window, run the following query to insert some rows of data.
+```sql
+INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
+INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
 ```
-In this example, server name is **mysqlserver4demo**. Replace it with your own server name.
-4. Select **mysampledatabase** and execute the following commands to insert sample data into the tables.
-```dos
-mysql>
-USE mysampledatabase;
-LOAD DATA LOCAL INFILE 'C:/<folderPath>/Downloads/SampleTableData/SampleCourseData' INTO TABLE course FIELDS TERMINATED BY ',';
-LOAD DATA LOCAL INFILE 'C:/<folderPath>/Downloads/SampleTableData/SamplePersonData' INTO TABLE person FIELDS TERMINATED BY ',';
-LOAD DATA LOCAL INFILE 'C:/<folderPath>/Downloads/SampleTableData/SampleStudentData' INTO TABLE student FIELDS TERMINATED BY ',';
-LOAD DATA LOCAL INFILE 'C:/<folderPath>/Downloads/SampleTableData/SampleCreditData' INTO TABLE credit FIELDS TERMINATED BY ',';
-```
-Replace <folderPath> with your Download folder path. You have now loaded sample data into the tables you created earlier.
 
-## Query the tables
-Execute the following queries to retrieve information from the database tables. The first query joins all four tables to find all the students who have participated in the class of “Introduction to Law” and a grade higher than 75. The second query joins all four tables and finds all courses in which 'Noe Coleman' has ever enrolled.
-1. In MySQL Workbench query window, execute the following query:
+Now you have two rows of sample data into the table you created earlier.
+
+## Query and update the data in the tables
+Execute the following query to retrieve information from the database table.
 ```sql
- -- Find the students taught by Dominick Pope who have a grade higher than 75%
- SELECT person.FirstName, person.LastName, credit.Grade
- FROM person
- INNER JOIN student ON person.PersonId = student.PersonId
- INNER JOIN credit ON student.StudentId = credit.StudentId
- INNER JOIN course ON credit.CourseId = course.courseId
- WHERE course.Name = 'Introduction to Law'
- AND Grade > 75
+SELECT * FROM inventory;
 ```
-2. In MySQL Workbench query window, execute the following query:
+
+You can also update the data in the tables.
 ```sql
- -- Find all the courses in which Noe Coleman has ever enrolled
- SELECT course.Name, course.Teacher, credit.Grade
- FROM course
- INNER JOIN credit ON credit.CourseId = course.CourseId
- INNER JOIN student ON student.StudentId = credit.StudentId
- INNER JOIN person ON person.PersonId = student.PersonId
- WHERE person.FirstName = 'Noe'
- AND person.LastName = 'Coleman'
+UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 ```
+
+The row gets updated accordingly when you retrieve data.
+```sql
+SELECT * FROM inventory;
+```
+
+## Restore a database to a previous point in time
+Imagine you have accidentally deleted this table. This is something you cannot easily recover from. Azure Database for MySQL allows you to go back to any point in time in the last up to 35 days and restore this point in time to a new server. You can use this new server to recover your deleted data. The following steps restore the sample server to a point before the table was added.
+
+1.	On the Azure Database for MySQL page for your server, click **Restore** on the toolbar. The **Restore** page opens.
+![10-1 restore a database](./media/tutorial-design-database-using-portal/10_1-restore-a-db.png)
+
+2.	Fill out the **Restore** form with the required information:
+
+-	Restore point: Select a point-in-time that occurs before the server was changed.
+-	Target server: Provide a new server name you want to restore to.
+-	Location: You cannot select the region, by default it is same as the source server.
+-	Pricing tier: You cannot change this value when restoring a server. It is same as the source server.
+![10-2 restore form](./media/tutorial-design-database-using-portal/10_2-restore-form.png)
+
+3.	Click **OK** to restore the server to [restore to a point in time](./howto-restore-server-portal.md) before the tables was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, provided that it is within the retention period for your service tier.
+
 ## Next Steps
-- For Azure CLI samples of common tasks, see [Azure CLI samples for Azure Database for MySQL](sample-scripts-azure-cli.md)
+-	For Azure CLI samples of common tasks, see [Azure Database for MySQL - Azure CLI samples](./sample-scripts-azure-cli.md).
