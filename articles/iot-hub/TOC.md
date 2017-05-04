@@ -106,6 +106,7 @@
 ### Configure file upload
 #### [Use the portal](iot-hub-configure-file-upload.md)
 #### [Use PowerShell](iot-hub-configure-file-upload-powershell.md)
+#### [Use CLI 2.0](iot-hub-configure-file-upload-cli.md)
 ### [Bulk manage IoT devices](iot-hub-bulk-identity-mgmt.md)
 ### [Usage metrics](iot-hub-metrics.md)
 ### [Operations monitoring](iot-hub-operations-monitoring.md)
