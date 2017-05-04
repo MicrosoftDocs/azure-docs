@@ -58,7 +58,7 @@ Now that you have an output binding defined, you need to update the code to use 
 
 1. Click your function to display the function code in the editor. 
 
-2. For a C# function, update your function definition as follows to add the **outQueueItem** storage binding parameter:
+2. For a C# function, update your function definition as follows to add the **outQueueItem** storage binding parameter. Skip this step for a JavaScript function.
 
     ```cs   
     public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, 
@@ -67,12 +67,11 @@ Now that you have an output binding defined, you need to update the code to use 
         ....
     }
     ```
-    Skip this step for a JavaScript function.
 
-3. Add the following code for your chosen language to the function just before the method returns: 
+3. Add the following code to the function just before the method returns. Use the appropriate snippet for the language of your function.
 
     ```javascript
-        context.bindings.outQueueItem = "Name passed to the function: " + 
+    context.bindings.outQueueItem = "Name passed to the function: " + 
                 (req.query.name || req.body.name);
     ```
 
@@ -92,9 +91,11 @@ The value passed to the HTTP trigger is included in a message added to the queue
 
 2. Check the logs to make sure that the function succeeded. A new queue named **outqueue** is created in your Storage account by the Functions runtime when the output binding is first used.
 
-Next, you can connect to your storage account to verify the new queue and the message you added to it.
+Next, you can connect to your storage account to verify the new queue and the message you added to it. 
 
 ## Connect to the queue
+
+Skip the first three steps if you have already installed Storage Explorer and connected it to your storage account.    
 
 1. In your function, click **Integrate** and the new **Azure Queue storage** output binding, then expand **Documentation**. Copy both **Account name** and **Account key**. You use these credentials to connect to the storage account.
  
