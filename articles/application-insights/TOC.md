@@ -18,12 +18,13 @@
 ### [Web apps - runtime](app-insights-java-live.md)
 ### [Docker apps](app-insights-docker.md)
 
+## Monitor Node.js apps
+### [Node.js](app-insights-nodejs.md)
 
 ## Monitor web pages
 ### [JavaScript](app-insights-javascript.md)
-
+ 
 ## Monitor other platforms
-### [Node.js apps](app-insights-nodejs.md)
 ### [SharePoint sites](app-insights-sharepoint.md)
 ### [More platforms](app-insights-platforms.md)
 
@@ -86,6 +87,11 @@
 #### [F5 insights](app-insights-visual-studio.md)
 #### [Trends](app-insights-visual-studio-trends.md)
 #### [CodeLens](app-insights-visual-studio-codelens.md)
+
+### Usage
+#### [Overview](app-insights-usage-overview.md)
+#### [Retention](app-insights-usage-retention.md)
+#### [Users, Sessions, Events](app-insights-usage-segmentation.md)
 
 ### Analytics
 
@@ -152,14 +158,14 @@
 ## News
 
 ### [Blog](https://azure.microsoft.com/blog/tag/application-insights/)
-### [Service updates](https://azure.microsoft.com/en-us/updates/?product=application-insights) 
+### [Service updates](https://azure.microsoft.com/updates/?product=application-insights) 
 ### [SDK release notes](app-insights-release-notes.md)
 ### [Release notes for Developer Analytics Tools](app-insights-release-notes-vsix.md)
 
 ## [FAQ](app-insights-troubleshoot-faq.md)
 
 ## Help
-### [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
+### [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=ApplicationInsights)  
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
 ### [User Voice](https://visualstudio.uservoice.com/forums/357324-application-insights)
 ### [Support](https://azure.microsoft.com/support/)
