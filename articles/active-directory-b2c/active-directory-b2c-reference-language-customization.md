@@ -144,6 +144,7 @@ Currently, we are providing the ui_locales OIDC parameter social logins such as 
 * `LocalizedCollections` aren't generated for values when it is required by the response type
 ### What if I want a language that isn't supported?
 We are planning to provide an extension of this feature that allows you to upload a JSON resource towards 'custom languages'.  The feature allows you to specify the name and language code for any language and provide *all* the translations for that language.  If you need this feature, send us your scenario at aadb2cpreview@microsoft.com.  
+
 ### What languages are supported?
 
 | Language              | Language code |
