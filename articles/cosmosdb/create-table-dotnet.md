@@ -105,7 +105,7 @@ You can now go back to Data Explorer and see query, modify, and work with this t
 You can use the below settings to tune different settings for Table. 
 
 | Key | Description |
-| --- | --- | --- | --- |
+| --- | --- |
 | `TableConnectionMode`  | Azure Cosmos DB supports two connectivity modes. In `Gateway` mode, requests are always made to the Azure Cosmos DB gateway, which forwards it to the corresponding data partitions. In direct connectivity mode, the client fetches the mapping of tables to partitions, and requests are made directly against data partitions. We recommend `Direct`, the default.  |
 | `TableConnectionProtocol` | Azure Cosmos DB supports two connection protocols - `Https` and `Tcp`. `Tcp` is the default, and recommended because it is more lightweight. |
 | `TablePreferredLocations` | Comma-separated list of preferred (mult-homing) locations for reads. Each Azure Cosmos DB account can be associated with 1-30+ regions. Each SDK can specify a subset of these regions in the preferred order for low latency reads. See [Multi-homing APIs](../documentdb/documentdb-developing-with-multiple-regions.md) for examples. For example, `West US, East US, South Central US` configures the three US regions in the preferred order of reads.
