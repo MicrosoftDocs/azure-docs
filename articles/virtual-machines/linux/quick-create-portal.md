@@ -95,8 +95,8 @@ When done, exit the SSH session and return the VM properties in the Azure portal
 A Network security group (NSG) secures inbound and outbound traffic. When a VM is created from the Azure portal, an inbound rule is created on port 22 for SSH connections. Because this VM hosts a webserver, an NSG rule needs to be created for port 80.
 
 1. On the virtual machine, click the name of the **Resource group**.
-2. Select the **network security group**.
-3. Click on **Inbound security rules** to open the list of inbound rules.
+2. Select the **network security group**. The NSG can be identified using the **Type** column. 
+3. On the left-hand menu, under settings, click **Inbound security rules**.
 4. Click on **Add**.
 5. In **Name**, type **http**. Make sure **Port range** is set to 80 and **Action** is set to **Allow**. 
 6. Click **OK**.
