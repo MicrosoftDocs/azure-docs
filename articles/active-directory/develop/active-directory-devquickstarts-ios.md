@@ -106,7 +106,7 @@ $ open QuickStart.xcworkspace
 ## 4.    Use ADAL to get tokens from Azure AD
 The basic principle behind ADAL is that whenever your app needs an access token, it simply calls a completionBlock `+(void) getToken : `, and ADAL does the rest.  
 
-* In the `QuickStart` project, open `GraphAPICaller.m` and locate the `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` comment near the top.  This is where you pass ADAL the coordinates through a CompletionBlock, to communicate with Azure AD and tell it how to cache tokens.
+1. In the `QuickStart` project, open `GraphAPICaller.m` and locate the `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` comment near the top.  This is where you pass ADAL the coordinates through a CompletionBlock, to communicate with Azure AD and tell it how to cache tokens.
 
 ```ObjC
 +(void) getToken : (BOOL) clearCache
@@ -147,7 +147,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
 
 ```
 
-* Now we need to use this token to search for users in the graph. Find the `// TODO: implement SearchUsersList` comment. This method makes a GET request to the Azure AD Graph API to query for users whose UPN begins with the given search term.  To query the Azure AD Graph API, you need to include an access_token in the `Authorization` header of the request--this is where ADAL comes in.
+2. Now we need to use this token to search for users in the graph. Find the `// TODO: implement SearchUsersList` comment. This method makes a GET request to the Azure AD Graph API to query for users whose UPN begins with the given search term.  To query the Azure AD Graph API, you need to include an access_token in the `Authorization` header of the request--this is where ADAL comes in.
 
 ```ObjC
 +(void) searchUserList:(NSString*)searchString
@@ -218,7 +218,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
 }
 
 ```
-* When your app requests a token by calling `getToken(...)`, ADAL will attempt to return a token without asking the user for credentials.  If ADAL determines that the user needs to sign in to get a token, it will display a dialog box for sign in, collect the user's credentials, and then return a token after successful authentication.  If ADAL is not able to return a token for any reason, it will throw an `AdalException`.
+3. When your app requests a token by calling `getToken(...)`, ADAL will attempt to return a token without asking the user for credentials.  If ADAL determines that the user needs to sign in to get a token, it will display a dialog box for sign in, collect the user's credentials, and then return a token after successful authentication.  If ADAL is not able to return a token for any reason, it will throw an `AdalException`.
 
 > [!Note] 
 > The `AuthenticationResult` object contains a `tokenCacheStoreItem` object that can be used to collect the information that your app may need. In the QuickStart, `tokenCacheStoreItem` is used to determine if authentication is already done.
