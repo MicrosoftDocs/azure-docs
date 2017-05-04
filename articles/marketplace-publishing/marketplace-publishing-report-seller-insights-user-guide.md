@@ -344,7 +344,6 @@ This section will show you how to add new users or change their permissions in t
 >[!NOTE]
 >It's possible that a user set up a LiveID account by using their company email address. In this scenario, the company later onboards to Azure, and the same email address is registered as an Organizational account. This means this user can have a LiveID account with the password that they used to create the LiveID account. The user can also have an Organizational account with a separate password that is used by the company.
 
-
 5. For the Seller Insights Portal, when you select **Work or school account**, ensure that you use your Organizational account password combination, and not a LiveID password combination.
 6. An Organizational account redirects to the publisher login page.
 7. From here, validate that the password for the Organizational account works. If it doesn't work, continue to the "Password reset" section of this article.
