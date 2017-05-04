@@ -40,9 +40,9 @@ If you want to give your tenants the ability to create Web, Mobile, and API appl
    
 ## Create certificates required by App Service on Azure Stack
 
-This first script works with the Azure Stack certificate authority to create three certificates that are needed by App Service. Run the script on the ClientVM ensuring you are running PowerShell as azurestack\administrator:
+This first script works with the Azure Stack certificate authority to create three certificates that are needed by App Service. Run the script on the ClientVM ensuring you are running PowerShell as azurestack\AzureStackAdmin:
 
-1. In a PowerShell session running as **azurestack\administrator**, execute the **Create-AppServiceCerts.ps1** script from the folder that you extracted the helper scripts into.  The script creates three certificates, in the same folder as the create certificates script, that are needed by App Service.
+1. In a PowerShell session running as **azurestack\AzureStackAdmin**, execute the **Create-AppServiceCerts.ps1** script from the folder that you extracted the helper scripts into.  The script creates three certificates, in the same folder as the create certificates script, that are needed by App Service.
 2. Enter a password to secure the pfx files and make a note of it as you need to enter it in the App Service on Azure Stack Installer.
 
 ### Create-AppServiceCerts.ps1 Parameters
@@ -90,7 +90,7 @@ The following steps guide you through the installation stages:
 7. Click the **Down Arrow** on the right side of the box next to **Azure Stack Subscriptions** and then select your subscription.
 8. Click the **Down Arrow** on the right side of the box next to **Azure Stack Locations**, select the location corresponding to the region you are deploying (for example, **Local**), and then click **Next**. 
     ![App Service on Azure Stack Technical Preview 3 Subscription Selection][3]
-9. Enter the **Resource Group Name** for your App Service deployment, by default thisv is set to **APPSERVICE-LOCAL**.
+9. Enter the **Resource Group Name** for your App Service deployment, by default this is set to **APPSERVICE-LOCAL**.
 10. Enter the **Storage Account Name** you would like App Service to create as part of the installation.  By default this is set to **appsvclocalstor**.
 11. Review the **SQL Server details** and make changes if necessary.  By default the SQL Server name, is populated with the default SQL RP information, but you can change the location of the SQL Server for App Service to suit your needs.  Click **Next** and the installer will validate the SQL connection properties and move to the next step.
 ![App Service on Azure Stack Technical Preview 3 Resource Group, Storage, and SQL Server information][4]
