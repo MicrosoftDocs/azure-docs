@@ -20,7 +20,7 @@ ms.author: cherylmc
 ---
 # Create a self-signed root certificate for Point-to-Site connections using makecert
 
-> [!IMPORTANT]
+> [!NOTE]
 > Use these instructions only when you don't have access to a Windows 10 computer to generate self-signed certificates for Point-to-Site connections. Makecert is being deprecated. Additionally, makecert cannot create a SHA-2 certificate, only SHA-1 (which is still valid for P2S). For these reasons, we recommend that you use the [PowerShell steps](vpn-gateway-certificates-point-to-site.md), if possible. The certificates that you create, using either PowerShell or makecert, can be installed on any [supported client operating system](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq), not just the operating system that you used to create them.
 >
 >
