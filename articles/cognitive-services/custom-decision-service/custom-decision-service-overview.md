@@ -28,9 +28,9 @@ Some common use cases for the Custom Decision Service include:
 * Optimizing ad placements or web pages that the ad directs to.
 * Ranking recommended items on a shopping website.
 
-We support integration from webpages and from smartphone apps.
+We are currently in **free public preview**, focused on personalizing a list of articles on a website or an app. This documentation is revised as we add more functionality.
 
-Applications not in the content personalization domain could still benefit from Custom Decision Service. Such applications might be a good fit for a custom preview. Contact us to learn more.
+Custom Decision Service can be applied to applications that are not in the content personalization domain. Such applications might be a good fit for a custom preview. Contact us to learn more.
 
 ## Learning mode: pooled or application specific
 
@@ -56,7 +56,7 @@ To use this learning mode, you need to have an [Azure Storage account](../../sto
 
 ## API usage modes
 
-Custom Decision Service can be applied to webpages and to smartphone apps. The API usage is similar on both modes, but some of the details are different.
+Custom Decision Service can be applied to both webpages and apps. Our APIs can be called either from a browser or from an app. The API usage is similar on both modes, but some of the details are different.
 
 ## Glossary of terms
 
