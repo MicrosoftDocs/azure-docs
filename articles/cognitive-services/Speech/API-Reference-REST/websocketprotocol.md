@@ -1,5 +1,5 @@
 ---
-title: Speech Protocol in Microsoft Cognitive Services | Microsoft Docs
+title: Speech Protocol in Microsoft Azure Cognitive Services | Microsoft Docs
 description: Protocol documentation for Speech based on websockets
 services: cognitive-services
 author: priyaravi20
@@ -11,6 +11,8 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: prrajan
 ---
+# Speech Protocol
+
 Microsoft's Speech Service uses a [web socket](https://en.wikipedia.org/wiki/WebSocket) to receive audio and return 
 transcription responses over a single TCP connection. A web socket connection starts out as an HTTP request that contain
 HTTP headers indicating the client's desire to upgrade the connection to a web socket instead of using HTTP semantics;
@@ -783,3 +785,6 @@ another *telemetry* message that describes the successful connection.
 | 1002 Protocol Error | The client failed to adhere to protocol requirements | Ensure that you understand the protocol documentation and are clear about the requirements. Read the documentation above about error reasons to see if you are violating protocol requirements. | 
 | 1007 Invalid Payload Data | The client sent an invalid payload in a protocol message | Check the last message that you sent to the service for errors. Read the documentation above about payload errors. |
 | 1011 Server Error | The service encountered an internal error and could not satisfy the request | In most cases, this error will be transient. Retry the request. |
+
+# Next Steps
+Javascript SDK (https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript)
