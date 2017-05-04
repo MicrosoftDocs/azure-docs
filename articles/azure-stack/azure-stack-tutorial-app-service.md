@@ -19,7 +19,12 @@ ms.author: erikje
 ---
 # Make web, mobile, and API apps available to your Azure Stack users
 
-As an Azure Stack administrator, you can create offers that let your users (tenants) create Azure Functions and web, mobile, and API applications. To set this up, you must deploy the App Service resource provider and create an offer that includes the resource provider. Users can then subscribe to the offer so they create their apps.
+As an Azure Stack administrator, you can create offers that let your users (tenants) create Azure Functions and web, mobile, and API applications. To set this up, you will:
+
+> [!div class="checklist"]
+> * Deploy the App Service resource provider
+> * Create an offer
+> * Test the offer
 
 ## Deploy the App Service resource provider
 
