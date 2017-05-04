@@ -1,4 +1,4 @@
----
+    ---
 
   title: Azure Active Directory group-based licensing additional scenarios | Microsoft Docs
   description: More scenarios for Azure Active Directory group-based licensing
@@ -15,7 +15,7 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 03/20/2017
+  ms.date: 05/04/2017
   ms.author: curtand
 
   ms.custom: H1Hack27Feb2017
@@ -113,7 +113,7 @@ For group license assignment, any users without a usage location specified inher
 
 ## Use PowerShell to see who has inherited and direct licenses
 
-During the preview period of an Azure AD release, PowerShell cannot be used to fully control group license assignments. However, it can be used to discover basic information about user state, and to determine if licenses are inherited from a group or assigned directly. The following code sample shows how an admin can produce a basic report about license assignments.
+PowerShell can be used to to discover basic information about user state, and to determine if licenses are inherited from a group or assigned directly. The following code sample shows how an admin can produce a basic report about license assignments.
 
 1. Run the `connect-msolservice` cmdlet to authenticate and connect to your tenant.
 
