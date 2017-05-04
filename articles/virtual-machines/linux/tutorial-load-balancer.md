@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/17/2017
+ms.date: 05/02/2017
 ms.author: iainfou
 ---
 
 # How to load balance Linux virtual machines in Azure to create a highly available application
-In this tutorial, you learn about the different components of the Azure load balancer that distribute traffic and provide high availability. To see the load balancer in action, you build a Node.js app that runs on three Linux virtual machines (VMs).
+Load balancing provide a higher level of availability by spreading incoming requests across multiple virtual machines. In this tutorial, you learn about the different components of the Azure load balancer that distribute traffic and provide high availability. To see the load balancer in action, you build a Node.js app that runs on three Linux virtual machines (VMs).
 
-The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 
 ## Azure load balancer overview
@@ -37,10 +37,10 @@ If you followed the previous tutorial to [create a virtual machine scale set](tu
 
 
 ## Create Azure load balancer
-This section details how you can create and configure each component of the load balancer. Before you can create your load balancer, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myRGLoadBalancer* in the *westus* location:
+This section details how you can create and configure each component of the load balancer. Before you can create your load balancer, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myRGLoadBalancer* in the *eastus* location:
 
 ```azurecli
-az group create --name myRGLoadBalancer --location westus
+az group create --name myRGLoadBalancer --location eastus
 ```
 
 ### Create a public IP address
