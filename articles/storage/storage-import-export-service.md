@@ -505,6 +505,16 @@ Please refer to [Import PST files or SharePoint data to Office 365](https://tech
 
 Please refer to [Offline Backup workflow in Azure Backup](../backup/backup-azure-backup-import-export.md).
 
+**What is the maximum numbers of HDD for in one shipment?
+
+Any number of HDDs can be in one shipment and if the disks belong to multiple jobs it is recommended to 
+a) Have the disks labeled with the corresponding job names. 
+b) Update the jobs with a tracking number suffixed with -1, -2 etc.
+  
+**What is the Maximum Block Blob and Page Blob Size supported by Disk Import/Export?
+
+Max Block Blob size is approximately 4.768TB  or 5,000,000 MB.
+Max Page Blob size is 1TB.
 ## Next steps
 
 * [Setting up the WAImportExport tool](storage-import-export-tool-how-to.md)

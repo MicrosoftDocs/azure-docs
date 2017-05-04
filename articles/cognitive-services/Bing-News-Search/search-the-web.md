@@ -211,7 +211,7 @@ Host: api.cognitive.microsoft.com
 > Host: api.cognitive.microsoft.com  
 > ```  
 
-Do not include the (https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#category) query parameter. 
+Do not include the [category](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#category) query parameter. 
 
 The response is the same as top news response. If the article is a headline article, its `headline` field is set to **true**.
 
