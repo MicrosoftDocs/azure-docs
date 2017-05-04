@@ -54,7 +54,7 @@ In both modes, the master encryption key is secured by storing it Azure Key Vaul
 
 Here is a brief comparison of capabilities provided by the two modes of managing the MEKs.
 
-|  | Service Managed Keys | customer-managed Keys |
+|  | Service Managed Keys | Customer Managed Keys |
 | --- | --- | --- |
 |How is data stored?|Always encrypted prior to being stored|Always encrypted prior to being stored|
 |Where is the Master Encryption Key Stored?|Azure Key Vault|Azure Key Vault|

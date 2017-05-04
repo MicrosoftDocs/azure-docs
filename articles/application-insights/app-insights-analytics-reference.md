@@ -661,7 +661,7 @@ Get extended activities from a log in which some entries mark the start and end 
            | where Name == "Stop"
            | project StopTime=timestamp, ActivityId)
         on ActivityId
-    | project City, ActivityId, StartTime, StopTime, Duration, StopTime, StartTime
+    | project City, ActivityId, StartTime, StopTime, Duration=StopTime-StartTime
 
 ```
 
