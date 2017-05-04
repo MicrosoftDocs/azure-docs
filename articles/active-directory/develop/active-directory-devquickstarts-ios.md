@@ -20,7 +20,10 @@ ms.author: xerners
 # Integrate Azure AD into an iOS app
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
-[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+> [!TIP]
+> Try the preview of our new [developer portal](https://identity.microsoft.com/Docs/iOS) that will help you get up and running with Azure Active Directory in just a few minutes!  The developer portal will walk you through the process of registering an app and integrating Azure AD into your code.  When you’re finished, you will have a simple application that can authenticate users in your tenant and a backend that can accept tokens and perform validation. 
+> 
+> 
 
 Azure Active Directory provides the Active Directory Authentication Library, or ADAL, for iOS clients that need to access protected resources.  ADAL simplifies the process that your app uses to obtain access tokens.  To demonstrate just how easy it is, in this article we’ll build a Objective C To-Do List application that:
 
@@ -35,6 +38,7 @@ To build the complete working application, you’ll need to:
 
 To get started, [download the app skeleton](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).  You'll also need an Azure AD tenant in which you can create users and register an application.  If you don't already have a tenant, [learn how to get one](active-directory-howto-tenant.md).
 
+
 > [!TIP]
 > Try the preview of our new [developer portal](https://identity.microsoft.com/Docs/iOS) that will help you get up and running with Azure AD in just a few minutes!  The developer portal will walk you through the process of registering an app and integrating Azure AD into your code.  When you’re finished, you will have a simple application that can authenticate users in your tenant and a backend that can accept tokens and perform validation. 
 > 
@@ -42,6 +46,7 @@ To get started, [download the app skeleton](https://github.com/AzureADQuickStart
 
 ## 1. Determine what your Redirect URI is for iOS
 To securely start your applications in certain SSO scenarios, we require that you create a *Redirect URI* in a particular format. A Redirect URI is used to ensure that the tokens return to the correct application that asked for them.
+
 
 The iOS format for a Redirect URI is:
 
@@ -184,7 +189,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
                      // Don't be thrown off by the key name being "value". It really is the name of the
                      // first node. :-)
 
-                     //Each object is a key value pair
+                     // Each object is a key value pair
                      NSDictionary *keyValuePairs;
                      NSMutableArray* Users = [[NSMutableArray alloc]init];
 
@@ -231,7 +236,7 @@ For reference, the completed sample (without your configuration values) is provi
 You can now move on to additional scenarios.  You may want to try:
 
 * [Secure a Node.JS Web API with Azure AD](active-directory-devquickstarts-webapi-nodejs.md)
-* Learn [How to enable cross-app SSO on iOS using ADAL](active-directory-sso-ios.md)  
+* Learn [how to enable cross-app SSO on iOS using ADAL](active-directory-sso-ios.md)  
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
 

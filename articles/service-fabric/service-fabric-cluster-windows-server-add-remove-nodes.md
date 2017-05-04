@@ -1,4 +1,4 @@
----
+﻿---
 title: Add or remove nodes to a standalone Service Fabric cluster | Microsoft Docs
 description: Learn how to add or remove nodes to an Azure Service Fabric cluster on a physical or virtual machine running Windows Server, which could be on-premises or in any cloud.
 services: service-fabric
@@ -32,7 +32,7 @@ After you have [created your standalone Service Fabric cluster on Windows Server
 .\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClientConnectionEndpoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain fd:/dc1/r0 -AcceptEULA
 
 ```
-You can check if the new node is added by running the cmdlet [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/servicefabric/vlatest/Get-ServiceFabricNode).
+You can check if the new node is added by running the cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps).
 
 
 ## Remove nodes from your cluster

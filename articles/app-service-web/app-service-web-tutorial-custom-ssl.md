@@ -1,4 +1,4 @@
----
+﻿---
 title: Bind an existing custom SSL certificate to Azure Web Apps | Microsoft Docs 
 description: Learn to to bind a custom SSL certificate to your web app, mobile app backend, or API app in Azure App Service.
 services: app-service\web
@@ -153,7 +153,7 @@ By default, your web app uses a shared public IP address. As soon as you bind a 
 
 If you have mapped an A record to your web app, update your domain registry with this new, dedicated IP address.
 
-Your web app's **Custom domain** page is updated with the new, dedicated IP address. [Copy this IP address](app-service-web-tutorial-custom-domain.md#info), then [remap the A record](app-service-web-tutorial-custom-domain.md#create-the-a-record) to this new IP address.
+Your web app's **Custom domain** page is updated with the new, dedicated IP address. [Copy this IP address](app-service-web-tutorial-custom-domain.md#info), then [remap the A record](app-service-web-tutorial-custom-domain.md#create-a) to this new IP address.
 
 <a name="test"></a>
 
@@ -219,7 +219,7 @@ For more information on the IIS URL Rewrite module, see the [URL Rewrite](http:/
 
 ## Automate with scripts
 
-You can automate SSL bindings for your web app with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azureps-cmdlets-docs/).
+You can automate SSL bindings for your web app with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview).
 
 ### Azure CLI
 
