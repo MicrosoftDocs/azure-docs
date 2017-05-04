@@ -19,7 +19,7 @@ ms.author: jingwang
 
 ---
 # Copy data to or from Azure Blob Storage using Azure Data Factory
-This article explains how to use the Copy Activity in Azure Data Factory to copy data to/from Azure Blob Storage. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
+This article explains how to use the Copy Activity in Azure Data Factory to copy data to and from Azure Blob Storage. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
 ## Supported scenarios
 You can copy data **from Azure Blob Storage** to the following data stores:
@@ -46,7 +46,7 @@ Whether you use the tools or APIs, you perform the following steps to create a p
 
 1. Create a **data factory**. A data factory may contain one or more pipelines. 
 2. Create **linked services** to link input and output data stores to your data factory. For example, if you are copying data from an Azure blob storage to an Azure SQL database, you create two linked services to link your Azure storage account and Azure SQL database to your data factory. For linked service properties that are specific to Azure Blob Storage, see [linked service properties](#linked-service-properties) section. 
-2. Create **datasets** to represent input and output data for the copy operation. In the example mentioned in the last step, you create a dataset to specify the blob container and folder that contains the input data. And, you create another dataset to specify the SQL table that holds the data copied from the blob storage. For dataset properties that are specific to Azure Blob Storage, see [dataset properties](#dataset-properties) section.
+2. Create **datasets** to represent input and output data for the copy operation. In the example mentioned in the last step, you create a dataset to specify the blob container and folder that contains the input data. And, you create another dataset to specify the SQL table in the Azure SQL database that holds the data copied from the blob storage. For dataset properties that are specific to Azure Blob Storage, see [dataset properties](#dataset-properties) section.
 3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output. In the example mentioned earlier, you use BlobSource as a source and SqlSink as a sink for the copy activity. Similarly, if you are copying from Azure SQL Database to Azure Blob Storage, you use SqlSource and BlobSink in the copy activity. For copy activity properties that are specific to Azure Blob Storage, see [copy activity properties](#copy-activity-properties) section. For details on how to use a data store as a source or a sink, click the link in the previous section for your data store.  
 
 When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For samples with JSON definitions for Data Factory entities that are used to copy data to/from an Azure Blob Storage, see [JSON examples](#json-examples-for-copying-data-to-and-from-blob-storage  ) section of this article.

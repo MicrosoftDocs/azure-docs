@@ -18,7 +18,7 @@ ms.author: jingwang
 
 ---
 # Move data to and from Azure SQL Database using Azure Data Factory
-This article explains how to use the Copy Activity in Azure Data Factory to move data to/from Azure SQL Database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.  
+This article explains how to use the Copy Activity in Azure Data Factory to move data to and from Azure SQL Database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.  
 
 ## Supported scenarios
 You can copy data **from Azure SQL Database** to the following data stores:
