@@ -92,7 +92,7 @@ When your application starts, a separate snapshot uploader process is created th
 ## Current Limitations
 
 ### Publishing Symbols
-The Snapshot Debugger requires that symbol files be present on the production server in order to decode variables and provide a debugging experience in Visual Studio. The 15.2 release Visual Studio 2017 publishes symbols for Release builds by default when publishing to Azure App Service. In prior versions you will need to add the following line to your publish profile `.pubxml` file so that symbols are published in release mode.
+The Snapshot Debugger requires that symbol files be present on the production server to decode variables and provide a debugging experience in Visual Studio. The 15.2 release Visual Studio 2017 publishes symbols for Release builds by default when publishing to Azure App Service. In prior versions, you need to add the following line to your publish profile `.pubxml` file so that symbols are published in release mode.
 
 ```xml
     <ExcludeGeneratedDebugSymbol>False</ExcludeGeneratedDebugSymbol>
@@ -101,7 +101,7 @@ The Snapshot Debugger requires that symbol files be present on the production se
 For Azure Compute and other types, ensure the symbol files are in the same folder of the main application .dll (typically `wwwroot/bin`), or are available on the current path.
 
 ### Optimized Builds
-In some cases, local variables will not be viewable in Release builds because of optimizations applied during the build process. This limitation will be fixed in a future release.
+In some cases, local variables are not  viewable in Release builds because of optimizations applied during the build process. This limitation will be fixed in a future release of the NuGet package.
 
 ## Next Steps
 
