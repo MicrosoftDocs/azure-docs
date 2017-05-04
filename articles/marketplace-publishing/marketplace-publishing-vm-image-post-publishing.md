@@ -20,15 +20,15 @@ ms.author: hascipio;
 # Post-production guide for virtual machine offers in the Azure Marketplace
 This article explains how you can update a live virtual machine offer in the Azure Marketplace. It also guides you through the process of adding one or more new SKUs to an existing offer and removing a live virtual machine offer or SKU from the Marketplace.
 
-After an offer/SKU is staged in the [Azure portal](http://portal.azure.com), you can't change the following fields:
+After an offer/SKU is staged in the [Azure portal](http://portal.azure.com), you can't change the following text boxes:
 
 * **Offer Identifier**. [Publishing portal > Virtual Machines > Select your Offer > VM Images tab > Offer Identifier]
 * **SKU Identifier**. [Publishing portal > Virtual Machines > Select your Offer > SKUs tab > Add a SKU]
-* **Publisher Namespace**. [Publishing portal > Virtual  Machines > Walkthrough tab > Tell Us About Your Company (Found under “Step 2 Register Your Company”) > Publisher Namespace > Namespace]
+* **Publisher Namespace**. [Publishing portal > Virtual Machines > Walkthrough tab > Tell Us About Your Company (Found under “Step 2 Register Your Company”) > Publisher Namespace > Namespace]
 
-After the offer/SKU is listed in the [Marketplace](http://azure.microsoft.com/marketplace), you can't change the following fields:
+After the offer/SKU is listed in the [Marketplace](http://azure.microsoft.com/marketplace), you can't change the following text boxes:
 
-* **Offer Identifier**. [Publishing portal > Virtual Machines >  Select your Offer > VM Images tab > Offer Identifier]
+* **Offer Identifier**. [Publishing portal > Virtual Machines > Select your Offer > VM Images tab > Offer Identifier]
 * **SKU Identifier**. [Publishing portal > Virtual Machines > Select your Offer > SKUs tab > Add a SKU]
 * **Publisher Namespace**. [Publishing portal > Virtual Machines > Walkthrough tab > Tell Us About Your Company (Found under "Step 2 Register") Publisher Namespace > Namespace]
 * **Ports**. [Publishing portal > Virtual Machines > Select your Offer > VM Images tab > Open Ports]
@@ -66,7 +66,7 @@ To update the offer details and republish your offer, follow these steps:
 2. Go to the **virtual machines** tab, and select your offer.
 3. In the menu on the left, click the **MARKETING** tab.
 4. Click **English (US)**.
-5. In the menu on the left, click the **DETAILS** tab. In the **Description** section, update the offer **TITLE**, **SUMMARY**, and **LONG SUMMARY** and save the changes.
+5. Click the **DETAILS** tab. In the **Description** section, update the offer **TITLE**, **SUMMARY**, and **LONG SUMMARY** and save the changes.
 
    > [!NOTE]
    > When you update the SKU details, be aware of these restrictions: Do not enter duplicate text for the offer description and the SKU description. Do not enter duplicate text for the SKU title and the offer long summary. Do not enter duplicate text for the SKU title and the offer summary.
@@ -143,8 +143,8 @@ To change an existing sample image or add new sample images and then republish y
    > [!NOTE]
    > Including a sample image is optional.
    >
-   >8. Go to the **PUBLISH** tab, and click **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment, see [Test your VM offer for the Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
-9. After you've tested your offer in staging, go to the **PUBLISH** tab in the Publishing portal. Click **REQUEST APPROVAL TO PUSH TO PRODUCTION** to republish your offer in the Marketplace.
+7. Go to the **PUBLISH** tab, and click **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment, see [Test your VM offer for the Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
+8. After you've tested your offer in staging, go to the **PUBLISH** tab in the Publishing portal. Click **REQUEST APPROVAL TO PUSH TO PRODUCTION** to republish your offer in the Marketplace.
 
     ![Sample Images](media/marketplace-publishing-vm-image-post-publishing/img02.4_09.png)
 
@@ -197,7 +197,7 @@ To add a new SKU in your live offer, follow these steps:
 
 1. Sign in to the [Publishing portal](https://publish.windowsazure.com).
 2. Go to the **virtual machines** tab, and select your offer.
-3. In the menu on the left, click the **SKUS** tab. Then click **ADD A SKU**. In the dialog box, enter a SKU identifier in lowercase. Select the check box for the bring-your-own-license billing model (BYOL) if you want to publish the new SKU with a BYOL billing model. Otherwise, clear the check box for BYOL. Click the tick mark in the dialog box to create a new SKU. If you didn't choose the BYOL billing model, the billing model is automatically set to Hourly. If you want the 30-day free trial for the Hourly billing model, click the **One Month** option for “Is a free trial available?”. Otherwise, select **NO TRIAL**. (“Is a free trial available?” is only shown if you haven't selected BYOL while creating the new SKU.)
+3. In the menu on the left, click the **SKUS** tab. Then click **ADD A SKU**. In the dialog box, enter a SKU identifier in lowercase. Select the check box for the bring-your-own-license billing model (BYOL) if you want to publish the new SKU with a BYOL billing model. Otherwise, clear the check box for BYOL. Click the tick mark in the dialog box to create a new SKU. If you didn't choose the BYOL billing model, the billing model is automatically set to hourly. If you want the 30-day free trial for the hourly billing model, click the **One Month** option for “Is a free trial available?”. Otherwise, select **NO TRIAL**. (“Is a free trial available?” is only shown if you haven't selected BYOL while creating the new SKU.)
 
    > [!IMPORTANT]
    > The option “Hide this SKU from the Marketplace because it should always be bought via a solution template” should be **YES** *only* if you're approved for publishing a solution template offer in the Marketplace. Otherwise, this option should always be **NO**.
@@ -221,13 +221,14 @@ You can't increment/decrement the data disk count of a listed SKU. You need to c
 Various aspects need to be taken care of in the case of a request to remove a live offer. To get guidance from the support team to remove a listed offer from the Marketplace, follow these steps:
 
 1. Raise a support ticket on the [Create an incident](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=15635&ccsid=635993707583706681) page.
+
 2. Select **Problem type** as **Managing offers**, and select **Category** as **Modifying an offer and/or SKU already in production**.
 3. Submit the request.
 
 The support team will guide you through the offer/SKU deletion process.
 
 > [!NOTE]
-> You can always delete the offer while it is in Draft status (but not in Staging or Production). Click  **DISCARD DRAFT** on the **HISTORY** tab.
+> You can always delete the offer while it is in Draft status (but not in Staging or Production). Click **DISCARD DRAFT** on the **HISTORY** tab.
 >
 >
 
@@ -235,6 +236,7 @@ The support team will guide you through the offer/SKU deletion process.
 To delete a listed SKU from the Marketplace, follow these steps:
 
 1. Sign in to the [Publishing portal](https://publish.windowsazure.com).
+
 2. Go to the **virtual machines** tab, and select your offer.
 3. In the pane on the left, click the **SKUS** tab.
 4. Select the SKU that you want to delete, and click the delete button.
@@ -245,6 +247,7 @@ To delete a listed SKU from the Marketplace, follow these steps:
 To delete the current version of a listed SKU from the Marketplace, follow these steps: 
 
 1. Sign in to the [Publishing portal](https://publish.windowsazure.com).
+
 2. Go to the **virtual machines** tab, and select your offer.
 3. In the pane on the left, click the **VM IMAGES** tab.
 4. Select the SKU whose current version you want to delete, and click the delete button.
@@ -277,7 +280,7 @@ To revert the listing price to production values, follow these steps:
 8. On page 2, choose service plans and meters (cores), and click the arrow.
 
     ![Service plans and meters](media/marketplace-publishing-vm-image-post-publishing/img08-08.png)
-9. On page 3, click **Toggle All** to select all regions or manually select check boxes for specific regions and click the arrow.
+9. On page 3, click **Toggle All** to select all regions, or manually select check boxes for specific regions and click the arrow.
 
     ![Choose markets](media/marketplace-publishing-vm-image-post-publishing/img08-09.png)
 10. On page 4, review the exchange rates and click **Finish**. The wizard resets the pricing according to your selections.
@@ -293,12 +296,13 @@ To revert the listing price to production values, follow these steps:
 To revert the billing model to production values, follow these steps:
 
 1. Sign in to the [Publishing portal](https://publish.windowsazure.com).
+
 2. Go to the **virtual machines** tab, and select your offer.
 3. In the menu on the left, click the **SKUS** tab.
 4. Click the **EDIT** button to revert the billing model. In the window that opens, check or clear the **Billing and licensing is done externally from Azure (aka Bring Your Own License)** check box.
 
     ![Edit billing](media/marketplace-publishing-vm-image-post-publishing/img09-04.png)
-5. Once done please refer to the answer of the question 8 in this document to revert back the pricing.
+5. Follow the steps in "Revert the listing price to production values."
 6. Go to the **PUBLISH** tab, and click **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment, see [Test your VM offer for the Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
 7. After you've tested your offer in staging, go to the **PUBLISH** tab in the Publishing portal. Click **REQUEST APPROVAL TO PUSH TO PRODUCTION** to republish your offer in the Marketplace.
 
@@ -306,6 +310,7 @@ To revert the billing model to production values, follow these steps:
 To revert the visibility setting of a listed SKU to the production value, follow these steps:
 
 1. Sign in to the [Publishing portal](https://publish.windowsazure.com).
+
 2. Go to the **virtual machines** tab, and select your offer.
 3. In the menu on the left, click the **SKUS** tab.
 4. Select your SKU, and revert the visibility setting of the SKU to the production value.
@@ -313,7 +318,7 @@ To revert the visibility setting of a listed SKU to the production value, follow
     ![Visibility](media/marketplace-publishing-vm-image-post-publishing/img10-04.png)
 5. After you're done with the changes, click **REQUEST APPROVAL TO PUSH TO PRODUCTION** to republish your offer in the Marketplace.
 
-## See Also
+## See also
 * [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
 * [Understanding payout reporting](marketplace-publishing-report-payout.md)
 * [How to change your Cloud Solution Provider reseller incentive](marketplace-publishing-csp-incentive.md)
