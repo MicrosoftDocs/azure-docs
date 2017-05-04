@@ -1,18 +1,17 @@
-<properties
-   pageTitle="Adding Azure Search to Blob Storage | Microsoft Docs"
-   description="Introduction to integrating Azure Search into Blob storage to add powerful search capabilities over the variety of documents stored in blobs."
-   services="search"
-   documentationCenter=""
-   authors="ashmaka"
-   manager="pablocas"
-   editor=""/>
+   ---
+   title: Adding Azure Search to Blob Storage | Microsoft Docs
+   description: Create an index in code using the Azure Search HTTP REST API.
+   services: search
+   documentationcenter: ''
+   author: ashmaka
+   manager: jhubbard
 
-<tags
-   ms.service="search"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.date="04/19/2017"
-   ms.author="ashmaka"/>
+
+   ms.service: search
+   ms.topic: article
+   ms.date: 05/04/2017
+   ms.author: ashmaka
+   ---
 
 # Searching Blob Storage with Azure Search
 
