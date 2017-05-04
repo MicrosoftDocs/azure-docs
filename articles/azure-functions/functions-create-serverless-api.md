@@ -1,3 +1,18 @@
+---
+title: Create a serverless API using Azure Functions | Microsoft Docs
+description: How to create a serverless API using Azure Functions
+services: functions
+author: mattchenderson
+manager: erikre
+
+ms.service: functions
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: article
+ms.date: 05/04/2017
+ms.author: mahender
+---
+
 # Create a serverless API using Azure Functions
 
 In this tutorial you will learn how Azure Functions allows you to quickly build highly-scalable APIs. Azure Functions comes with a collection of built-in features such as HTTP triggers which make it easy to author an endpoint in a variety of languages, including Node.JS, C#, and more. In this tutorial, you will customize an HTTP trigger to handle specific actions in your API design. You will also prepare for growing your API by integrating it with Azure Functions Proxies and setting up mock APIs. All of this is accomplished on top of the Azure Functions serverless compute environment, so you don't have to worry about scaling resources - you can just focus on your API logic.
