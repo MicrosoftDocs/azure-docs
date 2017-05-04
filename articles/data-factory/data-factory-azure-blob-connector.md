@@ -26,7 +26,6 @@ You can copy data **from Azure Blob Storage** to the following data stores:
 
 [!INCLUDE [data-factory-supported-sink](../../includes/data-factory-supported-sinks.md)]
 
-
 You can copy data from the following data stores **to Azure Blob Storage**:
 
 [!INCLUDE [data-factory-supported-sources](../../includes/data-factory-supported-sources.md)]
