@@ -105,16 +105,17 @@ The notification message has three sections:
 2. Properties
 3. Body
 
-The format is as follows:
+### System Properties
 
-| System Property | Value |
+| Name | Value |
 | --- | --- |
 Content-type | application/json |
 EnqueuedTime |  Time when the notification was sent |
 MessageSchema | deviceLifecycleNotification |
 
+### Properties
 
-| Property | Value |
+| Name | Value |
 | --- | --- |
 opType | “createDeviceIdentity” or “deleteDeviceIdentity” |
 hubName | Name of IoT Hub |
@@ -124,9 +125,9 @@ iothub-message-schema | deviceLifecycleNotification |
 iothub-connection-device-id | Id of the device |
 
 
-| Body |
-| --- |
-JSON with the twin of the created device identity. For example,
+### Body
+
+This section is in JSON format and represents the twin of the created device identity. For example,
 ``` 
         {
             "properties": {

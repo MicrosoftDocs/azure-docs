@@ -157,15 +157,19 @@ The solution back end operates on the device twin using the following atomic ope
         }
 3. **Replace desired properties**. This operation enables the solution back end to completely overwrite all existing desired properties and substitute a new JSON document for `properties/desired`.
 4. **Replace tags**. This operation enables the solution back end to completely overwrite all existing tags and substitute a new JSON document for `tags`.
-5. **Receive twin notifications**. This operation allows the solution back end to be notified when the twin is modified. To do so, your IoT solution needs to create a route and to set the Data Source equal to *twinChangeEvents*. By default, no twin notifications are sent, that is, no such routes pre-exist. If the rate of change is too high, or for other reasons, such as to internal failures, the IoT Hub might send only one notification that contains all changes. So, if your application needs reliable auditing and logging of all intermediate states, then it is still recommended that you use D2C messages. The twin notification message includes sections for system properties, properties, and body. It has the following format:
+5. **Receive twin notifications**. This operation allows the solution back end to be notified when the twin is modified. To do so, your IoT solution needs to create a route and to set the Data Source equal to *twinChangeEvents*. By default, no twin notifications are sent, that is, no such routes pre-exist. If the rate of change is too high, or for other reasons, such as to internal failures, the IoT Hub might send only one notification that contains all changes. So, if your application needs reliable auditing and logging of all intermediate states, then it is still recommended that you use D2C messages. The twin notification message includes three sections: system properties, properties, and body.
 
-    | System Property | Value |
+    ### System properties
+
+    | Name | Value |
     | --- | --- |
     Content-type | application/json |
     EnqueuedTime |  Time when the notification was sent |
     MessageSchema | twinChangeNotification |
 
-    | Property | Value |
+    ### Properties
+
+    | Name | Value |
     | --- | --- |
     deviceId | Id of the device |
     hubName | Name of IoT Hub |
@@ -173,8 +177,8 @@ The solution back end operates on the device twin using the following atomic ope
     iothub-message-schema | deviceLifecycleNotification |
     iothub-connection-device-id | Id of the device |
 
-    | Body |
-    | --- |
+    ### Body
+    
     This section includes all the twin changes in a JSON format. It uses the same format as a patch, with the difference that it can contain all twin sections: tags, properties.reported, properties.desired, and that it contains the “$metadata” elements. For example,
     ```
             {
