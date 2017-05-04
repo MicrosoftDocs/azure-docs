@@ -44,6 +44,31 @@ In the second pattern, which assumes that the tenant has suffered a serious, pos
 
 ## Simulate a user accidently deleting data
 
+To demonstrate these recovery scenarios we need to 'accidently' delete some data in one of the tenant databases.
+
+First run the ticket generator script to create some data:
+
+1. Open ...\\Learning Modules\Utilities\*TicketGenerator.ps1* in the **PowerShell ISE**
+1. Press **F5** to run the script and generate some data (customers and ticket sales)
+
+Run demo scenario 1 to 'accidently' delete some data:
+
+1. Open ...\\Learning Modules\Business Continuity and Disaster Recovery\RestoreTenant\*Demo-RestoreTenant.ps1* in the **PowerShell ISE** and set the following value:
+   * **$DemoScenario** = **1**, Set this to **1** to **Delete events with no ticket sales**.
+1. Press **F5** to run the script and delete the last event. You should see the following confirmation that an event was deleted.
+
+   ```Output
+   Deleting unsold events from Contoso Concert Hall ...
+   Deleted event 'Seriously Strauss' from Contoso Concert Hall venue.
+   ```
+
+1. The Contoso events page opens. Scroll down and verify the event is gone. If you see it, click refresh and verify it is gone.
+
+
+
+
+OPTION 2:
+
 To demonstrate these recovery scenarios we need to 'accidently' delete some data in one of the tenant databases. While we can use any tool that can run a query, lets delete one of the Contoso Concert Hall events using the new **Query editor** in the Azure portal.
 
 
@@ -61,29 +86,33 @@ To demonstrate these recovery scenarios we need to 'accidently' delete some data
 
 3. Run the following two delete queries to simulate a tenant admin mistakenly deleting this event from their database:
 
-   You can delete any event, but delete the *Seriously Strauss* event because we set this event to easily get past referential integrity constraints.
+   You can delete any event, but delete the *Seriously Strauss* event because we set this event to easily get past referential integrity constraints. 
 
    ```SQL
    DELETE FROM dbo.EventSections WHERE EventId = '11'
    DELETE FROM dbo.Events WHERE EventId = '11'
    ```
+   >[!TIP]
+   > Highlight a block of text in the Query editor to only run that selected text.
+
 1. Query the list of events again: ```SELECT * FROM dbo.Events``` and verify the event is gone.
 
 Now lets restore the database to a point in time before the event was accidently deleted.
 
 ## Restore a tenant database in parallel with the production database
 
-This exercise will restore the Contoso Concert Hall data to a point in time before the event was deleted above. The _Restore-TenantInParallel.ps1_ script creates a parallel tenant database, and a parallel catalog entry both named *ContosoConcertHall\_old*. This pattern of restore is best suited for recovering from a minor data loss or for compliance and auditing recovery scenarios. It is also the recommended approach if you are using [Geo-Replication](sql-database-geo-replication-overview.md).
+This exercise will restore the Contoso Concert Hall data to a point in time before the event was deleted above. The *Restore-TenantInParallel.ps1* script creates a parallel tenant database, and a parallel catalog entry both named *ContosoConcertHall\_old*. This pattern of restore is best suited for recovering from a minor data loss or for compliance and auditing recovery scenarios. It is also the recommended approach if you are using [Geo-Replication](sql-database-geo-replication-overview.md).
 
 1. Complete the steps in the [simulate a user accidently deleting data](#simulate-a-user-accidently-deleting-data) section above.
 1. Open ...\Learning Modules\Business Continuity and Disaster Recovery\RestoreTenant\_Demo-RestoreTenant.ps1_ in the **PowerShell ISE**.
-2. Set **$DemoScenario** = **3**: 'restore tenant in parallel'.
-3. 
-4. Press **F5** to run the script.
+1. Set **$DemoScenario** = **2**, Set this to **2** to *Restore tenant in parallel*.
+1. Press **F5** to run the script.
 
-The script restores the tenant database to a parallel database 5 minutes before you deleted the event in the previous section. It creates a new database, removes any existing catalog metadata that exists in this database, and adds the database to the catalog under the *ContosoConcertHall\_old* entry.
+The script restores the tenant database (to a parallel database) 5 minutes before you deleted the event in the previous section. It creates a new database, removes any existing catalog metadata that exists in this database, and adds the database to the catalog under the *ContosoConcertHall\_old* entry.
 
-The demo script opens the events page in your browser. Inspect the event listing in the browser to confirm that the deleted event has been restored.
+The demo script opens the events page in your browser. Note from the URL: ```http://events.wtp.\<User\>.trafficmanager.net/contosoconcerthall_old``` that this is showing data from the restored database that we added *_old* to the name.
+
+Scroll the events listed in the browser to confirm that the deleted event has been restored.
 
 Note that exposing the restored tenant as a separately accessible tenant entry is unlikely to be how you would provide a tenant access to restored data, but serves to illustrate the restore pattern.
 
