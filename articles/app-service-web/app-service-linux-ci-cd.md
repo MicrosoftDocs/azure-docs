@@ -53,6 +53,8 @@ You can obtain your `publishingusername` and `publishingpwd` by downloading the 
 
 ![insert image of adding webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-3.png)
 
+When the image get updated, the web app get updated automatically with the new image.
+
 ## Next steps
 * [What is App Service on Linux?](./app-service-linux-intro.md)
 * [Creating Apps in an App Service on Linux](./app-service-linux-how-to-create-a-web-app.md)
