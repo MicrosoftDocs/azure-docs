@@ -30,6 +30,7 @@
 
 ## Use solutions
 ### [Management solutions](operations-management-suite-solutions.md)
+### [Target solutions](operations-management-suite-solution-targeting.md)
 ### Insight & analytics
 #### [AD Assessment](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [AD Replication Status](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)

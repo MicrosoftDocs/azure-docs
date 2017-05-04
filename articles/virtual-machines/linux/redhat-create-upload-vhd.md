@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 04/28/2017
 ms.author: szark
 
 ---
@@ -105,8 +105,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
         # sudo chkconfig waagent on
 
-
-	Installing the WALinuxAgent package removes the NetworkManager and NetworkManager-gnome packages if they were not already removed in step 3.
+    Installing the WALinuxAgent package removes the NetworkManager and NetworkManager-gnome packages if they were not already removed in step 3.
 
 13. Do not create swap space on the operating system disk.
 
@@ -347,16 +346,12 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 	Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
-                # MB=$((1024*1024))
+		# MB=$((1024*1024))
+		# size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+		  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
-                # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
-
-			gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-
-                # rounded_size=$((($size/$MB + 1)*$MB))
-
-                # qemu-img resize rhel-6.8.raw $rounded_size
-
+		# rounded_size=$((($size/$MB + 1)*$MB))
+		# qemu-img resize rhel-6.8.raw $rounded_size
 
 	Convert the raw disk to a fixed-sized VHD:
 
@@ -428,7 +423,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 	Edit `/etc/dracut.conf` and add content:
 
-		add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+		add_drivers+="�hv_vmbus hv_netvsc hv_storvsc"
 
 	Rebuild initramfs:
 
@@ -491,15 +486,12 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 	Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
-                # MB=$((1024*1024))
+		# MB=$((1024*1024))
+		# size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+		  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
-                # size=$(qemu-img info -f raw --output json "rhel-7.3.raw" | \
-
-			gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-
-                # rounded_size=$((($size/$MB + 1)*$MB))
-        
-                # qemu-img resize rhel-7.3.raw $rounded_size
+		# rounded_size=$((($size/$MB + 1)*$MB))
+		# qemu-img resize rhel-6.8.raw $rounded_size
 
 	Convert the raw disk to a fixed-sized VHD:
 
@@ -553,9 +545,9 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 8. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open `/etc/default/grub` in a text editor, and edit the `GRUB_CMDLINE_LINUX` parameter. For example:
    
-        GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
+        GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
    
-   This will also ensure that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. This configuration also turns off the new RHEL 7 naming conventions for NICs. In addition, we recommend that you remove the following parameters:
+   This will also ensure that all console messages are sent to the first serial port, which can assist Azure support with debugging issues. In addition, we recommend that you remove the following parameters:
    
         rhgb quiet crashkernel=auto
    
@@ -565,7 +557,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 	Edit `/etc/dracut.conf`, and add the following content:
 
-		add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+		add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
 
 	Rebuild initramfs:
 
@@ -611,15 +603,12 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 	Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
-                # MB=$((1024*1024))
+		# MB=$((1024*1024))
+		# size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+		  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
-                # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
-
-			gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-
-                # rounded_size=$((($size/$MB + 1)*$MB))
-
-                # qemu-img resize rhel-6.8.raw $rounded_size
+		# rounded_size=$((($size/$MB + 1)*$MB))
+		# qemu-img resize rhel-6.8.raw $rounded_size
 
 	Convert the raw disk to a fixed-sized VHD:
 
@@ -718,15 +707,12 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 	Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
-                # MB=$((1024*1024))
+		# MB=$((1024*1024))
+		# size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+		  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
-                # size=$(qemu-img info -f raw --output json "rhel-7.3.raw" | \
-
-			gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-
-                # rounded_size=$((($size/$MB + 1)*$MB))
-                
-                # qemu-img resize rhel-7.3.raw $rounded_size
+		# rounded_size=$((($size/$MB + 1)*$MB))
+		# qemu-img resize rhel-6.8.raw $rounded_size
 
 	Convert the raw disk to a fixed-sized VHD:
 
