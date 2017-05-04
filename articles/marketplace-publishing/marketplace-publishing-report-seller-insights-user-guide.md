@@ -344,6 +344,8 @@ This section will show you how to add new users or change their permissions in t
 6. An Organizational account redirects to the publisher login page.
 7. From here, validate that the password for the Organizational account works. If it doesn't work, continue to the "Password reset" section of this article.
 
+
+
 **Password reset**
 
 Try to reset your password by using the following links.
