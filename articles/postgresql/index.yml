@@ -1,0 +1,81 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Database for PostgreSQL Documentation
+metadata:
+  title: Azure PostgreSQL Documentation - Tutorials, API Reference
+  description: Azure Database for PostgreSQL is a relational database service in the Microsoft cloud built for developers based on the open source PostgreSQL database engine.
+  services: app-service
+  author: jasonwhowell
+  manager: jhubbard
+  ms.service: postgresql
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01/23/2017
+  ms.author: jasonh
+abstract:
+  description: Azure Database for PostgreSQL is a relational database service in the Microsoft cloud built for developers based on the open source PostgreSQL database engine.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/create-sql-database-on-azure.png
+      width: 250  
+    title: Create a SQL database on Azure. (3:12)
+    href: https://azure.microsoft.com/en-us/resources/videos/create-sql-database-on-azure/
+    width: 250
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+      text: Azure Portal
+      href: /azure/postgresql/postgresql-quickstart-create-database-portal
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/postgresql/postgresql-quickstart-create-database-cli
+- title: Step-by-Step Tutorials
+  items:
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/sql-database/sql-database-design-first-database">Design a PostgreSQL Database&colon; Azure Portal</a>
+    - html: <a href="/azure/sql-database/sql-database-design-first-database">Design a PostgreSQL Database&colon; Azure CLI</a>
+    - html: <a href="/azure/sql-database/sql-database-design-first-database">Create a Web App with PostgreSQL&colon; Azure Portal</a>
+    - html: <a href="/azure/sql-database/sql-database-design-first-database">Create a Web App with PostgreSQL&colon; Azure Portal</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: Find scripts to manage common tasks.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/postgresql/postgresql-sample-scripts-cli">Azure CLI</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="placeholder">Azure CLI 2.0</a></p>
+    - title: Languages
+      html: <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p>
+      html: <p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">C and C++</a></p>
+      html: <p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p>
+      html: <p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p>
+      html: <p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p>
+      html: <p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p>
+      html: <p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p>
+    - title: Resources
+      html: <p><a href="https://azure.microsoft.com/pricing/details/postgres/">Pricing</a></p>
+      html: <p><a href="https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=">MSDN forum</a></p>
+      html: <p><a href="http://stackoverflow.com/questions/tagged/">Stack Overflow</a></p>
+      html: <p><a href="placeholder">Region Availability</a></p>
+      html: <p><a href="https://azure.microsoft.com/documentation/videos/index/">Videos</a></p>
+      html: <p><a href="placeholder">Azure Resource Manager Templates</a></p>
