@@ -93,7 +93,7 @@ You can find the ADL URI in the Azure portal and www.portal.azure.com.
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 WITH (
     TYPE = HADOOP,
-    LOCATION = 'adl://<AzureDataLake account_name>.azuredatalake.net',
+    LOCATION = 'adl://<AzureDataLake account_name>.azuredatalakestore.net',
     CREDENTIAL = ADLCredential
 );
 ```
