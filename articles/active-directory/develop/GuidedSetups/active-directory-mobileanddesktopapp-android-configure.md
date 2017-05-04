@@ -53,17 +53,18 @@ Add the following activity to `manifest\application` node. This registers a Brow
         <action android:name="android.intent.action.VIEW" />
         <category android:name="android.intent.category.DEFAULT" />
         <category android:name="android.intent.category.BROWSABLE" />
-
+        
         <!--Add in your scheme/host from registered redirect URI-->
+        <!--By default, the scheme should be similar to 'msal[appId]' -->
         <data android:scheme="msal[Enter the application Id here]"
             android:host="auth" />
     </intent-filter>
 </activity>
 ```
 <!-- Workaround for Docs conversion bug -->
-<ol start="9">
+<ol start="8">
 <li>
-Replace *[Enter the application Id here]* with the the application ID for the application you just registered in the Application Registration Portal
+In the `BrowserTabActivity`, replace `[Enter the application Id here]` with the application ID.
 </li>
 </ol>
 <!-- End Docs -->

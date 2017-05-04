@@ -41,6 +41,7 @@ final static String CLIENT_ID = "[Enter the application Id here]";
         <category android:name="android.intent.category.BROWSABLE" />
 
         <!--Add in your scheme/host from registered redirect URI-->
+        <!--By default, the scheme should be similar to 'msal[appId]' -->
         <data android:scheme="msal[Enter the application Id here]"
             android:host="auth" />
     </intent-filter>
