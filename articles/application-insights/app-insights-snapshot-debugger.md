@@ -89,6 +89,20 @@ The downloaded snapshot contains any symbol files that were found on your web ap
 
 When your application starts, a separate snapshot uploader process is created that monitors your application for snapshot requests. When a snapshot is requested, a shadow copy of the running process is made in about 10-20 ms. The shadow process is then analyzed and a snapshot is created while the main process continues running and serving traffic to users. The snapshot is then uploaded to Application Insights along with any relevant symbol (.pdb) files needed to view the snapshot.
 
+## Current Limitations
+
+### Publishing Symbols
+The Snapshot Debugger requires that symbol files be present on the production server to decode variables and provide a debugging experience in Visual Studio. The 15.2 release Visual Studio 2017 publishes symbols for Release builds by default when publishing to Azure App Service. In prior versions, you need to add the following line to your publish profile `.pubxml` file so that symbols are published in release mode.
+
+```xml
+    <ExcludeGeneratedDebugSymbol>False</ExcludeGeneratedDebugSymbol>
+```
+
+For Azure Compute and other types, ensure the symbol files are in the same folder of the main application .dll (typically `wwwroot/bin`), or are available on the current path.
+
+### Optimized Builds
+In some cases, local variables are not  viewable in Release builds because of optimizations applied during the build process. This limitation will be fixed in a future release of the NuGet package.
+
 ## Next Steps
 
 * [Diagnose exceptions in your web apps](app-insights-asp-net-exceptions.md) explains how to make more exceptions visible to Application Insights. 
