@@ -33,7 +33,7 @@ Three of the usage blades use the same tool to slice and dice telemetry from you
 
     A custom event represents one occurrence of something happening in your app, often a user interaction like a button click or the completion of some task. You insert code in your app to [generate custom events](app-insights-api-custom-events-metrics.md#trackevent).
 
-![Usage tool](./media/app-insights-usage-segmentation/usage.png)
+![Usage tool](./media/app-insights-usage-segmentation/users.png)
 
 ## Querying for Certain Users 
 

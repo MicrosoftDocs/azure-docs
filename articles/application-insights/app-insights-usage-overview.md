@@ -49,7 +49,7 @@ Insights on the right point out interesting patterns in the set of data.
 * The **Users** report counts the numbers of unique users that access your pages within your chosen time periods. (Users are counted by using cookies. If someone accesses your site with different browsers or client machines, or clears their cookies, then they will be counted more than once.)
 * The **Sessions** report counts the number of user sessions that access your site. A session is a period of activity by a user, terminated by a period of inactivity of more than half an hour.
 
-[More about the Users, Sessions, and Events tools](app-insights-users-segmentation.md)  
+[More about the Users, Sessions, and Events tools](app-insights-usage-segmentation.md)  
 
 ## Page views
 

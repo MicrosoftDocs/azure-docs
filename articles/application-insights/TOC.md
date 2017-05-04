@@ -18,12 +18,13 @@
 ### [Web apps - runtime](app-insights-java-live.md)
 ### [Docker apps](app-insights-docker.md)
 
+## Monitor Node.js apps
+### [Node.js](app-insights-nodejs.md)
 
 ## Monitor web pages
 ### [JavaScript](app-insights-javascript.md)
-
+ 
 ## Monitor other platforms
-### [Node.js apps](app-insights-nodejs.md)
 ### [SharePoint sites](app-insights-sharepoint.md)
 ### [More platforms](app-insights-platforms.md)
 
@@ -87,13 +88,18 @@
 #### [Trends](app-insights-visual-studio-trends.md)
 #### [CodeLens](app-insights-visual-studio-codelens.md)
 
-### Analytics
+### Usage
+#### [Overview](app-insights-usage-overview.md)
+#### [Retention](app-insights-usage-retention.md)
+#### [Users, Sessions, Events](app-insights-usage-segmentation.md)
 
-#### [Overview](app-insights-analytics.md)
-#### [Tour](app-insights-analytics-tour.md)
-#### [Using](app-insights-analytics-using.md)
-#### [Import](app-insights-analytics-import.md)
-#### [Diagnostics](app-insights-analytics-diagnostics.md)
+## Analytics
+
+### [Overview](app-insights-analytics.md)
+### [Tour](app-insights-analytics-tour.md)
+### [Using](app-insights-analytics-using.md)
+### [Import](app-insights-analytics-import.md)
+### [Diagnostics](app-insights-analytics-diagnostics.md)
 
 ## Automate
 
