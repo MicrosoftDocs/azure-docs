@@ -22,15 +22,11 @@ This article shows you how to restore an app in [Azure App Service](../app-servi
 that you have previously backed up (see [Back up your app in Azure](web-sites-backup.md)). You can restore your app
 with its linked databases on-demand to a previous state, or create a new app based on one of
 your original app's backup. Azure App Service supports the following databases for backup and restore:
-- SQL Azure 
-- MySQL
-- PostgreSQL
-
-
-> [!NOTE]
->Learn more about [Azure RDS for MySQL(Preview)](https://azure.microsoft.com/en-us/services/mysql) and [Azure RDS for PostgreSQL(Preview)](https://azure.microsoft.com/en-us/services/mysql) services that is supported by Azure App Service.
-> 
-> 
+- [SQL Database](https://azure.microsoft.com/en-us/services/sql-database/)
+- [Azure Database for MySQL (Preview)](https://azure.microsoft.com/en-us/services/mysql)
+- [Azure Database for PostgreSQL (Preview)](https://azure.microsoft.com/en-us/services/postgres)
+- [ClearDB MySQL](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SuccessBricksInc.ClearDBMySQLDatabase?tab=Overview)
+- [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
 Restoring from backups is available to apps running in **Standard** and **Premium** tier. For information about scaling
 up your app, see [Scale up an app in Azure](web-sites-scale.md). **Premium** tier allows a greater number of daily
@@ -60,8 +56,9 @@ backups to be performed than **Standard** tier.
    > 
    
     You can select **Existing App** to restore the app backup to another app in the same resoure group. Before you use this option,
-    you should have already created another app in your resource group with mirroring database configuration to the one defined
+    you should have already created another app in your resource group with mirroring configuration to the one defined
     in the app backup.
+
 4. Click **OK**.
 
 <a name="StorageAccount"></a>
@@ -80,20 +77,16 @@ backups to be performed than **Standard** tier.
 <a name="OperationLogs"></a>
 
 ## Monitor a restore operation
-1. To see details about the success or failure of the app restore operation, navigate to the **Activity Log** blade in the Azure portal.
-   
-    The **Activity log** blade displays all the operations, along with level, status, resource, and time details.
-2. Scroll down to find the desired restore operation and click to select it.
+To see details about the success or failure of the app restore operation, navigate to the **Activity Log** blade in the Azure portal.  
+ 
+
+Scroll down to find the desired restore operation and click to select it.
 
 The details blade displays the available information related to the restore operation.
 
 ## Next Steps
 You can backup and restore App Service apps using REST API (see [Use REST to back up and restore App Service apps](websites-csm-backup.md)).
 
-> [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
-> 
-> 
 
 <!-- IMAGES -->
 [ChooseRestoreNow]: ./media/web-sites-restore/02ChooseRestoreNow.png
