@@ -19,22 +19,22 @@ ms.author: subramar
 ---
 # Differences between Service Fabric on Linux (preview) and Windows (generally available)
 
-Since Service Fabric on Linux is a preview, there are some features that are supported on Windows, but not on Linux. Eventually, the feature sets will be at parity when Service Fabric on Linux becomes generally available.
+Since Service Fabric on Linux is a preview, there are some features that are supported on Windows, but not yet on Linux. Eventually, the feature sets will be at parity when Service Fabric on Linux becomes generally available.
 
 * Reliable Collections (and Reliable Stateful Services) are not supported on Linux.
-* ReverseProxy isn't available on Linux.
-* Standalone installer isn't available on Linux.
+* ReverseProxy is not available on Linux.
+* Standalone installer is not available on Linux.
 * XML schema validation for manifest files is not performed on Linux. 
-* Console redirection isn't supported on Linux. 
-* The Fault Analysis Service (FAS) isn't available on Linux.
-* Azure Active Directory support isn't available on Linux.
-* Some CLI command equivalents of Powershell commands aren't available.
+* Console redirection is not supported on Linux. 
+* The Fault Analysis Service (FAS) is not available on Linux.
+* Azure Active Directory support is not available on Linux.
+* Some CLI command equivalents of Powershell commands are not available.
 * Only a subset of Powershell commands can be run against a Linux cluster (as expanded in the next section).
 
 >[!NOTE]
->Console redirection isn't supported in production clusters, even on Windows.
+>Console redirection is not supported in production clusters, even on Windows.
 
-The development tooling is different with VisualStudio, Powershell, VSTS, and ETW being used on Windows and Yeoman, Eclipse, Jenkins, and LTTng used on Linux.
+Development tooling is also different between Windows and Linux. VisualStudio, Powershell, VSTS, and ETW are used on Windows while Yeoman, Eclipse, Jenkins, and LTTng are used on Linux.
 
 ## Powershell cmdlets that do not work against a Linux Service Fabric cluster
 

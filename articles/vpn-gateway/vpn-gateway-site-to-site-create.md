@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2017
+ms.date: 04/24/2017
 ms.author: cherylmc
 
 ---
@@ -25,6 +25,7 @@ This article shows you how to use the classic portal to create a Site-to-Site VP
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [Resource Manager - CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Classic - Azure portal](vpn-gateway-howto-site-to-site-classic-portal.md)
 > * [Classic - classic portal](vpn-gateway-site-to-site-create.md)
 > 
