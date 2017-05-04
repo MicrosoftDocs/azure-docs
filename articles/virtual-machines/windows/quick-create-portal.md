@@ -72,6 +72,8 @@ On the virtual machine, start a PowerShell session and run the following command
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
+When done, exit the RDP session and return the VM properties in the Azure portal.
+
 ## Open port 80 for web traffic 
 
 A Network security group (NSG) secures inbound and outbound traffic. When a VM is created from the Azure portal, an inbound rule is created on port 3389 for RDP connections. Because this VM hosts a webserver, an NSG rule needs to be created for port 80.

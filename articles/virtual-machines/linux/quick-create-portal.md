@@ -81,11 +81,14 @@ Use the following bash script to update package sources and install the latest N
 #!/bin/bash
 
 # update package source
-apt-get -y update
+sudo apt-get -y update
 
 # install NGINX
-apt-get -y install nginx
+sudo apt-get -y install nginx
 ```
+
+When done, exit the SSH session and return the VM properties in the Azure portal.
+
 
 ## Open port 80 for web traffic 
 
