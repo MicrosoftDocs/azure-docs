@@ -93,7 +93,7 @@ Perform relevant Azure Site Recovery configuration based on whether the VMs are 
 >
 
 The below snapshot shows the protection status of Dynamics component VMs in ‘VMware site to Azure’ protection scenario.
-![Protected items ](./media/site-recovery-dynamicsax/Protecteditems.png)
+![Protected items ](./media/site-recovery-dynamicsax/protecteditems.png)
 
 ### 4. Configure Networking
 Configure VM Compute and Network Settings
@@ -105,7 +105,7 @@ You can select the VM in the replicated items to configure the network settings 
 * For AOS servers select the correct availability set.
 
 * If you are using a static IP then specify the IP that you want the virtual machine to take in the **Target IP** field 
-![Network Settings ](./media/site-recovery-dynamicsax/VMpropertiesAOS1.png)
+![Network Settings ](./media/site-recovery-dynamicsax/vmropertiesaos1.png)
 
 
 
@@ -119,13 +119,13 @@ You can create a recovery plan in ASR to automate the failover process. Add app 
 
 3)	Select the ‘Source’ and ‘Target’. The target can be Azure or secondary site. In case you choose Azure, you must specify the deployment model 
 	
-![Create Recovery Plan](./media/site-recovery-dynamicsax/Recoveryplancreation1.png)
+![Create Recovery Plan](./media/site-recovery-dynamicsax/recoveryplancreation1.png)
 
 4)	Select the AOS and client VMs to the recovery plan and click ✓.
-![Create Recovery Plan](./media/site-recovery-dynamicsax/SelectVMs.png)
+![Create Recovery Plan](./media/site-recovery-dynamicsax/selectvms.png)
 
 
-![Recovery Plan](./media/site-recovery-dynamicsax/RecoveryPlan.png)
+![Recovery Plan](./media/site-recovery-dynamicsax/recoveryplan.png)
 
 You can customize the recovery plan for Dynamics AX application by adding various steps as detailed below. The above snapshot shows the complete recovery plan after adding all the steps.
 
