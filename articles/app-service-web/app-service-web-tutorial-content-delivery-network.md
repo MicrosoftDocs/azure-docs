@@ -112,7 +112,7 @@ git push azure master
 Once deployment has completed, browse to the web app URL and you see the change.
 
 ```
-http://<appname>.azurewebsites.net/
+http://<appname>.azurewebsites.net/index.html
 ```
 
 ![V2 in title in web app](media/app-service-web-tutorial-content-delivery-network/v2-in-web-app-title.png)
