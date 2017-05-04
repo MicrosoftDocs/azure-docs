@@ -29,7 +29,7 @@
 
 # Reference
 ## [PowerShell](/powershell/module/azurerm.keyvault)
-## [Azure CLI 2.0](/cli/azure/keyvault)
+## [Azure CLI 2](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
 ## Node.js
