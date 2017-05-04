@@ -14,16 +14,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/02/2017
 ms.author: cynthn
 
 ---
 
 # How to use availability sets
 
-In this tutorial, you learn about increasing the availability of your virtual machines (VMs) by putting them into a logical grouping called an availability set. When you create VMs within an availability set, the Azure platform distributes the VMs across the underlying infrastructure. If there is a hardware fault or planned maintenance on the platform, the use of availability sets ensures that at least one VM remains running.
+To protect application workload from downtime during maintenance or hardware fault, virtual machines need to be made highly available. In this tutorial, you learn about increasing the availability of your virtual machines (VMs) by putting them into a logical grouping called availability sets.
 
-The steps in this tutorial can be completed using the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) module.
+This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 ## Availability set overview
 
@@ -33,14 +33,15 @@ Availability sets provide high availability to the VMs. You should also ensure y
 
 ## Create an availability set
 
-You can create an availability set using [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset). In this example, we set both the number of update and fault domains at **2** for the availability set named **myAvailabilitySet** in the **myResourceGroupAvailability** resource group.
+You can create an availability set using [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset). In this example, we set both the number of update and fault domains at *2* for the availability set named *myAvailabilitySet* in the *myResourceGroupAvailability* resource group.
 
 
 ```powershell
 New-AzureRmAvailabilitySet `
-   -Location westus `
+   -Location EastUS `
    -Name myAvailabilitySet `
-   -ResourceGroupName myResourceGroupAvailability -Managed `
+   -ResourceGroupName myResourceGroupAvailability `
+   -Managed `
    -PlatformFaultDomainCount 2 `
    -PlatformUpdateDomainCount 2
 ```
@@ -53,40 +54,88 @@ The hardware in a location is divided in to multiple update domains and fault do
 
 When you create a VM using configuration using [New-AzureRMVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) you specify the availability set using the `-AvailabilitySetId` parameter to specify the ID of the availability set.
 
-Create 2 VMs with [New-AzureRmVM](/powershell/resourcemanager/azurerm.compute/new-azurermvm) in the availability set.
+Create 2 VMs with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) in the availability set.
 
 ```powershell
-$availabilitySet = Get-AzureRmAvailabilitySet -ResourceGroupName myResourceGroupAvailability -Name myAvailabilitySet
+$availabilitySet = Get-AzureRmAvailabilitySet `
+    -ResourceGroupName myResourceGroupAvailability `
+    -Name myAvailabilitySet
 
 $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
 
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAvailability -Location westus `
-     -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+    -Name mySubnet `
+    -AddressPrefix 192.168.1.0/24
+$vnet = New-AzureRmVirtualNetwork `
+    -ResourceGroupName myResourceGroupAvailability `
+    -Location EastUS `
+    -Name MYvNET `
+    -AddressPrefix 192.168.0.0/16 `
+    -Subnet $subnetConfig
 
 for ($i=1; $i -le 2; $i++)
 {
-   $pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroupAvailability -Location westus `
-     -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
+   $pip = New-AzureRmPublicIpAddress `
+        -ResourceGroupName myResourceGroupAvailability `
+        -Location EastUS `
+        -Name "mypublicdns$(Get-Random)" `
+        -AllocationMethod Static `
+        -IdleTimeoutInMinutes 4
 
-   $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP$i  -Protocol Tcp `
-     -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-     -DestinationPortRange 3389 -Access Allow
+   $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
+        -Name myNetworkSecurityGroupRuleRDP$i `
+        -Protocol Tcp `
+        -Direction Inbound `
+        -Priority 1000 `
+        -SourceAddressPrefix * `
+        -SourcePortRange * `
+        -DestinationAddressPrefix * `
+        -DestinationPortRange 3389 `
+        -Access Allow
 
-   $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroupAvailability -Location westus `
-     -Name myNetworkSecurityGroup$i -SecurityRules $nsgRuleRDP
+   $nsg = New-AzureRmNetworkSecurityGroup `
+        -ResourceGroupName myResourceGroupAvailability `
+        -Location EastUS `
+        -Name myNetworkSecurityGroup$i `
+        -SecurityRules $nsgRuleRDP
 
-   $nic = New-AzureRmNetworkInterface -Name myNic$i -ResourceGroupName myResourceGroupAvailability -Location westus `
-     -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+   $nic = New-AzureRmNetworkInterface `
+        -Name myNic$i `
+        -ResourceGroupName myResourceGroupAvailability `
+        -Location EastUS `
+        -SubnetId $vnet.Subnets[0].Id `
+        -PublicIpAddressId $pip.Id `
+        -NetworkSecurityGroupId $nsg.Id
 
    # Here is where we specify the availability set
-   $vm = New-AzureRmVMConfig -VMName myVM$i -VMSize Standard_D1 -AvailabilitySetId $availabilitySet.Id
+   $vm = New-AzureRmVMConfig `
+        -VMName myVM$i `
+        -VMSize Standard_D1 `
+        -AvailabilitySetId $availabilitySet.Id
 
-   $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName myVM$i -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-   $vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest
-   $vm = Set-AzureRmVMOSDisk -VM $vm -Name myOsDisk$i -DiskSizeInGB 128 -CreateOption FromImage -Caching ReadWrite
+   $vm = Set-AzureRmVMOperatingSystem `
+        -VM $vm `
+        -Windows -ComputerName myVM$i `   
+        -Credential $cred `
+        -ProvisionVMAgent `
+        -EnableAutoUpdate
+   $vm = Set-AzureRmVMSourceImage `
+        -VM $vm `
+        -PublisherName MicrosoftWindowsServer `
+        -Offer WindowsServer `
+        -Skus 2016-Datacenter `
+        -Version latest
+   $vm = Set-AzureRmVMOSDisk `
+        -VM $vm `
+        -Name myOsDisk$i `
+        -DiskSizeInGB 128 `
+        -CreateOption FromImage `
+        -Caching ReadWrite
    $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
-   New-AzureRmVM -ResourceGroupName myResourceGroupAvailability -Location westus -VM $vm
+   New-AzureRmVM `
+        -ResourceGroupName myResourceGroupAvailability `
+        -Location EastUS `
+        -VM $vm
 }
 
 ```
