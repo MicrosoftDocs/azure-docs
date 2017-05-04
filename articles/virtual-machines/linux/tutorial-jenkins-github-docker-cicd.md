@@ -196,11 +196,11 @@ az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publi
 
 Open a web browser and enter *http://<publicIpAddress>:1337*. Your Node.js app is displayed and reflects the latest commits in your GitHub fork as follows:
 
-![Running Node.js app](media/tutorial-jenkins-github-docker-CI/CD/running_nodejs_app.png)
+![Running Node.js app](media/tutorial-jenkins-github-docker-cicd/running_nodejs_app.png)
 
 Now make another edit to the *index.js* file in GitHub and commit the change. Wait a few seconds for the job to complete in Jenkins, then refresh your web browser to see the updated version of your app running in a new container as follows:
 
-![Running Node.js app after another GitHub commit](media/tutorial-jenkins-github-docker-CI/CD/another_running_nodejs_app.png)
+![Running Node.js app after another GitHub commit](media/tutorial-jenkins-github-docker-cicd/another_running_nodejs_app.png)
 
 ## Next steps
 In this tutorial, you have learned how to configure Jenkins to pull from a GitHub repo and deploy a Docker container to test your app.
