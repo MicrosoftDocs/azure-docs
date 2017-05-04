@@ -56,7 +56,7 @@ The first step is to create the load balancer. In the Azure portal, open the res
    | Setting | Value |
    | --- | --- |
    | **Name** |A text name representing the load balancer. For example, **sqlLB**. |
-   | **Type** |**Internal** - Most implementations use an internal load balancer. This allows applications within the same virtual network to connect to SQL Server.  </br> **External** - Only if applications will connect to SQL Server through a public internet connect. |
+   | **Type** |**Internal** - Most implementations use an internal load balancer. This allows applications within the same virtual network to connect to the availability group.  </br> **External** - Allows applications to connect to the availability group through a public internet connection. |
    | **Virtual network** |Choose the virtual network that the SQL Servers are in. |
    | **Subnet** |Choose the subnet that the SQL Servers are in. |
    | **IP address assignment** |**Static** |
