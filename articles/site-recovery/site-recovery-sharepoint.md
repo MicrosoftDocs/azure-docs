@@ -28,7 +28,7 @@ Microsoft SharePoint is a powerful application that can help a group or departme
 
 Today, Microsoft SharePoint  does not provide any out-of-the-box disaster recovery capabilities. Regardless of the type and scale of a disaster, recovery involves the use of a standby data center that you can recover the farm to. Standby data centers are required for scenarios where local redundant systems and backups cannot recover from the outage at the primary data center. 
 
-A good disaster recovery solution, should allow modeling of recovery plans around the above complex application architectures and also have the ability to add customized steps to handle application mappings between various tiers hence providing a single-click sure shot solution in the event of a disaster leading to a lower RTO.
+A good disaster recovery solution, should allow modeling of recovery plans around the  complex application architectures such as SharePoint and also have the ability to add customized steps to handle application mappings between various tiers and hence providing a single-click sure shot solution in the event of a disaster leading to a lower RTO.
 
 This article describes in detail how to protect a SharePoint application using [Azure Site Recovery](site-recovery-overview.md). This article will cover best practices for replicating a three tier SharePoint application to Azure, how you can do a disaster recovery drill, and how you can failover the application to Azure. 
 
@@ -59,7 +59,7 @@ SharePoint can be deployed on one or more servers using tiered topologies and se
 
 ## Site Recovery support
 
-For the purpose of creating this article VMware virtual machines with Windows Server 2012 R2 Enterprise were used. SharePoint 2013 Enterprise edition and SQL server 2014 Enterprise edition were used. As site recovery replication is application agnostic, the recommendations provided here are expected to hold on for following scenarios as well. 
+For the purpose of creating this article, VMware virtual machines with Windows Server 2012 R2 Enterprise were used. SharePoint 2013 Enterprise edition and SQL server 2014 Enterprise edition were used. As Site Recovery replication is application agnostic, the recommendations provided here are expected to hold on for following scenarios as well. 
 
 ### Source and target
 
@@ -79,13 +79,13 @@ The below SharePoint server versions are supported.
 
 ### Things to keep in mind
 
-If you are using a shared disk based cluster as the any tier in your application then you will not be able to use site recovery replication to replicate those virtual machines. You can use native replication provided by the application and then use a [recovery plan](site-recovery-create-recovery-plans.md) to failover all tiers.
+If you are using a shared disk based cluster as the any tier in your application then you will not be able to use Site Recovery replication to replicate those virtual machines. You can use native replication provided by the application and then use a [recovery plan](site-recovery-create-recovery-plans.md) to failover all tiers.
 
 ## Replicating virtual machines
 
 Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating the virtual machine to Azure. 
 
-* Once the replication is complete, make sure you go to each virtual machine of each tier and select same availability set in 'replicated item > Settings > Properties > Compute and Network'. For example, if your web tier has 3 VMs, ensure all the 3 VMs are configured to be part of same availability set in Azure.
+* Once the replication is complete, make sure you go to each virtual machine of each tier and select same availability set in 'Replicated item > Settings > Properties > Compute and Network'. For example, if your web tier has 3 VMs, ensure all the 3 VMs are configured to be part of same availability set in Azure.
 
 	![Set Availability Set](./media/site-recovery-sharepoint/Av-Set-Select.png) 
 
@@ -97,7 +97,7 @@ Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating th
 
 ### Network properties
 
-* For the App and Web tier VMs configure network settings in Azure portal so that the VMs get attached to the right DR network after failover. 
+* For the App and Web tier VMs, configure network settings in Azure portal so that the VMs get attached to the right DR network after failover. 
 
 	![Select Network](./media/site-recovery-sharepoint/Network-Select.png) 
 
@@ -147,13 +147,13 @@ You can deploy the most commonly used Azure Site Recovery scripts into your Auto
 
 [![Deploy to Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
-1. Add a pre action script to 'Group 1' to failover SQL. Use the 'ASR-SQL-FailoverAG' script published in the sample scripts. Ensure you follow the guidance in the script to make the required changes appropriately.
+1. Add a pre action script to 'Group 1' to failover SQL Availability group. Use the 'ASR-SQL-FailoverAG' script published in the sample scripts. Ensure you follow the guidance in the script and make the required changes in the script appropriately.
 
 	![Add-AG-Script-Step-1](./media/site-recovery-sharepoint/RP-Add-AG-script-step-1.png) 
 
 	![Add-AG-Script-Step-2](./media/site-recovery-sharepoint/RP-Add-AG-script-step-2.png)
 
-2. Add a post action script to attach a load balancer on the failed over virtual machines of Web tier (Group 2). Use the 'ASR-AddSingleLoadBalancer' script published in the sample scripts. Ensure you follow the guidance in the script to make the required changes appropriately.
+2. Add a post action script to attach a load balancer on the failed over virtual machines of Web tier (Group 2). Use the 'ASR-AddSingleLoadBalancer' script published in the sample scripts. Ensure you follow the guidance in the script and make the required changes in the script appropriately.
 
     ![Add-LB-Script-Step-1](./media/site-recovery-sharepoint/RP-Add-LB-script-step-1.png)
 
@@ -172,7 +172,6 @@ You can deploy the most commonly used Azure Site Recovery scripts into your Auto
 	* Now that the SharePoint farm is running, navigate the Central Administration, Backup and Restore and select Restore. The restore will interrogate the backup location specified (you may need to update the value). Select the Search Service Application backup you would like to restore.
 	* Search will be restored. Keep in mind that the restore expect to find the same topology (same number of servers) and same hard drive letters assigned to those servers. For more information refer to ['Restore Search service application in SharePoint 2013'](https://technet.microsoft.com/library/ee748654.aspx) document.
 
-	
 	####Start with a new Search Service Application
 	* This method assumes that a backup of the “Search Administration” database is available at the DR site. 
 	* Since the other Search Service Application databases are not replicated, they will need to be re-created. To do so, navigate to Central Administration and delete the Search Service Application. On any servers which host the Search Index, delete the index files.
