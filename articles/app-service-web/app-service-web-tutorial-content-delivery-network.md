@@ -202,7 +202,7 @@ git commit -am "version 3"
 git push azure master
 ```
 
-In a browser, go to the CDN endpoint URL with a new query string such as `q=2`. The CDN gets the current `index.html` file and displays "V3".  But if you navigate to the CDN endpoint with the the `q=1` query string, you see "V2".
+In a browser, go to the CDN endpoint URL with a new query string such as `q=2`. The CDN gets the current `index.html` file and displays "V3".  But if you navigate to the CDN endpoint with the `q=1` query string, you see "V2".
 
 ```
 http://<endpointname>.azureedge.net/index.html?q=2
