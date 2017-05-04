@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [What is Site Recovery?](site-recovery-overview.md)
 ## [How does Site Recovery work?](site-recovery-components.md)
 ## [How does Hyper-V replication to Azure work?](site-recovery-hyper-v-azure-architecture.md)
@@ -19,7 +19,7 @@
 # How To
 ## Plan
 ### [Deployment prerequisites](site-recovery-prereq.md)
-### [Network infrastructure considerations](site-recovery-network-design.md)
+### [Plan network infrastructure](site-recovery-network-design.md)
 ### [Plan capacity and scale VMware replication to Azure](site-recovery-plan-capacity-vmware.md)
 ### [Deployment Planner for VMware replication to Azure](site-recovery-deployment-planner.md)
 ### [Capacity Planner for Hyper-V replication](site-recovery-capacity-planner.md)
@@ -32,7 +32,7 @@
 #### [Deploy the Mobility service with System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
 #### [Deploy the Mobility service with Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
 ### [Enable replication](site-recovery-replicate-vmware-to-azure.md)
-## Failover and failback
+## Fail over and fail back
 ### [Fail over protected machines](site-recovery-failover.md)
 ### [Set up recovery plans](site-recovery-create-recovery-plans.md)
 #### [Add Azure runbooks to recovery plans](site-recovery-runbook-automation.md)
@@ -67,8 +67,8 @@
 ## [Monitor and troubleshoot](site-recovery-monitoring-and-troubleshooting.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)
-## [PowerShell classic](/powershell/servicemanagement/azure.siterecovery/v3.1.0/azure.siterecovery)
+## [PowerShell](/powershell/module/azurerm.siterecovery)
+## [PowerShell classic](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [REST](https://msdn.microsoft.com/en-us/library/mt750497)
 
 # Related

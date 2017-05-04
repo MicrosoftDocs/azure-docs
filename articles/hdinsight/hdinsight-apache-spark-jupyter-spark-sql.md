@@ -122,7 +122,7 @@ In this article, you use the **PySpark** kernel. For more information about the 
 		# Create a data frame
 		hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
 
-		# Register the data fram as a table to run queries against
+		# Register the data frame as a table to run queries against
 		hvacdf.registerTempTable("hvac")
 
     Spark clusters in HDInsight come with a sample data file, **hvac.csv**, under **\HdiSamples\HdiSamples\SensorSampleData\hvac**.
@@ -149,7 +149,7 @@ In this article, you use the **PySpark** kernel. For more information about the 
 Here are some common issues that you might run into while working with HDInsight clusters.
 
 ### Access control requirements
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+If you run into an issue with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## Delete the cluster
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]

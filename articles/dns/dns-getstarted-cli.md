@@ -37,7 +37,7 @@ These instructions assume you have already installed and signed in to Azure CLI 
 Before creating the DNS zone, a resource group is created to contain the DNS Zone. The following shows the command.
 
 ```azurecli
-az resource group create --name MyResourceGroup --location "West US"
+az group create --name MyResourceGroup --location "West US"
 ```
 
 ## Create a DNS zone

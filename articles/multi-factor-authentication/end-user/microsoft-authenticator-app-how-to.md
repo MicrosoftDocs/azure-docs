@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2017
+ms.date: 04/25/2017
 ms.author: kgremban
 
 ms.custom: H1Hack27Feb2017, end-user
@@ -40,7 +40,7 @@ For a personal Microsoft account (one that you use to sign in to Outlook.com, Xb
 
 ### Add a work or school account to the app using the QR code scanner
 1. Go to the security verification settings screen.  For information on how to get to this screen, see [Changing your security settings](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page).
-2. Check the box next to **Azure Authenticator app** then select **Configure**.
+2. Check the box next to **Authenticator app** then select **Configure**.
 
     ![The Configure button on the security verification settings screen](./media/authenticator-app-how-to/azureauthe.png)
 

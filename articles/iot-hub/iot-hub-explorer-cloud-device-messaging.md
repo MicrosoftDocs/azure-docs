@@ -20,6 +20,8 @@ ms.author: xshi
 ---
 # Use iothub-explorer to send and receive messages between your device and IoT Hub
 
+![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/2.png)
+
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 [iothub-explorer](https://github.com/azure/iothub-explorer) has a handful of commands that makes IoT Hub management easier. This tutorial focuses on how to use iothub-explorer to send and receive messages between your device and your IoT hub.

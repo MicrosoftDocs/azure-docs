@@ -10,6 +10,7 @@
 #### [.NET](iot-hub-csharp-csharp-getstarted.md)
 #### [Java](iot-hub-java-java-getstarted.md)
 #### [Node.js](iot-hub-node-node-getstarted.md)
+#### [Python](iot-hub-python-getstarted.md)
 
 ### Use a simulated gateway 
 #### [Simulation on Linux](iot-hub-linux-gateway-sdk-get-started.md)
@@ -80,6 +81,7 @@
 ### Use direct methods
 #### [Node.js back end/Node.js device](iot-hub-node-node-direct-methods.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-direct-methods.md)
+#### [Java back end/Java device](iot-hub-java-java-direct-methods.md)
 ### Get started with device management
 #### [Node.js back end/Node.js device](iot-hub-node-node-device-management-get-started.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-device-management-get-started.md)
@@ -104,6 +106,7 @@
 ### Configure file upload
 #### [Use the portal](iot-hub-configure-file-upload.md)
 #### [Use PowerShell](iot-hub-configure-file-upload-powershell.md)
+#### [Use CLI 2.0](iot-hub-configure-file-upload-cli.md)
 ### [Bulk manage IoT devices](iot-hub-bulk-identity-mgmt.md)
 ### [Usage metrics](iot-hub-metrics.md)
 ### [Operations monitoring](iot-hub-operations-monitoring.md)

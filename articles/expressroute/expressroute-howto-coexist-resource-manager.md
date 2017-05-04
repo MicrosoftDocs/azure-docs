@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Configure ExpressRoute and Site-to-Site VPN connections that can coexist: Resource Manager: Azure | Microsoft Docs'
 description: This article walks you through configuring ExpressRoute and a Site-to-Site VPN connection that can coexist for Resource Manager model.
 documentationcenter: na
@@ -75,7 +75,7 @@ There are two different sets of procedures to choose from. The configuration pro
 ## <a name="new"></a>To create a new virtual network and coexisting connections
 This procedure walks you through creating a VNet and Site-to-Site and ExpressRoute connections that will coexist.
 
-1. Install the latest version of the Azure PowerShell cmdlets. For information about installing the cmdlets, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). The cmdlets that you use for this configuration may be slightly different than what you might be familiar with. Be sure to use the cmdlets specified in these instructions.
+1. Install the latest version of the Azure PowerShell cmdlets. For information about installing the cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview). The cmdlets that you use for this configuration may be slightly different than what you might be familiar with. Be sure to use the cmdlets specified in these instructions.
 2. Log in to your account and set up the environment.
 
   ```powershell
@@ -175,7 +175,7 @@ If the gateway subnet is /27 or larger and the virtual network is connected via 
 > 
 > 
 
-1. You'll need to install the latest version of the Azure PowerShell cmdlets. For more information about installing cmdlets, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). The cmdlets that you use for this configuration may be slightly different than what you might be familiar with. Be sure to use the cmdlets specified in these instructions. 
+1. You'll need to install the latest version of the Azure PowerShell cmdlets. For more information about installing cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview). The cmdlets that you use for this configuration may be slightly different than what you might be familiar with. Be sure to use the cmdlets specified in these instructions. 
 2. Delete the existing ExpressRoute or Site-to-Site VPN gateway.
 
   ```powershell 
