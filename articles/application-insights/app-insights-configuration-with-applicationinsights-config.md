@@ -138,6 +138,8 @@ The standard initializers are all set either by the Web or WindowsServer NuGet p
 * `WebTestTelemetryInitializer` sets the user id, session id and synthetic source properties for HTTP requests that come from [availability tests](app-insights-monitor-web-app-availability.md).
   The `<Filters>` set identifying properties of the requests.
 
+For .NET applications running in Service Fabric you can include the `Microsoft.ApplicationInsights.ServiceFabric` NuGet package. This package includes a `FabricTelemetryInitializer` which adds Service Fabric properties to telemetry items. See the [GitHub page](https://go.microsoft.com/fwlink/?linkid=848457) for more information about the properties added by this NuGet package.
+
 ## Telemetry Processors (ASP.NET)
 Telemetry processors can filter and modify each telemetry item just before it is sent from the SDK to the portal.
 
