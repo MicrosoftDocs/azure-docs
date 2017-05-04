@@ -191,6 +191,8 @@ In the example screenshot, you click **Add** to create a record. Some providers 
 >
 >
 
+<a name="create-a"></a>
+
 ### Create the A record
 
 To map an A record to your app, App Service actually requires **two** DNS records:
@@ -340,4 +342,5 @@ For more information, see [Assign a custom domain to a web app](scripts/app-serv
 
 ## More resources
 
+[Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
 [Configure an App Service domain in Azure App Service](custom-dns-web-site-buydomains-web-app.md)
