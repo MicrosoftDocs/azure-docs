@@ -1,7 +1,7 @@
 ---
-title: DocumentDB Automation - Resource Manager - Azure CLI 1.0 | Microsoft Docs
-description: Use Azure Resource Manager templates or CLI to deploy an Azure Cosmos DB database account. DocumentDB is a cloud-based NoSQL database for JSON data.
-services: documentdb
+title: Azure Cosmos DB Automation - Resource Manager - Azure CLI 1.0 | Microsoft Docs
+description: Use Azure Resource Manager templates or CLI to deploy an Azure Cosmos DB database account. Azure Cosmos DB is a cloud-based NoSQL database for JSON data.
+services: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: ''
@@ -9,7 +9,7 @@ tags: azure-resource-manager
 documentationcenter: ''
 
 ms.assetid: eae5eec6-0e27-442c-abfc-ef6b7fd3f8d2
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
