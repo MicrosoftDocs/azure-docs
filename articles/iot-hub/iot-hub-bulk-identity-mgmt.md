@@ -116,6 +116,22 @@ The following example shows the output data:
 {"id":"Device5","eTag":"MA==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"abc=","secondaryKey":"def="}}}
 ```
 
+If a device has twin data, then the twin data will also be exported together with the device data. The following example shows this. All data from the "twinETag" line until the end are twin data.
+```
+{
+  "id":"export-6d84f075-0",
+  "eTag":"MQ==",
+  "status":"enabled",
+  "statusReason":"firstUpdate",
+  "authentication":null,
+  "twinETag":"AAAAAAAAAAI=",
+  "tags":{"Location":"LivingRoom"},
+  "properties":{
+  "desired":{"Thermostat":{"Temperature":75.1,"Unit":"F"},"$metadata":{"$lastUpdated":"2017-03-09T18:30:52.3167248Z","$lastUpdatedVersion":2,"Thermostat":{"$lastUpdated":"2017-03-09T18:30:52.3167248Z","$lastUpdatedVersion":2,"Temperature":{"$lastUpdated":"2017-03-09T18:30:52.3167248Z","$lastUpdatedVersion":2},"Unit":{"$lastUpdated":"2017-03-09T18:30:52.3167248Z","$lastUpdatedVersion":2}}},"$version":2},
+  "reported":{"$metadata":{"$lastUpdated":"2017-03-09T18:30:51.1309437Z"},"$version":1}}
+}
+```
+
 If you need access to this data in code, you can easily deserialize this data using the **ExportImportDevice** class. The following C# code snippet shows how to read device information that was previously exported to a block blob:
 
 ```csharp
@@ -165,6 +181,8 @@ The following C# code snippet shows how to initiate an import job:
 ```csharp
 JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 ```
+
+This method can also be used to import the data for the device twin. The format for the data input is the same as what was shown in the section for **ExportDevicesAsync**. This way, the exported data can also be re-imported. The $metadata is optional.
 
 ## Import behavior
 
