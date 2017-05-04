@@ -30,22 +30,44 @@ This article will show you how to perform common scenarios using Microsoft Azure
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## Import the Azure Storage iOS library into your application
-You can import the Azure Storage iOS library into your application either by using the [Azure Storage CocoaPod](https://cocoapods.org/pods/AZSClient) or by importing the **Framework** file.
+You can import the Azure Storage iOS library into your application either by using the [Azure Storage CocoaPod](https://cocoapods.org/pods/AZSClient) or by importing the **Framework** file. CocoaPod is the recommended way as it makes integrating the library easier, however importing from the framework file is less intrusive.
 
 ## CocoaPod
 1. If you haven't done so already, [Install CocoaPods](https://guides.cocoapods.org/using/getting-started.html#toc_3) on your computer by opening a terminal window and running the following command
-   
-    sudo gem install cocoapods
+
+```shell   
+sudo gem install cocoapods
+```
 
 2. Next, in the project directory (the directory containing your .xcodeproj file), create a new file called _Podfile_(no file extension). Add the following to _Podfile_ and save.
    
-    pod 'AZSClient'
+```ruby
+platform :ios, '8.0'
+
+target 'TargetName' do 
+  use_frameworks!
+  pod 'AZSClient'
+end
+```
 
 3. In the terminal window, navigate to the project directory and run the following command
-   
-    pod install
+
+```shell    
+pod install
+```
 
 4. If your .xcodeproj is open in Xcode, close it. In your project directory open the newly created project file which will have the .xcworkspace extension. This is the file you'll work from for now on.
+
+5. Import statement:
+
+```objc
+// Include the following import statement to use blob APIs.
+#import <AZSClient/AZSClient.h>
+```
+
+```swift
+import AZSClient
+```
 
 ## Framework
 In order to use the Azure Storage iOS library, you will first need to build the framework file.
@@ -58,21 +80,25 @@ In order to use the Azure Storage iOS library, you will first need to build the 
 You can then import the framework file into your application by doing the following:
 
 1. Create a new project or open up your existing project in Xcode.
-2. Click on your project in the left-hand navigation and click the *General* tab at the top of the project editor.
-3. Under the *Linked Frameworks and Libraries* section, click the Add button (+).
-4. Click *Add Other...*. Navigate to and add the `AZSClient.framework` file you just created.
-5. Under the *Linked Frameworks and Libraries* section, click the Add button (+) again.
-6. In the list of libraries already provided, search for `libxml2.2.dylib` and add it to your project.
-7. Click the *Build Settings* tab at the top of the project editor.
-8. Under the *Search Paths* section, double-click *Framework Search Paths* and add the path to your `AZSClient.framework` file.
+2. Drag&Drop the `AZSClient.framework` into your Xcode project navigator.
+3. Select *Copy items if needed*, and click on "Finish".
+4. Click on your project in the left-hand navigation and click the *General* tab at the top of the project editor.
+5. Under the *Linked Frameworks and Libraries* section, click the Add button (+).
+6. In the list of libraries already provided, search for `libxml2.2.tbd` and add it to your project.
 
-## Import Statement
-You will need to include the following import statement in the file where you want to invoke the Azure Storage API.
+Finally, if you are using Objective-C, you should put the import statement in the file where you want to invoke the Azure Storage API:
 
 ```objc
 // Include the following import statement to use blob APIs.
 #import <AZSClient/AZSClient.h>
 ```
+
+However, if you using Swift, then you will need to create a bridging header:
+1. Create a header file "Bridging-Header.h", and add the above import statement.
+2. Go to the *Build Settings* tab, and search for `Objective-C Bridging Header`.
+3. Double click on the field of `Objective-C Bridging Header` and add the path to your header file: `ProjectName/Bridging-Header.h`
+4. Build the project (⌘+B) to verify that the briding header was picked up by Xcode.
+5. Start using the framework directly in any Swift file, there is no need for import statements.
 
 [!INCLUDE [storage-mobile-authentication-guidance](../../includes/storage-mobile-authentication-guidance.md)]
 
@@ -149,7 +175,7 @@ The following example shows you how to create a container with **Container** acc
 ```
 
 ## Upload a blob into a container
-As mentioned in the [Blob service concepts](#blob-service-concepts) section, Blob Storage offers three different types of blobs: block blobs, append blobs, and page blobs. At this moment, the Azure Storage iOS library only supports block blobs. In the majority of cases, block blob is the recommended type to use.
+As mentioned in the [Blob service concepts](#blob-service-concepts) section, Blob Storage offers three different types of blobs: block blobs, append blobs, and page blobs. The Azure Storage iOS library supports all three types of blobs. In the majority of cases, block blob is the recommended type to use.
 
 The following example shows how to upload a block blob from an NSString. If a blob with the same name already exists in this container, the contents of this blob will be overwritten.
 
