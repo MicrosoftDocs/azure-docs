@@ -3,7 +3,7 @@ title: Monitor availability and responsiveness of any web site | Microsoft Docs
 description: Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: SoubhagyaDash
 manager: carmonm
 
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/26/2017
-ms.author: sdash
+ms.author: awills
 
 ---
 # Monitor availability and responsiveness of any web site
@@ -68,13 +68,15 @@ Add more tests. For example, In addition to testing your home page, you can make
 ## <a name="monitor"></a>3. See your availability test results
 
 After a few minutes, click **Refresh** to see test results. 
+
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary-3.png)
 
-The scatterplot shows samples of the test results that have diagnostic test-step detail in them. The test engine stores diagnostic detail for tests that have failures. For successful tests, diagnostic details are stored for a subset of the executions. You can mouse-over any of the green/red dots to see the test timestamp, test duration, location, and test name. You can click through any dot in the scatter plot to see the details of the test result. The aggregate availability percentage, average test duration, total number of successful, and failed tests are under the scatterplot.  
+The scatterplot shows samples of the test results that have diagnostic test-step detail in them. The test engine stores diagnostic detail for tests that have failures. For successful tests, diagnostic details are stored for a subset of the executions. Hover over any of the green/red dots to see the test timestamp, test duration, location, and test name. Click through any dot in the scatter plot to see the details of the test result.  
 
 Select a particular test, location, or reduce the time period to see more results around the time period of interest. Use Search Explorer to see results from all executions, or use Analytics queries to run custom reports on this data.
 
 In addition to the raw results, there are two Availability metrics in Metrics Explorer: 
+
 1. Availability: Percentage of the tests that were successful, across all test executions. 
 2. Test Duration: Average test duration across all test executions.
 

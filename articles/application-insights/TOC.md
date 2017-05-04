@@ -152,14 +152,14 @@
 ## News
 
 ### [Blog](https://azure.microsoft.com/blog/tag/application-insights/)
-### [Service updates](https://azure.microsoft.com/en-us/updates/?product=application-insights) 
+### [Service updates](https://azure.microsoft.com/updates/?product=application-insights) 
 ### [SDK release notes](app-insights-release-notes.md)
 ### [Release notes for Developer Analytics Tools](app-insights-release-notes-vsix.md)
 
 ## [FAQ](app-insights-troubleshoot-faq.md)
 
 ## Help
-### [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
+### [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=ApplicationInsights)  
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
 ### [User Voice](https://visualstudio.uservoice.com/forums/357324-application-insights)
 ### [Support](https://azure.microsoft.com/support/)

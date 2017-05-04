@@ -52,7 +52,7 @@ Hover in the blank part above a graph to see the counts at a particular point. O
 What do these charts show?
 
 * **Users:** The count of distinct active users over the time range of the chart. In web applications, users are counted by using cookies. A person who uses several browsers, clears cookies, or uses the privacy feature will be counted several times.
-* **Authenticated users** are counted if you have inserted a call to [setAuthenticatedUser()](app-insights-api-custom-events-metrics.md#authenticated-users) in your code.
+* **Authenticated users** are counted if you have inserted a call to [setAuthenticatedUser()](app-insights-api-custom-events-metrics.md#authenticated-users) in your code when a user logs in.
 * **Sessions:** The count of active sessions. A web session is counted after 30 minutes of inactivity. 
 * **Page views** Counts the number of calls to trackPageView(), typically called once in each web page.
 
