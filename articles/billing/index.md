@@ -97,6 +97,7 @@ Learn how to understand your Azure billing, and monitor usage and costs. Tutoria
                     <div class="cardText">
                         <h3>Other</h3>
                         <p><a href="https://docs.microsoft.com/azure/billing-usage-rate-card-overview">API Overview</a></p>
+                        <p><a href="https://docs.microsoft.com/azure/billing/billing-enterprise-api">Enterprise Reporting API Overview</a></p>
                         <p><a href="https://docs.microsoft.com/azure/billing-usage-rate-card-partner-solution-cloudcruiser">Partner solution: Cloud Cruiser</a></p>
                         <p><a href="https://docs.microsoft.com/azure/billing-usage-rate-card-partner-solution-cloudyn">Partner solution: Cloudyn</a></p>
                     </div>
