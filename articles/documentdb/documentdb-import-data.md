@@ -565,4 +565,4 @@ Then, choose whether to log all, critical, or no error messages. Finally, decide
     ![Screenshot of DocumentDB JSON export option](./media/documentdb-import-data/newimport.png)
 
 ## Next steps
-Once you've imported data into Azure Cosmos DB, the next thing to do is [Query](../documentdb/documentdb-sql-query.md) your data, review your data in [Data Explorer](documentdb-view-json-document-explorer.md#create-a-document-by-using-data-explorer-preview) in the Azure portal, and [globally replicate](documentdb-distribute-data-globally) it so that it's closest to your users.
+Once you've imported data into Azure Cosmos DB, the next thing to do is [Query](../documentdb/documentdb-sql-query.md) your data, review your data in [Data Explorer](documentdb-view-json-document-explorer.md#create-a-document-by-using-data-explorer-preview) in the Azure portal, and [globally replicate](documentdb-distribute-data-globally.md) it so that it's closest to your users.
