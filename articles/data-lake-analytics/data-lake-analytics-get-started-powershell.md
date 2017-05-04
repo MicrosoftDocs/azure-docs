@@ -63,33 +63,19 @@ You must have a Data Lake Analytics account before you can run any jobs. To crea
             -ResourceGroupName $resourceGroupName `
             -Name $dataLakeAnalyticsName  
 
-## Upload data to Data Lake
-In this tutorial, you will process some search logs.  The search log can be stored in either Data Lake store or Azure Blob storage.
+## Upload data to Data Lake Store
 
-A sample search log file has been copied to a public Azure Blob container. Use the following PowerShell script to download the file to your workstation, and then upload the file to the default Data Lake Store account of your Data Lake Analytics account.
+```
+Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "D:\SearchLog.tsv" -Destination "/Samples/Data/SearchLog.tsv"
+```
 
-    $dataLakeStoreName = "<The default Data Lake Store account name>"
+## Getting the Default Data Lake Store account for a Data Lake Analytics Account
 
-    $localFolder = "C:\Tutorials\Downloads\" # A temp location for the file.
-    $storageAccount = "adltutorials"  # Don't modify this value.
-    $container = "adls-sample-data"  #Don't modify this value.
-
-    # Create the temp location    
-    New-Item -Path $localFolder -ItemType Directory -Force
-
-    # Download the sample file from Azure Blob storage
-    $context = New-AzureStorageContext -StorageAccountName $storageAccount -Anonymous
-    $$blobs = Get-AzureStorageBlob -Container $container -Context $context
-    $blobs | Get-AzureStorageBlobContent -Context $context -Destination $localFolder
-
-    # Upload the file to the default Data Lake Store account    
-    Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path $localFolder"SearchLog.tsv" -Destination "/Samples/Data/SearchLog.tsv"
-
-The following PowerShell script shows you how to get the default Data Lake Store name for a Data Lake Analytics account:
-
-    $dataLakeAnalyticsAccount = Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticsName
-    $dataLakeStoreName = $dataLakeAnalyticsAccount.Properties.DefaultDataLakeStoreAccount
-    echo $dataLakeStoreName
+```
+$dataLakeAnalyticsAccount = Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticsName
+$dataLakeStoreName = $dataLakeAnalyticsAccount.Properties.DefaultDataLakeStoreAccount
+echo $dataLakeStoreName
+```
 
 ## Submit Data Lake Analytics jobs
 The Data Lake Analytics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
@@ -119,7 +105,7 @@ USING Outputters.Csv();
 2. Run the following script:
 
 ```
-$usqlScript = "c:\tutorials\data-lake-analytics\copyFile.usql"
+$usqlScript = "c:\script.usql"
 
 $job = Submit-AzureRmDataLakeAnalyticsJob -Name "convertTSVtoCSV" -AccountName $dataLakeAnalyticsName –ScriptPath $usqlScript
 
@@ -128,20 +114,17 @@ Wait-AdlJob -Account $dataLakeAnalyticsName -JobId $job.JobId
 Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId
 ```
 
-In the script, the U-SQL script file is stored at c:\tutorials\data-lake-analytics\copyFile.usql. Update the file path accordingly.
 
 After the job is completed, you can use the following cmdlets to list the file, and download the file:
 
 ```
-$destFile = "C:\tutorials\data-lake-analytics\SearchLog-from-Data-Lake.csv"
+$destFile = "c:\SearchLog-from-Data-Lake.csv"
 
 $dataLakeStoreAccount = Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName
-
 $dataLakeStoreName = $dataLakeStoreAccount.Properties.DefaultDataLakeAccount
-
 Get-AzureRmDataLakeStoreChildItem -AccountName $dataLakeStoreName -path "/Output"
-
 Export-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "/Output/SearchLog-from-Data-Lake.csv" -Destination $destFile
+
 ```
 
 ## See also
