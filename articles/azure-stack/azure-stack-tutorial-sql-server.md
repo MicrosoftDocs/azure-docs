@@ -75,5 +75,5 @@ You can now use the new SQL database with your cloud-native apps, websites, and 
 ## Next steps
 
 > [!NEXT]
-> Now that you've create an offer to let users create SQL databses, you can also [make web, mobile, and API apps available to them]( azure-stack-tutorial-app-service.md)
+> Now that you've created an offer to let users create SQL databases, you can also [make web, mobile, and API apps available to them]( azure-stack-tutorial-app-service.md)
 
