@@ -20,9 +20,9 @@ ms.author: cynthn
 
 # Create a custom image of an Azure VM using the CLI
 
-In this tutorial, you will learn how to define your own custom image of an Azure virtual machine. Custom images enable you to create VMs using an image that you have already configured. Custom images can be used to bootstrap the pre-loading of binaries and applications, application configurations, VM data disk definitions, and other OS configurations. When creating a custom image, the VM you customize plus all attached disks will be included in the image.
+Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. In this tutorial, you learn how to create your own custom image of an Azure virtual machine.
 
-The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Before you begin
 

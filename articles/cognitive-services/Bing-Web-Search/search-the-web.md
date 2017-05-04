@@ -127,7 +127,7 @@ For details about the image answer and images, see [Image Search API](../bing-im
 
 ### Related searches answer
 
-The [relatedSearches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#relatedsearches) answer contains a list of the most popular related queries made by other users. Each [query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#query_obj) in the list includes a query string (`text`), a query string with hit highlighting characters (`displayText`), and a URL (`webSearchUrl`) to Bing's search results page for that query.
+The [relatedSearches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#searchresponse-relatedsearches) answer contains a list of the most popular related queries made by other users. Each [query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#query_obj) in the list includes a query string (`text`), a query string with hit highlighting characters (`displayText`), and a URL (`webSearchUrl`) to Bing's search results page for that query.
 
 ```
         {
@@ -148,7 +148,7 @@ The following shows an example of the related queries usage in Bing.com.
 
 ### Videos answer
 
-The [videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-videos-api-v5-reference#videos) answer contains a list of videos that Bing thought were relevant to the query. Each [video](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#video) in the list includes the URL of the video, its duration, its dimensions, and its encoding format. The video object also includes the URL of a thumbnail of the video and the thumbnail's dimensions.
+The [videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#videos) answer contains a list of videos that Bing thought were relevant to the query. Each [video](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#video) in the list includes the URL of the video, its duration, its dimensions, and its encoding format. The video object also includes the URL of a thumbnail of the video and the thumbnail's dimensions.
 
 ```
         {
