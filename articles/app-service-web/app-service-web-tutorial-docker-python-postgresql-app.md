@@ -18,7 +18,7 @@ ms.author: berndverst
 
 ---
 # Build a Docker Python and PostgreSQL web app in Azure
-This tutorial shows you how to create a basic Docker container based Python web app in Azure and connect it to a PostgreSQL database. When you are done, you will have a Python Flask application running within a Docker container on [Azure App Service Web Apps](app-service-web-overview.md).
+This tutorial shows you how to create a basic Docker Python web app in Azure. You will also connect this app to a PostgreSQL database. When you are done, you will have a Python Flask application running within a Docker container on [Azure App Service Web Apps](app-service-web-overview.md).
 
 ![Docker Python Flask app in Azure App Service](./media/app-service-web-tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
@@ -109,7 +109,7 @@ To stop the Flask server at anytime, type `Ctrl`+`C` in the terminal.
 
 ## Create a production PostgreSQL database
 
-In this step, you create a PostgreSQL database in Azure. When your app is deployed to Azure, we will specify this database for its production workload.
+In this step, you create a PostgreSQL database in Azure. When your app is deployed to Azure, we specify this database for its production workload.
 
 ### Log in to Azure
 
@@ -135,13 +135,13 @@ To see what possible values you can use for `--location`, use the `az appservice
 
 Create a PostgreSQL account with the [az postgres server create](/cli/azure/documentdb#create) command.
 
-In the following command, substitute your own unique PostgreSQL name where you see the `<postgresql_name>` placeholder. This unique name will be used as the part of your PostgreSQL endpoint (`https://<postgresql_name>.documents.azure.com/`), so the name needs to be unique across all PostgreSQL accounts in Azure. 
+In the following command, substitute your own unique PostgreSQL name where you see the `<postgresql_name>` placeholder. This unique name is used as part of your PostgreSQL endpoint (`https://<postgresql_name>.documents.azure.com/`), so the name needs to be unique across all PostgreSQL accounts in Azure. 
 
 ```azurecli
 az postgres server create --resource-group myResourceGroup --name <postgresql_name> --admin-user <my_admin_username>
 ```
 
-The `--admin-user` is required to create the intial database admin user account. You will be prompted to pick a password for this user.
+The `--admin-user` is required to create the initial database admin user account. You are prompted to pick a password for this user.
 
 When the PostgreSQL account is created, the Azure CLI shows information similar to the following example:
 
@@ -171,7 +171,7 @@ When the PostgreSQL account is created, the Azure CLI shows information similar 
 
 ### Creating a firewall rule for the PostgreSQL database
 
-Before we can access the database we must now allow it to be reached from all IP addresses. This can be done via the following Azure CLI command.
+Before we can access the database, we must now allow it to be reached from all IP addresses. This can be done via the following Azure CLI command:
 
 ```azurecli
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=255.255.255.255 --name AllowAllIPs
@@ -192,13 +192,13 @@ When the firewall has been created, the Azure CLI confirms the rules presence as
 
 ## Connect your Python Flask application to the database
 
-In this step, you connect your Python Flask sample application to the PostgreSQL database you just created.
+In this step, you connect your Python Flask sample application to the PostgreSQL database you created.
 
 ### Creating an empty database and setting up a new database application user
 
-Instead of giving our application full access to the server via our admin credentials, we will create a new database user with access to a single database only.
+We create a new database user with access to a single database only. This step avoids giving our application full access to the server via our admin credentials.
 
-Connect to the database (you will be prompted for your admin password).
+Connect to the database (you are prompted for your admin password).
 ```bash
 psql -h <postgresql_name>.database.windows.net -U <my_admin_username>@<postgresql_name> postgres
 ```
@@ -236,14 +236,14 @@ Navigate to `http://127.0.0.1:5000` in a browser. Click **Register!** and try to
 
 ### Running the application from a Docker Container
 
-We will now build the Docker container image and locally run the application from within a Docker container while still connecting to the PostgreSQL production database in Azure.
+We now build the Docker container image and locally run the application from within a Docker container while still connecting to the PostgreSQL production database in Azure.
 
 ```bash
 cd ..
 docker build -t flask-postgresql-sample .
 ```
 
-Docker will display a confirmation that it successfully created the container.
+Docker displays a confirmation that it successfully created the container.
 
 ```
 Successfully built 7548f983a36b
@@ -258,13 +258,13 @@ DBNAME="eventregistration"
 DBPASS="supersecretpass"
 ```
 
-We will now run the app from within the Docker container. We specify the environment variable file and map the default Flask port 5000 to our local port 5000.
+We now run the app from within the Docker container. We specify the environment variable file and map the default Flask port 5000 to our local port 5000.
 
 ```bash
 docker run -it --env-file db.env -p 5000:5000 flask-postgresql-sample
 ```
 
-Not surpringly, the output is similar as before. However, the initial database migration no longer needs to be performed and therefore is skipped.
+Not surprisingly, the output is similar as before. However, the initial database migration no longer needs to be performed and therefore is skipped.
 ```
 INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
 INFO  [alembic.runtime.migration] Will assume transactional DDL.
