@@ -13,7 +13,7 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/04/2017
 ms.author: pratshar
 
 ---
@@ -105,7 +105,8 @@ Here's what you need to do:
 	[![Deploy to Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 
-1. Add ASR-SQL-FailoverAG as a pre action of the first group of the recovery plan 
+1. Add ASR-SQL-FailoverAG as a pre action of the first group of the recovery plan.
+
 1. Follow the instructions available in the script to create an automation variable to provide the name of the availability groups. 
 
 ### Steps to do a test failover
@@ -113,14 +114,27 @@ Here's what you need to do:
 SQL Always On doesn’t natively support test failover. Therefore, we recommend the following:
 
 1. Set up [Azure Backup](../backup/backup-azure-vms.md) on the virtual machine that hosts the availability group replica in Azure.
+
 1. Before triggering test failover of the recovery plan, recover the virtual machine from the backup taken in the previous step.
+
 	![Restore from Azure Backup](./media/site-recovery-sql/RestoreFromBackup.png)
+
 1. [Force a quorum](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) in the virtual machine restored from backup. 
+
 1. Update IP of the listener to an IP available in the test failover network. 
+ 
 	![Update Listener IP](./media/site-recovery-sql/UpdateListenerIP.png)
+
 1. Bring listener online. 
+
 	![Bring Listener Online](./media/site-recovery-sql/BringListenerOnline.png)
-  
+
+1. Create a load balancer with one IP created under frontend IP pool corresponding to each availability group listener and with the SQL virtual machine added in the backend pool.
+
+	 ![Create Load Balancer - Frontend IP pool ](./media/site-recovery-sql/CreateLoadBalancer1.png)
+
+	![Create Load Balancer - Backend pool ](./media/site-recovery-sql/CreateLoadBalancer2.png)
+
 1. Do a test failover of the recovery plan.
 
 
@@ -130,15 +144,14 @@ SQL Always On doesn’t natively support test failover. Therefore, we recommend 
 If the SQL Server is using availability groups for high availability (or an FCI), we recommend using availability groups on the recovery site as well. Note that this applies to apps that don't use distributed transactions.
 
 1. [Configure databases](https://msdn.microsoft.com/library/hh213078.aspx) into availability groups.
-2. Create a virtual network on the secondary site.
-3. Set up a site-to-site VPN connection between the virtual network, and the primary site.
-4. Create a virtual machine on the recovery site, and install SQL Server on it.
-5. Extend the existing Always On availability groups to the new SQL Server VM. Configure this SQL Server instance as an asynchronous replica copy.
-6. 
-6. Create an availability group listener, or update the existing listener to include the asynchronous replica virtual machine.
-7. Make sure that the application farm is set up using the listener. If it's setup up using the database server name, update it to use the listener, so you don't need to reconfigure it after the failover.
+1. Create a virtual network on the secondary site.
+1. Set up a site-to-site VPN connection between the virtual network, and the primary site.
+1. Create a virtual machine on the recovery site, and install SQL Server on it.
+1. Extend the existing Always On availability groups to the new SQL Server VM. Configure this SQL Server instance as an asynchronous replica copy. 
+1. Create an availability group listener, or update the existing listener to include the asynchronous replica virtual machine.
+1. Make sure that the application farm is set up using the listener. If it's setup up using the database server name, update it to use the listener, so you don't need to reconfigure it after the failover.
 
-For applications that use distributed transactions, we recommend you deploy Site Recovery with [SAN replication](site-recovery-vmm-san.md), or [VMware/physical server site-to-site replication](site-recovery-vmware-to-vmware.md).
+For applications that use distributed transactions, we recommend you deploy Site Recovery with [VMware/physical server site-to-site replication](site-recovery-vmware-to-vmware.md).
 
 ### Recovery plan considerations
 1. Add this sample script to the VMM library, on the primary and secondary sites.
@@ -148,7 +161,8 @@ For applications that use distributed transactions, we recommend you deploy Site
         )
         import-module sqlps
         Switch-SqlAvailabilityGroup -Path $SQLAvailabilityGroupPath -AllowDataLoss -force
-2. When you create a recovery plan for the application, add a "pre-Group 1 boot" scripted step, that invokes the script to fail over availability groups.
+
+1. When you create a recovery plan for the application, add a pre action to Group-1 scripted step, that invokes the script to fail over availability groups.
 
 ## Protect a standalone SQL Server
 
@@ -168,9 +182,9 @@ For a cluster running SQL Server Standard edition, or SQL Server 2008 R2, we rec
 Site Recovery doesn't provide guest cluster support when replicating to Azure. SQL Server also doesn't provide a low-cost disaster recovery solution for Standard edition. In this scenario, we recommend you protect the on-premises SQL Server cluster to a standalone SQL Server, and recover it in Azure.
 
 1. Configure an additional standalone SQL Server instance on the on-premises site.
-2. Configure the instance to serve as a mirror for the databases you want to protect. Configure mirroring in high safety mode.
-3. Configure Site Recovery on the on-premises site, for ([Hyper-V](site-recovery-hyper-v-site-to-azure.md) or [VMware VMs/physical servers](site-recovery-vmware-to-azure-classic.md).
-4. Use Site Recovery replication to replicate the new SQL Server instance to Azure. Since it's a high safety mirror copy, it will be synchronized with the primary cluster, but it will be replicated to Azure using Site Recovery replication.
+1. Configure the instance to serve as a mirror for the databases you want to protect. Configure mirroring in high safety mode.
+1. Configure Site Recovery on the on-premises site, for ([Hyper-V](site-recovery-hyper-v-site-to-azure.md) or [VMware VMs/physical servers](site-recovery-vmware-to-azure-classic.md).
+1. Use Site Recovery replication to replicate the new SQL Server instance to Azure. Since it's a high safety mirror copy, it will be synchronized with the primary cluster, but it will be replicated to Azure using Site Recovery replication.
 
 
 ![Standard cluster](./media/site-recovery-sql/BCDRStandaloneClusterLocal.png)
