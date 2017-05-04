@@ -39,23 +39,12 @@ Create a simple scheduled daily backup to a Recovery Services Vault.
 2. In the menu on the left, select **Virtual machines**. 
 3. From the list, select a VM to back up.
 4. On the VM blade, in the **Settings** section, click **Backup**. The **Enable backup** blade opens.
-5. For the [Recovery Services vault](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm), click **Create new** and provide the name for the new vault. A new vault is created in the same Resource Group and same location as the virtual machine.
-6. Click **Backup policy**. The default policy is to create a backup daily at 8:30 PM and to retain the backup for 180 days. Keep the defaults for this example and click **OK**.
+5. In **Recovery Services vault**, click **Create new** and provide the name for the new vault. A new vault is created in the same Resource Group and location as the virtual machine.
+6. Click **Backup policy**. For this example, keep the defaults and click **OK**.
+7. On the **Enable backup** blade, click **Enable Backup**. This will create a daily backup based on the default schedule.
+10. To create an initial recovery point, on the **Backup** blade click **Backup now**.
+11. On the **Backup Now** blade, click the calendar icon, use the calendar control to select the last day this recovery point is retained, and click **Backup**.
 
-    ![Select backup policy](./media/tutorial-backup-vms/policy.png)
-
-7. On the Enable backup blade, click **Enable Backup**. 
-9. Once the configuration has completed, on the VM management blade, click **Backup** to open the Backup Item blade and view the details.
-
-  ![VM Backup Item View](../../backup/media/backup-azure-vms-first-look-arm/backup-item-view.png)
-
-  Until the initial backup has completed, **Last backup status** shows as **Warning(Initial backup pending)**. To see when the next scheduled backup job occurs, under **Backup policy** click the name of the policy. The Backup Policy blade opens and shows the time of the scheduled backup.
-
-10. To create an initial recovery point, on the Backup vault blade click **Backup now**.
-
-11. On the Backup Now blade, click the calendar icon, use the calendar control to select the last day this recovery point is retained, and click **Backup**.
-
-Deployment notifications let you know the backup job has been triggered, and that you can monitor the progress of the job on the Backup jobs page.
 
 ## Restore a file
 
