@@ -1,5 +1,5 @@
 ---
-title: "Lesson 7: Create Key Performance Indicators | Microsoft Docs"
+title: "Azure Analysis Services tutorial lesson 7: Create Key Performance Indicators | Microsoft Docs"
 description: Describes how to create Key Performance Indicators in the Azure Analysis Services tutorial project. 
 services: analysis-services
 documentationcenter: ''

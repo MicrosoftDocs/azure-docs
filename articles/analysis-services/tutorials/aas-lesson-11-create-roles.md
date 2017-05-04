@@ -1,5 +1,5 @@
 ---
-title: "Lesson 11: Create roles | Microsoft Docs"
+title: "Azure Analysis Services tutorial lesson 11: Create roles | Microsoft Docs"
 description: Describes how to create roles in the Azure Analysis Services tutorial project. 
 services: analysis-services
 documentationcenter: ''

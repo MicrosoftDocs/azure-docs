@@ -1,5 +1,5 @@
 ---
-title: "Lesson 12: Analyze in Excel | Microsoft Docs"
+title: "Azure Analysis Services tutorial lesson 12: Analyze in Excel | Microsoft Docs"
 description: Describes how to use Analyze in Excel in the Azure Analysis Services tutorial project. 
 services: analysis-services
 documentationcenter: ''

@@ -1,5 +1,5 @@
 ---
-title: "Lesson 13: Deploy | Microsoft Docs"
+title: "Azure Analysis Services tutorial lesson 13: Deploy | Microsoft Docs"
 description:  Describes how to deploy the tutorial project to Azure Analysis Services.
 services: analysis-services
 documentationcenter: ''

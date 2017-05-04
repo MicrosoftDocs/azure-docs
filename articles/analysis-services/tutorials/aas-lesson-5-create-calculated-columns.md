@@ -1,5 +1,5 @@
 ---
-title: "Lesson 5: Create calculated columns | Microsoft Docs"
+title: "Azure Analysis Services tutorial lesson 5: Create calculated columns | Microsoft Docs"
 description: Describes how to create calculated columns in the Azure Analysis Services tutorial project. 
 services: analysis-services
 documentationcenter: ''
@@ -22,7 +22,7 @@ In this lesson, you will create new data in your model by adding calculated colu
   
 You will create five new calculated columns in three different tables. The steps are slightly different for each task. This is to show you there are several ways to create new columns, rename them, and place them in various locations in a table.  
 
-This is also where you will first use Data Analysis Expressions (DAX). DAX is a special language for creating highly customizable formula expressions for tabular models. In this tutorial, you will use DAX to create calculated columns, measures, and role filters. To learn more, see [DAX in tabular models](https://docs.microsoft.com/en-us/sql/analysis-services/tabular-models/understanding-dax-in-tabular-models-ssas-tabular). 
+This is also where you will first use Data Analysis Expressions (DAX). DAX is a special language for creating highly customizable formula expressions for tabular models. In this tutorial, you will use DAX to create calculated columns, measures, and role filters. To learn more, see [DAX in tabular models](https://docs.microsoft.com/sql/analysis-services/tabular-models/understanding-dax-in-tabular-models-ssas-tabular). 
   
 Estimated time to complete this lesson: **15 minutes**  
   

@@ -1,5 +1,5 @@
 ---
-title: "Ragged hierarchies | Microsoft Docs"
+title: "Azure Analysis Services tutorial supplemental lesson: Ragged hierarchies | Microsoft Docs"
 description: Describes how to fix ragged hierarchies in the Azure Analysis Services tutorial.
 services: analysis-services
 documentationcenter: ''

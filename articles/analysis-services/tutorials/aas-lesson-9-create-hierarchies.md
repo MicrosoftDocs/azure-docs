@@ -1,5 +1,5 @@
 ---
-title: "Lesson 9: Create hierarchies | Microsoft Docs"
+title: "Azure Analysis Services tutorial lesson 9: Create hierarchies | Microsoft Docs"
 description: 
 services: analysis-services
 documentationcenter: ''

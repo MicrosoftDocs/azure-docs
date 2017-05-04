@@ -1,5 +1,5 @@
 ---
-title: "Lesson 4: Create relationships | Microsoft Docs"
+title: "Azure Analysis Services tutorial lesson 4: Create relationships | Microsoft Docs"
 description: Describes how to create relationships in the Azure Analysis Services tutorial project. 
 services: analysis-services
 documentationcenter: ''

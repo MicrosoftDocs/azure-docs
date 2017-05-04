@@ -1,5 +1,5 @@
 ---
-title: "Dynamic security | Microsoft Docs"
+title: "Azure Analysis Services tutorial supplemental lesson: Dynamic security | Microsoft Docs"
 description: Describes how to use dynamic security by using row filters in the Azure Analysis Services tutorial.
 services: analysis-services
 documentationcenter: ''

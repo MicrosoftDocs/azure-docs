@@ -1,5 +1,5 @@
 ---
-title: "Lesson 1: Create a new tabular model project | Microsoft Docs"
+title: "Azure Analysis Services tutorial lesson 1: Create a new tabular model project | Microsoft Docs"
 description: Describes how to create a new Azure Analysis Services tutorial project. 
 services: analysis-services
 documentationcenter: ''

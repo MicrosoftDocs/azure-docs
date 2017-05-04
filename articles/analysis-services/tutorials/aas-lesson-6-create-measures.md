@@ -1,5 +1,5 @@
 ---
-title: "Lesson 6: Create measures | Microsoft Docs"
+title: "Azure Analysis Services tutorial lesson 6: Create measures | Microsoft Docs"
 description: Describes how to create measures in the Azure Analysis Services tutorial project. 
 services: analysis-services
 documentationcenter: ''

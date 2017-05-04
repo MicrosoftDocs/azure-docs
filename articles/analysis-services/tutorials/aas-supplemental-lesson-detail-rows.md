@@ -1,5 +1,5 @@
 ---
-title: "Detail Rows | Microsoft Docs"
+title: "Azure Analysis Services tutorial supplemental lesson: Detail Rows | Microsoft Docs"
 description: Describes how to create a Detail Rows Expression in the Azure Analysis Services tutorial.
 services: analysis-services
 documentationcenter: ''

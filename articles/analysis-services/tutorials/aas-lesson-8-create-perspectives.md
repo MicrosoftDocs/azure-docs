@@ -1,5 +1,5 @@
 ---
-title: "Lesson 8 Create perspectives | Microsoft Docs"
+title: "Azure Analysis Services tutorial lesson 8 Create perspectives | Microsoft Docs"
 description: Describes how to create perspectives in the Azure Analysis Services tutorial project. 
 services: analysis-services
 documentationcenter: ''
