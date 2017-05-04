@@ -24,11 +24,11 @@ This article describes in detail how to protect a SharePoint application using  
 
 ## Overview
 
-Microsoft SharePoint is a powerful application that can help a group or department organize, collaborate, and share information. SharePoint can provide intranet portals, document and file management, collaboration, social networks, extranets, websites, enterprise search, and business intelligence. It also has system integration, process integration, and workflow automation capabilities. Typically, organizations consider it as an enterprise class Tier-1 application sensitive to downtime and data loss. 
+Microsoft SharePoint is a powerful application that can help a group or department organize, collaborate, and share information. SharePoint can provide intranet portals, document and file management, collaboration, social networks, extranets, websites, enterprise search, and business intelligence. It also has system integration, process integration, and workflow automation capabilities. Typically, organizations consider it as a Tier-1 application sensitive to downtime and data loss. 
 
 Today, Microsoft SharePoint  does not provide any out-of-the-box disaster recovery capabilities. Regardless of the type and scale of a disaster, recovery involves the use of a standby data center that you can recover the farm to. Standby data centers are required for scenarios where local redundant systems and backups cannot recover from the outage at the primary data center. 
 
-A good disaster recovery solution, should allow modeling of recovery plans around the  complex application architectures such as SharePoint and also have the ability to add customized steps to handle application mappings between various tiers and hence providing a single-click sure shot solution in the event of a disaster leading to a lower RTO.
+A good disaster recovery solution should allow modeling of recovery plans around the  complex application architectures such as SharePoint. It should also have the ability to add customized steps to handle application mappings between various tiers and hence providing a single-click failover with a lower RTO in the event of a disaster.
 
 This article describes in detail how to protect a SharePoint application using [Azure Site Recovery](site-recovery-overview.md). This article will cover best practices for replicating a three tier SharePoint application to Azure, how you can do a disaster recovery drill, and how you can failover the application to Azure. 
 
@@ -59,7 +59,7 @@ SharePoint can be deployed on one or more servers using tiered topologies and se
 
 ## Site Recovery support
 
-For the purpose of creating this article, VMware virtual machines with Windows Server 2012 R2 Enterprise were used. SharePoint 2013 Enterprise edition and SQL server 2014 Enterprise edition were used. As Site Recovery replication is application agnostic, the recommendations provided here are expected to hold on for following scenarios as well. 
+For creating this article, VMware virtual machines with Windows Server 2012 R2 Enterprise were used. SharePoint 2013 Enterprise edition and SQL server 2014 Enterprise edition were used. As Site Recovery replication is application agnostic, the recommendations provided here are expected to hold on for following scenarios as well. 
 
 ### Source and target
 
@@ -70,7 +70,7 @@ For the purpose of creating this article, VMware virtual machines with Windows S
 **Physical server** | Yes | Yes
 
 ### SharePoint Versions
-The below SharePoint server versions are supported.
+The following SharePoint server versions are supported.
 
 * SharePoint server 2013 Standard
 * SharePoint server 2013 Enterprise
@@ -79,7 +79,7 @@ The below SharePoint server versions are supported.
 
 ### Things to keep in mind
 
-If you are using a shared disk based cluster as the any tier in your application then you will not be able to use Site Recovery replication to replicate those virtual machines. You can use native replication provided by the application and then use a [recovery plan](site-recovery-create-recovery-plans.md) to failover all tiers.
+If you are using a shared disk-based cluster as any tier in your application then you will not be able to use Site Recovery replication to replicate those virtual machines. You can use native replication provided by the application and then use a [recovery plan](site-recovery-create-recovery-plans.md) to failover all tiers.
 
 ## Replicating virtual machines
 
@@ -87,11 +87,11 @@ Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating th
 
 * Once the replication is complete, make sure you go to each virtual machine of each tier and select same availability set in 'Replicated item > Settings > Properties > Compute and Network'. For example, if your web tier has 3 VMs, ensure all the 3 VMs are configured to be part of same availability set in Azure.
 
-	![Set Availability Set](./media/site-recovery-sharepoint/Av-Set-Select.png) 
+	![Set-Availability-Set](./media/site-recovery-sharepoint/Av-Set-Select.png) 
 
 * For guidance on protecting Active Directory and DNS, refer to [Protect Active Directory and DNS](site-recovery-active-directory.md) document. 
 
-* For guidance on protecting database tier running on SQL sever, refer to [Protect SQL Server](site-recovery-active-directory.md) document. 
+* For guidance on protecting database tier running on SQL server, refer to [Protect SQL Server](site-recovery-active-directory.md) document. 
 
 ## Networking configuration
 
@@ -102,7 +102,7 @@ Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating th
 	![Select Network](./media/site-recovery-sharepoint/Network-Select.png) 
 
 
-* If you are using a static IP then specify the IP that you want the virtual machine to take in the **Target IP** field 
+* If you are using a static IP, then specify the IP that you want the virtual machine to take in the **Target IP** field 
 
 	![Set Static IP](./media/site-recovery-sharepoint/Static-IP-set.png) 
 
@@ -119,13 +119,13 @@ For internet facing sites, [create a Traffic Manager profile of 'Priority' type]
 
 In the Traffic Manager profile, [create the primary and recovery endpoints](../traffic-manager/traffic-manager-configure-priority-routing-method.md). Use the external endpoint for on-premises endpoint and public IP for Azure endpoint. Ensure that the priority is set higher to on-premises endpoint.
 
-Host a test page on a specific port (e.g. 800) in the SharePoint web tier in order for Traffic Manager to automatically detect availability post failover. This is a workaround in case you cannot enable anonymous authentication on any of your SharePoint sites. 
+Host a test page on a specific port (for example, 800) in the SharePoint web tier in order for Traffic Manager to automatically detect availability post failover. This is a workaround in case you cannot enable anonymous authentication on any of your SharePoint sites. 
 
 [Configure the Traffic Manager profile](../traffic-manager/traffic-manager-configure-priority-routing-method.md) with the below settings.
 
 * Routing method - 'Priority'
 * DNS time to live (TTL) - '30 seconds'
-* Endpoint monitor settings - If you can enable anonymous authentication, you can give a specific website endpoint. Or, you can use a test page on a specific port (e.g. 800).
+* Endpoint monitor settings - If you can enable anonymous authentication, you can give a specific website endpoint. Or, you can use a test page on a specific port (for example, 800).
 
 ## Creating a recovery plan
 
@@ -134,7 +134,7 @@ A recovery plan allows sequencing the failover of various tiers in a multi-tier 
 ### Adding virtual machines to failover groups
 
 1. Create a recovery plan by adding the App and Web tier VMs.
-2. Click on 'Customize' to group the VMs. By default, all VMs will be part of 'Group 1'.
+2. Click on 'Customize' to group the VMs. By default, all VMs are part of 'Group 1'.
 
 	![Customize RP](./media/site-recovery-sharepoint/RP-with-groups.png) 
 
@@ -147,7 +147,7 @@ You can deploy the most commonly used Azure Site Recovery scripts into your Auto
 
 [![Deploy to Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
-1. Add a pre action script to 'Group 1' to failover SQL Availability group. Use the 'ASR-SQL-FailoverAG' script published in the sample scripts. Ensure you follow the guidance in the script and make the required changes in the script appropriately.
+1. Add a pre-action script to 'Group 1' to failover SQL Availability group. Use the 'ASR-SQL-FailoverAG' script published in the sample scripts. Ensure you follow the guidance in the script and make the required changes in the script appropriately.
 
 	![Add-AG-Script-Step-1](./media/site-recovery-sharepoint/RP-Add-AG-script-step-1.png) 
 
@@ -161,7 +161,7 @@ You can deploy the most commonly used Azure Site Recovery scripts into your Auto
 
 3. Add a manual step to update the DNS records to point to the new farm in Azure.
 
-	* For internet facing sites, no DNS update are required post failover. Follow the steps described in the 'Networking guidance' section to configure Traffic Manager. If the Traffic Manager profile has been setup as described in the previous section, add a script to open dummy port (800 in the example) on the Azure VM.
+	* For internet facing sites, no DNS updates are required post failover. Follow the steps described in the 'Networking guidance' section to configure Traffic Manager. If the Traffic Manager profile has been set up as described in the previous section, add a script to open dummy port (800 in the example) on the Azure VM.
 
 	* For internal facing sites, add a manual step to update the DNS record to point to the new Web tier VM’s load balancer IP.
 
@@ -169,19 +169,20 @@ You can deploy the most commonly used Azure Site Recovery scripts into your Auto
 
 5. For restoring Search service application from a backup, follow below steps. 
 
-	* This method assumes that a backup of the Search Service Application was performed prior to the catastrophic event and that the backup is available at the DR site. *This can easily be achieved by scheduling the backup (for example, once daily) and using a copy procedure to place the backup at the DR site. Copy procedures could include scripted programs such as AzCopy (Azure Copy) or setting up DFSR (Distributed File Services Replication).
-	* Now that the SharePoint farm is running, navigate the Central Administration, Backup and Restore and select Restore. The restore will interrogate the backup location specified (you may need to update the value). Select the Search Service Application backup you would like to restore.
-	* Search will be restored. Keep in mind that the restore expect to find the same topology (same number of servers) and same hard drive letters assigned to those servers. For more information refer to ['Restore Search service application in SharePoint 2013'](https://technet.microsoft.com/library/ee748654.aspx) document.
+	* This method assumes that a backup of the Search Service Application was performed before the catastrophic event and that the backup is available at the DR site. 
+	* This can easily be achieved by scheduling the backup (for example, once daily) and using a copy procedure to place the backup at the DR site. Copy procedures could include scripted programs such as AzCopy (Azure Copy) or setting up DFSR (Distributed File Services Replication).
+	* Now that the SharePoint farm is running, navigate the Central Administration, 'Backup and Restore' and select Restore. The restore interrogates the backup location specified (you may need to update the value). Select the Search Service Application backup you would like to restore.
+	* Search is restored. Keep in mind that the restore expects to find the same topology (same number of servers) and same hard drive letters assigned to those servers. For more information, see ['Restore Search service application in SharePoint 2013'](https://technet.microsoft.com/library/ee748654.aspx) document.
 
 
 6. For starting with a new Search service application, follow below steps.
 
 	* This method assumes that a backup of the “Search Administration” database is available at the DR site. 
-	* Since the other Search Service Application databases are not replicated, they will need to be re-created. To do so, navigate to Central Administration and delete the Search Service Application. On any servers which host the Search Index, delete the index files.
-	* Re-create the Search Service Application, this will re-create the databases. It is strongly recommended to have a prepared script that will re-create this service application since it is not possible to perform all actions via the GUI. For example, setting the index drive location and configuring the search topology are only possible by using SharePoint PowerShell cmdlets. Use the Windows PowerShell cmdlet Restore-SPEnterpriseSearchServiceApplication and specify the log-shipped and replicated Search Administration database, Search_Service__DB. This cmdlet gives the search configuration, schema, managed properties, rules, and sources and creates a default set of the other components.
-	* Once the Search Service Application has be re-created, you must start a full crawl for each content source to restore the Search Service. Note that you lose some analytics information from the on-premises farm, such as search recommendations. 
+	* Since the other Search Service Application databases are not replicated, they need to be re-created. To do so, navigate to Central Administration and delete the Search Service Application. On any servers which host the Search Index, delete the index files.
+	* Re-create the Search Service Application and this re-creates the databases. It is recommended to have a prepared script that re-creates this service application since it is not possible to perform all actions via the GUI. For example, setting the index drive location and configuring the search topology are only possible by using SharePoint PowerShell cmdlets. Use the Windows PowerShell cmdlet Restore-SPEnterpriseSearchServiceApplication and specify the log-shipped and replicated Search Administration database, Search_Service__DB. This cmdlet gives the search configuration, schema, managed properties, rules, and sources and creates a default set of the other components.
+	* Once the Search Service Application has be re-created, you must start a full crawl for each content source to restore the Search Service. You lose some analytics information from the on-premises farm, such as search recommendations. 
 
-7. Once all the steps are completed, save the recovery plan and the final recovery plan will look like below.
+7. Once all the steps are completed, save the recovery plan and the final recovery plan will look like following.
 
 	![Saved RP](./media/site-recovery-sharepoint/RP-Saved-Final.png)
 
@@ -193,7 +194,7 @@ Follow [this guidance](site-recovery-test-failover-to-azure.md) to do a test fai
 3.	Click on 'Test Failover'.
 4.	Select recovery point and Azure virtual network to start the test failover process.
 5.	Once the secondary environment is up, you can perform your validations.
-6.	Once the validations are complete, you can select click on 'Cleanup test failvoer' on the recovery plan and the test failover environment will be cleaned.
+6.	Once the validations are complete, you can click 'Cleanup test failover' on the recovery plan and the test failover environment is cleaned.
 
 For guidance on doing test failover for AD and DNS, refer to [Test failover considerations for AD and DNS](site-recovery-active-directory.md#test-failover-considerations) document.
 
