@@ -48,7 +48,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
     ![Enter basic information about your VM in the portal blade](./media/quick-create-portal/create-vm-portal-basic-blade.png)
 
-4. Choose a size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. 
+4. Select a size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. 
 
     ![Screenshot that shows VM sizes](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 

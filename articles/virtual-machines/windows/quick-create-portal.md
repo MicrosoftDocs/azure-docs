@@ -34,15 +34,15 @@ Log in to the Azure portal at http://portal.azure.com.
 
 2. Select **Compute**, select **Windows Server 2016 Datacenter**, and ensure that **Resource Manager** is the selected deployment model. Click the **Create** button. 
 
-3. Enter the virtual machine information. The user name and password entered here is used to log in to the virtual machine.
+3. Enter the virtual machine information. The user name and password entered here is used to log in to the virtual machine. When complete, click **OK**.
 
     ![Enter basic information about your VM in the portal blade](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)  
 
-4. Choose a size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. 
+4. Select a size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. 
 
     ![Screenshot that shows VM sizes](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-5. On the settings blade, select *Yes* under **Use managed disks**, keep the defaults for the rest of the settings, and click **OK**.
+5. On the settings blade, select **Yes** under **Use managed disks**, keep the defaults for the rest of the settings, and click **OK**.
 
 6. On the summary page, click **Ok** to start the virtual machine deployment.
 
