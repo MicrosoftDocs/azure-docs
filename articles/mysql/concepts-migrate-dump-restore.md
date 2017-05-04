@@ -14,8 +14,8 @@ ms.tgt_pltfrm: portal
 ms.date: 05/10/2017
 ---
 
-# Migrate your MySQL database using dump and restore
-This article shows you two common ways to backup and restore databases in your Azure Database for MySQL
+# Migrate your MySQL database to Azure Database for MySQL using dump and restore
+This article explains you two   common ways to backup and restore databases in your Azure Database for MySQL
 - Backing up and restore from the Command Line (using mysqldump) 
 - Backing Up and Restoring using PHPMyAdmin 
 
@@ -24,8 +24,15 @@ To step through this how-to guide, you need to have:
 - [Create Azure Database for MySQL server - Azure portal](quickstart-create-mysql-server-database-using-azure-portal)
 - [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) command line utility installed on a machine
 - MySQL Workbench [MySQL Workbench Download](https://dev.mysql.com/downloads/workbench/), Toad, Navicat or any third party MySQL tool
-- WinSCP to upload your dump file to Azure Server [WinSCP Download](https://winscp.net/eng/download.php)
 
+## Use common tools
+Use common tools such as MySQL Workbench, Toad, or Navicat to remotely connect and import or export data into Azure Database for MySQL. Simply point the connection attributes of your database tools to the Azure Database for MySQL server and database to interact with it. 
+
+For more information on connecting, see _Get the connection information_ heading in [this article](quickstart-create-mysql-server-database-using-azure-portal.md#get-the-connection-information)
+
+Use file transfer tools such as WinSCP to import and export your files in your existing MySQL environment. You do not need to move your import and export files to any special cloud location when migrating to Azure Database for MySQL. 
+
+Use tools on your client machine and connect to the Azure Database for MySQL remotely. There is no virtual machine to access as part of this Azure Database for MySQL service.
 
 ## Create a backup file from the command-line using mysqldump
 To backup an existing MySQL database on-prem or in a VM, run the following command: 
@@ -40,30 +47,27 @@ The parameters to provide are:
 - [backupfile.sql] The filename for your database backup 
 - [--opt] The mysqldump option 
 
-For example, to back up a database named 'testdb' with the username 'testuser' and with no password to a file testdb_backup.sql, you should accomplish this command:
+For example, to back up a database named 'testdb' with the username 'testuser' and with no password to a file testdb_backup.sql, use the following command. This command will back up the 'testdb' database into a file called testdb_backup.sql which will contain all the SQL statements needed to re-create the database. 
+
 ```bash
 $ mysqldump -u root -p testdb > testdb_backup.sql
 ```
-
-This command will back up the 'testdb' database into a file called testdb_backup.sql which will contain all the SQL statements needed to re-create the database. 
-
-With mysqldump command you can specify certain tables of your database you want to backup. For example, to back up only php_tutorials and asp_tutorials tables from the 'testdb' database accomplish the command below. Each table name has to be separated by space.
+To select specific tables in your database to back up, list the table names separated by spaces. For example, to back up only table1 and table2 tables from the 'testdb', follow this example: 
 ```bash
-$ mysqldump -u root -p testdb php_tutorials asp_tutorials > testdb_tables_backup.sql
+$ mysqldump -u root -p testdb table1 table2 > testdb_tables_backup.sql
 ```
 
-Sometimes it is necessary to back up more than one database at once. In this case, you can use the --database option followed by the list of databases you would like to backup. Each database name has to be separated by space.
+To back up more than one database at once, use the --database switch and list the database names separated by spaces. 
 ```bash
 $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql 
 ```
-
-If you want to back up all the databases in the server at one time you should use the --all-databases option. It tells MySQL to dump all the databases it has in storage.
+To back up all the databases in the server at one time, you should use the --all-databases option.
 ```
 $ mysqldump -u root -p --all-databases > alldb_backup.sql 
 ```
 
 ## Upload Files
-With WinSCP you can easily upload and manage the import or dump of your existing MySQL enviornment (Azure or Non-Azure) files on your Local over SFTP protocol or FTPS protocol for export purpose.
+With WinSCP you can easily upload and manage the import or dump of your existing MySQL environment (Azure or Non-Azure) files on your Local over SFTP protocol or FTPS protocol for export purpose.
 
 ## Create a database on the target Azure MySQL server
 You must create an empty database on the target Azure Database for MySQL server where you want to migrate the data using MySQL Workbench, Toad, Navicat or any third party tool for MySQL. The database can have the same name as the database that is contained the dumped data or you can create a database with a different name.
@@ -93,9 +97,14 @@ To export, you can use the common tool phpMyAdmin which you may already have ins
 - Click on the Save as file option and the corresponding compression option and then click the 'Go' button. A dialog box should appear prompting you to save the file locally.
 
 ## Import using PHPMyAdmin
-Importing your database is similar to exporting. Make the following:
+Importing your database is similar to exporting. Do the following actions:
 - Open phpMyAdmin. 
 - Create an appropriately named database and select it by clicking the database name in the list on the left of the screen. If you would like to rewrite the import over an existing database then click on the database name, select all the check boxes next to the table names and select Drop to delete all existing tables in the database. 
-- Click the SQL link. This should bring up a new screen where you can either type in SQL commands, or upload your SQL file. 
+- Click the SQL link. This should bring up a new screen where you can type in SQL commands, or upload your SQL file. 
 - Use the browse button to find the database file. 
 - Click the Go button. This will export the backup, execute the SQL commands and re-create your database.
+
+## Next steps
+If you are unfamiliar with getting started with this database service, please review:
+-  [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) 
+- [Create an Azure Database for MySQL server using Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md)
