@@ -23,7 +23,7 @@ There are several things you need to know if you're new to Azure Stack administr
 
 For the Azure Stack Technical Preview 3 (TP3) timeframe, this guidance is scoped to the Azure Stack Proof of Concept (POC).
 
-## Understand Azure Stack POC builds
+## Understand POC builds
 
 Review the [What is Azure Stack?](azure-stack-poc.md) article to make sure you understand the purpose of the POC, and its limitations. You should use the POC as a "sandbox," where you can evaluate Azure Stack, and develop and test your apps in a non-production environment. (For deployment information, see the [Azure Stack POC deployment](azure-stack-deploy-overview.md) quickstart.)
 
