@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/02/2017
+ms.date: 05/03/2017
 ms.author: alkohli
 
 ---
@@ -34,7 +34,7 @@ Update 0.5 corresponds to the software version **10.0.10290.0**.
 ## What's new in the Update 0.5
 Update 0.5 is primarily a bug-fix build. In this version, several bugs resulting in backup failures in the previous version have been addressed. The main enhancements and bug-fixes are as follows:
 
-- **Backup resiliency improvements** - This release has made several key enhancements to improve the backup resiliency. As a result, the backups that involve a large number of files see a significant reduction in the time to complete, for full and incremental backups.
+- **Backup resiliency improvements** - This release has fixes that improve the backup resiliency. In the earlier releases, backups were retried only for certain exceptions. This release retries all the backup exceptions and makes the backups more resilient.
 
 - **Fixes to allow storage usage monitoring service** - Starting 30th June 2017, the storage usage monitoring service for StorSimple Virtual Device Series for the virtual arrays running Update 0.4 or lower, will be retired. This update contains the fixes required for you to continue the use of storage usage monitoring. You must install this critical update before June 30, 2017 to continue using the monitoring feature.
 
