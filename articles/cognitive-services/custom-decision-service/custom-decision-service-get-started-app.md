@@ -19,11 +19,11 @@ This article explains how to get started with some basic options. The example he
 
 To start using Custom Decision Service for your application, the first step is to register it on our portal. Click the *My Portal* menu item in the top ribbon, highlighted in the image.
 
-![Custom Decision Service home page](./media/custom-decision-service-get-started-app/home.JPG)
+![Custom Decision Service home page](./media/custom-decision-service-get-started-app/home.png)
 
 If you are not already signed in, the portal prompts you to sign in with your [Microsoft Account](https://account.microsoft.com/account). Once signed in, you should see the portal with your Microsoft account in the top right corner of the page.
 
-![Custom Decision Service portal](./media/custom-decision-service-get-started-app/portal.PNG)
+![Custom Decision Service portal](./media/custom-decision-service-get-started-app/portal.png)
 
 To register your application, click the *New* button. A pop-up should open for registering a new app. Let us see how to register an application in the *pooled learning mode* that was described in the [Overview](custom-decision-service-overview.md). Choose an identifier for your application. Custom Decision Service expects a unique identifier for each application. If someone else has already taken this id, the system asks you to pick a different id. You can also create a name for an action set feed, along with an RSS or Atom end point currently. This feed communicates the available content for your app to the Custom Decision Service. An example for creating the RSS feed is described later.
 
