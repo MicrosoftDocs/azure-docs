@@ -50,6 +50,7 @@ If the eligibility criteria are met per the [Azure Marketplace participation pol
 Register your Microsoft account as a [Microsoft Developer account](marketplace-publishing-accounts-creation-registration.md).
 
 ### Publish your solution
+To publish a solution to the Marketplace, follow these steps:
 1. Fulfill the nontechnical requirements.
 
     a. Fulfill the [nontechnical prerequisites](marketplace-publishing-pre-requisites.md).
@@ -76,6 +77,7 @@ Register your Microsoft account as a [Microsoft Developer account](marketplace-p
 
 
 ### Create and manage a virtual machine image
+To create and manage a VM image, do the following:
 * Create a VM image [on-premises](marketplace-publishing-vm-image-creation-on-premise.md).
 * Create a virtual machine running [Windows in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Create a virtual machine running [Linux in the Azure portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
