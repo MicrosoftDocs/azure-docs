@@ -21,7 +21,9 @@ ms.author: mimig
 
 # Azure Cosmos DB: How to query with the Graph API?
 
-The Azure Cosmos DB Graph API supports [Gremlin](https://docs.mongodb.com/manual/tutorial/query-documents/) queries. This article provides sample documents and queries to get you started. Detailed Gremlin support information is provided in the [Gremlin support](gremlin-support.md) article.
+The Azure Cosmos DB [Graph API](graph-introduction.md) supports [Gremlin](https://docs.mongodb.com/manual/tutorial/query-documents/) queries. This article provides sample documents and queries to get you started. Detailed Gremlin support information is provided in the [Gremlin support](gremlin-support.md) article.
+
+For these queries to work, you must have an Azure Cosmos DB account and have graph data in the collection. Dont' have any of those? Complete the [5-minute quickstart](create-graph-dotnet.md) or the [developer tutorial](tutorial-query-graph.md) to create an account and populate your database.
 
 ## Count vertices in the graph
 
