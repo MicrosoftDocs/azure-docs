@@ -4,12 +4,12 @@ ROBOTS: NOINDEX, NOFOLLOW
 
 
 ---
-# How to create a database for DocumentDB using the Azure portal
-To use Microsoft Azure DocumentDB, you must have a [DocumentDB account](documentdb-create-account.md), a database, a collection, and documents. In the Azure portal, DocumentDB databases are now created at the same time as a collection is created. 
+# How to create a database for Azure Cosmos DB using the Azure portal
+To use Microsoft Azure Cosmos DB, you must have a [Azure Cosmos DB account](documentdb-create-account.md), a database, a collection, and documents. In the Azure portal, Azure Cosmos DB databases are now created at the same time as a collection is created. 
 
-To create a DocumentDB database and collection in the portal, see [How to create a DocumentDB collection using the Azure portal](documentdb-create-collection.md).
+To create an Azure Cosmos DB database and collection in the portal, see [How to create an Azure Cosmos DB collection using the Azure portal](documentdb-create-collection.md).
 
-## Other ways to create a DocumentDB database
+## Other ways to create an Azure Cosmos DB database
 Databases do not have to be created using the portal, you can also create them using the [DocumentDB SDKs](documentdb-sdk-dotnet.md) or the [REST API](https://msdn.microsoft.com/library/mt489072.aspx). For information on working with databases by using the .NET SDK, see [.NET database examples](documentdb-dotnet-samples.md#database-examples). For information on working with databases by using the Node.js SDK, see [Node.js database examples](documentdb-nodejs-samples.md#database-examples). 
 
 ## Next steps
