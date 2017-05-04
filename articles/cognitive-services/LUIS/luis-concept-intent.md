@@ -1,6 +1,6 @@
 ---
-title: Understanding entity types in LUIS apps in Azure | Microsoft Docs
-description: Add entities (key data in your application's domain) in Language Understanding Intelligent Services (LUIS) apps.
+title: Understanding intents in LUIS apps in Azure | Microsoft Docs
+description: Describes what intents are in Language Understanding Intelligent Services (LUIS) apps.
 services: cognitive-services
 author: DeniseMak
 manager: hsalama
@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: cahann
 ---
-# Entities in LUIS
+# Intents in LUIS
 
 Entities are key data in your application’s domain. An entity represents a class including a collection of similar objects (places, things, people, events or concepts). Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task. For example, a News Search app may include entities such as “topic”, “source”, “keyword” and “publishing date”, which are key data to search for news. In a travel booking app, the “location”, “date”, "airline", "travel class" and "tickets" are key information for flight booking (relevant to the "Bookflight" intent). 
 

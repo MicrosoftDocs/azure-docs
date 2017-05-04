@@ -37,14 +37,14 @@ LUIS may be unable to recognize rare and proprietary words, as well as foreign w
     
 5. If your app culture is English, LUIS can propose some related values to add to your phrase list. Click **Recommend** to get a group of proposed values that are semantically related to the added value(s). You can click any of the proposed values to add it, or click **Add All** to add them all.
 
- ![Phrase List Proposed Values](/media/luis-how-to-add-features/features-phrase-list-proposed.jpg)
+ ![Phrase List Proposed Values](./media/luis-how-to-add-features/features-phrase-list-proposed.jpg)
 
 6. Click **Is exchangeable** if the added phrase list values are alternatives that can be used interchangeably.
 7. Click **Is active** if you want this phrase list to be active (i.e. applicable and used) in your app.
 
 8. Click **Save**. The phrase list will be added to phrase list features on the **Features** page.
 
- ![Phrase list added](/media/luis-how-to-add-features/features-phrase-list-added.jpg)
+ ![Phrase list added](./media/luis-how-to-add-features/features-phrase-list-added.jpg)
 
 **To edit a phrase list:**
 
