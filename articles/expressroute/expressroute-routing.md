@@ -67,10 +67,12 @@ You can choose to use public or private IPv4 addresses for private peering. We p
 ### Public Peering
 The Azure public peering path enables you to connect to all services hosted in Azure over their public IP addresses. These include services listed in the [ExpessRoute FAQ](expressroute-faqs.md) and any services hosted by ISVs on Microsoft Azure. Connectivity to Microsoft Azure services on public peering is always initiated from your network into the Microsoft network. You must use Public IP addresses for the traffic destined to Microsoft network.
 
+A Private AS Number is allowed with Public Peering.
+
 ### Microsoft Peering
 The Microsoft peering path lets you connect to Microsoft cloud services that are not supported through the Azure public peering path. The list of services includes Office 365 services, such as Exchange Online, SharePoint Online, Skype for Business, and CRM Online. Microsoft supports bi-directional connectivity on the Microsoft peering. Traffic destined to Microsoft cloud services must use valid public IPv4 addresses before they enter the Microsoft network.
 
-Make sure that your IP address and AS number are registered to you in one of the registries listed below.
+For automatic validation of your prefixes, make sure that your IP address and AS number are registered to you in one of the registries listed below.
 
 * [ARIN](https://www.arin.net/)
 * [APNIC](https://www.apnic.net/)
@@ -79,6 +81,10 @@ Make sure that your IP address and AS number are registered to you in one of the
 * [RIPENCC](https://www.ripe.net/)
 * [RADB](http://www.radb.net/)
 * [ALTDB](http://altdb.net/)
+
+If your prefixes and AS number are not assigned to you in the above registries, you will need to open a support case for manual validation of your prefixes and ASN. Support will require documentation, such as a Letter of Authorization, that proves you are allowed to use the resources.
+
+A Private AS Number is allowed with Microsoft Peering but will also require manual validation.
 
 > [!IMPORTANT]
 > Public IP addresses advertised to Microsoft over ExpressRoute must not be advertised to the Internet. This may break connectivity to other Microsoft services. However, Public IP addresses used by servers in your network that communicate with O365 endpoints within Microsoft may be advertised over ExpressRoute. 
