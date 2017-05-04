@@ -84,6 +84,7 @@ To create and manage a VM image, do the following:
 * Troubleshoot common issues encountered during [VHD creation](marketplace-publishing-vm-image-creation-troubleshooting.md).
 
 ## Manage your solution
+Manage your solution with help from the following resources:
 * [Read the post-production guide for virtual machine offers](marketplace-publishing-vm-image-post-publishing.md)
 * [Update the nontechnical details of an offer or a SKU](marketplace-publishing-vm-image-post-publishing.md#2-how-to-update-the-non-technical-details-of-an-offer-or-a-sku)
 * [Update the technical details of an offer or a SKU](marketplace-publishing-vm-image-post-publishing.md#1-how-to-update-the-technical-details-of-a-sku)
