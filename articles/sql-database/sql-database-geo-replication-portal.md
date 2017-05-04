@@ -80,7 +80,7 @@ The command immediately switches the secondary database into the primary role.
 There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. If the primary database has multiple secondary databases, the command automatically reconfigures the other secondaries to connect to the new primary. The entire operation should take less than a minute to complete under normal circumstances. 
 
 > [!NOTE]
-> If the primary is online and committing transactions when the command is issued some data loss may occur.
+> This command is designed for quick recovery of the database in case of an outage. It triggers failover without data synchronization (forced failover).  If the primary is online and committing transactions when the command is issued some data loss may occur. 
 > 
 > 
 
