@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/03/2017
+ms.date: 05/02/2017
 ms.author: nepeters
 
 ---
 
 # Create a Linux virtual machine with PowerShell
 
-The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This guide details using PowerShell to create and Azure virtual machine running Ubuntu 14.04 LTS.
+The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This guide details using the Azure PowerShell module to deploy a virtual machine running Ubuntu server. Once the server is deployed, an SSH connection is created, and an NGINX webserver is installed.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-Also, make sure that the latest version of the Azure PowerShell module has been installed. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 Finally, a public SSH key with the name *id_rsa.pub* needs to be stored in the *.ssh* directory of your Windows user profile. For detailed information on creating SSH keys for Azure, see [Create SSH keys for Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -42,7 +42,7 @@ Login-AzureRmAccount
 Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. 
 
 ```powershell
-New-AzureRmResourceGroup -Name myResourceGroup -Location westeurope
+New-AzureRmResourceGroup -Name myResourceGroup -Location eastus
 ```
 
 ## Create networking resources
@@ -54,11 +54,11 @@ Create a virtual network, subnet, and a public IP address. These resources are u
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
 
 # Create a virtual network
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location westeurope `
+$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location eastus `
 -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
 
 # Create a public IP address and specify a DNS name
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location westeurope `
+$pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location eastus `
 -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
 ```
 
@@ -76,7 +76,7 @@ $nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupR
 -DestinationPortRange 80 -Access Allow
 
 # Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location westeurope `
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location eastus `
 -Name myNetworkSecurityGroup -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 ```
 
@@ -84,7 +84,7 @@ Create a network card with [New-AzureRmNetworkInterface](/powershell/module/azur
 
 ```powershell
 # Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location westeurope `
+$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location eastus `
 -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 ```
 
@@ -111,7 +111,7 @@ Add-AzureRmVMSshPublicKey -VM $vmconfig -KeyData $sshPublicKey -Path "/home/azur
 Create the virtual machine with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
 ```powershell
-New-AzureRmVM -ResourceGroupName myResourceGroup -Location westeurope -VM $vmConfig
+New-AzureRmVM -ResourceGroupName myResourceGroup -Location eastus -VM $vmConfig
 ```
 
 ## Connect to virtual machine
@@ -162,6 +162,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## Next steps
 
-[Create highly available virtual machines tutorial](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+In this quick start, you’ve deployed a simple virtual machine, a network security group rule, and installed a web server. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
 
-[Explore VM deployment PowerShell samples](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Azure Linux virtual machine tutorials](./tutorial-manage-vm.md)
