@@ -18,6 +18,9 @@ ms.author: mandia
 
 ---
 # BizTalk Services: Editions chart
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Azure BizTalk Services offers several editions. Use this article to determine which edition is right for your scenario and business needs.
 
 ## Compare the editions
