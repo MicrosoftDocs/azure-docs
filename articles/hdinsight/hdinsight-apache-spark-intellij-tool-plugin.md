@@ -94,7 +94,7 @@ For installation instructions, see [Installing the Azure Toolkit for IntelliJ](.
     ![Setting the project language level](./media/hdinsight-apache-spark-intellij-tool-plugin/set-project-language-level.png)
 5. Add your application source code.
    
-   1. In **Project Explorer**, right-click **src**, point to **New**, and then click **Scala Class**.
+   1. In Project Explorer, right-click **src**, point to **New**, and then click **Scala Class**.
       
        ![Commands for creating a Scala class from Project Explorer](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-scala-code.png)
    2. In the **Create New Scala Class** dialog box, provide a name, select **Object** in the **Kind** box, and then click **OK**.
