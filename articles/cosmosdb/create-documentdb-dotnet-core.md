@@ -115,6 +115,4 @@ If you're not going to continue to use this app, use the following steps to dele
 
 To learn more about the Azure Comsos DB DocumentDB API, see [What is the DocumentDB API?(../documentdb/documentdb-introduction). 
 
-To learn how to query data using SQL, see [How to query data using SQL?](tutorial-query-documentdb.md)
-
-To learn more about the SQL query language which you can use in the Azure portal and programmatically, see [SQL](../documentdb/documentdb-sql-query.md).
+To learn how to query data using SQL, see [How to query data using SQL?](tutorial-query-documentdb.md) and [SQL query syntax](../documentdb/documentdb-sql-query.md).
