@@ -49,7 +49,7 @@ You can find a detailed description on how to create a custom speech-text endpoi
 ## <a name="Using">Using a custom speech endpoint</a>
 Requests can be sent to a CRIS speech-to-text endpoint in a very similar manner as the default Microsoft Cognitive Services speech endpoint. Note that these endpoints are functionally identical to the default endpoints of the Speech API. Thus, the same functionality available via the client library or REST API for the Speech API is also the available for your custom endpoint.
 
-You can find a detailed description on how to use a custom speech-to-text endpoint [here](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-us-endpoint.md).
+You can find a detailed description on how to use a custom speech-to-text endpoint [here](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-use-endpoint.md).
 
 
 Please note that the endpoints created via CRIS can process different numbers of concurrent requests depending on the tier the subscription is associated to. If more recognitions than that are requested, they will return the error code 429 (Too many requests). For more information please visit the [pricing information](https://www.microsoft.com/cognitive-services/en-us/pricing). In addition, there is a monthly quota of requests for the free tier. In cases you access your endpoint in the free tier above your monthly quota the service returns the error code 403 Forbidden.
