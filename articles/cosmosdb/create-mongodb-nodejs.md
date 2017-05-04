@@ -183,7 +183,7 @@ Run `npm start` again.
 npm start
 ```
 
-Instead of the error message you saw earlier, a console message should now tell you that the development environment is up and running. 
+A console message should now tell you that the development environment is up and running. 
 
 Navigate to `http://localhost:3000` in a browser. Click **Sign Up** in the top menu and try to create two dummy users. 
 
@@ -195,9 +195,9 @@ The MEAN.js sample application stores user data in the database. If you are succ
 
 Data stored by an Azure Cosmos DB is available to view, query, and run business-logic on in the Azure portal.
 
-To view, query, and work with the JSON documents you created in Step 3, login to the [Azure portal](https://portal.azure.com) in your web browser.
+To view, query, and work with the user data created in the previous step, login to the [Azure portal](https://portal.azure.com) in your web browser.
 
-In the top Search box, type DocumentDB. When your DocumentDB account blade opens, select your DocumentDB account. In the left navigation, click Data Explorer. Expand your collection in the Collections pane, and then you can view the documents in the collection, query the data, and even create and run stored procedures, triggers, and UDFs. 
+In the top Search box, type Azure Cosmos DB. When your Cosmos DB account blade opens, select your Cosmos DB account. In the left navigation, click Data Explorer. Expand your collection in the Collections pane, and then you can view the documents in the collection, query the data, and even create and run stored procedures, triggers, and UDFs. 
 
 ![Data Explorer in the Azure portal](./media/create-mongodb-nodejs/cosmosdb-connect-mongodb-data-explorer.png)
 
@@ -222,6 +222,12 @@ In the terminal, commit all your changes into Git. You can copy both commands to
 git add .
 git commit -m "configured MongoDB connection string"
 ```
+## Clean up resources
+
+If you're not going to continue to use this app, use the following steps to delete all resources created by this quickstart in the Azure portal. If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. 
+
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
+2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
 ## Next steps
 

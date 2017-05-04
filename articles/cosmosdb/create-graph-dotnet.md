@@ -58,7 +58,7 @@ Now let's clone a  DocumentDB API app from github, set the connection string, an
 
 ## Review the code
 
-Let's make a quick review of what's happening in the app. Open the DocumentDBRepository.cs file and you'll find that these lines of code create the DocumentDB resources. 
+Let's make a quick review of what's happening in the app. Open the DocumentDBRepository.cs file and you'll find that these lines of code create the Azure Cosmos DB resources. 
 
 * The DocumentClient is initialized.
 
