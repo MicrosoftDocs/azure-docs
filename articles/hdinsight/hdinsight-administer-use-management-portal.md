@@ -87,14 +87,14 @@ Installation of custom software on the cluster by using Remote Desktop Connectio
      -**Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection.
    * **Scale Cluster**: Allows you to change the number of worker nodes for this cluster.
    * **Delete**: Deletes the cluster.
-   * **Quickstart (![cloud and thunderbolt icon = quickstart](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: Displays information that will help you get started using HDInsight.
-   * **Users (![users icon](./media/hdinsight-administer-use-portal-linux/users.png))**: Allows you to set permissions for *portal management* of this cluster for other users on your Azure subscription.
+   * **Quickstart**: Displays information that will help you get started using HDInsight.
+   * **Users: Allows you to set permissions for *portal management* of this cluster for other users on your Azure subscription.
 
      > [!IMPORTANT]
      > This *only* affects access and permissions to this cluster in the Azure portal, and has no effect on who can connect to or submit jobs to the HDInsight cluster.
      >
      >
-   * **Tags (![tag icon](./media/hdinsight-administer-use-portal-linux/tags.png))**: Tags allow you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named **project**, and then use a common value for all services associated with a specific project.
+   * **Tags**: Tags allow you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named **project**, and then use a common value for all services associated with a specific project.
    * **Ambari Views**: Links to Ambari Web.
 
      > [!IMPORTANT]
