@@ -18,33 +18,43 @@ Features help you improve the detection or prediction of intents and entities in
 
 
 ## Phrase list features
-You can create a “phrase list” including a group of values (words or phrases) that belong to the same class and must be treated similarly (e.g. names of cities or products), so that what LUIS learns about one of them will be automatically applied to the others as well. For example in the TravelAgent app, London, Paris, Cairo, etc. can be values of a phrase list named as “Cities”. If you label one of these values as an entity, others will mostly be predicted the same. 
+You can create a “phrase list” including a group of values (words or phrases) that belong to the same class and must be treated similarly (e.g. names of cities or products), so that what LUIS learns about one of them will be automatically applied to the others as well. For example in the TravelAgent app, London, Paris, Cairo, etc. can be values of a phrase list named as “Cities”. If you label one of these values as an entity, others will be mostly predicted the same. 
 
 LUIS may be unable to recognize rare and proprietary words, as well as foreign words (out of the culture of the app), and therefore they should be added to a phrase list feature. 
 
 **To add a phrase list:**
 
 1. Open your app by clicking its name on **My Apps** page, and then click **Features** in your app's left panel. 
+
 2. On the **Features** page, click **Add phrase list**. 
  
     ![Features page - Phrase List Features tab](./Images/Features.JPG)
-3. In the **Add Phrase List** dialog box, type "Cities" as the name of the phrase list in the **Phrase list name** text box.
-4. In **Phrase list values**, type the values you want to include in the phrase list, separated by **commas** (e.g. London, Paris, Seattle, Berlin, Dubai, Cairo)  
+    
+3. In the **Add Phrase List** dialog box, type "Cities" as the name of the phrase list in the **Phrase list name** box.
+4. In the **Value** box, type the values of the phrase list. You can type one value at a time, or a set of values separated by commas (e.g. London, Paris,  Berlin, Brussels, etc), and then press Enter.
+ 
+    ![Add Phrase List dialog box](./media/luis-how-to-add-features/features-add-phrase-list.jpg)
+    
+5. If your app culture is English, LUIS can propose some related values to add to your phrase list. Click **Recommend** to get a group of proposed values that are semantically related to the added value(s). You can click any of the proposed values to add it, or click **Add All** to add them all.
 
-    ![Add phrase list dialog box](./Images/Features-AddPhraseList.JPG)
-5. Click **Is exchangeable**if the added phrase list values are alternatives that can be used interchangeably.
-6. Click **Is active** if you want this phrase list to be active (i.e. applicable and used) in your app.
-7. Click **Save**. The phrase list will be added to phrase list features on the **Features** page. 
+ ![Phrase List Proposed Values](/media/luis-how-to-add-features/features-phrase-list-proposed.jpg)
+
+6. Click **Is exchangeable** if the added phrase list values are alternatives that can be used interchangeably.
+7. Click **Is active** if you want this phrase list to be active (i.e. applicable and used) in your app.
+
+8. Click **Save**. The phrase list will be added to phrase list features on the **Features** page.
+
+ ![Phrase list added](/media/luis-how-to-add-features/features-phrase-list-added.jpg)
 
 **To edit a phrase list:**
 
-* Click the phrase list name in the list of phrase list features. In the **Edit Phrase List** dialog box that opens, make the required editing changes and then click **Save**.
+* Click the name of the phrase list  (e.g. Cities) on the **Features** page (the previous screenshot). In the **Edit Phrase List** dialog box that opens, make any required editing changes and then click **Save**.
 
     ![Edit Phrase List dialog box](./Images/Features-EditPhraseList.JPG)
 
 **To delete a phrase list:** 
 
-* Click the trash bin icon ![Trash bin button](./Images/trashbin-button.JPG) next to the phrase list name in the list of phrase list features.
+* Click the trash bin button ![Trash bin button](./Images/trashbin-button.JPG) next to the phrase list name on the **Features** page.
 
 ## Pattern features
 You can create a structured “pattern” to represent a certain class of objects (e.g. flight numbers, product codes, etc.). A pattern is defined in regular expression (Regex). This will help LUIS easily recognize the string of the defined pattern in utterances, and thus classify it correctly. For example, in a travel app, flight numbers might follow a regular pattern of two letters followed by three digits. 
@@ -74,4 +84,4 @@ You can create a structured “pattern” to represent a certain class of object
 
 **To delete a pattern:** 
 
-* Click the trash icon button ![Trash bin button](./Images/trashbin-button.JPG) next to the pattern name in the list of pattern features.
+* Click the trash bin button ![Trash bin button](./Images/trashbin-button.JPG) next to the pattern name in the list of pattern features.

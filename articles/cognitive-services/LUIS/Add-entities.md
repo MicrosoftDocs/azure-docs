@@ -1,4 +1,4 @@
----
+﻿---
 title: Add entities in LUIS apps | Microsoft Docs
 description: Add entities (key data in your application's domain) in Language Understanding Intelligent Services (LUIS) apps.
 services: cognitive-services
@@ -41,14 +41,14 @@ For a full list of prebuilt entities and their use, see [Prebuilt Entities List]
 
 
 ## Custom entities
-Custom entities are the entities you create in your app. There are three types of custom entities:
+Custom entities are the entities you create in your app. These are the available types of custom entities:
 
-* **Simple:** a generic entity.
-* **Hierarchical:** a parent including children (sub-types) which are dependent on the parent.
-* **Composite:** a compound of two or more separate entities combined together forming a composite and treated as a single entity.
+ * **Simple:** a generic entity.
+ * **Hierarchical:** a parent including children (sub-types) which are dependent on the parent.
+ * **Composite:** a compound of two or more separate entities combined together forming a composite and treated as a single entity.
+ * **List:** a customized list of entity values, to be used as keywords or identifiers to recognize the entity within utterances.
 
-
-## Add simple entities
+### Add simple entities
 A simple entity is a generic entity that describes a single concept. In the example of the TravelAgent app, a user may say "Book me a flight to London tomorrow on British Airways", where "British Airways" is the name of an airline company. In order to capture the notion of airline names, let's create the entity "Airline". 
 
 **To add a simple entity:**
@@ -60,7 +60,7 @@ A simple entity is a generic entity that describes a single concept. In the exam
     ![Add Entity Dialog box - Simple](./Images/AddSimpleEntity.jpg)
 
 
-## Hierarchical entities
+### Add hierarchical entities
 You can define relationships between entities based on hereditary hierarchical patterns, where the generic entity acts as the parent and the children are sub-types under the parent, and they share the same characteristics. For example, in the TravelAgent app, you can add three hierarchical entities:
 
 * “Location”, including the entity children “FromLocation” and “ToLocation”, representing source and destination locations.
@@ -85,31 +85,33 @@ Do the following steps to add hierarchical entities and make sure to add the chi
 6. Click **Save**.
 
  
-## Composite entities
-You can also define relationships between entities based on associative patterns by creating “composite entities”. A composite entity is created by combining two or more existing entities (simple or hierarchical) and treating them as one entity. Unlike a hierarchical entity, the composite entity and the children forming it are not in a parent-child relationship; they are independent of each other and they do not share common characteristics. The composite pattern enables your app to identify entities, not only individually, but also in groups. 
+### Add composite entities
+You can also define relationships between entities based on associative patterns by creating “composite entities”. A composite entity is created by combining two or more existing entities (simple/hierarchical) and treating them as one entity. Unlike a hierarchical entity, the composite entity and the children forming it are not in a parent-child relationship; they are independent of each other and they do not share common characteristics. The composite pattern enables your app to identify entities, not only individually, but also in groups. 
 
 In the TravelAgent app example, a user may say “Book 2 adult business tickets to Paris next Monday”. In this example, we can create a composite entity called “TicketsOrder”, including three children entities: “number”, “category” and "class" which describe the tickets to be booked. Before creating a composite entity, you must first add the entities forming it, if they do not already exist. 
 
 **To add the entities forming the composite:**
 
 1. Add the prebuilt entity “number”. For instructions, see the Add Prebuilt Entities section above. 
-2. Add the hierarchical entity "Category", including the sub-types: “adult”, “child” and “infant”, and "TravelClass" including "first", "business" and "economy". For more info, see the Hierarchical Entities section above. 
+2. Add the hierarchical entity "Category", including the sub-types: “adult”, “child” and “infant”, and "TravelClass" including "first", "business" and "economy". For more instructions, see the Hierarchical Entities section above. 
 
 **To add the composite entity:**
 
 1. Open the TravelAgent app by clicking its name on **My Apps** page and click **Entities** in the app's left panel.
 2. On the **Entities** page, click **Add custom entity**.
-3. In the **Add Entity** dialog box, type "TicketsOrder" in the **Entity name** box, and then select **Composite** from the **Entity type** list. Click on the add child link to add new child.
-4. In **Child #1**, select the entity "number" from the list.
-5. In **Child #2**, select the parent entity "Category" from the list. 
-6. In **Child #3**, select the parent entity "TravelClass" from the list. 
+3. In the **Add Entity** dialog box, type "TicketsOrder" in the **Entity name** box, and then select **Composite** from the **Entity type** list.
+4. Click **Add Child** to add a new child.
+5. In **Child #1**, select the entity "number" from the list.
+6. In **Child #2**, select the parent entity "Category" from the list. 
+7. In **Child #3**, select the parent entity "TravelClass" from the list. 
 
     ![Add composite entity](./Images/AddCompositeEntity.jpg)
 
 7. Click **Save**.
 
     >[!NOTE]
-    >To delete a child (in case of a mistake), click the trash icon next to it.
+    >To delete a child (in case of a mistake), click the trash button next to it.
+
 
 ## List entities
 A list entity is an entity that is defined by a list of all its values. This entity type is identified in utterances, not by active learning of context, but by the direct matching of utterance text to the defined values.   
@@ -127,11 +129,11 @@ List entity values can be added individually, or collectively by importing them 
 2. On the **Entities** page, click **Add custom entity**.
 3. In the **Add Entity** dialog box, type "Coastal Cities" in the **Entity name** box and select **List** as the **Entity type**.
  
-  ![Add a list entity](/Images/Add-List-Entity.JPG)
+  ![Add a list entity](./media/luis-how-to-add-entities/add-list-entity.jpg)
   
 4. Click **Save**. The list entity "Coastal Cities" will be added and its details page will be displayed where you should define its values.
 
- ![List entity details page](/Images/List-entity.JPG)
+ ![List entity details page](./media/luis-how-to-add-entities/list-entity.jpg)
 
 **To add list entity values individually:**
 
@@ -139,7 +141,7 @@ List entity values can be added individually, or collectively by importing them 
 
 2. When you finish typing all synonyms, click **Add**.
 
- ![Add list entity values](/Images/List-entity-values.JPG)
+ ![Add list entity values](./media/luis-how-to-add-entities/list-entity-values.jpg)
  
 3. Repeat the above two steps to add more values to the entity list.
 
@@ -148,11 +150,11 @@ List entity values can be added individually, or collectively by importing them 
  1. On the "Coastal Cities" list entity page, click **Import Lists**.
  2. In **Import New Entries** dialog box, click **Choose File** and select the JSON file including the list.
 
-  ![Import list entity values](/Images/List-entity-import.JPG)
+  ![Import list entity values](./media/luis-how-to-add-entities/list-entity-import.jpg)
   
  3. To learn about the supported list syntax in JSON, click **Learn about supported list syntax** to expand the dialog and display an example of allowed syntax. To collapse the dialog and hide syntax, click it again.
 
- ![Allowed syntax of imported lists](/Images/List-entity-import-syntx.JPG)
+ ![Allowed syntax of imported lists](./media/luis-how-to-add-entities/list-entity-import-syntx.jpg)
   
  4. Click **Import**.
 
@@ -160,11 +162,11 @@ List entity values can be added individually, or collectively by importing them 
 
 1. On the "Coastal Cities" list entity page, with at least one canonical form added (e.g. Barcelona), click **Show Related Values**.
 
- ![Show Related Values](/Images/List-entity-relatedValues.JPG)
+ ![Show Related Values](./media/luis-how-to-add-entities/list-entity-related-values.jpg)
  
 2. Click **Recommend**. You'll get a number of proposed values that are semantically related to the added canonical form (Barcelona in this example). The following screenshot shows the proposed values.
 
- ![Proposed Values](/Images/List-entity-proposedValues.JPG)
+ ![Proposed Values](./media/luis-how-to-add-entities/list-entity-proposed-values.jpg)
  
 3. Click a value to add it to your list as a canonical form, or click **Add All** to add all values.
 
@@ -173,6 +175,7 @@ List entity values can be added individually, or collectively by importing them 
 * The proposed values are added as canonical forms not synonyms; synonyms should be typed manually.
 * To delete an added canonical form, click the trash bin button corresponding to it.
 
+  
 ## Edit or delete entities
 You can edit or delete entities from the **Entities list** on the **Entities** page of your app. 
 

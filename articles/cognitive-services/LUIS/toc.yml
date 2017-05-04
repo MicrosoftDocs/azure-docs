@@ -34,6 +34,24 @@
     href: Manage-Keys.md
   - name: Create subscription keys
     href: AzureIbizaSubscription.md
+  - name: Manage versions
+    href: luis-how-to-manage-versions.md
+- name: Quickstarts
+  items: 
+  - name: Create a new app
+    href: luis-get-started-create-app.md
+- name: Tutorials
+  items: 
+  - name: Build a bot using Node.js
+    href: luis-nodejs-tutorial-build-bot-framework-sample.md
+- name: Concepts
+  items: 
+  - name: Entities
+    href: luis-concept-entity-types.md
+  - name: Utterances
+    href: luis-concept-utterance.md
+  - name: Support for multiple languages
+    href: luis-concept-language-support.md
 - name: Reference
   items: 
   - name: LUIS API
