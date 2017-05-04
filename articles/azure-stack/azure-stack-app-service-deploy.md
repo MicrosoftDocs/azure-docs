@@ -73,7 +73,7 @@ The following steps guide you through the installation stages:
 > [!NOTE]
 > You MUST use an elevated account (local or domain administrator) to execute the installer. If you sign in as azurestack\azurestackuser, you will be prompted for elevated credentials.
 
-1. Run appservice.exe as **azurestack\administrator**.
+1. Run appservice.exe as **azurestack\AzureStackAdmin**.
 2. Click **Deploy App Service on your Azure Stack cloud**.
 ![App Service on Azure Stack Technical Preview 3 Installer][1]
 3. Review and accept the Microsoft Software Pre-Release License Terms, and then click **Next**.
