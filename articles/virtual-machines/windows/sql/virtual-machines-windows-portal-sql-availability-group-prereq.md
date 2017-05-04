@@ -15,7 +15,7 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/17/2017
+ms.date: 05/04/2017
 ms.author: mikeray
 
 ---
@@ -85,6 +85,7 @@ To create the virtual network:
    | **Subnet name** |Admin |
    | **Subnet address range** |10.33.0.0/29 |
    | **Subscription** |Specify the subscription that you intend to use. **Subscription** is blank if you only have one subscription. |
+   | **Resource group** |Choose **Use existing** and pick the name of the resource group. |
    | **Location** |Specify the Azure location. |
 
    Your address space and subnet address range might be different from the table. Depending on your subscription, the portal suggests an available address space and corresponding subnet address range. If no sufficient address space is available, use a different subscription.
@@ -104,8 +105,7 @@ The new virtual network has one subnet, named **Admin**. The domain controllers 
 
     If **SQL-HA-RG** isn't visible, find it by clicking **Resource Groups** and filtering by the resource group name.
 2. Click **autoHAVNET** on the list of resources. Azure opens the network configuration blade.
-3. On the **autoHAVNET** virtual network blade, click **All settings**.
-4. On the **Settings** blade, click **Subnets**.
+3. On the **autoHAVNET** virtual network blade, under **Settings** , click **Subnets**.
 
     Note the subnet that you already created.
 
@@ -173,6 +173,7 @@ The following table shows the settings for these two machines:
 
 | **Field** | Value |
 | --- | --- |
+| **Name** |First domain controller: *ad-primary-dc*.</br>Second domain controller *ad-secondary-dc*. |
 | **VM disk type** |SSD |
 | **User name** |DomainAdmin |
 | **Password** |Contoso!0000 |
@@ -180,12 +181,12 @@ The following table shows the settings for these two machines:
 | **Resource group** |SQL-HA-RG |
 | **Location** |*Your location* |
 | **Size** |DS1_V2 |
-| **Storage account** |*Automatically created* |
+| **Storage** | **Use managed disks** - **Yes** |
 | **Virtual network** |autoHAVNET |
 | **Subnet** |admin |
 | **Public IP address** |*Same name as the VM* |
 | **Network security group** |*Same name as the VM* |
-| **Availability set** |adavailabilityset |
+| **Availability set** |adavailabilityset </br>**Fault domains**:2</br>**Update domains**:2|
 | **Diagnostics** |Enabled |
 | **Diagnostics storage account** |*Automatically created* |
 
@@ -249,6 +250,17 @@ One way to get the primary domain controller IP address is through the Azure por
 
 Note the private IP address for this server.
 
+### Configure the virtual network DNS
+After you create the first domain controller and enable DNS on the first server, configure the virtual network to use this server for DNS. 
+
+1. In the Azure portal, click on the virtual network.
+
+2. Under **Settings**, click **DNS Server**. 
+
+3. Click **Custom**, and type the private IP address of the primary domain controller. 
+
+4. Click **Save**.
+
 ### Configure the second domain controller
 After the primary domain controller reboots, you can configure the second domain controller. This optional step is for high availability. Follow these steps to configure the second domain controller:
 
@@ -288,6 +300,10 @@ After the primary domain controller reboots, you can configure the second domain
 22. Click **Next** until the dialog reaches the **Prerequisites** check. Then click **Install**.
 
 After the server finishes the configuration changes, restart the server.
+
+### Add the Private IP Address to the second domain controller to the VPN DNS Server
+
+In the Azure portal virtual network, change the DNS Server to include the IP address of the secondary domain controller. 
 
 ### <a name=DomainAccounts></a> Configure the domain accounts
 
