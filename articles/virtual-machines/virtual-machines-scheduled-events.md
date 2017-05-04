@@ -98,7 +98,7 @@ In the case where there are scheduled events, the response contains an array of 
 | EventType | Impact that event causes. <br><br> Values: <br><ul><li> <i>Freeze</i>: The Virtual Machine is scheduled to pause for few seconds. There is no impact on memory, open files, or network connections <li> <i>Reboot</i>: The Virtual Machine is scheduled for reboot (memory is wiped).<li> <i>Redeploy</i>: The Virtual Machine is scheduled to move to another node (ephemeral disks are lost). |
 | ResourceType | Type of resource that event impacts. <br><br> Values: <ul><li>VirtualMachine|
 | Resources| List of resources that event impacts. <br><br> Example: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
-| Event Status | Status of the event. <br><br> Values: <ul><li><i>Scheduled:</i> Event is scheduled to start after the time specified in the <i>NotBefore</i> property.<li><i>Started</i>: Event has started.</i>
+| EventStatus | Status of the event. <br><br> Values: <ul><li><i>Scheduled:</i> Event is scheduled to start after the time specified in the <i>NotBefore</i> property.<li><i>Started</i>: Event has started.</i>
 | NotBefore| Time after which event may start. <br><br> Example: <br><ul><li> 2016-09-19T18:29:47Z  |
 
 
