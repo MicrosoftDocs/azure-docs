@@ -2,40 +2,8 @@
   href: Home.md
 - name: Overview
   items: 
-  - name: Learn about Language Understading Intelligent Services
+  - name: Learn about Language Understanding Intelligent Service
     href: Home.md
-- name: Get started
-  items: 
-  - name: Plan your app
-    href: Plan-your-app.md
-  - name: Create an app
-    href: Create-new-app.md
-  - name: Dashboard
-    href: App-Dashboard.md
-  - name: Add intents
-    href: Add-intents.md
-  - name: Add utterances
-    href: Add-example-utterances.md
-  - name: Add entities
-    href: Add-entities.md
-  - name: Add features
-    href: Add-Features.md
-  - name: Train + test the app
-    href: Train-Test.md
-  - name: Active learning
-    href: Label-Suggested-Utterances.md
-  - name: Publish your app
-    href: PublishApp.md
-  - name: Pre-built entities
-    href: Pre-builtEntities.md
-  - name: Cortana prebuilt app
-    href: Cortana-Prebuilt-App.md
-  - name: Key management
-    href: Manage-Keys.md
-  - name: Create subscription keys
-    href: AzureIbizaSubscription.md
-  - name: Manage versions
-    href: luis-how-to-manage-versions.md
 - name: Quickstarts
   items: 
   - name: Create a new app
@@ -52,6 +20,38 @@
     href: luis-concept-utterance.md
   - name: Support for multiple languages
     href: luis-concept-language-support.md
+- name: Get started
+  items: 
+  - name: Plan your app
+    href: Plan-your-app.md
+  - name: Create an app
+    href: Create-new-app.md
+  - name: Use the dashboard
+    href: App-Dashboard.md
+  - name: Add intents
+    href: Add-intents.md
+  - name: Add utterances
+    href: Add-example-utterances.md
+  - name: Add entities
+    href: Add-entities.md
+  - name: Add features
+    href: Add-Features.md
+  - name: Train and test the app
+    href: Train-Test.md
+  - name: Active learning
+    href: Label-Suggested-Utterances.md
+  - name: Publish your app
+    href: PublishApp.md
+  - name: Use prebuilt entities
+    href: Pre-builtEntities.md
+  - name: Use the Cortana prebuilt app
+    href: Cortana-Prebuilt-App.md
+  - name: Manage keys
+    href: Manage-Keys.md
+  - name: Create subscription keys
+    href: AzureIbizaSubscription.md
+  - name: Manage versions
+    href: luis-how-to-manage-versions.md    
 - name: Reference
   items: 
   - name: LUIS API
