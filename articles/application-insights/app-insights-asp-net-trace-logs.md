@@ -106,7 +106,7 @@ You can configure ETW events to be sent to Application Insights as traces by edi
 ```
 
 For each source, you can set the following parameters:
- * `ProviderName` is the name of name of the ETW provider to collect.
+ * `ProviderName` is the name of the ETW provider to collect.
  * `ProviderGuid` specifies the GUID of the ETW provider to collect, can be used instead of `ProviderName`.
  * `Level` sets the logging level to collect. Can be one of `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
  * `Keywords` (Optional) sets the integer value of keyword combinations to use.
