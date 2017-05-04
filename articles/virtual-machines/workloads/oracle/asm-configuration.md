@@ -92,7 +92,12 @@ For more information, see [Oracle ASMLib Downloads for Oracle Linux 6](http://ww
 
 ```bash
 $ sudo su -
-# yum list| grep oracleasm
+# yum list
+```
+The first you run yum list, it could take several minutes to load
+
+```bash
+# yum list | grep oracleasm
 # yum -y install kmod-oracleasm.x86_64
 # yum -y install oracleasm-support.x86_64
 # wget http://download.oracle.com/otn_software/asmlib/oracleasmlib-2.0.12-1.el6.x86_64.rpm
@@ -118,6 +123,7 @@ Add users and groups
 Verify users and groups
 ```bash
 # id grid
+uid=3000(grid) gid=54321(oinstall) groups=54321(oinstall),54322(dba),54345(asmadmin),54346(asmdba),54347(asmoper)
 ```
 Create folder and change owner
 ```bash
@@ -192,6 +198,22 @@ Check disk configuration
 
 ```bash
 # cat /proc/partitions
+major minor  #blocks  name
+
+   8       16   14680064 sdb
+   8       17   14678976 sdb1
+   8       32   52428800 sdc
+   8       33   52428096 sdc1
+   8       48   52428800 sdd
+   8       49   52428096 sdd1
+   8       64   52428800 sde
+   8       65   52428096 sde1
+   8       80   52428800 sdf
+   8       81   52428096 sdf1
+   8        0   52428800 sda
+   8        1     512000 sda1
+   8        2   51915776 sda2
+  11        0    1048575 sr0
 ```
 Check ASM service status
 ```bash
@@ -231,10 +253,11 @@ DATA1
 FRA
 ```
 
-Change oracle and grid passwords
+Change root, oracle and grid passwords (will be use later during installation)
 ```bash
 # passwd oracle
 # passwd grid
+# passwd root
 ```
 
 Change folder permission
@@ -260,12 +283,13 @@ There should be 2 zip files to download under the title "Oracle Database 12c Rel
 Once these zips are download to your client machine, you can SCP (secure copy) to your VM
 
 ```bash
-scp *.zip <publicIpAddress>:<folder you desire>
+scp *.zip <publicIpAddress>:<folder>
 ```
 
 Move the zip files to /opt folder and change owner of files
 ```bash
-# mv *.zip /opt
+# mv <folder>/*.zip /opt
+# cd /opt
 # chown grid:oinstall linuxamd64_12102_grid_1of2.zip
 # chown grid:oinstall linuxamd64_12102_grid_2of2.zip
 ```
@@ -273,7 +297,6 @@ Move the zip files to /opt folder and change owner of files
 Unzip files, install unzip utility if not already installed
 ```bash
 # yum install unzip
-# cd /opt
 # unzip linuxamd64_12102_grid_1of2.zip
 # unzip linuxamd64_12102_grid_2of2.zip
 ```
@@ -301,12 +324,12 @@ If you have less than 6GB of swap space, you can add more swap space by using th
 6144+0 records out
 6442450944 bytes (6.4 GB) copied, 141.245 s, 45.6 MB/s
 
-# mkswap /extraswap
-mkswap: /extraswap: warning: don't erase bootbits sectors
+# mkswap /mnt/resource/extraswap
+mkswap: /mnt/resource/extraswap: warning: don't erase bootbits sectors
         on whole disk. Use -f to force.
 Setting up swapspace version 1, size = 6291452 KiB
 no label, UUID=80bd7816-b3a2-4eec-a824-733209644fc5
-# swapon /extraswap
+# swapon /mnt/resource/extraswap
 
 ```
 ## Prepare the client and VM to run X11(For Windows client only)
@@ -314,7 +337,9 @@ no label, UUID=80bd7816-b3a2-4eec-a824-733209644fc5
 Log in as root, edit the /etc/ssh/ssh_config file, change the setting of Forwardx11 to yes
 
 ```
+#   ForwardX11 no
 ForwardX11 yes
+
 ```
 Download Putty and Xming onto your Windows machine
 
@@ -337,6 +362,8 @@ $ mkdir .ssh (if not already created)
 $ cd .ssh
 ```
 create a file call authorized_keys and paste the content of the key to this file and save it.
+
+Note: The key must contains ssh-rsa .... and must be in one line.
 
 Start Putty, select SSH, then select Auth and browse the key you generated earlier.
 
@@ -388,6 +415,12 @@ Use default setting, click next to continue
 
 ![Diagram of install screen](./media/asm-configuration/install08.png)
 
+
+![Diagram of install screen](./media/asm-configuration/install09.png)
+
+
+
+
 Use default setting or any location you selected, click next to continue
 
 ![Diagram of install screen](./media/asm-configuration/install09.png)
@@ -402,7 +435,7 @@ Click ok to continue after the script ran successful
 
 Check the box for Automatically run configuration scripts and select the credential, click next to continue
 
-![Diagram of install screen](./media/asm-configuration/install10.png)
+
 
 Review the settings, click install to begin installation
 
