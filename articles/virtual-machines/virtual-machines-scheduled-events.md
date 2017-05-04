@@ -90,13 +90,17 @@ In the case where there are scheduled events, the response contains an array of 
          }
      ]
 	}
+	
+### Event Properties
+|Property  |  Description |
+| - | - |
+| EventId |Globally unique identifier for event. <br><br> Example: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
+| EventType | Impact that event causes. <br><br> Values: <br><ul><li> <i>Freeze</i>: The Virtual Machine is scheduled to pause for few seconds. There is no impact on memory, open files, or network connections <li> <i>Reboot</i>: The Virtual Machine is scheduled for reboot (memory is wiped).<li> <i>Redeploy</i>: The Virtual Machine is scheduled to move to another node (ephemeral disks are lost). |
+| ResourceType | Type of resource that event impacts. <br><br> Values: <ul><li>VirtualMachine|
+| Resources| List of resources that event impacts. <br><br> Example: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Event Status | Status of the event. <br><br> Values: <ul><li><i>Scheduled:</i> Event is scheduled to start after the time specified in the <i>NotBefore</i> property.<li><i>Started</i>: Event has started.</i>
+| NotBefore| Time after which event may start. <br><br> Example: <br><ul><li> 2016-09-19T18:29:47Z  |
 
-EventType Captures the expected impact on the Virtual Machine where:
-- Freeze: The Virtual Machine is scheduled to pause for few seconds. There is no impact on memory, open files, or network connections
-- Reboot: The Virtual Machine is scheduled for reboot (memory is wiped).
-- Redeploy: The Virtual Machine is scheduled to move to another node (ephemeral disk are lost). 
-
-When an event is scheduled (Status = Scheduled), Azure shares the time after which the event can start (specified in the NotBefore field).
 
 ### Starting an event (expedite)
 

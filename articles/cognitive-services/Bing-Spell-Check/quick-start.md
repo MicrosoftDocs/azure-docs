@@ -122,5 +122,5 @@ BingAPIs-Market: en-US
 
 Try out the API. Go to [Spell Check API Testing Console](https://dev.cognitive.microsoft.com/docs/services/56e73033cf5ff80c2008c679/operations/57855119bca1df1c647bc358). 
 
-For details about consuming the response objects, see [Proofing Text Strings](./proof-text.md).
+For details about consuming the response objects, see [Spell check text strings](./proof-text.md).
 
