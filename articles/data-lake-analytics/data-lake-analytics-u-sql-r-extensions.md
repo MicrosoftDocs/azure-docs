@@ -169,7 +169,7 @@ More sample code is available in your Data Lake Store account after you install 
 
 ## Deploying Custom R modules with U-SQL
 
-First, create an R custor module and zip it and then upload the zipped R custom module file to your ADL store. In the example, we will upload magittr_1.5.zip to the root of the default ADLS account for the ADLA account we are using. Once you upload the module to ADL store, declare it as use DEPLOY RESOURCE to make it available in your U-SQL script and call "install.packages" to install it.
+First, create an R custom module and zip it and then upload the zipped R custom module file to your ADL store. In the example, we will upload magittr_1.5.zip to the root of the default ADLS account for the ADLA account we are using. Once you upload the module to ADL store, declare it as use DEPLOY RESOURCE to make it available in your U-SQL script and call "install.packages" to install it.
 
     REFERENCE ASSEMBLY [ExtR];
     DEPLOY RESOURCE @"/magrittr_1.5.zip";
