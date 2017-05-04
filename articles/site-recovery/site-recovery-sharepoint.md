@@ -134,7 +134,7 @@ A recovery plan allows sequencing the failover of various tiers in a multi-tier 
 ### Adding virtual machines to failover groups
 
 1. Create a recovery plan by adding the App and Web tier VMs.
-2. Click on 'Customize' to group the VMs
+2. Click on 'Customize' to group the VMs. By default, all VMs will be part of 'Group 1'.
 
 	![Customize RP](./media/site-recovery-sharepoint/RP-with-groups.png) 
 
@@ -162,7 +162,6 @@ You can deploy the most commonly used Azure Site Recovery scripts into your Auto
     ![Add-LB-Script-Step-2](./media/site-recovery-sharepoint/RP-Add-LB-script-step-2.png)
 
 3. Add a manual step to update the DNS records to point to the new farm in Azure. 
-	
 
 	* For internet facing sites, no DNS update are required post failover. Follow the steps described in the 'Networking guidance' section to configure Traffic Manager. If the Traffic Manager profile has been setup as described in the previous section, add a script to open dummy port (800 in the example) on the Azure VM.
 
