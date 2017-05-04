@@ -14,8 +14,9 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
-ms.author: cakarst;barbkess
 ms.custom: loading
+ms.author: cakarst;barbkess
+
 
 ---
 # Guide for using PolyBase in SQL Data Warehouse

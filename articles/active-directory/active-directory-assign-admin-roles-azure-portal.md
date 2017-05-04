@@ -91,18 +91,6 @@ The following administrator roles are available:
 
 ## Administrator permissions
 
-### Application administrator
-| Can do | Cannot do |
-| --- | --- |
-| <p>Create applications </p><p>Manage owned applications </p>|<p>Reset user passwords </p><p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses</p><p>Manage domains</p><p>Manage company information </p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>View reports audit logs</p>|
-
-###Application developer
-
-| Can do | Cannot do |
-| --- | --- |
-|<p>View directory information </p><p>Create and manage all applications </p><p>Assign licenses and access to applications </p><p>Manage Office support tickets and monitor service health</p><p>Perform billing and purchasing operations for Office products</p><p>View reports audit logs</p>|<p>Reset user passwords </p><p>Create and manage user views </p><p>Create, edit, and delete users and groups</p><p>Manage domains </p><p>Manage company information</p><p>Delegate administrative roles to others </p><p>Use directory synchronization</p>|
-
-
 ### Billing administrator
 
 | Can do | Cannot do |

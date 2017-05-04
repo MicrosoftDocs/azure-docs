@@ -3,7 +3,7 @@ title: Connect to Azure Stack with CLI | Microsoft Docs
 description: Learn how to use the cross-platform command-line interface (CLI) to manage and deploy resources on Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: HeathL17
+author: SnehaGunda
 manager: byronr
 editor: ''
 
@@ -13,60 +13,78 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
-ms.author: helaw
+ms.date: 04/04/2016
+ms.author: sngun
 
 ---
 # Install and configure Azure Stack CLI
 
-> [!IMPORTANT] 
-> This topic applies only to Azure Stack Technical Preview 2.
->
+In this document, we guide you through the process of using Azure Command-line Interface (CLI) to manage Azure Stack resources on Linux and Mac client platforms. The following steps required to connect to Azure Stack:
 
-In this document, we guide you through the process of using Azure Command-line Interface (CLI) to manage Azure Stack resources on Linux and Mac client platforms.
+* [Install Node.js](#install-nodejs)
+* [Install Azure Stack CLI](#install-azure-stack-cli)
+* [Connect to Azure Stack](#connect-to-azure-stack)
 
-## Install Node.js and npm
-As a prerequisite, install version 4.6.2 of Node.js. On Linux, installation can be done with the following command:
-
-```
-wget -qO- https://deb.nodesource.com/setup_4.x | sudo bash -
-sudo apt-get install nodejs
-```
+## Install Node.js
+Azure Stack requires the **4.4.6** version of Node.js. Navigate to https://nodejs.org/en/blog/release/v4.4.6/ and install the required version of Node.js for Windows, Mac OS or Linux machines.
 
 ## Install Azure Stack CLI
-If you’re on Mac or Linux, you can get the CLI by using the following command:
+Azure Stack requires the **0.9.18** version of Azure CLI. Use the following command to install the required version of Azure CLI:
 
 ```
-npm install -g azure-cli@0.10.4
+npm install -g azure-cli@0.9.18
 ```
-
 
 ## Connect to Azure Stack
-In the following steps, you configure Azure CLI to connect to Azure Stack. Then you sign in and retrieve subscription information.
+Use the following steps to connect to Azure Stack by using Azure CLI:
 
-1. Retrieve the value for active-directory-resource-id by executing this PowerShell:
-    ```PowerShell
-    (Invoke-RestMethod -Uri https://api.local.azurestack.global/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
-    ```
-2. Use the following CLI command to add the Azure Stack environment, making sure to update *--active-directory-resource-id* with the data URL retrieved in the previous step:
+1. Open a PowerShell session and get the Active Directory Resource Id by running the following PowerShell command:
+
+   ```
+   PowerShell(Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01 -Method Get).authentication.audiences[0]
+   ```
    
-          azure account env add AzureStack --resource-manager-endpoint-url "https://api.local.azurestack.global" --management-endpoint-url "https://api.local.azurestack.global" --active-directory-endpoint-url  "https://login.windows.net" --portal-url "https://publicportal.local.azurestack.global" --gallery-endpoint-url "https://publicportal.local.azurestack.global" --active-directory-resource-id "https://local.azurestack.global-api/" --active-directory-graph-resource-id "https://graph.windows.net/"
-3. Sign in by using the following command (replace *username* with your user name):
+2. Open a command prompt window and add the Azure Stack environment by using the following command, make sure to replace the `<Active directory resource ID>` with the value retrieved in the previous step:
+
+   ```
+   azure account env add AzureStack --resource-manager-endpoint-url "https://management.local.azurestack.external" --management-endpoint-url "https://management.local.azurestack.external" --active-directory-endpoint-url  "https://login.windows.net" --portal-url "https://portal.local.azurestack.external" --gallery-endpoint-url "https://portal.local.azurestack.external/" --active-directory-resource-id "<Active directory resource ID>" --active-directory-graph-resource-id "https://graph.windows.net/"  
+   ```
+
+3. Disable the TLS certificate validation by running the following command:
+
+   ```
+   set NODE_TLS_REJECT_UNAUTHORIZED=0
+   ```
    
-       azure login -e AzureStack -u “<username>”
+4. Sign in to the Azure Stack administrator or user account by using the following command, make sure to replace the <username> and the <Password> with your Azure Stack administrator or user Active Directory account name. 
    
-   > [!NOTE]
-   > If you're getting certificate validation issues, disable certificate validation by running the command `set         NODE_TLS_REJECT_UNAUTHORIZED=0`.
-   > 
-   > 
-4. Set the Azure configuration mode to Azure Resource Manager by using the following command:
+   ```
+   azure login -e AzureStack -u “<Active directory username>” -p "<Password>"
+   ```
+   For example, an Azure Stack service administrator can sign into their Azure Stack account as follows:
    
-       azure config mode arm
-5. Retrieve a list of subscriptions.
+   ```
+   azure login -e Azure -u "serviceadmin@contoso.onmicrosoft.com
+   ```
    
-       azure account list     
+5. Set the Azure configuration mode to Azure Resource Manager by using the following command:
+
+   ```
+   azure config mode arm
+   ```
+
+6. After connecting, you can use the Azure CLI commands such as:
+
+   ```
+   # Get the list of subscriptions in the current account
+   azure account list   
+
+   # get the list of resources
+   azure resource list
+   ```
 
 ## Next steps
+
 [Deploy templates with Azure CLI](azure-stack-deploy-template-command-line.md)
 
 [Connect with PowerShell](azure-stack-connect-powershell.md)

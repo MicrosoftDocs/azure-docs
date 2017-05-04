@@ -31,9 +31,6 @@ After configuring an Azure Application Gateway, one of the errors which users ma
 * Invalid or improper configuration of custom health probes.
 * Request time out or connectivity issues with user requests.
 
-> [!note]
-> Application Gateway preserves the incoming host header and sends the same header to backend. If the backend requires a different header then this will not work. Similarly if the backend is multi tenant and end-to-end SSL is enabled, the backend would expect server name in SNI extension. Application Gateway does not currently send SNI header in backend requests in end-to-end SSL scenarios which would cause probe and data path issues.
-
 ## Empty BackendAddressPool
 
 ### Cause
@@ -131,6 +128,8 @@ Validate that the Custom Health Probe is configured correctly as the preceding t
 * Ensure that the probe is correctly specified as per the [guide](application-gateway-create-probe-ps.md).
 * If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe.
 * Ensure that a call to http://\<host\>:\<port\>\<path\> returns an HTTP result code of 200.
+* Ensure that Interval, Time-out and UnhealtyThreshold are within the acceptable ranges.
+* If using an HTTPS probe, make sure that the backend server doesn't require SNI by configuring a fallback certificate on the backend server itself. 
 * Ensure that Interval, Time-out, and UnhealtyThreshold are within the acceptable ranges.
 
 ## Request time out

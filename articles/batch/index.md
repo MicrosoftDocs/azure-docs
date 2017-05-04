@@ -55,7 +55,7 @@ Learn how to use Batch to run large-scale parallel and high-performance computin
         </a>
     </li>
     <li>
-        <a href="/azure/Batch/batch-account-create-portal">
+        <a href="/azure/batch/batch-account-create-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

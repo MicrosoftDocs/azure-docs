@@ -57,7 +57,7 @@ It's easy to generate an RSA key pair, which contains a public key and a private
    ![Private and public keys][keys]
 
 ### Add the key pair to the HPC Pack cluster
-1. [Connect by Remote Desktop](../../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to the head node VM using the domain credentials you provided when you deployed the cluster (for example, hpc\clusteradmin). You manage the cluster from the head node.
+1. [Connect by Remote Desktop](../../windows/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to the head node VM using the domain credentials you provided when you deployed the cluster (for example, hpc\clusteradmin). You manage the cluster from the head node.
 2. Use standard Windows Server procedures to create a domain user account in the cluster's Active Directory domain. For example, use the Active Directory User and Computers tool on the head node. The examples in this article assume you create a domain user named hpcuser in the hpclab domain (hpclab\hpcuser).
 3. Add the domain user to the HPC Pack cluster as a cluster user. For instructions, see [Add or remove cluster users](https://technet.microsoft.com/library/ff919330.aspx).
 4. Create a file named C:\cred.xml and copy the RSA key data into it. You can find an example in the sample files at the end of this article.

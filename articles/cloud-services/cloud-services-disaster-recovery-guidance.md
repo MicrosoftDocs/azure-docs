@@ -3,7 +3,7 @@ title: What to do in the event of an Azure service disruption that impacts Azure
 description: Learn what to do in the event of an Azure service disruption that impacts Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''
-author: kmouss
+author: mmccrory
 manager: drewm
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: cloud-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2016
-ms.author: kmouss;aglick
+ms.date: 04/04/2017
+ms.author: mmccrory
 
 ---
 # What to do in the event of an Azure service disruption that impacts Azure Cloud Services
@@ -31,25 +31,16 @@ This article covers a true disaster recovery scenario, when a whole region exper
 >
 >
 
-To help you handle these rare occurrences, we provide the following guidance for Azure virtual machines (VMs) in the case of a service disruption of the entire region where your Azure VM application is deployed.
 
-## Option 1: Wait for recovery
-In this case, no action on your part is required. Know that Azure teams are working diligently to restore service availability. You can see the current service status on our [Azure Service Health Dashboard](https://azure.microsoft.com/status/).
+## Option 1: Use a backup deployment through Azure Traffic Manager
+The most robust disaster recovery solution involves maintaining multiple deployments of your application in different regions, then using [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) to direct traffic between them. Azure Traffic Manager provides multiple [routing methods](../traffic-manager/traffic-manager-routing-methods.md), so you can choose whether to manage your deployments using a primary/backup model or to split traffic between them.
 
-> [!NOTE]
-> This is the best option if a customer hasn’t set up Azure Site Recovery or has a secondary deployment in a different region.
->
->
+![Balancing Azure Cloud Services across regions with Azure Traffic Manager](./media/cloud-services-disaster-recovery-guidance/using-azure-traffic-manager.png)
 
-For customers who want immediate access to their deployed cloud services, the following options are available.
+For the fastest response to the loss of a region, it is important that you configure Traffic Manager's [endpoint monitoring](../traffic-manager/traffic-manager-monitoring.md).
 
-> [!NOTE]
-> Be aware that these options have the possibility of some data loss.     
->
->
-
-## Option 2: Re-Deploy your cloud service configuration to a new region
-If you have your original code, you can simply just redeploy the application, associated configuration, and associated resources to a new cloud service in a new region.  
+## Option 2: Deploy your application to a new region
+Maintaining multiple active deployments as described in the previous option incurs additional ongoing costs. If your recovery time objective (RTO) is flexible enough and you have the original code or compiled Cloud Services package, you can create a new instance of your application in another region and update your DNS records to point to the new deployment.
 
 For more detail about how to create and deploy a cloud service application, see [How to create and deploy a cloud service](cloud-services-how-to-create-deploy-portal.md).
 
@@ -58,14 +49,11 @@ Depending on your application data sources, you may need to check the recovery p
 * For Azure Storage data sources, see [Azure Storage replication](../storage/storage-redundancy.md#read-access-geo-redundant-storage) to check on the options that are available based on the chose replication model for your application.
 * For SQL Database sources, read [Overview: Cloud business continuity and database disaster recovery with SQL Database](../sql-database/sql-database-business-continuity.md) to check on the options that are available based on the chosen replication model for your application.
 
-## Option 3: Use a backup deployment through Azure Traffic Manager
-This option assumes that you have already designed your application solution with regional disaster recovery in mind. You can use this option if you already have a secondary cloud services application deployment that's running in a different region and connected through a traffic manager channel. In this case, check the health of the secondary deployment. If it's healthy, you can redirect traffic to it through Azure Traffic Manager. With this strategy, you can take advantage of the traffic routing method and failover order configurations in Azure Traffic Manager. For more information, see [What is Traffic Manager?](../traffic-manager/traffic-manager-overview.md).
 
-![Balancing Azure Cloud Services across regions with Azure Traffic Manager](./media/cloud-services-disaster-recovery-guidance/using-azure-traffic-manager.png)
+## Option 3: Wait for recovery
+In this case, no action on your part is required, but your service will be unavailable until the region is restored. You can see the current service status on the [Azure Service Health Dashboard](https://azure.microsoft.com/status/).
 
 ## Next steps
 To learn more about how to implement a disaster recovery and high availability strategy, see [Disaster recovery and high availability for Azure applications](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
 To develop a detailed technical understanding of a cloud platform’s capabilities, see [Azure resiliency technical guidance](../resiliency/resiliency-technical-guidance.md).
-
-If the instructions are not clear, or if you would like Microsoft to do the operations on your behalf please contact [Customer Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

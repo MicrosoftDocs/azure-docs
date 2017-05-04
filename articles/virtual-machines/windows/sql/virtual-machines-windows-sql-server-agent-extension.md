@@ -47,6 +47,7 @@ Requirements to use the SQL Server IaaS Agent Extension on your VM:
 
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
 **SQL Server versions**:
 

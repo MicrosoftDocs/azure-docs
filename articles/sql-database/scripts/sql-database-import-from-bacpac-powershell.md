@@ -21,9 +21,9 @@ ms.author: janeng
 
 # Import from a bacpac into a SQL database using PowerShell
 
-This sample PowerShell script imports a database from a bacpac.  
+This sample PowerShell script imports a database from a **bacpac** file.  
 
-Before running this script, ensure that a connection with Azure has been created using the `Add-AzureRmAccount` cmdlet.
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Sample script
 
@@ -43,11 +43,11 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [New-AzureRmResourceGroup]() | Creates a resource group in which all resources are stored. |
-| [New-AzureRmSqlServer]() | Creates a logical server that hosts the SQL Database. |
-| [New-AzureRmSqlServerFirewallRule]() | Creates a firewall rule to allow access to all SQL Databases on the server from the entered IP address range. |
-| [New-AzureRmSqlDatabase]() | Creates the SQL Database in the logical server. |
-| [Remove-AzureRmResourceGroup]() | Deletes a resource group including all nested resources. |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
+| [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver) | Creates a logical server that hosts the SQL Database. |
+| [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserverfirewallrule) | Creates a firewall rule to allow access to all SQL Databases on the server from the entered IP address range. |
+| [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/new-azurermsqldatabaseimport?view=azurermps-3.7.0) | Imports a .bacpac file and create a new database on the server. |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 

@@ -29,8 +29,6 @@ Network Watcher packet capture allows you to create capture sessions to track tr
 
 This article uses cross-platform Azure CLI 1.0, which is available for Windows, Mac and Linux. Network Watcher currently uses Azure CLI 1.0 for CLI support.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 This article takes you through the different management tasks that are currently available for packet capture.
 
 - [**Start a packet capture**](#start-a-packet-capture)
@@ -46,7 +44,7 @@ This article assumes you have the following resources:
 - A virtual machine with the packet capture extension enabled.
 
 > [!IMPORTANT]
-> Packet capture requires an agent to be running on the virtual machine. The Agent is installed as an extension. For instructions on VM extensions, visit [Virtual Machine extensions and features](../virtual-machines/virtual-machines-windows-extensions-features.md).
+> Packet capture requires an agent to be running on the virtual machine. The Agent is installed as an extension. For instructions on VM extensions, visit [Virtual Machine extensions and features](../virtual-machines/windows/extensions-features.md).
 
 ## Install VM extension
 

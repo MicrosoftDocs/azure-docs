@@ -7,7 +7,7 @@ See [List of Oracle virtual machine images](../articles/virtual-machines/linux/c
 See [Miscellaneous considerations for Oracle virtual machine images](../articles/virtual-machines/windows/classic/oracle-considerations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) to understand limitations for Oracle software on Windows Server-based Azure virtual machines.
 
 ## Prepare an Oracle Linux virtual machine
-[Prepare an Oracle Linux virtual machine for Azure](../articles/virtual-machines/virtual-machines-linux-oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) steps you through the prerequisites and virtual machine creation for Oracle Linux 6.4+ and Oracle Linux 7.0+.
+[Prepare an Oracle Linux virtual machine for Azure](../articles/virtual-machines/linux/oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) steps you through the prerequisites and virtual machine creation for Oracle Linux 6.4+ and Oracle Linux 7.0+.
 
 ## Oracle Data Guard
 [Configuring Oracle Data Guard for Azure](../articles/virtual-machines/windows/classic/configure-oracle-data-guard.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) steps you through configuration of the standby environment and the listener.

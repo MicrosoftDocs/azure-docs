@@ -78,7 +78,7 @@ You will need to include the following import statement in the file where you wa
 
 ## Asynchronous Operations
 > [!NOTE]
-> All methods that perform a request against the service are asynchronous operations. In the code samples, you’ll find that these methods have a completion handler. Code inside the completion handler will run **after** the request is completed. Code after the completion handler will run **while** the request is being made.
+> All methods that perform a request against the service are asynchronous operations. In the code samples, you'll find that these methods have a completion handler. Code inside the completion handler will run **after** the request is completed. Code after the completion handler will run **while** the request is being made.
 > 
 > 
 

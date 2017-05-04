@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 

@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 04/04/2017
 ms.author: larryfr
-
+ROBOTS: NOINDEX
 ---
 # Use SSH with HDInsight (Hadoop) from PuTTY on Windows
 

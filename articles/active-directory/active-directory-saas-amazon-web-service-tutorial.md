@@ -46,7 +46,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 ## Scenario Description
 The objective of this tutorial is to enable you to test Azure AD SSO in a test environment.  
 
-The scenario outlined in this tutorial consists of three main building blocks:
+The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Amazon Web Services (AWS) from the gallery 
 2. Configuring and testing Azure AD SSO

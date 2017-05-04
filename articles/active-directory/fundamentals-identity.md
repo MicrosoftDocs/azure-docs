@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2017
 ms.author: curtand
-
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 # The fundamentals of Azure identity management
 [!INCLUDE [identity](../../includes/identity.md)]

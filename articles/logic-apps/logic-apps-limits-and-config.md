@@ -66,9 +66,9 @@ These are limits for a single logic app run.
 
 |Name|Limit|Notes|
 |----|----|----|
-|ForEach items|5,000|You can use the [query action](../connectors/connectors-native-query.md) to filter larger arrays as needed|
+|ForEach items|100,000|You can use the [query action](../connectors/connectors-native-query.md) to filter larger arrays as needed|
 |Until iterations|5,000||
-|SplitOn items|5,000||
+|SplitOn items|100,000||
 |ForEach Parallelism|20|You can set to a sequential foreach by adding `"operationOptions": "Sequential"` to the `foreach` action|
 
 

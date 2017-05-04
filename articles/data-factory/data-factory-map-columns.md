@@ -1,7 +1,6 @@
 ---
 title: Mapping dataset columns in Azure Data Factory | Microsoft Docs
 description: 'Learn how to map source columns to destination columns.'
-keywords: blob data, azure blob copy
 services: data-factory
 documentationcenter: ''
 author: linda33wj

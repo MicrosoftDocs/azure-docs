@@ -162,7 +162,7 @@ Note the following:
 * `connection` must be the name of an app setting that points to the endpoint for your DocumentDB account (with the value 
   `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). If you create a DocumentDB account through the 
   Functions portal UI, the account creation process creates a new app setting for you. To use an existing DocumentDB account, you need to 
-  [configure this app setting manually](). 
+  [configure this app setting manually](functions-how-to-use-azure-function-app-settings.md). 
 
 ## Output usage
 This section shows you how to use your DocumentDB output binding in your function code.

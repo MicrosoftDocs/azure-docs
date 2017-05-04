@@ -13,10 +13,13 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/05/2017
 ms.author: raynew
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: site-recovery-vmware-to-azure
 
 ---
+
 # Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery
 > [!div class="op_single_selector"]
 > * [The Azure portal](site-recovery-vmware-to-azure.md)
@@ -575,7 +578,7 @@ Protection status can also be monitored in **Protected Items** > *protection gro
 3. You can change these settings:
 
    * **Azure VM name**: This is the name that will be given to the machine in Azure after failover. The name must comply with Azure requirements.
-   * **Azure VM size**: The number of network adapters is dictated by the size that you specify for the target virtual machine. For more information about sizes and adapters, see the [size tables](../virtual-machines/virtual-machines-linux-sizes.md). Note that:
+   * **Azure VM size**: The number of network adapters is dictated by the size that you specify for the target virtual machine. For more information about sizes and adapters, see the [size tables](../virtual-machines/linux/sizes.md). Note that:
 
      * When you modify the size of a virtual machine and save the settings, the number of network adapters will change when you open the **Configure** tab the next time. The minimum number of network adapters on target virtual machines is equal to the minimum number of network adapters on a source virtual machine. The maximum number of network adapters is determined by the size of the virtual machine.
        * If the number of network adapters on the source machine is less than or equal to the number of adapters allowed for the target machine size, the target will have the same number of adapters as the source.

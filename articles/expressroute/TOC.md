@@ -23,18 +23,12 @@
 ## Create and modify peering configuration
 ### [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
-### [PowerShell (Classic)](expressroute-howto-routing-classic.md)
 ## Link a virtual network to an ExpressRoute circuit
 ### [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
-### [PowerShell (Classic)](expressroute-howto-linkvnet-classic.md)
-## Configure a virtual network gateway for ExpressRoute
-### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
-### [PowerShell (Classic)](expressroute-howto-add-gateway-classic.md)
-## Create Site-to-Site VPN Gateway and ExpressRoute coexisting connections
-### [PowerShell](expressroute-howto-coexist-resource-manager.md)
-### [PowerShell (Classic)](expressroute-howto-coexist-classic.md)
-## [Migrate a circuit from classic to Resource Manager](expressroute-howto-move-arm.md)
+## [Configure a virtual network gateway for ExpressRoute](expressroute-howto-add-gateway-resource-manager.md)
+## [Configure ExpressRoute and Site-to-Site coexisting connections](expressroute-howto-coexist-resource-manager.md)
+## [Move a circuit from classic to Resource Manager](expressroute-howto-move-arm.md)
 ## Configure a router for ExpressRoute
 ### [Configure a router](expressroute-config-samples-routing.md)
 ### [Router configuration samples for NAT](expressroute-config-samples-nat.md)

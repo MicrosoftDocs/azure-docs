@@ -4,7 +4,7 @@ description: A tutorial that explains how to create a new Active Directory fores
 services: active-directory, virtual-network
 keywords: 'active directory virtual machine, install active directory forest, azure active directory videos '
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: femila
 tags: ''
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2017
-ms.author: markvi
+ms.date: 04/06/2017
+ms.author: joflore
 
 ---
 # Install a new Active Directory forest on an Azure virtual network

@@ -1,5 +1,5 @@
 ---
-title: How to fail back from Azure to Hyper-V | Microsoft Docs
+title: How to fail back from Azure to VMware | Microsoft Docs
 description: After failover of virtual machines to Azure, you can initiate a failback to bring virtual machines back to on-premises. Learn the steps for how to fail back.
 services: site-recovery
 documentationcenter: ''
