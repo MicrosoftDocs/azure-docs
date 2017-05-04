@@ -40,7 +40,7 @@ For a full list of prebuilt entities and their use, see [Prebuilt Entities List]
     ![Add prebuilt entity dialog box](./Images/AddPrebuilt-Dialogbox.JPG)
 
 
-## Add Custom Entities
+## Custom Entities
 Custom entities are the entities you create in your app. There are three types of custom entities:
 
 * **Simple:** a generic entity.
@@ -48,7 +48,7 @@ Custom entities are the entities you create in your app. There are three types o
 * **Composite:** a compound of two or more separate entities combined together forming a composite and treated as a single entity.
 
 
-### Simple Entities
+## Add Simple Entities
 A simple entity is a generic entity that describes a single concept. In the example of the TravelAgent app, a user may say "Book me a flight to London tomorrow on British Airways", where "British Airways" is the name of an airline company. In order to capture the notion of airline names, let's create the entity "Airline". 
 
 **To add a simple entity:**
@@ -60,7 +60,7 @@ A simple entity is a generic entity that describes a single concept. In the exam
     ![Add Entity Dialog box - Simple](./Images/AddSimpleEntity.jpg)
 
 
-### Hierarchical Entities
+## Hierarchical Entities
 You can define relationships between entities based on hereditary hierarchical patterns, where the generic entity acts as the parent and the children are sub-types under the parent, and they share the same characteristics. For example, in the TravelAgent app, you can add three hierarchical entities:
 
 * “Location”, including the entity children “FromLocation” and “ToLocation”, representing source and destination locations.
@@ -85,7 +85,7 @@ Do the following steps to add hierarchical entities and make sure to add the chi
 6. Click **Save**.
 
  
-### Composite Entities
+## Composite Entities
 You can also define relationships between entities based on associative patterns by creating “composite entities”. A composite entity is created by combining two or more existing entities (simple or hierarchical) and treating them as one entity. Unlike a hierarchical entity, the composite entity and the children forming it are not in a parent-child relationship; they are independent of each other and they do not share common characteristics. The composite pattern enables your app to identify entities, not only individually, but also in groups. 
 
 In the TravelAgent app example, a user may say “Book 2 adult business tickets to Paris next Monday”. In this example, we can create a composite entity called “TicketsOrder”, including three children entities: “number”, “category” and "class" which describe the tickets to be booked. Before creating a composite entity, you must first add the entities forming it, if they do not already exist. 
@@ -111,7 +111,7 @@ In the TravelAgent app example, a user may say “Book 2 adult business tickets 
     >[!NOTE]
     >To delete a child (in case of a mistake), click the trash icon next to it.
 
-### List Entities
+## List Entities
 A list entity is an entity that is defined by a list of all its values. This entity type is identified in utterances, not by active learning of context, but by the direct matching of utterance text to the defined values.   
 
 In some use cases, you may have a closed list of definite values for an entity. In this case, you can create a list entity including these values. For each value, you define a standard form "Canonical Form" and variant forms "Synonyms". Your app will identify this entity in an utterance if the utterance includes an exact match of any of the entity values (canonical forms/synonyms), so the list entity will be predicted as existing in the utterance, with a prediction score of 100%.
