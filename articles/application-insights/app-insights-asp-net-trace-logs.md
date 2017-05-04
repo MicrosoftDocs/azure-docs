@@ -95,7 +95,7 @@ For each source, you can set the following parameters:
  * `Keywords` (Optional) specifies the integer value of keywords combinations to use
 
 ## Using ETW events
-You can configure ETW events to be sent to Application Insights as traces by editing the `TelemetryModules` section of the [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config) file.
+You can configure ETW events to be sent to Application Insights as traces by editing the `TelemetryModules` section of the [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config) file. ETW events can only be collected if the process hosting the SDK is running under an identity that is a member of “Performance Log Users” or Administrators.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EtwCollector.EtwCollectorTelemetryModule, Microsoft.ApplicationInsights.EtwCollector">
