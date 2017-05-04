@@ -60,22 +60,19 @@ To use Microsoft Cognitive Service APIs, you first need to create an account in 
     group, please refer
     to [Manage Azure resources through portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 
-    -   **API Setting:** By default, account creation is disabled until your
-    [Azure Account Administrator](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles)
-    explicitly enables it.
-
-        **Explicit acknowledgment of Online Service Terms**
-
-        In order to create an account, subscription Owners or Contributors (as defined by Azure Role-Based Access Control) need to explicitly acknowledge the terms that apply to Cognitive Services in Online Service Terms. 
+    -   **Explicit acknowledgment of Online Service Terms:** In order to create an account, subscription Owners or Contributors (as defined by Azure Role-Based Access Control) need to explicitly acknowledge the terms that apply to Cognitive Services in Online Service Terms. 
 
         The subscription Owner can disable the creation of Cognitive Services account for a specific resource group or subscription through resource policy by following the article Using Azure portal to assign and manage resource policies and assigning a “Not allowed resource types” policy definition and specifying Microsoft.CognitiveServices/accounts as the target resource type.
 
         If account creation was disabled, the following error would be displayed at the time of account creation:
 
         ![Account creation error](media/cognitive-services-apis-create-account/error-message.png)
-        
-        Microsoft may use data you send to the Cognitive Services to improve Microsoft products and services. For more information, please refer to the [Microsoft Cognitive Services section](http://www.microsoft.com/Licensing/product-licensing/products.aspx) in the Online Services Terms.
+
 <!--
+    -   **API Setting:** By default, account creation is disabled until your
+    [Azure Account Administrator](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles)
+    explicitly enables it.
+
         This setting change will apply only to the currently selected API type and location or Resource group location on the panel to the left.
 
         ![Create Cognitive Services APIs account](media/cognitive-services-apis-create-account/create-account.png)
