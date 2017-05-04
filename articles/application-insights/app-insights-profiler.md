@@ -11,7 +11,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 05/04/2017
 ms.author: awills
 
 ---
@@ -51,13 +51,15 @@ Use the *Enable Profiler* or *Disable Profiler* buttons in the Configure blade t
 
 To stop or restart the profiler for an individual App Service instance, you'll find it **in the App Service resource**, in **Web Jobs**. To delete it, look under **Extensions**.
 
-![Disable profiler for as web jobs][disable-profiler-webjob]
+![Disable profiler for a web jobs][disable-profiler-webjob]
 
 We recommend that you have the Profiler enabled on all your web apps to discover any performance issues as soon as possible.
 
 If you use WebDeploy to deploy changes to your web application, ensure that you exclude the **App_Data** folder from being deleted during deployment. Otherwise, the profiler extension's files will be deleted when you next deploy the web application to Azure.
 
-**[Update]** Application Insights Site Extension has integrated the profiler agent from 2.3 release. It replaces the original Application Insights Profiler Site Extension. You can migrate to the latest version through the **Configure** wizard.
+### Using profiler with Azure VMs and Compute resources (preview)
+
+When you [enable Application Insights for Azure app services at run time](app-insights-azure-web-apps.md#run-time-instrumentation-with-application-insights), Profiler is automatically available. (If you already enabled Application Insights for the resource, you might need to update to the lates version through the **Configure** wizard.)
 
 There is a [preview version of the Profiler for Azure Compute resources](https://go.microsoft.com/fwlink/?linkid=848155).
 
@@ -96,7 +98,7 @@ will be adjacent to a performance bottleneck.
 
 
 * **Label**: The name of the function or event. The tree shows a mix of code and events that occurred (such as SQL and http events). The top event represents the overall request duration.
-* **Metric**: The elapsed time.
+* **Elapsed**: The time interval between the start of the operation and the end.
 * **When**: Shows when the function/event was running in relation to other functions.
 
 ## How to read performance data
