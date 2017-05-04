@@ -366,7 +366,7 @@ The results:
 NTILE takes a parameter ("numgroups"). Numgroups is a positive int or long constant expression that specifies the number of groups into which each partition must be divided. 
 
 * If the number of rows in the partition is evenly divisible by numgroups, then the groups will have equal size. 
-* If the number of rows in a partition is not divisible by numgroups, this causes groups of two sizes that differ by one member. Larger groups come before smaller groups in the order specified by the OVER clause. 
+* If the number of rows in a partition is not divisible by numgroups, groups will have slightly different sizes. Larger groups come before smaller groups in the order specified by the OVER clause. 
 
 For example:
 
@@ -496,8 +496,11 @@ Analytic functions are used to understand the distributions of values in windows
 * PERCENTILE_DISC
 
 ### CUME_DIST
+
 CUME_DIST computes the relative position of a specified value in a group of values. It calculates the percent of queries that have a latency less than or equal to the current query latency in the same vertical. 
+
 The CUME_DIST for a row R, assuming ascending ordering, is the number of rows with values lower than or equal to the value of R, divided by the number of rows evaluated in the partition. 
+
 CUME_DIST returns numbers in the range 0 < x <= 1.
 
 **Syntax:**
