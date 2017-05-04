@@ -58,22 +58,22 @@ Now let's clone a DocumentDB API app from github, set the connection string, and
     git clone https://github.com/Azure/azure-documentdb-dotnet.git
     ```
 
-3. Then open the azure-documentdb-dotnet/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker.sln file in Visual Studio. 
+3. Then open the azure-documentdb-dotnet/samples/xamarin/UserItems/xamarin.forms/DocumentDBTodo.sln file in Visual Studio. 
 
 ## Review the code
 
 The code in the Xamarin folder contains:
 
-* Xamarin app. The app stores user's todo items in a partitioned collection named UserItems.
-* Resource Token Broker API, a simple ASP.NET Web API to broker Azure Cosmos DB resource tokens to the logged in users of the app. Resource tokens are short-lived access tokens that provide the app with the access to the logged in user's data.
+* Xamarin app. The app stores the user's todo items in a partitioned collection named UserItems.
+* Resource token broker API. A simple ASP.NET Web API to broker Azure Cosmos DB resource tokens to the logged in users of the app. Resource tokens are short-lived access tokens that provide the app with the access to the logged in user's data.
 
 The authentication and data flow is illustrated in the diagram below.
 
-* The Azure Cosmos DB UserItems collection is created with partition key '/userid'. Specifying partition key for collection allows Azure Cosmos DB to scale infinitely as the number of users and items grows.
+* The UserItems collection is created with the partition key '/userid'. Specifying a partition key for a collection allows Azure Cosmos DB to scale infinitely as the number of users and items grows.
 * The Xamarin app allows users to login with Facebook credentials.
 * The Xamarin app uses Facebook access token to authenticate with ResourceTokenBroker API
 * The resource token broker API authenticates the request using App Service Auth feature, and requests an Azure Cosmos DB resoure token with read/write access to all documents sharing the authenticated user's partition key.
-* Resource Token Broker returns the resource token to the client app.
+* Resource token broker returns the resource token to the client app.
 * The app accesses the user's todo items using the resource token.
 
 ![Todo app with sample data](./media/create-documentdb-xamarin-dotnet/tokenbroker.png)
@@ -82,17 +82,17 @@ The authentication and data flow is illustrated in the diagram below.
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the web.config file in the next step.
+1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the Web.config file in the next step.
 
     ![View and copy an access key in the Azure Portal, Keys blade](./media/create-documentdb-xamarin-dotnet/keys.png)
 
-2. In Visual Studio 2017, open the web.config file. 
+2. In Visual Studio 2017, open the Web.config file in the azure-documentdb-dotnet/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker folder. 
 
-3. Copy your URI value from the portal (using the copy button) and make it the value of the accountUrl in web.config. 
+3. Copy your URI value from the portal (using the copy button) and make it the value of the accountUrl in Web.config. 
 
     `<add key="accountUrl" value="{Azure Cosmos DB account URL}"/>`
 
-4. Then copy your PRIMARY KEY value from the portal and make it the value of the accountKey in [web.congif](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Web.config). 
+4. Then copy your PRIMARY KEY value from the portal and make it the value of the accountKey in Web.congif. 
 
     `<add key="accountKey" value="{Azure Cosmos DB secret}"/>`
 
@@ -100,8 +100,8 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 ## Build and deploy the web app
 
-1. In the Azure portal, create an App Service website to host the Resource Token Broker API.
-2. In the Azure portal, open the App Settings blade of the Resource Token Broker API website. Fill in the following app settings:
+1. In the Azure portal, create an App Service website to host the Resource token broker API.
+2. In the Azure portal, open the App Settings blade of the Resource token broker API website. Fill in the following app settings:
 
     * accountUrl - The Azure Cosmos DB account URL from the Keys tab of your Azure Cosmos DB account.
     * accountKey - The Azure Cosmos DB account master key from the Keys tab of your Azure Cosmos DB account.
@@ -119,11 +119,13 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
 
-## Next steps
+## Clean up resources
 
-If you're not going to continue to use this app and Azure Cosmos DB, use the following steps to delete all resources created by this quick start in the Azure portal. If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. 
+If you're not going to continue to use this app, use the following steps to delete all resources created by this quick start in the Azure portal. If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. 
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you just created. 
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
+
+## Next steps
 
 To learn more about the Azure Comsos DB DocumentDB API, see [What is the DocumentDB API?(../documentdb/documentdb-introduction). To learn more about the SQL query language which you can use in the Azure portal and programmatically, see [SQL](../documentdb/documentdb-sql-query.md).
