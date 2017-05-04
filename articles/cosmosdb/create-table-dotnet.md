@@ -20,11 +20,13 @@ ms.author: bhanupr
 ---
 # Get started with Azure Cosmos DB's Table API using .NET
 
-Azure Cosmos DB provides the Table API for applications that need a key-value store with a schema-less design. Existing and new [Azure Table storage](https://docs.microsoft.com/en-us/azure/storage/) tables are supported by Azure Cosmos DB, and Azure Table storage SDKs and REST APIs are supported as variants of accessing Azure Cosmos DB. Azure Cosmos DB is designed to support key-value workloads that need a large volume of storage that's infrequently accessed, as well as key-value workloads that need reserved throughput, and high request rates. Azure Cosmos DB supports throughput-optimized tables (informally called "premium tables"), in public preview. You can continue to create and use storage-optimized tables using the Azure storage SDK and API. Azure Table storage now offers throughput-optimized tables, global distribution, and automatic secondary indexes in public preview). Existing and new Azure Table storage accounts will be upgraded to support these features in a future update.
+Azure Cosmos DB provides the Table API for applications that need a key-value store with a schema-less design. Existing and new [Azure Table storage](../storage/storage-introduction.md) tables are supported by Azure Cosmos DB, and Azure Table storage SDKs and REST APIs are supported as variants of accessing Azure Cosmos DB. 
 
-During the preview, Azure Cosmos DB supports the Table API using the .NET SDK. You can download the [Azure Storage Preview SDK](https://www.nuget.org/packages/WindowsAzure.Storage-Preview) SDK from Nuget, that has the same classes and method signatures as the public [Azure storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), but also has the ability to connect to Azure Cosmos DB accounts using the Table API.
+Azure Cosmos DB will power existing and new Azure Table storage accounts, and support both:
+- key-value workloads that need a large volume of storage that's infrequently accessed, and
+- key-value workloads that need reserved throughput, and high request rates. Azure Cosmos DB supports throughput-optimized tables (informally called "premium tables"), in public preview. 
 
-As an Azure Table storage customer, you get the following benefits during the preview:
+If you currently use Azure Table storage, you gain the following benefits with the preview:
 
 - Turn-key global distribution with multi-homing and automatic/manual failovers
 - Support for automatic schema-agnostic indexing against all properties ("secondary indexes"), and fast queries 
@@ -34,11 +36,13 @@ As an Azure Table storage customer, you get the following benefits during the pr
 - 99.99% availability within a single region, and ability to add more regions for higher availability
 - Work with the existing Azure storage .NET SDK, and no code changes to your application
 
+During the preview, Azure Cosmos DB supports the Table API using the .NET SDK. You can download the [Azure Storage Preview SDK](https://www.nuget.org/packages/WindowsAzure.Storage-Preview) SDK from Nuget, that has the same classes and method signatures as the public [Azure storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), but also has the ability to connect to Azure Cosmos DB accounts using the Table API.
+
 
 ### About this tutorial
-This quick start demonstrates how to use [Get Started with Azure Table storage using .NET](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-tables) for Azure Cosmos DB and the Azure portal to create an Azure Cosmos DB account,and then build and deploy a Table application. It will also walk through C# examples for creating and deleting a table, and inserting, updating, deleting, and querying table data. 
+This tutorial is for developers who are familiar with the Azure Table storage SDK, and would like to use the premium features available using Azure Cosmos DB. It is based on [Get Started with Azure Table storage using .NET](../storage/storage-dotnet-how-to-use-tables) and shows how to take advantage oft additional capabilities like secondary indexes, provisioned throughput, and multi-homing. We cover how to use the Azure portal to create an Azure Cosmos DB account,and then build and deploy a Table application. We also walk through C# examples for creating and deleting a table, and inserting, updating, deleting, and querying table data. 
 
-If you don’t already have Visual Studio 2015 installed, you can download and use the **free** [Visual Studio 2015 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
+If you don't already have Visual Studio 2015 installed, you can download and use the **free** [Visual Studio 2015 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -80,12 +84,12 @@ Now go back to the Azure portal to get your connection string information and co
 > 
 >
 
-## Build and deploy the web app
+## Build and deploy the app
 1. In Visual Studio, right-click on the project in **Solution Explorer** and then click **Manage NuGet Packages**. 
 
-2. In the NuGet **Browse** box, type ***Azure DocumentDB***.
+2. In the NuGet **Browse** box, type ***WindowsAzure.Storage***.
 
-3. From the results, install the **.NET Client library for Azure DocumentDB**. This installs the DocumentDB package as well as all dependencies.
+3. From the results, install the **WindowsAzure.Storage** and choose the preview build `8.2.6-preview`. This installs the Azure Table storage package as well as all dependencies.
 
 4. Add steps to install Azure Storage Nuget package and Configuration Manager nuget package.
 
@@ -102,15 +106,16 @@ You can now go back to Data Explorer and see query, modify, and work with this t
 ## Azure Cosmos DB capabilities
 You can use the below settings to tune different settings for Table. 
 
-| Key | Default Value | Definition of the key | Example Value |
+| Key | Description |
 | --- | --- | --- | --- |
-| TableUseGatewayMode  | false | If true, then client applications issues requests to the Cosmos DB gateway machines, which forwards the requests to the backend node. If false, the client applications directly connects to the backend nodes and offers better performance | false |
-| TablePreferredLocations | None |Sets the preferred location for geo-replicated accounts. Accounts can be mapped to 30+ regions | East US |
-| TableThroughput |400 (Single partition) | Reserve throughput with guaranteed Request Units backed by SLA. For large scale scenarios (including migrating from Table Storage to Azure Cosmos DB), request higher RUs for better performance. Accounts have no upper limit on throughput and use >10 million operations/s per collection in practice | 7000 |
-| TableIndexingPolicy | Indexes all property | Use custom indexing policy to include/exclude paths | CustomPolicy |
-| TableConsistencyLevel | Session | You can select from five well defined consistency levels: Strong, Session, Bounded-Staleness, Consistent Prefix and Eventual | Eventual |
+| `TableConnectionMode`  | Azure Cosmos DB supports two connectivity modes. In `Gateway` mode, requests are always made to the Azure Cosmos DB gateway, which forwards it to the corresponding data partitions. In direct connectivity mode, the client fetches the mapping of tables to partitions, and requests are made directly against data partitions. We recommend `Direct`, the default.  |
+| `TableConnectionProtocol` | Azure Cosmos DB supports two connection protocols - `Https` and `Tcp`. `Tcp` is the default, and recommended because it is more lightweight. |
+| `TablePreferredLocations` | Comma-separated list of preferred (mult-homing) locations for reads. Each Azure Cosmos DB account can be associated with 1-30+ regions. Each SDK can specify a subset of these regions in the preferred order for low latency reads. See [Multi-homing APIs](../documentdb/documentdb-developing-with-multiple-regions.md) for examples. For example, `West US, East US, South Central US` configures the three US regions in the preferred order of reads.
+| `TableThroughput` | Reserved throughput for the table expressed in request units (RU) per second. Single tables can support 100s-millions of RU/s. See [Request units](../documentdb/documentdb-request-units.md). Default is `400` |
+| `TableIndexingPolicy` | Consistent and automatic secondary indexing of all columns within tables | JSON string conforming to the indexing policy specification. See [Indexing Policy](../documentdb/documentdb-indexing-policies.md) to see how you can change indexing policy to include/exclude specific columns. | Automatic indexing of all properties (hash for strings, and range for numbers) |
+| `TableConsistencyLevel` | You can trade off between latency, consistency, and availablity by choosing between five well defined consistency levels: `Strong`, `Session`, `Bounded-Staleness`, `ConsistentPrefix` and `Eventual`. Default is `Session`. The choice of consistency level makes a significant performance difference in multi-region setups. See [Consistency Levels](../documentdb/documentdb-consistency-levels.md) for details. |
 
-Below example shows how you can change the different settings for above capablities provided by Azure Cosmos DB. To change the default value, open the `app.config` file from Solution Explorer in Visual Studio. Add the contents of the `<appSettings>` element shown below. Replace `account-name` with the name of your storage account, and `account-key` with your account access key. 
+The following example shows how you can change the different settings for above capablities provided by Azure Cosmos DB. To change the default value, open the `app.config` file from Solution Explorer in Visual Studio. Add the contents of the `<appSettings>` element shown below. Replace `account-name` with the name of your storage account, and `account-key` with your account access key. 
 
 ```xml
 <configuration>
@@ -120,8 +125,8 @@ Below example shows how you can change the different settings for above capablit
     <appSettings>
         <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key; TableEndpoint=https://account-name.documents.azure.com" />
       <add key="TableUseGatewayMode" value="false"/>
-      <add key="TablePreferredLocations" value="East US"/>
-      <add key="TableThroughput" value="7000"/>
+      <add key="TablePreferredLocations" value="East US, West US, North Europe"/>
+      <add key="TableThroughput" value="700"/>
       <add key="TableIndexingPolicy" value="CustomPolicy"/>
       <add key="TableConsistencyLevel" value="Eventual"/>
     </appSettings>
@@ -130,13 +135,15 @@ Below example shows how you can change the different settings for above capablit
 
 ## Review the code
 
-Let's make a quick review of what's happening in the app. Open the Program.cs file and you'll find that these lines of code create the Table resources. 
+Let's make a quick review of what's happening in the app. Open the `Program.cs` file and you'll find that these lines of code create the Table resources. 
 
 * Create the table client.
 
     ```csharp
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
+    This client is initialized using the `TableConnectionMode`, `TableConnectionProtocol`, `TableConsistencyLevel`, and `TablePreferredLocations` configuration values that were specified in the app settings.
+    
 * Create a table.
 
     ```csharp
@@ -145,10 +152,17 @@ Let's make a quick review of what's happening in the app. Open the Program.cs fi
     //Create the table if it doesn't exist.
     table.CreateIfNotExists();
     ```
-As we walk through the below operations, you will get single-digit millisecond latency for reads and writes with Azure Cosmos DB, backed with <10 ms latency reads and <15 ms latency writes at the 99th percentile. 
+    Azure Cosmos DB reserves throughput, unlike Azure storage's consumption based model for transactions. The reservation model has two key benefits. 1) your throughput is dedicated/reserved, so you never get throttled if your request rate is at or below your provisioned throughput, and 2) the reservation model is more [cost effective for workloads](../documentdb/documentdb-key-value-cost.md) that need to perform a large number of reads and writes. You can configure the default throughput per table by onfiguring the AppSetting for `TableThroughput` in terms of RU (request units) per second. 
+
+    A read of a 1 KB document is normalized as 1 RU, and all other operations are expressed in terms of RUs based on their CPU, memory, and IOPS consumption. Learn more about [Request units in Azure Cosmos DB(../documentdb/documentdb-request-units.md).
+
+    > [!NOTE]
+    > While Table storage SDK does not currently support modifying throughput, you can change the throughput instantaneously at any time using the Azure portal or Azure CLI.
+
+Next, we walk through the simple read and write (CRUD) operations using the Azure Table storage SDK. The primary advantage is that you will notice while running this tutorial with Azure Cosmos DB is predictable low single-digit millisecond latencies for readsa and writes, and fast queries.
 
 ## Add an entity to a table
-Entities map to C# objects by using a custom class derived from [TableEntity][dotnet_TableEntity]. To add an entity to a table, create a class that defines the properties of your entity. The following code defines an entity class that uses the customer's first name as the row key and last name as the partition key. Together, an entity's partition and row key uniquely identify it in the table. Entities with the same partition key can be queried faster than entities with different partition keys, but using diverse partition keys allows for greater scalability of parallel operations. Entities to be stored in tables must be of a supported type, for example derived from the [TableEntity][dotnet_TableEntity] class. Entity properties you'd like to store in a table must be public properties of the type, and support both getting and setting of values. Also, your entity type *must* expose a parameter-less constructor.
+Entities in Azure Table storage extend from the `TableEntity` class and must have `PartitionKey` and `RowKey` properties. Here's a sample definition for a customer entity.
 
 ```csharp
 public class CustomerEntity : TableEntity
@@ -167,19 +181,13 @@ public class CustomerEntity : TableEntity
 }
 ```
 
-Table operations that involve entities are performed via the [CloudTable][dotnet_CloudTable] object that you created earlier in the "Create a table" section. The operation to be performed is represented by a [TableOperation][dotnet_TableOperation] object. The following code example shows the creation of the [CloudTable][dotnet_CloudTable] object and then a **CustomerEntity** object. To prepare the operation, a [TableOperation][dotnet_TableOperation] object is created to insert the customer entity into the table. Finally, the operation is executed by calling [CloudTable][dotnet_CloudTable].[Execute][dotnet_CloudTable_Execute]. With Premium SDK, the data is written within 15 ms for 99% of the requests. In the below example, the write is guaranteed to happen within 15 ms and this backed by SLA. 
+The following snippet shows how to insert an entity with the Azure storage SDK. Azure Cosmos DB is designed for guaranteed low latency at any scale, across the world
+
+Writes in Azure Cosmos DB complete <15ms at p99 and ~6ms at p50 for applications running in the same region as the Azure Cosmos DB account. And this duration accounts for the fact that writes are acked back to the client only after they are synchronously replicated, durably committed, and all content is indexed. 
+
+The Table API for Azure Cosmos DB is in preview. At general availability, the p99 latency guarantees are backed by SLAs like other Azure Cosmos DB APIs. 
 
 ```csharp
-// Retrieve the storage account from the connection string.
-CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-// Create the table client.
-CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
-// Create the CloudTable object that represents the "people" table.
-CloudTable table = tableClient.GetTableReference("people");
-
 // Create a new customer entity.
 CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
 customer1.Email = "Walter@contoso.com";
@@ -200,19 +208,7 @@ You can insert a batch of entities into a table in one write operation. Some oth
 * All entities in a single batch operation must have the same partition key.
 * While it is possible to perform a query as a batch operation, it must be the only operation in the batch.
 
-The following code example creates two entity objects and adds each to [TableBatchOperation][dotnet_TableBatchOperation] by using the [Insert][dotnet_TableBatchOperation_Insert] method. Then, [CloudTable][dotnet_CloudTable].[ExecuteBatch][dotnet_CloudTable_ExecuteBatch] is called to execute the operation.
-
 ```csharp
-// Retrieve the storage account from the connection string.
-CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-// Create the table client.
-CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
-// Create the CloudTable object that represents the "people" table.
-CloudTable table = tableClient.GetTableReference("people");
-
 // Create the batch operation.
 TableBatchOperation batchOperation = new TableBatchOperation();
 
@@ -233,52 +229,32 @@ batchOperation.Insert(customer2);
 // Execute the batch operation.
 table.ExecuteBatch(batchOperation);
 ```
+## Retrieve a single entity
+You can retrieve a single entity using the following snippet. Retrieves(GETs) in Azure Cosmos DB complete <10ms at p99 and ~1ms at p50 in the same Azure region. You can add as many regions to your account for low latency reads, and deploy applications to read from their local region ("multi-homed") by setting `TablePreferredLocations`. 
 
-## Retrieve all entities in a partition
-To query a table for all entities in a partition, use a [TableQuery][dotnet_TableQuery] object. The following code example specifies a filter for entities where 'Smith' is the partition key. This example prints the fields of each entity in the query results to the console.
+Again when the Table API is generally available, these latency guarantees are backed by SLAs
 
 ```csharp
-// Retrieve the storage account from the connection string.
-CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Create a retrieve operation that takes a customer entity.
+TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
 
-// Create the table client.
-CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
-// Create the CloudTable object that represents the "people" table.
-CloudTable table = tableClient.GetTableReference("people");
-
-// Construct the query operation for all customer entities where PartitionKey="Smith".
-TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"));
-
-// Print the fields for each customer.
-foreach (CustomerEntity entity in table.ExecuteQuery(query))
-{
-    Console.WriteLine("{0}, {1}\t{2}\t{3}", entity.PartitionKey, entity.RowKey,
-        entity.Email, entity.PhoneNumber);
-}
+// Execute the retrieve operation.
+TableResult retrievedResult = table.Execute(retrieveOperation);
 ```
+> [!TIP]
+> Learn about multi-homing APIs at [Developing with multiple regions](../documentdb/documentdb-developing-with-multiple-regions.md)
+>
 
-## Retrieve a range of entities in a partition
-If you don't want to query all entities in a partition, you can specify a range by combining the partition key filter with a row key filter. The following code example uses two filters to get all entities in partition 'Smith' where the row key (first name) starts with a letter before 'E' in the alphabet, then prints the query results.
+## Query entities using automatic secondary indexes
+Tables can be queried using the `TableQuery` class. Since Azure Cosmos DB has a write-optimized database engine, that automatically indexes all columns within your table even if the schema is different between rows, or if the schema evolves over time. Since Azure Cosmos DB supports automatic secondary indexes, queries against any property can use the index and be served efficiently. The query performance is much more pronounced when you have 1000s-millions of entities.
 
 ```csharp
-// Retrieve the storage account from the connection string.
-CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-// Create the table client.
-CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
 // Create the CloudTable object that represents the "people" table.
 CloudTable table = tableClient.GetTableReference("people");
 
 // Create the table query.
 TableQuery<CustomerEntity> rangeQuery = new TableQuery<CustomerEntity>().Where(
-    TableQuery.CombineFilters(
-        TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"),
-        TableOperators.And,
-        TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.LessThan, "E")));
+    TableQuery.GenerateFilterCondition("Email", QueryComparisons.Equal, items[i].Email));
 
 // Loop through the results, displaying information about the entity.
 foreach (CustomerEntity entity in table.ExecuteQuery(rangeQuery))
@@ -288,161 +264,23 @@ foreach (CustomerEntity entity in table.ExecuteQuery(rangeQuery))
 }
 ```
 
-## Retrieve a single entity
-You can write a query to retrieve a single, specific entity. The following code uses [TableOperation][dotnet_TableOperation] to specify the customer 'Ben Smith'. This method returns just one entity rather than a collection, and the returned value in [TableResult][dotnet_TableResult].[Result][dotnet_TableResult_Result] is a **CustomerEntity** object. Specifying both partition and row keys in a query is the fastest way to retrieve a single entity from the Table service.
-
-```csharp
-// Retrieve the storage account from the connection string.
-CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-// Create the table client.
-CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
-// Create the CloudTable object that represents the "people" table.
-CloudTable table = tableClient.GetTableReference("people");
-
-// Create a retrieve operation that takes a customer entity.
-TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
-
-// Execute the retrieve operation.
-TableResult retrievedResult = table.Execute(retrieveOperation);
-
-// Print the phone number of the result.
-if (retrievedResult.Result != null)
-{
-    Console.WriteLine(((CustomerEntity)retrievedResult.Result).PhoneNumber);
-}
-else
-{
-    Console.WriteLine("The phone number could not be retrieved.");
-}
-```
+In preview, Azure Cosmos DB supports the same query surface area as Azure Table storage. Azure Cosmos DB is capable of supporting a much wider surface area, including sorting, aggregates, geospatial query, hierarchy, and a wide range of built-in functions. See [DocumentDB query](../documentdb/documentdb-sql-query.md) for an overview of the capabilities. These capabilities will be added to the subset of ODATA (and LINQ) operators that is currently supported by the Table service.
 
 ## Replace an entity
-To update an entity, retrieve it from the Table service, modify the entity object, and then save the changes back to the Table service. The following code changes an existing customer's phone number. Instead of calling [Insert][dotnet_TableOperation_Insert], this code uses [Replace][dotnet_TableOperation_Replace]. [Replace][dotnet_TableOperation_Replace] causes the entity to be fully replaced on the server, unless the entity on the server has changed since it was retrieved, in which case the operation will fail. This failure is to prevent your application from inadvertently overwriting a change made between the retrieval and update by another component of your application. The proper handling of this failure is to retrieve the entity again, make your changes (if still valid), and then perform another [Replace][dotnet_TableOperation_Replace] operation. The next section will show you how to override this behavior.
+To update an entity, retrieve it from the Table service, modify the entity object, and then save the changes back to the Table service. The following code changes an existing customer's phone number. 
 
 ```csharp
-// Retrieve the storage account from the connection string.
-CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-// Create the table client.
-CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
-// Create the CloudTable object that represents the "people" table.
-CloudTable table = tableClient.GetTableReference("people");
-
-// Create a retrieve operation that takes a customer entity.
-TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
-
-// Execute the operation.
-TableResult retrievedResult = table.Execute(retrieveOperation);
-
-// Assign the result to a CustomerEntity object.
-CustomerEntity updateEntity = (CustomerEntity)retrievedResult.Result;
-
-if (updateEntity != null)
-{
-    // Change the phone number.
-    updateEntity.PhoneNumber = "425-555-0105";
-
-    // Create the Replace TableOperation.
-    TableOperation updateOperation = TableOperation.Replace(updateEntity);
-
-    // Execute the operation.
-    table.Execute(updateOperation);
-
-    Console.WriteLine("Entity updated.");
-}
-else
-{
-    Console.WriteLine("Entity could not be retrieved.");
-}
+// Upda
+TableOperation updateOperation = TableOperation.Replace(updateEntity);
+table.Execute(updateOperation);
 ```
 
-## Insert-or-replace an entity
-[Replace][dotnet_TableOperation_Replace] operations will fail if the entity has been changed since it was retrieved from the server. Furthermore, you must retrieve the entity from the server first in order for the [Replace][dotnet_TableOperation_Replace] operation to be successful. Sometimes, however, you don't know if the entity exists on the server and the current values stored in it are irrelevant. Your update should overwrite them all. To accomplish this, you would use an [InsertOrReplace][dotnet_TableOperation_InsertOrReplace] operation. This operation inserts the entity if it doesn't exist, or replaces it if it does, regardless of when the last update was made.
-
-In the following code example, a customer entity for 'Fred Jones' is created and inserted into the 'people' table. Next, we use the [InsertOrReplace][dotnet_TableOperation_InsertOrReplace] operation to save an entity with the same partition key (Jones) and row key (Fred) to the server, this time with a different value for the PhoneNumber property. Because we use [InsertOrReplace][dotnet_TableOperation_InsertOrReplace], all of its property values are replaced. However, if a 'Fred Jones' entity hadn't already existed in the table, it would have been inserted.
-
-```csharp
-// Retrieve the storage account from the connection string.
-CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-// Create the table client.
-CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
-// Create the CloudTable object that represents the "people" table.
-CloudTable table = tableClient.GetTableReference("people");
-
-// Create a customer entity.
-CustomerEntity customer3 = new CustomerEntity("Jones", "Fred");
-customer3.Email = "Fred@contoso.com";
-customer3.PhoneNumber = "425-555-0106";
-
-// Create the TableOperation object that inserts the customer entity.
-TableOperation insertOperation = TableOperation.Insert(customer3);
-
-// Execute the operation.
-table.Execute(insertOperation);
-
-// Create another customer entity with the same partition key and row key.
-// We've already created a 'Fred Jones' entity and saved it to the
-// 'people' table, but here we're specifying a different value for the
-// PhoneNumber property.
-CustomerEntity customer4 = new CustomerEntity("Jones", "Fred");
-customer4.Email = "Fred@contoso.com";
-customer4.PhoneNumber = "425-555-0107";
-
-// Create the InsertOrReplace TableOperation.
-TableOperation insertOrReplaceOperation = TableOperation.InsertOrReplace(customer4);
-
-// Execute the operation. Because a 'Fred Jones' entity already exists in the
-// 'people' table, its property values will be overwritten by those in this
-// CustomerEntity. If 'Fred Jones' didn't already exist, the entity would be
-// added to the table.
-table.Execute(insertOrReplaceOperation);
-```
-
-## Query a subset of entity properties
-A table query can retrieve just a few properties from an entity instead of all the entity properties. This technique, called projection, reduces bandwidth and can improve query performance, especially for large entities. The query in the following code returns only the email addresses of entities in the table. This is done by using a query of [DynamicTableEntity][dotnet_DynamicTableEntity] and also [EntityResolver][dotnet_EntityResolver]. You can learn more about projection in the [Introducing Upsert and Query Projection blog post][blog_post_upsert]. Projection is not supported by the storage emulator, so this code runs only when you're using an account in the Table service.
-
-```csharp
-// Retrieve the storage account from the connection string.
-CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-// Create the table client.
-CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
-// Create the CloudTable that represents the "people" table.
-CloudTable table = tableClient.GetTableReference("people");
-
-// Define the query, and select only the Email property.
-TableQuery<DynamicTableEntity> projectionQuery = new TableQuery<DynamicTableEntity>().Select(new string[] { "Email" });
-
-// Define an entity resolver to work with the entity after retrieval.
-EntityResolver<string> resolver = (pk, rk, ts, props, etag) => props.ContainsKey("Email") ? props["Email"].StringValue : null;
-
-foreach (string projectedEmail in table.ExecuteQuery(projectionQuery, resolver, null, null))
-{
-    Console.WriteLine(projectedEmail);
-}
-```
+Similarly, you can perform `InsertOrMerge` or `Merge`.  
 
 ## Delete an entity
 You can easily delete an entity after you have retrieved it by using the same pattern shown for updating an entity. The following code retrieves and deletes a customer entity.
 
 ```csharp
-// Retrieve the storage account from the connection string.
-CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-// Create the table client.
-CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
 // Create the CloudTable that represents the "people" table.
 CloudTable table = tableClient.GetTableReference("people");
 
@@ -472,7 +310,7 @@ else
 ```
 
 ## Delete a table
-Finally, the following code example deletes a table from a storage account. A table that has been deleted will be unavailable to be re-created for a period of time following the deletion.
+Finally, the following code example deletes a table from a storage account. You can delete and recreate a table immediately with Azure Cosmos DB.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -490,8 +328,8 @@ table.DeleteIfExists();
 ```
 
 ## Next steps
-Now that you've learned the basics of Table storage, follow these links to learn about more complex storage tasks:
+In this tutorial, we covered how to get started using Azure Cosmos DB with the Table API. To learn more about Azure Table storage, follow these links to learn about more complex storage tasks:
 
-* See more Table storage samples in [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
-* View the Table service reference documentation for complete details about available APIs:
-  * [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+* Read about [Azure Cosmos DB: Table API](table-introduction.md)
+* See more Table storage samples in [Getting Started with Azure Table Storage in .NET](../storage/storage-table-dotnet-getting-started.md)
+* View the Table service reference documentation for complete details about available APIs: [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
