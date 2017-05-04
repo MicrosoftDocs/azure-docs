@@ -24,7 +24,7 @@ Although Acoustic Model customization is only supported in US English, importing
 
 The appropriate locale must be selected before taking any action. The current locale is indicated in the table title on all data, model, and deployment pages. To change the locale, click the “Change Locale” button located under the table’s title. This will take you to a locale confirmation page. Click “OK” to return to the table.
 
-## Next steps
+You should follow up with the next steps
 * Learn [how to create a custom acoustic model](cognitive-services-custom-speech-create-acoustic-model.md) to improve recognition accuracy
 * Learn [how to create a custom language model](cognitive-services-custom-speech-create-language-model.md) to improve your recognition rate
 * Follow the [transcription guidelines](cognitive-services-custom-speech-transcription-guidelines.md) for preparing your data

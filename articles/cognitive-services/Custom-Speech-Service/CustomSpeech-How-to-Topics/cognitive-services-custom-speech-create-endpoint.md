@@ -27,7 +27,7 @@ You’ll notice that when the deployment is ready, the Name of the deployment is
 
 ![try](../media/Deployment_Info2.png)
 
-## Next steps
+If you have not looked into other tutorials yet you should definitely check also:
 * [How to use a custom speech-to-text endpoint](cognitive-services-custom-speech-create-endpoint.md)
 * Improve accuracy with your [custom acoustic model](cognitive-services-custom-speech-create-acoustic-model.md)
 * Improve accuracy with a [custom language model](cognitive-services-custom-speech-create-language-model.md)

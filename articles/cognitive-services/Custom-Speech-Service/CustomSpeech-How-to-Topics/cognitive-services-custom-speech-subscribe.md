@@ -62,7 +62,6 @@ To get a subscription id please go to your Azure portal and search for cognitive
 
 [!Note]: The subscription key is required later in this process.
 
-## Next steps
-* Check [pricing options for Microsoft Cognitive APIs](https://www.microsoft.com/cognitive-services/en-us/pricing)
+Now you are ready to follow up with the next steps
 * Start create your [custom acoustic model](cognitive-services-custom-speech-create-acoustic-model.md)
 * Start create your [custom language model](cognitive-services-custom-speech-create-language-model.md)
