@@ -105,7 +105,7 @@ You can select the VM in the replicated items to configure the network settings 
 * For AOS servers select the correct availability set.
 
 * If you are using a static IP then specify the IP that you want the virtual machine to take in the **Target IP** field 
-![Network Settings ](./media/site-recovery-dynamicsax/vmropertiesaos1.png)
+![Network Settings ](./media/site-recovery-dynamicsax/vmpropertiesaos1.png)
 
 
 
