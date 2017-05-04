@@ -16,16 +16,16 @@
 ##### [Field of study](Academic-Knowledge/FieldsOfStudyEntityAttributes.md)
 ##### [Conference series](Academic-Knowledge/ConferenceSeriesEntityAttributes.md)
 ##### [Conference instance](Academic-Knowledge/ConferenceInstanceEntityAttributes.md)
-##### [Journal](Academic-Knowledge/JournalEntityAttributes.md) 
+##### [Journal](Academic-Knowledge/JournalEntityAttributes.md)
 #### Methods
-##### [CalcHistogram](Academic-Knowledge/CalcHistogramMethod.md) 
+##### [CalcHistogram](Academic-Knowledge/CalcHistogramMethod.md)
 ##### [Evaluate](Academic-Knowledge/EvaluateMethod.md)
 ##### [Interpret](Academic-Knowledge/InterpretMethod.md)
 ##### [Similarity](Academic-Knowledge/SimilarityMethod.md)
-#### [Query expression syntax](Academic-Knowledge/QueryExpressionSyntax.md) 
+#### [Query expression syntax](Academic-Knowledge/QueryExpressionSyntax.md)
 ### Graph traversal
 #### [Lambda search syntax](Academic-Knowledge/LambdaSearchSyntax.md)
-#### [Graph search method](Academic-Knowledge/GraphSearchMethod.md) 
+#### [Graph search method](Academic-Knowledge/GraphSearchMethod.md)
 #### [JSON Search Syntax](Academic-Knowledge/JSONSearchSyntax.md)                     
 ### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/56332331778daf02acc0a50b/operations/565d9001ca73072048922d97)
 
@@ -81,13 +81,13 @@
 ### [API reference](https://msdn.microsoft.com/en-US/library/dn760794.aspx)
 
 ## Computer Vision
-### [Overview](Computer-vision/Home.md) 
+### [Overview](Computer-vision/Home.md)
 ### How-to
-#### [Obtain subscription keys](Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md) 
+#### [Obtain subscription keys](Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md)
 #### [Call the Computer Vision API](Computer-vision/Vision-API-How-to-Topics/HowToCallVisionAPI.md)      
 #### [Analyze videos in real time](Computer-vision/Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md)
 ### Quickstarts
-#### [cURL](Computer-vision/QuickStarts/curl.md) 
+#### [cURL](Computer-vision/QuickStarts/curl.md)
 #### [C#](Computer-vision/QuickStarts/CSharp.md)                                   
 #### [Java](Computer-vision/QuickStarts/Java.md)                    
 #### [JavaScript](Computer-vision/QuickStarts/JavaScript.md)              
@@ -108,13 +108,13 @@
 ### [Research papers](Computer-vision/Research.md)                
 
 ## Content Moderator
-### [Overview](Content-Moderator/overview.md) 
+### [Overview](Content-Moderator/overview.md)
 ### [Get started](Content-Moderator/quick-start.md)
 ### Review tool user guide
 #### [Human in the loop](Content-Moderator/Review-Tool-User-Guide/human-in-the-loop.md)
-#### [Create team](Content-Moderator/Review-Tool-User-Guide/Sign-up.md) 
+#### [Create team](Content-Moderator/Review-Tool-User-Guide/Sign-up.md)
 #### [Upload images](Content-Moderator/Review-Tool-User-Guide/Upload-Images.md)
-#### [Image reviews](Content-Moderator/Review-Tool-User-Guide/Review-Moderated-Images.md) 
+#### [Image reviews](Content-Moderator/Review-Tool-User-Guide/Review-Moderated-Images.md)
 #### [Text reviews](Content-Moderator/Review-Tool-User-Guide/Text-Reviews.md)
 #### [Team and subteams](Content-Moderator/Review-Tool-User-Guide/SubTeams.md)
 #### [Using workflows](Content-Moderator/Review-Tool-User-Guide/Workflows.md)
@@ -122,7 +122,7 @@
 #### [View dashboard](Content-Moderator/Review-Tool-User-Guide/View-Dashboard.md)               
 ### [API Reference](Content-Moderator/api-reference.md)
 #### [Image moderation](Content-Moderator/image-moderation-api.md)
-#### [Text moderation](Content-Moderator/text-moderation-api.md) 
+#### [Text moderation](Content-Moderator/text-moderation-api.md)
 #### [Text moderation - languages](Content-Moderator/Text-Moderation-API-Languages.md)
 #### [Review](Content-Moderator/review-api.md)
 #### [Video moderation](Content-Moderator/video-moderation-api.md)
@@ -130,12 +130,20 @@
 #### [Windows](https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/)
 ### [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services)
 ### [FAQ](Content-Moderator/FAQs.md)                  
-    
+
 ## Custom Speech Service
-### [Overview](Custom-Speech-Service/Home.md)
-### [Get started](Custom-Speech-Service/GetStarted.md)
-### [FAQ](Custom-Speech-Service/FAQ.md)  
-### [Glossary](Custom-Speech-Service/Glossary.md)   
+### [Overview](Custom-Speech-Service/cognitive-services-custom-speech-home.md)
+### [Get started](Custom-Speech-Service/cognitive-services-custom-speech-get-started.md)
+### How-to
+#### [Obtain subscription keys](Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-subscribe.md)
+#### [Create an acoustic model](Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-acoustic-model.md)
+#### [Create a language model](Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-language-model.md)
+#### [Create a custom speech endpoint](Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md)
+#### [Use a custom speech endpoint](Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-use-endpoint.md)
+#### [Prepare your data](Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-transcription-guidelines.md)
+#### [Select locale](Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-change-locale.md)
+### [FAQ](Custom-Speech-Service/cognitive-services-custom-speech-faq.md)  
+### [Glossary](Custom-Speech-Service/cognitive-services-custom-speech-glossary.md)   
 
 ## Emotion
 ### [Overview](Emotion/Home.md)
@@ -203,14 +211,14 @@
 ### [Command line](KES/CommandLine.md)
 ### [Schema format](KES/SchemaFormat.md)    
 ### [Data format](KES/DataFormat.md)
-### [Grammar format](KES/GrammarFormat.md) 
+### [Grammar format](KES/GrammarFormat.md)
 ### [Semantic interpretation](KES/SemanticInterpretation.md)
-### [Web API interface](KES/WebAPI.md) 
+### [Web API interface](KES/WebAPI.md)
 #### [calchistogram](KES/calchistogramMethod.md)   
 #### [evaluate](KES/evaluateMethod.md)        
 #### [interpret](KES/interpretMethod.md)
 ### [Structured query expressions](KES/Expressions.md)        
-            
+
 ## Linguistic Analysis
 ### [Overview](LinguisticAnalysisAPI/Home.md)
 ### [Analyzer names](LinguisticAnalysisAPI/Analyzer-Names.md)
@@ -245,9 +253,9 @@
 #### [Node.js](https://github.com/Microsoft/Cognitive-LUIS-Node.js)
 #### [Python](https://github.com/Microsoft/Cognitive-LUIS-Python)
 #### [Windows](https://github.com/Microsoft/Cognitive-LUIS-Windows)
-                     
+
 ## QnAMaker
-### [Overview](QnAMaker/Home.md) 
+### [Overview](QnAMaker/Home.md)
 ### [Quickstart](QnAMaker/Quickstart.md)
 ### [Create a knowledge base](QnAMaker/Guides/CreateKB.md)
 ### [Publish a knowledge base](QnAMaker/Guides/PublishKB.md)
@@ -262,10 +270,10 @@
 ### [Recommendations quick start](cognitive-services-recommendations-quick-start.md)
 ### [Build types + model quality](cognitive-services-recommendations-buildtypes.md)
 ### [Collect training data](cognitive-services-recommendations-collecting-data.md)
-### [Use the Recommendations UI](cognitive-services-recommendations-ui-intro.md) 
+### [Use the Recommendations UI](cognitive-services-recommendations-ui-intro.md)
 ### [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3db)
 ### [Batch scoring](cognitive-services-recommendations-batch-scoring.md)
-       
+
 ## Speaker Recognition
 ### [Overview](Speaker-recognition/Home.md)
 ### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c3271984551c84ec6797)
@@ -280,7 +288,7 @@
 ### [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
 ### SDKs
 #### [Windows](https://github.com/adgroc/Cognitive-TextAnalytics-Windows)
-     
+
 ## Translator
 ### [Overview](Translator/translator-info-overview.md)
 ### [Languages](Translator/languages.md)
@@ -307,7 +315,7 @@
 ### SDKs
 #### [Windows](https://github.com/Microsoft/Cognitive-WebLM-Windows)
 
-# Resources 
+# Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=cognitive-services)
 ## [Service updates](https://azure.microsoft.com/updates/?product=cognitive-services)
