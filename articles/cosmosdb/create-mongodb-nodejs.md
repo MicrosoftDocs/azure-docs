@@ -74,7 +74,7 @@ az component update --add documentdb
 
 Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [az group create](/cli/azure/group#create). An Azure resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed. 
 
-The following example creates a resource group in the West Europe region.
+The following example creates a resource group in the West Europe region. Choose a unique name for the resource group.
 
 ```azurecli
 az group create --name myResourceGroup --location "West Europe"
