@@ -120,6 +120,12 @@ Monitoring the health of your application gateway is important. Monitoring the h
 
 Each application gateway log is integrated with [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).  This allows you to track diagnostic information including WAF alerts and logs.  This capability is provided within the Application Gateway resource in the portal under the **Diagnostics** tab or through the Azure Monitor service directly. To learn more about enabling diagnostic logs for application gateway visit [Application Gateway diagnostics](application-gateway-diagnostics.md)
 
+#### Azure Security Center
+
+[Azure Security Center](../security-center/security-center-intro.md) provides insights into your Azure services and gives guidance on the best ways to protect your resources. Application gateway integrates into Azure Security Center. One capability this integration provides the ability to show web applications that are behind an application gateway that are not protected by web application firewall. Another capability is the ability to send alerts and the health of the application gateway to Security Center. These alerts are shown in security center and action can be taken to resolve the alerts.
+
+![figure 1](./media/application-gateway-web-application-firewall-overview/figure1.png)
+
 #### Logging
 
 Application Gateway WAF provides detailed reporting on each threat it detects. Logging is integrated with Azure Diagnostics logs and alerts are recorded in a json format. These logs can be integrated with [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md).
