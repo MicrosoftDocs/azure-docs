@@ -137,6 +137,9 @@ SQL Always On doesn’t natively support test failover. Therefore, we recommend 
 
 1. Do a test failover of the recovery plan.
 
+### Steps to do a failover
+
+Once you have added the script in the recovery plan and validated the recovery plan by doing a test failover, you can do failover of the recovery plan. 
 
 
 ## Integrate with SQL Server Always On for replication to a secondary on-premises site
