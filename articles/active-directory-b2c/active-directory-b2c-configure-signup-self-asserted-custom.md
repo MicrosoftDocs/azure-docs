@@ -152,7 +152,7 @@ Allows for the selection of one or more values.
         </TechnicalProfile>
 ```
 
-1. Add the claim to the AAD-UserWriteUsingLogonEmail as a `<PersistedClaim ClaimTypeReferenceId="city" />` to write the claim to the AAD directory after collecting it from the user. You may skip this step if you prefer not to persist the claim in the directory for future use.
+2. Add the claim to the AAD-UserWriteUsingLogonEmail as a `<PersistedClaim ClaimTypeReferenceId="city" />` to write the claim to the AAD directory after collecting it from the user. You may skip this step if you prefer not to persist the claim in the directory for future use.
 
 ```xml
 <!-- Technical profiles for local accounts -->
@@ -190,7 +190,7 @@ Allows for the selection of one or more values.
         </TechnicalProfile>
 ```
 
-1. Add the claim to the TechnicalProfile that reads from the directory when a user logs in as an `<OutputClaim ClaimTypeReferenceId="city" />`
+3. Add the claim to the TechnicalProfile that reads from the directory when a user logs in as an `<OutputClaim ClaimTypeReferenceId="city" />`
 
 ```xml
 <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
@@ -220,7 +220,7 @@ Allows for the selection of one or more values.
 </TechnicalProfile>
 ```
 
-1. Add the `<OutputClaim ClaimTypeReferenceId="city" />` to the RP policy file SignUporSignIn.xml so this claim is sent to the application in the token after a successful user journey.
+4. Add the `<OutputClaim ClaimTypeReferenceId="city" />` to the RP policy file SignUporSignIn.xml so this claim is sent to the application in the token after a successful user journey.
 
 
 ```xml
@@ -248,8 +248,8 @@ Allows for the selection of one or more values.
 ## Test the custom policy using "Run Now"
 
        1. Open the **Azure AD B2C Blade** and navigate to **Identity Experience Framework > Custom policies**.
-       1. Select the custom policy that you uploaded, and click the **Run now** button.
-       1. You should be able to sign up using an email address.
+       2. Select the custom policy that you uploaded, and click the **Run now** button.
+       3. You should be able to sign up using an email address.
 
 The signup screen in test mode should look similar to this:
 ![Screenshot of modified sign-up option](./media/active-directory-b2c-configure-signup-self-asserted-custom/signup-with-city-claim-dropdown-example.png)
