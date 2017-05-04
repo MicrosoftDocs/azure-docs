@@ -192,7 +192,7 @@ Follow [this guidance](site-recovery-test-failover-to-azure.md) to do a test fai
 3.	Click on 'Test Failover'.
 4.	Select recovery point and Azure virtual network to start the test failover process.
 5.	Once the secondary environment is up, you can perform your validations.
-6.	Once the validations are complete, you can select ‘Validations complete’ and the test failover environment will be cleaned.
+6.	Once the validations are complete, you can select click on 'Cleanup test failvoer' on the recovery plan and the test failover environment will be cleaned.
 
 For guidance on doing test failover for AD and DNS, refer to [Test failover considerations for AD and DNS](site-recovery-active-directory.md#test-failover-considerations) document.
 
