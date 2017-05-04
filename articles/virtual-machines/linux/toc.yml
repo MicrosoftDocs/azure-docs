@@ -33,6 +33,8 @@
     href: tutorial-virtual-network.md
   - name: 9 - Manage VM security
     href: tutorial-azure-security.md
+  - name: 10 - Jenkins CI/CD
+    href: tutorial-azure-security.md
 - name: Samples
   items:
   - name: Azure CLI
