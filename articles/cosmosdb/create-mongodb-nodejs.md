@@ -84,7 +84,7 @@ az group create --name myResourceGroup --location "West Europe"
 
 Create an Azure Cosmos DB account with the [az documentdb create](/cli/azure/documentdb#create) command.
 
-In the following command, please substitute your own unique Azure Cosmos DB account name where you see the `<comosddb_name>` placeholder. This unique name will be used as part of your Azure Cosmos DB endpoint (`https://<cosmosdb_name>.documents.azure.com/`), so the name needs to be unique across all Azure Cosmos DB accounts in Azure. 
+In the following command, please substitute your own unique Azure Cosmos DB account name where you see the `<cosmosdb_name>` placeholder. This unique name will be used as part of your Azure Cosmos DB endpoint (`https://<cosmosdb_name>.documents.azure.com/`), so the name needs to be unique across all Azure Cosmos DB accounts in Azure. 
 
 ```azurecli
 az documentdb create --name <cosmosdb_name> --resource-group myResourceGroup --kind MongoDB
@@ -97,7 +97,7 @@ When the Azure Cosmos DB account is created, the Azure CLI shows information sim
 ```json
 {
   "databaseAccountOfferType": "Standard",
-  "documentEndpoint": "https://<cosmostdb_name>.documents.azure.com:443/",
+  "documentEndpoint": "https://<cosmosdb_name>.documents.azure.com:443/",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Document
 DB/databaseAccounts/<cosmosdb_name>",
   "kind": "MongoDB",
