@@ -21,7 +21,7 @@
 ### [DocumentDB](tutorial-develop-documentdb-dotnet.md)
 ### [MongoDB](tutorial-develop-mongodb.md)
 ### Table
-### [Gremlin graph](tutorial-develop-graph-dotnet.md)
+### [Graph](tutorial-develop-graph-dotnet.md)
 ## 2 - Import 
 ### [DocumentDB/Table/Graph](../documentdb/documentdb-import-data.md)
 ### [MongoDB](../documentdb/documentdb-mongodb-migrate.md)
@@ -29,8 +29,8 @@
 ### [DocumentDB](tutorial-query-documentdb.md)
 ### [MongoDB](tutorial-query-mongodb.md)
 ### [Table](tutorial-query-table.md)
-### [Gremlin graph](tutorial-query-graph.md)
-## [4 - Replicate globally](../documentdb/documentdb-portal-global-replication.md)
+### [Graph](tutorial-query-graph.md)
+## [4 - Distribute globally](../documentdb/documentdb-portal-global-replication.md)
 ## 5 - Develop locally
 ### [1 - Use the emulator](../documentdb/documentdb-nosql-local-emulator.md)
 ### [2 - Export certificates](../documentdb/documentdb-nosql-local-emulator-export-ssl-certificates.md)
@@ -41,17 +41,17 @@
 
 # Concepts
 ## [Multi-model APIs](../documentdb/documentdb-resources.md)
-### [DocumentDB API](../documentdb/documentdb-introduction.md)
-### [MongoDB API](../documentdb/documentdb-protocol-mongodb.md)
-### [Table API](table-introduction.md)
-### [Graph API](graph-introduction.md)
+### [DocumentDB](../documentdb/documentdb-introduction.md)
+### [MongoDB](../documentdb/documentdb-protocol-mongodb.md)
+### [Table](table-introduction.md)
+### [Graph](graph-introduction.md)
 ## [Global distribution](../documentdb/documentdb-distribute-data-globally.md)
 ## [Partition and scale](../documentdb/documentdb-partition-data.md)
 ## [Consistency](../documentdb/documentdb-consistency-levels.md)
 ## [Regional failover](../documentdb/documentdb-regional-failovers.md)
 ## [Security](../documentdb/documentdb-nosql-database-security.md)
 ## [Encryption at rest](../documentdb/documentdb-nosql-database-encryption-at-rest.md)
-## [NoSQL TCO analysis](https://aka.ms/documentdb-tco-paper)
+## [TCO analysis](https://aka.ms/documentdb-tco-paper)
 ## Scenarios
 ### [Common use cases](../documentdb/documentdb-use-cases.md)
 ### [Going social with Azure Cosmos DB](../documentdb/documentdb-social-media-apps.md)

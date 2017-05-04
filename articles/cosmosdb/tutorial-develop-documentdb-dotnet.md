@@ -63,8 +63,8 @@ If you already have an account you want to use, you can skip ahead to [Setup you
     
     ![Screen shot of the Right Clicked Menu for the Project](./media/tutorial-develop-documentdb-dotnet/nosql-tutorial-manage-nuget-pacakges.png)
 5. In the **Nuget** tab, click **Browse**, and type **azure cosmos db** in the search box.
-6. Within the results, find **Microsoft.Azure.CosmosDB** and click **Install**.
-   The package ID for the Azure Cosmos DB Client Library is [Microsoft.Azure.AzureCosmosDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB).
+6. Within the results, find **Microsoft.Azure.DocumentDB** and click **Install**.
+   The package ID for the Azure Cosmos DB Client Library is [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB).
    ![Screen shot of the Nuget Menu for finding Azure Cosmos DB Client SDK](./media/tutorial-develop-documentdb-dotnet/nosql-tutorial-manage-nuget-pacakges-2.png)
 
     If you get a messages about reviewing changes to the solution, click **OK**. If you get a message about license acceptance, click **I accept**.

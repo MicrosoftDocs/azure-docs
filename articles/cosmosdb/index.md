@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB Documentation - Tutorials, API Reference | Microsoft Docs
-description: Learn how to use Azure Cosmos DB, a schema-free NoSQL document database. Tutorials show how to integrate with apps and use SQL queries on JSON documents.
+description: Learn how to use Azure Cosmos DB, a globally distributed, multi-model database.
 services: cosmosdb
 author: carolz
 manager: carolz
@@ -16,7 +16,7 @@ ms.author: carolz
 
 #Azure Cosmos DB Documentation
 
-Learn how to use Azure Cosmos DB in high-performance applications for web, mobile, gaming, and IoT. Tutorials and other documentation show you how to store JSON data and perform SQL queries over a flexible schema in this NoSQL database service.
+Learn how to use Azure Cosmos DB in high-performance applications for web, mobile, gaming, and IoT. Tutorials and other documentation show you how to store JSON data and perform SQL queries over a flexible schema in this database service.
 
 <ul class="panelContent cardsFTitle">
      <li>

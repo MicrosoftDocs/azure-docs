@@ -22,9 +22,21 @@ ms.author: mimig
 
 ## What is Azure Cosmos DB?
 
-Azure Cosmos DB, formerly known as Azure DocumentDB, is Microsoft's multi-tenant, globally distributed NoSQL database service for mission-critical applications. Azure Cosmos DB was built with global distribution and horizontal scale at its core. It offers turn-key global distribution across any number of Azure regions by transparently scaling and replicating your data wherever your users are. You can elastically scale throughput and storage worldwide and pay only for the throughput and storage you need. Azure Cosmos DB guarantees single-digit millisecond latencies at the 99th percentile anywhere in the world, offers multiple well-defined consistency models to fine-tune for performance, and guaranteed high availability with multi-homing capabilities, all backed by industry-leading service level agreements (SLAs). 
+Azure Cosmos DB is Microsoft's globally distributed, multi-model database service for mission-critical applications. Azure Cosmos DB was built with [global distribution](../documentdb/documentdb-distribute-data-globally.md) and [horizontal scale](../documentdb/documentdb-partition-data.md) at its core. 
 
-Azure Cosmos DB is truly schema-agnostic. It automatically indexes data without requiring you to deal with schema and index management. Azure Cosmos DB is multi-model – it natively supports document, key-value, graph, and columnar data models. With Azure Cosmos DB, you can access your data using NoSQL APIs of your choice - DocumentDB (document), MongoDB (document), Azure Table storage (key-value), and Gremlin (graph), are all natively supported. Azure Cosmos DB is a fully managed, enterprise ready, and trustworthy service. All your data is fully and transparently encrypted  and secure by default. Azure Cosmos DB is also ISO, FedRAMP, EU, HIPAA, and PCI compliant.  
+![The new Azure Cosmos DB multi-model approach for document, table, and Gremlin graph data, and MongoDB apps](./media/introduction/azure-cosmos-db-overview.png)
+
+Azure Cosmos DB offers:
+
+* Turn-key **global distribution** across any number of [Azure regions](https://azure.microsoft.com/regions/) by transparently scaling and replicating your data wherever your users are. You can elastically scale throughput and storage worldwide and pay only for the throughput and storage you need. 
+
+* **Guaranteed single-digit millisecond latencies at the 99th percentile**. Anywhere in the world, Cosmos DB offers multiple well-defined consistency models to fine-tune performance, and provides guaranteed high availability with multi-homing capabilities, all backed by industry-leading [service level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/documentdb/). 
+
+* **Schema-agnostic development**. Cosmos DB [automatically indexes](../documentdb/documentdb-indexing-policies.md) data without requiring you to deal with schema and index management. 
+
+* **Multi-model support**. Cosmos DB supports document, key-value, graph, and columnar data models. With Azure Cosmos DB, you can access your data using the APIs of your choice - DocumentDB (document), MongoDB (document), Azure Table storage (key-value), and Gremlin (graph), are all natively supported. 
+
+* **A fully managed, enterprise ready, and trustworthy service**. All your data is fully and transparently encrypted  and secure by default. Azure Cosmos DB is also ISO, FedRAMP, EU, HIPAA, and PCI compliant.  
 
 Azure Cosmos DB provides multi-model support for the following data models and APIs:
 
@@ -55,14 +67,12 @@ Azure Cosmos DB transparently replicates your data to all regions you've associa
 
 * **Industry-leading comprehensive SLAs:** Rest assured your apps are running on world-class infrastructure, with a battle-tested service, in the most trusted cloud. Azure Cosmos DB is the first and only service to offer industry-leading 99.99% SLAs for latency at the 99th percentile, guaranteed throughput, consistency and high availability.
 
-* **Multi-model and Multi-API support:** Only Azure Cosmos DB allows you to use key-value, graph, and document data in one service, at global scale and without worrying about schema or index management. Azure Cosmos DB automatically indexes all data, and allows you to use your favorite NoSQL API including SQL, JavaScript, Gremlin, MongoDB, and Azure Table Storage to query your data. Because Azure Cosmos DB utilizes a highly concurrent, lock free, log structured indexing technology to automatically index all data content. This enables rich real-time queries without the need to specify schema hints, secondary indexes, or views. Learn more in [Query Azure Cosmos DB](../documentdb/documentdb-sql-query.md). 
+* **Multi-model and Multi-API support:** Only Azure Cosmos DB allows you to use key-value, graph, and document data in one service, at global scale and without worrying about schema or index management. Azure Cosmos DB automatically indexes all data, and allows you to use your favorite APIs including SQL, JavaScript, Gremlin, MongoDB, and Azure Table Storage to query your data. Because Azure Cosmos DB utilizes a highly concurrent, lock free, log structured indexing technology to automatically index all data content. This enables rich real-time queries without the need to specify schema hints, secondary indexes, or views. Learn more in [Query Azure Cosmos DB](../documentdb/documentdb-sql-query.md). 
 
 * **Fully managed:** Eliminate the need to manage database and machine resources. As a fully managed Microsoft Azure service, you do not need to manage virtual machines, deploy and configure software, manage scaling, or deal with complex data-tier upgrades. Every database is automatically backed up and protected against regional failures. You can easily add a Azure Cosmos DB account and provision capacity as you need it, allowing you to focus on your application instead of operating and managing your database. 
 
 ## Multi-model support in Azure Cosmos DB
 Azure Cosmos DB is a comprehensive database service that provides true multi-model support. If you're looking for a high performance key-value store, document database, or a graph database, Azure Cosmos DB has you covered. A common journey for a highly scalable and performant database often start with simple key-value needs, but then as your data grows and new scenario needs arise, you need more sophisticated models like documents and  graph. This often results in application re-writes or fragmented application backends, using multiple databases. With Azure Cosmos DB, you can just start using a new set of APIs and capabilities that are directly integrated with the database and leverage the more advanced capabilities for their application without any application re-write or change in their data infrastructure.  
-
-![The new Azure Cosmos DB multi-model approach for document, table, and Gremlin graph data, and MongoDB apps](./media/introduction/azure-cosmos-db-overview.png)
 
 **Popular OSS APIs**: With popular open source APIs and frameworks, it is easy for you to start developing an application and bring it to life. The challenging part is when you need to move the application into production and you need to address issues like scale, cost, availability and maintenance. In a world where applications can go viral in a matter of hours, it is not easy to plan for these challenges ahead of time. Now, you can easily lift, and shift applications built for popular NoSQL databases like MongoDB to Azure Cosmos DB without having to worry about the cost or elastic needs of your application. Also, Azure Cosmos DB provides the MongoDB, graph and tabular application the same level of enterprise guarantees for availability, performance, throughput and consistency without requiring a single line of application change. 
 
