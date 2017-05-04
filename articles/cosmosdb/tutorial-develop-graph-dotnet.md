@@ -200,5 +200,4 @@ You can build more complex queries and implement powerful graph traversal logic 
 
 ## Next Steps
 * Read about [Gremlin support in Azure Cosmos DB](gremlin-support.md)
-* View the samples for [Graphs in .NET](graph-dotnet-samples.md)
 * Download the [Graph .NET library and read release notes](https://aka.ms/graphdbextension)

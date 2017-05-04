@@ -27,7 +27,7 @@ This sample CLI script autoscales an Azure Cosmos DB collection.
 
 ## Sample script
 
-`[!code-azurecli[main](../../../cli_scripts/cosmosdb/scale-cosmosdb-autoscale-collection/scale-cosmosdb-autoscale-collection.sh "Autoscale an Azure Cosmos DB collection")]`
+[!code-azurecli[main](../../../cli_scripts/cosmosdb/scale-cosmosdb-autoscale-collection/scale-cosmosdb-autoscale-collection.sh "Autoscale an Azure Cosmos DB collection")]
 
 ## Clean up deployment
 
