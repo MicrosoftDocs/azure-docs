@@ -34,7 +34,7 @@ Latest sample solutions that perform CRUD operations and other common operations
 * Links to the tasks in each of the example C# project files. 
 * Links to the related API reference content.
 
-**Prerequisites**
+## Prerequisites
 
 1. You need an Azure account to use these examples:
    * You can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.

@@ -20,9 +20,9 @@ ms.author: mimig
 
 ---
 
-# How to query with Azure Cosmos DB?
+# Azure Cosmos DB: How to query using SQL?
 
-The Azure Cosmos DB DocumentDB API supports supports querying documents using SQL (Structured Query Language). This article provides a sample document and two sample queries and results using SQL.
+The Azure Cosmos DB DocumentDB API supports supports querying documents using [SQL (Structured Query Language)](../documentdb/documentdb-sql-query.md). This article provides a sample document and two sample queries and results using SQL.
 
 The SQL queries in this article use the following sample document.
 

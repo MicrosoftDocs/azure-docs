@@ -20,7 +20,11 @@ ms.author: mimig
 ---
 # Azure Cosmos DB: Build a web app with .NET and the DocumentDB API
 
-This quick start demonstrates how to use the [DocumentDB .NET API](../documentdb/documentdb-sdk-dotnet.md) for Azure Cosmos DB and the Azure portal to create an Azure Cosmos DB account, create a database and collection, and then build and deploy a web app on the Windows platform.
+Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+
+This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and deploy a todo list web app built on the [DocumentDB .NET API](../documentdb/documentdb-sdk-dotnet.md).  
+
+## Prerequisites
 
 If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
@@ -148,6 +152,14 @@ Now that your app is up and running, you'll want to ensure ensure business conti
 * In the Azure portal, in the left menu, under **Monitoring**, click **Metrics**.
 
    ![Todo app with sample data](./media/create-documentdb-dotnet/azure-comosdb-portal-metrics-slas.png)
+
+## Clean up resources
+
+If you're not going to continue to use this app, use the following steps to delete all resources created by this quickstart in the Azure portal. If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. 
+
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
+2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
+
 
 ## Next steps
 

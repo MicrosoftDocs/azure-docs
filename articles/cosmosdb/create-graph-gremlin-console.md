@@ -19,7 +19,7 @@ ms.author: anhoh
 ---
 # Azure Cosmos DB tutorial: Get started with Graph API in the Gremlin Console
 
-This quickstart demonstrates how to use the Graph API in the Gremlin Console. In this tutorial, you'll create and querying vertices and edges with the Azure Cosmos DB Graph API.
+This quickstart demonstrates how to use the Graph API in the Gremlin Console. In this tutorial, you'll create and query vertices and edges with the Azure Cosmos DB Graph API.
 
 We'll cover:
 
@@ -33,10 +33,12 @@ We'll cover:
 Now let's get started!
 
 ## Prerequisites
-Please make sure you have the following:
-* An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). 
-    * Alternatively, you can use the [Azure Cosmos DB Emulator](../documentdb/documentdb-nosql-local-emulator.md) for this tutorial.
-* [Gremlin Console](http://tinkerpop.apache.org/) 3.2.4 and above
+
+If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+You also need to install the [Gremlin Console](http://tinkerpop.apache.org/). Use version 3.2.4 or above.
 
 ## Create an Azure Cosmos DB account with the Graph API
 Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Connect to your app service](#ConnectAppService). If you are using the Azure Cosmos DB Emulator, please follow the steps at [Azure Cosmos DB Emulator](../documentdb/documentdb-nosql-local-emulator.md) to setup the emulator and then skip ahead to [Setup your Visual Studio Solution](#SetupVS).
