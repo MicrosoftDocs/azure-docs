@@ -59,10 +59,10 @@ This is why we currently do not offer users the option to burden themselves with
 A: All DocumentDB regions have encryption turned on for all user data.
 
 ### Q: Does encryption affect the performance latency and throughput SLAs?
-A: There is no impact or changes to the performance SLAs now that encryption at rest is enabled for all existing and new accounts.  You can read more on the [Performance SLAs](https://azure.microsoft.com/support/legal/sla/documentdb) to see the latest guarantees.
+A: There is no impact or changes to the performance SLAs now that encryption at rest is enabled for all existing and new accounts.  You can read more on the [Performance SLAs page](https://azure.microsoft.com/support/legal/sla/documentdb) to see the latest guarantees.
 
 ### Q: Does the local emulator support encryption at rest?
-A: The emulator is a stand-alone dev / test tool and does not have the integration into key management services that the production version of DocumentDB uses.  Our recommendation is to enable BitLocker on drives where you are storing sensitive emulator test data.  The (emulator supports changing the default data directory)[https://docs.microsoft.com/azure/documentdb/documentdb-nosql-local-emulator] as well as using a well-known location.
+A: The emulator is a stand-alone dev/test tool and does not use the key management services that the managed DocumentDB service uses. Our recommendation is to enable BitLocker on drives where you are storing sensitive emulator test data. The (emulator supports changing the default data directory)[https://docs.microsoft.com/azure/documentdb/documentdb-nosql-local-emulator] as well as using a well-known location.
 
 ## Next steps
 
