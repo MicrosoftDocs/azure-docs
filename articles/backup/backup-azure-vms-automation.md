@@ -395,7 +395,7 @@ After you have restored the disks, use these steps to create and configure the v
      }
     ```
 
-  For managed encrypted VMs, you'll need to create managed disks from blob storage, and then attach the disks. For in-depth information, see the article, [Attach a data disk to a Windows VM using PowerShell](../../virtual-machines/windows/attach-disk-ps.md). The following sample code shows how to attach the data disks for managed encrypted VMs.
+  For managed encrypted VMs, you'll need to create managed disks from blob storage, and then attach the disks. For in-depth information, see the article, [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md). The following sample code shows how to attach the data disks for managed encrypted VMs.
 
     ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
