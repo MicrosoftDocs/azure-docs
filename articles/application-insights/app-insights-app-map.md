@@ -84,17 +84,19 @@ To save the filters you have applied, pin the filtered view onto a [dashboard](a
 
 ## End-to-end system app maps
 
+*Requires SDK version 2.3 or higher*
+
 If your application has several components - for example, a back-end service in addition to the web app - then you can show them all on one integrated app map.
 
 ![Set filters](./media/app-insights-app-map/multi-component-app-map.png)
 
-The app map finds server nodes by looking for all Application Insights resources within the current resource group. It also detects server nodes by following any dependency calls tracked by Application Insights resources in the current resource group.
+The app map finds server nodes by following any HTTP dependency calls made between servers with the Application Insights SDK installed. Each Application Insights resource is assumed to contain one server.
 
+### Multi-role app map (preview)
 
-### Setting up
+If you are sending data from multiple servers to the same Application Insights resource / instrumentation key, you can use the preview multi-role application map feature to see servers in the Application Map segmented by cloud_RoleName. Set *Multi-role Application Map* to *On* from the Previews blade to enable this configuration.
 
-> [!NOTE] 
-> End-to-end system app map is in preview. You have to instrument your components with a special version of the SDK, and you have to use a special URL to see the app map. [Learn how to set up end-to-end system app maps](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-app-map-preview.md).
+This approach may desired in a micro-services application, or in other scenarios where you want to correlate events across multiple servers within a single Application Insights resource.
 
 ## Video
 
