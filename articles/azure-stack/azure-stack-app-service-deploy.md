@@ -94,9 +94,9 @@ The following steps guide you through the installation stages:
 10. Enter the **Storage Account Name** you would like App Service to create as part of the installation.  By default this is set to **appsvclocalstor**.
 11. Review the **SQL Server details** and make changes if necessary.  By default the SQL Server name, is populated with the default SQL RP information, but you can change the location of the SQL Server for App Service to suit your needs.  Click **Next** and the installer will validate the SQL connection properties and move to the next step.
 ![App Service on Azure Stack Technical Preview 3 Resource Group, Storage, and SQL Server information][4]
-12. Click **Browse** next to the **App Service Default SSL Certificate File** and navigate to the **_.appservice.local.AzureStack.external** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).  If you specified a different location and domain suffix when creating certificates then select the corresponding certificate.
+12. Click **Browse** next to the **App Service Default SSL Certificate File** and navigate to the **_.appservice.local.AzureStack.external** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).  If you specified a different location and domain suffix when creating certificates, then select the corresponding certificate.
 13. Enter the **certificate password** that you set when you created the certificates.
-14. Click **Browse** next to the **Resource Provider SSL Certificate File** and navigate to the **api.appservice.local.AzureStack.external** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).  If you specified a different location and domain suffix when creating certificates then select the corresponding certificate.
+14. Click **Browse** next to the **Resource Provider SSL Certificate File** and navigate to the **api.appservice.local.AzureStack.external** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).  If you specified a different location and domain suffix when creating certificates, then select the corresponding certificate.
 15. Enter the **certificate password** that you set when you created the certificates.
 16. Click **Browse** next to the **Resource Provider Root Certificate File** and navigate to the **AzureStackCertificationAuthority** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).
 17. Click **Next** the installer verifies the certificate password provided.
@@ -194,7 +194,7 @@ Now that you have deployed and registered the App Service resource provider, you
 >
 >You **must** have a **Tenant Subscription** to create applications using App Service on Azure Stack.  The only capabilities that a Service Admin can complete within the Admin Portal are related to the resource provider administration of App Service such as adding capacity, configuring deployment sources, adding worker tiers and SKUs.
 >
-> As of TP3 to **create Web/Mobile/API/Function Apps** you must use the **Tenant portal** and have a **tenant subscription**.  
+> As of TP3 to **create Web/Mobile/API/Function Apps**, you must use the **Tenant portal** and have a **tenant subscription**.  
 
 1. In the Azure Stack Tenant portal, click New, click Web + Mobile, and click Web App.
 2. In the Web App blade, type a name in the Web app box.
