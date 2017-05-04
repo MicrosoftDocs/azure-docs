@@ -380,7 +380,7 @@ If you would like to try out some of the concepts described in this article, you
 [img-lifecycle]: ./media/iot-hub-devguide-messaging/lifecycle.png
 [img-eventhubcompatible]: ./media/iot-hub-devguide-messaging/eventhubcompatible.png
 
-[lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
+[lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-azure-gateway-guidance]: iot-hub-devguide-endpoints.md#field-gateways
 [lnk-guidance-scale]: iot-hub-scaling.md
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md

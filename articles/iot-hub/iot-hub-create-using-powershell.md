@@ -114,7 +114,7 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-powershell-install]: /powershell/azureps-cmdlets-docs
 [lnk-iothub-cmdlets]: /powershell/resourcemanager/azurerm.iothub/v1.3.0/azurerm.iothub
 [lnk-rm-install]: /powershell/resourcemanager/
-[lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
+[lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md

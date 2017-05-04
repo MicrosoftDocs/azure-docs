@@ -153,7 +153,7 @@ If you would like to try out some of the concepts described in this article, you
 
 * [How to upload files from devices to the cloud with IoT Hub][lnk-fileupload-tutorial]
 
-[lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
+[lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-sdks]: iot-hub-devguide-sdks.md

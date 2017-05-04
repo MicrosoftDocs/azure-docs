@@ -434,7 +434,7 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-openssl]: https://www.openssl.org/
 [lnk-selfsigned]: https://technet.microsoft.com/library/hh848633
 
-[lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
+[lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-sas-tokens]: iot-hub-devguide-security.md#security-tokens
 [lnk-amqp]: https://www.amqp.org/
 [lnk-azure-resource-manager]: ../azure-resource-manager/resource-group-overview.md
