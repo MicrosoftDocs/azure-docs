@@ -25,9 +25,9 @@ Language customization allows you to change your user journey to a different lan
 ## How does Language customization work?
 Language customization allows you to select which languages your user journey is available in.  Once the feature is enabled, you can provide the query string parameter, ui_locales, from your application.  When you call into Azure AD B2C, we translate your page to the locale that you have indicated.  Using type of configuration gives you complete control over the languages in your user journey and ignores the language settings of the customer's browser.  Alternatively, you may not need that level of control over what languages your customer see.  If you don't provide a ui_locales parameter, the customer's experience is dictated by their browser's settings.  You can still control which languages your user journey is translated to by adding it as a supported language.  If a customer's browser is set to show a language you don't want to support, then the language you selected as a default in supported cultures is shown instead.
 
-1. **ui-locales specified language** - Once you enable Language customization, your user journey will be translated to the language specified here
-2. **Browser requested language** - If no ui-locales was specified, it will translate to the browser requested language, **if it was included in Supported languages**
-3. **Policy default language** - If the language doesn't specify a language, or it specifies one that is not supported, it will translate to the policy default language
+1. **ui-locales specified language** - Once you enable Language customization, your user journey is translated to the language specified here
+2. **Browser requested language** - If no ui-locales was specified, it translates to the browser requested language, **if it was included in Supported languages**
+3. **Policy default language** - If the language doesn't specify a language, or it specifies one that is not supported, it translates to the policy default language
 
 >[!NOTE]
 >If you are using custom user attributes, you need to provide your own translations.  See '[Customize your strings](#customize-your-strings)' for details.
@@ -149,7 +149,7 @@ We will continuously improve translations and keep them in compliance for you.  
 ### Social Identity provider translations
 We provide the ui_locales OIDC parameter to social logins but they are not honored by some social identity providers, including Facebook and Google. 
 ### Browser behavior
-Chrome and Firefox both request for their set language and if it is a supported language, it will be displayed before the default.  Edge currently does not request a language and will go straight to the default language.
+Chrome and Firefox both request for their set language and if it is a supported language, it is displayed before the default.  Edge currently does not request a language and goes straight to the default language.
 ### Known issues
 * Uploading language resources for the MFA page in a Profile Edit policy is currently unavailable.
 * `LocalizedCollections` aren't generated for values when it is required by the response type
