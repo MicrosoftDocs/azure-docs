@@ -334,7 +334,11 @@ This section will show you how to add new users or change their permissions in t
 
 1. *Validate that the account you're using is registered and the password doesn't work.* If you enter an account that is registered in Azure Active Directory, it automatically prompts you to choose how to sign in with the account. You'll use a work or school (Organizational account), or a personal Windows LiveID account.
 2. Go to https://reports.azure.com and sign out of any account that you may be signed in with. You can also open it within a private window to ensure no other accounts are signed in.
-3. Enter the Publisher email address, but don't enter a password. It will redirect to *Step 4* if it's registered in Azure Active Directory. Administrator accounts are registered. Organizational accounts that are set up by the administrator account are also registered.
+3. Enter the Publisher email address, but don't enter a password. It will redirect to *Step 4* if it's registered in Azure Active Directory.
+
+  >[!NOTE]
+  >Administrator accounts are registered. Organizational accounts that are set up by the administrator account are also registered.
+
 4. Choose **Work or school account**. Work or school accounts (also called Organizational accounts) are set up by companies that are registered with Azure. Personal accounts (also called LiveID accounts) are personal accounts that are registered with Microsoft.
 
   >[!NOTE]
