@@ -17,10 +17,10 @@ ms.date: 05/01/2017
 ms.author: mikeray 
 
 ---
-# Configure an internal load balancer for an Always On availability group in Azure
-This topic explains how to create an internal load balancer for a SQL Server Always On availability group in Azure virtual machines running with Azure Resource Manager. An availability group requires a load balancer when the SQL Server instances are on Azure virtual machines. The load balancer stores the IP address for the availability group listener. If an availability group spans multiple regions, each region needs a load balancer.
+# Configure a load balancer for an Always On availability group in Azure
+This topic explains how to create a load balancer for a SQL Server Always On availability group in Azure virtual machines running with Azure Resource Manager. An availability group requires a load balancer when the SQL Server instances are on Azure virtual machines. The load balancer stores the IP address for the availability group listener. If an availability group spans multiple regions, each region needs a load balancer.
 
-To complete this task, you need to have a SQL Server availability group deployed on Azure virtual machines Resource Manager. Both SQL Server virtual machines must belong to the same availability set. You can use the [Microsoft template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) to automatically create the availability group in Azure Resource Manager. This template automatically creates the internal load balancer for you. 
+To complete this task, you need to have a SQL Server availability group deployed on Azure virtual machines Resource Manager. Both SQL Server virtual machines must belong to the same availability set. You can use the [Microsoft template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) to automatically create the availability group in Azure Resource Manager. This template automatically creates an internal load balancer for you. 
 
 If you prefer, you can [manually configure an availability group](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
 
@@ -56,7 +56,7 @@ The first step is to create the load balancer. In the Azure portal, open the res
    | Setting | Value |
    | --- | --- |
    | **Name** |A text name representing the load balancer. For example, **sqlLB**. |
-   | **Type** |**Internal** |
+   | **Type** |**Internal** - Most implementations use an internal load balancer. This allows applications within the same virtual network to connect to the availability group.  </br> **External** - Allows applications to connect to the availability group through a public internet connection. |
    | **Virtual network** |Choose the virtual network that the SQL Servers are in. |
    | **Subnet** |Choose the subnet that the SQL Servers are in. |
    | **IP address assignment** |**Static** |
