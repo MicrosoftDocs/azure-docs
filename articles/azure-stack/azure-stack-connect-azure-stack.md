@@ -18,7 +18,8 @@ ms.author: sngun
 
 ---
 # Connect to Azure Stack
-To manage resources, you must connect to the Azure Stack POC computer. You can use either of the following connection options:
+
+To manage resources, you must connect to the Azure Stack POC computer. This topic details the steps required to connect to the Azure Stack POC. You can use either of the following connection options:
 
 * [Remote Desktop](#connect-with-remote-desktop): lets a single concurrent user quickly connect from the POC computer.
 * [Virtual Private Network (VPN)](#connect-with-vpn): lets multiple concurrent users connect from clients outside of the Azure Stack infrastructure (requires configuration).

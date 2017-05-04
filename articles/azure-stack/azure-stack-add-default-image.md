@@ -19,7 +19,7 @@ ms.author: sngun
 ---
 # Add the Windows Server 2016 VM image to the Azure Stack marketplace
 
-Before you can provision virtual machines, you must add the Windows Server VM image to the Azure Stack marketplace.
+Before provisioning virtual machines, the administrator must add a VM image to the Azure Stack marketplace. This topic describes the steps required to add a Windows Server 2016 image to the marketplace.
 
 1. After deploying Azure Stack, sign in to the MAS-CON01 virtual machine.
 
