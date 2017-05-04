@@ -103,6 +103,24 @@ az vm create --resource-group myRGNetwork --name myBackEndVM --vnet-name --subne
 az vm create --resource-group myRGNetwork --name myRemoteAccessVM --vnet-name --subnet mySubnetRemoteAccess --nsg myNSGRemoteAccess --image UbuntuLTS --generate-ssh-keys
 ```
 
+## Configure front-end NSG
+
+az network nsg rule create --resource-group myResourceGroup --nsg-name mySubnetFrontEnd --name http --access allow --protocol Tcp --direction Inbound --priority 200 --source-address-prefix "*" --source-port-range "*" --destination-address-prefix "*" --destination-port-range 80
+
+## Configure back-end NSG
+
+
+```azurecli
+nsgrule=$(az network nsg rule list --resource-group myResourceGroup --nsg-name myNetworkSecurityGroupBackEnd --query [0].name -o tsv)
+```
+
+```azurecli
+az network nsg rule update --resource-group myResourceGroup --nsg-name mySubnetBackEnd --name $nsgrule --protocol tcp --direction inbound --priority 100 --source-address-prefix 10.0.2.0/24 --source-port-range '*' --destination-address-prefix '*' --destination-port-range 22 --access allow
+```azurecli
+
+```azurecli
+az network nsg rule create --resource-group myResourceGroup --nsg-name mySubnetBackEnd --name denyAll --access Deny --protocol Tcp --direction Inbound --priority 200 --source-address-prefix "*" --source-port-range "*" --destination-address-prefix "*" --destination-port-range "*"
+```azurecli
 
 ## Next steps
 
