@@ -17,16 +17,16 @@ ms.author: sama
 ---
 # Azure Active Directory B2C: Using language customization
 
->
-[!NOTE] This feature is in public preview.  It is recommended that you use a test tenant when using this feature.  We don't plan on any breaking changes from the preview to the general availability release, but we reserve the right to make such changes to improve the feature.  Once you've had a chance to try feature, please provide feedback on your experiences and how we can make it better.  You can provide feedback through the Azure portal with the smiley face tool on the top right.   If there is a business requirement for you to go live using this feature during the preview phase, let us know your scenarios and we can provide you with the proper guidance and assistance.  You can contact us at aadb2cpreview@microsoft.com
+>[!NOTE] 
+>This feature is in public preview.  It is recommended that you use a test tenant when using this feature.  We don't plan on any breaking changes from the preview to the general availability release, but we reserve the right to make such changes to improve the feature.  Once you've had a chance to try feature, please provide feedback on your experiences and how we can make it better.  You can provide feedback through the Azure portal with the smiley face tool on the top right.   If there is a business requirement for you to go live using this feature during the preview phase, let us know your scenarios and we can provide you with the proper guidance and assistance.  You can contact us at aadb2cpreview@microsoft.com
 >
 Language customization allows you to change your user journey to a different language to suit your customer needs.  We provide translations for 37 languages (see [Additional information]([#additional-information)).  Even if your experience is only provided for a single language, you can customize any text on the pages to suit your needs.  
 
 ## How does Language customization work?
 Language customization allows you to select which languages your user journey is available in.  Once the feature is enabled, you can provide the Open ID Connect (OIDC) parameter, ui_locales, from your application.  When you call into Azure AD B2C, we translate your page to the locale that you have indicated.  Using type of configuration gives you complete control over the languages in your user journey and ignores the language settings of the customer's browser.  Alternatively, you may not need that level of control over what languages your customer see.  If you don't provide a ui_locales parameter, the customer's experience is dictated by their browser's settings.  You can still control which languages your user journey is translated to by adding it as a supported language.  If a customer's browser is set to show a language you don't want to support, then the language you selected as a default is shown instead.
 
->
-[!Note] If you are using custom user attributes, you need to provide your own translations.  See '[Customize your strings](#customize-your-strings)' for details.
+>[!NOTE]
+>If you are using custom user attributes, you need to provide your own translations.  See '[Customize your strings](#customize-your-strings)' for details.
 >
 ## Add Microsoft provided default translations to your user journey 
 By enabling 'Language customization' on a policy, you can now control the language of the user journey by adding the ui_locales parameter.
@@ -43,8 +43,9 @@ Create a list of allowed languages for your user journey to be translated in whe
 2. From your 'Edit policy' blade, select 'Language customization'.
 3. You are taken to your 'Supported languages' blade.  From here, you can select 'Add resource'.
 4. Select all the languages that you would like to be supported.  
->
-[!NOTE] If a ui_locales parameter is not provided, then the page is translated to the customer's browser language only if it is on this list
+
+>[!NOTE]
+>If a ui_locales parameter is not provided, then the page is translated to the customer's browser language only if it is on this list
 >
 5. Click Ok at the bottom
 6. Close the 'Language customization' blade and save your policy.
@@ -80,8 +81,8 @@ If you are looking to change the string for a custom user attribute, or want to 
     [...]
 }
 ```
->
-[!IMPORTANT]If you need to override a string, make sure to set the `Override` value to `true`.  If value isn't changed, the entry is ignored. 
+>[!IMPORTANT]
+>If you need to override a string, make sure to set the `Override` value to `true`.  If value isn't changed, the entry is ignored. 
 >
 Replace <ExtensionAttribute> with the name of your custom user attribute.  
 Replace <ExtensionAttributeValue> with the new string to be displayed.
@@ -110,8 +111,8 @@ If you want to provide a set list of values for responses, you need to create a 
   }]
 }
 ```
->
-[!IMPORTANT]If you need to override a string, make sure to set the `Override` value to `true`.  If value isn't changed, the entry is ignored. 
+>[!IMPORTANT]
+>If you need to override a string, make sure to set the `Override` value to `true`.  If value isn't changed, the entry is ignored. 
 >
 * `ElementId` is the user attribute that this `LocalizedCollections` is a response to
 * `Name` is the value shown to the user
@@ -144,6 +145,7 @@ Currently, we are providing the ui_locales OIDC parameter social logins such as 
 ### What if I want a language that isn't supported?
 We are planning to provide an extension of this feature that allows you to upload a JSON resource towards 'custom languages'.  The feature allows you to specify the name and language code for any language and provide *all* the translations for that language.  If you need this feature, send us your scenario at aadb2cpreview@microsoft.com.  
 ### What languages are supported?
+
 | Language              | Language code |
 |-----------------------|---------------|
 | Bengali               | bn            |
