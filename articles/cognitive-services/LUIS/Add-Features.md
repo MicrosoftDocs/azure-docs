@@ -84,4 +84,4 @@ You can create a structured “pattern” to represent a certain class of object
 
 **To delete a pattern:** 
 
-* Click the trash bin button ![Trash bin button](./Images/trashbin-button.JPG) next to the pattern name in the list of pattern features.
+* Click the trash bin button ![Trash bin button](./Images/trashbin-button.png) next to the pattern name in the list of pattern features.

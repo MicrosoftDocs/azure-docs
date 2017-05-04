@@ -14,6 +14,8 @@
     href: luis-nodejs-tutorial-build-bot-framework-sample.md
 - name: Concepts
   items: 
+  - name: Intents
+    href: luis-concept-intent.md
   - name: Entities
     href: luis-concept-entity-types.md
   - name: Utterances

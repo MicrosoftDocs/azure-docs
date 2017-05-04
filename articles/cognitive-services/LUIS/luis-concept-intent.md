@@ -13,24 +13,14 @@ ms.author: cahann
 ---
 # Intents in LUIS
 
-Entities are key data in your application’s domain. An entity represents a class including a collection of similar objects (places, things, people, events or concepts). Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task. For example, a News Search app may include entities such as “topic”, “source”, “keyword” and “publishing date”, which are key data to search for news. In a travel booking app, the “location”, “date”, "airline", "travel class" and "tickets" are key information for flight booking (relevant to the "Bookflight" intent). 
-
-You do not need to create entities for every concept in your app, but only for those required for the app to take action. You can add up to **30** entities in a single LUIS app. 
-
-You can add, edit or delete entities in your app through the **Entities list** on the **Entities** page. Luis offers many types of entities; prebuilt entities, custom machine learned entities and close list entities.
+An intent represents a task or action the user wants to perform. It is a purpose or goal expressed in a user's input, such as booking a flight, paying a bill, or finding a news article. In your LUIS app, you define a set of named intents that correspond to actions users want to take in your application. A travel app may define an intent named `BookFlight`, that LUIS extracts from the utterance "Book me a ticket to Paris."
 
 
-# Types of entities
+<!-- So, you must add intents to help your app understand user requests and react to them properly.  -->
 
-LUIS offers the following types of entities:
+All applications come with the predefined intent, **"None"**. You should teach it to recognize user statements that are irrelevant to the app, for example if a user says "Get me a great cookie recipe" in a TravelAgent app.
 
-
-| Type          | Description           | Maximum number  |
-| ------------- |-----------------------|:-----------------:|
-| Prebuilt      | System-defined types | ? |
-| List      | List entities represent a fixed set of synonyms or related words in your system. They aren't machine learned, and are best used for a known set of variations on ways to represent the same concept. List entities don't have be labeled in utterances or trained by the system.  <br/> A list entity is an explicitly specified list of values. Each value may have one or more synonyms. Unlike other entity types, a list entity cannot have additional values discovered during training.   | ?  |
-| Simple | A simple entity is a generic entity that describes a single concept.     |  ?   |
-| Hierarchical | You can define relationships between entities based on hereditary hierarchical patterns, where the generic entity acts as the parent and the children are sub-types under the parent, and they share the same characteristics.      |  ?   |
-| Composite | A composite entities is made up of other entities that form parts of a whole      |  ?    |
+You can add up to 300 intents in a single LUIS app. You add and manage your intents from the **Intents** page that is accessed by clicking **Intents** in your application's left panel.
 
 
+To learn how to add and manage intents in your LUIS app, see [Add intents](Add-intents.md).
