@@ -34,10 +34,13 @@ You can import the Azure Storage iOS library into your application either by usi
 
 ## CocoaPod
 1. If you haven't done so already, [Install CocoaPods](https://guides.cocoapods.org/using/getting-started.html#toc_3) on your computer by opening a terminal window and running the following command
+    
     ```shell   
     sudo gem install cocoapods
     ```
+
 2. Next, in the project directory (the directory containing your .xcodeproj file), create a new file called _Podfile_(no file extension). Add the following to _Podfile_ and save.
+
     ```ruby
     platform :ios, '8.0'
 
@@ -46,11 +49,15 @@ You can import the Azure Storage iOS library into your application either by usi
       pod 'AZSClient'
     end
     ```
+
 3. In the terminal window, navigate to the project directory and run the following command
+
     ```shell    
     pod install
     ```
+
 4. If your .xcodeproj is open in Xcode, close it. In your project directory open the newly created project file which will have the .xcworkspace extension. This is the file you'll work from for now on.
+
 5. Import statement:
     ```objc
     // Include the following import statement to use blob APIs.
@@ -73,7 +80,7 @@ You can then import the framework file into your application by doing the follow
 
 1. Create a new project or open up your existing project in Xcode.
 2. Drag and drop the `AZSClient.framework` into your Xcode project navigator.
-3. Select *Copy items if needed*, and click on "Finish".
+3. Select *Copy items if needed*, and click on *Finish*.
 4. Click on your project in the left-hand navigation and click the *General* tab at the top of the project editor.
 5. Under the *Linked Frameworks and Libraries* section, click the Add button (+).
 6. In the list of libraries already provided, search for `libxml2.2.tbd` and add it to your project.
