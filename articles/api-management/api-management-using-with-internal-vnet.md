@@ -1,4 +1,4 @@
----
+﻿---
 title: How to use Azure API Management with Internal virtual network | Microsoft Docs
 description: Learn how to setup and configure Azure API Management in Internal virtual network.
 services: api-management
@@ -45,9 +45,9 @@ After the deployment succeeds, you should see the Internal Virtual IP Address of
 ### Enable VNET connection using Powershell cmdlets
 You can also enable VNET connectivity using the PowerShell cmdlets.
 
-* **Create an API Management service inside a VNET**: Use the cmdlet [New-AzureRmApiManagement](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.apimanagement/v3.1.0/new-azurermapimanagement) to create an Azure API Management service inside a VNET and configure it to use the Internal VNET type.
+* **Create an API Management service inside a VNET**: Use the cmdlet [New-AzureRmApiManagement](/powershell/module/azurerm.apimanagement/new-azurermapimanagement) to create an Azure API Management service inside a VNET and configure it to use the Internal VNET type.
 
-* **Deploy an existing API Management service inside a VNET**: Use the cmdlet [Update-AzureRmApiManagementDeployment](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.apimanagement/v3.1.0/update-azurermapimanagementdeployment) to move an existing Azure API Management service inside a Virtual network and configure it to use Internal VNET type.
+* **Deploy an existing API Management service inside a VNET**: Use the cmdlet [Update-AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) to move an existing Azure API Management service inside a Virtual network and configure it to use Internal VNET type.
 
 ## <a name="apim-dns-configuration"></a>DNS configuration
 When using API Management in External Virtual network mode, DNS is managed by Azure. For Internal Virtual network mode, you have to manage your own DNS.

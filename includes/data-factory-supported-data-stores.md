@@ -1,5 +1,3 @@
-Copy Activity in Data Factory copies data from a source data store to a sink data store. Data Factory supports the following data stores. Data from any source can be written to any sink. Click a data store to learn how to copy data to and from that store.
-
 | Category | Data store | Supported as a source | Supported as a sink |
 |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob storage](../articles/data-factory/data-factory-azure-blob-connector.md) |✓ |✓ |
@@ -25,13 +23,12 @@ Copy Activity in Data Factory copies data from a source data store to a sink dat
 | &nbsp; |[File System](../articles/data-factory/data-factory-onprem-file-system-connector.md)* |✓ |✓ |
 | &nbsp; |[FTP](../articles/data-factory/data-factory-ftp-connector.md) |✓ | |
 | &nbsp; |[HDFS](../articles/data-factory/data-factory-hdfs-connector.md)* |✓ | |
-| **Others** |[Generic OData](../articles/data-factory/data-factory-odata-connector.md) |✓ | |
+| &nbsp; |[SFTP](../articles/data-factory/data-factory-sftp-connector.md) |✓ | |
+| **Others** |[Generic HTTP](../articles/data-factory/data-factory-http-connector.md) |✓ | |
+| &nbsp; |[Generic OData](../articles/data-factory/data-factory-odata-connector.md) |✓ | |
 | &nbsp; |[Generic ODBC](../articles/data-factory/data-factory-odbc-connector.md)* |✓ | |
 | &nbsp; |[Salesforce](../articles/data-factory/data-factory-salesforce-connector.md) |✓ | |
 | &nbsp; |[Web Table (table from HTML)](../articles/data-factory/data-factory-web-table-connector.md) |✓ | |
 | &nbsp; |[GE Historian](../articles/data-factory/data-factory-odbc-connector.md#ge-historian-store)* |✓ | | |
 
-> [!NOTE]
-> Data stores with * can be on-premises or on Azure IaaS, and require you to install [Data Management Gateway](../articles/data-factory/data-factory-data-management-gateway.md) on an on-premises/Azure IaaS machine.
->
->
+

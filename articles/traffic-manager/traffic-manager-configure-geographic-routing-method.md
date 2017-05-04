@@ -19,7 +19,7 @@ ms.author: kumud
 
 # Configure the geographic traffic routing method using Traffic Manager
 
-The Geographic traffic routing method allows you to direct traffic to specific endpoints based on the geographic location where the requests originate. This tutorial shows you how to create a Traffic Manager profile with this routing method and configure the endpoints to receive traffic from specific geographies 
+The Geographic traffic routing method allows you to direct traffic to specific endpoints based on the geographic location where the requests originate. This tutorial shows you how to create a Traffic Manager profile with this routing method and configure the endpoints to receive traffic from specific geographies.
 
 ## Create a Traffic Manager Profile 
 
@@ -58,7 +58,5 @@ The Geographic traffic routing method allows you to direct traffic to specific e
 
 ## Next steps
 
-
-- Learn about [weighted traffic routing method](traffic-manager-configure-weighted-routing-method.md).
-- Learn more about [performance routing method](traffic-manager-configure-performance-routing-method.md).
+- Learn more about [Geographic traffic routing method](traffic-manager-routing-methods.md#geographic-traffic-routing-method).
 - Learn how to [test Traffic Manager settings](traffic-manager-testing-settings.md).

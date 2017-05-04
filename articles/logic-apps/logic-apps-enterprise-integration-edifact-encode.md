@@ -76,7 +76,7 @@ To finish creating your connection, choose **Create**.
 #### Encode EDIFACT Message by agreement name
 
 If you chose to encode EDIFACT messages by agreement name, 
-open the **Name of X12 agreement** list, 
+open the **Name of EDIFACT agreement** list, 
 enter or select your EDIFACT agreement name. 
 Enter the XML message to encode.
 

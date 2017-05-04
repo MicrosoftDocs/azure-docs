@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [What is Data Lake Analytics?](data-lake-analytics-overview.md)
 
 # Get started
@@ -9,6 +9,7 @@
 ## [Java SDK](data-lake-analytics-get-started-java-sdk.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Azure CLI](data-lake-analytics-get-started-cli.md)
+## [Azure CLI 2.0](data-lake-analytics-get-started-cli2.md)
 ## [REST API](data-lake-analytics-get-started-rest-api.md)
 ## [Python](data-lake-analytics-get-started-python.md)
 
@@ -18,6 +19,7 @@
 ### [U-SQL window functions](data-lake-analytics-use-window-functions.md)
 ### [U-SQL user-defined operators](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [U-SQL Python extensions](data-lake-analytics-u-sql-python-extensions.md)
+### [U-SQL R extensions](data-lake-analytics-u-sql-r-extensions.md)
 ### [U-SQL Cognitive capabilities](data-lake-analytics-u-sql-cognitive.md)
 
 ## Create solutions
@@ -39,12 +41,13 @@
 ### [Use Vertex Execution View](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.datalakeanalytics/v2.3.0/azurerm.datalakeanalytics)
+## [PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)
 ## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
 ## [REST](/rest/api/datalakeanalytics/)
+## [CLI 2.0](https://docs.microsoft.com/cli/azure/dla)
 
 # Resources
 ## [Service updates](https://azure.microsoft.com/updates/?product=data-lake-analytics)

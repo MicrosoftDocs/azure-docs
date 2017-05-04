@@ -54,7 +54,7 @@ DocumentDB is designed to have policy-based geo-fencing capabilities. Geo-fencin
 DocumentDB allows you to add (associate) or remove (dissociate) regions to your database account at any point in time (see [preceding figure](#UnlimitedRegionsPerAccount)). By virtue of replicating data across partitions in parallel, DocumentDB ensures that when a new region comes online, DocumentDB is available within 30 minutes anywhere in the world for up to 100 TBs. 
 
 ### <a id="FailoverPriorities"></a>Failover priorities
-To control exact sequence of regional failovers when there is a multi-regional outage, DocumentDB enables you to associate the priority to various regions associated with the database account (see the following figure). DocumentDB ensures that the automatic failover sequence occurs in the priority order you specified.
+To control exact sequence of regional failovers when there is a multi-regional outage, DocumentDB enables you to associate the priority to various regions associated with the database account (see the following figure). DocumentDB ensures that the automatic failover sequence occurs in the priority order you specified. For more information about regional failovers, see [Automatic regional failovers for business continuity in DocumentDB](documentdb-regional-failovers.md).
 
 **A tenant of DocumentDB can configure the failover priority order (right pane) for regions associated with a database account**
 
@@ -255,4 +255,4 @@ DocumentDB transparently exposes the throughput, latency, consistency and availa
 6. Peter Bailis et al. [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 7. Naor and Wool. [Load, Capacity and Availability in Quorum Systems](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf)
 8. Herlihy and Wing. [Lineralizability: A correctness condition for concurrent objects](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf)
-9. Azure DocumentDB SLA (last updated December 2016)
+9. [Azure DocumentDB SLA](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/)

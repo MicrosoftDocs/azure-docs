@@ -1,4 +1,4 @@
----
+﻿---
 title: Monitor and manage Azure HDInsight using Ambari REST API | Microsoft Docs
 description: Learn how to use Ambari to monitor and manage Linux-based HDInsight clusters. In this document, you will learn how to use the Ambari REST API included with HDInsight clusters.
 services: hdinsight
@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: 2400530f-92b3-47b7-aa48-875f028765ff
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -287,7 +288,7 @@ The return value is similar to one of the following examples:
     The return value is similar to `/clusters/CLUSTERNAME/`. This value is a path within the Data Lake Store account. This path is the root of the HDFS compatible file system for the cluster. 
 
 > [!NOTE]
-> The `Get-AzureRmHDInsightCluster` cmdlet provided by [Azure PowerShell](https://docs.microsoft.com/powershell/) also returns the storage information for the cluster.
+> The `Get-AzureRmHDInsightCluster` cmdlet provided by [Azure PowerShell](/powershell/azure/overview) also returns the storage information for the cluster.
 
 
 ## Example: Get configuration

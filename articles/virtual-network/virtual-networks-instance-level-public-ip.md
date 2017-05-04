@@ -40,8 +40,8 @@ When you create a cloud service in Azure, corresponding DNS A records are create
 ## Why would I request an ILPIP?
 If you want to be able to connect to your VM or role instance by an IP address assigned directly to it, rather than using the cloud service VIP:&lt;port number&gt;, request an ILPIP for your VM or your role instance.
 
-* **Passive FTP** - By assigning an ILPIP to a VM, it can receive traffic on just about any port. Endpoints are not required for the VM to receive traffic. ILPIPs enable scenarios like passive FTP, where the ports are chosen dynamically.
-* **Outbound IP** - Outbound traffic originating from the VM goes out with the ILPIP, as the source and the ILPIP uniquely identifies the VM to external entities.
+* **Active FTP** - By assigning an ILPIP to a VM, it can receive traffic on any port. Endpoints are not required for the VM to receive traffic.  See (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)[FTP Protocol Overview] for details on the FTP protocol.
+* **Outbound IP** - Outbound traffic originating from the VM is mapped to the ILPIP as the source and the ILPIP uniquely identifies the VM to external entities.
 
 > [!NOTE]
 > In the past, an ILPIP address was referred to as a public IP (PIP) address.

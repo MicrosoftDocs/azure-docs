@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 3/01/2017
+ms.date: 3/21/2017
 ms.author: kgremban
 
 ---
@@ -29,7 +29,7 @@ Access assigned with RBAC is fine-grained because there are two ways you can res
 * **Scope:** RBAC role assignments are scoped to a specific subscription, resource group, or resource. A user given access to a single resource cannot access any other resources in the same subscription.
 * **Role:** Within the scope of the assignment, access is narrowed even further by assigning a role. Roles can be high-level, like owner, or specific, like virtual machine reader.
 
-Roles can only be assigned from within the subscription, resource group, or resource that is the scope for the assignment. But you can view all the access assignments for a given user or group in a single place.
+Roles can only be assigned from within the subscription, resource group, or resource that is the scope for the assignment. But you can view all the access assignments for a given user or group in a single place. You can have up to 2000 role assignments in each subscription. 
 
 Get more information about how to [Use role assignments to manage access to your Azure subscription resources](role-based-access-control-configure.md).
 

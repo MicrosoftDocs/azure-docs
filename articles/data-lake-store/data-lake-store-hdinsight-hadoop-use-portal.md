@@ -26,7 +26,7 @@ ms.author: nitinme
 >
 >
 
-This article discusses how to use the Azure portal to create HDInsight clusters with access to Azure Data Lake Store. For supported cluster types, you can use Data Lake Store as default storage or as an additional storage account. 
+This article discusses how to use the Azure portal to create HDInsight clusters with access to Azure Data Lake Store. For supported cluster types, you can use Data Lake Store as default storage or as an additional storage account.
 
 When you use Data Lake Store as additional storage, the default storage account for the clusters remains Azure Blob storage, and the cluster-related files (such as logs) are still written to the default storage. However, the data that you want to process can be stored in a Data Lake Store account. Using Data Lake Store as an additional storage account does not affect performance or the ability to read or write to storage from the cluster.
 
@@ -53,7 +53,7 @@ Before you begin this tutorial, ensure that you've met the following requirement
 * **An Azure Active Directory service principal**. This tutorial provides instructions on how to create a service principal in Azure Active Directory (Azure AD). However, to create a service principal, you must be an Azure AD administrator. If you are an administrator, you can skip this prerequisite and proceed with the tutorial.
 
 	>[!NOTE]
-	>You can create a service principal only if you are an Azure AD administrator. Your Azure AD administrator must create a service principal before you can create an HDInsight cluster with Data Lake Store. Also, the service principal must be created with a certificate, as described at [Create a service principal with certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+	>You can create a service principal only if you are an Azure AD administrator. Your Azure AD administrator must create a service principal before you can create an HDInsight cluster with Data Lake Store. Also, the service principal must be created with a certificate, as described at [Create a service principal with certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority).
 	>
 
 ## Create an HDInsight cluster with access to a Data Lake Store
@@ -74,20 +74,20 @@ In this section, you create an HDInsight Hadoop cluster that uses the Data Lake 
 
 	![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Add service principal to HDInsight cluster")
 
-	
+
 	In the screenshot above, the root folder path is /clusters/myhdiadlcluster, where *myhdiadlcluster* is the name of the cluster being created. In such a case, make sure that the */clusters* folder exists in the Data Lake Store account. The *myhdiadlcluster* folder is created during cluster creation. Similarly, if the root path was set to */hdinsight/clusters/data/myhdiadlcluster*, ensure that */hdinsight/clusters/data/* exists in the Data Lake Store account.
 
-5. Click **Data Lake Store access** to configure access between the Data Lake Store account and HDInsight cluster. For instructions see [Configure access between HDInsight cluster and Data Lake Store](#configure-access-between-hdinsight-cluster-and-data-lake-store). 
+5. Click **Data Lake Store access** to configure access between the Data Lake Store account and HDInsight cluster. For instructions see [Configure access between HDInsight cluster and Data Lake Store](#configure-access-between-hdinsight-cluster-and-data-lake-store).
 
 
-### Create a cluster with Data Lake Store as additional storage 
+### Create a cluster with Data Lake Store as additional storage
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. To start provisioning an HDInsight cluster, follow the instructions in [Create Hadoop clusters in HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
 
 3. On the **Storage** blade, under **Primary storage type**, select **Azure Storage**.
- 
+
 4. Under **Selection method**, do either of the following:
 
 	* To specify a storage account that is part of your Azure subscription, select **My subscriptions**, and then select the storage account.
@@ -128,7 +128,7 @@ In this section, you configure access between HDInsight clusters and Data Lake S
 
 7. On the **Data Lake Store access** blade, click **Access**. The **Select file permissions** blade is open by default. It lists all the Data Lake Store accounts in your subscription.
 
-8. Select the Data Lake Store account that you want to associate with the cluster. 
+8. Select the Data Lake Store account that you want to associate with the cluster.
 
 	**If you are using Data Lake Store as the default storage**, you should assign permissions at two levels.
 

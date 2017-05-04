@@ -33,8 +33,6 @@ ARMclient is used to call the REST API using PowerShell. ARMClient is found on c
 
 This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## Scenario
 
 This scenario uses IP flow Verify to verify if a virtual machine can talk to another machine over port 443. If the traffic is denied, it returns the security rule that is denying that traffic. To learn more about IP flow Verify, visit [IP flow verify overview](network-watcher-ip-flow-verify-overview.md)

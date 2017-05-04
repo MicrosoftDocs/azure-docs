@@ -27,13 +27,13 @@ There are code snippets included in this article, and a link to a complete sampl
 
 ## Key features of RA-GRS
 
-Before we talk about how to use RA-GRS storage, let’s talk about its properties and behavior.
+Before we talk about how to use RA-GRS storage, let's talk about its properties and behavior.
 
 * Azure Storage maintains a read-only copy of the data you store in your primary region in a secondary region; as noted above, the storage service determines the location of the secondary region.
 
 * The read-only copy is [eventually consistent](https://en.wikipedia.org/wiki/Eventual_consistency) with the data in the primary region.
 
-* For blobs, tables, and queues, you can query the secondary region for a *Last Sync Time* value that tells you when the last replication from the primary to the secondary region occurred. (This is not supported for Azure Files, which doesn’t have RA-GRS redundancy at this time.)
+* For blobs, tables, and queues, you can query the secondary region for a *Last Sync Time* value that tells you when the last replication from the primary to the secondary region occurred. (This is not supported for Azure Files, which doesn't have RA-GRS redundancy at this time.)
 
 * You can use the Storage Client Library to interact with the data in either the primary or secondary region. You can also redirect read requests automatically to the secondary region if a read request to the primary region times out.
 
@@ -49,7 +49,7 @@ The main purpose of this article is to show you how to design an application tha
 
 This proposed solution assumes that it is okay to return what could be stale data to the calling application. Because the secondary data is eventually consistent, it is possible that the data was written to the primary but the update to the secondary had not finished replicating when the primary region became inaccessible.
 
-For example, your customer could submit an update that is successful, and then the primary could go down before the update is propagated to the secondary. In this case, if the customer then asks to read the data back, he receives the stale data instead of the updated data. You must decide if this is acceptable, and if so, how you will message the customer. You’ll see how to check the Last Sync Time on the secondary data later in this article to see if the secondary is up-to-date.
+For example, your customer could submit an update that is successful, and then the primary could go down before the update is propagated to the secondary. In this case, if the customer then asks to read the data back, he receives the stale data instead of the updated data. You must decide if this is acceptable, and if so, how you will message the customer. You'll see how to check the Last Sync Time on the secondary data later in this article to see if the secondary is up-to-date.
 
 ### Handling services separately or all together
 
@@ -77,11 +77,11 @@ For example, you can set a flag that will be checked before submitting any updat
 
 If you decide to handle errors for each service separately, you will also need to handle the ability to run your application in read-only mode by service. You could have read-only flags for each service that can be enabled and disabled and handle the appropriate flag in the appropriate places in your code.
 
-Being able to run your application in read-only mode has another side benefit – it gives you the ability to ensure limited functionality during a major application upgrade. You can trigger your application to run in read-only mode and point to the secondary data center, ensuring nobody is accessing the data in the primary region while you’re making upgrades.
+Being able to run your application in read-only mode has another side benefit – it gives you the ability to ensure limited functionality during a major application upgrade. You can trigger your application to run in read-only mode and point to the secondary data center, ensuring nobody is accessing the data in the primary region while you're making upgrades.
 
 ## Handling updates when running in read-only mode
 
-There are many ways to handle update requests when running in read-only mode. We won’t cover this comprehensively, but generally, there are a couple of patterns that you consider.
+There are many ways to handle update requests when running in read-only mode. We won't cover this comprehensively, but generally, there are a couple of patterns that you consider.
 
 1.  You can respond to your user and tell them you are not currently accepting updates. For example, a contact management system could enable customers to access contact information but not make updates.
 
@@ -131,11 +131,11 @@ Using the Circuit Breaker pattern in your application can prevent it from retryi
 
 To identify that there is an ongoing problem with a primary endpoint, you can monitor how frequently the client encounters retryable errors. Because each case is different, you have to decide on the threshold you want to use for the decision to switch to the secondary endpoint and run the application in read-only mode. For example, you could decide to perform the switch if there are 10 failures in a row with no successes. Another example is to switch if 90% of the requests in a 2-minute period fail.
 
-For the first scenario, you can simply keep a count of the failures, and if there is a success before reaching the maximum, set the count back to zero. For the second scenario, one way to implement it is to use the MemoryCache object (in .NET). For each request, add a CacheItem to the cache, set the value to success (1) or fail (0), and set the expiration time to 2 minutes from now (or whatever your time constraint is). When an entry’s expiration time is reached, the entry is automatically removed. This will give you a rolling 2-minute window. Each time you make a request to the storage service, you first use a Linq query across the MemoryCache object to calculate the percent success by summing the values and dividing by the count. When the percent success drops below some threshold (such as 10%), set the **LocationMode** property for read requests to **SecondaryOnly** and switch the application into read-only mode before continuing.
+For the first scenario, you can simply keep a count of the failures, and if there is a success before reaching the maximum, set the count back to zero. For the second scenario, one way to implement it is to use the MemoryCache object (in .NET). For each request, add a CacheItem to the cache, set the value to success (1) or fail (0), and set the expiration time to 2 minutes from now (or whatever your time constraint is). When an entry's expiration time is reached, the entry is automatically removed. This will give you a rolling 2-minute window. Each time you make a request to the storage service, you first use a Linq query across the MemoryCache object to calculate the percent success by summing the values and dividing by the count. When the percent success drops below some threshold (such as 10%), set the **LocationMode** property for read requests to **SecondaryOnly** and switch the application into read-only mode before continuing.
 
 The threshold of errors used to determine when to make the switch may vary from service to service in your application, so you should consider making them configurable parameters. This is also where you decide to handle retryable errors from each service separately or as one, as discussed previously.
 
-Another consideration is how to handle multiple instances of an application, and what to do when you detect retryable errors in each instance. For example, you may have 20 VMs running with the same application loaded. Do you handle each instance separately? If one instance starts having problems, do you want to limit the response to just that one instance, or do you want to try to have all instances respond in the same way when one instance has a problem? Handling the instances separately is much simpler than trying to coordinate the response across them, but how you do this depends on your application’s architecture.
+Another consideration is how to handle multiple instances of an application, and what to do when you detect retryable errors in each instance. For example, you may have 20 VMs running with the same application loaded. Do you handle each instance separately? If one instance starts having problems, do you want to limit the response to just that one instance, or do you want to try to have all instances respond in the same way when one instance has a problem? Handling the instances separately is much simpler than trying to coordinate the response across them, but how you do this depends on your application's architecture.
 
 ### Options for monitoring the error frequency
 
@@ -182,7 +182,7 @@ You have three main options for monitoring the frequency of retries in the prima
 
 *   The third approach is to implement a custom monitoring component in your application that continually pings your primary storage endpoint with dummy read requests (such as reading a small blob) to determine its health. This would take up some resources, but not a significant amount. When a problem is discovered that reaches your threshold, you would then perform the switch to **SecondaryOnly** and read-only mode.
 
-At some point, you will want to switch back to using the primary endpoint and allowing updates. If using one of the first two methods listed above, you could simply switch back to the primary endpoint and enable update mode after an arbitrarily selected amount of time or number of operations has been performed. You can then let it go through the retry logic again. If the problem has been fixed, it will continue to use the primary endpoint and allow updates. If there is still a problem, it will once more switch back to the secondary endpoint and read-only mode after failing the criteria you’ve set.
+At some point, you will want to switch back to using the primary endpoint and allowing updates. If using one of the first two methods listed above, you could simply switch back to the primary endpoint and enable update mode after an arbitrarily selected amount of time or number of operations has been performed. You can then let it go through the retry logic again. If the problem has been fixed, it will continue to use the primary endpoint and allow updates. If there is still a problem, it will once more switch back to the secondary endpoint and read-only mode after failing the criteria you've set.
 
 For the third scenario, when pinging the primary storage endpoint becomes successful again, you can trigger the switch back to **PrimaryOnly** and continue allowing updates.
 
@@ -199,7 +199,7 @@ The following table shows an example of what might happen when you update the de
 | T2       | Transaction B:<br>Update<br> employee entity<br> in primary  |                                | T1                 | Transaction B written to primary,<br> not replicated yet.  |
 | T3       | Transaction C:<br> Update <br>administrator<br>role entity in<br>primary |                    | T1                 | Transaction C written to primary,<br> not replicated yet.  |
 | *T4*     |                                                       | Transaction C <br>replicated to<br> secondary | T1         | Transaction C replicated to secondary.<br>LastSyncTime not updated because <br>transaction B has not been replicated yet.|
-| *T5*     | Read entities <br>from secondary                           |                                  | T1                 | You get the stale value for employee <br> entity because transaction B hasn’t <br> replicated yet. You get the new value for<br> administrator role entity because C has<br> replicated. Last Sync Time still hasn’t<br> been updated because transaction B<br> hasn’t replicated. You can tell the<br>administrator role entity is inconsistent <br>because the entity date/time is after <br>the Last Sync Time. |
+| *T5*     | Read entities <br>from secondary                           |                                  | T1                 | You get the stale value for employee <br> entity because transaction B hasn't <br> replicated yet. You get the new value for<br> administrator role entity because C has<br> replicated. Last Sync Time still hasn't<br> been updated because transaction B<br> hasn't replicated. You can tell the<br>administrator role entity is inconsistent <br>because the entity date/time is after <br>the Last Sync Time. |
 | *T6*     |                                                      | Transaction B<br> replicated to<br> secondary | T6                 | *T6* – All transactions through C have <br>been replicated, Last Sync Time<br> is updated. |
 
 In this example, assume the client switches to reading from the secondary region at T5. It can successfully read the **administrator role** entity at this time, but the entity contains a value for the count of administrators that is not consistent with the number of **employee** entities that are marked as administrators in the secondary region at this time. Your client could simply display this value, with the risk that it is inconsistent information. Alternatively, the client could attempt to determine that the **administrator role** is in a potentially inconsistent state because the updates have happened out of order, and then inform the user of this fact.

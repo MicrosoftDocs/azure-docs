@@ -419,6 +419,24 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2></font></td>
     </tr>
 
+    <tr>
+      <td>Generic ODBC Table</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td><font size=2></font></td>
+      <td><font size=2></font></td>
+    </tr>
+
+    <tr>
+      <td>Generic ODBC View</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td><font size=2></font></td>
+      <td><font size=2></font></td>
+    </tr>
+
 </table>
 
 If you need support for additional sources, submit a feature request using the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
@@ -1310,6 +1328,36 @@ If you need support for additional sources, submit a feature request using the [
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; collection
+        </font>
+      </td>
+    </tr>
+    <tr>
+      <td>Generic ODBC</td>
+      <td>Container</td>
+      <td>Database</td>
+      <td>
+        <font size=2>
+            protocol: odbc
+            <br>authentication: {basic, windows}
+            <br>address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        </font>
+      </td>
+    </tr>
+    <tr>
+      <td>Generic ODBC</td>
+      <td>Table</td>
+      <td>Table, View</td>
+      <td>
+        <font size=2>
+            protocol: odbc
+            <br>authentication: {basic, windows}
+            <br>address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
         </font>
       </td>
     </tr>
