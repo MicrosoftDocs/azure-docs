@@ -21,7 +21,7 @@ ms.author: andret
 # Use Microsoft Authentication Library (MSAL) to get a token for the Microsoft Graph API
 
 1.	Open: `MainActivity` (under `app` > `java` > `{companyName}.{appname}`)
-2.	Add the following the imports:
+2.	Add the following the imports:<br/>
 ```java
 import android.app.Activity;
 import android.content.Intent;
@@ -39,76 +39,78 @@ import java.util.List;
 import java.util.Map;
 import com.microsoft.identity.client.*;
 ```
-3.	Copy and paste the following code into the `MainActivity` class:
+3.	Replace the `MainActivity` class with below:
 
 ```java
-final static String CLIENT_ID = "[Enter the application Id here]";
-final static String SCOPES [] = {"https://graph.microsoft.com/User.Read"};
-final static String MSGRAPH_URL = "https://graph.microsoft.com/v1.0/me";
+public class MainActivity extends AppCompatActivity {
 
-/* UI & Debugging Variables */
-private static final String TAG = MainActivity.class.getSimpleName();
-Button callGraphButton;
-Button signOutButton;
+    final static String CLIENT_ID = "[Enter the application Id here]";
+    final static String SCOPES [] = {"https://graph.microsoft.com/User.Read"};
+    final static String MSGRAPH_URL = "https://graph.microsoft.com/v1.0/me";
 
-/* Azure AD Variables */
-private PublicClientApplication sampleApp;
-private AuthenticationResult authResult;
+    /* UI & Debugging Variables */
+    private static final String TAG = MainActivity.class.getSimpleName();
+    Button callGraphButton;
+    Button signOutButton;
 
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
+    /* Azure AD Variables */
+    private PublicClientApplication sampleApp;
+    private AuthenticationResult authResult;
 
-    callGraphButton = (Button) findViewById(R.id.callGraph);
-    signOutButton = (Button) findViewById(R.id.clearCache);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-    callGraphButton.setOnClickListener(new View.OnClickListener() {
-        public void onClick(View v) {
-            onCallGraphClicked();
-        }
-    });
+        callGraphButton = (Button) findViewById(R.id.callGraph);
+        signOutButton = (Button) findViewById(R.id.clearCache);
 
-    signOutButton.setOnClickListener(new View.OnClickListener() {
-        public void onClick(View v) {
-            onSignOutClicked();
-        }
-    });
+        callGraphButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                onCallGraphClicked();
+            }
+        });
+
+        signOutButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                onSignOutClicked();
+            }
+        });
 
   /* Configure your sample app and save state for this activity */
-    sampleApp = null;
-    if (sampleApp == null) {
-        sampleApp = new PublicClientApplication(
-                this.getApplicationContext(),
-                CLIENT_ID);
-    }
+        sampleApp = null;
+        if (sampleApp == null) {
+            sampleApp = new PublicClientApplication(
+                    this.getApplicationContext(),
+                    CLIENT_ID);
+        }
 
   /* Attempt to get a user and acquireTokenSilent
    * If this fails we do an interactive request
    */
-    List<User> users = null;
+        List<User> users = null;
 
-    try {
-        users = sampleApp.getUsers();
+        try {
+            users = sampleApp.getUsers();
 
-        if (users != null && users.size() == 1) {
+            if (users != null && users.size() == 1) {
           /* We have 1 user */
 
-            sampleApp.acquireTokenSilentAsync(SCOPES, users.get(0), getAuthSilentCallback());
-        } else {
+                sampleApp.acquireTokenSilentAsync(SCOPES, users.get(0), getAuthSilentCallback());
+            } else {
           /* We have no user */
 
           /* Let's do an interactive request */
-            sampleApp.acquireToken(this, SCOPES, getAuthInteractiveCallback());
+                sampleApp.acquireToken(this, SCOPES, getAuthInteractiveCallback());
+            }
+        } catch (MsalClientException e) {
+            Log.d(TAG, "MSAL Exception Generated while getting users: " + e.toString());
+
+        } catch (IndexOutOfBoundsException e) {
+            Log.d(TAG, "User at this position does not exist: " + e.toString());
         }
-    } catch (MsalClientException e) {
-        Log.d(TAG, "MSAL Exception Generated while getting users: " + e.toString());
 
-    } catch (IndexOutOfBoundsException e) {
-        Log.d(TAG, "User at this position does not exist: " + e.toString());
     }
-
-}
 
 //
 // App callbacks for MSAL
@@ -118,116 +120,118 @@ protected void onCreate(Bundle savedInstanceState) {
 // getAuthInteractiveCallback() - callback defined to handle acquireToken() case
 //
 
-public Activity getActivity() {
-    return this;
-}
+    public Activity getActivity() {
+        return this;
+    }
 
-/* Callback method for acquireTokenSilent calls 
- * Looks if tokens are in the cache (refreshes if necessary and if we don't forceRefresh)
- * else errors that we need to do an interactive request.
- */
-private AuthenticationCallback getAuthSilentCallback() {
-    return new AuthenticationCallback() {
-        @Override
-        public void onSuccess(AuthenticationResult authenticationResult) {
+    /* Callback method for acquireTokenSilent calls 
+     * Looks if tokens are in the cache (refreshes if necessary and if we don't forceRefresh)
+     * else errors that we need to do an interactive request.
+     */
+    private AuthenticationCallback getAuthSilentCallback() {
+        return new AuthenticationCallback() {
+            @Override
+            public void onSuccess(AuthenticationResult authenticationResult) {
             /* Successfully got a token, call Graph now */
-            Log.d(TAG, "Successfully authenticated");
+                Log.d(TAG, "Successfully authenticated");
 
             /* Store the authResult */
-            authResult = authenticationResult;
+                authResult = authenticationResult;
 
             /* call graph */
-            callGraphAPI();
+                callGraphAPI();
 
             /* update the UI to post call Graph state */
-            updateSuccessUI();
-        }
-
-        @Override
-        public void onError(MsalException exception) {
-            /* Failed to acquireToken */
-            Log.d(TAG, "Authentication failed: " + exception.toString());
-
-            if (exception instanceof MsalClientException) {
-                /* Exception inside MSAL, more info inside MsalError.java */
-            } else if (exception instanceof MsalServiceException) {
-                /* Exception when communicating with the STS, likely config issue */
-            } else if (exception instanceof MsalUiRequiredException) {
-                /* Tokens expired or no session, retry with interactive */
+                updateSuccessUI();
             }
-        }
 
-        @Override
-        public void onCancel() {
+            @Override
+            public void onError(MsalException exception) {
+            /* Failed to acquireToken */
+                Log.d(TAG, "Authentication failed: " + exception.toString());
+
+                if (exception instanceof MsalClientException) {
+                /* Exception inside MSAL, more info inside MsalError.java */
+                } else if (exception instanceof MsalServiceException) {
+                /* Exception when communicating with the STS, likely config issue */
+                } else if (exception instanceof MsalUiRequiredException) {
+                /* Tokens expired or no session, retry with interactive */
+                }
+            }
+
+            @Override
+            public void onCancel() {
             /* User canceled the authentication */
-            Log.d(TAG, "User cancelled login.");
-        }
-    };
-}
+                Log.d(TAG, "User cancelled login.");
+            }
+        };
+    }
 
 
-/* Callback used for interactive request.  If succeeds we use the access
-     * token to call the Microsoft Graph. Does not check cache
-     */
-private AuthenticationCallback getAuthInteractiveCallback() {
-    return new AuthenticationCallback() {
-        @Override
-        public void onSuccess(AuthenticationResult authenticationResult) {
+    /* Callback used for interactive request.  If succeeds we use the access
+         * token to call the Microsoft Graph. Does not check cache
+         */
+    private AuthenticationCallback getAuthInteractiveCallback() {
+        return new AuthenticationCallback() {
+            @Override
+            public void onSuccess(AuthenticationResult authenticationResult) {
             /* Successfully got a token, call graph now */
-            Log.d(TAG, "Successfully authenticated");
-            Log.d(TAG, "ID Token: " + authenticationResult.getIdToken());
+                Log.d(TAG, "Successfully authenticated");
+                Log.d(TAG, "ID Token: " + authenticationResult.getIdToken());
 
             /* Store the auth result */
-            authResult = authenticationResult;
+                authResult = authenticationResult;
 
             /* call Graph */
-            callGraphAPI();
+                callGraphAPI();
 
             /* update the UI to post call Graph state */
-            updateSuccessUI();
-        }
-
-        @Override
-        public void onError(MsalException exception) {
-            /* Failed to acquireToken */
-            Log.d(TAG, "Authentication failed: " + exception.toString());
-
-            if (exception instanceof MsalClientException) {
-                /* Exception inside MSAL, more info inside MsalError.java */
-            } else if (exception instanceof MsalServiceException) {
-                /* Exception when communicating with the STS, likely config issue */
+                updateSuccessUI();
             }
-        }
 
-        @Override
-        public void onCancel() {
+            @Override
+            public void onError(MsalException exception) {
+            /* Failed to acquireToken */
+                Log.d(TAG, "Authentication failed: " + exception.toString());
+
+                if (exception instanceof MsalClientException) {
+                /* Exception inside MSAL, more info inside MsalError.java */
+                } else if (exception instanceof MsalServiceException) {
+                /* Exception when communicating with the STS, likely config issue */
+                }
+            }
+
+            @Override
+            public void onCancel() {
             /* User canceled the authentication */
-            Log.d(TAG, "User cancelled login.");
-        }
-    };
-}
+                Log.d(TAG, "User cancelled login.");
+            }
+        };
+    }
 
-/* Set the UI for successful token acquisition data */
-private void updateSuccessUI() {
-    callGraphButton.setVisibility(View.INVISIBLE);
-    signOutButton.setVisibility(View.VISIBLE);
-    findViewById(R.id.welcome).setVisibility(View.VISIBLE);
-    ((TextView) findViewById(R.id.welcome)).setText("Welcome, " +
-            authResult.getUser().getName());
-    findViewById(R.id.graphData).setVisibility(View.VISIBLE);
-}
+    /* Set the UI for successful token acquisition data */
+    private void updateSuccessUI() {
+        callGraphButton.setVisibility(View.INVISIBLE);
+        signOutButton.setVisibility(View.VISIBLE);
+        findViewById(R.id.welcome).setVisibility(View.VISIBLE);
+        ((TextView) findViewById(R.id.welcome)).setText("Welcome, " +
+                authResult.getUser().getName());
+        findViewById(R.id.graphData).setVisibility(View.VISIBLE);
+    }
 
-/* Use MSAL to acquireToken for the end-user
- * Callback will call Graph api w/ access token & update UI
- */
-private void onCallGraphClicked() {
-    sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());
-}
+    /* Use MSAL to acquireToken for the end-user
+     * Callback will call Graph api w/ access token & update UI
+     */
+    private void onCallGraphClicked() {
+        sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());
+    }
 
-/* Handles the redirect from the System Browser */
-@Override
-protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-    sampleApp.handleInteractiveRequestRedirect(requestCode, resultCode, data);
+    /* Handles the redirect from the System Browser */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        sampleApp.handleInteractiveRequestRedirect(requestCode, resultCode, data);
+    }
+
 }
 ```
 <!--start-collapse-->
@@ -309,6 +313,7 @@ In this sample application, `callGraphAPI` calls `getAccessToken` and then makes
 # Setup Sign Out
 
 1.	Add the following methods into the `MainActivity` class:
+
 ```java
 /* Clears a user's tokens from the cache.
  * Logically similar to "sign out" but only signs out of this app.
