@@ -126,6 +126,8 @@ Create a webhook inside the fork you created:
 - For the **Jenkins hook URL**, enter `http://<publicIps>:8080/github-webhook/`. Make sure you include the trailing /
 - Click **Add service**
 
+![Add GitHub webhook to your forked repo](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
+
 
 ## Create Jenkins job
 To have Jenkins respond to an event in GitHub such as committing code, create a Jenkins job. 
