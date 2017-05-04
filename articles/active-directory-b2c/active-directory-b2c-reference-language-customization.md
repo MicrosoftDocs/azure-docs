@@ -20,7 +20,7 @@ ms.author: sama
 >[!NOTE] 
 >This feature is in public preview.  It is recommended that you use a test tenant when using this feature.  We don't plan on any breaking changes from the preview to the general availability release, but we reserve the right to make such changes to improve the feature.  Once you've had a chance to try feature, please provide feedback on your experiences and how we can make it better.  You can provide feedback through the Azure portal with the smiley face tool on the top right.   If there is a business requirement for you to go live using this feature during the preview phase, let us know your scenarios and we can provide you with the proper guidance and assistance.  You can contact us at aadb2cpreview@microsoft.com
 >
-Language customization allows you to change your user journey to a different language to suit your customer needs.  We provide translations for 37 languages (see [Additional information]([#additional-information)).  Even if your experience is only provided for a single language, you can customize any text on the pages to suit your needs.  
+Language customization allows you to change your user journey to a different language to suit your customer needs.  We provide translations for 37 languages (see [Additional information](#additional-information)).  Even if your experience is only provided for a single language, you can customize any text on the pages to suit your needs.  
 
 ## How does Language customization work?
 Language customization allows you to select which languages your user journey is available in.  Once the feature is enabled, you can provide the Open ID Connect (OIDC) parameter, ui_locales, from your application.  When you call into Azure AD B2C, we translate your page to the locale that you have indicated.  Using type of configuration gives you complete control over the languages in your user journey and ignores the language settings of the customer's browser.  Alternatively, you may not need that level of control over what languages your customer see.  If you don't provide a ui_locales parameter, the customer's experience is dictated by their browser's settings.  You can still control which languages your user journey is translated to by adding it as a supported language.  If a customer's browser is set to show a language you don't want to support, then the language you selected as a default is shown instead.
@@ -130,7 +130,7 @@ If you want to provide a set list of values for responses, you need to create a 
 9. Click the 'Upload' button on the bottom of the blade.
 10. Go back to your 'Edit policy' blade and click 'Save'.
 
-## Additional Information
+## Additional information
 ### Recommendations for 'Language customization'
 We recommend only putting in entries to your Language resources for strings you explicitly want to replace.  We enforce a size limit to the file that is compiled out of all your JSON translations.  If your files get too large, it impacts the performance of your user journey.
 ### Page UI customization labels are removed once 'Language customization' is enabled
