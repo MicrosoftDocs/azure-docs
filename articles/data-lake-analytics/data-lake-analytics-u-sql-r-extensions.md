@@ -162,14 +162,14 @@ Only R 3.2.2 is supported.
     XML
 
 ### Input and Output size limitations
-Every vertex has a limited amount of memory assigned to it. Because the input and output DataFrames must exist in memory in the R code, the total size for the input and output cannot exceed 500MB.
+Every vertex has a limited amount of memory assigned to it. Because the input and output DataFrames must exist in memory in the R code, the total size for the input and output cannot exceed 500 MB.
 
 ### Sample Code
 More sample code is available in your Data Lake Store torage account after you install the U-SQL Advanced Analytics extensions. The path for more sample code is: <your_account_address>/usqlext/samples/R. 
 
 ## Deploying Custom R modules with U-SQL
 
-First, create an R custor module and zip it and then upload the zipped R custom module file to your ADL store. In the exampl,e we will upload magittr_1.5.zip to the root of the default ADLS account for the ADLA account we are using. It's path will be  "\magrittr_1.5.zip". Once you upload the module to ADL store, declare it as use DEPLOY RESOURCE to make it available in your U-SQL script and call "install.packages".
+First, create an R custor module and zip it and then upload the zipped R custom module file to your ADL store. In the example, we will upload magittr_1.5.zip to the root of the default ADLS account for the ADLA account we are using. Once you upload the module to ADL store, declare it as use DEPLOY RESOURCE to make it available in your U-SQL script and call "install.packages" to install it.
 
     REFERENCE ASSEMBLY [ExtR];
     DEPLOY RESOURCE @"/magrittr_1.5.zip";
