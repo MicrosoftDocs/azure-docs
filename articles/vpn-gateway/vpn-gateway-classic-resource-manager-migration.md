@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/28/2016
+ms.date: 05/02/2017
 ms.author: amsriva
 
 ---
@@ -36,7 +36,7 @@ Most common VPN connectivity scenarios are covered by classic to Resource Manage
 
 Scenarios which are not supported include -  
 
-* Currently VNets containing ExpressRoute gateways do not support migration. Therefore coexistence with ExpressRoute gateways on the same VNet is not currently supported.
+* VNet with both ExpressRoute Gateway and VPN Gateway is not currently supported.
 * Transit scenarios where VM extensions are connected to on-premises servers. Transit VPN connectivity limitations are detailed below.
 
 > [!NOTE]
