@@ -71,6 +71,8 @@ You can add as many IP addresses as necessary to a NIC, within the limits listed
 	|Public IP address|No|**Disabled:** No public IP address resource is currently associated to the IP configuration. **Enabled:** Select an existing Public IP address, or create a new one. To learn how to create a public IP address, read the [Public IP addresses](virtual-network-public-ip-address.md#create) article.|
 7. Manually add secondary private IP addresses to the VM operating system by completing the instructions in the [Assign multiple IP addresses to virtual machines](virtual-network-multiple-ip-addresses-portal.md#os-config) article. Do not add any public IP addresses to the VM operating system.
 
+**Commands**
+
 |Tool|Command|
 |---|---|
 |CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
@@ -90,6 +92,8 @@ You may need to change the assignment method of an IP address, change the static
 >[!NOTE]
 >If the primary NIC has multiple IP configurations and you change the private IP address of the primary IP configuration, you must manually reassign all secondary IP addresses to the NIC within Windows (not required for Linux). To manually assign IP addresses to a NIC within an operating system, read the [Assign multiple IP addresses to virtual machines](virtual-network-multiple-ip-addresses-portal.md#os-config) article. Do not add any public IP addresses to the VM operating system.
 
+**Commands**
+
 |Tool|Command|
 |---|---|
 |CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
@@ -106,6 +110,8 @@ You can remove private and public IP addresses from a NIC, but a NIC must always
 5. Right-click a secondary IP configuration (you cannot delete the primary configuration) you want to delete, click **Delete**, then click **Yes** to confirm the deletion. If the configuration had a public IP address resource associated to it, the resource is dissociated from the IP configuration, but the resource is not deleted.
 6. Close the **IP configurations** blade.
 
+**Commands**
+
 |Tool|Command|
 |---|---|
 |CLI|[az network nic ip-config delete](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
@@ -114,6 +120,8 @@ You can remove private and public IP addresses from a NIC, but a NIC must always
 
 ## <a name="next-steps"></a>Next steps
 To create a VM with multiple NICs or IP addresses, read the following articles:
+
+**Commands**
 
 |Task|Tool|
 |---|---|

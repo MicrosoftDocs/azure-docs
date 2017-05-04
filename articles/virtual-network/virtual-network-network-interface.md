@@ -59,6 +59,8 @@ The portal doesn't provide the option to assign a public IP address to the NIC w
 >[!Note]
 > Azure assigns a MAC address to the NIC only after the NIC is attached to a VM and the VM is started the first time. You cannot specify the MAC address that Azure assigns to the NIC. The MAC address remains assigned to the NIC until the NIC is deleted or the private IP address assigned to the primary IP configuration of the primary NIC is changed. To learn more about IP addresses and IP configurations, read the [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md) article.
 
+**Commands**
+
 |Tool|Command|
 |---|---|
 |CLI|[az network nic create](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
@@ -83,6 +85,8 @@ You can view and change most settings for a NIC.
 	- **Effective routes:** Routes are listed if the NIC is attached to a running VM. The routes are a combination of the Azure default routes, any user-defined routes (UDR), and any BGP routes that may exist for the subnet the NIC is connected to. To learn more about what's displayed, read the [Troubleshoot routes](virtual-network-routes-troubleshoot-portal.md#view-effective-routes-for-a-network-interface) article. To learn more about Azure default and UDRs, read the [User-defined routes](virtual-networks-udr-overview.md) article.
 	- **Common Azure Resource Manager settings:**  To learn more about common Azure Resource Manager settings, read the [Activity log](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [Access control (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [Tags](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags), [Locks](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), and [Automation script](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group) articles.
 
+**Commands**
+
 |Tool|Command|
 |---|---|
 |CLI|[az network nic list](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#list) to view NICs in the subscription; [az network nic show](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#show) to view settings for a NIC|
@@ -100,6 +104,8 @@ The DNS server is assigned by the Azure DHCP server to the NIC within the VM ope
 	- **Inherit from virtual network (default)**: Choose this option to inherit the DNS server setting defined for the virtual network the NIC is connected to. At the VNet level, either a custom DNS server or the Azure-provided DNS server is defined. The Azure-provided DNS server can resolve hostnames for resources connected to the same VNet. FQDN must be used to resolve for resources connected to different VNets.
 	- **Custom**: You can configure your own DNS server to resolve names across multiple VNets. Enter the IP address of the server you want to use as a DNS server. The DNS server address you specify is assigned only to this NIC and overrides any DNS setting for the VNet the NIC is connected to.
 6. Click **Save**.
+
+**Commands**
 
 |Tool|Command|
 |---|---|
@@ -121,6 +127,8 @@ The setting must be enabled for every NIC attached to the VM that receives traff
 5. Click **Enabled** or **Disabled** (default setting) to change the setting.
 6. Click **Save**.
 
+**Commands**
+
 |Tool|Command|
 |---|---|
 |CLI|[az network nic update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
@@ -140,6 +148,8 @@ You can change the subnet, but not the VNet, that a NIC is connected to.
 5. Select the subnet you want to connect the NIC to from the **Subnet** drop-down list.
 6. Click **Save**. New dynamic addresses are assigned from the subnet address range for the new subnet. After assigning the NIC to a new subnet, you can assign a static IP address from the new subnet address range if you choose. To learn more about adding, changing, and removing IP addresses for a NIC, read the [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md) article.
 
+**Commands**
+
 |Tool|Command|
 |---|---|
 |CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
@@ -157,6 +167,8 @@ You can delete a NIC as long as it's not attached to a VM. If it is attached to 
 
 When you delete a NIC, any MAC or IP addresses assigned to it are released.
 
+**Commands**
+
 |Tool|Command|
 |---|---|
 |CLI|[az network nic delete](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
@@ -165,6 +177,8 @@ When you delete a NIC, any MAC or IP addresses assigned to it are released.
 
 ## <a name="next-steps"></a>Next steps
 To create a VM with multiple NICs or IP addresses, read the following articles:
+
+**Commands**
 
 |Task|Tool|
 |---|---|

@@ -56,6 +56,8 @@ You can use Azure PowerShell or the CLI to create a NIC or VM with all the previ
 ## <a name="vm-create"></a>Add existing NICs to a new VM
 When you create a VM through the portal, the portal creates a NIC with default settings and attaches it to the VM for you. You cannot add existing NICs to a new VM, or create a VM with multiple NICs using the Azure portal. You can do both using the CLI or PowerShell. You can add as many NICs to a VM as the VM size you're creating supports. To learn more about how many NICs each VM size supports, read the [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes articles. The NICs you add to a VM cannot currently be attached to another VM. To learn more about creating NICs, read the [NIC settings and tasks](virtual-network-network-interface.md#create-nic) article.
 
+**Commands**
+
 |Tool|Command|
 |---|---|
 |CLI|[az vm create](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
@@ -79,6 +81,8 @@ You can view the NICs currently attached to a VM to learn about each NIC's confi
 3. In the **Virtual machines** blade that appears, click the name of the VM you want to view NICs for.
 4. In the **SETTINGS** section of the virtual machine blade that appears for the VM you selected, click **Network interfaces**. To learn about NIC settings and how to change them, read the [NIC settings and tasks](virtual-network-network-interface.md) article. To learn about adding, changing, or removing IP addresses assigned to a NIC, read the [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md) article.
 
+**Commands**
+
 |Tool|Command|
 |---|---|
 |CLI|[az vm show](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
@@ -88,6 +92,8 @@ You can view the NICs currently attached to a VM to learn about each NIC's confi
 
 The VM you want to remove a NIC from must be in the stopped (deallocated) state and must currently have at least two NICs attached to it. You can remove any NIC, but the VM must always have at least one NIC attached to it. If you remove a primary NIC, Azure assigns the primary attribute to the NIC that's been attached to the VM the longest. You can designate any NIC as the primary yourself. You cannot remove NICs from a VM, nor set the primary attribute for a NIC using the Azure portal, though you can accomplish both operations using the CLI or PowerShell. 
 
+**Commands**
+
 |Tool|Command|
 |---|---|
 |CLI|[az vm nic remove](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#remove)|
@@ -95,6 +101,8 @@ The VM you want to remove a NIC from must be in the stopped (deallocated) state 
 
 ## <a name="next-steps"></a>Next steps
 To create a VM with multiple NICs or IP addresses, read the following articles:
+
+**Commands**
 
 |Task|Tool|
 |---|---|
