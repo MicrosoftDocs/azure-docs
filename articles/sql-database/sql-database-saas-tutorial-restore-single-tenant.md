@@ -25,8 +25,8 @@ The Wingtip SaaS app is built using a single-tenant data model, where each venue
 
 This tutorial presents two data recovery patterns:
 
-1. Restoring to a prior point of time into a parallel database (side-by-side), which can be used by the tenant for review, auditing, compliance, etc... The original database remains online and unchanged.
-1. Restoring data in-place, to recover a tenant to a prior point in time if the tenant has accidentally corrupted their data in some way. The original database is taken offline, and replaced with the new database, restored to a point in time before the data was compromised.
+1. Restoring to a prior point in time into a parallel database (side-by-side), which can be used by the tenant for review, auditing, compliance, etc. The original database remains online and unchanged.
+1. Restoring data in-place, to recover a tenant to a prior point in time when the tenant has accidentally corrupted their data in some way. The original database is taken offline, and replaced with the new database, restored to a point in time before the data was compromised.
 
 To complete this tutorial, make sure of the following:
 
@@ -35,23 +35,23 @@ To complete this tutorial, make sure of the following:
 
 ## Introduction to the SaaS tenant restore pattern
 
-Planning for business continuity and disaster recovery is essential for a robust SaaS business, and may also be required for compliance reasons. A simple, repeatable, data restore and recovery process is a key element of such a plan. Databases can become corrupted for many reasons – a recovery process that leaves customers offline without access to their data for extended periods of time, or worse with no option to recover from corrupted data, could be disastrous. In this tutorial, you’ll explore two simple patterns for restoring an individual tenant's data. Because tenant databases are isolated from each other, restoring one tenant has no impact on any other tenant's data.
+Planning for business continuity and disaster recovery is essential for a robust SaaS business, and may also be required for compliance reasons. A simple, repeatable, data restore and recovery process is a key element of such a plan. Databases can become corrupted for many reasons. A recovery process that leaves customers offline without access to their data for extended periods of time, or worse with no option to recover from corrupted data, could be disastrous. In this tutorial, you explore two simple patterns for restoring an individual tenant's data. Because tenant databases are isolated from each other, restoring one tenant has no impact on any other tenant's data.
 
 In the first pattern, data is restored from a previous point in time into a new, parallel database, and the tenant is then given access to the data alongside their production data. This pattern allows a tenant admin to review the restored data and potentially use it to selectively overwrite current data values. It’s up to the SaaS app designer to determine just how sophisticated the data recovery options should be. Simply being able to review data in the state it was in at a given point in time may be all that is required in some scenarios. If the database uses [Geo-Replication](sql-database-geo-replication-overview.md), we recommend copying the required data from the restored copy into the original database. If you replace the original database with the restored database, you will need to reconfigure and resynchronize Geo-Replication (which can take a long time for a large database).
 
 In the second pattern, which assumes that the tenant has suffered a serious, possibly self-inflicted, loss or corruption of data, the tenant’s production database is restored to a prior point in time. In this pattern, the tenant is taken offline briefly, while the database is restored and then brought back online. The prior copy of the database is deleted but can be restored from again if the database needs to be restored again to an even earlier point. A variation of this pattern could rename the database instead of deleting it, although renaming the database offers no additional advantage in terms of data security.
 
 
-## Simulate a user accidently deleting data
+## Simulate a user accidentally deleting data
 
-To demonstrate these recovery scenarios we need to 'accidently' delete some data in one of the tenant databases.
+To demonstrate these recovery scenarios, we need to 'accidentally' delete some data in one of the tenant databases.
 
 First run the ticket generator script to create some data:
 
 1. Open ...\\Learning Modules\Utilities\*TicketGenerator.ps1* in the **PowerShell ISE**
 1. Press **F5** to run the script and generate some data (customers and ticket sales)
 
-Run demo scenario 1 to 'accidently' delete some data:
+Run demo scenario 1 to 'accidentally' delete some data:
 
 1. Open ...\\Learning Modules\Business Continuity and Disaster Recovery\RestoreTenant\*Demo-RestoreTenant.ps1* in the **PowerShell ISE** and set the following value:
    * **$DemoScenario** = **1**, Set this to **1** to **Delete events with no ticket sales**.
@@ -69,7 +69,7 @@ Run demo scenario 1 to 'accidently' delete some data:
 
 OPTION 2:
 
-To demonstrate these recovery scenarios we need to 'accidently' delete some data in one of the tenant databases. While we can use any tool that can run a query, lets delete one of the Contoso Concert Hall events using the new **Query editor** in the Azure portal.
+To demonstrate these recovery scenarios we need to 'accidentally' delete some data in one of the tenant databases. While we can use any tool that can run a query, lets delete one of the Contoso Concert Hall events using the new **Query editor** in the Azure portal.
 
 
 1. Open the [Azure portal](https://portal.azure.com) and browse to the **contosoconcerthall** database, then click **Tools**:
@@ -97,13 +97,13 @@ To demonstrate these recovery scenarios we need to 'accidently' delete some data
 
 1. Query the list of events again: ```SELECT * FROM dbo.Events``` and verify the event is gone.
 
-Now lets restore the database to a point in time before the event was accidently deleted.
+Now lets restore the database to a point in time before the event was accidentally deleted.
 
 ## Restore a tenant database in parallel with the production database
 
-This exercise will restore the Contoso Concert Hall data to a point in time before the event was deleted above. The *Restore-TenantInParallel.ps1* script creates a parallel tenant database, and a parallel catalog entry both named *ContosoConcertHall\_old*. This pattern of restore is best suited for recovering from a minor data loss or for compliance and auditing recovery scenarios. It is also the recommended approach if you are using [Geo-Replication](sql-database-geo-replication-overview.md).
+This exercise restores the Contoso Concert Hall data to a point in time before the event was deleted above. The *Restore-TenantInParallel.ps1* script creates a parallel tenant database, and a parallel catalog entry both named *ContosoConcertHall\_old*. This pattern of restore is best suited for recovering from a minor data loss or for compliance and auditing recovery scenarios. It is also the recommended approach if you are using [Geo-Replication](sql-database-geo-replication-overview.md).
 
-1. Complete the steps in the [simulate a user accidently deleting data](#simulate-a-user-accidently-deleting-data) section above.
+1. Complete the [simulate a user accidentally deleting data](#simulate-a-user-accidentally-deleting-data) section above.
 1. Open ...\Learning Modules\Business Continuity and Disaster Recovery\RestoreTenant\_Demo-RestoreTenant.ps1_ in the **PowerShell ISE**.
 1. Set **$DemoScenario** = **2**, Set this to **2** to *Restore tenant in parallel*.
 1. Press **F5** to run the script.
@@ -125,18 +125,16 @@ In reality, you would probably only retain this restored database for a defined 
 
 ## Restore a tenant in place, replacing the existing tenant database
 
-This exercise will restore the Contoso Concert Hall tenant to a point in time before the event was deleted. The *Restore-TenantInPlace* script restores the current tenant database to a new database pointing to a previous point in time, and deletes the original database. This pattern of restore is best suited for recovering from serious data corruption as there may be significant data loss that the tenant would have to accommodate.
+This exercise restores the Contoso Concert Hall tenant to a point in time before the event was deleted. The *Restore-TenantInPlace* script restores the current tenant database to a new database pointing to a previous point in time, and deletes the original database. This pattern of restore is best suited for recovering from serious data corruption as there may be significant data loss that the tenant would have to accommodate.
 
-1. Complete the steps in the ‘Getting Started’ section before starting this exercise.
+1. Complete the [simulate a user accidentally deleting data](#simulate-a-user-accidentally-deleting-data) section above.
 1. **Navigate to** **Demo-RestoreTenant.ps1** file in PowerShell ISE
 1. **Modify** **$DemoScenario** to **5** to select the ‘restore tenant in place scenario’.
 1. Execute using **F5**.
 
 The script restores the tenant database to a point 5 minutes before the event deletion that occurred in the 'Getting started' section. It does this by first taking the tenant Contoso Concert Hall offline so there are no further updates to the data. Then, a parallel database is created by restoring from the restore point and named with a timestamp to ensure the database name does not conflict with the existing tenant database name. Next, the old tenant database is deleted, and the newly-restored database is renamed to the original database name. Finally, Contoso Concert Hall is brought online to allow the app access to the restored database.
 
-At this point you have restored the database prior to the point the event was deleted. The demo script will open the events page for Contoso Concert Hall in your browser, where you can scroll the event listing to the end to confirm that the event has been restored.
-
-SCREEN SHOT
+At this point you have restored the database prior to the point the event was deleted. The demo script opens the events page for Contoso Concert Hall in your browser, where you can scroll the event listing to the end to confirm that the event has been restored.
 
 
 ## Next steps
