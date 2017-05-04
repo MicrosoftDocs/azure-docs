@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/02/2017
+ms.date: 05/04/2017
 ms.author: alkohli
 ---
 # Install Update 0.5 on your StorSimple Virtual Array
@@ -22,7 +22,7 @@ ms.author: alkohli
 
 This article describes the steps required to install Update 0.5 on your StorSimple Virtual Array via the local web UI and via the Azure portal. You need to apply software updates or hotfixes to keep your StorSimple Virtual Array up-to-date.
 
-Keep in mind that installing an update or hotfix restarts your device. Given that the StorSimple Virtual Array is a single node device, any I/O in progress is disrupted and your device experiences downtime. 
+Keep in mind that installing an update or hotfix restarts your device. Given that the StorSimple Virtual Array is a single node device, any I/O in progress is disrupted and your device experiences downtime.
 
 Before you apply an update, we recommend that you take the volumes or shares offline on the host first and then the device. This minimizes any possibility of data corruption.
 
@@ -47,11 +47,11 @@ Perform the following steps to download the software update from the Microsoft U
 
 2. If this is your first time using the Microsoft Update Catalog on this computer, click **Install** when prompted to install the Microsoft Update Catalog add-on.
 
-3. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix you want to download. Enter **3216577** for Update 0.5, and then click **Search**.
+3. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix you want to download. Enter **4021576** for Update 0.5, and then click **Search**.
    
     The hotfix listing appears, for example, **StorSimple Virtual Array Update 0.5**.
    
-    ![Search catalog](./media/storsimple-virtual-array-install-update-04/download1.png)
+    ![Search catalog](./media/storsimple-virtual-array-install-update-05/download1.png)
 
 4. Click **Add**. The update is added to the basket.
 
@@ -59,11 +59,16 @@ Perform the following steps to download the software update from the Microsoft U
 
 6. Click **Download**. Specify or **Browse** to a local location where you want the downloads to appear. The updates are downloaded to the specified location and placed in a subfolder with the same name as the update. The folder can also be copied to a network share that is reachable from the device.
 
-7. Open the copied folder, you should see a Microsoft Update Standalone Package file `WindowsTH-KB3011067-x64`. This file is used to install the update or hotfix.
+7. Open the copied folder, you should see two files:
+
+    ![Files in the package](./media/storsimple-virtual-array-install-update-05/update 05 folder.png)
+    -  A Microsoft Update Standalone Package file `WindowsTH-KB3011067-x64`. This file is used to update the device software.
+    - A Geneva Monitoring Agent Package file `GenevaMonitoringAgentPackageInstaller`. This file is used to update the Monitoring and Diagnostics service (MDS) agent. Double-click the cab file. A .msi is displayed. Select the file, right-click, and then **Extract** the file. You will use the _.msi_ file to update the agent.
+    ![Extract MDS Agent Update file](./media/storsimple-virtual-array-install-update-05/extract-geneva-monitoring-agent-installer.png)
 
 ### Install the update or the hotfix
 
-Prior to the update or hotfix installation, make sure that you have the update or the hotfix downloaded either locally on your host or accessible via a network share. 
+Prior to the update or hotfix installation, make sure that you have the update or the hotfix downloaded either locally on your host or accessible via a network share.
 
 Use this method to install updates on a device running GA or Update 0.1 software versions. This procedure takes less than 2 minutes to complete. Perform the following steps to install the update or hotfix.
 
@@ -71,26 +76,30 @@ Use this method to install updates on a device running GA or Update 0.1 software
 
 1. In the local web UI, go to **Maintenance** > **Software Update**.
    
-    ![update device](./media/storsimple-virtual-array-install-update/update1m.png)
+    ![update device](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
 2. In **Update file path**, enter the file name for the update or the hotfix. You can also browse to the update or hotfix installation file if placed on a network share. Click **Apply**.
    
-    ![update device](./media/storsimple-virtual-array-install-update/update2m.png)
+    ![update device](./media/storsimple-virtual-array-install-update-05/update2m.png)
 
 3. A warning is displayed. Given this is a single node device, after the update is applied, the device restarts and there is downtime. Click the check icon.
    
-   ![update device](./media/storsimple-virtual-array-install-update/update3m.png)
+   ![update device](./media/storsimple-virtual-array-install-update-05/update3m.png)
 
 4. The update starts. After the device is successfully updated, it restarts. The local UI is not accessible in this duration.
    
-    ![update device](./media/storsimple-virtual-array-install-update/update5m.png)
+    ![update device](./media/storsimple-virtual-array-install-update-05/update5m.png)
 
 5. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has updated, in the local web UI, go to **Maintenance** > **Software Update**. The displayed software version should be **10.0.0.0.0.10290.0** for Update 0.5.
    
    > [!NOTE]
    > We report the software versions in a slightly different way in the local web UI and the Azure portal. For example, the local web UI reports **10.0.0.0.0.10290** and the Azure portal reports **10.0.10290.0** for the same version.
    
-    ![update device](./media/storsimple-virtual-array-install-update/update6m.png)
+    ![update device](./media/storsimple-virtual-array-install-update-05/update6m.png)
+
+6. The next step is to update the MDS agent. In the **Software Update** page, go to the **Update file path** and browse to the `GenevaMonitoringAgentPackageInstaller.msi` file. Repeat steps 2-4. After the virtual array restarts, sign into the local web UI.
+
+The update is now complete.
 
 ## Use the Azure portal
 
