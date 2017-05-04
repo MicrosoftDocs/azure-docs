@@ -102,7 +102,8 @@ The following diagram shows how these tables are related to each other. Some of 
 
 1. Double-click on the database name in the **SCHEMAS** of **Navigator Window**. This will select the database for operation.
 2. Click **Create a new SQL tab for executing queries** button. A blank query window opens. In the query window, execute the following query to create four tables in your database:
-```sql
+
+   ```sql
  -- Create Person table
  CREATE TABLE Person
  (
@@ -154,7 +155,8 @@ C:\>mysql -h mysqlserver4demo.database.windows.net -u myadmin@mysqlserver4demo -
 ```
 In this example, server name is **mysqlserver4demo**. Replace it with your own server name.
 4. Select **mysampledatabase** and execute the following commands to insert sample data into the tables.
-```dos
+
+   ```dos
 mysql>
 USE mysampledatabase;
 LOAD DATA LOCAL INFILE 'C:/<folderPath>/Downloads/SampleTableData/SampleCourseData' INTO TABLE course FIELDS TERMINATED BY ',';
@@ -167,7 +169,8 @@ Replace <folderPath> with your Download folder path. You have now loaded sample 
 ## Query the tables
 Execute the following queries to retrieve information from the database tables. The first query joins all four tables to find all the students who have participated in the class of “Introduction to Law” and a grade higher than 75. The second query joins all four tables and finds all courses in which 'Noe Coleman' has ever enrolled.
 1. In MySQL Workbench query window, execute the following query:
-```sql
+
+   ```sql
  -- Find the students taught by Dominick Pope who have a grade higher than 75%
  SELECT person.FirstName, person.LastName, credit.Grade
  FROM person
@@ -178,7 +181,8 @@ Execute the following queries to retrieve information from the database tables. 
  AND Grade > 75
 ```
 2. In MySQL Workbench query window, execute the following query:
-```sql
+
+   ```sql
  -- Find all the courses in which Noe Coleman has ever enrolled
  SELECT course.Name, course.Teacher, credit.Grade
  FROM course
