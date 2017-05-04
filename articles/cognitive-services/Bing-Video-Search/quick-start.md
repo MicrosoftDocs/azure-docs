@@ -32,18 +32,18 @@ https://api.cognitive.microsoft.com/bing/v5.0/videos/search
    
 The request must use the HTTPS protocol, and all requests must be made from a server (calls may not be made from a client).  
   
-The request must specify the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference.md#query) query parameter, which contains the user's search term. Although it's optional, the request should also specify the [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference.md#mkt) query parameter, which identifies the market where you want the results to come from. For a list of optional query parameters such as `pricing`, see [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference.md#query-parameters). All query parameter values must be URL encoded.  
+The request must specify the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#query) query parameter, which contains the user's search term. Although it's optional, the request should also specify the [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#mkt) query parameter, which identifies the market where you want the results to come from. For a list of optional query parameters such as `pricing`, see [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#query-parameters). All query parameter values must be URL encoded.  
   
-The request must specify the [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference.md#subscriptionkey) header. Although optional, you are encouraged to also specify the following headers:  
+The request must specify the [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#subscriptionkey) header. Although optional, you are encouraged to also specify the following headers:  
   
--   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference.md#useragent)  
--   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference.md#clientid)  
--   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference.md#clientip)  
--   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference.md#location)  
+-   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#useragent)  
+-   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#clientid)  
+-   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#clientip)  
+-   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#location)  
 
 The client IP and location headers are important for returning location aware content.  
 
-For a list of all request and response headers, see [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference.md#headers).
+For a list of all request and response headers, see [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#headers).
 
 
 ## The Request
@@ -147,7 +147,7 @@ BingAPIs-Market: en-US
 > [!NOTE]
 > Version 7 Preview response change:
 >
-> Renamed the `nextOffsetAddCount` to `nextOffset`. You use the field to page images. In v7, you set the [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference.md#offset) query parameter to the value of `nextOffset`. For more information, see [Paging Images](./paging-videos.md).
+> Renamed the `nextOffsetAddCount` to `nextOffset`. You use the field to page images. In v7, you set the [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#offset) query parameter to the value of `nextOffset`. For more information, see [Paging Images](./paging-videos.md).
 
 ## Next Steps
 
