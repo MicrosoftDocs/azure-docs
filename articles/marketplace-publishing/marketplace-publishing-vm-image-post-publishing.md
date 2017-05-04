@@ -22,20 +22,20 @@ This article explains how you can update a live virtual machine offer in the Azu
 
 After an offer/SKU is staged in the [Azure portal](http://portal.azure.com), you can't change the following text boxes:
 
-* **Offer Identifier**. [Publishing portal > Virtual Machines > Select your Offer > VM Images tab > Offer Identifier]
-* **SKU Identifier**. [Publishing portal > Virtual Machines > Select your Offer > SKUs tab > Add a SKU]
-* **Publisher Namespace**. [Publishing portal > Virtual Machines > Walkthrough tab > Tell Us About Your Company (Found under “Step 2 Register Your Company”) > Publisher Namespace > Namespace]
+* **Offer Identifier**. In the Publishing portal, go to **virtual machines** and select your offer. Then click **VM IMAGES** > **Offer Identifier**.
+* **SKU Identifier**. In the Publishing portal, go to **virtual machines** and select your offer. Then click **SKUS** > **Add a SKU**.
+* **Publisher Namespace**. In the Publishing portal, go to **virtual machines** > **Walkthrough** > **Tell Us About Your Company** (found under “Step 2 Register Your Company”) > **Publisher Namespace** > **Namespace**.
 
 After the offer/SKU is listed in the [Marketplace](http://azure.microsoft.com/marketplace), you can't change the following text boxes:
 
-* **Offer Identifier**. [Publishing portal > Virtual Machines > Select your Offer > VM Images tab > Offer Identifier]
-* **SKU Identifier**. [Publishing portal > Virtual Machines > Select your Offer > SKUs tab > Add a SKU]
-* **Publisher Namespace**. [Publishing portal > Virtual Machines > Walkthrough tab > Tell Us About Your Company (Found under "Step 2 Register") Publisher Namespace > Namespace]
-* **Ports**. [Publishing portal > Virtual Machines > Select your Offer > VM Images tab > Open Ports]
-* **Pricing Change of listed SKU(s)**
-* **Billing Model Change of listed SKU(s)**
-* **Removal of billing regions of listed SKU(s)**
-* **Changing the data disk count of listed SKU(s)**
+* **Offer Identifier**. In the Publishing portal, go to **virtual machines** and select your offer. Then click **VM IMAGES** > **Offer Identifier**.
+* **SKU Identifier**. In the Publishing portal, go to **virtual machines** and select your offer. Then click **SKUS** > **Add a SKU**.
+* **Publisher Namespace**. In the Publishing portal, go to **virtual machines** > **Walkthrough** > **Tell Us About Your Company** (found under "Step 2 Register") **Publisher Namespace** > **Namespace**.
+* **Ports**. In the Publishing portal, go to **virtual machines** and select your offer. Then click **VM IMAGES** > **Open Ports**.
+* **Pricing change of listed SKU(s)**.
+* **Billing model change of listed SKU(s)**.
+* **Removal of billing regions of listed SKU(s)**.
+* **Changing the data disk count of listed SKU(s)**.
 
 ## Update the technical details of a SKU
 To add a new version to the listed SKU and republish your offer, follow these steps:
@@ -44,11 +44,11 @@ To add a new version to the listed SKU and republish your offer, follow these st
 2. Go to the **virtual machines** tab, and select your offer.
 3. In the menu on the left, click the **VM IMAGES** tab.
 4. In the **SKUs** section, locate the SKU that you want to update.
-5. Add a new version number of the SKU, and click the **+** button. The new version should be in an X.Y.Z format, where X, Y, and Z are integers. Version changes should only be incremental.
+5. Add a new version number for the SKU, and click the **+** button. The new version should be in an X.Y.Z format, where X, Y, and Z are integers. Version changes should only be incremental.
 6. In the **OS VHD URL** box, enter the shared access signature URI created for the operating system VHD and save the changes.
 
    > [!IMPORTANT]
-   > You can't increment/decrement the data disk count of a listed SKU. You need to create a new SKU in this case. For detailed guidance, refer to the section [Add a new SKU under a listed offer](#3-how-to-add-a-new-sku-under-a-live-offer).
+   > You can't increment/decrement the data disk count of a listed SKU. You need to create a new SKU in this case. For detailed guidance, refer to the section [Add a new SKU under a listed offer](add-a-new-sku-under-a-listed-offer).
    >
    >
 7. Go to the **PUBLISH** tab, and click **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment, see [Test your VM offer for the Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
@@ -69,12 +69,16 @@ To update the offer details and republish your offer, follow these steps:
 5. Click the **DETAILS** tab. In the **Description** section, update the offer **TITLE**, **SUMMARY**, and **LONG SUMMARY** and save the changes.
 
    > [!NOTE]
-   > When you update the SKU details, be aware of these restrictions: Do not enter duplicate text for the offer description and the SKU description. Do not enter duplicate text for the SKU title and the offer long summary. Do not enter duplicate text for the SKU title and the offer summary.
+   > When you update the SKU details, be aware of these restrictions: 
+
+   * Do not enter duplicate text for the offer description and the SKU description.
+   * Do not enter duplicate text for the SKU title and the offer long summary. 
+   * Do not enter duplicate text for the SKU title and the offer summary.
    >
    >
 
     ![Details](media/marketplace-publishing-vm-image-post-publishing/img02.1_05.png)
-6. In the **LOGOS** section of the **DETAILS** tab, update the logos. Ensure that the logos follow the [Azure Marketplace guidelines](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content). (Refer to the section Step 1: Provide Marketplace marketing content > Details > Azure Marketplace Logo Guidelines.)
+6. In the **LOGOS** section of the **DETAILS** tab, update the logos. Ensure that the logos follow the [Azure Marketplace guidelines](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content).
 
    > [!NOTE]
    > A hero icon is optional. You can choose not to upload a hero icon. However, after a hero icon is uploaded, there is no provision to delete it from the Publishing portal. Follow the [hero icon guidelines](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content). (Refer to the section Step 1: Provide Marketplace marketing content > Details > Additional guidelines for the Hero logo banner.)
@@ -95,7 +99,10 @@ To update the SKU details and republish your offer, follow these steps:
 5. Click the **PLANS** tab. In the **SKUs** section, update the SKU **TITLE**, **SUMMARY**, and **DESCRIPTION** and save the changes.
 
    > [!NOTE]
-   > When you update the SKU details, be aware of these restrictions: Do not enter duplicate text for the offer description and the SKU description. Do not enter duplicate text for the SKU title and the offer long summary. Do not enter duplicate text for the SKU title and the offer summary.
+   > When you update the SKU details, be aware of these restrictions: 
+   * Do not enter duplicate text for the offer description and the SKU description. 
+   * Do not enter duplicate text for the SKU title and the offer long summary. 
+   * Do not enter duplicate text for the SKU title and the offer summary.
    >
    >
 6. Go to the **PUBLISH** tab, and click **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment, see [Test your VM offer for the Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
@@ -205,7 +212,7 @@ To add a new SKU in your live offer, follow these steps:
    >
 4. In the menu on the left, click the **VM IMAGES** tab and find out the new SKU that you've created.
 5. To set up the new SKU, see [Obtain certification for your VM image](marketplace-publishing-vm-image-creation.md#5-obtain-certification-for-your-vm-image) for guidance.
-6. To add marketing material for the new SKU, see [Provide Marketplace marketing content > Details and plans > steps 2 to 5](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content).
+6. To add marketing material for the new SKU, see [Provide Marketplace marketing content](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content).
 7. To add pricing information for the new SKU, see [Set your prices](marketplace-publishing-push-to-staging.md#step-2-set-your-prices).
 8. Go to the **PUBLISH** tab, and click **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment, see [Test your VM offer for the Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
 9. After you've tested your offer in staging, go to the **PUBLISH** tab in the Publishing portal. Click **REQUEST APPROVAL TO PUSH TO PRODUCTION** to republish your offer in the Marketplace.
@@ -215,7 +222,7 @@ To add a new SKU in your live offer, follow these steps:
     ![Add a SKU](media/marketplace-publishing-vm-image-post-publishing/img03_09-02.png)
 
 ## Change the data disk count for a listed SKU
-You can't increment/decrement the data disk count of a listed SKU. You need to create a new SKU in this case. For detailed guidance, see [3. How to add a new SKU under a live offer](#3-how-to-add-a-new-sku-under-a-live-offer).
+You can't increment/decrement the data disk count of a listed SKU. You need to create a new SKU in this case. For detailed guidance, refer to the section [Add a new SKU under a listed offer](add-a-new-sku-under-a-listed-offer).
 
 ## Delete a listed offer from the Marketplace
 Various aspects need to be taken care of in the case of a request to remove a live offer. To get guidance from the support team to remove a listed offer from the Marketplace, follow these steps:
