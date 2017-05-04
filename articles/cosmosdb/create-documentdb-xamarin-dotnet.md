@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: Build a web app .NET and Xamarin | Microsoft Docs'
+title: 'Azure Cosmos DB: Build a web app with Xamarin and Facebook auth | Microsoft Docs'
 description: Presents a .NET code sample you can use to connect to and query Azure Cosmos DB
 services: cosmosdb
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 04/14/2017
 ms.author: mimig
 
 ---
-# Azure Cosmos DB: Build a web app .NET and Xamarin
+# Azure Cosmos DB: Build a web app with .NET, Xamarin, and Facebook authentication
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 

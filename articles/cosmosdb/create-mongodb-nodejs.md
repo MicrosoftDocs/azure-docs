@@ -22,15 +22,13 @@ ms.author: mimig
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quickstart demonstrates how to use an existing MongoDB app written in Node.js and connect it to your Azure Cosmos DB database, which supports MongoDB client connections. When you are done, you will have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running on [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). For more information about running MongoDB apps with an Azure Cosmos DB database, see [What is the Azure Cosmos DB MongoDB API?](../documentdb/documentdb-protocol-mongodb.md)
+This quickstart demonstrates how to use an existing [MongoDB](../documentdb/documentdb-protocol-mongodb.md) app written in Node.js and connect it to your Azure Cosmos DB database, which supports MongoDB client connections. In other words, your Node.js application only knows that it's connecting to a database using MongoDB APIs. The fact that data is stored in Azure Cosmos DB is completely transparent to the application.
 
-## Prerequisites 
-
-In this quickstart, you connect a MongoDB app to an Azure Cosmos DB database. In other words, your Node.js application only knows that it's connecting to a database using MongoDB APIs. The fact that data is stored in Azure Cosmos DB is completely transparent to the application.
+When you are done, you will have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running on [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). 
 
 ![MEAN.js app running in Azure App Service](./media/create-mongodb-nodejs/meanjs-in-azure.png)
 
-## Before you begin
+## Prerequisites 
 
 Before starting this quickstart, ensure that [the Azure CLI is installed](https://docs.microsoft.com/cli/azure/install-azure-cli) on your machine. In addition, you need [Node.js](https://nodejs.org/) and [Git](http://www.git-scm.com/downloads). You will run `az`, `npm`, and `git` commands.
 
@@ -38,7 +36,7 @@ You should have working knowledge of Node.js. This quickstart is not intended to
 
 ## Clone the sample application
 
-Open a git terminal window, such as git bash, and `CD` to a working directory.  
+Open a git terminal window, such as git bash, and `cd` to a working directory.  
 
 Run the following commands to clone the sample repository. This sample repository contains the default [MEAN.js](http://meanjs.org/) application. 
 

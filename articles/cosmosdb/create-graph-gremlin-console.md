@@ -21,7 +21,7 @@ ms.author: anhoh
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal and then use the [Graph API]() in the Gremlin console. In this tutorial, you'll create and query vertices and edges, updating a vertex property, query vertices, traverse the graph, and drop a vertex.
+This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal and then use the [Graph API](graph-sdk-dotnet.md) in the Gremlin console. In this tutorial, you'll create and query vertices and edges, updating a vertex property, query vertices, traverse the graph, and drop a vertex.
 
 ## Prerequisites
 
