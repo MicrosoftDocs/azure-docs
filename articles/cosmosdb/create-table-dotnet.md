@@ -27,12 +27,12 @@ Azure Cosmos DB provides the Table API for applications that need a key-value st
 
 If you currently use Azure Table storage, you gain the following benefits with the preview:
 
-- Turn-key global distribution with multi-homing and automatic/manual failovers
+- Turn-key [global distribution](../documentdb/documentdb-distribute-data-globally.md) with multi-homing and [automatic and manual failvoers](../documentdb/documentdb-regional-failovers.md)
 - Support for automatic schema-agnostic indexing against all properties ("secondary indexes"), and fast queries 
-- Support for independent scaling of storage and throughput, across any number of regions
-- Support for dedicated throughput per table that can be scaled from 100s to millions of requests per second
-- Support for tunable consistency levels to trade off availability, latency, and consistency based on your application needs
-- 99.99% availability within a single region, and ability to add more regions for higher availability
+- Support for [independent scaling of storage and throughput](../documentdb/documentdb-partition-data.md), across any number of regions
+- Support for [dedicated throughput per table](../documentdb/documentdb-request-units.md) that can be scaled from 100s to millions of requests per second
+- Support for [five tunable consistency levels](../documentdb/documentdb-consistency-levels.md) to trade off availability, latency, and consistency based on your application needs
+- 99.99% availability within a single region, and ability to add more regions for higher availability, and [industry-leading comprehensive SLAs](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/) on general availability
 - Work with the existing Azure storage .NET SDK, and no code changes to your application
 
 During the preview, Azure Cosmos DB supports the Table API using the .NET SDK. You can download the [Azure Storage Preview SDK](https://www.nuget.org/packages/WindowsAzure.Storage-Preview) SDK from Nuget, that has the same classes and method signatures as the public [Azure storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), but also has the ability to connect to Azure Cosmos DB accounts using the Table API.
@@ -131,31 +131,32 @@ The following example shows how you can change the different settings for above 
 </configuration>
 ```
 
-## Review the code
-
 Let's make a quick review of what's happening in the app. Open the `Program.cs` file and you'll find that these lines of code create the Table resources. 
 
-* Create the table client.
+## Create the table client.
+You initialize a `CloudTableClient` to connect to the table account.
 
-    ```csharp
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-    ```
-    This client is initialized using the `TableConnectionMode`, `TableConnectionProtocol`, `TableConsistencyLevel`, and `TablePreferredLocations` configuration values that were specified in the app settings.
+```csharp
+CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+```
+This client is initialized using `TableConnectionMode`, `TableConnectionProtocol`, `TableConsistencyLevel`, and `TablePreferredLocations` configuration values that are specified in the app settings (or defaults if not specified).
     
-* Create a table.
+## Create a table.
+Then, you create a table using `CloudTable`. Tables in Azure Cosmos DB can scale independently in terms of storage and throughput, and partitioning is handled automatically by the service. Azure Cosmos DB supports both fixed size and unlimited tables. See [Partitioning in Azure Cosmos DB](../documentdb/documentdb-partition-data.md) for details. 
 
-    ```csharp
-    //Retrieve a reference to the table.
-    CloudTable table = tableClient.GetTableReference("people");
-    //Create the table if it doesn't exist.
-    table.CreateIfNotExists();
-    ```
-    Azure Cosmos DB reserves throughput, unlike Azure storage's consumption based model for transactions. The reservation model has two key benefits. 1) your throughput is dedicated/reserved, so you never get throttled if your request rate is at or below your provisioned throughput, and 2) the reservation model is more [cost effective for workloads](../documentdb/documentdb-key-value-cost.md) that need to perform a large number of reads and writes. You can configure the default throughput per table by onfiguring the AppSetting for `TableThroughput` in terms of RU (request units) per second. 
+```csharp
+//Retrieve a reference to the table.
+CloudTable table = tableClient.GetTableReference("people");
+//Create the table if it doesn't exist.
+table.CreateIfNotExists();
+```
 
-    A read of a 1 KB document is normalized as 1 RU, and all other operations are expressed in terms of RUs based on their CPU, memory, and IOPS consumption. Learn more about [Request units in Azure Cosmos DB(../documentdb/documentdb-request-units.md).
+Note that there is an important difference in how tables are created. Azure Cosmos DB reserves throughput, unlike Azure storage's consumption based model for transactions. The reservation model has two key benefits. 1) your throughput is dedicated/reserved, so you never get throttled if your request rate is at or below your provisioned throughput, and 2) the reservation model is more [cost effective for workloads](../documentdb/documentdb-key-value-cost.md) that need to perform a large number of reads and writes. You can configure the default throughput per table by onfiguring the AppSetting for `TableThroughput` in terms of RU (request units) per second. 
 
-    > [!NOTE]
-    > While Table storage SDK does not currently support modifying throughput, you can change the throughput instantaneously at any time using the Azure portal or Azure CLI.
+A read of a 1 KB document is normalized as 1 RU, and all other operations are expressed in terms of RUs based on their CPU, memory, and IOPS consumption. Learn more about [Request units in Azure Cosmos DB(../documentdb/documentdb-request-units.md).
+
+> [!NOTE]
+> While Table storage SDK does not currently support modifying throughput, you can change the throughput instantaneously at any time using the Azure portal or Azure CLI.
 
 Next, we walk through the simple read and write (CRUD) operations using the Azure Table storage SDK. The primary advantage is that you will notice while running this tutorial with Azure Cosmos DB is predictable low single-digit millisecond latencies for readsa and writes, and fast queries.
 
@@ -179,9 +180,9 @@ public class CustomerEntity : TableEntity
 }
 ```
 
-The following snippet shows how to insert an entity with the Azure storage SDK. Azure Cosmos DB is designed for guaranteed low latency at any scale, across the world
+The following snippet shows how to insert an entity with the Azure storage SDK. Azure Cosmos DB is designed for guaranteed low latency at any scale, across the world.
 
-Writes in Azure Cosmos DB complete <15ms at p99 and ~6ms at p50 for applications running in the same region as the Azure Cosmos DB account. And this duration accounts for the fact that writes are acked back to the client only after they are synchronously replicated, durably committed, and all content is indexed. 
+Writes in Azure Cosmos DB complete <15ms at p99 and ~6ms at p50 for applications running in the same region as the Azure Cosmos DB account. And this duration accounts for the fact that writes are acked back to the client only after they are synchronously replicated, durably committed, and all content is indexed.
 
 The Table API for Azure Cosmos DB is in preview. At general availability, the p99 latency guarantees are backed by SLAs like other Azure Cosmos DB APIs. 
 
