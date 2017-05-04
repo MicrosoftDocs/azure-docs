@@ -337,8 +337,8 @@ This section will show you how to add new users or change their permissions in t
 3. Enter the Publisher email address, but don't enter a password. It will redirect to *Step 4* if it's registered in Azure Active Directory. Administrator accounts are registered. Organizational accounts that are set up by the administrator account are also registered.
 4. Choose **Work or school account**. Work or school accounts (also called Organizational accounts) are set up by companies that are registered with Azure. Personal accounts (also called LiveID accounts) are personal accounts that are registered with Microsoft.
 
->[!NOTE]
->It's possible that a user set up a LiveID account by using their company email address. In this scenario, the company later onboards to Azure, and the same email address is registered as an Organizational account. This means this user can have a LiveID account with the password that they used to create the LiveID account. The user can also have an Organizational account with a separate password that is used by the company.
+  >[!NOTE]
+  >It's possible that a user set up a LiveID account by using their company email address. In this scenario, the company later onboards to Azure, and the same email address is registered as an Organizational account. This means this user can have a LiveID account with the password that they used to create the LiveID account. The user can also have an Organizational account with a separate password that is used by the company.
 
 5. For the Seller Insights Portal, when you select **Work or school account**, ensure that you use your Organizational account password combination, and not a LiveID password combination.
 6. An Organizational account redirects to the publisher login page.
