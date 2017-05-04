@@ -32,7 +32,7 @@ Update 0.5 corresponds to the software version **10.0.10290.0**.
 
 
 ## What's new in the Update 0.5
-Update 0.5 is primarily a bug-fix build. In this version, several bugs resulting in backup failures in the previous version have been addressed. The main enhancements and bug-fixes are as follows:
+Update 0.5 is primarily a bug-fix build. The main enhancements and bug-fixes are as follows:
 
 - **Backup resiliency improvements** - This release has fixes that improve the backup resiliency. In the earlier releases, backups were retried only for certain exceptions. This release retries all the backup exceptions and makes the backups more resilient.
 
@@ -49,7 +49,7 @@ The following table provides a summary of issues fixed in this release.
 | No. | Feature | Issue |
 | --- | --- | --- |
 | 1 |Backup resiliency| In the earlier releases, backups were retried only for certain exceptions. This release contains a fix to make backups more resilient by retrying all the backup exceptions.|
-| 2 |Fixes for storage usage monitoring| The storage usage monitoring service will be deprecated starting June 30, 2017. This action impacts the monitoring charts on the StorSimple Device Manager service. This release has fixes that would allow the user to continue the use of storage usage monitoring on the virtual arrays beyond June 30, 2017.|
+| 2 |Monitoring| The storage usage monitoring service will be deprecated starting June 30, 2017. This action impacts the monitoring charts on the StorSimple Device Manager service. This release has fixes that would allow the user to continue the use of storage usage monitoring on the virtual arrays beyond June 30, 2017.|
 | 3 |File server| In the earlier releases, a user could copy encrypted files to the virtual array. This release contains a fix that would not allow copying of encrypted files to virtual array. |
 
 
@@ -72,7 +72,7 @@ The following table provides a summary of known issues for the StorSimple Virtua
 | **10.** |Azure PowerShell |The StorSimple virtual devices cannot be managed through the Azure PowerShell in this release. |All the management of the virtual devices should be done through the Azure portal and the local web UI. |
 | **11.** |Password change |The virtual array device console only accepts input in en-us keyboard format. | |
 | **12.** |CHAP |CHAP credentials once created cannot be removed. Additionally, if you modify the CHAP credentials, you need to take the volumes offline and then bring them online for the change to take effect. |This issue is addressed in a later release. |
-| **13.** |iSCSI server |The 'Used storage' displayed for an iSCSI volume may be different in the StorSimple Manager service and the iSCSI host. |The iSCSI host has the filesystem view.<br></br>The device sees the blocks allocated when the volume was at the maximum size. |
+| **13.** |iSCSI server |The 'Used storage' displayed for an iSCSI volume may be different in the StorSimple Device Manager service and the iSCSI host. |The iSCSI host has the filesystem view.<br></br>The device sees the blocks allocated when the volume was at the maximum size. |
 | **14.** |File server |If a file in a folder has an Alternate Data Stream (ADS) associated with it, the ADS is not backed up or restored via disaster recovery, clone, and Item Level Recovery. | |
 | **15.** |File server |Symbolic links are not supported. | |
 | **16.** |File server |Files protected by Windows Encrypting File System (EFS) when copied over or stored on the StorSimple Virtual Array file server result in an unsupported configuration.  | |
@@ -83,7 +83,7 @@ The following table provides a summary of known issues for the StorSimple Virtua
 ## References
 Looking for an older release note? Go to:
 
-* [StorSimple Virtual Array Update 0.4 Release Notes](storsimple-ova-update-04-release-notes.md)
+* [StorSimple Virtual Array Update 0.4 Release Notes](storsimple-virtual-array-update-04-release-notes.md)
 * [StorSimple Virtual Array Update 0.3 Release Notes](storsimple-ova-update-03-release-notes.md)
 * [StorSimple Virtual Array Update 0.1 and 0.2 Release Notes](storsimple-ova-update-01-release-notes.md)
 * [StorSimple Virtual Array General Availability Release Notes](storsimple-ova-pp-release-notes.md)
