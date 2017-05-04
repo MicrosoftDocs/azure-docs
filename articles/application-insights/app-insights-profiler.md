@@ -66,6 +66,8 @@ There is a [preview version of the Profiler for Azure Compute resources](https:/
 
 The default data retention is 5 days. Maximum 10 GB ingested per day.
 
+There is no charge for the profiler service, but the profiler data counts towards your [Application Insights charges](app-insights-pricing.md). Your web app must be hosted in at least the Basic tier of App Services.
+
 ## Viewing profiler data
 
 Open the Performance blade and scroll down to the operation list.
