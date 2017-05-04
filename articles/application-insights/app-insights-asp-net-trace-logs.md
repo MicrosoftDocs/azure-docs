@@ -63,6 +63,7 @@ Use this method if your project type isn't supported by the Application Insights
 
    * Microsoft.ApplicationInsights.TraceListener (to capture System.Diagnostics.Trace calls)
    * Microsoft.ApplicationInsights.EventSourceListener (to capture EventSource events)
+   * Microsoft.ApplicationInsights.EtwListener (to capture ETW events)
    * Microsoft.ApplicationInsights.NLogTarget
    * Microsoft.ApplicationInsights.Log4NetAppender
 
@@ -87,6 +88,28 @@ If you use [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/l
       </Sources>
     </Add>
 ```
+
+For each source, you can set the following parameters:
+ * `Name` specifies the name of the EventSource to collect.
+ * `Level` specifies the logging level to collect. Can be one of `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
+ * `Keywords` (Optional) specifies the integer value of keywords combinations to use
+
+## Using ETW events
+You can configure ETW events to be sent to Application Insights as traces by editing the `TelemetryModules` section of the [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config) file.
+
+```xml
+    <Add Type="Microsoft.ApplicationInsights.EtwCollector.EtwCollectorTelemetryModule, Microsoft.ApplicationInsights.EtwCollector">
+      <Sources>
+        <Add ProviderName="MyCompany" Level="Verbose" />
+      </Sources>
+    </Add>
+```
+
+For each source, you can set the following parameters:
+ * `ProviderName` is the name of name of the ETW provider to collect.
+ * `ProviderGuid` specifies the GUID of the ETW provider to collect, can be used instead of `ProviderName`.
+ * `Level` sets the logging level to collect. Can be one of `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
+ * `Keywords` (Optional) sets the integer value of keyword combinations to use.
 
 ## Using the Trace API directly
 You can call the Application Insights trace API directly. The logging adapters use this API.
