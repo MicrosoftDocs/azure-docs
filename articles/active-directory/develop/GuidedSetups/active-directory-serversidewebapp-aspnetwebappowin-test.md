@@ -23,9 +23,9 @@ Press `F5` to run your project in Visual Studio. The browser will open and direc
 
 When you're ready to test, use a Microsoft Azure Active Directory (organizational account) or a Microsoft Account (live.com, outlook.com) account to sign in. 
 
-![Sign-in with Microsoft browser window](../../media/active-directory-serversidewebapp-aspnetwebappowin-test/aspnetbrowsersignin.png)
+![Sign-in with Microsoft browser window](media/active-directory-serversidewebapp-aspnetwebappowin-test/aspnetbrowsersignin.png)
 
-![Sign-in with Microsoft browser window](../../media/active-directory-serversidewebapp-aspnetwebappowin-test/aspnetbrowsersignin2.png)
+![Sign-in with Microsoft browser window](media/active-directory-serversidewebapp-aspnetwebappowin-test/aspnetbrowsersignin2.png)
 
 ### Expected results
 After sign-in, the user is redirected to the home page of your web site which is the HTTPS URL specified in your application registration information in the Microsoft Application Registration Portal. This page now shows *Hello {User}* and a link to sign-out, and a link to see the user’s claims – which is a link to the Authorize controller created earlier.

@@ -27,7 +27,7 @@ At the end of this guide, your application will be able to accept sign ins of pe
 
 ## How this sample works
 
-![How this sample works](../../media/active-directory-serversidewebapp-aspnetwebappowin-intro/aspnetbrowsergeneral.png)
+![How this sample works](media/active-directory-serversidewebapp-aspnetwebappowin-intro/aspnetbrowsergeneral.png)
 
 This sample is based on the scenario where a browser accesses an ASP.NET web site, requesting a user to authenticate via a sign-in button. In this scenario, most of the work to render the web page occurs on the server side.
 

@@ -27,7 +27,7 @@ At the end of this guide, your application will be able to call a protected API 
 
 ## How this sample works
 
-![How this sample works](../../media/active-directory-mobileanddesktopapp-windowsdesktop-intro/windesktophowitworks.png)
+![How this sample works](media/active-directory-mobileanddesktopapp-windowsdesktop-intro/windesktophowitworks.png)
 
 The sample created by this guide is based on a scenario where a Windows Desktop Application is used to query a Web API that accepts tokens from Azure Active Directory v2 endpoint – in this case, Microsoft Graph API. For this scenario, a token is added to HTTP requests via the Authorization header. Token acquisition and renewal is handled by the Microsoft Authentication Library (MSAL).
 

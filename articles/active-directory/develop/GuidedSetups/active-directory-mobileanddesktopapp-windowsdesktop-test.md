@@ -21,16 +21,16 @@ ms.author: andret
 
 Press `F5` to run your project in Visual Studio. Your Main Window should appear:
 
-![Sample screen shot](../../media/active-directory-mobileanddesktopapp-windowsdesktop-test/samplescreenshot.png)
+![Sample screen shot](media/active-directory-mobileanddesktopapp-windowsdesktop-test/samplescreenshot.png)
 
 When you're ready to test, click *Call Microsoft Graph API* and use a Microsoft Azure Active Directory (organizational account) or a Microsoft Account (live.com, outlook.com) account to sign in. It it is the first time, you will see a window asking user to sign in:
 
-![Sign-in](../../media/active-directory-mobileanddesktopapp-windowsdesktop-test/signinscreenshot.png)
+![Sign-in](media/active-directory-mobileanddesktopapp-windowsdesktop-test/signinscreenshot.png)
 
 ### Consent
 The first time you sign in to your application, you will be presented with a consent screen similar to the below, where you need to explicitly accept:
 
-![Consent Screen](../../media/active-directory-mobileanddesktopapp-windowsdesktop-test/consentscreen.png)
+![Consent Screen](media/active-directory-mobileanddesktopapp-windowsdesktop-test/consentscreen.png)
 
 ### Expected Results
 You should see user profile information returned by the Microsoft Graph API call on the API Call Results screen.
