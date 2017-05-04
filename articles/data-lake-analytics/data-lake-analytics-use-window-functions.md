@@ -260,8 +260,6 @@ The results:
 | 8 |Ava |Marketing |400 |15000 |10000 |
 | 9 |Ethan |Marketing |400 |10000 |10000 |
 
-To see the highest salary of each department, replace MIN with MAX and re-run the query.
-
 ## Ranking Functions
 Ranking functions return a ranking value (a LONG) for each row in each partition as defined by the PARTITION BY and OVER clauses. The ordering of the rank is controlled by the ORDER BY in the OVER clause.
 
@@ -371,9 +369,10 @@ NTILE takes a parameter ("numgroups"). Numgroups is a positive int or long const
 * If the number of rows in a partition is not divisible by numgroups, this causes groups of two sizes that differ by one member. Larger groups come before smaller groups in the order specified by the OVER clause. 
 
 For example:
-
-* 100 rows divided into 4 groups: [ 25, 25, 25, 25 ]
-* 102 rows divided into 4 groups: [ 26, 26, 25, 25 ]
+* 100 rows divided into 4 groups: 
+    [ 25, 25, 25, 25 ]
+* 102 rows divided into 4 groups: 
+    [ 26, 26, 25, 25 ]
 
 ### Top N Records per Partition via RANK, DENSE_RANK or ROW_NUMBER
 Many users want to select only TOP n rows per group, which can't be done with the traditional GROUP BY. 
@@ -529,7 +528,7 @@ The results:
 | Papaya |200 |Web |0.5 |
 | Apple |100 |Web |0.166666666666667 |
 
-There are six rows in the partition where partition key is “Web” (4th row and down):
+There are six rows in the partition where partition key is "Web"
 
 * There are six rows with the value equal or lower than 500, so the CUME_DIST equals to 6/6=1
 * There are five rows with the value equal or lower than 400, so the CUME_DIST equals to 5/6=0.83
@@ -601,9 +600,13 @@ These two functions calculate a percentile based on a continuous or discrete dis
 
 **numeric_literal** - The percentile to compute. The value must range between 0.0 and 1.0.
 
-WITHIN GROUP (ORDER BY <identifier> [ ASC | DESC ]) - Specifies a list of numeric values to sort and compute the percentile over. Only one column identifier is allowed. The expression must evaluate to a numeric type. Other data types are not allowed. The default sort order is ascending.
+    WITHIN GROUP (ORDER BY <identifier> [ ASC | DESC ])
 
-OVER ([ PARTITION BY <identifier,>…[n] ] ) - Divides the input rowset into partitions as per the partition key to which the percentile function is applied. For more information, see RANKING section of this document.
+Specifies a list of numeric values to sort and compute the percentile over. Only one column identifier is allowed. The expression must evaluate to a numeric type. Other data types are not allowed. The default sort order is ascending.
+
+    OVER ([ PARTITION BY <identifier,>…[n] ] )
+
+Divides the input rowset into partitions as per the partition key to which the percentile function is applied. For more information, see RANKING section of this document.
 Note: Any nulls in the data set are ignored.
 
 **PERCENTILE_CONT** calculates a percentile based on a continuous distribution of the column value. The result is interpolated and might not be equal to any of the specific values in the column. 
