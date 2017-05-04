@@ -150,7 +150,7 @@ To enable the advanced developer tools within App Service - Kudu - and to enable
 6. The script creates a new application in the Tenant Azure Active Directory and generate a new PowerShell Script.
 
 >[!NOTE]
-> Make note of the **ApplicationID** that will is returned in the PowerShell output.  You will need this to search for it in step 13.
+> Make note of the **ApplicationID** that is returned in the PowerShell output.  You will need this to search for it in step 13.
 
 7. Copy the identity app certificate file and the generated script to the **CN0-VM** (use a remote desktop session).
 8. On the CN0-VM machine, open an **Administrator PowerShell window** and browse to the directory where the script file and certificate were copied to.
