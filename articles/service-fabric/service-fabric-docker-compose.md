@@ -35,7 +35,7 @@ New-ServiceFabricDockerComposeApplication -ApplicationName fabric:/TestContainer
 If you are using Azure CLI 2.0, run the following command:
 
 ```bash
-TBA
+az sf compose create --application-id fabric:/TestContainerApp --file docker-compose.yml [ [ --repo-user --repo-pass --encrypted ] | [ --repo-user ] ] [ --timeout ]
 ```
 These commands create a Service Fabric application (named `fabric:/TestContainerApp' in the preceding example) which can be monitored through Service Fabric Explorer(). The specified `ApplicationName` is used for health queries through PS, Azure CLI 2.0 or through SFX.
 
@@ -48,7 +48,7 @@ To delete the application through PS, use the following command:
 To delete the application through Azure CLI 2.0, use the following command:
 
 ```bash
-TBD
+az sf compose remove  --application-id TestContainerApp [ --timeout ]
 ```
 
 To get the status of the docker-compose application, use the following command in PS:
@@ -60,7 +60,7 @@ To get the status of the docker-compose application, use the following command i
 For Azure CLI 2.0, use the following command:
 
 ```bash
-TBD
+az sf compose status --application-id TestContainerApp [ --timeout ]
 ```
 
 

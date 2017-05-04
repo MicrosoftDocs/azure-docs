@@ -21,14 +21,21 @@ ms.author: subramar
 
 When running multiple services on the same node or cluster, it is possible that one service might consume more resources starving other services. This problem is referred to as the noisy-neighbor problem. Service Fabric allows the developer to specify reservations and limits per service to guarantee resources and also limit its resource usage. 
 
-
 ## Resource governance metrics 
 
-Resource governance is supported in Service Fabric per [Service Package](service-fabric-application-model.md). The resources that are assigned to Service Package can be further divided between code packages. The resource limits specified also mean the reservation of the resources. Service Fabric supports specifying CPU and Memory per container or code package:
+Resource governance is supported in Service Fabric per [Service Package](service-fabric-application-model.md). The resources that are assigned to Service Package can be further divided between code packages. The resource limits specified also mean the reservation of the resources. Service Fabric supports specifying CPU and Memory per service package, using two built-in [metrics](service-fabric-cluster-resource-manager-metrics.md):
 
-* CPU:  A core is a logical core that is available on the host machine, and all cores across all nodes are weighted the same. 
-* Memory: Only soft reservation guarantees are provided - the runtime rejects opening of new service packages if it can’t provide resources. However, if there is another exe/container placed on the node, it may lead to the original reservation guarantees being not met. 
+* CPU (metric name `ServiceFabric:/_CpuCores`): A core is a logical core that is available on the host machine, and all cores across all nodes are weighted the same.
+* Memory (metric name `ServiceFabric:/_MemoryInMB`): Memory is expressed in megabytes, and it maps to physical memory that is available on the machine.
 
+Only soft reservation guarantees are provided - the runtime rejects opening of new service packages available resources are exceeded. However, if another executable or container is placed on the node, that may violate the original reservation guarantees.
+
+For these two metrics, the [Cluster Resource Manager](service-fabric-cluster-resource-manager-cluster-description.md) tracks total cluster capacity, the load on each node in the cluster, and, remaining resources in the cluster. These two metrics are equivalent to any other user or custom metric and all existing features can be used with them:
+* Cluster can be [balanced](service-fabric-cluster-resource-manager-balancing.md) according to these two metrics (default behavior).
+* Cluster can be [defragmented](service-fabric-cluster-resource-manager-defragmentation-metrics.md) according to these two metrics.
+* When [describing a cluster](service-fabric-cluster-resource-manager-cluster-description.md), buffered capacity can be set for these two metrics.
+
+[Dynamic load reporting](service-fabric-cluster-resource-manager-metrics.md) is not supported for these metrics, and loads for these metrics are defined at creation time.
 
 ## Cluster set up for enabling resource governance
 
@@ -48,6 +55,7 @@ Resource governance is allowed only on user services and not on any system servi
 ```xml
 <Section Name="PlacementAndLoadBalancing">
     <Parameter Name="PreventTransientOvercommit" Value="true" /> 
+    <Parameter Name="AllowConstraintCheckFixesDuringApplicationUpgrade" Value="true" />
 </Section>
 ```
 
@@ -76,4 +84,11 @@ Resource governance limits are specified in the application manifest (ServiceMan
   </ServiceManifestImport>
 ```
   
-In this example, service package ServicePackageA gets one core on the nodes where it is placed. This service package contains two code packages (CodeA1 and CodeA2), and both specify the CPUShares parameter. The proportion of CpuShares 512:256  divides the core across the two code packages. Thus, in this example, CodeA1 gets two-thirds of a core, and  CodeA2 gets one-third of a core. Memory limits are absolute, so both code packages are limited to 1000 MB of memory (and a soft-guarantee reservation of the same).
+In this example, service package ServicePackageA gets one core on the nodes where it is placed. This service package contains two code packages (CodeA1 and CodeA2), and both specify the CPUShares parameter. The proportion of CpuShares 512:256  divides the core across the two code packages. Thus, in this example, CodeA1 gets two-thirds of a core, and  CodeA2 gets one-third of a core (and a soft-guarantee reservation of the same). In case when CpuShares are not specified for code packages, Service Fabric divides the cores equally among them.
+
+Memory limits are absolute, so both code packages are limited to 1024 MB of memory (and a soft-guarantee reservation of the same). Code packages (containers or processes) are not able to allocate more memory than this limit, and attempting to do so results in an out-of-memory exception. For resource limit enforcement to work, all code packages within a service package should have memory limits specified.
+
+
+## Next steps
+* To learn more about Cluster Resource Manager, read this [article](service-fabric-cluster-resource-manager-introduction.md).
+* To learn more about application model, service packages, code packages and how replicas map to them read this [article](service-fabric-application-model.md).
