@@ -67,6 +67,7 @@
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ### [Oauth](active-directory-protocols-oauth-code.md)
 ### [Service to Service Calls](active-directory-protocols-oauth-service-to-service.md)
+### [On-Behalf-Of flow](active-directory-protocols-oauth-on-behalf-of.md)
 ### [Supported Token and Claim Types](active-directory-token-and-claims.md)
 ### [Signing key rollover](active-directory-signing-key-rollover.md)
 ### [Federation Metadata](active-directory-federation-metadata.md)
