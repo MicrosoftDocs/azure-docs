@@ -20,10 +20,17 @@ ms.author: jingwang
 # Move data to and from Azure SQL Data Warehouse using Azure Data Factory
 This article explains how to use the Copy Activity in Azure Data Factory to move data to/from Azure SQL Data Warehouse. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.  
 
-You can copy data from any supported source data store to Azure SQL Data Warehouse or from Azure SQL Warehouse to any supported sink data store. For a list of data stores supported as sources or sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table.
-
 > [!TIP]
 > To achieve best performance, use PolyBase to load data into Azure SQL Data Warehouse. The [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) section has details. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+
+## Supported scenarios
+You can copy data **from Azure SQL Data Warehouse** to the following data stores:
+
+[!INCLUDE [data-factory-supported-sinks](../../includes/data-factory-supported-sinks.md)]
+
+You can copy data from the following data stores **to Azure SQL Data Warehouse**:
+
+[!INCLUDE [data-factory-supported-sources](../../includes/data-factory-supported-sources.md)]
 
 ## Supported authentication type
 Azure SQL Data Warehouse connector support basic authentication.
@@ -40,9 +47,10 @@ You can also use the following tools to create a pipeline: **Azure portal**, **V
 
 Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
-1. Create **linked services** to link input and output data stores to your data factory.
-2. Create **datasets** to represent input and output data for the copy operation.
-3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output.
+1. Create a **data factory**. A data factory may contain one or more pipelines. 
+2. Create **linked services** to link input and output data stores to your data factory. For example, if you are copying data from an Azure blob storage to an Azure SQL data warehouse, you create two linked services to link your Azure storage account and Azure SQL data warehouse to your data factory. For linked service properties that are specific to Azure SQL Data Warehouse, see [linked service properties](#linked-service-properties) section. 
+3. Create **datasets** to represent input and output data for the copy operation. In the example mentioned in the last step, you create a dataset to specify the blob container and folder that contains the input data. And, you create another dataset to specify the table in the Azure SQL data warehouse that holds the data copied from the blob storage. For dataset properties that are specific to Azure SQL Data Warehouse, see [dataset properties](#dataset-properties) section.
+4. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output. In the example mentioned earlier, you use BlobSource as a source and SqlSink as a sink for the copy activity. Similarly, if you are copying from Azure SQL Data Warehouse to Azure Blob Storage, you use SqlSource and BlobSink in the copy activity. For copy activity properties that are specific to Azure SQL Data Warehouse, see [copy activity properties](#copy-activity-properties) section. For details on how to use a data store as a source or a sink, click the link in the previous section for your data store.
 
 When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For samples with JSON definitions for Data Factory entities that are used to copy data to/from an Azure SQL Data Warehouse, see [JSON examples](#json-examples) section of this article.
 
@@ -365,7 +373,7 @@ You can also map columns from source dataset to columns from sink dataset in the
 ## JSON examples
 The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure SQL Data Warehouse and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
 
-## Example: Copy data from Azure SQL Data Warehouse to Azure Blob
+### Example: Copy data from Azure SQL Data Warehouse to Azure Blob
 The sample defines the following Data Factory entities:
 
 1. A linked service of type [AzureSqlDW](#linked-service-properties).
@@ -551,7 +559,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 >
 >
 
-## Example: Copy data from Azure Blob to Azure SQL Data Warehouse
+### Example: Copy data from Azure Blob to Azure SQL Data Warehouse
 The sample defines the following Data Factory entities:
 
 1. A linked service of type [AzureSqlDW](#linked-service-properties).
