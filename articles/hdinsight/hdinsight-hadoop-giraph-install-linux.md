@@ -137,14 +137,14 @@ Once the cluster has been created, use the following steps to run the SimpleShor
 
    | Parameter | What it does |
    | --- | --- |
-   | `jar /usr/hdp/current/giraph/giraph-examples.jar` |The jar file containing the examples. |
+   | `jar` |The jar file containing the examples. |
    | `org.apache.giraph.GiraphRunner` |The class used to start the examples. |
    | `org.apache.giraph.examples.SimpleShortestPathsCoputation` |The example that is used. In this example, it computes the shortest path between ID 1 and all other IDs in the graph. |
-   | `-ca mapred.job.tracker=headnodehost:9010` |The headnode for the cluster. |
-   | `-vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFromat` |The input format to use for the input data. |
-   | `-vip /example/data/tiny_graph.txt` |The input data file. |
-   | `-vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat` |The output format. In this example, ID and value as plain text. |
-   | `-op /example/output/shortestpaths` |The output location. |
+   | `-ca mapred.job.tracker` |The headnode for the cluster. |
+   | `-vif` |The input format to use for the input data. |
+   | `-vip` |The input data file. |
+   | `-vof` |The output format. In this example, ID and value as plain text. |
+   | `-op` |The output location. |
    | `-w 2` |The number of workers to use. In this example, 2. |
 
     For more information on these, and other parameters used with Giraph samples, see the [Giraph quickstart](http://giraph.apache.org/quick_start.html).
