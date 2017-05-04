@@ -23,7 +23,8 @@ ms.author: cherylmc
 This article shows you how to create a self-signed root certificate and generate client certificates. This article does not contain Point-to-Site configuration instructions or the Point-to-Site FAQ. You can find that information by selecting one of the 'Configure Point-to-Site' articles from the following list:
 
 > [!div class="op_single_selector"]
-> * [Create self-signed certificates](vpn-gateway-certificates-point-to-site.md)
+> * [Create self-signed certificates - PowerShell](vpn-gateway-certificates-point-to-site.md)
+> * [Create self-signed certificates - Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 > * [Configure Point-to-Site - Resource Manager - Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Configure Point-to-Site - Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Configure Point-to-Site - Classic - Azure portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
