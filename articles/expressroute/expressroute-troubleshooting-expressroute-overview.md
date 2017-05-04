@@ -247,7 +247,7 @@ If a peering is not configured, there would be an error message. A sample respon
 >
 >
 
-###Verification via PowerShell (Classic)
+### Verification via PowerShell (Classic)
 To get the Azure private peering configuration details, use the following command:
 
 	Get-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
@@ -289,7 +289,37 @@ To get the Microsoft peering configuration details, use the following commands:
 >
 
 ## Validate ARP between Microsoft and the service provider
-To troubleshoot and verify ARP please refer to the [Getting ARP tables in the Resource Manager deployment model][ARP] document. 
+This section uses PowerShell (Classic) commands. If you have been using PowerShell Azure Resource Manager commands, ensure that you have admin/co-admin access to the subscription via [Azure classic portal][OldPortal]. For troubleshooting using Azure Resource Manager commands please refer to the [Getting ARP tables in the Resource Manager deployment model][ARP] document.
+
+>[!NOTE]
+>To get ARP, both the Azure portal and Azure Resource Manager PowerShell commands can be used. If errors are encountered with the Azure Resource Manager PowerShell commands, classic PowerShell commands should work as Classic PowerShell commands also work with Azure Resource Manager ExpressRoute circuits.
+>
+>
+
+To get the ARP table from the primary MSEE router for the private peering, use the following command:
+
+	Get-AzureDedicatedCircuitPeeringArpInfo -AccessType Private -Path Primary -ServiceKey "*********************************"
+
+An example response for the command, in the successful scenario:
+
+	ARP Info:
+
+                 Age           Interface           IpAddress          MacAddress
+                 113             On-Prem       10.0.0.1      	  e8ed.f335.4ca9
+                   0           Microsoft       10.0.0.2           7c0e.ce85.4fc9
+
+Similarly, you can check the ARP table from the MSEE in the *Primary*/*Secondary* path, for *Private*/*Public*/*Microsoft* peerings.
+
+The following example shows the response of the command for a peering does not exist.
+
+	ARP Info:
+	   
+>[!NOTE]
+>If the ARP table does not have IP addresses of the interfaces mapped to MAC addresses, review the following information:
+>1. If the first IP address of the /30 subnet assigned for the link between the MSEE-PR and MSEE is used on the interface of MSEE-PR. Azure always uses the second IP address for MSEEs.
+>2. Verify if the customer (C-Tag) and service (S-Tag) VLAN tags match both on MSEE-PR and MSEE pair.
+>
+>
 
 ## Validate BGP and routes on the MSEE
 This section uses PowerShell (Classic) commands. If you have been using PowerShell Azure Resource Manager commands, ensure that you have admin/co-admin access to the subscription via [Azure classic portal][OldPortal]
