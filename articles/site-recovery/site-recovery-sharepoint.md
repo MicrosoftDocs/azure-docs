@@ -175,7 +175,7 @@ You can deploy the most commonly used Azure Site Recovery scripts into your Auto
 	
 	####Start with a new Search Service Application
 
-	* This method assumes that a backup of the “Search Administration” database is available at the DR site.
+	* This method assumes that a backup of the “Search Administration” database is available at the DR site. 
 	* Since the other Search Service Application databases are not replicated, they will need to be re-created. To do so, navigate to Central Administration and delete the Search Service Application. On any servers which host the Search Index, delete the index files.
 	* Re-create the Search Service Application, this will re-create the databases. It is strongly recommended to have a prepared script that will re-create this service application since it is not possible to perform all actions via the GUI. For example, setting the index drive location and configuring the search topology are only possible by using SharePoint PowerShell cmdlets. Use the Windows PowerShell cmdlet Restore-SPEnterpriseSearchServiceApplication and specify the log-shipped and replicated Search Administration database, Search_Service__DB. This cmdlet gives the search configuration, schema, managed properties, rules, and sources and creates a default set of the other components.
 	* Once the Search Service Application has be re-created, you must start a full crawl for each content source to restore the Search Service. Note that you lose some analytics information from the on-premises farm, such as search recommendations. 
