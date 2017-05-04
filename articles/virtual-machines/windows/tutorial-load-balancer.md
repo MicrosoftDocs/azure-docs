@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/17/2017
+ms.date: 05/02/2017
 ms.author: iainfou
 ---
 
 # How to load balance Windows virtual machines in Azure to create a highly available application
-In this tutorial, you learn about the different components of the Azure load balancer that distribute traffic and provide high availability. To see the load balancer in action, you build a simple IIS web site that runs on three Windows virtual machines (VMs).
+Load balancing provide a higher level of availability by spreading incoming requests across multiple virtual machines. In this tutorial, you learn about the different components of the Azure load balancer that distribute traffic and provide high availability. To see the load balancer in action, you build a simple IIS web site that runs on three Windows virtual machines (VMs).
 
-The steps in this tutorial can be completed using the latest [Azure PowerShell](/powershell/azure/overview) module.
+This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 
 ## Azure load balancer overview
@@ -35,12 +35,12 @@ To control the flow of traffic, you define load balancer rules for specific port
 
 
 ## Create Azure load balancer
-This section details how you can create and configure each component of the load balancer. Before you can create your load balancer, create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resource group named *myResourceGroupLoadBalancer* in the *westus* location:
+This section details how you can create and configure each component of the load balancer. Before you can create your load balancer, create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resource group named *myResourceGroupLoadBalancer* in the *EastUS* location:
 
 ```powershell
 New-AzureRmResourceGroup `
   -ResourceGroupName myResourceGroupLoadBalancer `
-  -Location westus
+  -Location EastUS
 ```
 
 ### Create a public IP address
@@ -49,7 +49,7 @@ To access your app on the Internet, you need a public IP address for the load ba
 ```powershell
 $publicIP = New-AzureRmPublicIpAddress `
   -ResourceGroupName myResourceGroupLoadBalancer `
-  -Location westus `
+  -Location EastUS `
   -AllocationMethod Static `
   -Name myPublicIP
 ```
@@ -75,7 +75,7 @@ Now, create the load balancer with [New-AzureRmLoadBalancer](/powershell/module/
 $lb = New-AzureRmLoadBalancer `
   -ResourceGroupName myResourceGroupLoadBalancer `
   -Name myLoadBalancer `
-  -Location westus `
+  -Location EastUS `
   -FrontendIpConfiguration $frontendIP `
   -BackendAddressPool $backendPool
 ```
@@ -132,7 +132,7 @@ $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
   -AddressPrefix 192.168.1.0/24
 $vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName myResourceGroupLoadBalancer `
-  -Location westus `
+  -Location EastUS `
   -Name myVnet `
   -AddressPrefix 192.168.0.0/16 `
   -Subnet $subnetConfig
@@ -155,7 +155,7 @@ $nsgRule = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 $nsg = New-AzureRmNetworkSecurityGroup `
   -ResourceGroupName myResourceGroupLoadBalancer `
-  -Location westus `
+  -Location EastUS `
   -Name myNetworkSecurityGroup `
   -SecurityRules $nsgRule
 Set-AzureRmVirtualNetworkSubnetConfig `
@@ -174,7 +174,7 @@ for ($i=1; $i -le 3; $i++)
    New-AzureRmNetworkInterface `
      -ResourceGroupName myResourceGroupLoadBalancer `
      -Name myNic$i `
-     -Location westus `
+     -Location EastUS `
      -Subnet $vnet.Subnets[0] `
      -LoadBalancerBackendAddressPool $lb.BackendAddressPools[0]
 }
@@ -189,7 +189,7 @@ Create an availability set with [New-AzureRmAvailabilitySet](/powershell/module/
 $availabilitySet = New-AzureRmAvailabilitySet `
   -ResourceGroupName myResourceGroupLoadBalancer `
   -Name myAvailabilitySet `
-  -Location westus `
+  -Location EastUS `
   -Managed `
   -PlatformFaultDomainCount 3 `
   -PlatformUpdateDomainCount 2
@@ -235,7 +235,7 @@ for ($i=1; $i -le 3; $i++)
   $vm = Add-AzureRmVMNetworkInterface `-VM $vm -Id $nic.Id
   New-AzureRmVM `
     -ResourceGroupName myResourceGroupLoadBalancer `
-    -Location westus `
+    -Location EastUS `
     -VM $vm
 }
 ```
@@ -258,7 +258,7 @@ for ($i=1; $i -le 3; $i++)
      -ExtensionType CustomScriptExtension `
      -TypeHandlerVersion 1.4 `
      -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-     -Location westus
+     -Location EastUS
 }
 ```
 
