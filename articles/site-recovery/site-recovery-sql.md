@@ -1,6 +1,6 @@
 ---
-title: Replicate apps with SQL Server and Azure Site Recovery | Microsoft Docs
-description: This article describes how to replicate SQL Server using Azure Site Recovery of SQL Server disaster capabilities.
+title: Replicate applications with SQL Server and Azure Site Recovery | Microsoft Docs
+description: This article describes how to replicate SQL Server using Azure Site Recovery for SQL Server disaster capabilities.
 services: site-recovery
 documentationcenter: ''
 author: prateek9us
@@ -183,7 +183,7 @@ Site Recovery doesn't provide guest cluster support when replicating to Azure. S
 
 1. Configure an additional standalone SQL Server instance on the on-premises site.
 1. Configure the instance to serve as a mirror for the databases you want to protect. Configure mirroring in high safety mode.
-1. Configure Site Recovery on the on-premises site, for ([Hyper-V](site-recovery-hyper-v-site-to-azure.md) or [VMware VMs/physical servers](site-recovery-vmware-to-azure-classic.md).
+1. Configure Site Recovery on the on-premises site, for ([Hyper-V](site-recovery-hyper-v-site-to-azure.md) or [VMware VMs/physical servers)](site-recovery-vmware-to-azure-classic.md).
 1. Use Site Recovery replication to replicate the new SQL Server instance to Azure. Since it's a high safety mirror copy, it will be synchronized with the primary cluster, but it will be replicated to Azure using Site Recovery replication.
 
 
