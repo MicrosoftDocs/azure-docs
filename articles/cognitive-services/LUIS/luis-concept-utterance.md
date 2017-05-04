@@ -18,8 +18,10 @@ ms.author: cahann
 * **What are entities?** If intents are verbs, then entities are nouns. An entity represents an instance of a class of object that is relevant to a user’s purpose. In the utterance "Book me a ticket to Paris", "Paris" is an entity of type location. By recognizing the entities that are mentioned in the user’s input, LUIS helps you choose the specific actions to take to fulfill an intent. LUIS also provides [pre-built entities][pre-built-entities] that you can use in your app.
 -->
 
-**Utterances** are input from the user that your app needs to interpret. To train LUIS to extract intents and entities from them, it's important to capture a variety of different inputs for each intent.
-Collect phrases that you think users will say, and include utterances that mean the same thing but are constructed differently.
+**Utterances** are input from the user that your app needs to interpret. To train LUIS to extract intents and entities from them, it's important to capture a variety of different inputs for each intent. Active learning, or the process of continuing to train on new utterances, is essential to machine-learned intelligence that LUIS provides.
+
+Collect phrases that you think users will say, and include utterances that mean the same thing but are constructed differently. 
+
 
 ## How to choose varied utterances
 When you first get started by [adding example utterances][add-example-utterances] to your LUIS model, here are some principles to keep in mind.
@@ -44,6 +46,6 @@ When can I have a credit card?
 The core term here, "credit card", is not varied. They could say visa, master card, gold card, plastic or even just card. LUIS can be quite intelligent at inferring synonyms from context, but when you create utterances for training, it's stil better to vary them.
 
 ## Next steps
-See [Add example utterances][add-example-utterances] for information on training a LUIS app to understand user utterances.
+See [Active learning][add-example-utterances] for information on training a LUIS app to understand user utterances.
 
 [add-example-utterances]: Add-example-utterances.md
