@@ -21,7 +21,12 @@ ms.author: cynthn
 
 # How to use availability sets
 
-To protect application workload from downtime during maintenance or hardware fault, virtual machines need to be made highly available. In this tutorial, you learn about increasing the availability of your virtual machines (VMs) by putting them into a logical grouping called availability sets.
+To protect application workload from downtime during maintenance or hardware fault, virtual machines need to be made highly available. In this tutorial, you increase the availability of your virtual machines (VMs) by putting them into a logical grouping called availability sets. You learn how to:
+
+> [!div class="checklist"]
+> * Create an availability set
+> * Create a VM in an availability set
+> * Check available VM sizes
 
 This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
@@ -80,7 +85,14 @@ az vm availability-set list-sizes \
 
 ## Next steps
 
-In this tutorial, you have learned about using availability sets. Advance to the next tutorial to learn about virtual machine scale sets.
+In this tutorial, you learned how to:
+
+> [!div class="checklist"]
+> * Create an availability set
+> * Create a VM in an availability set
+> * Check available VM sizes
+
+Advance to the next tutorial to learn about virtual machine scale sets.
 
 [Create a VM scale set](tutorial-create-vmss.md)
 
