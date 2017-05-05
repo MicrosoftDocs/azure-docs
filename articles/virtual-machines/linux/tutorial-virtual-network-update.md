@@ -20,21 +20,15 @@ ms.author: davidmu
 
 # Manage Azure Virtual Networks and Linux Virtual Machines with the Azure CLI
 
-Azure virtual machines use Azure networking for internal and external network communication. In this tutorial, you will learn about networking virtual machine, making VMs available on the internet, and securing network communication.
+Azure virtual machines use Azure networking for internal and external network communication. In this tutorial, you will learn about networking virtual machine, providing internet connectivity to VMs, and securing network communication.
 
 This tutorial requires the Azure CLI version 2.0.4 or later. To find the CLI version run `az --version`. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## VM networking overview
 
-Azure virtual networks enables you to establish secure network connections between virtual machines, between virtual machines and the internet, and between virtual machines and other Azure services such as Azure SQL database. The following networking items are discussed in this tutorial.
+Azure virtual networks enable secure network connections between virtual machines, virtual machines and the internet, and between virtual machines and other Azure services such as Azure SQL database. Virtual networks are broken down into logical segments called subnets. Subnets are used to control network flow, and as a security boundary. When deploying a VM, it will generally include one or more virtual network card which is attached to a subnet.
 
-- **Azure virtual networks** – an Azure hosted network that securely connects Azure VMs, VMs to other Azure resources, and optionally Azure VMs to on-premises networks.
-- **Virtual network subnets** – Virtual networks are broken down into logical segments called subnets. A subnet is primarily used to control network flow and as a security boundary.
-- **Public IP addresses** – An IP address that is presented on the internet and allows internet connectivity to Azure resources.
-- **Network security groups** – secure azure resources, like a firewall.
-- **Network security group rules** -  security rules that allow or deny network traffic to Azure resources. 
-
-## Deploy Virtual Network
+## Deploy virtual network
 
 For this tutorial, a single virtual network will be created with three subnets. The subnets will be arranged as the follows:
 
@@ -42,7 +36,7 @@ For this tutorial, a single virtual network will be created with three subnets. 
 - **Back-end** – VMs that host back-end databases.
 - **Remote access** – hosts a single VM that can be used to remotely access the front-end and back-end VMs.
 
-Before you start, create a resource group.
+Before you can create a virtual network, create a resource group with az group create. The following example creates a resource group named myRGNetwork in the eastus location.
 
 ```azurecli
 az group create --name myRGNetwork --location eastus
