@@ -37,7 +37,7 @@ If you're already running a web app in Azure, you already get some monitoring: r
    
     ![Instrument your web app](./media/app-insights-azure-web-apps/restart-web-app-for-insights.png)
 
-   **Enable client side monitoring**
+   **Enable client side monitoring** for page view and user telemetry.
 
    * Select Settings > Application Settings
    * Under App Settings, add a new key value pair: 
