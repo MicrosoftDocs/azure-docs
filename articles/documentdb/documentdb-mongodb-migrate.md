@@ -19,7 +19,7 @@ ms.author: anhoh
 
 ---
 
-# Azure Cosmos DB: How to migrate data MongoDB data? 
+# Azure Cosmos DB: How to migrate MongoDB data to Cosmos DB? 
 
 To migrate data from MongoDB to an Azure Cosmos DB account for use with the MongoDB API, you must:
 
