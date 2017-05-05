@@ -50,28 +50,42 @@ The first backup takes about 20 minutes. Proceed to the next part of this tutori
 
 ## Recover a file
 
-If you accidentally delete or make changes to a file, you can use File Recovery to recover the file from your backup vault. File Recovery uses a script that runs on the VM, to mount the a recovery point as local drive. These drives will remain mounted for 12 hours so that you can copy files from the recovery point and restore them to the VM.  
+If you accidentally delete or make changes to a file, you can use File Recovery to recover the file from your backup vault. File Recovery uses a script that runs on the VM, to mount the recovery point as local drive. These drives will remain mounted for 12 hours so that you can copy files from the recovery point and restore them to the VM.  
 
 For this example, we are showing a Windows VM with IIS installed. We will delete the image file that is used in the default web page for IIS. 
 
 1. Open a browser and connect to the IP address of the VM to show the default IIS page.
+
+	![Default IIS web page](./media/tutorial-backup-vms/iis-working.png)
+
 2. Connect to the VM.
 3. On the VM, open **File Explorer** and navigate to \inetpub\wwwroot and delete the file **iisstart.png**.
-4. On your local computer, refresh the browser to see that the image is gone.
+4. On your local computer, refresh the browser to see that the image on the default IIS page is gone.
+
+	![Default IIS web page](./media/tutorial-backup-vms/iis-broken.png)
+
 5. On your local computer, open a new tab and go the the [Azure portal](portal.azure.com).
-6. In the menu on the left, select **Virtual machines**. 
-7. From the list, select the VM.
+6. In the menu on the left, select **Virtual machines** and select the VM form the list.
 8. On the VM blade, in the **Settings** section, click **Backup**. The **Backup** blade opens. 
 9. In the menu at the top of the blade, select **File Recovery (Preview)**. The **File Recovery (Preview) blade opens.
 10. In **Step 1: Select recovery point**, select a recovery point from the drop-down.
-11. In **Step 2: Download script to browse and recover files**, click the **Download Executable** button. Save the downloaded file to your **Downloads** folder.
-12. On your local machine, open **File Explorer** and navigate to your **Downloads** folder and copy the downloaded .exe file. The filename will be prefixed by your VM name. 
+11. In **Step 2: Download script to browse and recover files**, click the **Download Executable** button. Save the file to your **Downloads** folder.
+12. On your local computer, open **File Explorer** and navigate to your **Downloads** folder and copy the downloaded .exe file. The filename will be prefixed by your VM name. 
 13. On your VM (over the RDP connection) paste the .exe file to the Desktop of your VM. 
 14. Navigate to the desktop of your VM and double-click on the .exe. This will launch a command prompt and then mount the recovery point as a file share that you can access. When it is finished creating the share, type **q** to close the command prompt.
 15. Open file explorer and navigate to the drive letter that was used for the file share.
 16. Navigate to \inetpub\wwwroot and copy **iisstart.png** from the file share and paste it into \inetpub\wwwroot. For example, copy F:\inetpub\wwwroot\iisstart.png and paste it into c:\inetpub\wwwroot to recover the file.
-17. On your local machine, open the browser tab where you are connected to the VM and the IIS default page. Press CTRL + F5 to refersh the browser page and you should now see that the image has been restored.
-18. When you are done recovering files, got back to the browser and in **Step 3: Unmount the disks after recovery** click the **Unmount Disks** button.
+17. On your local machine, open the browser tab where you are connected to the IP address of the VM showing the IIS default page. Press CTRL + F5 to refresh the browser page. You should now see that the image has been restored.
+18. On your local computer, go back to the browser tab for the Azure portal and in **Step 3: Unmount the disks after recovery** click the **Unmount Disks** button.
+
+
+## Next steps
+
+In this tutorial, you have learned about backing up VMs. Advance to the next tutorial to learn about Azure security center.
+
+[Manage VM security](tutorial-azure-security.md)
+
+
 
 
 
