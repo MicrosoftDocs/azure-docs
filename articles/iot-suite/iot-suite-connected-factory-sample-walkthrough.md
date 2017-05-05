@@ -110,12 +110,6 @@ You can continue getting started with IoT Suite by reading the following article
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-iothub]: https://azure.microsoft.com/documentation/services/iot-hub/
-[lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[lnk-webjobs]: https://azure.microsoft.com/documentation/articles/websites-webjobs-resources/
-[lnk-connect-rm]: iot-suite-connecting-devices.md
-[lnk-permissions]: iot-suite-permissions.md
-[lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
-[lnk-device-twins]:  ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/azure-iot-gateway-sdk
