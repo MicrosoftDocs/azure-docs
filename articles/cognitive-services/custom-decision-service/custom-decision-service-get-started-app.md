@@ -25,7 +25,7 @@ If you are not already signed in, the portal prompts you to sign in with your [M
 
 ![Custom Decision Service portal](./media/custom-decision-service-get-started-app/portal.png)
 
-To register your application, click the *New* button. A pop-up should open for registering a new app. Let us see how to register an application in the *pooled learning mode* that was described in the [Overview](custom-decision-service-overview.md). Choose an identifier for your application. Custom Decision Service expects a unique identifier for each application. If someone else has already taken this id the system asks you to pick a different id.
+To register your application, click the *New* button. A pop-up should open for registering a new app. Let us see how to register an application in the *pooled learning mode* that was described in the [Overview](custom-decision-service-overview.md). Choose an identifier for your application. Custom Decision Service expects a unique identifier for each application. If someone else has already taken this id, the system asks you to pick a different id.
 
 You can also specify an Action Set API: an RSS or Atom feed that communicates the available content for your application to Custom Decision Service. Enter a name for the feed, along with the URL from which it is served. An example for creating an RSS feed is described later.
 
@@ -35,7 +35,7 @@ If you want to register your application in the *application-specific learning m
 
 The basic usage of our APIs is fairly easy (but see the API reference for additional options and features). There are two API calls you make from your smartphone app to the Custom Decision Service: a call to Ranking API to obtain a ranked list of your content, and a call to Reward API to report a reward. Here we provide the sample calls in [cURL](https://en.wikipedia.org/wiki/CURL).
 
-We start with the call to Ranking API. Create a file `<request.json>`, which contains the action set id:
+We start with the call to Ranking API. Create a file `<request.json>`, which contains the "action set id": the name of the corresponding RSS/Atom feed that you entered on the portal.
 
 ```json
 {"decisions":
@@ -49,7 +49,6 @@ Multiple action sets can be specified as follows:
     [{ "actionSets":[{"id":"<actionSetId1>"},
                      {"id":"<actionSetId2>"}] }]
 ```
-
 
 This JSON file is then sent as part of the ranking request:
 
@@ -67,7 +66,7 @@ Here `<appId>` is the name of your application that you register on our portal. 
                  {"id":"<A2>","lastRefresh":"2017-04-30T22:34:25.3401438Z"}]}]
 ```
 
-The first part of the return contains a list of ordered actions, specified by their *actionIds*. The overall request also has a unique `<eventId>`, created by our system.
+The first part of the return contains a list of ordered actions, specified by their action Ids. For an article, action id is a URL. The overall request also has a unique `<eventId>`, created by our system.
 
 At a later point, you can specify if you observed a click on the first content item from this event, that is `<actionId1>`. In this case, you can report a reward on this `<eventId>` to the Custom Decision Service via the Reward API, with another request such as:
 
