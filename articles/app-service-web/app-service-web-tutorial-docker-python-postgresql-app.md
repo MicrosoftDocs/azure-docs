@@ -1,5 +1,5 @@
 ---
-title: Build a Node.js and MongoDB web app in Azure | Microsoft Docs 
+title: Build a Docker Python and PostgreSQL web app in Azure | Microsoft Docs 
 description: Learn how to get a Docker Python app working in Azure, with connection to a PostgreSQL database.
 services: app-service\web
 documentationcenter: python
@@ -113,7 +113,7 @@ In this step, you create a PostgreSQL database in Azure. When your app is deploy
 
 ### Log in to Azure
 
-You are now going to use the Azure CLI 2.0 in a terminal window to create the resources needed to host your Node.js application in Azure App Service.  Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions. 
+You are now going to use the Azure CLI 2.0 in a terminal window to create the resources needed to host your Python application in Azure App Service.  Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions. 
 
 ```azurecli 
 az login 
