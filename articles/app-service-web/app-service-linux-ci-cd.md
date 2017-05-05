@@ -57,7 +57,7 @@ When the image gets updated, the web app get updated automatically with the new 
 
 ## Next steps
 * [What is Web App on Linux?](./app-service-linux-intro.md)
-* [Creating Apps in an Web App on Linux](./app-service-linux-how-to-create-a-web-app.md)
+* [Creating Apps in Web App on Linux](./app-service-linux-how-to-create-a-web-app.md)
 * [How to use a custom Docker image for Web App on Linux](./app-service-linux-using-custom-docker-image.md)
 * [Azure App Service Web App on Linux FAQ](./app-service-linux-faq.md) 
 
