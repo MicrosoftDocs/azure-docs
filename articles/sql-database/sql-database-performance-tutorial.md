@@ -5,7 +5,7 @@ metakeywords: azure sql database performance monitoring recommendation
 services: sql-database
 documentationcenter: ''
 manager: jhubbard
-author: JennieHubbard
+author: jan-eng
 
 ms.assetid: 
 ms.service: sql-database
@@ -15,12 +15,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2017
-ms.author: janeng>
+ms.author: janeng
 
 ---
 # Troubleshoot performance issues and optimize your database
 
-In this tutorial you will learn how to apply performance recommendations to your SQL Database as well as learn how to gain insights about the performance of the queries running against your database.
+In this tutorial you will learn how to:
+> [!div class="checklist"]
+> * Review and apply recommendations
+> * Set up automatic recommendations
+> * Revert a recommendation
+> * View query resoure usage
+> * Find long running queries
+
 
 > [!NOTE]
 > To receive a recommendation, you need a continuous workload on a database with performance issues – missing an index for example.
@@ -95,3 +102,14 @@ Follow these steps to find the query consuming the most resources:
 4. Review the query details.
 
     ![query insights](./media/sql-database-performance-tutorial/review_query_details.png)
+
+In this tutorial you learned how to:
+> [!div class="checklist"]
+> * Review and apply recommendations
+> * Set up automatic recommendations
+> * Revert a recommendation
+> * View query resoure usage
+> * Find long running queries
+
+## Next steps 
+[SQL Database performance tuning tips](https://docs.microsoft.com/azure/sql-database/sql-database-troubleshoot-performance)
