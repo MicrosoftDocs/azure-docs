@@ -1,7 +1,7 @@
 ---
 title: Azure Cosmos DB Automation - Managing Regions | Microsoft Docs
 description: Use Azure CLI 1.0 and Azure Resource Manager to manage regions in an Azure Cosmos DB database account. 
-services: documentdb
+services: cosmosdb
 author: dmakwana
 manager: jhubbard
 editor: ''
@@ -9,7 +9,7 @@ tags: azure-resource-manager
 documentationcenter: ''
 
 ms.assetid: 7f765c17-8549-4108-9475-46394fc3a218
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -22,7 +22,7 @@ ms.author: dimakwan
 
 This article shows you how to add/remove a region in your Azure Cosmos DB DocumentDB API account by using Azure CLI 1.0 commands and Azure Resource Manager templates. Region management can also be accomplished through the [Azure Portal](documentdb-portal-global-replication.md). Note that the commands in the following tutorial do not allow you to change failover priorities of the various regions. Only read regions can  be added or removed. The write region of a database account (failover priority of 0) cannot be added/removed.
 
-Azure Cosmos DB database accounts are currently the only Azure Cosmos DB or DocumentDB resource that can be created/modified using [Azure Resource Manager templates and Azure CLI 1.0](documentdb-automation-resource-manager-cli.md). 
+Azure Cosmos DB database accounts are currently the only Azure Cosmos DB resource that can be created/modified using [Azure Resource Manager templates and Azure CLI 1.0](documentdb-automation-resource-manager-cli.md). 
 
 To create Azure Cosmos DB DocumentDB API, Table API, Graph API, or Mongo DB account using CLI 2.0, see [Create an Azure DocumentDB account using the Azure CLI](documentdb-automation-resource-manager-cli.md).
 
@@ -93,7 +93,7 @@ If needed, you can switch back to the default set of commands by typing `azure c
 
 ### Create or retrieve your resource group
 
-In order to create an Azure DocumentDB account, you first need a resource group. If you already know the name of the resource group that you'd like to use, then skip to [Step 2](#create-documentdb-account-cli). 
+In order to create an Azure Cosmos DB account, you first need a resource group. If you already know the name of the resource group that you'd like to use, then skip to [Step 2](#create-documentdb-account-cli). 
 
 To review a list of all of your current resource groups, run the following command and take note of the resource group name you'd like to use: 
 
