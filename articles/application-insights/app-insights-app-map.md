@@ -94,7 +94,7 @@ The app map finds server nodes by following any HTTP dependency calls made betwe
 
 ### Multi-role app map (preview)
 
-The preview multi-role app map feature will allow you to use the app map with multiple servers sending data to the same Application Insights resource  / instrumentation key. Servers in the map are segmented by cloud_RoleName. Set *Multi-role Application Map* to *On* from the Previews blade to enable this configuration.
+The preview multi-role app map feature will allow you to use the app map with multiple servers sending data to the same Application Insights resource  / instrumentation key. Servers in the map are segmented by the cloud_RoleName property on telemetry items. Set *Multi-role Application Map* to *On* from the Previews blade to enable this configuration.
 
 This approach may be desired in a micro-services application, or in other scenarios where you want to correlate events across multiple servers within a single Application Insights resource.
 
