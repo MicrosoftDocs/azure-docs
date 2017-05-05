@@ -20,23 +20,34 @@ ms.author: davidmu
 
 # Monitor a Linux Virtual Machine with the Azure CLI
 
-In this tutorial, you learn about how [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) can be used to investigate diagnostics data that is automatically collected when you create a Linux Virtual Machine (VM). You also learn how to add additional monitoring capabilities by adding extensions to your VM.
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) can be used to investigate diagnostics data that can be collected on a Linux Virtual Machine (VM). and. You learn how to:
+
+> [!div class="checklist"]
+> * Create a resource group and VM 
+> * Enable boot diagnostics on the VM
+> * View boot diagnostics
+> * View host metrics
+> * Install the diagnostics extension
+> * View VM metrics
+> * View activity log
+> * Create an alert
+> * Set up advanced monitoring
 
 The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 ## Create VM
 
-Before you can create any other Azure resources, you need to create a resource group with az group create. The following example creates a resource group named `myRGMonitor` in the `westus` location:
+Before you can create any other Azure resources, you need to create a resource group with az group create. The following example creates a resource group named `myResourceGroupMonitor` in the `eastus` location:
 
 ```azurecli
-az group create --name myRGMonitor --location westus
+az group create --name myResourceGroupMonitor --location eastus
 ```
 
 Create `myMonitorVM` with [az vm create](https://docs.microsoft.com/cli/azure/vm#create):
 
 ```azurecli
 az vm create \
-  --resource-group myRGMonitor \
+  --resource-group myResourceGroupMonitor \
   --name myMonitorVM \
   --image UbuntuLTS \
   --generate-ssh-keys
@@ -46,14 +57,14 @@ az vm create \
 
 There can be many reasons why a VM gets into a non-bootable state. Using boot diagnostics, you can easily diagnose and recover your VM from boot failures. Boot diagnostics are not automatically enabled when you create a Linux VM.
 
-Before you can enable boot diagnostics, you will need a storage account in myRGMonitor to store the data that is collected. You can use [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) to create a storage account:
+Before you can enable boot diagnostics, you will need a storage account in `myResourceGroupMonitor` to store the data that is collected. You can create a storage account named `mydiagnosticsstorage` with [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create):
 
 ```azurecli
 az storage account create \
-  --resource-group myRGMonitor \
+  --resource-group myResourceGroupMonitor \
   --name mydiagnosticsstorage \
   --sku Standard_LRS \
-  --location westus
+  --location eastus
 ```
 
 **Note:** Storage account names must be between 3 and 24 characters and must contain only numbers and lowercase letters.
@@ -62,7 +73,7 @@ Now you can enable boot diagnostics with [az vm boot-diagnostics enable](https:/
 
 ```azurecli
 az vm boot-diagnostics enable \
-  --resource-group myRGMonitor \
+  --resource-group myResourceGroupMonitor \
   --name myMonitorVM \
   --storage https://mydiagnosticsstorage.blob.core.windows.net/
 ```
@@ -71,11 +82,11 @@ az vm boot-diagnostics enable \
 
 When boot diagnostics are enabled, each time you stop and start the VM, information about the boot process is written to a log file.
 
-You can get the boot diagnostic data from myMonitorVM with [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#get-boot-log):
+You can get the boot diagnostic data from `myMonitorVM` with [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#get-boot-log):
 
 ```azurecli
 az vm boot-diagnostics get-boot-log \
-  -–resource-group myRGMonitor \
+  -–resource-group myResourceGroupMonitor \
   -–name myMonitorVM
 ```
 
@@ -83,7 +94,7 @@ az vm boot-diagnostics get-boot-log \
 
 A Linux VM has a dedicated Host VM in Azure that it interacts with. Metrics are automatically collected for the Host VM that you can easily view in the Azure portal.
 
-1. In the Azure portal, click **Resource Groups**, select **myRGMonitor**, and then select **myMonitorVM** in the resource list.
+1. In the Azure portal, click **Resource Groups**, select **myResourceGroupMonitor**, and then select **myMonitorVM** in the resource list.
 2. Click **Metrics** on the VM blade, and then select any of the Host metrics under **Available metrics** to see how the Host VM is performing.
 
 ![View host metrics](./media/tutorial-monitoring/tutorial-monitor-host-metrics.png)
@@ -107,25 +118,25 @@ az vm diagnostics set \
   --settings "${default_config}" \
   --protected-settings "${settings}" \
   --vm-name myMonitorVM \
-  --resource-group myRGMonitor
+  --resource-group myResourceGroupMonitor
 ```
 
 ## View VM metrics
 
 You can view the VM metrics in the same way that you viewed the Host VM metrics:
 
-1. In the Azure portal, click **Resource Groups**, select **myRGMonitor**, and then select **myMonitorVM** in the resource list.
+1. In the Azure portal, click **Resource Groups**, select **myResourceGroupMonitor**, and then select **myMonitorVM** in the resource list.
 2. Click **Metrics** on the VM blade, and then select any of the diagnostics metrics under **Available metrics** to see how the VM is performing.
 
 ## View activity log
 
-The [Azure Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) is a log that provides insight into the operations that were performed on your VM. Using the Activity Log, you can determine the ‘what, who, and when’ for any write operations taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties.
+The [Azure Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) is a log that provides insight into the operations that were performed on your VM. Using the Activity Log, you can determine the 'what, who, and when' for any write operations taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties.
 
 Before running [az monitor activity-log list](https://docs.microsoft.com/en-us/cli/azure/monitor/activity-log#list), replace {sub-id} with the identifier of your Azure subscription:
 
 ```azurecli
 az monitor activity-log list \
-  --resource-id '/subscriptions/{sub-id}/resourceGroups/myRGMonitor/providers/Microsoft.Compute/virtualMachines/myMonitorVM'
+  --resource-id '/subscriptions/{sub-id}/resourceGroups/myResourceGroupMonitor/providers/Microsoft.Compute/virtualMachines/myMonitorVM'
 ```
 
 ## Create alerts
@@ -137,10 +148,10 @@ Before creating an alert with [az monitor alert-rules create](https://docs.micro
 ```azurecli
 az monitor alert-rules create \
   --alert-rule-resource-name cpu-alert \
-  --resource-group myRGMonitor \
-  --location westus \
+  --resource-group myResourceGroupMonitor \
+  --location eastus \
   --is-enabled true \
-  --condition '{"odatatype": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition", "data_source": { "odatatype": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource", "resource_uri": "/subscriptions/{sub-id}/resourceGroups/myRGMonitor/providers/Microsoft.Compute/virtualMachines/myMonitorVM", "metric_name": "Percentage CPU", }, "operator": "GreaterThan", "threshold": 1, "window_size": "PT5M"}' 
+  --condition '{"odatatype": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition", "data_source": { "odatatype": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource", "resource_uri": "/subscriptions/{sub-id}/resourceGroups/myResourceGroupMonitor/providers/Microsoft.Compute/virtualMachines/myMonitorVM", "metric_name": "Percentage CPU", }, "operator": "GreaterThan", "threshold": 1, "window_size": "PT5M"}' 
   --actions '[{"odatatype": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction", "send_to_service_owners": true}]'
   ```
 
@@ -152,7 +163,7 @@ When you have access to the OMS portal, you can find the workspace key and works
 
 ```azurecli
 az vm extension set \
-  --resource-group myRGMonitor \
+  --resource-group myResourceGroupMonitor \
   --vm-name myMonitorVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
@@ -161,6 +172,6 @@ az vm extension set \
   --settings '{"workspaceId": "<workspace-id>"}'
 ```
 
-On the Log Search blade of the OMS portal, you should see myMonitorVM such as what is shown in the following picture:
+On the Log Search blade of the OMS portal, you should see `myMonitorVM` such as what is shown in the following picture:
 
 ![OMS blade](./media/tutorial-monitoring/tutorial-monitor-oms.png)
