@@ -54,7 +54,7 @@ Now in your browser, type http://localhost:{port}/authenticated to access your c
 #### Expected results
 You should receive the prompt requiring you to authenticate to see the view.
 
-# Additional Information
+## Additional Information
 
 <!--start-collapse-->
 ### Protect your entire web site
@@ -66,6 +66,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 <!--end-collapse-->
 
 <div></div>
+<br/>
 
 > [!NOTE]
 > **Restricting users from only one organization to sign in to your application**
