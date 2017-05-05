@@ -39,7 +39,7 @@ the web app and its SQL Database back end.
 az group create --location "West Europe" --name myResourceGroup
 ```
 
-To see what possible values you can use for `---location`, use the `az appservice list-locations` Azure CLI command.
+To see what possible values you can use for `--location`, use the `az appservice list-locations` Azure CLI command.
 
 
 ## Create an App Service plan
