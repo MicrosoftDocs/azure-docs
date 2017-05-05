@@ -165,7 +165,7 @@ The following classes have been renamed. The new names were the original names o
     var pipelines = new List<Pipeline>(response.Pipelines);
 
     string nextLink = response.NextLink;
-    while (string.IsNullOrEmpty(response.NextLink))
+    while (!string.IsNullOrEmpty(nextLink))
     {
         PipelineListResponse nextResponse = client.Pipelines.ListNext(nextLink);
         pipelines.AddRange(nextResponse.Pipelines);

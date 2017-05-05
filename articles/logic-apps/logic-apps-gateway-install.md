@@ -14,8 +14,8 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 05/1/2017
-ms.author: jehollan; dimazaid; LADocs
+ms.date: 05/3/2017
+ms.author: LADocs; dimazaid; estfan
 
 ---
 # Install the on-premises data gateway for Azure Logic Apps
@@ -37,7 +37,8 @@ The gateway supports connections to these data sources on premises:
 *   Informix
 *   MQ
 *   MySQL
-*   Oracle Database 
+*   Oracle Database
+*   PostgreSQL
 *   SAP Application Server 
 *   SAP Message Server
 *   SharePoint for HTTP only, not HTTPS
