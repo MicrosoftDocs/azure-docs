@@ -19,7 +19,7 @@ ms.author: cynthn
 ---
 # Back up Linux  virtual machines in Azure
 
-You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery pointy you can restore the whole VM or just specific files. This article explains how to restore a single file to a Linux VM running nginx. If you don't already have a VM to use, you can create one using the [Linux quickstart](quick-create-cli.md). In this tutorial you learn how to:
+You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or just specific files. This article explains how to restore a single file to a Linux VM running nginx. If you don't already have a VM to use, you can create one using the [Linux quickstart](quick-create-cli.md). In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Create a backup of a VM
@@ -48,14 +48,14 @@ Create a simple scheduled daily backup to a Recovery Services Vault.
 4. On the VM blade, in the **Settings** section, click **Backup**. The **Enable backup** blade opens.
 5. In **Recovery Services vault**, click **Create new** and provide the name for the new vault. A new vault is created in the same Resource Group and location as the virtual machine.
 6. Click **Backup policy**. For this example, keep the defaults and click **OK**.
-7. On the **Enable backup** blade, click **Enable Backup**. This will create a daily backup based on the default schedule.
+7. On the **Enable backup** blade, click **Enable Backup**. This creates a daily backup based on the default schedule.
 10. To create an initial recovery point, on the **Backup** blade click **Backup now**.
 11. On the **Backup Now** blade, click the calendar icon, use the calendar control to select the last day this recovery point is retained, and click **Backup**.
 12. In the **Backup** blade for your VM, you will see the number of recovery points that are complete.
 
 	![Recovery points](./media/tutorial-backup-vms/backup-complete.png)
 
-The first backup takes about 20 minutes. Proceed to the next part of this tutorial after you backup is finished.
+The first backup takes about 20 minutes. Proceed to the next part of this tutorial after your backup is finished.
 
 ## Restore a file
 
@@ -119,7 +119,7 @@ In this example, we show how to recover the default nginx web page /var/www/html
 	./Linux_myVM_05-05-2017.sh
 	```
 	
-12. The output from the script will give you the path for the mount point. The output will look similar to this:
+12. The output from the script gives you the path for the mount point. The output looks similar to this:
 
     ```bash
 	Microsoft Azure VM Backup - File Recovery

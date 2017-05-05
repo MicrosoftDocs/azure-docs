@@ -19,7 +19,7 @@ ms.author: cynthn
 ---
 # Back up Windows virtual machines in Azure
 
-You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery pointy you can restore the whole VM or just specific files. This article explains how to restore a single file to a VM running Windows Server and IIS. If you don't already have a VM to use, you can create one using the [Windows quickstart](quick-create-portal.md). In this tutorial you learn how to:
+You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or just specific files. This article explains how to restore a single file to a VM running Windows Server and IIS. If you don't already have a VM to use, you can create one using the [Windows quickstart](quick-create-portal.md). In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Create a backup of a VM
@@ -47,23 +47,20 @@ Create a simple scheduled daily backup to a Recovery Services Vault.
 4. On the VM blade, in the **Settings** section, click **Backup**. The **Enable backup** blade opens.
 5. In **Recovery Services vault**, click **Create new** and provide the name for the new vault. A new vault is created in the same Resource Group and location as the virtual machine.
 6. Click **Backup policy**. For this example, keep the defaults and click **OK**.
-7. On the **Enable backup** blade, click **Enable Backup**. This will create a daily backup based on the default schedule.
+7. On the **Enable backup** blade, click **Enable Backup**. This creates a daily backup based on the default schedule.
 10. To create an initial recovery point, on the **Backup** blade click **Backup now**.
 11. On the **Backup Now** blade, click the calendar icon, use the calendar control to select the last day this recovery point is retained, and click **Backup**.
 12. In the **Backup** blade for your VM, you will see the number of recovery points that are complete.
 
 	![Recovery points](./media/tutorial-backup-vms/backup-complete.png)
 	
-The first backup takes about 20 minutes. Proceed to the next part of this tutorial after you backup is finished.
+The first backup takes about 20 minutes. Proceed to the next part of this tutorial after your backup is finished.
 
 ## Recover a file
 
 If you accidentally delete or make changes to a file, you can use File Recovery to recover the file from your backup vault. File Recovery uses a script that runs on the VM, to mount the recovery point as local drive. These drives will remain mounted for 12 hours so that you can copy files from the recovery point and restore them to the VM.  
 
 In this example, we show how to recover the image file that is used in the default web page for IIS. 
-
-
-In this example, we show how to recover the default nginx web page /var/www/html/index.nginx-debian.html.
 
 1. Open a browser and connect to the IP address of the VM to show the default IIS page.
 
@@ -84,10 +81,10 @@ In this example, we show how to recover the default nginx web page /var/www/html
 12. On your local computer, open **File Explorer** and navigate to your **Downloads** folder and copy the downloaded .exe file. The filename will be prefixed by your VM name. 
 13. On your VM (over the RDP connection) paste the .exe file to the Desktop of your VM. 
 14. Navigate to the desktop of your VM and double-click on the .exe. This will launch a command prompt and then mount the recovery point as a file share that you can access. When it is finished creating the share, type **q** to close the command prompt.
-15. Open file explorer and navigate to the drive letter that was used for the file share.
+15. On your VM, open **File Explorer** and navigate to the drive letter that was used for the file share.
 16. Navigate to \inetpub\wwwroot and copy **iisstart.png** from the file share and paste it into \inetpub\wwwroot. For example, copy F:\inetpub\wwwroot\iisstart.png and paste it into c:\inetpub\wwwroot to recover the file.
 17. On your local computer, open the browser tab where you are connected to the IP address of the VM showing the IIS default page. Press CTRL + F5 to refresh the browser page. You should now see that the image has been restored.
-18. On your local computer, go back to the browser tab for the Azure portal and in **Step 3: Unmount the disks after recovery** click the **Unmount Disks** button.
+18. On your local computer, go back to the browser tab for the Azure portal and in **Step 3: Unmount the disks after recovery** click the **Unmount Disks** button. If you forget to do this step, the connection to the mountpoint is automatically close after 12 hours. After those 12 hours, you need to download a new script to create a new mountpoint.
 
 
 ## Next steps
