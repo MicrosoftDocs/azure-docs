@@ -21,7 +21,7 @@ ms.author: mimig
 
 # Azure Cosmos DB: How to query with the Graph API?
 
-The Azure Cosmos DB [Graph API](graph-introduction.md) supports Gremlin queries. This article provides a few graph queries to get you started. 
+The Azure Cosmos DB [Graph API](graph-introduction.md)(preview) supports Gremlin queries. This article provides a few graph queries to get you started. 
 
 For more information about Gremlin queries, see the [Gremlin support](gremlin-support.md) article. 
 

@@ -21,9 +21,9 @@ ms.author: mimig
 
 # Azure Cosmos DB: How to query with the Table API?
 
-The Azure Cosmos DB [Table API](table-introduction.md) supports OData and [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) queries against key/value (table) data. This article provides sample documents and queries to get you started. 
+The Azure Cosmos DB [Table API](table-introduction.md)(preview) supports OData and [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) queries against key/value (table) data. This article provides sample documents and queries to get you started. 
 
-For more information about queries using the Table API, see the [Querying Tables and Entities](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities). 
+For more information about queries using the Table API (preview), see the [Querying Tables and Entities](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities). 
 
 ## Sample table
 
