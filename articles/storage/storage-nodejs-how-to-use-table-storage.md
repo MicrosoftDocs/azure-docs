@@ -445,8 +445,6 @@ Once the ACL has been set, you can then create a SAS based on the ID for a polic
 tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ```
 
-[!INCLUDE [storage-check-out-samples-all](../../includes/storage-check-out-samples-all.md)]
-
 ## Next steps
 For more information, see the following resources.
 
