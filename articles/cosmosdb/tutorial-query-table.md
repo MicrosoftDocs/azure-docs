@@ -29,8 +29,12 @@ The queries in this article use the following sample table.
 
 ![Table showing sample data](./media/tutorial-query-table/cosmosdb-query-table.png)
 
+## Prerequisites
+
+For these queries to work, you must have an Azure Cosmos DB account and have graph data in the collection. Dont' have any of those? Complete the [5-minute quickstart](create-table-dotnet.md) or the [developer tutorial](tutorial-query-table.md) to create an account and populate your database.
+
 ## Example query 1
-Given the sample family table above, the following OData query returns the documents, where RowKey matches WakefieldFamily and PartitionKey matches NY. Here,
+Given the sample family table above, the following OData query returns the documents, where RowKey matches WakefieldFamily and PartitionKey matches NY.
 
 Families = Name of the Table
 
@@ -53,7 +57,7 @@ await families.ExecuteQuerySegmentedAsync<Family>(query, null);
 
 
 ## Example query 2
-Given the sample family table above, the following OData query returns the entities, where county matches Manhattan and PartitionKey matches NY. In this example, you are querying based on PartitionKey and other property. Since, Azure Cosmos DB indexes all the property, below query does not require the whole table to be scanned. Azure Table does not have secondary indexes. So, query on other properties is faster with Azure Cosmos DB Table API. Here,
+Given the sample family table above, the following OData query returns the entities, where county matches Manhattan and PartitionKey matches NY. In this example, you are querying based on PartitionKey and other property. Since, Azure Cosmos DB indexes all the property, below query does not require the whole table to be scanned. Azure Table does not have secondary indexes. So, query on other properties is faster with Azure Cosmos DB Table API.
 
 Families = Name of the Table
 
@@ -76,7 +80,7 @@ await families.ExecuteQuerySegmentedAsync<Family>(query, null);
 ![Table showing sample data](./media/tutorial-query-table/cosmosdb-query-table.png)
 
 ## Example query 3
-Given the sample family table above, the following LINQ query returns the documents, where RowKey matches WakefieldFamily and PartitionKey matches NY. Here,
+Given the sample family table above, the following LINQ query returns the documents, where RowKey matches WakefieldFamily and PartitionKey matches NY.
 
 Families = Name of the Table
 
@@ -105,4 +109,7 @@ If you're not going to continue to use this app, use the following steps to dele
 
 ## Next steps
 
-For more information about the Table API, see [What is Azure Cosmos DB: Table API?](table-introduction.md)
+In this tutorial, you've learned how to query graph data using the Table API. You can now distribute data globally using the portal or install the Local emulator for local development.  
+
+[Distribute your data globally](../documentdb/documentdb-portal-global-replication.md)
+[Develop locally](../documentddb/documentdb-nosql-local-emulator.md)

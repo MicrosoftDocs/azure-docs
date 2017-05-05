@@ -221,5 +221,8 @@ If you're not going to continue to use this app, use the following steps to dele
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
 ## Next Steps
-* Read about [Gremlin support in Azure Cosmos DB](gremlin-support.md)
-* Download the [Graph .NET library and read release notes](https://aka.ms/graphdbextension)
+
+In this tutorial, you've learned how to create an Azure Cosmos DB account, create a graph container using the Data Explorer, and run an app. You can now build more complex queries and implement powerful graph traversal logic using Gremlin or distribute your data globally. 
+
+[Query using Gremlin](tutorial-query-graph.md)
+[Distribute your data globally](../documentdb/documentdb-portal-global-replication.md)

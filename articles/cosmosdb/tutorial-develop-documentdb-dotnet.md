@@ -288,16 +288,14 @@ That's it, this Azure Cosmos DB tutorial is complete! In this tutorial, you've d
 
 ## Clean up resources
 
-If you're not going to continue to use this app, use the following steps to delete all resources created by this quickstart in the Azure portal. If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. 
+f you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal with the following steps:
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
 ## Next steps
-* Want a more DocuementDB API tutorials? See [Use .NET (C#) to connect and query data with the DocumentDB API](create-documentdb-dotnet.md) and [Build a web application with ASP.NET MVC using DocumentDB](../documentdb/documentdb-dotnet-application.md).
-* Want to perform scale and performance testing with DocumentDB? See [Performance and Scale Testing with Azure DocumentDB](../documentdb/documentdb-performance-testing.md)
-* Learn how to [monitor a DocumentDB account](../documentdb/documentdb-monitor-accounts.md).
-* Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
 
-[documentdb-create-account]: ../documentdb/documentdb-create-account.md
-[keys]: media/tutorial-develop-documentdb-dotnet/nosql-tutorial-keys.png
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a collection, and sample documents. You can now import additional data to your Cosmos DB account, or query your data using SQL. 
+
+[Import data into Azure Cosmos DB for the DocumentDB API](../documentdb/documentdb-import-data.md)
+[Query using SQL](tutorial-query-documentdb.md)

@@ -224,20 +224,14 @@ git commit -m "configured MongoDB connection string"
 ```
 ## Clean up resources
 
-If you're not going to continue to use this app, use the following steps to delete all resources created by this quickstart in the Azure portal. If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. 
+If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal with the following steps:
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
 ## Next steps
 
-Now that you've successfully built and run a MongoDB Node.js app, and connected it to an Azure Cosmos DB database, you can learn more about the options available for working with MongoDB apps in Azure Cosmos DB. For more information, see:
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a MongoDB collection using the Data Explorer. You can now migrate your data to Azure Cosmos DB or query your data.  
 
-* [MongoDB data model](../documentdb/documentdb-protocol-mongodb.md)
-* [Import to API for MongoDB](../documentdb/documentdb-mongodb-migrate.md)
-* [Connect to your MongoDB account](../documentdb/documentdb-connect-mongodb-account.md)
-* [Using MongoChef](../documentdb/documentdb-mongodb-mongochef.md)
-* [Using Robomongo](../documentdb/documentdb-mongodb-robomongo.md)
-* [Node.js console app for MongoDB API](../documentdb/documentdb-mongodb-samples.md)
-* [.NET web app for MongoDB API](../documentdb/documentdb-mongodb-application.md)
-
+[Query using MongoDB](tutorial-query-mongodb.md)
+[How to query with API for MongoDB?](tutorial-query-mongodb.md)

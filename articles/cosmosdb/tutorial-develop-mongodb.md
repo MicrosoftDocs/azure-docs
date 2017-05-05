@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2017
+ms.date: 05/10/2017
 ms.author: anhoh
 
 ---
@@ -206,4 +206,8 @@ If you're not going to continue to use this app, use the following steps to dele
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
 ## Next steps
-* Learn how to [use MongoChef](../documentdb/documentdb-mongodb-mongochef.md) and [use RoboMongo](../documentdb/documentdb-mongodb-robomongo.md) with your Azure Cosmos DB's API for MongoDB account.
+
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a MongoDB collection using the Data Explorer. You can now migrate your data to Azure Cosmos DB or query your data.  
+
+[Migrate data for the MongoDB API](documentdb-mongodb-migrate.md)
+[Query using MongoDB](tutorial-query-mongodb.md)

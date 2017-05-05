@@ -36,22 +36,7 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 
 ## Add a collection
 
-You can now use Data Explorer to create a collection and add data to your database. 
-
-1. In the Azure portal, in the navigation menu, under **Collections**, click **Data Explorer (Preview)**. 
-2. In the Data Explorer blade, click **New Collection**, then fill in the page using the following information.
-
-    ![Data Explorer in the Azure portal](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer.png)
-
-    Setting|Suggested value|Description
-    ---|---|---
-    Database id|Items|The ID for your new database. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space.
-    Collection id|ToDoList|The ID for your new collection. Collection names have the same character requirements as database ids.
-    Storage Capacity| 10 GB|Leave the default value. This is the storage capacity of the database.
-    Throughput|400 RUs|Leave the default value. You can scale up the throughput later if you want to reduce latency.
-    Partition key|/category|A partition key that will distribute data evenly to each partition. Selecting the correct partition key is important in creating a performant collection, read more about it in [Designing for partitioning](../documentdb/documentdb-partition-data.md#designing-for-partitioning). 
-
-3. Once the form is filled out, click **OK**.
+[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
 
 ## Add sample data
 
@@ -133,10 +118,10 @@ Now go back to the Azure portal to get your connection string information and co
 
     `<add key="authKey" value="FILLME" />`
     
-## Build and deploy the web app
+## Run the web app
 1. In Visual Studio, right-click on the project in **Solution Explorer** and then click **Manage NuGet Packages**. 
 
-2. In the NuGet **Browse** box, type ***DocumentDB***.
+2. In the NuGet **Browse** box, type *DocumentDB*.
 
 3. From the results, install the **Microsoft.Azure.DocumentDB** library. This installs the Microsoft.Azure.DocumentDB package as well as all dependencies.
 
@@ -158,13 +143,15 @@ Now that your app is up and running, you'll want to ensure ensure business conti
 
 ## Clean up resources
 
-If you're not going to continue to use this app, use the following steps to delete all resources created by this quickstart in the Azure portal. If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. 
+If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal with the following steps:
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
 ## Next steps
 
-To learn more about the DocumentDB API, see [What is the DocumentDB API?](../documentdb/documentdb-introduction.md). To learn more about the SQL query language which you can use in the Azure portal and programmatically, see [SQL](../documentdb/documentdb-sql-query.md).
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a collection using the Data Explorer, and run a web app. You can now import additional data to your Cosmos DB account, or query your data using SQL. 
 
+[Import data into Azure Cosmos DB for the DocumentDB API](../documentdb/documentdb-import-data.md)
+[Query using SQL](tutorial-query-documentdb.md)
 

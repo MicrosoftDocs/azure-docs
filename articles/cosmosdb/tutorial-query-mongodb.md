@@ -147,4 +147,7 @@ If you're not going to continue to use this app, use the following steps to dele
 
 ## Next steps
 
-For more information about the MongoDB APIs, see [What is Azure Cosmos DB: API for MongoDB?](../documentdb/documentdb-protocol-mongodb.md)
+In this tutorial, you've learned how to query graph data using MongoDB. You can now distribute data globally using the portal or install the Local emulator for local development.  
+
+[Distribute your data globally](../documentdb/documentdb-portal-global-replication.md)
+[Develop locally](../documentddb/documentdb-nosql-local-emulator.md)

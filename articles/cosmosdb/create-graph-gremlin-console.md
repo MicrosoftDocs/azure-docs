@@ -35,9 +35,9 @@ You also need to install the [Gremlin Console](http://tinkerpop.apache.org/). Us
 
 [!INCLUDE [cosmosdb-create-dbaccount-graph](../../includes/cosmosdb-create-dbaccount-graph.md)]
 
-## Add a collection
+## Add a graph
 
-[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
+[!INCLUDE [cosmosdb-create-graph](../../includes/cosmosdb-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Connect to your app service
 1. Before starting the Gremlin Console, create or modify your *remote-secure.yaml* configuration file in your *apache-tinkerpop-gremlin-console-3.2.4/conf* directory.
@@ -206,11 +206,14 @@ Congratulations! You've completed this Azure Cosmos DB: Graph API tutorial!
 
 ## Clean up resources
 
-If you're not going to continue to use this app, use the following steps to delete all resources created by this quickstart in the Azure portal. If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. 
+If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal with the following steps:  
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
 ## Next steps
 
-For more information about the Graph API, see [Introduction to Graph support in Azure Cosmos DB](graph-introduction.md).
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a graph container using the Data Explorer, create vertices and edges, and traverse your graph. You can now build more complex queries and implement powerful graph traversal logic using Gremlin or distribute your data globally. 
+
+[Query using Gremlin](tutorial-query-graph.md)
+[Distribute your data globally](../documentdb/documentdb-portal-global-replication.md)

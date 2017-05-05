@@ -128,11 +128,14 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 ## Clean up resources
 
-If you're not going to continue to use this app, use the following steps to delete all resources created by this quickstart in the Azure portal. If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. 
+If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal with the following steps: 
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you just created. 
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
 ## Next steps
 
-To learn more about the Azure Comsos DB DocumentDB API, see [What is the DocumentDB API?](../documentdb/documentdb-introduction). To learn more about the SQL query language which you can use in the Azure portal and programmatically, see [SQL](../documentdb/documentdb-sql-query.md).
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a collection using the Data Explorer, and build and deploy a Xamarin app. You can now import additional data to your Cosmos DB account, or query your data using SQL. 
+
+[Import data into Azure Cosmos DB for the DocumentDB API](../documentdb/documentdb-import-data.md)
+[Query using SQL](tutorial-query-documentdb.md)
