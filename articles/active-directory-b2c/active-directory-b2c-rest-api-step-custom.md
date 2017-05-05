@@ -29,7 +29,7 @@ The IEE sends data in claims and receives data back in claims.  The REST API cla
 - This can also be used to fetch a value and subsequently stores it in the user database.
 - The claims received can be later used to change the flow of execution.
 
-The interaction can also be designed as a validation profile. For more information about that, please see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journeys as validation on user input](active-directory-b2c-user-journeys-user-input-validation.md).
+The interaction can also be designed as a validation profile. For more information about that, please see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journeys as validation on user input](active-directory-b2c-rest-api-validation-custom.md).
 
 The scenario is that when a user performs a profile edit, we would like to lookup the user in an external system, get the City where that user is registered and return that attribute as a claim back to the application.
 
@@ -37,7 +37,7 @@ The scenario is that when a user performs a profile edit, we would like to looku
 
 - An Azure AD B2C tenant configure to complete a local account signup/signin as described in [Getting Started](active-directory-b2c-get-started-custom.md).
 - A REST API endpoint to interact with - this walkthrough uses a very simple Azure Function Apps WebHook as an example
-- **Recommended**: Complete the [REST API claims exchange walkthrough as a validation step](active-directory-b2c-user-journeys-user-input-validation.md).
+- **Recommended**: Complete the [REST API claims exchange walkthrough as a validation step](active-directory-b2c-rest-api-validation-custom.md).
 
 ## Step 1 - Prepare the REST API function
 

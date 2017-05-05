@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory B2C: Reference: Customize the UI of a user journey | Microsoft Docs'
+title: 'Azure Active Directory B2C: Reference: Customize the UI of a user journey with Custom Policies | Microsoft Docs'
 description: A topic on Azure Active Directory B2C custom policies
 services: active-directory-b2c
 documentationcenter: ''
@@ -113,7 +113,7 @@ As a prerequisite, you need to create a storage account. You will need an Azure 
     c.	The name of your storage blob storage container, *containerName*, for example *b2c*.
     d.	The path of the *Starter-Pack* sample files, for example *..\B2CTemplates\wingtiptoys*.
 
-If you followed the steps above, the HTML5 and CSS files of the *UI-Customization* for the fictitious company **wingtiptoys** will now be pointing to your storage account.  You can verify that the content has been uploaded correctly by opening the related container blade in the Azure portal. You can alternatively verify that the content has been uploaded correctly by accessing the page from a browser. For more information, see [Azure Active Directory B2C: A helper tool used to demonstrate the page user interface (UI) customization feature](active-directory-b2c-reference-ui-customization-helper-tool).
+If you followed the steps above, the HTML5 and CSS files of the *UI-Customization* for the fictitious company **wingtiptoys** will now be pointing to your storage account.  You can verify that the content has been uploaded correctly by opening the related container blade in the Azure portal. You can alternatively verify that the content has been uploaded correctly by accessing the page from a browser. For more information, see [Azure Active Directory B2C: A helper tool used to demonstrate the page user interface (UI) customization feature](active-directory-b2c-reference-ui-customization-helper-tool.md).
 
 ## Ensure the storage account has CORS enabled
 
@@ -124,16 +124,16 @@ To verify that the storage you are hosting your content on has CORS enabled, pro
 1. Open a browsing session and navigate to the page *unified.html* using the full URL of its location in your storage account, `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. For example, https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
 2. Navigate to http://test-cors.org. This site allows you to verify that the page you are using has CORS enabled.  
 
-![test-cors.org](media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
+![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
 
 3. In **Remote URL**, enter the full URL for your unified.html content, and click **Send Request**.
 4. Verify that the output in the **Results** section contains *XHR status: 200*. This indicates that CORS is enabled.
 
-![CORS enabled](media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
+![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
 
 The storage account should now contain a blob container named *b2c* in our illustration that contains the following wingtiptoys templates from the *Starter-Pack*.
 
-![Correctly configured storage account](media/active-directory-b2c-customize-ui-of-a-user-journey/storage-account-final.png)
+![Correctly configured storage account](../../media/active-directory-b2c-customize-ui-of-a-user-journey/storage-account-final.png)
 
 The following table describes the purpose of the above HTML5 pages.
 
