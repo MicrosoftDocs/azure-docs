@@ -36,7 +36,7 @@ Learn how to use Hive with HDInsight. Use the following table to discover the va
 | [Remote Desktop](hdinsight-hadoop-use-hive-remote-desktop.md) (HDInsight 3.2 and 3.3) |✔ |✔ |Windows |Windows |
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## <a id="why"></a>What is Hive
 
@@ -174,7 +174,7 @@ HDInsight can run HiveQL jobs using various methods. Use the following table to 
 | [Remote Desktop](hdinsight-hadoop-use-hive-remote-desktop.md) (HDInsight 3.2 and 3.3) |✔ |✔ |Windows |Windows |
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## Hive jobs and SQL Server Integration Services
 

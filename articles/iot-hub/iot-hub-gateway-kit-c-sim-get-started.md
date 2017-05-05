@@ -8,6 +8,9 @@ manager: timtl
 tags: ''
 keywords: 'azure iot hub, iot gateway, getting started with the internet of things, iot toolkit'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
+
 ms.assetid: 0c110b8b-bee4-4aec-a18a-dfc292aa17a3
 ms.service: iot-hub
 ms.devlang: c

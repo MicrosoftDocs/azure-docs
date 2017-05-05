@@ -158,8 +158,8 @@ When an alert is raised, Application Insights can automatically create a work it
 ## But what about...?
 * [Privacy and storage](app-insights-data-retention-privacy.md) - Your telemetry is kept on Azure secure servers.
 * Performance - the impact is very low. Telemetry is batched.
-* [Support](app-insights-get-dev-support.md) - You can take advantage of the Azure support program. There are lively forums where you can get answers from our developers. And in the last resort, we can give you individual help.
 * [Pricing](app-insights-pricing.md) - You can get started for free, and that continues while you're in low volume.
+
 
 ## Video
 

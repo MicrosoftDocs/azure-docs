@@ -20,17 +20,14 @@ ms.author: lbosq
 ---
 # Azure SQL Database: Use Node.js to connect and query data
 
-[!INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
-
-Use [Node.js](https://nodejs.org/en/) to connect to and query an Azure SQL database. This guide will describe how to connect to an Azure SQL database using Node.js and then execute query, insert, update, and delete statements from Windows, Ubuntu Linux, or Mac platforms.
+This quick start demonstrates how to connect to an Azure SQL database using [Node.js](https://nodejs.org/en/) and then use Transact-SQL statements to query, insert, update, and delete data in the database from Windows, Ubuntu Linux, and Mac platforms.
 
 This quick start uses as its starting point the resources created in any of these guides:
 
 - [Create DB - Portal](sql-database-get-started-portal.md)
 - [Create DB - CLI](sql-database-get-started-cli.md)
 
-## Configure Development Environment
-In this section we will install the runtime environment for **Node.js** on your platform of choice. If you already have Node.js installed on your environment please proceed to the next section titled **Install the Tedious SQL Server database driver for Node.js**. Follow the installation instructions for any of the platforms below.
+## Install Node.js 
 
 ### **Mac OS**
 Enter the following commands to install **brew**, an easy-to-use package manager for Mac OS X and **Node.js**.
@@ -51,7 +48,7 @@ sudo apt-get install -y nodejs npm
 Visit the [Node.js downloads page](https://nodejs.org/en/download/) and select your desired Windows installer option.
 
 
-## Set up the project and install the Tedious SQL Server driver for Node.js
+## Install the Tedious SQL Server driver for Node.js
 The recommended driver for Node.js is **[tedious](https://github.com/tediousjs/tedious)**. Tedious is an open-source initiative that Microsoft is contributing to for Node.js applications on any platform. For this tutorial you need an empty directory to contain your code and the `npm` dependencies that we'll install.
 
 To install the **tedious** driver run the following command inside your directory:
@@ -250,7 +247,13 @@ function deleteFromDatabase(){
 
 
 ## Next Steps
-* Review the [SQL Database Development Overview](sql-database-develop-overview.md)
-* More information on the [Microsoft Node.js Driver for SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)
-* Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/)
+
+- More information on the [Microsoft Node.js Driver for SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)
+- To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md)
+- To connect and query using Visual Studio, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
+- To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
+- To connect and query using PHP, see [Connect and query with PHP](sql-database-connect-query-php.md).
+- To connect and query using Java, see [Connect and query with Java](sql-database-connect-query-java.md).
+- To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
+- To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).
 

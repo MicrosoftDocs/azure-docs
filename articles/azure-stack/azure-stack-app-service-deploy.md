@@ -170,7 +170,10 @@ To enable the advanced developer tools within App Service - Kudu - and to enable
 20. Select the **Managed Servers** node under **Web Cloud**.
 21. In the **Actions** pane, on the right-hand side, click **Repair all servers in role..**
 22. In the dropdownlist, select **Management** and click **OK**.  This applies the setting to all Management Roles.
-23. To complete the registration, create a tenant subscription in the Azure Stack Portal (ensure your are logged in as the AAD Directory owner) and create a Web/Mobile/API Application.  Once created open the Web/Mobile/App in the Azure Stack Portal and select **Advanced Tools** under Development Tools.  Then you must accept the prompt to grant access to User Profiles to complete the SSO registration for all users.
+23. Return to the **Application Registration** in the **Azure Active Directory** within the **Azure portal (portal.azure.com)**.
+24. Click **Required Permissions** and then click **Grant Permissions** and click **Yes**.
+![App Service on Azure Stack Technical Preview 3 SSO Grant][13]
+
 
 | Parameter | Required/Optional | Default Value | Description |
 | --- | --- | --- | --- |
@@ -187,6 +190,10 @@ Now that you have deployed and registered the App Service resource provider, you
 
 > [!NOTE]
 > You need to create an offer that has the Microsoft.Web namespace within the plan and then you need to have a tenant subscription that has subscribed to this offer.  For more information, see the following articles - [Create Offer](azure-stack-create-offer.md) and [Create Plan](azure-stack-create-plan.md)
+>
+>You **must** have a **Tenant Subscription** to create applications using App Service on Azure Stack.  The only capabilities that a Service Admin can complete within the Admin Portal are related to the resource provider administration of App Service such as adding capacity, configuring deployment sources, adding worker tiers and SKUs.
+>
+> As of TP3 to **create Web/Mobile/API/Function Apps** you must use the **Tenant portal** and have a **tenant subscription**.  
 
 1. In the Azure Stack Tenant portal, click New, click Web + Mobile, and click Web App.
 2. In the Web App blade, type a name in the Web app box.
@@ -198,9 +205,6 @@ Now that you have deployed and registered the App Service resource provider, you
 8. In the web app blade, click Browse to view the default website for this app.
 
 ## Deploy a WordPress, DNN, or Django website (optional)**
-
-> [!NOTE]
-> You must have a Tenant Subscription to create application using App Service on Azure Stack.  In TP3 only App Service Resource Provider Administration operations are supported within the Admin portal.
 
 1. In the **Azure Stack tenant portal**, click “+”, go to the Azure Marketplace, deploy a Django website, and wait for successful completion. The Django web platform uses a file system-based database and doesn’t require any additional resource providers like SQL or MySQL.
 2. If you also deployed a MySQL resource provider, you can deploy a WordPress website from the Marketplace. When you're prompted for database parameters, input the user name as *User1@Server1* (with the user name and server name of your choice).
@@ -226,6 +230,7 @@ You can also try out other [platform as a service (PaaS) services](azure-stack-t
 [10]: ./media/azure-stack-app-service-deploy/app-service-exe-installation-progress.png
 [11]: ./media/azure-stack-app-service-deploy/managed-servers.png
 [12]: ./media/azure-stack-app-service-deploy/app-service-sso-keys.png
+[13]: ./media/azure-stack-app-service-deploy/app-service-sso-grant.png
 
 <!--Links-->
 [Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531

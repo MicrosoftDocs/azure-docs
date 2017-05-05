@@ -43,7 +43,7 @@ The Azure Disk Encryption solution supports the following customer scenarios:
 The solution supports the following scenarios for IaaS VMs when they are enabled in Microsoft Azure:
 
 * Integration with Azure Key Vault
-* Standard tier VMs: [A, D, DS, G, GS, and so forth series IaaS VMs](https://azure.microsoft.com/pricing/details/virtual-machines/)
+* Standard tier VMs: [A, D, DS, G, GS, F, and so forth series IaaS VMs](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * Enable encryption on Windows and Linux IaaS VMs and managed disk VMs
 * Disable encryption on OS and data drives for Windows IaaS VMs and managed disk VMs
 * Disable encryption on data drives for Linux IaaS VMs and managed disk VMs
@@ -148,6 +148,8 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 | --- | --- |--- |
 | Ubuntu | 16.04-DAILY-LTS | OS and Data disk |
 | Ubuntu | 14.04.5-DAILY-LTS | OS and Data disk |
+| Ubuntu | 12.10 | Data disk |
+| Ubuntu | 12.04 | Data disk |
 | RHEL | 7.3 | OS and Data disk |
 | RHEL | 7.2 | OS and Data disk |
 | RHEL | 6.8 | OS and Data disk |

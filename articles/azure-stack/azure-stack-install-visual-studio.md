@@ -40,7 +40,7 @@ Use Visual Studio to author and deploy Azure Resource Manager [templates](azure-
 
 1. Launch Visual Studio.
 
-2. From the **Edit** menu, select **Cloud Explorer**.
+2. From the **View** menu, select **Cloud Explorer**.
 
 3. In the new pane, select **Add Account** and sign in with your Active Directory credentials.  
     ![Screenshot of Cloud Explorer once logged in and connected to Azure Stack](./media/azure-stack-install-visual-studio/image6.png)

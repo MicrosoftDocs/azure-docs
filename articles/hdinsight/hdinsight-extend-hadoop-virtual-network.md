@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/01/2017
+ms.date: 04/10/2017
 ms.author: larryfr
 
 ---
@@ -118,6 +118,16 @@ __Central India__ region:
 
 * 52.172.153.209
 * 52.172.152.49
+
+__UK South__ region:
+
+* 51.140.47.39
+* 51.140.52.16
+
+__UK West__ region:
+
+* 51.141.13.110
+* 51.141.7.20
 
 __West Central US__ region:
 

@@ -1,6 +1,7 @@
 # Get started
 ## [Prevent unexpected costs](billing-getting-started.md)
 ## [Sign up with Office 365 account](billing-use-existing-office-365-account-azure-subscription.md)
+## [Sign up for Office 365 with Azure account](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [Limits and quotas](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 # How to
 ## Monitor usage and costs

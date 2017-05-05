@@ -92,7 +92,7 @@ To deploy the SQL provider on a system that does not have internet access, you c
 
 | Parameter Name | Description | Comment or Default Value |
 | --- | --- | --- |
-| **DirectoryTenantID** | Provide the name of the Azure Active Directory used for the Azure Stack deployment. For example, *mydomain.onmicrosoft.com*. | _required_ |
+| **DirectoryTenantID** | Provide the GUID of the Azure Active Directory used for the Azure Stack deployment. This can be obtained using the Get-AADTenantGUID command. For example, Get-AADTenantGUID - AADTenantName "mydomain.onmicrosoft.com" | _required_ |
 | **AzCredential** | Provide the credentails for the Azure Stack Service Admin account. You must use the same credentials as you used for deploying Azure Stack). You can use the **New-Object** command to define this info, such as: `New-Object System.Management.Automation.PSCredential ("admin@mydomain.onmicrosoft.com", $AADAdminPass)`. | _required_ |
 | **VMLocalCredential** | Define the credentials for the local administrator account of the SQL resource provider VM. This password will also be used for the SQL **sa** account. You can use the **New-Object** command to provide this info, such as: `New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)`. | _required_ |
 | **ResourceGroupName** | Define a name for a Resource Group in which items created by this script will be stored. For example, *System.Sql*. | Microsoft-SQL-RP1 |
@@ -114,7 +114,9 @@ $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlr
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ("admin@mydomain.onmicrosoft.com", $AdminPass)
 
-.\DeploySQLProvider.ps1 -DirectoryTenantID "51377b64-4a17-46b1-83ff-902d97c50b22" -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -ResourceGroupName "System.Sql" -VmName "SQLVM" -ArmEndpoint "https://adminmanagement.local.azurestack.external" -TenantArmEndpoint "https://management.local.azurestack.external"
+$DirectoryTenantID = Get-AADTenantGUID -AADTenantName "mydomain.onmicrosoft.com"
+
+.\DeploySQLProvider.ps1 -DirectoryTenantID DirectoryTenantID -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -ResourceGroupName "System.Sql" -VmName "SQLVM" -ArmEndpoint "https://adminmanagement.local.azurestack.external" -TenantArmEndpoint "https://management.local.azurestack.external"
  ```
 
 ## Verify the deployment using the Azure Stack Portal

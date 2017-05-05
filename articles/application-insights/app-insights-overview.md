@@ -130,7 +130,6 @@ Get started at development time with:
   * [Troubleshooting][qna]
   * [MSDN Forum](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
   * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
-  * [Get developer support](app-insights-get-dev-support.md)
 * Your suggestions:
   * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 * Blog:

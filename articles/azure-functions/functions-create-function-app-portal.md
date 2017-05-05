@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/03/2017
+ms.date: 04/11/2017
 ms.author: glenga
 
 ---
@@ -30,7 +30,7 @@ When you create a function app, supply a valid **App name**, which can contain o
 
 Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. Your storage account name must be unique within Azure. 
 
-After the function app is created, you can create individual functions in one or more different languages. Create functions [by using the portal](functions-create-first-azure-function-azure-portal.md#create-a-function), [continuous deployment](functions-continuous-deployment.md), or by [uploading with FTP](https://github.com/projectkudu/kudu/wiki/Accessing-files-via-ftp).  
+After the function app is created, you can create individual functions in one or more different languages. Create functions [by using the portal](functions-create-first-azure-function.md#create-a-function), [continuous deployment](functions-continuous-deployment.md), or by [uploading with FTP](https://github.com/projectkudu/kudu/wiki/Accessing-files-via-ftp).  
 
 ## Service plans
 
