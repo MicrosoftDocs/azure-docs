@@ -19,14 +19,11 @@ ms.author: dantaylo
 
 *This feature is in preview.*
 
-Automatically collect a debug snapshot from your live web application when an exception occurs. The snapshot shows the state of source code and variables the moment the exception was thrown. The Snapshot Debugger in [Application Insights](app-insights-overview.md) monitors exception telemetry from your web app. It collects snapshots on your top-throwing exceptions so that you have the information you need to diagnose issues in production. Include the [snapshot collector NuGet package](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) into your application, and optionally configure collection parameters in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Snapshots appear on [exceptions](app-insights-asp-net-exceptions.md) in the Application Insights portal.
+Automatically collect a Debug Snapshot from your live web application when an exception occurs. The Snapshot shows the state of source code and variables the moment the exception was thrown. The Snapshot Debugger in [Application Insights](app-insights-overview.md) monitors exception telemetry from your web app. It collects Snapshots on your top-throwing exceptions so that you have the information you need to diagnose issues in production. Include the [Snapshot collector NuGet package](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) into your application, and optionally configure collection parameters in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Snapshots appear on [exceptions](app-insights-asp-net-exceptions.md) in the Application Insights portal.
 
-You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. To get a more powerful debugging experience with source code, open snapshots with Visual Studio 2017 Enterprise by [downloading the Snapshot Debugger extension for Visual Studio](https://aka.ms/snapshotdebugger).
+You can view Debug Snapshots in the portal to see the call stack and inspect variables at each call stack frame. To get a more powerful debugging experience with source code, open Snapshots with Visual Studio 2017 Enterprise by [downloading the Snapshot Debugger extension for Visual Studio](https://aka.ms/snapshotdebugger).
 
-Snapshot collection is available for:
-
-* ASP.NET web apps running on .NET Framework 4.6 and above, hosted either on IIS or in Azure.
-* Windows apps running on .NET Core 2.0 and above.
+Snapshot collection is available for ASP.NET web apps running on .NET Framework 4.6 and above, hosted either on IIS in Azure Compute or in Azure App Service.
 
 ## Configure Snapshot Collection
 
@@ -60,13 +57,11 @@ Snapshot collection is available for:
   </TelemetryProcessors>
 ```
 
-Snapshots are only collected on exceptions that are visible to the Application Insights SDK. In some cases, you may need to [configure exception collection](app-insights-asp-net-exceptions.md#exceptions) to see exceptions with snapshots appearing in the portal.
+Snapshots are only collected on exceptions that are visible to the Application Insights SDK. In some cases, you may need to [configure exception collection](app-insights-asp-net-exceptions.md#exceptions) to see exceptions with Snapshots appearing in the portal.
 
+## Debugging Snapshots in the Application Insights Portal
 
-
-## Debugging snapshots in the Application Insights Portal
-
-If a snapshot is available for a given exception or problem ID, an *Open Debug Snapshot* link appears on the [exception](app-insights-asp-net-exceptions.md) in the Application Insights portal.
+If a Snapshot is available for a given exception or problem ID, an *Open Debug Snapshot* link appears on the [exception](app-insights-asp-net-exceptions.md) in the Application Insights portal.
 
 ![Open Debug Snapshot button on exception](./media/app-insights-snapshot-debugger/snapshot-on-exception.png)
 
@@ -74,20 +69,20 @@ In the Debug Snapshot view, you see a call stack and a variables pane. Selecting
 
 ![View Debug Snapshot in the portal](./media/app-insights-snapshot-debugger/open-snapshot-portal.png)
 
-Snapshots may contain sensitive information, and by default are not viewable. To view snapshots, you must have the `Application Insights Snapshot Debugger` role assigned to you in the portal for the subscription or resource. Currently this role can only be assigned by subscription owners on a per-user basis. Assigning the role to Azure Active Directory groups is currently not supported.
+Snapshots may contain sensitive information, and by default are not viewable. To view Snapshots, you must have the `Application Insights Snapshot Debugger` role assigned to you in the portal for the subscription or resource. Currently this role can only be assigned by subscription owners on a per-user basis. Assigning the role to Azure Active Directory groups is currently not supported.
 
-## Debugging snapshots with Visual Studio 2017 Enterprise
+## Debugging Snapshots with Visual Studio 2017 Enterprise
 You can click the *Download Snapshot* button to download a `.diagsession` file, which can be opened by Visual Studio 2017 Enterprise. Opening the `.diagsession` file currently requires that you first [download and install the Snapshot Debugger extension for Visual Studio](https://aka.ms/snapshotdebugger).
 
-After opening the snapshot file, you are taken to the Minidump Debugging page of Visual Studio, where you can start debugging the snapshot by clicking *Debug Managed Code*. You are taken to the line of code where the exception was thrown, and can debug the current state of the process.
+After opening the Snapshot file, you are taken to the Minidump Debugging page of Visual Studio, where you can start debugging the Snapshot by clicking *Debug Managed Code*. You are taken to the line of code where the exception was thrown, and can debug the current state of the process.
 
 ![View Debug Snapshot in Visual Studio](./media/app-insights-snapshot-debugger/open-snapshot-visualstudio.png)
 
-The downloaded snapshot contains any symbol files that were found on your web application server. These symbol files are required to associate snapshot data with source code. For Azure App Service apps, make sure to enable deploying of symbols when publishing your web apps.
+The downloaded Snapshot contains any symbol files that were found on your web application server. These symbol files are required to associate Snapshot data with source code. For Azure App Service apps, make sure to enable deploying of symbols when publishing your web apps.
 
-## How snapshots work
+## How Snapshots work
 
-When your application starts, a separate snapshot uploader process is created that monitors your application for snapshot requests. When a snapshot is requested, a shadow copy of the running process is made in about 10-20 ms. The shadow process is then analyzed and a snapshot is created while the main process continues running and serving traffic to users. The snapshot is then uploaded to Application Insights along with any relevant symbol (.pdb) files needed to view the snapshot.
+When your application starts, a separate Snapshot uploader process is created that monitors your application for Snapshot requests. When a Snapshot is requested, a shadow copy of the running process is made in about 10-20 ms. The shadow process is then analyzed and a Snapshot is created while the main process continues running and serving traffic to users. The Snapshot is then uploaded to Application Insights along with any relevant symbol (.pdb) files needed to view the Snapshot.
 
 ## Current Limitations
 
@@ -101,7 +96,7 @@ The Snapshot Debugger requires that symbol files be present on the production se
 For Azure Compute and other types, ensure the symbol files are in the same folder of the main application .dll (typically `wwwroot/bin`), or are available on the current path.
 
 ### Optimized Builds
-In some cases, local variables are not  viewable in Release builds because of optimizations applied during the build process. This limitation will be fixed in a future release of the NuGet package.
+In some cases, local variables are not viewable in Release builds because of optimizations applied during the build process. This limitation will be fixed in a future release of the NuGet package.
 
 ## Next Steps
 
