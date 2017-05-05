@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/06/2017
+ms.date: 05/04/2017
 ms.author: edmaca
 
 ---
@@ -29,39 +29,39 @@ Before you begin this tutorial, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **A workstation with Azure PowerShell**. See [How to install and configure Azure PowerShell](/powershell/azure/overview).
-* **An Azure Resource Group**. 
 
 ## Create Data Lake Analytics account
 You must have a Data Lake Analytics account before you can run any jobs. To create a Data Lake Analytics account, you must specify the following:
 
-* **Azure Resource Group**: A Data Lake Analytics account must be created within a Azure Resource group. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation.  
-* **Data Lake Analytics account name**: The Data Lake account name must only contain lowercase letters and numbers.
+* **Azure Resource Group**: A Data Lake Analytics account must be created within a Azure Resource group. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 
 * **Location**: one of the Azure data centers that supports Data Lake Analytics.
 * **Default Data Lake Store  account**: each Data Lake Analytics account has a default Data Lake Store account.
 
-        $resourceGroupName = "<ResourceGroupName>"
-        $dataLakeStoreName = "<DataLakeAccountName>"
-        $dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
-        $location = "East US 2"
+```
+$resourceGroupName = "<ResourceGroupName>"
+$dataLakeStoreName = "<DataLakeAccountName>"
+$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
+$location = "East US 2"
 
-        New-AzureRmResourceGroup `
-            -Name  $resourceGroupName `
-            -Location $location
+New-AzureRmResourceGroup `
+    -Name  $resourceGroupName `
+    -Location $location
 
-        New-AzureRmDataLakeStoreAccount `
-            -ResourceGroupName $resourceGroupName `
-            -Name $dataLakeStoreName `
-            -Location $location
+New-AzureRmDataLakeStoreAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $dataLakeStoreName `
+    -Location $location
 
-        New-AzureRmDataLakeAnalyticsAccount `
-            -Name $dataLakeAnalyticsName `
-            -ResourceGroupName $resourceGroupName `
-            -Location $location `
-            -DefaultDataLake $dataLakeStoreName
+New-AzureRmDataLakeAnalyticsAccount `
+    -Name $dataLakeAnalyticsName `
+    -ResourceGroupName $resourceGroupName `
+    -Location $location `
+    -DefaultDataLake $dataLakeStoreName
 
-        Get-AzureRmDataLakeAnalyticsAccount `
-            -ResourceGroupName $resourceGroupName `
-            -Name $dataLakeAnalyticsName  
+Get-AzureRmDataLakeAnalyticsAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $dataLakeAnalyticsName  
+```
 
 ## Upload data to Data Lake Store
 
