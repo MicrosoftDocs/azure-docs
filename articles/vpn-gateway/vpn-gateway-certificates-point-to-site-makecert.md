@@ -86,7 +86,7 @@ The following steps walk you through generating a client certificate from a self
 
 ### <a name="clientexport"></a>Export a client certificate
 
-[!INCLUDE [Export client certificate](vpn-gateway-certificates-export-client-cert-include.md)]    
+[!INCLUDE [Export client certificate](../../includes/vpn-gateway-certificates-export-client-cert-include.md)]
 
 ### <a name="install"></a>Install an exported client certificate
 
