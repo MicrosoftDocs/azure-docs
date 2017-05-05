@@ -22,6 +22,8 @@ ms.author: sngun
 
 Virtual machines are an on-demand, scalable computing resources offered by Azure Stack. When you use Virtual Machines, you must understand that there are differences between the features that are available in Azure and Azure Stack. This article provides an overview of the unique considerations for Virtual Machines and its features in Azure Stack. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) topic.
 
+##Cheat sheet: Virtual machine differences
+
 | Feature | Azure (global) | Azure Stack |
 | --- | --- | --- |
 | Virtual Machine images | The Azure Marketplace contains images that you can use to create a virtual machine. See the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) page to view the list of images that are available in the Azure Marketplace. | By default, there aren’t any images available in the Azure Stack marketplace. The Azure Stack administrator should [publish](azure-stack-add-default-image.md) or [download images](azure-stack-download-azure-marketplace-item.md) to the Azure Stack marketplace before users can use them. |
