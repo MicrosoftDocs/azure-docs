@@ -1,5 +1,5 @@
 ---
-title: Connect Azure Cosmos DB to graph using .NET | Microsoft Docs
+title: Build an Azure Cosmos DB .NET application using the Graph API | Microsoft Docs
 description: Presents a .NET code sample you can use to connect to and query Azure Cosmos DB
 services: cosmosdb
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 05/10/2017
 ms.author: arramac
 
 ---
-# Azure Cosmos DB: Build a Graph API web app with .NET and the Azure portal
+# Azure Cosmos DB: Build a .NET application using the Graph API
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 

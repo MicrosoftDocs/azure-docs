@@ -31,7 +31,9 @@
     href: tutorial-load-balancer.md
   - name: 8 - Manage networking
     href: tutorial-virtual-network.md
-  - name: 9 - Manage VM security
+  - name: 9 - Backup VMs
+    href: tutorial-backup-vms.md
+  - name: 10 - Manage VM security
     href: tutorial-azure-security.md
 - name: Samples
   items:

@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: Create a collection with the DocumentDB API | Microsoft Docs'
-description: Learn how to create an Azure Cosmos DB collection with a partition key by using the DocumentDB API
+title: 'Azure Cosmos DB: Develop with the DocumentDB API in .NET | Microsoft Docs'
+description: Learn how to develop with Azure Cosmos DB's DocumentDB API using .NET
 services: cosmosdb
 documentationcenter: ''
 author: mimig1
@@ -19,7 +19,7 @@ ms.author: mimig
 
 ---
 
-# Azure CosmosDB: Create a collection with the DocumentDB API
+# Azure CosmosDB: Develop with the DocumentDB API in .NET
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
