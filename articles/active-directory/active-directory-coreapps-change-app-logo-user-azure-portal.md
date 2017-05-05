@@ -1,5 +1,5 @@
 ---
-title: Change the name or logo of an enterprise app in Azure Active Directory preview | Microsoft Docs
+title: Change the name or logo of an enterprise app in Azure Active Directory | Microsoft Docs
 description: How to change the name or logo for a custom enterprise app in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
 
 ---
-# Change the name or logo of an enterprise app in Azure Active Directory preview
-It's easy to change the name or logo for a custom enterprise application in Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md) You must have the appropriate permissions to make these changes. In the current preview, you must be the creator of the custom app.
+# Change the name or logo of an enterprise app in Azure Active Directory
+It's easy to change the name or logo for a custom enterprise application in Azure Active Directory (Azure AD). You must have the appropriate permissions to make these changes, and you must be the creator of the custom app.
 
 ## How do I change an enterprise app's name or logo?
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
