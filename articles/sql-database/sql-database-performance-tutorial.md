@@ -44,11 +44,11 @@ Follow these steps to apply a recommendation made by the system for your databas
 
 3. Apply the recommendation by clicking the **Apply** button. Optionally, you can review the recommendation details and see the T-SQL script that will be executed by clicking on **View Script** button.
 
-    ![apply recommendation](./media/sql-database-performance-tutorial/1_3_apply.png)
+    ![apply recommendation](./media/sql-database-performance-tutorial/apply.png)
 
 4. [Optional] Enable automatic tuning for recommendations to be applied automatically.
 
-    ![auto tuning](./media/sql-database-performance-tutorial/1_4_auto_tuning.png)
+    ![auto tuning](./media/sql-database-performance-tutorial/auto_tuning.png)
 
 ## Revert a recommendation
 
@@ -86,7 +86,7 @@ Follow these steps to find the query consuming the most resources:
 
 1. Go to Query Performance Insight and select the **Long running queries** tab.
 
-    ![query insights](./media/sql-database-performance-tutorial/_long_running.png)
+    ![query insights](./media/sql-database-performance-tutorial/long_running.png)
 
 3. Select the first query in the table.
 
