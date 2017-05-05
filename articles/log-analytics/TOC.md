@@ -23,8 +23,12 @@
 ### Data sources
 #### [Data sources overview](log-analytics-data-sources.md)
 #### [Windows events](log-analytics-data-sources-windows-events.md)
+#### [Custom JSON data](log-analytics-data-sources-json.md)
+#### [Collectd performance data](log-analytics-data-sources-collectd.md)
+#### [Nagios and Zabbix alerts](log-analytics-data-sources-alerts-nagios-zabbix.md)
 #### [Syslog](log-analytics-data-sources-syslog.md)
 #### [Performance counters](log-analytics-data-sources-performance-counters.md)
+#### [Linux application performance](log-analytics-data-sources-linux-applications.md)
 #### [IIS logs](log-analytics-data-sources-iis-logs.md)
 #### [Custom logs](log-analytics-data-sources-custom-logs.md)
 #### [Custom fields](log-analytics-custom-fields.md)
