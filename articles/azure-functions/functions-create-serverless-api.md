@@ -15,7 +15,7 @@ ms.author: mahender
 
 # Create a serverless API using Azure Functions
 
-In this tutorial you will learn how Azure Functions allows you to quickly build highly-scalable APIs. Azure Functions comes with a collection of built-in features such as HTTP triggers which make it easy to author an endpoint in a variety of languages, including Node.JS, C#, and more. In this tutorial, you will customize an HTTP trigger to handle specific actions in your API design. You will also prepare for growing your API by integrating it with Azure Functions Proxies and setting up mock APIs. All of this is accomplished on top of the Azure Functions serverless compute environment, so you don't have to worry about scaling resources - you can just focus on your API logic.
+In this tutorial you will learn how Azure Functions allows you to build highly-scalable APIs. Azure Functions comes with a collection of built-in HTTP triggers and bindings which make it easy to author an endpoint in a variety of languages, including Node.JS, C#, and more. In this tutorial, you will customize an HTTP trigger to handle specific actions in your API design. You will also prepare for growing your API by integrating it with Azure Functions Proxies and setting up mock APIs. All of this is accomplished on top of the Functions serverless compute environment, so you don't have to worry about scaling resources - you can just focus on your API logic.
 
 ## Prerequisites 
 
@@ -35,7 +35,7 @@ Navigate to your function in the Azure portal. Select **Integrate** in the left 
 
 ![Customizing an HTTP function](./media/functions-create-serverless-api/customizing-http.png)
 
-Use the following values to configure your API:
+Use the HTTP trigger settings as specified in the table.
 
 | Field | Sample value | Description |
 |---|---|---|
@@ -79,7 +79,7 @@ To learn more about proxies, see [Working with Azure Functions Proxies (preview)
 
 In this section, you will create a new proxy which serves as a frontend to your overall API. 
 
-First, set up the frontend environment:
+### Setting up the frontend environment
 
 Repeat the steps to [Create a function app](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app) to create a new function app in which you will create your proxy. This new app will serve as the frontend for our API, and the function app you were previously editing will serve as a backend.
 
@@ -96,7 +96,7 @@ Scroll down to **App settings** and create a new setting with key "HELLO_HOST". 
 
 Click **Save**.
 
-Next create a proxy on that frontend which points to the backend:
+### Creating a proxy on the frontend
 
 Navigate back to your frontend function app in the portal.
 
@@ -104,7 +104,7 @@ In the left-hand navigation, click the plus sign '+' next to "Proxies (preview)"
 
 ![Creating a proxy](./media/functions-create-serverless-api/creating-proxy.png)
 
-Use the following values to configure your proxy:
+Use proxy settings as specified in the table.
 
 | Field | Sample value | Description |
 |---|---|---|
