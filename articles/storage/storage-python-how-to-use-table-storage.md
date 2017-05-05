@@ -178,7 +178,7 @@ table_service.delete_table('tasktable')
 
 ## Next steps
 
-* [Microsoft Azure Storage Explorer](../articles/vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [Python Developer Center](/develop/python/)
 * [Azure Storage Services REST API](http://msdn.microsoft.com/library/azure/dd179355)
 * [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)

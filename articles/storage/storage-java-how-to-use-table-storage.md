@@ -564,7 +564,7 @@ catch (Exception e)
 
 ## Next steps
 
-* [Microsoft Azure Storage Explorer](../articles/vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [Azure Storage SDK for Java][Azure Storage SDK for Java]
 * [Azure Storage Client SDK Reference][Azure Storage Client SDK Reference]
 * [Azure Storage REST API][Azure Storage REST API]

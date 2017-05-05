@@ -150,7 +150,7 @@ If the storage account uses the Classic deployment model, you can remove the vir
 For more information, see the [Azure Virtual Machine documentation](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## Next steps
-* [Microsoft Azure Storage Explorer](../articles/vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [Azure Blob Storage: Cool and Hot tiers](storage-blob-storage-tiers.md)
 * [Azure Storage replication](storage-redundancy.md)
 * [Configure Azure Storage Connection Strings](storage-configure-connection-string.md)
