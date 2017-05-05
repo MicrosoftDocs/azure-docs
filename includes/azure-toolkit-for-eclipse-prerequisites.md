@@ -5,7 +5,7 @@ The Azure Toolkit for Eclipse requires the following software components:
 
 * A Java Developer Kit (JDK), version 1.8 or later.
 
-* Operating systems - the Azure Toolkit for Eclipse has been tested on the following operating systems:
+* An operating system. The Azure Toolkit for Eclipse has been tested on the following operating systems:
   
   * Windows 10, Windows 8 and 8.1, Windows 7
   * Windows Server 2012 and 2012 R2, Windows Server 2008 and 2008 R2
