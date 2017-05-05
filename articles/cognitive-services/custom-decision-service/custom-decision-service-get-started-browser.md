@@ -40,7 +40,7 @@ The basic usage of our APIs is fairly easy (but see API reference for additional
 <script> function callback(data) { … } </script>
 
 // call Ranking API, after callback() is defined
-<script src="https://ds.microsoft.com/<domain>/rank/<actionSetId>" async></script>
+<script src="https://ds.microsoft.com/<app id>/rank/<actionSetId>" async></script>
 ```
 
 The `data` argument contains the ranking of URLs to be rendered. For more information, see the [tutorial](custom-decision-service-tutorial.md) and [API reference](custom-decision-service-api-reference.md).
