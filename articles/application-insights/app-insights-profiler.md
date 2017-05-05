@@ -39,8 +39,6 @@ Alternatively, you can always click **Configure** to view status, enable, or dis
 
 ![In the Performance blade, click Configure][performance-blade]
 
-* *No Configure button? Use the [manual procedure](#manual-installation).*
-
 Web apps that are configured with Application Insights are listed on Configure blade. Follow instructions to install the Profiler agent if needed. If no web app is configured with Application Insights yet, click *Add Linked Apps*.
 
 Use the *Enable Profiler* or *Disable Profiler* buttons in the Configure blade to control the Profiler on all your linked web apps.
@@ -216,17 +214,6 @@ When you see parallel threads in your traces, you need to determine which thread
 ### Error report in the profiling viewer
 
 File a support ticket from the portal. Please include the correlation ID from the error message.
-
-
-## Manual installation
-
-When you configure the profiler, the following updates are made to the Web App's settings. You can do them yourself manually:
-
-1. In the Web app control blade, open Settings.
-2. Set ".Net Framework version" to v4.6.
-3. Set "Always On" to On.
-4. Add app setting "__APPINSIGHTS_INSTRUMENTATIONKEY__" and set the value to the same instrumentation key used by the SDK.
-5. In **Extensions**, Add "Application Insights". It will take a few minutes to install.
 
 ## <a id="aspnetcore"></a>ASP.NET Core Support
 
