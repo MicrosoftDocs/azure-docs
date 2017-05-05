@@ -231,3 +231,4 @@ takes a few minutes to propagate to the load balancer. For details, see [Load ba
 
 * For steps to build a custom IIS website and run it in a Windows container, see the guidance at [Docker Hub](https://hub.docker.com/r/microsoft/iis/).
 
+* To access the Windows nodes through an RDP SSH tunnel to the master with PuTTy, see the [ACS-Engine documentation](https://github.com/Azure/acs-engine/blob/master/docs/ssh.md#create-port-80-tunnel-to-the-master). 
