@@ -25,7 +25,9 @@ If you are not already signed in, the portal prompts you to sign in with your [M
 
 ![Custom Decision Service portal](./media/custom-decision-service-get-started-browser/portal.png)
 
-To register your application, click the *New* button. A pop-up should open for registering a new app. Let us see how to register an application in the *pooled learning mode* that was described in the [Overview](custom-decision-service-overview.md). Choose an identifier for your application. Custom Decision Service expects a unique identifier for each application. If someone else has already taken this id, the system asks you to pick a different id. You can also create a name for an action set feed, along with an RSS or Atom end point currently. This feed communicates the available content for your app to the Custom Decision Service. An example for creating the RSS feed is described later.
+To register your application, click the *New* button. A pop-up should open for registering a new app. Let us see how to register an application in the *pooled learning mode* that was described in the [Overview](custom-decision-service-overview.md). Choose an identifier for your application. Custom Decision Service expects a unique identifier for each application. If someone else has already taken this id, the system asks you to pick a different id.
+
+You can also specify an Action Set API: an RSS or Atom feed that communicates the available content for your application to Custom Decision Service. Enter a name for the feed, along with the URL from which it is served. An example for creating an RSS feed is described later.
 
 If you want to register your application in the *application-specific learning mode*, then click the check box *Advanced* in the bottom-left corner of the dialog. Enter a [connection string](../../storage/storage-configure-connection-string.md) for the Azure Storage account where your application data would be logged. For more information on how to create an Azure Storage account, see [here](../../storage/storage-create-storage-account.md).
 
@@ -37,13 +39,13 @@ The basic usage of our APIs is fairly easy (but see API reference for additional
 // Define the "callback function" to render UI
 <script> function callback(data) { … } </script>
 
-// call to Ranking API
-<script src="https://ds.microsoft.com/<domain>/rank/<actionSetId>" async></script>
+// call Ranking API, after callback() is defined
+<script src="https://ds.microsoft.com/<app id>/rank/<actionSetId>" async></script>
 ```
 
-The order matters: the callback function should be defined before the call to Ranking API. The `data` argument contains the ranking of URLs to be rendered. For more information, see the tutorial and API reference.
+The `data` argument contains the ranking of URLs to be rendered. For more information, see the [tutorial](custom-decision-service-tutorial.md) and [API reference](custom-decision-service-api-reference.md).
 
-For each article page, make sure the [canonical URL](https://en.wikipedia.org/wiki/Canonical_link_element) is set and matches the URLs provided your RSS feed, and insert the following code into the HTML head to call Reward API:
+For each article page, make sure the [canonical URL](https://en.wikipedia.org/wiki/Canonical_link_element) is set and matches the URLs provided your RSS feed. Insert the following code into the HTML head to call Reward API:
 
 ```html
 <script src="https://ds.microsoft.com/DecisionService.js"></script>
