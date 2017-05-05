@@ -20,7 +20,7 @@ This sample CLI script creates an Azure Database for PostgreSQL server and confi
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Sample Script
- ,n```azurecli
+```azurecli
 #!/bin/bash
 # Set an admin login and password for your server
 adminlogin=ServerAdmin
