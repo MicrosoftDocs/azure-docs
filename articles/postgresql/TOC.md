@@ -22,6 +22,7 @@
 ### [Supported versions](concepts-supported-versions.md)
 ### [PostgreSQL extensions](concepts-extensions.md)
 ### [Server logs](concepts-server-logs.md)
+### [Limitations](concepts-limits.md)
 ## Compute & Storage
 ### [Service tiers](concepts-service-tiers.md)
 ### [Compute units & storage units](concepts-compute-unit-and-storage.md)
