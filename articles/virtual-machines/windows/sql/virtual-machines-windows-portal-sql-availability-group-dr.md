@@ -15,14 +15,14 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: "01/09/2017"
+ms.date: "05/02/2017"
 ms.author: mikeray
 
 ---
 
-# Configure a SQL Server Always On Availability Group on Azure Virtual Machines in Different Regions
+# Configure an Always On availability group on Azure virtual machines in different regions
 
-This article explains how to configure a SQL Server Always On Availability Group replica on Azure Virtual Machines in a remote Azure location. Use this configuration to support disaster recovery.
+This article explains how to configure a SQL Server Always On availability group replica on Azure virtual machines in a remote Azure location. Use this configuration to support disaster recovery.
 
 This article applies to Azure Virtual Machines in Resource Manager mode.
 
@@ -77,7 +77,7 @@ To create a replica in a remote data center, do the following steps:
    This load balancer must:
 
    - Be in the same network and subnet as the new virtual machine.
-   - Have a static IP address for the Availability Group listener.
+   - Have a static IP address for the availability group listener.
    - Include a backend pool consisting of only the virtual machines in the same region as the load balancer.
    - Use a TCP port probe specific to the IP address.
    - Have a load balancing rule specific to the SQL Server in the same region.  
