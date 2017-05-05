@@ -43,6 +43,5 @@ This guide uses the following libraries:
 
 ### What is Next
 
-<!--
+
 [Setup](active-directory-serversidewebapp-aspnetwebappowin-setup.md)
--->

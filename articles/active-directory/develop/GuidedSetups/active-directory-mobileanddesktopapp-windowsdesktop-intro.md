@@ -33,7 +33,8 @@ The sample created by this guide is based on a scenario where a Windows Desktop 
 
 
 ## Handling token acquisition for accessing protected Web APIs
-After the user completes sign-in, applications need to query Web APIs from a backend that is secured by Microsoft Azure Active Directory 2.0 endpoint. 
+
+After the user completes sign-in, applications need to query Web APIs from backends secured by Microsoft Azure Active Directory v2.
 
 APIs – like Microsoft Graph - require an access token to allow accessing specific resources – for example, to read a user’s profile, access user’s calendar or send an email. Your application can request an access token to access these resources by specifying the API scopes (one scope per resource) that your application require to access via MSAL. This access token is then added to the HTTP Authorization header for every call made against the protected resource. 
 
