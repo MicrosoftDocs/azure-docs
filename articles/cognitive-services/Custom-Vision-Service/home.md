@@ -8,7 +8,7 @@ manager: juliakuz
 ms.service: cognitive-services
 ms.technology: custom vision service
 ms.topic: article
-ms.date: 04/28/2017
+ms.date: 05/03/2017
 ms.author: v-royhar
 ---
 
@@ -20,7 +20,7 @@ Custom Vision Service is a tool for building custom image classifiers. It makes 
 
 ## What can Custom Vision Service do well? What can't it do? 
 
-Custom Vision Service is a tool for building custom image classifiers, and for making them better over time. For example, if you want a tool that could identify images of "Daises", "Daffodils", and "Dahlias", you could train a classifier to do that. You do so by providing Custom Vision Service with images for each tag you want to recognize.
+Custom Vision Service is a tool for building custom image classifiers, and for making them better over time. For example, if you want a tool that could identify images of "Daisies", "Daffodils", and "Dahlias", you could train a classifier to do that. You do so by providing Custom Vision Service with images for each tag you want to recognize.
 
 Custom Vision Service works best when the item you are trying to classify is prominent in your image. Custom Vision Service does "image classification" but not yet "object detection." This means that Custom Vision Service identifies whether an image is of a particular object, but not where that object is within the image.
 

@@ -176,7 +176,7 @@ In most modes, there will be a visible delay between the live video on the left,
 ### Integrating into your codebase
 To get started with this sample, follow these steps:
 
-1. Get API keys for the Vision APIs from [microsoft.com/cognitive](https://www.microsoft.com/cognitive-services/en-us/sign-up). For video frame analysis, the applicable APIs are:
+1. Get API keys for the Vision APIs from [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). For video frame analysis, the applicable APIs are:
 	- [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api)
 	- [Emotion API](https://www.microsoft.com/cognitive-services/en-us/emotion-api)
 	- [Face API](https://www.microsoft.com/cognitive-services/en-us/face-api)
@@ -203,7 +203,7 @@ To report abuse of the Microsoft Cognitive Services to Microsoft, please visit t
 
 
 ## Summary
-In this guide, you learned how to run near-real-time analysis on live video streams using the Face, Computer Vision, and Emotion APIs, and how you can use our sample code to get started.  You can get started building your app with free API keys at the [Microsoft Cognitive Services sign-up page](https://www.microsoft.com/cognitive-services/en-us/sign-up). 
+In this guide, you learned how to run near-real-time analysis on live video streams using the Face, Computer Vision, and Emotion APIs, and how you can use our sample code to get started.  You can get started building your app with free API keys at the [Microsoft Cognitive Services sign-up page](https://azure.microsoft.com/en-us/try/cognitive-services/). 
 
 Please feel free to provide feedback and suggestions in the [GitHub repository](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/), or for more broad API feedback, on our [UserVoice site](https://cognitive.uservoice.com/).
 
