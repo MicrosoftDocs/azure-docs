@@ -1,12 +1,12 @@
 ---
-title: How to SparkPost to send email
-description: Learn how to send emails from Azure through SparkPost using Node.js client library
+title: How to send email using SparkPost on Azure
+description: Learn how to send emails on Azure through SparkPost using Node.js client library
 services: app-service\web
 documentationcenter: nodejs
 author: rajumsys
 manager: ewandennis
 editor: ''
-keywords: sparkpost, esp, email, smtp, bulk email
+keywords: sparkpost, esp, email, smtp, rest api, analytics, bulk email
 
 ms.service: app-service-web
 ms.workload: web
@@ -29,6 +29,7 @@ The example application is written in Node.js, however, same technique can be us
 - A SparkPost Account
 - Node.js 4x
 - Git
+- Azure CLI
 
 
 ## What is the SparkPost?
@@ -44,14 +45,14 @@ SparkPost provides 100K free emails per month including access to APIs and analy
 ### To sign up for a SparkPost account
 1. Log in to the [Azure Management Portal][Azure Management Portal].
 1. In the menu on the left, click **New**.
-1. Enter `sparkpost` in the **Search the marketplace** field and click on *SparkPost* in result. It'll show search results with SparkPost
+1. Enter `sparkpost` in the **Search the marketplace** field and click on **SparkPost** in result. It'll show search results with SparkPost
     ![sparkpost-marketplace-result][sparkpost-marketplace-result]
 
 1. Click on **SparkPost**.
 
     ![sparkpost-addon-create][sparkpost-addon-create]
 
-1. Click **Create** from the panel it opened on right.
+1. Click **Create** from the panel it opened on the right.
 1. Fill up the signup form and click **Create**.
 
     ![sparkpost-addon-signup-form][sparkpost-addon-signup-form]
@@ -68,7 +69,8 @@ SparkPost provides 100K free emails per month including access to APIs and analy
 
     ![sparkpost-resource-all-settings][sparkpost-resource-all-settings]
 
-1. In Key Management pane, it'll automatically generate one API Key. Copy the API Key, we'll use it momentarily.
+
+1. In **Key Management** panel, it'll automatically generate one API Key (CLIENT_SECRET). Copy the API Key, we'll use it in next section.
 
     ![sparkpost-resource-key-mgt][sparkpost-resource-key-mgt]
 
@@ -84,31 +86,40 @@ SparkPost provides 100K free emails per month including access to APIs and analy
 [sparkpost-resource-key-mgt]: ../../includes/media/sparkpost/sparkpost-resource-key-management.png
 <!--Links-->
 [sparkpost packages]:  (https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sparkpost.sparkpost?tab=PlansAndPrice
+[Azure Management Portal]: https://manage.windowsazure.com
+
 
 -----------------------
 
 ## Download the sample application
-Clone the Hello World sample app repository to your local machine.
+Clone the sample app repository to your local machine. Open a terminal window and run the following command.
 
 ```bash
 git clone https://github.com/SparkPost/azure-sparkpost-node-sample.git
 ```
 
-Change to the directory that contains the sample code.
+Enter to the cloned directory
 
 ```bash
 cd azure-sparkpost-node-sample
 ```
 
+## Install dependencies
+To install dependencies required for this app, run
+
+```bash
+npm install
+```
+
 ## Run the application locally
 
-Run the application locally by opening a terminal window and using the `npm start` script for the sample to launch the built in Node.js http server.
+Run the application locally by using the `npm start` script for the sample to launch the built in Node.js http server. We'll also need to supply the API Key.
 
 ```bash
 SPARKPOST_API_KEY=<api_key> npm start
 ```
 
-Replace `<api_key>` with the API Key we've just created in the previous step.
+Replace `<api_key>` with the API Key we've just created in the previous section.
 
 Open a web browser, and navigate to the sample.
 
@@ -120,9 +131,12 @@ http://localhost:8080
 
 
 > [!TIP]
-> To run the application on different port prefix the command with desired port like
+> To run the application on different port, run the command with desired port like
+>
 > ```bash
 > PORT=3000 SPARKPOST_API_KEY=<API_KEY> npm start
+
+-----------------------
 
 ## Log in to Azure
 
@@ -141,7 +155,7 @@ We'll need a deployment user in order to authenticate the deployment. [Creation 
 az appservice web deployment user set --user-name <username> --password <password>
 ```
 
-Supply your desired values for `<username>` and `<password>` and take a note of them as they will be used in a steps below.
+Supply your desired values for `<username>` and `<password>` and take a note of them as they will be used in steps below.
 
 ## Create a Resource Group
 
@@ -161,7 +175,7 @@ We'll now create a Linux-based App Service Plan with the [az appservice plan cre
 az appservice plan create --name sparkpost_nodejs --resource-group testResource --sku S1 --is-linux
 ```
 
-The above commands created an App Service Plan on Linux Workers named `sparkpost_nodejs` using the **Standard** pricing tier.
+The above command creates an App Service Plan on Linux Workers named `sparkpost_nodejs` using the `Standard` pricing tier.
 
 Upon success, it'll return a response similar to following.
 
@@ -201,15 +215,15 @@ Upon success, it'll return a response similar to following.
 }
 ```
 
-## Create a web app
+## Create a Web App
 
-Now we'll create a web app within the `sparkpost_nodejs` App Service plan. The web app gives us a hosting space to deploy our code as well as provides a URL for us to view the deployed application. Use the [az appservice web create](/cli/azure/appservice/web#create) command to create the web app.
+Now we'll create a web app within the `sparkpost_nodejs` app service plan. The web app gives us a hosting space to deploy our code as well as provides a URL for us to view the deployed application. Use the [az appservice web create](/cli/azure/appservice/web#create) command to create the web app.
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group testResource --plan sparkpost_nodejs
 ```
 
-Replace `<app_name>` with your own app name. As this value will be used as the default DNS site for the web app, it needs to be unique across all apps in Azure. However, you can later map any custom DNS entry to the web app.
+Replace `<app_name>` with your own app name. As this value will be used as the default DNS site for the web app, it needs to be unique across all apps in Azure.
 
 A successful request will respond with something like following.
 
@@ -289,14 +303,14 @@ http://<app_name>.azurewebsites.net
 This is default web app in Azure. We'll now configure it to use Node.js and then push our sample app.
 
 ## Set SparkPost API Key in environment variable
-In an earlier step, we've created API Key. Now we'll save this API Key to application's settings which will be available in environment variable. In our code we've already referenced to this environment variable, hence, it should work without any further modification.
+In an earlier step, we've created API Key. Now we'll save this API Key to application's settings which will be available to our codes via environment variables. In our code we've already referenced to this environment variable, hence, it should work without any further modification in code.
 
 ```azurecli
 az appservice web config appsettings update --name <app_name> --resource-group testResource --settings SPARKPOST_API_KEY=<api_key>
 ```
 
 >[!Tip]
-> If you ever modify API Key, you'll only need to update this environment variable. No code updates necessary.
+> If you ever modify API Key, you'll only need to update this environment variable. No code update is necessary.
 
 Replace <api_key> with the API Key that you've noted earlier.
 
@@ -320,13 +334,13 @@ It'll return an git repo URL. Copy it as we'll use this in next step.
 https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
 ```
 
-## Add Azure as Git Remote
+## Add Azure git remote
 
 ```bash
 git remote add azure <git_repo_url>
 ```
 
-## Push to Azure from Git
+## Push to Azure from git
 Now that we've added git remote, we can simply push codes to this origin.
 
 ```bash
@@ -378,11 +392,12 @@ http://<app_name>.azurewebsites.net
 
 ![run-azure][run-azure]
 
+Enter your email address and click **Send**. It will send a sample email to that address.
 
 ## What's Next?
 - Learn more about SparkPost's [Node.js client library](nodejs-client-library).
 - Learn more about our APIs on [SparkPost DevHub].
-
+- [Get help].
 
 <!--images-->
 [run-locally]: ../../includes/media/sparkpost/sparkpost-run-app-locally.png
@@ -394,3 +409,4 @@ http://<app_name>.azurewebsites.net
 [resource group]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview
 [nodejs-client-library]: https://github.com/SparkPost/node-sparkpost
 [Sparkpost DevHub]: https://developers.sparkpost.com/
+[Get help]: https://www.sparkpost.com/docs/
