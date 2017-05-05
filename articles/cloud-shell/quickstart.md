@@ -24,7 +24,7 @@ This document details how to use the Azure Cloud Shell in the [Azure portal](htt
 1. Select the **Cloud Shell** icon in the top pane of the Azure portal <br>
 ![](media/shell-icon.png)
 2. Select a subscription to create a storage account and Azure file share <br>
-![](media/storage-create.png)
+![](media/storage-prompt.png)
 3. Select "Create storage"
 
 > [!TIP]
@@ -35,8 +35,6 @@ This document details how to use the Azure Cloud Shell in the [Azure portal](htt
 `az account list`
 2. Set your Cloud Shell to your preferred subscription: <br>
 `az account set --subscription my-subscription-name`
-
-![](media/storage-create.png)
 
 > [!TIP]
 > Your subscription will be remembered for future sessions using `azureProfile.json` held in your $Home directory.
@@ -50,9 +48,7 @@ Create an Ubuntu VM in your new resource group. The Azure CLI 2.0 will create ss
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS`
 
 > [!NOTE]
-> The public and private keys used to authenticate your VM are placed in `/User/.ssh/id_rsa` and `/User/.ssh/id_rsa.pub` by Azure CLI 2.0 by default. Your .ssh folder is persisted in your attached Azure file share's 5-GB image. 
-
-![](media/storage-create.png)
+> The public and private keys used to authenticate your VM are placed in `/User/.ssh/id_rsa` and `/User/.ssh/id_rsa.pub` by Azure CLI 2.0 by default. Your .ssh folder is persisted in your attached Azure file share's 5-GB image.
 
 Your username on this VM will be your username used in Cloud Shell ($User@Azure:).
 
@@ -70,6 +66,6 @@ Delete your resource group and any resources within it: <br>
 Run `az group delete -n MyRG`
 
 ## Next Steps
-- [Learn more about persisting storage on Cloud Shell](persisting-shell-storage.md) 
-- [Learn more about Azure CLI 2.0] (https://docs.microsoft.com/cli/azure/) 
-- [Learn more about Azure File Storage] (https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) 
+[Learn about persisting storage on Cloud Shell](persisting-shell-storage.md) 
+[Learn about Azure CLI 2.0] (https://docs.microsoft.com/cli/azure/) 
+[Learn about Azure File Storage] (https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) 

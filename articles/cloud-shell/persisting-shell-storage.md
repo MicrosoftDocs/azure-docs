@@ -22,14 +22,14 @@ On initial start, Azure Cloud Shell asks for your subscription to create an LRS 
 
 ![](media/storage-prompt.png)
 
-Three resources will be created on your behalf in a supported region nearest to you:
+### Three resources will be created on your behalf in a supported region nearest to you:
 1. Resource Group named: `cloud-shell-storage-<region>`
 2. Storage Account named: `cs-uniqueGuid`
 3. File Share named: `cs-<user>-<domain>-com-uniqueGuid`
 
 This file share will mount as `clouddrive` under your $Home directory. This file share is also used to store a 5-GB image created for you that automatically updates and persists your $Home directory. This is a one-time action and automatically mounts for subsequent sessions.
 
-Cloud Shell persists files with both methods below:
+### Cloud Shell persists files with both methods below:
 1. Create a disk image of your $Home directory to persist files within $Home. 
 This disk image is saved in your specified file share as `<User>.img` at `fileshare.storage.windows.net/fileshare/.cloudconsole/<User>.img`
 
@@ -40,7 +40,7 @@ This disk image is saved in your specified file share as `<User>.img` at `filesh
 Cloud Shell allows users to run a command called `clouddrive` that enables manually updating the file share mounted to Cloud Shell.
 ![](media/clouddrive-h.png)
 
-## clouddrive mount
+## Mount a new clouddrive
 
 ### Pre-requisites for manual mounting
 Cloud Shell will create a storage account and file share for you on first launch, however you may update the file share with the `clouddrive mount` command.
@@ -58,6 +58,10 @@ Your storage account and file share must exist in one of the following regions.
 |Asia Pacific|India Central, Southeast Asia|
 
 ### Mount command
+
+> [!NOTE]
+> If mounting a new file share, a new user image will be created for your $Home directory as your previous $Home image is held in the previous file share.
+
 1. Run `clouddrive mount` with the following parameters <br>
 
 ```
@@ -67,11 +71,8 @@ clouddrive mount -s mySubscription -g myRG -n storageAccountName -f fileShareNam
 To see more details run `clouddrive mount -h`: <br>
 ![](media/mount-h.png)
 
-## clouddrive unmount
-You may unmount a file share mounted to Cloud Shell at any time.
-
-> [!NOTE]
-> Cloud Shell requires a mounted file share, you will be prompted to create and mount a new file share on next session if removed.
+## Unmount clouddrive
+You may unmount a file share mounted to Cloud Shell at any time. However, Cloud Shell requires a mounted file share so you will be prompted to create and mount a new file share on next session if removed.
 
 To detach a file share from Cloud Shell:
 1. Run `clouddrive unmount`
@@ -87,9 +88,6 @@ To see more details run `clouddrive mount -h`: <br>
 
 ## Update clouddrive
 Run `clouddrive mount` specifying an existing or new file share. If the file share does not exist it will be created for you.
-
-> [!NOTE]
-> A new user image will be created for your $Home directory as your previous $Home image is held in the previous file share.
 
 ## List clouddrive
 To discover which file share is mounted as `clouddrive`:
@@ -137,4 +135,4 @@ Use these tags to see which users map to certain file shares and where certain $
 ## Next steps
 [Cloud Shell Quickstart](quickstart.md) 
 [Learn about Azure File storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) 
-[Learn more about Storage tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) 
+[Learn about Storage tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) 

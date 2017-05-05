@@ -23,6 +23,7 @@ This document explains how to use the Azure Cloud Shell window.
 ## Restart Cloud Shell
 ![](media/recycle.png)
 * Click the restart icon on the toolbar to reset the Cloud Shell machine.
+
 > ![WARNING]
 > Restarting Cloud Shell will reset machine state and any files not persisted by clouddrive will be lost.
 
