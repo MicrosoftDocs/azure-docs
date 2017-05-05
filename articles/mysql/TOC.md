@@ -48,4 +48,7 @@
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/mysql/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDatabaseforMySQL)
+## [Stack Overflow](https://stackoverflow.com/tags/Azure-Database-for-MySQL)
+## [Request a feature](https://feedback.azure.com/forums/597982-azure-database-for-mysql)
 ## [Region availability](https://azure.microsoft.com/regions/services/)
+## [Support options](https://azure.microsoft.com/en-us/support/options/)
