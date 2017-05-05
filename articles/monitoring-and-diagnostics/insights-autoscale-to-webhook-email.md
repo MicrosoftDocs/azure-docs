@@ -31,7 +31,7 @@ You can opt-in from the Azure portal for Cloud Services and Server Farms (Web Ap
 
 * Choose the **scale by** metric.
 
-![scale by](./media/insights-autoscale-to-webhook-email/insights-autoscale-scale-by.png)
+![scale by](./media/insights-autoscale-to-webhook-email/insights-autoscale-notify.png)
 
 ## Virtual Machine scale sets
 For newer Virtual Machines created with Resource Manager (Virtual Machine scale sets), you can configure this using REST API, Resource Manager templates, PowerShell, and CLI. A portal interface is not yet available.
@@ -122,4 +122,3 @@ When the autoscale notification is generated, the following metadata is included
 | oldCapacity |Yes |The current (old) instance count when Autoscale took a scale action |
 | newCapacity |Yes |The new instance count that Autoscale scaled the resource to |
 | Properties |No |Optional. Set of <Key, Value> pairs (for example,  Dictionary <String, String>). The properties field is optional. In a custom user interface  or Logic app based workflow, you can enter keys and values that can be passed using the payload. An alternate way to pass custom properties back to the outgoing webhook call is to use the webhook URI itself (as query parameters) |
-
