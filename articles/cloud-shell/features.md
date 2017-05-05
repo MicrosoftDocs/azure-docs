@@ -50,7 +50,7 @@ Since Cloud Shell is built for interactive sessions, shells automatically termin
 Cloud Shell securely and automatically authenticates account access for the Azure CLI 2.0.
 
 ## Azure Files persistence
-Since Cloud Shell is allocated on a per-request basis using a temporary machine, local files and machine state are not persisted.
+Since Cloud Shell is allocated on a per-request basis using a temporary machine, local files outside of $Home and machine state are not persisted.
 To persist files across sessions, Cloud Shell walks you through attaching an Azure file share on first launch.
 Once completed Cloud Shell will automatically attach your storage for all future sessions.
 
