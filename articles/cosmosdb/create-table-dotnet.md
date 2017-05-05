@@ -67,8 +67,6 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**. You'll use the copy buttons on the right side of the screen to copy the connection string into the app.config file in the next step.
 
-    ![View and copy an access key in the Azure Portal, Keys blade](./media/create-table-dotnet/keys.png)
-
 2. In Visual Studio 2015, open the app.config file. 
 
 3. Copy your URI value from the portal (using the copy button) and make it the value of the account-key in app.config. Use the account name created earlier for account-name in app.config.
@@ -309,5 +307,4 @@ table.DeleteIfExists();
 In this tutorial, we covered how to get started using Azure Cosmos DB with the Table API. To learn more about Azure Table storage, follow these links to learn about more complex storage tasks:
 
 * Read about [Azure Cosmos DB: Table API](table-introduction.md)
-* See more Table storage samples in [Getting Started with Azure Table Storage in .NET](../create-table-dotnet.md)
 * View the Table service reference documentation for complete details about available APIs: [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)

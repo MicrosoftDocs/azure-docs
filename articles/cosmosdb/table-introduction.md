@@ -50,4 +50,4 @@ Create an Azure Cosmos DB account in the [Azure portal](https://portal.azure.com
 Here are a few pointers to get you started:
 * Get started with [Azure Cosmos DB's Table API](create-table-dotnet.md) using existing NET Table SDK.
 * Learn about [Global distribution with Azure Cosmos DB](../documentdb/documentdb-distribute-data-globally.md).
-* Learn about [Provisioned throughput in Azure Cosmos DB](../documentdb-request-units.md).
+* Learn about [Provisioned throughput in Azure Cosmos DB](../documentdb/documentdb-request-units.md).
