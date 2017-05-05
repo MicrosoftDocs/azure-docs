@@ -12,7 +12,7 @@ ms.tgt_pltfrm: portal
 ms.topic: overview
 ms.date: 05/10/2017
 ---
-# What is Azure Database for PostgreSQL?
+# What is Azure Database for PostgreSQL? An introduction.
 
 Azure Database for PostgreSQL is a relational database service in the Microsoft cloud built for developers based on the community version of open source [PostgreSQL](https://www.postgresql.org/) database engine. Azure Database for PostgreSQL delivers:
 
@@ -50,10 +50,9 @@ See Business Continuity for details about the different business continuity feat
 
 Azure database services have a tradition of data security that Azure Database for PostgreSQL upholds with features that limit access, protect data at-rest and in-motion, and help you monitor activity. See Securing your Azure Database for PostgreSQL for a quick rundown of security features. And visit the [Azure Trust Center](https://www.microsoft.com/TrustCenter/Security/default.aspx) for information about Azure's platform security.
 
-## Next Steps
-
 Now that you've read an introduction to Azure Database for PostgreSQL and answered the question "What is Azure Database for PostgreSQL?", you're ready to:
 
+## Next Steps
 - Get started by [creating your first server](./quickstart-create-server-database-portal.md).
 - Build your first app in Python, PHP, Ruby, C\#, Java, Node.js: [Connection libraries](./concepts-connection-libraries.md)
 - See the [pricing page](https://azure.microsoft.com/pricing/details/postgresql/) for cost comparisons and calculators.
