@@ -1,19 +1,19 @@
-   ---
-   title: Adding Azure Search to Blob Storage | Microsoft Docs
-   description: Create an index in code using the Azure Search HTTP REST API.
-   services: search
-   documentationcenter: ''
-   author: ashmaka
-   manager: jhubbard
+---
+title: Adding Azure Search to Blob Storage | Microsoft Docs
+description: Create an index in code using the Azure Search HTTP REST API.
+services: search
+documentationcenter: ''
+author: ashmaka
+manager: jhubbard
 
 
-   ms.service: search
-   ms.topic: article
-   ms.date: 05/04/2017
-   ms.author: ashmaka
-   ---
+ms.service: search
+ms.topic: article
+ms.date: 05/04/2017
+ms.author: ashmaka
+---
 
-# Searching Blob Storage with Azure Search
+# Searching Blob storage with Azure Search
 
 Searching across the variety of content types stored in Azure Blob storage can be a difficult problem to solve. However, you can index and search the content of your Blobs in just a few clicks by using Azure Search. Searching over Blob storage requires provisioning an Azure Search service. The various service limits and pricing tiers of Azure Search can be found on the [pricing page](https://aka.ms/azspricing).
 
@@ -36,7 +36,7 @@ A common scenario that makes it easy to sort through blobs of any content type i
 
 [Learn more about indexing blob metadata.](https://aka.ms/azsblobmetadataindexing)
 
-## Image Search
+## Image search
 Azure Search’s full-text search, faceted navigation, and sorting capabilities can now be applied to the metadata of images stored in blobs.
 
 If these images are pre-processed using the [Computer Vision API](https://www.microsoft.com/cognitive-services/computer-vision-api) from Microsoft’s Cognitive Services, then it is possible to index the visual content found in each image including OCR and handwriting recognition. We are working on adding OCR and other image processing capabilities directly to Azure Search, if you are interested in these capabilities please submit a request on our [UserVoice](https://aka.ms/azsuv) or [email us](mailto:azscustquestions@microsoft.com).
@@ -46,11 +46,12 @@ Azure Search can be configured to extract structured content found in blobs that
 
 Note that JSON parsing is not currently configurable through the portal. [Learn more about JSON parsing in Azure Search.](https://aka.ms/azsjsonblobindexing)
 
-## Quick Start
+## Quick start
 Azure Search can be added to blobs directly from the Blob storage portal blade.
 
 ![](./media/search-blob-storage-integration/blob-blade.png)
 
 Clicking on the "Add Azure Search" option launches a flow where you can select an existing Azure Search service or create a new service. If you create a new service, you will be navigated out of your Storage account's portal experience. You will need to re-navigate to the Storage portal blade and re-select the "Add Azure Search" option, where you can select the existing service.
 
+### Next Steps
 Learn more about the Azure Search Blob Indexer in the full [documentation](https://aka.ms/azsblobindexer).
