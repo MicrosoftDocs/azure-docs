@@ -17,6 +17,7 @@
 # Concepts
 ## MySQL Servers
 ### [Supported versions](concepts-supported-versions.md)
+### [Limitations](concepts-limits.md)
 ## Development
 ### [Connection libraries](concepts-connectivity-libraries.md)
 ### [Application development](concepts-database-application-development.md)
