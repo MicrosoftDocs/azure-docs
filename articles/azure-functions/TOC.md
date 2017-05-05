@@ -7,12 +7,14 @@
 ## Triggers
 ### [Timer](functions-create-scheduled-function.md)
 ### [GitHub webhook](functions-create-github-webhook-triggered-function.md)
+### [Blob storage](functions-create-storage-blob-triggered-function.md)
 ### [Queue storage](functions-create-storage-queue-triggered-function.md)
 ## Integrate
 ### [Storage](functions-integrate-storage-queue-output-binding.md)
 
 # Tutorials 
 ## [1 - Create a serverless API](functions-create-serverless-api.md) 
+
 
 # Concepts
 ## [Hosting plans](functions-scale.md)
