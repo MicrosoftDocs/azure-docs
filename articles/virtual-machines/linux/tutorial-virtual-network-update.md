@@ -34,7 +34,7 @@ Azure virtual networks enables you to establish secure network connections betwe
 - **Network security groups** – secure azure resources, like a firewall.
 - **Network security group rules** -  security rules that allow or deny network traffic to Azure resources. 
 
-## Deploy Virtual Network and Subnet
+## Deploy Virtual Network
 
 For this tutorial, a single virtual network will be created with three subnets. The subnets will be arranged as the follows:
 
@@ -42,19 +42,23 @@ For this tutorial, a single virtual network will be created with three subnets. 
 - **Back-end** – VMs that host back-end databases.
 - **Remote access** – hosts a single VM that can be used to remotely access the front-end and back-end VMs.
 
-Create a Resource Group.
+Before you start, create a resource group.
 
 ```azurecli
 az group create --name myRGNetwork --location eastus
 ```
 
-Us the [az network vnet create]() command to create a virtual network. This command can also create an initial subnet. In this example, the network is named *mvVnet* and is given a address prefix of 10.0.0.0/16. The subnet *mySubnetFrontEnd* and is given a prefix of *10.0.1.0/24*.
+### Create virtual network
+
+Us the [az network vnet create](/cli/azure/network/vnet#create) command to create a virtual network. This command can also create an initial subnet. In this example, the network is named *mvVnet* and is given a address prefix of 10.0.0.0/16. The subnet *mySubnetFrontEnd* and is given a prefix of *10.0.1.0/24*.
 
 ```azurecli
 az network vnet create --resource-group myRGNetwork --name myVnet --address-prefix 10.0.0.0/16 --subnet-name mySubnetFrontEnd --subnet-prefix 10.0.1.0/24
 ```
 
-A new subnet will be added to the virtual network using the [az network vnet subnet create]() comment. In this example the subnet is named *mySubnetBackEnd* and will be used with all back-end services.
+### Create subnets
+
+A new subnet will be added to the virtual network using the [az network vnet subnet create](/cli/azure/network/vnet/subnet#create) comment. In this example the subnet is named *mySubnetBackEnd* and will be used with all back-end services.
 
 ```azurecli
 az network vnet subnet create --resource-group myRGNetwork --vnet-name myVnet --name mySubnetBackEnd --address-prefix 10.0.2.0/24
@@ -80,7 +84,7 @@ The allocation method can be set to static which ensures that the IP address wil
 
 ### Dynamic allocation
 
-When creating a VM with the [ az vm create]() command, the default public IP address allocation method is dynamic. In the following example, a VM is created with a dynamic IP address. 
+When creating a VM with the [az vm create](/cli/azure/vm#create) command, the default public IP address allocation method is dynamic. In the following example, a VM is created with a dynamic IP address. 
 
 ```azurecli
 az vm create --resource-group myRGNetwork --name myRemoteAccessVM --vnet-name myVnet --subnet mySubnetRemoteAccess --nsg myNSGRemoteAccess --image UbuntuLTS --generate-ssh-keys
@@ -96,7 +100,7 @@ az vm create --resource-group myRGNetwork --name myFrontEndVM --vnet-name myVnet
 
 ### Change allocation method
 
-The IP address allocation method can be changed to using the [az network public-ip update]() command. In this example, the IP address allocation method of the VM created in the last step is changed to dynamic.
+The IP address allocation method can be changed to using the [az network public-ip update](/cli/azure/network/public-ip#update) command. In this example, the IP address allocation method of the VM created in the last step is changed to dynamic.
 
 ```azurecli
 az network public-ip update --name myFrontEndIP --allocation-method Dynamic
@@ -111,6 +115,25 @@ az vm create --resource-group myRGNetwork --name myBackEndVM --vnet-name myVnet 
 ```
 
 ## Secure network traffic
+
+A network security group (NSG) contains a list of security rules that allow or deny network traffic to resources connected to Azure Virtual Networks (VNet). NSGs can be associated to subnets or individual network interfaces. When an NSG is associated to a subnet, the rules apply to all resources connected to the subnet.
+
+### Default NSG rules
+
+All NSGs contain a set of default rules. The default rules cannot be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that you create. +
+The default rules allow and disallow traffic as follows:
+
+- **Virtual network** - Traffic originating and ending in a virtual network is allowed both in inbound and outbound directions.
+- **Internet** - Outbound traffic is allowed, but inbound traffic is blocked.
+- **Load balancer** - Allow Azure’s load balancer to probe the health of your VMs and role instances. If you are not using a load balanced set you can override this rule.
+
+### Tutorial configuration
+
+In the following steps, network access will be configured between the three VMs in this configuration.
+
+- Front-End VM – Port 80 allowed in from the internet so that the hosted application is accessible. Port 22 will be allowed in from the remote access subnet so that an SSH connection can be made if needed.
+- Back-End VM – Port 3306 allow in only from the front-end subnet to allow for database communications between the front-end application and a MySQL instance. Port 22 will be allowed in from the remote access subnet so that an SSH connection can be made if needed. Because a default rule exists that allows all inter-vnet traffic, a rule is created to block all traffic. 
+- Remote access VM – Port 22 will be allowed in from the internet. This will allow an SSH session to be created with the VM from the internet.
 
 ### Secure incoming traffic
 
