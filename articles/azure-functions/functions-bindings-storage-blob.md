@@ -19,7 +19,7 @@ ms.date: 03/06/2017
 ms.author: chrande, glenga
 
 ---
-# Azure Functions Storage blob bindings
+# Azure Functions Blob storage bindings
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 This article explains how to configure and code Azure Storage blob bindings in Azure Functions. 
