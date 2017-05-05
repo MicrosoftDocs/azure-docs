@@ -16,7 +16,16 @@ metadata:
 abstract:
   description: Learn how to use Functions to develop and deploy small pieces of code in the language of your choice and in the cloud without setting up infrastructure. Tutorials, templates, and other documentation show you how to create functions for tasks you want to run in a background thread or on a schedule.
 sections:
-- itle: Resources
+- title: 5-Minute Quickstarts
+  items:
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+      src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+      text: Create function - portal
+      href: /azure/azure-functions/functions-create-first-azure-function
+- title: Resources
   items:
   - type: list
     style: cards
