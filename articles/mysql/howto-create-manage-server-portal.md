@@ -47,7 +47,8 @@ Follow these steps to create an Azure Database for MySQL server named “mysqlse
 5.	Click **Create** to provision the server. Provisioning takes a few minutes.
 
 > Check the **Pin to dashboard** option to allow easy tracking of your deployments.
-> [!NOTE] Although up to 1000GB in Basic tier and 10000GB in Standard tier will be supported for storage, for Public Preview, the maximum storage is still limited to 1000GB temporarily. 
+> [!NOTE]
+> Although up to 1000GB in Basic tier and 10000GB in Standard tier will be supported for storage, for Public Preview, the maximum storage is still limited to 1000GB temporarily. 
 </Include>
 
 ## Update an Azure Database for MySQL server
