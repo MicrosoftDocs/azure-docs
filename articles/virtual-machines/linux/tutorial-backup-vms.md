@@ -96,28 +96,53 @@ In this example, we show how to recover the default nginx web page /var/www/html
 	scp Linux_myVM_05-02-2017.sh azureuser@13.69.75.209:
 	```
 	
-9. Open an SSH connection to the VM.
+9. On your local computer, open an SSH connection to the VM.
 
     ```bash
 	ssh 13.69.75.209
 	```
 	
-10. Add execute permissions to the script file.
+10. On your VM, add execute permissions to the script file.
 
     ```bash
 	chmod +x Linux_myVM_05-02-2017.sh
 	```
 	
-11. Run the script to mount the recovery point as a filesystem.
+11. On your VM, run the script to mount the recovery point as a filesystem.
 
     ```bash
 	./Linux_myVM_05-02-2017.sh
 	```
 	
-12. Copy the nginx default web page from the mount point back to where you deleted the file.
+12. The output from the script will give you the path for the mount point. The output will look similar to this:
+
+    ```
+	Microsoft Azure VM Backup - File Recovery
+	______________________________________________
+                          
+	Connecting to recovery point using ISCSI service...
+	
+	Connection succeeded!
+	
+	Please wait while we attach volumes of the recovery point to this machine...
+                         
+	************ Volumes of the recovery point and their mount paths on this machine ************
+
+	Sr.No.  |  Disk  |  Volume  |  MountPath 
+
+	1)  | /dev/sdc  |  /dev/sdc1  |  /home/azureuser/myVM-20170505191055/Volume1
+
+	************ Open File Explorer to browse for files. ************
+
+	After recovery, to remove the disks and close the connection to the recovery point, please click 'Unmount Disks' in step 3 of the portal.
+
+	Please enter 'q/Q' to exit...
+	```
+
+12. On your VM, copy the nginx default web page from the mount point back to where you deleted the file.
 
     ```bash
-	sudo cp ~/Linux_myVM_05-02-2017/Volume1/var/www/index.nginx-debian.html /var/www/
+	sudo cp ~/myVM-20170505191055/Volume1/var/www/html/index.nginx-debian.html /var/www/html/
 	```
 	
 17. On your local computer, open the browser tab where you are connected to the IP address of the VM showing the nginx default page. Press CTRL + F5 to refresh the browser page. You should now see that the default page is working again.
