@@ -1,5 +1,5 @@
 ---
-title: Docker Hub Continuous Deployment with App Service on Linux | Microsoft Docs
+title: Docker Hub Continuous Deployment with Azure App Service on Linux | Microsoft Docs
 description: How to setup continuous deployment in App Service on Linux.
 keywords: azure app service, linux, oss
 services: app-service
@@ -18,7 +18,7 @@ ms.date: 05/10/2017
 ms.author: aelnably;wesmc
 
 ---
-# Docker Hub Continuous Deployment with App Service on Linux
+# Docker Hub Continuous Deployment with Azure App Service on Linux
 
 App Service on Linux is currently in Public Preview and enables customers to run their web apps natively on a Linux platform.
 

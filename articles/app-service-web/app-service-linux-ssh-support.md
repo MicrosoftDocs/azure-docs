@@ -1,5 +1,5 @@
 ---
-title: SSH support in App Service on Linux | Microsoft Docs
+title: SSH support for Azure App Service on Linux | Microsoft Docs
 description: Learn about using SSH with App Service on Linux.
 keywords: azure app service, linux, oss
 services: app-service
@@ -18,7 +18,7 @@ ms.date: 04/25/2017
 ms.author: wesmc
 
 ---
-# SSH support for App Service on Linux - Preview
+# SSH support for Azure App Service on Linux - Preview
 
 Azure App Service on Linux is currently in public preview and supports running web apps natively on Linux.
 
