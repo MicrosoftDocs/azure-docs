@@ -78,7 +78,7 @@ You can delete versions, but you have to keep at least one version of the app. Y
 
 **To delete a version:** 
 
-1. Click the **Delete Version** button ![Delete Version button](./media/luis-how-to-manage-versions/trashbin-button.jpg), corresponding to the version you want to delete.
+1. Click the **Delete Version** button ![Delete Version button](./media/luis-how-to-manage-versions/trashbin-button.png), corresponding to the version you want to delete.
 2. In the confirmation message, click **Yes** to confirm deletion.
 
 
