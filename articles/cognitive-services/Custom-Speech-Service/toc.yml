@@ -1,0 +1,16 @@
+- name: Custom Speech Service Documentation
+  href: ../index.md
+- name: Overview
+  items: 
+  - name: Learn about the Custom Speech Service
+    href: Home.md
+- name: Get started
+  items: 
+  - name: Explore the main features
+    href: GetStarted.md
+- name: Resources
+  items: 
+  - name: FAQ
+    href: FAQ.md
+  - name: Glossary
+    href: Glossary.md
