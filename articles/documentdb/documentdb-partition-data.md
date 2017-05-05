@@ -20,102 +20,129 @@ ms.custom: H1Hack27Feb2017
 ---
 # How to partition and scale in Azure Cosmos DB?
 
-[Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is designed to help you achieve fast, predictable performance and scale seamlessly along with your application as it grows. This article provides an overview of how partitioning works for all the data models in Azure Cosmos DB, and describes how you can configure Azure Cosmos DB collections to effectively scale your applications.
+[Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is a global distributed, multi-model database service designed to help you achieve fast, predictable performance and scale seamlessly along with your application as it grows. This article provides an overview of how partitioning works for all the data models in Azure Cosmos DB, and describes how you can configure Azure Cosmos DB collections to effectively scale your applications.
 
-Partitioning and partition keys are also covered in this Azure Friday video with Scott Hanselman and DocumentDB Principal Engineering Manager, Shireesh Thota.
+Partitioning and partition keys are also covered in this Azure Friday video with Scott Hanselman and Azure Cosmos DB Principal Engineering Manager, Shireesh Thota.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-DocumentDB-Elastic-Scale-Partitioning/player]
 > 
 
 After reading this article, you will be able to answer the following questions:   
 
-* How does partitioning work in Azure DocumentDB?
-* How do I configure partitioning in DocumentDB
+* How does partitioning work in Azure Cosmos DB?
+* How do I configure partitioning in Azure Cosmos DB
 * What are partition keys, and how do I pick the right partition key for my application?
 
-To get started with code, download the project from [DocumentDB Performance Testing Driver Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark). 
+To get started with code, download the project from [Azure Cosmos DB Performance Testing Driver Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark). 
 
-## Partitioning in DocumentDB
-In DocumentDB, you can store and query schema-less JSON documents with order-of-millisecond response times at any scale. DocumentDB provides containers for storing data called **collections**. Collections are logical resources and can span one or more physical partitions or servers. The number of partitions is determined by DocumentDB based on the storage size and the provisioned throughput of the collection. Every partition in DocumentDB has a fixed amount of SSD-backed storage associated with it, and is replicated for high availability. Partition management is fully managed by Azure DocumentDB, and you do not have to write complex code or manage your partitions. DocumentDB collections are **practically unlimited** in terms of storage and throughput. 
+## Partitioning in Azure Cosmos DB
+In Azure Cosmos DB, you can store and query schema-less JSON documents with order-of-millisecond response times at any scale. Cosmos DB provides containers for storing data called **collections (document), graph or tables**. Containers are logical resources and can span one or more physical partitions or servers. The number of partitions is determined by Cosmos DB based on the storage size and the provisioned throughput of the container. Every partition in Cosmos DB has a fixed amount of SSD-backed storage associated with it, and is replicated for high availability. Partition management is fully managed by Azure Cosmos DB, and you do not have to write complex code or manage your partitions. Cosmos DB containers are **practically unlimited** in terms of storage and throughput. 
 
-Partitioning is completely transparent to your application. DocumentDB supports fast reads and writes, SQL and LINQ queries, JavaScript based transactional logic, consistency levels, and fine-grained access control via REST API calls to a single collection resource. The service handles distributing data across partitions and routing query requests to the right partition. 
+Partitioning is completely transparent to your application. Cosmos DB supports fast reads and writes, SQL and LINQ queries, JavaScript based transactional logic, consistency levels, and fine-grained access control via REST API calls to a single container resource. The service handles distributing data across partitions and routing query requests to the right partition. 
 
-How does this work? When you create a collection in DocumentDB, you can specify **partition key property** configuration value. This is the JSON property (or path) within your documents that can be used by DocumentDB to distribute your data among multiple servers or partitions. DocumentDB will hash the partition key value and use the hashed result to determine the partition in which the JSON document will be stored. All documents with the same partition key will be stored in the same partition. 
+How does this work? When you create a container in Azure Cosmos DB, you can specify **partition key property** configuration value. This is the path within your items that can be used by Cosmos DB to distribute your data among multiple servers or partitions. Cosmos DB will hash the partition key value and use the hashed result to determine the partition in which the itemt will be stored. All items with the same partition key will be stored in the same partition. 
 
-For example, consider an application that stores data about employees and their departments in DocumentDB. Let's choose `"department"` as the partition key property, in order to scale out data by department. Every document in DocumentDB must contain a mandatory `"id"` property that must be unique for every document with the same partition key value, e.g. `"Marketing`". Every document stored in a collection must have a unique combination of partition key and id, e.g. `{ "Department": "Marketing", "id": "0001" }`, `{ "Department": "Marketing", "id": "0002" }`, and `{ "Department": "Sales", "id": "0001" }`. In other words, the compound property of (partition key, id) is the primary key for your collection.
+For example, consider an application that stores data about employees and their departments in Cosmos DB. Let's choose `"department"` as the partition key property, in order to scale out data by department. Every item in Cosmos DB must contain a mandatory `"id"` property that must be unique for every item with the same partition key value, e.g. `"Marketing`". Every item stored in a container must have a unique combination of partition key and id, e.g. `{ "Department": "Marketing", "id": "0001" }`, `{ "Department": "Marketing", "id": "0002" }`, and `{ "Department": "Sales", "id": "0001" }`. In other words, the compound property of (partition key, id) is the primary key for your container.
 
-DocumentDB creates a small number of physical partitions behind each collection based on storage size and provisioned throughput. The property that you define as partition key is a logical partition. Multiple partition key values typically share a single physical partition, but a single value will never span a partition. If you have a partition key with a lot of values, it’s good because DocumentDB will be able to perform better load balancing as your data grows or you increase the provisioned throughput.
+Azure Cosmos DB creates a small number of physical partitions behind each container based on storage size and provisioned throughput. The property that you define as partition key is a logical partition. Multiple partition key values typically share a single physical partition, but a single value will never span a partition. If you have a partition key with a lot of values, it’s good because DocumentDB will be able to perform better load balancing as your data grows or you increase the provisioned throughput.
 
-For example, let’s say you create a collection with 25,000 requests per second throughput and DocumentDB can support 10,000 requests per second per single physical partition. DocumentDB would create 3 physical partitions P1, P2, and P3 for your collection. During the insertion or read of a document, the DocumentDB service hashes the corresponding `Department` value to map data to the three partitions P1, P2, and P3. So for example, if “Marketing” and “Sales” hash to 1, they are both stored in P1. And if P1 becomes full, DocumentDB splits P1 into two new partitions P4 and P5. Then the service might move “Marketing” to P4 and “Sales” to P5 after the split, then drop P1. These moves of partition keys between partitions are transparent to your application, and have no impact to the availability of your collection.
-
-<a name="sharding"></a>
-## Sharding in API for MongoDB
-Sharded collections in API for MongoDB are using the same infrastructure as DocumentDB's partitioned collections. Like partitioned collections, sharded collections can have any number of shards and each shard has a fixed amount of SSD-backed storage associated with it. Sharded collections are practically unlimited in terms of storage and throughput. API for MongoDB's shard key is equivalent to DocumentDB's partition key and when deciding a shard key, make sure to read the [Partition keys](#partition-keys) and [Designing for partitioning](#designing-for-partitioning) sections.
+For example, let’s say you create a container with 25,000 requests per second throughput and Cosmos DB can support 10,000 requests per second per single physical partition. Cosmos DB would create 3 physical partitions P1, P2, and P3 for your container. During the insertion or read of an item, the Cosmos DB service hashes the corresponding `Department` value to map data to the three partitions P1, P2, and P3. So for example, if “Marketing” and “Sales” hash to 1, they are both stored in P1. And if P1 becomes full, DocumentDB splits P1 into two new partitions P4 and P5. Then the service might move “Marketing” to P4 and “Sales” to P5 after the split, then drop P1. These moves of partition keys between partitions are transparent to your application, and have no impact to the availability of your container.
 
 <a name="partition-keys"></a>
 ## Partition keys
-The choice of the partition key is an important decision that you’ll have to make at design time. You must pick a JSON property name that has a wide range of values and is likely to have evenly distributed access patterns. 
+The choice of the partition key is an important decision that you’ll have to make at design time. You must pick a property name that has a wide range of values and is likely to have evenly distributed access patterns.
 
-> [!NOTE]
-> It is a best practice to have a partition key with a large number of distinct values (100s-1000s at a minimum). Many customers use DocumentDB as effectively a key value store, where the unique “id” is the partition key of millions-billions of partition keys.
->
+> [!NOTE]> It is a best practice to have a partition key with a large number of distinct values (100s-1000s at a minimum).>
 
-The following table shows examples of partition key definitions and the JSON values corresponding to each. The partition key is specified as a JSON path, e.g. `/department` represents the property department. 
+The following table lists differences in terms between the different database models:
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
-            <td valign="top"><p><strong>Partition Key Path</strong></p></td>
+            <td valign="top"><p><strong>API</strong></p></td>
+            <td valign="top"><p><strong>Partition Key</strong></p></td>
+            <td valign="top"><p><strong>Row Key</strong></p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p><strong>DocumentDB</strong></p></td>
+            <td valign="top"><p>Partition Key Path</p></td>
+            <td valign="top"><p>id</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p><strong>MongoDB</strong></p></td>
+            <td valign="top"><p>Shard Key</p></td>
+            <td valign="top"><p>_id</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p><strong>Graph</strong></p></td>
+            <td valign="top"><p>Partition Property</p></td>
+            <td valign="top"><p>id</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p><strong>Table</strong></p></td>
+            <td valign="top"><p>Automatically set to partition key</p></td>
+            <td valign="top"><p>row key</p></td>
+        </tr>
+    </tbody>
+ </table>
+
+
+The following table shows examples of partition key definitions and the values corresponding to each. The partition key is specified as a path, e.g. `/department` represents the property department. 
+
+<table border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td valign="top"><p><strong>Partition Key</strong></p></td>
             <td valign="top"><p><strong>Description</strong></p></td>
         </tr>
         <tr>
             <td valign="top"><p>/department</p></td>
-            <td valign="top"><p>Corresponds to the JSON value of doc.department where doc is the document.</p></td>
+            <td valign="top"><p>Corresponds to the value of doc.department where doc is the item.</p></td>
         </tr>
         <tr>
             <td valign="top"><p>/properties/name</p></td>
-            <td valign="top"><p>Corresponds to the JSON value of doc.properties.name where doc is the document (nested property).</p></td>
+            <td valign="top"><p>Corresponds to the value of doc.properties.name where doc is the item (nested property).</p></td>
         </tr>
         <tr>
             <td valign="top"><p>/id</p></td>
-            <td valign="top"><p>Corresponds to the JSON value of doc.id (id and partition key are the same property).</p></td>
+            <td valign="top"><p>Corresponds to the value of doc.id (id and partition key are the same property).</p></td>
         </tr>
         <tr>
             <td valign="top"><p>/"department name"</p></td>
-            <td valign="top"><p>Corresponds to the JSON value of doc["department name"] where doc is the document.</p></td>
+            <td valign="top"><p>Corresponds to the value of doc["department name"] where doc is the item.</p></td>
         </tr>
     </tbody>
 </table>
 
 > [!NOTE]
-> The syntax for partition key path is similar to the path specification for indexing policy paths with the key difference that the path corresponds to the property instead of the value, i.e. there is no wild card at the end. For example, you would specify /department/? to index the values under department, but specify /department as the partition key definition. The partition key path is implicitly indexed and cannot be excluded from indexing using indexing policy overrides.
+> The syntax for partition key is similar to the path specification for indexing policy paths with the key difference that the path corresponds to the property instead of the value, i.e. there is no wild card at the end. For example, you would specify /department/? to index the values under department, but specify /department as the partition key definition. The partition key is implicitly indexed and cannot be excluded from indexing using indexing policy overrides.
 > 
 > 
 
 Let's look at how the choice of partition key impacts the performance of your application.
 
 ## Partitioning and provisioned throughput
-DocumentDB is designed for predictable performance. When you create a collection, you reserve throughput in terms of **[request units](documentdb-request-units.md) (RU) per second**. Each request is assigned a request unit charge that is proportionate to the amount of system resources like CPU and IO consumed by the operation. A read of a 1 kB document with Session consistency consumes 1 request unit. A read is 1 RU regardless of the number of items stored or the number of concurrent requests running at the same time. Larger documents require higher request units depending on the size. If you know the size of your entities and the number of reads you need to support for your application, you can provision the exact amount of throughput required for your application's read needs. 
+Cosmos DB is designed for predictable performance. When you create a container, you reserve throughput in terms of **[request units](documentdb-request-units.md) (RU) per second with a potential add-on for RU per minute**. Each request is assigned a request unit charge that is proportionate to the amount of system resources like CPU, Memory and IO consumed by the operation. A read of a 1 kB document with Session consistency consumes 1 request unit. A read is 1 RU regardless of the number of items stored or the number of concurrent requests running at the same time. Larger items require higher request units depending on the size. If you know the size of your entities and the number of reads you need to support for your application, you can provision the exact amount of throughput required for your application's read needs. 
 
-When DocumentDB stores documents, it distributes them evenly among partitions based on the partition key value. The throughput is also distributed evenly among the available partitions i.e. the throughput per partition = (total throughput per collection)/ (number of partitions). 
+When Cosmos DB stores items, it distributes them evenly among partitions based on the partition key value. The throughput is also distributed evenly among the available partitions i.e. the throughput per partition = (total throughput per container)/ (number of partitions). 
 
 > [!NOTE]
-> In order to achieve the full throughput of the collection, you must choose a partition key that allows you to evenly distribute requests among a number of distinct partition key values.
+> In order to achieve the full throughput of the container, you must choose a partition key that allows you to evenly distribute requests among a number of distinct partition key values.
 > 
 > 
 
 <a name="partitionedcollections"></a>
-## Single partition and partitioned collections
-DocumentDB supports the creation of both single-partition and partitioned collections. 
+## Single partition and partitioned containers
+DocumentDB supports the creation of both single-partition and partitioned containers. 
 
-* **Partitioned collections** can span multiple partitions and support unlimited storage and throughput. You must specify a partition key for the collection. 
-* **Single-partition collections** have lower price options, but they are limited in terms of maximum low storage and throughput. You do not have to specify a partition key for these collections. We recommend using partitioned collections over single-partitioned collections for all scenarios, except in situations where you expect only a small amount of data storage and requests.
+* **Partitioned containers** can span multiple partitions and support unlimited storage and throughput. You must specify a partition key for the collection. 
+* **Single-partition containers** have lower price options, but they are limited in terms of maximum storage and throughput. You do not have to specify a partition key for these containers. We recommend using partitioned collections over single-partitioned collections for all scenarios, except in situations where you expect only a small amount of data storage and requests.
 
-![Partitioned collections in DocumentDB][2] 
+![Partitioned containers in Cosmos DB][2] 
 
-Partitioned collections can support unlimited storage and throughput.
+Partitioned containers can support unlimited storage and throughput.
 
-The following table lists differences in working with a single-partition and partitioned collections:
+The following table lists differences in working with a single-partition and partitioned containers:
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -141,7 +168,7 @@ The following table lists differences in working with a single-partition and par
         </tr>
         <tr>
             <td valign="top"><p>Maximum Storage</p></td>
-            <td valign="top"><p>10 GB</p></td>
+            <td valign="top"><p>10 GB (limit to increase soon)</p></td>
             <td valign="top"><p>Unlimited</p></td>
         </tr>
         <tr>
@@ -163,10 +190,10 @@ The following table lists differences in working with a single-partition and par
 </table>
 
 ## Working with the DocumentDB SDKs
-Azure DocumentDB added support for automatic partitioning with [REST API version 2015-12-16](https://msdn.microsoft.com/library/azure/dn781481.aspx). In order to create partitioned collections, you must download SDK versions 1.6.0 or newer in one of the supported SDK platforms (.NET, Node.js, Java, Python). 
+Azure Cosmos DB added support for automatic partitioning with [REST API version 2015-12-16](https://msdn.microsoft.com/library/azure/dn781481.aspx). In order to create partitioned containers, you must download SDK versions 1.6.0 or newer in one of the supported SDK platforms (.NET, Node.js, Java, Python, MongoDB). 
 
-### Creating partitioned collections
-The following sample shows a .NET snippet to create a collection to store device telemetry data of 20,000 request units per second of throughput. The SDK sets the OfferThroughput value (which in turn sets the `x-ms-offer-throughput` request header in the REST API). Here we set the `/deviceId` as the partition key. The choice of partition key is saved along with the rest of the collection metadata like name and indexing policy.
+### Creating partitioned containers
+The following sample shows a .NET snippet to create a container to store device telemetry data of 20,000 request units per second of throughput. The SDK sets the OfferThroughput value (which in turn sets the `x-ms-offer-throughput` request header in the REST API). Here we set the `/deviceId` as the partition key. The choice of partition key is saved along with the rest of the container metadata like name and indexing policy.
 
 For this sample, we picked `deviceId` since we know that (a) since there are a large number of devices, writes can be distributed across partitions evenly and allowing us to scale the database to ingest massive volumes of data and (b) many of the requests like fetching the latest reading for a device are scoped to a single deviceId and can be retrieved from a single partition.
 
@@ -174,7 +201,7 @@ For this sample, we picked `deviceId` since we know that (a) since there are a l
 DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 await client.CreateDatabaseAsync(new Database { Id = "db" });
 
-// Collection for device telemetry. Here the JSON property deviceId will be used as the partition key to 
+// Container for device telemetry. Here the property deviceId will be used as the partition key to 
 // spread across partitions. Configured for 10K RU/s throughput and an indexing policy that supports 
 // sorting against any number or string property.
 DocumentCollection myCollection = new DocumentCollection();
@@ -187,15 +214,10 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 20000 });
 ```
 
-> [!NOTE]
-> In order to create partitioned collections using the SDK, you must specify a throughput value equal or greater than 10,100 RU/s. To set a throughput value between 2,500 and 10,000 for partitioned collections you must temporarily use the Azure portal, as these new lower values are not yet available in the SDK.
-> 
-> 
+This method makes a REST API call to Cosmos DB, and the service will provision a number of partitions based on the requested throughput. You can change the throughput of a container as your performance needs evolve. 
 
-This method makes a REST API call to DocumentDB, and the service will provision a number of partitions based on the requested throughput. You can change the throughput of a collection as your performance needs evolve. 
-
-### Reading and writing documents
-Now, let's insert data into DocumentDB. Here's a sample class containing a device reading, and a call to CreateDocumentAsync to insert a new device reading into a collection.
+### Reading and writing items
+Now, let's insert data into Cosmos DB. Here's a sample class containing a device reading, and a call to CreateDocumentAsync to insert a new device reading into a container. This is an example leveraging the DocumentDB API:
 
 ```csharp
 public class DeviceReading
@@ -234,7 +256,7 @@ await client.CreateDocumentAsync(
     });
 ```
 
-Let's read the document by it's partition key and id, update it, and then as a final step, delete it by partition key and id. Note that the reads include a PartitionKey value (corresponding to the `x-ms-documentdb-partitionkey` request header in the REST API).
+Let's read the item by its partition key and id, update it, and then as a final step, delete it by partition key and id. Note that the reads include a PartitionKey value (corresponding to the `x-ms-documentdb-partitionkey` request header in the REST API).
 
 ```csharp
 // Read document. Needs the partition key and the ID to be specified
@@ -258,8 +280,8 @@ await client.DeleteDocumentAsync(
   new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
 ```
 
-### Querying partitioned collections
-When you query data in partitioned collections, DocumentDB automatically routes the query to the partitions corresponding to the partition key values specified in the filter (if there are any). For example, this query is routed to just the partition containing the partition key "XMS-0001".
+### Querying partitioned containers
+When you query data in partitioned containers, Cosmos DB automatically routes the query to the partitions corresponding to the partition key values specified in the filter (if there are any). For example, this query is routed to just the partition containing the partition key "XMS-0001".
 
 ```csharp
 // Query using partition key
@@ -278,7 +300,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 ```
 
-DocumentDB supports [aggregate functions](documentdb-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, `SUM` and `AVG` over partitioned collections using SQL starting with SDKs 1.12.0 and above. Queries must include a single aggregate operator, and must include a single value in the projection.
+Cosmos DB supports [aggregate functions](documentdb-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, `SUM` and `AVG` over partitioned containers using SQL starting with SDKs 1.12.0 and above. Queries must include a single aggregate operator, and must include a single value in the projection.
 
 ### Parallel query execution
 The DocumentDB SDKs 1.9.0 and above support parallel query execution options, which allow you to perform low latency queries against partitioned collections, even when they need to touch a large number of partitions. For example, the following query is configured to run in parallel across partitions.
@@ -294,13 +316,13 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     
 You can manage parallel query execution by tuning the following parameters:
 
-* By setting `MaxDegreeOfParallelism`, you can control the degree of parallelism i.e., the maximum number of simultaneous network connections to the collection's partitions. If you set this to -1, the degree of parallelism is managed by the SDK. If the `MaxDegreeOfParallelism` is not specified or set to 0, which is the default value, there will be a single network connection to the collection's partitions.
+* By setting `MaxDegreeOfParallelism`, you can control the degree of parallelism i.e., the maximum number of simultaneous network connections to the container's partitions. If you set this to -1, the degree of parallelism is managed by the SDK. If the `MaxDegreeOfParallelism` is not specified or set to 0, which is the default value, there will be a single network connection to the container's partitions.
 * By setting `MaxBufferedItemCount`, you can trade off query latency and client-side memory utilization. If you omit this parameter or set this to -1, the number of items buffered during parallel query execution is managed by the SDK.
 
 Given the same state of the collection, a parallel query will return results in the same order as in serial execution. When performing a cross-partition query that includes sorting (ORDER BY and/or TOP), the DocumentDB SDK issues the query in parallel across partitions and merges partially sorted results in the client side to produce globally ordered results.
 
 ### Executing stored procedures
-You can also execute atomic transactions against documents with the same device ID, e.g. if you're maintaining aggregates or the latest state of a device in a single document. 
+You can also execute atomic transactions against documents with the same device ID, e.g. if you're maintaining aggregates or the latest state of a device in a single item. 
 
 ```csharp
 await client.ExecuteStoredProcedureAsync<DeviceReading>(
@@ -309,7 +331,7 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
     "XMS-001-FE24C");
 ```
     
-In the next section, we look at how you can move to partitioned collections from single-partition collections.
+In the next section, we look at how you can move to partitioned containers from single-partition containers.
 
 ## Creating an API for MongoDB sharded collection
 The simplest way to create an API for MongoDB sharded collection is through your favorite tool, driver, or SDK. In this example, we will use the Mongo Shell for the collection creation.
@@ -332,35 +354,30 @@ Results:
 
 <a name="migrating-from-single-partition"></a>
 
-## Migrating from single-partition to partitioned collections in DocumentDB
+## Migrating from single-partition to partitioned containers in DocumentDB
 
 > [!IMPORTANT]
 > If you are importing to API for MongoDB, follow these [instructions](documentdb-mongodb-migrate.md).
 > 
 > 
 
-When an application using a single-partition collection needs higher throughput (>10,000 RU/s) or larger data storage (>10GB), you can use the [DocumentDB Data Migration Tool](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) to migrate the data from the single-partition collection to a partitioned collection. 
+When an application using a single-partition container needs higher throughput (>10,000 RU/s) or larger data storage (>10GB), you can use the [DocumentDB Data Migration Tool](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) to migrate the data from the single-partition container to a partitioned container. 
 
-To migrate from a single-partition collection to a partitioned collection
-
-1. Export data from the single-partition collection to JSON. See [Export to JSON file](documentdb-import-data.md#export-to-json-file) for additional details.
-2. Import the data into a partitioned collection created with a partition key definition and over 2,500 request units per second throughput, as shown in the example below. See [Import to DocumentDB](documentdb-import-data.md#DocumentDBSeqTarget) for additional details.
-
-![Migrating Data to a Partitioned collection in DocumentDB][3]  
+![Migrating Data to a Partitioned container in Cosmos DB][3]  
 
 > [!TIP]
-> For faster import times, consider increasing the Number of Parallel Requests to 100 or higher to take advantage of the higher throughput available for partitioned collections. 
+> For faster import times, consider increasing the Number of Parallel Requests to 100 or higher to take advantage of the higher throughput available for partitioned containers. 
 > 
 > 
 
-Now that we've completed the basics, let's look at a few important design considerations when working with partition keys in DocumentDB.
+Now that we've completed the basics, let's look at a few important design considerations when working with partition keys in Azure Cosmos DB.
 
 <a name="designing-for-partitioning"></a>
 ## Designing for partitioning
-The choice of the partition key is an important decision that you’ll have to make at design time. This section describes some of the tradeoffs involved in selecting a partition key for your collection.
+The choice of the partition key is an important decision that you’ll have to make at design time. This section describes some of the tradeoffs involved in selecting a partition key for your container.
 
 ### Partition key as the transaction boundary
-Your choice of partition key should balance the need to enable the use of transactions against the requirement to distribute your entities across multiple partition keys to ensure a scalable solution. At one extreme, you could set the same partition key for all your documents, but this may limit the scalability of your solution. At the other extreme, you could assign a unique partition key for each document, which would be highly scalable but would prevent you from using cross document transactions via stored procedures and triggers. An ideal partition key is one that enables you to use efficient queries and that has sufficient cardinality to ensure your solution is scalable. 
+Your choice of partition key should balance the need to enable the use of transactions against the requirement to distribute your entities across multiple partition keys to ensure a scalable solution. At one extreme, you could set the same partition key for all your items, but this may limit the scalability of your solution. At the other extreme, you could assign a unique partition key for each item, which would be highly scalable but would prevent you from using cross document transactions via stored procedures and triggers. An ideal partition key is one that enables you to use efficient queries and that has sufficient cardinality to ensure your solution is scalable. 
 
 ### Avoiding storage and performance bottlenecks
 It is also important to pick a property which allows writes to be distributed across a number of distinct values. Requests to the same partition key cannot exceed the throughput of a single partition, and will be throttled. So it is important to pick a partition key that does not result in **"hot spots"** within your application. Since all the data for a single partition key must be stored within a partition, it is also recommended to avoid partition keys that have high volumes of data for the same value. 
@@ -376,26 +393,26 @@ Here are a few examples for how to pick the partition key for your application:
 Note that in some use cases (like the IoT and user profiles described above), the partition key might be the same as your id (document key). In others like the time series data, you might have a partition key that’s different than the id.
 
 ### Partitioning and logging/time-series data
-One of the most common use cases of DocumentDB is for logging and telemetry. It is important to pick a good partition key since you might need to read/write vast volumes of data. The choice will depend on your read and write rates and kinds of queries you expect to run. Here are some tips on how to choose a good partition key.
+One of the most common use cases of Cosmos DB is for logging and telemetry. It is important to pick a good partition key since you might need to read/write vast volumes of data. The choice will depend on your read and write rates and kinds of queries you expect to run. Here are some tips on how to choose a good partition key.
 
 * If your use case involves a small rate of writes acculumating over a long period of time, and need to query by ranges of timestamps and other filters, then using a rollup of the timestamp e.g. date as a partition key is a good approach. This allows you to query over all the data for a date from a single partition. 
-* If your workload is write heavy, which is generally more common, you should use a partition key that’s not based on timestamp so that DocumentDB can distribute writes evenly across a number of partitions. Here a hostname, process ID, activity ID, or another property with high cardinality is a good choice. 
-* A third approach is a hybrid one where you have multiple collections, one for each day/month and the partition key is a granular property like hostname. This has the benefit that you can set different throughput based on the time window, e.g. the collection for the current month is provisioned with higher throughput since it serves reads and writes, whereas previous months with lower throughput since they only serve reads.
+* If your workload is write heavy, which is generally more common, you should use a partition key that’s not based on timestamp so that Cosmos DB can distribute writes evenly across a number of partitions. Here a hostname, process ID, activity ID, or another property with high cardinality is a good choice. 
+* A third approach is a hybrid one where you have multiple collections, one for each day/month and the partition key is a granular property like hostname. This has the benefit that you can set different throughput based on the time window, e.g. the container for the current month is provisioned with higher throughput since it serves reads and writes, whereas previous months with lower throughput since they only serve reads.
 
 ### Partitioning and multi-tenancy
-If you are implementing a multi-tenant application using DocumentDB, there are two major patterns for implementing tenancy with DocumentDB – one partition key per tenant, and one collection per tenant. Here are the pros and cons for each:
+If you are implementing a multi-tenant application using Cosmos DB, there are two major patterns for implementing tenancy with Cosmos DB – one partition key per tenant, and one container per tenant. Here are the pros and cons for each:
 
-* One Partition Key per tenant: In this model, tenants are collocated within a single collection. But queries and inserts for documents within a single tenant can be performed against a single partition. You can also implement transactional logic across all documents within a tenant. Since multiple tenants share a collection, you can save storage and throughput costs by pooling resources for tenants within a single collection rather than provisioning extra headroom for each tenant. The drawback is that you do not have performance isolation per tenant. Performance/throughput increases apply to the entire collection vs targeted increases for tenants.
-* One Collection per tenant: Each tenant has its own collection. In this model, you can reserve performance per tenant. With DocumentDB's new consumption-based pricing model, this model is more cost-effective for multi-tenant applications with a small number of tenants.
+* One Partition Key per tenant: In this model, tenants are collocated within a single container. But queries and inserts for items within a single tenant can be performed against a single partition. You can also implement transactional logic across all items within a tenant. Since multiple tenants share a container, you can save storage and throughput costs by pooling resources for tenants within a single container rather than provisioning extra headroom for each tenant. The drawback is that you do not have performance isolation per tenant. Performance/throughput increases apply to the entire container vs targeted increases for tenants.
+* One Container per tenant: Each tenant has its own container. In this model, you can reserve performance per tenant. With Cosmos DB's new provisioning pricing model, this model is more cost-effective for multi-tenant applications with a small number of tenants.
 
-You can also use a combination/tiered approach that collocates small tenants and migrates larger tenants to their own collection.
+You can also use a combination/tiered approach that collocates small tenants and migrates larger tenants to their own container.
 
 ## Next steps
-In this article, we've described how partitioning works in Azure DocumentDB, how you can create partitioned collections, and how you can pick a good partition key for your application. 
+In this article, we've described how partitioning works in Azure Cosmos DB, how you can create partitioned containers, and how you can pick a good partition key for your application. 
 
-* Perform scale and performance testing with DocumentDB. See [Performance and Scale Testing with Azure DocumentDB](documentdb-performance-testing.md) for a sample.
+* Perform scale and performance testing with Cosmos DB. See [Performance and Scale Testing with Azure Cosmos DB](documentdb-performance-testing.md) for a sample.
 * Get started coding with the [SDKs](documentdb-sdk-dotnet.md) or the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)
-* Learn about [provisioned throughput in DocumentDB](documentdb-performance-levels.md)
+* Learn about [provisioned throughput in Azure Cosmos DB](documentdb-performance-levels.md)
 
 [1]: ./media/documentdb-partition-data/partitioning.png
 [2]: ./media/documentdb-partition-data/single-and-partitioned.png
