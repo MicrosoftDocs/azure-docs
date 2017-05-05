@@ -14,20 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/04/2017
+ms.date: 05/05/2017
 ms.author: cynthn
 ---
 # Back up Linux  virtual machines in Azure
 
-You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery pointy you can restore the whole VM or just specific files. This article explains how to restore a single file to a VM.
+You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery pointy you can restore the whole VM or just specific files. This article explains how to restore a single file to a Linux VM running nginx. If you don't already have a VM to use, you can create one using the [Linux quickstart](quick-create-cli.md).
+
+
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+
 
 ## Backup overview
 
 When the Azure Backup service initiates a backup, it triggers the backup extension to take a point-in-time snapshot. The Azure Backup service uses the _VMSnapshotLinux_ extension in Linux. The extension is installed during the first VM backup if the VM is running. If the VM is not running, the Backup service takes a snapshot of the underlying storage (since no application writes occur while the VM is stopped).
 
 Once the Azure Backup service takes the snapshot, the data is transferred to the vault. To maximize efficiency, the service identifies and transfers only the blocks of data that have changed since the previous backup.
-
-![Azure virtual machine backup architecture](../../backup/media/backup-azure-vms-introduction/vmbackup-architecture.png)
 
 When the data transfer is complete, the snapshot is removed and a recovery point is created.
 
@@ -44,7 +46,9 @@ Create a simple scheduled daily backup to a Recovery Services Vault.
 7. On the **Enable backup** blade, click **Enable Backup**. This will create a daily backup based on the default schedule.
 10. To create an initial recovery point, on the **Backup** blade click **Backup now**.
 11. On the **Backup Now** blade, click the calendar icon, use the calendar control to select the last day this recovery point is retained, and click **Backup**.
+12. In the **Backup** blade for your VM, you will see the number of recovery points that are complete.
 
+	![Recovery points](./media/tutorial-backup-vms/backup-complete.png)
 
 The first backup takes about 20 minutes. Proceed to the next part of this tutorial after you backup is finished.
 
@@ -52,7 +56,7 @@ The first backup takes about 20 minutes. Proceed to the next part of this tutori
 
 If you accidentally delete or make changes to a file, you can use File Recovery to recover the file from your backup vault. File Recovery uses a script that runs on the VM, to mount the recovery point as local drive. These drives will remain mounted for 12 hours so that you can copy files from the recovery point and restore them to the VM.  
 
-In this example, we are using a Linux VM running Ubuntu and nginx to show how to recover the default nginx web page /var/www/html/index.nginx-debian.html. The public IP address of our VM in this example is *52.233.179.229*.
+In this example, we show how to recover the default nginx web page /var/www/html/index.nginx-debian.html. The public IP address of our VM in this example is *13.69.75.209*. You can find the IP address of your vm using `az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv`.
 
 1. On your local computer, open a browser and type in the public IP address of your VM to see the default nginx web page.
 
@@ -61,8 +65,8 @@ In this example, we are using a Linux VM running Ubuntu and nginx to show how to
 1. SSH into your VM.
 
     ```bash
-	ssh 52.233.179.229
-	```
+    ssh 13.69.75.209
+    ```
 2. Delete /var/www/html/index.nginx-debian.html.
 
     ```bash
@@ -81,28 +85,41 @@ In this example, we are using a Linux VM running Ubuntu and nginx to show how to
 10. In **Step 1: Select recovery point**, select a recovery point from the drop-down.
 11. In **Step 2: Download script to browse and recover files**, click the **Download Executable** button. Save the downloaded file to your local computer.
 7. Click **Download script** to download the script file locally.
-8. Open a Bash prompt and type the following, replacing *Linux_myVM_05-02-2017.sh* with the correct path and filename for the script that you downloaded, *azureuser* with the username for the VM and *52.233.179.229* with the public IP address for your VM.
-    ```bash
-	scp Linux_myVM_05-02-2017.sh azureuser@52.233.179.229:
+8. Open a Bash prompt and type the following, replacing *Linux_myVM_05-02-2017.sh* with the correct path and filename for the script that you downloaded, *azureuser* with the username for the VM and *13.69.75.209* with the public IP address for your VM.
+    
+	```bash
+	scp Linux_myVM_05-02-2017.sh azureuser@13.69.75.209:
 	```
+	
 9. Open an SSH connection to the VM.
+
     ```bash
-	ssh 52.233.179.229
+	ssh 13.69.75.209
 	```
+	
 10. Add execute permissions to the script file.
+
     ```bash
 	chmod +x Linux_myVM_05-02-2017.sh
 	```
+	
 11. Run the script to mount the recovery point as a filesystem.
+
+    ```bash
+	./Linux_myVM_05-02-2017.sh
+	```
+	
 12. Copy the nginx default web page from the mount point back to where you deleted the file.
 
     ```bash
-	sudo cp ~/Linux_myVM_05-02-2017.sh/Volume1/var/www/index.nginx-debian.html /var/www/
+	sudo cp ~/Linux_myVM_05-02-2017/Volume1/var/www/index.nginx-debian.html /var/www/
 	```
 	
 17. On your local machine, open the browser tab where you are connected to the IP address of the VM showing the nginx default page. Press CTRL + F5 to refresh the browser page. You should now see that the default page is working again.
 
-18. On your local computer, go back to the browser tab for the Azure portal and in **Step 3: Unmount the disks after recovery** click the **Unmount Disks** button.
+	![Default nginx web page](./media/tutorial-backup-vms/nginx-working.png)
+
+18. On your local computer, go back to the browser tab for the Azure portal and in **Step 3: Unmount the disks after recovery** click the **Unmount Disks** button. If you forget to do this step, the connection to the mountpoint is automatically close after 12 hours. After those 12 hours, you need to download a new script to create a new mountpoint.
 
 
 ## Next steps

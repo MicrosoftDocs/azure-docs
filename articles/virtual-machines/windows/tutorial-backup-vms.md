@@ -14,12 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/04/2017
+ms.date: 05/05/2017
 ms.author: cynthn
 ---
 # Back up Windows virtual machines in Azure
 
-You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery pointy you can restore the whole VM or just specific files. This article explains how to restore a single file to a VM.
+You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery pointy you can restore the whole VM or just specific files. This article explains how to restore a single file to a VM running Windows Server and IIS. If you don't already have a VM to use, you can create one using the [Windows quickstart](quick-create-portal.md).
+
+
 
 ## Backup overview
 
@@ -44,14 +46,20 @@ Create a simple scheduled daily backup to a Recovery Services Vault.
 7. On the **Enable backup** blade, click **Enable Backup**. This will create a daily backup based on the default schedule.
 10. To create an initial recovery point, on the **Backup** blade click **Backup now**.
 11. On the **Backup Now** blade, click the calendar icon, use the calendar control to select the last day this recovery point is retained, and click **Backup**.
+12. In the **Backup** blade for your VM, you will see the number of recovery points that are complete.
 
+	![Recovery points](./media/tutorial-backup-vms/backup-complete.png)
+	
 The first backup takes about 20 minutes. Proceed to the next part of this tutorial after you backup is finished.
 
 ## Recover a file
 
 If you accidentally delete or make changes to a file, you can use File Recovery to recover the file from your backup vault. File Recovery uses a script that runs on the VM, to mount the recovery point as local drive. These drives will remain mounted for 12 hours so that you can copy files from the recovery point and restore them to the VM.  
 
-For this example, we are showing a Windows VM with IIS installed. We will delete the image file that is used in the default web page for IIS. 
+In this example, we show how to recover the image file that is used in the default web page for IIS. 
+
+
+In this example, we show how to recover the default nginx web page /var/www/html/index.nginx-debian.html.
 
 1. Open a browser and connect to the IP address of the VM to show the default IIS page.
 
