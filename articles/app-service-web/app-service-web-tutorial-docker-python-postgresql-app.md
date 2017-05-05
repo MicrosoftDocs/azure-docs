@@ -4,17 +4,17 @@ description: Learn how to get a Docker Python app working in Azure, with connect
 services: app-service\web
 documentationcenter: python
 author: berndverst
-manager: jopapa
+manager: erikre
 editor: ''
 
-ms.assetid:
+ms.assetid: 2bada123-ef18-44e5-be71-e16323b20466
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: berndverst
+ms.author: beverst
 
 ---
 # Build a Docker Python and PostgreSQL web app in Azure
