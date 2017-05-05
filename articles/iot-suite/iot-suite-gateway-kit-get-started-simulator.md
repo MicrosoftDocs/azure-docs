@@ -13,7 +13,7 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 05/05/2017
 ms.author: dobett
 
 ---
@@ -49,42 +49,64 @@ Repeat the previous steps to add a second device using a Device ID such as **dev
 
 [!INCLUDE [iot-suite-gateway-kit-prepare-nuc-software](../../includes/iot-suite-gateway-kit-prepare-nuc-software.md)]
 
+## Build the custom gateway module
+
+You can now build the custom gateway module that enables the gateway to send messages to the remote monitoring solution. For more information about configuring a gateway and gateway modules, see [Azure IoT Gateway SDK concepts][lnk-gateway-concepts].
+
+Download the source code for the custom modules from GitHub using the following commands:
+
+```bash
+cd ~
+git clone https://github.com/Azure-Samples/iot-remote-monitoring-c-intel-nuc-gateway-getting-started.git
+```
+
+Build the custom module using the following commands:
+
+```bash
+cd ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/simulator
+chmod u+x build.sh
+./build.sh
+```
+
+The build script places the libsimulator.so custom module in the build folder.
+
 ## Configure and run the gateway
 
-You can now configure the gateway software on your Intel NUC to communicate with the remote monitoring solution. For more information about configuring a gateway and gateway modules, see [Azure IoT Gateway SDK concepts][lnk-gateway-concepts].
+You can now configure the gateway to send simulated telemetry to your remote monitoring dashboard. For more information about configuring a gateway and gateway modules, see [Azure IoT Gateway SDK concepts][lnk-gateway-concepts].
 
 > [!NOTE]
 > In this tutorial, you use the standard `vi` text editor on the Intel NUC. If you have not used `vi` before, you should complete an introductory tutorial, such as [Unix - The vi Editor Tutorial][lnk-vi-tutorial] to familiarize yourself with this editor.
 
 Open the sample configuration file in the **vi** editor using the following command:
 
-`vi /tmp/azure-remote-monitoring-gateway-intelnuc/samples/simulated_device_cloud_upload/src/simulated_device_cloud_upload_lin.json`
+` vi ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/simulator
+/remote_monitoring.json`
 
 Locate the following lines in the configuration for the IoTHub module:
 
 ```json
 "args": {
-  "IoTHubName": "<<insert here IoTHubName>>",
-  "IoTHubSuffix": "<<insert here IoTHubSuffix>>",
-  "Transport": "HTTP"
+  "IoTHubName": "<<Azure IoT Hub Name>>",
+  "IoTHubSuffix": "<<Azure IoT Hub Suffix>>",
+  "Transport": "http"
 }
 ```
 
-Replace the placeholder values with the IoT Hub information you created and saved at the start of this tutorial. The value for IoTHubName looks like **yourrmsolution37e08**, and the value for IoTSuffix is typically **azure-devices.net**. Change the **Transport** value to **HTTP**.
+Replace the placeholder values with the IoT Hub information you created and saved at the start of this tutorial. The value for IoTHubName looks like **yourrmsolution37e08**, and the value for IoTSuffix is typically **azure-devices.net**.
 
 Locate the following lines in the configuration for the mapping module:
 
 ```json
 args": [
   {
-    "macAddress": "01:01:01:01:01:01",
-    "deviceId": "<<insert here deviceId>>",
-    "deviceKey": "<<insert here deviceKey>>"
+    "macAddress": "AA:BB:CC:DD:EE:FF",
+    "deviceId": "<<Azure IoT Hub Device ID>>",
+    "deviceKey": "<<Azure IoT Hub Device Key>>>"
   },
   {
-    "macAddress": "02:02:02:02:02:02",
-    "deviceId": "<<insert here deviceId>>",
-    "deviceKey": "<<insert here deviceKey>>"
+    "macAddress": "AA:BB:CC:DD:EE:FF",
+    "deviceId": "<<Azure IoT Hub Device ID>>",
+    "deviceKey": "<<Azure IoT Hub Device Key>>"
   }
 ]
 ```
@@ -96,8 +118,8 @@ Save your changes.
 You can now run the gateway using the following command:
 
 ```bash
-cd /tmp/azure-remote-monitoring-gateway-intelnuc/build
-sudo ./samples/simulated_device_cloud_upload/simulated_device_cloud_upload_sample ../samples/simulated_device_cloud_upload/src/simulated_device_cloud_upload_lin.json
+cd ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/simulator
+/usr/share/azureiotgatewaysdk/samples/simulated_device_cloud_upload/simulated_device_cloud_upload remote_monitoring.json
 ```
 
 The gateway starts on the Intel NUC and sends simulated telemetry to the remote monitoring solution:
@@ -106,12 +128,9 @@ The gateway starts on the Intel NUC and sends simulated telemetry to the remote 
 
 Press **Ctrl-C** to exit the program at any time.
 
-> [!NOTE]
-> Because of the shortage of storage on the Intel NUC, you used a temporary filesystem to build the gateway. If you want to save your compiled gateway, copy the **build** folder and the **/tmp/azure-remote-monitoring-gateway-intelnuc/samples/simulated\_device\_cloud\_upload/src/simulated\_device\_cloud\_upload\_lin.json** file to your home folder.
-
 ## View the telemetry
 
-The gateway is now sending simulated telemetry to the remote monitoring solution. You can view the telemetry on the solution dashboard. You can also send messages to your gateway simulated devices from the solution dashboard.
+The gateway is now sending simulated telemetry to the remote monitoring solution. You can view the telemetry on the solution dashboard.
 
 - Navigate to the solution dashboard.
 - Select one of the two devices you configured in the gateway in the **Device to View** dropdown.
@@ -119,27 +138,8 @@ The gateway is now sending simulated telemetry to the remote monitoring solution
 
 ![Display telemetry from the simulated gateway devices][img-telemetry-display]
 
-## Call a method
-
-TODOTODO - Fix this section
-
-From the solution dashboard, you can invoke methods on your Raspberry Pi. When the Raspberry Pi connects to the remote monitoring solution, it sends information about the methods it supports.
-
-- In the solution dashboard, click **Devices** to visit the **Devices** page. Select your Raspberry Pi in the **Device List**. Then choose **Methods**:
-
-    ![List devices in dashboard][img-list-devices]
-
-- On the **Invoke Method** page, choose **LightBlink** in the **Method** dropdown.
-
-- Choose **InvokeMethod**. The simulator prints a message in the console on the Raspberry Pi. The app on the Raspberry Pi sends an acknowledgment back to the solution dashboard:
-
-    ![Show method history][img-method-history]
-
-- You can switch the LED on and off using the **ChangeLightStatus** method with a **LightStatusValue** set to **1** for on or **0** for off.
-
 > [!WARNING]
 > If you leave the remote monitoring solution running in your Azure account, you are billed for the time it runs. For more information about reducing consumption while the remote monitoring solution runs, see [Configuring Azure IoT Suite preconfigured solutions for demo purposes][lnk-demo-config]. Delete the preconfigured solution from your Azure account when you have finished using it.
-
 
 ## Next steps
 

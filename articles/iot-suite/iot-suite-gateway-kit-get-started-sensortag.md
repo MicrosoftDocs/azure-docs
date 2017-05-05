@@ -13,7 +13,7 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 05/05/2017
 ms.author: dobett
 
 ---
@@ -32,7 +32,7 @@ In this tutorial, you complete the following steps:
 
 - Deploy an instance of the remote monitoring preconfigured solution to your Azure subscription. This step automatically deploys and configures multiple Azure services.
 - Set up your Intel NUC gateway device to communicate with your computer and the remote monitoring solution.
-- Set up your Intel NUC gateway to receive telemetry from a SensorTag device.
+- Set up your Intel NUC gateway to receive telemetry from a SensorTag device and send it to the remote monitoring dashboard.
 
 [!INCLUDE [iot-suite-gateway-kit-prerequisites](../../includes/iot-suite-gateway-kit-prerequisites.md)]
 
@@ -107,42 +107,64 @@ Configure Bluetooth on the Intel NUC to enable the SensorTag device to connect a
 
 [!INCLUDE [iot-suite-gateway-kit-prepare-nuc-software](../../includes/iot-suite-gateway-kit-prepare-nuc-software.md)]
 
+## Build the custom gateway module
+
+You can now build the custom gateway module that enables the gateway to send messages to the remote monitoring solution. For more information about configuring a gateway and gateway modules, see [Azure IoT Gateway SDK concepts][lnk-gateway-concepts].
+
+Download the source code for the custom modules from GitHub using the following commands:
+
+```bash
+cd ~
+git clone https://github.com/Azure-Samples/iot-remote-monitoring-c-intel-nuc-gateway-getting-started.git
+```
+
+Build the custom module using the following commands:
+
+```bash
+cd ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/basic
+chmod u+x build.sh
+./build.sh
+```
+
+The build script places the libsensor2remotemonitoring.so custom module in the build folder.
+
 ## Configure and run the gateway
 
-You can now configure the gateway software on your Intel NUC to communicate with the remote monitoring solution. For more information about configuring a gateway and gateway modules, see [Azure IoT Gateway SDK concepts][lnk-gateway-concepts].
+You can now configure the gateway to send telemetry from your SensorTag device to your remote monitoring dashboard. For more information about configuring a gateway and gateway modules, see [Azure IoT Gateway SDK concepts][lnk-gateway-concepts].
 
 > [!NOTE]
-> In this tutorial, you use the standard **vi** text editor on the Intel NUC. If you have not used **vi** before, you should complete an introductory tutorial such as [Unix - The vi Editor Tutorial][lnk-vi-tutorial] to familiarize yourself with this editor.
+> In this tutorial, you use the standard `vi` text editor on the Intel NUC. If you have not used `vi` before, you should complete an introductory tutorial, such as [Unix - The vi Editor Tutorial][lnk-vi-tutorial] to familiarize yourself with this editor.
 
 Open the sample configuration file in the **vi** editor using the following command:
 
-`vi /tmp/azure-remote-monitoring-gateway-intelnuc/samples/ble_gateway/src/gateway_sample.json`
+` vi ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/basic
+/remote_monitoring.json`
 
 Locate the following lines in the configuration for the IoTHub module:
 
 ```json
 "args": {
-  "IoTHubName": "<<insert here IoTHubName>>",
-  "IoTHubSuffix": "<<insert here IoTHubSuffix>>",
-  "Transport": "amqp"
+  "IoTHubName": "<<Azure IoT Hub Name>>",
+  "IoTHubSuffix": "<<Azure IoT Hub Suffix>>",
+  "Transport": "http"
 }
 ```
 
-Replace the placeholder values with the IoT Hub information you created and saved at the start of this tutorial. The value for IoTHubName looks like **yourrmsolution37e08**, and the value for IoTSuffix is typically **azure-devices.net**. Change the Transport value to **HTTP**.
+Replace the placeholder values with the IoT Hub information you created and saved at the start of this tutorial. The value for IoTHubName looks like **yourrmsolution37e08**, and the value for IoTSuffix is typically **azure-devices.net**.
 
 Locate the following lines in the configuration for the mapping module:
 
 ```json
 args": [
   {
-    "macAddress": "AA:BB:CC:DD:EE:FF",
-    "deviceId": "<<insert here deviceId>>",
-    "deviceKey": "<<insert here deviceKey>>"
+    "macAddress": "<<AA:BB:CC:DD:EE:FF>>",
+    "deviceId": "<<Azure IoT Hub Device ID>>",
+    "deviceKey": "<<Azure IoT Hub Device Key>>>"
   }
 ]
 ```
 
-Replace the **deviceID** and **deviceKey** placeholders with the IDs and keys for the two devices you created in the remote monitoring solution previously. Replace the MAC address with the MAC address of your SensorTag device that you noted previously.
+Replace the **macAddress** placeholder with the MAC address of your SensorTag you noted previously. Replace the **deviceID** and **deviceKey** placeholders with the IDs and keys for the two devices you created in the remote monitoring solution previously.
 
 Locate the following lines in the configuration for the SensorTag module:
 
@@ -150,39 +172,26 @@ Locate the following lines in the configuration for the SensorTag module:
 "args": {
   "controller_index": 0,
   "device_mac_address": "<<AA:BB:CC:DD:EE:FF>>",
-  "instructions": [
-```
-
-Replace the device MAC address with the MAC address of your SensorTag device that you noted previously.
-
-
-Locate the following lines in the configuration for the Logger module:
-
-```json
-"args": {
-  "filename": "<</path/to/log-file.log>>"
+  ...
 }
 ```
 
-Set the filename to **/tmp/ble-gateway.log**.
+Replace the **device\_mac\_address** placeholder  with the MAC address of your SensorTag you noted previously.
 
-Save your changes to the configuration file.
+Save your changes.
 
 You can now run the gateway using the following command:
 
 ```bash
-cd /tmp/azure-remote-monitoring-gateway-intelnuc
-sudo ./build/samples/ble_gateway/ble_gateway ../samples/ble_gateway/src/gateway_sample.json
+cd ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/basic
+/usr/share/azureiotgatewaysdk/samples/ble_gateway/ble_gateway remote_monitoring.json
 ```
 
-The gateway starts on the Intel NUC and forwards telemetry from the SensorTag device to the remote monitoring solution:
+The gateway starts on the Intel NUC and sends telemetry from the SensorTag to the remote monitoring solution:
 
-![Gateway forwards SensorTag telemetry][img-simulated telemetry]
+![Gateway sends telemetry from the SensorTag][img-telemetry]
 
 Press **Ctrl-C** to exit the program at any time.
-
-> [!NOTE]
-> Because of the shortage of storage on the Intel NUC, you used a temporary filesystem to build the gateway. If you want to save your compiled gateway, copy the **build** folder and the **/tmp/azure-remote-monitoring-gateway-intelnuc/samples/ble\_gateway/src/gateway\_sample.json** file to your home folder.
 
 ## View the telemetry
 
@@ -194,24 +203,6 @@ The gateway is now sending telemetry from the SensorTag device to the remote mon
 
 ![Display telemetry from the SensorTag devices][img-telemetry-display]
 
-## Call a command
-
-TODOTODO - Fix this section
-
-From the solution dashboard, you can invoke methods on your Raspberry Pi. When the Raspberry Pi connects to the remote monitoring solution, it sends information about the methods it supports.
-
-- In the solution dashboard, click **Devices** to visit the **Devices** page. Select your Raspberry Pi in the **Device List**. Then choose **Methods**:
-
-    ![List devices in dashboard][img-list-devices]
-
-- On the **Invoke Method** page, choose **LightBlink** in the **Method** dropdown.
-
-- Choose **InvokeMethod**. The simulator prints a message in the console on the Raspberry Pi. The app on the Raspberry Pi sends an acknowledgment back to the solution dashboard:
-
-    ![Show method history][img-method-history]
-
-- You can switch the LED on and off using the **ChangeLightStatus** method with a **LightStatusValue** set to **1** for on or **0** for off.
-
 > [!WARNING]
 > If you leave the remote monitoring solution running in your Azure account, you are billed for the time it runs. For more information about reducing consumption while the remote monitoring solution runs, see [Configuring Azure IoT Suite preconfigured solutions for demo purposes][lnk-demo-config]. Delete the preconfigured solution from your Azure account when you have finished using it.
 
@@ -220,7 +211,7 @@ From the solution dashboard, you can invoke methods on your Raspberry Pi. When t
 
 Visit the [Azure IoT Dev Center](https://azure.microsoft.com/develop/iot/) for more samples and documentation on Azure IoT.
 
-[img-simulated telemetry]: ./media/iot-suite-gateway-kit-get-started-sensortag/appoutput.png
+[img-telemetry]: ./media/iot-suite-gateway-kit-get-started-sensortag/appoutput.png
 
 
 [img-telemetry-display]: ./media/iot-suite-gateway-kit-get-started-sensortag/telemetry.png

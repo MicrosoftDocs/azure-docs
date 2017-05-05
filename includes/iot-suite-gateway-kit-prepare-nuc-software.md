@@ -1,54 +1,55 @@
 ## Build the gateway
 
-This tutorial uses custom gateway modules to communicate with the remote monitoring preconfigured solution. Therefore, you need to build the gateway from the custom source code. The following sections describe how to download and build the custom gateway code.
+This tutorial uses custom gateway modules to communicate with the remote monitoring preconfigured solution. Therefore, you need to build the modules from custom source code. The following sections describe how to install the gateway and build the custom gateway module.
 
-To build the gateway on the Intel NUC, you need to:
+### Install the gateway
 
-- Clone the repository that contains the gateway source code.
-- Set up the C compiler to work with the Gateway SDK.
-- Install the necessary tools for the build process.
-- Build the gateway.
+The following steps describe how to install the pre-compiled gateway software on the Intel NUC:
 
-### Clone the repository
+1. Configure the required smart package repositories by running the following commands on the Intel NUC:
 
-To clone the gateway repository source code to the Intel NUC, enter the following commands in the shell:
+    ```bash
+    rpm --import https://iotdk.intel.com/misc/iot_pub2.key
+    smart channel --add IoT_Cloud type=rpm-md name="IoT_Cloud" baseurl=http://iotdk.intel.com/repos/iot-cloud/wrlinux7/rcpl13/ -y
+    smart channel --add WR_Repo type=rpm-md baseurl=https://distro.windriver.com/release/idp-3-xt/public_feeds/WR-IDP-3-XT-Intel-Baytrail-public-repo/RCPL13/corei7_64/
+    ```
+
+    Enter `y` when the command prompts you to **Include this channel?**.
+
+1. Update the smart package manager by running the following command:
+
+    ```bash
+    smart update
+    ```
+
+1. Install the Azure IoT Gateway package by running the following command:
+
+    ```bash
+    smart install packagegroup-cloud-azure -y
+    ```
+
+1. Verify the installation by running the "Hello world" sample. This sample writes a hello world message to the log.txT file every five seconds. The following commands run the "Hello world" sample:
+
+    ```bash
+    cd /usr/share/azureiotgatewaysdk/samples/hello_world/
+    ./hello_world hello_world.json
+    ```
+
+    Ignore any **invalid argument** messages when you stop the sample.
+
+    Use the following command to view the contents of the log file:
+
+    ```
+    cat log.txt | more
+    ```
+
+### Troubleshooting
+
+If you receive the error "Public key not available", try installing the package using the following commands:
 
 ```bash
-cd /tmp
-git clone https://github.com/IoTChinaTeam/azure-remote-monitoring-gateway-intelnuc.git
-cd azure-remote-monitoring-gateway-intelnuc
-git submodule update --init --recursive
+smart config --set rpm-check-signatures=false
+smart install packagegroup-cloud-azure -y
 ```
 
-### Configure the environment
-
-The Intel NUC uses a specific package loader for shared libraries and uses this specific path in the CMake scripts. This work around is necessary to resolve a build error on the Intel NUC. Enter the following commands in the shell on the Intel NUC:
-
-```bash
-export LIB64_PATH=/iotdk2/scott/Projects/iot-cloud/build-intel-baytrail-64-wrlinux-7-0013/bitbake_build/tmp/sysroots/intel-baytrail-64/usr
-mkdir -p $LIB64_PATH
-ln -s /usr/lib64 $LIB64_PATH/lib64
-```
-
-### Install CMake
-
-The build scripts for the gateway use the CMake utility. Enter the following commands in the shell on the Intel NUC to install CMake:
-
-
-```bash
-cd /tmp
-wget https://cmake.org/files/v3.8/cmake-3.8.0-Linux-x86_64.tar.gz
-tar -xvf cmake-3.8.0-Linux-x86_64.tar.gz
-export PATH=$PATH:/tmp/cmake-3.8.0-Linux-x86_64/bin
-```
-
-### Build the gateway
-
-To build the gateway, enter the following commands in the shell on the Intel NUC:
-
-```bash
-cd /tmp/azure-remote-monitoring-gateway-intelnuc
-./tools/build.sh
-```
-
-The build script generates executables in the following folder: **/tmp/azure-remote-monitoring-gateway-intelnuc/build/samples/**.
+If you receive the error "No package provides util-linux-dev", try rebooting the Intel NUC.

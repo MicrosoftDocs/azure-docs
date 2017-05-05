@@ -25,4 +25,4 @@ Sign in with username **root** and password **root**.
 
 Optionally, you may want to share a folder on your Intel NUC with your desktop environment. Sharing a folder enables you to use your preferred desktop text editor (such as [Visual Studio Code](https://code.visualstudio.com/) or [Sublime Text](http://www.sublimetext.com/)) to edit files on your Intel NUC instead of using `nano` or `vi`.
 
-To share a folder with Windows, configure a Samba server on the Intel NUC. Alternatively, use an SFTP server on the Intel NUC with an SFTP client on your desktop machine.
+To share a folder with Windows, configure a Samba server on the Intel NUC. Alternatively, use the SFTP server on the Intel NUC with an SFTP client on your desktop machine.
