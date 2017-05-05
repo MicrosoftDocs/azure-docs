@@ -29,7 +29,6 @@ ms.author: mimig
 
 ## Release notes
 
-### <a name="0.0.1"/>0.0.1
 * Initial preview release.
 
 ## Release & Retirement dates
@@ -38,13 +37,6 @@ Microsoft will provide notification at least **12 months** in advance of retirin
 New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible. 
 
 Any request to DocumentDB using a retired SDK will be rejected by the service.
-
-<br/>
-
-| Version | Release Date | Retirement Date |
-| --- | --- | --- |
-| [0.0.1](#0.0.1) |May 10, 2017|--- |
-
 
 ## See also
 To learn more about the Azure Cosmos DB Graph API, see [Introduction to Azure Cosmos DB: Graph API](graph-introduction.md). 
