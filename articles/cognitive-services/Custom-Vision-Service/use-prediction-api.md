@@ -1,5 +1,5 @@
 ---
-title: Use the prediction endpoint | Microsoft Docs
+title: Use the Prediction Endpoint | Microsoft Docs
 description: How to use the API to programmatically test images.
 services: cognitive-services
 author: v-moib
@@ -12,15 +12,15 @@ ms.date: 04/28/2017
 ms.author: v-moib
 ---
 
-# Use the prediction endpoint to test images programmatically
+# Use the Prediction Endpoint to Test Images Programmatically
 
-After you train your model, you can obtain a URL which you can use to test images programmatically.
+After you train your model, you can obtain a URL that you can use to test images programmatically.
 
 ## Obtain the prediction endpoint URL for a specific iteration:
 
 1. Click the "PERFORMANCE" tab, which is shown inside a red rectangle in the image below.
 2. In the left pane, click on the iteration you want to use for testing images.
-3. In the upper part of the screen, click "Prediction URL", which is shown in a red rectangle in the image below.
+3. In the upper part of the screen, click "Prediction URL", which is shown in a red rectangle in the following image.
 
 ![The performance tab is shown with a red rectangle surrounding the Prediction URL.](./media/use-prediction-api/performance-tab-and-prediction-url.png)
 
@@ -85,17 +85,17 @@ namespace CSPredictionSample
 
 ## Obtain the default prediction endpoint URL for your project:
 
-The example above uses the prediction endpoint for a specific iteration. You can also mark an iteration as the default one for the project. You can then use the default endpoint in your code. This way, when you want your code to use a different iteration, you can use the web browser to mark that iteration as the new default, and your code will use it instead of the old default iteration.
+The preceding example uses the prediction endpoint for a specific iteration. You can also mark an iteration as the default one for the project. You can then use the default endpoint in your code. This way, when you want your code to use a different iteration, you can use the web browser to mark that iteration as the new default. Your code will automatically use this new default iteration instead of the old one.
 
 Follow these steps to mark an iteration as the default:
 
 1. Click the "PERFORMANCE" tab, which is in the upper part of the browser window.
-2. In the left pane, click on the iteration you want to mark as the default.
-3. Click "Make default" as shown in the red rectangle in the image below.
+2. In the left pane, click the iteration you want to mark as the default.
+3. Click "Make default" as shown in the red rectangle in the following image.
 
 ![The performance tab is shown with a red rectangle surrounding the button to use for marking an iteration as the default iteration for the project.](./media/use-prediction-api/make-default-iteration.png)
 
-After you mark an iteration as the default, you can write code that always uses the current default. To modify the C# example above to always use the current default, even when that default changes, remove the *IterationId* parameter and its value from the URL. In this example, the resulting default URL is as shown below.
+After you mark an iteration as the default, you can write code that always uses the current default. To modify the preceding example to always use the current default, even when that default changes, remove the *IterationId* parameter and its value from the URL. In this example, the following URL is what you obtain.
 
 ```
 "https://deviris2.azure-api.net/v1.0/Prediction/d16e136c-5b0b-4b84-9341-6a3fff8fa7fe/image?"
