@@ -119,5 +119,6 @@ The next query returns all the given names of children in the family whose id ma
 In this tutorial, you've learned how to query DocumentDB documents using SQL. You can now distribute data globally using the portal or install the Local emulator for local development.  
 
 [Distribute your data globally](../documentdb/documentdb-portal-global-replication.md)
+
 [Develop locally](../documentdb/documentdb-nosql-local-emulator.md)
 

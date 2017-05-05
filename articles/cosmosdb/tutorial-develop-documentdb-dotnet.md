@@ -298,4 +298,5 @@ If you're not going to continue to use this app, delete all resources created by
 In this quickstart, you've learned how to create an Azure Cosmos DB account, create a collection, and sample documents. You can now import additional data to your Cosmos DB account, or query your data using SQL. 
 
 [Import data into Azure Cosmos DB for the DocumentDB API](../documentdb/documentdb-import-data.md)
+
 [Query using SQL](tutorial-query-documentdb.md)

@@ -210,4 +210,5 @@ If you're not going to continue to use this app, use the following steps to dele
 In this quickstart, you've learned how to create an Azure Cosmos DB account, create a MongoDB collection using the Data Explorer. You can now migrate your data to Azure Cosmos DB or query your data.  
 
 [Migrate data for the MongoDB API](../documentdb/documentdb-mongodb-migrate.md)
+
 [Query using MongoDB](tutorial-query-mongodb.md)

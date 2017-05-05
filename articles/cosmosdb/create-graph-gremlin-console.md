@@ -42,12 +42,16 @@ You also need to install the [Gremlin Console](http://tinkerpop.apache.org/). Us
 ## <a id="ConnectAppService"></a>Connect to your app service
 1. Before starting the Gremlin Console, create or modify your *remote-secure.yaml* configuration file in your *apache-tinkerpop-gremlin-console-3.2.4/conf* directory.
 2. Fill in your *host*, *port*, *username*, *password*, *connectionPool*, and *serializer* configurations:
-    * Hosts: [fillin.azurewebsites.net]
-    * Port: 443
-    * Username: fill in
-    * Password: fill in
-    * ConnectionPool: {enableSsl: true}
-    * Serializer: { className:org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0, config: { serializeResultToString: true }}
+
+    Setting|Suggested value|Description
+    ---|---|---
+    Hosts|***.fillin.azurewebsites.net|Your app service URI.
+    Port|443|Port number.
+    Username|*Your username*|Your username.
+    Password|*Your App Service password*|Your password.
+    ConnectionPool|{enableSsl: true}|Your connection pool setting for SSL.
+    Serializer|{ className:org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Your serializer value.
+
 3. In your terminal, run *bin/gremlin.bat* or *bin/gremlin.sh* to start the [Gremlin Console](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/).
 4. In your terminal, run *:remote connect tinkerpop.server conf/remote-secure.yaml* to connect to your app service.
 
@@ -216,4 +220,5 @@ If you're not going to continue to use this app, delete all resources created by
 In this quickstart, you've learned how to create an Azure Cosmos DB account, create a graph container using the Data Explorer, create vertices and edges, and traverse your graph. You can now build more complex queries and implement powerful graph traversal logic using Gremlin or distribute your data globally. 
 
 [Query using Gremlin](tutorial-query-graph.md)
+
 [Distribute your data globally](../documentdb/documentdb-portal-global-replication.md)
