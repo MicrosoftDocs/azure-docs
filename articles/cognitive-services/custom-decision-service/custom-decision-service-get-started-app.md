@@ -25,7 +25,7 @@ If you are not already signed in, the portal prompts you to sign in with your [M
 
 ![Custom Decision Service portal](./media/custom-decision-service-get-started-app/portal.png)
 
-To register your application, click the *New* button. A pop-up should open for registering a new app. Let us see how to register an application in the *pooled learning mode* that was described in the [Overview](custom-decision-service-overview.md). Choose an identifier for your application. Custom Decision Service expects a unique identifier for each application. If someone else has already taken this id the system asks you to pick a different id. 
+To register your application, click the *New* button. A pop-up should open for registering a new app. Let us see how to register an application in the *pooled learning mode* that was described in the [Overview](custom-decision-service-overview.md). Choose an identifier for your application. Custom Decision Service expects a unique identifier for each application. If someone else has already taken this id the system asks you to pick a different id.
 
 You can also specify an Action Set API: an RSS or Atom feed that communicates the available content for your application to Custom Decision Service. Enter a name for the feed, along with the URL from which it is served. An example for creating an RSS feed is described later.
 
