@@ -60,11 +60,11 @@ This guide assumes you already have a working trial or licensed Azure AD tenant.
 
 ## Configure synchronization to existing identity source
 
-To enable on-premises identity synchronization to Azure AD, you need to install and configure [Azure AD Connect](/connect/active-directory-aadconnect.md) on a server in your organization. This application handles synchronizing users and groups from your existing identity source to your Azure AD Domain.
+To enable on-premises identity synchronization to Azure AD, you need to install and configure [Azure AD Connect](./connect/active-directory-aadconnect.md) on a server in your organization. This application handles synchronizing users and groups from your existing identity source to your Azure AD Domain.
 
-[Getting started with Azure AD Connect using express settings](/connect/active-directory-aadconnect-get-started-express.md)
+[Getting started with Azure AD Connect using express settings](./connect/active-directory-aadconnect-get-started-express.md)
 
-[Upgrade from DirSync or Azure AD Sync to Azure AD Connect](/connect/active-directory-aadconnect-dirsync-deprecated.md)
+[Upgrade from DirSync or Azure AD Sync to Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 
 ## Disabling self-service password reset
 
