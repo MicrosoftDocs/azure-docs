@@ -2,7 +2,7 @@
 title: Azure Cosmos DB Database Questions - Frequently Asked Questions | Microsoft Docs
 description: Get answers to frequently asked questions about Azure Cosmos DB a NoSQL document database service for JSON. Answer database questions about capacity, performance levels, and scaling.
 keywords: Database questions, frequently asked questions, documentdb, azure, Microsoft azure
-services: documentdb
+services: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: monicar
@@ -120,8 +120,8 @@ Yes, because Azure Cosmos DB is a RESTful service, resource links are immutable 
 Yes. The [Azure Cosmos DB Emulator](documentdb-nosql-local-emulator.md) provides a high-fidelity emulation of the Azure Cosmos DB service. It supports identical functionality as Azure Cosmos DB, including support for creating and querying JSON documents, provisioning and scaling collections, and executing stored procedures and triggers. You can develop and test applications using the Azure Cosmos DB Emulator, and deploy them to Azure at global scale by just making a single configuration change to the connection endpoint for Azure Cosmos DB.
 
 ## Database questions about developing against API for MongoDB
-### What is DocumentDB's API for MongoDB?
-Microsoft Azure DocumentDB's API for MongoDB is a compatability layer that allows applications to easily and transparently communicate with the native DocumentDB database engine using existing, community supported Apache MongoDB APIs and drivers. Developers can now use existing MongoDB tool chains and skills to build applications that leverage DocumentDB, benefitting from DocumentDB's unique capabilities, which include auto-indexing, backup maintenance, financially backed service level agreements (SLAs), etc.
+### What is Azure Cosmos DB's API for MongoDB?
+Microsoft Azure Cosmos DB's API for MongoDB is a compatability layer that allows applications to easily and transparently communicate with the native Azure Cosmos DB database engine using existing, community supported Apache MongoDB APIs and drivers. Developers can now use existing MongoDB tool chains and skills to build applications that leverage Azure Cosmos DB, benefitting from Azure Cosmos DB's unique capabilities, which include auto-indexing, backup maintenance, financially backed service level agreements (SLAs), etc.
 
 ### How to do I connect to my API for MongoDB database?
 The quickest way to connect to Azure Cosmos DB's API for MongoDB is to head over to the [Azure portal](https://portal.azure.com). Navigate your way to your account. In the account's *Left Navigation*, click on *Quick Start*. *Quick Start* is the best way to get code snippets to connect to your database. 
