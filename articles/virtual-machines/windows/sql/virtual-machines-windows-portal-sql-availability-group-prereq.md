@@ -345,15 +345,29 @@ Use the following steps to create each account.
 Now that you've finished configuring Active Directory and the user objects, create two SQL Server VMs and a witness server VM. Then join all three to the domain.
 
 ## Create SQL Server VMs
+
+Create three additional virtual machines. The solution requires two virtual machines with SQL Server instances. A third virtual machine will function as a witness. Windows Server 2016 can use a [cloud witness](http://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness), however for consistency with previous operating systems this document uses a virtual machine for a witness.  
+
+Before you proceed consider the following deisign decisions.
+
+* **Storage - Azure Managed Disks** 
+
+   For the virtual machine storage, use Azure Managed Disks. Microsoft recommends Managed Disks for SQL Server. Managed disks handles storage behind the scenes. In addition, when virtual machines with Managed Disks are in the same availability set, Azure distributes the storage resources to provide appropriate redundancy. For additional information, see [Azure Managed Disks Overview](../../../storage/storage-managed-disks-overview.md). For specifics about managed disks in an availability set, see [Use managed disks for VMs in availability set](../manage-availability.md#use-managed-disks-for-vms-in-availability-set)
+
+* **Network - Private IP addresses in production**
+
+   For the virtual machine network, this tutorial uses a public IP address. This enables remote connection directly to the virtual machine over the internet. In production environments, Microsoft recommends private IP addresses in order to reduce the vulnerability footprint of the SQL Server resource. 
+
 ### Create and configure the SQL Server VMs
 Next, create three VMs--two SQL Server VMs and a VM for an additional cluster node. To create each of the VMs, go back to the **SQL-HA-RG** resource group, click **Add**, search for the appropriate gallery item, click **Virtual Machine**, and then click **From Gallery**. Use the information in the following table to help you create the VMs:
+
 
 | Page | VM1 | VM2 | VM3 |
 | --- | --- | --- | --- |
 | Select the appropriate gallery item |**Windows Server 2016 Datacenter** |**SQL Server 2016 SP1 Enterprise on Windows Server 2016** |**SQL Server 2016 SP1 Enterprise on Windows Server 2016** |
 | Virtual machine configuration **Basics** |**Name** = cluster-fsw<br/>**User Name** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Subscription** = Your subscription<br/>**Resource group** = SQL-HA-RG<br/>**Location** = Your azure location |**Name** = sqlserver-0<br/>**User Name** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Subscription** = Your subscription<br/>**Resource group** = SQL-HA-RG<br/>**Location** = Your azure location |**Name** = sqlserver-1<br/>**User Name** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Subscription** = Your subscription<br/>**Resource group** = SQL-HA-RG<br/>**Location** = Your azure location |
 | Virtual machine configuration **Size** |**SIZE** = DS1\_V2 (1 core, 3.5 GB) |**SIZE** = DS2\_V2 (2 cores, 7 GB)</br>The size must support SSD storage (Premium disk support. )) |**SIZE** = DS2\_V2 (2 cores, 7 GB) |
-| Virtual machine configuration **Settings** |**Storage**: Use managed disks.<br/>**NETWORK SUBNETS** = autoHAVNET<br/>**STORAGE ACCOUNT** = Use an automatically generated storage account<br/>**Subnet** = sqlsubnet(10.1.1.0/24)<br/>**Public IP address** = None<br/>**Network security group** = None<br/>**Monitoring Diagnostics** = Enabled<br/>**Diagnostics storage account** = Use an automatically generated storage account<br/>**AVAILABILITY SET** = sqlAvailabilitySet<br/> |**Storage**: Use managed disks.<br/>**NETWORK SUBNETS** = autoHAVNET<br/>**STORAGE ACCOUNT** = Use an automatically generated storage account<br/>**Subnet** = sqlsubnet(10.1.1.0/24)<br/>**Public IP address** = None<br/>**Network security group** = None<br/>**Monitoring Diagnostics** = Enabled<br/>**Diagnostics storage account** = Use an automatically generated storage account<br/>**AVAILABILITY SET** = sqlAvailabilitySet<br/> |**Storage**: Use managed disks.<br/>**NETWORK SUBNETS** = autoHAVNET<br/>**STORAGE ACCOUNT** = Use an automatically generated storage account<br/>**Subnet** = sqlsubnet(10.1.1.0/24)<br/>**Public IP address** = None<br/>**Network security group** = None<br/>**Monitoring Diagnostics** = Enabled<br/>**Diagnostics storage account** = Use an automatically generated storage account<br/>**AVAILABILITY SET** = sqlAvailabilitySet<br/> |
+| Virtual machine configuration **Settings** |**Storage**: Use managed disks.<br/>**Virtual network** = autoHAVNET<br/>**Subnet** = sqlsubnet(10.1.1.0/24)<br/>**Public IP address** automatically generated.<br/>**Network security group** = None<br/>**Monitoring Diagnostics** = Enabled<br/>**Diagnostics storage account** = Use an automatically generated storage account<br/>**AVAILABILITY SET** = sqlAvailabilitySet<br/> |**Storage**: Use managed disks.<br/>**Virtual network** = autoHAVNET<br/>**Subnet** = sqlsubnet(10.1.1.0/24)<br/>**Public IP address** automatically generated.<br/>**Network security group** = None<br/>**Monitoring Diagnostics** = Enabled<br/>**Diagnostics storage account** = Use an automatically generated storage account<br/>**AVAILABILITY SET** = sqlAvailabilitySet<br/> |**Storage**: Use managed disks.<br/>**Virtual network** = autoHAVNET<br/>**Subnet** = sqlsubnet(10.1.1.0/24)<br/>**Public IP address** automatically generated.<br/>**Network security group** = None<br/>**Monitoring Diagnostics** = Enabled<br/>**Diagnostics storage account** = Use an automatically generated storage account<br/>**AVAILABILITY SET** = sqlAvailabilitySet<br/> |
 | Virtual machine configuration **SQL Server settings** |Not applicable |**SQL connectivity** = Private (within Virtual Network)<br/>**Port** = 1433<br/>**SQL Authentication** = Disable<br/>**Storage configuration** = General<br/>**Automated patching** = Sunday at 2:00<br/>**Automated backup** = Disabled</br>**Azure Key Vault integration** = Disabled |**SQL connectivity** = Private (within Virtual Network)<br/>**Port** = 1433<br/>**SQL Authentication** = Disable<br/>**Storage configuration** = General<br/>**Automated patching** = Sunday at 2:00<br/>**Automated backup** = Disabled</br>**Azure Key Vault integration** = Disabled |
 
 <br/>
@@ -362,8 +376,6 @@ Next, create three VMs--two SQL Server VMs and a VM for an additional cluster no
 > The machine sizes suggested here are meant for testing availability groups in Azure VMs. For the best performance on production workloads, see the recommendations for SQL Server machine sizes and configuration in [Performance best practices for SQL Server in Azure virtual machines](virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 >
 >
-
-Microsoft recommends Azure managed disks for SQL Server. Managed Disks handles storage behind the scenes. In addition, when virtual machines with Managed Disks are in the same availability group, Azure distributes the storage resources to provide appropriate redundancy. For additional information, see [Azure Managed Disks Overview](../../../storage/storage-managed-disks-overview.md)
 
 After the three VMs are fully provisioned, you need to join them to the **corp.contoso.com** domain and grant CORP\Install administrative rights to the machines.
 
