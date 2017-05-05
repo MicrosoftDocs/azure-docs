@@ -12,7 +12,9 @@
 ## Integrate
 ### [Storage](functions-integrate-storage-queue-output-binding.md)
 
-# Tutorials
+# Tutorials 
+## [1 - Create a serverless API](functions-create-serverless-api.md) 
+
 
 # Concepts
 ## [Hosting plans](functions-scale.md)
