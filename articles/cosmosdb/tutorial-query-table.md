@@ -21,17 +21,19 @@ ms.author: mimig
 
 # Azure Cosmos DB: How to query with the Table API?
 
-The Azure Cosmos DB Table API supports [OData](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) and [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) queries against key/value (table) data. This article provides sample documents and queries to get you started. 
+The Azure Cosmos DB [Table API](table-introduction.md) supports OData and [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) queries against key/value (table) data. This article provides sample documents and queries to get you started. 
+
+For more information about queries using the Table API, see the [Querying Tables and Entities](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities). 
+
+## Sample table
 
 The queries in this article use the following sample table.
-
-**Sample table**
 
 ![Table showing sample data](./media/tutorial-query-table/cosmosdb-query-table.png)
 
 ## Prerequisites
 
-For these queries to work, you must have an Azure Cosmos DB account and have graph data in the collection. Dont' have any of those? Complete the [5-minute quickstart](https://aka.ms/acdbtnetqs) or the [developer tutorial](tutorial-query-table.md) to create an account and populate your database.
+For these queries to work, you must have an Azure Cosmos DB account and have graph data in the collection. Dont' have any of those? Complete the [5-minute quickstart](https://aka.ms/acdbtnetqs) or the [developer tutorial](tutorial-develop-table.md) to create an account and populate your database.
 
 ## Example query 1
 Given the sample family table above, the following OData query returns the documents, where RowKey matches WakefieldFamily and PartitionKey matches NY.
