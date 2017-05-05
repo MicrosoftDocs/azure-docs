@@ -180,6 +180,6 @@ You can now test the hybrid CI/CD pipeline, with the final step publishing to Az
 You can now use your new hybrid CI/CD pipeline as a building block for other hybrid cloud patterns.
 
 > [!div class="nextstepaction"]
-> [Develop for Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-developer)
+> [Develop for Azure Stack](azure-stack-developer.md)
 
 
