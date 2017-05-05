@@ -20,27 +20,27 @@ ms.author: arramac
 
 ![Gremlin, graph, and Azure Cosmos DB](./media/graph-introduction/graph-gremlin.png) 
 
-Azure Cosmos DB provides graph modeling and traversal APIs along with turn-key global distribution, elastic scaling of storage and throughput, <10ms read latencies and <15ms at p99, automatic indexing and query, tunable consistency levels, and comprehensive SLAs including 99.99% availability. Azure Cosmos DB can be queried using the [Gremlin standard](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), and integrates with other Gremlin-compatible graph systems.
+Azure Cosmos DB provides graph modeling and traversal APIs along with turn-key global distribution, elastic scaling of storage and throughput, <10 ms read latencies and <15 ms at p99, automatic indexing and query, tunable consistency levels, and comprehensive SLAs including 99.99% availability. Azure Cosmos DB can be queried using the [Gremlin standard](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), and integrates with other Gremlin-compatible graph systems.
 
 In this article, we provide an overview of the Azure Cosmos DB's Graph API, and how you can use it to store massive graphs with billions of vertices and edges, query them within order of milliseconds latency, and evolve the graph structure and schema easily. 
 
 ## Graph databases
 Data as it appears in the real world is naturally connected. Traditional data modeling focuses on entities. But for many applications, there is also a need to model the rich relationships between entities. Graphs allow you to model both entities and relationships naturally. 
 
-A [graph](http://mathworld.wolfram.com/Graph.html) is a structure composed of [vertices](http://mathworld.wolfram.com/GraphVertex.html) and [edges](http://mathworld.wolfram.com/GraphEdge.html). Both vertices and edges can have an arbitrary number of properties. Vertices denote discrete objects such as a person, a place, or an event. Edges denote relationships between vertices. For instance, a person may know another person, have been involved in an event, and/or was recently at a particular place. Properties express information about the vertices and edges. Example properties include a vertex having a name, an age and an edge having a timestamp and/or a weight. More formally, this model is known as a [property graph](https://github.com/tinkerpop/blueprints/wiki/Property-Graph-Model). Azure Cosmos DB supports the property graph model. 
+A [graph](http://mathworld.wolfram.com/Graph.html) is a structure composed of [vertices](http://mathworld.wolfram.com/GraphVertex.html) and [edges](http://mathworld.wolfram.com/GraphEdge.html). Both vertices and edges can have an arbitrary number of properties. Vertices denote discrete objects such as a person, a place, or an event. Edges denote relationships between vertices. For instance, a person may know another person, have been involved in an event, and/or was recently at a particular place. Properties express information about the vertices and edges. Example properties include a vertex having a name, an age, and an edge having a timestamp and/or a weight. More formally, this model is known as a [property graph](https://github.com/tinkerpop/blueprints/wiki/Property-Graph-Model). Azure Cosmos DB supports the property graph model. 
 
 For example, the following diagram sample graph that shows the relationship between people, mobile devices, interests, and operating systems. 
 
 ![Sample database showing persons, devices, and interests](./media/graph-introduction/sample-graph.png) 
 
-Graphs are useful in understanding a wide range of datasets in science, technology, and business. Graph databases provide the ability to model and store graphs naturally and efficiently, which makes them appealing for a number of scenarios. Graph databases are typically NoSQL databases, because these use cases often also need schema flexibility and rapid iteration. 
+Graphs are useful in understanding a wide range of datasets in science, technology, and business. Graph databases let you model and store graphs naturally and efficiently, which makes them appealing for many scenarios. Graph databases are typically NoSQL databases, because these use cases often also need schema flexibility and rapid iteration. 
 
 Graphs offer a novel and powerful data modeling technique. But this by itself, is not a sufficient reason to use a graph database. For many use cases and patterns involving graph traversals, graphs outperform traditional SQL and NoSQL databases by orders of magnitude. This difference in performance is further amplified when traversing more than one relationship like friend-of-a-friend. 
 
 You can combine the fast traversals provided by graph databases with graph algorithms like depth-first search, breadth-first search, Dijkstra’s algorithm, etc., to solve problems in various domains like social networking, geospatial, content management, geospatial, and recommendations. 
 
 ## Planet-scale graphs with Azure Cosmos DB
-Azure Cosmos DB is a fully-managed graph database that offers global distribution, elastic scaling of storage and throughput, automatic indexing and query, tunable consistency levels, and supports the TinkerPop standard.  
+Azure Cosmos DB is a fully managed graph database that offers global distribution, elastic scaling of storage and throughput, automatic indexing and query, tunable consistency levels, and supports the TinkerPop standard.  
 
 ![Azure Cosmos DB graph architecture](./media/graph-introduction/cosmosdb-graph-architecture.png) 
 
@@ -48,22 +48,22 @@ Azure Cosmos DB offers the following differentiated capabilities compared to oth
 
 * **Elastically scalable throughput and storage**: Graphs in the real world need to scale beyond the capacity of a single server. With Azure Cosmos DB, you can scale your graphs seamlessly across multiple servers. You can also independently scale the throughput of your graph independently based on your access patterns. Azure Cosmos DB supports graph databases that can scale to virtually unlimited storage sizes and provisioned throughput. 
 
-* **Multi-region replication**: Azure Cosmos DB transparently replicates your graph data to all regions you've associated with your account, enabling you to develop applications that require global access to data while providing tradeoffs between consistency, availability and performance, all with corresponding guarantees. Azure Cosmos DB provides transparent regional failover with multi-homing APIs, and the ability to elastically scale throughput and storage across the globe.
+* **Multi-region replication**: Azure Cosmos DB transparently replicates your graph data to all regions you've associated with your account, enabling you to develop applications that require global access to data while providing tradeoffs between consistency, availability, and performance, all with corresponding guarantees. Azure Cosmos DB provides transparent regional failover with multi-homing APIs, and the ability to elastically scale throughput and storage across the globe.
 
 * **Fast queries and traversals with familiar Gremlin syntax**: Store heterogeneous vertices and edges and query these documents through a familiar Gremlin syntax (enhanced-SQL will also be available soon). Azure Cosmos DB utilizes a highly concurrent, lock free, log structured indexing technology to automatically index all content. This enables rich real-time queries and traversals without the need to specify schema hints, secondary indexes, or views. Learn more in [Query Graphs using Gremlin](gremlin-support.md).
 
-* **Fully managed**: Eliminate the need to manage database and machine resources. As a fully-managed Microsoft Azure service, you do not need to manage virtual machines, deploy and configure software, manage scaling, or deal with complex data-tier upgrades. Every graph is automatically backed up and protected against regional failures. You can easily add a Azure Cosmos DB account and provision capacity as you need it, allowing you to focus on your application instead of operating and managing your database.
+* **Fully managed**: Eliminate the need to manage database and machine resources. As a fully managed Microsoft Azure service, you do not need to manage virtual machines, deploy and configure software, manage scaling, or deal with complex data-tier upgrades. Every graph is automatically backed up and protected against regional failures. You can easily add a Azure Cosmos DB account and provision capacity as you need it, allowing you to focus on your application instead of operating and managing your database.
 
 * **Automatic indexing**: By default, Azure Cosmos DB automatically indexes all the properties within nodes and edges in the graph and does not expect or require any schema or creation of secondary indices. 
 
 * **Compatibility with Gremlin**: Azure Cosmos DB natively supports the open-source Gremlin standard, and can be integrated with other Gremlin-enabled graph systems. So, you can easily migrate from an another different graph database like Titan or Neo4j, or use Azure Cosmos DB with graph analytics frameworks like Apache Spark GraphX.
 
-* **Tunable consistency levels:** Select from five well defined consistency levels to achieve optimal trade-off between consistency and performance. For queries and read operations, Azure Cosmos DB offers five distinct consistency levels: strong, bounded-staleness, session, consistent prefix, and eventual. These granular, well-defined consistency levels allow you to make sound tradeoffs between consistency, availability, and latency. Learn more in [Using consistency levels to maximize availability and performance in DocumentDB](../documentdb/documentdb-consistency-levels.md).
+* **Tunable consistency levels:** Select from five well-defined consistency levels to achieve optimal trade-off between consistency and performance. For queries and read operations, Azure Cosmos DB offers five distinct consistency levels: strong, bounded-staleness, session, consistent prefix, and eventual. These granular, well-defined consistency levels allow you to make sound tradeoffs between consistency, availability, and latency. Learn more in [Using consistency levels to maximize availability and performance in DocumentDB](../documentdb/documentdb-consistency-levels.md).
 
 Azure Cosmos DB also provides the ability to use multiple models like document and graph within the same containers/databases. You can use a document collection to store graph data side by side with documents, and use both SQL queries over JSON, and Gremlin queries to query the same data as a graph. 
 
 ## Getting started
-Azure Cosmos DB accounts can be created via the Azure CLI, Azure Powershell, or Azure Portal with support for graph API. Once created, the Azure portal provides you with a service endpoint `https://<youraccount>.graphs.azure.com` that provides a WebSocket frontend for Gremlin. You can configure your Gremlin-compatible tools like the [Gremin console](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) to connect to this endpoint, and build applications in Java, Node.js, or any Gremlin client driver.
+Azure Cosmos DB accounts can be created via the Azure CLI, Azure Powershell, or Azure portal with support for graph API. Once created, the Azure portal provides you with a service endpoint like `https://<youraccount>.graphs.azure.com` that provides a WebSocket frontend for Gremlin. You can configure your Gremlin-compatible tools like the [Gremin console](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) to connect to this endpoint, and build applications in Java, Node.js, or any Gremlin client driver.
 
 The following table shows popular Gremlin drivers that you can start using against Azure Cosmos DB:
 
@@ -73,7 +73,7 @@ The following table shows popular Gremlin drivers that you can start using again
 | [Node.js](https://www.npmjs.com/package/gremlin) |[Gremlin-JavaScript on Github](https://github.com/jbmusso/gremlin-javascript) |
 | [Gremlin console](https://tinkerpop.apache.org/downloads.html) |[TinkerPop docs](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |
 
-Azure Cosmos DB also provides a first-party .NET library with Gremlin extension methods on top of the [Azure Cosmos DB SDKs](../documentdb/documentdb-sdk-dotnet.md) via Nuget. This library provide an "in-proc" Gremlin server that can be used to connect directly to DocumenDB data partitions. 
+Azure Cosmos DB also provides a first-party .NET library with Gremlin extension methods on top of the [Azure Cosmos DB SDKs](../documentdb/documentdb-sdk-dotnet.md) via NuGet. This library provide an "in-proc" Gremlin server that can be used to connect directly to DocumenDB data partitions. 
 
 | Download | Documentation |
 | --- | --- |

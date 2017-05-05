@@ -23,9 +23,9 @@ ms.author: arramac
 
 ![Azure Table storage API and Azure Cosmos DB](./media/table-introduction/premium-tables.png) 
 
-Azure Cosmos DB provides the Table API for applications that need a key-value store with flexible schema. [Azure Table storage](../storage/storage-introduction.md) SDKs and REST APIs can be used to work with Azure Cosmos DB. You can use Azure Cosmos DB to creae tables with high throughput requirements. Azure Cosmos DB supports throughput-optimized tables (informally called "premium tables"), currently in public preview. 
+Azure Cosmos DB provides the Table API for applications that need a key-value store with flexible schema. [Azure Table storage](../storage/storage-introduction.md) SDKs and REST APIs can be used to work with Azure Cosmos DB. You can use Azure Cosmos DB to create tables with high throughput requirements. Azure Cosmos DB supports throughput-optimized tables (informally called "premium tables"), currently in public preview. 
 
-You can continue to use Azure Table storage for tables with high storage and lower throughput requirements. Azure Cosmos DB will introduce support for storage-optimized tables in a future update, and existing and new Azure Table storage accounts will be seamlessly upgraded to Azure Cosmos DB.
+You can continue to use Azure Table storage for tables with high storage and lower throughput requirements. Azure Cosmos DB will introduce support for storage-optimized tables in a future update, and existing and new Azure Table storage accounts will be upgraded to Azure Cosmos DB.
 
 ## Premium and standard Table APIs
 If you currently use Azure Table storage, you gain the following benefits by moving to Azure Cosmos DB's "premium table" preview:
@@ -43,7 +43,7 @@ If you currently use Azure Table storage, you gain the following benefits by mov
 
 ## How to get started?
 
-Create an Azure Cosmos DB account in the [Azure Portal](https://portal.azure.com), and get started with our [Quickstart for Table API using .NET](create-table-dotnet.md). 
+Create an Azure Cosmos DB account in the [Azure portal](https://portal.azure.com), and get started with our [Quickstart for Table API using .NET](create-table-dotnet.md). 
 
 ## Next steps
 

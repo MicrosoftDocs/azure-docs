@@ -1,5 +1,5 @@
 ---
-title: 'Introduction to Azure Cosmos DB: MongoDB API | Microsoft Docs'
+title: 'Introduction to Azure Cosmos DB: API for MongoDB | Microsoft Docs'
 description: Learn how you can use Azure Cosmos DB to store and query massive volumes of JSON documents with low latency using the popular OSS MongoDB APIs.
 keywords: what is MongoDB
 services: documentdb
@@ -14,17 +14,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2017
+ms.date: 05/05/2017
 ms.author: anhoh
 
 ---
-# Introduction to Azure Cosmos DB: MongoDB API
+# Introduction to Azure Cosmos DB: API for MongoDB
 
-Azure Cosmos DB is Microsoft's globally distributed, multi-model database service for mission-critical applications. Azure Cosmos DB was built with global distribution and horizontal scale at its core. It offers turn-key global distribution across any number of Azure regions by transparently scaling and replicating your data wherever your users are. You can elastically scale throughput and storage worldwide and pay only for the throughput and storage you need. Azure Cosmos DB offers single-digit millisecond latencies at the 99th percentile anywhere in the world, five well-defined consistency levels to fine-tune for performance, and guaranteed high availability with multi-homing capabilities, all backed by industry leading service level agreements (SLAs). 
+[Azure Cosmos DB](introduction.md) is Microsoft's globally distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides [turn-key global distribution](../documentdb/documentdb-distribute-data-globally.md), [elastic scaling of throughput and storage](../documentdb/documentdb-partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, [five well-defined consistency levels](../documentdb/documentdb-consistency-levels.md), and guaranteed high availability, all backed by [industry-leading SLAs](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/). Azure Cosmos DB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value, graph, and columnar data models. 
 
-Azure Cosmos DB is truly schema-agnostic. It automatically indexes data without requiring you to deal with schema and index management. Azure Cosmos DB is multi-model – it natively supports document, key-value, graph, and columnar data models. With Azure Cosmos DB, you can access your data using NoSQL APIs of your choice - DocumentDB (document), MongoDB (document), Azure Table storage (key-value), and Gremlin (graph), are all natively supported. Azure Cosmos DB is a fully managed, enterprise ready, and trustworthy service. All your data is fully and transparently encrypted  and secure by default. Azure Cosmos DB is also ISO, FedRAMP, EU, HIPAA, and PCI compliant.  
+![Azure API for MongoDB](./media/documentdb-protocol-mongodb/cosmosdb-mongodb.png) 
 
-Azure Cosmos DB databases can be used as the data store for apps written for [MongoDB](https://docs.mongodb.com/manual/introduction/). This means that by using existing [drivers](https://docs.mongodb.org/ecosystem/drivers/), your application written for MongoDB can now communicate with Azure Cosmos DB and use Azure Cosmos DB databases instead of MongoDB databases. In many cases, you can switch from using MongoDB to Azure Cosmos DB by simply changing a connection string. Using this functionality, you can easily build and run MongoDB database applications in the Azure cloud with Azure Cosmos DB's global distribution and comprehensive industry leading SLAs, while continuing to use familiar skills and tools for MongoDB.
+Azure Cosmos DB databases can be used as the data store for apps written for [MongoDB](https://docs.mongodb.com/manual/introduction/). This means that by using existing [drivers](https://docs.mongodb.org/ecosystem/drivers/), your application written for MongoDB can now communicate with Azure Cosmos DB and use Azure Cosmos DB databases instead of MongoDB databases. In many cases, you can switch from using MongoDB to Azure Cosmos DB by simply changing a connection string. Using this functionality, you can easily build and run MongoDB database applications in the Azure cloud with Azure Cosmos DB's global distribution and [comprehensive industry leading SLAs](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/), while continuing to use familiar skills and tools for MongoDB.
 
 
 ## What is the benefit of using Azure Cosmos DB for MongoDB applications?
