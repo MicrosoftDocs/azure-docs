@@ -13,13 +13,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2017
+ms.date: 05/10/2017
 ms.author: twooley
 
 ---
 # Key considerations: Using services or building apps for Azure Stack
 
-When you use services or build apps for Azure Stack, you must understand that there are differences between Azure Stack and Microsoft Azure. This article provides an overview of the key considerations when you target Azure Stack as your hybrid cloud development environment.
+When you use services or build apps for Azure Stack, you must understand that there are differences between Azure Stack and Azure. This article provides an overview of the key considerations when you target Azure Stack as your hybrid cloud development environment.
 
 ## Overview
 
@@ -87,3 +87,5 @@ Example output (truncated):
 For more detailed information about differences at a service level, see:
 
 * [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md)
+* [Considerations for Storage in Azure Stack](azure-stack-acs-differences-tp2.md)
+
