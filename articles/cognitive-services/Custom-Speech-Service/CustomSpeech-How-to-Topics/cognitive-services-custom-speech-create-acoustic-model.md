@@ -73,7 +73,7 @@ To do so, first ensure you are signed into the system. Then click the “Menu”
 
 Click the “Import New” button, located directly below the table title and you will be taken to the page for uploading a new data set.
 
-![try](../media/AcousticDatasets_Import.png)
+![try](../../../media/cognitive-services/custom-speech-service/custom-speech-acoustic-datasets-import.png)
 
 Enter a _Name_ and _Description_ in the appropriate text boxes. These are useful for keeping track of various data sets you upload. Next, click “Choose File" for the “Transcription File” and “WAV files” and select your plaint-text transcription file and zip archive of WAV files, respectively. When this is complete, click “Import” to upload your data. Your data will then be uploaded. For larger data sets, this may take several minutes.
 
@@ -83,7 +83,7 @@ Data validation includes a series of checks on the audio files to verify the fil
 
 When the status is “Complete” you can click “View Report” to see the acoustic data verification report. The number of utterances that passed and failed verification will be shown, along with details about the failed utterances. In the example below, two WAV files failed verification because of improper audio format (in this data set, one had an incorrect sampling rate and one was the incorrect file format).
 
-![try](../media/AcousticDatasets_Report.png)
+![try](../../../media/cognitive-services/custom-speech-service/custom-speech-acoustic-datasets-report.png)
 
 At some point, if you would like to change the Name or Description of the data set, you can click the “Edit” link and change these entries. Note that you cannot modify the audio files or transcriptions.
 
@@ -95,7 +95,7 @@ To create a new model, click “Create New” under the table title. As before, 
 
 Next, select the acoustic data you wish to use to perform the customization using the drop-down menu.
 
-![try](../media/AcousticModels_Create2.png)
+![try](../../../media/cognitive-services/custom-speech-service/custom-speech-acoustic-models-create2.png)
 
 You can optionally choose to perform offline testing of your new model when the processing is complete. This will run a speech-to-text evaluation on a specified acoustic data set using the customized acoustic model and report the results. To perform this testing, select the “Offline Testing” check box. Then select a language model from the drop-down menu. If you have not created any custom language models, only the base language models will be in the drop-down list. Please see the [description](cognitive-services-custom-speech-create-language-model.md) of the base language models in the guide and select the one that is most appropriate.
 
@@ -105,7 +105,7 @@ When you are ready to start running the customization process, press “Create�
 
 You will now see a new entry in the acoustic models table corresponding to this new model. The status of the process is reflected in the table. The status states are “Waiting”, “Processing” and “Complete”.
 
-![try](../media/AcousticModels_Creating.png)
+![try](../../../media/cognitive-services/custom-speech-service/custom-speech-acoustic-models-creating.png)
 
 ## Next steps
 * Start create your [custom language model](cognitive-services-custom-speech-create-language-model.md)

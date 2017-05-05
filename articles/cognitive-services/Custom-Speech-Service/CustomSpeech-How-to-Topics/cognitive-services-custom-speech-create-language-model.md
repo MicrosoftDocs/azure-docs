@@ -47,17 +47,17 @@ When you are ready to import your language data set, click “Language Data” f
 
 To import a new data set, click “Import New” under the table title. Enter a Name and Description to help you identify the data set in the future. Next, use the “Choose File” button to locate the text file of language data. After that, click “Import” and the data set will be uploaded. Depending on the size of the data set, this may take several minutes.
 
-![try](../media/LanguageDatasets_Import.png)
+![try](../../../media/cognitive-services/custom-speech-service/custom-speech-language-datasets-import.png)
 
 When the import is complete, you will return to the language data table and will see an entry that corresponds to your language data set. Notice that it has been assigned a unique id (GUID). The data will also have a status that reflects its current state. Its status will be “Waiting” while it is being queued for processing, “Processing” while it is going through validation, and “Complete” when the data is ready for use. Data validation performs a series of checks on the text in the file and some text normalization of the data.
 
 When the status is “Complete” you can click “View Report” to see the language data verification report. The number of utterances that passed and failed verification are shown, along with details about the failed utterances. In the example below, two examples failed verification because of improper characters (in this data set, the first had two emoticons and the second had several characters outside of the ASCII printable character set).
 
-![try](../media/LanguageDatasets_Report.png)
+![try](../../../media/cognitive-services/custom-speech-service/custom-speech-language-datasets-report.png)
 
 When the status of the language data set is “Complete”, it can be used to create a custom language model.
 
-![try](../media/LanguageDatasets.png)
+![try](../../../media/cognitive-services/custom-speech-service/custom-speech-language-datasets.png)
 
 ## Creating a custom language model
 
@@ -67,7 +67,7 @@ On the "Create Language Model" page, enter a "Name" and "Description" to help yo
 
 After you have specified the base language model, select the language data set you wish to use for the customization using the “Language Data” drop down menu
 
-![try](../media/LanguageModels_Create2.png)
+![try](../../../media/cognitive-services/custom-speech-service/custom-speech-language-models-create2.png)
 
 As with the acoustic model creation, you can optionally choose to perform offline testing of your new model when the processing is complete. Note that because this is an evaluation of the speech-to-text performance, offline testing requires an acoustic data set.
 
