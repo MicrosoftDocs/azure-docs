@@ -179,7 +179,7 @@ To update the support information and republish your offer, follow these steps:
 5. In the **Customer Support** section, update the support contact details and the **SUPPORT URL**. These details are used for internal communication between the partner and Microsoft only.
 
    > [!NOTE]
-   > If you want to provide only email support, enter a dummy phone number in the **Customer Support** section. In this case, your provided email is used instead.
+   > If you want to provide only email support, enter a dummy phone number in the **Customer Support** section. In this case, the email you provided is used instead.
    >
    >
 6. Go to the **PUBLISH** tab, and click **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment, see [Test your VM offer for the Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
@@ -204,7 +204,7 @@ To add a new SKU in your live offer, follow these steps:
 
 1. Sign in to the [Publishing portal](https://publish.windowsazure.com).
 2. Go to the **virtual machines** tab, and select your offer.
-3. In the menu on the left, click the **SKUS** tab. Then click **Add a SKU**. In the dialog box, enter a **SKU Identifier** in lowercase. Select the **Bring your own license (BYOL) billing model** check box if you want to publish the new SKU with a BYOL billing model. Otherwise, clear the check box. Click the **tick mark** to create a new SKU. If you didn't choose the BYOL billing model, the billing model is automatically set to hourly. If you want the 30-day free trial for the hourly billing model, select **One Month** for **Is a free trial available?**. Otherwise, select **No Trial**. (**Is a free trial available?**  only shows if you haven't selected BYOL while creating the new SKU.)
+3. In the menu on the left, click the **SKUS** tab. Then click **Add a SKU**. In the dialog box, enter a **SKU Identifier** in lowercase. Select the **Bring your own license (BYOL) billing model** check box if you want to publish the new SKU with a BYOL billing model. Otherwise, clear the check box. Click the **tick mark** to create a new SKU. If you didn't choose the BYOL billing model, the billing model is automatically set to hourly. If you want the 30-day free trial for the hourly billing model, select **One Month** for **Is a free trial available?** Otherwise, select **No Trial**. (**Is a free trial available?** only shows if you haven't selected BYOL while creating the new SKU.)
 
    > [!IMPORTANT]
    > **Hide this SKU from the Marketplace because it should always be bought via a solution template** should be **Yes** *only* if you're approved for publishing a solution template. Otherwise, this option should always be **No**.
