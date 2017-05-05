@@ -253,7 +253,7 @@ DATA1
 FRA
 ```
 
-Change root, oracle and grid passwords (will be use later during installation)
+Change root, oracle, and grid passwords (are use later during installation)
 ```bash
 # passwd oracle
 # passwd grid
@@ -278,7 +278,7 @@ Change folder permission
 
 [Oracle ASM download page](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html). 
 
-There should be 2 zip files to download under the title "Oracle Database 12c Release 1 Grid Infrastructure (12.1.0.2.0) for Linux x86-64"
+There should be two zip files to download under the title "Oracle Database 12c Release 1 Grid Infrastructure (12.1.0.2.0) for Linux x86-64"
 
 Once these zips are download to your client machine, you can SCP (secure copy) to your VM
 
@@ -312,7 +312,7 @@ Turn off the firewall
 # service iptables stop
 ```
 
-Check available swap space, you will need at lease 6GB of swap space to install Grid
+Check available swap space, you need at lease 6 GB of swap space to install Grid
 ```bash
 # swapon -s
 ```
@@ -353,7 +353,7 @@ For example: C:\Program Files\PuTTY, run puttygen.exe
 
 ![Diagram of Puttykeygen screen](./media/asm-configuration/puttykeygen.png)
 
-Click the Generate button to generate a key, copy the content of the key (Control-C), then click the Save private key, ignore the warming and click ok.
+Click the Generate button to generate a key, copy the content of the key (Control-C), then click the Save private key, ignore the warning, and click ok.
 
 Back to your VM
 ```bash
@@ -481,7 +481,7 @@ Select the Database Files Location and Fast Recovery Area
 
 ![Diagram of install screen](./media/asm-configuration/createdb03.png)
 
-Review the summary, click "Finish" to begin installation
+Review the summary, click "Finish" to begin installation.
 ![Diagram of install screen](./media/asm-configuration/createdb04.png)
 You may change the passwords (optional step)
 
