@@ -21,16 +21,16 @@
 ### [DocumentDB](tutorial-develop-documentdb-dotnet.md)
 ### [MongoDB](tutorial-develop-mongodb.md)
 ### Table
-### [Gremlin graph](tutorial-develop-graph-dotnet.md)
+### [Graph](tutorial-develop-graph-dotnet.md)
 ## 2 - Import 
-### [DocumentDB/Table/Graph](../documentdb/documentdb-import-data.md)
+### [DocumentDB](../documentdb/documentdb-import-data.md)
 ### [MongoDB](../documentdb/documentdb-mongodb-migrate.md)
 ## 3 - Query
 ### [DocumentDB](tutorial-query-documentdb.md)
 ### [MongoDB](tutorial-query-mongodb.md)
 ### [Table](tutorial-query-table.md)
-### [Gremlin graph](tutorial-query-graph.md)
-## [4 - Replicate globally](../documentdb/documentdb-portal-global-replication.md)
+### [Graph](tutorial-query-graph.md)
+## [4 - Distribute globally](../documentdb/documentdb-portal-global-replication.md)
 ## 5 - Develop locally
 ### [1 - Use the emulator](../documentdb/documentdb-nosql-local-emulator.md)
 ### [2 - Export certificates](../documentdb/documentdb-nosql-local-emulator-export-ssl-certificates.md)
@@ -41,17 +41,17 @@
 
 # Concepts
 ## [Multi-model APIs](../documentdb/documentdb-resources.md)
-### [DocumentDB API](../documentdb/documentdb-introduction.md)
-### [MongoDB API](../documentdb/documentdb-protocol-mongodb.md)
-### [Table API](table-introduction.md)
-### [Graph API](graph-introduction.md)
+### [DocumentDB](../documentdb/documentdb-introduction.md)
+### [MongoDB](../documentdb/documentdb-protocol-mongodb.md)
+### [Table](table-introduction.md)
+### [Graph](graph-introduction.md)
 ## [Global distribution](../documentdb/documentdb-distribute-data-globally.md)
 ## [Partition and scale](../documentdb/documentdb-partition-data.md)
 ## [Consistency](../documentdb/documentdb-consistency-levels.md)
 ## [Regional failover](../documentdb/documentdb-regional-failovers.md)
 ## [Security](../documentdb/documentdb-nosql-database-security.md)
 ## [Encryption at rest](../documentdb/documentdb-nosql-database-encryption-at-rest.md)
-## [NoSQL TCO analysis](https://aka.ms/documentdb-tco-paper)
+## [TCO analysis](https://aka.ms/documentdb-tco-paper)
 ## Scenarios
 ### [Common use cases](../documentdb/documentdb-use-cases.md)
 ### [Going social with Azure Cosmos DB](../documentdb/documentdb-social-media-apps.md)
@@ -117,10 +117,6 @@
 ##### [Python samples](../documentdb/documentdb-python-samples.md)
 ##### [SQL syntax](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 ##### [SQL grammar cheat sheet](../documentdb/documentdb-sql-query-cheat-sheet.md)
-#### Table API
-##### [.NET samples](table-dotnet-samples.md)
-#### Graph API
-##### [.NET samples](graph-dotnet-samples.md)
 
 ## Use the portal
 ### [Create a database account](../documentdb/documentdb-create-account.md)
@@ -150,16 +146,23 @@
 ### [Leverage the ODBC driver for data visualization](../documentdb/documentdb-nosql-odbc-driver.md)
 
 # Reference
-## [Java](../documentdb/documentdb-sdk-java.md)
-## [.NET](../documentdb/documentdb-sdk-dotnet.md)
-## [.NET Core](../documentdb/documentdb-sdk-dotnet-core.md)
-## [Node.js](../documentdb/documentdb-sdk-node.md)
-## [Python](../documentdb/documentdb-sdk-python.md)
-## [REST](/rest/api/documentdb/)
-## [REST Resource Provider](/rest/api/documentdbresourceprovider/)
+## DocumentDB APIs
+### [Java](../documentdb/documentdb-sdk-java.md)
+### [.NET](../documentdb/documentdb-sdk-dotnet.md)
+### [.NET Core](../documentdb/documentdb-sdk-dotnet-core.md)
+### [Node.js](../documentdb/documentdb-sdk-node.md)
+### [Python](../documentdb/documentdb-sdk-python.md)
+### [REST](/rest/api/documentdb/)
+### [REST Resource Provider](/rest/api/documentdbresourceprovider/)
+## Table APIs
+### [.NET](table-sdk-dotnet.md)
+## Graph APIs
+### [.NET](graph-sdk-dotnet.md)
+
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/documentdb/)
+## [FAQ](../documentdb/documentdb-faq.md)
 ## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=documentdb)
@@ -170,4 +173,3 @@
 ## [Schema agnostic indexing paper](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)
 ## [Data consistency explained through baseball](http://research.microsoft.com/apps/pubs/default.aspx?id=206913)
 ## [Book: Using Microsoft Azure DocumentDB in a Node.js Application](https://go.microsoft.com/fwlink/?LinkId=828428&clcid=0x409)
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/)

@@ -27,7 +27,7 @@ This sample regenerates any kind of Azure Cosmos DB account key using the Azure 
 
 ## Sample script
 
-`[!code-powershell[main](../../../powershell_scripts/cosmosdb/regenerate-account-keys/regenerate-account-keys.ps1?highlight=36-41 "Regenerate Azure Cosmos DB account keys")]`
+[!code-powershell[main](../../../powershell_scripts/cosmosdb/regenerate-account-keys/regenerate-account-keys.ps1?highlight=36-41 "Regenerate Azure Cosmos DB account keys")]
 
 ## Clean up deployment
 

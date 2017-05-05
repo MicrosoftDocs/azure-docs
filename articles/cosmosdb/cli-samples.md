@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: database
-ms.date: 04/12/2017
+ms.date: 05/10/2017
 ms.author: mimig
 ---
 
@@ -31,7 +31,6 @@ The following table includes links to sample Azure CLI scripts for Azure Cosmos 
 | [Create a Tables API account, database, and collections](scripts/create-tables-database-account-cli.md) | Creates a single Azure Cosmos DB account, database, and collection. |
 |**Scale Azure Cosmos DB**||
 | [Scale collection throughput](scripts/scale-collection-throughput-cli.md) | Changes the provisioned througput on a collection.|
-| [Autoscale a collection](scripts/autoscale-collection-cli.md) | Sets up alerts and creates an Azure function that scales collection throughput based on the alert.|
 |[Replicate Azure Cosmos DB database account in multiple regions and configure failover priorities](scripts/scale-multiregion-cli.md)|Globally replicates account data into multiple regions with a specified failover priority.|
 |**Secure Azure Cosmos DB**||
 | [Get account keys](scripts/secure-get-account-key-cli.md) | Gets the primary and secondary master write keys and primary and secondary read-only keys for the account.|

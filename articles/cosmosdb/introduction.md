@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/30/2017
+ms.date: 05/10/2017
 ms.author: mimig
 
 ---
@@ -57,7 +57,7 @@ Azure Cosmos DB transparently replicates your data to all regions you've associa
 
 * **Industry-leading comprehensive SLAs:** Rest assured your apps are running on world-class infrastructure, with a battle-tested service, in the most trusted cloud. Azure Cosmos DB is the first and only service to offer industry-leading 99.99% SLAs for latency at the 99th percentile, guaranteed throughput, consistency and high availability.
 
-* **Multi-model and Multi-API support:** Only Azure Cosmos DB allows you to use key-value, graph, and document data in one service, at global scale and without worrying about schema or index management. Azure Cosmos DB automatically indexes all data, and allows you to use your favorite NoSQL API including SQL, JavaScript, Gremlin, MongoDB, and Azure Table Storage to query your data. Because Azure Cosmos DB utilizes a highly concurrent, lock free, log structured indexing technology to automatically index all data content. This enables rich real-time queries without the need to specify schema hints, secondary indexes, or views. Learn more in [Query Azure Cosmos DB](../documentdb/documentdb-sql-query.md). 
+* **Multi-model and Multi-API support:** Only Azure Cosmos DB allows you to use key-value, graph, and document data in one service, at global scale and without worrying about schema or index management. Azure Cosmos DB automatically indexes all data, and allows you to use your favorite APIs including SQL, JavaScript, Gremlin, MongoDB, and Azure Table Storage to query your data. Because Azure Cosmos DB utilizes a highly concurrent, lock free, log structured indexing technology to automatically index all data content. This enables rich real-time queries without the need to specify schema hints, secondary indexes, or views. Learn more in [Query Azure Cosmos DB](../documentdb/documentdb-sql-query.md). 
 
 * **Fully managed:** Eliminate the need to manage database and machine resources. As a fully managed Microsoft Azure service, you do not need to manage virtual machines, deploy and configure software, manage scaling, or deal with complex data-tier upgrades. Every database is automatically backed up and protected against regional failures. You can easily add a Azure Cosmos DB account and provision capacity as you need it, allowing you to focus on your application instead of operating and managing your database. 
 
