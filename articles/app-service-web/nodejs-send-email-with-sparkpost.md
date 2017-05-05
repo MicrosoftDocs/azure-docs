@@ -395,7 +395,7 @@ http://<app_name>.azurewebsites.net
 Enter your email address and click **Send**. It will send a sample email to that address.
 
 ## What's Next?
-- Learn more about SparkPost's [Node.js client library](nodejs-client-library).
+- Learn more about SparkPost's [Node.js client library].
 - Learn more about our APIs on [SparkPost DevHub].
 - [Get help].
 
@@ -407,6 +407,6 @@ Enter your email address and click **Send**. It will send a sample email to that
 <!--links-->
 [azure-cli]: https://docs.microsoft.com/en-us/cli/azure/overview
 [resource group]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview
-[nodejs-client-library]: https://github.com/SparkPost/node-sparkpost
+[Node.js client library]: https://github.com/SparkPost/node-sparkpost
 [Sparkpost DevHub]: https://developers.sparkpost.com/
 [Get help]: https://www.sparkpost.com/docs/
