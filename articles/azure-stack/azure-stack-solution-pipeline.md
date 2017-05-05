@@ -149,7 +149,7 @@ Now that you've created a release, you'll configure the steps required for publi
 
 
 ### Add release approver
-You may want to add a review step before publishing to production (Azure Stack).  This is useful where you want a person to approve the code before moving from testing to production.  Use the steps below to configure a code reviewer to approve or deny any releases destined for production.  
+You may want to add a review step before publishing to production (Azure Stack).  This is useful where you want a person to approve the code changes before moving from testing to production.  Use the steps below to configure a code reviewer to approve or deny releases destined for production.  
 
 1. Open your VSTS workspace and navigate to **Build & Release** > **Release**
 2. Select the **...** on your release definition, and select **Edit**
@@ -175,7 +175,7 @@ You can now test the hybrid CI/CD pipeline, with the final step publishing to Az
 5.  You will see a build in progress, and then see results.  Once you see "Finished build" in the console, move on to check the release.
 6.  Once the build is complete, and the pipeline has released to Azure, you will receive notification that a release requires review. 
 < screenshot >
-7.  Approve the release, and verify publishing the Azure Stack is complete.
+7.  Approve the release, and verify publishing the Azure Stack is complete.  You can do this by visiting the Web App URL.
 
 
 You can now use your new hybrid CI/CD pipeline as a building block for other hybrid cloud patterns.
