@@ -215,7 +215,7 @@ That's it, this Azure Cosmos DB tutorial is complete! In this tutorial, you've d
 
 ## Clean up resources
 
-If you're not going to continue to use this app, use the following steps to delete all resources created by this quickstart in the Azure portal. If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. 
+If you're not going to continue to use this app, use the following steps to delete all resources created by this quickstart in the Azure portal.  
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
