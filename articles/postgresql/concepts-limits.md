@@ -51,6 +51,6 @@ Azure Database for PostgreSQL has multiple service tiers you can choose from whe
 2.	Restoring a dropped server is not supported.
 
 ## Next Steps:
-- Understand [What’s available in each service tier](concepts-service-tiers)
+- Understand [What’s available in each service tier](concepts-service-tiers.md)
 - Understand [Supported PostgreSQL Database Versions](concepts-supported-versions.md)
 - Review [How To Back up and Restore a server in Azure Database for PostgreSQL using the Azure portal](howto-restore-server-portal.md)
