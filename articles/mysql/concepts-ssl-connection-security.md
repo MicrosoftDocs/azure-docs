@@ -1,5 +1,5 @@
 ---
-title: Configuring SSL connectivity for Azure Database for MySQL and PostgreSQL | Microsoft Docs
+title: Configuring SSL connectivity for Azure Database for MySQL | Microsoft Docs
 description: Instructions and information for how to properly configure Azure Database for MySQL and associated applications to properly use SSL connections
 services: mysql
 author: JasonMAnderson
@@ -14,24 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ---
-# Configure SSL connectivity in Azure Database for PostgreSQL
-Azure Database for PostgreSQL supports connecting your database server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.
+# Configure SSL connectivity in Azure Database for MySQL
+Azure Database for MySQL supports connecting your database server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.
 
-By default, the database service should be configured to require SSL connections when connecting to PostgreSQL.  It is recommended avoid disabling the SSL option whenever possible. 
+By default, the database service should be configured to require SSL connections when connecting to MySQL.  It is recommended avoid disabling the SSL option whenever possible. 
 
 ## Enforcing SSL connections
-When provisioning a new Azure Database for PostgreSQL server through the Azure portal and CLI, enforcement of SSL connections is enabled by default. 
+When provisioning a new Azure Database for MySQL server through the Azure portal and CLI, enforcement of SSL connections is enabled by default. 
 
 Likewise, connection strings that are pre-defined in the "Connection Strings" settings under your server in the Azure portal include the required parameters for common languages to connect to your database server using SSL. The SSL parameter varies based on the connector, for example "ssl=true" or "sslmode=require" or "sslmode=required" and other variations.
 
+## Enable or Disable Enforce SSL connection
+Using the Azure portal, visit your Azure Database for MySQL server and click **Connection security**. Use the toggle button to enable or disable the **Enforce SSL connection** setting. Then click **Save**. Microsoft recommends to always enable **Enforce SSL connection** setting for enhanced security. 
+
+You can confirm the setting by viewing the **Overview** page to see the **SSL enforce status** indicator.
+
 ## Ensure your application or framework supports SSL connections
-Many common applications that use PostgreSQL for database services, such as Wordpress, Drupal, and Magento, do not enable SSL by default during installation.  Enabling SSL connectivity must be done after installation or through CLI commands specific to the application.  If your PostgreSQL server is enforcing SSL connections and the associated application is not configured properly, the application may fail to connect to your database server.  Consult your application's documentation to learn how to enable SSL connections.
+Many common applications that use MySQL for database services, such as Wordpress, Drupal, and Magento, do not enable SSL by default during installation.  Enabling SSL connectivity must be done after installation or through CLI commands specific to the application.  If your MySQL server is enforcing SSL connections and the associated application is not configured properly, the application may fail to connect to your database server.  Consult your application's documentation to learn how to enable SSL connections.
 
 ## Applications that require a local certificate for SSL connectivity
 In some cases, applications require a local certificate file (.pem) generated from a Certificate Authority (CA) certificate file (.cer) to connect securely.  See the following steps to obtain the .cer file, generate the local .pem file and bind it to your application.
 
 ### Download the certificate file from the Certificate Authority (CA) 
-The certificate needed to communicate over SSL with your Azure Database for PostgreSQL server is located [here](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt).  Download the certificate file to your local drive (with this tutorial, we will use **c:\ssl**).
+The certificate needed to communicate over SSL with your Azure Database for MySQL server is located [here](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt).  Download the certificate file to your local drive (with this tutorial, we will use **c:\ssl**).
 
 ### Download and install OpenSSL on your PC 
 To generate the local **.pem** file needed for your application to connect securely to your database server, you need to install OpenSSL on your local computer.  
