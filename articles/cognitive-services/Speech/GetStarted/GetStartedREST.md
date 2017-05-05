@@ -46,8 +46,6 @@ The token service URI is located here:
 https://api.cognitive.microsoft.com/sts/v1.0/issueToken
 ```
 
-For more information, see [Authenticate the API call](~/cognitive-services/speech/api-reference-rest/bingvoicerecognition#Authorize).
-
 The code below is an example implementation in C# for how to handle authentication:
 
 ```cs
@@ -234,8 +232,6 @@ using (WebResponse response = request.GetResponse())
     Console.ReadLine();
 }
 ```
-
-For more information, see [Speech Recognition Responses](~/cognitive-services/speech/api-reference-rest/bingvoicerecognition#VoiceRecResponse).
 
 The following is a sample JSON response:
 
