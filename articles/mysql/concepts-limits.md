@@ -16,7 +16,7 @@ ms.date: 05/10/2017
 The Azure Database for MySQL service is in public preview. The following sections describe capacity and functional limits in the database service.
 
 ## Connection limits in each Service Tier
-Azure Database for MySQL has multiple service tiers you can choose from when creating a server. For more information, see [Understand what’s available in each service tier](concepts-service-tiers).  There is a maximum number of connections, compute units, and storage in each service tier during the service preview, as follows: 
+Azure Database for MySQL has multiple service tiers you can choose from when creating a server. For more information, see [Understand what’s available in each service tier](concepts-service-tiers.md).  There is a maximum number of connections, compute units, and storage in each service tier during the service preview, as follows: 
 
 | ---: | :--- | :--- |
 | Server – Max connections |||
