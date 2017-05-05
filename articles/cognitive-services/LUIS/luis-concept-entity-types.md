@@ -25,7 +25,7 @@ You do not need to create entities for every concept in your app, but only for t
 You can add, edit or delete entities in your app through the **Entities list** on the **Entities** page in the LUIS app web portal. LUIS offers many types of entities; prebuilt entities, custom machine learned entities and list entities.
 
 
-# Types of entities
+## Types of entities
 
 LUIS offers the following types of entities:
 
@@ -39,6 +39,6 @@ LUIS offers the following types of entities:
 | Composite | A composite entities is made up of other entities that form parts of a whole. A composite entity can consist of up to **20** child entities. <br/>  These count towards the maximum number of entities you may use.   |  
 
 
-# Next steps
+## Next steps
 
 See [Add entities](Add-entities.md) to learn more about how to add entities to your LUIS app.

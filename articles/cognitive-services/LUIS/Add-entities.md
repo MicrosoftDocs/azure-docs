@@ -170,10 +170,9 @@ List entity values can be added individually, or collectively by importing them 
  
 3. Click a value to add it to your list as a canonical form, or click **Add All** to add all values.
 
- > **Notes:**
-> 
-* The proposed values are added as canonical forms not synonyms; synonyms should be typed manually.
-* To delete an added canonical form, click the trash bin button corresponding to it.
+> [!NOTE]
+> * The proposed values are added as canonical forms not synonyms; synonyms should be typed manually.
+> * To delete an added canonical form, click the trash bin button corresponding to it.
 
   
 ## Edit or delete entities

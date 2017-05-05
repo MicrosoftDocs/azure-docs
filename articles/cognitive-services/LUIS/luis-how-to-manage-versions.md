@@ -33,14 +33,14 @@ You can clone a version to create a copy of an existing version and save it as a
 
  ![Clone Version dialog box](./media/luis-how-to-manage-versions/clone-version-dialog.jpg)
  
- > **Note:**
+ > [!NOTE]
  > Version name cannot be longer than 10 alphanumeric characters.
  
  A new version with the specified name will be created and added to the list.
  
   ![Version is created and added to the list](./media/luis-how-to-manage-versions/versions-list.jpg)
 
- > **Note:**
+ > [!NOTE]
  > As shown in the above screenshot, a published version is associated with a colored mark, indicating the slot where it has been published: Production slot (green), Staging slot (red) and Both slots (black). Also, the training and publishing dates will be displayed for each published version.
 
 ## Set a version as active
@@ -83,4 +83,3 @@ You can delete versions, but you have to keep at least one version of the app. Y
 
 
 
-> Written with [StackEdit](https://stackedit.io/).
