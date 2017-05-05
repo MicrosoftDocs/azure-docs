@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure an Azure Run As Account | Microsoft Docs
 description: This tutorial walks you through the creation, testing, and example use of security-principal authentication in Azure Automation.
 services: automation
@@ -14,8 +14,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2017
+ms.date: 04/06/2017
 ms.author: magoedte
+
+ROBOTS: NOINDEX
+redirect_url: /azure/automation/automation-offering-get-started
+redirect_document_id: TRUE 
 
 ---
 
@@ -238,7 +242,7 @@ You can use PowerShell to update your existing Automation account if:
 The script has the following prerequisites:
 
 * The script can be run only on Windows 10 and Windows Server 2016 with Azure Resource Manager modules 2.01 and later. It is not supported on earlier versions of Windows.
-* Azure PowerShell 1.0 and later. For information about the PowerShell 1.0 release, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Azure PowerShell 1.0 and later. For information about the PowerShell 1.0 release, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 * An Automation account, which is referenced as the value for the *–AutomationAccountName* and *-ApplicationDisplayName* parameters in the following PowerShell script.
 
 To get the values for *SubscriptionID*, *ResourceGroup*, and *AutomationAccountName*, which are required parameters for the scripts, do the following:
@@ -246,7 +250,7 @@ To get the values for *SubscriptionID*, *ResourceGroup*, and *AutomationAccountN
 2. On the **All settings** blade, under **Account Settings**, select **Properties**. 
 3. Note the values on the **Properties** blade.
 
- ![The Automation account "Properties" blade](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
+![The Automation account "Properties" blade](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
 
 ### Create a Run As account PowerShell script
 This PowerShell script includes support for the following configurations:
@@ -336,6 +340,7 @@ To execute the script and upload the certificate, do the following:
         $KeyCredential = New-Object  Microsoft.Azure.Commands.Resources.Models.ActiveDirectory.PSADKeyCredential
         $KeyCredential.StartDate = $CurrentDate
         $KeyCredential.EndDate= [DateTime]$PfxCert.GetExpirationDateString()
+        $KeyCredential.EndDate = $KeyCredential.EndDate.AddDays(-1)
         $KeyCredential.KeyId = $KeyId
         $KeyCredential.CertValue  = $keyValue
 
@@ -410,7 +415,6 @@ To execute the script and upload the certificate, do the following:
         $TenantID = $SubscriptionInfo | Select TenantId -First 1
         $Thumbprint = $PfxCert.Thumbprint
         $ConnectionFieldValues = @{"ApplicationId" = $ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Thumbprint; "SubscriptionId" = $SubscriptionId}
-
 
         # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
         CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues
@@ -508,7 +512,7 @@ You can use the following updated sample code, taken from the *AzureAutomationTu
          }
     }
 
-To help you to easily work between multiple subscriptions, the script includes two additional lines of code that support referencing a subscription context. A variable asset named *SubscriptionId* contains the ID of the subscription. After the `Add-AzureRmAccount` cmdlet statement, the [`Set-AzureRmContext`](https://msdn.microsoft.com/library/mt619263.aspx) cmdlet is stated with the parameter set *-SubscriptionId*. If the variable name is too generic, you can revise it to include a prefix or use another naming convention to make it easier to identify. Alternatively, you can use the parameter set *-SubscriptionName* instead of *-SubscriptionId* with a corresponding variable asset.
+To help you to easily work between multiple subscriptions, the script includes two additional lines of code that support referencing a subscription context. A variable asset named *SubscriptionId* contains the ID of the subscription. After the `Add-AzureRmAccount` cmdlet statement, the [`Set-AzureRmContext`](/powershell/module/azurerm.profile/set-azurermcontext) cmdlet is stated with the parameter set *-SubscriptionId*. If the variable name is too generic, you can revise it to include a prefix or use another naming convention to make it easier to identify. Alternatively, you can use the parameter set *-SubscriptionName* instead of *-SubscriptionId* with a corresponding variable asset.
 
 The cmdlet that you use for authenticating in the runbook, `Add-AzureRmAccount`, uses the *ServicePrincipalCertificate* parameter set. It authenticates by using the service principal certificate, not the user credentials.
 

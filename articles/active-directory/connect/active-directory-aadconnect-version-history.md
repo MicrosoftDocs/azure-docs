@@ -31,6 +31,61 @@ Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a pr
 Required permissions | For permissions required to apply an update, see [accounts and permissions](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## 1.1.486.0
+Released: April 2017
+
+**Fixed issues:**
+* Fixed the issue where Azure AD Connect will not install successfully on localized version of Windows Server.
+
+## 1.1.484.0
+Released: April 2017
+
+**Known issues:**
+
+* This version of Azure AD Connect will not install successfully if the following conditions are all true:
+   1. You are performing either DirSync in-place upgrade or fresh installation of Azure AD Connect.
+   2. You are using a localized version of Windows Server where the name of built-in Administrator group on the server isn't "Administrators".
+   3. You are using the default SQL Server 2012 Express LocalDB installed with Azure AD Connect instead of providing your own full SQL.
+
+**Fixed issues:**
+
+Azure AD Connect sync
+* Fixed an issue where the sync scheduler skips the entire sync step if one or more connectors are missing run profile for that sync step. For example, you manually added a connector using the Synchronization Service Manager without creating a Delta Import run profile for it. This fix ensures that the sync scheduler continues to run Delta Import for other connectors.
+* Fixed an issue where the Synchronization Service immediately stops processing a run profile when it is encounters an issue with one of the run steps. This fix ensures that the Synchronization Service skips that run step and continues to process the rest. For example, you have a Delta Import run profile for your AD connector with multiple run steps (one for each on-premises AD domain). The Synchronization Service will run Delta Import with the other AD domains even if one of them has network connectivity issues.
+* Fixed an issue that causes the Azure AD Connector update to be skipped during Automatic Upgrade.
+* Fixed an issue that causes Azure AD Connect to incorrectly determine whether the server is a domain controller during setup, which in turn causes DirSync upgrade to fail.
+* Fixed an issue that causes DirSync in-place upgrade to not create any run profile for the Azure AD Connector.
+* Fixed an issue where the Synchronization Service Manager user interface becomes unresponsive when trying to configure Generic LDAP Connector.
+
+AD FS management
+* Fixed an issue where the Azure AD Connect wizard fails if the AD FS primary node has been moved to another server.
+
+Desktop SSO
+* Fixed an issue in the Azure AD Connect wizard where the Sign-In screen does not let you enable Desktop SSO feature if you chose Password Synchronization as your Sign-In option during new installation.
+
+**New features/improvements:**
+
+Azure AD Connect sync
+* Azure AD Connect Sync now supports the use of Virtual Service Account, Managed Service Account and Group Managed Service Account as its service account. This applies to new installation of Azure AD Connect only. When installing Azure AD Connect:
+    * By default, Azure AD Connect wizard will create a Virtual Service Account and uses it as its service account.
+    * If you are installing on a domain controller, Azure AD Connect falls back to previous behavior where it will create a domain user account and uses it as its service account instead.
+    * You can override the default behavior by providing one of the following:
+      * A Group Managed Service Account
+      * A Managed Service Account
+      * A domain user account
+      * A local user account
+* Previously, if you upgrade to a new build of Azure AD Connect containing connectors update or sync rule changes, Azure AD Connect will trigger a full sync cycle. Now, Azure AD Connect selectively triggers Full Import step only for connectors with update, and Full Synchronization step only for connectors with sync rule changes.
+* Previously, the Export Deletion Threshold only applies to exports which are triggered through the sync scheduler. Now, the feature is extended to include exports manually triggered by the customer using the Synchronization Service Manager.
+* On your Azure AD tenant, there is a service configuration which indicates whether Password Synchronization feature is enabled for your tenant or not. Previously, it is easy for the service configuration to be incorrectly configured by Azure AD Connect when you have an active and a staging server. Now, Azure AD Connect will attempt to keep the service configuration consistent with your active Azure AD Connect server only.
+* Azure AD Connect wizard now detects and returns a warning if on-premises AD does not have AD Recycle Bin enabled.
+* Previously, Export to Azure AD times out and fails if the combined size of the objects in the batch exceeds certain threshold. Now, the Synchronization Service will reattempt to resend the objects in separate, smaller batches if the issue is encountered.
+* The Synchronization Service Key Management application has been removed from Windows Start Menu. Management of encryption key will continue to be supported through command-line interface using miiskmu.exe. For information about managing encryption key, refer to article [Abandoning the Azure AD Connect Sync encryption key](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-azure-ad-connect-sync-encryption-key).
+* Previously, if you change the Azure AD Connect sync service account password, the Synchronization Service will not be able start correctly until you have abandoned the encryption key and reinitialized the Azure AD Connect sync service account password. Now, this is no longer required.
+
+Desktop SSO
+
+* Azure AD Connect wizard no longer requires port 9090 to be opened on the network when configuring Pass-through Authentication and Desktop SSO. Only port 443 is required. 
+
 ## 1.1.443.0
 Released: March 2017
 
@@ -251,7 +306,7 @@ Released: November 2015
 **New preview features:**
 
 * [Azure AD Connect Health for sync](../connect-health/active-directory-aadconnect-health-sync.md).
-* Support for [Azure AD Domain Services](../active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) password synchronization.
+* Support for [Azure AD Domain Services](../active-directory-passwords-update-your-own-password.md) password synchronization.
 
 **New supported scenario:**
 
@@ -264,7 +319,15 @@ Released: November 2015
   * Selecting a new OU to include in sync does not require a full password sync.
   * When a disabled user is enabled the password does not sync.
   * The password retry queue is infinite and the previous limit of 5,000 objects to be retired has been removed.
-  * [Improved troubleshooting](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization).
+<<<<<<< HEAD
+<<<<<<< HEAD
+  * [Improved troubleshooting](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization).
+=======
+  * [Improved troubleshooting](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
+>>>>>>> 487b660b6d3bb5ce9e64b6fdbde2ae621cb91922
+=======
+  * [Improved troubleshooting](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
+>>>>>>> 4b2e846c2cd4615f4e4be7195899de11e3957c83
 * Not able to connect to Active Directory with Windows Server 2016 forest-functional level.
 * Not able to change the group that is used for group filtering after the initial installation.
 * No longer creates a new user profile on the Azure AD Connect server for every user doing a password change with password writeback enabled.

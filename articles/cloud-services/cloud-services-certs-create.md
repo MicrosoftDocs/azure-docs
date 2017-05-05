@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 04/19/2017
 ms.author: adegeo
 
 ---
@@ -54,8 +54,10 @@ You can use any tool available to create a self-signed certificate as long as th
 * An X.509 certificate.
 * Contains a private key.
 * Created for key exchange (.pfx file).
-* Subject name must match the domain used to access the cloud service. 
+* Subject name must match the domain used to access the cloud service.
+
     > You cannot acquire an SSL certificate for the cloudapp.net (or for any Azure-related) domain; the certificate's subject name must match the custom domain name used to access your application. For example, **contoso.net**, not **contoso.cloudapp.net**.
+
 * Minimum of 2048-bit encryption.
 * **Service Certificate Only**: Client-side certificate must reside in the *Personal* certificate store.
 
@@ -73,8 +75,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 
 > [!NOTE]
 > If you want to use the certificate with an IP address instead of a domain, use the IP address in the -DnsName parameter.
-> 
-> 
+
 
 If you want to use this [certificate with the management portal](../azure-api-management-certs.md), export it to a **.cer** file:
 
@@ -94,10 +95,5 @@ You can use Java to [create a certificate](../app-service-web/java-create-azure-
 ## Next steps
 [Upload your service certificate to the Azure classic portal](cloud-services-configure-ssl-certificate.md) (or the [Azure portal](cloud-services-configure-ssl-certificate-portal.md)).
 
-Upload a [management API certificate](../azure-api-management-certs.md) to the Azure classic portal.
-
-> [!NOTE]
-> The Azure portal does not use management certificates to access the API but instead uses user accounts.
-> 
-> 
+Upload a [management API certificate](../azure-api-management-certs.md) to the Azure classic portal. The Azure portal does not use management certificates for authentication.
 

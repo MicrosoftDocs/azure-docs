@@ -19,7 +19,7 @@ ms.author: joflore
 ---
 # How to get operational insights with password management reports
 > [!IMPORTANT]
-> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-your-password).
+> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-or-unlock-my-password-for-a-work-or-school-account).
 >
 >
 
@@ -198,16 +198,12 @@ To find the password management reports, follow the steps below:
 4. Look under the **Activity Logs** section.
 5. Select either the **Password reset activity** report or the **Password reset registration activity** report.
 
-   ![][001]
-
 ## View password reset registration activity in the classic portal
 The password reset registration activity report shows all password reset registrations that have occurred in your organization.  A password reset registration is displayed in this report for any user who has successfully registered authentication information at the password reset registration portal ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)).
 
 * **Max time range**: 30 days
 * **Max number of rows**: 75,000
 * **Downloadable**: Yes, via CSV file
-
-    ![][002]
 
 ### Description of report columns
 The following list explains each of the report columns in detail:
@@ -230,8 +226,6 @@ This report shows all password reset attempts that have occurred in your organiz
 * **Max time range**: 30 days
 * **Max number of rows**: 75,000
 * **Downloadable**: Yes, via CSV file
-
-    ![][003]
 
 ### Description of report columns
 The following list explains each of the report columns in detail:
@@ -296,7 +290,7 @@ Below is the list of result types you may expect when using the password reset a
 ## Next steps
 Below are links to all of the Azure AD Password Reset documentation pages:
 
-* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-your-password).
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-or-unlock-my-password-for-a-work-or-school-account).
 * [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
 * [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
 * [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
@@ -304,7 +298,3 @@ Below are links to all of the Azure AD Password Reset documentation pages:
 * [**FAQ**](active-directory-passwords-faq.md) - get answers to frequently asked questions
 * [**Troubleshooting**](active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
 * [**Learn more**](active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
-
-[001]: ./media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
-[002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
-[003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"

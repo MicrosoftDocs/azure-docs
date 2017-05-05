@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/18/2017
+ms.date: 04/12/2017
 ms.author: sasubram
 
 ---
@@ -27,7 +27,7 @@ Depending on the inviting organization's needs, an Azure AD B2B collaboration us
 
 - State 1: Homed in an external instance of Azure AD and represented as a guest user in the host organization. In this case, the B2B user signs in by using an Azure AD account that belongs to his home tenancy. If the external organization of the user doesn't use Azure AD at the time of invitation, the guest user in Azure AD is created when the user redeems his invitation and after Azure AD verifies his email address. This is also called a just-in-time (JIT) tenancy or a viral tenancy.
 
-- State 2: Homed in a Microsoft account and represented as a guest user in the host organization. In this case, the guest user signs in with a Microsoft account. In the refresh of Azure AD Public Preview, the invited user's social identity (google.com or similar), which is not a Microsoft account, is created as a Microsoft account during offer redemption.
+- State 2: Homed in a Microsoft account and represented as a guest user in the host organization. In this case, the guest user signs in with a Microsoft account. The invited user's social identity (google.com or similar), which is not a Microsoft account, is created as a Microsoft account during offer redemption.
 
 - State 3: Homed in the host organization's on-premises Active Directory and synced with the host organization's Azure AD. During this release, you must use PowerShell to manually change the UserType of such users in the cloud.
 

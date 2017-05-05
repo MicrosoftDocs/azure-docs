@@ -23,7 +23,7 @@ ms.author: larryfr
 Learn how to use Python components with Storm on HDInsight. Apache Storm supports multiple languages, even allowing you to combine components from several languages in one topology. The Flux framework (introduced with Storm 0.10.0) allows you to easily create solutions that use Python components.
 
 > [!IMPORTANT]
-> The information in this document was tested using Storm on HDInsight 3.5. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight version 3.3 and 3.4 deprecation](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> The information in this document was tested using Storm on HDInsight 3.5. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight version 3.3 and 3.4 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 The code for this project is available at [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
 
@@ -151,4 +151,3 @@ See the following documents for other ways to use Python with HDInsight:
 
 * [How to use Python for streaming MapReduce jobs](hdinsight-hadoop-streaming-python.md)
 * [How to use Python User Defined Functions (UDF) in Pig and Hive](hdinsight-python.md)
-

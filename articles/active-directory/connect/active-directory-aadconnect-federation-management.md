@@ -25,7 +25,7 @@ This article describes how to manage and customize Active Directory Federation S
 |:--- |:--- |
 | **Manage AD FS** | |
 | [Repair the trust](#repairthetrust) |How to repair the federation trust with Office 365. |
-| [Federate with Azure AD using AlternateID](#alternateid) | Configure federation using alternate ID |
+| [Federate with Azure AD using alternate login ID ](#alternateid) | Configure federation using alternate login ID  |
 | [Add an AD FS server](#addadfsserver) |How to expand an AD FS farm with an additional AD FS server. |
 | [Add an AD FS Web Application Proxy server](#addwapserver) |How to expand an AD FS farm with an additional Web Application Proxy (WAP) server. |
 | [Add a federated domain](#addfeddomain) |How to add a federated domain. |
@@ -65,13 +65,13 @@ You can use Azure AD Connect to check the current health of the AD FS and Azure 
 > Azure AD Connect can only repair or act on certificates that are self-signed. Azure AD Connect can't repair third-party certificates.
 
 ## Federate with Azure AD using AlternateID <a name=alternateid></a>
-It is recommended that the on-premises UserPrincipalName and the cloud UserPrincipalName is kept the same. If the on-premises UPN uses a non-routable domain (ex. Contoso.local), or the existing UPN cannot be changed due to local application dependencies, we recommend setting up alternate login ID. Alternate login ID allows you to configure a sign in experience where users can sign in with an attribute other than their UPN, such as mail. Azure AD Connect when providing the choice for UserPrincipalName will default to the userPrincipalName attribute in active directory. While federating using AD FS, if you chose any other attribute for UserPrincipalName, then Azure AD Connect will configure AD FS for alternateID. An example of chosing a different attribute for userPrincipalName is shown below:
+It is recommended that the on-premises User Principal Name(UPN) and the cloud User Principal Name are kept the same. If the on-premises UPN uses a non-routable domain (ex. Contoso.local) or cannot be changed due to local application dependencies, we recommend setting up alternate login ID. Alternate login ID allows you to configure a sign-in experience where users can sign in with an attribute other than their UPN, such as mail. The choice for User Principal Name in Azure AD Connect defaults to the userPrincipalName attribute in Active Directory. If you choose any other attribute for User Principal Name and are federating using AD FS, then Azure AD Connect will configure AD FS for alternate login ID. An example of choosing a different attribute for User Principal Name is shown below:
 
 ![Alternate ID attribute selection](media/active-directory-aadconnect-federation-management/attributeselection.png)
 
-Configuring alternateID for AD FS consists of two main steps:
-1. **Configure the right set of issuance claims**: The issuance claim rules for the Azure AD relying party trust needs to be modified to reflect the correct userPrincipalName as per the attribute selected to represent the alternate ID of the user.
-2. **Enabling alternateID as part of the AD FS configuration**: AD FS configuration needs to be updated for enabling AD FS to lookup users in the appropriate forests using alternate ID. The configuration is supported for 2012R2 (with [KB2919355](http://go.microsoft.com/fwlink/?LinkID=396590)) or newer. Azure AD Connect makes a check for the presence of the required KB in case the selected servers for AD FS farm are 2012R2. In case the KB is not detected, a warning will be displayed during configuration as shown below:
+Configuring alternate login ID for AD FS consists of two main steps:
+1. **Configure the right set of issuance claims**: The issuance claim rules in the Azure AD relying party trust are modified to use the selected UserPrincipalName attribute as the alternate ID of the user.
+2. **Enable alternate login ID in the AD FS configuration**: The AD FS configuration is updated so that AD FS can look up users in the appropriate forests using the alternate ID. This configuration is supported for AD FS on Windows Server 2012 R2 (with KB2919355) or later. If the AD FS servers are 2012 R2, Azure AD Connect checks for the presence of the required KB. If the KB is not detected, a warning will be displayed after configuration completes, as shown below:
 
     ![Warning for missing KB on 2012R2](media/active-directory-aadconnect-federation-management/kbwarning.png)
 

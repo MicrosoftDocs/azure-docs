@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
-ms.author: aelnably
+ms.date: 05/04/2017
+ms.author: aelnably;wesmc
 
 ---
 
@@ -51,6 +51,7 @@ If you have a question, comment on the article and we'll answer it as soon as po
 **A:** To set up continuous integration/deployment for DockerHub images by check the following article [Docker Hub Continuous Deployment with Web App on Linux](./app-service-linux-ci-cd.md). For private registries, you can refresh the container by stopping and then starting your web app. Or you can change or add a dummy application setting to force a refresh of your container.
 
 **Q:** Do you support staging environments?
+
 **A:** Yes.
 
 ## Language support

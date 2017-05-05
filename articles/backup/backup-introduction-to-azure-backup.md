@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/13/2017
+ms.date: 5/3/2017
 ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 
@@ -86,9 +86,9 @@ The following table shows the Azure Backup components that have support for Linu
 | Component | Linux (Azure endorsed) Support |
 | --- | --- |
 | Azure Backup (MARS) agent |No (Only Windows based agent) |
-| System Center DPM |File-consistent backup on Hyper-V only<br/> (not available for Azure VM) |
-| Azure Backup Server |File-consistent backup on Hyper-V only<br/> (not available for Azure VM) |
-| Azure IaaS VM Backup |Yes (application consistent backup using [pre-script and post-script framework](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)) |
+| System Center DPM |File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/> (not available for Azure VM)<br/> VM restore of Hyper-V and VMWare Linux Guest VMs |
+| Azure Backup Server |File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/> (not available for Azure VM)<br/> VM restore of Hyper-V and VMWare Linux Guest VMs |
+| Azure IaaS VM Backup |Application-consistent backup using [pre-script and post-script framework](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)<br/> [Granular file recovery](backup-azure-restore-files-from-vm.md)<br/> [Restore all VM disks](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-backed-up-disks)<br/> [VM restore](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-new-vm-from-restore-point) |
 
 ## Using Premium Storage VMs with Azure Backup
 Azure Backup protects Premium Storage VMs. Azure Premium Storage is solid-state drive (SSD)-based storage designed to support I/O-intensive workloads. Premium Storage is attractive for virtual machine (VM) workloads. For more information about Premium Storage, see the article, [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md).
@@ -108,10 +108,10 @@ Premium Storage VMs can be restored to either Premium Storage or to normal stora
 Azure Backup protects managed disk VMs. Managed disks free you from managing storage accounts of virtual machines and greatly simplify VM provisioning.
 
 ### Back up managed disk VMs
-Backing up VMs on managed disks is no different than backing up Resource Manager VMs. In the Azure portal, you can configure the backup job directly from the Virtual Machine view or from the Recovery Services vault view. You can back up VMs on managed disks through RestorePoint collections built on top of managed disks. Azure Backup currently doesn't support backing up managed disk VMs encrypted using Azure Disk encryption(ADE).
+Backing up VMs on managed disks is no different than backing up Resource Manager VMs. In the Azure portal, you can configure the backup job directly from the Virtual Machine view or from the Recovery Services vault view. You can back up VMs on managed disks through RestorePoint collections built on top of managed disks. Azure Backup also supports backing up managed disk VMs encrypted using Azure Disk encryption(ADE).
 
 ### Restore managed disk VMs
-Azure Backup allows you to restore a complete VM with managed disks or restore managed disks to a Resource Manager storage account. Azure manages the managed disks during the restore process. You (the customer) manage the storage account created as part of the restore process.
+Azure Backup allows you to restore a complete VM with managed disks or restore managed disks to a Resource Manager storage account. Azure manages the managed disks during the restore process. You (the customer) manage the storage account created as part of the restore process. For restoring managed encrypted VMs, keys and secrets of the VM should already exist in the key vault prior to restore.
 
 ## What are the features of each Backup component?
 The following sections provide tables that summarize the availability or support of various features in each Azure Backup component. See the information following each table for additional support or details.

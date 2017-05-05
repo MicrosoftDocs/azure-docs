@@ -12,7 +12,7 @@
     ```
 2. Add the following Relay `constants` to the `listener.js` for the Hybrid Connection connection details. Replace the placeholders in brackets with the proper values that were obtained when creating the Hybrid Connection.
    
-   1. `const ns` - The Relay namespace
+   1. `const ns` - The Relay namespace (use FQDN - e.g. `{namespace}.servicebus.windows.net`)
    2. `const path` - The name of the Hybrid Connection
    3. `const keyrule` - The name of the SAS key
    4. `const key` - The SAS key value

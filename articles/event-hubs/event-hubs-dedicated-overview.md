@@ -51,7 +51,7 @@ The following benefits are available when using Event Hubs Dedicated:
 * Zero maintenance: we manage load balancing, OS updates, security patches, and partitioning.
 * Fixed monthly pricing.
 
-Event Hubs Dedicated also removes some of the throughput limitations of the Standard offering. Throughput units in Basic and Standard tiers entitle you to 1000 events per second or 1 MBps of ingress per TU and double that amount of egress. The Dedicated scale offering has no restrictions on ingress and egress event counts. These limits are governed only by the processing capacity of the purchased Event Hubs.
+Event Hubs Dedicated also removes some of the throughput limitations of the Standard offering. Throughput units in Basic and Standard tiers entitle you to 1000 events per second or 1 MBps of ingress per TU and double that amount of egress. The Dedicated scale offering has no restrictions on ingress and egress event counts. These limits are governed only by the processing capacity of the purchased event hubs.
 
 This service is targeted at the largest telemetry users and is available to customers with an enterprise agreement.
 

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/09/2017
+ms.date: 05/03/2017
 ms.author: larryfr
 ---
 # Introducing Apache Kafka on HDInsight (preview)
@@ -45,10 +45,6 @@ Kafka provides the following features:
 
 * **Transformation**: Using stream processing, you can combine and enrich data from multiple input topics into one or more output topics.
 
-## Where do I start?
-
-See [Get started with Kafka on HDInsight](hdinsight-apache-kafka-get-started.md) for steps on creating a Kafka cluster and using Kafka, including Java-based examples of using the producer, consumer, and streaming API
-
 ## Next steps
 
 Use the following links to learn how to use Apache Kafka on HDInsight:
@@ -61,3 +57,4 @@ Use the following links to learn how to use Apache Kafka on HDInsight:
 
 * [Use Apache Spark with Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md)
 
+* [Connect to Kafka through an Azure Virtual Network](hdinsight-apache-kafka-connect-vpn-gateway.md)

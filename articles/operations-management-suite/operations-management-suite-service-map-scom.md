@@ -1,6 +1,6 @@
 ---
 title: Service Map integration with System Center Operations Manager | Microsoft Docs
-description: Service Map is an Operations Management Suite (OMS) solution that automatically discovers application components on Windows and Linux systems and maps the communication between services.  This article provides details for using Service Map to automatically create Distributed Application Diagrams in SCOM.
+description: Service Map is an Operations Management Suite solution that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article discusses using Service Map to automatically create distributed application diagrams in Operations Manager.
 services: operations-management-suite
 documentationcenter: ''
 author: daveirwin1
@@ -18,101 +18,111 @@ ms.author: bwren;dairwin
 
 ---
 
-# Service Map integration with System Center Operations Manager Integration
+# Service Map integration with System Center Operations Manager
   > [!NOTE]
-  > This feature is in private preview, so it should not be used on production systems.
+  > Because this feature is in private preview, it should not be used on production systems.
   > 
   
-Operations Management Suite (OMS) Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. It allows you to view your servers as you think of them – as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, and ports across any TCP-connected architecture with no configuration required other than installation of an agent.  For more details, see the [Service Map Documentation](operations-management-suite-service-map.md).
+Operations Management Suite Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. Service Map allows you to view your servers the way you think of them, as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, and ports across any TCP-connected architecture, with no configuration required besides the installation of an agent. For more information, see the [Service Map documentation](operations-management-suite-service-map.md).
 
-With this integration between Service Map and System Center Operations Manager (SCOM), you can automatically create Distributed Application Diagrams in SCOM based on dynamic dependency maps in Service Map.
+With this integration between Service Map and System Center Operations Manager, you can automatically create distributed application diagrams in Operations Manager that are based on the dynamic dependency maps in Service Map.
 
 ## Prerequisites
-1.	A SCOM management group managing a set of servers.
-2.	An OMS Workspace with the Service Map solution enabled.
-3.	A set of servers (at least one) that are both being managed by SCOM and sending data to Service Map.  Windows and Linux servers are supported.
-4.	A Service Principal with access to the Azure Subscription that is associated with the OMS Workspace.  [More information on creating a Service Principal](#creating-a-service-principal).
+* An Operations Manager management group that is managing a set of servers.
+* An Operations Management Suite workspace with the Service Map solution enabled.
+* A set of servers (at least one) that are being managed by Operations Manager and sending data to Service Map. Windows and Linux servers are supported.
+* A service principal with access to the Azure subscription that is associated with the Operations Management Suite workspace. For more information, go to [Create a service principal](#creating-a-service-principal).
 
-## Installing Service Map Management Pack
-The integration between SCOM and Service Map is enabled by importing the Microsoft.SystemCenter.ServiceMap Management Pack Bundle (Microsoft.SystemCenter.ServiceMap.mpb).  The bundle contains the following Management Packs:
-* Microsoft ServiceMap Application Views
-* Microsoft System Center ServiceMap Internal
-* Microsoft System Center ServiceMap Overrides
-* Microsoft System Center ServiceMap
+## Install the Service Map management pack
+You enable the integration between Operations Manager and Service Map by importing the Microsoft.SystemCenter.ServiceMap management pack bundle (Microsoft.SystemCenter.ServiceMap.mpb). The bundle contains the following management packs:
+* Microsoft Service Map Application Views
+* Microsoft System Center Service Map Internal
+* Microsoft System Center Service Map Overrides
+* Microsoft System Center Service Map
 
-## Configuring the Service Map Integration
-1. After installing the ServiceMap management pack, there will be a new node, Service Map, under the Operations Management Suite in the Administration pane.
-2. Click “Add workspace” in the Service Map Overview pane to open the configuration wizard.
+## Configure the Service Map integration
+After you install the Service Map management pack, a new node, **Service Map**, is displayed under **Operations Management Suite** in the **Administration** pane. 
 
-    ![SCOM Configuration Wizard](media/oms-service-map/scom-configuration.png)
+To configure Service Map integration, do the following:
 
-3. The first step in the wizard is Connection Configuration where you enter the information for your Azure Service Principal. Enter the Tenant name or ID, Application ID (or Username or ClientID), and Password of the Service Principal.  [More information on creating a Service Principal](#creating-a-service-principal).
+1. To open the configuration wizard, in the **Service Map Overview** pane, click **Add workspace**.  
 
-    ![SCOM Config SPN](media/oms-service-map/scom-config-spn.png)
+    ![Service Map Overview pane](media/oms-service-map/scom-configuration.png)
 
-4. The next step is to select the Azure Subscription, Azure Resource Group (the one containing the OMS Workspace), and OMS Workspace.
+2. In the **Connection Configuration** window, enter the tenant name or ID, application ID (also known as the username or clientID), and password of the service principal, and then click **Next**. For more information, go to [Create a service principal](#creating-a-service-principal).
 
-    ![SCOM Config Workspace](media/oms-service-map/scom-config-workspace.png)
+    ![The Connection Configuration window](media/oms-service-map/scom-config-spn.png)
 
-5. The next step is to configure the Service Map Servers Group with the servers you would like to sync between SCOM and Service Map.  Click the Add/Remove Servers… button. Note that for the integration to build a Distributed Application Diagram for a server, the server must: 1) be managed by SCOM, 2) be managed by Service Map, and 3) be listed in the Service Map Servers Group.
+3. In the **Subscription Selection** window, select the Azure subscription, Azure resource group (the one that contains the Operations Management Suite workspace), and Operations Management Suite workspace, and then click **Next**.
 
-    ![SCOM Config Group](media/oms-service-map/scom-config-group.png)
+    ![The Operations Manager Configuration Workspace](media/oms-service-map/scom-config-workspace.png)
 
-6. Optional - Select the Management Server resource pool to communicate with OMS and click “Add Workspace”.
+4. In the **Server Selection** window, you configure the Service Map Servers Group with the servers that you want to sync between Operations Manager and Service Map. Click **Add/Remove Servers**.   
+    
+    For the integration to build a distributed application diagram for a server, the server must be:
 
-    ![SCOM Config Resource Pool](media/oms-service-map/scom-config-pool.png)
+    * Managed by Operations Manager.
+    * Managed by Service Map.
+    * Listed in the Service Map Servers Group.
 
-7. Please note that it will take a minute to configure and register the OMS workspace. Once this is configured, SCOM will initiate the first Service Map sync from OMS.
+    ![The Operations Manager Configuration Group](media/oms-service-map/scom-config-group.png)
 
-    ![SCOM Config Resource Pool](media/oms-service-map/scom-config-success.png)
+5. Optional: Select the Management Server resource pool to communicate with Operations Management Suite, and then click **Add Workspace**.
 
-**Note:** The default sync interval is set to 60 minutes. Users can configure overrides to change the sync interval. Users can also add servers to the Service Map Servers Group manually through the Authoring pane (Authoring pane --> Groups, then search for "Service Map Servers Group"). The server maps for those servers will be synced with the next sync (based on the sync interval configured).
+    ![The Operations Manager Configuration Resource Pool](media/oms-service-map/scom-config-pool.png)
 
-## Monitoring Service Map
-Once the OMS workspace is connected, a new folder Service Map will show up in the Monitoring pane of the SCOM console.
-![SCOM Monitoring](media/oms-service-map/scom-monitoring.png)
+    It might take a minute to configure and register the Operations Management Suite workspace. After it is configured, Operations Manager initiates the first Service Map sync from Operations Management Suite.
+
+    ![The Operations Manager Configuration Resource Pool](media/oms-service-map/scom-config-success.png)
+
+    >[!NOTE]
+    >The default sync interval is set to 60 minutes. You can configure overrides to change the sync interval. You can also add servers to the Service Map Servers Group manually through the **Authoring** pane. To do so, select **Groups**, and then search for **Service Map Servers Group**. The server maps for those servers are synced with the next sync, which is based on the configured sync interval.
+
+## Monitor Service Map
+After the Operations Management Suite workspace is connected, a new folder, Service Map, is displayed in the **Monitoring** pane of the Operations Manager console.
+
+![The Operations Manager Monitoring pane](media/oms-service-map/scom-monitoring.png)
 
 The Service Map folder has three nodes:
-### All Alerts:
-This shows all the alerts about the communication between SCOM and Service Map solution in OMS.
+* **Active Alerts**: Lists all the active alerts about the communication between Operations Manager and Service Map solution in Operations Management Suite.
 
-**Note:** These are not OMS alerts being surfaced in SCOM.
-### Servers:
-This will have the list of monitored servers configured to sync from Service Map.
+    >[!NOTE]
+    >These alerts are not the Operations Management Suite alerts that are surfaced in Operations Manager.
 
-![SCOM Monitoring Servers](media/oms-service-map/scom-monitoring-servers.png)
+* **Servers**: Lists the monitored servers that are configured to sync from Service Map.
 
-### Server Dependency Views:
-This view will have the list of all servers synced from Service Map. Users can click on any server to view its Distributed Application Diagram.
+    ![The Operations Manager Monitoring Servers pane](media/oms-service-map/scom-monitoring-servers.png)
 
-![SCOM Distributed Application Diagram](media/oms-service-map/scom-dad.png)
+* **Server Dependency Views**: Lists all servers that are synced from Service Map. You can click any server to view its distributed application diagram.
 
-## Edit/Delete Workspace:
-Users can Edit or delete the configured workspace through the Service Map Overview pane (Administration pane --> Operations Management Suite --> Service Map).  Note that you can configure only one OMS Workspace for now.
+    ![The Operations Manager distributed application diagram](media/oms-service-map/scom-dad.png)
 
-![SCOM Edit Workspace](media/oms-service-map/scom-edit-workspace.png)
+## Edit or delete the workspace
+You can edit or delete the configured workspace through the **Service Map Overview** pane (**Administration** pane > **Operations Management Suite** > **Service Map**). You can configure only one Operations Management Suite workspace for now.
 
-## Configuring Rules and Overrides:
-A Rule **_Microsoft.SystemCenter.ServiceMapImport.Rule**_ is created to periodically fetch information from Service Map.  Users can configure Overrides of this rule to change sync timings.
-Authoring pane --> Rules --> Microsoft.SystemCenter.ServiceMapImport.Rule
+![The Operations Manager Edit Workspace pane](media/oms-service-map/scom-edit-workspace.png)
 
-![SCOM Overrides](media/oms-service-map/scom-overrides.png)
-* **Enabled** – enable/disable automatic updates 
-* **IntervalSeconds** – the time between updates.  Default is 1 hour. Users can change the value here if they want to sync server maps more frequently.
-* **TimeoutSeconds** – how long before the request times out 
-* **TimeWindowMinutes** – how wide is the query for data.  Default is a 60-minute wide window. 
-The maximum value is 1 hour (the maximum that Service Map allows).
+## Configure rules and overrides
+A rule, _Microsoft.SystemCenter.ServiceMapImport.Rule_, is created to periodically fetch information from Service Map. To change sync timings, you can configure overrides of the rule (**Authoring** pane > **Rules** > **Microsoft.SystemCenter.ServiceMapImport.Rule**).
 
-## Known Issues/Limitations:
-In the current design:
-1. While users can add servers to “Service Map Servers Group” manually through the authoring pane, the maps for those servers will be synced from Service Map only during the next sync cycle (60 minutes by default. Users can override the sync timing.). 
-2. Users can connect to a single OMS workspace.
+![The Operations Manager Overrides properties window](media/oms-service-map/scom-overrides.png)
 
-## Creating A Service Principal
-The following links will take you to official Azure documentation about three different ways to create a Service Principal.
-* [Create Service Principal with PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Create Service Principal with Azure CLI](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
-* [Create Service Principal with Azure Portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* **Enabled**: Enable or disable automatic updates. 
+* **IntervalMinutes**: Reset the time between updates. The default interval is one hour. If you want to sync server maps more frequently, you can change the value.
+* **TimeoutSeconds**: Reset the length of time before the request times out. 
+* **TimeWindowMinutes**: Reset the time window for querying data. Default is a 60-minute window. The maximum value allowed by Service Map is 60 minutes.
+
+## Known issues and limitations
+
+The current design presents the following issues and limitations:
+* Although you can add servers to the Service Map Servers Group manually through the **Authoring** pane, the maps for those servers are synced from Service Map only during the next sync cycle. The default setting is 60 minutes, but you can override the timing. 
+* You can connect to a single Operations Management Suite workspace.
+
+## Create a service principal
+For official Azure documentation about creating a service principal, see:
+* [Create a service principal by using PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal)
+* [Create a service principal by using Azure CLI](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Create a service principal by using the Azure portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal)
 
 ### Feedback
-Do you have any feedback for us about Service Map or this documentation?  Please visit our [User Voice page](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), where you can suggest features or vote up existing suggestions.
+Do you have any feedback for us about Service Map or this documentation? Visit our [user voice page](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), where you can suggest features or vote on existing suggestions.

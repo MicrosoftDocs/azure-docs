@@ -63,7 +63,7 @@ Once Remote Desktop is enabled on the roles, you can initiate a connection direc
 4. Click **Open** and then **Connect** to start the Remote Desktop connection.
 
 >[!NOTE]
-> If your cloud service is sitting behind an NSG, you may need to create a rule to open up port **20000**.
+> If your cloud service is sitting behind an NSG, you may need to create rules that allow traffic on ports **3389** and **20000**.  Remote Desktop uses port **3389**.  Cloud Service instances are load balanced, so you can't directly control which instance to connect to.  The *RemoteForwarder* and *RemoteAccess* agents manage RDP traffic and allow the client to send an RDP cookie and specify an individual instance to connect to.  The *RemoteForwarder* and *RemoteAccess* agents require that port **20000*** be opened, which may be blocked if you have an NSG.
 
 ## Additional resources
 

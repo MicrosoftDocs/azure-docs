@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 3/13/2017
-ms.author: ryansoc
+ms.date: 4/25/2017
+ms.author: magoedte; ryansoc
 
 ---
 # Azure Government Monitoring + Management
@@ -22,11 +22,6 @@ This article outlines the monitoring and management services variations and cons
 
 ## Automation
 Automation is generally available in Azure Government.
-
-### Variations
-The following Automation features are not currently available in Azure Government.
-
-* Creation of a Service Principal credential for authentication
 
 For more information, see [Automation public documentation](../automation/automation-intro.md).
 
@@ -42,12 +37,11 @@ For more information, see [Azure Government Backup](documentation-government-ser
 ## Site Recovery
 Azure Site Recovery is generally available in Azure Government.
 
-For more information, see [Site Recovery public documentation](../site-recovery/site-recovery-overview.md).
+For more information, see [Site Recovery commercial documentation](../site-recovery/site-recovery-overview.md).
 
 ### Variations
 The following Site Recovery features are not currently available in Azure Government:
 
-* Azure Resource Manager Site Recovery vaults
 * Email notification
 
 | Site Recovery | Classic | Resource Manager |
@@ -67,6 +61,21 @@ The following URLs for Site Recovery are different in Azure Government:
 | \*.backup.windowsazure.com  | \*.backup.windowsazure.us | Access to Protection Service |
 | \*.blob.core.windows.net | \*.blob.core.usgovcloudapi.net | For storing the VM Snapshots |
 | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | To download MySQL |
+
+
+## Monitor
+Azure Monitor is in public preview in Azure Government.
+
+For more information, see [Monitor commercial documentation](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview).
+
+### Variations
+The following Monitor features are not currently available in Azure Government:
+
+* Metrics and Alerts
+* Diagnostic Logs
+* Autoscale
+* Action Groups
+
 
 ## Log Analytics
 Log Analytics is generally available in Azure Government.

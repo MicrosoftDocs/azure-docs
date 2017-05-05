@@ -1,7 +1,7 @@
 # Overview
 ## [Overview](active-directory-b2c-overview.md)
 ## [Types of applications](active-directory-b2c-apps.md)
-## [Production-scale vs preview B2C tenants](active-directory-b2c-reference-tenant-type.md)
+## [Region availability & data residency](active-directory-b2c-reference-tenant-type.md)
 
 # Get Started
 ## [Create an Azure AD B2C Directory](active-directory-b2c-get-started.md)
@@ -9,14 +9,14 @@
 ## Quickstart Guides
 ### [Build an iOS app](active-directory-b2c-devquickstarts-ios.md)
 ### [Build an Android app](active-directory-b2c-devquickstarts-android.md)
-### [Build a Node.Js Web API](active-directory-b2c-devquickstarts-api-node.md)
-### [Build a .NET Web App](active-directory-b2c-devquickstarts-web-dotnet.md)
-#### [Sign up and sign in on an ASP.NET web app](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
-### [Build a .NET Web API](active-directory-b2c-devquickstarts-api-dotnet.md)
-### [Build a Windows desktop app](active-directory-b2c-devquickstarts-native-dotnet.md)
-### [Call a web API from a .NET web app](active-directory-b2c-devquickstarts-web-api-dotnet.md)
+### Build a .NET web App
+#### [Sign up and sign in on an .NET web app](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+#### [Call a web API from a .NET web app](active-directory-b2c-devquickstarts-web-api-dotnet.md)
+### [Build a .NET web API](active-directory-b2c-devquickstarts-api-dotnet.md)
+### [Build a Node.Js web app](active-directory-b2c-devquickstarts-web-node.md)
+### [Build a Node.Js web API](active-directory-b2c-devquickstarts-api-node.md)
+### [Build a .NET desktop app](active-directory-b2c-devquickstarts-native-dotnet.md)
 ### [Use the Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md)
-### [Add sign-in to a Node.js web app](active-directory-b2c-devquickstarts-web-node.md)
 ## [Frequently asked questions](active-directory-b2c-faqs.md)
 
 # How To
@@ -44,6 +44,7 @@
 ## [Extensible policy framework](active-directory-b2c-reference-policies.md)
 ## [Authentication Protocols](active-directory-b2c-reference-protocols.md)
 ## [Tokens](active-directory-b2c-reference-tokens.md)
+## [Language customization](active-directory-b2c-reference-language-customization.md)
 
 ## [Threat Management](active-directory-b2c-reference-threat-management.md)
 
@@ -53,7 +54,7 @@
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
-## [Azure feedback forum](http://feedback.azure.com/forums/169401-azure-active-directory)
+## [Azure AD B2C feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c) 
 ## [Service updates](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Support](active-directory-b2c-support.md)

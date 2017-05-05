@@ -20,10 +20,9 @@ ms.author: xshi
 ---
 # Weather forecast using the sensor data from your IoT hub in Azure Machine Learning
 
-![Connection between sensor, IoT device, IoT Hub, Stream Analytics job, Azure machine learning, and Blob storage](media/iot-hub-weather-forecast-machine-learning/1_Connection-azure-machine-learning-iot-hub.png)
+![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/6.png)
 
-> [!NOTE]
-> Before you start this tutorial, make sure you’ve completed [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md). In [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md), you set up your IoT device and IoT hub, and deploy a sample application to run on your device. The application sends collected sensor data to your IoT hub.
+[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 Machine learning is a technique of data science that helps computers learn from existing data to forecast future behaviors, outcomes, and trends. Azure Machine Learning is a cloud predictive analytics service that makes it possible to quickly create and deploy predictive models as analytics solutions.
 
@@ -43,7 +42,7 @@ You learn how to use Azure Machine Learning to do weather forecast (chance of ra
 
 ## What you need
 
-- Tutorial [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md) completed which covers the following requirements:
+- Tutorial [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md) completed which covers the following requirements:
   - An active Azure subscription.
   - An Azure IoT hub under your subscription.
   - A client application that sends messages to your Azure IoT hub.
@@ -72,16 +71,7 @@ You learn how to use Azure Machine Learning to do weather forecast (chance of ra
 
 1. Open the Excel workbook, make a note of the **WEB SERVICE URL** and **ACCESS KEY**.
 
-## Add a consumer group to your IoT hub
-
-Consumer groups are used by applications to read data from Azure IoT Hub. In this lesson, you create a consumer group to be used by the web service to read data from your IoT hub.
-
-To add a consumer group to your IoT hub, follow these steps:
-
-1. In the [Azure portal](https://ms.portal.azure.com/), open your IoT hub.
-1. Click **Endpoints** on the left pane, select **Events** on the middle pane, enter a name under **Consumer groups** on the right pane, and then click **Save**.
-
-   ![Add a consumer group to your IoT hub](media/iot-hub-weather-forecast-machine-learning/6_add-consumer-group-iot-hub-azure.png)
+[!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
 ## Create, configure, and run a Stream Analytics job
 
@@ -199,9 +189,4 @@ Run the client application to start collecting and sending temperature and humid
 
 You’ve successfully used Azure Machine Learning to produce the chance of rain based on the temperature and humidity data that your IoT hub receives.
 
-To continue getting started with IoT Hub and to explore other IoT scenarios, see:
-
-- [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-- [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
-- [Use Power BI to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
-- [Use Azure Web Apps to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

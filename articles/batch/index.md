@@ -154,6 +154,20 @@ Learn how to use Batch to run large-scale parallel and high-performance computin
             </div>
         </div>
     </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Batch</h3>
+                        <p><a href="/azure/batch/batch-diagnostics">Batch diagnostic logs</a></p>
+                        <p><a href="/azure/batch/batch-analytics">Batch Analytics</a></p>
+                        <p><a href="/azure/batch/batch-compute-node-environment-variables">Batch compute node environment variables</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
 </ul>
 
 

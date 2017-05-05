@@ -91,7 +91,7 @@ The Enterprise Administrator can transfer ownership of subscriptions within an e
 
 * **Does everything transfer? Including resource groups, VMs, disks, and other running services?**
 
-  Yes, all your resources like VMs, disks, and websites transfer to the new owner. However, any [administrator roles](billing-add-change-azure-subscription-administrator.md) and [Role-based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md) policies you've set up do not transfer. 
+  Yes, all your resources like VMs, disks, and websites transfer to the new owner. However, any [administrator roles](billing-add-change-azure-subscription-administrator.md) and [Role-based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md) policies you've set up do not transfer across different directories.
 
 * <a id="no-button"></a> **Why don't I see the Transfer Subscription button?**
 

@@ -18,9 +18,19 @@ ms.author: jingwang
 
 ---
 # Move data to and from an on-premises file system by using Azure Data Factory
-You can copy data from HDFS to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. Data factory currently supports only moving data from an on-premises HDFS to other data stores, but not for moving data from other data stores to an on-premises HDFS.
+This article explains how to use the Copy Activity in Azure Data Factory to copy data to/from an on-premises file system. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
-This article explains how to use the Copy Activity in Azure Data Factory to move data to and from an on-premises file system. You can copy data from an on-premises file system to any supported sink data store or from any supported source data store . For a list of data stores supported as sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity. See [Supported sources and sinks](data-factory-data-movement-activities.md#supported-data-stores-and-formats) for a list of data stores that can be used as sources or sinks with the on-premises file system.
+## Supported scenarios
+You can copy data **from an on-premises file system** to the following data stores:
+
+[!INCLUDE [data-factory-supported-sink](../../includes/data-factory-supported-sinks.md)]
+
+You can copy data from the following data stores **to an on-premises file system**:
+
+[!INCLUDE [data-factory-supported-sources](../../includes/data-factory-supported-sources.md)]
+
+> [!NOTE]
+> Copy Activity does not delete the source file after it is successfully copied to the destination. If you need to delete the source file after a successful copy, create a custom activity to delete the file and use the activity in the pipeline. 
 
 ## Enabling connectivity
 Data Factory supports connecting to and from an on-premises file system via **Data Management Gateway**. You must install the Data Management Gateway in your on-premises environment for the Data Factory service to connect to any supported on-premises data store including file system. To learn about Data Management Gateway and for step-by-step instructions on setting up the gateway, see [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md). Apart from Data Management Gateway, no other binary files need to be installed to communicate to and from an on-premises file system. You must install and use the Data Management Gateway even if the file system is in Azure IaaS VM. For detailed information about the gateway, see [Data Management Gateway](data-factory-data-management-gateway.md).
@@ -36,11 +46,12 @@ You can also use the following tools to create a pipeline: **Azure portal**, **V
 
 Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
-1. Create **linked services** to link input and output data stores to your data factory.
-2. Create **datasets** to represent input and output data for the copy operation.
-3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output.
+1. Create a **data factory**. A data factory may contain one or more pipelines. 
+2. Create **linked services** to link input and output data stores to your data factory. For example, if you are copying data from an Azure blob storage to an on-premises file system, you create two linked services to link your on-premises file system and Azure storage account to your data factory. For linked service properties that are specific to an on-premises file system, see [linked service properties](#linked-service-properties) section.
+3. Create **datasets** to represent input and output data for the copy operation. In the example mentioned in the last step, you create a dataset to specify the blob container and folder that contains the input data. And, you create another dataset to specify the folder and file name (optional) in your file system. For dataset properties that are specific to on-premises file system, see [dataset properties](#dataset-properties) section.
+4. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output. In the example mentioned earlier, you use BlobSource as a source and FileSystemSink as a sink for the copy activity. Similarly, if you are copying from on-premises file system to Azure Blob Storage, you use FileSystemSource and BlobSink in the copy activity. For copy activity properties that are specific to on-premises file system, see [copy activity properties](#copy-activity-properties) section. For details on how to use a data store as a source or a sink, click the link in the previous section for your data store.
 
-When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For samples with JSON definitions for Data Factory entities that are used to copy data to/from an file system, see [JSON examples](#json-examples) section of this article.
+When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For samples with JSON definitions for Data Factory entities that are used to copy data to/from a file system, see [JSON examples](#json-examples-for-copying-data-to-and-from-file-system) section of this article.
 
 The following sections provide details about JSON properties that are used to define Data Factory entities specific to file system:
 
@@ -109,7 +120,7 @@ The typeProperties section is different for each type of dataset. It provides in
 | fileFilter |Specify a filter to be used to select a subset of files in the folderPath rather than all files. <br/><br/>Allowed values are: `*` (multiple characters) and `?` (single character).<br/><br/>Example 1: "fileFilter": "*.log"<br/>Example 2: "fileFilter": 2014-1-?.txt"<br/><br/>Note that fileFilter is applicable for an input FileShare dataset. |No |
 | partitionedBy |You can use partitionedBy to specify a dynamic folderPath/fileName for time-series data. An example is folderPath parameterized for every hour of data. |No |
 | format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections. <br><br> If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. |No |
-| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**; and supported levels are: **Optimal** and **Fastest**. see [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
+| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**. Supported levels are: **Optimal** and **Fastest**. see [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
 > [!NOTE]
 > You cannot use fileName and fileFilter simultaneously.
@@ -179,10 +190,10 @@ This section describes the resulting behavior of the Copy operation for differen
 ## Supported file and compression formats
 See [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md) article on details.
 
-## JSON examples
+## JSON examples for copying data to and from file system
 The following examples provide sample JSON definitions that you can use to create a pipeline by using the [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from an on-premises file system and Azure Blob storage. However, you can copy data *directly* from any of the sources to any of the sinks listed in [Supported sources and sinks](data-factory-data-movement-activities.md#supported-data-stores-and-formats) by using Copy Activity in Azure Data Factory.
 
-## Example: Copy data from an on-premises file system to Azure Blob storage
+### Example: Copy data from an on-premises file system to Azure Blob storage
 This sample shows how to copy data from an on-premises file system to Azure Blob storage. The sample has the following Data Factory entities:
 
 * A linked service of type [OnPremisesFileServer](#linked-service-properties).
@@ -404,7 +415,7 @@ The pipeline contains a copy activity that is configured to use the input and ou
 }
 ```
 
-## Example: Copy data from Azure SQL Database to an on-premises file system
+### Example: Copy data from Azure SQL Database to an on-premises file system
 The following sample shows:
 
 * A linked service of type [AzureSqlDatabase.](data-factory-azure-sql-connector.md#linked-service-properties)

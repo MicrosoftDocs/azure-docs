@@ -20,7 +20,7 @@ ms.author: parakhj
 # Azure Active Directory B2C: Provide sign-up and sign-in to consumers with QQ accounts
 
 > [!NOTE]
-> This feature is still in preview.
+> This feature is in preview.
 > 
 
 ## Create a QQ application

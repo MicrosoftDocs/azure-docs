@@ -19,7 +19,7 @@ ms.author: ancav
 ---
 
 # Create an action group with a Resource Manager Template
-This article shows how you can use an [Azure Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) to configure action groups. This enables you to automatically set up action groups on your resources when they are created to ensure that all the correct parties are notified for resource updates.
+This article shows how you can use an [Azure Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) to configure action groups. Templates enable you to automatically set up action groups on your resources when they are created to ensure that all the correct parties are notified when an alert is triggered.
 
 The basic steps are as follows:
 
@@ -30,16 +30,13 @@ Below we describe how to create a Resource Manager template first for an action 
 
 ## Resource Manager template for an action group
 
-To create an action group using a Resource Manager template, you create a resource of type `microsoft.insights/actiongroups` and fill in all related properties. Below is a template that creates an action group.
+To create an action group using a Resource Manager template, you create a resource of type `Microsoft.Insights/actionGroups` and fill in all related properties. Following are a couple sample templates that create an action group.
 
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "location":{
-        "type":"string"
-    },
     "actionGroupName": {
       "type": "string",
       "metadata": {
@@ -55,13 +52,13 @@ To create an action group using a Resource Manager template, you create a resour
   },
   "resources": [
     {
-      "type": "Microsoft.Insights/actiongroups",
+      "type": "Microsoft.Insights/actionGroups",
       "apiVersion": "2017-03-01-preview",
       "name": "[parameters('actionGroupName')]",
-      "location": "[parameters('location')]",
+      "location": "Global",
       "properties": {
         "groupShortName": "[parameters('actionGroupShortName')]",
-        "enabled": "True",
+        "enabled": true,
         "smsReceivers": [
           {
             "name": "contosoSMS",
@@ -99,6 +96,67 @@ To create an action group using a Resource Manager template, you create a resour
   ],
   "outputs":{
       "actionGroupId":{
+          "type":"string",
+          "value":"[resourceId('Microsoft.Insights/actionGroups',parameters('actionGroupName'))]"
+      }
+  }
+}
+```
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "actionGroupName": {
+      "type": "string",
+      "metadata": {
+        "description": "Unique name (within the Resource Group) for the Action group."
+      }
+    },
+    "actionGroupShortName": {
+      "type": "string",
+      "metadata": {
+        "description": "Short name (maximum 12 characters) for the Action group."
+      }
+    },
+    "webhookReceiverName": {
+      "type": "string",
+      "metadata": {
+        "description": "Webhook receiver service URI."
+      }
+    },    
+    "webhookServiceUri": {
+      "type": "string",
+      "metadata": {
+        "description": "Webhook receiver service URI."
+      }
+    }    
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Insights/actionGroups",
+      "apiVersion": "2017-03-01-preview",
+      "name": "[parameters('actionGroupName')]",
+      "location": "Global",
+      "properties": {
+        "groupShortName": "[parameters('actionGroupShortName')]",
+        "enabled": true,
+        "smsReceivers": [
+        ],
+        "emailReceivers": [
+        ],
+        "webhookReceivers": [
+          {
+            "name": "[parameters('webhookReceiverName')]",
+            "serviceUri": "[parameters('webhookServiceUri')]"
+          }
+        ]
+      }
+    }
+  ],
+  "outputs":{
+      "actionGroupResourceId":{
           "type":"string",
           "value":"[resourceId('Microsoft.Insights/actionGroups',parameters('actionGroupName'))]"
       }
