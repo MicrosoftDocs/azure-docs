@@ -38,6 +38,9 @@ Additional sources of information:
 
 **Numbers** [Arithmetic operators](#arithmetic-operators) | [Numeric literals](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [gamma](#gamma) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
+**Numeric series** 
+[series_fir](#series-fir) | [series\_fit\_line](#series-fit-line) | [series\_fit\_2lines](#series-fit-2lines) | [series_iir](#series-iir) | [series_outliers](#series-outliers) | [series_periods](#series-periods) | [series_stats](#series-stats) | 
+
 **Date and time** [Date and time expressions](#date-and-time-expressions) | [Date and time literals](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
 **String** [GUIDs](#guids) | [Obfuscated String Literals](#obfuscated-string-literals) | [String Literals](#string-literals) | [String comparisons](#string-comparisons) | [countof](#countof) | [extract](#extract) | [in, !in](#in) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty)| [parseurl](#parseurl) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper)
@@ -2117,7 +2120,7 @@ The square root function.
 
 ## Numeric series
 
-[series_fir](#series-fir) | [series\_fit\_line](series-fit-line) | [series\_fit\_2lines](series-fit-2lines) | [series_iir](series-iir) | [series_outliers](series-outliers) | [series_periods](series-periods) | [series_stats](series-stats) | 
+[series_fir](#series-fir) | [series\_fit\_line](#series-fit-line) | [series\_fit\_2lines](#series-fit-2lines) | [series_iir](#series-iir) | [series_outliers](#series-outliers) | [series_periods](#series-periods) | [series_stats](#series-stats) | 
 
 ### series_fir
 The series_fir() function applies a [Finite Impulse Response](https://wikipedia.org/wiki/Finite_impulse_response) filter on a series (which is represented by a dynamic column containing numeric array).
