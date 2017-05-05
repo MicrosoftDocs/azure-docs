@@ -48,7 +48,7 @@ This topic also assumes that you have some pre-requisite knowledge of Azure and 
 ### Dev tools
  - Create a [VSTS workspace](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services) and [project](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#create-your-team-project-in-visual-studio-team-services)
  - [Install Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) and [sign-in to VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#connect-and-share-code-from-visual-studio)
- - Deploy a [VSTS build agent](https://github.com/Azure/azure-quickstart-templates/tree/master/visual-studio-vstsbuildagent-vm) using a [template](azure-stack-deploy-template-portal.md) to Azure Stack.  This step creates a new VM that will be used to build and deploy your code.
+ - Deploy a [VSTS build agent](https://www.visualstudio.com/docs/build/actions/agents/v2-windows) on an Azure Stack virtual machine.  
  
 
 ## Create app & push to VSTS
