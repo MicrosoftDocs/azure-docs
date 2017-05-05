@@ -77,7 +77,7 @@ are:
     faster and for a lower cost.
 
 Batch pools can be configured to use low-priority VMs in a few ways, depending
-on the flexibility in job execution time.
+on the flexibility in job execution time:
 
 -   Low-priority VMs can solely be used in a pool and Batch will simply recover
     any pre-empted capacity when available. This is the cheapest way to execute
@@ -115,8 +115,8 @@ benefit from low-priority VMs:
 
 > [!NOTE]
 > Low-priority VMs are not currently supported for Batch accounts where the pool
-allocation mode is set to ‘[User
-subscription](batch-account-create-portal.md#user-subscription-mode)’.
+allocation mode is set to [User
+subscription](batch-account-create-portal.md#user-subscription-mode).
 >
 >
 

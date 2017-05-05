@@ -19,6 +19,7 @@
 ### [Efficient list queries](batch-efficient-list-queries.md)
 ### [Job preparation and completion tasks](batch-job-prep-release.md)
 ### [Linux compute nodes](batch-linux-nodes.md)
+### [Low-priority VMs](batch-low-pri-vms.md)
 ### [Manage Batch accounts with Batch Management .NET](batch-management-dotnet.md)
 ### [Persist job and task output](batch-task-output.md)
 ### [Run MPI jobs in Batch](batch-mpi.md)
