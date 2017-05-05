@@ -106,12 +106,12 @@ Logic apps include built-in actions that can change or manipulate your payload d
 
 | | |
 |---|---|
-| **Compose** | Build or generate values or objects to use later, or as you build your workflow.  For example, you can author a JSON object with values from multiple steps, or calculate a constant to reference later in a logic app run. |
-| **Create CSV table**<br/>**Create HTML table** | Turn an array result-set into a CSV or HTML table. For example, add the CRM “List records” action, and add a filter  for records added today. Then, send the results as an HTML table in an email. |
-| **Filter array** (query) | Filter a result set to the entries that interest you.  For example, search all tweets with `#Azure`, and then “filter” the returned tweets to only return results that are `Tweeted_by_followers > 50`. |
-| **Join** | Join an array by some delimeter.  For example, the Detect Key Phrases operation returns an array of key phrases.  You could “join” them with a `,` or something similar. So instead of `[“Some”, “Phrase”]`, you have `“Some, Phrase”`. |
-| **Parse JSON** | Parse out and access values from a JSON object in the designer.  For example, if your Azure Function returns a JSON payload, then you can parse it to access the JSON properties later in another step. The action also validates that the JSON matches the specified schema at runtime. | 
-| **Select** | Select certain properties of an array for further processing.  If you “List records” from SQL, and it returns 15 columns, then select just a few of those columns for further processing (output is an array that only contains the properties you select). |
+| **Compose** | Build or generate values or objects to use later, or as you build your workflow. For example, you can author a JSON object with values from multiple steps, or calculate a constant to reference later in a logic app run. |
+| **Create CSV table**<br/>**Create HTML table** | Turn an array result-set into a CSV or HTML table. For example, add the CRM "List records" action, and add a filter for records added today. Then, send the results as an HTML table in an email. |
+| **Filter array** (query) | Filter a result set to the entries that interest you. For example, search all tweets with `#Azure`, and then "filter" the returned tweets to only return results that are `Tweeted_by_followers > 50`. |
+| **Join** | Join an array by some delimeter. For example, the Detect Key Phrases operation returns an array of key phrases. You could "join" them with a `,` or something similar. So instead of `["Some", "Phrase"]`, you have `"Some, Phrase"`. |
+| **Parse JSON** | Parse out and access values from a JSON object in the designer. For example, if your Azure Function returns a JSON payload, then you can parse it to access the JSON properties later in another step. The action also validates that the JSON matches the specified schema at runtime. | 
+| **Select** | Select certain properties of an array for further processing. If you "List records" from SQL, and it returns 15 columns, then select just a few of those columns for further processing (output is an array that only contains the properties you select). |
 
 ## Custom connectors and Azure certification 
 
@@ -123,7 +123,7 @@ If you want to make your custom API Apps public and available to use in Azure, t
 
 To ask questions, answer questions, and see what other Azure Logic Apps users are doing, go to the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-To help improve Logic Apps and connectors, vote on or submit ideas at the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+To help improve Azure Logic Apps and connectors, vote on or submit ideas at the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
 
 ## Next steps
 * [Create your first logic app](../logic-apps/logic-apps-create-a-logic-app.md)
