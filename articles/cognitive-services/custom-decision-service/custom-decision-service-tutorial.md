@@ -61,15 +61,15 @@ Once all three applications are registered, you should see them listed as follow
 
 You may use the "new app" dialog to specify an action feed. Action feeds can also be specified by clicking "Feeds" button, and then "New feed" button.
 
-![New feed dialog](./media/custom-decision-service-tutorial/feeds.png)
+![New feed dialog](./media/custom-decision-service-tutorial/new-feed-dialog.png)
 
 Action feeds can be used by any app, regardless of whether they are specified. Once both action feeds are specified, you should see them listed as follows:
 
-![List of feeds](./media/custom-decision-service-tutorial/apps.png)
+![List of feeds](./media/custom-decision-service-tutorial/feeds.png)
 
 (You can come back to this list by clicking the "Apps" button.)
 
-## Using our APIs
+## Our APIs
 
 Custom Decision Service serves rankings of articles via Ranking API. To invoke this API, insert the following code into the HTML head of the front page.
 
@@ -100,3 +100,24 @@ The browser then executes this string as a call to `callback()` function. Thus, 
 
 For more information on specifications and additional options provided by Ranking API, see [API reference](custom-decision-service-api-reference.md).
 
+## Performance dashboard
+
+We provide a dashboard to track performance. To see the dashboard for a given app such as `app-sports`, go to the list of apps, as specified previously, and click "dashboard" link next to a given app.
+
+![Link to dashboard](./media/custom-decision-service-tutorial/apps-dashboard-link.png)
+
+The dashboard shows three plots:
+
+- actual performance of the system (`online`).
+- counterfactual performance estimate for the default ranking: estimated performance if this ranking has been deployed (`default policy`).
+- counterfactual performance estimate for the system (`latest policy`).
+
+![Dashboard](./media/custom-decision-service-tutorial/dashboard.png)
+
+Counterfactual performance estimate for the system performance should closely track its online performance. We provide this plot as a check for our counterfactual evaluation methodology.
+
+Y axis corresponds to rewards. Currently, a ranking is assigned reward 1 if top slot is clicked, and 0 otherwise. Rewards are expressed as running averages over a short time window: currently, one hour.
+
+We also provide upper and lower confidence bounds for our counterfactual estimates. To see the upper/lower bounds, check the `bounds` box in the right-hand corner.
+
+![Dashboard with confidence bounds](./media/custom-decision-service-tutorial/dashboard-with-bounds.png)
