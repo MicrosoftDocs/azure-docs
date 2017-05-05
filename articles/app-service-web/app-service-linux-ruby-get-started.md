@@ -38,7 +38,8 @@ This tutorial will show you how to create a basic ruby on rails application loca
 
 1. Create a directory for the new app and change to that directory.
 
-    ![workspace direcotry](./media/app-service-linux-ruby-get-started/create-workspace.png)
+		mkdir ~/workspace
+		cd ~/workspace
 
 2. Initialize Ruby and check the version using the `ruby -v` command.
 
@@ -48,7 +49,32 @@ This tutorial will show you how to create a basic ruby on rails application loca
 
     ![Install rails](./media/app-service-linux-ruby-get-started/install-rails.png)
 
+4. Create a new rails application called **hello-world** using the following command:
 
+	If you are using Rails 5.1.0 or later, include the `--skip-yarn` option as following:
+
+		rails new hello-world --skip-yarn
+
+	For Rails version prior to 5.1.0, use the following command:
+
+		rails new hello-world --skip-yarn
+
+    ![New Hello-world](./media/app-service-linux-ruby-get-started/rails-new-hello-world.png)
+
+    ![New Hello-world](./media/app-service-linux-ruby-get-started/rails-new-hello-world-2.png)
+
+	If you are using Rails 5.1+, a package.json will be created if the `--skip-yarn` option is not used. We don't want it included with our deployment. You can also delete the package.json file or add it to the *.git-ignore* file in the directory as follows: 
+
+		# Ignore package.json
+		/package.json
+
+5. Change to the *hello-world* directory, and start the server.
+
+    ![Start Hello-world](./media/app-service-linux-ruby-get-started/start-hello-world-server.png)
+	
+6. Using your web browser, navigate to `http://localhost:3000` to test the app locally.	
+
+    ![Hello-world](./media/app-service-linux-ruby-get-started/hello-world.png)
 
 ## SSH support with custom Docker images
 
