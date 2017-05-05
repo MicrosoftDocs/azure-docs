@@ -24,7 +24,7 @@ ms.author: rickbyh
 This article shows you how to create and populate Azure AD, and then use Azure AD with Azure SQL Database and SQL Data Warehouse. For an overview, see [Azure Active Directory Authentication](sql-database-aad-authentication.md).
 
 >  [!NOTE]  
->  This capability is not available for SQL Server running on an Azure VM.
+>  Connecting to SQL Server running on an Azure VM is not supported using an Azure Active Directory account. Use a domain Active Directory account instead.
 
 ## Create and populate an Azure AD
 Create an Azure AD and populate it with users and groups. Azure AD can be the initial domain Azure AD managed domain. Azure AD can also be an on-premises Active Directory Domain Services that is federated with the Azure AD.
