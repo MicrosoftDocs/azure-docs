@@ -1,9 +1,9 @@
 ﻿# Overview
 ## [What is Azure Active Directory?](active-directory-whatis.md)
 ## [Choose edition](active-directory-editions.md)
-## [About Azure identity management](fundamentals-identity.md)
-## [Preview the Azure AD portal experience](active-directory-preview-explainer.md)
 
+## [About Azure identity management](identity-fundamentals.md)
+## [Preview the Azure portal experience](active-directory-preview-explainer.md)
 
 # Get started
 ## [Get an Azure AD tenant](active-directory-howto-tenant.md)
@@ -111,24 +111,27 @@
 ##### [Unknown sources](active-directory-reporting-sign-ins-from-unknown-sources.md)
 ##### [Anomalous sign-ins](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
-## [Manage passwords](active-directory-manage-passwords.md)
-### [Reset or change your password](active-directory-passwords-update-your-own-password.md)
-### [Register for self-service password reset](active-directory-passwords-reset-register.md)
-### [Administrators enable self-service password reset](active-directory-passwords.md)
-### [Understand password management](active-directory-passwords-how-it-works.md)
-### [Understand policies and restrictions](active-directory-passwords-policy.md)
-### Reset passwords
+## [Manage passwords](active-directory-passwords.md)
+### User documents
+#### [Reset or change your password](active-directory-passwords-update-your-own-password.md)
+#### [Register for self-service password reset](active-directory-passwords-reset-register.md)
+### [Quick start: Self-service password reset](active-directory-passwords-getting-started.md)
+### [License SSPR](active-directory-passwords-licensing.md)
+### [Deploy SSPR](active-directory-passwords-best-practices.md)
+### IT Admins: Reset passwords
 #### [Azure portal](active-directory-users-reset-password-azure-portal.md)
-#### [Classic portal](active-directory-create-users-reset-password.md)
-### [Set expiration policies](active-directory-passwords-set-expiration-policy.md)
-### Enable password management
-#### [Get started](active-directory-passwords-getting-started.md)
-#### [Deploy](active-directory-passwords-best-practices.md)
-#### [Customize](active-directory-passwords-customize.md)
-#### [View reports](active-directory-passwords-get-insights.md)
-#### [Learn more](active-directory-passwords-learn-more.md)
-#### [FAQs](active-directory-passwords-faq.md)
-#### [Troubleshoot](active-directory-passwords-troubleshoot.md)
+#### [Azure classic portal](active-directory-create-users-reset-password.md)
+### [Understand SSPR policies ](active-directory-passwords-policy.md)
+### [Understand password reset](active-directory-passwords-how-it-works.md)
+### [Customize SSPR](active-directory-passwords-customize.md)
+### [Data used by SSPR](active-directory-passwords-data.md)
+### [Reporting on SSPR](active-directory-passwords-reporting.md)
+### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [Password writeback](active-directory-passwords-writeback.md)
+### [Password hash synchronization](./connect/active-directory-aadconnectsync-implement-password-synchronization.md#how-password-synchronization-works)
+### [Troubleshoot](active-directory-passwords-troubleshoot.md)
+### [FAQ](active-directory-passwords-faq.md)
+
 
 ## Manage devices
 ### [Register devices](active-directory-device-registration-overview.md)
@@ -156,33 +159,37 @@
 #### [Update registry settings](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Understand security and privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
-### [Give remote access to your apps](active-directory-application-proxy-get-started.md)
-#### [Enable App Proxy](active-directory-application-proxy-enable.md)
-#### [Understand connectors](application-proxy-understand-connectors.md)
-#### [Publish apps](application-proxy-publish-azure-portal.md)
-#### [Security](application-proxy-security-considerations.md)
-#### [Networks](application-proxy-network-topology-considerations.md)
-#### [Remote Desktop](application-proxy-publish-remote-desktop.md)
-#### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
-#### [Publish on separate networks](active-directory-application-proxy-connectors-azure-portal.md)
-#### [Proxy servers](application-proxy-working-with-proxy-servers.md)
-#### [Custom domains](active-directory-application-proxy-custom-domains.md)
-#### [Access apps](active-directory-appssoaccess-whatis.md)
-##### [Azure portal](application-proxy-sso-azure-portal.md)
-#### [SSO with KCD](active-directory-application-proxy-sso-using-kcd.md)
-#### [SSO with headers](application-proxy-ping-access.md)
-#### [Claims-aware apps](active-directory-application-proxy-claims-aware-apps.md)
-#### [Native client apps](active-directory-application-proxy-native-client.md)
-#### [Custom home page](application-proxy-office365-app-launcher.md)
-#### [Conditional access](active-directory-application-proxy-conditional-access.md)
-#### [Silent install](active-directory-application-proxy-silent-installation.md)
-#### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
+### [Access apps remotely with App Proxy](active-directory-application-proxy-get-started.md)
+#### Get started
+##### [Enable App Proxy](active-directory-application-proxy-enable.md)
+##### [Publish apps](application-proxy-publish-azure-portal.md)
+##### [Custom domains](active-directory-application-proxy-custom-domains.md)
+#### [SSO access](active-directory-appssoaccess-whatis.md)
+##### [SSO with KCD](active-directory-application-proxy-sso-using-kcd.md)
+##### [SSO with headers](application-proxy-ping-access.md)
+##### [SSO with password vaulting](application-proxy-sso-azure-portal.md)
+#### Understand best practices
+##### [Connectors](application-proxy-understand-connectors.md)
+##### [Security](application-proxy-security-considerations.md)
+##### [Networks](application-proxy-network-topology-considerations.md)
+#### 
+#### Advanced configurations
+##### [Publish on separate networks](active-directory-application-proxy-connectors-azure-portal.md)
+##### [Proxy servers](application-proxy-working-with-proxy-servers.md)
+##### [Claims-aware apps](active-directory-application-proxy-claims-aware-apps.md)
+##### [Native client apps](active-directory-application-proxy-native-client.md)
+##### [Silent install](active-directory-application-proxy-silent-installation.md)
+##### [Custom home page](application-proxy-office365-app-launcher.md)
+#### Publishing walkthroughs
+##### [Remote Desktop](application-proxy-publish-remote-desktop.md)
+##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+##### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
 #### Use the classic portal
 ##### [Download connectors](application-proxy-enable-classic-portal.md)
 ##### [Publish apps](active-directory-application-proxy-publish.md)
 ##### [Use connectors](active-directory-application-proxy-connectors.md)
-
+##### [Conditional access](active-directory-application-proxy-conditional-access.md)
 
 ### Manage enterprise apps
 #### [Assign users](active-directory-coreapps-assign-user-azure-portal.md)
@@ -290,6 +297,7 @@
 ##### [PowerShell](role-based-access-control-manage-access-powershell.md)
 ##### [REST](role-based-access-control-manage-access-rest.md)
 #### [Troubleshoot](role-based-access-control-troubleshooting.md)
+#### [Resource Provider operations](role-based-access-control-resource-provider-operations.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
 
 ## Secure your identities
