@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/17/2017
+ms.date: 05/02/2017
 ms.author: iainfou
 ---
 
 # How to load balance Windows virtual machines in Azure to create a highly available application
-In this tutorial, you learn about the different components of the Azure load balancer that distribute traffic and provide high availability. To see the load balancer in action, you build a simple IIS web site that runs on three Windows virtual machines (VMs).
+Load balancing provide a higher level of availability by spreading incoming requests across multiple virtual machines. In this tutorial, you learn about the different components of the Azure load balancer that distribute traffic and provide high availability. To see the load balancer in action, you build a simple IIS web site that runs on three Windows virtual machines (VMs).
 
-The steps in this tutorial can be completed using the latest [Azure PowerShell](/powershell/azure/overview) module.
+This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 
 ## Azure load balancer overview

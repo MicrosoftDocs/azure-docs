@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/27/2017
+ms.date: 05/02/2017
 ms.author: iainfou
 ---
 
 # How to customize a Windows virtual machine in Azure
 To configure virtual machines (VMs) in a quick and consistent manner, some form of automation is typically desired. A common approach to customize a Windows VM is to use [Custom Script Extension for Windows](extensions-customscript.md). This tutorial describes how to use the Custom Script Extension to install and configure IIS to run a basic website.
 
-The steps in this tutorial can be completed using the latest [Azure PowerShell](/powershell/azure/overview) module.
+This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 
 ## Custom script extension overview

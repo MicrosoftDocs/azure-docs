@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/25/2017
+ms.date: 05/02/2017
 ms.author: nepeters
 ---
 
 # Manage Azure disks with the Azure CLI
 
-This tutorial covers the different types of VM disks, how to select a disk configuration, and how to create and attach disks to Azure VMs. This tutorial also covers taking disk snapshots. 
+Azure virtual machines use disks to store the VMs operating system, applications, and data. When creating a VM it is important to choose a disk size and configuration appropriate to the expected workload. This tutorial covers deploying and managing VM disks.
 
-The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Default Azure disks
 
