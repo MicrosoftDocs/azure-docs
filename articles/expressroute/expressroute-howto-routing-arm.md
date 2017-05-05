@@ -73,7 +73,7 @@ This section provides instructions on how to create, get, update, and delete the
   Import-Module AzureRM.Network 
   ```
 
-    Log on to your account.
+  Sign in to your account.
 
   ```powershell
   Login-AzureRmAccount
@@ -91,13 +91,13 @@ This section provides instructions on how to create, get, update, and delete the
   If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, follow the instructions below. 
 3. Check the ExpressRoute circuit to ensure it is provisioned.
 
-  You must first check to see if the ExpressRoute circuit is Provisioned and also Enabled. See the example below.
+  You must first check to see if the ExpressRoute circuit is Provisioned and also Enabled. See the following example:
 
   ```powershell
   Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 
-  The response will be something similar to the example below:
+  The response will be something similar to the following example:
 
   ```
   Name                             : ExpressRouteARMCircuit
@@ -132,7 +132,7 @@ This section provides instructions on how to create, get, update, and delete the
   * AS number for peering. You can use both 2-byte and 4-byte AS numbers. You can use a private AS number for this peering. Ensure that you are not using 65515.
   * An MD5 hash if you choose to use one. **This is optional**.
 
-  You can run the following cmdlet to configure Azure private peering for your circuit.
+  You can run the following cmdlet to configure Azure private peering for your circuit:
 
   ```powershell
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
@@ -153,7 +153,7 @@ This section provides instructions on how to create, get, update, and delete the
 
 ### To view Azure private peering details
 
-You can get configuration details using the following cmdlet.
+You can get configuration details using the following cmdlet:
 
 ```powershell
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -163,7 +163,7 @@ Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit
 
 ### To update Azure private peering configuration
 
-You can update any part of the configuration using the following cmdlet. In the example below, the VLAN ID of the circuit is being updated from 100 to 500.
+You can update any part of the configuration using the following cmdlet. In the following example, the VLAN ID of the circuit is being updated from 100 to 500:
 
 ```powershell
 Set-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
@@ -173,7 +173,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 ### To delete Azure private peering
 
-You can remove your peering configuration by running the following cmdlet.
+You can remove your peering configuration by running the following cmdlet:
 
 > [!WARNING]
 > You must ensure that all virtual networks are unlinked from the ExpressRoute circuit before running this cmdlet. 
@@ -214,7 +214,7 @@ This section provides instructions on how to create, get, update, and delete the
   Import-Module AzureRM.Network
 ```
 
-  Log on to your account.
+  Sign in to your account.
 
   ```powershell
   Login-AzureRmAccount
@@ -239,7 +239,7 @@ This section provides instructions on how to create, get, update, and delete the
   ```
 
 
-  The response will be something similar to the example below:
+  The response will be something similar to the following example:
 
   ```
   Name                             : ExpressRouteARMCircuit
@@ -266,7 +266,7 @@ This section provides instructions on how to create, get, update, and delete the
   ```
 4. Configure Azure public peering for the circuit.
 
-  Make sure that you have the following information before you proceed further.
+  Make sure that you have the following information before you proceed further:
 
   * A /30 subnet for the primary link. This must be a valid public IPv4 prefix.
   * A /30 subnet for the secondary link. This must be a valid public IPv4 prefix.
@@ -274,7 +274,7 @@ This section provides instructions on how to create, get, update, and delete the
   * AS number for peering. You can use both 2-byte and 4-byte AS numbers.
   * An MD5 hash if you choose to use one. **This is optional**.
 
-  You can run the following cmdlet to configure Azure public peering for your circuit.
+  You can run the following cmdlet to configure Azure public peering for your circuit:
 
   ```powershell
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100
@@ -282,7 +282,7 @@ This section provides instructions on how to create, get, update, and delete the
   Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 
-  You can use the cmdlet below if you choose to use an MD5 hash.
+  You can use the following example if you choose to use an MD5 hash:
 
   ```powershell
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100  -SharedKey "A1B2C3D4"
@@ -353,7 +353,7 @@ This section provides instructions on how to create, get, update, and delete the
   Import-Module AzureRM.Network
   ```
 
-  Log on to your account.
+  Sign in to your account.
 
   ```powershell
   Login-AzureRmAccount
@@ -371,13 +371,13 @@ Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
   If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, follow the instructions below.
 3. Check ExpressRoute circuit to ensure it is provisioned.
 
-  You must first check to see if the ExpressRoute circuit is Provisioned and also Enabled. See the example below.
+  You must first check to see if the ExpressRoute circuit is Provisioned and also Enabled. See the following example:
 
   ```powershell
   Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 
-  The response will be something similar to the example below:
+  The response will be something similar to the following example:
 
   ```
   Name                             : ExpressRouteARMCircuit
@@ -404,7 +404,7 @@ Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
   ```
 4. Configure Microsoft peering for the circuit.
 
-  Make sure that you have the following information before you proceed.
+  Make sure that you have the following information before you proceed:
 
   * A /30 subnet for the primary link. This must be a valid public IPv4 prefix owned by you and registered in an RIR / IRR.
   * A /30 subnet for the secondary link. This must be a valid public IPv4 prefix owned by you and registered in an RIR / IRR.
@@ -450,7 +450,7 @@ You can remove your peering configuration by running the following cmdlet:
 ```powershell
 Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ## Next steps
