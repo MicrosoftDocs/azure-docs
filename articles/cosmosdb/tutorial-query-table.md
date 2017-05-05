@@ -31,7 +31,7 @@ The queries in this article use the following sample table.
 
 ## Prerequisites
 
-For these queries to work, you must have an Azure Cosmos DB account and have graph data in the collection. Dont' have any of those? Complete the [5-minute quickstart](create-table-dotnet.md) or the [developer tutorial](tutorial-query-table.md) to create an account and populate your database.
+For these queries to work, you must have an Azure Cosmos DB account and have graph data in the collection. Dont' have any of those? Complete the [5-minute quickstart](https://aka.ms/acdbtnetqs) or the [developer tutorial](tutorial-query-table.md) to create an account and populate your database.
 
 ## Example query 1
 Given the sample family table above, the following OData query returns the documents, where RowKey matches WakefieldFamily and PartitionKey matches NY.
@@ -112,4 +112,4 @@ If you're not going to continue to use this app, use the following steps to dele
 In this tutorial, you've learned how to query graph data using the Table API. You can now distribute data globally using the portal or install the Local emulator for local development.  
 
 [Distribute your data globally](../documentdb/documentdb-portal-global-replication.md)
-[Develop locally](../documentddb/documentdb-nosql-local-emulator.md)
+[Develop locally](../documentdb/documentdb-nosql-local-emulator.md)
