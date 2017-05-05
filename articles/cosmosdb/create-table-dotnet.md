@@ -1,14 +1,14 @@
 ---
-title: Build an Azure Cosmos DB .NET application using the Graph API | Microsoft Docs
-description: Presents a .NET code sample you can use to connect to and query Azure Cosmos DB
-services: cosmosdb
+title: Build an Azure Cosmos DB .NET application using the Table API | Microsoft Docs
+description: Get started with Azure Cosmos DB's Tables API using .NET
+services: documentdb
 documentationcenter: ''
-author: mimig1
+author: arramac
 manager: jhubbard
 editor: ''
 
-ms.assetid: daacbabf-1bb5-497f-92db-079910703046
-ms.service: cosmosdb
+ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
+ms.service: documentdb
 ms.custom: quick start connect
 ms.workload: 
 ms.tgt_pltfrm: na
@@ -18,11 +18,11 @@ ms.date: 05/10/2017
 ms.author: arramac
 
 ---
-# Azure Cosmos DB: Build a .NET application using the Graph API
+# Azure Cosmos DB: Build a .NET application using the Table API
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, document database, and graph container using the Azure portal. You'll then build and deploy a web app built on the [Graph API](graph-sdk-dotnet.md).  
+This quick start demonstrates how to create an Azure Cosmos DB account, and create a table within that account using the Azure portal. You'll then write code to insert, update, and delete entities, and run some queries. You can download the [Azure Storage Preview SDK](https://www.nuget.org/packages/WindowsAzure.Storage-Preview) SDK from Nuget, that has the same classes and method signatures as the public [Azure storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), but also has the ability to connect to Azure Cosmos DB accounts using the [Table API](table-introduction.md). 
 
 ## Prerequisites
 
@@ -32,9 +32,9 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 
 ## Create a database account
 
-[!INCLUDE [cosmosdb-create-dbaccount-graph](../../includes/cosmosdb-create-dbaccount-graph.md)]
+[!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmosdb-create-dbaccount-table.md)]
 
-## Add a graph
+## Add a table
 
 [!INCLUDE [cosmosdb-create-graph](../../includes/cosmosdb-create-graph.md)]
 
@@ -62,7 +62,7 @@ Now let's clone a  DocumentDB API app from github, set the connection string, an
 2. Run the following command to clone the sample repository. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
     ```
 
 3. Then open the solution file in Visual Studio. 
@@ -141,8 +141,8 @@ If you're not going to continue to use this app, delete all resources created by
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a graph container using the Data Explorer, and run an app. You can now build more complex queries and implement powerful graph traversal logic using Gremlin or distribute your data globally. 
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a table using the Data Explorer, and run an app.  
 
-[Query using Gremlin](tutorial-query-graph.md)
+[Query using Table API](tutorial-query-table.md)
 
 [Distribute your data globally](../documentdb/documentdb-portal-global-replication.md)

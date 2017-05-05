@@ -13,14 +13,13 @@
 ### [.NET](create-graph-dotnet.md)
 ### [Gremlin console](create-graph-gremlin-console.md)
 ## Table
-### .NET 
-<!---[.NET](connect-tables-dotnet.md)--->
+### [.NET](create-table-dotnet.md)
 
 # Tutorials
 ## 1 - Create
 ### [DocumentDB](tutorial-develop-documentdb-dotnet.md)
 ### [MongoDB](tutorial-develop-mongodb.md)
-### Table
+### [Table](tutorial-develop-table-dotnet.md)
 ### [Graph](tutorial-develop-graph-dotnet.md)
 ## 2 - Import 
 ### [DocumentDB](../documentdb/documentdb-import-data.md)
