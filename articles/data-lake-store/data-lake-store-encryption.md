@@ -39,7 +39,7 @@ For more information, see [Getting started](https://docs.microsoft.com/azure/dat
 
 ## How encryption works in Data Lake Store
 
-The following information covers how to manage master encryption keys, and it explains the three different types of keys you can use in data encryption for ALDS.
+The following information covers how to manage master encryption keys, and it explains the three different types of keys you can use in data encryption for Data Lake Store.
 
 ### Master encryption keys
 
