@@ -102,7 +102,9 @@ This topic compares the encoding capabilities of **Media Encoder Standard** and 
 | MPEG-2 (up to 422 Profile and High Level; including variants such as XDCAM, XDCAM HD, XDCAM IMX, CableLabs® and D10) |No |Yes |
 | MPEG-1 |No |Yes |
 | Windows Media Video/VC-1 |No |Yes |
-| JPEG thumbnail creation |No |Yes |
+| JPEG thumbnail creation |Yes |Yes |
+| PNG thumbnail creation |Yes |Yes |
+| BMP thumbnail creation |Yes |No |
 
 ### Output Audio Codecs
 | Output Audio Codecs | Media Encoder Standard | Media Encoder Premium Workflow |
