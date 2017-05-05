@@ -36,6 +36,10 @@ For this tutorial, a single virtual network will be created with three subnets. 
 - **Back-end** – VMs that host back-end databases.
 - **Remote access** – hosts a single VM that can be used to remotely access the front-end and back-end VMs.
 
+The end results of this tutorial is represent in this diagram.
+
+![Network Diagram](./media/tutorial-virtual-network/virtual-network-diagram.png)
+
 Before you can create a virtual network, create a resource group with az group create. The following example creates a resource group named myRGNetwork in the eastus location.
 
 ```azurecli
