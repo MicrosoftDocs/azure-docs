@@ -13,13 +13,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2017
+ms.date: 05/10/2017
 ms.author: twooley
 
 ---
 # Azure Stack administration basics
 
-There are several things you need to know if you're new to Azure Stack administration. This guidance provides an overview of your role as an administrator, and what you need to tell your users for them to become productive quickly.
+There are several things you need to know if you're new to Azure Stack administration. This guidance provides an overview of your role as an administrator, and what you need to tell your users for them to become productive quickly. Specifically, you will:
+
+> [!div class="checklist"]
+> * Learn about Azure Stack Proof of Concept (POC) builds
+> * Learn about available services
+> * Learn about the tools you can use to manage
+> * Learn about your typical responsibilities
+> * Learn what to tell your users
+> * Learn where to get support
 
 For the Azure Stack Technical Preview 3 (TP3) timeframe, this guidance is scoped to the Azure Stack Proof of Concept (POC).
 
@@ -27,7 +35,7 @@ For the Azure Stack Technical Preview 3 (TP3) timeframe, this guidance is scoped
 
 Review the [What is Azure Stack?](azure-stack-poc.md) article to make sure you understand the purpose of the POC, and its limitations. You should use the POC as a "sandbox," where you can evaluate Azure Stack, and develop and test your apps in a non-production environment. (For deployment information, see the [Azure Stack POC deployment](azure-stack-deploy-overview.md) quickstart.)
 
-Like Azure, we innovate rapidly. We'll regularly release new builds. When you want to move to the latest build, you must [redeploy Azure Stack](azure-stack-redeploy.md). This process takes time, but the benefit is that you can try out the latest features. The POC documentation on our website reflects the latest official build.
+Like Azure, we innovate rapidly. We'll regularly release new builds. When you want to move to the latest build, you must [redeploy Azure Stack](azure-stack-redeploy.md). This process takes time, but the benefit is that you can try out the latest features. The POC documentation on our website reflects the latest release build.
 
 ## Learn about available services
 
@@ -76,7 +84,7 @@ You'll also need to add items to the marketplace, such as virtual machine images
 In addition to providing services, you must perform all the regular  duties of a cloud administrator to keep Azure Stack up and running. The following list is scoped to what you can do in the TP3 POC environment.
 
 - Add user accounts (for [Azure Active Directory](azure-stack-add-new-user-aad.md) deployment or for [Active Directory Federation Services](azure-stack-add-users-adfs.md) deployment)
-- [Assign role-based access control (RBAC) roles](azure-stack-manage-permissions.md)
+- [Assign role-based access control (RBAC) roles](azure-stack-manage-permissions.md) (This is not restricted to administrators.)
 - [Monitor infrastructure health](azure-stack-monitor-health.md)
 - Manage [network](azure-stack-viewing-public-ip-address-consumption.md) and [storage](azure-stack-manage-storage-accounts.md) resources
 - Replace bad hardware
