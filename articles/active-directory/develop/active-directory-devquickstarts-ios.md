@@ -33,14 +33,14 @@ Azure Active Directory provides the Active Directory Authentication Library, or 
 To build the complete working application, you’ll need to:
 
 1. Register your application with Azure AD.
-2. Install and Configure ADAL.
+2. Install and configure ADAL.
 3. Use ADAL to get tokens from Azure AD.
 
 To get started, [download the app skeleton](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).  You'll also need an Azure AD tenant in which you can create users and register an application.  If you don't already have a tenant, [learn how to get one](active-directory-howto-tenant.md).
 
 
 > [!TIP]
-> Try the preview of our new [developer portal](https://identity.microsoft.com/Docs/iOS) that will help you get up and running with Azure AD in just a few minutes!  The developer portal will walk you through the process of registering an app and integrating Azure AD into your code.  When you’re finished, you will have a simple application that can authenticate users in your tenant and a backend that can accept tokens and perform validation. 
+> Try the preview of our new [developer portal](https://identity.microsoft.com/Docs/iOS) that will help you get up and running with Azure AD in just a few minutes!  The developer portal will walk you through the process of registering an app and integrating Azure AD into your code.  When you’re finished, you will have a simple application that can authenticate users in your tenant, and a backend that can accept tokens and perform validation. 
 > 
 > 
 
@@ -75,30 +75,30 @@ To set up your app to get tokens, you'll first need to register it in your Azure
 ## 3. Install and configure ADAL
 Now that you have an application in Azure AD, you can install ADAL and write your identity-related code.  For ADAL to communicate with Azure AD, you need to provide it with some information about your app registration.
 
-* Begin by adding ADAL to the DirectorySearcher project by using CocoaPods.
+1. Begin by adding ADAL to the DirectorySearcher project by using CocoaPods.
 
-```
-$ vi Podfile
-```
-Add the following to this podfile:
+    ```
+    $ vi Podfile
+    ```
+2. Add the following to this podfile:
 
-```
-source 'https://github.com/CocoaPods/Specs.git'
-link_with ['QuickStart']
-xcodeproj 'QuickStart'
+    ```
+    source 'https://github.com/CocoaPods/Specs.git'
+    link_with ['QuickStart']
+    xcodeproj 'QuickStart'
 
-pod 'ADALiOS'
-```
+    pod 'ADALiOS'
+    ```
 
-Now load the podfile by using CocoaPods. This step creates a new XCode Workspace that you'll load.
+3. Now load the podfile by using CocoaPods. This step creates a new XCode Workspace that you'll load.
 
-```
-$ pod install
-...
-$ open QuickStart.xcworkspace
-```
+    ```
+    $ pod install
+    ...
+    $ open QuickStart.xcworkspace
+    ```
 
-* In the QuickStart project, open the plist file `settings.plist`.  Replace the values of the elements in the section to reflect the values that you input into the Azure portal. Your code will reference these values whenever it uses ADAL.
+4. In the QuickStart project, open the plist file `settings.plist`.  Replace the values of the elements in the section to reflect the values that you input into the Azure portal. Your code will reference these values whenever it uses ADAL.
   * The `tenant` is the domain of your Azure AD tenant, for example, contoso.onmicrosoft.com.
   * The `clientId` is the client ID of your application that you copied from the portal.
   * The `redirectUri` is the redirect url that you registered in the portal.
@@ -108,116 +108,117 @@ The basic principle behind ADAL is that whenever your app needs an access token,
 
 1. In the `QuickStart` project, open `GraphAPICaller.m` and locate the `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` comment near the top.  This is where you pass ADAL the coordinates through a CompletionBlock, to communicate with Azure AD and tell it how to cache tokens.
 
-```ObjC
-+(void) getToken : (BOOL) clearCache
-           parent:(UIViewController*) parent
-completionHandler:(void (^) (NSString*, NSError*))completionBlock;
-{
-    AppData* data = [AppData getInstance];
-    if(data.userItem){
-        completionBlock(data.userItem.accessToken, nil);
-        return;
+    ```ObjC
+    +(void) getToken : (BOOL) clearCache
+               parent:(UIViewController*) parent
+    completionHandler:(void (^) (NSString*, NSError*))completionBlock;
+    {
+        AppData* data = [AppData getInstance];
+        if(data.userItem){
+            completionBlock(data.userItem.accessToken, nil);
+            return;
+        }
+
+        ADAuthenticationError *error;
+        authContext = [ADAuthenticationContext authenticationContextWithAuthority:data.authority error:&error];
+        authContext.parentController = parent;
+        NSURL *redirectUri = [[NSURL alloc]initWithString:data.redirectUriString];
+
+        [ADAuthenticationSettings sharedInstance].enableFullScreen = YES;
+        [authContext acquireTokenWithResource:data.resourceId
+                                     clientId:data.clientId
+                                  redirectUri:redirectUri
+                               promptBehavior:AD_PROMPT_AUTO
+                                       userId:data.userItem.userInformation.userId
+                        extraQueryParameters: @"nux=1" // if this strikes you as strange it was legacy to display the correct mobile UX. You most likely won't need it in your code.
+                             completionBlock:^(ADAuthenticationResult *result) {
+
+                                  if (result.status != AD_SUCCEEDED)
+                                  {
+                                     completionBlock(nil, result.error);
+                                  }
+                                  else
+                                  {
+                                      data.userItem = result.tokenCacheStoreItem;
+                                      completionBlock(result.tokenCacheStoreItem.accessToken, nil);
+                                  }
+                             }];
     }
 
-    ADAuthenticationError *error;
-    authContext = [ADAuthenticationContext authenticationContextWithAuthority:data.authority error:&error];
-    authContext.parentController = parent;
-    NSURL *redirectUri = [[NSURL alloc]initWithString:data.redirectUriString];
-
-    [ADAuthenticationSettings sharedInstance].enableFullScreen = YES;
-    [authContext acquireTokenWithResource:data.resourceId
-                                 clientId:data.clientId
-                              redirectUri:redirectUri
-                           promptBehavior:AD_PROMPT_AUTO
-                                   userId:data.userItem.userInformation.userId
-                     extraQueryParameters: @"nux=1" // if this strikes you as strange it was legacy to display the correct mobile UX. You most likely won't need it in your code.
-                          completionBlock:^(ADAuthenticationResult *result) {
-
-                              if (result.status != AD_SUCCEEDED)
-                              {
-                                  completionBlock(nil, result.error);
-                              }
-                              else
-                              {
-                                  data.userItem = result.tokenCacheStoreItem;
-                                  completionBlock(result.tokenCacheStoreItem.accessToken, nil);
-                              }
-                          }];
-}
-
-```
+    ```
 
 2. Now we need to use this token to search for users in the graph. Find the `// TODO: implement SearchUsersList` comment. This method makes a GET request to the Azure AD Graph API to query for users whose UPN begins with the given search term.  To query the Azure AD Graph API, you need to include an access_token in the `Authorization` header of the request--this is where ADAL comes in.
 
-```ObjC
-+(void) searchUserList:(NSString*)searchString
-                parent:(UIViewController*) parent
-       completionBlock:(void (^) (NSMutableArray* Users, NSError* error)) completionBlock
-{
-    if (!loadedApplicationSettings)
+    ```ObjC
+    +(void) searchUserList:(NSString*)searchString
+                    parent:(UIViewController*) parent
+          completionBlock:(void (^) (NSMutableArray* Users, NSError* error)) completionBlock
     {
-        [self readApplicationSettings];
-    }
+        if (!loadedApplicationSettings)
+       {
+            [self readApplicationSettings];
+        }
+        
+        AppData* data = [AppData getInstance];
 
-    AppData* data = [AppData getInstance];
-
-    NSString *graphURL = [NSString stringWithFormat:@"%@%@/users?api-version=%@&$filter=startswith(userPrincipalName, '%@')", data.taskWebApiUrlString, data.tenant, data.apiversion, searchString];
+        NSString *graphURL = [NSString stringWithFormat:@"%@%@/users?api-version=%@&$filter=startswith(userPrincipalName, '%@')", data.taskWebApiUrlString, data.tenant, data.apiversion, searchString];
 
 
-    [self craftRequest:[self.class trimString:graphURL]
-                parent:parent
-     completionHandler:^(NSMutableURLRequest *request, NSError *error) {
+        [self craftRequest:[self.class trimString:graphURL]
+                    parent:parent
+         completionHandler:^(NSMutableURLRequest *request, NSError *error) {
 
-         if (error != nil)
-         {
-             completionBlock(nil, error);
-         }
-         else
-         {
+             if (error != nil)
+             {
+                 completionBlock(nil, error);
+             }
+             else
+             {
 
-             NSOperationQueue *queue = [[NSOperationQueue alloc]init];
+                 NSOperationQueue *queue = [[NSOperationQueue alloc]init];
 
-             [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                 [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
 
-                 if (error == nil && data != nil){
+                     if (error == nil && data != nil){
 
-                     NSDictionary *dataReturned = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                         NSDictionary *dataReturned = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 
-                     // We can grab the JSON node at the top to get our graph data.
-                     NSArray *graphDataArray = [dataReturned objectForKey:@"value"];
+                         // We can grab the JSON node at the top to get our graph data.
+                         NSArray *graphDataArray = [dataReturned objectForKey:@"value"];
 
-                     // Don't be thrown off by the key name being "value". It really is the name of the
-                     // first node. :-)
+                         // Don't be thrown off by the key name being "value". It really is the name of the
+                         // first node. :-)
 
-                     // Each object is a key value pair
-                     NSDictionary *keyValuePairs;
-                     NSMutableArray* Users = [[NSMutableArray alloc]init];
+                         // Each object is a key value pair
+                         NSDictionary *keyValuePairs;
+                         NSMutableArray* Users = [[NSMutableArray alloc]init];
 
-                     for(int i =0; i < graphDataArray.count; i++)
+                         for(int i =0; i < graphDataArray.count; i++)
+                         {
+                             keyValuePairs = [graphDataArray objectAtIndex:i];
+
+                             User *s = [[User alloc]init];
+                             s.upn = [keyValuePairs valueForKey:@"userPrincipalName"];
+                             s.name =[keyValuePairs valueForKey:@"givenName"];
+
+                             [Users addObject:s];
+                         }
+
+                         completionBlock(Users, nil);
+                     }
+                     else
                      {
-                         keyValuePairs = [graphDataArray objectAtIndex:i];
-
-                         User *s = [[User alloc]init];
-                         s.upn = [keyValuePairs valueForKey:@"userPrincipalName"];
-                         s.name =[keyValuePairs valueForKey:@"givenName"];
-
-                         [Users addObject:s];
+                         completionBlock(nil, error);
                      }
 
-                     completionBlock(Users, nil);
-                 }
-                 else
-                 {
-                     completionBlock(nil, error);
-                 }
+                }];
+             }
+         }];
 
-             }];
-         }
-     }];
+    }
 
-}
-
-```
+    ```
+    
 3. When your app requests a token by calling `getToken(...)`, ADAL will attempt to return a token without asking the user for credentials.  If ADAL determines that the user needs to sign in to get a token, it will display a dialog box for sign in, collect the user's credentials, and then return a token after successful authentication.  If ADAL is not able to return a token for any reason, it will throw an `AdalException`.
 
 > [!Note] 
