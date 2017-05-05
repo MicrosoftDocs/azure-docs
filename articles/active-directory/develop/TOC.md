@@ -82,16 +82,13 @@
 ### [v1-v2 comparison](active-directory-v2-compare.md)
 ## Get Started
 ### Mobile Apps
-#### [iOS]()
-#### [Android]()
-#### [.NET Desktop]()
-### Web apps and APIs
-#### [Javascript SPA]()
-#### [.NET Web App]()
-#### [.NET Web API](active-directory-v2-devquickstarts-dotnet-api.md)
-#### [Web API from .NET Web App](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
+#### [iOS](https://github.com/Azure-Samples/active-directory-msal-ios-swift)
+#### [Android](guidedsetups/active-directory-mobileanddesktopapp-android-intro.md)
+#### [.NET Desktop](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md)
+### Web apps
+#### [Javascript SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
+#### [.NET Web App](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-intro.md)
 #### [NodeJS Web app](active-directory-v2-devquickstarts-node-web.md)
-#### [NodeJS API](active-directory-v2-devquickstarts-node-api.md)
 ## Guides
 ### [Register an app](active-directory-v2-app-registration.md)
 ## Reference
