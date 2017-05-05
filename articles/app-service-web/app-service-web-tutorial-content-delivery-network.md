@@ -51,18 +51,18 @@ In the **Azure Content Delivery Network** page, provide the **New endpoint** set
 | Setting | Suggested value | Description |
 | ------- | --------------- | ----------- |
 | **CDN profile** | myCDNProfile | Select **Create new** to create a new CDN profile. A CDN profile is a collection of CDN endpoints with the same pricing tier. |
-| **Pricing tier** | Standard Akamai | The [pricing tier](../cdn/cdn-overview.md#azure-cdn-features) specifies the provider and available features. Standard Akamai is recommended for this tutorial because Akamai provisions its CDN in minutes versus up to an hour and a half for Verizon. |
+| **Pricing tier** | Standard Akamai | The [pricing tier](../cdn/cdn-overview.md#azure-cdn-features) specifies the provider and available features. In this tutorial we are using Standard Akamai. |
 | **CDN endpoint name** | Any name that is unique in the azureedge.net domain | You access your cached resources at the domain *\<endpointname>.azureedge.net*.
 
 Select **Create**.
 
-Azure creates the profile and endpoint. The new endpoint appears in the **Endpoints** list on the same page, and when it's provisioned the status is **Running**. The provisioning process may take a few minutes.
+Azure creates the profile and endpoint. The new endpoint appears in the **Endpoints** list on the same page, and when it's provisioned the status is **Running**.
 
 ![New endpoint in list](media/app-service-web-tutorial-content-delivery-network/portal-new-endpoint-in-list.png)
 
 ### Test the CDN endpoint
 
-Once the CDN endpoint is provisioned, you can access content from it.
+If you selected Verizon pricing tier, wait 90 minutes for endpoint propagation. For Akamai, wait a couple minutes for propagation. 
 
 The sample app has an `index.html` file and *css*, *img*, and *js* folders that contain other static assets. The content paths for all of these files are the same at the CDN endpoint. For example, both of the following URLs access the *bootstrap.css* file in the *css* folder:
 
