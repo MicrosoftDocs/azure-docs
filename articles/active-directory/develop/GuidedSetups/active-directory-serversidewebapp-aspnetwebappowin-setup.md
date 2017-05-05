@@ -20,7 +20,7 @@ ms.author: andret
 
 > Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/complete.zip) and skip to the [Configuration](active-directory-serversidewebapp-aspnetwebappowin-configure.md) step to configure the code sample before executing.
 
-# Setup your project
+## Setup your project
 
 <!--start-collapse-->
 > ### Creating your ASP.NET project
@@ -31,7 +31,7 @@ ms.author: andret
 > 4. Select `Empty` and select the checkbox to add `MVC` references
 <!--end-collapse-->
 
-# Add authentication components
+## Add authentication components
 
 1. In Visual Studio: `Tools` > `Nuget Package Manager` > `Package Manager Console`
 2. Add *OWIN middleware NuGet packages* by typing the following in the Package Manager Console window:
@@ -48,7 +48,7 @@ Install-Package Microsoft.Owin.Host.SystemWeb
 >The libraries above enable single sign-on (SSO) using OpenID Connect via cookie-based authentication. After authentication is completed and the token representing the user is sent to your application, OWIN middleware creates a session cookie. The browser then uses this cookie on subsequent requests so the user doesn't need to retype their password, and no additional verification is needed.
 <!--end-collapse-->
 
-# Configure the authentication pipeline
+## Configure the authentication pipeline
 The steps below are used to create an OWIN middleware Startup Class to configure OpenID Connect authentication. This class will be executed automatically when your IIS process starts.
 
 > If your project doesn't have a `Startup.cs` file in the root folder:<br/>
@@ -139,6 +139,11 @@ public class Startup
 > The parameters you provide in *OpenIDConnectAuthenticationOptions* serve as coordinates for the application to communicate with Azure AD. Because the OpenID Connect middleware uses cookies in the background, you also need to set up cookie authentication as the code above shows. The *ValidateIssuer* value tells OpenIdConnect to not restrict access to one specific organization.
 <!--end-collapse-->
 
+<div style="display:none">
+
 ### What is Next
 
+</div>
+<!--
 [Use](active-directory-serversidewebapp-aspnetwebappowin-use.md)
+-->

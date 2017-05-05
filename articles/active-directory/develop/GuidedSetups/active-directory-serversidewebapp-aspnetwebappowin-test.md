@@ -17,7 +17,7 @@ ms.date:
 ms.author: andret
 
 ---
-# Test your code
+## Test your code
 
 Press `F5` to run your project in Visual Studio. The browser will open and direct you to *http://localhost:{port}* where you’ll see the *Sign in with Microsoft* button. Go ahead and click it to sign in.
 
@@ -27,13 +27,13 @@ When you're ready to test, use a Microsoft Azure Active Directory (organizationa
 
 ![Sign-in with Microsoft browser window](media/active-directory-serversidewebapp-aspnetwebappowin-test/aspnetbrowsersignin2.png)
 
-### Expected results
+#### Expected results
 After sign-in, the user is redirected to the home page of your web site which is the HTTPS URL specified in your application registration information in the Microsoft Application Registration Portal. This page now shows *Hello {User}* and a link to sign-out, and a link to see the user’s claims – which is a link to the Authorize controller created earlier.
 
-## See user claims
+### See user claims
 Select the hyperlink to see the user's claims. This leads you to the controller and view that is only available to users that are authenticated.
 
-### Expected Results
+#### Expected Results
  You should see a table containing the basic properties of the logged user:
 
 | Property | Value | Description|

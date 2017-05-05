@@ -17,7 +17,7 @@ ms.date:
 ms.author: andret
 
 ---
-# Before you get started
+## Before you get started
 
 This guide demonstrates how to implement sign in with Microsoft using an ASP.NET MVC solution with a traditional web browser-based application using OpenID Connect. 
 
@@ -43,4 +43,6 @@ This guide uses the following libraries:
 
 ### What is Next
 
+<!--
 [Setup](active-directory-serversidewebapp-aspnetwebappowin-setup.md)
+-->

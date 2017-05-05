@@ -33,7 +33,8 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 <add key="Tenant" value="common" />
 <add key="Authority" value="https://login.microsoftonline.com/{0}/v2.0" /> 
 ```
-
+<!--
 ### What is Next
 
 [Test and Validate](active-directory-serversidewebapp-aspnetwebappowin-test.md)
+-->

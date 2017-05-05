@@ -18,14 +18,14 @@ ms.author: andret
 
 ---
 <!-- Docs -->
-# Create an application (Express)
+## Create an application (Express)
 Now you need to register your application in the *Microsoft Application Registration Portal*:
 1. Register your application via the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=serverSideWebApp&appTech=aspNetWebAppOwin&page=configure)
 2.	Enter a name for your application and your email
 3.	Make sure the option for Guided Setup is checked
 4.	Follow the instructions to add a Redirect URL to your application
 
-# Add your application registration information to your solution (Advanced)
+## Add your application registration information to your solution (Advanced)
 Now you need to register your application in the *Microsoft Application Registration Portal*:
 1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) to register an application
 2. Enter a name for your application and your email 
@@ -53,6 +53,8 @@ Now you need to register your application in the *Microsoft Application Registra
 To allow users from only a list of specific organizations, set `ValidateIssuer` to `true` and use the `ValidIssuers` parameter to specify a list of organizations.
 Another option is to implement a custom method to validate the issuers using `IssuerValidator parameter`. For more information about `TokenValidationParameters`, please see [this](https://msdn.microsoft.com/en-us/library/system.identitymodel.tokens.tokenvalidationparameters(v=vs.114).aspx) MSDN article.
 
+<!--
 ### What is Next
 
 [Test and Validate](active-directory-serversidewebapp-aspnetwebappowin-test.md)
+-->

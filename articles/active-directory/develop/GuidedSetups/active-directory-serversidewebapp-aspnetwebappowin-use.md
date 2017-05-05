@@ -206,7 +206,8 @@ In Visual Studio, create a new view to display the user's claims in a web page:
 </body>
 </html>
 ```
-
+<!--
 #### What is Next
 
 [Configure](active-directory-serversidewebapp-aspnetwebappowin-configure.md)
+-->
