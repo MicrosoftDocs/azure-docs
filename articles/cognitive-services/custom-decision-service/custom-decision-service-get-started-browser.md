@@ -39,11 +39,11 @@ The basic usage of our APIs is fairly easy (but see API reference for additional
 // Define the "callback function" to render UI
 <script> function callback(data) { … } </script>
 
-// call Ranking API
+// call Ranking API, after callback() is defined
 <script src="https://ds.microsoft.com/<domain>/rank/<actionSetId>" async></script>
 ```
 
-The order matters: the callback function should be defined before the call to Ranking API. The `data` argument contains the ranking of URLs to be rendered. For more information, see the [tutorial](custom-decision-service-tutorial.md) and [API reference](custom-decision-service-api-reference.md).
+The `data` argument contains the ranking of URLs to be rendered. For more information, see the [tutorial](custom-decision-service-tutorial.md) and [API reference](custom-decision-service-api-reference.md).
 
 For each article page, make sure the [canonical URL](https://en.wikipedia.org/wiki/Canonical_link_element) is set and matches the URLs provided your RSS feed. Insert the following code into the HTML head to call Reward API:
 
