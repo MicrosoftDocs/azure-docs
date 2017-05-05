@@ -46,10 +46,10 @@ When too many connections are reached, you may receive the following error:
 3.	Decreasing server storage size is not supported.
 
 ### Server version upgrades:
-1.	Automated migration between major database engine versions is currently not supported.
+- Automated migration between major database engine versions is currently not supported.
 
 ### Subscription management:
-1.	Dynamically moving pre-created servers across subscription and resource group is currently not supported.
+- Dynamically moving pre-created servers across subscription and resource group is currently not supported.
 
 ### Point-in-time-restore:
 1.	Restoring to different service tier and/or Compute Units and Storage size is not allowed.
