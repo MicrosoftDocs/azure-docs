@@ -38,7 +38,7 @@ If you currently use Azure Table storage, you gain the following benefits with t
 During the preview, Azure Cosmos DB supports the Table API using the .NET SDK. You can download the [Azure Storage Preview SDK](https://www.nuget.org/packages/WindowsAzure.Storage-Preview) SDK from Nuget, that has the same classes and method signatures as the public [Azure storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), but also has the ability to connect to Azure Cosmos DB accounts using the Table API.
 
 ### About this tutorial
-This tutorial is for developers who are familiar with the Azure Table storage SDK, and would like to use the premium features available using Azure Cosmos DB. It is based on [Get Started with Azure Table storage using .NET](../storage/storage-dotnet-how-to-use-tables) and shows how to take advantage oft additional capabilities like secondary indexes, provisioned throughput, and multi-homing. We cover how to use the Azure portal to create an Azure Cosmos DB account,and then build and deploy a Table application. We also walk through C# examples for creating and deleting a table, and inserting, updating, deleting, and querying table data. 
+This tutorial is for developers who are familiar with the Azure Table storage SDK, and would like to use the premium features available using Azure Cosmos DB. It is based on [Get Started with Azure Table storage using .NET](../storage/storage-dotnet-how-to-use-tables.md) and shows how to take advantage oft additional capabilities like secondary indexes, provisioned throughput, and multi-homing. We cover how to use the Azure portal to create an Azure Cosmos DB account,and then build and deploy a Table application. We also walk through C# examples for creating and deleting a table, and inserting, updating, deleting, and querying table data. 
 
 If you don't already have Visual Studio 2015 installed, you can download and use the **free** [Visual Studio 2015 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
@@ -68,7 +68,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**. You'll use the copy buttons on the right side of the screen to copy the Primary Key into the app.config file in the next step.
 
-    ![View and copy an access key in the Azure Portal, Keys blade](./media/documentdb-connect-dotnet/keys.png)
+    ![View and copy an access key in the Azure Portal, Keys blade](./media/create-table-dotnet/keys.png)
 
 2. In Visual Studio 2015, open the app.config file. 
 
@@ -151,7 +151,7 @@ CloudTable table = tableClient.GetTableReference("people");
 table.CreateIfNotExists();
 ```
 
-Note that there is an important difference in how tables are created. Azure Cosmos DB reserves throughput, unlike Azure storage's consumption based model for transactions. The reservation model has two key benefits. 1) your throughput is dedicated/reserved, so you never get throttled if your request rate is at or below your provisioned throughput, and 2) the reservation model is more [cost effective for workloads](../documentdb/documentdb-key-value-cost.md) that need to perform a large number of reads and writes. You can configure the default throughput per table by onfiguring the AppSetting for `TableThroughput` in terms of RU (request units) per second. 
+Note that there is an important difference in how tables are created. Azure Cosmos DB reserves throughput, unlike Azure storage's consumption based model for transactions. The reservation model has two key benefits. 1) your throughput is dedicated/reserved, so you never get throttled if your request rate is at or below your provisioned throughput, and 2) the reservation model is more [cost effective for workloads](../documentdb/documentdb-key-value-store-cost.md) that need to perform a large number of reads and writes. You can configure the default throughput per table by onfiguring the AppSetting for `TableThroughput` in terms of RU (request units) per second. 
 
 A read of a 1 KB document is normalized as 1 RU, and all other operations are expressed in terms of RUs based on their CPU, memory, and IOPS consumption. Learn more about [Request units in Azure Cosmos DB(../documentdb/documentdb-request-units.md).
 
@@ -330,5 +330,5 @@ table.DeleteIfExists();
 In this tutorial, we covered how to get started using Azure Cosmos DB with the Table API. To learn more about Azure Table storage, follow these links to learn about more complex storage tasks:
 
 * Read about [Azure Cosmos DB: Table API](table-introduction.md)
-* See more Table storage samples in [Getting Started with Azure Table Storage in .NET](../storage/storage-table-dotnet-getting-started.md)
+* See more Table storage samples in [Getting Started with Azure Table Storage in .NET](../create-table-dotnet.md)
 * View the Table service reference documentation for complete details about available APIs: [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
