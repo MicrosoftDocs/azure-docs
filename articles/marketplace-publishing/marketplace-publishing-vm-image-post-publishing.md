@@ -119,7 +119,7 @@ To change existing links or add new links and then republish your offer, follow 
 4. Click **English (US)**.
 5. Click the **LINKS** tab.
 6. If you want to add a new link, in the **Links** section, click **+ ADD LINK**. In the **Add Link** dialog box, enter the link **TITLE** and **URL** and save the changes. You can enter any link that contains information that might help customers.
-7. If you want to update or delete an existing link, select the link and click the edit button or the delete button.
+7. If you want to update or delete an existing link, select the link and click the **Edit** button or the **Delete** button.
 
    > [!NOTE]
    > Ensure that the links that you've entered in this section are working properly, because these links get validated during your production request process.
@@ -306,7 +306,7 @@ To revert the billing model to production values, follow these steps:
 
 2. Go to the **virtual machines** tab, and select your offer.
 3. In the menu on the left, click the **SKUS** tab.
-4. Click the **EDIT** button to revert the billing model. In the window that opens, check or clear the **Billing and licensing is done externally from Azure (aka Bring Your Own License)** check box.
+4. Click the **Edit** button to revert the billing model. In the window that opens, check or clear the **Billing and licensing is done externally from Azure (aka Bring Your Own License)** check box.
 
     ![Edit billing](media/marketplace-publishing-vm-image-post-publishing/img09-04.png)
 5. Follow the steps in "Revert the listing price to production values."
