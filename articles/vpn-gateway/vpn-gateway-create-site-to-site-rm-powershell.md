@@ -139,7 +139,7 @@ Use the following values:
 
   ```powershell
   New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
-  -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix   '10.0.0.0/24'
+  -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.0.0.0/24'
   ```
 
 - To add a local network gateway with multiple address prefixes:
@@ -222,6 +222,7 @@ Next, create the Site-to-Site VPN connection between your virtual network gatewa
 After a short while, the connection will be established.
 
 ## <a name="toverify"></a>9. Verify the VPN connection
+
 There are a few different ways to verify your VPN connection.
 
 [!INCLUDE [Verify connection](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
