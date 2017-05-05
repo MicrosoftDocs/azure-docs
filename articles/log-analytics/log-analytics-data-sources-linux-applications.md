@@ -3,7 +3,7 @@ title: Collect Linux application performance in OMS Log Analytics | Microsoft Do
 description: This article provides details for configuring the OMS Agent for Linux to collect performance counters for MySQL and Apache HTTP Server. 
 services: log-analytics
 documentationcenter: ''
-author: bwren
+author: mgoedtel
 manager: carmonm
 editor: tysonn
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/04/2017
-ms.author: bwren
+ms.date: 05/04/2017
+ms.author: magoedte
 
 ---
 # Collect performance counters for Linux applications in Log Analytics 
@@ -86,9 +86,6 @@ The following example commands define a default user account for the MySQL serve
 
 	sudo su omsagent -c '/opt/microsoft/mysql-cimprov/bin/mycimprovauth default 127.0.0.1 <username> <password>'
 	sudo /opt/omi/bin/service_control restart
-
-
-
 
 ### Database Permissions Required for MySQL Performance Counters
 The MySQL User requires access to the following queries to collect MySQL Server performance data. 
@@ -167,5 +164,4 @@ Once you configure the OMS Agent for Linux to send data to Log Analytics, you mu
 
 ## Next steps
 * [Collect performance counters](log-analytics-data-sources-performance-counters.md) from Linux agents.
-* [Configure Linux agents](log-analytics-linux-agents.md) to collect other types of data. 
 * Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions. 
