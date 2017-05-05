@@ -2,8 +2,8 @@
 title: Limitations in Azure Database for PostgreSQL  | Microsoft Docs
 description: Describes limitations in Azure Database for PostgreSQL.
 services: postgresql
-author: sukamat
-ms.author: kamathsun
+author: kamathsun
+ms.author: sukamat
 manager: jhubbard
 editor: jasonh
 ms.assetid:

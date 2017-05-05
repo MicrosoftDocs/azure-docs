@@ -17,7 +17,7 @@
 ### [Azure CLI](tutorial-design-database-using-azure-cli.md)
 
 # Concepts
-## PostgreSQL Servers
+## DB & Servers
 ### [Servers](concepts-servers.md)
 ### [Supported versions](concepts-supported-versions.md)
 ### [PostgreSQL extensions](concepts-extensions.md)
@@ -25,7 +25,7 @@
 ### [Limitations](concepts-limits.md)
 ## Compute & Storage
 ### [Service tiers](concepts-service-tiers.md)
-### [Compute units & storage units](concepts-compute-unit-and-storage.md)
+### [Compute Units & Storage Units](concepts-compute-unit-and-storage.md)
 ## Data access & security 
 ### [Firewall rules](concepts-firewall-rules.md)
 ### [SSL configuration](concepts-ssl-connection-security.md)
