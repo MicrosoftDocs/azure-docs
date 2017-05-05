@@ -1542,5 +1542,3 @@ Learn how to develop Logic Apps that simplify and integrate scalable workflows i
         </div>
     </li>
 </ul>
-
-
