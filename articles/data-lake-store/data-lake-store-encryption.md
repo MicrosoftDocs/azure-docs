@@ -94,6 +94,7 @@ The following diagram illustrates these concepts:
     - Generate the BEK from the DEK and the encrypted block of data.
     - Use the BEK to decrypt data.
 
+
 #### Pseudo algorithm when a block of data is to be encrypted:
 1.	Check if the DEK for the ADLS account is cached and ready for use.
     - If not, then read the encrypted DEK from persistent storage, and send it to Key Vault to be decrypted. Cache the decrypted DEK in memory. It is now ready to use.
