@@ -2,7 +2,7 @@
 title: Limitations in Azure Database for MySQL  | Microsoft Docs
 description: Describes preview limitations in Azure Database for MySQL.
 services: mysql
-author: sukamat
+author: jasonh
 ms.author: kamathsun
 manager: jhubbard
 editor: jasonh
@@ -51,6 +51,6 @@ Azure Database for MySQL has multiple service tiers you can choose from when cre
 2.	Restoring a dropped server is not supported.
 
 ## Next Steps:
-- Understand [What’s available in each service tier](concepts-service-tiers)
+- Understand [What’s available in each service tier](concepts-service-tiers.md)
 - Understand [Supported MySQL Database Versions](concepts-supported-versions.md)
 - Review [How To Back up and Restore a server in Azure Database for MySQL using the Azure portal](howto-restore-server-portal.md)
