@@ -44,7 +44,7 @@ You can now add data to your new graph using Data Explorer.
 
 1. In Data Explorer, the new database appears in the Graphs pane. Expand **sample-database** database, expand **sample-graph** collection, click **Entities**, and then click **New Entity**. 
 
-   ![Create new documents in Data Explorer in the Azure portal](./media/cosmosdb-create-sample-data/azure-cosmosdb-data-explorer-emulator-new-document.png)
+   ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-dotnet/azure-cosmosdb-data-explorer-emulator-new-document.png)
   
 2. Now add a few new nodes and edges to the graph.
 
