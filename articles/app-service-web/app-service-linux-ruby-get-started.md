@@ -55,20 +55,23 @@ This tutorial will show you how to create a basic ruby on rails application loca
 
 		rails new hello-world --skip-yarn
 
-	For Rails version prior to 5.1.0, use the following command:
+	For Rails prior to 5.1.0:
 
-		rails new hello-world --skip-yarn
+		rails new hello-world 
 
     ![New Hello-world](./media/app-service-linux-ruby-get-started/rails-new-hello-world.png)
 
     ![New Hello-world](./media/app-service-linux-ruby-get-started/rails-new-hello-world-2.png)
 
-	If you are using Rails 5.1+, a package.json will be created if the `--skip-yarn` option is not used. We don't want it included with our deployment. You can also delete the package.json file or add it to the *.git-ignore* file in the directory as follows: 
+	If you are using Rails 5.1+, a package.json will be created if the `--skip-yarn` option is not used. We don't want it included with our deployment. As an alternative you can delete the package.json file or add it to the *.git-ignore* file in the directory as follows: 
 
 		# Ignore package.json
 		/package.json
 
 5. Change to the *hello-world* directory, and start the server.
+
+		cd hello-world
+		rails server
 
     ![Start Hello-world](./media/app-service-linux-ruby-get-started/start-hello-world-server.png)
 	
