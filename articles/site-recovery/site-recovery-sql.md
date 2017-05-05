@@ -119,7 +119,7 @@ SQL Always On doesn’t natively support test failover. Therefore, we recommend 
 
 	![Restore from Azure Backup ](./media/site-recovery-sql/restore-from-backup.png)
 
-1. [Force a quorum](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) in the virtual machine restored from backup. 
+1. [Force a quorum](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) in the virtual machine restored from backup. 
 
 1. Update IP of the listener to an IP available in the test failover network. 
  
@@ -190,7 +190,7 @@ Site Recovery doesn't provide guest cluster support when replicating to Azure. S
 1. Use Site Recovery replication to replicate the new SQL Server instance to Azure. Since it's a high safety mirror copy, it will be synchronized with the primary cluster, but it will be replicated to Azure using Site Recovery replication.
 
 
-![Standard cluster](./media/site-recovery-sql/BCDRStandaloneClusterLocal.png)
+![Standard cluster](./media/site-recovery-sql/standalone-cluster-local.png)
 
 ### Failback considerations
 
