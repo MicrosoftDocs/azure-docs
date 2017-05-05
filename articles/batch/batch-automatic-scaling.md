@@ -30,8 +30,8 @@ This article discusses the various entities that make up your autoscale formulas
 
 > [!IMPORTANT]
 > Each Azure Batch account is limited to a maximum number of cores (and therefore compute nodes) that can be used for processing. The Batch service creates new nodes only up to that core limit. The Batch service may not reach the target number of compute nodes specified by an autoscale formula. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for information on viewing and increasing your account quotas.
-> 
-> 
+>
+>
 
 ## Automatic scaling formulas
 An automatic scaling formula is a string value that you define that contains one or more statements. The autoscale formula is assigned to a pool's [autoScaleFormula][rest_autoscaleformula] element (Batch REST) or [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] property (Batch .NET). The Batch service uses your formula to determine the target number of compute nodes in the pool for the next interval of processing. The formula string cannot exceed 8 KB in size, can include up to 100 statements that are separated by semicolons, and can include line breaks and comments.
@@ -106,8 +106,8 @@ You can **get** the value of these service-defined variables to make adjustments
 
 > [!TIP]
 > The read-only, service-defined variables that are shown above are *objects* that provide various methods to access data associated with each. For more information, see [Obtain sample data](#getsampledata) below.
-> 
-> 
+>
+>
 
 ## Types
 These **types** are supported in a formula.
@@ -117,7 +117,7 @@ These **types** are supported in a formula.
 * doubleVecList
 * string
 * timestamp--timestamp is a compound structure that contains the following members:
-  
+
   * year
   * month (1-12)
   * day (1-31)
@@ -126,7 +126,7 @@ These **types** are supported in a formula.
   * minute (00-59)
   * second (00-59)
 * timeinterval
-  
+
   * TimeInterval_Zero
   * TimeInterval_100ns
   * TimeInterval_Microsecond
@@ -249,8 +249,8 @@ Because there may be a delay in sample availability, it is important to always s
 
 > [!IMPORTANT]
 > We **strongly recommend** that you **avoid relying *only* on `GetSample(1)` in your autoscale formulas**. This is because `GetSample(1)` essentially says to the Batch service, "Give me the last sample you have, no matter how long ago you retrieved it." Since it is only a single sample, and it may be an older sample, it may not be representative of the larger picture of recent task or resource state. If you do use `GetSample(1)`, make sure that it's part of a larger statement and not the only data point that your formula relies on.
-> 
-> 
+>
+>
 
 ## Metrics
 You can use both **resource** and **task** metrics when you're defining a formula. You adjust the target number of dedicated nodes in the pool based on the metrics data that you obtain and evaluate. See the [Variables](#variables) section above for more information on each metric.
@@ -363,12 +363,12 @@ pool.AutoScaleEvaluationInterval = TimeSpan.FromMinutes(30);
 pool.Commit();
 ```
 
-In addition to the Batch REST API and .NET SDK, you can use any of the other [Batch SDKs](batch-apis-tools.md#batch-development-apis), [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md), and the [Batch CLI](batch-cli-get-started.md) to work with autoscaling.
+In addition to the Batch REST API and .NET SDK, you can use any of the other [Batch SDKs](batch-apis-tools.md#azure-accounts-for-batch-development), [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md), and the [Batch CLI](batch-cli-get-started.md) to work with autoscaling.
 
 > [!IMPORTANT]
 > When you create an autoscale-enabled pool, you must **not** specify the `targetDedicated` parameter. Also, if you want to manually resize an autoscale-enabled pool (for example, with [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]), then you must first **disable** automatic scaling on the pool, then resize it.
-> 
-> 
+>
+>
 
 ### Automatic scaling interval
 By default, the Batch service adjusts a pool's size according to its autoscale formula every **15 minutes**. This interval is configurable, however, by using the following pool properties:
@@ -380,8 +380,8 @@ The minimum interval is five minutes, and the maximum is 168 hours. If an interv
 
 > [!NOTE]
 > Autoscaling is not currently intended to respond to changes in less than a minute, but rather is intended to adjust the size of your pool gradually as you run a workload.
-> 
-> 
+>
+>
 
 ## Enable autoscaling on an existing pool
 If you've already created a pool with a set number of compute nodes by using the *targetDedicated* parameter, you can still enable autoscaling on the pool. Each Batch SDK provides an "enable autoscale" operation, for example:
@@ -393,14 +393,14 @@ When you enable autoscaling on an existing pool, the following applies:
 
 * If automatic scaling is currently **disabled** on the pool when you issue the "enable autoscale" request, you *must* specify a valid autoscale formula when you issue the request. You can *optionally* specify an autoscale evaluation interval. If you do not specify an interval, the default value of 15 minutes is used.
 * If autoscale is currently **enabled** on the pool, you can specify an autoscale formula, an evaluation interval, or both. You can't omit both properties.
-  
+
   * If you specify a new autoscale evaluation interval, then the existing evaluation schedule is stopped and a new schedule is started. The new schedule's start time is the time at which the "enable autoscale" request was issued.
   * If you omit either the autoscale formula or evaluation interval, the Batch service continues to use the current value of that setting.
 
 > [!NOTE]
 > If a value was specified for the *targetDedicated* parameter when the pool was created, it is ignored when the automatic scaling formula is evaluated.
-> 
-> 
+>
+>
 
 This C# code snippet uses the [Batch .NET][net_api] library to enable autoscaling on an existing pool:
 
@@ -439,10 +439,10 @@ You can evaluate a formula before applying it to a pool. In this way, you can pe
 To evaluate an autoscale formula, you must first **enable autoscaling** on the pool with a **valid formula**. If you want to test a formula on a pool that doesn't yet have autoscaling enabled, you can use the one-line formula `$TargetDedicated = 0` when you first enable autoscaling. Then, use one of the following to evaluate the formula you want to test:
 
 * [BatchClient.PoolOperations.EvaluateAutoScale](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscale.aspx) or [EvaluateAutoScaleAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscaleasync.aspx)
-  
+
     These Batch .NET methods require the ID of an existing pool and a string containing the autoscale formula to evaluate. The evaluation results are contained in the returned [AutoScaleEvaluation](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscaleevaluation.aspx) instance.
 * [Evaluate an automatic scaling formula](https://msdn.microsoft.com/library/azure/dn820183.aspx)
-  
+
     In this REST API request, specify the pool ID in the URI, and the autoscale formula in the *autoScaleFormula* element of the request body. The response of the operation contains any error information that might be related to the formula.
 
 In this [Batch .NET][net_api] code snippet, we evaluate a formula prior to applying it to the [CloudPool][net_cloudpool]. If the pool does not have autoscaling enabled, we enable it first.
