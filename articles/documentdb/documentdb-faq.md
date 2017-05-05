@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 05/10/2017
 ms.author: mimig
 
 ---
@@ -138,6 +138,199 @@ API for MongoDB has its own specific error codes in addition to the common Mongo
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | The total number of request units consumed has exceeded the provisioned request unit rate for the collection and has been throttled. | Consider scaling the throughput of the collection from the Azure Portal or retrying again. |
 | ExceededMemoryLimit | 16501 | As a multi-tenant service, the operation has exceeded the client's memory allotment. | Reduce the scope of the operation through a more restrictive query criteria or contact support from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>*Ex:  &nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
+## Database questions about developing against Premium Table API (Preview)
+
+### Terms 
+Premium Tables API (Preview) offered by Cosmos DB refers to Preview release of Premium Table API announced at Build 2017. 
+<br>Standard Table SDK is the existing Azure Storage Table SDK. 
+
+
+### How can I use this new offering? 
+This process is documented here <azure-pr-link>.
+1. You need to create Cosmos DB account.
+2. Get the connection string (endpoint/key) from the keys pane.
+3. Download the new preview SDK for Windows Azure Storage 8.1.2 with Premium Tables API (Preview)
+3. Use Azure Table SDK code for normal table creation, entity creation, listing of entities, deletion etc. 
+
+### Do I require a new SDK to use the Premium Tables API (Preview)? 
+Yes – a new SDK in form of Nuget package is available here - https://www.nuget.org/packages/WindowsAzure.Storage/. It is called SDK for Windows Azure Storage 8.1.2 with Premium Tables API (Preview).  
+
+### How do I provide the feedback about the SDK, bugs?
+Please share the feedback at uservoice - https://feedback.azure.com/forums/263030-documentdb 
+<br>You can send mail to askdocdb@microsoft.com 
+<br>You can post question at MSDN forum - https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB , 
+<br>You can leverage the community at stackoverflow - http://stackoverflow.com/questions/tagged/azure-documentdb.
+
+### What is the connection string that I need to use to connect to Premium Tables API (Preview)?
+DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB;AccountKey=<FromKeysPaneofCosmosDB>;TableEndpoint=https://<AccountNameFromDocumentDB>.documents.azure.com . You can pick this from the ConnectionString panel of the Cosmos DB. 
+
+### How do I override the config settings for the request options in the new Premium Tables API(Preview)?
+These settings are documented here. Yes you can change the settings by adding them to app.config in the appsettings section in client application.[
+<appSettings>
+	<add key="TableConsistencyLevel" value="Eventual|Strong|Session|BoundedStaleness|ConsistentPrefix"/>
+	<add key="TableThroughput" value="<PositiveIntegerValue"/>
+	<add key="TableIndexingPolicy" value="<jsonindexdefn>"/>
+	<add key="TableUseGatewayMode" value="True|False"/>
+	<add key="TablePreferredLocations" value="Location1|Location2|Location3|Location4>"/>
+</appSettings>
+
+
+### Is there any change for existing customers for existing Standard Table SDK?
+None. There are no changes for existing or new customers using existing Standard Table SDK. 
+
+### How do I view my data which is stored in Cosmos DB Premium Tables API (Preview)? 
+You can use the portal of Cosmos DB to browse the data. You can use the Premium Tables API (Preview) code or the tools mentioned below. 
+
+### Which Tools will work with Premium Tables API (Preview)? 
+Older version of Azure Explorer (0.8.9) to begin with. 
+Tools which have flexibility to take a connection string in the format specified earlier can support the new Premium Tables API (Preview). By General Availability(GA) we plan to support most of the tools. The tools are mentioned here - https://docs.microsoft.com/en-us/azure/storage/storage-explorers 
+
+### Does PowerShell/CLI work with this new release of Azure Storage Premium Tables API (Preview) ?
+This is planned for later release as we proceed towards GA. 
+
+### How is the concurrency on operations controlled?
+Yes, Optimistic concurrency is provided via use of ETag mechanism as expected in Standard Table API. 
+
+### Is OData query model supported for entities? 
+Yes, the Premium Table API(Preview) support OData query, Linq query. The support for many features will continue to be added as we proceed towards GA.
+
+### Can I connect to Standard Azure Table and Premium Table API at side by side in same application ? 
+Yes this can be achieved by creating 2 different instances of CloudTableClient.
+
+### How do I migrate existing Table Storage application to this new offering?
+At present this following process: 
+1. Create an account in Cosmos DB. 
+2. Download using nuget, add reference and use the new Premium Table API(preview) SDK to provision a new table with requisite throughput
+3. Migrate data by using code. Or exporting data from Standard Azure Table using Azcopy to blob or and then either use migration tool or code utilizing new SDK to push the data.
+4. Change the connection string and Use existing code. 
+You can refer to Throughput to size mapping <here>.
+
+
+### What is the roadmap for this service, when will other functionality of Standard Table API be offered?
+We plan to add support for SAS tokens, ServiceContext, Stats, Encryption, Analytics and other features as we proceed towards GA.  Please provide us feedback on uservoice <location>. 
+
+### How is expansion of the storage size done for this service, say I start with x amounts of GB and my data will grow to 1 TB overtime?  
+Cosmos DB is designed to provide unlimited storage via use of horizontal scaling. Our service will monitor and effectively increase your storage. 
+
+### How do I monitor this Cosmos DB offering?
+You can use the Cosmos DB Metrics pane to monitor requests, storage. 
+
+### How do I calculate throughput I require?
+Yes, you can use the Capacity estimator to calculate the TableThroughput required for the operations.Cosmos DB is provisioned system so estimation of these TableThroughput. This is documented here .  
+
+### Can I use  Premium Tables API (Preview) SDK locally with the emulator?
+Yes, you can use the Cosmos DB Premium Tables API (Preview) on the local emulator when you use the new SDK. Please download new emulator from here.  
+
+### Can my existing application work with Premium Tables API (Preview)? 
+The surface area of the Premium Tables API (Preview) is compatible with existing Azure Standard Table SDK across the create, delete, update, query operations with .Net API.  We document below other constructs which we plan to add support for by GA.
+
+### Do I need to migrate existing Azure Table based application to new SDK if I do not want to use Premium Table API(preview) features?
+No, Existing customers, new customers can create and use present Standard Table assets without interruption of any kind.<p> We are providing a preview for Standard Table customers who have always requested for these kind of features. This preview provides automatic index, more consistency levels to leverage global distribution.  If you want to try out this offering you need to download a new SDK and follow the procedure as outlined <here> in the documentation.
+
+
+
+## Global Replication 
+### How do I add replication for this data in Premium Table API (Preview) across multiple regions of Azure?
+You can use the Cosmos DB portal’s global replication settings for adding regions. This is documented <here>.
+
+### How do I change the primary write region Premium Table API(preview)?
+You can use <Cosmos DB>’s global replication portal pane to add a region and then failover to it. This is documented <here>.
+
+### How do I configure my preferred read regions for low latency when I distribute my data? 
+Cosmos DB Consistency settings in the portal help in providing options for low latency when application is distributed. Consistency options can be set for the container for distribution and documented <here>. Cosmos DB also allows client to choose a consistency level on individual operation.  
+When client connects, it can specify a consistency level – this can be changed via the app.config setting for the value of TableConsistencyLevel key. 
+By default, Premium Tables API(Preview) provides low latency reads with Read your own writes with session consistency as default.  
+
+### Does this mean compared to eventual & strong consistency that is possible with Standard Table  – we now have more choices ?
+Yes, these choices are documented <here> to help application developers leverage the distributed nature of Cosmos DB. 
+
+### When global distribution is enabled – how long does it take to replicate the data?
+We commit the data durably in local region and push the data to other regions immediately in matter of milliseconds and this replication is only dependent on the RTT of the datacenter. Please read up on the global distribution abilities of Cosmos DB <here>.
+
+
+### Can the request consistency be changed?
+Yes, by providing the value for TableConsistencyLevel key in the app.config file. Theses are the possible values - Session|Eventual|Strong|Bounded Staleness|ConsistentPrefix. This is documented <here>. 
+
+# Indexing
+### Does the Premium Tables API (Preview) index all attributes of entities by default?
+Yes, by default all attributes of the entity are indexed. The indexing details are documented <here>. 
+
+### Does this mean I do not have to create different indexes to satisfy the queries? 
+Yes, Cosmos DB provides automatic indexing of all attributes without any schema definition. This frees up developer to focus on the application rather than worry about index creation and management. The indexing details are documented <here>. 
+
+### Can the indexing policy be changed?
+Yes - you can change the index by providing the index definition. The meaning of these settings is documented <here>. You need to properly encode and escape these settings.  We have an example <here>.
+in string json format in the app.config file.
+{
+  "indexingMode": "consistent",
+  "automatic": true,
+  "includedPaths": [
+    {
+      "path": "/somepath",
+      "indexes": [
+        {
+          "kind": "Range",
+          "dataType": "Number",
+          "precision": -1
+        },
+        {
+          "kind": "Range",
+          "dataType": "String",
+          "precision": -1
+        } 
+      ]
+    }
+  ],
+  "excludedPaths": 
+[
+ {
+      "path": "/anotherpath"
+ }
+]
+}
+
+
+
+
+## Elasticity 
+### When should I change TableThroughput for Azure Premium Tables API (Preview)?
+You should change the TableThroughput  when you do the ETL of data or want to upload lot of data in short amount of time. 
+OR
+You need more throughput from the container at the backend as you see Used Throughput is more than Provisioned throughput on the metrics and you are getting throttled. This is documented <here>.
+
+### Is there a Default TableThroughput which is set for newly provisioned Table?
+Yes,  If you do not override the TableThroughput via app.config and do not use a pre-created container in Cosmos DB - we will create Table with throughput of 400.
+
+
+
+## Pricing
+### Is there any change of pricing for existing customers of Standard Table API?
+None. There is no change in price for existing Standard Table API customers. 
+
+### How is the price calculated for this Premium Table API(Preview)? 
+It depends on the TableThroughput which have been allocated. The concept of throughput is documented <here>. 
+
+### Do you plan to provide more price options in the future?
+Yes, Cosmos DB today provides Throughput optimized model. In the near future we have plans to provide Storage optimized pricing. 
+
+### Can I scale up or down the throughput of my Tables API (Preview) Table? 
+Yes, you can use the Cosmos DB portal’s scale pane to do the same. This is documented here.
+
+### Will I experience the throttles on the Cosmos DB Table? 
+Yes, in case your request rates exceed the capacity of the underlying container, you will get an error and SDK will retry for using the retry policy.
+
+## Generic Questions
+### If I develop an application today – what should I choose -  between Premium Tables API (Preview) and SQL API?
+You should always choose a platform that provides the closest match to your requirements. Premium Tables API (Preview) leverages the underlying platform to provide an efficient path for existing Table customers who need low latency, automatic indexing, global distribution, multiple consistency settings.  
+Our SQL API based platform remains trusted platform for customers who are comfortable with SQL language as query mechanism to retrieve schema less entities.      
+
+
+### Why do I need to choose a throughput apart from PartitionKey and RowKey?
+Cosmos DB will set a default throughput for your container if you do not provide one in the app.config. 
+
+Cosmos DB provides guarantees for performance, latency with upper bounds on operation. This is possible when engine can enforce governance on tenants. Setting TableThroughput is basically ensuring you get guaranteed throughput, latency as now platform will reserve this capacity and guarantee operation success.  
+The specification of throughput also allows you to elastically change it to leverage the seasonality of your application and meet the throughput needs and save costs.
+
 
 [azure-portal]: https://portal.azure.com
 [query]: documentdb-sql-query.md
