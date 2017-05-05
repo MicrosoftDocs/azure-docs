@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/26/2017
+ms.date: 05/04/2017
 ms.author: cynthn
 ---
 # Back up Linux  virtual machines in Azure
