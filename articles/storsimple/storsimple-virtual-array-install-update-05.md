@@ -1,5 +1,5 @@
 ---
-title: Install Updates on StorSimple Virtual Array | Microsoft Docs
+title: Install Update 0.5 on StorSimple Virtual Array | Microsoft Docs
 description: Describes how to use the StorSimple Virtual Array web UI to apply updates using the Azure portal and hotfix method
 services: storsimple
 documentationcenter: NA
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/04/2017
+ms.date: 05/05/2017
 ms.author: alkohli
 ---
 # Install Update 0.5 on your StorSimple Virtual Array
@@ -27,6 +27,7 @@ Keep in mind that installing an update or hotfix restarts your device. Given tha
 Before you apply an update, we recommend that you take the volumes or shares offline on the host first and then the device. This minimizes any possibility of data corruption.
 
 > [!IMPORTANT]
+> Update 0.5 corresponds to **10.0.10290.0** software version on your device.
 > If you are running Update 0.1 or GA software versions, you must use the hotfix method via the local web UI to install update 0.3. If you are running Update 0.2 or later, we recommend that you install the updates via the Azure portal.
 
 
@@ -61,7 +62,7 @@ Perform the following steps to download the software update from the Microsoft U
 
 7. Open the copied folder, you should see two files:
 
-    ![Files in the package](./media/storsimple-virtual-array-install-update-05/update 05 folder.png)
+    ![Files in the package](./media/storsimple-virtual-array-install-update-05/update05folder.png)
     -  A Microsoft Update Standalone Package file `WindowsTH-KB3011067-x64`. This file is used to update the device software.
     - A Geneva Monitoring Agent Package file `GenevaMonitoringAgentPackageInstaller`. This file is used to update the Monitoring and Diagnostics service (MDS) agent. Double-click the cab file. A .msi is displayed. Select the file, right-click, and then **Extract** the file. You will use the _.msi_ file to update the agent.
     ![Extract MDS Agent Update file](./media/storsimple-virtual-array-install-update-05/extract-geneva-monitoring-agent-installer.png)
