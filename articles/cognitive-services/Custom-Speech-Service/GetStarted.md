@@ -32,7 +32,7 @@ The subscription key is required later in this process.
 #### Subscribe to Custom Speech Service and get a subscription key
 There is a nice sample that we provide to get you going which you can find [here](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)
 
-Before playing with the above the example, you must subscribe to Custom Speech Service and get a subscription key, see [Subscriptions](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/CustomSpeech). Both the primary and secondary key can be used in this tutorial. Make sure to follow best practices for keeping your API key secret and secure.
+Before playing with the above example, you must subscribe to Custom Speech Service and get a subscription key, see [Subscriptions](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/CustomSpeech). Both the primary and secondary key can be used in this tutorial. Make sure to follow best practices for keeping your API key secret and secure.
 
 #### Get the client library and example
 You may download a client library and example via [SDK](https://www.microsoft.com/cognitive-services/en-us/SDK-Sample?api=bing%20speech&category=sdk). The downloaded zip file needs to be extracted to a folder of your choice, many users choose the Visual Studio 2015 folder.
