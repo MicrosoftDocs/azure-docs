@@ -1,6 +1,6 @@
 ---
 title: Add intents in LUIS applications | Microsoft Docs
-description: Use Language Understanding Intelligent Services (LUIS) to add intents to help apps understand user requests and react to them properly.
+description: Use Language Understanding Intelligent Service (LUIS) to add intents to help apps understand user requests and react to them properly.
 services: cognitive-services
 author: cahann
 manager: hsalama

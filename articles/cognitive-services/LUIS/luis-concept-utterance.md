@@ -1,6 +1,6 @@
 ---
 title: Utterances in LUIS apps in Azure | Microsoft Docs
-description: Add utterances in Language Understanding Intelligent Services (LUIS) apps.
+description: Add utterances in Language Understanding Intelligent Service (LUIS) apps.
 services: cognitive-services
 author: DeniseMak
 manager: hsalama

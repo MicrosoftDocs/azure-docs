@@ -53,7 +53,9 @@
   - name: Create subscription keys
     href: AzureIbizaSubscription.md
   - name: Manage versions
-    href: luis-how-to-manage-versions.md    
+    href: luis-how-to-manage-versions.md
+  - name: Collaborate on a LUIS app
+    href: luis-how-to-collaborate.md    
 - name: Reference
   items: 
   - name: LUIS API

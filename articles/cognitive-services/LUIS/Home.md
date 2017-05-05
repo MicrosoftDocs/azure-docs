@@ -1,6 +1,6 @@
 ---
 title: Overview of LUIS machine learning in Azure | Microsoft Docs 
-description: Use Language Understanding Intelligent Services (LUIS) to bring the power of machine learning to your applications.
+description: Use Language Understanding Intelligent Service (LUIS) to bring the power of machine learning to your applications.
 services: cognitive-services
 author: cahann
 manager: hsalama
@@ -14,11 +14,11 @@ ms.author: cahann
 
 # Overview
 
-One of the key problems in human-computer interactions is the ability of the computer to understand what a person wants. Language Understanding Intelligent Services (LUIS) enables developers to build smart applications that can understand human language and react accordingly to user requests. LUIS uses the power of machine learning to solve the difficult problem of extracting meaning from natural language input, so that your application doesn't have to. Any client application that converses with users, like a dialog system or a chat bot, can pass user input to a LUIS app and receive results that provide natural language understanding. 
+One of the key problems in human-computer interactions is the ability of the computer to understand what a person wants. Language Understanding Intelligent Service (LUIS) enables developers to build smart applications that can understand human language and react accordingly to user requests. LUIS uses the power of machine learning to solve the difficult problem of extracting meaning from natural language input, so that your application doesn't have to. Any client application that converses with users, like a dialog system or a chat bot, can pass user input to a LUIS app and receive results that provide natural language understanding. 
 
 ## What is a LUIS app?
 
-A LUIS app is a place for a developer to define a custom language model. The output of a LUIS application is a web service with an HTTP endpoint that you reference from your client application to add natural language understanding to it. A LUIS app takes a user utterance and extracts intents and entities that correspond to activities in the client application’s logic. Your client app can then take appropriate action based on the user intentions that LUIS recognizes.
+A LUIS app is a place for a developer to define a custom language model. The output of a LUIS app is a web service with an HTTP endpoint that you reference from your client application to add natural language understanding to it. A LUIS app takes a user utterance and extracts intents and entities that correspond to activities in the client application’s logic. Your client application can then take appropriate action based on the user intentions that LUIS recognizes.
 
 ## Key concepts
 
@@ -44,13 +44,16 @@ You can also watch a basic [video tutorial](https://www.youtube.com/watch?v=jWeL
 Once your application is deployed and traffic starts to flow into the system, LUIS uses active learning to improve itself. In the active learning process, LUIS identifies the utterances that it is relatively unsure of, and asks you to label them according to intent and entities. This process has tremendous advantages. LUIS knows what it is unsure of, and asks for your help in the cases that lead to the maximum improvement in system performance. LUIS learns quicker, and takes the minimum amount of your time and effort. This is active machine learning at its best. See [Label suggested utterances][label-suggested-utterances] for an explanation of how to implement active learning using the LUIS web interface.
 
 ## How do you use LUIS from a bot?
-It's easy to use a LUIS app from a bot built using the [Bot Framework](https://docs.microsoft.com/bot-framework/), which provides the Bot Builder SDK for Node.js or .NET. You simply reference the LUIS app as shown in the following examples.
+It's easy to use a LUIS app from a bot built using the [Bot Framework](https://docs.microsoft.com/bot-framework/), which provides the Bot Builder SDK for Node.js or .NET. You simply reference the HTTPS endpoint for the LUIS app as shown in the following examples:
+
+#### Node.js 
 ```javascript
 // Add global LUIS recognizer to bot
 var model = process.env.model || 'https://api.projectoxford.ai/luis/v2.0/apps/c413b2ef-382c-45bd-8ff0-f76d60e2a821?subscription-key=6d0966209c6e4f6b835ce34492f3e6d9';
 bot.recognizer(new builder.LuisRecognizer(model));
 ```
 
+#### C#
 ```cs
     [LuisModel("<YOUR_LUIS_APP_ID>", "<YOUR_LUIS_SUBSCRIPTION_KEY>")]
     [Serializable]
@@ -60,8 +63,9 @@ bot.recognizer(new builder.LuisRecognizer(model));
 ```
 
 The Bot Builder SDK provides classes that automatically handle the intents and entities returned from the LUIS app. For samples that demonstrate how to use these classes, see the following samples:
-•	[LUIS demo bot (C#)](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-LUIS)
-•	[LUIS demo bot (Node.js)](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/intelligence-LUIS) 
+
+*	[LUIS demo bot (C#)](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-LUIS)
+*	[LUIS demo bot (Node.js)](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/intelligence-LUIS) 
 
 ## Configure LUIS programmatically
 LUIS offers a set of programmatic REST APIs that can be used by developers to automate the application creation process. These APIs allow you to author and publish your application.

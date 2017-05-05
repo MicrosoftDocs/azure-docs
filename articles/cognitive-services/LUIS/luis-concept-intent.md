@@ -1,6 +1,6 @@
 ---
 title: Understanding intents in LUIS apps in Azure | Microsoft Docs
-description: Describes what intents are in Language Understanding Intelligent Services (LUIS) apps.
+description: Describes what intents are in Language Understanding Intelligent Service (LUIS) apps.
 services: cognitive-services
 author: DeniseMak
 manager: hsalama
