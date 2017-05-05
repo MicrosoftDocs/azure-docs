@@ -52,7 +52,7 @@ Check it out on [GitHub](https://github.com/jcormont/documentdb-typescript) and 
 ### Swagger REST API for DocumentDB
 *by Howard Edidin*
 
-A Azure Cosmos DB DocumentDB REST API Swagger file that can be easily deployed as an API App.
+an Azure Cosmos DB DocumentDB REST API Swagger file that can be easily deployed as an API App.
 
 Check it out on [GitHub](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi).
 
@@ -243,5 +243,5 @@ Azure Cosmos DB Wizards are community leaders who’ve demonstrated an exemplary
 |  [Santosh Hari](https://twitter.com/_s_hari) |[![Santosh Hari](./media/documentdb-community/wizard-santosh-hari.jpg)](https://twitter.com/_s_hari) |
 | [Matías Quaranta](https://twitter.com/ealsur) |[![Matías Quaranta](./media/documentdb-community/wizard-matias-quaranta.jpg)](https://twitter.com/ealsur) |
 
-Want to become a Azure Cosmos DB Wizard? While there is no benchmark for becoming a Wizard, some of the criteria we evaluate include the impact of a nominee’s contributions to online forums such as StackOverflow and MSDN; wikis and online content; conferences and user groups; podcasts, Web sites, blogs and social media; and articles and books. You can nominate yourself or someone else by [sending us an email](mailto:askdocdb@microsoft.com).
+Want to become an Azure Cosmos DB Wizard? While there is no benchmark for becoming a Wizard, some of the criteria we evaluate include the impact of a nominee’s contributions to online forums such as StackOverflow and MSDN; wikis and online content; conferences and user groups; podcasts, Web sites, blogs and social media; and articles and books. You can nominate yourself or someone else by [sending us an email](mailto:askdocdb@microsoft.com).
 

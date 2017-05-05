@@ -1,7 +1,7 @@
 ---
-title: DocumentDB Automation - Resource Manager - Azure CLI 1.0 | Microsoft Docs
-description: Use Azure Resource Manager templates or CLI to deploy an Azure Cosmos DB database account. DocumentDB is a cloud-based NoSQL database for JSON data.
-services: documentdb
+title: Azure Cosmos DB Automation - Resource Manager - Azure CLI 1.0 | Microsoft Docs
+description: Use Azure Resource Manager templates or CLI to deploy an Azure Cosmos DB database account. Azure Cosmos DB is a cloud-based NoSQL database for JSON data.
+services: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: ''
@@ -9,7 +9,7 @@ tags: azure-resource-manager
 documentationcenter: ''
 
 ms.assetid: eae5eec6-0e27-442c-abfc-ef6b7fd3f8d2
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -331,7 +331,7 @@ Create a local template file with the following content. Name the file azuredepl
         ]
     }
 
-The kind must be set to MongoDB to specify that this account will support MongoDB APIs. If no kind property is specified, the default will be a Azure Cosmos DB DocumentDB API account.
+The kind must be set to MongoDB to specify that this account will support MongoDB APIs. If no kind property is specified, the default will be an Azure Cosmos DB DocumentDB API account.
 
 The failoverPriority must be set to 0 since this is a single region account. A failoverPriority of 0 indicates that this region be kept as the [write region for the Azure Cosmos DB account][scaling-globally].
 You can either enter the value at the command line, or create a parameter file to specify the value.

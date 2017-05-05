@@ -33,7 +33,7 @@ Welcome to the C++ tutorial for the Azure Cosmos DB DocumentDB API endorsed SDK 
 
 We'll cover:
 
-* Creating and connecting to a Azure Cosmos DB account
+* Creating and connecting to an Azure Cosmos DB account
 * Setting up your application
 * Creating a C++ Azure Cosmos DB database
 * Creating a collection
@@ -82,7 +82,7 @@ Bring up [Azure portal](https://portal.azure.com) and traverse to the NoSQL (Doc
 
 ![Azure Cosmos DB URI and keys in the Azure portal](media/documentdb-cpp-get-started/nosql-tutorial-keys.png)
 
-## <a id="Connect"></a>Step 4: Connect to a Azure Cosmos DB account
+## <a id="Connect"></a>Step 4: Connect to an Azure Cosmos DB account
 1. Add the following headers and namespaces to your source code, after `#include "stdafx.h"`.
    
         #include <cpprest/json.h>
@@ -131,7 +131,7 @@ To create a database and a corresponding collection add the following code to th
       wcout << ex.message();
     }
 
-To summarize, this code creates a Azure Cosmos DB database, collection, and documents, which you can query in Document Explorer in Azure portal. 
+To summarize, this code creates an Azure Cosmos DB database, collection, and documents, which you can query in Document Explorer in Azure portal. 
 
 ![C++ tutorial - Diagram illustrating the hierarchical relationship between the account, the database, the collection, and the documents](media/documentdb-cpp-get-started/documentdbdocs.png)
 

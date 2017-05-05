@@ -1,7 +1,7 @@
 ---
-title: How to query in Azure Cosmos DB? | Microsoft Docs
-description: Learn to query with the different data models in Azure Cosmos DB
-services: documentdb
+title: How to query with SQL in Azure Cosmos DB? | Microsoft Docs
+description: Learn to query with DocumentDB data with SQL in Azure Cosmos DB
+services: cosmosdb
 documentationcenter: ''
 author: mimig1
 manager: jhubbard
@@ -9,7 +9,7 @@ editor: ''
 tags: ''
 
 ms.assetid: 
-ms.service: documentdb
+ms.service: cosmosdb
 ms.custom: tutorial-develop
 ms.devlang: na
 ms.topic: article
@@ -20,9 +20,9 @@ ms.author: mimig
 
 ---
 
-# How to query with Azure Cosmos DB?
+# Azure Cosmos DB: How to query using SQL?
 
-The Azure Cosmos DB DocumentDB API supports supports querying documents using SQL (Structured Query Language). This article provides a sample document and two sample queries and results using SQL.
+The Azure Cosmos DB [DocumentDB API](../documentdb/documentdb-introduction.md) supports supports querying documents using [SQL (Structured Query Language)](../documentdb/documentdb-sql-query.md). This article provides a sample document and two sample queries and results using SQL.
 
 The SQL queries in this article use the following sample document.
 
@@ -56,6 +56,13 @@ The SQL queries in this article use the following sample document.
   "isRegistered": false
 }
 ```
+## Where can I run SQL queries?
+
+You can run queries on your data using the Data Explorer in the Azure portal, [Query Explorer](../documentdb/documentdb-query-collections-query-explorer.md) in the Azure portal, via the [REST API and SDKs](../documentdb/documentdb-query-collections-query-explorer.md), and even the [Query playground](https://www.documentdb.com/sql/demo), which runs queries on an existing set of sample data.
+
+## Prerequisites
+
+For these queries to work, you must have an Azure Cosmos DB account and have documents in the collection. Dont' have any of those? Complete the [5-minute quickstart](create-documentdb-dotnet.md) or the [developer tutorial](tutorial-develop-documentdb-dotnet.md) to create an account and populate your database.
 
 ## Example query 1
 
@@ -109,4 +116,9 @@ The next query returns all the given names of children in the family whose id ma
 
 ## Next steps
 
-For more information about querying document data with SQL queries, see [SQL](../documentdb/documentdb-sql-query.md), and print out the [SQL Query Cheat Sheet](../documentdb/documentdb-sql-query-cheat-sheet.md).
+In this tutorial, you've learned how to query DocumentDB documents using SQL. You can now distribute data globally using the portal or install the Local emulator for local development.  
+
+[Distribute your data globally](../documentdb/documentdb-portal-global-replication.md)
+
+[Develop locally](../documentdb/documentdb-nosql-local-emulator.md)
+

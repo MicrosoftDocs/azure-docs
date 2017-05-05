@@ -204,7 +204,7 @@ Since the implementation of a specific consistency model depends on the choice o
 ## <a id="ThroughputGuarantees"></a>Throughput guarantees 
 Azure Cosmos DB allows you to scale throughput (as well as, storage), elastically across different regions depending on the demand. 
 
-**A single Azure Cosmos DB collection partitioned (across three shards) and then distributed across three Azure regions**
+an Azure Cosmos DBCosmos DB collection partitioned (across three shards) and then distributed across three Azure regions**
 
 ![Azure Cosmos DB distributed and partitioned collections](./media/documentdb-distribute-data-globally/documentdb-throughput.png)
 

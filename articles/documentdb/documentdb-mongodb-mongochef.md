@@ -18,7 +18,7 @@ ms.date: 04/27/2017
 ms.author: anhoh
 
 ---
-# Use MongoChef with a Azure Cosmos DB: API for MongoDB account
+# Use MongoChef with an Azure Cosmos DB: API for MongoDB account
 
 To connect to an Azure Cosmos DB: API for MongoDB account, you must:
 
