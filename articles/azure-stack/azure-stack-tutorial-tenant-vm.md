@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 5/5/2017
+ms.date: 5/10/2017
 ms.author: victorh
 
 ---
@@ -42,7 +42,7 @@ To learn more, see [Key features and concepts in Azure Stack](azure-stack-key-fe
 Now you can get things ready for your users. Create an offer that they can then subscribe to.
 1. [Set quotas](azure-stack-setting-quotas.md).
 
-    Quotas define the limits of resources that a tenant subscription can provision or consume. For example, a quota might allow a tenant to create up to five VMs. To add a service to a plan, the administrator must configure the quota settings for that service.
+    Quotas define the limits of resources that a user subscription can provision or consume. For example, a quota might allow a user to create up to five VMs. To add a service to a plan, the administrator must configure the quota settings for that service.
 
 2. [Create a plan](azure-stack-create-plan.md).
 
@@ -87,6 +87,7 @@ If you deployed using AD FS, you need to create a user account first. If you dep
 
    Follow this article to test that it works with a user account. Log in to the portal with a user account instead of an administrator account. 
 
+You've learned how to create an offer and verified that users can subscribe to the offer and create virtual machines on Azure Stack. Next, you can make web, mobile, and API apps available to your users.
 
-> [!NEXT]
-> You've learned how to create an offer and verified that users can subscribe to the offer and create virtual machines on Azure Stack. Next, you can [give Azure Stack users the ability to create web, mobile, and API apps](azure-stack-tutorial-app-service.md).
+> [!div class="nextstepaction"]
+> [Make web, mobile, and API apps available to your Azure Stack users](azure-stack-tutorial-app-service.md)
