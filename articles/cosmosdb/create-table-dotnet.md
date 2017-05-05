@@ -20,12 +20,11 @@ ms.author: bhanupr
 ---
 # Get started with Azure Cosmos DB's Table API using .NET
 
-Azure Cosmos DB provides the Table API for applications that need a key-value store with a schema-less design. Existing and new [Azure Table storage](../storage/storage-introduction.md) tables will be powered by Azure Cosmos DB, and Azure Table storage SDKs and REST APIs are supported as variants of accessing Azure Cosmos DB including:
+Azure Cosmos DB provides the Table API for applications that need a key-value store with a schema-less design. [Azure Table storage](../storage/storage-introduction.md) SDKs and REST APIs can be used to work with Azure Cosmos DB. You can use Azure Cosmos DB to creae tables with high throughput requirements. Azure Cosmos DB supports throughput-optimized tables (informally called "premium tables"), currently in public preview. 
 
-- key-value workloads that need a large volume of storage that's infrequently accessed, and
-- key-value workloads that need reserved throughput, and high request rates. Azure Cosmos DB supports throughput-optimized tables (informally called "premium tables"), currently in public preview. 
+You can continue to use Azure Table storage for tables with high storage and lower throughput requirements. Azure Cosmos DB will introduce support for storage-optimized tables in a future update, and existing and new Azure Table storage accounts will be seamlessly upgraded to Azure Cosmos DB.
 
-If you currently use Azure Table storage, you gain the following benefits with the preview:
+If you currently use Azure Table storage, you gain the following benefits with the "premium table" preview:
 
 - Turn-key [global distribution](../documentdb/documentdb-distribute-data-globally.md) with multi-homing and [automatic and manual failvoers](../documentdb/documentdb-regional-failovers.md)
 - Support for automatic schema-agnostic indexing against all properties ("secondary indexes"), and fast queries 
@@ -66,7 +65,7 @@ Now let's clone a Table app from github, set the connection string, and run it. 
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**. You'll use the copy buttons on the right side of the screen to copy the Primary Key into the app.config file in the next step.
+1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**. You'll use the copy buttons on the right side of the screen to copy the connection string into the app.config file in the next step.
 
     ![View and copy an access key in the Azure Portal, Keys blade](./media/create-table-dotnet/keys.png)
 
@@ -85,9 +84,9 @@ Now go back to the Azure portal to get your connection string information and co
 ## Build and deploy the app
 1. In Visual Studio, right-click on the project in **Solution Explorer** and then click **Manage NuGet Packages**. 
 
-2. In the NuGet **Browse** box, type ***WindowsAzure.Storage***.
+2. In the NuGet **Browse** box, type ***WindowsAzure.Storage***. Check **Include prerelease versions** if you haven't already.
 
-3. From the results, install the **WindowsAzure.Storage** and choose the preview build `8.2.6-preview`. This installs the Azure Table storage package as well as all dependencies.
+3. From the results, install the **WindowsAzure.Storage** and choose the preview build `8.2.0-preview`. This installs the Azure Table storage package as well as all dependencies.
 
 4. Add steps to install Azure Storage Nuget package and Configuration Manager nuget package.
 
@@ -102,16 +101,24 @@ You can now go back to Data Explorer and see query, modify, and work with this t
 >
 
 ## Azure Cosmos DB capabilities
-You can use the below settings to tune different settings for Table. 
+While Azure Cosmos DB supports a number of additional capabilities, we did not introduce any new signatures or overloads to the preview Azure Storage SDK, so that you can use the same interface to work with Azure Table storage accounts as well as Azure Cosmos DB. You can even run them side by side within the same executable, and use the SDK to work with other Azure Storage services like Blobs and Queues. 
+
+The new functionality can be enabled via the following `appSettings` configuration values:
 
 | Key | Description |
 | --- | --- |
 | `TableConnectionMode`  | Azure Cosmos DB supports two connectivity modes. In `Gateway` mode, requests are always made to the Azure Cosmos DB gateway, which forwards it to the corresponding data partitions. In direct connectivity mode, the client fetches the mapping of tables to partitions, and requests are made directly against data partitions. We recommend `Direct`, the default.  |
 | `TableConnectionProtocol` | Azure Cosmos DB supports two connection protocols - `Https` and `Tcp`. `Tcp` is the default, and recommended because it is more lightweight. |
-| `TablePreferredLocations` | Comma-separated list of preferred (mult-homing) locations for reads. Each Azure Cosmos DB account can be associated with 1-30+ regions. Each SDK can specify a subset of these regions in the preferred order for low latency reads. See [Multi-homing APIs](../documentdb/documentdb-developing-with-multiple-regions.md) for examples. For example, `West US, East US, South Central US` configures the three US regions in the preferred order of reads.
-| `TableThroughput` | Reserved throughput for the table expressed in request units (RU) per second. Single tables can support 100s-millions of RU/s. See [Request units](../documentdb/documentdb-request-units.md). Default is `400` |
-| `TableIndexingPolicy` | Consistent and automatic secondary indexing of all columns within tables | JSON string conforming to the indexing policy specification. See [Indexing Policy](../documentdb/documentdb-indexing-policies.md) to see how you can change indexing policy to include/exclude specific columns. | Automatic indexing of all properties (hash for strings, and range for numbers) |
+| `TablePreferredLocations` | Comma-separated list of preferred (multi-homing) locations for reads. Each Azure Cosmos DB account can be associated with 1-30+ regions. Each client instance can specify a subset of these regions in the preferred order for low latency reads. The regions must be named using their [display names](https://msdn.microsoft.com/library/azure/gg441293.aspx), for example, `West US`. Also see [Multi-homing APIs](../documentdb/documentdb-developing-with-multiple-regions.md).
 | `TableConsistencyLevel` | You can trade off between latency, consistency, and availablity by choosing between five well defined consistency levels: `Strong`, `Session`, `Bounded-Staleness`, `ConsistentPrefix` and `Eventual`. Default is `Session`. The choice of consistency level makes a significant performance difference in multi-region setups. See [Consistency Levels](../documentdb/documentdb-consistency-levels.md) for details. |
+| `TableThroughput` | Reserved throughput for the table expressed in request units (RU) per second. Single tables can support 100s-millions of RU/s. See [Request units](../documentdb/documentdb-request-units.md). Default is `400` |
+| `TableIsRUPerMinuteEnabled` | Used to enable the RU/min provisioning flag for new tables. If enabled, then Azure Cosmos DB will include bonus per-minute RUs in addition to the per-second provisined RUs. RU/min provisioning can be used to handle spikes in activity in a cost-effectiv manner. See [Request units](../documentdb/documentdb-request-units.md). Default is `false` |
+| `TableIndexingPolicy` | Consistent and automatic secondary indexing of all columns within tables | JSON string conforming to the indexing policy specification. See [Indexing Policy](../documentdb/documentdb-indexing-policies.md) to see how you can change indexing policy to include/exclude specific columns. | Automatic indexing of all properties (hash for strings, and range for numbers) |
+| `TableQueryMaxItemCount` | Configure the maximum number of items returned per table query in a single round trip. Default is `-1`, which lets Azure Cosmos DB dynamically determine the value at runtime. |
+| `TableQueryEnableScan` | If the table is configured with no index paths for any of the filters in a query, then run it anyway via a table scan. Default is `false`.|
+| `TableQueryMaxDegreeOfParallelism` | The degree of parallelism for execution of a cross-partition query. `0` is serial with no pre-fetching, `1` is serial with pre-fetching, and higher values increase the rate of parallelism. Default is `-1`, which les Azure Cosmos DB dynamically determine the value at runtime. |
+| `TableQueryContinuationTokenLimitInKb` | The maximum size of the continuation token for resuming query execution. No limit enforced if not specified. The default (no limit) is recommended. |
+| `TableDisableRUPerMinuteUsage` | Should the client use RU/min quota for requess, if available. Default is `false` |
 
 The following example shows how you can change the different settings for above capablities provided by Azure Cosmos DB. To change the default value, open the `app.config` file from Solution Explorer in Visual Studio. Add the contents of the `<appSettings>` element shown below. Replace `account-name` with the name of your storage account, and `account-key` with your account access key. 
 
@@ -121,12 +128,27 @@ The following example shows how you can change the different settings for above 
         <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
     </startup>
     <appSettings>
-        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key; TableEndpoint=https://account-name.documents.azure.com" />
-      <add key="TableUseGatewayMode" value="false"/>
+      <!-- Client options -->
+      <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key; TableEndpoint=https://account-name.documents.azure.com" />
+      <add key="TableConnectionMode" value="Direct"/>
+      <add key="TableConnectionProtocol" value="Tcp"/>
       <add key="TablePreferredLocations" value="East US, West US, North Europe"/>
-      <add key="TableThroughput" value="700"/>
-      <add key="TableIndexingPolicy" value="CustomPolicy"/>
       <add key="TableConsistencyLevel" value="Eventual"/>
+
+      <!--Table creation options -->
+      <add key="TableThroughput" value="700"/>
+      <add key="TableIsRUPerMinuteEnabled" value="false"/>
+      <add key="TableIndexingPolicy" value="{""indexingMode"": ""Consistent""}">
+
+      <!-- Table query options -->
+      <add key="TableQueryMaxItemCount" value="-1"/>
+      <add key="TableQueryEnableScan" value="false"/>
+      <add key="TableQueryMaxDegreeOfParallelism" value="-1"/>
+      <add key="TableQueryContinuationTokenLimitInKb" value="16"/>
+      
+      <!-- Table general request options -->
+      <add key="TableDisableRUPerMinuteUsage" value="false"/>
+      
     </appSettings>
 </configuration>
 ```
@@ -200,12 +222,7 @@ table.Execute(insertOperation);
 ```
 
 ## Insert a batch of entities
-You can insert a batch of entities into a table in one write operation. Some other notes on batch operations:
-
-* You can perform updates, deletes, and inserts in the same single batch operation.
-* A single batch operation can include up to 100 entities.
-* All entities in a single batch operation must have the same partition key.
-* While it is possible to perform a query as a batch operation, it must be the only operation in the batch.
+Azure Table storage supports a batch operation API, that lets you combine updates, deletes, and inserts in the same single batch operation. Azure Cosmos DB does not have some of the limitations on the batch API as Azure Table storage. For example, you can perform multiple reads within a batch, you can perform multiple writes to the same entity within a batch, and there is no limit on 100 operations per batch. 
 
 ```csharp
 // Create the batch operation.
@@ -245,84 +262,46 @@ TableResult retrievedResult = table.Execute(retrieveOperation);
 >
 
 ## Query entities using automatic secondary indexes
-Tables can be queried using the `TableQuery` class. Since Azure Cosmos DB has a write-optimized database engine, that automatically indexes all columns within your table even if the schema is different between rows, or if the schema evolves over time. Since Azure Cosmos DB supports automatic secondary indexes, queries against any property can use the index and be served efficiently. The query performance is much more pronounced when you have 1000s-millions of entities.
+Tables can be queried using the `TableQuery` class. Since Azure Cosmos DB has a write-optimized database engine, that automatically indexes all columns within your table even if the schema is different between rows, or if the schema evolves over time. Since Azure Cosmos DB supports automatic secondary indexes, queries against any property can use the index and be served efficiently.
 
 ```csharp
-// Create the CloudTable object that represents the "people" table.
 CloudTable table = tableClient.GetTableReference("people");
 
-// Create the table query.
-TableQuery<CustomerEntity> rangeQuery = new TableQuery<CustomerEntity>().Where(
-    TableQuery.GenerateFilterCondition("Email", QueryComparisons.Equal, items[i].Email));
+// Filter against a property that's not partition key or row key
+TableQuery<CustomerEntity> emailQuery = new TableQuery<CustomerEntity>().Where(
+    TableQuery.GenerateFilterCondition("Email", QueryComparisons.Equal, "Ben@contoso.com"));
 
-// Loop through the results, displaying information about the entity.
-foreach (CustomerEntity entity in table.ExecuteQuery(rangeQuery))
+foreach (CustomerEntity entity in table.ExecuteQuery(emailQuery))
 {
     Console.WriteLine("{0}, {1}\t{2}\t{3}", entity.PartitionKey, entity.RowKey,
         entity.Email, entity.PhoneNumber);
 }
 ```
 
-In preview, Azure Cosmos DB supports the same query surface area as Azure Table storage. Azure Cosmos DB is capable of supporting a much wider surface area, including sorting, aggregates, geospatial query, hierarchy, and a wide range of built-in functions. See [DocumentDB query](../documentdb/documentdb-sql-query.md) for an overview of the capabilities. These capabilities will be added to the subset of ODATA (and LINQ) operators that is currently supported by the Table service.
+In preview, Azure Cosmos DB supports the same query surface area as Azure Table storage. Azure Cosmos DB is capable of supporting a much wider surface area, including sorting, aggregates, geospatial query, hierarchy, and a wide range of built-in functions. See [Azure Cosmos DB query](../documentdb/documentdb-sql-query.md) for an overview of these capabilities. 
 
 ## Replace an entity
 To update an entity, retrieve it from the Table service, modify the entity object, and then save the changes back to the Table service. The following code changes an existing customer's phone number. 
 
 ```csharp
-// Upda
 TableOperation updateOperation = TableOperation.Replace(updateEntity);
 table.Execute(updateOperation);
 ```
-
-Similarly, you can perform `InsertOrMerge` or `Merge`.  
+Similarly, you can perform `InsertOrMerge` or `Merge` operations.  
 
 ## Delete an entity
 You can easily delete an entity after you have retrieved it by using the same pattern shown for updating an entity. The following code retrieves and deletes a customer entity.
 
 ```csharp
-// Create the CloudTable that represents the "people" table.
-CloudTable table = tableClient.GetTableReference("people");
-
-// Create a retrieve operation that expects a customer entity.
-TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
-
-// Execute the operation.
-TableResult retrievedResult = table.Execute(retrieveOperation);
-
-// Assign the result to a CustomerEntity.
-CustomerEntity deleteEntity = (CustomerEntity)retrievedResult.Result;
-
-// Create the Delete TableOperation.
-if (deleteEntity != null)
-{
-    TableOperation deleteOperation = TableOperation.Delete(deleteEntity);
-
-    // Execute the operation.
-    table.Execute(deleteOperation);
-
-    Console.WriteLine("Entity deleted.");
-}
-else
-{
-    Console.WriteLine("Could not retrieve the entity.");
-}
+TableOperation deleteOperation = TableOperation.Delete(deleteEntity);
+table.Execute(deleteOperation);
 ```
 
 ## Delete a table
 Finally, the following code example deletes a table from a storage account. You can delete and recreate a table immediately with Azure Cosmos DB.
 
 ```csharp
-// Retrieve the storage account from the connection string.
-CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-// Create the table client.
-CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
-// Create the CloudTable that represents the "people" table.
 CloudTable table = tableClient.GetTableReference("people");
-
-// Delete the table it if exists.
 table.DeleteIfExists();
 ```
 
