@@ -112,7 +112,7 @@ Select an alert to view information such as a description of the threat, detecti
 
 ![RDP Attack](./media/tutorial-azure-security/rdp-attack.png)
 
-# Next steps
+## Next steps
 In this tutorial, you configured and reviewed VMs with Azure Security Center. You learned how to:
 
 > [!div class="checklist"]
