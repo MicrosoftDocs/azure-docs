@@ -103,7 +103,7 @@ As a prerequisite, you need to create a storage account. You will need an Azure 
 3.	Extract the content of the B2C-AzureBlobStorage-Client-master.zip file on your local disk, for example under the **UI-Customization-Pack** folder. This will create a *B2C-AzureBlobStorage-Client-master* folder underneath.
 4.	Open that folder and extract the content of the archive file *B2CAzureStorageClient.zip* within it.
 
-## Upload the Starter Pack sample files
+## Upload the UI-Customization-Pack sample files
 
 1.	Using Windows Explorer, navigate to the folder *B2C-AzureBlobStorage-Client-master* located under the *UI-Customization-Pack* folder created in the previous section.
 2.	Run the *B2CAzureStorageClient.exe* file. This program will simply upload all the files in the directory that you specify to your storage account, and enable CORS access for those files.
@@ -134,7 +134,9 @@ To verify that the storage you are hosting your content on has CORS enabled, pro
 -->
 The storage account should now contain a blob container named *b2c* in our illustration that contains the following wingtiptoys templates from the *Starter-Pack*.
 
-![Correctly configured storage account](../../media/active-directory-b2c-reference-customize-ui-custom/storage-account-final.png)
+<!--
+![Correctly configured storage account](../../articles/active-directory-b2c/media/active-directory-b2c-reference-customize-ui-custom/storage-account-final.png)
+-->
 
 The following table describes the purpose of the above HTML5 pages.
 
