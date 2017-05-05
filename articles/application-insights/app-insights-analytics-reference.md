@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/05/2017
 ms.author: awills
 
 ---
@@ -316,6 +316,8 @@ datatable (Supplier: string, Fruit: string, Price:int)
 #### evaluate autocluster
      T | evaluate autocluster()
 
+Autocluster is a quick way to find the natural groupings in a set of data. For example, from a mass of request data, you might quickly identify that 80% of the 404 failures were requests for one particular URL, made by a client in a particular city.
+
 AutoCluster finds common patterns of discrete attributes (dimensions) in the data and will reduce the results of the original query (whether it's 100 or 100k rows) to a small number of patterns. AutoCluster was developed to help analyze failures (e.g. exceptions, crashes) but can potentially work on any filtered data set. 
 
 **Syntax**
@@ -399,7 +401,7 @@ All patterns appearing in more than a specified fraction (default 0.05) of the e
 #### evaluate diffpatterns
      requests | evaluate diffpatterns("split=success")
 
-Diffpatterns compares two data sets of the same structure and finds patterns of discrete attributes (dimensions) that characterize differences between the two data sets. Diffpatterns was developed to help analyze failures (e.g. by comparing failures to non-failures in a given time frame) but can potentially find differences between any two data sets of the same structure. 
+Diffpatterns identifies the differences between two datasets of the same structure - for example, the request log at the time of an incident, and normal request logs. Diffpatterns was developed to help analyze failures (e.g. by comparing failures to non-failures in a given time frame) but can potentially find differences between any two data sets of the same structure. 
 
 **Syntax**
 
