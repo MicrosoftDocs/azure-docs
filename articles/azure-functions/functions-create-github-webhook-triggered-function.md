@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/18/2017
+ms.date: 05/02/2017
 ms.author: glenga
 
 ---
@@ -26,9 +26,9 @@ Learn how to create a function that is triggered by an HTTP request with a JSON 
 
 It should take you less than five minutes to complete all the steps in this topic.
 
-## Before you begin
+## Prerequisites 
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-previous-topics.md)]
+[!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
 You also need a GitHub account with at least one project. You can [sign up for a free GitHub account](https://github.com/join), if you don't already have one.
 
@@ -51,7 +51,7 @@ Next, you create a webhook in your GitHub repository.
    
     ![Add a GitHub webhook](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-2.png)
 
-3. Use the following settings and then click **Add webhook**.
+3. Use settings as specified in the table, then click **Add webhook**.
  
     ![Set the webhook URL and secret](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
 
@@ -59,16 +59,16 @@ Next, you create a webhook in your GitHub repository.
     | ------------ |  ------- | -------------------------------------------------- |
     | **Payload URL** | Copied value | Use the value returned by  **</> Get function URL**. |
     | **Secret**   | Copied value | Use the value returned by  **</> Get GitHub secret**. |
-    | **Content type** | **application/json** | The function expects a JSON payload. |
-    | Event triggers | **Let me select individual events** | We only want to trigger on issue comment events.  |
-    |                | **Issue comment**                    |  |
+    | **Content type** | application/json | The function expects a JSON payload. |
+    | Event triggers | Let me select individual events | We only want to trigger on issue comment events.  |
+    |                | Issue comment                    |  |
 
 Now, the webhook is configured to trigger your function when a new issue comment is added. 
 
 ## Test the function
 1. In your GitHub repository, open the **Issues** tab in a new browser window.
 
-2. In the new window, click **New Issue**, type a title then click **Submit new issue**. 
+2. In the new window, click **New Issue**, type a title, and then click **Submit new issue**. 
 
 2. In the issue, type a comment and click **Comment**. 
 
@@ -87,7 +87,7 @@ Now, the webhook is configured to trigger your function when a new issue comment
 
 You have created a function that runs when a request is received from a GitHub webhook. 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-For more information about webhook tiggers, see [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md). 
+For more information about webhook triggers, see [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md). 
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
