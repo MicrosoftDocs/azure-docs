@@ -1,6 +1,6 @@
 ---
-title: Managing your virtual machine image on the Azure Marketplace | Microsoft Docs
-description: Detailed guide on how to manage your virtual machine image on the Azure Marketplace after initial publication
+title: Managing your virtual machine image in the Azure Marketplace | Microsoft Docs
+description: Detailed guide on how to manage your virtual machine image in the Azure Marketplace after initial publication
 services: Azure Marketplace
 documentationcenter: ''
 author: HannibalSII
