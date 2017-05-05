@@ -15,6 +15,8 @@
 ## 1 - Design a Database
 ### [Azure portal](tutorial-design-database-using-azure-portal.md)
 ### [Azure CLI](tutorial-design-database-using-azure-cli.md)
+## 2 - Create a Web App
+### [Python based app](../app-service-web/?toc=%2fazure%2fpostgresql%2ftoc.json)
 
 # Concepts
 ## DB & Servers
@@ -28,7 +30,7 @@
 ### [Compute Units & Storage Units](concepts-compute-unit-and-storage.md)
 ## Data access & security 
 ### [Firewall rules](concepts-firewall-rules.md)
-### [SSL configuration](concepts-ssl-connection-security.md)
+### [Configuring SSL](concepts-ssl-connection-security.md)
 ## Development
 ### [Connection libraries](concepts-connection-libraries.md)
 
@@ -49,5 +51,4 @@
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/postgresql/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDatabaseforPostgreSQL)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/)
 ## [Region availability](https://azure.microsoft.com/regions/services/)
