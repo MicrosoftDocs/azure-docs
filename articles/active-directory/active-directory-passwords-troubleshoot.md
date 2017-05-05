@@ -28,7 +28,7 @@ If you are having issues with self-service password reset, the items that follow
 | --- | --- |
 | I do not see the **Password Reset** section under Azure AD in the Azure portal | This can happen if you do not have an Azure AD Premium or Basic license assigned to the administrator performing the operation. <br> This can be resolved by assigning a license to the administrator account in question using the article [Assign, verify, and resolve problems with licenses](active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses) |
 | I don't see a particular configuration option | Many elements of the UI are hidden until needed. Try enabling all the options you want to see. |
-| I don't see the **On-premises integration** tab | This option only becomes visible if you have downloaded Azure AD Connect and configured password writeback. For more information about this topic, see the article [Getting started with Azure AD Connect using express settings](/connect/active-directory-aadconnect-get-started-express.md). |
+| I don't see the **On-premises integration** tab | This option only becomes visible if you have downloaded Azure AD Connect and configured password writeback. For more information about this topic, see the article [Getting started with Azure AD Connect using express settings](./connect/active-directory-aadconnect-get-started-express.md). |
 
 ## Troubleshoot password reset reporting
 
