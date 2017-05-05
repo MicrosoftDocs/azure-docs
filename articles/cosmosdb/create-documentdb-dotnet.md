@@ -43,7 +43,6 @@ You can now use Data Explorer to create a collection and add data to your databa
 
     ![Data Explorer in the Azure portal](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer.png)
 
-
     Setting|Suggested value|Description
     ---|---|---
     Database id|Items|The ID for your new database. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space.

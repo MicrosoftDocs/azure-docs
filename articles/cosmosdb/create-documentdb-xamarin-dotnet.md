@@ -40,11 +40,14 @@ You can now use Data Explorer to create a collection.
 
 1. In the Azure portal, in the navigation menu, under **Collections**, click **Data Explorer (Preview)**. 
 2. In the Data Explorer blade, click **New Collection**, then fill in the page using the following information.
-    * In the **Database id** box, enter *Items* as ID for your new database. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space.
-    * In the **Collection id** box, enter *UserItems* as the ID for your new collection. Collection names have the same character requirements as database IDs.
-    * In the **Storage Capacity** box, leave the default 10 GB selected.
-    * In the **Throughput** box, leave the default 400 RUs selected. You can scale up the throughput later if you want to reduce latency.
-    * In the **Partition key** box, enter the value */userid*, so that tasks in the todo app you create can be partitioned by category. Selecting the correct partition key is important in creating a performant collection, read more about it in [Designing for partitioning](../documentdb/documentdb-partition-data.md#designing-for-partitioning).
+
+    Setting|Suggested value|Description
+    ---|---|---
+    Database id|Items|The ID for your new database. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space.
+    Collection id|UserItems|The ID for your new collection. Collection names have the same character requirements as database ids.
+    Storage Capacity| 10 GB|Leave the default value. This is the storage capacity of the database.
+    Throughput|400 RUs|Leave the default value. You can scale up the throughput later if you want to reduce latency.
+    Partition key|/userid|A partition key that will distribute data evenly to each partition. Selecting the correct partition key is important in creating a performant collection, read more about it in [Designing for partitioning](../documentdb/documentdb-partition-data.md#designing-for-partitioning).    
 
    ![Data Explorer in the Azure portal](./media/create-documentdb-xamarin-dotnet/azure-cosmosdb-data-explorer.png)
 
@@ -132,4 +135,4 @@ If you're not going to continue to use this app, use the following steps to dele
 
 ## Next steps
 
-To learn more about the Azure Comsos DB DocumentDB API, see [What is the DocumentDB API?(../documentdb/documentdb-introduction). To learn more about the SQL query language which you can use in the Azure portal and programmatically, see [SQL](../documentdb/documentdb-sql-query.md).
+To learn more about the Azure Comsos DB DocumentDB API, see [What is the DocumentDB API?](../documentdb/documentdb-introduction). To learn more about the SQL query language which you can use in the Azure portal and programmatically, see [SQL](../documentdb/documentdb-sql-query.md).
