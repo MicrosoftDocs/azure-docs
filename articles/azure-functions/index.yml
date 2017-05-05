@@ -37,17 +37,17 @@ sections:
       href: /azure/azure-functions/functions-overview
     - title: Get started with Azure Functions
       image: 
-        src: https://docs.microsoft.com/en-us/azure/azure-functions/media/index/get-started.svg
+        src: https://docs.microsoft.com/en-us/media/common/i_get-started.svg
       href: /azure/azure-functions/functions-create-first-azure-function
-    - title: Get Started with a webhook function
+    - title: Get started with a webhook function
       image: 
-        src: https://docs.microsoft.com/en-us/azure/azure-functions/media/index/get-started.svg
+        src: https://docs.microsoft.com/en-us/media/common/i_get-started.svg
       href: /azure/azure-functions/functions-create-a-web-hook-or-api-function
-    - title: Get Started with an Azure connected function
+    - title: Get started with an Azure connected function
       image: 
-        src: https://docs.microsoft.com/en-us/azure/azure-functions/media/index/get-started.svg
+        src: https://docs.microsoft.com/en-us/media/common/i_get-started.svg
       href: /azure/azure-functions/functions-create-an-azure-connected-function
-    - title: Get Started with an event processing function
+    - title: Get started with an event processing function
       image: 
-        src: https://docs.microsoft.com/en-us/azure/azure-functions/media/index/get-started.svg
+        src: https://docs.microsoft.com/en-us/media/common/i_get-started.svg
       href: /azure/azure-functions/functions-create-an-event-processing-function
