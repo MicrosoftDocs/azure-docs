@@ -13,9 +13,11 @@ ms.topic: article
 ms.date: 05/10/2017
 ---
 # Azure Database for MySQL options and performance: Understand what’s available in each service tier
-Azure Database for MySQL offers three service tiers: Basic, Standard, and Premium. Each service tier has multiple performance levels to handle different workloads. Higher performance levels provide additional resources designed to deliver increasingly higher throughput. You can change performance levels within a service tier dynamically without application downtime.
+Azure Database for MySQL offers the Basic and Standard service tiers. Premium is not yet available.
 
-In addition, it is also possible to change service tiers, for example, upgrade from Basic to Standard service tier and vice versa without application downtime, however, this feature will be available in the future. Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99%, flexible business continuity options, security features, and hourly billing. 
+Each service tier has multiple performance levels to handle different types of workloads requirements. Higher performance levels provide additional resources designed to deliver increasingly higher throughput. You can change performance levels within a service tier dynamically without application downtime.
+
+In the future, it will be possible to upgrade or downgrade from one service tier to another. 
 
 > [!IMPORTANT]
 > The service is currently in public preview, and so does not yet provide a Service Level Agreement (SLA).
@@ -30,7 +32,7 @@ The following table provides examples of the tiers best suited for different app
 | :----------- | :----------------|
 | Basic | Best suited for small workloads that require scalable compute and storage without IOPS guarantee. Examples include servers used for development or testing, or small-scale infrequently used applications. |
 | Standard | The go-to option for cloud applications that need IOPS guarantee with an ability to scale to higher compute and storage independently for high throughput. Examples include web or analytical applications. |
-| Premium | Best suited for workloads that need very low transaction and IO latency along with high IO and workload throughput. Designed for high transactional and analytical workload volume with low latency requirements, supporting many concurrent users. Examples are databases supporting mission critical applications. |
+| Premium | Best suited for workloads that need very brief latencies for transactions and IO, along with high IO and workload throughput. Provides the best support for many concurrent users. Applicable to databases which support mission critical applications.<br />The Premium service tier is not available in preview. |
 | &nbsp; | &nbsp; |
 
 To decide on a service tier, first start by determining if your workload need IOPS guarantee. Then determine the minimum features that you need:

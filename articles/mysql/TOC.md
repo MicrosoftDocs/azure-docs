@@ -13,6 +13,9 @@
 # Tutorials
 ## 1 - Design a Database
 ### [Azure portal](tutorial-design-database-using-portal.md)
+## 2 - Create a Web App
+### [Wordpress - Portal](../app-service-web/app-service-web-create-web-app-from-marketplace.md?toc=%2fazure%2fmysql%2ftoc.json)
+### [PHP - Azure CLI](../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json)
 
 # Concepts
 ## DB & Servers
@@ -24,7 +27,7 @@
 ### [Compute Units & Storage Units](concepts-compute-unit-and-storage.md)
 ## Data access & security 
 ### [Firewall rules](concepts-firewall-rules.md)
-### [SSL configuration](concepts-ssl-connection-security.md)
+### [Configuring SSL](concepts-ssl-connection-security.md)
 ## Development
 ### [Connection libraries](concepts-connection-libraries.md)
 ### [Application development](concepts-database-application-development.md)
@@ -45,5 +48,4 @@
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/mysql/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDatabaseforMySQL)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/)
 ## [Region availability](https://azure.microsoft.com/regions/services/)

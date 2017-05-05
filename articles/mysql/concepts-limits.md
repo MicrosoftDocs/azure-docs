@@ -18,21 +18,23 @@ The Azure Database for MySQL service is in public preview. The following section
 ## Connection limits in each Service Tier
 Azure Database for MySQL has multiple service tiers you can choose from when creating a server. For more information, see [Understand what’s available in each service tier](concepts-service-tiers.md).  There is a maximum number of connections, compute units, and storage in each service tier during the service preview, as follows: 
 
-| ---: | :--- | :--- |
-| Server – Max connections |||
-|| Basic 50 Compute Units | 50 connections |
-|| Basic 100 Compute Units | 100 connections |
-|| Standard 100 Compute Units | 200 connections |
-|| Standard 200 Compute Units | 300 connections |
-|| Standard 400 Compute Units | 400 connections |
-|| Standard 800 Compute Units | 500 connections |
-| Server – Max Compute Units|||
-|| Basic service tier | 100 Compute Units 
-|| Standard service tier | 800 Compute Units |
-| Server – Max storage	|||
-||  Basic service tier | 1 TB
-|| Standard service tier | 1 TB |
+| -------------------------: | :------------------------- | :---------------- |
+|   Server – Max connections |                            |                   |
+|                            | Basic 50 Compute Units     | 50 connections    |
+|                            | Basic 100 Compute Units    | 100 connections   |
+|                            | Standard 100 Compute Units | 200 connections   |
+|                            | Standard 200 Compute Units | 300 connections   |
+|                            | Standard 400 Compute Units | 400 connections   |
+|                            | Standard 800 Compute Units | 500 connections   |
+| Server – Max Compute Units |                            |                   |
+|                            | Basic service tier         | 100 Compute Units |
+|                            | Standard service tier      | 800 Compute Units |
+|       Server – Max storage |                            |                   |
+|                            | Basic service tier         | 1 TB              |
+|                            | Standard service tier      | 1 TB              |
 
+When too many connections are reached, you may receive the following error:
+> ERROR 1040 (08004): Too many connections
 
 ## Preview functional limitations:
 ### Scale operations:
