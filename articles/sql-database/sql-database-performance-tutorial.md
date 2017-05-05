@@ -20,12 +20,12 @@ ms.author: janeng
 ---
 # Troubleshoot performance issues and optimize your database
 
-In this tutorial you will learn how to:
+In this tutorial you learn how to:
 > [!div class="checklist"]
 > * Review and apply recommendations
 > * Set up automatic recommendations
 > * Revert a recommendation
-> * View query resoure usage
+> * View query resource usage
 > * Find long running queries
 
 
@@ -39,17 +39,17 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Review and apply a recommendation
 
-Follow these steps to apply a recommendation made by the system for your database:
+Follow these steps to apply a recommendation from the system for your database:
 
 1. Click the **Performance recommendations** menu in the database blade.
 
     ![performance recommendation](./media/sql-database-performance-tutorial/perf_recommendations.png)
 
-2. From the list of recommendations, select one of the active recommendations. In this example, Create Index.
+2. From the list of recommendations, select an active recommendation. In this example, Create Index.
 
     ![select recommendation](./media/sql-database-performance-tutorial/create_index.png)
 
-3. Apply the recommendation by clicking the **Apply** button. Optionally, you can review the recommendation details and see the T-SQL script that will be executed by clicking on **View Script** button.
+3. Apply the recommendation by clicking the **Apply** button. Optionally, review the recommendation details and see the T-SQL script to  be executed by clicking on **View Script** button.
 
     ![apply recommendation](./media/sql-database-performance-tutorial/apply.png)
 
@@ -59,9 +59,9 @@ Follow these steps to apply a recommendation made by the system for your databas
 
 ## Revert a recommendation
 
-The Database Advisor monitors every recommendation implemented. If a recommendation didn’t benefit to the workload it will be automatically reverted. Manually reverting the recommendation is possible, but not necessary in most cases. To revert a recommendation:
+The Database Advisor monitors every recommendation implemented. If a recommendation doesn't improve the workload it will be automatically reverted. Manually reverting a recommendation is possible, but not necessary in most cases. To revert a recommendation:
 
-1. Go to the performance recommendations menu and select one of the recommendations that was successfully applied.
+1. Go to the performance recommendations menu and select one of the applied recommendations.
 
     ![select recommendation](./media/sql-database-performance-tutorial/select.png)
 
@@ -108,7 +108,7 @@ In this tutorial you learned how to:
 > * Review and apply recommendations
 > * Set up automatic recommendations
 > * Revert a recommendation
-> * View query resoure usage
+> * View query resource usage
 > * Find long running queries
 
 ## Next steps 
