@@ -18,7 +18,7 @@ ms.author: victorh
 
 ---
 # Make virtual machines available to your Azure Stack users
-As an Azure Stack administrator, you can create offers that your users (sometimes referred to as tenants) can subscribe to. Using their subscription, users can then consumer Azure Stack services. For example, they can then add a virtual machine or whatever else you make available in your offer. Your users can now serve themselves when they need additional resources. You are then free to do other tasks, like perhaps make new services available that your users can consume.
+As an Azure Stack administrator, you can create offers that your users (sometimes referred to as tenants) can subscribe to. Using their subscription, users can then consume Azure Stack services. For example, they can then add a virtual machine or whatever else you make available in your offer. Your users can now serve themselves when they need additional resources. You are then free to do other tasks, like perhaps make new services available that your users can consume.
 
 This article shows you how to create an offer, and then test it. 
 For the test, you will log in to the portal as a user, subscribe to the offer, and then create a virtual machine using the subscription.
