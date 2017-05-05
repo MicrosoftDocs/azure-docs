@@ -15,8 +15,6 @@
 ## 1 - Design a Database
 ### [Azure portal](tutorial-design-database-using-azure-portal.md)
 ### [Azure CLI](tutorial-design-database-using-azure-cli.md)
-## 2 - Create a Web App
-### [Python based app](../app-service-web/?toc=%2fazure%2fpostgresql%2ftoc.json)
 
 # Concepts
 ## DB & Servers
