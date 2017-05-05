@@ -14,18 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 04/30/2017
+ms.date: 05/10/2017
 ms.author: mimig
 
 ---
 
 # Azure Cosmos DB: How to query with API for MongoDB?
 
-The Azure Cosmos DB API for MongoDB supports [MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/) shell queries. This article provides sample documents and queries to get you started.
+The Azure Cosmos DB [API for MongoDB](../documentdb/documentdb-protocol-mongodb.md) supports MongoDB shell queries. This article provides sample documents and queries to get you started.
+
+For more information about MongoDB queries, see the [MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/) query documents.
 
 The queries in this article use the following sample document.
 
-**Sample family document**
+## Sample document
 
 ```json
 {
@@ -292,23 +294,8 @@ The next query returns all the families where size of children array is 3.
       db.Family.find( {children: { $size:3} } )
 
 **Results**
+
 No results will be returned as we do not have more than 2 children. Only when parameter is 2 this query will succeed and return the full document.
-
-
-## Clean up resources
-
-If you're not going to continue to use this app, use the following steps to delete all resources created by this quickstart in the Azure portal. If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. 
-
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
-2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
-
-## Clean up resources
-
-If you're not going to continue to use this app, use the following steps to delete all resources created by this quickstart in the Azure portal. If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. 
-
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
-2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
-
 
 ## Next steps
 
