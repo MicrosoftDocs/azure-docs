@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/30/2017
+ms.date: 05/10/2017
 ms.author: mimig
 
 ---
@@ -40,13 +40,17 @@ You can now use Data Explorer to create a collection and add data to your databa
 
 1. In the Azure portal, in the navigation menu, under **Collections**, click **Data Explorer (Preview)**. 
 2. In the Data Explorer blade, click **New Collection**, then fill in the page using the following information.
-    * In the **Database id** box, enter *Items* as ID for your new database. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space.
-    * In the **Collection id** box, enter *ToDoList* as the ID for your new collection. Collection names have the same character requirements as database IDs.
-    * In the **Storage Capacity** box, leave the default 10 GB selected.
-    * In the **Throughput** box, leave the default 400 RUs selected. You can scale up the throughput later if you want to reduce latency.
-    * In the **Partition key** box, for the purpose of this sample, enter the value */category*, so that tasks in the todo app you create can be partitioned by category. Selecting the correct partition key is important in creating a performant collection, read more about it in [Designing for partitioning](../documentdb/documentdb-partition-data.md#designing-for-partitioning).
 
-   ![Data Explorer in the Azure portal](./media/create-documentdb-dotnet-core/azure-cosmosdb-data-explorer.png)
+    ![Data Explorer in the Azure portal](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer.png)
+
+
+    Setting|Suggested value|Description
+    ---|---|---
+    Database id|Items|The ID for your new database. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space.
+    Collection id|ToDoList|The ID for your new collection. Collection names have the same character requirements as database ids.
+    Storage Capacity| 10 GB|Leave the default value. This is the storage capacity of the database.
+    Throughput|400 RUs|Leave the default value. You can scale up the throughput later if you want to reduce latency.
+    Partition key|/category|A partition key that will distribute data evenly to each partition. Selecting the correct partition key is important in creating a performant collection, read more about it in [Designing for partitioning](../documentdb/documentdb-partition-data.md#designing-for-partitioning). 
 
 3. Once the form is filled out, click **OK**.
 
@@ -75,7 +79,7 @@ You can now add data to your new collection using Data Explorer.
 
 ## Clone the sample application
 
-Now let's clone a  DocumentDB API app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's clone a DocumentDB API app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
 1. Open a git terminal window, such as git bash, and `CD` to a working directory.  
 
@@ -89,7 +93,7 @@ Now let's clone a  DocumentDB API app from github, set the connection string, an
 
 ## Review the code
 
-Let's make a quick review of what's happening in the app. Open the DocumentDBRepository.cs file and you'll find that these lines of code create the DocumentDB resources. 
+Let's make a quick review of what's happening in the app. Open the DocumentDBRepository.cs file and you'll find that these lines of code create the Azure Cosmos DB resources. 
 
 * The DocumentClient is initialized.
 
@@ -133,9 +137,9 @@ Now go back to the Azure portal to get your connection string information and co
 ## Build and deploy the web app
 1. In Visual Studio, right-click on the project in **Solution Explorer** and then click **Manage NuGet Packages**. 
 
-2. In the NuGet **Browse** box, type ***Azure DocumentDB***.
+2. In the NuGet **Browse** box, type ***DocumentDB***.
 
-3. From the results, install the **.NET Client library for Azure DocumentDB**. This installs the DocumentDB package as well as all dependencies.
+3. From the results, install the **Microsoft.Azure.DocumentDB** library. This installs the Microsoft.Azure.DocumentDB package as well as all dependencies.
 
 4. Click CTRL + F5 to run the application. Your app displays in your browser. 
 
@@ -160,14 +164,8 @@ If you're not going to continue to use this app, use the following steps to dele
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
-
 ## Next steps
 
-If you're not going to continue to use this app and Azure Cosmos DB, use the following steps to delete all resources created by this quick start in the Azure portal. If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. 
-
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you just created. 
-2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
-
-To learn more about the Azure Comsos DB DocumentDB API, see [What is the DocumentDB API?](../documentdb/documentdb-introduction.md). To learn more about the SQL query language which you can use in the Azure portal and programmatically, see [SQL](../documentdb/documentdb-sql-query.md).
+To learn more about the DocumentDB API, see [What is the DocumentDB API?](../documentdb/documentdb-introduction.md). To learn more about the SQL query language which you can use in the Azure portal and programmatically, see [SQL](../documentdb/documentdb-sql-query.md).
 
 

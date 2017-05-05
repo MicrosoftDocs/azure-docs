@@ -8,6 +8,6 @@ You can now use Data Explorer to create a collection and add data to your databa
     * In the **Throughput** box, leave the default 400 RUs selected. You can scale up the throughput later if you want to reduce latency.
     * In the **Partition key** box, for the purpose of this sample, enter the value */category*, so that tasks in the todo app you create can be partitioned by category. Selecting the correct partition key is important in creating a performant collection, read more about it in [Designing for partitioning](../articles/documentdb/documentdb-partition-data.md#designing-for-partitioning).
 
-   ![Data Explorer in the Azure portal](./media/cosmosdb-create-collection/azure-cosmosdb-data-explorer.png)
+    ![Data Explorer in the Azure portal](./media/cosmosdb-create-collection/azure-cosmosdb-data-explorer.png)
 
 3. Once the form is filled out, click **OK**.
