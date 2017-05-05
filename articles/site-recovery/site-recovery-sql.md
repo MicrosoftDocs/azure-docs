@@ -117,23 +117,23 @@ SQL Always On doesn’t natively support test failover. Therefore, we recommend 
 
 1. Before triggering test failover of the recovery plan, recover the virtual machine from the backup taken in the previous step.
 
-	![Restore from Azure Backup](./media/site-recovery-sql/RestoreFromBackup.png)
+	![Restore from Azure Backup ](./media/site-recovery-sql/restore-from-backup.png)
 
 1. [Force a quorum](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) in the virtual machine restored from backup. 
 
 1. Update IP of the listener to an IP available in the test failover network. 
  
-	![Update Listener IP](./media/site-recovery-sql/UpdateListenerIP.png)
+	![Update Listener IP](./media/site-recovery-sql/update-listener-ip.png)
 
 1. Bring listener online. 
 
-	![Bring Listener Online](./media/site-recovery-sql/BringListenerOnline.png)
+	![Bring Listener Online](./media/site-recovery-sql/bring-listener-online.png)
 
 1. Create a load balancer with one IP created under frontend IP pool corresponding to each availability group listener and with the SQL virtual machine added in the backend pool.
 
-	 ![Create Load Balancer - Frontend IP pool ](./media/site-recovery-sql/CreateLoadBalancer1.png)
+	 ![Create Load Balancer - Frontend IP pool ](./media/site-recovery-sql/create-load-balancer1.png)
 
-	![Create Load Balancer - Backend pool ](./media/site-recovery-sql/CreateLoadBalancer2.png)
+	![Create Load Balancer - Backend pool ](./media/site-recovery-sql/create-load-balancer2.png)
 
 1. Do a test failover of the recovery plan.
 
