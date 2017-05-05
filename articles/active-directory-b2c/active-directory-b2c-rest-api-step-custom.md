@@ -3,9 +3,9 @@ title: 'Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C Us
 description: A topic on Azure Active Directory B2C custom policies integrating with API
 services: active-directory-b2c
 documentationcenter: ''
-author: joroja
+author: rojasja
 manager: krassk
-editor: joroja
+editor: rojasja
 
 ms.assetid:
 ms.service: active-directory-b2c
