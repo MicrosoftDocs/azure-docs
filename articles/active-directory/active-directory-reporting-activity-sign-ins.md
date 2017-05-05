@@ -20,7 +20,7 @@ ms.author: markvi
 ---
 # Sign-in activity reports in the Azure Active Directory portal
 
-With reporting in the [Azure Active Directory portal](Azure AD), you can get the information you need to determine how your environment is doing.
+With Azure Active Directory (Azure AD) reporting in the [Azure portal](https://portal.azure.com), you can get the information you need to determine how your environment is doing.
 
 The reporting architecture in Azure Active Directory consists of the following components:
 
