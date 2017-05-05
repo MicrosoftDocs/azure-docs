@@ -25,17 +25,11 @@ Virtual machines are an on-demand, scalable computing resources offered by Azure
 | Feature | Azure (global) | Azure Stack |
 | --- | --- | --- |
 | Virtual Machine images | The Azure Marketplace contains images that you can use to create a virtual machine. See the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) page to view the list of images that are available in the Azure Marketplace. | By default, there aren’t any images available in the Azure Stack marketplace. The Azure Stack administrator should [publish](azure-stack-add-default-image.md) or [download images](azure-stack-download-azure-marketplace-item.md) to the Azure Stack marketplace before users can use them. |
-
 | Virtual Machine sizes | Azure supports a wide variety of sizes for virtual machines. To learn about the available sizes and options, refer to the [Windows virtual machines sizes](../virtual-machines/virtual-machines-windows-sizes.md) and [Linux virtual machine sizes](../virtual-machines/linux/sizes.md) topics. |Azure Stack supports a subset of Virtual Machine sizes that are available in Azure. To view the list of supported sizes, refer to the [virtual machine sizes](#virtual-machine-sizes) section of this article. |
-
 | Virtual Machine quotas | Quota limits are set by Microsoft | The Azure Stack administrator must assign quotas before they offer virtual machines to their users. |
-
 | Virtual Machine Extensions |Azure supports a wide variety of virtual machine extensions. To learn about the available extensions, refer to the [virtual machine extensions and features](../virtual-machines/windows/extensions-features.md) topic.| Azure Stack supports a subset of extensions that are available in Azure and each of the extension have specific versions. The Azure Stack administrator can choose which extensions can be made available to their tenants. To view the list of supported extensions, refer to the [virtual machine extensions](#virtual-machine-extensions) section of this article. |
-
 | Virtual machine network | <ul><li>Public IP addresses assigned to tenant virtual machine are accessible over the Internet.</li><li>Azure has a fixed DNS name</li> | <ul><li>Public IP addresses assigned to a tenant virtual machine are accessible within the POC environment only. A user must have access to the POC environment via [RDP](azure-stack-connect-azure-stack.md#connect-with-remote-desktop) or [VPN](azure-stack-connect-azure-stack.md#connect-with-vpn) to connect to a virtual machine that is created in Azure Stack.</li><li>The administrator configures the DNS name for an Azure Stack instance. So, all the virtual machines created within a specific Azure Stack instance have a DNS name based on the value that is configured by the administrator.</li> |
-
 | Virtual machine storage | Supports managed disks. | Managed disks are not yet supported in the Azure Stack. |
-
 | API versions | Azure always has the latest API versions for all the virtual machine features. | Azure Stack supports specific Azure services and specific API versions for these services. To view the list of supported API versions, refer to the [API versions](#API-versions) section of this article. |
 
 ## Virtual machine sizes 
