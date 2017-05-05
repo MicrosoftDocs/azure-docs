@@ -19,31 +19,31 @@ ms.author: yagupta
 
 # Encryption of data in Azure Data Lake Store
 
-Encryption in Azure Data Lake Store (ADLS) helps you protect your data, implement enterprise security policies, and meet regulatory compliance requirements. This article provides an overview of the design, and discusses some of the technical aspects of implementation.
+Encryption in Azure Data Lake Store helps you protect your data, implement enterprise security policies, and meet regulatory compliance requirements. This article provides an overview of the design, and discusses some of the technical aspects of implementation.
 
-ADLS supports encryption of data both at rest and in transit. For data at rest, ADLS supports "on by default," transparent encryption. Here is what these terms mean in a bit more detail:
+Data Lake Store supports encryption of data both at rest and in transit. For data at rest, Data Lake Store supports "on by default," transparent encryption. Here is what these terms mean in a bit more detail:
 
-* **On by default:** When you create a new ADLS account, the default setting enables encryption. Thereafter, data that is stored in ADLS is always encrypted prior to storing on persistent media. This is the behavior for all data, and it cannot be changed after an account is created.
-* **Transparent:** ADLS automatically encrypts data prior to persisting, and decrypts data prior to retrieval. The encryption is configured and managed at the ADLS level by an administrator. No changes are made to the data access APIs. Thus, no changes are required in applications and services that interact with ADLS because of encryption.
+* **On by default**: When you create a new Data Lake Store account, the default setting enables encryption. Thereafter, data that is stored in Data Lake Store is always encrypted prior to storing on persistent media. This is the behavior for all data, and it cannot be changed after an account is created.
+* **Transparent**: Data Lake Store automatically encrypts data prior to persisting, and decrypts data prior to retrieval. The encryption is configured and managed at the Data Lake Store level by an administrator. No changes are made to the data access APIs. Thus, no changes are required in applications and services that interact with Data Lake Store because of encryption.
 
-Data in transit (also known as data in motion) is also always encrypted in ADLS. In addition to encrypting data prior to storing to persistent media, the data is also always secured in transit by using HTTPS. HTTPS is the only protocol that is supported for the ADLS REST interfaces. The following diagram shows how data becomes encrypted in ADLS:
+Data in transit (also known as data in motion) is also always encrypted in Data Lake Store. In addition to encrypting data prior to storing to persistent media, the data is also always secured in transit by using HTTPS. HTTPS is the only protocol that is supported for the Data Lake Store REST interfaces. The following diagram shows how data becomes encrypted in Data Lake Store:
 
-![Diagram of data encryption in ADLS](./media/data-lake-store-encryption/fig1.png)
+![Diagram of data encryption in Data Lake Store](./media/data-lake-store-encryption/fig1.png)
 
 
-## Set up encryption with ADLS
+## Set up encryption with Data Lake Store
 
-Encryption for ADLS is set up during account creation, and it is always enabled by default. You can either manage the keys yourself, or allow ADLS to manage them for you (this is the default).
+Encryption for Data Lake Store is set up during account creation, and it is always enabled by default. You can either manage the keys yourself, or allow Data Lake Store to manage them for you (this is the default).
 
 For more information, see [Getting started](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
-## How encryption works in ADLS
+## How encryption works in Data Lake Store
 
-The following information covers how to manage master encryption keys, and also explains the three different types of keys you can use in data encryption for ALDS.
+The following information covers how to manage master encryption keys, and it explains the three different types of keys you can use in data encryption for ALDS.
 
 ### Master encryption keys
 
-ADLS provides two modes for management of master encryption keys (MEKs). For now, assume that the master encryption key is the top-level key. Access to the master encryption key is required to decrypt any data stored in ADLS.
+Data Lake Store provides two modes for management of master encryption keys (MEKs). For now, assume that the master encryption key is the top-level key. Access to the master encryption key is required to decrypt any data stored in Data Lake Store.
 
 The two modes for managing the master encryption key are as follows:
 
@@ -59,18 +59,18 @@ Here is a brief comparison of capabilities provided by the two modes of managing
 |How is data stored?|Always encrypted prior to being stored.|Always encrypted prior to being stored.|
 |Where is the Master Encryption Key stored?|Key Vault|Key Vault|
 |Are any encryption keys stored in the clear outside of Key Vault? |No|No|
-|Can the MEK be retrieved by the Key Vault?|No. Once stored in the Key Vault, it can only be used for encryption and decryption.|No. Once stored in the Key Vault, it can only be used for encryption and decryption.|
-|Who owns the Key Vault and the MEK?|The ADLS service|You own the Key Vault, which belongs in your own Azure subscription. The MEK in the Key Vault can be managed by software or hardware.|
-|Can you revoke access to the MEK for the ADLS service?|No|Yes. You can manage access control lists on the Key Vault, and remove access control entries to the service identity for the ADLS service.|
-|Can you permanently delete the MEK?|No|Yes. If you delete the MEK from the Key Vault, the data in the ADLS account cannot be decrypted by anyone, including the ADLS service. <br><br> If you have explicitly backed up the MEK prior to deleting it from Key Vault, the MEK can be restored, and the data can then be recovered. However, if you have not backed up the MEK prior to deleting it from Key Vault, the data in the ADLS account can never be decrypted thereafter.|
+|Can the MEK be retrieved by Key Vault?|No. After the MEK is stored in Key Vault, it can only be used for encryption and decryption.|No. After the MEK is stored in Key Vault, it can only be used for encryption and decryption.|
+|Who owns the Key Vault instance and the MEK?|The Data Lake Store service|You own the Key Vault instance, which belongs in your own Azure subscription. The MEK in Key Vault can be managed by software or hardware.|
+|Can you revoke access to the MEK for the Data Lake Store service?|No|Yes. You can manage access control lists in Key Vault, and remove access control entries to the service identity for the Data Lake Store service.|
+|Can you permanently delete the MEK?|No|Yes. If you delete the MEK from Key Vault, the data in the Data Lake Store account cannot be decrypted by anyone, including the Data Lake Store service. <br><br> If you have explicitly backed up the MEK prior to deleting it from Key Vault, the MEK can be restored, and the data can then be recovered. However, if you have not backed up the MEK prior to deleting it from Key Vault, the data in the Data Lake Store account can never be decrypted thereafter.|
 
 
-Aside from this difference of who manages the MEK and the Key Vault in which it resides, the rest of the design is the same for both modes.
+Aside from this difference of who manages the MEK and the Key Vault instance in which it resides, the rest of the design is the same for both modes.
 
 It's important to remember the following when you choose the mode for the master encryption keys:
 
-*	You can choose whether to use customer managed keys or service managed keys when you provision an ADLS account.
-*	Once an ADLS account is provisioned, the mode cannot be changed.
+*	You can choose whether to use customer managed keys or service managed keys when you provision a Data Lake Store account.
+*	After a Data Lake Store account is provisioned, the mode cannot be changed.
 
 ### Encryption and decryption of data
 
@@ -78,16 +78,16 @@ There are three types of keys that are used in the design of data encryption. Th
 
 | Key                   | Abbreviation | Associated with | Storage location                             | Type       | Notes                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
-| Master Encryption Key | MEK          | An ADLS account | Key Vault                              | Asymmetric | It can be managed by ADLS or you.                                                              |
-| Data Encryption Key   | DEK          | An ADLS account | Persistent storage, managed by ADLS service | Symmetric  | The DEK is encrypted by the MEK. The encrypted DEK is what is stored on persistent media. |
+| Master Encryption Key | MEK          | A Data Lake Store account | Key Vault                              | Asymmetric | It can be managed by Data Lake Store or you.                                                              |
+| Data Encryption Key   | DEK          | A Data Lake Store account | Persistent storage, managed by Data Lake Store service | Symmetric  | The DEK is encrypted by the MEK. The encrypted DEK is what is stored on persistent media. |
 | Block Encryption Key  | BEK          | A block of data | None                                         | Symmetric  | The BEK is derived from the DEK and the data block.                                                      |
 
 The following diagram illustrates these concepts:
 
-![Figure2](./media/data-lake-store-encryption/fig2.png)
+![Keys in data encryption](./media/data-lake-store-encryption/fig2.png)
 
 #### Pseudo algorithm when a file is to be decrypted:
-1.	Check if the DEK for the ADLS account is cached and ready for use.
+1.	Check if the DEK for the Data Lake Store account is cached and ready for use.
     - If not, then read the encrypted DEK from persistent storage, and send it to Key Vault to be decrypted. Cache the decrypted DEK in memory. It is now ready to use.
 2.	For every block of data in the file:
     - Read the encrypted block of data from persistent storage.
@@ -96,42 +96,42 @@ The following diagram illustrates these concepts:
 
 
 #### Pseudo algorithm when a block of data is to be encrypted:
-1.	Check if the DEK for the ADLS account is cached and ready for use.
+1.	Check if the DEK for the Data Lake Store account is cached and ready for use.
     - If not, then read the encrypted DEK from persistent storage, and send it to Key Vault to be decrypted. Cache the decrypted DEK in memory. It is now ready to use.
 2.	Generate a unique BEK for the block of data from the DEK.
 3.	Encrypt the data block with the BEK, by using AES-256 encryption.
 4.	Store the encrypted data block of data on persistent storage.
 
 > [!NOTE] 
-> For performance reasons, the DEK in the clear is cached in memory for a short time, and is immediately erased afterwards. On persistent media, it is always stored encrypted by the MEK.
+> For performance reasons, the DEK in the clear is cached in memory for a short time, and is immediately erased afterward. On persistent media, it is always stored encrypted by the MEK.
 
 ## Key rotation
 
-When you are using customer-managed keys, you can rotate the MEK. To learn how to set up an ADLS account with customer-managed keys, see [Getting started](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
+When you are using customer-managed keys, you can rotate the MEK. To learn how to set up a Data Lake Store account with customer-managed keys, see [Getting started](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
 ### Prerequisites
 
-When you set up the ADLS account, you have chosen to use your own keys. This option cannot be changed after the account has been created. The following steps assume that you are using customer-managed keys (that is, you have chosen your own keys from your key vault).
+When you set up the Data Lake Store account, you have chosen to use your own keys. This option cannot be changed after the account has been created. The following steps assume that you are using customer-managed keys (that is, you have chosen your own keys from Key Vault).
 
-Note that if you use the default options for encryption, your data is always encrypted by using keys managed by ADLS. In this option, you don't have the ability to rotate keys, as they are managed by ADLS.
+Note that if you use the default options for encryption, your data is always encrypted by using keys managed by Data Lake Store. In this option, you don't have the ability to rotate keys, as they are managed by Data Lake Store.
 
-### How to rotate the MEK in ADLS
+### How to rotate the MEK in Data Lake Store
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Navigate to the Key Vault that stores your keys associated with your ADLS account. Select **Keys**.
+2. Browse to the Key Vault instance that stores your keys associated with your Data Lake Store account. Select **Keys**.
 
     ![Screenshot of Key Vault](./media/data-lake-store-encryption/keyvault.png)
 
-3.	Select the key associated with your ADLS account, and create a new version of this key. Note that ADLS currently only supports key rotation to a new version of a key. It doesn't support rotating to a different key.
+3.	Select the key associated with your Data Lake Store account, and create a new version of this key. Note that Data Lake Store currently only supports key rotation to a new version of a key. It doesn't support rotating to a different key.
 
    ![Screenshot of Keys window, with New Version highlighted](./media/data-lake-store-encryption/keynewversion.png)
 
-4.	Navigate to the ADLS storage account, and select **Encryption**.
+4.	Browse to the Data Lake Store storage account, and select **Encryption**.
 
-    ![Screenshot of ADLS storage account window, with Encryption highlighted](./media/data-lake-store-encryption/select-encryption.png)
+    ![Screenshot of Data Lake Store storage account window, with Encryption highlighted](./media/data-lake-store-encryption/select-encryption.png)
 
 5.	A message notifies you that a new key version of the key is available. Click **Rotate Key** to update the key to the new version.
 
-    ![Screenshot of ADLS window with message and Rotate Key highlighted](./media/data-lake-store-encryption/rotatekey.png)
+    ![Screenshot of Data Lake Store window with message and Rotate Key highlighted](./media/data-lake-store-encryption/rotatekey.png)
 
-This operation should take less than two minutes, and there is no expected downtime due to key rotation. Once the operation is complete, the new version of the key is in use.
+This operation should take less than two minutes, and there is no expected downtime due to key rotation. After the operation is complete, the new version of the key is in use.
