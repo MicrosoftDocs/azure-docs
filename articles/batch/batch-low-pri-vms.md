@@ -31,7 +31,7 @@ most suitable for certain types of workloads. Use low-priority VMs for batch and
 asynchronous processing workloads where the job completion time is flexible and
 the work is distributed across many VMs.
 
-Low-priority VMs are signficantly less expensive than dedicated VMs. For pricing
+Low-priority VMs are significantly less expensive than dedicated VMs. For pricing
 details, see the [Batch Pricing](https://azure.microsoft.com/pricing/details/batch/) page.
 
 ## Use cases for low-priority VMs
@@ -41,8 +41,8 @@ them? In general, batch processing workloads are a good fit, as jobs are broken
 into many parallel tasks or there are many jobs that are scaled out and
 distributed across many VMs.
 
--   To leverage the larger amount of capacity that can be used, suitable jobs
-    will be able to scale-out to leverage that capacity.
+-   To maximize use of surplus capacity in Azure, suitable jobs
+    can scale out.
 
 -   Occasionally VMs may not be available or will be preempted, which will
     result in reduced capacity for jobs and may lead to task interruption and
@@ -226,16 +226,15 @@ support is as follows:
 VMs may occasionally be preempted; when this happens, Batch does the following:
 
 -   The preempted VMs have their state updated to **Preempted**.
--   If there were running tasks on the preempted node VMs, then those tasks will
-    be re-queued and will be re-run.
+-   If tasks were running on the preempted node VMs, then those tasks are requeued and run again.
 -   The VM is effectively deleted, leading to any data stored locally on the VM
     being lost.
--   The pool will continually attempt to seek back to having the target number
-    of low-priority nodes available; when replacement capacity can be found, the
-    nodes will keep their id, but will be re-initialized, going through
+-   The pool continually attempts to reach the target number
+    of low-priority nodes available. When replacement capacity is found, the
+    nodes keep their ids, but are re-initialized, going through
     **Creating** and **Starting** states before they are available for task
     scheduling.
--   Preemption counts are available as a metric in the Azure Portal.
+-   Preemption counts are available as a metric in the Azure portal.
 
 ## Next steps
 
