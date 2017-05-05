@@ -36,60 +36,89 @@ Azure virtual networks enables you to establish secure network connections betwe
 
 ## Deploy Virtual Network and Subnet
 
-For this tutorial, a single virtual network will be created with three subnets. The subnets will be arranged as the following:
+For this tutorial, a single virtual network will be created with three subnets. The subnets will be arranged as the follows:
 
 - **Front-end** – VMs that host internet accessible applications and virtual machines.
 - **Back-end** – VMs that host back-end databases.
 - **Remote access** – hosts a single VM that can be used to remotely access the front-end and back-end VMs.
 
+Create a Resource Group.
+
 ```azurecli
 az group create --name myRGNetwork --location eastus
 ```
 
-Create a virtual network and front-end subnet.
+Us the [az network vnet create]() command to create a virtual network. This command can also create an initial subnet. In this example, the network is named *mvVnet* and is given a address prefix of 10.0.0.0/16. The subnet *mySubnetFrontEnd* and is given a prefix of *10.0.1.0/24*.
 
 ```azurecli
 az network vnet create --resource-group myRGNetwork --name myVnet --address-prefix 10.0.0.0/16 --subnet-name mySubnetFrontEnd --subnet-prefix 10.0.1.0/24
 ```
 
-Create back-end subnet.
+A new subnet will be added to the virtual network using the [az network vnet subnet create]() comment. In this example the subnet is named *mySubnetBackEnd* and will be used with all back-end services.
 
 ```azurecli
 az network vnet subnet create --resource-group myRGNetwork --vnet-name myVnet --name mySubnetBackEnd --address-prefix 10.0.2.0/24
 ```
 
-Create remote access subnet.
+Finally create a subnet for the remote access systems.
 
 ```azurecli
 az network vnet subnet create --resource-group myRGNetwork --vnet-name myVnet --name mySubnetRemoteAccess --address-prefix 10.0.3.0/24
 ```
 
-## Deploy front-end VM
+In the next section, virtual machines will be created and connected to these subnets.
 
-```azurecli
-az vm create --resource-group myRGNetwork --name myFrontEndVM --vnet-name myVnet --subnet mySubnetFrontEnd --nsg myNSGFrontEnd --image UbuntuLTS --generate-ssh-keys --no-wait
-```
+## Create public IP address
 
-## Deploy back-end VM
+A public IP address allows Azure resources to be accessible on the internet. In this section of the tutorial multiple VMs will be created to demonstrate how to work with public IP addresses.
 
-```azurecli
-az vm create --resource-group myRGNetwork --name myBackEndVM --vnet-name myVnet --subnet mySubnetBackEnd --nsg myNSGBackEnd --public-ip-address "" --image UbuntuLTS --generate-ssh-keys --no-wait
-```
+### Allocation method
 
-## Deploy remote access VM
+A public IP address can be allocated as either dynamic or static. The default public IP address allocation method is dynamic, where the IP address is released when the VM is stopped. This causes the IP address to change during any operation that includes a VM deallocation.
+
+The allocation method can be set to static which ensures that the IP address will remain assigned to a VM, even during a deallocated state. When using a statically allocated IP address, the IP address cannot be specified. Instead it is allocated from a pool of available addresses.
+
+### Dynamic allocation
+
+When creating a VM with the [ az vm create]() command, the default public IP address allocation method is dynamic. In the following example, a VM is created with a dynamic IP address. 
 
 ```azurecli
 az vm create --resource-group myRGNetwork --name myRemoteAccessVM --vnet-name myVnet --subnet mySubnetRemoteAccess --nsg myNSGRemoteAccess --image UbuntuLTS --generate-ssh-keys
 ```
 
-## Configure front-end NSG
+### Static allocation
+
+To create a VM with a statically allocated IP address, the `--public-ip-address-allocation` argument can be used with a value of `static`. 
+
+```azurecli
+az vm create --resource-group myRGNetwork --name myFrontEndVM --vnet-name myVnet --subnet mySubnetFrontEnd --nsg myNSGFrontEnd --public-ip-address myFrontEndIP --public-ip-address-allocation static ---image UbuntuLTS --generate-ssh-keys --no-wait
+```
+
+### Change allocation method
+
+The IP address allocation method can be changed to using the [az network public-ip update]() command. In this example, the IP address allocation method of the VM created in the last step is changed to dynamic.
+
+```azurecli
+az network public-ip update --name myFrontEndIP --allocation-method Dynamic
+```
+
+### No public IP address
+
+In many cases, a VM does not need to be accessible over the internet. To create a VM without a public IP address use the ` --private-ip-address` argument with an empty set of double quotes.
+
+```azurecli
+az vm create --resource-group myRGNetwork --name myBackEndVM --vnet-name myVnet --subnet mySubnetBackEnd --nsg myNSGBackEnd --public-ip-address "" --image UbuntuLTS --generate-ssh-keys --no-wait
+```
+
+## Secure network traffic
+
+### Secure incoming traffic
 
 ```azurecli
 az network nsg rule create --resource-group myRGNetwork --nsg-name myNSGFrontEnd --name http --access allow --protocol Tcp --direction Inbound --priority 200 --source-address-prefix "*" --source-port-range "*" --destination-address-prefix "*" --destination-port-range 80
 ```
 
-## Configure back-end NSG
-
+### Secure VM to VM traffic
 
 ```azurecli
 nsgrule=$(az network nsg rule list --resource-group myRGNetwork --nsg-name myNSGBackEnd --query [0].name -o tsv)
