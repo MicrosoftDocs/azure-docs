@@ -18,7 +18,7 @@ ms.author: cephalin
 
 ---
 # Build a PHP and MySQL web app in Azure
-This tutorial shows you how to create a PHP web app in Azure and connect it to a MySQL database. When you are finished, you will have a [Laravel](https://laravel.com/) application running on [Azure App Service Web Apps](app-service-web-overview.md).
+This tutorial shows you how to create a PHP web app in Azure and connect it to a MySQL database. When you are finished, you'll have a [Laravel](https://laravel.com/) application running on [Azure App Service Web Apps](app-service-web-overview.md).
 
 ![PHP app running in Azure App Service](./media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
 
@@ -145,7 +145,7 @@ To stop PHP at any time, type `Ctrl`+`C` in the terminal.
 
 ## Create production MySQL in Azure
 
-In this step, you create a MySQL database in [Azure Database for MySQL (Preview)](/azure/mysql). Later, you will configure your PHP application to connect to this database.
+In this step, you create a MySQL database in [Azure Database for MySQL (Preview)](/azure/mysql). Later, you'll configure your PHP application to connect to this database.
 
 ### Log in to Azure
 
@@ -277,7 +277,7 @@ Run Laravel database migrations with _.env.production_ as the environment file t
 php artisan migrate --env=production --force
 ```
 
-Since _.env.production_ doesn't have a valid application key yet, generate a new one for it in the terminal. 
+_.env.production_ doesn't have a valid application key yet. Generate a new one for it in the terminal. 
 
 ```bash
 php artisan key:generate --env=production --force
@@ -301,7 +301,7 @@ To stop PHP at any time, type `Ctrl`+`C` in the terminal.
 
 You need to make sure that the sensitive data in _.env.production_ is not committed into Git.
 
-To do this, open _.gitignore_ from the repository root and add a new line like this:
+To do this, open _.gitignore_ from the repository root and add the filename in a new line:
 
 ```
 .env.production
@@ -365,7 +365,7 @@ When the App Service plan is created, the Azure CLI shows information similar to
 
 Now that an App Service plan has been created, create a web app within the _myAppServicePlan_ App Service plan. The web app gives you a hosting space to deploy your code and provides a URL for you to view the deployed application. Use the [az appservice web create](/cli/azure/appservice/web#create) command to create the web app. 
 
-In the following command, substitute the _&lt;appname>_ placeholder with your own unique app name. This unique name will be used as the part of the default domain name for the web app, so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the web app before you expose it to your users. 
+In the following command, substitute the _&lt;appname>_ placeholder with your own unique app name. This unique name is used as the part of the default domain name for the web app, so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the web app before you expose it to your users. 
 
 ```azurecli
 az appservice web create \
@@ -410,7 +410,7 @@ As pointed out previously, you can connect to your Azure MySQL database using en
 
 In App Service, you set environment variables as _app settings_ by using the [az appservice web config appsettings update](/cli/azure/appservice/web/config/appsettings#update) command. 
 
-The following command lets you configure the app settings `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` and `DB_PASSWORD`. Replace the placeholders _&lt;appname>_, _&lt;mysql_server_name>_, _&lt;phpapp_user>_, and _&lt;phpapp_password>_.
+The following command lets you configure the app settings `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD`. Replace the placeholders _&lt;appname>_, _&lt;mysql_server_name>_, _&lt;phpapp_user>_, and _&lt;phpapp_password>_.
 
 ```azurecli
 az appservice web config appsettings update \
@@ -434,7 +434,7 @@ You can use the PHP [getenv()](http://www.php.net/manual/function.getenv.php) me
 
 ### Configure Laravel environment variables
 
-Just like on your local machine, Laravel needs an application key in App Service. You can configure this with app settings too.
+Just like on your local machine, Laravel needs an application key in App Service. You can configure it with app settings too.
 
 Use `php artisan` to generate a new application key without saving it to _.env_.
 
@@ -579,7 +579,7 @@ Browse to `http://<app_name>.azurewebsites.net` and add a few tasks to the list.
 
 In this step, you make some changes to the `task` data model and publish your changes to Azure.
 
-For the tasks scenario, you want to modify your application so that you can mark a tasks as complete. 
+For the tasks scenario, you want to modify your application so that you can mark a task as complete. 
 
 ### Add a column
 
