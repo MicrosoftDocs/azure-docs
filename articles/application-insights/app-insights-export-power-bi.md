@@ -90,7 +90,23 @@ This can happen if your refesh token has not been updated. Try these steps to en
 ### 502 Bad Gateway
 This is usually caused by an Analytics query that returns too much data. You should try using a smaller time range or by using the [ago](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#ago) or [startofweek/startofmonth](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#startofweek) functions only [project](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#project-operator) the fields you need.
 
-If reducing the dataset coming from the Analytics query doesn't meet your requirements you should consider using the [API](https://dev.applicationinsights.io/documentation/overview) to pull a larger dataset. Use [this article](https://dev.applicationinsights.io/documentation/Using-the-API/Power-BI) to get started. If either of these methods do not help, please open a support ticket.
+If reducing the dataset coming from the Analytics query doesn't meet your requirements you should consider using the [API](https://dev.applicationinsights.io/documentation/overview) to pull a larger dataset. Here are instructions on how to convert the M-Query export to use the API.
+
+1. Create an [API Key](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)
+2. Update the Power BI M script that you exported from Analytics by replacing the ARM URL with AI API (see example below)
+   * Replace **https://management.azure.com/subscriptions/...**
+   * with, **https://api.applicationinsights.io/beta/apps/...**
+3. Finally, update credentials to basic, and use your API Key
+  
+
+**Existing Script**
+ ```
+ Source = Json.Document(Web.Contents("https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups//providers/microsoft.insights/components//api/query?api-version=2014-12-01-preview",[Query=[#"csl"="requests",#"x-ms-app"="AAPBI"],Timeout=#duration(0,0,4,0)]))
+ ```
+**Updated Script**
+ ```
+ Source = Json.Document(Web.Contents("https://api.applicationinsights.io/beta/apps/<APPLICATION_ID>/query?api-version=2014-12-01-preview",[Query=[#"csl"="requests",#"x-ms-app"="AAPBI"],Timeout=#duration(0,0,4,0)]))
+ ```
 
 ## About sampling
 If your application sends a lot of data, the adaptive sampling feature may operate and send only a percentage of your telemetry. The same is true if you have manually set sampling either in the SDK or on ingestion. [Learn more about sampling.](app-insights-sampling.md)
