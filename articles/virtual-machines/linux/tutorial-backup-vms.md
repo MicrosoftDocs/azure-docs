@@ -61,8 +61,13 @@ The first backup takes about 20 minutes. Proceed to the next part of this tutori
 
 If you accidentally delete or make changes to a file, you can use File Recovery to recover the file from your backup vault. File Recovery uses a script that runs on the VM, to mount the recovery point as local drive. These drives will remain mounted for 12 hours so that you can copy files from the recovery point and restore them to the VM.  
 
-In this example, we show how to recover the default nginx web page /var/www/html/index.nginx-debian.html. The public IP address of our VM in this example is *13.69.75.209*. You can find the IP address of your vm using `az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv`.
+In this example, we show how to recover the default nginx web page /var/www/html/index.nginx-debian.html. The public IP address of our VM in this example is *13.69.75.209*. You can find the IP address of your vm using:
 
+ ```bash 
+ az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
+ ```
+
+ 
 1. On your local computer, open a browser and type in the public IP address of your VM to see the default nginx web page.
 
 	![Default nginx web page](./media/tutorial-backup-vms/nginx-working.png)
@@ -90,10 +95,10 @@ In this example, we show how to recover the default nginx web page /var/www/html
 10. In **Step 1: Select recovery point**, select a recovery point from the drop-down.
 11. In **Step 2: Download script to browse and recover files**, click the **Download Executable** button. Save the downloaded file to your local computer.
 7. Click **Download script** to download the script file locally.
-8. Open a Bash prompt and type the following, replacing *Linux_myVM_05-02-2017.sh* with the correct path and filename for the script that you downloaded, *azureuser* with the username for the VM and *13.69.75.209* with the public IP address for your VM.
+8. Open a Bash prompt and type the following, replacing *Linux_myVM_05-05-2017.sh* with the correct path and filename for the script that you downloaded, *azureuser* with the username for the VM and *13.69.75.209* with the public IP address for your VM.
     
 	```bash
-	scp Linux_myVM_05-02-2017.sh azureuser@13.69.75.209:
+	scp Linux_myVM_05-05-2017.sh azureuser@13.69.75.209:
 	```
 	
 9. On your local computer, open an SSH connection to the VM.
@@ -105,18 +110,18 @@ In this example, we show how to recover the default nginx web page /var/www/html
 10. On your VM, add execute permissions to the script file.
 
     ```bash
-	chmod +x Linux_myVM_05-02-2017.sh
+	chmod +x Linux_myVM_05-05-2017.sh
 	```
 	
 11. On your VM, run the script to mount the recovery point as a filesystem.
 
     ```bash
-	./Linux_myVM_05-02-2017.sh
+	./Linux_myVM_05-05-2017.sh
 	```
 	
 12. The output from the script will give you the path for the mount point. The output will look similar to this:
 
-    ```
+    ```bash
 	Microsoft Azure VM Backup - File Recovery
 	______________________________________________
                           
