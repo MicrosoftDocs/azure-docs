@@ -53,7 +53,7 @@ The following steps show you how to create a self-signed root certificate using 
   -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
   ```
 
-### <a name="cer"></a>To obtain the public key
+### <a name="cer"></a>Export the public key (.cer)
 
 [!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
 
