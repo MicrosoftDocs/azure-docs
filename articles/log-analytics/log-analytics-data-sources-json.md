@@ -3,7 +3,7 @@ title: Collecting custom JSON data in OMS Log Analytics | Microsoft Docs
 description: Custom JSON data sources can be collected into Log Analytics using the OMS Agent for Linux.  These custom data sources can be simple scripts returning JSON such as curl or one of FluentD's 300+ plugins. This article describes the configuration required for this data collection.
 services: log-analytics
 documentationcenter: ''
-author: bwren
+author: mgoedtel
 manager: carmonm
 editor: tysonn
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/04/2017
-ms.author: bwren
+ms.date: 05/04/2017
+ms.author: magoedte
 
 ---
 # Collecting custom JSON data sources with the OMS Agent for Linux in Log Analytics
@@ -24,26 +24,6 @@ Custom JSON data sources can be collected into Log Analytics using the OMS Agent
 > OMS Agent for Linux v1.1.0-217+ is required for Custom JSON Data
 
 ## Configuration
-
-### Configure output plugin
-Add the following output plugin configuration to the main configuration in  `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` or as a separate configuration file placed in `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`
-
-
-```
-<match oms.api.**>
-  type out_oms_api
-  log_level info
-
-  buffer_chunk_limit 5m
-  buffer_type file
-  buffer_path /var/opt/microsoft/omsagent/<workspace id>/state/out_oms_api*.buffer
-  buffer_queue_limit 10
-  flush_interval 20s
-  retry_limit 10
-  retry_wait 30s
-</match>
-```
-
 
 ### Configure input plugin
 
@@ -67,6 +47,27 @@ For example, following is a separate configuration file `exec-json.conf` in `/et
   buffer_chunk_limit 5m
   buffer_type file
   buffer_path /var/opt/microsoft/omsagent/<workspace id>/state/out_oms_api_httpresponse*.buffer
+  buffer_queue_limit 10
+  flush_interval 20s
+  retry_limit 10
+  retry_wait 30s
+</match>
+```
+The configuration file added under `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/` will require to have its ownership changed with the following command.
+
+`sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/exec-json.conf`
+
+### Configure output plugin 
+Add the following output plugin configuration to the main configuration in `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` or as a separate configuration file placed in `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`
+
+```
+<match oms.api.**>
+  type out_oms_api
+  log_level info
+
+  buffer_chunk_limit 5m
+  buffer_type file
+  buffer_path /var/opt/microsoft/omsagent/<workspace id>/state/out_oms_api*.buffer
   buffer_queue_limit 10
   flush_interval 20s
   retry_limit 10
@@ -100,4 +101,4 @@ Nested JSON data sources are supported, but are indexed based off of parent fiel
 
 ## Next steps
 * Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions. 
-* [Configure Linux agents](log-analytics-linux-agents.md) to collect other types of data. 
+ 

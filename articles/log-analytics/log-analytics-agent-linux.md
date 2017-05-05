@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 05/04/2017
 ms.author: magoedte
 ---
 
@@ -60,26 +60,26 @@ The agent is comprised of multiple packages. The release file contains the follo
 
 **Package** | **Version** | **Description**
 ----------- | ----------- | --------------
-omsagent | 1.1.0 | The Operations Management Suite Agent for Linux
+omsagent | 1.3.4 | The Operations Management Suite Agent for Linux
 omsconfig | 1.1.1 | Configuration agent for the OMS Agent
-omi | 1.0.8.3 | Open Management Infrastructure (OMI) - a lightweight CIM Server
-scx | 1.6.2 | OMI CIM Providers for operating system performance metrics
-apache-cimprov | 1.0.0 | Apache HTTP Server performance monitoring provider for OMI. Installed if Apache HTTP Server is detected.
-mysql-cimprov | 1.0.0 | MySQL Server performance monitoring provider for OMI. Installed if MySQL/MariaDB server is detected.
-docker-cimprov | 0.1.0 | Docker provider for OMI. Installed if Docker is detected.
+omi | 1.2.0 | Open Management Infrastructure (OMI) - a lightweight CIM Server
+scx | 1.6.3 | OMI CIM Providers for operating system performance metrics
+apache-cimprov | 1.0.1 | Apache HTTP Server performance monitoring provider for OMI. Installed if Apache HTTP Server is detected.
+mysql-cimprov | 1.0.1 | MySQL Server performance monitoring provider for OMI. Installed if MySQL/MariaDB server is detected.
+docker-cimprov | 1.0.0 | Docker provider for OMI. Installed if Docker is detected.
 
 ### Compatibility with System Center Operations Manager
 The OMS Agent for Linux shares agent binaries with the System Center Operations Manager agent. Installing the OMS Agent for Linux on a system currently managed by Operations Manager upgrades the OMI and SCX packages on the computer to a newer version. In this release, the OMS and System Center 2016 - Operations Manager/Operations Manager 2012 R2 agents for Linux are compatible. 
 
 > [!NOTE]
 > System Center 2012 SP1 and earlier versions are currently not compatible or supported with the OMS Agent for Linux.<br>
-> If the OMS Agent for Linux is installed to a computer that is not currently monitored by Operations Manager, and you then wish to monitor the computer with Operations Manager, you must modify the OMI configuration prior to discovering the computer. **This step is *not* needed if the Operations Manager agent is installed before the OMS Agent for Linux.**
+> If the OMS Agent for Linux is installed to a computer that is not currently monitored by Operations Manager, and you then wish to monitor the computer with Operations Manager, you must modify the [OMI configuration](#enable-the-oms-agent-for-linux-to-report-to-system-center-operations-manager) prior to discovering the computer. **This step is *not* needed if the Operations Manager agent is installed before the OMS Agent for Linux.**
 
 ### System configuration changes
 After installing the OMS Agent for Linux packages, the following additional system-wide configuration changes are applied. These artifacts are removed when the omsagent package is uninstalled.
 
 * A non-privileged user named: `omsagent` is created. This is the account the omsagent daemon runs as.
-* A sudoers “include” file is created at /etc/sudoers.d/omsagent This authorizes omsagent to restart the syslog and omsagent daemons. If sudo “include” directives are not supported in the installed version of sudo, these entries will be written to /etc/sudoers.
+* A sudoers “include” file is created at /etc/sudoers.d/omsagent. This authorizes omsagent to restart the syslog and omsagent daemons. If sudo “include” directives are not supported in the installed version of sudo, these entries will be written to /etc/sudoers.
 * The syslog configuration is modified to forward a subset of events to the agent. For more information, see the **Configuring Data Collection** section below
 
 ### Upgrade from a previous release
@@ -143,11 +143,6 @@ sudo sh ./omsagent-1.3.0-1.universal.x64.sh --upgrade -w <workspace id> -s <shar
 #### To install the agent packages and onboard at a later time
 ```
 sudo sh ./omsagent-1.3.0-1.universal.x64.sh --upgrade
-```
-
-#### To install and onboard to a non-primary workspace
-```
-sudo sh ./omsagent-1.3.0-1.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -m <multi-homing marker>
 ```
 
 #### To extract the agent packages from the bundle without installing
@@ -222,55 +217,13 @@ sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key>
 1.	Create the file `/etc/omsagent-onboard.conf` The file must be readable and writable for root.
 `sudo vi /etc/omsagent-onboard.conf`
 2.	Insert the following lines in the file with your Workspace ID and Shared Key:
-```
-WORKSPACE_ID=<WorkspaceID>
-SHARED_KEY=<Shared Key>
-```
+
+        WORKSPACE_ID=<WorkspaceID>  
+        SHARED_KEY=<Shared Key>  
+   
 3.	Run the following command to Onboard to OMS:
 `sudo /opt/microsoft/omsagent/bin/omsadmin.sh`
 4.	The file will be deleted on successful onboarding
-
-### Onboard a secondary workspace
-Since version 1.3.0-1, the OMS agent supports to onboard the agent to multiple workspaces.
-Run the omsadmin.sh command supplying the workspace id and key for your workspace, and -m to indicate secondary workspace:
-```
-cd /opt/microsoft/omsagent/bin
-sudo ./omsadmin.sh -w <workspace id> -s <shared key> -m <multi-homing marker>
-```
->[!NOTE]
-> The OMS Agent for Linux is unable to pull configuration from the OMS secondary workspace  automatically.  
-
-### Onboard a secondary workspace using a file
-Reference [Onboarding using a file](#onboarding-using-a-file)
-
-Add the following line into `/etc/omsagent-onboard.conf`
-```
-MULTI_HOMING_MARKER=<any string, e.g. MySecondaryWS>
-```
-
-## Manage Workspaces
-Since version 1.3.0-1, the OMS agent supports onboarding to multiple workspaces. Here are the commands for workspace management:
-
-### List all workspaces
-```
-sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -l
-```
-
-Sample result for an agent onboarded to 2 workspaces:
-```
-Primary Workspace: 000c7bcd-28d2-453a-84bd-8523e396f600    Success(OMSAgent Registered)
-Workspace(MySecondaryWS): ffffb0c0-7fac-4159-987c-000271282eff    Success(OMSAgent Registered)
-```
-
-### Remove a workspace
-```
-sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -x <workspace id>
-```
-
-### Remove all workspaces
-```
-sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -X
-```
 
 ## Manage omsagent daemon
 Starting with version 1.3.0-1, we register omsagent daemon for each onboarded workspace. The daemon name is *omsagent-\<workspace-id>*.  You can use `/opt/microsoft/omsagent/bin/service_control` command to operate the daemon.

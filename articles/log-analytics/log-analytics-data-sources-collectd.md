@@ -3,7 +3,7 @@ title: Collect data from CollectD in OMS Log Analytics | Microsoft Docs
 description: CollectD is an open source Linux daemon that periodically collects data from applications and system level information.  This article provides information on collecting data from CollectD in Log Analytics.
 services: log-analytics
 documentationcenter: ''
-author: bwren
+author: mgoedtel
 manager: carmonm
 editor: tysonn
 
@@ -13,17 +13,57 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/04/2017
-ms.author: bwren
+ms.date: 05/02/2017
+ms.author: magoedte
 
 ---
 # Collect data from CollectD on Linux agents in Log Analytics
-[CollectD](https://collectd.org/) is an open source Linux daemon that periodically collects data from applications and system level information. Example applications include the Java Virtual Machine (JVM), MySQL Server, and Nginx. This article provides information on collecting data from CollectD in Log Analytics.
+[CollectD](https://collectd.org/) is an open source Linux daemon that periodically collects performance metrics from applications and system level information. Example applications include the Java Virtual Machine (JVM), MySQL Server, and Nginx. This article provides information on collecting performance data from CollectD in Log Analytics.
 
 A full list of available plugins can be found at [Table of Plugins](https://collectd.org/wiki/index.php/Table_of_Plugins).
 
-
 ![CollectD overview](media/log-analytics-data-sources-collectd/overview.png)
+
+The following CollectD configuration is included in the OMS Agent for Linux to route  CollectD data to the OMS Agent for Linux.
+
+    LoadPlugin write_http
+
+    <Plugin write_http>
+         <Node "oms">
+         URL "127.0.0.1:26000/oms.collectd"
+         Format "JSON"
+         StoreRates true
+         </Node>
+    </Plugin>
+
+Additionally, if using an versions of collectD before 5.5 use the following configuration instead.
+
+    LoadPlugin write_http
+
+    <Plugin write_http>
+       <URL "127.0.0.1:26000/oms.collectd">
+        Format "JSON"
+         StoreRates true
+       </URL>
+    </Plugin>
+
+The CollectD configuration uses the default`write_http` plugin to send performance metric data over port 26000 to OMS Agent for Linux. 
+
+> [!NOTE]
+> This port can be configured to a custom-defined port if needed.
+
+The OMS Agent for Linux also listens on port 26000 for CollectD metrics and then converts them to OMS schema metrics. The following is the OMS Agent for Linux configuration  `collectd.conf`.
+
+    <source>
+      type http
+      port 26000
+      bind 127.0.0.1
+    </source>
+
+    <filter oms.collectd>
+      type filter_collectd
+    </filter>
+
 
 ## Versions supported
 - Log Analytics currently supports CollectD version 4.8 and above.
@@ -31,74 +71,37 @@ A full list of available plugins can be found at [Table of Plugins](https://coll
 
 
 ## Configuration
-There basic steps to configure collection of CollectD data in Log Analytics.
+The following are basic steps to configure collection of CollectD data in Log Analytics.
 
 1. Configure CollectD to send data to the OMS Agent for Linux using the write_http plugin.  
 2. Configure the OMS Agent for Linux to listen for the CollectD data on the appropriate port.
 3. Restart CollectD and OMS Agent for Linux.
 
-
-### Installation program
-If you [install the OMS Agent for Linux](http://github.com/Microsoft/OMS-Agent-for-Linux) using the **–collectd** switch, both configuration files are installed with default settings. This configures both CollectD sending data to the agent and the agent listening for CollectD data.
-
-	sudo sh ./omsagent-1.2.0-25.universal.x64.sh --upgrade --collectd -w <YOUR OMS WORKSPACE ID> -s <YOUR OMS WORKSPACE PRIMARY KEY>
-
-If OMS Agent for Linux is already installed on your machine, you can run the following command to copy the configuration file.
-
-	sudo /opt/microsoft/omsagent/bin/omsadmin.sh –c
-
 ### Configure CollectD to forward data 
-CollectD is instructed to forward data to the OMS Agent for Linux using write_http with the `oms.conf` configuration file.  The default version of this file that sends CollectD data to port 26000 is included with the OMS Agent for Linux installation and is automatically copied to **/etc/collectd/collectd.conf.d** by the installation program.  
 
-Following is the contents of the default version of `oms.conf`.  This is valid for CollectD version 5.5 and later.
+1. To route CollectD data to the OMS Agent for Linux, `oms.conf` needs to be added to CollectD's configuration directory. The destination of this file depends on the Linux  distro of your machine.
 
-	LoadPlugin write_http
-	
-	<Plugin write_http>
-	         <Node "oms">
-	         URL "127.0.0.1:26000/oms.collectd"
-	         Format "JSON"
-	         StoreRates true
-	         </Node>
-	</Plugin>
+    If your CollectD config directory is located in /etc/collectd.d/:
 
+        sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd.d/oms.conf
 
-For versions of CollectD before 5.5, modify `oms.conf` to the following format.
+    If your CollectD config directory is located in /etc/collectd/collectd.conf.d/:
 
-	LoadPlugin write_http
-		
-	<Plugin write_http>
-	       <URL "127.0.0.1:26000/oms.collectd">
-	        Format "JSON"
-	         StoreRates true
-	       </URL>
-	</Plugin>
+        sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd/collectd.conf.d/oms.conf
 
+    >[!NOTE]
+    >For CollectD versions before 5.5 you will have to modify the tags in `oms.conf` as shown above.
+    >
 
+2. Copy collectd.conf to the desired workspace's omsagent configuration directory.
 
-### Configure OMS Agent for Linux to listen for CollectD data
-The OMS Agent for Linux is instructed to listen for CollectD data with the `collectd.conf` configuration file. The default version of this file that listens on port 26000 is included with the OMS Agent for Linux installation and is automatically copied to **/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/** by the installation program.  
+        sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/collectd.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/
+        sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/collectd.conf
 
-
-Following is the contents of the default version of `collectd.conf`.
-
-	<source>
-	 type http
-	  port 26000
-	  bind 127.0.0.1
-	</source>
-	
-	<filter oms.collectd>
-	  type filter_collectd
-	</filter>
-
-
-### Restart CollectD and OMS Agent for Linux
-You can restart CollectD and OMS Agent for Linux with the following commands.
+3. Restart CollectD and OMS Agent for Linux with the following commands.
 
     sudo service collectd restart
     sudo /opt/microsoft/omsagent/bin/service_control restart
-
 
 ## CollectD metrics to Log Analytics schema conversion
 To maintain a familiar model between infrastructure metrics already collected by OMS Agent for Linux and the new metrics collected by CollectD the following schema mapping is used:
@@ -117,4 +120,4 @@ To maintain a familiar model between infrastructure metrics already collected by
 ## Next steps
 * Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions. 
 * Use [Custom Fields](log-analytics-custom-fields.md) to parse data from syslog records into individual fields.
-* [Configure Linux agents](log-analytics-linux-agents.md) to collect other types of data. 
+
