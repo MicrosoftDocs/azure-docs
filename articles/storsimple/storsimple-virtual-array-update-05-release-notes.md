@@ -50,7 +50,7 @@ The following table provides a summary of issues fixed in this release.
 | --- | --- | --- |
 | 1 |Backup resiliency| In the earlier releases, backups were retried only for certain exceptions. This release contains a fix to make backups more resilient by retrying all the backup exceptions.|
 | 2 |Monitoring| The storage usage monitoring service will be deprecated starting June 30, 2017. This action impacts the monitoring charts on the StorSimple Device Manager service. This release has fixes that would allow the user to continue the use of storage usage monitoring on the virtual arrays beyond June 30, 2017.|
-| 3 |File server| In the earlier releases, a user could copy encrypted files to the virtual array. This release contains a fix that would not allow copying of encrypted files to virtual array. |
+| 3 |File server| In the earlier releases, a user could copy encrypted files to the virtual array. This release contains a fix that would not allow copying of encrypted files to virtual array. If your device has existing encrypted files prior to the update, backups will continue to fail until all the encrypted files are deleted from the system. |
 
 
 
