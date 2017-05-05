@@ -5,7 +5,7 @@
 - name: Get started
   items:
    - name: C#(REST API)  
-    href: GetStarted/GetStartedJS.md
+    href: GetStarted/GetStartedREST.md
    - name: JavaScript(Websocket API)    
     href: GetStarted/GetStartedJSWebsockets.md
    - name: C#(Client Library)
