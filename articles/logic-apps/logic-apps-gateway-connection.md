@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 05/3/2017
-ms.author: LADocs; dimazaid
+ms.date: 05/5/2017
+ms.author: LADocs; dimazaid; estfan
 
 ---
 # Access data sources on premises from logic apps with the on-premises data gateway
