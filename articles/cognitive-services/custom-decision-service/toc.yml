@@ -9,6 +9,6 @@
   - name: Call API from an app
     href: custom-decision-service/custom-decision-service-get-started-app.md
 - name: Tutorial
-    href: custom-decision-service/custom-decision-service-tutorial.md
+  href: custom-decision-service/custom-decision-service-tutorial.md
 - name: API reference
-    href: custom-decision-service/custom-decision-service-api-reference.md
+  href: custom-decision-service/custom-decision-service-api-reference.md
