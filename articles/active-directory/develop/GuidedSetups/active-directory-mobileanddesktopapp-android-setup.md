@@ -51,7 +51,7 @@ The package above installs the Microsoft Authentication Library (MSAL). MSAL han
 1.	Open: `activity_main.xml` under `res` > `layout`
 2.	Change the activity layout from `android.support.constraint.ConstraintLayout` or other to `LinearLayout`
 3.	Add `android:orientation="vertical"` property to `LinearLayout` node
-3.	Copy and paste the following code into the `LinearLayout` node:
+3.	Copy and paste the following code into the `LinearLayout` node, replacing the current content:
 
 ```xml
 <TextView

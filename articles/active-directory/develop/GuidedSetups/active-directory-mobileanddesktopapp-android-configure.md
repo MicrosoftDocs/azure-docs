@@ -41,7 +41,7 @@ final static String CLIENT_ID = "[Enter the application Id here]";
 <ol start="7">
 <li>
 Open `AndroidManifest.xml` (under `app` > `manifests`)
-Add the following activity to `manifest\application` node. This registers a BrowserTabActivity to allow the OS to resume your application after completing the authentication:
+Add the following activity to `manifest\application` node. This registers a `BrowserTabActivity` to allow the OS to resume your application after completing the authentication:
 </li>
 </ol>
 
