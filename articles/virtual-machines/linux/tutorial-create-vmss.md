@@ -19,7 +19,7 @@ ms.author: iainfou
 ---
 
 # Create a Virtual Machine Scale Set and deploy a highly available app on Linux
-A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on CPU usage, memory demand, or network traffic. In this tutorial, you deploy a virtual machine sale set in Azure. You learn how to:
+A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on CPU usage, memory demand, or network traffic. In this tutorial, you deploy a virtual machine scale set in Azure. You learn how to:
 
 > [!div class="checklist"]
 > * Use cloud-init to create an app to scale
