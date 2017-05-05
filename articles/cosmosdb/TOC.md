@@ -19,7 +19,7 @@
 ## 1 - Create
 ### [DocumentDB](tutorial-develop-documentdb-dotnet.md)
 ### [MongoDB](tutorial-develop-mongodb.md)
-### Table
+### [Table](tutorial-develop-table-dotnet.md)
 ### [Graph](tutorial-develop-graph-dotnet.md)
 ## 2 - Import 
 ### [DocumentDB](../documentdb/documentdb-import-data.md)
