@@ -35,8 +35,6 @@ When the Azure Backup service initiates a backup job, it triggers the backup ext
 
 When taking a snapshot of Windows VMs, the Backup service coordinates with the Volume Shadow Copy Service (VSS) to get a consistent snapshot of the virtual machine's disks. Once the Azure Backup service takes the snapshot, the data is transferred to the vault. To maximize efficiency, the service identifies and transfers only the blocks of data that have changed since the previous backup.
 
-![Azure virtual machine backup architecture](../../backup/media/backup-azure-vms-introduction/vmbackup-architecture.png)
-
 When the data transfer is complete, the snapshot is removed and a recovery point is created.
 
 
