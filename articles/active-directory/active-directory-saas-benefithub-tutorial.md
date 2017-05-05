@@ -129,7 +129,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| ------------------- | -------------------- |    
 	| organizationid | "9127790711" |
 	
-
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
 	![Configure Single Sign-On](./media/active-directory-saas-benefithub-tutorial/tutorial_attribute_04.png)
