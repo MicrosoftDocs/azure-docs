@@ -31,13 +31,13 @@ Data in transit (also known as data in motion) is also always encrypted in ADLS.
 ![Diagram of data encryption in ADLS](./media/data-lake-store-encryption/fig1.png)
 
 
-## Set up encryption with Data Lake Store
+## Set up encryption with ADLS
 
 Encryption for ADLS is set up during account creation, and it is always enabled by default. You can either manage the keys yourself, or allow ADLS to manage them for you (this is the default).
 
 For more information, see [Getting started](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
-## How encryption works in Data Lake Store
+## How encryption works in ADLS
 
 The following information covers how to manage master encryption keys, and also explains the three different types of keys you can use in data encryption for ALDS.
 
@@ -57,10 +57,10 @@ Here is a brief comparison of capabilities provided by the two modes of managing
 |  | Service managed keys | Customer managed keys |
 | --- | --- | --- |
 |How is data stored?|Always encrypted prior to being stored.|Always encrypted prior to being stored.|
-|Where is the Master Encryption Key stored?|Azure Key Vault|Azure Key Vault|
+|Where is the Master Encryption Key stored?|Key Vault|Key Vault|
 |Are any encryption keys stored in the clear outside of Key Vault? |No|No|
 |Can the MEK be retrieved by the Key Vault?|No. Once stored in the Key Vault, it can only be used for encryption and decryption.|No. Once stored in the Key Vault, it can only be used for encryption and decryption.|
-|Who owns the Key Vault and the MEK?|The ADLS service|You own the Azure Key Vault, which belongs in your own Azure subscription. The MEK in the Key Vault can be managed by software or hardware.|
+|Who owns the Key Vault and the MEK?|The ADLS service|You own the Key Vault, which belongs in your own Azure subscription. The MEK in the Key Vault can be managed by software or hardware.|
 |Can you revoke access to the MEK for the ADLS service?|No|Yes. You can manage access control lists on the Key Vault, and remove access control entries to the service identity for the ADLS service.|
 |Can you permanently delete the MEK?|No|Yes. If you delete the MEK from the Key Vault, the data in the ADLS account cannot be decrypted by anyone, including the ADLS service. <br><br> If you have explicitly backed up the MEK prior to deleting it from Key Vault, the MEK can be restored, and the data can then be recovered. However, if you have not backed up the MEK prior to deleting it from Key Vault, the data in the ADLS account can never be decrypted thereafter.|
 
@@ -76,9 +76,9 @@ It's important to remember the following when you choose the mode for the master
 
 There are three types of keys that are used in the design of data encryption. The following table provides a summary:
 
-| Key                   | Abbreviation | Associated-with | Storage location                             | Type       | Notes                                                                                                   |
+| Key                   | Abbreviation | Associated with | Storage location                             | Type       | Notes                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
-| Master Encryption Key | MEK          | An ADLS account | Azure Key Vault                              | Asymmetric | It can be managed by ADLS or you.                                                              |
+| Master Encryption Key | MEK          | An ADLS account | Key Vault                              | Asymmetric | It can be managed by ADLS or you.                                                              |
 | Data Encryption Key   | DEK          | An ADLS account | Persistent storage, managed by ADLS service | Symmetric  | The DEK is encrypted by the MEK. The encrypted DEK is what is stored on persistent media. |
 | Block Encryption Key  | BEK          | A block of data | None                                         | Symmetric  | The BEK is derived from the DEK and the data block.                                                      |
 
@@ -88,14 +88,14 @@ The following diagram illustrates these concepts:
 
 #### Pseudo algorithm when a file is to be decrypted:
 1.	Check if the DEK for the ADLS account is cached and ready for use.
-    * If not, then read the encrypted DEK from persistent storage, and send it to Azure Key Vault to be decrypted. Cache the decrypted DEK in memory. It is now ready to use.
+    * If not, then read the encrypted DEK from persistent storage, and send it to Key Vault to be decrypted. Cache the decrypted DEK in memory. It is now ready to use.
 2.	For every block of data in the file:
     * Read the encrypted block of data from persistent storage.
     * Generate the BEK from the DEK and the encrypted block of data.
     * Use the BEK to decrypt data.
 #### Pseudo algorithm when a block of data is to be encrypted:
 1.	Check if the DEK for the ADLS account is cached and ready for use.
-    * If not, then read the encrypted DEK from persistent storage, and send it to Azure Key Vault to be decrypted. Cache the decrypted DEK in memory. It is now ready to use.
+    * If not, then read the encrypted DEK from persistent storage, and send it to Key Vault to be decrypted. Cache the decrypted DEK in memory. It is now ready to use.
 2.	Generate a unique BEK for the block of data from the DEK.
 3.	Encrypt the data block with the BEK, by using AES-256 encryption.
 4.	Store the encrypted data block of data on persistent storage.
@@ -109,9 +109,9 @@ When you are using customer-managed keys, you can rotate the MEK. To learn how t
 
 ### Prerequisites
 
-When setting up the Data Lake account, you have chosen to use your own keys. This option cannot be changed after the account has been created. The following steps assume that you are using customer-managed keys (chosen your own keys from your key vault).
+When you set up the ADLS account, you have chosen to use your own keys. This option cannot be changed after the account has been created. The following steps assume that you are using customer-managed keys (that is, you have chosen your own keys from your key vault).
 
-Note that if you use the default options for encryption, your data is always encrypted by using keys managed by Data Lake. In this option, you don't have the ability to rotate keys, as they are managed by Data Lake.
+Note that if you use the default options for encryption, your data is always encrypted by using keys managed by ADLS. In this option, you don't have the ability to rotate keys, as they are managed by ADLS.
 
 ### How to rotate the MEK in ADLS
 
