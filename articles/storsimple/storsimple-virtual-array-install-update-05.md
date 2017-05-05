@@ -29,8 +29,15 @@ Before you apply an update, we recommend that you take the volumes or shares off
 > [!IMPORTANT]
 > - Update 0.5 corresponds to **10.0.10290.0** software version on your device.
 >
->  - If you are running Update 0.2 or later, we recommend that you install the updates via the Azure portal. If you are running Update 0.1 or GA software versions, you must use the hotfix method via the local web UI to install update 0.5.
+> - If you are running Update 0.2 or later, we recommend that you install the updates via the Azure portal. If you are running Update 0.1 or GA software versions, you must use the hotfix method via the local web UI to install update 0.5.
 
+## Use the Azure portal
+
+If running Update 0.2 and later, we recommend that you install updates through the Azure portal. The portal procedure requires the user to scan, download, and then install the updates. This procedure takes around 7 minutes to complete. Perform the following steps to install the update or hotfix.
+
+[!INCLUDE [storsimple-virtual-array-install-update-via-portal](../../includes/storsimple-virtual-array-install-update-via-portal-04.md)]
+
+After the installation is complete, go to your StorSimple Device Manager service. Select **Devices** and then select and click the device you just updated. Go to **Settings > Manage > Device Updates**. The displayed software version should be **10.0.10290.0**.
 
 ## Use the local web UI
 
@@ -106,15 +113,6 @@ Use this method to install updates on a device running GA or Update 0.1 software
 6. The next step is to update the MDS agent. In the **Software Update** page, go to the **Update file path** and browse to the `GenevaMonitoringAgentPackageInstaller.msi` file. Repeat steps 2-4. After the virtual array restarts, sign into the local web UI.
 
 The update is now complete.
-
-## Use the Azure portal
-
-If running Update 0.2 and later, we recommend that you install updates through the Azure portal. The portal procedure requires the user to scan, download, and then install the updates. This procedure takes around 7 minutes to complete. Perform the following steps to install the update or hotfix.
-
-[!INCLUDE [storsimple-virtual-array-install-update-via-portal](../../includes/storsimple-virtual-array-install-update-via-portal-04.md)]
-
-After the installation is complete, go to your StorSimple Device Manager service. Select **Devices** and then select and click the device you just updated. Go to **Settings > Manage > Device Updates**. The displayed software version should be **10.0.10290.0**.
-
 
 ## Next steps
 
