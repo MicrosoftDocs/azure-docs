@@ -1,6 +1,6 @@
 ---
-title: Docker Hub Continuous Deployment with Web App on Linux | Microsoft Docs
-description: How to setup continuous deployment in Web App on Linux.
+title: Docker Hub Continuous Deployment with Azure Web App on Linux | Microsoft Docs
+description: How to setup continuous deployment in Azure Web App on Linux.
 keywords: azure app service, linux, oss
 services: app-service
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 05/10/2017
 ms.author: aelnably;wesmc
 
 ---
-# Docker Hub Continuous Deployment with Web App on Linux
+# Docker Hub Continuous Deployment with Azure Web App on Linux
 
 Web App on Linux is currently in Public Preview and enables customers to run their web apps natively on a Linux platform.
 
@@ -56,8 +56,8 @@ You can obtain your `publishingusername` and `publishingpwd` by downloading the 
 When the image gets updated, the web app get updated automatically with the new image.
 
 ## Next steps
-* [What is Web App on Linux?](./app-service-linux-intro.md)
-* [Creating Apps in Web App on Linux](./app-service-linux-how-to-create-a-web-app.md)
-* [How to use a custom Docker image for Web App on Linux](./app-service-linux-using-custom-docker-image.md)
+* [What is Azure Web App on Linux?](./app-service-linux-intro.md)
+* [Creating Apps in Azure Web App on Linux](./app-service-linux-how-to-create-a-web-app.md)
+* [How to use a custom Docker image for Azure Web App on Linux](./app-service-linux-using-custom-docker-image.md)
 * [Azure App Service Web App on Linux FAQ](./app-service-linux-faq.md) 
 

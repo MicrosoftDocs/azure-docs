@@ -1,6 +1,6 @@
 ---
-title: How to use a custom Docker image for Web App on Linux | Microsoft Docs
-description: How to use a custom Docker image for Web App on Linux.
+title: How to use a custom Docker image for Azure Web App on Linux | Microsoft Docs
+description: How to use a custom Docker image for Azure Web App on Linux.
 keywords: azure app service, web app, linux, docker, container
 services: app-service
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.author: naziml;wesmc
 
 ---
 
-# Using a custom Docker image for Web App on Linux #
+# Using a custom Docker image for Azure Web App on Linux #
 
 App Service provides pre-defined application stacks on Linux with support for specific versions, such as PHP 7.0 and Node.js 4.5. App Service on Linux uses Docker containers to host these pre-built application stacks. You can also use a custom Docker image to deploy your web app to an application stack that is not already defined in Azure. Custom Docker images can be hosted on either a public or private Docker repository.
 
@@ -96,9 +96,9 @@ You can access the SCM site from **Advanced Tools** in the **Development Tools**
 
 Follow the following links to get started with Web App on Linux.   
 
-* [Introduction to Web App on Linux](./app-service-linux-intro.md)
-* [Creating Web Apps in Web App on Linux](./app-service-linux-how-to-create-a-web-app.md)
-* [Using PM2 Configuration for Node.js in Web App on Linux](./app-service-linux-using-nodejs-pm2.md)
+* [Introduction to Azure Web App on Linux](./app-service-linux-intro.md)
+* [Creating Web Apps in Azure Web App on Linux](./app-service-linux-how-to-create-a-web-app.md)
+* [Using PM2 Configuration for Node.js in Azure Web App on Linux](./app-service-linux-using-nodejs-pm2.md)
 * [Azure App Service Web App on Linux FAQ](app-service-linux-faq.md)
 
 Post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).

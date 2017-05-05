@@ -1,6 +1,6 @@
 ---
-title: Introduction to Web App on Linux | Microsoft Docs
-description: Learn about Web App on Linux.
+title: Introduction to Azure Web App on Linux | Microsoft Docs
+description: Learn about Azure Web App on Linux.
 keywords: azure app service, linux, oss
 services: app-service
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 02/16/2017
 ms.author: naziml;wesmc
 
 ---
-# Introduction to Web App on Linux
+# Introduction to Azure Web App on Linux
 Web App on Linux is currently in public preview and supports running web apps natively on Linux.
 
 ## Overview
@@ -85,13 +85,13 @@ Web Apps on Linux must be created in a resource group that does not contain non-
 ## Next steps
 See the following links to get started with App Service on Linux. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Creating Web Apps in Web App on Linux](app-service-linux-how-to-create-a-web-app.md)
-* [How to use a custom Docker image for Web App on Linux](app-service-linux-using-custom-docker-image.md)
-* [Using PM2 Configuration for Node.js in Web App on Linux](app-service-linux-using-nodejs-pm2.md)
+* [Creating Web Apps in Azure Web App on Linux](app-service-linux-how-to-create-a-web-app.md)
+* [How to use a custom Docker image for Azure Web App on Linux](app-service-linux-using-custom-docker-image.md)
+* [Using PM2 Configuration for Node.js in Azure Web App on Linux](app-service-linux-using-nodejs-pm2.md)
 * [Using .NET Core in Azure App Service Web App on Linux](app-service-linux-using-dotnetcore.md)
 * [Using Ruby in Azure App Service Web App on Linux](app-service-linux-using-ruby.md)
 * [Azure App Service Web App on Linux FAQ](app-service-linux-faq.md)
-* [SSH support for Web App on Linux](./app-service-linux-ssh-support.md)
+* [SSH support for Azure Web App on Linux](./app-service-linux-ssh-support.md)
 * [Set up staging environments in Azure App Service](./web-sites-staged-publishing.md)
-* [Docker Hub Continuous Deployment with Web App on Linux](./app-service-linux-ci-cd.md)
+* [Docker Hub Continuous Deployment with Azure Web App on Linux](./app-service-linux-ci-cd.md)
 

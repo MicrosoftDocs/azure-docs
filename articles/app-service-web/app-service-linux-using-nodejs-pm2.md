@@ -1,6 +1,6 @@
 ---
-title: Using PM2 configuration for Node.js in Web App on Linux | Microsoft Docs
-description: Using PM2 configuration for Node.js in Web App on Linux
+title: Using PM2 configuration for Node.js in Azure Web App on Linux | Microsoft Docs
+description: Using PM2 configuration for Node.js in Azure Web App on Linux
 keywords: azure app service, web app, nodejs, pm2, linux, oss
 services: app-service
 documentationcenter: ''
@@ -18,8 +18,8 @@ ms.date: 02/16/2017
 ms.author: naziml;wesmc
 
 ---
-# Use PM2 configuration for Node.js in Web App on Linux
-If you set the application stack to Node.js for Web App on Linux, you get the option to set a Node.js startup file as shown in the following image:
+# Use PM2 configuration for Node.js in Azure Web App on Linux
+If you set the application stack to Node.js for Azure Web App on Linux, you get the option to set a Node.js startup file as shown in the following image:
 
 ![Set a Node.js startup file][1]
 
@@ -57,7 +57,7 @@ Important things to note in this configuration are:
 * For the "watch_options", you currently need to specify "usePolling" as true because of the way your application content is mounted.
 
 ## Next steps
-* [What is Web App on Linux?](app-service-linux-intro.md)
+* [What is Azure Web App on Linux?](app-service-linux-intro.md)
 * [Azure App Service Web App on Linux FAQ](app-service-linux-faq.md)
 
 <!--Image references-->

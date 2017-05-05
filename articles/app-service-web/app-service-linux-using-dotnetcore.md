@@ -19,7 +19,7 @@ ms.author: aelnably;wesmc
 
 ---
 
-# Using .NET Core in Web App on Linux #
+# Using .NET Core in Azure Web App on Linux #
 
 With the latest update to our back end, we introduced support for .NET Core v.1.0. By setting the configuration of your Linux web app, you can change the application stack.
 
@@ -37,7 +37,7 @@ This loads the .Net Core image and starts your web app. You can check that the s
         azure webapp config show --name ContosoAppServicePlan --resource-group ContosoLinuxAzureResourceGroup
 
 ## Next steps
-* [What is Web App on Linux?](app-service-linux-intro.md)
-* [Creating Web Apps in Web App on Linux](./app-service-linux-how-to-create-a-web-app.md)
+* [What is Azure Web App on Linux?](app-service-linux-intro.md)
+* [Creating Web Apps in Azure Web App on Linux](./app-service-linux-how-to-create-a-web-app.md)
 * [Azure Web App Cross Platform CLI](app-service-web-app-azure-resource-manager-xplat-cli.md)
 * [Azure App Service Web App on Linux FAQ](app-service-linux-faq.md)

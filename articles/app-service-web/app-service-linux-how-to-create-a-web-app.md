@@ -1,6 +1,6 @@
 ---
 title: Create an Azure web app running on Linux | Microsoft Docs
-description: Web app creation workflow for Web App on Linux.
+description: Web app creation workflow for Azure Web App on Linux.
 keywords: azure app service, web app, linux, oss
 services: app-service
 documentationcenter: ''
@@ -45,8 +45,8 @@ You can also use FTP to upload your application to your site. You can get the FT
 ![Diagnostics logs][4]
 
 ## Next steps
-* [What is Web App on Linux?](app-service-linux-intro.md)
-* [Using PM2 Configuration for Node.js in Web App on Linux](app-service-linux-using-nodejs-pm2.md)
+* [What is Azure Web App on Linux?](app-service-linux-intro.md)
+* [Using PM2 Configuration for Node.js in Azure Web App on Linux](app-service-linux-using-nodejs-pm2.md)
 * [Using Ruby in Azure App Service Web App on Linux](app-service-linux-using-ruby.md)
 * [Azure App Service Web App on Linux FAQ](app-service-linux-faq.md)
 

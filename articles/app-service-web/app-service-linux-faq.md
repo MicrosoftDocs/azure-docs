@@ -115,8 +115,8 @@ If you have a question, comment on the article and we'll answer it as soon as po
 **A:** You can submit your idea at the [Web Apps feedback forum](https://aka.ms/webapps-uservoice). Add "[Linux]" to the title of your idea.
 
 ## Next steps
-* [What is Web App on Linux?](app-service-linux-intro.md)
-* [Creating web apps in Web App on Linux](app-service-linux-how-to-create-a-web-app.md)
-* [SSH support for Web App on Linux](./app-service-linux-ssh-support.md)
+* [What is Azure Web App on Linux?](app-service-linux-intro.md)
+* [Creating web apps in Azure Web App on Linux](app-service-linux-how-to-create-a-web-app.md)
+* [SSH support for Azure Web App on Linux](./app-service-linux-ssh-support.md)
 * [Set up staging environments in Azure App Service](./web-sites-staged-publishing.md)
-* [Docker Hub Continuous Deployment with Web App on Linux](./app-service-linux-ci-cd.md)
+* [Docker Hub Continuous Deployment with Azure Web App on Linux](./app-service-linux-ci-cd.md)
