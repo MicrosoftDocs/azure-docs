@@ -22,11 +22,11 @@ ms.author: dobett
 ## Introduction
 The IoT Suite connected factory [preconfigured solution][lnk-preconfigured-solutions] is an implementation of an end-to-end industrial solution that:
 
-* Connects to multiple simulated industrial devices running OPC servers in simulated factory production lines
-* Shows operational KPIs of those devices
-* Demonstrates how a cloud based application could be used to interact with OPC server systems 
-* Enables you connect your own OPC server devices
-* Enables you browse and modify the OPC servers data
+* Connects to multiple simulated industrial devices running OPC UA servers in simulated factory production lines as well as real OPC UA sercer devices
+* Shows operational KPIs and OEE of those devices and production lines
+* Demonstrates how a cloud based application could be used to interact with OPC UA server systems 
+* Enables you connect your own OPC UA server devices
+* Enables you browse and modify the OPC UA servers data
 * Integrates the new Azure Time Series Insights service
  
  You can use the solution as a starting point for your own implementation and [customize][lnk-customize] it to meet your own specific business requirements.
@@ -57,7 +57,7 @@ The simulation runs and updates the data that is exposed through the OPC UA node
 
 
 ## Simulated manufacturing execution system 
-The MES monitors each station in the production line via OPC UA to detect station status chnages. It calls OPC UA methods to control the stations and passes a product from one station to the next till it is completed.
+The MES monitors each station in the production line via OPC UA to detect station status changes. It calls OPC UA methods to control the stations and passes a product from one station to the next till it is completed.
 
 
 ## Gateway OPC publisher module
@@ -65,22 +65,22 @@ OPC Publisher Module connects to the station OPC UA servers and subscribes to th
 
 The OPC Publisher module only requires and outbound https port (443) and can work with existing enterprise infrastructure.
 
-## Gateway OPC proxy
+## Gateway OPC proxy module
 The Gateway OPC UA Proxy Module tunnels binary OPC UA command and control messages and only requires an outbound https port (443). It can work with existing enterprise infrastructure, including Web Proxies.
 
 It uses IoT Hub Device methods to transfer packetized TCP/IP data at the application layer and thus ensures endpoint trust, data encryption and integrity using SSL/TLS.
 
 The OPC UA binary protocol relayed through the proxy itself uses UA authentication and encryption.
 
-## Azure Time Series Insights:  
+## Azure Time Series Insights  
 The Gateway OPC Publisher Module subscribes to OPC UA server nodes to detect change in the data values, this module then send messages to Azure IoTHub, if a data change is detected in one of the nodes.
 
 IoTHub provides an event source to Azure Time Series Insights (TSI). TSI stores data for 30 days based on timestamps attached to the messages, including OPC UA ApplicationUri, OPC UA NodeId, value of the node, source timestamp and OPC UA DisplayName. In the future TSI will allow customers to customize how long they wish to keep the data for.
 
 Aggregated data of node changes is queried from Azure Time Series Insights based on SearchSpan (Time.From, Time.To) and aggregated by OPC UA ApplicationUri or OPC UA NodeId or OPC UA DisplayName.
 
-Aggregation is done based on count of events, Sum, Avg, Min and Max to retrieve the data for the Connected factory preconfigured solutions gauges and time series.
-The time series are built in different means: OEE & KPIs are calculated from station base data and bubbled up for the topology in the application.
+Aggregation is done based on count of events, Sum, Avg, Min and Max to retrieve the data for the Connected factory preconfigured OEE and KPI gauges and time series charts.
+The time series are built in different means: OEE & KPIs are calculated from station base data and bubbled up for the topology (production lines, factories, enterprise) in the application.
 
 Additionally, time series for OEE and KPI topology is calculated in the app, whenever a displayed timespan is ready for example every full hour the day view is updated etc.
 
@@ -91,19 +91,18 @@ The [IoT hub][lnk-iothub] receives data sent from the OPC Publisher Module into 
 
 The IoT Hub in the solution also:
 - Maintains an identity registry that stores the IDs for all OPC Publisher Module and all OPC Proxy Modules.
-- It is used as transport channel for bidirectional communication of the OPC Proxy Module.
+- Is used as transport channel for bidirectional communication of the OPC Proxy Module.
 
 ## Azure Storage
 The solution uses Azure blob storage as disk storage for the VM and to store deployment data.
 
 ## Web app
-The web app deployed as part of the preconfigured solution. It comprises of an integrated OPC UA client, alerts processing and telemetry visualization.
+The web app deployed as part of the preconfigured solution comprises of an integrated OPC UA client, alerts processing and telemetry visualization.
 
 ## Next steps
 
 You can continue getting started with IoT Suite by reading the following articles:
 
-* [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm]
 * [Permissions on the azureiotsuite.com site][lnk-permissions]
 
 [Connected-Factory-Logical]:media/iot-suite-connected-factory-walkthrough/CF-Logical-architecture.png
