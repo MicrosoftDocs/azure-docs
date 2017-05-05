@@ -26,7 +26,7 @@ Azure Cosmos DB provides the Table API for applications that need a key/attribut
 ### About this tutorial
 This quick start demonstrates how to use [Get Started with Azure Table storage using .NET](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-tables) for Azure Cosmos DB and the Azure portal to create an Azure Cosmos DB account,and then build and deploy a Table application. It will also walk through C# examples for creating and deleting a table, and inserting, updating, deleting, and querying table data. 
 
-If you don’t already have Visual Studio 2015 installed, you can download and use the **free** [Visual Studio 2015 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
+If you donâ€™t already have Visual Studio 2015 installed, you can download and use the **free** [Visual Studio 2015 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -54,7 +54,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**. You'll use the copy buttons on the right side of the screen to copy the Primary Key into the app.config file in the next step.
 
-    ![View and copy an access key in the Azure Portal, Keys blade](./media/documentdb-connect-dotnet/keys.png)
+    ![View and copy an access key in the Azure Portal, Keys blade](./media/create-documentdb-dotnet/keys.png)
 
 2. In Visual Studio 2015, open the app.config file. 
 
