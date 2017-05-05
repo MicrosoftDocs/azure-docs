@@ -120,7 +120,3 @@ In this tutorial, you configured and reviewed VMs with Azure Security Center. Yo
 > * Configure security policies
 > * View and fix configuration health issues
 > * Review detected threats
-
-Advance to the next tutorial to learn how to back up and restore VMs:
-
-[Back up and restore VMs](tutorial-backup-vms.md)

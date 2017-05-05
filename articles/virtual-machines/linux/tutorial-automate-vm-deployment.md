@@ -19,12 +19,12 @@ ms.author: iainfou
 ---
 
 # How to customize a Linux virtual machine on first boot
-In a previous tutorial, you learned how to SSH to a VM and manually install NGINX. To create virtual machines (VMs) in a quick and consistent manner, some form of automation is typically desired. A common approach to customize a VM on first boot is to use [cloud-init](https://cloudinit.readthedocs.io). In this tutorial you learn how to:
+In a previous tutorial, you learned how to SSH to a virtual machines (VM) and manually install NGINX. To create VMs in a quick and consistent manner, some form of automation is typically desired. A common approach to customize a VM on first boot is to use [cloud-init](https://cloudinit.readthedocs.io). In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Create a cloud-init config file
 > * Create a VM that uses a cloud-init file
-> * Confirm a Node.js app is running after VM is created
+> * View a running Node.js app after the VM is created
 > * Use Key Vault to securely store certificates
 > * Automate secure deployments of NGINX with cloud-init
 
@@ -266,7 +266,7 @@ In this tutorial, you configured VMs on first boot with cloud-init. You learned 
 > [!div class="checklist"]
 > * Create a cloud-init config file
 > * Create a VM that uses a cloud-init file
-> * Confirm a Node.js app is running after VM is created
+> * View a running Node.js app after the VM is created
 > * Use Key Vault to securely store certificates
 > * Automate secure deployments of NGINX with cloud-init
 

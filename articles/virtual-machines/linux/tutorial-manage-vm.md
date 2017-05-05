@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Create and Manage Linux VMs with the Azure CLI
 
-Azure virtual machines provide a fully configurable and flexible computing environment. This tutorial covers basic Azure virtual machine deployment items such as selecting a VM size, selecting a VM image, and deploying a VM. This tutorial also covers basic management operations such as how to:
+Azure virtual machines provide a fully configurable and flexible computing environment. This tutorial covers basic Azure virtual machine deployment items such as selecting a VM size, selecting a VM image, and deploying a VM. You learn how to:
 
 > [!div class="checklist"]
 > * Create and connect to a VM

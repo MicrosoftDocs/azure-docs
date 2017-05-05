@@ -151,7 +151,7 @@ Mount the new disk so that it is accessible in the operating system.
 sudo mkdir /datadrive && sudo mount /dev/sdc1 /datadrive
 ```
 
-The disk can now be accesses through the *datadrive* mountpoint, which can be verified by running the `df -h` command. 
+The disk can now be accessed through the *datadrive* mountpoint, which can be verified by running the `df -h` command. 
 
 ```bash
 df -h

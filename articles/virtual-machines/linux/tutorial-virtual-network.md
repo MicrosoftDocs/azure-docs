@@ -20,7 +20,7 @@ ms.author: davidmu
 
 # Manage Azure Virtual Networks and Linux Virtual Machines with the Azure CLI
 
-Azure virtual machines use Azure networking for internal and external network communication. In this tutorial, you learn about creating multiple virtual machines (VMs) in a virtual network and configure network connectivity between them. You learn how to:
+Azure virtual machines use Azure networking for internal and external network communication. In this tutorial, you create multiple virtual machines (VMs) in a virtual network and configure network connectivity between them. You learn how to:
 
 > [!div class="checklist"]
 > * Create a virtual network

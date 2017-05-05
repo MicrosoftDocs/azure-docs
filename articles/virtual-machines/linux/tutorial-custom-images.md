@@ -37,7 +37,7 @@ To complete the example in this tutorial, you must have an existing virtual mach
 
 ## Create a custom image
 
-To create an image of a virtual machine, you need to prepare the VM by deprovisioning, deallocating, and then marking the source VM as generalized. Once the VM has been prepared, you can create an the image.
+To create an image of a virtual machine, you need to prepare the VM by deprovisioning, deallocating, and then marking the source VM as generalized. Once the VM has been prepared, you can create an image.
 
 ### Deprovision the VM 
 

@@ -42,7 +42,7 @@ Virtual machines connect to a load balancer using their virtual network interfac
 
 To control the flow of traffic, you define load balancer rules for specific ports and protocols that map to your VMs.
 
-If you followed the previous tutorial to [create a virtual machine scale set](tutorial-create-vmss.md), a load balancer was created for you. All of these components were configured for you as part of the scale set.
+If you followed the previous tutorial to [create a virtual machine scale set](tutorial-create-vmss.md), a load balancer was created for you. All these components were configured for you as part of the scale set.
 
 
 ## Create Azure load balancer
