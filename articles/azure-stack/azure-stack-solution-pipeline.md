@@ -19,7 +19,7 @@ ms.author: helaw
 ---
 
 # Deploy apps to Azure and Azure Stack
-A hybrid [continuous integration](https://www.visualstudio.com/learn/what-is-continuous-integration/)/[continuous delivery](https://www.visualstudio.com/learn/what-is-continuous-delivery/)(CI/CD) pipeline enables you to build, test, and deploy your app to multiple clouds.  As an example, you can use a hybrid CI/CD pipe line to:
+A hybrid [continuous integration](https://www.visualstudio.com/learn/what-is-continuous-integration/)/[continuous delivery](https://www.visualstudio.com/learn/what-is-continuous-delivery/)(CI/CD) pipeline enables you to build, test, and deploy your app to multiple clouds.  In this guide, you'll learn how a hybrid CI/CD pipe line can help you:
  
 > [!div class="checklist"]
 * Initiate a new build based on code commits to your master branch in Visual Studio Team Services (VSTS).
