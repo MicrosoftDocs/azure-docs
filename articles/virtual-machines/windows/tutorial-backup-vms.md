@@ -19,7 +19,13 @@ ms.author: cynthn
 ---
 # Back up Windows virtual machines in Azure
 
-You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery pointy you can restore the whole VM or just specific files. This article explains how to restore a single file to a VM running Windows Server and IIS. If you don't already have a VM to use, you can create one using the [Windows quickstart](quick-create-portal.md).
+You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery pointy you can restore the whole VM or just specific files. This article explains how to restore a single file to a VM running Windows Server and IIS. If you don't already have a VM to use, you can create one using the [Windows quickstart](quick-create-portal.md). In this tutorial you learn how to:
+
+> [!div class="checklist"]
+> * Create a backup of a VM
+> * Schedule a daily backup
+> * Restore a file from a backup
+
 
 
 
@@ -82,13 +88,20 @@ In this example, we show how to recover the default nginx web page /var/www/html
 14. Navigate to the desktop of your VM and double-click on the .exe. This will launch a command prompt and then mount the recovery point as a file share that you can access. When it is finished creating the share, type **q** to close the command prompt.
 15. Open file explorer and navigate to the drive letter that was used for the file share.
 16. Navigate to \inetpub\wwwroot and copy **iisstart.png** from the file share and paste it into \inetpub\wwwroot. For example, copy F:\inetpub\wwwroot\iisstart.png and paste it into c:\inetpub\wwwroot to recover the file.
-17. On your local machine, open the browser tab where you are connected to the IP address of the VM showing the IIS default page. Press CTRL + F5 to refresh the browser page. You should now see that the image has been restored.
+17. On your local computer, open the browser tab where you are connected to the IP address of the VM showing the IIS default page. Press CTRL + F5 to refresh the browser page. You should now see that the image has been restored.
 18. On your local computer, go back to the browser tab for the Azure portal and in **Step 3: Unmount the disks after recovery** click the **Unmount Disks** button.
 
 
 ## Next steps
 
-In this tutorial, you have learned about backing up VMs. Advance to the next tutorial to learn about Azure security center.
+In this tutorial, you learned how to:
+
+> [!div class="checklist"]
+> * Create a backup of a VM
+> * Schedule a daily backup
+> * Restore a file from a backup
+
+Advance to the next tutorial to learn about Azure security center.
 
 [Manage VM security](tutorial-azure-security.md)
 

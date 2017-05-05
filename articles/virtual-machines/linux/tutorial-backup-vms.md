@@ -19,7 +19,12 @@ ms.author: cynthn
 ---
 # Back up Linux  virtual machines in Azure
 
-You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery pointy you can restore the whole VM or just specific files. This article explains how to restore a single file to a Linux VM running nginx. If you don't already have a VM to use, you can create one using the [Linux quickstart](quick-create-cli.md).
+You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery pointy you can restore the whole VM or just specific files. This article explains how to restore a single file to a Linux VM running nginx. If you don't already have a VM to use, you can create one using the [Linux quickstart](quick-create-cli.md). In this tutorial you learn how to:
+
+> [!div class="checklist"]
+> * Create a backup of a VM
+> * Schedule a daily backup
+> * Restore a file from a backup
 
 
 This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
@@ -115,7 +120,7 @@ In this example, we show how to recover the default nginx web page /var/www/html
 	sudo cp ~/Linux_myVM_05-02-2017/Volume1/var/www/index.nginx-debian.html /var/www/
 	```
 	
-17. On your local machine, open the browser tab where you are connected to the IP address of the VM showing the nginx default page. Press CTRL + F5 to refresh the browser page. You should now see that the default page is working again.
+17. On your local computer, open the browser tab where you are connected to the IP address of the VM showing the nginx default page. Press CTRL + F5 to refresh the browser page. You should now see that the default page is working again.
 
 	![Default nginx web page](./media/tutorial-backup-vms/nginx-working.png)
 
@@ -124,7 +129,14 @@ In this example, we show how to recover the default nginx web page /var/www/html
 
 ## Next steps
 
-In this tutorial, you have learned about backing up VMs. Advance to the next tutorial to learn about Azure security center.
+In this tutorial, you learned how to:
+
+> [!div class="checklist"]
+> * Create a backup of a VM
+> * Schedule a daily backup
+> * Restore a file from a backup
+
+Advance to the next tutorial to learn about Azure security center.
 
 [Manage VM security](tutorial-azure-security.md)
 
