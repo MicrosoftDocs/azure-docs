@@ -81,7 +81,7 @@ To update the offer details and republish your offer, follow these steps:
 6. In the **LOGOS** section of the **DETAILS** tab, update the logos. Ensure that the logos follow the [Azure Marketplace guidelines](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content).
 
    > [!NOTE]
-   > A hero icon is optional. You can choose not to upload a hero icon. However, after a hero icon is uploaded, there is no provision to delete it from the Publishing portal. Follow the [hero icon guidelines](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content). (Refer to the section Step 1: Provide Marketplace marketing content > Details > Additional guidelines for the Hero logo banner.)
+   > A hero icon is optional. You can choose not to upload a hero icon. However, after a hero icon is uploaded, there is no provision to delete it from the Publishing portal. Follow the [hero icon guidelines](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content).
    >
    >
 7. Go to the **PUBLISH** tab, and click **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment, see [Test your VM offer for the Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
@@ -204,10 +204,10 @@ To add a new SKU in your live offer, follow these steps:
 
 1. Sign in to the [Publishing portal](https://publish.windowsazure.com).
 2. Go to the **virtual machines** tab, and select your offer.
-3. In the menu on the left, click the **SKUS** tab. Then click **ADD A SKU**. In the dialog box, enter a SKU identifier in lowercase. Select the check box for the bring-your-own-license billing model (BYOL) if you want to publish the new SKU with a BYOL billing model. Otherwise, clear the check box for BYOL. Click the tick mark in the dialog box to create a new SKU. If you didn't choose the BYOL billing model, the billing model is automatically set to hourly. If you want the 30-day free trial for the hourly billing model, click the **One Month** option for “Is a free trial available?”. Otherwise, select **NO TRIAL**. (“Is a free trial available?” is only shown if you haven't selected BYOL while creating the new SKU.)
+3. In the menu on the left, click the **SKUS** tab. Then click **Add a SKU**. In the dialog box, enter a SKU identifier in lowercase. Select the check box for the bring-your-own-license billing model (BYOL) if you want to publish the new SKU with a BYOL billing model. Otherwise, clear the check box for BYOL. Click the tick mark in the dialog box to create a new SKU. If you didn't choose the BYOL billing model, the billing model is automatically set to hourly. If you want the 30-day free trial for the hourly billing model, click the **One Month** option for “Is a free trial available?”. Otherwise, select **No Trial**. (“Is a free trial available?” is only shown if you haven't selected BYOL while creating the new SKU.)
 
    > [!IMPORTANT]
-   > The option “Hide this SKU from the Marketplace because it should always be bought via a solution template” should be **YES** *only* if you're approved for publishing a solution template offer in the Marketplace. Otherwise, this option should always be **NO**.
+   > The option “Hide this SKU from the Marketplace because it should always be bought via a solution template” should be **Yes** *only* if you're approved for publishing a solution template offer in the Marketplace. Otherwise, this option should always be **No**.
    >
    >
 4. In the menu on the left, click the **VM IMAGES** tab and find out the new SKU that you've created.
@@ -235,7 +235,7 @@ Various aspects need to be taken care of in the case of a request to remove a li
 The support team will guide you through the offer/SKU deletion process.
 
 > [!NOTE]
-> You can always delete the offer while it is in Draft status (but not in Staging or Production). Click **DISCARD DRAFT** on the **HISTORY** tab.
+> You can always delete the offer while it is in Draft status (but not Staging or Production). On the **HISTORY** tab, click **DISCARD DRAFT**.
 >
 >
 
@@ -246,7 +246,7 @@ To delete a listed SKU from the Marketplace, follow these steps:
 
 2. Go to the **virtual machines** tab, and select your offer.
 3. In the pane on the left, click the **SKUS** tab.
-4. Select the SKU that you want to delete, and click the delete button.
+4. Select the SKU that you want to delete, and click the **Delete** button.
 5. Go to the **PUBLISH** tab in the Publishing portal. Click **REQUEST APPROVAL TO PUSH TO PRODUCTION** to republish the offer in the Marketplace.
 6. After the offer is republished in the Marketplace, the SKU is deleted from the Marketplace and the Azure portal.
 
@@ -256,8 +256,8 @@ To delete the current version of a listed SKU from the Marketplace, follow these
 1. Sign in to the [Publishing portal](https://publish.windowsazure.com).
 
 2. Go to the **virtual machines** tab, and select your offer.
-3. In the pane on the left, click the **VM IMAGES** tab.
-4. Select the SKU whose current version you want to delete, and click the delete button.
+3. In the menu on the left, click the **VM IMAGES** tab.
+4. Select the SKU whose current version you want to delete, and click the **Delete** button.
 5. Go to the **PUBLISH** tab in the Publishing portal. Click **REQUEST APPROVAL TO PUSH TO PRODUCTION** to republish the offer in the Marketplace.
 6. After the offer gets republished in the Marketplace, the current version of the listed SKU is deleted from the Marketplace and the Azure portal. The SKU is then rolled back to its previous version.
 
@@ -267,7 +267,7 @@ To revert the listing price to production values, follow these steps:
 1. Sign in to the [Publishing portal](https://publish.windowsazure.com).
 2. Go to the **virtual machines** tab, and select your offer.
 3. In the menu on the left, click the **PRICING** tab.
-4. In the Pricing tab, select a region whose pricing you want to reset.
+4. Select a region whose pricing you want to reset.
 
     ![Pricing regions](media/marketplace-publishing-vm-image-post-publishing/img08-04.png)
 5. For SKUs with an hourly billing model, reset the prices for all the cores as they are in production for the selected region. For SKUs with a BYOL billing model, make the SKU available in the region by selecting the check box for the SKU in the **EXTERNALLY-LICENSED (BYOL) SKU AVAILABILITY** section.
@@ -276,18 +276,18 @@ To revert the listing price to production values, follow these steps:
 6. Click **AUTOPRICE OTHER MARKETS BASED ON PRICES IN UNITED STATES**.
 
    > [!NOTE]
-   > The button’s label might be different depending on the region that you select. Because we selected United States, the button is labeled “Autoprice other markets based on prices in United States”.
+   > The button’s label might be different depending on the region that you select. Because we selected United States, the button is labeled **AUTOPRICE OTHER MARKETS BASED ON PRICES IN UNITED STATES**.
    >
    >
 
     ![Autoprice](media/marketplace-publishing-vm-image-post-publishing/img08-06.png)
-7. On page 1 of the Autoprice wizard, choose the base market and click the arrow.
+7. On page 1 of the Autoprice wizard, choose the base market and click the **arrow** button.
 
     ![Base market](media/marketplace-publishing-vm-image-post-publishing/img08-07.png)
-8. On page 2, choose service plans and meters (cores), and click the arrow.
+8. On page 2, choose service plans and meters (cores), and click the **arrow** button.
 
     ![Service plans and meters](media/marketplace-publishing-vm-image-post-publishing/img08-08.png)
-9. On page 3, click **Toggle All** to select all regions, or manually select check boxes for specific regions and click the arrow.
+9. On page 3, click **Toggle All** to select all regions. Or you can manually select check boxes for specific regions. Click the **arrow** button.
 
     ![Choose markets](media/marketplace-publishing-vm-image-post-publishing/img08-09.png)
 10. On page 4, review the exchange rates and click **Finish**. The wizard resets the pricing according to your selections.
@@ -309,7 +309,7 @@ To revert the billing model to production values, follow these steps:
 4. Click the **Edit** button to revert the billing model. In the window that opens, check or clear the **Billing and licensing is done externally from Azure (aka Bring Your Own License)** check box.
 
     ![Edit billing](media/marketplace-publishing-vm-image-post-publishing/img09-04.png)
-5. Follow the steps in "Revert the listing price to production values."
+5. Follow the steps in "Revert the listing price to production values" in this article.
 6. Go to the **PUBLISH** tab, and click **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment, see [Test your VM offer for the Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
 7. After you've tested your offer in staging, go to the **PUBLISH** tab in the Publishing portal. Click **REQUEST APPROVAL TO PUSH TO PRODUCTION** to republish your offer in the Marketplace.
 
@@ -326,10 +326,10 @@ To revert the visibility setting of a listed SKU to the production value, follow
 5. After you're done with the changes, click **REQUEST APPROVAL TO PUSH TO PRODUCTION** to republish your offer in the Marketplace.
 
 ## See also
-* [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
-* [Understanding payout reporting](marketplace-publishing-report-payout.md)
-* [How to change your Cloud Solution Provider reseller incentive](marketplace-publishing-csp-incentive.md)
-* [Troubleshooting common publishing problems in the Marketplace](marketplace-publishing-support-common-issues.md)
+* [Get Started: Publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Understand payout reporting](marketplace-publishing-report-payout.md)
+* [Change your Cloud Solution Provider reseller incentive](marketplace-publishing-csp-incentive.md)
+* [Troubleshoot common publishing problems in the Marketplace](marketplace-publishing-support-common-issues.md)
 * [Get support as a publisher](marketplace-publishing-get-publisher-support.md)
-* [Creating a VM image on-premises](marketplace-publishing-vm-image-creation-on-premise.md)
+* [Create a VM image on-premises](marketplace-publishing-vm-image-creation-on-premise.md)
 * [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
