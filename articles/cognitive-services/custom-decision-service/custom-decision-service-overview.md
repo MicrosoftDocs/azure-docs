@@ -28,7 +28,7 @@ Some common use cases for the Custom Decision Service include:
 * Optimizing ad placements or web pages that the ad directs to.
 * Ranking recommended items on a shopping website.
 
-We are currently in **free public preview**, focused on personalizing a list of articles on a website or an app. This documentation is revised as we add more functionality.
+We are currently in **free public preview**, focused on personalizing a list of articles on a website or an app. Feature extraction works best for English language content. This documentation is revised as we are ready to advertise more functionality.
 
 Custom Decision Service can be applied to applications that are not in the content personalization domain. Such applications might be a good fit for a custom preview. Contact us to learn more.
 
