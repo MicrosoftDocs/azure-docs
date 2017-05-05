@@ -18,7 +18,7 @@ ms.author: andret
 
 ---
 
-# Use Microsoft Authentication Library (MSAL) to get a token for the Microsoft Graph API
+## Use Microsoft Authentication Library (MSAL) to get a token for the Microsoft Graph API
 
 1.	Open: `MainActivity` (under `app` > `java` > `{domain}.{appname}`)
 2.	Add the following imports:
@@ -253,7 +253,7 @@ Eventually, `AcquireTokenSilentAsync` will fail – e.g. the user has signed out
 2.	Applications can also make a visual indication to the user that an interactive sign-in is required, so the user can select the right time to sign in, or the application can retry `AcquireTokenSilentAsync` at a later time. This is commonly used when the user is able to access functionality of the application without being disrupted - for example, there is offline content available in the application. In this case, the user can decide when they want to sign in to access the protected resource, or to refresh the outdated information, or your application can decide to retry `AcquireTokenSilentAsync` when network is restored after being unavailable temporarily.
 <!--end-collapse-->
 
-# Call the Microsoft Graph API using the token you just obtained
+## Call the Microsoft Graph API using the token you just obtained
 1.	Add the following methods into the `MainActivity` class:
 
 ```java
@@ -316,7 +316,7 @@ private void updateGraphUI(JSONObject graphResponse) {
 In this sample application, `callGraphAPI` calls `getAccessToken` and then makes an HTTP `GET` request against a resource that requires a token and returns the content. This method adds the acquired token in the *HTTP Authorization header*. For this sample, the resource is the Microsoft Graph API *me* endpoint – which displays the user's profile information.
 <!--end-collapse-->
 
-# Setup Sign Out
+## Setup Sign Out
 
 1.	Add the following methods into the `MainActivity` class:
 

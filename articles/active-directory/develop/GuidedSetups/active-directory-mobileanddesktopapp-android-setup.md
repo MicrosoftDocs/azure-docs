@@ -24,14 +24,14 @@ This section provides step-by-step instructions for how to create a new project 
 > Prefer to download this sample's Android Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip) and skip to the [Configuration](active-directory-mobileanddesktopapp-android-configure.md) step to configure the code sample before executing    .
 
 
-# Create a new project 
+## Create a new project 
 1.	Open Android Studio, go to: `File` > `New` > `New Project`
 2.	Name your application and click `Next`
 3.	Make sure to select *API 21 or newer (Android 5.0)* and click `Next`
 4.	Leave `Empty Activity`, click `Next`, then `Finish`
 
 
-# Install Microsoft Authentication Library (MSAL)
+## Install Microsoft Authentication Library (MSAL)
 1.	In Android Studio, go to: `Gradle Scripts` > `build.gradle (Module: app)`
 2.	Copy and paste the following code under `Dependencies`:
 
@@ -46,7 +46,7 @@ compile 'com.android.volley:volley:1.0.0'
 The package above installs the Microsoft Authentication Library (MSAL). MSAL handles acquiring, caching and refreshing user tokens used to access APIs protected by Azure Active Directory v2 endpoint.
 <!--end-collapse-->
 
-# Create your application’s UI
+## Create your application’s UI
 
 1.	Open: `activity_main.xml` under `res` > `layout`
 2.	Change the activity layout from `android.support.constraint.ConstraintLayout` or other to `LinearLayout`

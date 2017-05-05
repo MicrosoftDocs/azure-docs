@@ -17,7 +17,7 @@ ms.date:
 ms.author: andret
 
 ---
-# Configure your project to use HTTPS and set this value in app registration
+## Configure your project to use HTTPS and set this value in app registration
 
 In this step, you will configure your project to use SSL, and then use the SSL URL to configure your application’s registration information. After this, add the application’ registration information to your solution via *web.config*.
 

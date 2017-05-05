@@ -31,7 +31,7 @@ The application created by this guide exposes a button to graph and show results
 2. Under *Templates*, select `Visual C#`
 3. Select `WPF App` (or *WPF Application* depending on the version of your Visual Studio)
 
-# Adding Microsoft Authentication Library (MSAL) library to your project
+## Adding Microsoft Authentication Library (MSAL) library to your project
 1. In Visual Studio: `Tools` > `Nuget Package Manager` > `Package Manager Console`
 2. Copy/paste the following in the Package Manager Console window:
 
@@ -41,7 +41,7 @@ Install-Package Microsoft.Identity.Client -Pre
 
 > The package above installs the Microsoft Authentication Library (MSAL). MSAL handles acquiring, caching and refreshing user toskens used to access APIs protected by Azure Active Directory v2.
 
-# Add the code to initialize MSAL
+## Add the code to initialize MSAL
 This step will help you create a class to handle interaction with MSAL Library, such as handling of tokens.
 
 1. Open the `App.xaml.cs` file and add the reference for MSAL library to the class:
@@ -63,7 +63,7 @@ public partial class App : Application
 }
 ```
 
-# Creating your application’s UI
+## Creating your application’s UI
 The section below shows how an application can query a protected backend server like Microsoft Graph. 
 A MainWindow.xaml file should automatically be created as a part of your project template. Open this file this file and then follow the instructions below:
 

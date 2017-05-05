@@ -17,7 +17,7 @@ ms.date:
 ms.author: andret
 
 ---
-# Before you get started
+## Before you get started
 
 This guide demonstrates how a Windows Desktop .NET (XAML) application can get an access token and call Microsoft Graph API or other APIs protected by Azure Active Directory v2.
 
@@ -25,7 +25,7 @@ At the end of this guide, your application will be able to call a protected API 
 
 > For this tutorial, we assume you’re using Visual Studio 2015 Update 3 or Visual Studio 2017.  Don’t have it? [Download Visual Studio 2017 for free](https://www.visualstudio.com/downloads/)
 
-## How this sample works
+### How this sample works
 
 ![How this sample works](media/active-directory-mobileanddesktopapp-windowsdesktop-intro/windesktophowitworks.png)
 
