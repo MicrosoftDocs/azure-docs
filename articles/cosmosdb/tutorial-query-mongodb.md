@@ -292,6 +292,7 @@ The next query returns all the families where size of children array is 3.
       db.Family.find( {children: { $size:3} } )
 
 **Results**
+
 No results will be returned as we do not have more than 2 children. Only when parameter is 2 this query will succeed and return the full document.
 
 ## Next steps
