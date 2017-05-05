@@ -1,4 +1,4 @@
-    ---
+---
 
   title: Azure Active Directory group-based licensing additional scenarios | Microsoft Docs
   description: More scenarios for Azure Active Directory group-based licensing
