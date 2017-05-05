@@ -6,7 +6,6 @@
 # Quickstarts
 ## [Create DB - Portal](quickstart-create-server-database-portal.md)
 ## [Create DB - Azure CLI](quickstart-create-server-database-azure-cli.md)
-## Connect
 
 # Sample Scripts
 ## [Azure CLI](sample-scripts-azure-cli.md)
@@ -49,4 +48,7 @@
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/postgresql/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureDatabaseforPostgreSQL)
+## [Stack Overflow](https://stackoverflow.com/tags/Azure-Database-for-PostgreSQL)
+## [Request a feature](https://feedback.azure.com/forums/597976-azure-database-for-postgresql)
 ## [Region availability](https://azure.microsoft.com/regions/services/)
+## [Support options](https://azure.microsoft.com/en-us/support/options/)
