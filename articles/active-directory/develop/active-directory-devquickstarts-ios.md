@@ -163,7 +163,6 @@ The basic principle behind ADAL is that whenever your app needs an access token,
 
         NSString *graphURL = [NSString stringWithFormat:@"%@%@/users?api-version=%@&$filter=startswith(userPrincipalName, '%@')", data.taskWebApiUrlString, data.tenant, data.apiversion, searchString];
 
-
         [self craftRequest:[self.class trimString:graphURL]
                     parent:parent
          completionHandler:^(NSMutableURLRequest *request, NSError *error) {
@@ -218,8 +217,8 @@ The basic principle behind ADAL is that whenever your app needs an access token,
     }
 
     ```
-    
-3. When your app requests a token by calling `getToken(...)`, ADAL will attempt to return a token without asking the user for credentials.  If ADAL determines that the user needs to sign in to get a token, it will display a dialog box for sign in, collect the user's credentials, and then return a token after successful authentication.  If ADAL is not able to return a token for any reason, it will throw an `AdalException`.
+
+    3. When your app requests a token by calling `getToken(...)`, ADAL will attempt to return a token without asking the user for credentials.  If ADAL determines that the user needs to sign in to get a token, it will display a dialog box for sign in, collect the user's credentials, and then return a token after successful authentication.  If ADAL is not able to return a token for any reason, it will throw an `AdalException`.
 
 > [!Note] 
 > The `AuthenticationResult` object contains a `tokenCacheStoreItem` object that can be used to collect the information that your app may need. In the QuickStart, `tokenCacheStoreItem` is used to determine if authentication is already done.
@@ -229,7 +228,7 @@ The basic principle behind ADAL is that whenever your app needs an access token,
 ## 5: Build and run the application
 Congratulations! You now have a working iOS application that has the ability to authenticate users, securely call Web APIs by using OAuth 2.0, and get basic information about the user.  If you haven't already, now is the time to populate your tenant with some users.  Start your QuickStart app, and then sign in with one of those users.  Search for other users based on their UPN.  Close the app, and then start it again.  Notice that the user's session remains intact.
 
-ADAL makes it easy to incorporate all of these common identity features into your application.  It takes care of all the dirty work for you, like cache management, OAuth protocol support, presenting the user with a login UI, and refreshing expired tokens.  All you really need to know is a single API call, `getToken`.
+ADAL makes it easy to incorporate all of these common identity features into your application.  It takes care of all the dirty work for you, like cache management, OAuth protocol support, presenting the user with a UI to sign in, and refreshing expired tokens.  All you really need to know is a single API call, `getToken`.
 
 For reference, the completed sample (without your configuration values) is provided [here](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).  
 
