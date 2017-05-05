@@ -23,7 +23,7 @@ Learn how to develop user-defined operators to be used and reused in Data Lake A
 For the instructions of developing general-purpose assemblies for U-SQL, see [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assemblies.md)
 
 ## Prerequisites
-* Visual Studio 2015 or Visual Studio 2013
+* Visual Studio 2017, Visual Studio 2015, or Visual Studio 2013
 * A Data Lake Analytics account.  See [Get Started with Azure Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md).
 * Go through the [Get started with Azure Data Lake Analytics U-SQL Studio](data-lake-analytics-u-sql-get-started.md) tutorial.
 * Connect to Azure.
@@ -95,7 +95,7 @@ For the instructions of developing general-purpose assemblies for U-SQL, see [De
                 }
             }
         }
-6. Open Script.usql, and paste the following U-SQL script:
+6. Open **Script.usql**, and paste the following U-SQL script:
 
         @drivers =
             EXTRACT UserID      string,
@@ -124,11 +124,12 @@ For the instructions of developing general-purpose assemblies for U-SQL, see [De
         OUTPUT @drivers_CountryName
             TO "/Samples/Outputs/Drivers.csv"
             USING Outputters.Csv(Encoding.Unicode);
-7. From **Solution Explorer**, right-click **Script.usql**, and then click **Build Script**.
-8. From **Solution Explorer**, right-click **Script.usql**, and then click **Submit Script**.
-9. If you haven't connect to your Azure subscription, you will be prompt to enter your Azure account credentials.
-10. Click **Submit**. Submission results and job link are available in the Results window when the submission is completed.
-11. You must click the Refresh button to see the latest job status and refresh the screen.
+7. Specify the Data Lake Analytics account, Database, and Schema.
+8. From **Solution Explorer**, right-click **Script.usql**, and then click **Build Script**.
+9. From **Solution Explorer**, right-click **Script.usql**, and then click **Submit Script**.
+10. If you haven't connect to your Azure subscription, you will be prompt to enter your Azure account credentials.
+11. Click **Submit**. Submission results and job link are available in the Results window when the submission is completed.
+12. You must click the Refresh button to see the latest job status and refresh the screen.
 
 **To see the job output**
 
