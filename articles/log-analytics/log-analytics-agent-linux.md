@@ -19,18 +19,18 @@ ms.author: magoedte
 
 # Connect your Linux Computers to Operations Management Suite (OMS) 
 
-With OMS, you can collect and act on data generated from Linux computers and container solutions like Docker, residing in your on-premises data center as physical servers or virtual machines, virtual machines in a cloud-hosted service like Amazon Web Services (AWS) or Microsoft Azure. You can also leverage management solutions available in OMS such as Change Tracking, to identify configuration changes, and Update Management to manage software updates to proactively manage the lifecycle of your Linux VMs. 
+With OMS, you can collect and act on data generated from Linux computers and container solutions like Docker, residing in your on-premises data center as physical servers or virtual machines, virtual machines in a cloud-hosted service like Amazon Web Services (AWS) or Microsoft Azure. You can also use management solutions available in OMS such as Change Tracking, to identify configuration changes, and Update Management to manage software updates to proactively manage the lifecycle of your Linux VMs. 
 
 The OMS Agent for Linux communicates outbound with the OMS service over TCP port 443, and if the computer connects to a firewall or proxy server to communicate over the Internet, review [Configure proxy and firewall settings](log-analytics-proxy-firewall.md#configure-settings-with-the-microsoft-monitoring-agent) to understand what configuration changes will need to be applied.  If you are monitoring the computer with System Center 2016 - Operations Manager or Operations Manager 2012 R2, it can be multi-homed with the OMS service to collect data and forward to the service and still be monitored by Operations Manager.  Linux computers monitored by an Operations Manager management group that is integrated with OMS do not receive configuration for data sources and forward collected data through the management group.  
 
-If your IT security policies do not allow computers on your network to connect to the Internet, the agent can be configured to connect to the OMS Gateway to receive configuration information and send collected data depending on the solution you have enabled. For additional information and steps on how to configure your OMS Linux Agent to communicate through an OMS Gateway to the OMS service, see [Connect computers to OMS using the OMS Gateway](log-analytics-oms-gateway.md).  
+If your IT security policies do not allow computers on your network to connect to the Internet, the agent can be configured to connect to the OMS Gateway to receive configuration information and send collected data depending on the solution you have enabled. For more information and steps on how to configure your OMS Linux Agent to communicate through an OMS Gateway to the OMS service, see [Connect computers to OMS using the OMS Gateway](log-analytics-oms-gateway.md).  
 
 The following diagram depicts the connection between the agent-managed Linux computers and OMS, including the direction and ports.
 
 ![direct agent communication with OMS diagram](./media/log-analytics-agent-linux/log-analytics-agent-linux-communication.png)
 
 ## System requirements
-Before starting, review the following details to verify you meet necessary prerequisites.
+Before starting, review the following details to verify you meet the prerequisites.
 
 ### Supported Linux operating systems
 The following Linux distributions are officially supported.  However, the OMS Agent for Linux might also run on other distributions not listed.
@@ -41,7 +41,7 @@ The following Linux distributions are officially supported.  However, the OMS Ag
 * Red Hat Enterprise Linux Server 5,6 and 7 (x86/x64)
 * Debian GNU/Linux 6, 7, and 8 (x86/x64)
 * Ubuntu 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS (x86/x64)
-* SUSE Linux Enteprise Server 11 and 12 (x86/x64)
+* SUSE Linux Enterprise Server 11 and 12 (x86/x64)
 
 ### Package requirements
 
@@ -209,7 +209,7 @@ sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key>
 ```
 
 ### Onboarding using a file
-1.	Create the file `/etc/omsagent-onboard.conf` The file must be readable and writable for root.
+1.	Create the file `/etc/omsagent-onboard.conf`. The file must be readable and writable for root.
 `sudo vi /etc/omsagent-onboard.conf`
 2.	Insert the following lines in the file with your Workspace ID and Shared Key:
 
