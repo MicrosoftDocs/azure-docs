@@ -82,7 +82,7 @@ Data Warehouse Units provide a measure of three metrics that are highly correlat
 **Create Table As Select (CTAS):** CTAS measures the ability to copy a table. This involves reading data from storage, distributing it across the nodes of the appliance and writing to storage again. It is a CPU, IO, and network intensive operation.
 
 ## Built on SQL Server
-SQL Data Warehouse is based on the SQL Server relational database engine, and includes many of the features you expect from an enterprise data warehouse. If you already know T-SQL, it's easy to transfer your knowledge to SQL Data Warehouse. Whether you are advanced or just getting started, the examples across the documentation will help begin. Overall, you can think about the way that we've constructed the language elements of SQL Data Warehouse as follows:
+SQL Data Warehouse is based on the SQL Server relational database engine, and includes many of the features you expect from an enterprise data warehouse. If you already know T-SQL, it's easy to transfer your knowledge to SQL Data Warehouse. Whether you are advanced or just beginning, the examples across the documentation will help you get started. Overall, you can think about the way that we've constructed the language elements of SQL Data Warehouse as follows:
 
 * SQL Data Warehouse uses T-SQL syntax for many operations. It also supports a broad set of traditional SQL constructs, such as stored procedures, user-defined functions, table partitioning, indexes, and collations.
 * SQL Data Warehouse also contains various newer SQL Server features, including: clustered **columnstore** indexes, PolyBase integration, and data auditing (complete with threat assessment).
