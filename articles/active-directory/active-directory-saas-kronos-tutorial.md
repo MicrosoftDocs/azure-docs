@@ -125,9 +125,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the preceding image and perform the following steps:
 	
-		| Attribute Name | Attribute Value |
-		| ------------------- | -------------------- |    
-		| NameIdentifier      | ExtractMailPrefix(userprincipalname) |	
+	| Attribute Name | Attribute Value |
+	| ------------------- | -------------------- |    
+	| NameIdentifier      | ExtractMailPrefix(userprincipalname) |	
 
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 			
