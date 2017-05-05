@@ -57,6 +57,19 @@ If your application is running as an Azure web service, here's how to switch on 
 
 [Monitoring Cloud and VM apps](app-insights-azure.md).
 
+## Monitor client side performance of a live Azure web app
+
+If your application is running as an Azure web service and you have unboarded your live Azure web app for server side telemetry (instructions above), here's how to switch on client side monitoring:
+
+* Select Application settings on the app's control panel in Azure under Settings.
+
+    ![Set up Client Side Collection for an Azure web app](./media/app-insights-monitor-performance-live-website-now/client-web-setup.png)
+* In the Application settings blade scroll down to App settings and add a new Key Value pair. Key: APPINSIGHTS_JAVASCRIPT_ENABLED value: true. Hit the save button at the top of the blade after. 
+
+    ![Insert key and value in Application Settings](./media/app-insights-monitor-performance-live-website-now/client-web-setup-2.png)
+
+* Lastly, restart your web app to see client side telemetry in Application Insights. 
+
 ## Monitor a live IIS web app
 
 If your app is hosted on an IIS server, enable Application Insights by using Status Monitor.
