@@ -165,15 +165,15 @@
 ##### [Publish apps](application-proxy-publish-azure-portal.md)
 ##### [Custom domains](active-directory-application-proxy-custom-domains.md)
 #### [SSO access](active-directory-appssoaccess-whatis.md)
-##### [SSO in Azure portal](application-proxy-sso-azure-portal.md)
 ##### [SSO with KCD](active-directory-application-proxy-sso-using-kcd.md)
 ##### [SSO with headers](application-proxy-ping-access.md)
+##### [SSO with password vaulting](application-proxy-sso-azure-portal.md)
 #### Understand best practices
 ##### [Connectors](application-proxy-understand-connectors.md)
 ##### [Security](application-proxy-security-considerations.md)
 ##### [Networks](application-proxy-network-topology-considerations.md)
 #### 
-#### Advanced configuration
+#### Advanced configurations
 ##### [Publish on separate networks](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Proxy servers](application-proxy-working-with-proxy-servers.md)
 ##### [Claims-aware apps](active-directory-application-proxy-claims-aware-apps.md)
