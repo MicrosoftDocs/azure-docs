@@ -162,6 +162,7 @@
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/documentdb/)
+## [FAQ](../documentdb/documentdb-faq.md)
 ## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=documentdb)
@@ -172,4 +173,3 @@
 ## [Schema agnostic indexing paper](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)
 ## [Data consistency explained through baseball](http://research.microsoft.com/apps/pubs/default.aspx?id=206913)
 ## [Book: Using Microsoft Azure DocumentDB in a Node.js Application](https://go.microsoft.com/fwlink/?LinkId=828428&clcid=0x409)
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/)

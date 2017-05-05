@@ -23,7 +23,7 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database. Azur
 scaling and replicating your data wherever your users are. Elastically scale throughput and storage worldwide, and pay only for the 
 throughput and storage you need. Azure Cosmos DB guarantees single-digit-millisecond latencies at the 99th percentile anywhere in 
 the world, offers multiple well-defined consistency models to fine-tune performance, and guarantees high availability with multi-homing 
-capabilities—all backed by industry leading [service level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/documentdb/.   
+capabilities—all backed by industry leading [service level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/documentdb/).   
 
 Azure Cosmos DB provides the Table API for applications that need a key-value store with a schema-less design. Existing and new Azure Table storage accounts are supported by Azure Cosmos DB, and Azure Table storage SDKs and REST APIs are supported as variants of accessing Azure Cosmos DB. Azure Cosmos DB is designed to support key-value workloads that need a large volume of storage that's infrequently accessed, as well as key-value workloads that need reserved throughput, and high request rates. Azure Cosmos DB supports throughput-optimized tables (informally called "premium tables"), in public preview. You can continue to create and use storage-optimized tables using the Azure storage SDK and API.
 

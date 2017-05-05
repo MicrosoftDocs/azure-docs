@@ -19,18 +19,13 @@ ms.author: mimig
 ---
 # Azure Cosmos DB Graph .NET API: Download and release notes
 
-<table>
-
-<tr><td>**SDK download**</td><td>[NuGet](https://aka.ms/acdbgraphnuget)</td></tr>
-
-<tr><td>**API documentation**</td><td>[.NET API reference documentation](https://aka.ms/acdbgraphapiref)</td></tr>
-
-<tr><td>**Quickstart**</td><td>[Azure Cosmos DB: Create a graph app using .NET and the Graph API](create-graph-dotnet.md)</td></tr>
-
-<tr><td>**Tutorial**</td><td>[Azure CosmosDB: Create a collection with the Graph API](tutorial-develop-graph-dotnet.md)</td></tr>
-
-<tr><td>**Current supported framework**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
-</table></br>
+|   |   |
+|---|---|
+|**SDK download**|[NuGet](https://aka.ms/acdbgraphnuget)|
+|**API documentation**|[.NET API reference documentation](https://aka.ms/acdbgraphapiref)|
+|**Quickstart**|[Azure Cosmos DB: Create a graph app using .NET and the Graph API](create-graph-dotnet.md)|
+|**Tutorial**|[Azure CosmosDB: Create a collection with the Graph API](tutorial-develop-graph-dotnet.md)|
+|**Current supported framework**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
 ## Release notes
 
