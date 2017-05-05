@@ -63,9 +63,9 @@ Once you've installed the tool, it's time to import your data. What kind of data
 * [Azure Table storage](#AzureTableSource)
 * [Amazon DynamoDB](#DynamoDBSource)
 * [Blob](#BlobImport)
-* [Azure Cosmos DB collections](#Azure Cosmos DBSource)
+* [Azure Cosmos DB collections](#DocumentDBSource)
 * [HBase](#HBaseSource)
-* [Azure Cosmos DB bulk import](#Azure Cosmos DBBulkImport)
+* [Azure Cosmos DB bulk import](#DocumentDBBulkImport)
 * [Azure Cosmos DB sequential record import](#DocumentDSeqTarget)
 
 
