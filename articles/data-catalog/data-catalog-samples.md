@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 05/03/2017
+ms.date: 05/05/2017
 ms.author: spelluru
 
 ---
@@ -32,4 +32,8 @@ Here are the samples we have on GitHub:
 * [Import/Export tool](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-import-export/)
   
   A sample that shows how to use the Data Catalog REST API to fetch assets from the Azure Data Catalog and serialize them into a file. It also demonstrates how to take a set of assets serialized as JSON and push them into the catalog. It supports exporting a subset of the catalog using a search query.
+
+* [Bulk import glossary terms](https://github.com/Azure-Samples/data-catalog-bulk-import-glossary)
+
+	This sample shows you how to import glossary terms from CSV files to ADC glossary.
 
