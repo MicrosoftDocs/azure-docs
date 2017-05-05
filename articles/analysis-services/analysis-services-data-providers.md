@@ -30,7 +30,7 @@ Microsoft client applications such as Power BI Desktop and Excel install all thr
 Client libraries for client connections are different from data providers required to connect from an Azure Analysis Services server to a data source. To learn more about datasource connections, see [Datasource connections](analysis-services-datasource.md).
 
 ## Download the latest **preview** client libraries  
-Use the following client libraries to get the latest bug fixes and updates. These are recommended when connecting to Azure Analysis Services or SQL Server vNext Analysis Services.
+Use the following client libraries to get the latest bug fixes and updates. These are recommended when connecting to Azure Analysis Services or SQL Server 2017 Analysis Services.
 
 [MSOLAP (amd64) Preview](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/amd64/SQL_AS_OLEDB.msi)</br>
 [MSOLAP (x86) Preview](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/x86/SQL_AS_OLEDB.msi)</br>
