@@ -1,6 +1,6 @@
 ---
-title: Developing with multiple regions in DocumentDB | Microsoft Docs
-description: Learn how to access your data in multiple regions from Azure DocumentDB, a fully managed NoSQL database service.
+title: Developing with multiple regions in Azure Cosmos DB | Microsoft Docs
+description: Learn how to access your data in multiple regions from Azure Cosmos DB, a fully managed NoSQL database service.
 services: documentdb
 documentationcenter: ''
 author: mimig1
@@ -17,9 +17,9 @@ ms.date: 02/09/2017
 ms.author: mimig
 
 ---
-# Developing with multi-region DocumentDB accounts
+# Developing with multi-region Azure Cosmos DB accounts
 
-Learn about multi-region DocumentDB accounts in this Azure Friday video with Scott Hanselman and Principal Engineering Manager Karthik Raman.
+Learn about multi-region Azure Cosmos DB accounts in this Azure Friday video with Scott Hanselman and Principal Engineering Manager Karthik Raman.
 
 >[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
 
@@ -27,7 +27,7 @@ Learn about multi-region DocumentDB accounts in this Azure Friday video with Sco
 
 In order to take advantage of [global distribution](documentdb-distribute-data-globally.md), client applications can specify the ordered preference list of regions to be used to perform document operations. This can be done by setting the connection policy. Based on the Azure DocumentDB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the SDK to perform write and read operations.
 
-This preference list is specified when initializing a connection using the DocumentDB client SDKs. The SDKs accept an optional parameter "PreferredLocations" that is an ordered list of Azure regions.
+This preference list is specified when initializing a connection using the Azure Cosmos DB client SDKs. The SDKs accept an optional parameter "PreferredLocations" that is an ordered list of Azure regions.
 
 The SDK will automatically send all writes to the current write region.
 
@@ -104,7 +104,7 @@ Once a database account has been made available in multiple regions, clients can
 
     https://{databaseaccount}.documents.azure.com/
 
-The service will return a list of regions and their corresponding DocumentDB endpoint URIs for the replicas. The current write region will be indicated in the response. The client can then select the appropriate endpoint for all further REST API requests as follows.
+The service will return a list of regions and their corresponding Azure Cosmos DB endpoint URIs for the replicas. The current write region will be indicated in the response. The client can then select the appropriate endpoint for all further REST API requests as follows.
 
 Example response
 
@@ -147,9 +147,9 @@ Write requests to read-only regions will fail with HTTP error code 403 (“Forbi
 If the write region changes after the client’s initial discovery phase, subsequent writes to the previous write region will fail with HTTP error code 403 (“Forbidden”). The client should then GET the list of regions again to get the updated write region.
 
 ## Next steps
-Learn more about the distributing data globally with DocumentDB in the following articles:
+Learn more about the distributing data globally with Azure Cosmos DB in the following articles:
 
-* [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md)
+* [Distribute data globally with Azure Cosmos DB](documentdb-distribute-data-globally.md)
 * [Consistency levels](documentdb-consistency-levels.md)
 * [Add regions using the Azure portal](documentdb-portal-global-replication.md)
 

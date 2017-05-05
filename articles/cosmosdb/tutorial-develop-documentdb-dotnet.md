@@ -21,23 +21,25 @@ ms.author: mimig
 
 # Azure CosmosDB: Create a collection with the DocumentDB API
 
-In this tutorial, you'll learn how to create an Azure Cosmos DB collection and use a partition key to partition your data. By defining a partition key at the start, your application is prepared to scale effortlessly as your data grows. 
+Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-In this tutorial, you'll perform the following operations using the [DocumentDB .NET SDK](../documentdb/documentdb-sdk-dotnet.md):
+This quick start demonstrates how to create an Azure Cosmos DB account using the Azure portal, and how to create a document database and collection with a partition key using the [DocumentDB .NET API](../documentdb/documentdb-sdk-dotnet.md). By defining a partition key at the start, your application is prepared to scale effortlessly as your data grows. 
 
-* Connect to your account
-* Create a database
-* Create a partitioned collection
-* Create JSON documents
-* Update a document
-* Query partitioned collections
-* Run stored procedures
-* Delete a document
-* Delete a database
+This tutorial covers the following tasks by using the [DocumentDB .NET API](../documentdb/documentdb-sdk-dotnet.md):
+
+> [!div class="checklist"]
+> * Create an Azure Cosmos DB account
+> * Create a database and collection with a partition key
+> * Create JSON documents
+> * Update a document
+> * Query partitioned collections
+> * Run stored procedures
+> * Delete a document
+> * Delete a database
 
 ## What are partitioned collections?
 
-Partitioned collections are configured with a partition key property. A partition key is a property (or path) within your documents that can be used to distribute your data among multiple servers or partitions. All documents with the same partition key will be stored in the same partition. By using a partition key and partitioned collections, Azure Cosmos DB can efficiently index and query your big-data solutions.   
+Partitioned collections are containers for storing data, they are logical resources and span one or more physical partitions or servers. A partition key is a property (or path) within your documents that is used to distribute your data among the servers or partitions. All documents with the same partition key are stored in the same partition. By using a partition key and partitioned collections, Azure Cosmos DB can efficiently index and query your big-data solutions.   
 
 Learn more about partitioning and scaling in, [How to partition and scale in Azure Cosmos DB?](../documentdb/documentdb-partition-data.md)
 
@@ -63,8 +65,8 @@ If you already have an account you want to use, you can skip ahead to [Setup you
     
     ![Screen shot of the Right Clicked Menu for the Project](./media/tutorial-develop-documentdb-dotnet/nosql-tutorial-manage-nuget-pacakges.png)
 5. In the **Nuget** tab, click **Browse**, and type **azure cosmos db** in the search box.
-6. Within the results, find **Microsoft.Azure.CosmosDB** and click **Install**.
-   The package ID for the Azure Cosmos DB Client Library is [Microsoft.Azure.AzureCosmosDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB).
+6. Within the results, find **Microsoft.Azure.DocumentDB** and click **Install**.
+   The package ID for the Azure Cosmos DB Client Library is [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB).
    ![Screen shot of the Nuget Menu for finding Azure Cosmos DB Client SDK](./media/tutorial-develop-documentdb-dotnet/nosql-tutorial-manage-nuget-pacakges-2.png)
 
     If you get a messages about reviewing changes to the solution, click **OK**. If you get a message about license acceptance, click **I accept**.
@@ -271,15 +273,30 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
     new RequestOptions { PartitionKey = new PartitionKey("XMS-001") }, 
     "XMS-001-FE24C");
 ```
-    
-In the next section, we look at how you can move to partitioned collections from single-partition collections.
 
+That's it, this Azure Cosmos DB tutorial is complete! In this tutorial, you've done the following:
+
+> [!div class="checklist"]
+> * Created an Azure Cosmos DB account
+> * Created a database and collection with a partition key
+> * Created JSON documents
+> * Updated a document
+> * Queried partitioned collections
+> * Ran a stored procedure
+> * Deleted a document
+> * Deleted a database
+
+## Clean up resources
+
+If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal with the following steps:
+
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
+2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
 ## Next steps
-* Want a more DocuementDB API tutorials? See [Use .NET (C#) to connect and query data with the DocumentDB API](create-documentdb-dotnet.md) and [Build a web application with ASP.NET MVC using DocumentDB](../documentdb/documentdb-dotnet-application.md).
-* Want to perform scale and performance testing with DocumentDB? See [Performance and Scale Testing with Azure DocumentDB](../documentdb/documentdb-performance-testing.md)
-* Learn how to [monitor a DocumentDB account](../documentdb/documentdb-monitor-accounts.md).
-* Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
 
-[documentdb-create-account]: ../documentdb/documentdb-create-account.md
-[keys]: media/tutorial-develop-documentdb-dotnet/nosql-tutorial-keys.png
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a collection, and sample documents. You can now import additional data to your Cosmos DB account, or query your data using SQL. 
+
+[Import data into Azure Cosmos DB for the DocumentDB API](../documentdb/documentdb-import-data.md)
+
+[Query using SQL](tutorial-query-documentdb.md)

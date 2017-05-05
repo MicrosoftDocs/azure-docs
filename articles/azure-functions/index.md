@@ -111,3 +111,19 @@ Learn how to use Functions to develop and deploy small pieces of code in the lan
     </li>
 </ul>
 
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <p><a href="/azure/azure-functions/functions-reference/">Develop function apps</a></p>
+                        <p><a href="/azure/azure-functions/functions-api-definition/">Open API 2.0</a></p>
+                        <p><a href="/azure/azure-functions/functions-best-practices/">Best practices for Azure Functions</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>

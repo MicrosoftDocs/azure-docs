@@ -14,13 +14,17 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/01/2017
+ms.date: 05/10/2017
 ms.author: mimig
 
 ---
-# Azure Cosmos DB: Build a web app with .NET Core and the DocumentDB API
+# Azure Cosmos DB: Build a DocumentDB API web app with .NET Core and the Azure portal
 
-This quick start demonstrates how to use the [DocumentDB .NET Core API](../documentdb/documentdb-sdk-dotnet-core.md) for Azure Cosmos DB and the Azure portal to create an Azure Cosmos DB account, create a database and collection, and then build and deploy a web app on the Windows platform.
+Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+
+This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and deploy a todo list web app built on the [DocumentDB .NET Core API](../documentdb/documentdb-introduction.md).  
+
+## Prerequisites
 
 If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
@@ -80,13 +84,13 @@ Now go back to the Azure portal to get your connection string information and co
 
 You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
-## Build and deploy the web app
+## Run the web app
 
 1. In Visual Studio, right-click on the project in **Solution Explorer** and then click **Manage NuGet Packages**. 
 
-2. In the NuGet **Browse** box, type ***Azure Cosmos DB**.
+2. In the NuGet **Browse** box, type *DocumentDB*.
 
-3. From the results, install the **.NET Client library for Azure Cosmos DB**. This installs the Azure Cosmos DB package as well as all dependencies.
+3. From the results, install the**Microsoft.Azure.DocumentDB** library. This installs the Azure Cosmos DB package as well as all dependencies.
 
 4. Click CTRL + F5 to run the application. Your app displays in your browser. 
 
@@ -96,15 +100,21 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 You can now go back to Data Explorer and see query, modify, and work with this new data. 
 
-## Review metrics in the Azure portal
+## Review SLAs in the Azure portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
 
-## Next steps
+## Clean up resources
 
-If you're not going to continue to use this app and Azure Cosmos DB, use the following steps to delete all resources created by this quick start in the Azure portal. If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. 
+If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal with the following steps:
 
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you just created. 
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
-To learn more about the Azure Comsos DB DocumentDB API, see [What is the DocumentDB API?(../documentdb/documentdb-introduction). To learn more about the SQL query language which you can use in the Azure portal and programmatically, see [SQL](../documentdb/documentdb-sql-query.md).
+## Next steps
+
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a collection using the Data Explorer, and run a web app. You can now import additional data to your Cosmos DB account, or query your data using SQL. 
+
+[Import data into Azure Cosmos DB for the DocumentDB API](../documentdb/documentdb-import-data.md)
+
+[Query using SQL](tutorial-query-documentdb.md)
