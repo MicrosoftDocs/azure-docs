@@ -71,4 +71,4 @@ The following is a list of standard PostgreSQL extensions that are currently sup
 | [pgrouting](http://pgrouting.org/) | Extends the PostGIS / PostgreSQL geospatial database to provide geospatial routing functionality. |
 
 ## Next Steps
-Don't see an extension you'd like to use? Please let us know. Vote for existing requests or create new feedback on our [Customer feedback forum](https://feedback.azure.com/forums/597976-azure-database-for-postgresql). If you prefer, you can email your extension wishlist to us at [azure-postgres-extensions-request@microsoft.com](mailto:azure-postgres-extensions-request@microsoft.com?subject=Request%20for%20Azure%20Database%20for%20PostgreSQL%20Extension).
+Don't see an extension you'd like to use? Please let us know. Vote for existing requests or create new feedback and wishes in our [Customer feedback forum](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
