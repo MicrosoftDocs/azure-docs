@@ -1,5 +1,5 @@
 ---
-title: Glossary of terms for the Custom Speech Service | Microsoft Docs
+title: Glossary of terms for the Custom Speech Service on Azure | Microsoft Docs
 description: Terminology in the glossary defines terms that you'll encounter as you work with the Custom Speech Service.
 services: cognitive-services
 author: PanosPeriorellis
@@ -102,6 +102,6 @@ Transcription: The piece of text that results from the process of a piece of aud
 
 ## Z
 
- * [Overview](Home.md)
- * [Get Started](GetStarted.md)
- * [FAQ](FAQ.md)
+* [Overview](cognitive-services-custom-speech-home.md)
+* [Get Started](cognitive-services-custom-speech-get-started.md)
+* [FAQ](cognitive-services-custom-speech-faq.md)
