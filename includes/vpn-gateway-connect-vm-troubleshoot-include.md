@@ -2,7 +2,7 @@ If you are having trouble connecting to a virtual machine over your VPN connecti
 
 - Verify that your VPN connection is successful.
 - Verify that you are connecting to the private IP address for the VM.
-- If you can connect to the VM using the private IP address, but not the computer name, verify that you have configured DNS properly.
+- If you can connect to the VM using the private IP address, but not the computer name, verify that you have configured DNS properly. For more information about how name resolution works for VMs, see [Name Resolution for VMs](../articles/virtual-network/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 **For Point-to-Site connections**
 

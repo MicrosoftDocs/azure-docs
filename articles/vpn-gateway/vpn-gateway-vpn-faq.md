@@ -209,8 +209,6 @@ No. Only the traffic that has a destination IP that is contained in the virtual 
 
 ### How do I troubleshoot an RDP connection to a VM
 
-[!INCLUDE [Troubleshoot VM connections](../../includes/vpn-gateway-bpg-faq-include.md)]
-
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
 
 
