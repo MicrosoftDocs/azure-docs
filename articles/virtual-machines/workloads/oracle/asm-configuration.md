@@ -384,73 +384,52 @@ $ cd /opt/grid
 $ ./runInstaller
 ```
 It may take a few minutes before the Oracle installer to start.
+Select the "Install and Configure Oracle Grid Infrastructure for a Standalone Server", then click next
 
 ![Diagram of install screen](./media/asm-configuration/install01.png)
 
-Select the "Install and Configure Oracle Grid Infrastructure for a Standalone Server", then click next
-
+Select "English" or other language desired, click next to continue
 ![Diagram of install screen](./media/asm-configuration/install02.png)
 
-Select "English" or other language desired, click next to continue
-
+Enter the Disk group name and check the ORCLASMSP box, click next to continue
 ![Diagram of install screen](./media/asm-configuration/install03.png)
 
-Enter the Disk group name and check the ORCLASMSP box, click next to continue
-
+Select the option for the passwords and enter password/passwords, click next to continue
 ![Diagram of install screen](./media/asm-configuration/install04.png)
 
-Select the option for the passwords and enter password/passwords, click next to continue
-
+Register the Enterprise Manager (EM) Cloud Control (optional), click next to continue
 ![Diagram of install screen](./media/asm-configuration/install05.png)
 
-Register the Enterprise Manager (EM) Cloud Control (optional), click next to continue
-
+Use default setting, click next to continue
 ![Diagram of install screen](./media/asm-configuration/install06.png)
 
 Use default setting, click next to continue
 
 ![Diagram of install screen](./media/asm-configuration/install07.png)
 
-Use default setting, click next to continue
+Enter the folder location, click next to continue
 
 ![Diagram of install screen](./media/asm-configuration/install08.png)
 
+Check the box "Automatically run configuration scripts", enter password
 
 ![Diagram of install screen](./media/asm-configuration/install09.png)
 
+Perform Prerequisite checks, click the "Fix & Check Again" button
+![Diagram of install screen](./media/asm-configuration/install10.png)
 
-
-
-Use default setting or any location you selected, click next to continue
-
-![Diagram of install screen](./media/asm-configuration/install09.png)
-
-Open a new putty session to the VM
-
-```bash
-sudo su -
-# /tmp/CVU_12.1.0.2.0_grid/runfixup.sh
-```
-Click ok to continue after the script ran successful
-
-Check the box for Automatically run configuration scripts and select the credential, click next to continue
-
-
-
-Review the settings, click install to begin installation
-
+Click ok to continue
 ![Diagram of install screen](./media/asm-configuration/install11.png)
 
-Screen showing install in progress
+Screen showing summary of the install, click Install to continue
 
 ![Diagram of install screen](./media/asm-configuration/install12.png)
-You may be prompt "Are you sure you want to continue", click Yes to continue
 
-
-![Diagram of install screen](./media/asm-configuration/install13.png)
-
-
+A dialog box shows up and click yes to continue
 ![Diagram of install screen](./media/asm-configuration/install14.png)
+
+Click close to finished the installation
+![Diagram of install screen](./media/asm-configuration/install16.png)
 
 ## Configure ASM
 
@@ -485,7 +464,8 @@ Click Exit button to exit
 The Oracle software is already installed on the Marketplace image, so the next step is to install the database. the first step is running as the 'oracle' superuser and initialize the listener for logging:
 
 ```bash
-$ sudo su - oracle
+$ su - oracle
+Password:
 $ cd /u01/app/oracle/product/12.1.0/dbhome_1/bin
 $ ./dbca
 ```
