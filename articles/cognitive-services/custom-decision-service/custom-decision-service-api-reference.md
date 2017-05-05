@@ -28,6 +28,7 @@ Insert the following snippet into the HTML head of the front page. Here by the "
 
 // call to Ranking API
 <script src="https://ds.microsoft.com/<appId>/rank/<actionSetId>?<parameters>" async></script>
+// action set id is the name of the corresponding RSS/Atom feed.
 
 // same call with multiple action sets:
 // <script src="https://ds.microsoft.com/<appId>/rank/<A1>/<A2>/.../<An>?<parameters>" async></script>
@@ -40,7 +41,7 @@ Insert the following snippet into the HTML head of the front page. Here by the "
 > To improve latency we also expose Ranking API via HTTP rather than HTTPS, as in `http://ds.microsoft.com/<appId>/rank/*`.
 > However, HTTPS endpoint must be used if the front page is served through HTTPS.
 
-When parameters are not specified, HTTP response from Ranking API is a JSONP-formatted string like this:
+When parameters are not specified, HTTP response from Ranking API is a JSONP-formatted string as follows:
 
 ```json
 callback({
@@ -58,7 +59,7 @@ The parameter to the call-back function in the preceding example has the followi
 - `ranking` provides the ranking of URLs to be displayed.
 - `eventId` is used internally by the Custom Decision Service to match this ranking with the corresponding clicks.
 - `appId` allows the callback function to distinguish between multiple applications of Custom Decision Service running on the same webpage.
-- `actionSets` element lists each action set used in the Ranking API call, along with the UTC timestamp of the last successful refresh. (Recall that action sets are periodically refreshed via supplied RSS/Atom feeds.) For example, the callback function may need to fall back to their default ranking if some of the action sets are not current.
+- `actionSets` element lists each action set used in the Ranking API call, along with the UTC timestamp of the last successful refresh. (Custom Decision Service periodically refreshes the action set feeds.) For example, the callback function may need to fall back to their default ranking if some of the action sets are not current.
 
 > [!IMPORTANT]
 > The specified action sets are processed, and possibly pruned, to form the "default ranking" of articles. The default ranking then gets reordered and returned in the HTTP response. The default ranking is defined as follows:
