@@ -62,7 +62,7 @@ Azure creates the profile and endpoint. The new endpoint appears in the **Endpoi
 
 ### Test the CDN endpoint
 
-If you selected Verizon pricing tier, wait 90 minutes for endpoint propagation. For Akamai, wait a couple minutes for propagation. 
+If you selected Verizon pricing tier, it typically takes about 90 minutes for endpoint propagation. For Akamai, it takes a couple minutes for propagation
 
 The sample app has an `index.html` file and *css*, *img*, and *js* folders that contain other static assets. The content paths for all of these files are the same at the CDN endpoint. For example, both of the following URLs access the *bootstrap.css* file in the *css* folder:
 
