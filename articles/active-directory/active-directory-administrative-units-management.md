@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
 
 ---
@@ -27,7 +27,7 @@ This is useful in organizations with independent divisions, for example, a large
 >
 >
 
-From the central administrator’s point of view, an administrative unit is a directory object that can be created and populated with resources. **In this release, these resources can be only users.** Once created and populated, the administrative unit can be used as a scope to restrict the granted permission only over resources contained in the administrative unit.
+From the central administrator’s point of view, an administrative unit is a directory object that can be created and populated with resources. **In this preview release, these resources can be only users.** Once created and populated, the administrative unit can be used as a scope to restrict the granted permission only over resources contained in the administrative unit.
 
 ## Managing administrative units
 In this preview release, you can create and manage administrative units using the Azure Active Directory Module for Windows PowerShell cmdlets.

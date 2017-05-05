@@ -23,8 +23,7 @@ Learn how to develop user-defined operators to be used and reused in Data Lake A
 For the instructions of developing general-purpose assemblies for U-SQL, see [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assemblies.md)
 
 ## Prerequisites
-* Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed
-* Microsoft Azure SDK for .NET version 2.5 or above.  Install it using the Web platform installer.
+* Visual Studio 2015 or Visual Studio 2013
 * A Data Lake Analytics account.  See [Get Started with Azure Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md).
 * Go through the [Get started with Azure Data Lake Analytics U-SQL Studio](data-lake-analytics-u-sql-get-started.md) tutorial.
 * Connect to Azure.

@@ -59,32 +59,22 @@ To enable login for users from a specific Azure AD organization, you need to reg
 1. Under the Settings blade, click on **Keys**.
 1. Create a new key and save it for the next section.
 
-## Add the Azure AD key to Azure AD B2C
+## Add the Azure AD key to Azure AD B2C for use by your tenants
 
 You need to store the `contoso.com` application key in your Azure AD B2C tenant. To do this:
 
-1. Open PowerShell and navigate to the working directory `active-directory-b2c-advanced-policies`.
-1. Switch into the folder with the ExploreAdmin tool.
-
-    ```powershell
-    cd active-directory-b2c-advanced-policies\ExploreAdmin
-    ```
-
-1. Import the ExploreAdmin tool into powershell.
-
-    ```powershell
-    Import-Module .\ExploreAdmin.dll
-    ```
-
-1. In the following command, replace `tenantName` with the name of your Azure AD B2C tenant (e.g. fabrikamb2c.onmicrosoft.com), `SecretReferenceId` with a name that you will use to reference the secret (e.g. ContosoAppSecret), and `ClientSecret` with the `contoso.com` application key. Run the command.
-
-    ```PowerShell
-    Set-CpimKeyContainer -Tenant {tenantName} -StorageReferenceId {SecretReferenceId} -UnencodedAsciiKey {ClientSecret}
-    ```
+1. Navigate to your Azure AD B2C tenant and open B2C Settings>Identity Experience Framework>Policy Keys
+1. Click +Add
+1. Options:
+ * Select Option > `Manual`
+ * Name: > `ContosoAppSecret`  Choose a name that matches your Azure AD tenant name.  The prefix B2C_1A_ will be added automatically to the name of your key.
+ * Paste your application key in the `Secret` text box
+ * Select Signature
+1. Click `Create`
+1. Confirm you've created key: `B2C_1A_ContosoAppSecret`
 
     When you run the command, make sure you sign in with the onmicrosoft.com admin account local to the Azure AD B2C tenant. If you receive an error that says 'TokenSigningKeyContainer' cannot be found, go through the [getting started](active-directory-b2c-get-started-custom.md) guide.
 
-1. Close PowerShell.
 
 ## Add a claims provider in your base policy
 
@@ -226,6 +216,5 @@ You now need to update the RP file that will initiate the user journey that you 
 Test out the custom policy that you just uploaded by opening its blade and clicking on "Run now". In case something fails, see how to [troubleshoot](active-directory-b2c-troubleshoot-custom.md).
 
 ## Next Steps
- 
-Provide feedback to AADB2CPreview@microsoft.com.
 
+Provide feedback to AADB2CPreview@microsoft.com.
