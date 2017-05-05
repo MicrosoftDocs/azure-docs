@@ -51,7 +51,7 @@ The Azure Stack POC offers services using the following VMs on the POC host:
 
 | Name | Description |
 | ----- | ----- |
-| **ACS Blob Service** | Azure Consistent Storage Blob service, which provides blob and table storage services. |
+| **ACS Service** | Azure Consistent Storage service, which provides blob and table storage services. |
 | **SoFS** | Scale-out File Server.|
 | **ReFS CSV** |Resilient File System Cluster Shared Volume.|
 
