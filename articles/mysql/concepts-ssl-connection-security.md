@@ -130,4 +130,4 @@ Configuring MySQL Workbench to connect securely over SSL requires you to navigat
 ![save customized tile](./media/concepts-ssl-connection-security/mysql-workbench-ssl.png)
 
 ## Next steps
-Review various application connectivity options following [Connection libraries for Azure Database for MySQL](concepts-connectivity-libraries.md)
+Review various application connectivity options following [Connection libraries for Azure Database for MySQL](concepts-connection-libraries.md)

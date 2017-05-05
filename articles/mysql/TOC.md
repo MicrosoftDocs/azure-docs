@@ -26,7 +26,7 @@
 ### [Firewall rules](concepts-firewall-rules.md)
 ### [SSL configuration](concepts-ssl-connection-security.md)
 ## Development
-### [Connection libraries](concepts-connectivity-libraries.md)
+### [Connection libraries](concepts-connection-libraries.md)
 ### [Application development](concepts-database-application-development.md)
 ## Migrate your database
 ### [Dump & restore](concepts-migrate-dump-restore.md)
