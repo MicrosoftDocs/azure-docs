@@ -130,11 +130,6 @@ Options:
 sudo sh ./omsagent-1.3.0-1.universal.x64.sh --upgrade -w <workspace id> -s <shared key>
 ```
 
-#### To install and onboard directly using an HTTP proxy
-```
-sudo sh ./omsagent-1.3.0-1.universal.x64.sh --upgrade -p http://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
-```
-
 #### To install and onboard to a workspace in US Government Cloud
 ```
 sudo sh ./omsagent-1.3.0-1.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d opinsights.azure.us
