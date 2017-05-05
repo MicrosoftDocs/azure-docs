@@ -154,12 +154,12 @@ By default, the Video Search API returns all videos that are relevant to the que
   
 -   [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#videolength)&mdash;Filter videos by video length (for example, videos that are less than five minutes in length)  
     
--   [freshness]((https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#freshness)&mdash;Filter videos by age (for example, videos discovered by Bing in the past week) 
+-   [freshness](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#freshness)&mdash;Filter videos by age (for example, videos discovered by Bing in the past week) 
   
 To get videos from a specific domain, include the [site:](http://msdn.microsoft.com/library/ff795613.aspx) query operator in the query string.
 
 > [!NOTE] 
-> Depending on the query, if you use the `site:` query operator, there is the chance that the response contains adult content regardless of the [safeSearch]((https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#safesearch) setting. You should use `site:` only if you are aware of the content on the site and your scenario supports the possibility of adult content.   
+> Depending on the query, if you use the `site:` query operator, there is the chance that the response contains adult content regardless of the [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#safesearch) setting. You should use `site:` only if you are aware of the content on the site and your scenario supports the possibility of adult content.   
   
 The following example shows how to get free videos from ContosoSailing.com that have a resolution of 720p or better and that Bing has discovered in the past month.  
   
@@ -281,7 +281,7 @@ You can use the `text` and `thumbnail` fields to display the expanded query stri
 
 To get started quickly with your first request, see [Making Your First Request](./quick-start.md).
 
-To get your subscription key, see [Subscription Keys](https://www.microsoft.com/cognitive-services/subscriptions?mode=NewTrials).
+To get your subscription key, see [Subscription Keys](https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api).
 
 Familiarize yourself with the [Videos Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference). The reference contains the list of endpoints, headers, and query parameters that you'd use to request search results. It also includes definitions of the response objects. 
 
