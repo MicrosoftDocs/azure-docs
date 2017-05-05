@@ -20,7 +20,7 @@ ms.author: ganesr;cherylmc
 ---
 # Move ExpressRoute circuits from the classic to the Resource Manager deployment model using PowerShell
 
-To use an ExpressRoute circuit for both the classic and Resource Manager deployment models, you must move the circuit to the Resource Manager deployment model. The following sections will walk you through the steps to move your circuit by using PowerShell.
+To use an ExpressRoute circuit for both the classic and Resource Manager deployment models, you must move the circuit to the Resource Manager deployment model. The following sections help you move your circuit by using PowerShell.
 
 ## Before you begin
 
@@ -127,7 +127,7 @@ After moving your classic ExpressRoute circuit to the Resource Manager deploymen
   get-azurededicatedcircuit
   ```
 
-5. You can now manage links to the ExpressRoute circuit using the classic deployment model commands for classic VNets, and the Resource Manager commands for Resource Manager VNets. The following articles will walk you through how to manage links to the ExpressRoute circuit:
+5. You can now manage links to the ExpressRoute circuit using the classic deployment model commands for classic VNets, and the Resource Manager commands for Resource Manager VNets. The following articles help you manage links to the ExpressRoute circuit:
 
 	* [Link your virtual network to your ExpressRoute circuit in the Resource Manager deployment model](expressroute-howto-linkvnet-arm.md)
 	* [Link your virtual network to your ExpressRoute circuit in the classic deployment model](expressroute-howto-linkvnet-classic.md)
