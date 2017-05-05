@@ -21,7 +21,11 @@ ms.author: mimig
 
 # Azure Cosmos DB: How to query with the Graph API?
 
-The Azure Cosmos DB Graph API supports [Gremlin](https://docs.mongodb.com/manual/tutorial/query-documents/) queries. This article provides sample documents and queries to get you started. Detailed Gremlin support information is provided in the [Gremlin support](gremlin-support.md) article.
+The Azure Cosmos DB [Graph API](graph-introduction.md) supports [Gremlin](https://docs.mongodb.com/manual/tutorial/query-documents/) queries. This article provides sample documents and queries to get you started. Detailed Gremlin support information is provided in the [Gremlin support](gremlin-support.md) article.
+
+## Prerequisites
+
+For these queries to work, you must have an Azure Cosmos DB account and have graph data in the collection. Dont' have any of those? Complete the [5-minute quickstart](create-graph-dotnet.md) or the [developer tutorial](tutorial-query-graph.md) to create an account and populate your database.
 
 ## Count vertices in the graph
 
@@ -72,6 +76,20 @@ IDocumentQuery<Vertex> friendsOfFriendsOfThomas = client.CreateGremlinQuery<Vert
   graphCollection,
   $"g.V('{thomas.Id}').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')");
 ```
-## Next steps
 
 You can build more complex queries and implement powerful graph traversal logic using Gremlin, including mixing filter expressions, performing looping using the `loop` step, and implementing conditional navigation using the `choose` step. Learn more about what you can do with [Gremlin support](gremlin-support.md)!
+
+## Clean up resources
+
+If you're not going to continue to use this app, use the following steps to delete all resources created by this quickstart in the Azure portal. 
+
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
+2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
+
+## Next steps
+
+In this tutorial, you've learned how to query graph data using Gremlin. You can now distribute data globally using the portal or install the Local emulator for local development.  
+
+[Distribute your data globally](../documentdb/documentdb-portal-global-replication.md)
+
+[Develop locally](../documentdb/documentdb-nosql-local-emulator.md)

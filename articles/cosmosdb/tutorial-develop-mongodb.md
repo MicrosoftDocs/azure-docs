@@ -14,18 +14,35 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2017
+ms.date: 05/10/2017
 ms.author: anhoh
 
 ---
 # Azure Cosmos DB: Connect to a MongoDB app using .NET
 
-This example shows you how to build an API for MongoDB web app using .NET.
+Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-To use this example, you must:
+This tutorial demonstrates how to create an Azure Cosmos DB account using the Azure portal, and how to create a database and collection to store data using the [MongoDB API](../documentdb/documentdb-protocol-mongodb.md). 
 
-* [Create](../documentdb/documentdb-create-mongodb-account.md) an Azure Cosmos DB database.
-* Retrieve your MongoDB [connection string](../documentdb/documentdb-connect-mongodb-account.md) information.
+This tutorial covers the following tasks:
+
+> [!div class="checklist"]
+> * Create an Azure Cosmos DB account 
+> * Update your connection string
+> * Setup your MongoDB app
+
+## Create a database account
+
+[!INCLUDE [cosmosdb-create-dbaccount-mongodb](../../includes/cosmosdb-create-dbaccount-mongodb.md)]
+
+## Update your connection string
+
+1. In the Azure portal, in the **NoSQL (DocumentDB)** page, select the API for MongoDB account. 
+2. In the left bar of the account blade, click **Quick start**. 
+3. Choose your platform (*.NET driver*, *Node.js driver*, *MongoDB Shell*, *Java driver*, *Python driver*). If you don't see your driver or tool listed, don't worry, we continuously document more connection code snippets. 
+4. Copy and paste the code snippet into your MongoDB app, and you are ready to go.
+
+## Setup your MongoDB app
 
 You can use the [Create a web app in Azure that connects to MongoDB running on a virtual machine](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md) tutorial, with minimal modification, to quickly setup a MongoDB application (either locally or published to an Azure web app) that connects to an API for MongoDB account.  
 
@@ -164,7 +181,7 @@ You can use the [Create a web app in Azure that connects to MongoDB running on a
     }
     ```
 
-2. Modify the following variables in the Dal.cs file per your account settings:
+2. Modify the following variables in the Dal.cs file per your account settings from the Keys page in the Azure portal:
 
     ```csharp   
     private string userName = "<your user name>";
@@ -174,5 +191,24 @@ You can use the [Create a web app in Azure that connects to MongoDB running on a
 
 3. Use the app!
 
+That's it, this Azure Cosmos DB tutorial is complete! In this tutorial, you've done the following:
+
+> [!div class="checklist"]
+> * Created an Azure Cosmos DB account 
+> * Updated your connection string
+> * Created your MongoDB app
+
+## Clean up resources
+
+If you're not going to continue to use this app, use the following steps to delete all resources created by this quickstart in the Azure portal. 
+
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
+2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
+
 ## Next steps
-* Learn how to [use MongoChef](../documentdb/documentdb-mongodb-mongochef.md) and [use RoboMongo](../documentdb/documentdb-mongodb-robomongo.md) with your Azure Cosmos DB's API for MongoDB account.
+
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a MongoDB collection using the Data Explorer. You can now migrate your data to Azure Cosmos DB or query your data.  
+
+[Migrate data for the MongoDB API](../documentdb/documentdb-mongodb-migrate.md)
+
+[Query using MongoDB](tutorial-query-mongodb.md)

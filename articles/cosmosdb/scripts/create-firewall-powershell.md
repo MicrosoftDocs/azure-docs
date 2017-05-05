@@ -27,7 +27,7 @@ This sample PowerShell script creates a firewall for any kind of Azure Cosmos DB
 
 ## Sample script
 
-`[!code-powershell[main](../../../powershell_scripts/cosmosdb/create-firewall/create-firewall.ps1?highlight=35-36,39-43 "Create a firewall for Azure Cosmos DB")]`
+[!code-powershell[main](../../../powershell_scripts/cosmosdb/create-firewall/create-firewall.ps1?highlight=35-36,39-43 "Create a firewall for Azure Cosmos DB")]
 
 ## Clean up deployment
 

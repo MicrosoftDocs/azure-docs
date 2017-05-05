@@ -22,13 +22,6 @@ ms.custom: H1Hack27Feb2017
 
 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is designed to help you achieve fast, predictable performance and scale seamlessly along with your application as it grows. This article provides an overview of how partitioning works for all the data models in Azure Cosmos DB, and describes how you can configure Azure Cosmos DB collections to effectively scale your applications.
 
-**How to partition and scale in Azure Cosmos DB for each data model?**
-
-|   |DocumentDB API|Tables API|Graph API|MongoDB API|
-|---|-----------------|--------------|-------------|---------------|
-|Partition strategy|Specify a [partition key](#partition-keys) property and use [partitioned collections](#partitionedcollections)|   |   | [Specify a shard key and a use sharded collections](#sharding)|
-|Scale strategy|Scale provisioned throughput and storage|   |   |Scale provisioned throughput and storage|
-
 Partitioning and partition keys are also covered in this Azure Friday video with Scott Hanselman and DocumentDB Principal Engineering Manager, Shireesh Thota.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-DocumentDB-Elastic-Scale-Partitioning/player]

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: Build a web app .NET and Xamarin | Microsoft Docs'
+title: 'Azure Cosmos DB: Build a web app with Xamarin and Facebook auth | Microsoft Docs'
 description: Presents a .NET code sample you can use to connect to and query Azure Cosmos DB
 services: cosmosdb
 documentationcenter: ''
@@ -14,13 +14,17 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/14/2017
+ms.date: 05/10/2017
 ms.author: mimig
 
 ---
-# Azure Cosmos DB: Build a web app .NET and Xamarin
+# Azure Cosmos DB: Build a web app with .NET, Xamarin, and Facebook authentication
 
-This quick start demonstrates how to use [Xamarin](https://www.xamarin.com/), the [DocumentDB .NET API](../documentdb/documentdb-sdk-dotnet-core.md) for Azure Cosmos DB, and the Azure portal to create an Azure Cosmos DB account and use DocumentDB's built-in authorization engine to implement per-user data pattern for a Xamarin mobile app. It is a simple multi-user ToDo list app allowing users to login using Facebook Auth and manage their to do items.
+Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+
+This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and deploy a todo list web app built on the [DocumentDB .NET API](../documentdb/documentdb-sdk-dotnet.md), [Xamarin](https://www.xamarin.com/), and the Azure Cosmos DB authorization engine. The todo list web app implements a per-user data pattern that enables users to login using Facebook Auth and manage their own to do items.
+
+## Prerequisites
 
 If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
@@ -36,11 +40,14 @@ You can now use Data Explorer to create a collection.
 
 1. In the Azure portal, in the navigation menu, under **Collections**, click **Data Explorer (Preview)**. 
 2. In the Data Explorer blade, click **New Collection**, then fill in the page using the following information.
-    * In the **Database id** box, enter *Items* as ID for your new database. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space.
-    * In the **Collection id** box, enter *UserItems* as the ID for your new collection. Collection names have the same character requirements as database IDs.
-    * In the **Storage Capacity** box, leave the default 10 GB selected.
-    * In the **Throughput** box, leave the default 400 RUs selected. You can scale up the throughput later if you want to reduce latency.
-    * In the **Partition key** box, enter the value */userid*, so that tasks in the todo app you create can be partitioned by category. Selecting the correct partition key is important in creating a performant collection, read more about it in [Designing for partitioning](../documentdb/documentdb-partition-data.md#designing-for-partitioning).
+
+    Setting|Suggested value|Description
+    ---|---|---
+    Database id|Items|The ID for your new database. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space.
+    Collection id|UserItems|The ID for your new collection. Collection names have the same character requirements as database ids.
+    Storage Capacity| 10 GB|Leave the default value. This is the storage capacity of the database.
+    Throughput|400 RUs|Leave the default value. You can scale up the throughput later if you want to reduce latency.
+    Partition key|/userid|A partition key that will distribute data evenly to each partition. Selecting the correct partition key is important in creating a performant collection, read more about it in [Designing for partitioning](../documentdb/documentdb-partition-data.md#designing-for-partitioning).    
 
    ![Data Explorer in the Azure portal](./media/create-documentdb-xamarin-dotnet/azure-cosmosdb-data-explorer.png)
 
@@ -58,22 +65,22 @@ Now let's clone a DocumentDB API app from github, set the connection string, and
     git clone https://github.com/Azure/azure-documentdb-dotnet.git
     ```
 
-3. Then open the azure-documentdb-dotnet/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker.sln file in Visual Studio. 
+3. Then open the azure-documentdb-dotnet/samples/xamarin/UserItems/xamarin.forms/DocumentDBTodo.sln file in Visual Studio. 
 
 ## Review the code
 
 The code in the Xamarin folder contains:
 
-* Xamarin app. The app stores user's todo items in a partitioned collection named UserItems.
-* Resource Token Broker API, a simple ASP.NET Web API to broker Azure Cosmos DB resource tokens to the logged in users of the app. Resource tokens are short-lived access tokens that provide the app with the access to the logged in user's data.
+* Xamarin app. The app stores the user's todo items in a partitioned collection named UserItems.
+* Resource token broker API. A simple ASP.NET Web API to broker Azure Cosmos DB resource tokens to the logged in users of the app. Resource tokens are short-lived access tokens that provide the app with the access to the logged in user's data.
 
 The authentication and data flow is illustrated in the diagram below.
 
-* The Azure Cosmos DB UserItems collection is created with partition key '/userid'. Specifying partition key for collection allows Azure Cosmos DB to scale infinitely as the number of users and items grows.
+* The UserItems collection is created with the partition key '/userid'. Specifying a partition key for a collection allows Azure Cosmos DB to scale infinitely as the number of users and items grows.
 * The Xamarin app allows users to login with Facebook credentials.
 * The Xamarin app uses Facebook access token to authenticate with ResourceTokenBroker API
 * The resource token broker API authenticates the request using App Service Auth feature, and requests an Azure Cosmos DB resoure token with read/write access to all documents sharing the authenticated user's partition key.
-* Resource Token Broker returns the resource token to the client app.
+* Resource token broker returns the resource token to the client app.
 * The app accesses the user's todo items using the resource token.
 
 ![Todo app with sample data](./media/create-documentdb-xamarin-dotnet/tokenbroker.png)
@@ -82,17 +89,17 @@ The authentication and data flow is illustrated in the diagram below.
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the web.config file in the next step.
+1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the Web.config file in the next step.
 
     ![View and copy an access key in the Azure Portal, Keys blade](./media/create-documentdb-xamarin-dotnet/keys.png)
 
-2. In Visual Studio 2017, open the web.config file. 
+2. In Visual Studio 2017, open the Web.config file in the azure-documentdb-dotnet/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker folder. 
 
-3. Copy your URI value from the portal (using the copy button) and make it the value of the accountUrl in web.config. 
+3. Copy your URI value from the portal (using the copy button) and make it the value of the accountUrl in Web.config. 
 
     `<add key="accountUrl" value="{Azure Cosmos DB account URL}"/>`
 
-4. Then copy your PRIMARY KEY value from the portal and make it the value of the accountKey in [web.congif](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Web.config). 
+4. Then copy your PRIMARY KEY value from the portal and make it the value of the accountKey in Web.congif. 
 
     `<add key="accountKey" value="{Azure Cosmos DB secret}"/>`
 
@@ -100,8 +107,8 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 ## Build and deploy the web app
 
-1. In the Azure portal, create an App Service website to host the Resource Token Broker API.
-2. In the Azure portal, open the App Settings blade of the Resource Token Broker API website. Fill in the following app settings:
+1. In the Azure portal, create an App Service website to host the Resource token broker API.
+2. In the Azure portal, open the App Settings blade of the Resource token broker API website. Fill in the following app settings:
 
     * accountUrl - The Azure Cosmos DB account URL from the Keys tab of your Azure Cosmos DB account.
     * accountKey - The Azure Cosmos DB account master key from the Keys tab of your Azure Cosmos DB account.
@@ -115,15 +122,21 @@ You've now updated your app with all the info it needs to communicate with Azure
 
     Run the Xamarin app.
 
-## Review metrics in the Azure portal
+## Review SLAs in the Azure portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
 
-## Next steps
+## Clean up resources
 
-If you're not going to continue to use this app and Azure Cosmos DB, use the following steps to delete all resources created by this quick start in the Azure portal. If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. 
+If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal with the following steps: 
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you just created. 
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
-To learn more about the Azure Comsos DB DocumentDB API, see [What is the DocumentDB API?(../documentdb/documentdb-introduction). To learn more about the SQL query language which you can use in the Azure portal and programmatically, see [SQL](../documentdb/documentdb-sql-query.md).
+## Next steps
+
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a collection using the Data Explorer, and build and deploy a Xamarin app. You can now import additional data to your Cosmos DB account, or query your data using SQL. 
+
+[Import data into Azure Cosmos DB for the DocumentDB API](../documentdb/documentdb-import-data.md)
+
+[Query using SQL](tutorial-query-documentdb.md)

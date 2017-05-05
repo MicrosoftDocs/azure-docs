@@ -27,7 +27,7 @@ This sample gets account keys for any kind of Azure Cosmos DB account.
 
 ## Sample script
 
-`[!code-powershell[main](../../../powershell_scripts/cosmosdb/get-account-keys/get-account-keys.ps1?highlight=36-40 "Get the keys for an Azure Cosmos DB account")]`
+[!code-powershell[main](../../../powershell_scripts/cosmosdb/get-account-keys/get-account-keys.ps1?highlight=36-40 "Get the keys for an Azure Cosmos DB account")]
 
 ## Clean up deployment
 

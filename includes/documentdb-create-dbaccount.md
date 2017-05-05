@@ -14,12 +14,14 @@
     Fill out the New account blade using the information in the screenshot as a guide, the exact values you choose will be slightly different.
  
     ![Screen shot of the New Azure Cosmos DB blade](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
-   
-   * In the **ID** box, enter a unique name you choose to identify the Azure Cosmos DB account. *documents.azure.com* is appended to the ID you provide to create your URI, so use a unique but identifyable ID. The **ID** may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters.
-   * In the **NoSQL API** box, select **DocumentDB** as we'll be programming against the DocumentDB API later in this article.
-   * For **Subscription**, select the Azure subscription that you want to use for the Azure Cosmos DB account. 
-   * In **Resource Group**, create a new resource group for your account. For simplicity, you can use the same name as your ID. 
-   * Use **Location** to specify the geographic location in which to host your Azure Cosmos DB account. Choose the location closest to your users to give them the fastest access to the data.
+
+    Setting|Suggested value|Description
+    ---|---|---
+    ID|*Unique value*|A unique name you choose to identify the Azure Cosmos DB account. *documents.azure.com* is appended to the ID you provide to create your URI, so use a unique but identifyable ID. The ID may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters.
+    API|DocumentDB|We'll be programming against the DocumentDB API later in this article.|
+    Subscription|*Your subscription*|The Azure subscription that you want to use for the Azure Cosmos DB account. 
+    Resource Group|*The same value as ID*|The new resource group name for your account. For simplicity, you can use the same name as your ID. 
+    Location|*The region closest to your users*|The geographic location in which to host your Azure Cosmos DB account. Choose the location closest to your users to give them the fastest access to the data.
 4. Click **Create** to create the account.
 5. On the toolbar, click **Notifications** to monitor the deployment process.
 

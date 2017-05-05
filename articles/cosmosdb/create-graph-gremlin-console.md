@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB tutorial: Graph in the Gremlin Console | Microsoft Docs'
-description: A Cosmos tutorial that creates vertices, edges, and queries Cosmos DB's Graph.
+title: 'Azure Cosmos DB tutorial: Create, query, and traverse in the Gremlin console | Microsoft Docs'
+description: An Azure Cosmos DB quickstart to creates vertices, edges, and queries using the Azure Cosmos DB Graph API.
 services: cosmosdb
 documentationcenter: .net
 author: AndrewHoh
@@ -13,45 +13,45 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
 ms.topic: hero-article
-ms.date: 04/26/2017
+ms.date: 05/10/2017
 ms.author: anhoh
 
 ---
-# Azure Cosmos DB tutorial: Get started with Graph API in the Gremlin Console
+# Azure Cosmos DB: Create, query, and traverse a graph in the Gremlin console
 
-This quickstart demonstrates how to use the Graph API in the Gremlin Console. In this tutorial, you'll create and querying vertices and edges with the Azure Cosmos DB Graph API.
+Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-We'll cover:
-
-* Creating vertices
-* Creating edges
-* Updating a vertex property
-* Querying vertices
-* Traversing the graph
-* Dropping a vertex
-
-Now let's get started!
+This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal and then use the [Graph API](graph-sdk-dotnet.md) in the Gremlin console. In this tutorial, you'll create and query vertices and edges, updating a vertex property, query vertices, traverse the graph, and drop a vertex.
 
 ## Prerequisites
-Please make sure you have the following:
-* An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). 
-    * Alternatively, you can use the [Azure Cosmos DB Emulator](../documentdb/documentdb-nosql-local-emulator.md) for this tutorial.
-* [Gremlin Console](http://tinkerpop.apache.org/) 3.2.4 and above
 
-## Create an Azure Cosmos DB account with the Graph API
-Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Connect to your app service](#ConnectAppService). If you are using the Azure Cosmos DB Emulator, please follow the steps at [Azure Cosmos DB Emulator](../documentdb/documentdb-nosql-local-emulator.md) to setup the emulator and then skip ahead to [Setup your Visual Studio Solution](#SetupVS).
+If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+You also need to install the [Gremlin Console](http://tinkerpop.apache.org/). Use version 3.2.4 or above.
+
+## Create a database account
 
 [!INCLUDE [cosmosdb-create-dbaccount-graph](../../includes/cosmosdb-create-dbaccount-graph.md)]
 
+## Add a graph
+
+[!INCLUDE [cosmosdb-create-graph](../../includes/cosmosdb-create-graph.md)]
+
 ## <a id="ConnectAppService"></a>Connect to your app service
-1. Before beginning the Gremlin Console, create or modify your *remote-secure.yaml* configuration file in the *apache-tinkerpop-gremlin-console-3.2.4/conf* directory.
+1. Before starting the Gremlin Console, create or modify your *remote-secure.yaml* configuration file in your *apache-tinkerpop-gremlin-console-3.2.4/conf* directory.
 2. Fill in your *host*, *port*, *username*, *password*, *connectionPool*, and *serializer* configurations:
-    * Hosts: [fillin.azurewebsites.net]
-    * Port: 443
-    * Username: fill in
-    * Password: fill in
-    * ConnectionPool: {enableSsl: true}
-    * Serializer: { className:org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0, config: { serializeResultToString: true }}
+
+    Setting|Suggested value|Description
+    ---|---|---
+    Hosts|***.fillin.azurewebsites.net|Your app service URI.
+    Port|443|Port number.
+    Username|*Your username*|Your username.
+    Password|*Your App Service password*|Your password.
+    ConnectionPool|{enableSsl: true}|Your connection pool setting for SSL.
+    Serializer|{ className:org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Your serializer value.
+
 3. In your terminal, run *bin/gremlin.bat* or *bin/gremlin.sh* to start the [Gremlin Console](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/).
 4. In your terminal, run *:remote connect tinkerpop.server conf/remote-secure.yaml* to connect to your app service.
 
@@ -163,8 +163,6 @@ Input (projection + order by query):
 
 Output:-->
 
-
-
 ## Traverse your graph
 
 Let's traverse the graph to return all of Thomas's friends.
@@ -206,6 +204,21 @@ Input:
 
 Congratulations! You've completed this Azure Cosmos DB: Graph API tutorial!
 
+## Review SLAs in the Azure portal
+
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+
+## Clean up resources
+
+If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal with the following steps:  
+
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
+2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
+
 ## Next steps
 
-For more information about the Graph API, see [Introduction to Graph support in Azure Cosmos DB](graph-introduction.md).
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a graph container using the Data Explorer, create vertices and edges, and traverse your graph. You can now build more complex queries and implement powerful graph traversal logic using Gremlin or distribute your data globally. 
+
+[Query using Gremlin](tutorial-query-graph.md)
+
+[Distribute your data globally](../documentdb/documentdb-portal-global-replication.md)
