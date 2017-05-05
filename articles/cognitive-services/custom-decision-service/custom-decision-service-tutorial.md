@@ -19,7 +19,8 @@ This tutorial focuses on personalizing the selection of articles on the front pa
 
 First, let us explain how to fit your scenario into our framework. We create three applications, one for each list being optimized: respectively, `app-politics`, `app-sports`, and `app-recent`. To specify the candidate articles for each application, we maintain two action sets: one for `politics` and one for `sports`. The action set for "app-recent" is obtained automatically as a union of the other two.
 
-> [!TIP] Custom Decision Service allows action sets to be shared across applications.
+> [!TIP] 
+> Custom Decision Service allows action sets to be shared across applications.
 
 ## Prepare action set feeds
 
@@ -98,7 +99,7 @@ The browser then executes this string as a call to `callback()` function. Thus, 
 
 `callback()` should check each action feed for freshness using `lastRefresh` field. If the feed is not sufficiently fresh, ignore the provided ranking. Instead, call this feed directly from `callback` and use the ranking served by the feed.
 
-For more information on specifications and additional options provided by Ranking API, see [API reference](custom-decision-service-api-reference.md).
+For more information on specifications and additional options provided by our APIs, see [API reference](custom-decision-service-api-reference.md).
 
 ## Performance dashboard
 
