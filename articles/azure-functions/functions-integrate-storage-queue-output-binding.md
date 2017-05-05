@@ -44,7 +44,7 @@ You also need to download and install the [Microsoft Azure Storage Explorer](htt
 
 3. Use the settings as specified in the table, and then click **Save**: 
 
-    ![Add a Queue storage output binding to a function in the Azure portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png
+    ![Add a Queue storage output binding to a function in the Azure portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
     | Setting      |  Suggested value   | Description                              |
     | ------------ |  ------- | -------------------------------------------------- |
