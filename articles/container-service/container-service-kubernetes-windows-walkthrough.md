@@ -91,7 +91,7 @@ az acs create --orchestrator-type=kubernetes \
 After several minutes, the command completes, and you should have a working Kubernetes cluster.
 
 > [!IMPORTANT]
-> If your account doesn't have permissions to create the Azure AD service principal, the command generates an error similar to `Insufficient privileges to complete the operation.` See [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md). 
+> If your account doesn't have permissions to create the Azure AD service principal, the command generates an error similar to `Insufficient privileges to complete the operation.` For more information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md). 
 > 
 
 ## Connect to the cluster with kubectl
@@ -111,8 +111,8 @@ sudo az acs kubernetes install-cli
 az acs kubernetes install-cli
 ```
 
-> [!IMPORTANT]
-> By default, this command installs the `kubectl` binary to `/usr/local/bin/kubectl` on a Linux or macOS system, or `C:\Program Files (x86)\kubectl.exe` on Windows. If you don't have permissions to install in that location, specify a different installation path with the `--install-location` parameter.
+> [!TIP]
+> By default, this command installs the `kubectl` binary to `/usr/local/bin/kubectl` on a Linux or macOS system, or `C:\Program Files (x86)\kubectl.exe` on Windows. To specify a different installation path, use the `--install-location` parameter.
 >
 > After `kubectl` is installed, ensure that its directory is in your system path, or add it to the path. 
 
@@ -167,14 +167,11 @@ After creating the cluster and connecting with `kubectl`, try starting a Windows
     }
   }
   ```
-
 2. To start the application, type:  
   ```bash
   kubectl apply -f iis.json
   ```  
-  
 3. To track the deployment of the container, type:  
-
   ```bash
   kubectl get pods
   ```
@@ -192,15 +189,14 @@ After creating the cluster and connecting with `kubectl`, try starting a Windows
   kubectl expose pods iis --port=80 --type=LoadBalancer
   ```
 
-With this command, Kubernetes creates an Azure load balancer rule with a public IP address. The change
-takes a few minutes to propagate to the load balancer. For details, see [Load balance containers in a Kubernetes cluster in Azure Container Service](container-service-kubernetes-load-balancing.md).
+  With this command, Kubernetes creates an Azure load balancer rule with a public IP address. The change takes a few minutes to propagate to the load balancer. For details, see [Load balance containers in a Kubernetes cluster in Azure Container Service](container-service-kubernetes-load-balancing.md).
 
 5. Run the following command to see the status of the service.
 
   ```bash
   kubectl get svc
   ```
-  
+
   Initially the IP address appears as `pending`:
 
   ![Pending external IP address](media/container-service-kubernetes-windows-walkthrough/iis-svc-expose.png)
