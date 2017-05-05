@@ -88,14 +88,14 @@ The following diagram illustrates these concepts:
 
 #### Pseudo algorithm when a file is to be decrypted:
 1.	Check if the DEK for the ADLS account is cached and ready for use.
-    * If not, then read the encrypted DEK from persistent storage, and send it to Key Vault to be decrypted. Cache the decrypted DEK in memory. It is now ready to use.
+    - If not, then read the encrypted DEK from persistent storage, and send it to Key Vault to be decrypted. Cache the decrypted DEK in memory. It is now ready to use.
 2.	For every block of data in the file:
-    * Read the encrypted block of data from persistent storage.
-    * Generate the BEK from the DEK and the encrypted block of data.
-    * Use the BEK to decrypt data.
+    - Read the encrypted block of data from persistent storage.
+    - Generate the BEK from the DEK and the encrypted block of data.
+    - Use the BEK to decrypt data.
 #### Pseudo algorithm when a block of data is to be encrypted:
 1.	Check if the DEK for the ADLS account is cached and ready for use.
-    * If not, then read the encrypted DEK from persistent storage, and send it to Key Vault to be decrypted. Cache the decrypted DEK in memory. It is now ready to use.
+    - If not, then read the encrypted DEK from persistent storage, and send it to Key Vault to be decrypted. Cache the decrypted DEK in memory. It is now ready to use.
 2.	Generate a unique BEK for the block of data from the DEK.
 3.	Encrypt the data block with the BEK, by using AES-256 encryption.
 4.	Store the encrypted data block of data on persistent storage.
