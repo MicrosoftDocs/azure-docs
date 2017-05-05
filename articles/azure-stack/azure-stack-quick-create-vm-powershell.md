@@ -226,5 +226,5 @@ Remove-AzureRmResourceGroup `
 
 ## Next steps
 
-* 
+To learn about Storage in Azure Stack, refer to the [storage overview](azure-stack-storage-overview.md) topic.
 
