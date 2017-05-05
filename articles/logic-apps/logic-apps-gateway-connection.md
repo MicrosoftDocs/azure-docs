@@ -38,7 +38,8 @@ The gateway supports connections to these data sources on premises:
 *   Informix
 *   MQ
 *   MySQL
-*   Oracle Database 
+*   Oracle Database
+*   PostgreSQL
 *   SAP Application Server 
 *   SAP Message Server
 *   SharePoint for HTTP only, not HTTPS
