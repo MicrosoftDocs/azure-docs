@@ -19,7 +19,7 @@ ms.author: marsma
 ---
 # How to use Table storage from Python
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## Overview
 This guide shows you how to perform common scenarios by using the Azure Table storage service. The samples are written in Python and use the [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python). The covered scenarios include creating and deleting a table, in addition to inserting and querying entities in a table.
