@@ -1,6 +1,6 @@
 ---
 title: Connect a Raspberry Pi to Azure IoT Suite | Microsoft Docs
-description: Tutorials to help you learn how to use the Microsoft Azure IoT Starter Kit for the Raspberry Pi 3 and the remote monitoring preconfigured solution.
+description: Tutorials using Node.js or C to help you learn how to use the Microsoft Azure IoT Starter Kit for the Raspberry Pi 3 and the IoT Suite remote monitoring solution. You can chose a tutorial that simulates telemetry, or that uses real sensors, or that enables remote firmware updates.
 services: ''
 suite: iot-suite
 documentationcenter: ''
@@ -17,25 +17,17 @@ ms.date: 04/26/2017
 ms.author: dobett
 
 ---
-# Connect your Microsoft Azure IoT Raspberry Pi 3 Starter Kit to the remote monitoring preconfigured solution
+# Connect your Microsoft Azure IoT Raspberry Pi 3 Starter Kit to the remote monitoring solution
 
 The tutorials in this section help you learn how to connect a Raspberry Pi 3 device to the remote monitoring solution. Choose the tutorial appropriate to your preferred programming language and the whether you have the sensor hardware available to use with your Raspberry Pi.
 
-## Node.js tutorials
+## The tutorials
 
-| Tutorial | Notes |
-| -------- | ----- |
-| [Simulator][lnk-node-simulator] | Uses simulated sensor data. You only need a Raspberry Pi. |
-| [Basic][lnk-node-basic] | Uses data from a BME280 sensor. |
-| [Advanced][lnk-node-advanced] | Uses data from a BME280 sensor and enables firmware updates. |
-
-## C tutorials
-
-| Tutorial | Notes |
-| -------- | ----- |
-| [Simulator][lnk-c-simulator] | Uses simulated sensor data. You only need a Raspberry Pi. |
-| [Basic][lnk-c-basic] | Uses data from a BME280 sensor. |
-| [Advanced][lnk-c-advanced] | Uses data from a BME280 sensor and enables firmware updates. |
+| Tutorial | Notes | Languages |
+| -------- | ----- | --------- |
+| Simulated telemetry (Basic)| Simulates sensor data. Uses a standalone Raspberry Pi. | [C][lnk-c-simulator], [Node.js][lnk-node-simulator] |
+| Real sensor (Intermediate) | Uses data from a BME280 sensor connected to your Raspberry Pi. | [C][lnk-c-basic], [Node.js][lnk-node-basic] |
+| Implement firmware update (Advanced)| Uses data from a BME280 sensor connected to your Raspberry Pi. Enables remote firmware updates on your Raspberry Pi. | [C][lnk-c-advanced], [Node.js][lnk-node-advanced] |
 
 ## Next steps
 

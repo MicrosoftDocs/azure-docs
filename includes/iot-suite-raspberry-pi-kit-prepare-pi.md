@@ -67,7 +67,7 @@ To share a folder with Windows, configure a Samba server on the Raspberry Pi. Al
 
 ### Enable SPI
 
-Before you can run the sample application, you must enable SPI on the Raspberry Pi. The Raspberry Pi communicates with the BME280 sensor device using SPI. Use the following command to edit the configuration file:
+Before you can run the sample application, you must enable the Serial Peripheral Interface (SPI) bus on the Raspberry Pi. The Raspberry Pi communicates with the BME280 sensor device over the SPI bus. Use the following command to edit the configuration file:
 
 `sudo nano /boot/config.txt`
 

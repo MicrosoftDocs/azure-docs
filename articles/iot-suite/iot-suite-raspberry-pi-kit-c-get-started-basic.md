@@ -1,6 +1,6 @@
 ---
-title: Connect a Raspberry Pi to Azure IoT Suite using C | Microsoft Docs
-description: Use the Microsoft Azure IoT Starter Kit for the Raspberry Pi 3 and the remote monitoring preconfigured solution. Use C to connect your Raspberry Pi to the remote monitoring solution, send telemetry from sensors to the cloud, and respond to methods invoked from the solution dashboard.
+title: Connect a Raspberry Pi to Azure IoT Suite using C with real sensors| Microsoft Docs
+description: Use the Microsoft Azure IoT Starter Kit for the Raspberry Pi 3 and Azure IoT Suite. Use C to connect your Raspberry Pi to the remote monitoring solution, send telemetry from sensors to the cloud, and respond to methods invoked from the solution dashboard.
 services: ''
 suite: iot-suite
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 04/24/2017
 ms.author: dobett
 
 ---
-# Connect your Microsoft Azure IoT Raspberry Pi 3 Starter Kit to the remote monitoring preconfigured solution using C
+# Connect your Raspberry Pi 3 to the remote monitoring solution and send telemetry from a real sensor using C
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-selector](../../includes/iot-suite-raspberry-pi-kit-selector.md)]
 
@@ -26,7 +26,15 @@ This tutorial shows you how to use the Microsoft Azure IoT Starter Kit for Raspb
 - Raspbian OS, the C programming language, and the Microsoft Azure IoT SDK for C to implement a sample device.
 - The IoT Suite remote monitoring preconfigured solution as the cloud-based back end.
 
-[!INCLUDE [iot-suite-raspberry-pi-kit-overview](../../includes/iot-suite-raspberry-pi-kit-overview.md)]
+## Overview
+
+In this tutorial, you complete the following steps:
+
+- Deploy an instance of the remote monitoring preconfigured solution to your Azure subscription. This step automatically deploys and configures multiple Azure services.
+- Set up your device and sensors to communicate with your computer and the remote monitoring solution.
+- Update the sample device code to connect to the remote monitoring solution, and send telemetry that you can view on the solution dashboard.
+
+[!INCLUDE [iot-suite-raspberry-pi-kit-prerequisites](../../includes/iot-suite-raspberry-pi-kit-prerequisites.md)]
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
@@ -43,11 +51,11 @@ You can now download and configure the remote monitoring client application on y
 
 ### Clone the repositories
 
-Clone the required repositories by running the following commands in a terminal on your Pi:
+If you haven't already done so, clone the required repositories by running the following commands in a terminal on your Pi:
 
 `cd ~`
 
-`git clone --recursive https://github.com/IoTChinaTeam/azure-remote-monitoring-raspberry-pi-c.git`
+`git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit.git`
 
 `git clone --recursive https://github.com/WiringPi/WiringPi.git`
 
@@ -55,7 +63,7 @@ Clone the required repositories by running the following commands in a terminal 
 
 Open the sample source file in the **nano** editor using the following command:
 
-`nano ~/azure-remote-monitoring-raspberry-pi-c/basic/remote_monitoring/remote_monitoring.c`
+`nano ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/basic/remote_monitoring/remote_monitoring.c`
 
 Locate the following lines:
 
@@ -76,9 +84,9 @@ Install the prerequisite packages for the Microsoft Azure IoT Device SDK for C b
 
 You can now build the updated sample solution on the Raspberry Pi:
 
-`chmod +x ~/azure-remote-monitoring-raspberry-pi-c/basic/build.sh`
+`chmod +x ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/basic/build.sh`
 
-`~/azure-remote-monitoring-raspberry-pi-c/basic/build.sh`
+`~/iot-remote-monitoring-c-raspberrypi-getstartedkit/basic/build.sh`
 
 You can now run the sample program on the Raspberry Pi. Enter the command:
 

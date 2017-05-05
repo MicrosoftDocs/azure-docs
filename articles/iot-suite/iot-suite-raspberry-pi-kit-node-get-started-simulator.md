@@ -1,6 +1,6 @@
 ---
-title: Connect a Raspberry Pi to Azure IoT Suite using Node.js | Microsoft Docs
-description: Use the Microsoft Azure IoT Starter Kit for the Raspberry Pi 3 and the remote monitoring preconfigured solution. Use Node.js to connect your Raspberry Pi to the remote monitoring solution, send simulated telemetry to the cloud, and respond to methods invoked from the solution dashboard.
+title: Connect a Raspberry Pi to Azure IoT Suite using Node.js with simulated telemetry | Microsoft Docs
+description: Use the Microsoft Azure IoT Starter Kit for the Raspberry Pi 3 and Azure IoT Suite. Use Node.js to connect your Raspberry Pi to the remote monitoring solution, send simulated telemetry to the cloud, and respond to methods invoked from the solution dashboard.
 services: ''
 suite: iot-suite
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 04/26/2017
 ms.author: dobett
 
 ---
-# Connect your Raspberry Pi 3 to the remote monitoring preconfigured solution and send simulated telemetry using Node.js
+# Connect your Raspberry Pi 3 to the remote monitoring solution and send simulated telemetry using Node.js
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-selector](../../includes/iot-suite-raspberry-pi-kit-selector.md)]
 
@@ -63,17 +63,17 @@ If you haven't done so already, install Node.js on your Raspberry Pi. The IoT SD
 
 ### Clone the repositories
 
-Clone the required repositories by running the following commands in a terminal on your Pi:
+If you haven't already done so, clone the required repositories by running the following commands in a terminal on your Pi:
 
 `cd ~`
 
-`git clone --recursive https://github.com/IoTChinaTeam/azure-remote-monitoring-raspberry-pi-node.git`
+`git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit.git`
 
 ### Update the device connection string
 
 Open the sample source file in the **nano** editor using the following command:
 
-`nano ~/azure-remote-monitoring-raspberry-pi-node/simulator/remote_monitoring.js`
+`nano ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/simulator/remote_monitoring.js`
 
 Find the line:
 
@@ -87,13 +87,13 @@ Replace the placeholder values with the device and IoT Hub information you creat
 
 Run the following commands to install the prerequisite packages for the sample:
 
-`cd ~/azure-remote-monitoring-raspberry-pi-node/simulator`
+`cd ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/simulator`
 
 `npm install`
 
 You can now run the sample program on the Raspberry Pi. Enter the command:
 
-`sudo node ~/azure-remote-monitoring-raspberry-pi-node/simulator/remote_monitoring.js`
+`sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/simulator/remote_monitoring.js`
 
 The following sample output is an example of the output you see at the command prompt on the Raspberry Pi:
 

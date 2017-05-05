@@ -97,7 +97,7 @@ Prepare the microSD card for installation of the Raspbian image.
    ![Enable I2C and SSH on Raspberry Pi](media/iot-hub-raspberry-pi-kit-node-get-started/2_enable-i2c-ssh-on-raspberry-pi.png)
 
 > [!NOTE] 
-To enable SSH and I2C, you can find more reference documents on [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) and [Adafruit.com](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2).
+To enable SSH and I2C, you can find more reference documents on [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) and [Adafruit.com](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c).
 
 ### Connect the sensor to Pi
 
@@ -138,6 +138,21 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
     - [PuTTY](http://www.putty.org/) for Windows.
     - The built-in SSH client on Ubuntu or macOS.
 
+1. Install Node.js and NPM to your Pi.
+   
+   First you should check your Node.js version with the following command. 
+   
+   ```bash
+   node -v
+   ```
+
+   If the version is lower than 4.x or there is no Node.js on your Pi, then run the following command to install or update Node.js.
+
+   ```bash
+   curl -sL http://deb.nodesource.com/setup_4.x | sudo -E bash
+   sudo apt-get -y install nodejs
+   ```
+
 1. Clone the sample application by running the following command:
 
    ```bash
@@ -148,7 +163,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 
    ```bash
    cd iot-hub-node-raspberry-pi-clientapp
-   npm install
+   sudo npm install
    ```
    > [!NOTE] 
    It might take several minutes to finish this installation process denpening on your network connection.

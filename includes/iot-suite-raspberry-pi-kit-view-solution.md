@@ -14,7 +14,7 @@ The solution dashboard enables you to manage the deployed solution. For example,
 
 For a device to connect to the preconfigured solution, it must identify itself to IoT Hub using valid credentials. You can retrieve the device credentials from the solution dashboard. You include the device credentials in your client application later in this tutorial.
 
-To add a device to your remote monitoring solution, complete the following steps in the solution dashboard:
+If you haven't already done so, add a custom device to your remote monitoring solution. Complete the following steps in the solution dashboard:
 
 1. In the lower left-hand corner of the dashboard, click **Add a device**.
 

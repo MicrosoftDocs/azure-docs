@@ -1,6 +1,6 @@
 ---
-title: Connect a Raspberry Pi to Azure IoT Suite using Node.js | Microsoft Docs
-description: Use the Microsoft Azure IoT Starter Kit for the Raspberry Pi 3 and the remote monitoring preconfigured solution. Use Node.js to connect your Raspberry Pi to the remote monitoring solution, send telemetry from sensors to the cloud, and perform a remote firmware update.
+title: Connect a Raspberry Pi to Azure IoT Suite using Node.js to support firmware updates | Microsoft Docs
+description: Use the Microsoft Azure IoT Starter Kit for the Raspberry Pi 3 and Azure IoT Suite. Use Node.js to connect your Raspberry Pi to the remote monitoring solution, send telemetry from sensors to the cloud, and perform a remote firmware update.
 services: ''
 suite: iot-suite
 documentationcenter: ''
@@ -17,21 +17,31 @@ ms.date: 04/25/2017
 ms.author: dobett
 
 ---
-# Connect your Raspberry Pi 3 Starter Kit to the remote monitoring preconfigured solution using Node.js and perform a firmware update
+# Connect your Raspberry Pi 3 to the remote monitoring solution and enable remote firmware updates using Node.js
 
-[!INCLUDE [iot-suite-raspberry-pi-kit-selector-advanced](../../includes/iot-suite-raspberry-pi-kit-selector-advanced.md)]
+[!INCLUDE [iot-suite-raspberry-pi-kit-selector](../../includes/iot-suite-raspberry-pi-kit-selector.md)]
 
 This tutorial shows you how to use the Microsoft Azure IoT Starter Kit for Raspberry Pi 3 to:
 
 * Develop a temperature and humidity reader that can communicate with the cloud.
-* Enable and perform a remote firmware update.
+* Enable and perform a remote firmware update to update the client application on the Raspberry Pi.
 
 The tutorial uses:
 
 - Raspbian OS, the Node.js programming language, and the Microsoft Azure IoT SDK for Node.js to implement a sample device.
 - The IoT Suite remote monitoring preconfigured solution as the cloud-based back end.
 
-[!INCLUDE [iot-suite-raspberry-pi-kit-overview](../../includes/iot-suite-raspberry-pi-kit-overview.md)]
+
+## Overview
+
+In this tutorial, you complete the following steps:
+
+- Deploy an instance of the remote monitoring preconfigured solution to your Azure subscription. This step automatically deploys and configures multiple Azure services.
+- Set up your device and sensors to communicate with your computer and the remote monitoring solution.
+- Update the sample device code to connect to the remote monitoring solution, and send telemetry that you can view on the solution dashboard.
+- Use the sample device code to update the client application.
+
+[!INCLUDE [iot-suite-raspberry-pi-kit-prerequisites](../../includes/iot-suite-raspberry-pi-kit-prerequisites.md)]
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
@@ -68,17 +78,17 @@ If you haven't done so already, install Node.js on your Raspberry Pi. The IoT SD
 
 ### Clone the repositories
 
-If you haven't done so already, clone the required sample repositories by running the following commands on your Pi:
+If you haven't done so already, clone the required repositories by running the following commands on your Pi:
 
 `cd ~`
 
-`git clone --recursive https://github.com/IoTChinaTeam/azure-remote-monitoring-raspberry-pi-node.git`
+`git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit.git`
 
 ### Update the device connection string
 
 Open the sample configuration file in the **nano** editor using the following command:
 
-`nano ~/azure-remote-monitoring-raspberry-pi-node/advanced/config/deviceinfo`
+`nano ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advanced/config/deviceinfo`
 
 Replace the placeholder values with the device id and IoT Hub information you created and saved at the start of this tutorial.
 
@@ -95,13 +105,13 @@ Save your changes (**Ctrl-O**, **Enter**) and exit the editor (**Ctrl-X**).
 
 Run the following commands to install the prerequisite packages for the sample:
 
-`cd ~/azure-remote-monitoring-raspberry-pi-node/advance/1.0`
+`cd ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advance/1.0`
 
 `npm install`
 
 You can now run the sample program on the Raspberry Pi. Enter the command:
 
-`sudo node ~/azure-remote-monitoring-raspberry-pi-node/advanced/1.0/remote_monitoring.js`
+`sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advanced/1.0/remote_monitoring.js`
 
 The following sample output is an example of the output you see at the command prompt on the Raspberry Pi:
 
@@ -111,19 +121,13 @@ Press **Ctrl-C** to exit the program at any time.
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-view-telemetry-advanced](../../includes/iot-suite-raspberry-pi-kit-view-telemetry-advanced.md)]
 
-## Initiate the firmware update
-
-You initiate the firmware update process by invoking a method on the device. This method is asynchronous, and returns as soon as the update process begins. The device uses reported properties to notify the solution about the progress of the update.
-
-You can invoke methods on your Raspberry Pi from the solution dashboard. When the Raspberry Pi connects to the remote monitoring solution, it sends information about the methods it supports. For more information about the firmware update process, see the description of the firmware update pattern in [Overview of device management with IoT Hub][lnk-update-pattern].
-
 1. In the solution dashboard, click **Devices** to visit the **Devices** page. Select your Raspberry Pi in the **Device List**. Then choose **Methods**:
 
     ![List devices in dashboard][img-list-devices]
 
 1. On the **Invoke Method** page, choose **InitiateFirmwareUpdate** in the **Method** dropdown.
 
-1. In the **FWPackageURI** field, enter **https://raw.githubusercontent.com/IoTChinaTeam/azure-remote-monitoring-raspberry-pi-node/master/advanced/2.0/raspberry.js**. This file contains the implementation of version 2.0 of the firmware.
+1. In the **FWPackageURI** field, enter **https://raw.githubusercontent.com/IoTChinaTeam/iot-remote-monitoring-node-raspberrypi-getstartedkit/master/advanced/2.0/raspberry.js**. This file contains the implementation of version 2.0 of the firmware.
 
 1. Choose **InvokeMethod**. The app on the Raspberry Pi sends an acknowledgment back to the solution dashboard. It then starts the firmware update process by downloading the new version of the firmware:
 
@@ -161,4 +165,3 @@ Visit the [Azure IoT Dev Center](https://azure.microsoft.com/develop/iot/) for m
 [img-method-history]: ./media/iot-suite-raspberry-pi-kit-node-get-started-advanced/methodhistory.png
 
 [lnk-demo-config]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/configure-preconfigured-demo.md
-[lnk-update-pattern]: ../iot-hub/iot-hub-device-management-overview.md

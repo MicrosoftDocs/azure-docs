@@ -24,7 +24,7 @@ You need SSH client on your desktop machine to enable you to remotely access the
 
 A desktop computer to enable you to connect remotely to the command line on the Raspberry Pi.
 
-[Microsoft Azure IoT Starter Kit for Raspberry Pi 3][lnk-starter-kits]. This tutorial uses the following items from the kit:
+[Microsoft IoT Starter Kit for Raspberry Pi 3][lnk-starter-kits] or equivalent components. This tutorial uses the following items from the kit:
 
 - Raspberry Pi 3
 - MicroSD Card (with NOOBS)
