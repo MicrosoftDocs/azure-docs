@@ -1,3 +1,3 @@
 ---
-thttps://docs.microsoft.com/azure/active-directory/active-directory-whatis
+https://docs.microsoft.com/azure/active-directory/active-directory-whatis
 ---
