@@ -46,7 +46,7 @@
 ## Workloads
 ### [Active Directory and DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
-### [SharePoint](site-recovery-workload.md#protect-sharepoint)
+### [SharePoint](site-recovery-sharepoint.md)
 ### [Dynamics AX](site-recovery-workload.md#protect-dynamics-ax)
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)

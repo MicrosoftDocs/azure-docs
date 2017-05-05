@@ -54,7 +54,7 @@ SharePoint can be deployed on one or more servers using tiered topologies and se
 
 
 	
-![Deployment Pattern 1](./media/site-recovery-sharepoint/SharePointArchitecture.png) 
+![Deployment Pattern 1](./media/site-recovery-sharepoint/sharepointarch.png) 
 
 
 ## Site Recovery support
@@ -87,7 +87,7 @@ Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating th
 
 * Once the replication is complete, make sure you go to each virtual machine of each tier and select same availability set in 'Replicated item > Settings > Properties > Compute and Network'. For example, if your web tier has 3 VMs, ensure all the 3 VMs are configured to be part of same availability set in Azure.
 
-	![Set-Availability-Set](./media/site-recovery-sharepoint/Av-Set-Select.png) 
+	![Set-Availability-Set](./media/site-recovery-sharepoint/select-av-set.png) 
 
 * For guidance on protecting Active Directory and DNS, refer to [Protect Active Directory and DNS](site-recovery-active-directory.md) document. 
 
@@ -99,12 +99,12 @@ Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating th
 
 * For the App and Web tier VMs, configure network settings in Azure portal so that the VMs get attached to the right DR network after failover. 
 
-	![Select Network](./media/site-recovery-sharepoint/Network-Select.png) 
+	![Select Network](./media/site-recovery-sharepoint/select-network.png) 
 
 
 * If you are using a static IP, then specify the IP that you want the virtual machine to take in the **Target IP** field 
 
-	![Set Static IP](./media/site-recovery-sharepoint/Static-IP-set.png) 
+	![Set Static IP](./media/site-recovery-sharepoint/set-static-ip.png) 
 
 ### DNS and Traffic Routing
 
@@ -136,7 +136,7 @@ A recovery plan allows sequencing the failover of various tiers in a multi-tier 
 1. Create a recovery plan by adding the App and Web tier VMs.
 2. Click on 'Customize' to group the VMs. By default, all VMs are part of 'Group 1'.
 
-	![Customize RP](./media/site-recovery-sharepoint/RP-with-groups.png) 
+	![Customize RP](./media/site-recovery-sharepoint/rp-groups.png) 
 
 3. Create another Group (Group 2) and move the Web tier VMs into the new group. Your App tier VMs should be part of 'Group 1' and Web tier VMs should be part of 'Group 2'. This is to ensure that the App tier VMs boot up first followed by Web tier VMs.
 
@@ -149,15 +149,15 @@ You can deploy the most commonly used Azure Site Recovery scripts into your Auto
 
 1. Add a pre-action script to 'Group 1' to failover SQL Availability group. Use the 'ASR-SQL-FailoverAG' script published in the sample scripts. Ensure you follow the guidance in the script and make the required changes in the script appropriately.
 
-	![Add-AG-Script-Step-1](./media/site-recovery-sharepoint/RP-Add-AG-script-step-1.png) 
+	![Add-AG-Script-Step-1](./media/site-recovery-sharepoint/add-ag-script-step1.png) 
 
-	![Add-AG-Script-Step-2](./media/site-recovery-sharepoint/RP-Add-AG-script-step-2.png)
+	![Add-AG-Script-Step-2](./media/site-recovery-sharepoint/add-ag-script-step2.png)
 
 2. Add a post action script to attach a load balancer on the failed over virtual machines of Web tier (Group 2). Use the 'ASR-AddSingleLoadBalancer' script published in the sample scripts. Ensure you follow the guidance in the script and make the required changes in the script appropriately.
 
-    ![Add-LB-Script-Step-1](./media/site-recovery-sharepoint/RP-Add-LB-script-step-1.png)
+    ![Add-LB-Script-Step-1](./media/site-recovery-sharepoint/add-lb-script-step1.png)
 
-    ![Add-LB-Script-Step-2](./media/site-recovery-sharepoint/RP-Add-LB-script-step-2.png)
+    ![Add-LB-Script-Step-2](./media/site-recovery-sharepoint/add-lb-script-step2.png)
 
 3. Add a manual step to update the DNS records to point to the new farm in Azure.
 
@@ -184,7 +184,7 @@ You can deploy the most commonly used Azure Site Recovery scripts into your Auto
 
 7. Once all the steps are completed, save the recovery plan and the final recovery plan will look like following.
 
-	![Saved RP](./media/site-recovery-sharepoint/RP-Saved-Final.png)
+	![Saved RP](./media/site-recovery-sharepoint/saved-rp.png)
 
 ## Doing a test failover
 Follow [this guidance](site-recovery-test-failover-to-azure.md) to do a test failover.
