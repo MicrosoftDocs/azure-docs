@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 05/1/2017
-ms.author: jehollan; dimazaid; LADocs
+ms.date: 05/3/2017
+ms.author: LADocs; dimazaid
 
 ---
 # Access data sources on premises from logic apps with the on-premises data gateway
@@ -38,7 +38,8 @@ The gateway supports connections to these data sources on premises:
 *   Informix
 *   MQ
 *   MySQL
-*   Oracle Database 
+*   Oracle Database
+*   PostgreSQL
 *   SAP Application Server 
 *   SAP Message Server
 *   SharePoint for HTTP only, not HTTPS
@@ -102,12 +103,15 @@ provide these details to create your data gateway resource:
    resource group for deploying your gateway resource. 
    Resource groups help you manage related Azure assets as a collection.
 
-   * **Location**: Azure restricts this location to the same region as 
-   your gateway cloud service. The gateway cloud service location was 
-   set during gateway installation. 
+   * **Location**: Azure restricts this location to the same region that 
+   was selected for the gateway cloud service during 
+   [gateway installation](logic-apps-gateway-install.md). Make sure that 
+   you select the same location that matches the gateway cloud service. 
+   Otherwise, your gateway installation might not appear in the installed 
+   gateways list for you to select later.
 
-   * **Installation Name**: If not selected already, select the previously installed 
-   on-premises data gateway. 
+   * **Installation Name**: If your gateway installation isn't already selected, 
+   select the gateway that you previously installed. 
 
    To add the gateway resource to your Azure dashboard, choose **Pin to dashboard**. 
    When you're done, choose **Create**.
