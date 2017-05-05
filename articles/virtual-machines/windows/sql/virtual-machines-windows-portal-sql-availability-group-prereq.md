@@ -15,7 +15,7 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/04/2017
+ms.date: 05/05/2017
 ms.author: mikeray
 
 ---
