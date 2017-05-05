@@ -27,8 +27,9 @@ Keep in mind that installing an update or hotfix restarts your device. Given tha
 Before you apply an update, we recommend that you take the volumes or shares offline on the host first and then the device. This minimizes any possibility of data corruption.
 
 > [!IMPORTANT]
-> Update 0.5 corresponds to **10.0.10290.0** software version on your device.
-> If you are running Update 0.1 or GA software versions, you must use the hotfix method via the local web UI to install update 0.3. If you are running Update 0.2 or later, we recommend that you install the updates via the Azure portal.
+> - Update 0.5 corresponds to **10.0.10290.0** software version on your device.
+>
+>  - If you are running Update 0.2 or later, we recommend that you install the updates via the Azure portal. If you are running Update 0.1 or GA software versions, you must use the hotfix method via the local web UI to install update 0.5.
 
 
 ## Use the local web UI
@@ -60,12 +61,16 @@ Perform the following steps to download the software update from the Microsoft U
 
 6. Click **Download**. Specify or **Browse** to a local location where you want the downloads to appear. The updates are downloaded to the specified location and placed in a subfolder with the same name as the update. The folder can also be copied to a network share that is reachable from the device.
 
-7. Open the copied folder, you should see two files:
+7. Open the copied folder.
 
     ![Files in the package](./media/storsimple-virtual-array-install-update-05/update05folder.png)
+    
+    You should see two files:
+    
     -  A Microsoft Update Standalone Package file `WindowsTH-KB3011067-x64`. This file is used to update the device software.
     - A Geneva Monitoring Agent Package file `GenevaMonitoringAgentPackageInstaller`. This file is used to update the Monitoring and Diagnostics service (MDS) agent. Double-click the cab file. A .msi is displayed. Select the file, right-click, and then **Extract** the file. You will use the _.msi_ file to update the agent.
-    ![Extract MDS Agent Update file](./media/storsimple-virtual-array-install-update-05/extract-geneva-monitoring-agent-installer.png)
+
+        ![Extract MDS Agent Update file](./media/storsimple-virtual-array-install-update-05/extract-geneva-monitoring-agent-installer.png)
 
 ### Install the update or the hotfix
 
@@ -108,7 +113,7 @@ If running Update 0.2 and later, we recommend that you install updates through t
 
 [!INCLUDE [storsimple-virtual-array-install-update-via-portal](../../includes/storsimple-virtual-array-install-update-via-portal-04.md)]
 
-After the installation is complete (as indicated by job status at 100 %), go to your StorSimple Device Manager service. Select **Devices** and then select and click the device you want to update from the list of devices connected to this service. In the **Settings** blade, go to **Manage** section and select **Device updates**. The displayed software version should be **10.0.10290.0**.
+After the installation is complete, go to your StorSimple Device Manager service. Select **Devices** and then select and click the device you just updated. Go to **Settings > Manage > Device Updates**. The displayed software version should be **10.0.10290.0**.
 
 
 ## Next steps
