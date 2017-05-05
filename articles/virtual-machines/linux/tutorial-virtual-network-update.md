@@ -85,7 +85,7 @@ A public IP address allows Azure resources to be accessible on the internet. In 
 
 ### Allocation method
 
-A public IP address can be allocated as either dynamic or static. The default public IP address allocation method is dynamic, where the IP address is released when the VM is stopped. This causes the IP address to change during any operation that includes a VM deallocation.
+A public IP address can be allocated as either dynamic or static. The default public IP address allocation method is dynamic, where the IP address is released when the VM is deallocated. This causes the IP address to change during any operation that includes a VM deallocation.
 
 The allocation method can be set to static which ensures that the IP address will remain assigned to a VM, even during a deallocated state. When using a statically allocated IP address, the IP address cannot be specified. Instead it is allocated from a pool of available addresses.
 
@@ -100,14 +100,14 @@ az vm create \
   --vnet-name myVnet \
   --subnet mySubnetRemoteAccess \
   --nsg myNSGRemoteAccess \
+  --public-ip-address myRemoteAccessIP \
   --image UbuntuLTS \
-  --generate-ssh-keys \
-  --no-wait
+  --generate-ssh-keys
 ```
 
 ### Static allocation
 
-To create a VM with a statically allocated IP address, the `--public-ip-address-allocation` argument can be used with a value of `static`. 
+To create a VM with a statically allocated IP address, the `--public-ip-address-allocation` argument can be used with a value of *static*. Notice here, that the public IP address is also assigned a name using the `-- --public-ip-address` argument.
 
 ```azurecli
 az vm create \
@@ -119,21 +119,32 @@ az vm create \
   --public-ip-address myFrontEndIP \
   --public-ip-address-allocation static \
   --image UbuntuLTS \
-  --generate-ssh-keys \
-  --no-wait
+  --generate-ssh-keys
 ```
 
 ### Change allocation method
 
-The IP address allocation method can be changed to using the [az network public-ip update](/cli/azure/network/public-ip#update) command. In this example, the IP address allocation method of the VM created in the last step is changed to dynamic.
+The IP address allocation method can be changed to using the [az network public-ip update](/cli/azure/network/public-ip#update) command. In this example, the IP address allocation method of the remote access VM is changed to static.
+
+First, deallocate the VM.
 
 ```azurecli
-az network public-ip update --name myFrontEndIP --allocation-method Dynamic
+az vm deallocate --resource-group myRGNetwork --name myRemoteAccessVM
+```
+
+```azurecli
+az network public-ip update --resource-group myRGNetwork --name myRemoteAccessIP --allocation-method static
+```
+
+Start the VM.
+
+```azurecli
+az vm start --resource-group myRGNetwork --name myRemoteAccessVM --no-wait
 ```
 
 ### No public IP address
 
-In many cases, a VM does not need to be accessible over the internet. To create a VM without a public IP address use the ` --private-ip-address` argument with an empty set of double quotes.
+In many cases, a VM does not need to be accessible over the internet. To create a VM without a public IP address use the ` --public-ip-address` argument with an empty set of double quotes.
 
 ```azurecli
 az vm create \
@@ -165,7 +176,7 @@ All NSGs contain a set of default rules. The default rules cannot be deleted, bu
 
 A network security group can be created with the VM when using the [az vm create](/cli/azure/vm#create) command. When doing so an NSG rule is auto created to allow traffic on port 22 from any destination. You may decide to modify this default rule which will be shown in a later example.
 
-A network security group rule can also be created independently of a VM using the [az network nsg create](/cli/azure/network/nsg/rule#create) command. Because an NSG was auto created for the VMs in this tutorial, there is no need to individually create an NSG. 
+A network security group can also be created independently of a VM using the [az network nsg create](/cli/azure/network/nsg/rule#create) command. Because an NSG was auto created for the VMs in this tutorial, there is no need to individually create one. 
 
 ### Secure incoming traffic
 
@@ -213,7 +224,34 @@ az network nsg rule update \
   --access allow
 ```
 
-Because all NSGs have a default rule allowing all traffic between VMs in the same VNet, a rule can be created to block all traffic.
+The same configuration needs to happen to the front-end port 22 network security group rule. 
+
+Get the rule name.
+
+```azurecli
+nsgrule=$(az network nsg rule list --resource-group myRGNetwork --nsg-name myNSGFrontEnd --query [0].name -o tsv)
+```
+
+Update the rule.
+
+```azurecli
+az network nsg rule update \
+  --resource-group myRGNetwork \
+  --nsg-name myNSGFrontEnd \
+  --name $nsgrule \
+  --protocol tcp \
+  --direction inbound \
+  --priority 100 \
+  --source-address-prefix 10.0.3.0/24 \
+  --source-port-range '*' \
+  --destination-address-prefix '*' \
+  --destination-port-range 22 \
+  --access allow
+```
+
+Finally, because NSGs have a default rule allowing all traffic between VMs in the same VNet, a rule can be created for both the front-end and back-end NSGs to block all traffic.
+
+Back-end:
 
 ```azurecli
 az network nsg rule create \
@@ -223,7 +261,24 @@ az network nsg rule create \
   --access Deny \
   --protocol Tcp \
   --direction Inbound \
-  --priority 200 \
+  --priority 300 \
+  --source-address-prefix "*" \
+  --source-port-range "*" \
+  --destination-address-prefix "*" \
+  --destination-port-range "*"
+```
+
+Front-end:
+
+```azurecli
+az network nsg rule create \
+  --resource-group myRGNetwork \
+  --nsg-name myNSGFrontEnd \
+  --name denyAll \
+  --access Deny \
+  --protocol Tcp \
+  --direction Inbound \
+  --priority 300 \
   --source-address-prefix "*" \
   --source-port-range "*" \
   --destination-address-prefix "*" \
