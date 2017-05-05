@@ -20,7 +20,7 @@ ms.author: andret
 <!-- Docs -->
 ## Create an application (Express)
 Now you need to register your application in the *Microsoft Application Registration Portal*:
-1. Register your application via the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&page=configure)
+1. Register your application via the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure)
 2.	Enter a name for your application and your email
 3.	Make sure the option for Guided Setup is checked
 4.	Follow the instructions to obtain the application ID and paste it into your code
