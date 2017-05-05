@@ -18,7 +18,7 @@ ms.author: hascipio;
 
 ---
 # Post-production guide for virtual machine offers in the Azure Marketplace
-This article explains how you can update a live virtual machine offer in the Azure Marketplace. It also guides you through the process of adding one or more new SKUs to an existing offer and removing a live virtual machine offer or SKU from the Marketplace.
+This article explains how you can update a live virtual machine offer in the Azure Marketplace. It guides you through the process of adding one or more new SKUs to an existing offer. It also guides you through the process of removing a live virtual machine offer or SKU from the Marketplace.
 
 After an offer/SKU is staged in the [Azure portal](http://portal.azure.com), you can't change the following text boxes:
 
@@ -32,10 +32,10 @@ After the offer/SKU is listed in the [Marketplace](http://azure.microsoft.com/ma
 * **SKU Identifier**. In the Publishing portal, go to **virtual machines** and select your offer. Then click **SKUS** > **Add a SKU**.
 * **Publisher Namespace**. In the Publishing portal, go to **virtual machines** > **Walkthrough** > **Tell Us About Your Company** (found under "Step 2 Register") **Publisher Namespace** > **Namespace**.
 * **Ports**. In the Publishing portal, go to **virtual machines** and select your offer. Then click **VM IMAGES** > **Open Ports**.
-* **Pricing change of listed SKU(s)**.
-* **Billing model change of listed SKU(s)**.
-* **Removal of billing regions of listed SKU(s)**.
-* **Changing the data disk count of listed SKU(s)**.
+* **Pricing change of a listed SKU**.
+* **Billing model change of a listed SKU**.
+* **Removal of billing regions of a listed SKU**.
+* **Changing the data disk count of a listed SKU**.
 
 ## Update the technical details of a SKU
 To add a new version to the listed SKU and republish your offer, follow these steps:
@@ -118,8 +118,8 @@ To change existing links or add new links and then republish your offer, follow 
 3. In the menu on the left, click the **MARKETING** tab.
 4. Click **English (US)**.
 5. Click the **LINKS** tab.
-6. If you want to add a new link, in the **Links** section, click **+ ADD LINK**. In the **Add Link** dialog box, enter the link **TITLE** and **URL** and save the changes. You can enter any link that contains information that might help customers.
-7. If you want to update or delete an existing link, select the link and click the **Edit** button or the **Delete** button.
+6. To add a new link, in the **Links** section, click **+ ADD LINK**. In the **Add Link** dialog box, enter the link **TITLE** and **URL** and save the changes. You can enter any link that contains information that might help customers.
+7. To update or delete an existing link, select the link and click the **Edit** button or the **Delete** button.
 
    > [!NOTE]
    > Ensure that the links that you've entered in this section are working properly, because these links get validated during your production request process.
@@ -145,7 +145,7 @@ To change an existing sample image or add new sample images and then republish y
 3. In the menu on the left, click the **MARKETING** tab.
 4. Click **English (US)**.
 5. Click the **SAMPLE IMAGES** tab.
-6. If you want to add a new sample image, in the **Sample Images** section, click **UPLOAD A NEW IMAGE** and save the changes.
+6. To add a new sample image, in the **Sample Images** section, click **UPLOAD A NEW IMAGE** and save the changes.
 
    > [!NOTE]
    > Including a sample image is optional.
@@ -179,7 +179,7 @@ To update the support information and republish your offer, follow these steps:
 5. In the **Customer Support** section, update the support contact details and the **SUPPORT URL**. These details are used for internal communication between the partner and Microsoft only.
 
    > [!NOTE]
-   > If you want to provide only email support, provide a dummy phone number in the **Customer Support** section. In this case, your provided email will be used instead.
+   > If you want to provide only email support, enter a dummy phone number in the **Customer Support** section. In this case, your provided email is used instead.
    >
    >
 6. Go to the **PUBLISH** tab, and click **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment, see [Test your VM offer for the Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
@@ -204,10 +204,10 @@ To add a new SKU in your live offer, follow these steps:
 
 1. Sign in to the [Publishing portal](https://publish.windowsazure.com).
 2. Go to the **virtual machines** tab, and select your offer.
-3. In the menu on the left, click the **SKUS** tab. Then click **Add a SKU**. In the dialog box, enter a SKU identifier in lowercase. Select the check box for the bring-your-own-license billing model (BYOL) if you want to publish the new SKU with a BYOL billing model. Otherwise, clear the check box for BYOL. Click the tick mark in the dialog box to create a new SKU. If you didn't choose the BYOL billing model, the billing model is automatically set to hourly. If you want the 30-day free trial for the hourly billing model, click the **One Month** option for “Is a free trial available?”. Otherwise, select **No Trial**. (“Is a free trial available?” is only shown if you haven't selected BYOL while creating the new SKU.)
+3. In the menu on the left, click the **SKUS** tab. Then click **Add a SKU**. In the dialog box, enter a **SKU Identifier** in lowercase. Select the **Bring your own license (BYOL) billing model** check box if you want to publish the new SKU with a BYOL billing model. Otherwise, clear the check box. Click the **tick mark** to create a new SKU. If you didn't choose the BYOL billing model, the billing model is automatically set to hourly. If you want the 30-day free trial for the hourly billing model, select **One Month** for **Is a free trial available?**. Otherwise, select **No Trial**. (**Is a free trial available?**  only shows if you haven't selected BYOL while creating the new SKU.)
 
    > [!IMPORTANT]
-   > The option “Hide this SKU from the Marketplace because it should always be bought via a solution template” should be **Yes** *only* if you're approved for publishing a solution template offer in the Marketplace. Otherwise, this option should always be **No**.
+   > **Hide this SKU from the Marketplace because it should always be bought via a solution template** should be **Yes** *only* if you're approved for publishing a solution template. Otherwise, this option should always be **No**.
    >
    >
 4. In the menu on the left, click the **VM IMAGES** tab and find out the new SKU that you've created.
@@ -232,7 +232,7 @@ Various aspects need to be taken care of in the case of a request to remove a li
 2. Select **Problem type** as **Managing offers**, and select **Category** as **Modifying an offer and/or SKU already in production**.
 3. Submit the request.
 
-The support team will guide you through the offer/SKU deletion process.
+The support team guides you through the offer/SKU deletion process.
 
 > [!NOTE]
 > You can always delete the offer while it is in Draft status (but not Staging or Production). On the **HISTORY** tab, click **DISCARD DRAFT**.
@@ -306,7 +306,7 @@ To revert the billing model to production values, follow these steps:
 
 2. Go to the **virtual machines** tab, and select your offer.
 3. In the menu on the left, click the **SKUS** tab.
-4. Click the **Edit** button to revert the billing model. In the window that opens, check or clear the **Billing and licensing is done externally from Azure (aka Bring Your Own License)** check box.
+4. Click the **Edit** button to revert the billing model. In the window that opens, select or clear the **Billing and licensing is done externally from Azure (aka Bring Your Own License)** check box.
 
     ![Edit billing](media/marketplace-publishing-vm-image-post-publishing/img09-04.png)
 5. Follow the steps in "Revert the listing price to production values" in this article.
