@@ -176,8 +176,8 @@ You can now test the hybrid CI/CD pipeline, with the final step publishing to Az
 < screenshot >
 7.  Approve the release, and verify publishing the Azure Stack is complete.
 
-## Next step
-You can use your new hybrid CI/CD pipeline as a building block for other hybrid cloud patterns.
+
+You can now use your new hybrid CI/CD pipeline as a building block for other hybrid cloud patterns.
 
 > [!div class="nextstepaction"]
 > [Develop for Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-developer)
