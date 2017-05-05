@@ -86,7 +86,7 @@ SparkPost provides 100K free emails per month including access to APIs and analy
 [sparkpost-resource-key-mgt]: ../../includes/media/sparkpost/sparkpost-resource-key-management.png
 <!--Links-->
 [sparkpost packages]:  (https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sparkpost.sparkpost?tab=PlansAndPrice
-[Azure Management Portal]: https://manage.windowsazure.com
+[Azure Management Portal]: https://portal.azure.com
 
 
 -----------------------
