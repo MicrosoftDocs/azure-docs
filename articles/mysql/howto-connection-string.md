@@ -14,7 +14,7 @@ ms.topic: article
 ms.date: 05/10/2017
 ---
 
-## How to connect applications to Azure Database for MySQL
+# How to connect applications to Azure Database for MySQL
 This document lists all connection string types supported by Azure Database for MySQL, together with templates and examples. You may have different parameters and different settings in your connection string.
 
 - Please refer to document [How to configure SSL](./howto-configure-ssl.md) to obtain the cert
@@ -63,7 +63,7 @@ cnx = mysql.connector.connect(user={your_username}, password={your_password}, ho
 client = Mysql2::Client.new(username: {your_username}, password: {your_password}, database: {your_database}, host: {your_host}, port: {your_port}[, sslca:{ca-cert filename}, sslverify:false, sslcipher:'AES256-SHA'])
 ```
 
-# Get Connection String from Portal
+## Get Connection String from Portal
 In [Azure portal](https://portal.azure.com), go to your Azure Database for MySQL and click **Connection strings** to get your string list for your instance:
 ![connection strings on portal](./media/howto-connection-strings/connection-strings-on-portal.png)
 
