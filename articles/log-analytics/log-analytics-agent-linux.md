@@ -284,12 +284,13 @@ The agent packages can be uninstalled using dpkg or rpm, or by running the bundl
 
 2. Review the section [Configuring the agent for use with an HTTP proxy server(#configuring the-agent-for-use-with-a-http-proxy-server) to verify you have properly configured the agent to communicate through a proxy server.    
 * Double check that the following OMS Service endpoints are whitelisted:
-|Agent Resource| Ports |
-|------|---------|
-|*.ods.opinsights.azure.com | Port 443| 
-|*.oms.opinsights.azure.com | Port 443| 
-|ods.systemcenteradvisor.com | Port 443| 
-|*.blob.core.windows.net/ | Port 443| 
+
+    |Agent Resource| Ports |  
+    |------|---------|  
+    |*.ods.opinsights.azure.com | Port 443|   
+    |*.oms.opinsights.azure.com | Port 443|   
+    |ods.systemcenteradvisor.com | Port 443|   
+    |*.blob.core.windows.net/ | Port 443|   
 
 ### Issue: You receive a 403 error when trying to onboard
 
