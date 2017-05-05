@@ -13,8 +13,7 @@
 ### [.NET](create-graph-dotnet.md)
 ### [Gremlin console](create-graph-gremlin-console.md)
 ## Table
-### .NET 
-<!---[.NET](connect-tables-dotnet.md)--->
+### [.NET](create-tables-dotnet.md)
 
 # Tutorials
 ## 1 - Create
