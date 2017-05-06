@@ -66,7 +66,7 @@
 #### [Multi-master setup](../documentdb/documentdb-multi-region-writers.md)
 #### [DateTimes](../documentdb/documentdb-working-with-dates.md)
 #### Tutorials
-##### Write your first app 
+##### Write your first app 
 ###### [.NET](../documentdb/documentdb-get-started.md)
 ###### [.NET Core](../documentdb/documentdb-dotnetcore-get-started.md)
 ###### [Java](../documentdb/documentdb-java-get-started.md)
