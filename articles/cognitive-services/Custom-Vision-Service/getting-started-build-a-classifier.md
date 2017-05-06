@@ -6,7 +6,7 @@ author: v-royhar
 manager: juliakuz
 
 ms.service: cognitive-services
-ms.technology: custom vision service
+ms.technology: custom-vision-service
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: v-royhar
@@ -14,7 +14,7 @@ ms.author: v-royhar
 
 # Overview
 
-To use the Custom Vision Service you must first build a classifier. 
+To use the Custom Vision Service you must first build a classifier. This article shows how to build a classifier by using the Custom Vision Service web app.
 
 ## Prerequisites
 
@@ -56,20 +56,32 @@ You can change the domain later if you wish.
 
 Add some images to train your classifier. Let's say you want a classifier to distinguish between dogs and ponies. You would upload and tag at least 30 images of dogs and 30 images of ponies. Try to upload a variety of images with different camera angles, lighting, background, types, styles, groups, sizes, etc. We recommend variety in your photos to ensure your classifier is not biased in any way and can generalize well.
 
-**Note:** Custom Vision Service accepts training images in JPG/JPEG, PNG, and BMP format, up to 6 MB per image (prediction images can be up to 4 MB per image). Images are recommended to be 256 pixels on the shortest edge. Any images shorter than 256 pixels on the shortest edge will be scaled up by Custom Vision Service.
+[!NOTE] Custom Vision Service accepts training images in JPG/JPEG, PNG, and BMP format, up to 6 MB per image (prediction images can be up to 4 MB per image). Images are recommended to be 256 pixels on the shortest edge. Any images shorter than 256 pixels on the shortest edge will be scaled up by Custom Vision Service.
 
 a. Click **Add images**.
+
     ![The add images control is shown in the upper left, and as a button at bottom center.](./media/getting-started-build-a-classifier/add-images01.png)
+
 b. Browse to the location of your training images.
-    **Note:** You can use the REST API to load training images from URLs. The web app can only upload training images from your local computer.
+
+    [!NOTE] You can use the REST API to load training images from URLs. The web app can only upload training images from your local computer.
+
     ![The browse local files button is shown near bottom center.](./media/getting-started-build-a-classifier/add-images02.png)
+
 c. Select the images for your first tag.
-d. Click `Open` to open the selected images.
+
+d. Click **Open** to open the selected images.
+
 e. Assign tags: Type in the tag you want to assign, then press the **+** button to assign the tag. You can add more than one tag at a time to the images.
+
     ![The "add some tags" text control is below the images of dogs. The plus sign is to the right of the text control. The "upload files" button is on the lower right.](./media/getting-started-build-a-classifier/add-images03.png)
+
 f. When you are done adding tags, click **Upload [number] files**. The upload could take some time if you have a large number of images or a slow Internet connection.
+
 g. After the files have uploaded, click **Done**.
+
     ![The progress bar shows all tasks completed. The upload report shows 38 images uploaded successfully. The Done button is on the lower right.](./media/getting-started-build-a-classifier/add-images04.png)
+
 h. To load more images with a different set of tags, return to step a.
 
 ### 5. Train your classifier
@@ -88,11 +100,11 @@ The precision and recall indicators tell you how good your classifier is, based 
 
 ![The training results, which shows the overall precision and recall, and the precision and recall for each tag in the classifier.](./media/getting-started-build-a-classifier/train03.png)
 
-**Note:** Each time you hit the "Train" button, you create a new iteration of your classifier. You can view all your old iterations in the Performance tab, and you can delete any that may be obsolete. When you delete an iteration, you end up deleting any images uniquely associated with it.
+[!NOTE] Each time you hit the "Train" button, you create a new iteration of your classifier. You can view all your old iterations in the Performance tab, and you can delete any that may be obsolete. When you delete an iteration, you end up deleting any images uniquely associated with it.
 
 The classifier uses all the images to create a model that identifies each tag. To test the quality of the model, the classifier then tries each image on its model to see what the model finds.
 
-The qualities of the classifier results are displayed
+The qualities of the classifier results are displayed.
 
 |Term|Definition|
 |---|---|
@@ -101,4 +113,4 @@ The qualities of the classifier results are displayed
 
 ## Next steps
 
-[Tutorial](tutorial.md)
+[Tutorial](./csharp-tutorial.md)
