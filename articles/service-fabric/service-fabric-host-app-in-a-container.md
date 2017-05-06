@@ -68,7 +68,7 @@ To tell Docker that we want to run a SQL Server in a container, we can reference
 
    >[!NOTE] You can use any SQL Server you prefer for local debugging, as long as it is reachable from your host. However, **localdb** does not support `container -> host` communication.
 
-   >[!NOTE] If you always want to always run your SQL Server in a container, you can choose to add the preceding to the docker-compose.yml file instead of the docker-compose.override.yml file.
+   >[!NOTE] If you always want to run your SQL Server in a container, you can choose to add the preceding to the docker-compose.yml file instead of the docker-compose.override.yml file.
 
 
 4. Modify the `fabrikamfiber.web` node, add a new child node named `depends_on:`. This ensures that the `db` service (the SQL Server container) starts before our web application (fabrikamfiber.web).
@@ -107,7 +107,7 @@ For the remainder of this tutorial, you are using Visual Studio Team Services to
 
 If you already have a Service Fabric cluster to deploy your application to, you can skip this step. Otherwise, let us go ahead and create a Service Fabric Cluster.
 
->[!NOTE] The following procedure creates a Service Fabric cluster, secured by a self-signed certificate, that is placed in a KeyVault, created as part of the deployment. For more information on using Azure Active Directory authentication, see the [Create a Service Fabric cluster by using Azure Resource Manager][link-servicefabric-create-secure-clusters] article for more information.
+>[!NOTE] The following procedure creates a Service Fabric cluster, secured by a self-signed certificate, that is placed in a KeyVault, created as part of the deployment. For more information on using Azure Active Directory authentication, see the [Create a Service Fabric cluster by using Azure Resource Manager][link-servicefabric-create-secure-clusters] article.
 
 1. Download a local copy of the Azure template and parameters files referenced in the following.
     * [Azure Resource Manager template for Service Fabric](http://aka.ms/securepreviewonelineclustertemplate) - The Resource Manager template that defines a Service Fabric Cluster.
@@ -154,13 +154,13 @@ If you already have a Service Fabric cluster to deploy your application to, you 
 
    >[!NOTE] The `-CertificateSubjectName` parameter should align with the clusterName parameter, specified in the parameters file, and the domain tied to the Azure region you choose, such as: `clustername.eastus.cloudapp.azure.com`.
    
-    Once the configuration finished, it will output information about the cluster created in Azure, as well as copy the certificate to the -CertificateOutputFolder directory.
+    Once the configuration finishes, it will output information about the cluster created in Azure, as well as copy the certificate to the -CertificateOutputFolder directory.
 
-8. **Double-click** the certificate to install in on your local machine.
+8. **Double-click** the certificate to install it on your local machine.
 
 ## Deploy with Visual Studio
 
-To set up deployment using Visual Studio Team Services, you need to install the [Continuous Delivery Tools extension for Visual Studio 2017][link-visualstudio-cd-extension]. This extension makes it easy to deploy to Azure by configuring a Visual Studio Team Services and get your app deployed to your Service Fabric cluster.
+To set up deployment using Visual Studio Team Services, you need to install the [Continuous Delivery Tools extension for Visual Studio 2017][link-visualstudio-cd-extension]. This extension makes it easy to deploy to Azure by configuring Visual Studio Team Services and get your app deployed to your Service Fabric cluster.
 
 To get started, your code must be hosted in source control. The rest of this section assumes **git** is being used.
 
@@ -194,11 +194,11 @@ Now that your code is synchronized with a VSTS source repository, you can config
 
    ![setup service fabric continuous integration][image-setup-ci]
    
-   Once the continuous delivery is completed, you can deploy your Service Fabric container whenever you push updates to the repository.
+   Once the configuration is completed, your container will be deployed to Service Fabric whenever you push updates to the repository.
 
 7. **Start a build** using **Team Explorer** and see your container application running in Service Fabric.
 
-Now that you have containerized and deployed the Fabrikam Call Center solution, you can open the [Azure portal][link-azure-portal] and see the application running in Service Fabric. The try the application, use the URL of your Service Fabric cluster.
+Now that you have containerized and deployed the Fabrikam Call Center solution, you can open the [Azure portal][link-azure-portal] and see the application running in Service Fabric. To try the application, open a web browser and go to the URL of your Service Fabric cluster.
 
 ## Next steps
 
