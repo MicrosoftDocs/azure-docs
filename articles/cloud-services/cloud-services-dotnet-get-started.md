@@ -112,15 +112,20 @@ You'll do the following steps to run the application in the cloud:
 ### Create an Azure cloud service
 An Azure cloud service is the environment the application will run in.
 
-1. In your browser, open the [Azure classic portal](http://manage.windowsazure.com).
-2. Click **New > Compute > Cloud Service > Quick Create**.
-3. In the URL input box, enter a URL prefix.
+1. In your browser, open the [Azure portal](https://portal.azure.com).
+2. Click **New > Compute > Cloud Service**.
 
-    This URL has to be unique.  You'll get an error message if the prefix you choose is already in use by someone else.
-4. Choose the region where you want to deploy the application.
+    ![Menu for fNew Cloud Service](./media/cloud-services-dotnet-get-started/newcs.png)
+
+3. In the DNS name input box, enter a URL prefix for the cloud service.
+
+    This URL has to be unique.  You'll get an error message if the prefix you choose is already in use.
+4. Specify a new Resource group for the  service. Click **Create new** and then type a name in the Resource group input box, such as CS_contososadsRG.
+
+5. Choose the region where you want to deploy the application.
 
     This field specifies which datacenter your cloud service will be hosted in. For a production application, you'd choose the region closest to your customers. For this tutorial, choose the region closest to you.
-5. Click **Create Cloud Service**.
+5. Click **Create**.
 
     In the following image, a cloud service is created with the URL contosoads.cloudapp.net.
 
