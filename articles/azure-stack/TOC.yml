@@ -192,6 +192,8 @@
         href: azure-stack-powershell-configure.md
       - name: Install Visual Studio
         href: azure-stack-install-visual-studio.md
+      - name: Manage API version profiles
+        href: azure-stack-version-profiles.md
     - name: Use policy module
       href: azure-stack-policy-module.md
     - name: Use templates
@@ -218,8 +220,6 @@
       href: azure-stack-redeploy.md
 - name: Reference
   items:
-  - name: Manage API version profiles
-    href: azure-stack-version-profiles.md
   - name: PowerShell
     href: https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurestackps-1.2.9
 - name: Resources
