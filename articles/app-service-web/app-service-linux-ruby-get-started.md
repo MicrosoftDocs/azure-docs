@@ -51,11 +51,11 @@ This tutorial shows you how to create a basic ruby on rails application locally 
 
 4. Create a rails application called **hello-world** using the following command:
 
-	If you are using Rails 5.1.0 or later, include the `--skip-yarn` option as shown below:
+	If you are using Rails 5.1.0 or later, include the `--skip-yarn` option as shown in the following command:
 
 		rails new hello-world --skip-yarn
 
-	For Rails prior to 5.1.0:
+	For Rails versions prior to 5.1.0, use the following command:
 
 		rails new hello-world 
 
@@ -153,7 +153,7 @@ In this tutorial, We use Git to deploy the local Ruby application to Azure.
 
 		https://{your web app name}.scm.azurewebsites.net/api/deployments
 
-3. Restart your web app for the deployment to take affect. In the [Azure portal](http://portal.azure.com), navigate to the **Overview** blade of your web app.
+3. Restart your web app for the deployment to take effect. In the [Azure portal](http://portal.azure.com), navigate to the **Overview** blade of your web app.
 
 	Click **Stop** on the toolbar.
 
@@ -171,7 +171,7 @@ In this tutorial, We use Git to deploy the local Ruby application to Azure.
 	
 
 ## Next steps
-For more information regarding Azure App Service Web App on Linux, aee the following links. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+For more information regarding Azure App Service Web App on Linux, see the following links. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
 * [Creating Web Apps in App Service on Linux](app-service-linux-how-to-create-a-web-app.md)
 * [How to use a custom Docker image for App Service on Linux](app-service-linux-using-custom-docker-image.md)
