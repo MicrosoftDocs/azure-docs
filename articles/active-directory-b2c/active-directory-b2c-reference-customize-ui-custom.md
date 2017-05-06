@@ -170,4 +170,4 @@ The following table describes the set of content definition ids recognized by th
 | *api.signuporsignin* | **Unified sign-up or sign-in page**.  This page handles both sign-up & sign-in of users, who can use enterprise identity providers, social identity providers such as Facebook or Google+, or local accounts.
 
 ## Next steps
-[Reference: Understand how custom policies work with the Identity Experience Framework in B2C](active-directory-b2c-reference-policies)
+[Reference: Understand how custom policies work with the Identity Experience Framework in B2C](active-directory-b2c-reference-custom-policies-understanding-contents.md)
