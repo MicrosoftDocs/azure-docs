@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/16/2016
-ms.author: hermannd
+ms.date: 05/05/2017
+ms.author: rclaus
 
 ---
 # Deploying SAP IDES EHP7 SP3 for SAP ERP 6.0 on Microsoft Azure
