@@ -136,7 +136,7 @@ We will use Git to deploy the local Ruby application to Azure.
 
 		https://{your web app name}.scm.azurewebsites.net/api/scm/info
 
-	However, it will have the following form based on your web app name:
+	It will have the following form based on your web app name:
 
 		https://{your web app name}.scm.azurewebsites.net/{your web app name}.git
 
