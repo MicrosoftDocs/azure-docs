@@ -21,16 +21,9 @@ This tutorial will show you the most common way to import and export the data in
 To step through this how-to guide, you need:
 - An Azure Database for MySQL server [Design your first Azure MySQL database](quickstart-create-mysql-server-database-using-azure-portal.md)
 - MySQL Workbench [MySQL Workbench Download](https://dev.mysql.com/downloads/workbench/)
-- WinSCP to upload your dump file to Azure Server [WinSCP Download](https://winscp.net/eng/download.php)
 
 ## Use common tools
-Use common tools such as MySQL Workbench, Toad, or Navicat to remotely connect and import or export data into Azure Database for MySQL. Simply point the connection attributes of your database tools to the Azure Database for MySQL server and database to interact with it. 
-
-For more information on connecting, see _Get the connection information_ heading in [this article](quickstart-create-mysql-server-database-using-azure-portal.md)
-
-Use file transfer tools such as WinSCP to import and export your files in your existing MySQL environment. You do not need to move your import and export files to any special cloud location when migrating to Azure Database for MySQL. 
-
-Use tools on your client machine and connect to the Azure Database for MySQL remotely. There is no virtual machine to access as part of this Azure Database for MySQL service.
+Use common tools such as MySQL Workbench, Toad, or Navicat to remotely connect and import or export data into Azure Database for MySQL. Use such tools on your client machine with an internet connection to connect to the Azure Database for MySQL. Use an SSL encrypted connection for best security practices, see also [Configure SSL connectivity in Azure Database for MySQL](concepts-ssl-connection-security.md). You do not need to move your import and export files to any special cloud location when migrating to Azure Database for MySQL. 
 
 ## Create a database on the target Azure Database for MySQL service
 You must create an empty database on the target Azure Database for MySQL server where you want to migrate the data using MySQL Workbench, Toad, Navicat or any third party tool for MySQL. The database can have the same name as the database that is contained the dumped data or you can create a database with a different name.

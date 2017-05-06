@@ -22,7 +22,7 @@ Refer to the MySQL [documentation] (https://dev.mysql.com/doc/relnotes/mysql/5.6
 Refer to the MySQL [documentation] (https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-17.html) to learn about improvements and fixes in MySQL 5.7.17.
 
 ## Managing updates and upgrades
-Azure Database for MySQL automatically manages patching for minor version updates. Currently, in public preview, major version upgrade, for example from MySQL 5.6 to MySQL 5.7 is not supported.
+Azure Database for MySQL automatically manages patching for minor version updates. Currently, in public preview, major version upgrade is not supported. For example, upgrading from MySQL 5.6 to MySQL 5.7 is not supported.
 
 ## Next steps
 - For an overview of the service, see [Azure Database for MySQL Overview](./overview.md)
