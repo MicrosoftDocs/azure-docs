@@ -1,7 +1,8 @@
 # 4 Simple Steps To Create Your Custom Search
 
 You can build a custom search engine in four simple steps.
-	
+
+
 ## Sign-up to get your free trial Azure subscription key and build your first custom search
 Signing up to Bing Custom Search requires you to have a Microsoft Account.
 After you have successfully completed the sign-up, you have been automatically granted a free trial Azure subscription key. 
@@ -23,14 +24,6 @@ You can build as many different search scenarios as you want. Technically, a sea
 1. Define the sites that you want to search over.
 2. Apply, and adjust based on your needs the Bing ranking for your selected sites.
 
-
-## Publish your custom search
-Once you decide that your custom search instance meets your needs, you can publish your custom search.
-Publishing means: you are given a Bing Web Search API endpoint that you can call programmatically. 
-To retrieve results from the Bing Web Search API, you need to specify your Azure subscription key for Bing Custom Search, along with a custom configuration ID that you can see in the portal.
-
-
-## Integrate your search into an endpoint application.
 Bing Custom Search supports unlimited search application scenarios. The two most common scenarios are:
 * Building a site search
 * Building a topical search
@@ -46,5 +39,12 @@ To build a vertical search, you can:
 * Design a custom search targeting hundreds of sites and webpages on a topic
 * Deploy the search and use it on internal or external web applications
 
-### Integration into your endpoint application
+
+## Publish your custom search
+Once you decide that your custom search instance meets your needs, you can publish your custom search.
+Publishing means: you are given a Bing Web Search API endpoint that you can call programmatically. 
+To retrieve results from the Bing Web Search API, you need to specify your Azure subscription key for Bing Custom Search, along with a custom configuration ID that you can see in the portal.
+
+
+## Integrate your search into an endpoint application.
 Finally, you want to show your customized search results in your endpoint of choice. For example, you can show the results in an external website, an internal web application, or in a mobile app. You can choose any endpoint as long as it is able to consume and render JSON files.
