@@ -201,10 +201,10 @@ Once the continuous delivery is completed, you can deploy your Service Fabric co
 
 ## Next steps
 
-- Link to container tooling in Visual Studio
-- Link to Visual Studio Team Services and building / release containers
-- Link to running containers in Service Fabric
-- Link to building Service Fabric applications
+- [Container Tooling in Visual Studio][link-visualstudio-container-tools]
+- [Visual Studio Team Services - building containers][link-vsts-containers]
+- [Running containers in Service Fabric][link-servicefabric-containers]
+- [Creating Service Fabric applications][link-servicefabric-createapp]
 
 [link-debug-container]: ~/dotnet/articles/core/docker/visual-studio-tools-for-docker
 [link-fabrikam-github]: http://github/blah
@@ -213,6 +213,9 @@ Once the continuous delivery is completed, you can deploy your Service Fabric co
 [link-azure-powershell-install]: ~/powershell/azure/install-azurerm-ps
 [link-servicefabric-create-secure-clusters]: ~/azure/service-fabric/service-fabric-cluster-creation-via-arm
 [link-visualstudio-cd-extension]: http://aka.ms/cd4v
+[link-vsts-containers]: http://docs.microsoft.com
+[link-servicefabric-containers]: ~/azure/service-fabric/service-fabric-containers-overview
+[link-servicefabric-createapp]: ~/azure/service-fabric/service-fabric-create-your-first-application-in-visual-studio
 
 [image-web-preview]: media/service-fabric-host-app-in-a-container/fabrikam-web-sample.png
 [image-source-control]: media/service-fabric-host-app-in-a-container/add-to-source-control.png
