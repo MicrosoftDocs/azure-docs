@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Virtual Networks and Windows Virtual Machines | Microsoft Docs
 description: Tutorial - Manage Azure Virtual Networks and Windows Virtual Machines with Azure PowerShell 
 services: virtual-machines-windows
@@ -273,4 +273,5 @@ In this tutorial, you created and secured Azure networks as related to virtual m
 
 Advance to the next tutorial to learn about monitoring securing data on virtual machines using Azure backup. .
 
-[Back up Windows virtual machines in Azure](./tutorial-backup-vms.md)
+> [!div class="nextstepaction"]
+> [Back up Windows virtual machines in Azure](./tutorial-backup-vms.md)
