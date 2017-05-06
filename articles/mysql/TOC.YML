@@ -72,8 +72,6 @@
     - name: Azure portal
       href: howto-restore-server-portal.md
 - name: Reference
-  items:
-  - name:  [Azure CLI 2.0](reference-azure-cli.md)
 - name: Resources
   items:
   - name: Pricing
