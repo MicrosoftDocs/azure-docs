@@ -20,26 +20,28 @@ ms.author: cherylmc
 ---
 # Create a self-signed root certificate for Point-to-Site connections using makecert
 
-> [!IMPORTANT]
+> [!NOTE]
 > Use these instructions only when you don't have access to a Windows 10 computer to generate self-signed certificates for Point-to-Site connections. Makecert is being deprecated. Additionally, makecert cannot create a SHA-2 certificate, only SHA-1 (which is still valid for P2S). For these reasons, we recommend that you use the [PowerShell steps](vpn-gateway-certificates-point-to-site.md), if possible. The certificates that you create, using either PowerShell or makecert, can be installed on any [supported client operating system](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq), not just the operating system that you used to create them.
 >
 >
 
-Point-to-Site connections use certificates to authenticate. When you configure a Point-to-Site connection, you need to upload the public key (.cer file) of a root certificate to Azure. Next, client certificates must be generated from the root certificate and installed on every client computer that connects to the VNet. The client certificate allows the client to authenticate.
 
 This article shows you how to create a self-signed root certificate, export the public key, and generate client certificates. This article does not contain Point-to-Site configuration instructions or the Point-to-Site FAQ. You can find that information by selecting one of the 'Configure Point-to-Site' articles from the following list:
 
 > [!div class="op_single_selector"]
-> * [Create self-signed certificates](vpn-gateway-certificates-point-to-site-makecert.md)
+> * [Create self-signed certificates - PowerShell](vpn-gateway-certificates-point-to-site.md)
+> * [Create self-signed certificates - Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 > * [Configure Point-to-Site - Resource Manager - Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Configure Point-to-Site - Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Configure Point-to-Site - Classic - Azure portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 > 
 > 
 
+Point-to-Site connections use certificates to authenticate. When you configure a Point-to-Site connection, you need to upload the public key (.cer file) of a root certificate to Azure. Additionally, client certificates must be generated from the root certificate and installed on every client computer that connects to the VNet. The client certificate allows the client to authenticate.
+
 ## <a name="rootcert"></a>Create a self-signed root certificate
 
-The following steps walk you through creating a self-signed certificate using makecert. These steps are not deployment-model specific. They are valid for both Resource Manager and classic.
+The following steps show you how to create a self-signed certificate using makecert. These steps are not deployment-model specific. They are valid for both Resource Manager and classic.
 
 1. Download and install [makecert](https://msdn.microsoft.com/en-us/library/windows/desktop/aa386968(v=vs.85).aspx).
 2. After installation, you can find the makecert.exe utility under this path: 'C:\Program Files (x86)\Windows Kits\10\bin\<arch>'. Open a command prompt as administrator and navigate to the location of the makecert utility. You can use the following example:

@@ -25,7 +25,7 @@ Once you've created a server in your Azure subscription, you're ready to deploy 
 To get started, you need:
 
 * **Analysis Services server** in Azure. To learn more, see [Create an Analysis Services in Azure](analysis-services-create-server.md).
-* **Tabular model project** in SSDT or an existing tabular model at the 1200 compatibility level on an Analysis Services instance. Never created one? Try the [Adventure Works Tutorial](https://msdn.microsoft.com/library/hh231691.aspx).
+* **Tabular model project** in SSDT or an existing tabular model at the 1200 or later compatibility level on an Analysis Services instance. Never created one? Try the [Adventure Works Tutorial](https://msdn.microsoft.com/library/hh231691.aspx).
 * **On-premises gateway** - If one or more data sources are on-premises in your organization's network, you need to install an [On-premises data gateway](analysis-services-gateway.md). The gateway is necessary for your server in the cloud connect to your on-premises data sources to process and refresh data in the model.
 
 ## To deploy a tabular model from SSDT
