@@ -109,9 +109,9 @@ Delete a resource group in the Azure portal:
 ## Use the Azure Powershell to deploy a secure cluster
 
 
-1. Download the [Azure Powershell module version 4.0 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) on your machine.
+1) Download the [Azure Powershell module version 4.0 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) on your machine.
 
-2. Open a Windows PowerShell window, Run the following command. 
+2) Open a Windows PowerShell window, Run the following command. 
 	
 ```powershell
 
@@ -122,7 +122,7 @@ You should see an output similar to the following.
 
 ![ps-list][ps-list]
 
-3. Login to Azure and Select the subscription to which you want to create the cluster
+3) Login to Azure and Select the subscription to which you want to create the cluster
 
 ```powershell
 
@@ -132,7 +132,7 @@ Select-AzureRmSubscription -SubscriptionId "Subcription ID"
 
 ```
 
-4. Run the following command to now create a secure cluster. Do not forget to customize the parameters. 
+4) Run the following command to now create a secure cluster. Do not forget to customize the parameters. 
 
 
 ````powershell
@@ -154,7 +154,7 @@ The command can take anywhere from 10 minutes to 30 minutes to complete, at the 
 
 ![ps-out][ps-out]
 
-Copy the entire output and save it off in a text file. You may need to refer to it, later when you try to access your secure cluster. Take a note of the following information from the output, they should look like the following
+5) Copy the entire output and save it off in a text file. You may need to refer to it, later when you try to access your secure cluster. Take a note of the following information from the output, they should look like the following
  
 
 - **CertificateSavedLocalPath** : c:\Mycertificates\mycluster20170504141137.pfx

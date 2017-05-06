@@ -118,7 +118,7 @@ Before wrapping up, it's important to remember that the local cluster is real. S
 1. To shut down the cluster but keep the application data and traces, click **Stop Local Cluster** in the system tray app.
 2. To delete the cluster entirely, click **Remove Local Cluster** in the system tray app. This option will result in another slow deployment the next time you press F5 in Visual Studio. Delete the cluster only if you don't intend to use the local cluster for some time or if you need to reclaim resources.
 
-## Deploy your application to an Azure Cluster
+## Deploy your application to an Azure cluster
 Now that you have deployed your application locally, you can deploy the same application to Azure. [Create your first Service Fabric cluster on Azure](service-fabric-get-started-azure-cluster.md) document walks through the steps to do that using the Azure Powershell or using the portal.
 
 Once you have set up an azure cluster, you can publish from Visual Studio by following the [Publish to an arbitrary cluster endpoint](service-fabric-publish-app-remote-cluster.md) document.  
