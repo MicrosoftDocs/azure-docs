@@ -1,0 +1,14 @@
+- name: Overview
+- href: home.md
+- name: How-to
+  items: 
+  - name: Build a classifier
+    href: getting-started-build-a-classifier.md
+  - name: Test your model
+    href: test-your-model.md
+  - name: Use the prediction API
+    href: use-prediction-api.md
+- name: Reference
+  items:
+  - name: SDK
+    href: http://github.com/Microsoft/Cognitive-CustomVision-Windows/
