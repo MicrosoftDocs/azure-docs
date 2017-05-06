@@ -11,7 +11,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.workload: na
 ms.date: 05/05/2017
-ms.author: tamram
+ms.author: mscurrell
 
 ---
 
@@ -32,7 +32,7 @@ asynchronous processing workloads where the job completion time is flexible and
 the work is distributed across many VMs.
 
 Low-priority VMs are significantly less expensive than dedicated VMs. For pricing
-details, see the [Batch Pricing](https://azure.microsoft.com/pricing/details/batch/) page.
+details, see [Batch Pricing](https://azure.microsoft.com/pricing/details/batch/).
 
 Low-priority VMs are available only for workloads running in Batch. 
 
