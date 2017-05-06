@@ -93,7 +93,7 @@ To tell Docker that we want to run a SQL Server in a container, we can reference
 
 6. Press **F5** to run and debug the application in your container.
 
-   >[!NOTE] If it is the first time you have run a Windows container on your machine, Docker CE must pull down the base images for your containers first. The image is 14GB.
+   >[!NOTE] If it is the first time you have run a Windows container on your machine, Docker CE must pull down the base images for your containers first. The image is 14 GB.
 
    Edge opens your application's defined launch page using the IP address of the container on the internal NAT network (typically 172.x.x.x). To learn more about debugging applications in containers using Visual Studio 2017, see [this article][link-debug-container].
 
@@ -198,7 +198,7 @@ Once the continuous delivery is completed, you can deploy your Service Fabric co
 
 7. Go ahead and start a build using Team Explorer and see your container application running in Service Fabric.
 
-Now that you have containerized and deployed the Fabrikam Call Center solution, you can open the [Azure Portal][link-azure-portal] and see the application running in Service Fabric. The try the application, use the URL of your Service Fabric cluster.
+Now that you have containerized and deployed the Fabrikam Call Center solution, you can open the [Azure portal][link-azure-portal] and see the application running in Service Fabric. The try the application, use the URL of your Service Fabric cluster.
 
 ## Next steps
 
