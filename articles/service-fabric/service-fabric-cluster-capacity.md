@@ -1,4 +1,4 @@
-﻿---
+---
 title: Planning the Service Fabric cluster capacity | Microsoft Docs
 description: Service Fabric cluster capacity planning considerations. Nodetypes, Durability and Reliability tiers
 services: service-fabric
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 05/05/2017
 ms.author: chackdan
 
 ---
@@ -94,8 +94,9 @@ The reliability tier can take the following values.
 
 Here is the guidance for planning the primary node type capacity
 
-1. **Number of VM instances:** To run any production workload in Azure, you must specify a reliability tier of Silver or higher, which then translates to a minimum Primary Node type size of 5.
-2. **VM SKU:** Primary node type is where the system services run, so the VM SKU you choose for it, must take into account the overall peak load you plan to place into the cluster. Here is an analogy to illustrate what I mean here - Think of the primary node type as your "Lungs", it is what provides oxygen to your brain, and so if the brain does not get enough oxygen, your body suffers. 
+1. **Number of VM instances to run any production workload in Azure :** You must specify a minimum Primary Node type size of 5.
+2. **Number of VM instances to run test workloads in Azure** You can specify a minimum Primary Node type size of 1 or 3. The one node cluster, runs with a special configuration and so, scale out of that cluster is not supported. The one node cluster, has no reliability and so in your ARM template, you have to remove/not specify that configuration (not setting the configuration value is not enough). If you set up the one node cluster set up via portal, then the configuration is automatically taken care of. 1 and 3 node clusters are not supported for running production workloads. 
+3. **VM SKU:** Primary node type is where the system services run, so the VM SKU you choose for it, must take into account the overall peak load you plan to place into the cluster. Here is an analogy to illustrate what I mean here - Think of the primary node type as your "Lungs", it is what provides oxygen to your brain, and so if the brain does not get enough oxygen, your body suffers. 
 
 The capacity needs of a cluster, is absolutely determined by workload you plan to run in the cluster, So we cannot provide you with a qualitative guidance for your specific workload, however here is the broad guidance to help you get started
 

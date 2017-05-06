@@ -164,7 +164,7 @@ The command can take anywhere from 10 minutes to 30 minutes to complete, at the 
 
 ### Set up the certificate on your local machine
   
-In order to connect to the cluster you just set up, you need to install the certificate into the Personal (My) store of the local computer or the current user. 
+To connect to the cluster you just set up, you need to install the certificate into the Personal (My) store of the local computer or the current user. 
 
 Run the following PowerShell cmdlet to set up the client certificate on the computer from which you access the cluster.
 
@@ -211,7 +211,7 @@ Get-ServiceFabricClusterHealth
 Now that you have set up an azure cluster, you can publish your applications to it from Visual Studio by following the [Publish to an arbitrary cluster endpoint](service-fabric-publish-app-remote-cluster.md) document. 
 
 ### Remove the cluster
-A Service Fabric cluster is made up of other Azure resources in addition to the cluster resource itself. So to completely delete a Service Fabric cluster you also need to delete all the resources it is made of. The simplest way to delete the cluster and all the resources is consumes is to delete the resource group. 
+A Service Fabric cluster is made up of other Azure resources in addition to the cluster resource itself. So to completely delete a Service Fabric cluster you also need to delete all the resources it is made of. The simplest way to delete the cluster and all the resources it consumes is to delete the resource group. 
 
 ```powershell
 
