@@ -19,7 +19,7 @@ ms.author: edmaca
 ---
 # Overview of Microsoft Azure Data Lake Analytics
 ## What is Azure Data Lake Analytics?
-Azure Data Lake Analytics ia an on-demand analytics job service to simplify big data analytics. Focus on writing, running, and managing jobs rather than on operating distributed infrastructure. Instead of deploying, configuring, and tuning hardware, you write queries to transform your data and extract valuable insights. The analytics service can handle jobs of any scale instantly by setting the dial for how much power you need. You only pay for your job when it is running, making it cost-effective. The analytics service supports Azure Active Directory letting you manage access and roles, integrated with your on-premises identity system. It also includes U-SQL, a language that unifies the benefits of SQL with the expressive power of user code. U-SQL’s scalable distributed runtime enables you to efficiently analyze data in the store and across SQL Servers in Azure, Azure SQL Database, and Azure SQL Data Warehouse.
+Azure Data Lake Analytics is an on-demand analytics job service to simplify big data analytics. Focus on writing, running, and managing jobs rather than on operating distributed infrastructure. Instead of deploying, configuring, and tuning hardware, you write queries to transform your data and extract valuable insights. The analytics service can handle jobs of any scale instantly by setting the dial for how much power you need. You only pay for your job when it is running, making it cost-effective. The analytics service supports Azure Active Directory letting you manage access and roles, integrated with your on-premises identity system. It also includes U-SQL, a language that unifies the benefits of SQL with the expressive power of user code. U-SQL’s scalable distributed runtime enables you to efficiently analyze data in the store and across SQL Servers in Azure, Azure SQL Database, and Azure SQL Data Warehouse.
 
 ## Key capabilities
 * **Dynamic scaling**
@@ -33,7 +33,7 @@ Azure Data Lake Analytics ia an on-demand analytics job service to simplify big 
     Data Lake Analytics includes U-SQL, a query language that extends the familiar, simple, declarative nature of SQL with the expressive power of C#. The U-SQL language is built on the same distributed runtime that powers the big data systems inside Microsoft. Millions of SQL and .NET developers can now process and analyze their data with the skills they already have.
 * **Integrates seamlessly with your IT investments**
   
-    Data Lake Analytics can use your existing IT investments for identity, management, security, and data warehousing. This simplifies data governance and makes it easy to extend your current data applications. Data Lake Analytics is integrated with Active Directory for user management and permissions and comes with built-in monitoring and auditing.
+    Data Lake Analytics can use your existing IT investments for identity, management, security, and data warehousing. This approach simplifies data governance and makes it easy to extend your current data applications. Data Lake Analytics is integrated with Active Directory for user management and permissions and comes with built-in monitoring and auditing.
 * **Affordable and cost effective**
   
     Data Lake Analytics is a cost-effective solution for running big data workloads. You pay on a per-job basis when data is processed. No hardware, licenses, or service-specific support agreements are required. The system automatically scales up or down as the job starts and completes, meaning that you never pay for more than what you need.
@@ -59,5 +59,5 @@ Azure Data Lake Analytics ia an on-demand analytics job service to simplify big 
 * Let us know what you think
   
   * [Submit a feature request](http://aka.ms/adlafeedback)
-  * [Get help in the forums](http://aka.ms/adlaforums)
+  * [Get help in the MSDN forums](http://aka.ms/adlaforums)
 
