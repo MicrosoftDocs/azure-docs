@@ -32,7 +32,7 @@ The Microsoft Authenticator app replaces the Azure Authenticator app. The Azure 
 
 The Microsoft Authenticator app doesn't work by itself. You need to configure your accounts to prompt you for a second verification method after you sign in with your username and password. 
 
-For a work or school account, you don't usually get to choose this for yourself. Instead, a security administrator will opt-in on your behalf and then send you a notification that you need to register verification methods for your account. If this scenario applies to you, learn more in [What does Azure Multi-Factor Authentication mean for me](multi-factor-end-user.md).
+For a work or school account, you don't usually get to choose this for yourself. Instead, a security administrator will opt-in on your behalf and then send you a notification that you need to register verification methods for your account. If this scenario applies to you, learn more in [What does Azure Multi-Factor Authentication mean for me](multi-factor-authentication-end-user.md).
 
 For a personal account, you need to set up two-step verification for yourself. If you have a Microsoft account, those steps are available in [About two-step verification](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification). 
 
