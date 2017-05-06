@@ -85,7 +85,12 @@ By default, the ruby image runs the server with the `-e production` flag. This e
 
 To prepare a root landing page:
 
-1. Open *~/workspace/hello-world/config/routes.rb* for editing. Add `root 'application#hello'` as shown below:
+1. Open *~/workspace/hello-world/config/routes.rb* for editing. Add the following line below as shown in the screenshot. 
+
+		root 'application#hello'
+
+	![routes.rb](./media/app-service-linux-ruby-get-started/routes-rb.png)
+
 
 2. Open *~/workspace/hello-world/app/controllers/application_controller.rb* for editing. Add the following lines below as shown in the screenshot.
 
@@ -93,7 +98,10 @@ To prepare a root landing page:
 			render html: "Hello, world from Azue Web App on Linux!"
 		end
 
-3. Your app is now configured. Using your web browser, navigate to `http://localhost:3000` to confirm.
+	![routes.rb](./media/app-service-linux-ruby-get-started/application-controller-rb.png)
+
+
+3. Your app is now configured. Using your web browser, navigate to `http://localhost:3000` to confirm the root landing page.
 
 	![Hello World configured](./media/app-service-linux-ruby-get-started/hello-world-configured.png)
 
@@ -103,14 +111,64 @@ To prepare a root landing page:
 
 	![Create Web App on Linux](./media/app-service-linux-ruby-get-started/top-level-create.png)
 
-2. Next, the **Create blade** opens as shown in the following image:
+2. The **Create blade** opens as shown in the following image:
 
-![The Create blade](./media/app-service-linux-ruby-get-started/create-blade.png)
+	![The Create blade](./media/app-service-linux-ruby-get-started/create-blade.png)
+
 
 	1. Give your web app a name.
 	2. Choose an existing resource group or create a new one. (See available regions in the [limitations section](app-service-linux-intro.md).)
 	3. Choose an existing Azure App Service plan or create a new one. (See App Service plan notes in the [limitations section](app-service-linux-intro.md).)
-	4. Choose the application stack that you intend to use. You can choose between several versions of Node.js, PHP, .Net Core, and Ruby.
+	4. Choose the **Ruby 2.3** built-in runtime stack for your container configuration.
+	5. Click **Pin to dashboard** for the web app.
+	6. Click **Create**.
+
+3. Once the web app is created, the **Overview** blade is displayed. Copy the **URL** for the new web app and open it in your browser. The following splash page is displayed.
+
+	![splash page](./media/app-service-linux-ruby-get-started/splash-page.png)
+
+
+## Deploy your application
+
+We will use Git to deploy the local Ruby application to Azure.
+
+1. The new Azure website already has a Git deployment configured. You will find the Git deployment URL by navigating to the following URL after inserting your web app name:
+
+		https://{your web app name}.scm.azurewebsites.net/api/scm/info
+
+	However, it will have the following form based on your web app name:
+
+		https://{your web app name}.scm.azurewebsites.net/{your web app name}.git
+
+2. Run the following commands to deploy the local application to your Azure website.
+
+		cd ~/workspace/hello-world
+		git init
+		git remote add azure <Git deployment URL from above>
+		git add -A
+		git commit -m "Initial deployment commit"
+		git push master
+
+	If you see an error stating that the remote has hung up, the deployment is likely still in progress. In this case, navigate to the following URL in your browser:
+
+		https://{your web app name}.scm.azurewebsites.net/api/deployments
+
+3. You must restart your web app for the deployment to take affect. In the [Azure portal](http://portal.azure.com) navigate to the **Overview** blade of your web app.
+
+	Click **Stop** on the toolbar.
+
+	![Stop web app](./media/app-service-linux-ruby-get-started/stop-web-app.png)
+
+	Once the app has stopped, click **Start** on the toolbar
+
+	![Start web app](./media/app-service-linux-ruby-get-started/start-web-app.png)
+
+4. Navigate to your site and confirm your update are live
+
+		http://{your web app name}/azurewebsites.net
+
+	![updated web app](./media/app-service-linux-ruby-get-started/hello-world-updated.png)
+	
 
 ## Next steps
 See the following links for more information regarding App Service on Linux. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
