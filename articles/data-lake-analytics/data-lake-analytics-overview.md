@@ -3,8 +3,8 @@ title: Overview of Microsoft Azure Data Lake Analytics | Microsoft Docs
 description: 'Data Lake Analytics is an Azure Big Data service that lets you use data to drive your business using insights gained from your data in the cloud, regardless its size or where it is.'
 services: data-lake-analytics
 documentationcenter: ''
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 
 ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/28/2017
+ms.date: 05/06/2017
 ms.author: edmaca
 
 ---
@@ -49,23 +49,15 @@ Azure Data Lake Analytics ia an on-demand analytics job service to simplify big 
   * [Get started with Data Lake Analytics using Azure .NET SDK](data-lake-analytics-get-started-net-sdk.md)
   * [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
   * [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
-* U-SQL & development
-  
-  * [Use U-SQL window functions for Azure Data Lake Analytics jobs](data-lake-analytics-use-window-functions.md)
-  * [Develop U-SQL user-defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+
 * Management
   
   * [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md)
   * [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
   * [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-  * [Accessing Diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
-* End-to-end tutorial
-  
-  * [Use Azure Data Lake Analytics interactive tutorials](data-lake-analytics-use-interactive-tutorials.md)
-  * [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
+
 * Let us know what you think
   
-  <!-- Fixing broken links for Azure content migration from ACOM to DOCS. I can't find a suitable substitute for what appears to be a link that is no longer available. I am commenting out for now. The author can investigate in the future. Hyperlink text: Comment on our documentation backlog. Referenced file: data-lake-analytics-documentation-backlog.md -->
   * [Submit a feature request](http://aka.ms/adlafeedback)
   * [Get help in the forums](http://aka.ms/adlaforums)
 
