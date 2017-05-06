@@ -27,7 +27,7 @@ using Microsoft.Identity.Client;
 <!-- Workaround for Docs conversion bug -->
 <ol start="2">
 <li>
-Copy the code below and replace MainWindow class code with:
+Replace *MainWindow* class code with:
 </li>
 </ol>
 
@@ -106,7 +106,7 @@ Eventually, `AcquireTokenSilentAsync` will fail – e.g. the user has signed out
 
 ## Call the Microsoft Graph API using the token you just obtained
 
-1. Add the new method below to your `MainWindow.xaml.cs`. The method is used to make a `GET` request against Graph API using an Authorize header
+1. Add the new method below to your `MainWindow.xaml.cs`. The method is used to make a `GET` request against Graph API using an Authorize header:
 
 ```csharp
 /// <summary>
@@ -142,7 +142,7 @@ In this sample application, the `GetHttpContentWithToken` method is used to make
 
 ## Setup Sign-out
 
-1. Add the following additional method to sign out the user:
+1. Add the following method to your `MainWindow.xaml.cs` to sign out the user:
 
 ```csharp
 /// <summary>
@@ -175,7 +175,7 @@ Although the application in this sample supports a single user, MSAL supports sc
 
 ## Display Basic Token Information
 
-1. Add the following additional method to display basic information about the token:
+1. Add the following method to to your `MainWindow.xaml.cs` to display basic information about the token:
 
 ```csharp
 /// <summary>

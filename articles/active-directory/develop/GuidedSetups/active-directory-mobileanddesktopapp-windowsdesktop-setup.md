@@ -49,7 +49,12 @@ This step will help you create a class to handle interaction with MSAL Library, 
 ```csharp
 using Microsoft.Identity.Client;
 ```
-2.	Update the App class to the following:
+<!-- Workaround for Docs conversion bug -->
+<ol start="2">
+<li>
+Update the App class to the following:
+</li>
+</ol>
 
 ```csharp
 public partial class App : Application

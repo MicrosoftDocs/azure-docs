@@ -21,7 +21,7 @@ ms.author: andret
 
 Press `F5` to run your project in Visual Studio. The browser will open and direct you to *http://localhost:{port}* where you’ll see the *Sign in with Microsoft* button. Go ahead and click it to sign in.
 
-When you're ready to test, use a Microsoft Azure Active Directory (organizational account) or a Microsoft Account (live.com, outlook.com) account to sign in. 
+When you're ready to test, use a work or school (Azure Active Directory), or a personal (live.com, outlook.com) account to sign in. 
 
 ![Sign-in with Microsoft browser window](media/active-directory-serversidewebapp-aspnetwebappowin-test/aspnetbrowsersignin.png)
 

@@ -54,7 +54,8 @@ The steps below are used to create an OWIN middleware Startup Class to configure
 > If your project doesn't have a `Startup.cs` file in the root folder:<br/>
 > 1. Right click on the project's root folder: >	`Add` > `New Item...` > `OWIN Startup class`<br/>
 > 2. Name it `Startup.cs`
->> Note: Make sure the class selected is an OWIN Startup Class and not a standard C# class. Confirm this by checking if you see `[assembly: OwinStartup(typeof({NameSpace}.App_Start.Startup))]` above the namespace:
+
+> Make sure the class selected is an OWIN Startup Class and not a standard C# class. Confirm this by checking if you see `[assembly: OwinStartup(typeof({NameSpace}.App_Start.Startup))]` above the namespace.
 
 
 1. Add *OWIN* and *Microsoft.IdentityModel* references to `Startup.cs`:
@@ -62,16 +63,16 @@ The steps below are used to create an OWIN middleware Startup Class to configure
 ```csharp
 using Microsoft.Owin;
 using Owin;
+using Microsoft.IdentityModel.Protocols;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OpenIdConnect;
 using Microsoft.Owin.Security.Notifications;
-using Microsoft.IdentityModel.Protocols;
 ```
 <!-- Workaround for Docs conversion bug -->
 <ol start="2">
 <li>
-Replace Startup class code with below:
+Replace Startup class with the code below:
 </li>
 </ol>
 
@@ -125,7 +126,7 @@ public class Startup
     }
 
     /// <summary>
-    /// Handle failed authentication requests by sending an error message to the home page
+    /// Handle failed authentication requests by redirecting the user to the home page with an error in the query string
     /// </summary>
     /// <param name="context"></param>
     /// <returns></returns>
@@ -133,7 +134,6 @@ public class Startup
     {
         context.HandleResponse();
         context.Response.Redirect("/?errormessage=" + context.Exception.Message);
-        System.Diagnostics.Debug.WriteLine(context.Exception);
         return Task.FromResult(0);
     }
 }

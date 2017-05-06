@@ -18,12 +18,12 @@ ms.author: andret
 
 ---
 
-## Add a controller to handle sign-in requests
+## Add a controller to handle sign-in and sign-out requests
 
 Create a new controller to expose sign-in and sign-out methods.
 
-1.	Right click the `Controllers` folder: `Add` > `Controller`
-2.	Select `MVC {version} Controller – Empty`.
+1.	Right click the `Controllers` folder and select `Add` > `Controller`
+2.	Select `MVC (.NET version) Controller – Empty`.
 3.	Click *Add*
 4.	Name it `HomeController`
 5.	Add *OWIN* references to the class:
@@ -36,12 +36,12 @@ using Microsoft.Owin.Security.OpenIdConnect;
 <!-- Workaround for Docs conversion bug -->
 <ol start="6">
 <li>
-Add the two methods below to handle sign in and sign out to your controller by initiating an authentication challenge via code:
+Add the two methods below to handle sign-in and sign-out to your controller by initiating an authentication challenge via code:
 </li>
 </ol>
 
 ```csharp
- /// <summary>
+/// <summary>
 /// Send an OpenID Connect sign-in request.
 /// Alternatively, you can just decorate the SignIn method with the [Authorize] attribute
 /// </summary>
@@ -78,43 +78,36 @@ In Visual Studio, create a new view to add the sign-in button and display user i
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Sign-In with Microsoft Sample</title>
+    <title>Sign-In with Microsoft Guide</title>
 </head>
 <body>
-    <div>
-        @if (!Request.IsAuthenticated)
-        {
-            //If the user is not authenticated, display the sign-in button
-            <a href="@Url.Action("SignIn", "Home")">
-                <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="300px" height="50px" viewBox="0 0 3278 522" class="SignInButton">
-                <defs><style type="text/css">
-                          .fil0:hover {fill: #4B4B4B;}
-                          .fnt0 {font-size: 260px;font-family: 'Segoe UI Semibold', 'Segoe UI';}
-                          </style></defs>
-                <g>
-                <rect class="fil0" x="2" y="2" width="3174" height="517" fill="black" />
-                <rect x="150" y="129" width="122" height="122" fill="#F35325" />
-                <rect x="284" y="129" width="122" height="122" fill="#81BC06" />
-                <rect x="150" y="263" width="122" height="122" fill="#05A6F0" />
-                <rect x="284" y="263" width="122" height="122" fill="#FFBA08" />
-                <text x="470" y="357" fill="white" class="fnt0">Sign in with Microsoft</text>
-                </g>
-            </svg>
-            </a>
-        }
-        else
-        {
-            <span><br/>Hello @System.Security.Claims.ClaimsPrincipal.Current.FindFirst("name").Value;</span>
-            <br /><br />
-            @Html.ActionLink("See Your Claims", "Index", "Claims")
-            <br /><br />
-            @Html.ActionLink("Sign out", "SignOut", "Home")
-        }
-        @if (!string.IsNullOrWhiteSpace(Request.QueryString["errormessage"]))
-        {
-            <div style="background-color:red;color:white;font-weight: bold;">Error: @Request.QueryString["errormessage"]</div>
-        }
-    </div>
+@if (!Request.IsAuthenticated)
+{
+    <!-- If the user is not authenticated, display the sign-in button -->
+    <a href="@Url.Action("SignIn", "Home")">
+        <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="300px" height="50px" viewBox="0 0 3278 522" class="SignInButton">
+        <defs><style type="text/css">fil0:hover {fill: #4B4B4B;}fnt0 {font-size: 260px;font-family: 'Segoe UI Semibold', 'Segoe UI';}</style></defs>
+        <g><rect class="fil0" x="2" y="2" width="3174" height="517" fill="black" />
+        <rect x="150" y="129" width="122" height="122" fill="#F35325" />
+        <rect x="284" y="129" width="122" height="122" fill="#81BC06" />
+        <rect x="150" y="263" width="122" height="122" fill="#05A6F0" />
+        <rect x="284" y="263" width="122" height="122" fill="#FFBA08" />
+        <text x="470" y="357" fill="white" class="fnt0">Sign in with Microsoft</text></g>
+        </svg>
+    </a>
+}
+else
+{
+    <span><br/>Hello @System.Security.Claims.ClaimsPrincipal.Current.FindFirst("name").Value;</span>
+    <br /><br />
+    @Html.ActionLink("See Your Claims", "Index", "Claims")
+    <br /><br />
+    @Html.ActionLink("Sign out", "SignOut", "Home")
+}
+@if (!string.IsNullOrWhiteSpace(Request.QueryString["errormessage"]))
+{
+    <div style="background-color:red;color:white;font-weight: bold;">Error: @Request.QueryString["errormessage"]</div>
+}
 </body>
 </html>
 ```
@@ -130,7 +123,7 @@ This controller demonstrates the uses of the `[Authorize]`s attribute to protect
 2.	Select `MVC {version} Controller – Empty`.
 3.	Click *Add*
 4.	Name it `ClaimsController`
-5.	Copy and paste the code below to replace the code of your controller class - this adds the `[Authorize]` attribute to the class:
+5.	Replace the code of your controller class with the code below - this adds the `[Authorize]` attribute to the class:
 
 ```csharp
 [Authorize]
@@ -146,10 +139,10 @@ public class ClaimsController : Controller
         //You get the user’s first and last name below:
         ViewBag.Name = claimsPrincipalCurrent.FindFirst("name").Value;
 
-        // The 'preferred_username' claim can be used for showing the user's logon
+        // The 'preferred_username' claim can be used for showing the username
         ViewBag.Username = claimsPrincipalCurrent.FindFirst("preferred_username").Value;
 
-        // The subject claim can be used to uniquely identify the user logon across the web
+        // The subject claim can be used to uniquely identify the user across the web
         ViewBag.Subject = claimsPrincipalCurrent.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).Value;
 
         // TenantId is the unique Tenant Id - which represents an organization in Azure AD
@@ -169,7 +162,7 @@ public class ClaimsController : Controller
 
 In Visual Studio, create a new view to display the user's claims in a web page:
 
-1.	Right click the `Views\Home` folder and: `Add View`
+1.	Right click the `Views\Claims` folder and: `Add View`
 2.	Name it `Index`.
 3.	Add the following HTML to the file:
 
@@ -178,23 +171,19 @@ In Visual Studio, create a new view to display the user's claims in a web page:
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Sign-In with Microsoft Sample</title>
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
 </head>
-<body>
-    <style type="text/css">
-        body {font-size: small;font-family: Segoe UI, Arial, sans-serif;}
-        table, th, td {border: 1px solid #ccc;padding: 5px;border-collapse: collapse;text-align: left;table-layout: fixed;max-width: 100%;}
-        th {background-color: #f0f0f0;}
-    </style>
-    <p>Main Claims:</p>
-    <table>
+<body style="padding:20px">
+    <h3>Main Claims:</h3>
+    <table class="table table-striped table-bordered table-hover">
         <tr><td>Name</td><td>@ViewBag.Name</td></tr>
         <tr><td>Username</td><td>@ViewBag.Username</td></tr>
         <tr><td>Subject</td><td>@ViewBag.Subject</td></tr>
         <tr><td>TenantId</td><td>@ViewBag.TenantId</td></tr>
     </table>
     <br />
-    <p>All Claims:</p>
-    <table style="font-size: xx-small">
+    <h3>All Claims:</h3>
+    <table class="table table-striped table-bordered table-hover table-condensed">
     @foreach (var claim in System.Security.Claims.ClaimsPrincipal.Current.Claims)
     {
         <tr><td>@claim.Type</td><td>@claim.Value</td></tr>
@@ -202,7 +191,7 @@ In Visual Studio, create a new view to display the user's claims in a web page:
 </table>
     <br />
     <br />
-    @Html.ActionLink("Sign out", "SignOut", "Home")
+    @Html.ActionLink("Sign out", "SignOut", "Home", null, new { @class = "btn btn-primary" })
 </body>
 </html>
 ```

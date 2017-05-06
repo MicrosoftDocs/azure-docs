@@ -23,13 +23,13 @@ This guide demonstrates how to implement sign in with Microsoft using an ASP.NET
 
 At the end of this guide, your application will be able to accept sign ins of personal accounts (including outlook.com, live.com, and others) as well as work and school accounts from any company or organization that has integrated with Azure Active Directory. 
 
-> For this tutorial, we assume you’re using Visual Studio 2015 Update 3 or Visual Studio 2017.  Don’t have it?  [Download Visual Studio 2017 for free](https://www.visualstudio.com/downloads/)
+> This guide requires Visual Studio 2015 Update 3 or Visual Studio 2017.  Don’t have it?  [Download Visual Studio 2017 for free](https://www.visualstudio.com/downloads/)
 
-## How this sample works
+## How this guide works
 
-![How this sample works](media/active-directory-serversidewebapp-aspnetwebappowin-intro/aspnetbrowsergeneral.png)
+![How this guide works](media/active-directory-serversidewebapp-aspnetwebappowin-intro/aspnetbrowsergeneral.png)
 
-This sample is based on the scenario where a browser accesses an ASP.NET web site, requesting a user to authenticate via a sign-in button. In this scenario, most of the work to render the web page occurs on the server side.
+This guide is based on the scenario where a browser accesses an ASP.NET web site, requesting a user to authenticate via a sign-in button. In this scenario, most of the work to render the web page occurs on the server side.
 
 ## Libraries
 
