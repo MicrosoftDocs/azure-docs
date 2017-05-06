@@ -25,7 +25,7 @@
 ## Resources
 ### [Service tiers](concepts-service-tiers.md)
 ### [Compute units & Storage units](concepts-compute-unit-and-storage.md)
-### [Limits](concepts-limits.md)
+### Limits (concepts-limits.md)
 ## Data access & security
 ### [Firewall rules](concepts-firewall-rules.md)
 ### [Configuring SSL](concepts-ssl-connection-security.md)
