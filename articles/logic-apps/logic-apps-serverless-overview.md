@@ -31,7 +31,7 @@ The core services in Azure around Serverless are [Azure Functions](https://azure
 
 Azure Functions is a solution for easily running small pieces of code, or "functions," in the cloud. You can write just the code you need for the problem at hand, without worrying about a whole application or the infrastructure to run it. Functions can make development even more productive, and you can use your development language of choice, such as C#, F#, Node.js, Python, or PHP. Pay only for the time your code runs and Azure scales as needed.
 
-If you want to jump right in and get started with Azure Functions, start with [Create your first Azure Function](functions-create-first-azure-function.md). If you are looking for more technical information about Functions, see the [developer reference](functions-reference.md).
+If you want to jump right in and get started with Azure Functions, start with [Create your first Azure Function](../azure-functions/functions-create-first-azure-function.md). If you are looking for more technical information about Functions, see the [developer reference](../azure-functions/functions-reference.md).
 
 ## What are Azure Logic Apps?
 
@@ -41,11 +41,10 @@ To get started with Logic Apps, start with [creating your first logic app](logic
 
 ## How can I build and deploy Serverless applications in Azure?
 
-Azure provides a rich set of tools across development, deployment, and management of Serverless apps.  Apps can be built directly in the [Azure portal](logic-apps-serverless-get-started-portal.md), or with [tooling from Visual Studio](logic-apps-serverless-get-started-vs.md).  Once an application has been developed it can be [deployed instantly](logic-apps-serverless-deploy.md).  Azure also provides monitoring for serverless apps.  This monitoring can be accessed from the Azure portal, through the API or SDKs, or with integrated tooling to OMS and Application Insights.
+Azure provides a rich set of tools across development, deployment, and management of Serverless apps.  Apps can be built directly in the Azure portal, or with [tooling from Visual Studio](logic-apps-serverless-get-started-vs.md).  Once an application has been developed it can be [deployed instantly](logic-apps-create-deploy-template.md).  Azure also provides monitoring for serverless apps.  This monitoring can be accessed from the Azure portal, through the API or SDKs, or with integrated tooling to OMS and Application Insights.
 
 ## Next steps
 
-* [Get started building a Serverless app in the Azure portal](logic-apps-serverless-get-started-portal.md)
 * [Get started building a Serverless app in Visual Studio](logic-apps-serverless-get-started-vs.md)
 * [Create a customer insights dashboard with Serverless](logic-apps-scenario-social-serverless.md)
-* [Build a deployment template for a Serverless app](logic-apps-serverless-deploy.md)
+* [Build a deployment template for a logic app](logic-apps-create-deploy-template.md)
