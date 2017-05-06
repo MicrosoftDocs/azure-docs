@@ -48,11 +48,11 @@ az vm availability-set create \
     --platform-update-domain-count 2
 ```
 
+Availability Sets allow you to isolate resources across "fault domains" and "update domains". A **Fault Domain** represents an isolated collection of server + network + storage resources. In the above example we indicate that we want our availability set to be distributed across at least two fault domains when our VMs are deployed. We also indicate that we want our availability set distributed across two **update domains**.  Two update domains ensures that when Azure performs software updates our VM resources will be isolated, preventing all of the software running underneath our VM from being updated at the same time.
+
 ## Create VMs inside an availability set
 
 VMs need to be created within the availability set to make sure they are correctly distributed across the hardware. You can't add an existing VM to an availability set after it is created. 
-
-The hardware in a location is divided in to multiple update domains and fault domains. An **update domain** is a group of VMs and underlying physical hardware that can be rebooted at the same time. VMs in the same **fault domain** share common storage as well as a common power source and network switch. 
 
 When you create a VM using [az vm create](/cli/azure/vm#create) you specify the availability set using the `--availability-set` parameter to specify the name of the availability set.
 
