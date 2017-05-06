@@ -26,7 +26,7 @@ In this tutorial you learn how to:
 > * Find queries with high resource utilization
 > * Find long running queries
 
-> You need a continuous workload on a database with performance issues – missing an index for example.
+> You need a continuous workload on a database with performance issues – missing an index for example to receive a recommendation.
 >
 
 ## Log in to the Azure portal
