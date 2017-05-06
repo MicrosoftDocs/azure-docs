@@ -19,6 +19,8 @@
     items:
     - name: Azure portal
       href: tutorial-design-database-using-portal.md
+    - name: Azure CLI
+      href: tutorial-design-database-using-cli.md
   - name: 2 - Create a Web App
     items:
     - name: Wordpress - Portal
@@ -61,6 +63,10 @@
       href: concepts-migrate-import-export.md
 - name: How-to Guides
   items:
+  - name: Manage a Server
+    items:
+    - name: Azure portal
+      href: howto-create-manage-server-portal.md
   - name: Firewall rules
     items:
     - name: Azure portal
@@ -71,6 +77,12 @@
     items:
     - name: Azure portal
       href: howto-restore-server-portal.md
+  - name: Connect Applications
+    items:
+    - name: Connection Strings
+      href: howto-connection-string.md
+    - name: Configure SSL
+      href: howto-configure-ssl.md
 - name: Reference
 - name: Resources
   items:
