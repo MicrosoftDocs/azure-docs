@@ -109,6 +109,6 @@ See the following links for more information regarding Web App on Linux. You can
 * [How to use a custom Docker image for Azure Web App on Linux](app-service-linux-using-custom-docker-image.md)
 * [Using PM2 Configuration for Node.js in Azure Web App on Linux](app-service-linux-using-nodejs-pm2.md)
 * [Using .NET Core in Azure Web App on Linux](app-service-linux-using-dotnetcore.md)
-* [Using Ruby in Azure Web App on Linux](app-service-linux-using-ruby.md)
+* [Using Ruby in Azure Web App on Linux](app-service-linux-ruby-get-started.md)
 * [Azure App Service Web App on Linux FAQ](app-service-linux-faq.md)
 

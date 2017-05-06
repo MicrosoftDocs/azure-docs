@@ -58,6 +58,11 @@ When the image gets updated, the web app get updated automatically with the new 
 ## Next steps
 * [What is Azure Web App on Linux?](./app-service-linux-intro.md)
 * [Creating Apps in Azure Web App on Linux](./app-service-linux-how-to-create-a-web-app.md)
+* [Using PM2 Configuration for Node.js in Azure Web App on Linux](app-service-linux-using-nodejs-pm2.md)
+* [Using .NET Core in Azure Web App on Linux](app-service-linux-using-dotnetcore.md)
+* [Using Ruby in Azure Web App on Linux](app-service-linux-ruby-get-started.md)
 * [How to use a custom Docker image for Azure Web App on Linux](./app-service-linux-using-custom-docker-image.md)
 * [Azure App Service Web App on Linux FAQ](./app-service-linux-faq.md) 
+
+
 

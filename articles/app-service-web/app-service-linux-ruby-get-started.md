@@ -24,7 +24,7 @@ Azure App Service Web App on Linux is currently in public preview and supports r
 
 ## Overview
 
-This tutorial will show you how to create a basic ruby on rails application locally and prepare/deploy it to Azure App Service on Linux.
+This tutorial shows you how to create a basic ruby on rails application locally and prepare/deploy it to Azure App Service on Linux.
 
 ## Prerequisites
 
@@ -49,9 +49,9 @@ This tutorial will show you how to create a basic ruby on rails application loca
 
     ![Install rails](./media/app-service-linux-ruby-get-started/install-rails.png)
 
-4. Create a new rails application called **hello-world** using the following command:
+4. Create a rails application called **hello-world** using the following command:
 
-	If you are using Rails 5.1.0 or later, include the `--skip-yarn` option as following:
+	If you are using Rails 5.1.0 or later, include the `--skip-yarn` option as shown below:
 
 		rails new hello-world --skip-yarn
 
@@ -63,7 +63,7 @@ This tutorial will show you how to create a basic ruby on rails application loca
 
     ![New Hello-world](./media/app-service-linux-ruby-get-started/rails-new-hello-world-2.png)
 
-	If you are using Rails 5.1+, a package.json will be created if the `--skip-yarn` option is not used. We don't want it included with our deployment. As an alternative you can delete the package.json file or add it to the *.git-ignore* file in the directory as follows: 
+	If you are using Rails 5.1+, a package.json is created if the `--skip-yarn` option is not used. We don't want it included with our deployment. As an alternative, you can delete the package.json file or add it to the *.git-ignore* file in the directory as follows: 
 
 		# Ignore package.json
 		/package.json
@@ -81,18 +81,18 @@ This tutorial will show you how to create a basic ruby on rails application loca
 
 ## Prepare the app for Azure
 
-By default, the ruby image runs the server with the `-e production` flag. This environment requires some setup for Azure Web App on Linux. The container takes care of some of that setup (such as setting a `SECRET_KEY_BASE`). You must prepare a root landing page as the default rails landing page, otherwise the website will fail to start.
+By default, the ruby image runs the server with the `-e production` flag. This environment requires some setup for Azure Web App on Linux. The container takes care of some of that setup (such as setting a `SECRET_KEY_BASE`). A root landing page must be configured as the default rails landing page, otherwise the website fails to start.
 
 To prepare a root landing page:
 
-1. Open *~/workspace/hello-world/config/routes.rb* for editing. Add the following line below as shown in the screenshot. 
+1. Open *~/workspace/hello-world/config/routes.rb* for editing. Add the following line as shown in the screenshot. 
 
 		root 'application#hello'
 
 	![routes.rb](./media/app-service-linux-ruby-get-started/routes-rb.png)
 
 
-2. Open *~/workspace/hello-world/app/controllers/application_controller.rb* for editing. Add the following lines below as shown in the screenshot.
+2. Open *~/workspace/hello-world/app/controllers/application_controller.rb* for editing. Add the following lines as shown in the screenshot.
 
 		def hello
 			render html: "Hello, world from Azue Web App on Linux!"
@@ -107,11 +107,11 @@ To prepare a root landing page:
 
 ## Create a ruby website on Azure
 
-1. Navigate to the [Azure portal](http://portal.azure.com) and login in with your subscription. Add a new *Web App on Linux* as shown below:
+1. Navigate to the [Azure portal](http://portal.azure.com) and login in with your subscription. Add a **Web App on Linux** as shown in the following screenshot:
 
 	![Create Web App on Linux](./media/app-service-linux-ruby-get-started/top-level-create.png)
 
-2. The **Create blade** opens as shown in the following image:
+2. The **Create blade** opens as shown in the following screenshot:
 
 	![The Create blade](./media/app-service-linux-ruby-get-started/create-blade.png)
 
@@ -130,13 +130,13 @@ To prepare a root landing page:
 
 ## Deploy your application
 
-We will use Git to deploy the local Ruby application to Azure.
+In this tutorial, We use Git to deploy the local Ruby application to Azure.
 
 1. The new Azure website already has a Git deployment configured. You will find the Git deployment URL by navigating to the following URL after inserting your web app name:
 
 		https://{your web app name}.scm.azurewebsites.net/api/scm/info
 
-	It will have the following form based on your web app name:
+	It has the following form based on your web app name:
 
 		https://{your web app name}.scm.azurewebsites.net/{your web app name}.git
 
@@ -153,7 +153,7 @@ We will use Git to deploy the local Ruby application to Azure.
 
 		https://{your web app name}.scm.azurewebsites.net/api/deployments
 
-3. You must restart your web app for the deployment to take affect. In the [Azure portal](http://portal.azure.com) navigate to the **Overview** blade of your web app.
+3. Restart your web app for the deployment to take affect. In the [Azure portal](http://portal.azure.com), navigate to the **Overview** blade of your web app.
 
 	Click **Stop** on the toolbar.
 
@@ -171,12 +171,11 @@ We will use Git to deploy the local Ruby application to Azure.
 	
 
 ## Next steps
-See the following links for more information regarding App Service on Linux. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+For more information regarding Azure App Service Web App on Linux, aee the following links. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
 * [Creating Web Apps in App Service on Linux](app-service-linux-how-to-create-a-web-app.md)
 * [How to use a custom Docker image for App Service on Linux](app-service-linux-using-custom-docker-image.md)
 * [Using PM2 Configuration for Node.js in Web Apps on Linux](app-service-linux-using-nodejs-pm2.md)
 * [Using .NET Core in Azure App Service Web Apps on Linux](app-service-linux-using-dotnetcore.md)
-* [Using Ruby in Azure App Service Web Apps on Linux](app-service-linux-using-ruby.md)
 * [Azure App Service Web Apps on Linux FAQ](app-service-linux-faq.md)
 
