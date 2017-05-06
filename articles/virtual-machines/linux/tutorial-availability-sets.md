@@ -48,7 +48,7 @@ az vm availability-set create \
     --platform-update-domain-count 2
 ```
 
-Availability Sets allow you to isolate resources across "fault domains" and "update domains". A **Fault Domain** represents an isolated collection of server + network + storage resources. In the preceding example, we indicate that we want our availability set to be distributed across at least two fault domains when our VMs are deployed. We also indicate that we want our availability set distributed across two **update domains**.  Two update domains ensure that when Azure performs software updates our VM resources are isolated, preventing all the software running underneath our VM from being updated at the same time.
+Availability Sets allow you to isolate resources across "fault domains" and "update domains". A **fault domain** represents an isolated collection of server + network + storage resources. In the preceding example, we indicate that we want our availability set to be distributed across at least two fault domains when our VMs are deployed. We also indicate that we want our availability set distributed across two **update domains**.  Two update domains ensure that when Azure performs software updates our VM resources are isolated, preventing all the software running underneath our VM from being updated at the same time.
 
 ## Create VMs inside an availability set
 
@@ -96,5 +96,6 @@ In this tutorial, you learned how to:
 
 Advance to the next tutorial to learn about virtual machine scale sets.
 
-[Create a VM scale set](tutorial-create-vmss.md)
+> [!div class="nextstepaction"]
+> [Create a VM scale set](tutorial-create-vmss.md)
 
