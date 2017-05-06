@@ -331,7 +331,7 @@ Create a local template file with the following content. Name the file azuredepl
         ]
     }
 
-The kind must be set to MongoDB to specify that this account will support MongoDB APIs. If no kind property is specified, the default will be a Azure Cosmos DB DocumentDB API account.
+The kind must be set to MongoDB to specify that this account will support MongoDB APIs. If no kind property is specified, the default will be an Azure Cosmos DB DocumentDB API account.
 
 The failoverPriority must be set to 0 since this is a single region account. A failoverPriority of 0 indicates that this region be kept as the [write region for the Azure Cosmos DB account][scaling-globally].
 You can either enter the value at the command line, or create a parameter file to specify the value.
