@@ -1,6 +1,6 @@
 ---
-title: Create a Ruby App with Azure App Service on Linux | Microsoft Docs
-description: Learn to create a new Ruby app with Azure App Service on Linux.
+title: Create a Ruby App with Azure App Service Web App on Linux | Microsoft Docs
+description: Learn to create a Ruby apps with Azure App Service Web App on Linux.
 keywords: azure app service, linux, oss
 services: app-service
 documentationcenter: ''
@@ -18,9 +18,9 @@ ms.date: 05/05/2017
 ms.author: wesmc
 
 ---
-# Create a Ruby App with Azure App Service on Linux - Preview
+# Create a Ruby App with Azure Web App on Linux - Preview
 
-Azure App Service on Linux is currently in public preview and supports running web apps natively on Linux.
+Azure App Service Web App on Linux is currently in public preview and supports running web apps natively on Linux.
 
 ## Overview
 
@@ -79,60 +79,38 @@ This tutorial will show you how to create a basic ruby on rails application loca
 
     ![Hello-world](./media/app-service-linux-ruby-get-started/hello-world.png)
 
-## SSH support with custom Docker images
+## Prepare the app for Azure
 
-In order for a custom Docker image to support SSH communication between the container and the client in the Azure portal, perform the following steps for your Docker image. 
+By default, the ruby image runs the server with the `-e production` flag. This environment requires some setup for Azure Web App on Linux. The container takes care of some of that setup (such as setting a `SECRET_KEY_BASE`). You must prepare a root landing page as the default rails landing page, otherwise the website will fail to start.
 
-These steps are are shown in the Azure App Service repo as an example [here](https://github.com/Azure-App-Service/node/tree/master/4.4.7-1).
+To prepare a root landing page:
 
-1. Include the `openssh-server` installation in [`RUN` instruction](https://docs.docker.com/engine/reference/builder/#run) in the Dockerfile for your image and set the password for the root account to `"Docker!"`. 
+1. Open *~/workspace/hello-world/config/routes.rb* for editing. Add `root 'application#hello'` as shown below:
 
-	> [!NOTE] 
-	> This configuration does not allow external connections to the container. SSH can only
-	> be accessed via the Kudu / SCM Site, which is authenticated using the publishing
-	> credentials.
+2. Open *~/workspace/hello-world/app/controllers/application_controller.rb* for editing. Add the following lines below as shown in the screenshot.
 
-		```docker
-        # ------------------------
-        # SSH Server support
-        # ------------------------
-        RUN apt-get update \ 
-		  && apt-get install -y --no-install-recommends openssh-server \
-		  && echo "root:Docker!" | chpasswd 
+		def hello
+			render html: "Hello, world from Azue Web App on Linux!"
+		end
 
-2. Add a [`COPY` instruction](https://docs.docker.com/engine/reference/builder/#copy) to the Dockerfile to copy a [sshd_config](http://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on our sshd_config file in the Azure-App-Service GitHub repo [here](https://github.com/Azure-App-Service/node/blob/master/6.9.3-1/sshd_config).
+3. Your app is now configured. Using your web browser, navigate to `http://localhost:3000` to confirm.
 
-	> [!NOTE] 
-	> The *sshd_config* file must include the following or the connection fails: 
-	> * `Ciphers` must include at least one of the following: `aes128-cbc,3des-cbc,aes256-cbc`.
-	> * `MACs` must include at least one of the following: `hmac-sha1,hmac-sha1-96`.
+	![Hello World configured](./media/app-service-linux-ruby-get-started/hello-world-configured.png)
 
-		```docker
-		COPY sshd_config /etc/ssh/
+## Create a ruby website on Azure
 
+1. Navigate to the [Azure portal](http://portal.azure.com) and login in with your subscription. Add a new *Web App on Linux* as shown below:
 
-3. Include port 2222 in the [`EXPOSE` instruction](https://docs.docker.com/engine/reference/builder/#expose) for the Dockerfile. Although the root password is known, port 2222 cannot be accessed from the internet. It is an internal only port accessible only by containers within the bridge network of a private virtual network.
+	![Create Web App on Linux](./media/app-service-linux-ruby-get-started/top-level-create.png)
 
-		```docker
-		EXPOSE 2222 80
+2. Next, the **Create blade** opens as shown in the following image:
 
-4. Make sure to start the ssh service. The example [here](https://github.com/Azure-App-Service/node/blob/master/6.9.3-1/init_container.sh) uses a shell script in */bin* directory.
+![The Create blade](./media/app-service-linux-ruby-get-started/create-blade.png)
 
-		```bash
-		#!/bin/bash
-		service ssh start
-
-	The Dockerfile uses the [`CMD` instruction](https://docs.docker.com/engine/reference/builder/#cmd) to run the script.
-
-		```docker
-		COPY init_container.sh /bin/
-		...
-		RUN chmod 755 /bin/init_container.sh 
-		...		
-		CMD ["/bin/init_container.sh"]
-
-
-
+	1. Give your web app a name.
+	2. Choose an existing resource group or create a new one. (See available regions in the [limitations section](app-service-linux-intro.md).)
+	3. Choose an existing Azure App Service plan or create a new one. (See App Service plan notes in the [limitations section](app-service-linux-intro.md).)
+	4. Choose the application stack that you intend to use. You can choose between several versions of Node.js, PHP, .Net Core, and Ruby.
 
 ## Next steps
 See the following links for more information regarding App Service on Linux. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
