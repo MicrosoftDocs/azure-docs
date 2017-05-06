@@ -63,6 +63,9 @@ ms.author: carolz
     <li><a href="/azure/virtual-machines/linux/tutorial-create-vmss">Create a VM scale set</a></li>
     <li><a href="/azure/virtual-machines/linux/tutorial-load-balancer">Load balance VMs</a></li>
     <li><a href="/azure/virtual-machines/linux/tutorial-virtual-network">Manage VM networking</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-backup-vms">Backup VMs</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-azure-security">Manage security on VMs</a></li>
+    
 </ol>
 
 <h2 style="margin-top: 36px">Free PluralSight Video Training</h2>
