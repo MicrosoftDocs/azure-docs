@@ -13,17 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 05/10/2017
 ms.author: syamk
 
 ---
 # Request Units in Azure Cosmos DB
-Now available: Azure Cosmos DB [request unit calculator](https://www.cosmosdb.com/capacityplanner). Learn more in [Estimating your throughput needs](cosmosdb-request-units.md#estimating-throughput-needs).
+Now available: Azure Cosmos DB [request unit calculator](https://www.documentdb.com/capacityplanner). Learn more in [Estimating your throughput needs](documentdb-request-units.md#estimating-throughput-needs).
 
 ![Throughput calculator][5]
 
 ## Introduction
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmosdb/) is Microsoft's globally distributed multi-model database. With Azure Cosmos DB, you don;t have to rent virtual machines, deploy software, or monitor databases. Azure Cosmos DB is operated and continuously monitored by Microsoft top engineers to deliver world class availability, performance, and data protection. You can access your data using APIs of your choice, as [DocumentDB SQL](https://docs.microsoft.com/azure/cosmosdb/documentdb-sql-query) (document), MongoDB (document), [Azure Table Storage](https://azure.microsoft.com/services/storage/tables/) (key-value), and [Gremlin](https://tinkerpop.apache.org/gremlin.html) (graph) are all natively supported. The currency of Azure Cosmos DB is the Request Unit (RU). With RU, you do not need to reserve read, write caprcities or provision CPU, Memory and IOPS.
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is Microsoft's globally distributed multi-model database. With Azure Cosmos DB, you don;t have to rent virtual machines, deploy software, or monitor databases. Azure Cosmos DB is operated and continuously monitored by Microsoft top engineers to deliver world class availability, performance, and data protection. You can access your data using APIs of your choice, as [DocumentDB SQL](https://docs.microsoft.com/azure/documentdb/documentdb-sql-query) (document), MongoDB (document), [Azure Table Storage](https://azure.microsoft.com/services/storage/tables/) (key-value), and [Gremlin](https://tinkerpop.apache.org/gremlin.html) (graph) are all natively supported. The currency of Azure Cosmos DB is the Request Unit (RU). With RU, you do not need to reserve read, write caprcities or provision CPU, Memory and IOPS.
 
 Azure Cosmos DB supports a number of APIs with different operations ranging from reads, writes to complex graph queries. Since not all requests are equal, they are assigned a normalized amount of **request units** based on the amount of computation required to serve the request. The number of request units for an operation is deterministic, and you can track the number of request units consumed by any operation in Azure Cosmos DB via a response header. 
 
@@ -52,7 +52,7 @@ We recommend getting started by watching the following video, where Aravind Rama
 ## Specifying request unit capacity in Azure Cosmos DB
 When starting a new collection, table or graph, you specify the number of request units per second (RU per second) you want reserved. You can also decide if you want RU per minute enabled. If you enable it, you will get 10x what you get per second but per minute. Based on the provisioned throughput, Azure Cosmos DB allocates physical partitions to host your collection and splits/rebalances data across partitions as it grows.
 
-Azure Cosmos DB requires a partition key to be specified when a collection is provisioned with 2,500 request units or higher. A partition key is also required to scale your collection's throughput beyond 2,500 request units in the future. Therefore, it is highly recommended to configure a [partition key](cosmosdb-partition-data.md) when creating a container regardless of your initial throughput. Since your data might have to be split across multiple partitions, it is necessary to pick a partition key that has a high cardinality (100 to millions of distinct values) so that your collection/table/graph and requests can be scaled uniformly by Azure Cosmos DB. 
+Azure Cosmos DB requires a partition key to be specified when a collection is provisioned with 2,500 request units or higher. A partition key is also required to scale your collection's throughput beyond 2,500 request units in the future. Therefore, it is highly recommended to configure a [partition key](documentdb-partition-data.md) when creating a container regardless of your initial throughput. Since your data might have to be split across multiple partitions, it is necessary to pick a partition key that has a high cardinality (100 to millions of distinct values) so that your collection/table/graph and requests can be scaled uniformly by Azure Cosmos DB. 
 
 > [!NOTE]
 > A partition key is a logical boundary, and not a physical one. Therefore, you do not need to limit the number of distinct partition key values. It is in fact better to have more distinct partition key values than less, as Azure Cosmos DB has more load balancing options.
@@ -159,7 +159,7 @@ For example, here's a table that shows how many request units to provision at th
 </table>
 
 ### Use the request unit calculator
-To help customers fine tune their throughput estimations, there is a web based [request unit calculator](https://www.cosmosdb.com/capacityplanner) to help estimate the request unit requirements for typical operations, including:
+To help customers fine tune their throughput estimations, there is a web based [request unit calculator](https://www.documentdb.com/capacityplanner) to help estimate the request unit requirements for typical operations, including:
 
 * Item creates (writes)
 * Item reads
@@ -343,22 +343,21 @@ If you are using the .NET Client SDK and LINQ queries, then most of the time you
 If you have more than one client cumulatively operating above the request rate, the default retry behavior may not suffice, and the client will throw a DocumentClientException with status code 429 to the application. In cases such as this, you may consider handling retry behavior and logic in your application's error handling routines or increasing the reserved throughput for the container.
 
 ## <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceeding reserved throughput limits in API for MongoDB
-Applications that exceed the provisioned request units for a collection will be throttled until the rate drops below the reserved level. When a throttle occurs, the backend will preemptively end the request with a *16500* error code - *Too Many Requests*. By default, API for MongoDB will automatically retry up to 10 times before returning a *Too Many Requests* error code. If you are receiving many *Too Many Requests* error codes, you may consider either adding retry behavior in your application's error handling routines or [increasing the reserved throughput for the collection](cosmosdb-set-throughput.md).
+Applications that exceed the provisioned request units for a collection will be throttled until the rate drops below the reserved level. When a throttle occurs, the backend will preemptively end the request with a *16500* error code - *Too Many Requests*. By default, API for MongoDB will automatically retry up to 10 times before returning a *Too Many Requests* error code. If you are receiving many *Too Many Requests* error codes, you may consider either adding retry behavior in your application's error handling routines or [increasing the reserved throughput for the collection](documentdb-set-throughput.md).
 
 ## Next steps
 To learn more about reserved throughput with Azure Cosmos DB databases, explore these resources:
 
-* [Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmosdb/)
-* [Modeling data in Azure Cosmos DB](cosmosdb-modeling-data.md)
-* [Azure Cosmos DB performance levels](cosmosdb-partition-data.md)
+* [Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/documentdb/)
+* [Partitioning data in Azure Cosmos DB](documentdb-partition-data.md)
 
-To learn more about Azure Cosmos DB, see the Azure Cosmos DB [documentation](https://azure.microsoft.com/documentation/services/cosmosdb/). 
+To learn more about Azure Cosmos DB, see the Azure Cosmos DB [documentation](https://azure.microsoft.com/documentation/services/co/). 
 
-To get started with scale and performance testing with Azure Cosmos DB, see [Performance and Scale Testing with Azure Cosmos DB](cosmosdb-performance-testing.md).
+To get started with scale and performance testing with Azure Cosmos DB, see [Performance and Scale Testing with Azure Cosmos DB](documentdb-performance-testing.md).
 
-[1]: ./media/cosmosdb-request-units/queryexplorer.png 
-[2]: ./media/cosmosdb-request-units/RUEstimatorUpload.png
-[3]: ./media/cosmosdb-request-units/RUEstimatorDocuments.png
-[4]: ./media/cosmosdb-request-units/RUEstimatorResults.png
-[5]: ./media/cosmosdb-request-units/RUCalculator2.png
-[6]: ./media/cosmosdb-request-units/api-for-mongodb-metrics.png
+[1]: ./media/documentdb-request-units/queryexplorer.png 
+[2]: ./media/documentdb-request-units/RUEstimatorUpload.png
+[3]: ./media/documentdb-request-units/RUEstimatorDocuments.png
+[4]: ./media/documentdb-request-units/RUEstimatorResults.png
+[5]: ./media/documentdb-request-units/RUCalculator2.png
+[6]: ./media/documentdb-request-units/api-for-mongodb-metrics.png
