@@ -1,6 +1,6 @@
 ---
-title: 'Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journeys as validation on user input | Microsoft Docs'
-description: A topic on Azure Active Directory B2C custom policies
+title: 'Azure AD B2C integrate REST API claims exchanges as validation in Custom Policies | Microsoft Docs'
+description: A topic on Azure Active Directory B2C Custom Policies
 services: active-directory-b2c
 documentationcenter: ''
 author: rojasja
@@ -130,5 +130,7 @@ To add the claimss exchange to the Self-Asserted Technical Profile:
 3. Test the validation by providing one of the existing names (for example: mcvinny) in the **Given Name** field. If everything is set up correctly, you should receive a message notifying the user that the `player tag` is already used.
 
 ## Next Steps
-[How to modify profile edit and user registration to gather additional information from your users](active-directory-b2c-create-custom-attributes-profile-edit-custom.md).
-[Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journeys as an orchestration step](active-directory-b2c-rest-api-step-custom.md).
+
+[How to modify profile edit and user registration to gather additional information from your users](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+
+[Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journeys as an orchestration step](active-directory-b2c-rest-api-step-custom.md)

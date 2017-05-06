@@ -138,7 +138,7 @@ In order to get a token from the Azure AD endpoint, you need to define the proto
 1. Update the value for `<Description>`.
 1. Azure AD uses the OpenID Connect protocol, so ensure that `<Protocol>` is "OpenIDConnect".
 
-You need to update the `<Metdata>` section in the XML above to reflect the configuration settings for your specific Azure AD tenant. In the XML, update the metadata values as following:
+You need to update the `<Metadata>` section in the XML above to reflect the configuration settings for your specific Azure AD tenant. In the XML, update the metadata values as following:
 
 1. Set `<Item Key="METADATA">` to `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, where `yourAzureADtenant` is your Azure AD tenant name (e.g. contoso.com).
 1. Open your browser and navigate to the `Metadata` URL that you just updated.
@@ -151,7 +151,7 @@ You need to update the `<Metdata>` section in the XML above to reflect the confi
 
 You also need to link the Azure AD secret that you registered in your Azure AD B2C tenant to the Azure AD `<ClaimsProvider>`.
 
-1. In the `<CryptographicKeys>` section in the XML above, update the value for `StorageReferenceId` to the reference ID of the secret that you defined (e.g. ContosoAppSecret).
+* In the `<CryptographicKeys>` section in the XML above, update the value for `StorageReferenceId` to the reference ID of the secret that you defined (e.g. ContosoAppSecret).
 
 ### Upload the extension file for verification
 

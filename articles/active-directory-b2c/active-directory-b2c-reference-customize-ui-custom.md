@@ -18,15 +18,15 @@ ms.author: joroja
 
 ---
 
+# Customize the UI of a user journey with Custom Policies
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 > [!NOTE]
 > This article is an advanced description of how UI customization works and how to enable with B2C Custom policies, using the Identity Experience Framework
 
-# Customize the UI of a user journey
 
-UI customization for a relating seamless user experience is key for any business-to-consumer solution. By seamless user experience, we mean an experience, whether on device or browser, where a user’s journey through our service cannot be distinguished from that of the customer service they are using.
+A seamless user experience is key for any business-to-consumer solution. By seamless user experience, we mean an experience, whether on device or browser, where a user’s journey through our service cannot be distinguished from that of the customer service they are using.
 
 ## Understand the CORS way for UI customization
 
@@ -143,7 +143,7 @@ The following table describes the purpose of the above HTML5 pages.
 | HTML5 template | Description |
 |----------------|-------------|
 | *phonefactor.html* | This page can be used as a template for a multi-factor authentication page. |
-| *resetpassword.html* | This page can be used as a template for a forgot password page page. |
+| *resetpassword.html* | This page can be used as a template for a forgot password page. |
 | *selfasserted.html* | This page can be used as a template for a social account sign-up page, a local account sign-up page, or a local account sign-in page. |
 | *unified.html* | This page can be used as a template for a unified sign-up or sign-in page. |
 | *updateprofile.html* | This page can be used as a template for a profile update page. |
@@ -167,4 +167,7 @@ The following table describes the set of content definition ids recognized by th
 | *api.phonefactor* | **Multi-factor authentication page**. On this page, users can verify their phone numbers (using text or voice) during sign-up or sign-in. |
 | *api.selfasserted* | **Social account sign-up page**. This page contains a sign-up form that the user has to fill in when signing up using an existing account from a social identity provider such as Facebook or Google+. This page is similar to the above social account sign-up page with the exception of the password entry fields. |
 | *api.selfasserted.profileupdate* | **Profile update page**. This page contains a form that the user can use to update their profile. This page is similar to the above social account sign-up page with the exception of the password entry fields. |
-| *api.signuporsignin* | **Unified sign-up or sign-in page**.  This page handles both sign-up & sign-in of users, who can use enterprise identity providers, social identity providers such as Facebook or Google+, or local accounts.  |
+| *api.signuporsignin* | **Unified sign-up or sign-in page**.  This page handles both sign-up & sign-in of users, who can use enterprise identity providers, social identity providers such as Facebook or Google+, or local accounts.
+
+## Next steps
+[Reference: Understand how custom policies work with the Identity Experience Framework in B2C](active-directory-b2c-reference-policies)

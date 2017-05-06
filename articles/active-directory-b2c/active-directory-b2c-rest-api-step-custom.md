@@ -1,5 +1,5 @@
 ---
-title: 'Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C User journeys as an orchestration step | Microsoft Docs'
+title: 'Walkthrough: REST API claims exchange as a step in your B2C Custom Policies| Microsoft Docs'
 description: A topic on Azure Active Directory B2C custom policies integrating with API
 services: active-directory-b2c
 documentationcenter: ''
@@ -252,7 +252,6 @@ If everything is set up correctly, the token will include the new claim `city`, 
 
 ## Next Steps
 
-<!--
-TODO: Add links to article
-<article – Use REST API as an orchestration step in your user journey using custom policies.
--->
+[Use a REST API as a validation step](active-directory-b2c-rest-api-validation-custom.md)
+
+[How to modify profile edit to gather additional information from your users](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
