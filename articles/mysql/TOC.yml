@@ -29,7 +29,7 @@
   - name: Development
     items:
     - name: Connection libraries
-      href: concepts-connectivity-libraries.md
+      href: concepts-connection-libraries.md
     - name: Application development
       href: concepts-database-application-development.md
   - name: Data access & security
