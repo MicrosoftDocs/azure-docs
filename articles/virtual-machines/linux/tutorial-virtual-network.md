@@ -220,4 +220,5 @@ In this tutorial, you created and secured Azure networks as related to virtual m
 
 Advance to the next tutorial to learn about securing data on virtual machines using Azure backup. 
 
-[Back up Linux virtual machines in Azure](./tutorial-backup-vms.md)
+> [!div class="nextstepaction"]
+> [Back up Linux virtual machines in Azure](./tutorial-backup-vms.md)
