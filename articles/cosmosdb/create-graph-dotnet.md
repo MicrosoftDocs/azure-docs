@@ -22,7 +22,7 @@ ms.author: arramac
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, document database, and graph container using the Azure portal. You'll then build and deploy a web app built on the [Graph API](graph-sdk-dotnet.md).  
+This quick start demonstrates how to create an Azure Cosmos DB account, document database, and graph container using the Azure portal. You'll then build and run a console app built on the [Graph API](graph-sdk-dotnet.md).  
 
 ## Prerequisites
 
@@ -38,24 +38,9 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 
 [!INCLUDE [cosmosdb-create-graph](../../includes/cosmosdb-create-graph.md)]
 
-## Add sample data
-
-You can now add data to your new graph using Data Explorer.
-
-1. In Data Explorer, the new database appears in the Graphs pane. Expand **sample-database** database, expand **sample-graph** collection, click **Entities**, and then click **New Entity**. 
-
-   ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-dotnet/azure-cosmosdb-data-explorer-emulator-new-document.png)
-  
-2. Now add a few new nodes and edges to the graph.
-
-     You can now use Graph Explorer to traverse your data. 
-
-    ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-dotnet/graph-explorer.png)
-
-
 ## Clone the sample application
 
-Now let's clone a  DocumentDB API app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's clone a Graph API app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
 1. Open a git terminal window, such as git bash, and `cd` to a working directory.  
 
@@ -69,64 +54,95 @@ Now let's clone a  DocumentDB API app from github, set the connection string, an
 
 ## Review the code
 
-Let's make a quick review of what's happening in the app. Open the DocumentDBRepository.cs file and you'll find that these lines of code create the Azure Cosmos DB resources. 
+Let's make a quick review of what's happening in the app. Open the Program.cs file and you'll find that these lines of code create the Azure Cosmos DB resources. 
 
 * The DocumentClient is initialized.
 
     ```csharp
-    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
+    using (DocumentClient client = new DocumentClient(
+        new Uri(endpoint),
+        authKey,
+        new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp }))
     ```
 
 * A new database is created.
 
     ```csharp
-    await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
+    Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" });
     ```
 
 * A new graph container is created.
 
     ```csharp
-    await client.CreateDocumentCollectionAsync(
-        UriFactory.CreateDatabaseUri(DatabaseId),
-        new DocumentCollection { Id = CollectionId },
+    DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync(
+        UriFactory.CreateDatabaseUri("graphdb"),
+        new DocumentCollection { Id = "graphcoll" },
         new RequestOptions { OfferThroughput = 1000 });
+    ```
+* A series of Gremlin steps are executed using the `CreateGremlinQuery` method.
+
+    ```csharp
+    // The CreateGremlinQuery method extensions allow you to execute Gremlin queries and iterate
+    // results asychronously
+    IDocumentQuery<dynamic> query = client.CreateGremlinQuery<dynamic>(graph, "g.V().count()");
+    while (query.HasMoreResults)
+    {
+        foreach (dynamic result in await query.ExecuteNextAsync())
+        {
+            Console.WriteLine($"\t {JsonConvert.SerializeObject(result)}");
+        }
+    }
+
     ```
 
 ## Update your connection string
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the web.config file in the next step.
+1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the `App.config` file in the next step.
 
     ![View and copy an access key in the Azure Portal, Keys blade](./media/create-documentdb-dotnet-core/keys.png)
 
-2. In Visual Studio 2017, open the web.config file. 
+2. In Visual Studio 2017, open the `App.config` file. 
 
-3. Copy your URI value from the portal (using the copy button) and make it the value of the endpoint key in web.config. 
+3. Copy your URI value from the portal (using the copy button) and make it the value of the endpoint key in `App.config`. 
 
-    `<add key="endpoint" value="FILLME" />`
+    `<add key="Endpoint" value="FILLME" />`
 
-4. Then copy your PRIMARY KEY value from the portal and make it the value of the authKey in web.confif. 
+4. Then copy your PRIMARY KEY value from the portal and make it the value of the authKey in `App.config`. 
 
-    `<add key="authKey" value="FILLME" />`
+    `<add key="AuthKey" value="FILLME" />`
 
 You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
-## Run the web app
+## Run the console app
 
 1. In Visual Studio, right-click on the project in **Solution Explorer** and then click **Manage NuGet Packages**. 
 
-2. In the NuGet **Browse** box, type *DocumentDB*. 
+2. In the NuGet **Browse** box, type *Microsoft.Azure.Graphs*. 
 
-3. From the results, install the **Microsoft.Azure.DocumentDB** library. This installs the Azure Cosmos DB package as well as all dependencies.
+3. From the results, install the **Microsoft.Azure.Graphs** library. This installs the Azure Cosmos DB graph extension library package as well as all dependencies.
 
-4. Again in the NuGet **Browse** box, type *Microsoft graph*.
+4. From the results, install the **Microsoft.Azure.Graphs** library. 
 
-3. From the results, install the **Microsoft.Azure.Graph** library. 
-
-4. Click CTRL + F5 to run the application. Your app displays in your browser. 
+5. Click CTRL + F5 to run the application.
 
 You can now go back to Graph Explorer and see query, modify, and work with this new data. 
+
+## Browse using the Data Explorer
+
+You can now browse and query your new graph using Data Explorer.
+
+1. In Data Explorer, the new database appears in the Graphs pane. Expand **graphdb** database, expand **graphcoll** graph, click **Ent**, and then click **New Entity**. 
+
+   ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-dotnet/azure-cosmosdb-data-explorer-emulator-new-document.png)
+  
+2. Now add a few new nodes and edges to the graph.
+
+     You can now use Graph Explorer to traverse your data. 
+
+    ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-dotnet/graph-explorer.png)
+
 
 ## Review SLAs in the Azure portal
 

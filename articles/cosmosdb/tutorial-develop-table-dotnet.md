@@ -33,7 +33,7 @@ If you currently use Azure Table storage, you gain the following benefits with t
 - 99.99% availability within a single region, and ability to add more regions for higher availability, and [industry-leading comprehensive SLAs](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/) on general availability
 - Work with the existing Azure storage .NET SDK, and no code changes to your application
 
-During the preview, Azure Cosmos DB supports the Table API using the .NET SDK. You can download the [Azure Storage Preview SDK](https://www.nuget.org/packages/WindowsAzure.Storage-Preview) SDK from Nuget, that has the same classes and method signatures as the public [Azure storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), but also has the ability to connect to Azure Cosmos DB accounts using the Table API.
+During the preview, Azure Cosmos DB supports the Table API using the .NET SDK. You can download the [Azure Storage Preview SDK](https://www.nuget.org/packages/WindowsAzure.Storage-Preview) SDK from Nuget, that has the same classes and method signatures as the public [Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), but also has the ability to connect to Azure Cosmos DB accounts using the Table API.
 
 ### About this tutorial
 This tutorial is for developers who are familiar with the Azure Table storage SDK, and would like to use the premium features available using Azure Cosmos DB. It is based on [Get Started with Azure Table storage using .NET](../storage/storage-dotnet-how-to-use-tables.md) and shows how to take advantage oft additional capabilities like secondary indexes, provisioned throughput, and multi-homing. We cover how to use the Azure portal to create an Azure Cosmos DB account,and then build and deploy a Table application. We also walk through C# examples for creating and deleting a table, and inserting, updating, deleting, and querying table data. 
@@ -81,9 +81,9 @@ Now go back to the Azure portal to get your connection string information and co
 ## Build and deploy the app
 1. In Visual Studio, right-click on the project in **Solution Explorer** and then click **Manage NuGet Packages**. 
 
-2. In the NuGet **Browse** box, type ***WindowsAzure.Storage***. Check **Include prerelease versions** if you haven't already.
+2. In the NuGet **Browse** box, type ***WindowsAzure.Storage-PremiumTable***. Check **Include prerelease versions**.
 
-3. From the results, install the **WindowsAzure.Storage** and choose the preview build `8.2.0-preview`. This installs the Azure Table storage package as well as all dependencies.
+3. From the results, install the **WindowsAzure.Storage-PremiumTable** and choose the preview build `0.0.1-preview`. This installs the Azure Table storage package as well as all dependencies.
 
 4. Add steps to install Azure Storage Nuget package and Configuration Manager nuget package.
 
@@ -152,7 +152,7 @@ The following example shows how you can change the different settings for above 
 
 Let's make a quick review of what's happening in the app. Open the `Program.cs` file and you'll find that these lines of code create the Table resources. 
 
-## Create the table client.
+## Create the table client
 You initialize a `CloudTableClient` to connect to the table account.
 
 ```csharp
@@ -160,13 +160,12 @@ CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 ```
 This client is initialized using `TableConnectionMode`, `TableConnectionProtocol`, `TableConsistencyLevel`, and `TablePreferredLocations` configuration values that are specified in the app settings (or defaults if not specified).
     
-## Create a table.
+## Create a table
 Then, you create a table using `CloudTable`. Tables in Azure Cosmos DB can scale independently in terms of storage and throughput, and partitioning is handled automatically by the service. Azure Cosmos DB supports both fixed size and unlimited tables. See [Partitioning in Azure Cosmos DB](../documentdb/documentdb-partition-data.md) for details. 
 
 ```csharp
-//Retrieve a reference to the table.
 CloudTable table = tableClient.GetTableReference("people");
-//Create the table if it doesn't exist.
+
 table.CreateIfNotExists();
 ```
 
