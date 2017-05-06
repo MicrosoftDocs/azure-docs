@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [What is Log Analytics?](log-analytics-overview.md)
 ## [Data security](log-analytics-security.md)
 
@@ -36,6 +36,7 @@
 ### [Log searches overview](log-analytics-log-searches.md)
 ### [Search reference](log-analytics-search-reference.md)
 #### [Regular expressions](log-analytics-log-searches-regex.md)
+### [Take action from search results](log-analytics-log-search-takeaction.md) 
 ### [Computer groups](log-analytics-computer-groups.md)
 ## Analyze data
 ### [Dashboards](log-analytics-dashboards.md)
