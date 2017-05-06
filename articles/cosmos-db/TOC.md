@@ -9,7 +9,7 @@
 ### [Xamarin](create-documentdb-xamarin-dotnet.md)
 ## MongoDB
 ### [Node.js](create-mongodb-nodejs.md)
-## Gremlin graph
+## Graph
 ### [.NET](create-graph-dotnet.md)
 ### [Gremlin console](create-graph-gremlin-console.md)
 ## Table
@@ -31,65 +31,42 @@
 ### [Graph](tutorial-query-graph.md)
 ## [4 - Distribute globally](../documentdb/documentdb-portal-global-replication.md)
 ## 5 - Develop locally
-### [1 - Use the emulator](../documentdb/documentdb-nosql-local-emulator.md)
-### [2 - Export certificates](../documentdb/documentdb-nosql-local-emulator-export-ssl-certificates.md)
+### [Use the emulator](../documentdb/documentdb-nosql-local-emulator.md)
+### [Export certificates](../documentdb/documentdb-nosql-local-emulator-export-ssl-certificates.md)
 
 # Samples
 ## [Azure CLI 2.0](cli-samples.md)
 ## [Azure PowerShell](powershell-samples.md)
 
 # Concepts
-## [Multi-model APIs](../documentdb/documentdb-resources.md)
+## [Global distribution](../documentdb/documentdb-distribute-data-globally.md)
+## [Partitioning](../documentdb/documentdb-partition-data.md)
+## [Consistency](../documentdb/documentdb-consistency-levels.md)
+## [Throughput](../documentdb/documentdb-request-units.md)
+## Multi-model APIs
 ### [DocumentDB](../documentdb/documentdb-introduction.md)
 ### [MongoDB](../documentdb/documentdb-protocol-mongodb.md)
 ### [Table](table-introduction.md)
 ### [Graph](graph-introduction.md)
-## [Global distribution](../documentdb/documentdb-distribute-data-globally.md)
-## [Partition and scale](../documentdb/documentdb-partition-data.md)
-## [Consistency](../documentdb/documentdb-consistency-levels.md)
-## [Regional failover](../documentdb/documentdb-regional-failovers.md)
 ## [Security](../documentdb/documentdb-nosql-database-security.md)
-## [Encryption at rest](../documentdb/documentdb-nosql-database-encryption-at-rest.md)
-## [TCO analysis](https://aka.ms/documentdb-tco-paper)
-## Scenarios
-### [Common use cases](../documentdb/documentdb-use-cases.md)
-### [Going social with Azure Cosmos DB](../documentdb/documentdb-social-media-apps.md)
+## [TCO](https://aka.ms/documentdb-tco-paper)
+## [Use cases](../documentdb/documentdb-use-cases.md)
 
 # How To Guides
 
-## Manage
-### [Cost-effective reads and writes](../documentdb/documentdb-key-value-store-cost.md)
-### [Request units](../documentdb/documentdb-request-units.md)
-### [Connect to your MongoDB account](../documentdb/documentdb-connect-mongodb-account.md)
-### [Expire data automatically](../documentdb/documentdb-time-to-live.md)
-### [Back up and restore](../documentdb/documentdb-online-backup-and-restore.md)
-### Automation
-#### [Azure CLI 2.0](../documentdb/documentdb-automation-resource-manager-cli.md)
-#### [Azure CLI 1.0: Create an account](../documentdb/documentdb-automation-resource-manager-cli-nodejs.md)
-#### [Azure CLI 1.0: Add or remove regions](../documentdb/documentdb-automation-region-management.md)
-#### [Azure PowerShell](../documentdb/documentdb-manage-account-with-powershell.md)
-### MongoDB
-#### [Using MongoChef](../documentdb/documentdb-mongodb-mongochef.md)
-#### [Using Robomongo](../documentdb/documentdb-mongodb-robomongo.md)
-#### [Model your data](../documentdb/documentdb-modeling-data.md)
-### Security
-#### [Secure access to data](../documentdb/documentdb-secure-access-to-data.md)
-#### [Firewall support](../documentdb/documentdb-firewall-support.md)
-### [Retire S1, S2, S3](../documentdb/documentdb-performance-levels.md)
-
 ## Develop
-### [SQL query](../documentdb/documentdb-sql-query.md)
-### [Stored procedures, triggers, and UDFs](../documentdb/documentdb-programming.md)
-### [Customize your indexes](../documentdb/documentdb-indexing-policies.md)
-### [Multi-region development](../documentdb/documentdb-developing-with-multiple-regions.md)
-### [Track changes with change feed](../documentdb/documentdb-change-feed.md)
-### [Gremlin support](gremlin-support.md)
-### [Use geospatial data](../documentdb/documentdb-geospatial.md)
-### [Performance testing](../documentdb/documentdb-performance-testing.md)
-### [Performance tips](../documentdb/documentdb-performance-tips.md)
-### Tutorials 
-#### DocumentDB
-##### Write your first app 
+### DocumentDB API
+#### [Resources](../documentdb/documentdb-resources.md)
+#### [SQL query](../documentdb/documentdb-sql-query.md)
+#### [SQL playground](https://www.documentdb.com/sql/demo)
+#### [Stored procedures, triggers, and UDFs](../documentdb/documentdb-programming.md)
+#### [Multi-region development](../documentdb/documentdb-developing-with-multiple-regions.md)
+#### [Performance testing](../documentdb/documentdb-performance-testing.md)
+#### [Performance tips](../documentdb/documentdb-performance-tips.md)
+#### [Multi-master setup](../documentdb/documentdb-multi-region-writers.md)
+#### [DateTimes](../documentdb/documentdb-working-with-dates.md)
+#### Tutorials
+##### Write your first app 
 ###### [.NET](../documentdb/documentdb-get-started.md)
 ###### [.NET Core](../documentdb/documentdb-dotnetcore-get-started.md)
 ###### [Java](../documentdb/documentdb-java-get-started.md)
@@ -101,33 +78,47 @@
 ###### [Node.js](../documentdb/documentdb-nodejs-application.md)
 ###### [Java](../documentdb/documentdb-java-application.md)
 ###### [Python Flask](../documentdb/documentdb-python-application.md)
-#### MongoDB
-##### [Node.js console app](../documentdb/documentdb-mongodb-samples.md)
-#### Table
-##### .NET
-<!---### [Write your first Table API app](../documentdb/documentdb-dotnet-tables-get-started.md)--->
-### Best practices
-#### [Multi-master setup](../documentdb/documentdb-multi-region-writers.md)
-#### [DateTimes](../documentdb/documentdb-working-with-dates.md)
-### Samples
-#### DocumentDB API
+#### Samples
 ##### [.NET samples](../documentdb/documentdb-dotnet-samples.md)
 ##### [Node.js samples](../documentdb/documentdb-nodejs-samples.md)
 ##### [Python samples](../documentdb/documentdb-python-samples.md)
 ##### [SQL syntax](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 ##### [SQL grammar cheat sheet](../documentdb/documentdb-sql-query-cheat-sheet.md)
+#### Resources
+##### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb)
+##### [Videos](https://azure.microsoft.com/documentation/videos/index/?services=documentdb)
+##### [Service updates](https://azure.microsoft.com/updates/?product=documentdb)
+##### [Community portal](../documentdb/documentdb-community.md)
+##### [Schema agnostic indexing paper](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)
+##### [Retire S1, S2, S3](../documentdb/documentdb-performance-levels.md)
 
-## Use the portal
-### [Create a database account](../documentdb/documentdb-create-account.md)
-### [Create a collection](../documentdb/documentdb-create-collection.md)
-### [Set throughput](../documentdb/documentdb-set-throughput.md)
-### [Add global replication](../documentdb/documentdb-portal-global-replication.md)
-### [Add and edit documents](../documentdb/documentdb-view-json-document-explorer.md)
-### [Query documents](../documentdb/documentdb-query-collections-query-explorer.md)
-### [Manage an account](../documentdb/documentdb-manage-account.md)
-### [Monitor an account](../documentdb/documentdb-monitor-accounts.md)
-### [Manage scripts](../documentdb/documentdb-view-scripts.md)
-### [Troubleshooting tips](../documentdb/documentdb-portal-troubleshooting.md)
+### MongoDB API
+#### [Connect to your MongoDB account](../documentdb/documentdb-connect-mongodb-account.md)
+#### [Using MongoChef](../documentdb/documentdb-mongodb-mongochef.md)
+#### [Using Robomongo](../documentdb/documentdb-mongodb-robomongo.md)
+#### Tutorials
+##### [Node.js console app](../documentdb/documentdb-mongodb-samples.md)
+### Graph API
+#### [Gremlin support](gremlin-support.md)
+### Table API
+#### [Table storage](https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts)
+### [Change feed](../documentdb/documentdb-change-feed.md)
+### [Geospatial](../documentdb/documentdb-geospatial.md)
+### [Indexing](../documentdb/documentdb-indexing-policies.md)
+
+## Manage
+### [Cost-effective reads and writes](../documentdb/documentdb-key-value-store-cost.md)
+### [Expire data automatically](../documentdb/documentdb-time-to-live.md)
+### [Back up and restore](../documentdb/documentdb-online-backup-and-restore.md)
+### [Regional failover](../documentdb/documentdb-regional-failovers.md)
+### Automation
+#### [Azure CLI 2.0](../documentdb/documentdb-automation-resource-manager-cli.md)
+#### [Azure CLI 1.0: Create an account](../documentdb/documentdb-automation-resource-manager-cli-nodejs.md)
+#### [Azure CLI 1.0: Add or remove regions](../documentdb/documentdb-automation-region-management.md)
+#### [Azure PowerShell](../documentdb/documentdb-manage-account-with-powershell.md)
+### Security
+#### [Encryption at rest](../documentdb/documentdb-nosql-database-encryption-at-rest.md)
+#### [Firewall support](../documentdb/documentdb-firewall-support.md)
 
 
 ## Integrate
@@ -158,17 +149,8 @@
 ## Graph APIs
 ### [.NET](graph-sdk-dotnet.md)
 
-
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/documentdb/)
 ## [FAQ](../documentdb/documentdb-faq.md)
-## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=documentdb)
-## [Service updates](https://azure.microsoft.com/updates/?product=documentdb)
-## [Community portal](../documentdb/documentdb-community.md)
-## [Query Playground](https://www.documentdb.com/sql/demo)
-## [Table storage](https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts)
-## [Schema agnostic indexing paper](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmos-db)
 ## [Data consistency explained through baseball](http://research.microsoft.com/apps/pubs/default.aspx?id=206913)
-## [Book: Using Microsoft Azure DocumentDB in a Node.js Application](https://go.microsoft.com/fwlink/?LinkId=828428&clcid=0x409)
