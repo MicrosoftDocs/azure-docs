@@ -5,6 +5,7 @@
   - name: Azure DB for PostgreSQL
     href: overview.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Create DB - Portal
     href: quickstart-create-server-database-portal.md
