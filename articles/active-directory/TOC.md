@@ -15,10 +15,10 @@
 ## [Get Azure for your organization](sign-up-organization.md)
 ## [FAQs](active-directory-faq.md)
 ## [SaaS app tutorials](active-directory-saas-tutorial-list.md)
-### [Understand Azure AD architecture](active-directory-architecture.md) 
 
 # How to
 ## Plan and design
+### [Understand Azure AD architecture](active-directory-architecture.md)
 ### [Deploy a hybrid identity solution](active-directory-hybrid-identity-design-considerations-overview.md)
 
 #### Determine requirements
