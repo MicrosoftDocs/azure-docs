@@ -24,7 +24,7 @@ Azure App Service Web App on Linux is currently in public preview and supports r
 
 ## Overview
 
-This tutorial shows you how to create a basic ruby on rails application locally and prepare/deploy it to Azure App Service on Linux.
+This tutorial shows you how to create a basic ruby on rails application locally and deploy it to Azure Web App on Linux.
 
 ## Prerequisites
 
