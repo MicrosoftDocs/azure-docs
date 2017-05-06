@@ -136,7 +136,7 @@ In this tutorial, we use Git to deploy the local Ruby application to Azure.
 
 		https://{your web app name}.scm.azurewebsites.net/api/scm/info
 
-	It has the following form based on your web app name:
+	The Git URL has the following form based on your web app name:
 
 		https://{your web app name}.scm.azurewebsites.net/{your web app name}.git
 
@@ -163,7 +163,7 @@ In this tutorial, we use Git to deploy the local Ruby application to Azure.
 
 	![Start web app](./media/app-service-linux-ruby-get-started/start-web-app.png)
 
-4. Navigate to your site and confirm your update are live
+4. Navigate to your site and confirm your updates are live
 
 		http://{your web app name}/azurewebsites.net
 
