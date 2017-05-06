@@ -23,7 +23,7 @@ ms.author: billgib; sstein
 
 The Introduction to the WTP Application tutorial shows how the WTP app can provision a tenant database with its initial schema and register it in the catalog, making it available to the rest of the application. Like any application, the WTP app will evolve over time, and will at times require changes to the database. This may include new or changed schema, new or changed reference data, as well as routine database maintenance tasks to ensure optimal app performance. With a SaaS application, these changes need to be deployed in a coordinated manner across a potentially massive fleet of tenant databases and must be incorporated into the provisioning process for new tenant databases.
 
-This tutorial explores two scenarios, deploying reference data updates which must be shared by all tenants, and retuning an index on the table containing the reference data. The Elastic jobs feature is used to execute these operations across all the tenants and a *golden* tenant database that is used as a template for new databases.
+This tutorial explores two scenarios, deploying reference data updates which must be shared by all tenants, and retuning an index on the table containing the reference data. The [Elastic jobs](sql-database-elastic-jobs-overview.md) feature is used to execute these operations across all tenants, and a *golden* tenant database that is used as a template for new databases.
 
 
 To complete this tutorial, make sure of the following:
@@ -31,9 +31,12 @@ To complete this tutorial, make sure of the following:
 * The WTP app is deployed. To deploy in less than five minutes, see [Deploy and explore the WTP SaaS application](sql-database-saas-tutorial.md).
 * Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
+*This tutorial uses features of the SQL Database service that are in a limited preview (Elastic Database jobs). If you wish to do this tutorial please provide your subscription id to EMAIL with subject=Elastic Jobs Preview. After you receive confirmation that your subscription has been enabled, you must [download and install the latest pre-release jobs cmdlets](https://github.com/jaredmoo/azure-powershell/releases). As this is a limited preview you should contact EMAIL for related questions or support.*
+
+
 ## Introduction to SaaS Schema Management patterns
 
-The single tenant per database SaaS pattern benefits in many ways from the data isolation that results, but at the same time introduces the additional complexity of maintaining and managing many databases. [Elastic Jobs](sql-database-elastic-jobs-overview.md) facilitates administration and management of the SQL data tier. Jobs enables you to securely and reliably, run tasks (T-SQL scripts) independent of user interaction or input, against a group of databases. This method can be used to deploy schema and common reference data changes across all tenants in an application. Elastic Jobs can also be used to maintain a _golden_ copy of the database used to create new tenants, ensuring it always has the latest schema and reference data.
+The single tenant per database SaaS pattern benefits in many ways from the data isolation that results, but at the same time introduces the additional complexity of maintaining and managing many databases. [Elastic Jobs](sql-database-elastic-jobs-overview.md) facilitates administration and management of the SQL data tier. Jobs enable you to securely and reliably, run tasks (T-SQL scripts) independent of user interaction or input, against a group of databases. This method can be used to deploy schema and common reference data changes across all tenants in an application. Elastic Jobs can also be used to maintain a *golden* copy of the database used to create new tenants, ensuring it always has the latest schema and reference data.
 
 ![screen](media/sql-database-saas-tutorial-schema-management/schema-management.png)
 
@@ -95,8 +98,13 @@ Create a new job using the same jobs 'system' stored procedures.
 
 ## Next steps
 
-[Create and manage scaled-out cloud databases](sql-database-elastic-jobs-create-and-manage.md)
+[Tenant analytics tutorial](sql-database-saas-tutorial-tenant-analytics.md)
+
+[Ad-hoc analytics tutorial](sql-database-saas-tutorial-adhoc-analytics.md)
+
 
 ## Additional resources
 
 [Managing scaled-out cloud databases](sql-database-elastic-jobs-overview.md)
+
+[Create and manage scaled-out cloud databases](sql-database-elastic-jobs-create-and-manage.md)

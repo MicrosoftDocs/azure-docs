@@ -15,19 +15,17 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/13/2017
+ms.date: 05/01/2017
 ms.author: billgib; sstein
 
 ---
-# Introduction to the Wingtip Tickets Platform (WTP) Sample SaaS Application
+# Introduction to the Wingtip Tickets Platform (WTP) sample SaaS application
 
-SaaS-in-a-Box Overview
+The Wingtip Tickets Platform (WTP) SaaS application is a sample app that demonstrates many unique advantages SQL Database. The app uses a database-per-tenant, SaaS application pattern, to service multiple tenants. The WTP app is designed to showcase features of Azure SQL Database that enable SaaS scenarios, including SaaS design and management patterns. To quickly get up and running, [the WTP app deploys in less than five minutes](sql-database-saas-tutorial.md)!
 
-The Wingtip Tickets Platform (WTP) SaaS application is a sample app that implements unique advantages of SQL Database. The app uses a database-per-tenant, SaaS application pattern, to service multiple tenants. The WTP app is designed to showcase features of Azure SQL Database that enable SaaS scenarios, including SaaS design and management patterns. To quickly get up and running, [the WTP app deploys in less than five minutes](sql-database-saas-tutorial.md)!
+After deploying the WTP app, explore the provided [collection of tutorials](#sql-database-saas-tutorials) that build upon the initial deployment. Each tutorial focuses on typical tasks that are implemented in SaaS applications. Tasks are implemented following SaaS patterns that take advantage of built-in features of SQL Database, such as provisioning new tenants, restoring tenant databases, running queries and rolling out schema changes across all tenant database. Each tutorial includes reusable scripts with detailed explanations that greatly simplify understanding and implementing the SaaS management patterns in your applications.
 
-After deploying the WTP app, explore the provided [collection of tutorials](#sql-database-saas-tutorials) that build upon the initial deployment. Each tutorial focuses on typical tasks that are implemented in SaaS applications. Tasks are implemented following SaaS patterns that take advantage of built-in features of SQL Database, such as provisioning new tenants, and restoring tenant databases. Each tutorial includes reusable scripts with detailed explanations that greatly simplify implementing the SaaS management patterns in your applications.
-
-While the WTP application is designed to be somewhat complete and compelling as a sample application, it is important to focus on the core SaaS patterns and less on the app itself. Understanding the implementation of these core SaaS patterns is key to implementing these patterns in your applications while considering any necessary modifications for your specific business requirements.
+While the WTP application is designed to be somewhat complete and compelling as a sample application, it is important to focus on the core SaaS patterns as they relate to the data tier, as opposed to over analyzing the app itself. Understanding the implementation of these core SaaS patterns is key to implementing these patterns in your applications, while considering any necessary modifications for your specific business requirements.
 
 
 ## Application architecture
@@ -83,13 +81,10 @@ Tips for working with and [debugging PowerShell scripts](https://msdn.microsoft.
 
 **PowerShell Tips**
 
--   Open and configure demo- scripts in the PowerShell ISE.
-
--   Use F5 to run the script (using F8 is not advised as the $PSScriptRoot variable is not evaluated when running snippets of a script).
-
--   Use F9 to set a breakpoint to let you trace the script in debug mode to see how it works
-
--   Use F10 to step through the script, F11 to step into a function, and Shift-F11 to step out.
+* Open and configure demo- scripts in the PowerShell ISE.
+* Use F5 to run the script (using F8 is not advised as the $PSScriptRoot variable is not evaluated when running snippets of a script).
+* Use F9 to set a breakpoint to let you trace the script in debug mode to see how it works
+* Use F10 to step through the script, F11 to step into a function, and Shift-F11 to step out.
 
 To save time, it’s recommended to **pre-install the batch of tenants** (this is described at the end of the Provision and Catalog tutorial, as well as in this tutorial below).
 
@@ -113,14 +108,16 @@ The following tutorials build upon the initial WTP application and can be done i
 
 ## Explore database schema and execute SQL queries directly using SSMS
 
-Use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect and browse the WTP servers and database details.
+Use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect and browse the WTP servers and databases.
 
 The WTP sample app initially has two SQL Database servers you can connect to:
 
 | Fully qualified server name | Description | Admin |
 | :-- | :-- | :-- |
 | catalog-<User>.database.windows.net | contains the mapping between tenants and their data | developer |
-| customers1-<User>.database.windows.net | contains the tenant databases (in SQL elastic pools)| developer |
+| tenants1-<User>.database.windows.net | contains the tenant databases (in SQL elastic pools)| developer |
+
+1. Open SSMS
 
 
 ## Want to learn more about SaaS applications?

@@ -89,7 +89,6 @@ To demonstrate these recovery scenarios we need to 'accidentally' delete some da
    You can delete any event, but delete the *Seriously Strauss* event because we set this event to easily get past referential integrity constraints. 
 
    ```SQL
-   DELETE FROM dbo.EventSections WHERE EventId = '11'
    DELETE FROM dbo.Events WHERE EventId = '11'
    ```
    >[!TIP]
@@ -129,7 +128,7 @@ This exercise restores the Contoso Concert Hall tenant to a point in time before
 
 1. Complete the [simulate a user accidentally deleting data](#simulate-a-user-accidentally-deleting-data) section above.
 1. **Navigate to** **Demo-RestoreTenant.ps1** file in PowerShell ISE
-1. **Modify** **$DemoScenario** to **5** to select the ‘restore tenant in place scenario’.
+1. **Modify** **$DemoScenario** to **5** to select the *restore tenant in place scenario*.
 1. Execute using **F5**.
 
 The script restores the tenant database to a point 5 minutes before the event deletion that occurred in the 'Getting started' section. It does this by first taking the tenant Contoso Concert Hall offline so there are no further updates to the data. Then, a parallel database is created by restoring from the restore point and named with a timestamp to ensure the database name does not conflict with the existing tenant database name. Next, the old tenant database is deleted, and the newly-restored database is renamed to the original database name. Finally, Contoso Concert Hall is brought online to allow the app access to the restored database.
