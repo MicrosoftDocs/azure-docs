@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 04/11/2017
+ms.date: 05/02/2017
 ms.author: sdanie
 
 ---
@@ -449,6 +449,13 @@ For more information about databases, see [What are Redis databases?](cache-faq.
   * P2 (13 GB - 130 GB) - up to 15,000 connections
   * P3 (26 GB - 260 GB) - up to 30,000 connections
   * P4 (53 GB - 530 GB) - up to 40,000 connections
+
+> [!NOTE]
+> While each size of cache allows *up to* a certain number of connections, each connection to Redis has overhead associated with it. An example of such overhead would be CPU and memory usage as a result of TLS/SSL encryption. The maximum connection limit for a given cache size assumes a lightly loaded cache. If load from connection overhead *plus* load from client operations exceeds capacity for the system, the cache can experience capacity issues even if you have not exceeded the connection limit for the current cache size.
+> 
+> 
+
+
 
 ## Redis commands not supported in Azure Redis Cache
 > [!IMPORTANT]

@@ -14,28 +14,26 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 04/14/2017
 ms.author: owend
 
 ---
 # Datasource connections
 Data models in Azure Analysis Services may require different data providers when connecting to certain data sources. In some cases, tabular models connecting to data sources using native providers such as SQL Server Native Client (SQLNCLI11) may return an error.
 
-For example; if you have an in-memory or Direct Query data model that connects to a cloud data source such as Azure SQL Database, if you use native providers other than SQLOLEDB, you may see error message: **“The provider 'SQLNCLI11.1' is not registered”**.
-
-Or, if you have a DirectQuery model connecting to on-premises data sources, if you use native providers you may see error message: **“Error creating OLE DB row set. Incorrect syntax near 'LIMIT'”**.
+For in-memory or DirectQuery data models that connect to a cloud data source such as Azure SQL Database, if you use native providers other than SQLOLEDB, you may see error message: **“The provider 'SQLNCLI11.1' is not registered”**. Or, if you have a DirectQuery model connecting to on-premises data sources, if you use native providers you may see error message: **“Error creating OLE DB row set. Incorrect syntax near 'LIMIT'”**.
 
 ## Data source providers
-The following datasource providers are supported for in-memory or Direct Query data models when connecting to data sources in the cloud or on-premises:
+The following datasource providers are supported for in-memory or DirectQuery data models when connecting to data sources in the cloud or on-premises:
 
 ### Cloud
-| **Datasource** | **In-memory** | **Direct Query** |
+| **Datasource** | **In-memory** | **DirectQuery** |
 |  --- | --- | --- |
 | Azure SQL Data Warehouse |.NET Framework Data Provider for SQL Server |.NET Framework Data Provider for SQL Server |
 | Azure SQL Database |.NET Framework Data Provider for SQL Server |.NET Framework Data Provider for SQL Server | |
 
 ### On-premises (via Gateway)
-|**Datasource** | **In-memory** | **Direct Query** |
+|**Datasource** | **In-memory** | **DirectQuery** |
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0 |.NET Framework Data Provider for SQL Server |
 | SQL Server |Microsoft OLE DB Provider for SQL Server |.NET Framework Data Provider for SQL Server | |
@@ -72,5 +70,6 @@ For cloud data sources:
 * If using SQL authentication, impersonation should be Service Account.
 
 ## Next steps
-If you have on-premises data sources, be sure to install the [On-premises gateway](analysis-services-gateway.md). To learn more about managing your server in SSDT or SSMS, see [Manage your server](analysis-services-manage.md).
+If you have on-premises data sources, be sure to install the [On-premises gateway](analysis-services-gateway.md).   
+To learn more about managing your server in SSDT or SSMS, see [Manage your server](analysis-services-manage.md).
 

@@ -1,9 +1,9 @@
 ---
-title: Create a highly available app in Azure using Virtual Machine Scale Sets | Microsoft Docs
-description: Create and deploy a highly available application on Linux VMs using a virtual machine scale set and the Azure CLI.
+title: Create a Virtual Machine Scale Sets for Linux in Azure | Microsoft Docs
+description: Create and deploy a highly available application on Linux VMs using a virtual machine scale set
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: Thraka
+author: iainfoulds
 manager: timlt
 editor: ''
 tags: ''
@@ -14,28 +14,27 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 04/05/2017
-ms.author: adegeo
+ms.date: 05/02/2017
+ms.author: iainfou
 ---
 
-# Create a highly available application on Linux with Virtual Machine Scale Sets
-This tutorial shows you how to create a highly available application in a virtual machine scale set. You also learn how to automate the configuration of the virtual machines in the scale set. 
+# Create a Virtual Machine Scale Set and deploy a highly available app on Linux
+A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on CPU usage, memory demand, or network traffic. In this tutorial, you learn how to deploy a virtual machine sale set in Azure. To see a virtual machine scale set in action, you build a Node.js app that runs across multiple Linux VMs.
+
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+
+## Scale Set overview
+A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. Scale sets use the same components as you learned about in the previous tutorial to [Create highly available VMs](tutorial-availability-sets.md). VMs in a scale set are created in an availability set and distributed across logic fault and update domains.
+
+VMs are created as needed in a scale set. You define autoscale rules to control how and when VMs are added or removed from the scale set. These rules can trigger based on metrics such as CPU load, memory usage, or network traffic.
+
+Scale sets support up to 1,000 VMs when you use an Azure platform image. For production workloads, you may wish to [Create a custom VM image](tutorial-custom-images.md). You can create up to 100 VMs in a scale set when using a custom image.
 
 
-## Step 1 - Create a resource group
-To complete this tutorial, make sure that you have installed the latest [Azure CLI 2.0](/cli/azure/install-azure-cli). If you are not already logged in to your Azure subscription, log in with [az login](/cli/azure/#login) and follow the on-screen directions.
+## Create an app to scale
+For production use, you may wish to [Create a custom VM image](tutorial-custom-images.md) that includes your application installed and configured. For this tutorial, lets customize the VMs on first boot to quickly see a scale set in action.
 
-Create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named `myResourceGroupVMSS` in the `westus` location:
-
-```azurecli
-az group create --name myResourceGroupVMSS --location westus
-```
-
-
-## Step 2 - Define your app
-You use the same **cloud-init** config from the tutorial where you created a highly available, load balanced app. For more information about using **cloud-init**, see [Use cloud-init to customize a Linux VM during creation](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-Create a file named `cloud-init.txt` and paste the following configuration:
+In a previous tutorial, you learned [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md) with cloud-init. You can use the same cloud-init configuration file to install NGINX and run a simple 'Hello World' Node.js app. Create a file named *cloud-init.txt* and paste the following configuration:
 
 ```yaml
 #cloud-config
@@ -72,7 +71,7 @@ write_files:
         console.log('Hello world app listening on port 3000!')
       })
 runcmd:
-  - nginx -s reload
+  - service nginx restart
   - cd "/home/azureuser/myapp"
   - npm init
   - npm install express -y
@@ -80,16 +79,18 @@ runcmd:
 ```
 
 
-## Step 3 - Create scale set
-A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. Scale sets use the same components as you learned about in the tutorial to [Build a highly available app on Azure](tutorial-load-balance-nodejs.md). These components include as availability sets, fault and update domains, and load balancers.
+## Create a scale set
+Before you can create a scale set, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroupScaleSet* in the *eastus* location:
 
-With a scale set, these resources are created and managed for you. The number of VMs in your scale set can automatically increase or decrease based on defined rules. You can [use a custom image](capture-image.md) as the source for your virtual machine, or configure the VMs during deployment with **cloud-init** as in this tutorial.
+```azurecli
+az group create --name myResourceGroupScaleSet --location eastus
+```
 
-Create a virtual machine scale set with [az vmss create](/cli/azure/vmss#create). The following example creates a scale set named `myScaleSet`:
+Now create a virtual machine scale set with [az vmss create](/cli/azure/vmss#create). The following example creates a scale set named *myScaleSet*, uses the cloud-init file to customize the VM, and generates SSH keys if they do not exist:
 
 ```azurecli
 az vmss create \
-  --resource-group myResourceGroupVMSS \
+  --resource-group myResourceGroupScaleSet \
   --name myScaleSet \
   --image Canonical:UbuntuServer:14.04.4-LTS:latest \
   --upgrade-policy-mode automatic \
@@ -101,12 +102,14 @@ az vmss create \
 It takes a few minutes to create and configure all the scale set resources and VMs.
 
 
-## Step 4 - Configure firewall
-A load balancer was created automatically as part of the virtual machine scale set. The load balancer distributes traffic across a set of defined VMs using load balancer rules. To allow traffic to reach the web app, create a rule with [az network lb probe create](/cli/azure/network/lb/probe#create). The following example creates a rule named `myLoadBalancerRuleWeb`:
+## Allow web traffic
+A load balancer was created automatically as part of the virtual machine scale set. The load balancer distributes traffic across a set of defined VMs using load balancer rules. You can learn more about load balancer concepts and configuration in the next tutorial, [How to load balance virtual machines in Azure](tutorial-load-balancer.md).
+
+To allow traffic to reach the web app, create a rule with [az network lb rule create](/cli/azure/network/lb/rule#create). The following example creates a rule named *myLoadBalancerRuleWeb*:
 
 ```azurecli
 az network lb rule create \
-  --resource-group myResourceGroupVMSS \
+  --resource-group myResourceGroupScaleSet \
   --name myLoadBalancerRuleWeb \
   --lb-name myScaleSetLB \
   --backend-pool-name myScaleSetLBBEPool \
@@ -116,12 +119,12 @@ az network lb rule create \
   --protocol tcp
 ```
 
-## Step 5 - Test your app
-Obtain the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip#show). The following example obtains the IP address for `myScaleSetLBPublicIP` created as part of the scale set:
+## Test your app
+To see your Node.js app on the web, obtain the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip#show). The following example obtains the IP address for *myScaleSetLBPublicIP* created as part of the scale set:
 
 ```azurecli
 az network public-ip show \
-    --resource-group myResourceGroupVMSS \
+    --resource-group myResourceGroupScaleSet \
     --name myScaleSetLBPublicIP \
     --query [ipAddress] \
     --output tsv
@@ -129,43 +132,109 @@ az network public-ip show \
 
 Enter the public IP address in to a web browser. The app is displayed, including the hostname of the VM that the load balancer distributed traffic to:
 
-![Running Node.js app](./media/tutorial-load-balance-nodejs/running-nodejs-app.png)
+![Running Node.js app](./media/tutorial-create-vmss/running-nodejs-app.png)
 
-Force-refresh your web browser to see the load balancer distribute traffic across all the VMs in the scale set running your app.
+To see the scale set in action, you can force-refresh your web browser to see the load balancer distribute traffic across all the VMs running your app.
 
 
-## Step 6 - Management tasks
+## Management tasks
 Throughout the lifecycle of the scale set, you may need to run one or more management tasks. Additionally, you may want to create scripts that automate various lifecycle-tasks. The Azure CLI 2.0 provides a quick way to do those tasks. Here are a few common tasks.
 
-### Increase or decrease VM instances
-You can manually increase or decrease the number of virtual machines in the scale set with [az vmss scale](/cli/azure/vmss#scale). The following example increases the number of VMs in your scale set to `5`:
+### View VMs in a scale set
+To view a list of VMs running in your scale set, use [az vmss list-instances](/cli/azure/vmss#list-instances) as follows:
 
 ```azurecli
-az vmss scale --resource-group myResourceGroupVMSS --name myScaleSet --new-capacity 5
+az vmss list-instances \
+  --resource-group myResourceGroupScaleSet \
+  --name myScaleSet \
+  --output table
+```
+
+The output is similar to the following example:
+
+```azurecli
+  InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup            VmId
+------------  --------------------  ----------  ------------  -------------------  -----------------------  ------------------------------------
+           1  True                  eastus      myScaleSet_1  Succeeded            MYRESOURCEGROUPSCALESET  c72ddc34-6c41-4a53-b89e-dd24f27b30ab
+           3  True                  eastus      myScaleSet_3  Succeeded            MYRESOURCEGROUPSCALESET  44266022-65c3-49c5-92dd-88ffa64f95da
+```
+
+
+### Increase or decrease VM instances
+To see the number of instances you currently have in a scale set, use [az vmss show](/cli/azure/vmss#show) and query on *sku.capacity*:
+
+```azurecli
+az vmss show \
+    --resource-group myResourceGroupScaleSet \
+    --name myScaleSet \
+    --query [sku.capacity] \
+    --output table
+```
+
+You can then manually increase or decrease the number of virtual machines in the scale set with [az vmss scale](/cli/azure/vmss#scale). The following example sets the number of VMs in your scale set to *5*:
+
+```azurecli
+az vmss scale \
+    --resource-group myResourceGroupScaleSet \
+    --name myScaleSet \
+    --new-capacity 5
 ```
 
 Autoscale rules let you define how to scale up or down the number of VMs in your scale set in response to demand such as network traffic or CPU usage. Currently, these rules cannot be set in Azure CLI 2.0. Use the [Azure portal](https://portal.azure.com) to configure autoscale.
 
 ### Get connection info
-To obtain connection information about the VMs in your scale sets, use [az vmss list-instance-connection-info](/cli/azure/vmss#list-instance-connection-info). This command outputs the public IP address and ports for each VM that allows you to connect with SSH:
+To obtain connection information about the VMs in your scale sets, use [az vmss list-instance-connection-info](/cli/azure/vmss#list-instance-connection-info). This command outputs the public IP address and port for each VM that allows you to connect with SSH:
 
 ```azurecli
-az vmss list-instance-connection-info --resource-group myResourceGroupVMSS --name myScaleSet
+az vmss list-instance-connection-info \
+    --resource-group myResourceGroupScaleSet \
+    --name myScaleSet
 ```
 
-### Delete resource group
-Deleting a resource group also deletes all resources contained within.
+
+## Use data disks with scale sets
+You can create and use data disks with scale sets. In a previous tutorial, you learned how to [Manage Azure disks](tutorial-manage-disks.md) that outlines the best practices and performance improvements for building apps on data disks rather than the OS disk.
+
+### Create scale set with data disks
+To create a scale set and attach data disks, add the `--data-disk-sizes-gb` parameter to the [az vmss create](/cli/azure/vmss#create) command. The following example creates a scale set with *50*Gb data disks attached to each instance:
 
 ```azurecli
-az group delete --name myResourceGroupVMSS
+az vmss create \
+  --resource-group myResourceGroupScaleSet \
+  --name myScaleSetDisks \
+  --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+  --upgrade-policy-mode automatic \
+  --custom-data cloud-init.txt \
+  --admin-username azureuser \
+  --generate-ssh-keys \
+  --data-disk-sizes-gb 50
+```
+
+When instances are removed from a scale set, any attached data disks are also removed.
+
+### Add data disks
+To add a data disk to instances in your scale set, use [az vmss disk attach](/cli/azure/vmss/disk#attach). The following example adds a *50*Gb disk to each instance:
+
+```azurecli
+az vmss disk attach `
+    --resource-group myResourceGroupScaleSet `
+    --name myScaleSet `
+    --size-gb 50 `
+    --lun 2
+```
+
+### Detach data disks
+To remove a data disk to instances in your scale set, use [az vmss disk detach](/cli/azure/vmss/disk#detach). The following example removes the data disk at LUN *2* from each instance:
+
+```azurecli
+az vmss disk detach `
+    --resource-group myResourceGroupScaleSet `
+    --name myScaleSet `
+    --lun 2
 ```
 
 
 ## Next steps
-In this tutorial, we defined the web app with **cloud-init** and configured each VM during deployment. For information on capturing a VM to use as the source image in your scale set, see [How to generalize and capture a Linux virtual machine](capture-image.md).
+In this tutorial, you learned how to create a virtual machine scale set. Advance to the next tutorial to learn more about load balancing concepts for virtual machines.
 
-To learn more about some of the virtual machine scale set features introduced in this tutorial, see the following information:
-
-- [Azure Virtual Machine Scale Sets overview](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)
-- [Azure Load Balancer overview](../../load-balancer/load-balancer-overview.md)
-- [Control network traffic flow with network security groups](../../virtual-network/virtual-networks-nsg.md)
+[Load balance virtual machines](tutorial-load-balancer.md)

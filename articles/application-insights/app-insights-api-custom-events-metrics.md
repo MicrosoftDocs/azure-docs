@@ -206,10 +206,10 @@ If you are using the latest version of the SDK for ASP.NET, you can use [`Metric
         {
             name = Name;
             thread = new BackgroundWorker();
-            thread.DoWork += (o, e) => {
+            thread.DoWork += async (o, e) => {
                 while (!stop)
                 {
-                    Thread.Sleep(60000); // 1 minute
+                    await Task.Delay(60000);
                     telemetryClient.TrackMetric(this.Aggregate());
                 }
             };

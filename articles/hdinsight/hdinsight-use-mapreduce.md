@@ -52,9 +52,9 @@ The output of this job is a count of how many times each word occurred in the te
 
 MapReduce can be implemented in various languages. Java is the most common implementation, and is used for demonstration purposes in this document.
 
-## Hadoop Streaming
+## Development languages
 
-Languages or frameworks that are based on Java and the Java Virtual Machine can be ran directly as a MapReduce job. Others, such as C#, Python, or standalone executables, must use Hadoop streaming.
+Languages or frameworks that are based on Java and the Java Virtual Machine can be ran directly as a MapReduce job. The example used in this document is a Java MapReduce application. Non-Java languages, such as C#, Python, or standalone executables, must use Hadoop streaming.
 
 Hadoop streaming communicates with the mapper and reducer over STDIN and STDOUT. The mapper and reducer read data a line at a time from STDIN, and write the output to STDOUT. Each line read or emitted by the mapper and reducer must be in the format of a key/value pair, delimited by a tab character:
 

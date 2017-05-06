@@ -87,7 +87,7 @@ public class Main
 #### Face - Detect Response
 A successful response will be returned in JSON. The following is an example of a successful response: 
 
-```php
+```json
 [
     {
         "faceId": "c5c24a82-6845-4031-9d5d-978df9175426",
@@ -215,7 +215,6 @@ A successful response will be returned in JSON. The following is an example of a
                 "mustache": 0.8,
                 "beard": 0.1,
                 "sideburns": 0.02
-                }
             },
             "glasses": "sunglasses",
             "headPose": {

@@ -38,10 +38,6 @@ You must have the following to successfully complete this Apache Kafka tutorial:
 
 * [Apache Maven](http://maven.apache.org/) 
 
-### Access control requirements
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
-
 ## Create a Kafka cluster
 
 Use the following steps to create a Kafka on HDInsight cluster:
@@ -330,6 +326,10 @@ The streaming API was added to Kafka in version 0.10.0; earlier versions rely on
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
+## Troubleshoot
+
+If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
+
 ## Next steps
 
 In this document, you have learned the basics of working with Apache Kafka on HDInsight. Use the following to learn more about working with Kafka:
@@ -338,4 +338,4 @@ In this document, you have learned the basics of working with Apache Kafka on HD
 * [Use MirrorMaker to create a replica of Kafka on HDInsight](hdinsight-apache-kafka-mirroring.md)
 * [Use Apache Storm with Kafka on HDInsight](hdinsight-apache-storm-with-kafka.md)
 * [Use Apache Spark with Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md)
-
+* [Connect to Kafka through an Azure Virtual Network](hdinsight-apache-kafka-connect-vpn-gateway.md)
