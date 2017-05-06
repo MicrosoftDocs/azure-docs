@@ -38,10 +38,10 @@ Establish the number of node types your cluster needs to start out with.  Each n
 * Since you cannot predict the future, go with facts you know of and decide on the number of node types that your applications need to start with. You can always add or remove node types later. A Service Fabric cluster must have at least one node type.
 
 ## The properties of each node type
-The **node type** can be seen as equivalent to roles in Cloud Services. Node types define the VM sizes, the number of VMs, and their properties. Every node type that is defined in a Service Fabric cluster is set up as a separate Virtual Machine Scale Set (VMSS). 
-VMSS is an Azure compute resource you can use to deploy and manage a collection of virtual machines as a set. Being defined as distinct VMSS, each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics.
+The **node type** can be seen as equivalent to roles in Cloud Services. Node types define the VM sizes, the number of VMs, and their properties. Every node type that is defined in a Service Fabric cluster is set up as a separate virtual machine scale set. 
+Virtual machine scale set is an Azure compute resource you can use to deploy and manage a collection of virtual machines as a set. Being defined as distinct virtual machine scale set, each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics.
 
-Read [this document](service-fabric-cluster-nodetypes.md) for more details on the relationship of Nodetypes to VMSS, how to RDP into one of the instances, open new ports etc.
+Read [this document](service-fabric-cluster-nodetypes.md) for more details on the relationship of Nodetypes to virtual machine scale set, how to RDP into one of the instances, open new ports etc.
 
 Your cluster can have more than one node type, but the primary node type (the first one that you define on the portal) must have at least five VMs for clusters used for production workloads (or at least three VMs for test clusters). If you are creating the cluster using a Resource Manager template, then you will find a **is Primary** attribute under the node type definition. The primary node type is the node type where Service Fabric system services are placed.  
 
@@ -95,7 +95,7 @@ The reliability tier can take the following values.
 Here is the guidance for planning the primary node type capacity
 
 1. **Number of VM instances to run any production workload in Azure :** You must specify a minimum Primary Node type size of 5.
-2. **Number of VM instances to run test workloads in Azure** You can specify a minimum Primary Node type size of 1 or 3. The one node cluster, runs with a special configuration and so, scale out of that cluster is not supported. The one node cluster, has no reliability and so in your ARM template, you have to remove/not specify that configuration (not setting the configuration value is not enough). If you set up the one node cluster set up via portal, then the configuration is automatically taken care of. 1 and 3 node clusters are not supported for running production workloads. 
+2. **Number of VM instances to run test workloads in Azure** You can specify a minimum Primary Node type size of 1 or 3. The one node cluster, runs with a special configuration and so, scale out of that cluster is not supported. The one node cluster, has no reliability and so in your Resource Manager template, you have to remove/not specify that configuration (not setting the configuration value is not enough). If you set up the one node cluster set up via portal, then the configuration is automatically taken care of. 1 and 3 node clusters are not supported for running production workloads. 
 3. **VM SKU:** Primary node type is where the system services run, so the VM SKU you choose for it, must take into account the overall peak load you plan to place into the cluster. Here is an analogy to illustrate what I mean here - Think of the primary node type as your "Lungs", it is what provides oxygen to your brain, and so if the brain does not get enough oxygen, your body suffers. 
 
 The capacity needs of a cluster, is absolutely determined by workload you plan to run in the cluster, So we cannot provide you with a qualitative guidance for your specific workload, however here is the broad guidance to help you get started
@@ -155,7 +155,7 @@ Once you finish your capacity planning and set up a cluster, please read the fol
 
 * [Service Fabric cluster security](service-fabric-cluster-security.md)
 * [Service Fabric health model introduction](service-fabric-health-introduction.md)
-* [Relationship of Nodetypes to VMSS](service-fabric-cluster-nodetypes.md)
+* [Relationship of Nodetypes to Virtual machine scale set](service-fabric-cluster-nodetypes.md)
 
 <!--Image references-->
 [SystemServices]: ./media/service-fabric-cluster-capacity/SystemServices.png
