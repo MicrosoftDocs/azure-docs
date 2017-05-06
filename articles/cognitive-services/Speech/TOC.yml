@@ -4,11 +4,11 @@
   href: Home.md
 - name: Get started
   items:
-   - name: C#(REST API)  
+  - name: C#(REST API)  
     href: GetStarted/GetStartedREST.md
-   - name: JavaScript(Websocket API)    
+  - name: JavaScript(Websocket API)    
     href: GetStarted/GetStartedJSWebsockets.md
-   - name: C#(Client Library)
+  - name: C#(Client Library)
     href: GetStarted/GetStartedCSharpDesktop.md
   - name: C#(Service Library)
     href: GetStarted/GetStartedCSharpServiceLibrary.md
