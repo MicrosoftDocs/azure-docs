@@ -70,7 +70,7 @@ for i in `seq 1 2`; do
 done 
 ```
 
-We now have 2 virtual machines distributed across the underlying hardware. 
+We now have 2 virtual machines within our newly created availability set. Because they are in the same availability set, Azure will ensure that the VM and all of their resources (including data disks) are distributed across isolated physical hardware. This will help ensure much higher availability of our overall VM solution.
 
 One thing you may encounter as you add VMs is that a particular VM size is no longer available to use within your availability set. This can happen if there is no longer enough capacity to add it while preserving the isolation rules the availability set enforces. You can check to see what VM sizes are available to use within an existing availability set using the `--availability-set list-sizes` parameter.
 
