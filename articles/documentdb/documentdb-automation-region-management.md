@@ -424,7 +424,7 @@ To create a parameters file, copy the following content into a new file and name
 
 In the azuredeploy.parameters.json file, update the value field of  `"databaseAccountName"` to the database name you'd like to use, then save the file. `"databaseAccountName"` can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters. Update the value field of `"locationName1"` to the regions where you want the Azure Cosmos DB account to exist after the removal of the region.
 
-To create a Azure Cosmos DB account in your resource group, run the following command and provide the path to the template file, the path to the parameter file or the parameter value, the name of the resource group in which to deploy, and a deployment name (-n is optional). 
+To create an Azure Cosmos DB account in your resource group, run the following command and provide the path to the template file, the path to the parameter file or the parameter value, the name of the resource group in which to deploy, and a deployment name (-n is optional). 
 
 To use a parameter file:
 
@@ -432,7 +432,7 @@ To use a parameter file:
 
  - `<PathToTemplate>` is the path to the azuredeploy.json file created in step 1. If your path name has spaces in it, put double quotes around this parameter.
  - `<PathToParameterFile>` is the path to the azuredeploy.parameters.json file created in step 1. If your path name has spaces in it, put double quotes around this parameter.
- - `<resourcegroupname>` is the name of the existing resource group in which to add a Azure Cosmos DB database account. 
+ - `<resourcegroupname>` is the name of the existing resource group in which to add an Azure Cosmos DB database account. 
  - `<deploymentname>` is the optional name of the deployment.
 
 Example input: 
@@ -503,9 +503,9 @@ If you receive errors like `Deployment provisioning state was not successful` wh
 
 ## Next steps
 
-Now that you have a Azure Cosmos DB account, the next step is to create a Azure Cosmos DB database. You can create a database by using one of the following:
+Now that you have an Azure Cosmos DB account, the next step is to create an Azure Cosmos DB database. You can create a database by using one of the following:
 
-- The Azure portal, as described in [Create a Azure Cosmos DB collection and database using the Azure portal](documentdb-create-collection.md).
+- The Azure portal, as described in [Create an Azure Cosmos DB collection and database using the Azure portal](documentdb-create-collection.md).
 - The C# .NET samples in the [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) project of the [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) repository on GitHub.
 - The [Azure Cosmos DB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). The Azure Cosmos DB DocumentDB API has .NET, Java, Python, Node.js, and JavaScript API SDKs. 
 

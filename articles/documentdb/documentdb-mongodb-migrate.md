@@ -2,7 +2,7 @@
 title: Use mongoimport & mongorestore with Azure Cosmos DB's API for MongoDB | Microsoft Docs
 description: 'Learn how to use mongoimport and mongorestore to import data to an API for MongoDB account'
 keywords: mongoimport, mongorestore
-services: documentdb
+services: cosmosdb
 author: AndrewHoh
 manager: jhubbard
 editor: ''
@@ -36,7 +36,7 @@ If you are importing data from MongoDB and plan to use it with the DocumentDB AP
 
 ## Find your connection string information (host, port, username, and password)
 
-1. In the [Azure portal](https://portal.azure.com), in the left pane, click the **NoSQL (DocumentDB)** entry.
+1. In the [Azure portal](https://portal.azure.com), in the left pane, click the **NoSQL (Azure Cosmos DB)** entry.
 2. In the **Subscriptions** pane, select your account name.
 3. In the **Connection String** blade, click **Connection String**.  
 The right pane contains all the information you need to successfully connect to your account.
@@ -45,7 +45,7 @@ The right pane contains all the information you need to successfully connect to 
 
 ## Import data to API for MongoDB with mongoimport
 
-To import data to your DocumentDB account, use the following template to execute the import. Fill in *host*, *username*, and *password* with the values that are specific to your account.  
+To import data to your Azure Cosmos DB account, use the following template to execute the import. Fill in *host*, *username*, and *password* with the values that are specific to your account.  
 
 Template:
 
