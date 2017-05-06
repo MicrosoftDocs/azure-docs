@@ -112,21 +112,21 @@ When you create a pool, you can specify the following attributes. Some settings 
   * As with worker roles within Cloud Services, you can specify an *OS Version* (for more information on worker roles, see the [Tell me about cloud services](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) section in the [Cloud Services overview](../cloud-services/cloud-services-choose-me.md)).
   * As with worker roles, we recommend that you specify `*` for the *OS Version* so that the nodes are automatically upgraded, and there is no work required to cater to newly released versions. The primary use case for selecting a specific OS version is to ensure application compatibility, which allows backward compatibility testing to be performed before allowing the version to be updated. After validation, the *OS Version* for the pool can be updated and the new OS image can be installed--any running tasks are interrupted and requeued.
 
-* **Node type and target number**
+* **Compute node type** and **target number of nodes**
 
-    When you create a pool, you can specify which types of compute nodes you want and the target number for each. The two types of nodes are:
+    When you create a pool, you can specify which types of compute nodes you want and the target number for each. The two types of compute nodes are:
 
     - **Low-priority compute nodes.** Low-priority nodes take advantage of surplus capacity in Azure to run your Batch workloads. Low-priority nodes are more cost-effective than dedicated nodes, and enable workloads requiring a lot of compute power. For more information, see [Use low-priority VMs with Batch](batch-low-pri-vms.md).
-    
-        Low-priority compute nodes may be preempted when Azure has insufficient surplus capacity. If a node is preempted while running tasks, the tasks are requeued and run again once a node becomes available again. Low-priority nodes are a good option for workloads where the job completion time is flexible and the work is distributed across many nodes.
+
+        Low-priority compute nodes may be preempted when Azure has insufficient surplus capacity. If a node is preempted while running tasks, the tasks are requeued and run again once a compute node becomes available again. Low-priority nodes are a good option for workloads where the job completion time is flexible and the work is distributed across many nodes.
 
         Low-priority compute nodes are available only for Batch accounts created with the pool allocation mode set to **Batch Service**.
-    
-    - **Dedicated compute nodes.** Dedicated compute nodes are reserved for your workloads only. They are more expensive than low-priority nodes, but they are guaranteed to never be preempted.    
 
-    You can have both low-priority and dedicated nodes in the same pool. Each type of node &mdash; low-priority and dedicated &mdash; has its own target setting, for which you can specify the desired number of nodes. 
-    
-    The number of nodes is referred to as a *target* because, in some situations, your pool might not reach the desired number of nodes. For example, a pool might not achieve the target if it reaches the [core quota](batch-quota-limit.md) for your Batch account first. Or, the pool might not achieve the target if you have applied an auto-scaling formula to the pool that limits the maximum number of nodes.
+    - **Dedicated compute nodes.** Dedicated compute nodes are reserved for your workloads. They are more expensive than low-priority nodes, but they are guaranteed to never be preempted.    
+
+    You can have both low-priority and dedicated compute nodes in the same pool. Each type of node &mdash; low-priority and dedicated &mdash; has its own target setting, for which you can specify the desired number of nodes. 
+        
+    The number of compute nodes is referred to as a *target* because, in some situations, your pool might not reach the desired number of nodes. For example, a pool might not achieve the target if it reaches the [core quota](batch-quota-limit.md) for your Batch account first. Or, the pool might not achieve the target if you have applied an auto-scaling formula to the pool that limits the maximum number of nodes.
 
     For pricing information for both low-priority and dedicated compute nodes, see [Batch Pricing](https://azure.microsoft.com/pricing/details/batch/).
 
