@@ -72,6 +72,8 @@ done
 
 We now have 2 virtual machines distributed across the underlying hardware. 
 
+One thing you may encounter as you add VMs is that a particular VM size is no longer available to use within your availability set. This can happen if there is no longer enough capacity to add it while preserving the isolation rules the availability set enforces. You can check to see what VM sizes are available to use within an existing availability set using the `--availability-set list-sizes` parameter.
+
 ## Check for available VM sizes 
 
 You can add more VMs to the availability set later, but you need to know what VM sizes are available on the hardware. Use [az vm availability-set list-sizes](/cli/azure/availability-set#list-sizes) to list all the available sizes on the hardware cluster for the availability set.
