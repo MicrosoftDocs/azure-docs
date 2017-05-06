@@ -54,7 +54,7 @@ New-AzureRmResourceGroup -Name  $rg -Location $location
 ```
 
 ## Create a Data Lake Store account
-Every Data Lake Analytics account requires a default Data Lake Store account that it will use for storing logs. You can reuse an existing account or create a new account. 
+Every Data Lake Analytics account requires a default Data Lake Store account that it uses for storing logs. You can reuse an existing account or create a new account. 
 
 ```
 New-AdlStore -ResourceGroupName $rg -Name $adls -Location $location
