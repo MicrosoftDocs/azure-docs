@@ -1,3 +1,4 @@
+---
 title: User-initiated Azure Automation Runbook Action in Log Analytics  | Microsoft Docs
 description: This article describes how to run an Automation runbook from a Log Analytics search result on-demand.
 services: log-analytics
