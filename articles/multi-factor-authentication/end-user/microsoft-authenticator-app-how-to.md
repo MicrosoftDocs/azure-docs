@@ -99,3 +99,8 @@ From that point forward, when you're required to verify your sign-in, you select
 
 ![Push notification](./media/authenticator-app-how-to/touchid2.png)
 
+## Use the app when you sign in
+
+Once your account is added to the app, you may be prompted to do a test verification to make sure everything was configured correctly. After that, you're done! You don't need to do anything else until the next time you sign in.
+
+If you chose to use verification codes in the app, you'll start to see them on the home page. They change every 30 seconds so that you always have a new code when you need one. But you don't need to do anything with them until you sign in and are prompted to enter a verification code.  
