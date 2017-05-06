@@ -130,6 +130,9 @@ You can also accept the automatically generated name, which is already unique.
 
 To prepare for the next step, click **Explore additional Azure services**.
 
+> [!NOTE]
+> Do not click create on this dialog to continue, you will first need to setup a SQL Server in the next step.
+
 ![Configure web app name](./media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
 
 ### Create a SQL Server instance
