@@ -133,7 +133,7 @@ You can now go back to Graph Explorer and see query, modify, and work with this 
 
 You can now browse and query your new graph using Data Explorer.
 
-1. In Data Explorer, the new database appears in the Graphs pane. Expand **graphdb** database, expand **graphcoll** graph, click **Ent**, and then click **New Entity**. 
+1. In Data Explorer, the new database appears in the Graphs pane. Expand **graphdb** database, expand **graphcoll** graph, click **Entity**, and then click **New Entity**. 
 
    ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-dotnet/azure-cosmosdb-data-explorer-emulator-new-document.png)
   
