@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create custom VM images with the Azure PowerShell | Microsoft Docs
 description: Tutorial - Create a custom VM image using the Azure PowerShell.
 services: virtual-machines-windows
@@ -180,7 +180,8 @@ In this tutorial, you created a custom VM image. You learned how to:
 
 Advance to the next tutorial to learn about how highly available virtual machines.
 
-[Create highly available VMs](tutorial-availability-sets.md)
+> [!div class="nextstepaction"]
+> [Create highly available VMs](tutorial-availability-sets.md)
 
 
 
