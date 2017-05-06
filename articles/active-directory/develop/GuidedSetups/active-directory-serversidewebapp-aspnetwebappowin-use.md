@@ -84,15 +84,15 @@ In Visual Studio, create a new view to add the sign-in button and display user i
 @if (!Request.IsAuthenticated)
 {
     <!-- If the user is not authenticated, display the sign-in button -->
-    <a href="@Url.Action("SignIn", "Home")">
+    <a href="@Url.Action("SignIn", "Home")" style="text-decoration: none;">
         <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="300px" height="50px" viewBox="0 0 3278 522" class="SignInButton">
-        <defs><style type="text/css">fil0:hover {fill: #4B4B4B;}fnt0 {font-size: 260px;font-family: 'Segoe UI Semibold', 'Segoe UI';}</style></defs>
-        <g><rect class="fil0" x="2" y="2" width="3174" height="517" fill="black" />
+        <style type="text/css">.fil0:hover {fill: #4B4B4B;} .fnt0 {font-size: 260px;font-family: 'Segoe UI Semibold', 'Segoe UI'; text-decoration: none;}</style>
+        <rect class="fil0" x="2" y="2" width="3174" height="517" fill="black" />
         <rect x="150" y="129" width="122" height="122" fill="#F35325" />
         <rect x="284" y="129" width="122" height="122" fill="#81BC06" />
         <rect x="150" y="263" width="122" height="122" fill="#05A6F0" />
         <rect x="284" y="263" width="122" height="122" fill="#FFBA08" />
-        <text x="470" y="357" fill="white" class="fnt0">Sign in with Microsoft</text></g>
+        <text x="470" y="357" fill="white" class="fnt0">Sign in with Microsoft</text>
         </svg>
     </a>
 }
@@ -173,7 +173,7 @@ In Visual Studio, create a new view to display the user's claims in a web page:
     <title>Sign-In with Microsoft Sample</title>
     <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
 </head>
-<body style="padding:20px">
+<body style="padding:50px">
     <h3>Main Claims:</h3>
     <table class="table table-striped table-bordered table-hover">
         <tr><td>Name</td><td>@ViewBag.Name</td></tr>
