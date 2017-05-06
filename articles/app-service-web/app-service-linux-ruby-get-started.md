@@ -28,7 +28,7 @@ This tutorial shows you how to create a basic ruby on rails application locally 
 
 ## Prerequisites
 
-* [Ruby 2.3.3 or higher](https://www.ruby-lang.org/documentation/installation/#rubyinstaller)  installed on your development machine.
+* [Ruby 2.3.3 or higher](https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller)  installed on your development machine.
 * [Git](https://git-scm.com/downloads) is installed on your development machine
 * An [active Azure subscription](https://azure.microsoft.com/pricing/free-trial/)
 * This tutorial is written in the context of an Ubuntu environment. All system commands are bash specific.
@@ -130,7 +130,7 @@ To prepare a root landing page:
 
 ## Deploy your application
 
-In this tutorial, We use Git to deploy the local Ruby application to Azure.
+In this tutorial, we use Git to deploy the local Ruby application to Azure.
 
 1. The new Azure website already has a Git deployment configured. You will find the Git deployment URL by navigating to the following URL after inserting your web app name:
 
