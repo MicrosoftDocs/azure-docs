@@ -2,7 +2,7 @@
 title: Use Robomongo for Azure Cosmos DB | Microsoft Docs
 description: 'Learn how to use Robomongo with an Azure Cosmos DB: API for MongoDB account'
 keywords: robomongo
-services: documentdb
+services: cosmosdb
 author: AndrewHoh
 manager: jhubbard
 editor: ''
