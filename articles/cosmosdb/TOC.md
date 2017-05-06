@@ -9,7 +9,7 @@
 ### [Xamarin](create-documentdb-xamarin-dotnet.md)
 ## MongoDB
 ### [Node.js](create-mongodb-nodejs.md)
-## Gremlin graph
+## Graph
 ### [.NET](create-graph-dotnet.md)
 ### [Gremlin console](create-graph-gremlin-console.md)
 ## Table
@@ -31,8 +31,8 @@
 ### [Graph](tutorial-query-graph.md)
 ## [4 - Distribute globally](../documentdb/documentdb-portal-global-replication.md)
 ## 5 - Develop locally
-### [1 - Use the emulator](../documentdb/documentdb-nosql-local-emulator.md)
-### [2 - Export certificates](../documentdb/documentdb-nosql-local-emulator-export-ssl-certificates.md)
+### [Use the emulator](../documentdb/documentdb-nosql-local-emulator.md)
+### [Export certificates](../documentdb/documentdb-nosql-local-emulator-export-ssl-certificates.md)
 
 # Samples
 ## [Azure CLI 2.0](cli-samples.md)
@@ -43,38 +43,23 @@
 ## [Partitioning](../documentdb/documentdb-partition-data.md)
 ## [Consistency](../documentdb/documentdb-consistency-levels.md)
 ## [Throughput](../documentdb/documentdb-request-units.md)
-## [Multi-model APIs](../documentdb/documentdb-resources.md)
+## Multi-model APIs
 ### [DocumentDB](../documentdb/documentdb-introduction.md)
 ### [MongoDB](../documentdb/documentdb-protocol-mongodb.md)
 ### [Table](table-introduction.md)
 ### [Graph](graph-introduction.md)
 ## [Security](../documentdb/documentdb-nosql-database-security.md)
-## [TCO analysis](https://aka.ms/documentdb-tco-paper)
+## [TCO](https://aka.ms/documentdb-tco-paper)
 ## [Use cases](../documentdb/documentdb-use-cases.md)
 
 # How To Guides
 
-## Manage
-### [Cost-effective reads and writes](../documentdb/documentdb-key-value-store-cost.md)
-### [Expire data automatically](../documentdb/documentdb-time-to-live.md)
-### [Back up and restore](../documentdb/documentdb-online-backup-and-restore.md)
-### [Regional failover](../documentdb/documentdb-regional-failovers.md)
-### Automation
-#### [Azure CLI 2.0](../documentdb/documentdb-automation-resource-manager-cli.md)
-#### [Azure CLI 1.0: Create an account](../documentdb/documentdb-automation-resource-manager-cli-nodejs.md)
-#### [Azure CLI 1.0: Add or remove regions](../documentdb/documentdb-automation-region-management.md)
-#### [Azure PowerShell](../documentdb/documentdb-manage-account-with-powershell.md)
-### Security
-#### [Authorization](../documentdb/documentdb-secure-access-to-data.md)
-#### [Encryption at rest](../documentdb/documentdb-nosql-database-encryption-at-rest.md)
-#### [Firewall support](../documentdb/documentdb-firewall-support.md)
-
 ## Develop
 ### DocumentDB API
+#### [Resources](../documentdb/documentdb-resources.md)
 #### [SQL query](../documentdb/documentdb-sql-query.md)
 #### [SQL playground](https://www.documentdb.com/sql/demo)
 #### [Stored procedures, triggers, and UDFs](../documentdb/documentdb-programming.md)
-#### [Customize your indexes](../documentdb/documentdb-indexing-policies.md)
 #### [Multi-region development](../documentdb/documentdb-developing-with-multiple-regions.md)
 #### [Performance testing](../documentdb/documentdb-performance-testing.md)
 #### [Performance tips](../documentdb/documentdb-performance-tips.md)
@@ -118,7 +103,23 @@
 ### Table API
 #### [Table storage](https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts)
 ### [Change feed](../documentdb/documentdb-change-feed.md)
-### [Geospatial data](../documentdb/documentdb-geospatial.md)
+### [Geospatial](../documentdb/documentdb-geospatial.md)
+### [Indexing](../documentdb/documentdb-indexing-policies.md)
+
+## Manage
+### [Cost-effective reads and writes](../documentdb/documentdb-key-value-store-cost.md)
+### [Expire data automatically](../documentdb/documentdb-time-to-live.md)
+### [Back up and restore](../documentdb/documentdb-online-backup-and-restore.md)
+### [Regional failover](../documentdb/documentdb-regional-failovers.md)
+### Automation
+#### [Azure CLI 2.0](../documentdb/documentdb-automation-resource-manager-cli.md)
+#### [Azure CLI 1.0: Create an account](../documentdb/documentdb-automation-resource-manager-cli-nodejs.md)
+#### [Azure CLI 1.0: Add or remove regions](../documentdb/documentdb-automation-region-management.md)
+#### [Azure PowerShell](../documentdb/documentdb-manage-account-with-powershell.md)
+### Security
+#### [Encryption at rest](../documentdb/documentdb-nosql-database-encryption-at-rest.md)
+#### [Firewall support](../documentdb/documentdb-firewall-support.md)
+
 
 ## Integrate
 ### [Connect to Spark](../documentdb/documentdb-spark-connector.md)
