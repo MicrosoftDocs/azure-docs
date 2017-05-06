@@ -14,7 +14,7 @@ ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2017
+ms.date: 05/06/2017
 ms.author: janeng
 
 ---
@@ -22,15 +22,11 @@ ms.author: janeng
 
 In this tutorial you learn how to:
 > [!div class="checklist"]
-> * Review and apply recommendations
-> * Set up automatic recommendations
-> * Revert a recommendation
-> * View query resource usage
+> * Review, apply and revert recommendations
+> * Find queries with high resource utilization
 > * Find long running queries
 
-
-> [!NOTE]
-> To receive a recommendation, you need a continuous workload on a database with performance issues – missing an index for example.
+> You need a continuous workload on a database with performance issues – missing an index for example.
 >
 
 ## Log in to the Azure portal
@@ -105,10 +101,8 @@ Follow these steps to find the query consuming the most resources:
 
 In this tutorial you learned how to:
 > [!div class="checklist"]
-> * Review and apply recommendations
-> * Set up automatic recommendations
-> * Revert a recommendation
-> * View query resource usage
+> * Review, apply and revert recommendations
+> * Find queries with high resource utilization
 > * Find long running queries
 
 ## Next steps 
