@@ -52,7 +52,9 @@ For example, let’s say you create a container with 25,000 requests per second 
 ## Partition keys
 The choice of the partition key is an important decision that you’ll have to make at design time. You must pick a property name that has a wide range of values and is likely to have evenly distributed access patterns.
 
-> [!NOTE]> It is a best practice to have a partition key with a large number of distinct values (100s-1000s at a minimum).>
+> [!NOTE]
+> It is a best practice to have a partition key with a large number of distinct values (100s-1000s at a minimum).
+>
 
 The following table lists differences in terms between the different database models:
 
