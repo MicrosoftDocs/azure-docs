@@ -22,8 +22,6 @@ ms.author: edmaca
 
 Learn how to use Azure PowerShell to create Azure Data Lake Analytics accounts and then submit and run U-SQL jobs. For more information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 
-In this tutorial, you will develop a job that reads a tab separated values (TSV) file and converts it into a comma-separated values (CSV) file. To go through the same tutorial using other supported tools, click the tabs on the top of this section.
-
 ## Prerequisites
 Before you begin this tutorial, you must have the following information:
 
@@ -67,7 +65,7 @@ Get-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla
 
 ## Upload data to Data Lake Store
 
-Download the SearchLog.tsv file from the location below.
+Download the SearchLog.tsv file from the following location.
 
     https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/SearchLog.tsv
 
@@ -100,7 +98,7 @@ Submit the script.
 $job = Submit-AdlJob -AccountName $adla –ScriptPath "d:\test.usql"Submit
 ```
 
-List all the jobs in the account. This includes the currently running jobs and those jobs that have recently completed.
+List all the jobs in the account. The output includes the currently running jobs and those jobs that have recently completed.
 
 ```
 Get-AdlJob -Account $adla
@@ -124,10 +122,10 @@ After the job is completed, check if the output file exists by listing the files
 Get-AdlStoreChildItem -Account $adls -Path "/"
 ```
 
-You can also test if the file exists
+Check for the existence of a file.
 
 ```
--Account $adls -Path "/data.csv"
+Test-AdlStoreItem -Account $adls -Path "/data.csv"
 ```
 
 Download the file
