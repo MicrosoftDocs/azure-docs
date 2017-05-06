@@ -36,7 +36,7 @@ After reading this article, you will be able to answer the following questions:
 To get started with code, download the project from [Azure Cosmos DB Performance Testing Driver Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark). 
 
 ## Partitioning in Azure Cosmos DB
-In Azure Cosmos DB, you can store and query schema-less JSON documents with order-of-millisecond response times at any scale. Cosmos DB provides containers for storing data called **collections (document), graph or tables**. Containers are logical resources and can span one or more physical partitions or servers. The number of partitions is determined by Cosmos DB based on the storage size and the provisioned throughput of the container. Every partition in Cosmos DB has a fixed amount of SSD-backed storage associated with it, and is replicated for high availability. Partition management is fully managed by Azure Cosmos DB, and you do not have to write complex code or manage your partitions. Cosmos DB containers are **practically unlimited** in terms of storage and throughput. 
+In Azure Cosmos DB, you can store and query schema-less data with order-of-millisecond response times at any scale. Cosmos DB provides containers for storing data called **collections (for document), graphs, or tables**. Containers are logical resources and can span one or more physical partitions or servers. The number of partitions is determined by Cosmos DB based on the storage size and the provisioned throughput of the container. Every partition in Cosmos DB has a fixed amount of SSD-backed storage associated with it, and is replicated for high availability. Partition management is fully managed by Azure Cosmos DB, and you do not have to write complex code or manage your partitions. Cosmos DB containers are **practically unlimited** in terms of storage and throughput. 
 
 Partitioning is completely transparent to your application. Cosmos DB supports fast reads and writes, SQL and LINQ queries, JavaScript based transactional logic, consistency levels, and fine-grained access control via REST API calls to a single container resource. The service handles distributing data across partitions and routing query requests to the right partition. 
 
@@ -134,6 +134,7 @@ When Cosmos DB stores items, it distributes them evenly among partitions based o
 > 
 
 <a name="partitionedcollections"></a>
+<a name="single-partition-and-partitioned-collections"/></a>
 ## Single partition and partitioned containers
 DocumentDB supports the creation of both single-partition and partitioned containers. 
 
