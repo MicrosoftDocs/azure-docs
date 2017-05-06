@@ -63,18 +63,6 @@ New-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla -Location $location -
 Get-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla  
 ```
 
-## Upload data to Data Lake Store
-
-Download the SearchLog.tsv file from the following location.
-
-    https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/SearchLog.tsv
-
-Upload the file into the Data Lake Store account.
-
-```
-Import-AdlStoreItem -AccountName $adls -Path "D:\SearchLog.tsv" -Destination "/Samples/Data/SearchLog.tsv" 
-```
-
 ## Submit a U-SQL job
 
 Create a text file with following U-SQL script.
@@ -128,10 +116,16 @@ Check for the existence of a file.
 Test-AdlStoreItem -Account $adls -Path "/data.csv"
 ```
 
-Download the file
+Download the file.
 
 ```
 Export-AdlStoreItem -AccountName $adls -Path "/data.csv"  -Destination "D:\data.csv"
+```
+
+Upload a file.
+
+```
+Import-AdlStoreItem -AccountName $adls -Path "D:\data.tsv" -Destination "/data_copy.csv" 
 ```
 
 ## See also
