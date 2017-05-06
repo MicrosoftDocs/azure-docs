@@ -27,13 +27,13 @@ For more information about queries using the Table API (preview), see [Querying 
 
 ## Sample table
 
-The queries in this article use the following sample table.
+The queries in this article use the following sample table:
 
 ![Table showing sample data](./media/tutorial-query-table/cosmosdb-query-table2.png)
 
 ## Prerequisites
 
-For these queries to work, you must have an Azure Cosmos DB account and have entity data in the collection. Dont' have any of those? Complete the [5-minute quickstart](https://aka.ms/acdbtnetqs) or the [developer tutorial](https://aka.ms/acdbtabletut) to create an account and populate your database.
+For these queries to work, you must have an Azure Cosmos DB account and have entity data in the collection. Don't have any of those? Complete the [5-minute quickstart](https://aka.ms/acdbtnetqs) or the [developer tutorial](https://aka.ms/acdbtabletut) to create an account and populate your database.
 
 ## Example query 1
 Given the sample family table above, the following OData query returns the documents, where RowKey matches Walter and PartitionKey matches Harp.
