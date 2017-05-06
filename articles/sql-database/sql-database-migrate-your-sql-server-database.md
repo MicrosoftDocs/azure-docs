@@ -15,14 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 04/20/2017
+ms.date: 05/06/2017
 ms.author: janeng
 
 ---
 
 # Migrate your SQL Server database to Azure SQL Database
 
-In this tutorial, you migrate an existing SQL Server database to Azure SQL Database using the Microsoft Data Migration Assistant and go through the required steps from preparing for migration to performing the actual data migration, and connecting to the migrated database after completed migration. 
+In this tutorial, you learn to:
+
+> [!div class="checklist"]
+> * Prepare a database in a SQL Server for migration to Azure SQL Database
+> * Export the database to a BACPAC file
+> * Import the BACPAC file into an Azure SQL Database
 
 > [!IMPORTANT]
 > To fix compatibility issues, use [Visual Studio Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt). 
@@ -218,14 +223,13 @@ You can change the service tier, performance level, and compatibility level usin
    ![change compatibility level](./media/sql-database-migrate-your-sql-server-database/compat-level.png)
 
 ## Next steps 
+In this tutorial, you learned to:
 
-- For an overview of migration, see [Database migration](sql-database-cloud-migrate.md).
-- For a discussion of T-SQL differences, see [Resolving Transact-SQL differences during migration to SQL Database](sql-database-transact-sql-information.md).
-- To connect and query using Visual Studio Code, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
-- To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
-- To connect and query using PHP, see [Connect and query with PHP](sql-database-connect-query-php.md).
-- To connect and query using Node.js, see [Connect and query with Node.js](sql-database-connect-query-nodejs.md).
-- To connect and query using Java, see [Connect and query with Java](sql-database-connect-query-java.md).
-- To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
-- To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).
+> [!div class="checklist"]
+> * Prepare a database in a SQL Server for migration to Azure SQL Database
+> * Export the database to a BACPAC file
+> * Import the BACPAC file into an Azure SQL Database
+
+[Database migration overview](sql-database-cloud-migrate.md).
+[Resolving Transact-SQL differences during migration to SQL Database](sql-database-transact-sql-information.md).
 
