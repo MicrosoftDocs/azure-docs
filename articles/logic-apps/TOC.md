@@ -83,17 +83,11 @@
 ## Overview
 ### [Serverless in Azure](logic-apps-serverless-overview.md)
 ## Get Started
-### [Create a serverless app in the Azure portal](logic-apps-serverless-get-started-portal.md)
 ### [Create a serverless app in Visual Studio](logic-apps-serverless-get-started-vs.md)
 ## Scenarios and Walkthroughs
 ### [Gather customer feedback](logic-apps-scenario-social-serverless.md)
 ### [Send automated emails](https://channel9.msdn.com/Blogs/Microsoft-Integration/Build-and-Deploy-Serverless-Part-1)
-### [Route files from an FTP server](logic-apps-serverless-ftp-process.md)
-### [Process IOT Messages](logic-apps-serverless-iot-process.md)
-### [Synchronize data from Dynamics to SQL](logic-apps-serverless-dynamics-sql.md)
 ### [B2B/EDI order processing](logic-apps-enterprise-integration-overview.md)
-## Automate & Deploy
-### [Deploy a serverless solution](logic-apps-serverless-deploy.md)
 
 # Reference
 ## [Workflow definition language](logic-apps-workflow-definition-language.md)

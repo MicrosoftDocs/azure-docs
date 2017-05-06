@@ -40,9 +40,7 @@ Managing resources in Azure are done within a resource group.  A resource group 
 
 1. In Visual Studio, click to add a **New Project**
 1. In the **Cloud** category, select to create an Azure **Resource Group** project  
-
-    > [!NOTE] If you do not see the category or project listed, be sure you have the Azure SDK installed for Visual Studio
-
+ * If you do not see the category or project listed, be sure you have the Azure SDK installed for Visual Studio
 1. Give the project a name and location, and select **Ok** to create
     Visual Studio prompts to select a template.  You could select to start from Blank, start with a Logic App or other resource.  However, in this case we use an Azure Quickstart Template to get us started with a serverless app.
 1. Select to show templates from **Azure Quickstart**
