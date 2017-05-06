@@ -97,7 +97,7 @@ NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion ConfigVe
 ```
 
 ### Remove the cluster
-A Service Fabric cluster is made up of other Azure resources in addition to the cluster resource itself. So to completely delete a Service Fabric cluster you also need to delete all the resources it is made of. The simplest way to delete the cluster and all it's resources is to delete the resource group. For other ways to delete a cluster or to delete some (but not all) the resources in a resource group, see [Delete a cluster](service-fabric-cluster-delete.md)
+A Service Fabric cluster is made up of other Azure resources in addition to the cluster resource itself. So to completely delete a Service Fabric cluster you also need to delete all the resources it is made of. The simplest way to delete the cluster and all the resources it consumes is to delete the resource group. For other ways to delete a cluster or to delete some (but not all) the resources in a resource group, see [Delete a cluster](service-fabric-cluster-delete.md)
 
 Delete a resource group in the Azure portal:
 1. Navigate to the Service Fabric cluster you want to delete.
@@ -118,7 +118,7 @@ Delete a resource group in the Azure portal:
 Get-Command -Module AzureRM.ServiceFabric 
 ```
 
-You should see an out put similar to the following.
+You should see an output similar to the following.
 
 ![ps-list][ps-list]
 
@@ -132,7 +132,7 @@ Select-AzureRmSubscription -SubscriptionId "Subcription ID"
 
 ```
 
-4. Run the following command to now create a secure cluster. Do not forget to customize the parameters. Use the parameter -ClusterSize to specify the number of VMs you need in the cluster, the valid values for the cluster size is 1, 3 to 99 vms.
+4. Run the following command to now create a secure cluster. Do not forget to customize the parameters. 
 
 
 ````powershell
@@ -150,11 +150,11 @@ New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc
 
 ````
 
-The command can take anywhere from 10 mins to 30 mins to complete, at the end of it, you should get an output similar to the following. The output has information about the certificate, the keyvault to which it was uploaded, and the local location to which the certificate was stored. 
+The command can take anywhere from 10 minutes to 30 minutes to complete, at the end of it, you should get an output similar to the following. The output has information about the certificate, the keyvault to which it was uploaded, and the local location to which the certificate was stored. 
 
 ![ps-out][ps-out]
 
-Copy the entire output and save it off in a text file. You will need to refer to it, later when you try to access this secure cluster. Take a note of the following information from the output, they should look like the following
+Copy the entire output and save it off in a text file. You may need to refer to it, later when you try to access your secure cluster. Take a note of the following information from the output, they should look like the following
  
 
 - **CertificateSavedLocalPath** : c:\Mycertificates\mycluster20170504141137.pfx
@@ -162,13 +162,10 @@ Copy the entire output and save it off in a text file. You will need to refer to
 - **ManagementEndpoint** : https://mycluster.southcentralus.cloudapp.azure.com:19080
 - **ClientConnectionEndpointPort** : 19000
 
-### Putting together the FQDN for your cluster
-
-Based on the out put above, you can now formulate the fully qualified domain name 9FQDN) for your cluster. It is a part the ManagementEndPoint without the "http://" and ":19080". It will in the format of <cluster name>.<Azure region>.cloudapp.azure.com. for clusters deployed out side United states, the last part of the FQDN may not be ".com". Your cluster FQDN should now look like "mycluster.southcentralus.cloudapp.azure.com"
-
-### Set up the certificate on the remote computer
+### Set up the certificate on your local machine
   
-In order to now connect to the cluster you just set up, you need to install the certificate into the Personal (My) store of the local computer or the current user. 
+In order to connect to the cluster you just set up, you need to install the certificate into the Personal (My) store of the local computer or the current user. 
+
 Run the following PowerShell cmdlet to set up the client certificate on the computer from which you access the cluster.
 
 ```powershell
@@ -177,17 +174,10 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
         -Password (ConvertTo-SecureString -String certpwd -AsPlainText -Force)
 ```
 
-Since this is a self-signed certificate, you need to import it to your machine's "trusted people" store before you can use this certificate to connect to a secure cluster.
+You are now ready to connect to your secure cluster.
 
-```powershell
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople `
--FilePath C:\mycertificates\the name of the cert.pfx `
--Password (ConvertTo-SecureString -String certpwd -AsPlainText -Force)
-```
+### Connect to a secure cluster 
 
-you are now ready to connect to your secure cluster
-
-### Connect to a secure cluster using a client certificate
 Run the following PowerShell command to connect to a secure cluster. Provide the cluster certificate thumbprint and the thumbprint of the client certificate that has been granted permissions for cluster management. The certificate details must match a certificate that was used to set up the cluster. 
 
 ```powershell
@@ -202,7 +192,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 When the parameters are filled in, the command looks like the following example: 
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azure.com:19000 `
+Connect-ServiceFabricCluster -ConnectionEndpoint mycluster.southcentralus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `
           -X509Credential -ServerCertThumbprint C4C1E541AD512B8065280292A8BA6079C3F26F10 `
           -FindType FindByThumbprint -FindValue C4C1E541AD512B8065280292A8BA6079C3F26F10 `
@@ -216,10 +206,12 @@ Get your cluster health to make sure that you are indeed connected and the clust
 Get-ServiceFabricClusterHealth
 
 ```
+### Publish your apps to your cluster from Visual Studio
+
+Now that you have set up an azure cluster, you can publish your applications to it from Visual Studio by following the [Publish to an arbitrary cluster endpoint](service-fabric-publish-app-remote-cluster.md) document. 
 
 ### Remove the cluster
-A Service Fabric cluster is made up of other Azure resources in addition to the cluster resource itself. So to completely delete a Service Fabric cluster you also need to delete all the resources it is made of. The simplest way to delete the cluster and all it's resources is to delete the resource group. For other ways to delete a cluster or to delete some (but not all) the resources in a resource group, see [Delete a cluster](service-fabric-cluster-delete.md)
-
+A Service Fabric cluster is made up of other Azure resources in addition to the cluster resource itself. So to completely delete a Service Fabric cluster you also need to delete all the resources it is made of. The simplest way to delete the cluster and all the resources is consumes is to delete the resource group. 
 
 ```powershell
 
