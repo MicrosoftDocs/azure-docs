@@ -310,4 +310,5 @@ In this tutorial, you learned about basic VM creation and management such as how
 
 Advance to the next tutorial to learn about VM disks.  
 
-[Create and Manage VM disks](./tutorial-manage-disks.md)
+> [!div class="nextstepaction"]
+> [Create and Manage VM disks](./tutorial-manage-disks.md)
