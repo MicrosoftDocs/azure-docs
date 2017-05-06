@@ -150,16 +150,16 @@ Follow these links to learn more about Python Tools for Visual Studio, Django an
 * [Django Documentation]
 * [MySQL]
 
-For more information, see the [Python Developer Center](/develop/python/).
+For more information, see the [Python Developer Center].
 
 <!--Link references-->
 
-[Python Developer Center]: /develop/python/
 [Azure Cloud Services]: ../cloud-services/cloud-services-python-ptvs.md
 
 <!--External Link references-->
 
 [Azure Portal]: https://portal.azure.com
+[Python Developer Center]: https://azure.microsoft.com/develop/python/
 [Python Tools for Visual Studio]: https://www.visualstudio.com/vs/python/
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Python Tools 2.2 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
