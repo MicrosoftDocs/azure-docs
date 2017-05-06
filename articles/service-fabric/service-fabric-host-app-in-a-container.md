@@ -31,7 +31,7 @@ This tutorial shows you how to host an existing ASP.NET application in a Windows
 
 ## Containerize the application
 
-To start running our application in a container, we need to add **Docker Support** to the project in Visual Studio. When you add **Docker support** to the application, two things happen. First, a _docker_ file is added to the project. This new file describes how the container image is to be built. Then second, a new _docker-compose_ project is added to the solution. This new project contains a few docker-compose file, which can be used to describe how the container will be run.
+To start running our application in a container, we need to add **Docker Support** to the project in Visual Studio. When you add **Docker support** to the application, two things happen. First, a _docker_ file is added to the project. This new file describes how the container image is to be built. Then second, a new _docker-compose_ project is added to the solution. This new project contains a few docker-compose file, which can be used to describe how the container is run.
 
 More info on working with [Visual Studio Container Tools][link-visualstudio-container-tools].
 
@@ -43,14 +43,14 @@ More info on working with [Visual Studio Container Tools][link-visualstudio-cont
 
 ### Add support for SQL
 
-This application uses SQL as the data provider, so a SQL Server is required to run the application. We will use SQL Server running in a container in this tutorial.
-To tell Docker that we want to run a SQL Server in a container, we can reference a SQL Server container image in our docker-compose.override.yml file in the docker-compose project. That way the SQL Server running in the container will be used when debugging the application in Visual Studio.
+This application uses SQL as the data provider, so a SQL Server is required to run the application. We use SQL Server running in a container in this tutorial.
+To tell Docker that we want to run a SQL Server in a container, we can reference a SQL Server container image in our docker-compose.override.yml file in the docker-compose project. That way the SQL Server running in the container is used when debugging the application in Visual Studio.
 
 1. Open **Solution Explorer**.
 
 2. Open **docker-compose** > **docker-compose.yml** > **docker-compose.override.yml**.
 
-3. Under the `services:` node, add a new node named `db:`. This will describe the SQL Server to startup in a container.
+3. Under the `services:` node, add a new node named `db:`. This node declares to run a SQL Server in a container.
 
    ```yml
      db:
@@ -68,10 +68,10 @@ To tell Docker that we want to run a SQL Server in a container, we can reference
 
    >[!NOTE] You can use any SQL Server you prefer for local debugging, as long as it is reachable from your host. However, **localdb** does not support `container -> host` communication.
 
-   >[!NOTE] If you always want to always run your SQL Server in a container, you can choose to add the above to the docker-compose.yml file instead of the docker-compose.override.yml file.
+   >[!NOTE] If you always want to always run your SQL Server in a container, you can choose to add the preceding to the docker-compose.yml file instead of the docker-compose.override.yml file.
 
 
-4. Modify the `fabrikamfiber.web` node, add a new child node named `depends_on:`. This will esure that the `db` service (the SQL Server container) will start before our web application (fabrikamfiber.web).
+4. Modify the `fabrikamfiber.web` node, add a new child node named `depends_on:`. This ensures that the `db` service (the SQL Server container) starts before our web application (fabrikamfiber.web).
 
    ```yml
      fabrikamfiber.web:
@@ -89,11 +89,11 @@ To tell Docker that we want to run a SQL Server in a container, we can reference
    <add name="FabrikamFiber-DataWarehouse" connectionString="Data Source=db,1433;Database=MusicStore;User Id=sa;Password=Password1;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
    ```
 
-   >[!NOTE] If you want to reference a different SQL Server when building a release build of you web application, add another connection string to your web.release.config file. This will ensure that Visual Studio uses web config transform to genereate the right web.donfig file for each build configuration.
+   >[!NOTE] If you want to use a different SQL Server when building a release build of your web application, add another connection string to your web.release.config file.
 
 6. Press **F5** to run and debug the application in your container.
 
-   >[!NOTE] If this is the first time you have run a Windows container on your machine, Docker CE must pull down the base images for your containers first. The image is approximately 14GB.
+   >[!NOTE] If it is the first time you have run a Windows container on your machine, Docker CE must pull down the base images for your containers first. The image is 14GB.
 
    Edge opens your application's defined launch page using the IP address of the container on the internal NAT network (typically 172.x.x.x). To learn more about debugging applications in containers using Visual Studio 2017, see [this article][link-debug-container].
 
@@ -101,16 +101,16 @@ To tell Docker that we want to run a SQL Server in a container, we can reference
 
 The application is now ready to be build and packaged in a container. Once you have the container image built on your machine, you can push it to any container registry and pull it down to any host to run.
 
-For the remainder of this tutorial, you will be using Visual Studio Team Services to build and deploy the container, push it to an Azure Container Registry and deploy it to Service Fabric, running in Azure.
+For the remainder of this tutorial, you are using Visual Studio Team Services to build and deploy the container, push it to an Azure Container Registry and deploy it to Service Fabric, running in Azure.
 
 ## Create a Service Fabric cluster
 
 If you already have a Service Fabric cluster to deploy your application to, you can skip this step. Otherwise, let us go ahead and create a Service Fabric Cluster.
 
->[!NOTE] The following procedure will create a Service Fabric cluster, secured by a self-signed certificate, that will be paces in a KeyVault, created as part of the deployment. If you want to bring your own certificate or use Azure Active Directory authentication, see the [Create a Service Fabric cluster by using Azure Resource Manager][link-servicefabric-create-secure-clusters] article for more information.
+>[!NOTE] The following procedure creates a Service Fabric cluster, secured by a self-signed certificate, that is placed in a KeyVault, created as part of the deployment. For more information on using Azure Active Directory authentication, see the [Create a Service Fabric cluster by using Azure Resource Manager][link-servicefabric-create-secure-clusters] article for more information.
 
-1. Download a local copy of the Azure template and parameters files referenced below.
-    * [Azure Resource Manager template for Service Fabric](http://aka.ms/securepreviewonelineclustertemplate) - The resource manager template that defines a Service Fabric Cluster.
+1. Download a local copy of the Azure template and parameters files referenced in the following.
+    * [Azure Resource Manager template for Service Fabric](http://aka.ms/securepreviewonelineclustertemplate) - The Resource Manager template that defines a Service Fabric Cluster.
     * [Template parameters file](http://aka.ms/securepreviewonelineclusterparameters) - A parameters file for you to customize the cluster deployment.
 2. Customize the following parameters in the parameters file:
   
@@ -156,11 +156,11 @@ If you already have a Service Fabric cluster to deploy your application to, you 
    
     Once the configuration finished, it will output information about the cluster created in Azure, as well as copy the certificate to the -CertificateOutputFolder directory.
 
-  8. Double-click on the certificate to install in on your local machine.
+  8. Double-click the certificate to install in on your local machine.
 
 ## Deploy with Visual Studio
 
-To setup deployment using Visual Studio Team Services, you will need the [Continuous Delivery Tools extension for Visual Studio 2017][link-visualstudio-cd-extension]. This extension makes it easy to deploy to Azure by configuring a Visual Studio Team Services and get your app deployed to your Service Fabric cluster.
+To set up deployment using Visual Studio Team Services, you need to install the [Continuous Delivery Tools extension for Visual Studio 2017][link-visualstudio-cd-extension]. This extension makes it easy to deploy to Azure by configuring a Visual Studio Team Services and get your app deployed to your Service Fabric cluster.
 
 To get started, your code must be hosted in source control. The rest of this section assumes **git** is being used.
 
@@ -182,22 +182,23 @@ Now that your code is synchronized with a VSTS source repository, you can config
 
 3. Set **Host Type** to **Service Fabric Cluster**.
 
-   >[!NOTE] Depending on the types of containers you are building, we will be adding more options for you to host your application in containers in Azure. 
+   >[!NOTE] Depending on the types of containers you are building, we are adding more options for you to host your application in containers in Azure. 
 
 4. Set **Target Host** to the service fabric cluster you created in the previous section.
 
 5. Choose a **Container Registry** to publish your container to.
 
-   >[!TIP] Use the **Edit** button to create a new container registry.
+   >[!TIP] Use the **Edit** button to create a container registry.
 	
 6. Press OK.
 
    ![setup service fabric continuous integration][image-setup-ci]
 
-Once the continuous delivery is completed, you can deploy your Service Fabric container whenever you pushes updates to the repository.
+Once the continuous delivery is completed, you can deploy your Service Fabric container whenever you push updates to the repository.
 
 7. Go ahead and start a build using Team Explorer and see your container application running in Service Fabric.
 
+Now that you have containerized and deployed the Fabrikam Call Center solution, you can open the [Azure Portal][link-azure-portal] and see the application running in Service Fabric. The try the application, use the URL of your Service Fabric cluster.
 
 ## Next steps
 
@@ -216,6 +217,7 @@ Once the continuous delivery is completed, you can deploy your Service Fabric co
 [link-vsts-containers]: http://docs.microsoft.com
 [link-servicefabric-containers]: ~/azure/service-fabric/service-fabric-containers-overview
 [link-servicefabric-createapp]: ~/azure/service-fabric/service-fabric-create-your-first-application-in-visual-studio
+[link-azure-portal]: http://portal.azure.com
 
 [image-web-preview]: media/service-fabric-host-app-in-a-container/fabrikam-web-sample.png
 [image-source-control]: media/service-fabric-host-app-in-a-container/add-to-source-control.png
