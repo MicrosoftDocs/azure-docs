@@ -1,4 +1,4 @@
----
+﻿---
 title: Design your first Azure Database for MySQL database - Azure Portal | Microsoft Docs
 description: This tutorial explains how to create and manage Azure Database for MySQL server and database using Azure Portal.
 services: mysql
@@ -13,6 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: portal
 ms.date: 05/10/2017
 ---
+
 # Design your first Azure Database for MySQL database
 In this tutorial, you will use the Azure portal to create a server with a server-level firewall. You will then use Workbench GUI tool to create a database, a table in the database, load data into that table, query table, and update data in the table. Finally, you will use the server’s automated backups to restore the database to an earlier point-in-time before you added this new table. 
 
@@ -102,6 +103,7 @@ Now that we have a table, we can insert some data into it. At the open command p
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
 ```
+
 Now you have two rows of sample data into the table you created earlier.
 
 ## Query and update the data in the tables
@@ -137,4 +139,4 @@ Imagine you have accidentally deleted this table. This is something you cannot e
 3.	Click **OK** to restore the server to [restore to a point in time](./howto-restore-server-portal.md) before the tables was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, provided that it is within the retention period for your service tier.
 
 ## Next Steps
--	For Azure CLI samples of common tasks, see [Azure Database for MySQL - Azure CLI samples](./sample-scripts-azure-cli.md).
+- For tutorial on how to design Azure Database for MySQL database using Azure CLI, please refer to [Design your first Azure Database for MySQL database using Azuzre CLI](./tutorial-design-database-using-cli.md).
