@@ -221,7 +221,7 @@
 - name: Reference
   items:
   - name: PowerShell
-    href: https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurestackps-1.2.9
+    href: /powershell/azure/overview?view=azurestackps-1.2.9
 - name: Resources
   items:
   - name: MSDN forum
