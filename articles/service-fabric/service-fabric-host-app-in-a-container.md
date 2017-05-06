@@ -121,26 +121,26 @@ If you already have a Service Fabric cluster to deploy your application to, you 
    | adminPassword   | Password of the local admin account on the cluster virtual machines. |
    | clusterLocation | The Azure region to deploy the cluster to. |
 
-3. Open PowerShell.
-4. Log in to Azure.
+3. Open **PowerShell**.
+4. **Log in** to Azure.
 
    ```powershell
    Login-AzureRmAccount
    ```
 
-5. Select the subscription you want to deploy the cluster in.
+5. Select the **subscription** you want to deploy the cluster in.
 
    ```powershell
    Select-AzureRmSubscription -SubscriptionId <subscription-id>
    ```
 
-6. Create and encrypt a password for the certificate used by Service Fabric.
+6. Create and **encrypt a password** for the certificate used by Service Fabric.
 
    ```powershell
    $pwd = "<your password>" | ConvertTo-SecureString -AsPlainText -Force
    ```
 
-7. Create the cluster, by running the following command:
+7. **Create the cluster**, by running the following command:
 
    ```powershell
    New-AzureRmServiceFabricCluster 
@@ -156,7 +156,7 @@ If you already have a Service Fabric cluster to deploy your application to, you 
    
     Once the configuration finished, it will output information about the cluster created in Azure, as well as copy the certificate to the -CertificateOutputFolder directory.
 
-  8. Double-click the certificate to install in on your local machine.
+8. **Double-click** the certificate to install in on your local machine.
 
 ## Deploy with Visual Studio
 
@@ -190,13 +190,13 @@ Now that your code is synchronized with a VSTS source repository, you can config
 
    >[!TIP] Use the **Edit** button to create a container registry.
 	
-6. Press OK.
+6. Press **OK**.
 
    ![setup service fabric continuous integration][image-setup-ci]
+   
+   Once the continuous delivery is completed, you can deploy your Service Fabric container whenever you push updates to the repository.
 
-Once the continuous delivery is completed, you can deploy your Service Fabric container whenever you push updates to the repository.
-
-7. Go ahead and start a build using Team Explorer and see your container application running in Service Fabric.
+7. **Start a build** using **Team Explorer** and see your container application running in Service Fabric.
 
 Now that you have containerized and deployed the Fabrikam Call Center solution, you can open the [Azure portal][link-azure-portal] and see the application running in Service Fabric. The try the application, use the URL of your Service Fabric cluster.
 
