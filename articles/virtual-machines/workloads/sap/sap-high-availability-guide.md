@@ -45,7 +45,7 @@ ms.custom: H1Hack27Feb2017
 [ha-guide]:sap-high-availability-guide.md
 
 [planning-guide]:planning-guide.md
-[planning-guide-11]:planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058
+[planning-guide-11]:planning-guide.md
 [planning-guide-2.1]:planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803
 [planning-guide-2.2]:planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10
 
@@ -202,7 +202,7 @@ The Azure Resource Manager and Azure classic deployment models are different in 
 - Support for SAP multi-SID scenarios
 
 ### <a name="f76af273-1993-4d83-b12d-65deeae23686"></a> Resource groups
-In Azure Resource Manager, you can use resource groups to manage all the application resources in your Azure subscription. An integrated approach, in a resource group, all resources have the same life cycle. For example, all resources are created at the same time and they are deleted at the same time. Learn more about [resource groups](../../azure-resource-manager/resource-group-overview.md#resource-groups).
+In Azure Resource Manager, you can use resource groups to manage all the application resources in your Azure subscription. An integrated approach, in a resource group, all resources have the same life cycle. For example, all resources are created at the same time and they are deleted at the same time. Learn more about [resource groups](../../../azure-resource-manager/resource-group-overview.md#resource-groups).
 
 ### <a name="3e85fbe0-84b1-4892-87af-d9b65ff91860"></a> Azure internal load balancer dependency on the Azure resource group
 
