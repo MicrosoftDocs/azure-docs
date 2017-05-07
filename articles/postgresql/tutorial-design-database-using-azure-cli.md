@@ -17,7 +17,7 @@ ms.date: 05/10/2017
 # Design your first Azure Database for PostgreSQL using Azure CLI 
 In this tutorial, you use Azure CLI (command-line interface) and other utilities to learn how to:
 > [!div class="checklist"]
-> * Create a Azure Database for MySQL
+> * Create an Azure Database for MySQL
 > * Configure the server firewall
 > * Use [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility to create a database
 > * Load sample data
@@ -46,19 +46,19 @@ Create an [Azure resource group](../azure-resource-manager/resource-group-overvi
 az group create --name myresourcegroup --location westus
 ```
 
-## Create an Azure PostgreSQL server
+## Create an Azure Database for PostgreSQL server
 
-Create an [Azure PostgreSQL server](overview.md) using the **az postgres server create** command. A server contains a group of databases managed as a group. 
+Create an [Azure Database for PostgreSQL server](overview.md) using the **az postgres server create** command. A server contains a group of databases managed as a group. 
 
-The following example creates a server called `mypgserver-20170401` in your resource group `myresourcegroup` with server admin login `mylogin`. Name of a server maps to DNS name and is thus required to be globally unique. Substitute the `<server_admin_password>` with your own value.
+The following example creates a server called `mypgserver-20170401` in your resource group `myresourcegroup` with server admin login `mylogin`. Name of a server maps to DNS name and is thus required to be globally unique in Azure. Substitute the `<server_admin_password>` with your own value.
 ```azurecli
-az postgres server create --resource-group myresourcegroup --name mypgserver-20170401  --location westus --admin-user mylogin --admin-password <server_admin_password> --performance-tier Basic --compute-units 50 --version 9.6
+az postgres server create --resource-group myresourcegroup --name mypgserver-20170401 --location westus --admin-user mylogin --admin-password <server_admin_password> --performance-tier Basic --compute-units 50 --version 9.6
 ```
 
 > [!IMPORTANT]
 > The server admin login and password that you specify here are required to log in to the server and its databases later in this quick start. Remember or record this information for later use.
 
-By default, **postgres** database gets created under your server. The [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) database is a default database meant for use by users, utilities and third party applications. 
+By default, **postgres** database gets created under your server. The [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) database is a default database meant for use by users, utilities, and third-party applications. 
 
 
 ## Configure a server-level firewall rule
@@ -74,26 +74,65 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 > Azure PostgreSQL server communicates over port 5432. If you are trying to connect from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL Database server unless your IT department opens port 5432.
 >
 
-## Connect to Azure Database for PostgreSQL using psql 
+## Get the connection information
 
-If your client computer has PostgreSQL installed, you can use a local instance of [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) to connect to a Azure PostgreSQL server. Let’s now use the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) command line utility to connect to the Azure Database for PostgreSQL server. Connect to the default database called **postgres** on your PostgreSQL server **mypgserver-20170401.postgres.database.azure.com** using access credentials:
+To connect to your server, you need to provide host information and access credentials.
 ```azurecli
-psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --password --dbname=postgres
+az postgres server show --resource-group myresourcegroup --name mypgserver-20170401
 ```
 
-## Create a New Database
-Once you’re connected to the server, create a blank database to work with.
+The result is in JSON format. Make a note of the **administratorLogin** and **fullyQualifiedDomainName**.
+```json
+{
+  "administratorLogin": "mylogin",
+  "fullyQualifiedDomainName": "mypgserver-20170401.postgres.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/mypgserver-20170401",
+  "location": "westus",
+  "name": "mypgserver-20170401",
+  "resourceGroup": "myresourcegroup",
+  "sku": {
+    "capacity": 50,
+    "family": null,
+    "name": "PGSQLS2M50",
+    "size": null,
+    "tier": "Basic"
+  },
+  "sslEnforcement": null,
+  "storageMb": 51200,
+  "tags": null,
+  "type": "Microsoft.DBforPostgreSQL/servers",
+  "userVisibleState": "Ready",
+  "version": "9.6"
+}
+```
+
+## Connect to Azure Database for PostgreSQL database using psql
+
+If your client computer has PostgreSQL installed, you can use a local instance of [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) to connect to an Azure PostgreSQL server. Let's now use the psql command-line utility to connect to the Azure PostgreSQL server.
+
+1. Run the following psql command to connect to an Azure Database for PostgreSQL server
+```bash
+psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
+```
+
+  For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mypgserver-20170401.postgres.database.azure.com** using access credentials. Enter the `<server_admin_password>` you chose when prompted for password.
+  
+  ```bash
+psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 ---dbname=postgres
+```
+
+2.  Once you are connected to the server, create a blank database at the prompt.
 ```bash
 CREATE DATABASE mypgsqldb;
 ```
 
-At the prompt, run the following command to switch connection to this newly created database:
+3.  At the prompt, execute the following command to switch connection to the newly created database **mypgsqldb**:
 ```bash
 \c mypgsqldb
 ```
 
 ## Create tables in the database
-Now that you know how to connect to the Azure PostgreSQL database, we can go over how to complete some basic tasks.
+Now that you know how to connect to the Azure Database for PostgreSQL, we can go over how to complete some basic tasks.
 
 First, we can create a table and load it with some data. Let's create a table that tracks inventory information.
 ```sql
@@ -104,7 +143,7 @@ CREATE TABLE inventory (
 );
 ```
 
-You can see the newly created table in the list of tabvles now by typing:
+You can see the newly created table in the list of tables now by typing:
 ```bash
 \dt
 ```
@@ -137,12 +176,12 @@ SELECT * FROM inventory;
 ## Restore a database to a previous point in time
 Imagine you have accidentally deleted a table. This is something you cannot easily recover from. Azure Database for PostgreSQL allows you to go back to any point-in-time (in the last up to 7 days (Basic) and 35 days (Standard)) and restore this point-in-time to a new server. You can use this new server to recover your deleted data. The following steps restore the sample server to a point before the table was added.
 
-For the Restore you’ll require the following information:
-- Restore point: Select a point-in-time that occurs before the server was changed. Must be greater than or equal to the source database's Oldest backup value.
-- Target server: Provide a new server name you want to restore to
-- Source server: Provide the name of the server you want to restore from
-- Location: You cannot select the region, by default it is same as the source server
-- Pricing tier: You cannot change this value when restoring a server. It is same as the source server. 
+For the Restore you need the following information:
+- **Restore point:** Select a point-in-time that occurs before the server was changed. Must be greater than or equal to the source database's Oldest backup value.
+- **Target server:** Provide a new server name you want to restore to
+- **Source server:** Provide the name of the server you want to restore from
+- **Location:** You cannot select the region, by default it is same as the source server
+- **Pricing tier:** You cannot change this value when restoring a server. It is same as the source server. 
 
 ```azurecli
 az postgres server restore --resource-group myResourceGroup --name mypgserver-20170401-restored --restore-point-in-time "2017-04-13 03:10" --source-server-name mypgserver-20170401

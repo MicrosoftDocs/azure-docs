@@ -40,9 +40,9 @@ Create an [Azure resource group](../azure-resource-manager/resource-group-overvi
 az group create --name myresourcegroup --location westus
 ```
 
-## Create an Azure PostgreSQL server
+## Create an Azure Database for PostgreSQL server
 
-Create an [Azure PostgreSQL server](overview.md) using the **az postgres server create** command. A server contains a group of databases managed as a group. 
+Create an [Azure Database for PostgreSQL server](overview.md) using the **az postgres server create** command. A server contains a group of databases managed as a group. 
 
 The following example creates a server named `mypgserver-20170401` in your resource group `myresourcegroup` with server admin login `mylogin`. The name of a server maps to DNS name and is thus required to be globally unique in Azure. Substitute the `<server_admin_password>` with your own value.
 ```azurecli
@@ -106,7 +106,7 @@ If your client computer has PostgreSQL installed, you can use a local instance o
 
 1. Run the following psql command to connect to an Azure Database for PostgreSQL server
 ```bash
-psql --host=--host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
+psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
 ```
 
   For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mypgserver-20170401.postgres.database.azure.com** using access credentials. Enter the `<server_admin_password>` you chose when prompted for password.
