@@ -226,6 +226,6 @@ In this tutorial you prepared, exported and imported your database. You learned 
 
 Advance to the next tutorial to learn how to secure your database.
 
-[Secure your Azure SQL Database](sql-database-security-tutorial).
+[Secure your Azure SQL Database](sql-database-security-tutorial.md).
 
 
