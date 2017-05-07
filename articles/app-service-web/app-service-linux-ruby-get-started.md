@@ -153,7 +153,6 @@ In this tutorial, we use Git to deploy the local Ruby application to Azure.
 
 	![Deploying web app](./media/app-service-linux-ruby-get-started/deployment-success.png)
 
-
 	If you see an error stating that the remote has hung up, the deployment is likely still in progress. In this case, navigate to the following URL in your browser:
 
 		https://{your web app name}.scm.azurewebsites.net/api/deployments
