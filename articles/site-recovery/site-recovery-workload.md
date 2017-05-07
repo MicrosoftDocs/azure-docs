@@ -85,7 +85,7 @@ Azure Site Recovery helps protect SharePoint deployments, as follows:
 * Simplifies SharePoint application development and testing by creating a production-like copy on-demand replica environment for testing and debugging.
 * Simplifies transition to the cloud by using Site Recovery to migrate SharePoint deployments to Azure.
 
-[Learn more](https://gallery.technet.microsoft.com/SharePoint-DR-Solution-f6b4aeae) about protecting SharePoint.
+[Learn more](site-recovery-sharepoint.md) about protecting SharePoint.
 
 ## Protect Dynamics AX
 Azure Site Recovery helps protect your Dynamics AX ERP solution, by:

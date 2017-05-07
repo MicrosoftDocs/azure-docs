@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 05/03/2017
 ms.author: garye;gibattag
 
 ---
@@ -32,58 +32,27 @@ To use Microsoft Cognitive Service APIs, you first need to create an account in 
 
 4. On the **Create** page, provide the following information:
 
-    -   **Account Name:** Name of the account. We recommend using a descriptive name, for example *AFaceAPIAccount*.
+   - **Account Name:** Name of the account. We recommend using a descriptive name, for example *AFaceAPIAccount*.
 
-    -   **Subscription:** Select one of the available Azure
-    subscriptions in which you have at least Contributor permissions.
+   - **Subscription:** Select one of the available Azure subscriptions in which you have at least Contributor permissions.
 
-    -   **API Type:** Choose the Cognitive Services API you want to use. For more information about the various Cognitive Services APIs available, please refer to the [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) site.
+   - **API Type:** Choose the Cognitive Services API you want to use. For more information about the various Cognitive Services APIs available, please refer to the [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) site.
 
-    ![Select API type](media/cognitive-services-apis-create-account/list-of-apis.png)
+   ![Select API type](media/cognitive-services-apis-create-account/list-of-apis.png)
 
-    -   **Pricing tier:** The cost of your Cognitive Services account
-    depends on the actual usage and the options you choose. For more
-    information about pricing for each API, please refer to the [pricing
-    pages](https://azure.microsoft.com/pricing/details/cognitive-services/).
+   - **Pricing tier:** The cost of your Cognitive Services account depends on the actual usage and the options you choose. For more information about pricing for each API, please refer to the [pricing pages](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
-    -   **Resource Group:** A resource group is a collection of resources
-    that share the same lifecycle, permissions, and policies. To
-    learn more about Resource Groups, see
-    [Manage Azure resources through portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
+   - **Resource Group:** A resource group is a collection of resources that share the same lifecycle, permissions, and policies. To learn more about Resource Groups, see [Manage Azure resources through portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 
-    -   **Resource Group Location:** This is required only if the API selected is
-    global (not bound to a location). If the API is global and not bound
-    to a location, however, you must specify a location for the resource
-    group where the metadata associated with the Cognitive Services API
-    account will reside. This location will have no impact on the
-    runtime availability of your account. To learn more about resource
-    group, please refer
-    to [Manage Azure resources through portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
+   - **Resource Group Location:** This is required only if the API selected is global (not bound to a location). If the API is global and not bound to a location, however, you must specify a location for the resource group where the metadata associated with the Cognitive Services API account will reside. This location will have no impact on the runtime availability of your account. To learn more about resource group, please refer to [Manage Azure resources through portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 
-    -   **API Setting:** By default, account creation is disabled until your
-    [Azure Account Administrator](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles)
-    explicitly enables it.
+   - **Explicit acknowledgment of Online Service Terms:** In order to create an account, subscription Owners or Contributors (as defined by [Azure Role-Based Access Control](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)) need to explicitly acknowledge the terms that apply to Cognitive Services in [Online Service Terms](https://www.microsoft.com/en-us/Licensing/product-licensing/products.aspx). 
 
-        This setting change will apply only to the currently selected API type and location or Resource group location on the panel to the left.
+     The subscription Owner can disable the creation of Cognitive Services account for a specific resource group or subscription through [resource policy](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy) by following the article [Using Azure portal to assign and manage resource policies](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-portal) and assigning a “Not allowed resource types” policy definition and specifying **Microsoft.CognitiveServices/accounts** as the target resource type.
 
-        ![Create Cognitive Services APIs account](media/cognitive-services-apis-create-account/create-account.png)
+     If account creation was disabled, the following error would be displayed at the time of account creation:
 
-        > [!NOTE]
-        > If you receive a notification that the update setting failed, you are not logged in as an [Account Administrator](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator#types-of-azure-admin-accounts). The Account Administrator must follow the previous steps to enable creation.
-        >
-        > ![Update setting failed message](./media/cognitive-services-apis-create-account/updatefailed.png)
-        
-        In some cases, the Account Administrator may not have access to the subscription. If so, have the Service Administrator follow the steps in the [Add or change Azure administrator roles that manage the subscription or service](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator) document.
-        
-        To find the Account Administrator or Service Administrator for your subscription, select your subscription in the [Azure portal](https://portal.azure.com), and then select __Properties__. The __Account Admin__ and __Service Admin__ information is displayed at the bottom of the properties blade.
-        
-        ![Subscription properties](./media/cognitive-services-apis-create-account/subscription-properties.png)
-    
-    Microsoft may use data you send to the Cognitive Services to improve
-    Microsoft products and services. For more information, please refer
-    to the [Microsoft Cognitive Services
-    section](http://www.microsoft.com/Licensing/product-licensing/products.aspx)
-    in the Online Services Terms.
+     ![Account creation error](media/cognitive-services-apis-create-account/error-message.png)
 
 5. To pin the account to the Azure portal dashboard, click **Pin to Dashboard**.
 

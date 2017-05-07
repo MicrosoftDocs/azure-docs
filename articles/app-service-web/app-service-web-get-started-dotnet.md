@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/27/2017
+ms.date: 05/05/2017
 ms.author: cephalin
 
 ---
@@ -33,7 +33,7 @@ This tutorial demonstrates how to use Visual Studio 2017 to build and deploy an 
 
 ## Create an ASP.NET web app
 
-In Visual Studio, create a new project with `Ctrl`+`Shift`+`N`.
+In Visual Studio, create a project with `Ctrl`+`Shift`+`N`.
 
 In the **New Project** dialog, click **Visual C# > Web > ASP.NET Web Application (.NET Framework)**.
 
@@ -72,7 +72,7 @@ Once signed in, you're ready to create all the resources you need for your Azure
 First, you need a _resource group_. 
 
 > [!NOTE] 
-> A resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed.
+> A resource group is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed.
 >
 >
 
@@ -91,7 +91,7 @@ Your Azure web app also needs an _App Service plan_.
 >
 > - Region (North Europe, East US, Southeast Asia)
 > - Instance Size (Small, Medium, Large)
-> - Scale Count (one, two or three instances, etc.) 
+> - Scale Count (one, two, or three instances, etc.) 
 > - SKU (Free, Shared, Basic, Standard, Premium)
 >
 >
@@ -106,7 +106,7 @@ In the **Configure App Service Plan** dialog, configure the new App Service plan
 
 Click **OK**.
 
-![Create new App Service plan](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
+![Create App Service plan](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
 ## Create and publish the web app
 
@@ -141,7 +141,7 @@ Find the `<div class="jumbotron">` HTML tag near the top, and replace the entire
 </div>
 ```
 
-To redeploy to Azure, right-click youre **myFirstAzureWebApp** project in **Solution Explorer** and select **Publish**.
+To redeploy to Azure, right-click your **myFirstAzureWebApp** project in **Solution Explorer** and select **Publish**.
 
 In the publish page, click **Publish**.
 
@@ -161,11 +161,11 @@ From the left menu, click **App Services**, then click the name of your Azure we
 
 You have landed in your web app's _blade_ (a portal page that opens horizontally). 
 
-By default, your web app's blade shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the blade shows the different configuration pages you can open. 
+By default, your web app's blade shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete.  
 
 ![App Service blade in Azure portal](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
-These tabs in the blade show the many great features you can add to your web app. The following list gives you just a few of the possibilities:
+The tabs on the left side of the blade show the different configuration pages you can open. The following list gives you just a few of the possibilities:
 
 - Map a custom DNS name
 - Bind a custom SSL certificate
@@ -188,5 +188,7 @@ At the top of the blade, click **Delete**.
 In the confirmation blade, confirm by typing the resource group name **myResourceGroup** into the text box and click **Delete**.
 
 ## Next steps
+
+Advance to an end-to-end tutorial and learn how to [build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md).
 
 Explore pre-created [Web apps PowerShell scripts](app-service-powershell-samples.md).
