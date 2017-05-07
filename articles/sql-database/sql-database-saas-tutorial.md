@@ -23,32 +23,35 @@ ms.author: billgib; sstein
 
 In this tutorial, you deploy and explore the Wingtip Tickets Platform (WTP) SaaS application. The application uses a database-per-tenant, SaaS application pattern, to service multiple tenants. The application is designed to showcase features of Azure SQL Database that enable SaaS scenarios, and SaaS design and management patterns.
 
-Five minutes after clicking the *Deploy to Azure* button below, you have a multi-tenant SaaS application, using SQL Database, up and running in the cloud. The application is deployed with three sample tenants, each with their own database, all deployed into a SQL Elastic pool.
+Five minutes after clicking the *Deploy to Azure* button below, you have a multi-tenant SaaS application, using SQL Database, up and running in the cloud. The application is deployed with three sample tenants, each with their own database, all deployed into a SQL Elastic pool. The app is deployed to your Azure subscription, giving you full access to inspect and work with the individual application components.
 
-In this tutorial:
+In this tutorial you learn:
 
 > [!div class="checklist"]
 
-> * Deploy the WTP application. The app is deployed to your Azure subscription, giving you full access to inspect and work with the individual application components.
-> * Explore the application and application architecture. Browse the web apps, servers, pools, and databases that make up the app.
-> * Learn how the catalog maps tenants to their data.
-> * Sign up and configure new customers (tenants).
-> * Delete the application and all resources created with it to stop Azure billing.
+> * How to deploy the WTP application
+> * About the servers, pools, and databases that make up the app
+> * Tenants are mapped to their data with the *catalog*
+> * How to provision new tenants
+> * How to view pool utilization to monitor tenant activity
+> * How to delete sample resources to stop related billing
 
 To explore various SaaS design and management patterns, a [series of related tutorials](sql-database-wtp-overview.md) is available that build upon this initial deployment. While going through the tutorials, dive into the provided scripts, and examine how the different SaaS patterns are implemented. Step through the scripts in each tutorial to gain a deeper understanding how to implement the many SQL Database features that simplify developing SaaS applications.
 
 ## Deploy the Wingtip tickets (WTP) SaaS Application
 
-Deploy the Wingtip tickets platform in less than five minutes
+Deploy the Wingtip tickets platform in less than five minutes. 
 
 1. Click to deploy:
 
    [![Deploy to Azure](./media/sql-database-saas-tutorial/deploy.png)](https://aka.ms/deploywtpapp)
 
+   [Current Template Link](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fwingtipsaas.blob.core.windows.net%2Ftemplates%2Fwtpapp.json)
+
 1. Enter required parameter values for the deployment:
 
     > [!IMPORTANT]
-    > Some authentication, and server firewalls are intentionally unsecured for demonstration purposes. **Create a new resource group**, and do not use existing resource groups, servers, or pools, and do not use this application, or any resources it creates, for production. Delete this resource group when you are finished with the application to delete all WTP application-related resources, and to stop related billing.
+    > Some authentication, and server firewalls are intentionally unsecured for demonstration purposes. **Create a new resource group**, and do not use existing resource groups, servers, or pools, and do not use this application, or any resources it creates, for production. Delete this resource group when you are finished with the application to stop related billing.
 
     * **Resource group** - Select **Create new** and provide a **Name** and **Location**.
     * **User** - Some resources require names that are unique across all Azure subscriptions. To ensure uniqueness, provide a value to differentiate resources you create, from resources created by other users deploying the Wingtip application. It’s recommended to use a short **User** name, such as your initials plus a number (for example, *bg1*), and then use that in the resource group name (for example, *wingtip-bg1*). The **User** parameter can only contain letters, numbers, and hyphens. The first and last character must be a letter or a number (all lowercase is recommended).
@@ -88,7 +91,7 @@ In a production environment, you would typically create a CNAME DNS record to [
 
 ## Provision a new tenant
 
-The initial deployment creates three sample tenants, but we need to create more tenants for the best tutorial experience. We dive deeper into the details of provisioning new tenants in the [Provision and catalog tutorial](sql-database-saas-tutorial-provision-and-catalog.md) where you can see how simple it is to implement a registration component into the application and automatically provision tenants as customers sign up.
+The initial deployment creates three sample tenants, but we need to create more tenants for the best tutorial experience. In this step you quickly create a new tenant. Later you should dive deeper into the details of provisioning new tenants in the [Provision and catalog tutorial](sql-database-saas-tutorial-provision-and-catalog.md) where you can see how simple it would be to implement a registration component into the application, and automatically provision tenants as customers sign up.
 
 ### Initialize the user config file for your deployment
 
@@ -147,6 +150,16 @@ What these two charts nicely illustrate, is how well suited elastic pools and SQ
 
 When you are finished exploring and working with the WTP app, browse to the application's resource group in the portal and delete it to stop all billing related to this deployment. If you have used any of the accompanying tutorials, any resources they created will also be deleted with the application.
 
+In this tutorial you learned:
+
+> [!div class="checklist"]
+
+> * How to deploy the WTP application
+> * About the servers, pools, and databases that make up the app
+> * Tenants are mapped to their data with the *catalog*
+> * How to provision new tenants
+> * How to view pool utilization to monitor tenant activity
+> * How to delete sample resources to stop related billing
 
 ## Next steps
 

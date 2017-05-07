@@ -101,14 +101,10 @@ The following tutorials build upon the initial WTP application and can be done i
 
 Use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect and browse the WTP servers and databases.
 
-The WTP sample app initially has two SQL Database servers you can connect to:
+The WTP sample app initially has two SQL Database servers to connect to:
 
-| Fully qualified server name | Description | Admin |
-| :-- | :-- | :-- |
-| catalog-\<User\>.database.windows.net | contains the mapping between tenants and their data | developer |
-| tenants1-\<User\>.database.windows.net | contains the tenant databases (in SQL elastic pools)| developer |
 
-1. Open SSMS and connect to the tenants1 server.
+1. Open SSMS and connect to the *tenants1-\<User\>.database.windows.net* server.
 2. Click **Connect** > **Database Engine...**:
 
    ![catalog server](media/sql-database-wtp-overview/connect.png)
@@ -117,7 +113,7 @@ The WTP sample app initially has two SQL Database servers you can connect to:
 
    ![](media\sql-database-wtp-overview\tenants1-connect.png)
 
-1. Repeat steps 1-3 and connect to the catalog server.
+1. Repeat steps 2-3 and connect to the *catalog-\<User\>.database.windows.net* server.
 
 After successfully connecting you should see both servers. You might see more or less databases depending on how many tenants you provisioned:
 

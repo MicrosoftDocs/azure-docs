@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/01/2017
+ms.date: 05/05/2017
 ms.author: billgib; sstein
 
 ---
@@ -24,6 +24,16 @@ ms.author: billgib; sstein
 In this tutorial, you create an ad-hoc analytics database, and then run several queries across all tenants (or a subset of tenants you define). These queries can extract insights buried in the day-to-day operational data of the WTP app.
 
 To facilitate running ad-hoc analytics queries across multiple tenants, the WTP app uses [Elastic Query](sql-database-elastic-query-overview.md) in conjunction with an analytics database.
+
+
+In this tutorial you learn how to:
+
+> [!div class="checklist"]
+
+> * Deploy the ad-hoc analytics database
+> * Run distributed queries across all tenant databases
+
+
 
 To complete this tutorial, make sure of the following:
 
@@ -42,14 +52,14 @@ Accessing this data when its in a single multi-tenant database is easy, but not 
 
 This exercise deploys the Ad-hoc Analytics database that contains the schema used for issuing ad-hoc queries that span all the tenant databases.
 
-1. Navigate to Learning Modules\\Operational Analytics\\*Demo-AdhocAnalytics.ps1* in the **PowerShell ISE** and set the following values:
+1. Open ...\\Learning Modules\\Operational Analytics\\*Demo-AdhocAnalytics.ps1* in the *PowerShell ISE* and set the following values:
    * **$DemoScenario** = 2, **Deploy Ad-hoc analytics database**.
 
-1. Press **F5** to run the script and create a new SQL database for ad-hoc analytics and add it to the WTP catalog. TicketPurchases, Tickets, and Venues tenant tables are added as external tables that can be queried. If the database already exists this step is skipped.
+1. Press **F5** to run the script and create a new SQL database for ad-hoc analytics and add it to the WTP catalog. TicketPurchases, Tickets, and Venues tables are added as external tables that can be queried.
    Note that it's ok if you encounter warnings here about *The RPC server is unavailable*.
 
 
-You now have an *adhocanalytics* database, that can be used to submit queries and gather insights across all tenants!
+You now have an *adhocanalytics* database, that can be used to run distributed queries, and gather insights across all tenants!
 
 ## Run Ad-hoc analytics queries
 
@@ -60,7 +70,13 @@ This exercise will run ad-hoc analytics queries to uncover tenant insights from 
 
     ![query](media/sql-database-saas-tutorial-adhoc-analytics/query.png)
 
-Congratulations, you just ran some sample distributed queries across all the tenant databases in the WTP app using Elastic Query!
+
+In this tutorial you learned how to:
+
+> [!div class="checklist"]
+
+> * Deploy the ad-hoc analytics database
+> * Run distributed queries across all tenant databases
 
 
 ## Next steps
