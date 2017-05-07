@@ -22,7 +22,9 @@ ms.author: mimig
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and deploy a todo list web app built on the [DocumentDB .NET API](../documentdb/documentdb-sdk-dotnet.md).  
+This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and deploy a todo list web app built on the [DocumentDB .NET API](../documentdb/documentdb-sdk-dotnet.md), as shown in the following screenshot. 
+
+![Todo app with sample data](./media/create-documentdb-dotnet/azure-comosdb-todo-app-list.png)
 
 ## Prerequisites
 
@@ -135,11 +137,7 @@ You can now go back to Data Explorer and see query, modify, and work with this n
 
 ## Review SLAs in the Azure portal
 
-Now that your app is up and running, you'll want to ensure ensure business continuity, and watch user access to ensure high-availability to your users. You can use the Azure portal to review the availability, latency, throughput, and consistency of your collection. Each graph that's associated with the [Azure Cosmos DB Service Level Agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/documentdb/) provides a line showing the quota required to meet the SLA and your actual usage, providing you transparency into the performance of your database. Additional metrics such as storage usage, number of requests per minute are also included in the portal
-
-* In the Azure portal, in the left menu, under **Monitoring**, click **Metrics**.
-
-   ![Todo app with sample data](./media/create-documentdb-dotnet/azure-comosdb-portal-metrics-slas.png)
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
 
 ## Clean up resources
 

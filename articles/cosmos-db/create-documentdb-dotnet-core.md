@@ -22,7 +22,9 @@ ms.author: mimig
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and deploy a todo list web app built on the [DocumentDB .NET Core API](../documentdb/documentdb-introduction.md).  
+This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and deploy a todo list web app built on the [DocumentDB .NET Core API](../documentdb/documentdb-introduction.md), as shown in the following screenshot. 
+
+![Todo app with sample data](./media/create-documentdb-dotnet-core/azure-cosmosdb-todo-app-list.png)
 
 ## Prerequisites
 
@@ -48,7 +50,7 @@ Install .NET Core using the instructions on the [.NET Core SDK](https://www.micr
 
 ## Clone the sample application
 
-Now let's clone a  DocumentDB API app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's clone a DocumentDB API app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically.
 
 1. Open a git terminal window, such as git bash, and `CD` to a working directory.  
 

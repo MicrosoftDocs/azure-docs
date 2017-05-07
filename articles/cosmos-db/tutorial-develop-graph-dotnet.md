@@ -20,7 +20,7 @@ ms.author: arramac
 # Azure Cosmos DB: Develop with the Graph API in .NET
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account using the Azure portal, and how to create a graph database and container. The application then creates a simple social network with four people using the [Graph API](graph-sdk-dotnet.md), then traverses and queries the graph using Gremlin.
+This tutorial demonstrates how to create an Azure Cosmos DB account using the Azure portal and how to create a graph database and container. The application then creates a simple social network with four people using the [Graph API](graph-sdk-dotnet.md) (preview), then traverses and queries the graph using Gremlin.
 
 This tutorial covers the following tasks:
 
@@ -32,13 +32,9 @@ This tutorial covers the following tasks:
 > * Query the graph using Gremlin
 
 ## Graphs in Azure Cosmos DB
-You can use Azure Cosmos DB to create, update, and query graphs using the `Microsoft.Azure.Graphs` library in the G. The library offers extension methods on top of the `DocumentClient` class to execute [Gremlin queries](gremlin-support.md). To work with the graph APIs, you must perform the following steps as a pre-requisite:
+You can use Azure Cosmos DB to create, update, and query graphs using the [Microsoft.Azure.Graphs](graph-sdk-dotnet.md) library. The Microsoft.Azure.Graph library provides a single extension method `CreateGremlinQuery<T>` on top of the `DocumentClient` class to execute Gremlin queries.
 
-- Create a Azure Cosmos DB account. You can configure the endpoint name, associate any number of read and writes regions, and configure the default consistency level while creating the account. You can also use an existing Azure Cosmos DB account to work with graphs. 
-- Create a database.
-- Create a collection for storing graphs. You can configure the partition key, indexing policy, and provision collection throughput programmatically or via the Azure portal.
-
-Once you create the account, you can start working in .NET by downloading the [Microsoft.Azure.DocumentDB](../documentdb/documentdb-sdk-dotnet.md) package and the [Microsoft.Azure.Graph](https://aka.ms/graphdbextension) extension library, and include them within your project. The `Microsoft.Azure.Graph` library provides a single extension method `CreateGremlinQuery<T>` for executing Gremlin operations. Gremlin is a functional programming language that supports write operations (DML) and query and traversal operations. We cover a few examples in this article to get your started with Gremlin. [Gremlin queries](gremlin-support.md) has a detailed walkthrough of Gremlin capabilities in Azure Cosmos DB.
+Gremlin is a functional programming language that supports write operations (DML) and query and traversal operations. We cover a few examples in this article to get your started with Gremlin. See [Gremlin queries](gremlin-support.md) for a detailed walkthrough of Gremlin capabilities available in Azure Cosmos DB. 
 
 ## Prerequisites
 Please make sure you have the following:
@@ -49,16 +45,20 @@ Please make sure you have the following:
 
 ## Create database account
 
-If you already have an account you want to use, you can skip ahead to [Setup your Visual Studio solution](#SetupVS). If you are using the DocumentDB Emulator, please follow the steps at [Azure DocumentDB Emulator](../documentdb/documentdb-nosql-local-emulator.md) to setup the emulator and skip ahead to [Setup your Visual Studio Solution](#SetupVS).
+Let's start by creating an Azure Cosmos DB account in the Azure portal.  
+
+* Already have an Azure Cosmos DB account? If so, skip ahead to [Setup your Visual Studio solution](#SetupVS).  
+* Did you have an Azure DocumentDB account? If so, your account is now an Azure Cosmos DB account and you can skip ahead to [Setup your Visual Studio solution](#SetupVS).  
+* If you are using the Azure Cosmos DB Emulator, please follow the steps at [Azure Cosmos DB Emulator](../documentdb/documentdb-nosql-local-emulator.md) to setup the emulator and skip ahead to [Setup your Visual Studio Solution](#SetupVS). 
 
 [!INCLUDE [cosmosdb-create-dbaccount-graph](../../includes/cosmosdb-create-dbaccount-graph.md)]
 
 ## <a id="SetupVS"></a>Setup your Visual Studio solution
 1. Open **Visual Studio** on your computer.
 2. On the **File** menu, select **New**, and then choose **Project**.
-3. In the **New Project** dialog, select **Templates** / **Visual C#** / **Console Application**, name your project, and then click **OK**.
+3. In the **New Project** dialog, select **Templates** / **Visual C#** / **Console App (.NET Framework)**, name your project, and then click **OK**.
 4. In the **Solution Explorer**, right click on your new console application, which is under your Visual Studio solution, and then click **Manage NuGet Packages...**
-5. In the **Nuget** tab, click **Browse**, and type **azure cosmos db** in the search box.
+5. In the **Nuget** tab, click **Browse**, and type **documentdb** in the search box.
 6. Within the results, find **[Microsoft.Azure.DocumentDB](../documentdb/documentdb-sdk-dotnet.md)** and click **Install**.
    The package ID for the DocumentDB Client Library is [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB).
 
@@ -68,26 +68,56 @@ If you already have an account you want to use, you can skip ahead to [Setup you
    
 The `Microsoft.Azure.Graph` library provides a single extension method `CreateGremlinQuery<T>` for executing Gremlin operations. Gremlin is a functional programming language that supports write operations (DML) and query and traversal operations. We cover a few examples in this article to get your started with Gremlin. [Gremlin queries](gremlin-support.md) has a detailed walkthrough of Gremlin capabilities in Azure Cosmos DB.
 
-## Connect your app and create a collection
+## <a id="add-references"></a>Connect your app
 
-When working with a graph app, the steps and code required are similar to working with the DocumentDB API. 
+Add these two constants and your *client* variable in your application. 
 
-To connect your app and create core resources, complete the following steps in the DocumentDB API tutorial:
+```csharp
+string endpoint = ConfigurationManager.AppSettings["Endpoint"]; 
+string authKey = ConfigurationManager.AppSettings["AuthKey"]; 
+``` 
+Next, head back to the [Azure Portal](https://portal.azure.com) to retrieve your endpoint URL and primary key. The endpoint URL and primary key are necessary for your application to understand where to connect to, and for Azure Cosmos DB to trust your application's connection. 
 
-* [Connect your app](tutorial-develop-documentdb-dotnet.md#add-references)
-* [Instantiate the DocumentClient](tutorial-develop-documentdb-dotnet.md#instantiate)
-* [Create a database](tutorial-develop-documentdb-dotnet.md#create-database)
-* [Create a collection](tutorial-develop-documentdb-dotnet.md#CreateColl)
+In the Azure portal, navigate to your Azure Cosmos DB account, and then click **Keys**. 
 
+Copy the URI from the portal and paste it over `Endpoint` in the endpoint property above. Then copy the PRIMARY KEY from the portal and paste it into the `AuthKey` property above. 
 
-## <a id="serializing"></a>Serializing vertices and edges to .NET objects
+![Screen shot of the Azure Portal used by the tutorial to create a C# application. Shows an Azure Cosmos DB account the KEYS button highlighted on the Azure Cosmos DB navigation , and the URI and PRIMARY KEY values highlighted on the Keys blade][keys] 
+ 
+## <a id="instantiate"></a>Instantiate the DocumentClient 
+Next, create a new instance of the **DocumentClient**.  
+
+```csharp 
+DocumentClient client = new DocumentClient(new Uri(endpoint), authKey); 
+``` 
+
+## <a id="create-database"></a>Create a database 
+
+Now, create an Azure Cosmos DB [database](../documentdb/documentdb-resources.md#databases) by using the [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method or [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) method of the **DocumentClient** class from the [DocumentDB .NET SDK](../documentdb/documentdb-sdk-dotnet.md).  
+
+```csharp 
+Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" }); 
+``` 
+ 
+## Create a graph 
+
+Next, create a graph container by using the using the [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) method or [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) method of the **DocumentClient** class. A collection is a container of graph entities. 
+
+```csharp 
+DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync( 
+    UriFactory.CreateDatabaseUri("graphdb"), 
+    new DocumentCollection { Id = "graphcollz" }, 
+    new RequestOptions { OfferThroughput = 1000 }); 
+``` 
+
+## <a id="serializing"></a>Serialize vertices and edges to .NET objects
 Azure Cosmos DB uses the [GraphSON wire format](gremlin-support.md), which defines a JSON schema for vertices, edges, and properties. The Azure Cosmos DB .NET SDK includes JSON.NET as a dependency, and this allows us to serialize/deserialize GraphSON into .NET objects that we can work with in code.
 
 As an example, let's work with a simple social network with four people. We look at how to create `Person` vertices, add `Knows` relationships between them, then query and traverse the graph to find "friend of friend" relationships. 
 
 The `Microsoft.Azure.Graphs.Elements` namespace provides `Vertex`, `Edge`, `Property` and `VertexProperty` classes for deserializing GraphSON responses to well-defined .NET objects.
 
-## Running Gremlin using CreateGremlinQuery
+## RunGremlin using CreateGremlinQuery
 Gremlin, like SQL, supports read, write, and query operations. For example, the following snippet shows how to create vertices, edges, perform some sample queries using `CreateGremlinQuery<T>`, and asynchronously iterate through these results using `ExecuteNextAsync` and `HasMoreResults.
 
 ```cs
@@ -133,7 +163,7 @@ foreach (KeyValuePair<string, string> gremlinQuery in gremlinQueries)
 }
 ```
 
-## Adding vertices and edges
+## Ad vertices and edges
 
 Let's look at the Gremlin statements shown in the preceding section more detail. First we some vertices using Gremlin's `addV` method. For example, the following snippet creates a "Thomas Andersen" vertex of type "Person", with properties for first name, last name, and age.
 
@@ -182,7 +212,7 @@ client.CreateGremlinQuery(graphCollection, "g.E('thomasKnowsRobin').drop()");
 client.CreateGremlinQuery(graphCollection, "g.V('robin').drop()");
 ```
 
-## Querying the graph
+## Query the graph
 
 You can perform queries and traversals also using Gremlin. For example, the following snippet shows how to count the number of vertices in the graph:
 
@@ -232,14 +262,14 @@ That's it, this Azure Cosmos DB tutorial is complete! In this tutorial, you've d
 
 > [!div class="checklist"]
 > * Created an Azure Cosmos DB account 
-> * Created a database and collection
+> * Created a graph database and container
 > * Serialized vertices and edges to .NET objects
 > * Added vertices and edges
 > * Queried the graph using Gremlin
 
 ## Clean up resources
 
-If you're not going to continue to use this app, use the following steps to delete all resources created by this quickstart in the Azure portal.  
+If you're not going to continue to use this app, use the following steps to delete all resources created by this tutorial in the Azure portal.  
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
