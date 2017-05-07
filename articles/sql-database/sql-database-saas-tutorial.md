@@ -31,7 +31,7 @@ In this tutorial:
 
 > * Deploy the WTP application. The app is deployed to your Azure subscription, giving you full access to inspect and work with the individual application components.
 > * Explore the application and application architecture. Browse the web apps, servers, pools, and databases that make up the app.
-> * Learn how the catalog keeps track of tenants and their data.
+> * Learn how the catalog maps tenants to their data.
 > * Sign up and configure new customers (tenants).
 > * Delete the application and all resources created with it to stop Azure billing.
 
@@ -39,7 +39,7 @@ To explore various SaaS design and management patterns, a [series of related tut
 
 ## Deploy the Wingtip tickets (WTP) SaaS Application
 
-Deploy the Wingtip tickets platform in less than 5 minutes
+Deploy the Wingtip tickets platform in less than five minutes
 
 1. Click to deploy:
 
@@ -48,10 +48,10 @@ Deploy the Wingtip tickets platform in less than 5 minutes
 1. Enter required parameter values for the deployment:
 
     > [!IMPORTANT]
-    > Some authentication, and server firewalls are intentionally wide-open for demonstration purposes. Do not use existing resource groups, servers, or pools, and do not use this application, or any resources it creates, for production. You should **create a new resource group**. Delete this resource group when you are finished with the application to delete all WTP application-related resources, and to stop related billing.
+    > Some authentication, and server firewalls are intentionally unsecured for demonstration purposes. **Create a new resource group**, and do not use existing resource groups, servers, or pools, and do not use this application, or any resources it creates, for production. Delete this resource group when you are finished with the application to delete all WTP application-related resources, and to stop related billing.
 
     * **Resource group** - Select **Create new** and provide a **Name** and **Location**.
-    * **User** - Because some resources require names that are unique across all Azure subscriptions, provide a value to differentiate resources you create from those created by other users deploying the Wingtip application. It’s recommended to use a short **User** name, such as your initials plus a number (for example, *bg1*), and then use that in the resource group name (for example, *wingtip-bg1*). The **User** parameter can only contain letters, numbers, and hyphens, and the first and last character must be a letter or a number (all lowercase is recommended).
+    * **User** - Some resources require names that are unique across all Azure subscriptions. To ensure uniqueness, provide a value to differentiate resources you create, from resources created by other users deploying the Wingtip application. It’s recommended to use a short **User** name, such as your initials plus a number (for example, *bg1*), and then use that in the resource group name (for example, *wingtip-bg1*). The **User** parameter can only contain letters, numbers, and hyphens. The first and last character must be a letter or a number (all lowercase is recommended).
 
      ![template](./media/sql-database-saas-tutorial/template.png)
 
@@ -61,15 +61,15 @@ Deploy the Wingtip tickets platform in less than 5 minutes
     * Select **Pin to dashboard**.
     * Click **Purchase**.
 
-1. Monitor deployment status by clicking **Notifications** (the bell icon right of the search box). Deploying the WTP app takes approximately 4 minutes.
+1. Monitor deployment status by clicking **Notifications** (the bell icon right of the search box). Deploying the WTP app takes approximately four minutes.
 
    ![deployment succeeded](media/sql-database-saas-tutorial/succeeded.png)
 
 ## Explore the application
 
-The app showcases venues, such as concert halls, jazz clubs, sports clubs, that host events. Venues register as customers (or tenants) of the Wingtip Tickets Platform (WTP), for an easy way to list events and sell tickets. Each venue gets a personalized web app to manage and list their events and sell tickets, completely independent and isolated from other tenants. Under the covers, each tenant gets a SQL database deployed into a SQL Elastic pool.
+The app showcases venues, such as concert halls, jazz clubs, sports clubs, that host events. Venues register as customers (or tenants) of the Wingtip Tickets Platform (WTP), for an easy way to list events and sell tickets. Each venue gets a personalized web app to manage and list their events and sell tickets, independent and isolated from other tenants. Under the covers, each tenant gets a SQL database deployed into a SQL Elastic pool.
 
-A central **Events Hub** provides a list of tenant URLs specific to your deployment. All of the tenant URLs include your specific *User* value and follow this format: http://events.wtp.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*. 
+A central **Events Hub** provides a list of tenant URLs specific to your deployment. All the tenant URLs include your specific *User* value and follow this format: http://events.wtp.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*. 
 
 1. Open the _Events Hub_: http://events.wtp.&lt;USER&gt;.trafficmanager.net (replace with your User name):
 
@@ -81,20 +81,18 @@ A central **Events Hub** provides a list of tenant URLs specific to your deploym
 
 1. Click **Tickets** and explore ticket purchasing for an event.
 
-The WTP application uses [*Azure Traffic Manager*](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) to control the distribution of incoming traffic. The events pages, which are tenant-specific, require that tenant names are included in the URLs. The events app parses the tenant name out of the URL path and uses it to create a key that is used to access a catalog implemented using [*shard map management*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-shard-map-management). The catalog maps the key to the tenant’s database location. The **Events Hub** uses extended metadata in the catalog to retrieve the tenant’s name associated with each database.
+The WTP application uses [*Azure Traffic Manager*](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) to control the distribution of incoming traffic. The events pages, which are tenant-specific, require that tenant names are included in the URLs. The events app parses the tenant name from the URL and uses it to create a key to access a catalog using [*shard map management*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-shard-map-management). The catalog maps the key to the tenant’s database location. The **Events Hub** uses extended metadata in the catalog to retrieve the tenant’s name associated with each database.
 
-Note that in a production environment, you would typically create a CNAME DNS record to [*point a company internet domain*](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-point-internet-domain) to the traffic manager profile.
+In a production environment, you would typically create a CNAME DNS record to [*point a company internet domain*](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-point-internet-domain) to the traffic manager profile.
 
 
 ## Provision a new tenant
 
-The initial deployment creates three sample tenants, but we need more tenants for the best tutorial experience, so lets create a new tenant. We'll dive deeper into the details of provisioning new tenants in the [Provision and catalog tutorial](sql-database-saas-tutorial-provision-and-catalog.md) where you can see how simple it is to implement a registration component into the application and automatically provision tenants as customers sign up.
-
-A PowerShell script is provided that quickly provisions a new tenant.
+The initial deployment creates three sample tenants, but we need to create more tenants for the best tutorial experience. We dive deeper into the details of provisioning new tenants in the [Provision and catalog tutorial](sql-database-saas-tutorial-provision-and-catalog.md) where you can see how simple it is to implement a registration component into the application and automatically provision tenants as customers sign up.
 
 ### Initialize the user config file for your deployment
 
-Because this is the first script you are going to run after the initial WTP application deployment, you must update the user configuration file with the specific values from your deployment (you only need to do this once for each deployment).
+Because this is the first script you are going to run after the initial WTP application deployment, you must update the user configuration file. Update the variables with the specific values from your deployment.
 
    1. Open ...\\Learning Modules\\*UserConfig.psm1* in the *PowerShell ISE*
    1. Modify _$userConfig.ResourceGroupName_ to the _resource group_ you set when you deployed the app.
@@ -105,7 +103,7 @@ Because this is the first script you are going to run after the initial WTP appl
 1. Open ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1* in the *PowerShell ISE*.
 1. Press **F5** to run the script (leave the script's default values for now).
 
-The new tenant is registered into the catalog, their database is created and added to a SQL elastic pool. After successful provisioning, the new tenant's ticket selling site appears in your browser:
+The new tenant is registered into the catalog. Their database is created and added to a SQL elastic pool. After successful provisioning, the new tenant's ticket selling site appears in your browser:
 
 ![New tenant](./media/sql-database-saas-tutorial/red-maple-racing.png)
 
@@ -113,9 +111,9 @@ Refresh the Events Hub and verify the new tenant is in the list.
 
 ## Start generating load on the tenant databases
 
-Now that we have several tenant databases, let’s put them to work! A PowerShell script is provided that simulates a workload running against all tenant databases. The load will run for 60 minutes by default. This is a SaaS app, and the real-world load on a SaaS app is typically sporadic and unpredictable. To simulate this, the load generator produces a randomized load distributed across all tenants. A few minutes are needed for the pattern to emerge, so let the load generator run for about 5-10 minutes before attempting to monitor the load in the following sections.
+Now that we have several tenant databases, let’s put them to work! A PowerShell script is provided that simulates a workload running against all tenant databases. The load runs for 60 minutes by default. Wingtip Tickets is a SaaS app, and the real-world load on a SaaS app is typically sporadic and unpredictable. To simulate this, the load generator produces a randomized load distributed across all tenants. Several minutes are needed for the pattern to emerge, so let the load generator run for about 5-10 minutes before attempting to monitor the load in the following sections.
 
-1. Open ...\\Learning Modules\Utilities\*Demo-LoadGenerator.psm1* in the **PowerShell ISE**
+1. Open ...\\Learning Modules\\Utilities\\*Demo-LoadGenerator.psm1* in the **PowerShell ISE**
 1. Press **F5** to run the script and start the load generator (leave the default parameter values for now).
 
 > [!IMPORTANT]
@@ -126,11 +124,11 @@ Now that we have several tenant databases, let’s put them to work! A PowerShel
 
 Now that you have explored the application, provisioned a new tenant, and started running a load against the collection of tenants, let’s look at some of the resources that were deployed.
 
-1. In the [*Azure portal*](http://portal.azure.com), open the **catalog-&lt;USER&gt;** server. The catalog server contains 2 databases; the tenantscatalog, and the baseTenantDB (an empty _golden_ db that is copied to create new tenants).
+1. In the [Azure portal](http://portal.azure.com), open the **catalog-&lt;USER&gt;** server. The catalog server contains two databases. The **tenantcatalog**, and the **basetenantdb** (an empty *golden* db that is copied to create new tenants).
 
    ![databases](./media/sql-database-saas-tutorial/databases.png)
 
-1. Open the **tenants1-&lt;USER&gt;** server which holds the tenant databases. Note that each tenant database is an _Elastic Standard_ database in a 50 eDTU standard pool. Also notice there is a _Red Maple Racing_ database, the tenant that you provisioned previously.
+1. Open the **tenants1-&lt;USER&gt;** server that holds the tenant databases. Note that each tenant database is an _Elastic Standard_ database in a 50 eDTU standard pool. Also notice there is a _Red Maple Racing_ database, the tenant that you provisioned previously.
 
    ![server](./media/sql-database-saas-tutorial/server.png)
 
@@ -142,7 +140,7 @@ If the load generator has been running for several minutes, enough data should b
 
    ![monitor pool](./media/sql-database-saas-tutorial/monitor-pool.png)
 
-What these two charts nicely illustrate, is how well suited elastic pools and SQL Database are for SaaS application workloads. Four databases that are each bursting to as much as 40 eDTUs are easily being supported in a 50 eDTU pool. If each was provisioned as a standalone database, they would each need to be an S2 (50 DTU) to support the bursts, yet the cost of 4 standalone S2 databases would be nearly 3 times the price of the pool. And the pool still has plenty of headroom for many more databases. In real-world situations, customers are currently running up to 500 databases in 200 eDTU pools. For more information, see the [performance monitoring tutorial](sql-database-saas-tutorial-performance-monitoring.md).
+What these two charts nicely illustrate, is how well suited elastic pools and SQL Database are for SaaS application workloads. Four databases that are each bursting to as much as 40 eDTUs are easily being supported in a 50 eDTU pool. If each was provisioned as a standalone database, they would each need to be an S2 (50 DTU) to support the bursts, but the cost of 4 standalone S2 databases would be nearly 3 times the price of the pool. And the pool still has plenty of headroom for many more databases. In real-world situations, customers are currently running up to 500 databases in 200 eDTU pools. For more information, see the [performance monitoring tutorial](sql-database-saas-tutorial-performance-monitoring.md).
 
 
 ## Deleting the resources created with this tutorial
@@ -152,7 +150,7 @@ When you are finished exploring and working with the WTP app, browse to the appl
 
 ## Next steps
 
-A series of tutorials is provided that accompany the WTP app which each explores a different set of SaaS patterns through hands-on exercises that lead you through sample scripts and templates. Each exercise is quick to do, and while you can do the tutorials in any order, we recommend you first complete the [Provision and catalog tutorial](sql-database-saas-tutorial-provision-and-catalog.md) to provision an additional batch of tenants that set up a better demo scenario for completing the other tutorials.
+Check out the series of tutorials that cover different SaaS patterns through hands-on exercises. Each exercise is quick to do, and while you can do the tutorials in any order, we recommend you first complete the [Provision and catalog tutorial](sql-database-saas-tutorial-provision-and-catalog.md) to provision an additional batch of tenants that set up a better demo environment for completing the other tutorials.
 
 
 ## Additional resources
