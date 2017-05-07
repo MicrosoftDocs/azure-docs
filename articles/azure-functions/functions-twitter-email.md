@@ -18,7 +18,7 @@ ms.date: 05/08/2017
 ms.author: riande
 ---
 
-# Create your first logic app workflow 
+# Create your first logic app workflow
 
 This quickstart shows you how to create a logic app in the Azure portal that:
 
@@ -35,7 +35,7 @@ The following image shows the completed app in the **Logic App Designer**.
 
 ## Create a Cognitive Services account
 
-A Cognitive Services account is required to detect the sentiment of tweets we are monitoring. 
+A Cognitive Services account is required to detect the sentiment of tweets we are monitoring.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to **New > Intelligence + analytics > Cognitive  Services**. Set each required field:
@@ -164,7 +164,7 @@ The **Logic App Designer** displays many services and triggers you can connect t
 1. Create the Detect Sentiment action:
 
   * Enter a connection name such as **MyKey**.
-  * Copy and paste the key you created in the [Create a Cognitive Services account](#create-a-cognitive-services-account) step. 
+  * Copy and paste the key you created in the [Create a Cognitive Services account](#create-a-cognitive-services-account) step.
   * Select **Create**.
   * Save the app.
 
@@ -203,14 +203,14 @@ In this section, we add a conditional check for negative sentiment tweets (condi
 
 1. Select **New step**.
 1. Select **Add a condition**.
-1. Select **Body** in the first **Choose a value** text box. 
+1. Select **Body** in the first **Choose a value** text box.
 1. Enter "RED" in the second  **Choose a value** text box.
 1. Save the app.
 
   ![condition box](media/functions-twitter-email/condition.png)
 
 1. In the **IF YES, DO NOTHING** box select **Add an action**.
-1. Enter Outlook or Gmail in the **Search all services and actions** box. Outlook is used in this tutorial. See [Add a Gmail actions) (../logic-apps/logic-apps-create-a-logic-app#add-an-action-that-responds-to-your-trigger) for Gmail instructions. Note: If you have a personal [Microsoft account](https://account.microsoft.com/account), you can use that for the Outlook.com account. 
+1. Enter Outlook or Gmail in the **Search all services and actions** box. Outlook is used in this tutorial. See [Add a Gmail actions) (../logic-apps/logic-apps-create-a-logic-app#add-an-action-that-responds-to-your-trigger) for Gmail instructions. Note: If you have a personal [Microsoft account](https://account.microsoft.com/account), you can use that for the Outlook.com account.
 
   ![Choose an action box](media/functions-twitter-email/outlook.png)
 
@@ -233,7 +233,7 @@ In this section, we add a conditional check for negative sentiment tweets (condi
 1. Save the app.
 1. Select **Run** to start the app.
 
-### Check the status 
+### Check the status
 
 In the Logic app blade, select **Overview**, and then select a row in the **Runs history** column:
 
@@ -247,14 +247,14 @@ The image following shows the run details when the condition was true, and email
 
 ![Overview blade](media/functions-twitter-email/sent.png)
 
-You can select any of the service boxes to show find more information on the data used for the run. Select the **When a new tweet is posted**, it shows the search text and all the outputs, even those outputs we're not using. 
+You can select any of the service boxes to show find more information on the data used for the run. Select the **When a new tweet is posted**, it shows the search text and all the outputs, even those outputs we're not using.
 
 ## Get help
 
-To ask questions, answer questions, and learn what other Azure Logic Apps users are doing, 
+To ask questions, answer questions, and learn what other Azure Logic Apps users are doing,
 visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-To help improve Azure Logic Apps and connectors, vote on or submit ideas at the 
+To help improve Azure Logic Apps and connectors, vote on or submit ideas at the
 [Azure Logic Apps user feedback site](http://aka.ms/logicapps-wish).
 
 ## Next steps
