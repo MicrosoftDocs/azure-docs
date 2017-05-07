@@ -17,7 +17,7 @@ ms.date: 05/10/2017
 
 # Create an Azure Database for PostgreSQL in the Azure portal
 
-Azure Database for PostgreSQL is a managed service that enables you to run, manage, and scale highly-available PostgreSQL databases in the cloud. This quickstart shows you how to create a new Azure Database for PostgreSQL server using the Azure portal.
+Azure Database for PostgreSQL is a managed service that enables you to run, manage, and scale highly available PostgreSQL databases in the cloud. This quickstart shows you how to create an Azure Database for PostgreSQL server using the Azure portal.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -39,9 +39,9 @@ Follow these steps to create an Azure Database for PostgreSQL server:
 | Setting     | Suggested value     | Description                                                                               |
 | ----------- | ------------------- | ----------------------------------------------------------------------------------------- |
 | Server name        | mypgserver-20170401 | The server name maps to DNS name and is thus required to be globally unique across Azure)      |
-| Subscription       |                     | If you have multiple subscriptions, choose the appropriate subscription in which the resource will exist and is billed. |
-| Resource group     | myresourcegroup     | You may create a new resource group for this quickstart.  |
-| Server admin login | mylogin             | This login will be the administrator account within your PostgreSQL server. |
+| Subscription       |                     | If you have multiple subscriptions, choose the appropriate subscription in which the resource will be billed. |
+| Resource group     | myresourcegroup     | You may create a resource group for this quickstart.  |
+| Server admin login | mylogin             | This login is the administrator account within your PostgreSQL server. |
 | Password           |             | Choose a strong password and remember it for later use.  |
 | Location           | West US             | Choose the closest available region to your location.  |
 | PostgreSQL Version | 9.6                 | Choose the latest version of PostgreSQL.  |
@@ -59,13 +59,13 @@ Follow these steps to create an Azure Database for PostgreSQL server:
 7.	On the toolbar, click **Notifications** to monitor the deployment process.
  ![Azure Database for PostgreSQL - See notifications](./media/quickstart-create-database-portal/3-notifications.png)
    
-  By default, **postgres** database gets created under your server. The [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) database is a default database meant for use by users, utilities and third party applications. 
+  By default, **postgres** database gets created under your server. The [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) database is a default database meant for use by users, utilities, and third-party applications. 
 
 ## Configure a server-level firewall rule
 
-The Azure Database for PostgreSQL service creates a firewall at the server-level. This prevents external applications and tools from connecting to the server or any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. 
+The Azure Database for PostgreSQL service creates a firewall at the server-level. This firewall prevents external applications and tools from connecting to the server and any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. 
 
-1.	After the deployment completes, click **All Resources** from the left-hand menu and type in the name **mypgserver-20170401** to search for your newly created server. Click on the server name listed in the search result. The **Overview** page for your server opens and provides options for further configuration.
+1.	After the deployment completes, click **All Resources** from the left-hand menu and type in the name **mypgserver-20170401** to search for your newly created server. Click the server name listed in the search result. The **Overview** page for your server opens and provides options for further configuration.
  ![Azure Database for PostgreSQL - Search for server ](./media/quickstart-create-database-portal/4-locate.png)
 2.	In the server blade, select **Connection Security**. 
 3.	Click in the text box under **Rule Name,** and add a new firewall rule to whitelist the IP range for connectivity. For this quick start, let's allow all IPs by typing in **Rule Name = AllowAllIps**, **Start IP = 0.0.0.0** and **End IP = 255.255.255.255** and then click **Save**. You can set a firewall rule that covers an IP range to be able to connect from your network.
@@ -82,22 +82,22 @@ When we created our Azure Database for PostgreSQL server, the default **postgres
 
 1. From the left-hand menu in Azure portal, click **All resources** and search for the server you just created **mypgserver-20170401**.
   ![Azure Database for PostgreSQL - Search for server ](./media/quickstart-create-database-portal/4-locate.png)
-3. Click on the server name **mypgserver-20170401**.
+3. Click the server name **mypgserver-20170401**.
 4. Select the server's **Overview** page. Make a note of the **Server name** and **Server admin login name**.
  ![Azure Database for PostgreSQL - Server Admin Login](./media/quickstart-create-database-portal/6-server-name.png)
 
 ## Connect to PostgreSQL database using psql in Cloud Shell
 
-Let's now use the psql command line utility to connect to the Azure Database for PostgreSQL server. 
+Let's now use the psql command-line utility to connect to the Azure Database for PostgreSQL server. 
 1. Launch the Azure Cloud Shell via the terminal icon on the top navigation pane.
 
-   ![Azure Database for PostgreSQL - Azure Console terminal icon](./media/quickstart-create-database-portal/7-cloud-console.png)
+   ![Azure Database for PostgreSQL - Azure Cloud Shell terminal icon](./media/quickstart-create-database-portal/7-cloud-console.png)
 
-2. This enables a bash shell experience in your browser.
+2. The Azure Cloud Shell opens in your browser, enabling you to type bash commands.
 
-   ![Azure Database for PostgreSQL - Azure Console Bash Prompt](./media/quickstart-create-database-portal/8-bash.png)
+   ![Azure Database for PostgreSQL - Azure Shell Bash Prompt](./media/quickstart-create-database-portal/8-bash.png)
 
-3. At the Cloud Console prompt, connect to your Azure Database for PostgreSQL server using the psql commands. The following format is used to connect to an Azure Database for PostgreSQL server with the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility:
+3. At the Cloud Shell prompt, connect to your Azure Database for PostgreSQL server using the psql commands. The following format is used to connect to an Azure Database for PostgreSQL server with the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility:
    ```bash
    psql --host=<myserver> --port=<port> --username=<server admin login> --dbname=<database name>
    ```
@@ -148,7 +148,7 @@ To connect to Azure PostgreSQL server using the GUI tool _pgAdmin_
 
 
 ## Clean up resources
-Clean-up all resources you created in the quickstart by deleting the [Azure resource group](../azure-resource-manager/resource-group-overview.md).
+Clean up all resources you created in the quickstart by deleting the [Azure resource group](../azure-resource-manager/resource-group-overview.md).
 
 > [!TIP]
 > Other quickstarts in this collection build upon this quick start. If you plan to continue on to work with subsequent quickstarts, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart in the Azure portal.
