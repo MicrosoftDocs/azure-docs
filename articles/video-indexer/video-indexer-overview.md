@@ -23,8 +23,8 @@ Video Indexer is a cloud service that enables you to extract the following insig
 - **Voice activity detection**: This enables Video Indexer to separate background noise and voice activity. 
 - **Scene detection**: Video Indexer has the ability to perform visual analysis on the video to determine when a scene changes in a video.
 - **Keyframe extraction**: Video Indexer automatically detects keyframes in a video. 
-- **Sentiment analysis**: Video Indexer performs sentiment analysis on the text extracted using speech-to-text as well as optical character recognition, and provide that information in the form of positive, negative of neutral sentiments, along with timecodes.
-- **Translation**: Video Indexer has the ability to translate the audio transcript from one language to another. Multiple languages (English, Spanish, French, German, Italian, Chinese-Simplified, Portuguese-Brazilian,  Japanese and Russian) are supported. Once translated, the user can even get captioning in the video player in other languages.
+- **Sentiment analysis**: Video Indexer performs sentiment analysis on the text extracted using speech-to-text and optical character recognition, and provide that information in the form of positive, negative of neutral sentiments, along with timecodes.
+- **Translation**: Video Indexer has the ability to translate the audio transcript from one language to another. The following languages are supported: English, Spanish, French, German, Italian, Chinese-Simplified, Portuguese-Brazilian, Japanese, and Russian. Once translated, the user can even get captioning in the video player in other languages.
 - **Visual content moderation**: This technology enables detection of adult and/or racy material present in the video and can be used for content filtering. 
 - **Keywords extraction**: Video Indexer extracts keywords based on the transcript of the spoken words and text recognized by visual text recognizer.
 - **Annotation**: Video Indexer annotates the video based on a pre-defined model of 2000 objects.
