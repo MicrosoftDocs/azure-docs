@@ -14,15 +14,15 @@ ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2017
+ms.date: 05/07/2017
 ms.author: janeng
 
 ---
 # Troubleshoot performance issues and optimize your database
 
-In this tutorial you learn how to:
+Missing indexes and poorly optimized queries are common reasons for poor database performance. In this tutorial you learn to:
 > [!div class="checklist"]
-> * Review, apply and revert recommendations
+> * Review, apply and revert performance improvement recommendations
 > * Find queries with high resource utilization
 > * Find long running queries
 
@@ -99,11 +99,14 @@ Follow these steps to find the query consuming the most resources:
 
     ![query insights](./media/sql-database-performance-tutorial/review_query_details.png)
 
+
+
+## Next steps 
+Missing indexes and poorly optimized queries are common reasons for poor database performance. In this tutorial you learned to:
 In this tutorial you learned how to:
 > [!div class="checklist"]
-> * Review, apply and revert recommendations
+> * Review, apply and revert performance improvement recommendations
 > * Find queries with high resource utilization
 > * Find long running queries
 
-## Next steps 
 [SQL Database performance tuning tips](https://docs.microsoft.com/azure/sql-database/sql-database-troubleshoot-performance)
