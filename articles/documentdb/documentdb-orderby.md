@@ -3,8 +3,8 @@ redirect_url: https://azure.microsoft.com/services/documentdb/
 ROBOTS: NOINDEX, NOFOLLOW
 
 ---
-# Sorting DocumentDB data using Order By
-Microsoft Azure DocumentDB supports querying documents using SQL over JSON documents. Query results can be ordered using the ORDER BY clause in SQL query statements.
+# Sorting Azure Cosmos DB data using Order By
+Microsoft Azure Cosmos DB supports querying documents using SQL over JSON documents. Query results can be ordered using the ORDER BY clause in SQL query statements.
 
 After reading this article, you'll be able to answer the following questions: 
 
@@ -14,10 +14,10 @@ After reading this article, you'll be able to answer the following questions:
 
 [Samples](#samples) and an [FAQ](#faq) are also provided.
 
-For a complete reference on SQL querying, see the [DocumentDB Query tutorial](documentdb-sql-query.md).
+For a complete reference on SQL querying, see the [Azure Cosmos DB Query tutorial](documentdb-sql-query.md).
 
 ## How to Query with Order By
-Like in ANSI-SQL, you can now include an optional Order By clause in SQL statements when querying DocumentDB. The clause can include an optional ASC/DESC argument to specify the order in which results must be retrieved. 
+Like in ANSI-SQL, you can now include an optional Order By clause in SQL statements when querying Cosmos DB. The clause can include an optional ASC/DESC argument to specify the order in which results must be retrieved. 
 
 ### Ordering using SQL
 For example here's a query to retrieve the top 10 books in descending order of their titles. 
@@ -44,10 +44,10 @@ Using the .NET SDK version 1.2.0 and higher, you can also use the OrderBy() or O
         // Iterate through books
     }
 
-DocumentDB supports ordering with a single numeric, string or Boolean property per query, with additional query types coming soon. Please see [What's coming next](#Whats_coming_next) for more details.
+Cosmos DB supports ordering with a single numeric, string or Boolean property per query, with additional query types coming soon. Please see [What's coming next](#Whats_coming_next) for more details.
 
 ## Configure an indexing policy for Order By
-Recall that DocumentDB supports two kinds of indexes (Hash and Range), which can be set for specific paths/properties, data types (strings/numbers) and at different precision values (either maximum precision or a fixed precision value). Since DocumentDB uses Hash indexing as default, you must create a new collection with a custom indexing policy with Range on numbers, strings or both, in order to use Order By. 
+Recall that Cosmos DB supports two kinds of indexes (Hash and Range), which can be set for specific paths/properties, data types (strings/numbers) and at different precision values (either maximum precision or a fixed precision value). Since Cosmos DB uses Hash indexing as default, you must create a new collection with a custom indexing policy with Range on numbers, strings or both, in order to use Order By. 
 
 > [!NOTE]
 > String range indexes were introduced on July 7, 2015 with REST API version 2015-06-03. In order to create policies for Order By against strings, you must use SDK version 1.2.0 of the .NET SDK, or version 1.1.0 of the Python, Node.js or Java SDK.
@@ -56,7 +56,7 @@ Recall that DocumentDB supports two kinds of indexes (Hash and Range), which can
 > 
 > 
 
-For more details see [DocumentDB indexing policies](documentdb-indexing-policies.md).
+For more details see [Azure Cosmos DB indexing policies](documentdb-indexing-policies.md).
 
 ### Indexing for Order By against all properties
 Here's how you can create a collection with "All Range" indexing for Order By against any/all numeric or string properties that appear within JSON documents within it. Here we override the default index type for string values to Range, and at the maximum precision (-1).
@@ -91,13 +91,13 @@ Take a look at this [GitHub samples project](https://github.com/Azure/azure-docu
 ## FAQ
 **What is the expected Request Unit (RU) consumption of Order By queries?**
 
-Since Order By utilizes the DocumentDB index for lookups, the number of request units consumed by Order By queries will be similar to the equivalent queries without Order By. Like any other operation on DocumentDB, the number of request units depends on the sizes/shapes of documents as well as the complexity of the query. 
+Since Order By utilizes the Cosmos DB index for lookups, the number of request units consumed by Order By queries will be similar to the equivalent queries without Order By. Like any other operation on Cosmos DB, the number of request units depends on the sizes/shapes of documents as well as the complexity of the query. 
 
 **What is the expected indexing overhead for Order By?**
 
 The indexing storage overhead will be proportionate to the number of properties. In the worst case scenario, the index overhead will be 100% of the data. There is no difference in throughput (Request Units) overhead between Range/Order By indexing and the default Hash indexing.
 
-**How do I query my existing data in DocumentDB using Order By?**
+**How do I query my existing data in Cosmos DB using Order By?**
 
 In order to sort query results using Order By, you must modify the indexing policy of the collection to use a Range index type against the property used to sort. See [Modifying Indexing Policy](documentdb-indexing-policies.md#modifying-the-indexing-policy-of-a-collection). 
 
@@ -122,8 +122,8 @@ If you receive an error that Order By is not supported, check to ensure that you
 Fork the [GitHub samples project](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) and start ordering your data! 
 
 ## References
-* [DocumentDB Query Reference](documentdb-sql-query.md)
-* [DocumentDB Indexing Policy Reference](documentdb-indexing-policies.md)
-* [DocumentDB SQL Reference](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-* [DocumentDB Order By Samples](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
+* [Azure Cosmos DB Query Reference](documentdb-sql-query.md)
+* [Azure Cosmos DB Indexing Policy Reference](documentdb-indexing-policies.md)
+* [Azure Cosmos DB SQL Reference](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+* [Azure Cosmos DB Order By Samples](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
 

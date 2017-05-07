@@ -1,7 +1,7 @@
 ---
-title: DocumentDB global database replication | Microsoft Docs
-description: Learn how to manage the global replication of your DocumentDB account via the Azure portal.
-services: documentdb
+title: Azure Cosmos DB global database replication | Microsoft Docs
+description: Learn how to manage the global replication of your Azure Cosmos DB account via the Azure portal.
+services: cosmosdb
 keywords: global database, replication
 documentationcenter: ''
 author: mimig1
@@ -9,7 +9,7 @@ manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -20,15 +20,15 @@ ms.author: mimig
 ---
 # How to perform global database replication using the Azure portal
 
-Learn how to use the Azure portal to replicate data in multiple regions for global availability of data in Azure DocumentDB and API for MongoDB.
+Learn how to use the Azure portal to replicate data in multiple regions for global availability of data in Azure Cosmos DB and API for MongoDB.
 
-For information about how global database replication works in DocumentDB, see [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md). For information about performing global database replication programmatically, see [Developing with multi-region DocumentDB accounts](documentdb-developing-with-multiple-regions.md).
+For information about how global database replication works in Cosmos DB, see [Distribute data globally with Cosmos DB](documentdb-distribute-data-globally.md). For information about performing global database replication programmatically, see [Developing with multi-region Azure Cosmos DB accounts](documentdb-developing-with-multiple-regions.md).
 
 ## <a id="addregion"></a>Add global database regions
-DocumentDB is available in most [Azure regions][azureregions]. After selecting the default consistency level for your database account, you can associate one or more regions (depending on your choice of default consistency level and global distribution needs).
+Cosmos DB is available in most [Azure regions][azureregions]. After selecting the default consistency level for your database account, you can associate one or more regions (depending on your choice of default consistency level and global distribution needs).
 
-1. In the [Azure portal](https://portal.azure.com/), in the left bar, click **NoSQL (DocumentDB)**.
-2. In the **NoSQL (DocumentDB)** blade, select the database account to modify.
+1. In the [Azure portal](https://portal.azure.com/), in the left bar, click **NoSQL (Azure Cosmos DB)**.
+2. In the **NoSQL (Azure Cosmos DB)** blade, select the database account to modify.
 3. In the account blade, click **Replicate data globally** from the menu.
 4. In the **Replicate data globally** blade, select the regions to add or remove, and then click **Save**. There is a cost to adding regions, see the [pricing page](https://azure.microsoft.com/pricing/details/documentdb/) or the [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md) article for more information.
    
@@ -46,15 +46,15 @@ This guidance is important to follow when only two regions are configured for di
 <!---
 ## <a id="selectwriteregion"></a>Select the write region
 
-While all regions associated with your DocumentDB database account can serve reads (both, single item as well as multi-item paginated reads) and queries, only one region can actively receive the write (insert, upsert, replace, delete) requests. To set the active write region, do the following  
+While all regions associated with your Cosmos DB database account can serve reads (both, single item as well as multi-item paginated reads) and queries, only one region can actively receive the write (insert, upsert, replace, delete) requests. To set the active write region, do the following  
 
 
-1. In the **NoSQL (DocumentDB)** blade, select the database account to modify.
+1. In the **NoSQL (Azure Cosmos DB)** blade, select the database account to modify.
 2. In the account blade, if the **All Settings** blade is not already opened, click **All Settings**.
 3. In the **All Settings** blade, click **Write Region Priority**.
-    ![Change the write region under DocumentDB Account > Settings > Add/Remove Regions][2]
+    ![Change the write region under Azure Cosmos DB Account > Settings > Add/Remove Regions][2]
 4. Click and drag regions to order the list of regions. The first region in the list of regions is the active write region.
-    ![Change the write region by reordering the region list under DocumentDB Account > Settings > Change Write Regions][3]
+    ![Change the write region by reordering the region list under Azure Cosmos DB Account > Settings > Change Write Regions][3]
 -->
 
 ### Verifying your regional setup in API for MongoDB
@@ -93,9 +93,9 @@ Example results:
    ```
 
 ## <a id="next"></a>Next steps
-Learn how to manage the consistency of your globally replicated account by reading [Consistency levels in DocumentDB](documentdb-consistency-levels.md).
+Learn how to manage the consistency of your globally replicated account by reading [Consistency levels in Azure Cosmos DB](documentdb-consistency-levels.md).
 
-For information about how global database replication works in DocumentDB, see [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md). For information about programmatically replicating data in multiple regions, see [Developing with multi-region DocumentDB accounts](documentdb-developing-with-multiple-regions.md).
+For information about how global database replication works in Cosmos DB, see [Distribute data globally with Azure Cosmos DB](documentdb-distribute-data-globally.md). For information about programmatically replicating data in multiple regions, see [Developing with multi-region Azure Cosmos DB accounts](documentdb-developing-with-multiple-regions.md).
 
 <!--Image references-->
 [1]: ./media/documentdb-portal-global-replication/documentdb-add-region.png

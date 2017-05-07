@@ -1,7 +1,7 @@
 ---
 title: Partitioning and scaling in Azure Cosmos DB | Microsoft Docs
 description: Learn about how partitioning works in Azure Cosmos DB, how to configure partitioning and partition keys, and how to pick the right partition key for your application.
-services: documentdb
+services: cosmosdb
 author: arramac
 manager: jhubbard
 editor: monicar
@@ -47,7 +47,6 @@ For example, consider an application that stores data about employees and their 
 Azure Cosmos DB creates a small number of physical partitions behind each container based on storage size and provisioned throughput. The property that you define as partition key is a logical partition. Multiple partition key values typically share a single physical partition, but a single value will never span a partition. If you have a partition key with a lot of values, it’s good because DocumentDB will be able to perform better load balancing as your data grows or you increase the provisioned throughput.
 
 For example, let’s say you create a container with 25,000 requests per second throughput and Cosmos DB can support 10,000 requests per second per single physical partition. Cosmos DB would create 3 physical partitions P1, P2, and P3 for your container. During the insertion or read of an item, the Cosmos DB service hashes the corresponding `Department` value to map data to the three partitions P1, P2, and P3. So for example, if “Marketing” and “Sales” hash to 1, they are both stored in P1. And if P1 becomes full, DocumentDB splits P1 into two new partitions P4 and P5. Then the service might move “Marketing” to P4 and “Sales” to P5 after the split, then drop P1. These moves of partition keys between partitions are transparent to your application, and have no impact to the availability of your container.
-
 <a name="partition-keys"></a>
 ## Partition keys
 The choice of the partition key is an important decision that you’ll have to make at design time. You must pick a property name that has a wide range of values and is likely to have evenly distributed access patterns.
@@ -306,7 +305,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 Cosmos DB supports [aggregate functions](documentdb-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, `SUM` and `AVG` over partitioned containers using SQL starting with SDKs 1.12.0 and above. Queries must include a single aggregate operator, and must include a single value in the projection.
 
 ### Parallel query execution
-The DocumentDB SDKs 1.9.0 and above support parallel query execution options, which allow you to perform low latency queries against partitioned collections, even when they need to touch a large number of partitions. For example, the following query is configured to run in parallel across partitions.
+The Cosmos DB SDKs 1.9.0 and above support parallel query execution options, which allow you to perform low latency queries against partitioned collections, even when they need to touch a large number of partitions. For example, the following query is configured to run in parallel across partitions.
 
 ```csharp
 // Cross-partition Order By Queries
@@ -390,7 +389,7 @@ Here are a few examples for how to pick the partition key for your application:
 
 * If you’re implementing a user profile backend, then the user ID is a good choice for partition key.
 * If you’re storing IoT data e.g. device state, a device ID is a good choice for partition key.
-* If you’re using DocumentDB for logging time-series data, then the hostname or process ID is a good choice for partition key.
+* If you’re using Cosmos DB for logging time-series data, then the hostname or process ID is a good choice for partition key.
 * If you have a multi-tenant architecture, the tenant ID is a good choice for partition key.
 
 Note that in some use cases (like the IoT and user profiles described above), the partition key might be the same as your id (document key). In others like the time series data, you might have a partition key that’s different than the id.
