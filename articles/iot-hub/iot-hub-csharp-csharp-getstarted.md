@@ -67,9 +67,11 @@ Or start from scratch in Visual Studio with the following steps:
    ```
 
 5. Add the following fields to the **Program** class. Replace the placeholder value with the IoT Hub connection string for the hub that you created in the previous section.
-   
-        static RegistryManager registryManager;
-        static string connectionString = "{iot hub connection string}";
+
+   ```csharp
+   static RegistryManager registryManager;
+   static string connectionString = "{iot hub connection string}";
+   ```
 6. Add the following method to the **Program** class:
    
    ```csharp
@@ -188,15 +190,15 @@ In this section, you create a .NET console app that simulates a device that send
 4. Add the following `using` statement at the top of the **Program.cs** file:
    
    ```csharp
-        using Microsoft.Azure.Devices.Client;
-        using Newtonsoft.Json;
+   using Microsoft.Azure.Devices.Client;
+   using Newtonsoft.Json;
    ```
 5. Add the following fields to the **Program** class. Substitute the placeholder values with the IoT hub host name you retrieved in the "Create an IoT hub" section, and the device key retrieved in the "Create a device identity" section.
    
    ```csharp
-        static DeviceClient deviceClient;
-        static string iotHubUri = "{iot hub hostname}";
-        static string deviceKey = "{device key}";
+   static DeviceClient deviceClient;
+   static string iotHubUri = "{iot hub hostname}";
+   static string deviceKey = "{device key}";
    ```
 
 6. Add the following method to the **Program** class:
@@ -236,11 +238,11 @@ In this section, you create a .NET console app that simulates a device that send
 7. Finally, add the following lines to the **Main** method:
    
    ```csharp
-        Console.WriteLine("Simulated device\n");
-        deviceClient = DeviceClient.Create(iotHubUri, new DeviceAuthenticationWithRegistrySymmetricKey("myFirstDevice", deviceKey), TransportType.Mqtt);
-   
-        SendDeviceToCloudMessagesAsync();
-        Console.ReadLine();
+   Console.WriteLine("Simulated device\n");
+   deviceClient = DeviceClient.Create(iotHubUri, new DeviceAuthenticationWithRegistrySymmetricKey("myFirstDevice", deviceKey), TransportType.Mqtt);
+
+   SendDeviceToCloudMessagesAsync();
+   Console.ReadLine();
    ```
    
    By default, the **Create** method creates a **DeviceClient** instance that uses the AMQP protocol to communicate with IoT Hub. To use the MQTT or HTTP protocol, use the override of the **Create** method that enables you to specify the protocol. If you use the HTTP protocol, you should also add the **Microsoft.AspNet.WebApi.Client** NuGet package to your project to include the **System.Net.Http.Formatting** namespace.
