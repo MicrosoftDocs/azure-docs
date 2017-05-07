@@ -26,7 +26,7 @@ Example intent   |   Example utterances   |
 
 All applications come with the predefined intent, **"None"**. You should teach it to recognize user statements that are irrelevant to the app, for example if a user says "Get me a great cookie recipe" in a TravelAgent app.
 
-You can add up to 300 intents in a single LUIS app. You add and manage your intents from the **Intents** page that is accessed by clicking **Intents** in your application's left panel.
+You can add up to **80** intents in a single LUIS app. You add and manage your intents from the **Intents** page that is accessed by clicking **Intents** in your application's left panel.
 
 
 To learn how to add and manage intents in your LUIS app, see [Add intents](Add-intents.md).
