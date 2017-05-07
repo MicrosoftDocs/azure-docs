@@ -6,6 +6,9 @@ Bing Custom Search empowers businesses of any size, hobbyists, developers, and e
 2. Publish your Custom Search.
 3. Integrate Your Search into your endpoint application of choice.
 
+
+![picture alt](BCS-Overview.png "How Bing Custom Search works.")
+
 ## Use cases
 The most common custom search solutions supported by Bing Custom Search are building site search and topical search solutions. All solutions are retrievable via Bing Web Search API. Bing Web Search API returns a JSON file with the custom results, which can be integrated into many search endpoints. For example, internal websites, public websites, blogs, apps, etc. There are unlimited integration scenarios and end-user entry points for your custom search solutions.
 
