@@ -116,7 +116,8 @@ You can control the ranking via the tabs **Active**, **Blocked**, and **Pinned**
 |**Blocked** | Every time you add a block adjustment, you see a new entry in the **Block** tab. You can deactivate a block rule by using the control **delete**. |
 | **Pinned**| Every time you add a pin to top adjustment, it is added to the tab **Pinned**. |
 
-![picture alt](TrackingSearchSettings.png "Track your custom search settings.")
+
+![picture alt](TrackingCustomSettings.PNG "Track your custom search settings.")
 
 
 ### Understanding quota
@@ -124,16 +125,20 @@ You can control the ranking via the tabs **Active**, **Blocked**, and **Pinned**
 * Further, the maximum number of pins per custom search instance is limited to 200.
 
 ## Publish search settings
-When you completed your custom search settings, click the "Custom Search Endpoint" icon that is shown next to the custom instance name. 
+When you completed your custom search settings, click the **Custom Search Endpoint** icon that is shown next to the custom instance name. 
 
-![picture alt](EditCustomSearchInstanceName.png "Publish your custom search instance.")
+
+![picture alt](PublishSearch.PNG "Publish your custom search instance.")
+
 
 You are routed to a page that shows you details on the Bing Web Search API endpoint for your custom search instance. 
 To try out your search, specify a query and click **Test API**. You see on the right-hand side the algorithmic results from your custom search.
 
+
 ![picture alt](APIEndpoint.png "Test retrieving custom search results via Bing Web Search API.")
 
-You can also validate calling your custom endpoint in different languages. In the UI, you find a Curl-based example in the box "API endpoint", which you can run in your Windows Cmd. 
+
+You can also validate calling your custom endpoint using different programming languages. In the UI, you find a Curl-based example in the box **API endpoint**. You can copy and paste the example in your Windows Command line to make a Bing Web Search API call and retrieve your custom search results.
 
 
 ## Programmatically retrieve custom search results
@@ -169,8 +174,8 @@ https://cognitivegblppe.azure-api.net/bingcustomsearch/v5.0/search[?q][&customco
 | --- | --- | --- | ---|
 | Ocp-Apim-Subscription-Key | string | Required | Subscription key, which provides access to this API. Found in your subscriptions. |
 
-### Request Body
 
+### Request Body
 Bing Custom Search allows customizing web results only, which maps to the response field `webPages`. For example, images or news results cannot be customized. That's why they are not retrievable when calling Bing Web Search API with the `customconfig` parameter in the search request.
 
 Below you see a JSON response of a Bing Web Search API call with a `customconfig` parameter.
