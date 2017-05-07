@@ -36,9 +36,12 @@ This tutorial covers the following tasks:
 
 Let's start by creating an Azure Cosmos DB account in the Azure portal.  
 
-* Already have an Azure Cosmos DB account? If so, skip ahead to [Setup your Visual Studio solution](#SetupVS).  
-* Did you have an Azure DocumentDB account? If so, your account is now an Azure Cosmos DB account and you can skip ahead to [Setup your Visual Studio solution](#SetupVS).  
-* If you are using the Azure Cosmos DB Emulator, please follow the steps at [Azure Cosmos DB Emulator](../documentdb/documentdb-nosql-local-emulator.md) to setup the emulator and skip ahead to [Setup your Visual Studio Solution](#SetupVS). 
+> [!TIP]
+> * Already have an Azure Cosmos DB account? If so, skip ahead to [Set up your Visual Studio solution](#SetupVS)
+> * Did you have an Azure DocumentDB account? If so, your account is now an Azure Cosmos DB account and you can skip ahead to [Set up your Visual Studio solution](#SetupVS).  
+> * If you are using the Azure Cosmos DB Emulator, please follow the steps at [Azure Cosmos DB Emulator](../documentdb/documentdb-nosql-local-emulator.md) to setup the emulator and skip ahead to [Set up your Visual Studio Solution](#SetupVS). 
+>
+>
 
 [!INCLUDE [cosmosdb-create-dbaccount-mongodb](../../includes/cosmosdb-create-dbaccount-mongodb.md)]
 
@@ -49,7 +52,7 @@ Let's start by creating an Azure Cosmos DB account in the Azure portal.
 3. Choose your platform (*.NET driver*, *Node.js driver*, *MongoDB Shell*, *Java driver*, *Python driver*). If you don't see your driver or tool listed, don't worry, we continuously document more connection code snippets. 
 4. Copy and paste the code snippet into your MongoDB app, and you are ready to go.
 
-## Setup your MongoDB app
+## Set up your MongoDB app
 
 You can use the [Create a web app in Azure that connects to MongoDB running on a virtual machine](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md) tutorial, with minimal modification, to quickly setup a MongoDB application (either locally or published to an Azure web app) that connects to an API for MongoDB account.  
 

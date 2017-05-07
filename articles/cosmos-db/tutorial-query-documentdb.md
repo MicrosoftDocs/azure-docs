@@ -24,13 +24,6 @@ ms.author: mimig
 
 The Azure Cosmos DB [DocumentDB API](../documentdb/documentdb-introduction.md) supports querying documents using SQL. This article provides a sample document and two sample SQL queries and results.
 
-## Where can I run SQL queries?
-
-You can run queries using the Data Explorer in the Azure portal, [Query Explorer](../documentdb/documentdb-query-collections-query-explorer.md) in the Azure portal, via the [REST API and SDKs](../documentdb/documentdb-query-collections-query-explorer.md), and even the [Query playground](https://www.documentdb.com/sql/demo), which runs queries on an existing set of sample data.
-
-For more information about SQL queries, see:
-* [SQL query and SQL syntax](../documentdb/documentdb-sql-query.md)
-
 ## Sample document
 
 The SQL queries in this article use the following sample document.
@@ -63,6 +56,13 @@ The SQL queries in this article use the following sample document.
   "isRegistered": false
 }
 ```
+## Where can I run SQL queries?
+
+You can run queries using the Data Explorer in the Azure portal, [Query Explorer](../documentdb/documentdb-query-collections-query-explorer.md) in the Azure portal, via the [REST API and SDKs](../documentdb/documentdb-query-collections-query-explorer.md), and even the [Query playground](https://www.documentdb.com/sql/demo), which runs queries on an existing set of sample data.
+
+For more information about SQL queries, see:
+* [SQL query and SQL syntax](../documentdb/documentdb-sql-query.md)
+
 ## Prerequisites
 
 This tutorial assumes you have an Azure Cosmos DB account and collection. Don't have any of those? Complete the [5-minute quickstart](create-mongodb-nodejs.md) or the [developer tutorial](tutorial-develop-mongodb.md) to create an account and collection.
