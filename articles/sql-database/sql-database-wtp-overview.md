@@ -21,7 +21,7 @@ ms.author: billgib; sstein
 ---
 # Introduction to the Wingtip Tickets Platform (WTP) sample SaaS application
 
-The Wingtip Tickets Platform (WTP) SaaS application is a sample app that demonstrates the many unique advantages SQL Database. The app uses a database-per-tenant, SaaS application pattern, to service multiple tenants. The WTP app is designed to showcase features of Azure SQL Database that enable SaaS scenarios, including SaaS design and management patterns. To quickly get up and running, [the WTP app deploys in less than five minutes](sql-database-saas-tutorial.md)!
+The Wingtip Tickets Platform (WTP) SaaS application is a sample app that demonstrates the unique advantages of SQL Database. The app uses a database-per-tenant, SaaS application pattern, to service multiple tenants. The WTP app is designed to showcase features of Azure SQL Database that enable SaaS scenarios, including SaaS design and management patterns. To quickly get up and running, [the WTP app deploys in less than five minutes](sql-database-saas-tutorial.md)!
 
 After deploying the WTP app, explore the provided [collection of tutorials](#sql-database-saas-tutorials) that build upon the initial deployment. Each tutorial focuses on typical tasks that are implemented in SaaS applications. Tasks are implemented following SaaS patterns that take advantage of built-in features of SQL Database. Patterns described include, provisioning new tenants, restoring tenant databases, running queries, and rolling out schema changes across all tenant database. Each tutorial includes reusable scripts with detailed explanations that greatly simplify understanding, and implementing the SaaS management patterns in your applications.
 
@@ -52,20 +52,20 @@ The core Wingtip application, uses a pool with three sample tenants, plus a cata
 
 The benefits of working with the WTP application comes from diving into the provided scripts and examining how the different SaaS patterns are implemented.
 
-To view the provided scripts and modules, and to facilitate stepping through them for a more complete understanding, use the [Windows PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise). Because most of the scripts prefixed with _Demo-_ contain variables that you can modify before execution, using the PowerShell ISE simplifies working with these scripts.
+To view the provided scripts and modules, and to facilitate stepping through them for a better understanding, use the [Windows PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise). Because most of the scripts prefixed with *Demo-* contain variables that you can modify before execution, using the PowerShell ISE simplifies working with these scripts.
 
-For each WTP app deployment, there is a **UserConfig.psm1** containing parameters for setting the resource group and user name values that you defined during deployment. After deployment is complete, edit the **UserConfig.psm1** module setting the _ResourceGroupName_ and _Name_  parameters. These values are used by other scripts to successfully run, so setting them when the deployment completes is recommended!
+For each WTP app deployment, there is a **UserConfig.psm1** file containing two parameters for setting the resource group and user name values that you defined during deployment. After deployment is complete, edit the **UserConfig.psm1** module setting the _ResourceGroupName_ and _Name_  parameters. These values are used by other scripts to successfully run, so setting them when the deployment completes is recommended!
 
 ### Get the WTP scripts
 
-The Wingtip Tickets scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. Script files are located in the [Learning Modules folder](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Download the Learning Module folder to your local computer, maintaining it's folder structure.
+The Wingtip Tickets scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. Script files are located in the [Learning Modules folder](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Download the **Learning Modules** folder to your local computer, maintaining its folder structure.
 
 
 ### Execute Scripts by pressing F5
 
-Many scripts use _$PSScriptRoot_ to allow navigation among folders and this variable is only evaluated when the full script is executed by pressing **F5**.  Highlighting and running only a selection (**F8**) can result in errors, so press **F5** to run all WTP scripts.
+Several scripts use *$PSScriptRoot* to allow navigating folders, and this variable is only evaluated when the script is executed by pressing **F5**.  Highlighting and running a selection (**F8**) can result in errors, so press **F5** when running WTP scripts.
 
-### Stepping through the scripts
+### Step through the scripts to examine the implementation
 
 The real value in exploring the scripts comes from stepping through them to see what they do. Check out the first-level _Demo-_ scripts that provide an easy to read high-level workflow showing the steps required to accomplish each task. Drill deeper into the individual calls to see implementation details for the different SaaS patterns.
 
@@ -80,16 +80,6 @@ Tips for working with and [debugging PowerShell scripts](https://msdn.microsoft.
 
 
 
-**PowerShell Tips**
-
-* Open and configure demo- scripts in the PowerShell ISE.
-* Use F5 to run the script (using F8 is not advised as the $PSScriptRoot variable is not evaluated when running snippets of a script).
-* Use F9 to set a breakpoint to let you trace the script in debug mode to see how it works
-* Use F10 to step through the script, F11 to step into a function, and Shift-F11 to step out.
-
-To save time, it’s recommended to **pre-install the batch of tenants** (this is described at the end of the Provision and Catalog tutorial, as well as in this tutorial below).
-
-
 ## SQL Database SaaS tutorials
 
 The following tutorials build upon the initial WTP application and can be done in any order.
@@ -99,9 +89,9 @@ The following tutorials build upon the initial WTP application and can be done i
 |[Provision and Catalog](sql-database-saas-tutorial-provision-and-catalog.md)| Provision new tenants and register them in the catalog. | github link |
 |Restore Single Tenant| Restore tenant databases showing two recovery patterns. | github link |
 |Schema Management| Execute operations across all tenants.  | github link |
-|Catalog Sync| desc | github link |
+|Catalog Sync| description | github link |
 |Performance Monitoring and Management| Monitor and manage databases and pools, and how to respond to variations in workload. | github link |
-|Log Analytics| desc | github link |
+|Log Analytics| description | github link |
 |Tenant Analytics| Run analytics queries that are distributed across all the tenants.  | github link |
 |Ad-hoc Analytics| Create an ad-hoc analytics database and query across tenants to expose hidden insights.  | github link |
 |Devops and Support| Search the catalog by venue name to determine the server and database names for each tenant | github link |
