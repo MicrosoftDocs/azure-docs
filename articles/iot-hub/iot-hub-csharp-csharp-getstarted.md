@@ -50,7 +50,7 @@ You can download or clone the full app source code from Github,
 git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-client-app.git
 ```
 
-Or start from scratch in Visual Studio with the following steps. 
+Or start from scratch in Visual Studio with the following steps:
 
 1. In Visual Studio, add a Visual C# Windows Classic Desktop project to a new solution by using the **Console App (.NET Framework)** project template. Make sure the .NET Framework version is 4.5.1 or later. Name the project **CreateDeviceIdentity** and name the solution **IoTHubGetStarted**.
    
