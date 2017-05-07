@@ -28,8 +28,7 @@ Log in to your Azure subscription with the [az login](/cli/azure/#login) command
 ```azurecli
 az login
 ```
-
-If you have multiple subscriptions, choose the appropriate subscription in which the resource exists or is billed for. Select a specific subscription ID under your account using [az account set](/cli/azure/account#set) command.
+If you have multiple subscriptions, choose the appropriate subscription in which the resource will be billed. Select a specific subscription ID under your account using [az account set](/cli/azure/account#set) command.
 ```azurecli
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
@@ -45,7 +44,7 @@ az group create --name myresourcegroup --location westus
 
 Create an [Azure PostgreSQL server](overview.md) using the **az postgres server create** command. A server contains a group of databases managed as a group. 
 
-The following example creates a server called `mypgserver-20170401` in your resource group `myresourcegroup` with server admin login `mylogin`. Name of a server maps to DNS name and is thus required to be globally unique. Substitute the `<server_admin_password>` with your own value.
+The following example creates a server named `mypgserver-20170401` in your resource group `myresourcegroup` with server admin login `mylogin`. The name of a server maps to DNS name and is thus required to be globally unique in Azure. Substitute the `<server_admin_password>` with your own value.
 ```azurecli
 az postgres server create --resource-group myresourcegroup --name mypgserver-20170401  --location westus --admin-user mylogin --admin-password <server_admin_password> --performance-tier Basic --compute-units 50 --version 9.6
 ```
@@ -86,9 +85,9 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
   "name": "mypgserver-20170401",
   "resourceGroup": "myresourcegroup",
   "sku": {
-    "capacity": 100,
+    "capacity": 50,
     "family": null,
-    "name": "PGSQLS3M100",
+    "name": "PGSQLS2M50",
     "size": null,
     "tier": "Basic"
   },
@@ -110,19 +109,18 @@ If your client computer has PostgreSQL installed, you can use a local instance o
 psql --host=--host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
 ```
 
-  For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mypgserver-20170401.postgres.database.azure.com** using access credentials.
+  For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mypgserver-20170401.postgres.database.azure.com** using access credentials. Enter the `<server_admin_password>` you chose when prompted for password.
   
   ```bash
 psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 ---dbname=postgres
 ```
-Enter the `<server_admin_password>` you chose when prompted for password.
 
-2.  Once you're connected to the server, create a blank database at the prompt.
+2.  Once you are connected to the server, create a blank database at the prompt.
 ```bash
 CREATE DATABASE mypgsqldb;
 ```
 
-3.  At the prompt, execute the following command to switch connection to the newly created database **mypgsqldb**
+3.  At the prompt, execute the following command to switch connection to the newly created database **mypgsqldb**:
 ```bash
 \c mypgsqldb
 ```
@@ -169,5 +167,5 @@ az postgres server delete --resource-group myresourcegroup --name mypgserver-201
 
 ## Next steps
 - Migrate your database using [Export and Import](./howto-migrate-using-export-and-import.md) or [Dump and Restore](./howto-migrate-using-dump-and-restore.md).
-- To create PostgreSQL server via Azure CLI, see [Create PostgreSQL server - portal](./quickstart-create-server-database-portal.md).
-- For a technical overview, see [About the Azure Database for PostgreSQL service](./overview.md).
+- Create an Azure Database for PostgreSQL in the [Azure portal](quickstart-create-server-database-portal.md)
+- For a technical overview of this service, see [What is Azure Database for PostgreSQL?](overview.md)
