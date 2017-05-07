@@ -6,8 +6,7 @@
 3. In the **New account** blade, specify the desired configuration for the Azure Cosmos DB account. 
 
     With Azure Cosmos DB, you can choose one of four programming models: Gremlin (graph), MongoDB, SQL (DocumentDB), and Table (key-value).  
-    
-   
+       
     In this quick start we'll be programming against the Graph API so you'll choose **Gremlin (graph)** as you fill out the form. But if you have document data from a catalog app, key/value (table) data, or data migrated from a MongoDB app, realize that Azure Cosmos DB can provide a highly available, globally-distributed database service platform for all your mission-critical applications.
 
     Fill out the New account blade using the information in the screenshot as a guide. You will choose unique values as you set up your account so your values will not match the screenshot exactly. 

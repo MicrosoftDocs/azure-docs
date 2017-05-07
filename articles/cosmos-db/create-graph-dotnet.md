@@ -127,8 +127,6 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 5. Click CTRL + F5 to run the application.
 
-You can now go back to Graph Explorer and see query, modify, and work with this new data. 
-
 ## Browse using the Data Explorer
 
 You can now browse and query your new graph using Data Explorer.

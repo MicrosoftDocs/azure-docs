@@ -38,7 +38,7 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 
 You can now use Data Explorer to create a collection. 
 
-1. In the Azure portal, in the navigation menu, under **Collections**, click **Data Explorer (Preview)**. 
+1. In the Azure portal, in the navigation menu, under **Collections**, click **Data Explorer**. 
 2. In the Data Explorer blade, click **New Collection**, then fill in the page using the following information.
 
     Setting|Suggested value|Description

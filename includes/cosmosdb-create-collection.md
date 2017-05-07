@@ -1,6 +1,6 @@
 You can now use Data Explorer to create a collection and add data to your database. 
 
-1. In the Azure portal, in the navigation menu, click **Data Explorer (Preview)**. 
+1. In the Azure portal, in the navigation menu, click **Data Explorer**. 
 2. In the Data Explorer blade, click **New Collection**, then fill in the page using the following information.
 
     ![Data Explorer in the Azure portal](./media/cosmosdb-create-collection/azure-cosmosdb-data-explorer.png)
