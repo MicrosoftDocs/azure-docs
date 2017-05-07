@@ -32,6 +32,7 @@ using System;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Threading.Tasks;
 
 namespace CSPredictionSample
 {
@@ -42,7 +43,7 @@ namespace CSPredictionSample
             Console.Write("Enter image file path: ");
             string imageFilePath = Console.ReadLine();
 
-            MakePredictionRequest(imageFilePath);
+            MakePredictionRequest(imageFilePath).Wait();
 
             Console.WriteLine("\n\n\nHit ENTER to exit...");
             Console.ReadLine();
@@ -55,7 +56,7 @@ namespace CSPredictionSample
             return binaryReader.ReadBytes((int)fileStream.Length);
         }
 
-        static async void MakePredictionRequest(string imageFilePath)
+        static async Task MakePredictionRequest(string imageFilePath)
         {
             var client = new HttpClient();
 
@@ -63,20 +64,18 @@ namespace CSPredictionSample
             client.DefaultRequestHeaders.Add("Prediction-Key", "13hc77781f7e4b19b5fcdd72a8df7156");
 
             // Prediction URL - replace this example URL with your valid prediction URL.
-            string url = "https://deviris2.azure-api.net/v1.0/Prediction/d16e136c-5b0b-4b84-9341-6a3fff8fa7fe/image?iterationId=f4e573f6-9843-46db-8018-b01d034fd0f2";
+            string url = "http://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/prediction/d16e136c-5b0b-4b84-9341-6a3fff8fa7fe/image?iterationId=f4e573f6-9843-46db-8018-b01d034fd0f2";
 
             HttpResponseMessage response;
 
-            // Request body. Try this sample with a locally stored JPEG image.
+            // Request body. Try this sample with a locally stored image.
             byte[] byteData = GetImageAsByteArray(imageFilePath);
 
             using (var content = new ByteArrayContent(byteData))
             {
-                // This example uses content type "application/octet-stream".
-                // The other content type you can use is "application/json" - but you'll need a different prediction URL for that.
                 content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
                 response = await client.PostAsync(url, content);
-                Console.WriteLine(response);
+                Console.WriteLine(await response.Content.ReadAsStringAsync());
             }
         }
     }
