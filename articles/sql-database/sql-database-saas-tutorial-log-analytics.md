@@ -15,13 +15,14 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/01/2017
+ms.date: 05/05/2017
 ms.author: billgib; sstein
 
 ---
 # Log analytics
 
-In this tutorial, you set up and use Log Analytics ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite)) with the WTP SaaS app for monitoring SQL Elastic pools and databases. It builds on the [Performance Monitoring and Management tutorial](sql-database-saas-tutorial-performance-monitoring.md), and shows how to use Log Analytics to augment the monitoring and alerting provided in the Azure portal. Log Analytics is particularly suitable for monitoring and alerting at scale because it supports hundreds of pools and hundreds of thousands of databases. It also provides a single monitoring solution, which can integrate monitoring of different applications and Azure services, across multiple Azure subscriptions.
+In this tutorial, you set up and use *Log Analytics([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* with the WTP app for monitoring elastic pools and databases. It builds on the [Performance Monitoring and Management tutorial](sql-database-saas-tutorial-performance-monitoring.md), and shows how to use *Log Analytics* to augment the monitoring and alerting provided in the Azure portal. Log Analytics is particularly suitable for monitoring and alerting at scale because it supports hundreds of pools and hundreds of thousands of databases. It also provides a single monitoring solution, which can integrate monitoring of different applications and Azure services, across multiple Azure subscriptions.
+
 
 
 To complete this tutorial, make sure of the following:

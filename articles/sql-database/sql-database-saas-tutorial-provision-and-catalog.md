@@ -21,27 +21,27 @@ ms.author: billgib; sstein
 ---
 # Provision new tenants and register them in the catalog
 
-In this tutorial, you provision new tenants in the Wingtip Tickets Platform (WTP) SaaS application. PowerShell scripts are provided that create new tenants, new tenant databases, and registers the tenants in the catalog. The *catalog* is a database that maintains the mapping between the SaaS applications many tenants and their data. Use these scripts to explore the provision and catalog patterns used, and how registering new tenants in the catalog is implemented.
+In this tutorial, you provision new tenants in the Wingtip Tickets Platform (WTP) SaaS application. You create tenants, tenant databases, and register tenants in the catalog. The *catalog* is a database that maintains the mapping between the SaaS applications many tenants and their data. Use these scripts to explore the provision and catalog patterns used, and how registering new tenants in the catalog is implemented. The catalog plays an important role directing application requests to the correct databases.
 
-In this tutorial:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 
 > * Provision a single new tenant
 > * Provision a batch of 17 additional tenants
-> * Walk through the individual steps for provisioning new tenants, and registering them into the catalog. 
+> * Step into the details of provisioning new tenants, and registering them into the catalog.
 
 
-To complete this tutorial, make sure:
+To complete this tutorial:
 
-* the Wingtip SaaS app is deployed. To deploy in less than five minutes, see [Deploy and explore the WTP SaaS application](sql-database-saas-tutorial.md).
-* Azure PowerShell is installed. To install, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* The Wingtip Tickets application is deployed. To deploy in less than five minutes, see [Deploy and explore the WTP SaaS application](sql-database-saas-tutorial.md).
+* Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ## Introduction to the SaaS Catalog pattern
 
-In a database-backed multi-tenant SaaS application, it’s important to know where information for each tenant is stored. In the SaaS catalog pattern, a catalog database is used to hold the mapping between tenants and where their data is stored. The WTP app uses single-tenant database architecture, but the basic pattern of storing tenant-to-database mapping in a catalog applies whether a multi-tenant or single-tenant database is used.
+In a database-backed multi-tenant SaaS application, it’s important to know where information for each tenant is stored. In the SaaS catalog pattern, a catalog database is used to hold the mapping between tenants and where their data is stored. The WTP app uses a single-tenant database architecture, but the basic pattern of storing tenant-to-database mapping in a catalog applies whether a multi-tenant or single-tenant database is used.
 
-Each tenant is assigned a key that distinguishes their     data in the catalog. In the WTP application, the key is formed from a hash of the tenant’s name. This allows the tenant name portion of the application URL to be used to construct the key and retrieve a specific tenant's connection. Other id schemes could be used without impacting the overall pattern.
+Each tenant is assigned a key that distinguishes their data in the catalog. In the WTP application, the key is formed from a hash of the tenant’s name. This pattern allows the tenant name portion of the application URL to be used to construct the key and retrieve a specific tenant's connection. Other id schemes could be used without impacting the overall pattern.
 
 The catalog in the WTP app is implemented using Shard Management technology in the [Elastic Database Client Library (EDCL)](sql-database-elastic-database-client-library.md). EDCL is responsible for creating and managing a database-backed _catalog_ where a _shard map_ is maintained. The catalog contains the mapping between keys (tenants) and their databases (shards).
 
@@ -53,16 +53,16 @@ The Wingtip SaaS app provisions new tenants by copying a *golden* database.
 
 ## Provision a new tenant
 
-If you already created a new tenant with the *Demo-ProvisionAndCatalog* script (in the [first Wingtip SaaS tutorial](sql-database-saas-tutorial.md)) this is the same, so feel free to skip to the next section; [provision a batch of tenants](#provision-a-batch-of-tenants). 
+If you already created a tenant in the first WTP tutorial feel free to skip to the next section: [provision a batch of tenants](#provision-a-batch-of-tenants).
 
-Run the *Demo-ProvisionAndCatalog* script to quickly create a new tenant and register it in the catalog:
+Run the *Demo-ProvisionAndCatalog* script to quickly create a tenant and register it in the catalog:
 
 1. Open **Demo-ProvisionAndCatalog.ps1** in the PowerShell ISE and set the following values:
-   * **$TenantName** = the name of the new venue (for example, _Bushwillow Blues_). Set to a new name if you run this more than once.
+   * **$TenantName** = the name of the new venue (for example, *Bushwillow Blues*). 
    * **$VenueType** = one of the pre-defined venue types: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer.
    * **$DemoScenario** = 1, Leave this set to _1_ to **Provision a single tenant**.
 
-1. Press **F5** to run the script. Click **OK** to save the script. Sign in to Azure if prompted.
+1. Press **F5** and run the script.
 
 After the script completes, the new tenant is provisioned, and their *Events* app opens in the browser:
 
@@ -71,13 +71,13 @@ After the script completes, the new tenant is provisioned, and their *Events* ap
 
 ## Provision a batch of Tenants
 
-This exercise provisions a batch of 17 additional tenants. It’s recommended you do this prior to completing other WTP tutorials.
+This exercise provisions a batch of 17 additional tenants. It’s recommended you do this before completing other WTP tutorials.
 
 1. Open ...\\Learning Modules\\Utilities\\*Demo-ProvisionAndCatalog.ps1* in the *PowerShell ISE* and set the following value:
-   * **$DemoScenario** = **3**, Set this to **3** to **Provision a batch of tenants**.
-1. Press **F5** to run the script. Click **OK** to save the script.
+   * **$DemoScenario** = **3**, Set to **3** to **Provision a batch of tenants**.
+1. Press **F5** and run the script.
 
-The script will deploy a batch of additional tenants. It uses an [Azure Resource Manager template](../azure-resource-manager/resource-manager-template-walkthrough.md) that controls the batch and then delegates provisioning of each database to a linked template. Using templates like this allows Azure Resource Manager to broker the provisioning process for your script, provisioning databases in parallel where it can, and handling retries if needed, optimizing the overall process. The script is idempotent, if it's interrupted simply run it again.
+The script deploys a batch of additional tenants. It uses an [Azure Resource Manager template](../azure-resource-manager/resource-manager-template-walkthrough.md) that controls the batch and then delegates provisioning of each database to a linked template. Using templates in this way allows Azure Resource Manager to broker the provisioning process for your script. Templates provision databases in parallel where it can, and handles retries if needed, optimizing the overall process. The script is idempotent so if its interrupted run it again.
 
 ### Verify the batch of tenants successfully deployed
 
@@ -88,7 +88,7 @@ The script will deploy a batch of additional tenants. It uses an [Azure Resource
 
 ## Provision and catalog detailed walkthrough
 
-For a better understanding of how the wingtip application implements new tenant provisioning, run the _Demo-ProvisionAndCatalog_ script again and provision yet another tenant, but this time add a breakpoint to step through the workflow:
+For a better understanding of how the Wingtip application implements new tenant provisioning, run the *Demo-ProvisionAndCatalog* script again and provision yet another tenant. This time, add a breakpoint and step through the workflow:
 
 1. Open ...\\Learning Modules\Utilities\_Demo-ProvisionAndCatalog.ps1_ and set the following to new tenant values that do not exist in the current catalog:
    * **$TenantName** = set to a new name (for example, *Hackberry Hitters*).
@@ -99,20 +99,20 @@ For a better understanding of how the wingtip application implements new tenant 
 
    ![break point](media/sql-database-saas-tutorial-provision-and-catalog/breakpoint.png)
 
-1. Press **F5** to run the script. When the breakpoint is hit, press **F11** to step into the calls. Trace the script's execution using **F10** and **F11** to step over or into the functions it calls. [Tips on working with and debugging PowerShell scripts](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
+1. Press **F5** to run the script. When the breakpoint is hit, press **F11** to step in. Trace the script's execution using **F10** and **F11** to step over or into the called functions. [Tips on working with and debugging PowerShell scripts](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
 
 ### Examine the provision and catalog implementation in detail by stepping through the script
 
-The script provisions and catalogs new tenants by doing the following:
+The script provisions and catalogs new tenants by doing the following steps:
 
 1. **Import the SubscriptionManagement.psm1** module that contains functions for signing in to Azure and selecting the Azure subscription you are working with.
 1. **Import the CatalogAndDatabaseManagement.psm1** module that provides a catalog and tenant-level abstraction over the [Shard Management](sql-database-elastic-scale-shard-map-management.md) functions. This is an important module that encapsulates much of the catalog pattern and is worth exploring.
-1. **Get configuration details**. Step into _Get-Configuration_ (with **F11**) and see how the app config is specified. Resource names and other app specific values are defined here, but do not change any of these values until you are familiar with the scripts.
-1. **Get the catalog object**. Step into _Get-Catalog_ to see how the catalog is initialized using the Shard Management functions that are imported from **AzureShardManagement.psm1**. The catalog is composed of the following:
+1. **Get configuration details**. Step into _Get-Configuration_ (with **F11**) and see how the app config is specified. Resource names and other app-specific values are defined here, but do not change any of these values until you are familiar with the scripts.
+1. **Get the catalog object**. Step into *Get-Catalog* to see how the catalog is initialized using the Shard Management functions that are imported from **AzureShardManagement.psm1**. The catalog is composed of the following objects:
    * $catalogServerFullyQualifiedName is constructed using the standard stem plus your User name: _catalog-\<user\>.database.windows.net_.
-   * $catalogDatabaseName is retrieved from the config: _tenantcatalog_.
+   * $catalogDatabaseName is retrieved from the config: *tenantcatalog*.
    * $shardMapManager object is initialized from the catalog database.
-   * $shardMap object is initialized from the _tenantcatalog_ shard map in the catalog database.
+   * $shardMap object is initialized from the *tenantcatalog* shard map in the catalog database.
    A catalog object is composed and returned, and used in the higher-level script.
 1. **Calculate the new tenant key**. A hash function is used to create the tenant key from the tenant name.
 1. **Check if the tenant key already exists**. The catalog is checked to ensure the key is available.
@@ -120,11 +120,9 @@ The script provisions and catalogs new tenants by doing the following:
     
 The database name is constructed from the tenant name to make it clear which shard belongs to which tenant. (Other strategies for database naming could easily be used.)
 
-A Resource Manager template is used to **create a new database by copying a _golden_ database** (baseTenantDB) on the catalog server.  An alternative approach could be to create an empty database and then initialize it by importing a bacpac.
+A Resource Manager template is used to **create a tenant database by copying a *golden* database** (baseTenantDB) on the catalog server.  An alternative approach could be to create an empty database and then initialize it by importing a bacpac.
 
 The Resource Manager template is in the …\\Learning Modules\\Common\\ folder:  *tenantdatabasecopytemplate.json*
-
-Once the Resource Manager template is configured, it is submitted to Azure Resource Manager, which manages its deployment with the resource providers – in this case, the SQL Database service.
 
 After the tenant database is created, it is then further initialized with the venue (tenant) name and the venue type. Other initialization could also be done here.
 
@@ -143,20 +141,30 @@ After provisioning completes, execution returns to the original *Demo-ProvisionA
 
 Other provisioning patterns not included in this tutorial include:
 
-**Pre-provisioning databases.** This pattern exploits the fact that databases in an elastic pool do not add extra cost (billing is for the elastic pool, not the databases), and that idle databases consume no resources. By pre-provisioning databases in a pool and then allocating them when needed, tenant onboarding time can be cut significantly. The number of databases pre-provisioned could be adjusted as needed to keep a buffer suitable for the anticipated provisioning rate.
+**Pre-provisioning databases.** This pattern exploits the fact that databases in an elastic pool do not add extra cost (billing is for the elastic pool, not the databases), and that idle databases consume no resources. By pre-provisioning databases in a pool and then allocating them when needed, tenant onboarding time can be significantly reduced. The number of databases pre-provisioned could be adjusted as needed to keep a buffer suitable for the anticipated provisioning rate.
 
-**Auto-provisioning.** In this pattern, a dedicated provisioning service is used to provision servers, pools and databases automatically as needed – including pre-provisioning databases in elastic pools if desired. And if databases are de-commissioned and deleted, gaps in elastic pools can be filled by the provisioning service as desired. Such a service could be simple or complex – for example, handling provisioning across multiple geographies, and could set up geo-replication automatically if that strategy is being used for DR. With the auto-provisioning pattern, a client application or script would submit a provisioning request to a queue to be processed by the provisioning service, and would then poll the service to determine completion. If pre-provisioning is used requests would be handled very quickly with the service managing provisioning of a replacement database running in the background.
+**Auto-provisioning.** In this pattern, a dedicated provisioning service is used to provision servers, pools, and databases automatically as needed – including pre-provisioning databases in elastic pools if desired. And if databases are de-commissioned and deleted, gaps in elastic pools can be filled by the provisioning service as desired. Such a service could be simple or complex – for example, handling provisioning across multiple geographies, and could set up geo-replication automatically if that strategy is being used for DR. With the auto-provisioning pattern, a client application or script would submit a provisioning request to a queue to be processed by the provisioning service, and would then poll the service to determine completion. If pre-provisioning is used, requests would be handled quickly with the service managing provisioning of a replacement database running in the background.
 
 
-## Stopping Wingtip SaaS application related billing
+## Stopping Wingtip SaaS application-related billing
 
-If you don’t plan to continue with another tutorial, it’s recommended you delete all the resources to suspend billing. Simply delete the resource group the WTP application was deployed to, and all it's resources will be deleted.
+If you don’t plan to continue with another tutorial, it’s recommended you delete all the resources to suspend billing. Delete the resource group the WTP application was deployed to, and all its resources are deleted.
 
 * Browse to the application's resource group in the portal and delete it to stop all billing related to this WTP deployment.
 
 ## Tips
 
 * EDCL also provides important features that enable client applications to connect to and manipulate the catalog. You can also use EDCL to retrieve an ADO.NET connection for a given key value, enabling the application to connect to the correct database. The client caches this connection information to minimize the traffic to the catalog database and speed up the application.
+
+
+In this tutorial you learned how to:
+
+> [!div class="checklist"]
+
+> * Provision a single new tenant
+> * Provision a batch of 17 additional tenants
+> * Step into the details of provisioning new tenants, and registering them into the catalog.
+
 
 ## Next steps
 
