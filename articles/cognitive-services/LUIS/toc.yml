@@ -36,7 +36,7 @@
     href: Add-example-utterances.md
   - name: Add entities
     href: Add-entities.md
-  - name: Recognize patterns and categories
+  - name: Improve performance using features
     href: Add-Features.md
   - name: Train and test the app
     href: Train-Test.md
