@@ -1,7 +1,7 @@
 ---
-title: Performance levels in Azure Cosmos DB | Microsoft Docs
-description: Learn about how performance levels in Azure Cosmos DB enable you to reserve throughput on a per collection basis.
-services: cosmosdb
+title: DocumentDB API performance levels | Microsoft Docs
+description: Learn about how DocumentDB API performance levels enable you to reserve throughput on a per container basis.
+services: documentdb
 author: mimig1
 manager: jhubbard
 editor: monicar
@@ -13,15 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
 
 ---
-# Retiring the S1, S2, and S3 performance levels in Azure Cosmos DB
+# Retiring the S1, S2, and S3 performance levels
 
 > [!IMPORTANT] 
-> The S1, S2, and S3 performance levels discussed in this article are being retired and are no longer available for new DocumentDB collections.
+> The S1, S2, and S3 performance levels discussed in this article are being retired and are no longer available for new DocumentDB API accounts.
 >
 
 This article provides an overview of S1, S2, and S3 performance levels, and discusses how the collections that use these performance levels will be migrated to single partition collections on August 1st, 2017. After reading this article, you'll be able to answer the following questions:
@@ -41,7 +41,7 @@ This article provides an overview of S1, S2, and S3 performance levels, and disc
 
 ## Why are the S1, S2, and S3 performance levels being retired?
 
-The S1, S2, and S3 performance levels do not offer the flexibility that Cosmos DB single partition collections offers. With the S1, S2, S3 performance levels, both the throughput and storage capacity were pre-set. Cosmos DB now offers the ability to customize your throughput and storage, offering you much more flexibility in your ability to scale as your needs change.
+The S1, S2, and S3 performance levels do not offer the flexibility that DocumentDB API collections offers. With the S1, S2, S3 performance levels, both the throughput and storage capacity were pre-set and did not offer elasticity. Azure Cosmos DB now offers the ability to customize your throughput and storage, offering you much more flexibility in your ability to scale as your needs change.
 
 <a name="compare"></a>
 
@@ -102,7 +102,7 @@ Only existing accounts with S1, S2, and S3 performance will be able to change an
 
 ## How will I know when my collection has migrated?
 
-The migration will occur on July 31, 2017. If you have a collection that uses the S1, S2 or S3 performance levels, the Azure Cosmos DB team will contact you by email before the migration takes place. Once the migration is complete, on August 1, 2017, the Azure portal will show that your collection uses Standard pricing.
+The migration will occur on July 31, 2017. If you have a collection that uses the S1, S2 or S3 performance levels, the Cosmos DB team will contact you by email before the migration takes place. Once the migration is complete, on August 1, 2017, the Azure portal will show that your collection uses Standard pricing.
 
 ![How to confirm your collection has migrated to the Standard pricing tier](./media/documentdb-performance-levels/documentdb-portal-standard-pricing-applied.png)
 
@@ -114,11 +114,11 @@ You can migrate from the S1, S2, and S3 performance levels to single partition c
 
 **To migrate to single partition collections using the Azure portal**
 
-1. In the [**Azure portal**](https://portal.azure.com), click **NoSQL (Azure Cosmos DB)**, then select the Cosmos DB account to modify. 
+1. In the [**Azure portal**](https://portal.azure.com), click **Azure Cosmos DB**, then select the Cosmos DB account to modify. 
  
-    If **NoSQL (Azure Cosmos DB)** is not on the Jumpbar, click >, scroll to **Databases**, select **NoSQL (Azure Cosmos DB)**, and then select the Cosmos DB account.  
+    If **Azure Cosmos DB** is not on the Jumpbar, click >, scroll to **Databases**, select **Azure Cosmos DB**, and then select the DocumentDB account.  
 
-2. On the resource menu, under **Collections**, click **Scale**, select the collection to modify from the drop-down list, and then click **Pricing Tier**. Accounts using pre-defined throughput have a pricing tier of S1, S2, or S3.  In the **Choose your pricing tier** blade, click **Standard** to change to user-defined throughput, and then click **Select** to save your change.
+2. On the resource menu, under **Containers**, click **Scale**, select the collection to modify from the drop-down list, and then click **Pricing Tier**. Accounts using pre-defined throughput have a pricing tier of S1, S2, or S3.  In the **Choose your pricing tier** blade, click **Standard** to change to user-defined throughput, and then click **Select** to save your change.
 
     ![Screen shot of the Settings blade showing where to change the throughput value](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
 
@@ -170,9 +170,8 @@ Visit [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.
 EA customers will be price protected until the end of their current contract.
 
 ## Next steps
-To learn more about pricing and managing data with Cosmos DB, explore these resources:
+To learn more about pricing and managing data with Azure Cosmos DB, explore these resources:
 
-1.	[Partitioning data in Azure Cosmos DB](documentdb-partition-data.md). Understand the difference between single partition collections and partitioned collection, as well as tips on implementing a partitioning strategy to scale seamlessly.
-2.	[Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/documentdb/). Learn about the cost of provisioning throughput and consuming storage.
+1.	[Partitioning data in Cosmos DB](documentdb-partition-data.md). Understand the difference between single partition container and partitioned containers, as well as tips on implementing a partitioning strategy to scale seamlessly.
+2.	[Cosmos DB pricing](https://azure.microsoft.com/pricing/details/documentdb/). Learn about the cost of provisioning throughput and consuming storage.
 3.	[Request units](documentdb-request-units.md). Understand the consumption of throughput for different operation types, for example Read, Write, Query.
-4.	[Modeling data in Azure Cosmos DB](documentdb-modeling-data.md). Learn how to model your data for Cosmos DB.

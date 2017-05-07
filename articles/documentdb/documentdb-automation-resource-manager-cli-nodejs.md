@@ -331,7 +331,7 @@ Create a local template file with the following content. Name the file azuredepl
         ]
     }
 
-The kind must be set to MongoDB to specify that this account will support MongoDB APIs. If no kind property is specified, the default will be a Azure Cosmos DB DocumentDB API account.
+The kind must be set to MongoDB to specify that this account will support MongoDB APIs. If no kind property is specified, the default will be an Azure Cosmos DB DocumentDB API account.
 
 The failoverPriority must be set to 0 since this is a single region account. A failoverPriority of 0 indicates that this region be kept as the [write region for the Azure Cosmos DB account][scaling-globally].
 You can either enter the value at the command line, or create a parameter file to specify the value.
@@ -608,7 +608,7 @@ After creating your database, you need to [add one or more collections](document
 
 After you have documents in a collection, you can use [SQL](documentdb-sql-query.md) to [execute queries](documentdb-sql-query.md#ExecutingSqlQueries) against your documents by using the [Query Explorer](documentdb-query-collections-query-explorer.md) in the portal, the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), or one of the [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-To learn more about Azure Cosmos DB, see the [Azure Cosmos DB multi-model introduction](../cosmosdb/introduction.md).
+To learn more about Azure Cosmos DB, see the [Azure Cosmos DB multi-model introduction](../cosmos-db/introduction.md).
 
 For more templates you can use, see [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/).
 
