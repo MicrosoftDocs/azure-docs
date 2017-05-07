@@ -81,7 +81,7 @@ This tutorial shows you how to create a basic ruby on rails application locally 
 
 ## Prepare the app for Azure
 
-By default, the ruby image runs the server with the `-e production` flag. This environment requires some setup for Azure Web App on Linux. The container takes care of some of that setup (such as setting a `SECRET_KEY_BASE`). A default route must be configured, otherwise you will receive a 404 error browsing the site.
+By default, the ruby image runs the server with the `-e production` flag. This environment requires some setup for Azure Web App on Linux. The container takes care of some of that setup (such as setting a `SECRET_KEY_BASE`). A default route must be configured. Otherwise you receive a 404 error browsing the site.
 
 To configure a default route:
 
@@ -165,7 +165,7 @@ In this tutorial, we use Git to deploy the local Ruby application to Azure.
 
 4. Navigate to your site and confirm your updates are live. 
 
-	While the app is restarting, attempts to browse the site will result in 503 errors. It may take a couple minutes to fully restart.
+	While the app is restarting, attempting to browse the site results in an HTTP status code error 503 (Server Unavailable). It may take a couple minutes to fully restart.
 
 		http://{your web app name}/azurewebsites.net
 
@@ -173,7 +173,7 @@ In this tutorial, we use Git to deploy the local Ruby application to Azure.
 	
 
 ## Next steps
-For more information regarding Azure App Service Web App on Linux, see the following links. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+For more information regarding Azure App Service Web App on Linux, see the following links. You can also post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
 * [Creating Web Apps in App Service on Linux](app-service-linux-how-to-create-a-web-app.md)
 * [How to use a custom Docker image for App Service on Linux](app-service-linux-using-custom-docker-image.md)
