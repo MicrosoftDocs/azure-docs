@@ -67,9 +67,9 @@ Let's start by creating an Azure Cosmos DB account in the Azure portal.
 
     If you get a message about reviewing changes to the solution, click **OK**. If you get a message about license acceptance, click **I accept**.
 
-6. Now search for **[Microsoft.Azure.Graph](https://aka.ms/graphdbextension)** extension library and click **Install**.
+6. Now search for **[Microsoft.Azure.Graphs](https://aka.ms/graphdbextension)** extension library and click **Install**.
    
-The `Microsoft.Azure.Graph` library provides a single extension method `CreateGremlinQuery<T>` for executing Gremlin operations. Gremlin is a functional programming language that supports write operations (DML) and query and traversal operations. We cover a few examples in this article to get your started with Gremlin. [Gremlin queries](gremlin-support.md) has a detailed walkthrough of Gremlin capabilities in Azure Cosmos DB.
+The `Microsoft.Azure.Graphs` library provides a single extension method `CreateGremlinQuery<T>` for executing Gremlin operations. Gremlin is a functional programming language that supports write operations (DML) and query and traversal operations. We cover a few examples in this article to get your started with Gremlin. [Gremlin queries](gremlin-support.md) has a detailed walkthrough of Gremlin capabilities in Azure Cosmos DB.
 
 ## <a id="add-references"></a>Connect your app
 

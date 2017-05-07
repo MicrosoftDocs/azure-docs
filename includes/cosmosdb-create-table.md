@@ -7,10 +7,10 @@ You can now use Data Explorer to create a graph container and add data to your d
 
     Setting|Suggested value|Description
     ---|---|---
-    Database id|*sample-database*|The ID for your new database. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space.
-    Collection id|*sample-table*|The ID for your new collection. Collection names have the same character requirements as database ids.
+    Database id|sample-database|The ID for your new database. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space.
+    Collection id|sample-table|The ID for your new collection. Collection names have the same character requirements as database ids.
     Storage Capacity| 10 GB|Leave the default value. This is the storage capacity of the database.
     Throughput|400 RUs|Leave the default value. You can scale up the throughput later if you want to reduce latency.
-    Partition key|/userid|A partition key that will distribute data evenly to each partition. Selecting the correct partition key is important in creating a performant collection, read more about it in [Designing for partitioning](../articles/documentdb/documentdb-partition-data.md#designing-for-partitioning).
+    Partition key|/databases|A partition key that will distribute data evenly to each partition. Selecting the correct partition key is important in creating a performant collection, read more about it in [Designing for partitioning](../articles/documentdb/documentdb-partition-data.md#designing-for-partitioning).
 
 3. Once the form is filled out, click **OK**.
