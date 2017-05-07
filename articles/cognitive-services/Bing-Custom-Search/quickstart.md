@@ -15,7 +15,7 @@ This article provides information to help you quickly get started using Bing Cus
 After logging in, you see all your custom search instances that you have created so far.
 
 
-![picture alt](CustomSearchOverview.png "View all the custom search instances that you have created so far.")
+![picture alt](CustomSearchOverview.PNG "View all the custom search instances that you have created so far.")
 
 
 A custom search instance contains all the settings that are required to define a custom search tailored towards a scenario of your choice. For example, you might want to create a search to find bike touring related content. You might want to create a custom search instance called **BikeTouring**.
