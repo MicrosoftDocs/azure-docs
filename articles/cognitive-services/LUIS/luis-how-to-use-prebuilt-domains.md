@@ -28,10 +28,10 @@ LUIS offers 20 prebuilt domains. They include but are not limited to:
 | Utilities  | Handling requests that are common in many domains, like "help", "repeat", "start over".|
 
 Browse the **Prebuilt domains** tab to see other prebuilt domains you can use in your app. Click **learn more** in the tile for a domain to learn about its intents and entities.
-![Add prebuilt intent](./media/luis-how-prebuilt-domain-entities/add-prebuilt-domain-intent.png)
+![Add prebuilt intent](./media/luis-how-to-prebuilt-domain-entities/add-prebuilt-domain-intent.png)
 
 Within a domain, look for individual intents and entities that you want to use. 
-![Add prebuilt entity](./media/luis-how-to-prebuilt-entities/select-prebuilt-domain-entities.png)
+![Add prebuilt entity](./media/luis-how-to-prebuilt-domain-entities/select-prebuilt-domain-entities.png)
 
 
 

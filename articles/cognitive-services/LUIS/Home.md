@@ -19,7 +19,7 @@ One of the key problems in human-computer interactions is the ability of the com
 ## What is a LUIS app?
 
 A LUIS app is a place for a developer to define a custom language model. The output of a LUIS app is a web service with an HTTP endpoint that you reference from your client application to add natural language understanding to it. A LUIS app takes a user utterance and extracts intents and entities that correspond to activities in the client application’s logic. Your client application can then take appropriate action based on the user intentions that LUIS recognizes.
-    ![LUIS recognizes user intent](./media/luis-overview-process.png)
+    ![LUIS recognizes user intent](./media/luis-overview/luis-overview-process.png)
 
 ## Key concepts
 
