@@ -29,7 +29,7 @@ With the latest update to our back end, we introduced support for .NET Core v.1.
 
 ## Using the Azure CLI ##
 
-Using the [latest Azure Command-Line Interface (CLI)](../install-azure-cli.md), you can use the **azure webapp config set** command to change the application stack. Here is an example:
+Using the [latest Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli.md), you can use the **azure webapp config set** command to change the application stack. Here is an example:
 
         azure webapp config set --name ContosoAppServicePlan --resource-group ContosoLinuxAzureResourceGroup --netframeworkversion v1.0 --appcommandline aspnetcore.dll
 
