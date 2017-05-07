@@ -41,7 +41,6 @@ In a terminal window, clone the sample app repository to your local machine:
 git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```
 
-
 ## View the HTML
 
 To see what possible values you can use for `--location`, use the `az appservice list-locations` Azure CLI comman
