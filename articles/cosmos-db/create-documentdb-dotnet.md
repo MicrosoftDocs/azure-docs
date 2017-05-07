@@ -46,7 +46,7 @@ You can now add data to your new collection using Data Explorer.
 
 1. In Data Explorer, the new database appears in the Collections pane. Expand the **Items** database, expand the **ToDoList** collection, click **Documents**, and then click **New Documents**. 
 
-   ![Create new documents in Data Explorer in the Azure portal](./media/create-documentdb-dotnet/azure-comosdb-data-explorer-emulator-new-document.png)
+   ![Create new documents in Data Explorer in the Azure portal](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-new-document.png)
   
 2. Now add a few new documents to the collection with the following structure, where you insert unique values for id in each document and change the other properties as you see fit. Your new documents can have any structure you want as Azure Cosmos DB doesn't impose any schema on your data.
 
