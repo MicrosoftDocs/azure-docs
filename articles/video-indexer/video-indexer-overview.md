@@ -8,24 +8,28 @@ manager: erikre
 
 ms.service: video-indexer
 ms.topic: article
-ms.date: 05/01/2017
+ms.date: 05/06/2017
 ms.author: juliako;
 
 ---
 # Video Indexer (preview)
 
-Video Indexer is an Azure service that processes and extracts the following insights from video files that were uploaded into Video Indexer gallery:
+Video Indexer is a cloud service that enables you to extract the following insights from your videos using artificial intelligence technologies:
 
-- **Face detection and identification**: finds, identifies, and tracks human faces within a video. 
-- **OCR (optical character recognition)**: extracts text content from videos and generates searchable digital text.
-- **Transcript**: converts audio to text based on specified language.
-- **Differentiation of speakers**: maps and understands each speaker and identifies when each speaker is present in the video.  
-- **Voice/sound detection**: separates background noise/voice activity from silence. 
-- **Sentiment analysis**: performs analysis based on multiple emotional attributes. Currently, Positive, Neutral, Negative options are supported. 
+- **Audio Transcription**: Video Indexer has speech-to-text functionality, which enables customers to get a transcript of the spoken words. Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Portuguese (Brazilian), Japanese and Russian (with many more to come in the future). 
+- **Face tracking and identification**: Face technologies enable detection of faces in a video. The detected faces are matched against a celebrity database to evaluate which celebrities are present in the video. Customers can also label faces that do not match a celebrity. Video Indexer builds a face model based on those labels and can recognize those faces in videos submitted in the future.
+- **Speaker indexing**: Video Indexer has the ability to map and understand which speaker spoke which words and when.
+- **Visual text recognition**: With this technology, Video Indexer service extracts text that is displayed in the videos.  
+- **Voice activity detection**: This enables Video Indexer to separate background noise and voice activity. 
+- **Scene detection**: Video Indexer has the ability to perform visual analysis on the video to determine when a scene changes in a video.
+- **Keyframe extraction**: Video Indexer automatically detects keyframes in a video. 
+- **Sentiment analysis**: Video Indexer performs sentiment analysis on the text extracted using speech-to-text and optical character recognition, and provide that information in the form of positive, negative of neutral sentiments, along with timecodes.
+- **Translation**: Video Indexer has the ability to translate the audio transcript from one language to another. The following languages are supported: English, Spanish, French, German, Italian, Chinese-Simplified, Portuguese-Brazilian, Japanese, and Russian. Once translated, the user can even get captioning in the video player in other languages.
+- **Visual content moderation**: This technology enables detection of adult and/or racy material present in the video and can be used for content filtering. 
+- **Keywords extraction**: Video Indexer extracts keywords based on the transcript of the spoken words and text recognized by visual text recognizer.
+- **Annotation**: Video Indexer annotates the video based on a pre-defined model of 2000 objects.
 
-Once Video Indexer is done processing and analyzing, you can review, curate, and publish cognitive insights.
-
-For more information, see the [Video Indexer announcement](https://aka.ms/videoindexerblog) blog.
+Once Video Indexer is done processing and analyzing, you can review, curate, and publish the video insights.
 
 Whether your role is a content manager or a developer, the Video Indexer service is able to address your needs. Content managers can use the Video Indexer web portal to consume the service without writing a single line of code, see [Get started using the Video Indexer portal](video-indexer-get-started.md). Developers can take advantage of APIs to process content at scale, see [Use Video Indexer REST API](video-indexer-use-apis.md). The service also enables customers to use widgets to publish video streams and extracted insights in their own applications, see [Embed visual widgets in your application](video-indexer-embed-widgets.md).
 
@@ -35,17 +39,12 @@ You can sign up for the service using existing AAD, LinkedIn, Facebook, Google, 
 
 Below are a few scenarios where Video Indexer can be very useful
 
-* Deep Search – Metadata extracted from the video can be used to enhance the search experience across a video library. For example, indexing spoken words and faces can enable the search experience of finding points in a video where a particular person spoke certain words or when two people were seen together. Deep Search use case is applicable to news agencies, educational institutes, broadcasters, entertainment content owners, enterprise LOB apps and in general to any industry that has a video library that users need to search against.
+* Search – Insights extracted from the video can be used to enhance the search experience across a video library. For example, indexing spoken words and faces can enable the search experience of finding moments in a video where a particular person spoke certain words or when two people were seen together. Search based on such insights from videos is applicable to news agencies, educational institutes, broadcasters, entertainment content owners, enterprise LOB apps and in general to any industry that has a video library that users need to search against.
 
-* Targeted Advertising – For industries that rely on ad revenue (for example, news media, social media, etc.), the quality of the ads that are presented in the middle of a video can be improved by using the extracted metadata as additional signals to the ad server. As an example, presenting a sports shoe ad is more relevant in the middle of a sports event vs. a political debate.
+* Monetization – Video Indexer can help improve the value of videos. As an example, industries that rely on ad revenue (for example, news media, social media, etc.), can deliver more relevant ads by using the extracted insights as additional signals to the ad server (presenting a sports shoe ad is more relevant in the middle of a football match vs. a swimming competition).
 
-* Video Recommendation – Extracted metadata from media can be used to improve the video recommendation models, to create a more sticky experience for consumers. This use case applies to educational organizations, news media, broadcast media, entertainment content providers and in general anyone who is in the business of content distribution with video as an element.
+* User engagement – Video insights can be used to improve user engagement by positioning the relevant video moments to users. As an example, consider an educational video that explains spheres for the first 30 minutes and pyramids in the next 30 minutes. A student reading about pyramids would benefit more if the video is positioned starting from the 30-minute marker.
 
-* Content Analytics – With the advancements in machine learning, many content distributors are investing in analytics to better understand content consumption patterns from their users. By using the metadata extracted from videos, additional insights can be gained in to user behavior and those insights can be used to power prediction models that help shape business decisions.
-
-* Hyper Personalization – For customers in the business of providing a video subscription service to their consumers, information about spoken words and faces, combined with user preferences can help provide a more personalized experience. As an example, if a user is family man and pauses a movie, a screen could be presented that provides some information about the actors, along with other movies of that actor in the family genre (vs. action genre).
-
-* Accessibility
 
 ## Next steps
 
@@ -55,4 +54,4 @@ You are ready to get started with Video Indexer. For more information, see the f
 - [Process content with Video Indexer REST API](video-indexer-use-apis.md)
 - [Embed visual widgets in your application](video-indexer-embed-widgets.md)
 
-For more information, see the [Video Indexer announcement](https://aka.ms/videoindexerblog) blog.
+ 
