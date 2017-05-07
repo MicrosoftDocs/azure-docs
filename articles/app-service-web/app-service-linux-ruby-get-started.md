@@ -81,9 +81,9 @@ This tutorial shows you how to create a basic ruby on rails application locally 
 
 ## Prepare the app for Azure
 
-By default, the ruby image runs the server with the `-e production` flag. This environment requires some setup for Azure Web App on Linux. The container takes care of some of that setup (such as setting a `SECRET_KEY_BASE`). A root landing page must be configured as the default rails landing page, otherwise the website fails to start.
+By default, the ruby image runs the server with the `-e production` flag. This environment requires some setup for Azure Web App on Linux. The container takes care of some of that setup (such as setting a `SECRET_KEY_BASE`). A default route must be configured, otherwise you will receive a 404 error browsing the site.
 
-To prepare a root landing page:
+To configure a default route:
 
 1. Open *~/workspace/hello-world/config/routes.rb* for editing. Add the following line as shown in the screenshot. 
 
@@ -95,7 +95,7 @@ To prepare a root landing page:
 2. Open *~/workspace/hello-world/app/controllers/application_controller.rb* for editing. Add the following lines as shown in the screenshot.
 
 		def hello
-			render html: "Hello, world from Azue Web App on Linux!"
+			render html: "Hello, world from Azure Web App on Linux!"
 		end
 
 	![routes.rb](./media/app-service-linux-ruby-get-started/application-controller-rb.png)
@@ -149,21 +149,24 @@ In this tutorial, we use Git to deploy the local Ruby application to Azure.
 		git commit -m "Initial deployment commit"
 		git push master
 
+	Confirm that the remote deployment operations report success.
+
+	![Deploying web app](./media/app-service-linux-ruby-get-started/deployment-success.png)
+
+
 	If you see an error stating that the remote has hung up, the deployment is likely still in progress. In this case, navigate to the following URL in your browser:
 
 		https://{your web app name}.scm.azurewebsites.net/api/deployments
 
-3. Restart your web app for the deployment to take effect. In the [Azure portal](http://portal.azure.com), navigate to the **Overview** blade of your web app.
+3. Once the deployment has completed, restart your web app for the deployment to take effect. In the [Azure portal](http://portal.azure.com), navigate to the **Overview** blade of your web app.
 
-	Click **Stop** on the toolbar.
+	Click **Restart** on the toolbar.
 
-	![Stop web app](./media/app-service-linux-ruby-get-started/stop-web-app.png)
+	![Restart Web App](./media/app-service-linux-ruby-get-started/restart-web-app.png)
 
-	Once the app has stopped, click **Start** on the toolbar
+4. Navigate to your site and confirm your updates are live. 
 
-	![Start web app](./media/app-service-linux-ruby-get-started/start-web-app.png)
-
-4. Navigate to your site and confirm your updates are live
+	While the app is restarting, attempts to browse the site will result in 503 errors. It may take a couple minutes to fully restart.
 
 		http://{your web app name}/azurewebsites.net
 
