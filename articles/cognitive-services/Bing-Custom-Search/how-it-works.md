@@ -1,4 +1,4 @@
-# 4 Simple Steps To Create Your Custom Search
+# Create a custom search in four simple steps
 
 You can build a custom search engine in four simple steps.
 
