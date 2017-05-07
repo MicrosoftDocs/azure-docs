@@ -1,7 +1,7 @@
 ---
-title: Request units & estimating throughput - Azure DocumentDB | Microsoft Docs
-description: Learn about how to understand, specify, and estimate request unit requirements in DocumentDB.
-services: documentdb
+title: Request units & estimating throughput - Azure Cosmos DB | Microsoft Docs
+description: Learn about how to understand, specify, and estimate request unit requirements in Azure Cosmos DB.
+services: cosmosdb
 author: syamkmsft
 manager: jhubbard
 editor: mimig
@@ -17,15 +17,15 @@ ms.date: 04/17/2017
 ms.author: syamk
 
 ---
-# Request Units in DocumentDB
-Now available: DocumentDB [request unit calculator](https://www.documentdb.com/capacityplanner). Learn more in [Estimating your throughput needs](documentdb-request-units.md#estimating-throughput-needs).
+# Request Units in Azure Cosmos DB
+Now available: Azure Cosmos DB [request unit calculator](https://www.documentdb.com/capacityplanner). Learn more in [Estimating your throughput needs](documentdb-request-units.md#estimating-throughput-needs).
 
 ![Throughput calculator][5]
 
 ## Introduction
-[Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) is a fully managed, scalable NoSQL database service for JSON documents. With DocumentDB, you don’t have to rent virtual machines, deploy software, or monitor databases. DocumentDB is operated and continuously monitored by Microsoft engineers to deliver world class availability, performance, and data protection. Data in DocumentDB is stored within collections, which are elastic, highly available containers. Instead of thinking about and managing hardware resources like CPU, memory, and IOPs for a collection, you can reserve throughput in terms of requests per second. DocumentDB will automatically manage the provisioning, transparent partitioning, and scaling of your collection in order to serve the provisioned number of requests. 
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is a fully managed, scalable NoSQL database service for JSON documents. With Cosmos DB, you don’t have to rent virtual machines, deploy software, or monitor databases. Cosmos DB is operated and continuously monitored by Microsoft engineers to deliver world class availability, performance, and data protection. Data in Cosmos DB is stored within collections, which are elastic, highly available containers. Instead of thinking about and managing hardware resources like CPU, memory, and IOPs for a collection, you can reserve throughput in terms of requests per second. Cosmos DB will automatically manage the provisioning, transparent partitioning, and scaling of your collection in order to serve the provisioned number of requests. 
 
-DocumentDB supports a number of APIs for reads, writes, queries, and stored procedure executions. Since not all requests are equal, they are assigned a normalized amount of **request units** based on the amount of computation required to serve the request. The number of request units for an operation is deterministic, and you can track the number of request units consumed by any operation in DocumentDB via a response header.
+Cosmos DB supports a number of APIs for reads, writes, queries, and stored procedure executions. Since not all requests are equal, they are assigned a normalized amount of **request units** based on the amount of computation required to serve the request. The number of request units for an operation is deterministic, and you can track the number of request units consumed by any operation in Cosmos DB via a response header.
 
 Each collection in DocumentDB can be reserved with throughput, also expressed in terms of request units. This is expressed in blocks of 100 request units per second, ranging from hundreds up to millions of request units per second. The provisioned throughput can be adjusted throughout the life of a collection to adapt to the changing processing needs and access patterns of your application. 
 
@@ -37,23 +37,23 @@ After reading this article, you'll be able to answer the following questions:
 * What happens if I exceed request unit capacity for a collection?
 
 ## Request units and request charges
-DocumentDB and API for MongoDB delivers fast, predictable performance by *reserving* resources to satisfy your application's throughput needs.  Because application load and access patterns change over time, DocumentDB allows you to easily increase or decrease the amount of reserved throughput available to your application.
+Cosmos DB and API for MongoDB delivers fast, predictable performance by *reserving* resources to satisfy your application's throughput needs.  Because application load and access patterns change over time, Cosmos DB allows you to easily increase or decrease the amount of reserved throughput available to your application.
 
-With DocumentDB, reserved throughput is specified in terms of request units processing per second.  You can think of request units as throughput currency, whereby you *reserve* an amount of guaranteed request units available to your application on per second basis.  Each operation in DocumentDB - writing a document, performing a query, updating a document - consumes CPU, memory, and IOPS.  That is, each operation incurs a *request charge*, which is expressed in *request units*.  Understanding the factors which impact request unit charges, along with your application's throughput requirements, enables you to run your application as cost effectively as possible. 
+With Cosmos DB, reserved throughput is specified in terms of request units processing per second.  You can think of request units as throughput currency, whereby you *reserve* an amount of guaranteed request units available to your application on per second basis.  Each operation in Cosmos DB - writing a document, performing a query, updating a document - consumes CPU, memory, and IOPS.  That is, each operation incurs a *request charge*, which is expressed in *request units*.  Understanding the factors which impact request unit charges, along with your application's throughput requirements, enables you to run your application as cost effectively as possible. 
 
-We recommend getting started by watching the following video, where Aravind Ramachandran explains request units and predictable performance with DocumentDB.
+We recommend getting started by watching the following video, where Aravind Ramachandran explains request units and predictable performance with Cosmos DB.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Predictable-Performance-with-DocumentDB/player]
 > 
 > 
 
-## Specifying request unit capacity in DocumentDB
-When creating a DocumentDB collection, you specify the number of request units per second (RU per second) you want reserved for the collection. Based on the provisioned throughput, DocumentDB allocates physical partitions to host your collection and splits/rebalances data across partitions as it grows.
+## Specifying request unit capacity in Cosmos DB
+When creating a DocumentDB collection, you specify the number of request units per second (RU per second) you want reserved for the collection. Based on the provisioned throughput, Cosmos DB allocates physical partitions to host your collection and splits/rebalances data across partitions as it grows.
 
-DocumentDB requires a partition key to be specified when a collection is provisioned with 10,000 request units or higher. A partition key is also required to scale your collection's throughput beyond 10,000 request units in the future. Therefore, it is highly recommended to configure a [partition key](documentdb-partition-data.md) when creating a collection regardless of your initial throughput. Since your data might have to be split across multiple partitions, it is necessary to pick a partition key that has a high cardinality (100s to millions of distinct values) so that your collection and requests can be scaled uniformly by DocumentDB. 
+Cosmos DB requires a partition key to be specified when a collection is provisioned with 10,000 request units or higher. A partition key is also required to scale your collection's throughput beyond 10,000 request units in the future. Therefore, it is highly recommended to configure a [partition key](documentdb-partition-data.md) when creating a collection regardless of your initial throughput. Since your data might have to be split across multiple partitions, it is necessary to pick a partition key that has a high cardinality (100s to millions of distinct values) so that your collection and requests can be scaled uniformly by Cosmos DB. 
 
 > [!NOTE]
-> A partition key is a logical boundary, and not a physical one. Therefore, you do not need to limit the number of distinct partition key values. It is in fact better to have more distinct partition key values than less, as DocumentDB has more load balancing options.
+> A partition key is a logical boundary, and not a physical one. Therefore, you do not need to limit the number of distinct partition key values. It is in fact better to have more distinct partition key values than less, as Cosmos DB has more load balancing options.
 
 Here is a code snippet for creating a collection with 3,000 request units per second using the .NET SDK:
 
@@ -68,9 +68,9 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
-DocumentDB operates on a reservation model on throughput. That is, you are billed for the amount of throughput *reserved* for the collection, regardless of how much of that throughput is actively *used*. As your application's load, data, and usage patterns change you can easily scale up and down the amount of reserved RUs through DocumentDB SDKs or using the [Azure Portal](https://portal.azure.com).
+Cosmos DB operates on a reservation model on throughput. That is, you are billed for the amount of throughput *reserved* for the collection, regardless of how much of that throughput is actively *used*. As your application's load, data, and usage patterns change you can easily scale up and down the amount of reserved RUs through Cosmos DB SDKs or using the [Azure Portal](https://portal.azure.com).
 
-Each collection is mapped to an `Offer` resource in DocumentDB, which has metadata about the collection's provisioned throughput. You can change the allocated throughput by looking up the corresponding offer resource for a collection, then updating it with the new throughput value. Here is a code snippet for changing the throughput of a collection to 5,000 request units per second using the .NET SDK:
+Each collection is mapped to an `Offer` resource in Cosmos DB, which has metadata about the collection's provisioned throughput. You can change the allocated throughput by looking up the corresponding offer resource for a collection, then updating it with the new throughput value. Here is a code snippet for changing the throughput of a collection to 5,000 request units per second using the .NET SDK:
 
 ```csharp
 // Fetch the resource to be updated
@@ -91,7 +91,7 @@ There is no impact to the availability of your collection when you change the th
 ## Specifying request unit capacity in API for MongoDB
 API for MongoDB allows you to specify the number of request units per second (RU per second) you want reserved for the collection.
 
-API for MongoDB operates on the same reservation model based on throughput as DocumentDB. That is, you are billed for the amount of throughput *reserved* for the collection, regardless of how much of that throughput is actively *used*. As your application's load, data, and usage patterns change you can easily scale up and down the amount of reserved RUs through the [Azure Portal](https://portal.azure.com).
+API for MongoDB operates on the same reservation model based on throughput as Cosmos DB. That is, you are billed for the amount of throughput *reserved* for the collection, regardless of how much of that throughput is actively *used*. As your application's load, data, and usage patterns change you can easily scale up and down the amount of reserved RUs through the [Azure Portal](https://portal.azure.com).
 
 There is no impact to the availability of your collection when you change the throughput. Typically the new reserved throughput is effective within seconds on application of the new throughput.
 
@@ -191,12 +191,12 @@ Using the tool is simple:
 > 
 > 
 
-### Use the DocumentDB request charge response header
-Every response from the DocumentDB service includes a custom header (`x-ms-request-charge`) that contains the request units consumed for the request. This header is also accessible through the  DocumentDB SDKs. In the .NET SDK, RequestCharge is a property of the ResourceResponse object.  For queries, the DocumentDB Query Explorer in the Azure portal provides request charge information for executed queries.
+### Use the Cosmos DB request charge response header
+Every response from the Cosmos DB service includes a custom header (`x-ms-request-charge`) that contains the request units consumed for the request. This header is also accessible through the  Cosmos DB SDKs. In the .NET SDK, RequestCharge is a property of the ResourceResponse object.  For queries, the Cosmos DB Query Explorer in the Azure portal provides request charge information for executed queries.
 
 ![Examining RU charges in the Query Explorer][1]
 
-With this in mind, one method for estimating the amount of reserved throughput required by your application is to record the request unit charge associated with running typical operations against a representative document used by your application and then estimating the number of operations you anticipate performing each second.  Be sure to measure and include typical queries and DocumentDB script usage as well.
+With this in mind, one method for estimating the amount of reserved throughput required by your application is to record the request unit charge associated with running typical operations against a representative document used by your application and then estimating the number of operations you anticipate performing each second.  Be sure to measure and include typical queries and Cosmos DB script usage as well.
 
 > [!NOTE]
 > If you have document types which will differ dramatically in terms of size and the number of indexed properties, then record the applicable operation request unit charge associated with each *type* of typical document.
@@ -298,7 +298,7 @@ Consider the following ~1KB document:
 ```
 
 > [!NOTE]
-> Documents are minified in DocumentDB, so the system calculated size of the document above is slightly less than 1KB.
+> Documents are minified in Cosmos DB, so the system calculated size of the document above is slightly less than 1KB.
 > 
 > 
 
@@ -336,7 +336,7 @@ With this information, we can estimate the RU requirements for this application 
 
 In this case, we expect an average throughput requirement of 1,275 RU/s.  Rounding up to the nearest 100, we would provision 1,300 RU/s for this application's collection.
 
-## <a id="RequestRateTooLarge"></a> Exceeding reserved throughput limits in DocumentDB
+## <a id="RequestRateTooLarge"></a> Exceeding reserved throughput limits in Cosmos DB
 Recall that request unit consumption is evaluated as a rate per second. For applications that exceed the provisioned request unit rate for a collection, requests to that collection will be throttled until the rate drops below the reserved level. When a throttle occurs, the server will preemptively end the request with RequestRateTooLargeException (HTTP status code 429) and return the x-ms-retry-after-ms header indicating the amount of time, in milliseconds, that the user must wait before reattempting the request.
 
     HTTP Status 429
@@ -351,15 +351,15 @@ If you have more than one client cumulatively operating above the request rate, 
 Applications that exceed the provisioned request units for a collection will be throttled until the rate drops below the reserved level. When a throttle occurs, the backend will preemptively end the request with a *16500* error code - *Too Many Requests*. By default, API for MongoDB will automatically retry up to 10 times before returning a *Too Many Requests* error code. If you are receiving many *Too Many Requests* error codes, you may consider either adding retry behavior in your application's error handling routines or [increasing the reserved throughput for the collection](documentdb-set-throughput.md).
 
 ## Next steps
-To learn more about reserved throughput with Azure DocumentDB databases, explore these resources:
+To learn more about reserved throughput with Cosmos DB databases, explore these resources:
 
-* [DocumentDB pricing](https://azure.microsoft.com/pricing/details/documentdb/)
-* [Modeling data in DocumentDB](documentdb-modeling-data.md)
-* [DocumentDB performance levels](documentdb-partition-data.md)
+* [Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/documentdb/)
+* [Modeling data in Azure Cosmos DB](documentdb-modeling-data.md)
+* [Azure Cosmos DB performance levels](documentdb-partition-data.md)
 
-To learn more about DocumentDB, see the Azure DocumentDB [documentation](https://azure.microsoft.com/documentation/services/documentdb/). 
+To learn more about Cosmos DB, see the Azure Cosmos DB [documentation](https://azure.microsoft.com/documentation/services/documentdb/). 
 
-To get started with scale and performance testing with DocumentDB, see [Performance and Scale Testing with Azure DocumentDB](documentdb-performance-testing.md).
+To get started with scale and performance testing with Cosmos DB, see [Performance and Scale Testing with Azure Cosmos DB](documentdb-performance-testing.md).
 
 [1]: ./media/documentdb-request-units/queryexplorer.png 
 [2]: ./media/documentdb-request-units/RUEstimatorUpload.png
