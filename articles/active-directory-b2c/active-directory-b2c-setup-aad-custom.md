@@ -106,7 +106,7 @@ In order to allow users to log in using Azure AD, you need to define Azure AD as
             <Key Id="client_secret" StorageReferenceId="ContosoAppSecret"/>
             </CryptographicKeys>
             <OutputClaims>
-                <OutputClaim ClaimTypeReferenceId="userId" PartnerClaimType="oid"/>
+                <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="oid"/>
                 <OutputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="tid"/>
                 <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
                 <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
