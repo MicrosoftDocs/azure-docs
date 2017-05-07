@@ -15,31 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 05/06/2017
+ms.date: 05/07/2017
 ms.author: janeng
 
 ---
 
 # Migrate your SQL Server database to Azure SQL Database
 
-In this tutorial, you learn to:
+Moving your SQL Server database to Azure SQL Database is a three part process - you prepare, export and import the database. In this tutorial, you learn to:
 
 > [!div class="checklist"]
-> * Prepare a database in a SQL Server for migration to Azure SQL Database
+> * Prepare a database in a SQL Server for migration to Azure SQL Database using the [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA)
 > * Export the database to a BACPAC file
 > * Import the BACPAC file into an Azure SQL Database
 
-> [!IMPORTANT]
-> To fix compatibility issues, use [Visual Studio Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt). 
->
-
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
-
-To complete this tutorial, make sure you have:
+Before you get started, be sure you have the following:
 
 - The newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Installing SSMS also installs the newest version of SQLPackage, a command-line utility that can be used to automate a range of database development tasks. 
 - The [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA).
-- A database to migrate. This tutorial uses the [SQL Server 2008R2 AdventureWorks OLTP database](https://msftdbprodsamples.codeplex.com/releases/view/59211) on an instance of SQL Server 2008R2 or newer, but you can use any database of your choice. 
+- A database to migrate. This tutorial uses the [SQL Server 2008R2 AdventureWorks OLTP database](https://msftdbprodsamples.codeplex.com/releases/view/59211) on an instance of SQL Server 2008R2 or newer, but you can use any database of your choice. To fix compatibility issues, use [Visual Studio Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
 
 ## Prepare for migration
 
@@ -223,13 +217,15 @@ You can change the service tier, performance level, and compatibility level usin
    ![change compatibility level](./media/sql-database-migrate-your-sql-server-database/compat-level.png)
 
 ## Next steps 
-In this tutorial, you learned to:
+In this tutorial you prepared, exported and imported your database. You learned to:
 
 > [!div class="checklist"]
 > * Prepare a database in a SQL Server for migration to Azure SQL Database
 > * Export the database to a BACPAC file
 > * Import the BACPAC file into an Azure SQL Database
 
-[Database migration overview](sql-database-cloud-migrate.md).
-[Resolving Transact-SQL differences during migration to SQL Database](sql-database-transact-sql-information.md).
+Advance to the next tutorial to learn how to secure your database.
+
+[Secure your Azure SQL Database](sql-database-security-tutorial).
+
 
