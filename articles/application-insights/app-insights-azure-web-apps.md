@@ -110,6 +110,7 @@ For more powerful searches over your telemetry, use the [Analytics query languag
 
 ## Next steps
 * [Run the profiler on your live app](app-insights-profiler.md).
+* [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - monitor Azure Functions with Application Insights
 * [Enable Azure diagnostics](app-insights-azure-diagnostics.md) to be sent to Application Insights.
 * [Monitor service health metrics](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
 * [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) whenever operational events happen or metrics cross a threshold.
