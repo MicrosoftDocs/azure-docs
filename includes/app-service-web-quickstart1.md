@@ -1,33 +1,3 @@
-## Log in to Azure
-
-You'll use the Azure CLI 2.0 to create the resources needed to host your app in Azure. Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
-
-```azurecli
-az login
-```
-
-## Configure a Deployment User
-
-For FTP and local Git, it is necessary to have a deployment user configured on the server to authenticate your deployment.
-
-> [!NOTE]
-> A deployment user is required for FTP and Local Git deployment to a Web App.
-> The `username` and `password` are account-level, as such, are different from your Azure Subscription credentials.
->
-
-
-Run the [az appservice web deployment user set](/cli/azure/appservice/web/deployment/user#set) command to create your deployment credentials.
-
-```azurecli
-az appservice web deployment user set --user-name <username> --password <password>
-```
-
-The username must be unique and the password must be strong. If you get an ` 'Conflict'. Details: 409` error, change the username. If you get a ` 'Bad Request'. Details: 400` error, use a stronger password. 
-
-You only need to create this deployment user once; you can use it for all your Azure deployments.
-
-Record the username and password, as they are used later in the quickstart when you deploy the application.
-
 ## Create a resource group
 
  An [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) is a logical container in which resources such as web apps and databases are managed. You deploy, update, and delete the resources in a resource group together.

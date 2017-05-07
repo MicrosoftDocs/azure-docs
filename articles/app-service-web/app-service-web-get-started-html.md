@@ -19,7 +19,7 @@ ms.author: riande
 ---
 # Create a static HTML web app in Azure in five minutes
 [!INCLUDE [login-to-azure](../../includes/login-to-azure.md)] 
-[!INCLUDE [login-to-azure](../../includes/configure-deployment-user.md)] 
+[!INCLUDE [configure-deployment-user](../../includes/configure-deployment-user.md)] 
 [!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
 This quickstart walks through how to and deploy a basic HTML+CSS site to Azure. You’ll run the app using an [Azure App Service plan](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview), and create a web app in it using the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli). You’ll use Git to deploy the app to Azure. It takes about five minutes to complete the tutorial once the prerequisites are installed.
