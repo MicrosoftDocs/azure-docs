@@ -46,6 +46,7 @@ Before you install Azure AD Connect, there are a few things that you need.
 * If you install Azure AD Connect on Windows Server 2008, then make sure to apply the latest hotfixes from Windows Update. The installation is not able to start with an unpatched server.
 * If you plan to use the feature **password synchronization**, then the Azure AD Connect server must be on Windows Server 2008 R2 SP1 or later.
 * The Azure AD Connect server must have [.NET Framework 4.5.1](#component-prerequisites) or later and [Microsoft PowerShell 3.0](#component-prerequisites) or later installed.
+* The Azure AD Connect server must not have PowerShell Transcription Group Policy enabled.
 * If Active Directory Federation Services is being deployed, the servers where AD FS or Web Application Proxy are installed must be Windows Server 2012 R2 or later. [Windows remote management](#windows-remote-management) must be enabled on these servers for remote installation.
 * If Active Directory Federation Services is being deployed, you need [SSL Certificates](#ssl-certificate-requirements).
 * If Active Directory Federation Services is being deployed, then you need to configure [name resolution](#name-resolution-for-federation-servers).
