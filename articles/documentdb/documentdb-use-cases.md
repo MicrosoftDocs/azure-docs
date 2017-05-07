@@ -29,7 +29,13 @@ After reading this article, you'll be able to answer the following questions:
 * What are the benefits of using Cosmos DB for web and mobile applications?
 
 ## Introduction
-Azure Cosmos DB is a global distributed, multi-model database that is used in a wide range of applications and use cases. It is a good choice for any application that needs low order-of-millisecond response times, and needs to scale rapidly and globally. The following are some attributes of Cosmos DB that make it well-suited for high-performance applications with global ambition.
+[Azure Cosmos DB](../cosmos-db/introduction.md) is Microsoft’s globally distributed database service. The service is designed to allow customers to elastically (and independently) scale throughput and storage across any number of geographical regions. Cosmos DB is the first globally distributed database service in the market today to offer comprehensive [service level agreements](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/) encompassing throughput, latency, availability, and consistency. 
+
+The Cosmos DB project started in 2011 as "Project Florence" to address developer pain-points that are faced by large Internet-scale applications inside Microsoft. Observing that these problems are not unique to Microsoft’s applications, we decided to make Cosmos DB generally available to external developers in 2015 in the form of [Azure DocumentDB](https://azure.microsoft.com/blog/documentdb-moving-to-general-availability/). The service is used ubiquitously internally within Microsoft, and is one of the fastest-growing services used by Azure developers externally. 
+
+Azure Cosmos DB is a global distributed, multi-model database that is used in a wide range of applications and use cases. It is a good choice for any application that needs low order-of-millisecond response times, and needs to scale rapidly and globally. It supports multiple data models (key-value, documents, graphs and columnar) and many APIs for data access including [MongoDB](../documentdb/documentdb-protocol-mongodb.md), [DocumentDB SQL](../documentdb/documentdb-introduction.md), [Gremlin](graph-introduction.md), and [Azure Tables](table-introduction.md) natively, and in an extensible manner. 
+
+The following are some attributes of Cosmos DB that make it well-suited for high-performance applications with global ambition.
 
 * Cosmos DB natively partitions your data for high availability and scalability. Cosmos DB offers 99.99% guarantees for availability, throughput, low latency, and consistency.
 * Cosmos DB has SSD backed storage with low-latency order-of-millisecond response times.
@@ -61,6 +67,7 @@ Consider an example of a product catalog for an automotive parts supplier. Every
  In addition, data stored in Cosmos DB can be integrated with HDInsight for big data analytics via Pig, Hive, or Map/Reduce jobs. For details on the Hadoop Connector for Cosmos DB, see [Run a Hadoop job with Cosmos DB and HDInsight](documentdb-run-hadoop-with-hdinsight.md).
 
  ![Azure Cosmos DB retail orders reference architecture](./media/documentdb-use-cases/documentdb-retail-orders.png)
+
 ## Gaming
 The database tier is a crucial component of gaming applications. Modern games perform graphical processing on mobile/console clients, but rely on the cloud to deliver customized and personalized content like in-game stats, social media integration, and high-score leaderboards. Games often require single-millisecond latencies for reads and writes to provide an engaging in-game experience. A game database needs to be fast and be able to handle massive spikes in request rates during new game launches and feature updates.
 
@@ -96,6 +103,16 @@ To get started with Azure Cosmos DB, you can create an [account](https://azure.m
 
 Or, if you'd like to read more about customers using Cosmos DB, the following customer stories are available:
 
+* [Jet.com](https://jet.com). E-commerce challenger eyes the top spot, runs on the Microsoft cloud, leverages Cosmos DB at a global scale.
+* [Asos.com](http://www.asos.com/). Asos.com is a British online fashion and beauty store. Primarily aimed at young adults, Asos sells over 850 brands as well as its own range of clothing and accessories.
+* [Toyota](https://www.toyota.com/). Toyota Motor Corporation is a Japanese automotive manufacturer. Toyota leveraged Cosmos DB for a global IoT app.
+* [Citrix](https://customers.microsoft.com/en-US/story/citrix). Citrix develops single-sign-on solution using Azure Service Fabric and Azure Cosmos DB
+* [TEXA](https://customers.microsoft.com/en-US/story/texaspa)
+TEXA’s revolutionary IoT solution for vehicle owners helps save time, money, gas—and possibly lives.
+* [Domino's Pizza](https://www.dominos.com). Domino's Pizza Inc. is an American pizza restaurant chain.
+* [Johnson Controls](http://www.johnsoncontrols.com). Johnson Controls is a global diversified technology and multi industrial leader serving a wide range of customers in more than 150 countries.
+* [Microsoft Windows, Universal Store, Azure IoT Hub, Xbox Live, and other Internet-scale services](https://azure.microsoft.com/blog/how-azure-documentdb-planet-scale-nosql-helps-run-microsoft-s-own-businesses/). How Microsoft builds massively scalable services using Azure DocumentDB.
+* [Microsoft Data and Analytics team](https://customers.microsoft.com/en-US/story/microsoftdataandanalytics). Microsoft’s Data and Analytics team achieves planet-scale big-data collection with Azure Cosmos DB
 * [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india). Sulekha uses Azure Cosmos DB to connect customers and businesses across India  .
 * [NewOrbit](https://customers.microsoft.com/story/neworbit-takes-flight-with-azure-documentdb). NewOrbit takes flight with Azure Cosmos DB.
 * [Affinio](https://customers.microsoft.com/doclink/affinio-switches-from-aws-to-azure-documentdb-to-harness-social-data-at-scale). Affinio switches from AWS to Azure Cosmos DB to harness social data at scale.
@@ -112,10 +129,3 @@ Or, if you'd like to read more about customers using Cosmos DB, the following cu
 * [Orange Tribes](https://customers.microsoft.com/story/theres-more-to-that-food-app-than-meets-the-eye-or-the-mouth). There’s more to that food app than meets the eye, or the mouth.
 * [Real Madrid](https://customers.microsoft.com/story/real-madrid-brings-the-stadium-closer-to-450-million-f). Real Madrid brings the stadium closer to 450 million fans around the globe, with the Microsoft Cloud.
 * [Tuku](https://customers.microsoft.com/story/tuku-makes-car-buying-fun-with-help-from-azure-services). TUKU makes car buying fun with help from Azure services
-* [Jet.com](https://jet.com). E-commerce challenger eyes the top spot, runs on the Microsoft cloud, leverages Cosmos DB at a global scale.
-* [Asos.com](http://www.asos.com/). Asos.com is a British online fashion and beauty store. Primarily aimed at young adults, Asos sells over 850 brands as well as its own range of clothing and accessories.
-* [Toyota](https://www.toyota.com/). Toyota Motor Corporation is a Japanese automotive manufacturer. Toyota leveraged Cosmos DB for a global IoT app.
-* [Citrix](https://customers.microsoft.com/en-US/story/citrix). Citrix develops single-sign-on solution using Azure Service Fabric and Azure Cosmos DB
-* [Domino's Pizza](https://www.dominos.com). Domino's Pizza Inc. is an American pizza restaurant chain.
-* [Johnson Controls](http://www.johnsoncontrols.com). Johnson Controls is a global diversified technology and multi industrial leader serving a wide range of customers in more than 150 countries.
-* [Data and Analytics team](https://customers.microsoft.com/en-US/story/microsoftdataandanalytics). Microsoft’s Data and Analytics team achieves planet-scale big-data collection with Azure Cosmos DB
