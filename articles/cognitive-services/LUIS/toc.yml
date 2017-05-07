@@ -22,7 +22,7 @@
     href: luis-concept-utterance.md
   - name: Support for multiple languages
     href: luis-concept-language-support.md
-- name: How to
+- name: How-to guides
   items: 
   - name: Plan your app
     href: Plan-your-app.md
