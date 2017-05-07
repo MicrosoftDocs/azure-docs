@@ -1,5 +1,5 @@
 ---
-title: Develop U-SQL user-defined operators for Azure Data Lake Analytics jobs | Microsoft Docs
+title: Develop U-SQL user-defined operators (UDOs) | Microsoft Docs
 description: 'Learn how to develop user-defined operators to be used and reused in Data Lake Analytics jobs. '
 services: data-lake-analytics
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 12/05/2016
 ms.author: edmaca
 
 ---
-# Develop U-SQL user-defined operators for Azure Data Lake Analytics jobs
+# Develop U-SQL user-defined operators (UDOs)
 Learn how to develop user-defined operators to be used and reused in Data Lake Analytics jobs. You will develop a custom operator to convert country names.
 
 For the instructions of developing general-purpose assemblies for U-SQL, see [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assemblies.md)
