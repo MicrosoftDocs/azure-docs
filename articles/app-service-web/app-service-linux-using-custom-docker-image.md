@@ -21,6 +21,9 @@ ms.author: naziml;wesmc
 
 # Using a custom Docker image for Azure Web App on Linux #
 
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+
+
 App Service provides pre-defined application stacks on Linux with support for specific versions, such as PHP 7.0 and Node.js 4.5. App Service on Linux uses Docker containers to host these pre-built application stacks. You can also use a custom Docker image to deploy your web app to an application stack that is not already defined in Azure. Custom Docker images can be hosted on either a public or private Docker repository.
 
 

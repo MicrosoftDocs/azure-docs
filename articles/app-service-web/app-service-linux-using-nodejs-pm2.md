@@ -19,6 +19,10 @@ ms.author: naziml;wesmc
 
 ---
 # Use PM2 configuration for Node.js in Azure Web App on Linux
+
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+
+
 If you set the application stack to Node.js for Azure Web App on Linux, you get the option to set a Node.js startup file as shown in the following image:
 
 ![Set a Node.js startup file][1]

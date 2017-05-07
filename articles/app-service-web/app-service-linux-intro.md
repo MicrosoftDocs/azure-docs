@@ -19,7 +19,8 @@ ms.author: naziml;wesmc
 
 ---
 # Introduction to Azure Web App on Linux
-Web App on Linux is currently in public preview and supports running web apps natively on Linux.
+
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
 ## Overview
 Customers can use Web App on Linux to host web apps natively on Linux for supported application stacks. The following section lists the application stacks that are currently supported. 

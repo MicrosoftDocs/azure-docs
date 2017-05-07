@@ -21,6 +21,9 @@ ms.author: aelnably;wesmc
 
 # Using .NET Core in Azure Web App on Linux #
 
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+
+
 With the latest update to our back end, we introduced support for .NET Core v.1.0. By setting the configuration of your Linux web app, you can change the application stack.
 
 

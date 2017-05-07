@@ -20,7 +20,7 @@ ms.author: aelnably;wesmc
 ---
 # Docker Hub Continuous Deployment with Azure Web App on Linux
 
-Web App on Linux is currently in Public Preview and enables customers to run their web apps natively on a Linux platform.
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
 In this tutorial, you configure continuous deployment for a custom container image from [Docker Hub](https://hub.docker.com).
 

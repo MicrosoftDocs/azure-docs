@@ -21,7 +21,10 @@ ms.author: aelnably;wesmc
 
 # Azure App Service Web App on Linux FAQ
 
-With the release of Web App on Linux (currently in preview), we're working on adding features and making improvements to our platform. Here are some frequently asked questions (FAQ) that our customers have been asking us over the last months.
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+
+
+With the release of Web App on Linux, we're working on adding features and making improvements to our platform. Here are some frequently asked questions (FAQ) that our customers have been asking us over the last months.
 If you have a question, comment on the article and we'll answer it as soon as possible.
 
 ## Built-in images

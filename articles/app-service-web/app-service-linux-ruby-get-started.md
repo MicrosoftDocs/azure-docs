@@ -20,7 +20,7 @@ ms.author: wesmc
 ---
 # Create a Ruby App with Azure Web App on Linux - Preview
 
-Azure App Service Web App on Linux is currently in public preview and supports running web apps natively on Linux.
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
 ## Overview
 

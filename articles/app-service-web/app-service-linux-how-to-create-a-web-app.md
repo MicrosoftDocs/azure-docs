@@ -19,6 +19,10 @@ ms.author: naziml;wesmc
 
 ---
 # Create an Azure web app running on Linux
+
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+
+
 ## Use the Azure portal to create your web app
 You can start creating your web app on Linux from the [Azure portal](https://portal.azure.com) as shown in the following image:
 
