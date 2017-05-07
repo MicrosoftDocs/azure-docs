@@ -17,7 +17,7 @@ ms.date: 05/10/2017
 ms.author: acomet
 
 ---
-# Request units per minutes in Azure Cosmos DB
+# Request units per minute in Azure Cosmos DB
 
 Microsoft Azure Cosmos DB is designed to help you achieve a fast, predictable performance and scale seamlessly along with your application’s growth. This article provides an overview of how the provisioning of Request Unit per Minute (RU/m) works. The goal in mind with provisioning of RU/m is to provide a predictable performance around unpredictable needs (very important in an analytical world) and spiky workloads. We want to have our customers consume more the throughput they provision so they can scale quickly with peace of mind.
 
