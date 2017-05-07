@@ -207,7 +207,7 @@ In this section, we add a conditional check for negative sentiment tweets (condi
 1. Enter "RED" in the second  **Choose a value** text box.
 1. Save the app.
 
-  ![condition box](media/functions-twitter-email/condtion.png)
+  ![condition box](media/functions-twitter-email/condition.png)
 
 1. In the **IF YES, DO NOTHING** box select **Add an action**.
 1. Enter Outlook or Gmail in the **Search all services and actions** box. Outlook is used in this tutorial. See [Add a Gmail actions) (../logic-apps/logic-apps-create-a-logic-app#add-an-action-that-responds-to-your-trigger) for Gmail instructions. Note: If you have a personal [Microsoft account](https://account.microsoft.com/account), you can use that for the Outlook.com account. 
