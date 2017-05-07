@@ -14,7 +14,7 @@ ms.tgt_pltfrm: portal
 ms.date: 05/10/2017
 ---
 
-# What is Azure Database for MySQL Database? Service Introduction
+# What is Azure Database for MySQL? Service Introduction
 Azure Database for MySQL is a relational database service in the Microsoft cloud based on [MySQL Community Edition](https://www.mysql.com/products/community/) database engine.  Azure Database for MySQL delivers:
 
 - Predictable performance at multiple service levels
@@ -24,7 +24,7 @@ Azure Database for MySQL is a relational database service in the Microsoft cloud
 
 These capabilities require almost no administration, and all are provided at no additional cost. They allow you to focus on rapid app development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. In addition, you can continue to develop your application with the open source tools and platform of your choice, and deliver with the speed and efficiency your business demands without having to learn new skills.
 
-
+![Azure Database for MySQL conceptual diagram](media/overview/1-azure-db-for-mysql-conceptual-diagram.png)
 
 This article is an introduction to Azure Database for MySQL core concepts and features related to performance, scalability, and manageability, with links to explore details. See these quick starts to get you started:
 - [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md)
