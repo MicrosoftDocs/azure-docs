@@ -44,7 +44,7 @@ The scenario is that when a user performs a profile edit, we would like to looku
 > [!NOTE]
 > Set up of REST API functions is outside the scope of this article. [Azure Function Apps](https://docs.microsoft.com/azure/azure-functions/functions-reference) provides an excellent toolkit to create RESTful services in the cloud.
 
-We have set up an Azure Function that receives a claim `email`, and simply returns the claim `city` with the assigned value of `Redmond`. The sample Azure function is here: <!--TODO: LINK to github azure function Azure Function LookUpLoyaltyWebHook-->
+We have set up an Azure Function that receives a claim `email`, and simply returns the claim `city` with the assigned value of `Redmond`. The sample Azure function is here: [Github](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples)
 
 The `userMessage` claim returned by the Azure Function is optional in this context and will be ignored by the IEE.  It could potentially be used as a message passed to the application and presented to the user later.
 
