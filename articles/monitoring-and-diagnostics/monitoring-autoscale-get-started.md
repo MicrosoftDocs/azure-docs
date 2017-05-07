@@ -18,7 +18,7 @@ ms.author: rajram
 
 ---
 # Get started with auto scale in Azure
-This article describes how to setup your auto scale stting for your resource in Azure portal.
+This article describes how to setup your auto scale setting for your resource in Azure portal.
 
 Azure Monitor auto scale applies only to Virtual Machine Scale Sets (VMSS), cloud services, app service plans and app service environments. 
 
