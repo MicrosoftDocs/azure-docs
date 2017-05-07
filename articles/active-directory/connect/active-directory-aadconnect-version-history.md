@@ -45,7 +45,7 @@ Released: April 2017
 * This version of Azure AD Connect will not install successfully if the following conditions are all true:
    1. You are performing either DirSync in-place upgrade or fresh installation of Azure AD Connect.
    2. You are using a localized version of Windows Server where the name of built-in Administrator group on the server isn't "Administrators".
-   3. You are using the default SQL Server 2012 Express LocalDB installed with Azure AD Connect instead of providing your own full SQL. 
+   3. You are using the default SQL Server 2012 Express LocalDB installed with Azure AD Connect instead of providing your own full SQL.
 
 **Fixed issues:**
 
@@ -306,7 +306,7 @@ Released: November 2015
 **New preview features:**
 
 * [Azure AD Connect Health for sync](../connect-health/active-directory-aadconnect-health-sync.md).
-* Support for [Azure AD Domain Services](../active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) password synchronization.
+* Support for [Azure AD Domain Services](../active-directory-passwords-update-your-own-password.md) password synchronization.
 
 **New supported scenario:**
 

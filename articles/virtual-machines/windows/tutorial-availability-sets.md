@@ -14,16 +14,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/02/2017
 ms.author: cynthn
 
 ---
 
 # How to use availability sets
 
-In this tutorial, you learn about increasing the availability of your virtual machines (VMs) by putting them into a logical grouping called an availability set. When you create VMs within an availability set, the Azure platform distributes the VMs across the underlying infrastructure. If there is a hardware fault or planned maintenance on the platform, the use of availability sets ensures that at least one VM remains running.
+To protect application workload from downtime during maintenance or hardware fault, virtual machines need to be made highly available. In this tutorial, you increase the availability of your virtual machines (VMs) by putting them into a logical grouping called availability sets. You learn how to:
 
-The steps in this tutorial can be completed using the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) module.
+> [!div class="checklist"]
+> * Create an availability set
+> * Create a VM in an availability set
+> * Check available VM sizes
+
+This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 ## Availability set overview
 
@@ -38,7 +43,7 @@ You can create an availability set using [New-AzureRmAvailabilitySet](/powershel
 
 ```powershell
 New-AzureRmAvailabilitySet `
-   -Location westus `
+   -Location EastUS `
    -Name myAvailabilitySet `
    -ResourceGroupName myResourceGroupAvailability `
    -Managed `
@@ -68,7 +73,7 @@ $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
     -AddressPrefix 192.168.1.0/24
 $vnet = New-AzureRmVirtualNetwork `
     -ResourceGroupName myResourceGroupAvailability `
-    -Location westus `
+    -Location EastUS `
     -Name MYvNET `
     -AddressPrefix 192.168.0.0/16 `
     -Subnet $subnetConfig
@@ -77,7 +82,7 @@ for ($i=1; $i -le 2; $i++)
 {
    $pip = New-AzureRmPublicIpAddress `
         -ResourceGroupName myResourceGroupAvailability `
-        -Location westus `
+        -Location EastUS `
         -Name "mypublicdns$(Get-Random)" `
         -AllocationMethod Static `
         -IdleTimeoutInMinutes 4
@@ -95,14 +100,14 @@ for ($i=1; $i -le 2; $i++)
 
    $nsg = New-AzureRmNetworkSecurityGroup `
         -ResourceGroupName myResourceGroupAvailability `
-        -Location westus `
+        -Location EastUS `
         -Name myNetworkSecurityGroup$i `
         -SecurityRules $nsgRuleRDP
 
    $nic = New-AzureRmNetworkInterface `
         -Name myNic$i `
         -ResourceGroupName myResourceGroupAvailability `
-        -Location westus `
+        -Location EastUS `
         -SubnetId $vnet.Subnets[0].Id `
         -PublicIpAddressId $pip.Id `
         -NetworkSecurityGroupId $nsg.Id
@@ -134,7 +139,7 @@ for ($i=1; $i -le 2; $i++)
    $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
    New-AzureRmVM `
         -ResourceGroupName myResourceGroupAvailability `
-        -Location westus `
+        -Location EastUS `
         -VM $vm
 }
 
@@ -154,8 +159,16 @@ Get-AzureRmVMSize `
 
 ## Next steps
 
-In this tutorial, you learned how to create a virtual machine scale set. Advance to the next tutorial to learn about virtual machine scale sets.
+In this tutorial, you learned how to:
 
-[Create a VM scale set](tutorial-create-vmss.md)
+> [!div class="checklist"]
+> * Create an availability set
+> * Create a VM in an availability set
+> * Check available VM sizes
+
+Advance to the next tutorial to learn about virtual machine scale sets.
+
+> [!div class="nextstepaction"]
+> [Create a VM scale set](tutorial-create-vmss.md)
 
 
