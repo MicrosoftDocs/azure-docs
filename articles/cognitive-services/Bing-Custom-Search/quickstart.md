@@ -42,7 +42,7 @@ Next, define the right set of slices of the web to search over for your scenario
 
 To be able to search over your sites, they must be available online, and in Bing's web-index. 
 
-**Note**: If you own a site site that you want to search over, but is not available in Bing's web-index, you can follow up with Bing directly. Consult the [Bing webmaster documentation](https://www.bing.com/webmaster/help/webmaster-guidelines-30fba23a).
+**Note**: If you own a site that you want to search over, which is not available in Bing's web-index, you can follow up with Bing directly. Consult the [Bing webmaster documentation](https://www.bing.com/webmaster/help/webmaster-guidelines-30fba23a).
 
 ### Add first slice
 Start building your search by entering a domain, subdomain, or single webpage. To confirm your choice and click **ADD**. 
@@ -60,11 +60,11 @@ To add more domains, subdomains or webpages, select the row below your last entr
 
 
 ### Using Site Suggestions
-Once you have added at least three sites, or subsites to your search, Bing Custom Search generates site- and subsite-suggestions that you might want to add to your search. You see them under the section "You might want to add".
+Once you have added at least three sites, or subsites to your search, Bing Custom Search generates site- and subsite-suggestions that you might want to add to your search. You see them under the section **You might want to add**.
 
 Make sure to press **Refresh** after having added new sites or ranking adjustments, as the suggestions are regenerated based on your settings. 
 
-You can add relevant suggestions to your custom search by clicking **Add**. The selected site or subsite is added to the entries in the **Active** tab. You can now use it as any other site, subsite or webpage that you added by hand.
+You can add relevant suggestions to your custom search by clicking **Add**. The selected site or subsite is added to the entries in the **Active** tab. You can now use it as any other site, subsite, or webpage that you added by hand.
 
 
 ## Adjust the ranking
@@ -77,7 +77,6 @@ Start validating your settings by searching over your defined subset of the web.
 
 
 Next to each result you can see four different options to adjust the ranking for your custom search: 
-
 * Pin to top, that is, for a specific query you define which specific web page appears on top of the results.
 * Block, that is, sites, subsites, or web pages that you "block" are never shown in your custom search, regardless of the search query
 * Boost, that is, the site, subsite, or web pages that you "boost" are generically ranked higher among the search results that are retrieved, independently from the search query.
@@ -86,7 +85,7 @@ Next to each result you can see four different options to adjust the ranking for
 ### Creating pins
 Adjusting the ranking to pin search results to the top for specific queries can be done in two ways:
 
-1. Trigger a query on the search preview. Select from the results shown in the preview the web page that you want to pin on top for that query and click on **Pin to top**.	
+1. Trigger a query on the search preview. Select from the results shown in the preview the web page that you want to pin on top for that query and click **Pin to top**.	
 2. Go to the "Pinned" tab, and provide both exact URL, and the exact query, for which you want your URL to be show on top.
 
 
@@ -154,6 +153,7 @@ You can programmatically retrieve your custom search results via [Bing Web Searc
 
 #### Request URL
 The request URL looks as follows:
+
 ```
 https://cognitivegblppe.azure-api.net/bingcustomsearch/v5.0/search[?q][&customconfig][&count][&offset][&mkt][&safesearch]
 ```
@@ -164,7 +164,7 @@ https://cognitivegblppe.azure-api.net/bingcustomsearch/v5.0/search[?q][&customco
 | **customconfig** | number | Optional | Unique identifier for your custom search instance |
 | **count** | number | Optional | The number of search results to return in the response. The actual number delivered may be less than requested.|
 | **offset** | number | Optional | The zero-based offset that indicates the number of search results to skip before returning results.|
-| **mkt** | string | Optional | The market where the results come from. Typically, it is the country where the user is making the request from. However, it could be a different country if the user is not located in a country where Bing delivers results. The market must be in the form -. For example, en-US. |
+| **mkt** | string | Optional | The market where the results come from. Typically, it is the country where the user is making the request from. However, it could be a different country - if the user is not located in a country where Bing delivers results. The market must be specified with a hyphen between language and market. For example, en-US. |
 | **safesearch** |string | Optional | A filter used to filter results for adult content.|
 
 
