@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 05/06/2017
+ms.date: 05/07/2017
 ms.author: janeng
 
 ---
 
 # Design your first Azure SQL database
 
-In this tutorial, you build a database for a university to track student grades and courses enrollment. You will learn to:
+Azure SQL Database is a relational database-as-a service using the Microsoft SQL Server Engine. This tutorial covers basic database tasks such as create a database and tables, load and query data and restore the database to a previous point in time. You learn how to: 
+
 > [!div class="checklist"]
 > * Create a database
 > * Set up a firewall rule
@@ -284,7 +285,10 @@ Imagine you have accidentally deleted a table. This is something you cannot easi
 
 3. Click **OK** to restore the database to [restore to a point in time](sql-database-recovery-using-backups.md#point-in-time-restore) before the tables were added. Restoring a database to a different point in time creates a duplicate database in the same server as the original database as of the point in time you specify, provided that it is within the retention period for your [service tier](sql-database-service-tiers.md).
 
-In this tutorial, you learned to:
+
+
+## Next Steps 
+In this tutorial, you learned basic database tasks such as create a database and tables, load and query data and restore the database to a previous point in time. You learned how to:
 > [!div class="checklist"]
 > * Create a database
 > * Set up a firewall rule
@@ -293,7 +297,6 @@ In this tutorial, you learned to:
 > * Bulk load data
 > * Query that data
 > * Restore the database to a previous point in time using SQL Database [point in time restore](sql-database-recovery-using-backups.md#point-in-time-restore) capabilities
+Advance to the next tutorial to learn about migrating your data.
 
-## Next Steps 
-
-[SQL Database PowerShell samples for common tasks](sql-database-powershell-samples.md)
+[Migrate your SQL Server database to Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
