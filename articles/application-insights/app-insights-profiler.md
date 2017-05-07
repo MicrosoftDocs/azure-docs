@@ -215,21 +215,19 @@ When you see parallel threads in your traces, you need to determine which thread
 
 File a support ticket from the portal. Please include the correlation ID from the error message.
 
+## Manual installation
+
+When you configure the profiler, the following updates are made to the Web App's settings. You can do them yourself manually if your environment requires, for example, if your application runs in a private network using Internal Load Balancer:
+
+1. In the Web app control blade, open Settings.
+2. Set ".Net Framework version" to v4.6.
+3. Set "Always On" to On.
+4. Add app setting "__APPINSIGHTS_INSTRUMENTATIONKEY__" and set the value to the same instrumentation key used by the SDK.
+5. In **Extensions**, Add "Application Insights". It will take a few minutes to install.
+
 ## <a id="aspnetcore"></a>ASP.NET Core Support
 
-ASP.NET Core application is currently supported on .NET Core runtime.
-
-The application also needs to include the following components to enable profiling.
-
-1. [Application Insights for ASP.NET Core 2.0](https://github.com/Microsoft/ApplicationInsights-aspnetcore/releases/tag/v2.0.0)
-2. [System.Diagnostics.DiagnosticSource 4.4.0-beta-25022-02](https://dotnet.myget.org/feed/dotnet-core/package/nuget/System.Diagnostics.DiagnosticSource/4.4.0-beta-25022-02)
-    * In Visual Studio, select menu "Tools -> NuGet Package Manager -> Package Manager Settings".
-    * In Options dialog, select "NuGet Package Manager -> Package Sources".
-    * Click "+" button to add a new package source with Name "DotNet-Core-MyGet" and Value "https://dotnet.myget.org/F/dotnet-core/api/v3/index.json".
-    * Click "Update" button and close Options dialog.
-    * Open Solution Explorer, right-click the ASP.NET Core project and select "Manage NuGet Packages...".
-    * Click "Browse" tab, select "Package source: DotNet-Core-MyGet" and check "Include prerelease".
-    * Search "System.Diagnostics.DiagnosticSource" and choose "__4.4.0-beta-25022-02__" to install.
+ASP.NET Core 1.1.2 applications targeting to AI SDK 2.0 or higher would work with the Profiler. 
 
 
 ## Next steps
