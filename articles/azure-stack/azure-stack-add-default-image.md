@@ -19,14 +19,14 @@ ms.author: sngun
 ---
 # Add the Windows Server 2016 VM image to the Azure Stack marketplace
 
-By default, there aren’t any virtual machine images available in the Azure stack marketplace. The administrator must add a Virtual Machine image to the Azure Stack marketplace before users can create them. This topic describes the steps required to add a Windows Server 2016 image to the marketplace. The steps described in this topic are specifically helpful if you have deployed your Azure Stack instance in a disconnected scenario.
+By default, there aren’t any virtual machine images available in the Azure stack marketplace. The administrator must add a Virtual Machine image to the Azure Stack marketplace before users can create them. This topic describes the steps required to add a Windows Server 2016 image to the marketplace. The steps described in this topic are helpful if you have deployed your Azure Stack instance in a disconnected scenario.
 
 > [!NOTE]
 > If you have registered your Azure Stack instance with Azure, then you can download the Windows Server 2016 VM image from the Azure Marketplace by using the steps described in the [Download marketplace items from Azure to Azure Stack](azure-stack-download-azure-marketplace-item.md) topic. 
 
 1. After deploying Azure Stack, sign in to the MAS-CON01 virtual machine.
 
-2. Go to https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 and download the Windows Server 2016 evaluation. When prompted, select the **ISO** version of the download. Record the path to the download location which is used later in these steps.
+2. Go to https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 and download the Windows Server 2016 evaluation. When prompted, select the **ISO** version of the download. Record the path to the download location, which is used later in these steps.
 
 3. Open PowerShell ISE as an administrator.
 
@@ -66,7 +66,7 @@ By default, there aren’t any virtual machine images available in the Azure sta
       -EnvironmentName AzureStackAdmin 
     ```
    
-9. Add the Windows Server 2016 image to the Azure Stack marketplace by running the following script. Replace *Path_to_ISO* with the path to the WS2016 ISO you downloaded. See the [Parameters](#parameters) section for information about the allowed parameters.
+9. Add the Windows Server 2016 image to the Azure Stack marketplace by running the `New-Server2016VMImage` cmdlet. Replace *Path_to_ISO* with the path to the WS2016 ISO you downloaded. See the [Parameters](#parameters) section for information about the allowed parameters.
 
    ```powershell
    $ISOPath = "<Fully_Qualified_Path_to_ISO>"
@@ -86,7 +86,7 @@ By default, there aren’t any virtual machine images available in the Azure sta
    ```
    To ensure that the Windows Server 2016 VM image has the latest cumulative update, include the `IncludeLatestCU` parameter when running the previous cmdlet. 
 
-   When you run the `New-Server2016VMImage` cmdlet, the output displays a warning message that says, “Unable to acquire token for tenant ‘Common’”, which you can ignore and the download continues. The output also displays the “Downloading” message for a while and if the download is successful, it ends with the “StatusCode : Created” message.
+   When you run the `New-Server2016VMImage` cmdlet, the output displays a warning message that says, “Unable to acquire token for tenant ‘Common’”, which you can ignore and the download continues. The output also displays the “Downloading” message for a while and if the download is successful, it ends with the “StatusCode: Created” message.
 
 ## Parameters
 
@@ -94,7 +94,7 @@ By default, there aren’t any virtual machine images available in the Azure sta
 |-----|-----|------|
 |ArmEndpoint|No|The Azure Resource Manager endpoint for your Azure Stack environment. The default is the one used by the Proof of Concept (PoC) environment.|
 |AzureStackCredentials|Yes|The credentials provided during deployment that are used to sign in to the Azure Stack Administrator portal. |
-|EnvironmentName|yes|The Azure Stack administrtor's PowerShell environment name. |
+|EnvironmentName|yes|The Azure Stack administrator's PowerShell environment name. |
 |IncludeLatestCU|No|Set this switch to apply the latest Windows Server 2016 cumulative update to the new VHD.|
 |ISOPath|Yes|The full path to the downloaded Windows Server 2016 ISO.|
 |Net35|No|This parameter allows you to install the .NET 3.5 runtime on the Windows Server 2016 image. By default, this value is set to true. It is mandatory that the image contains the .NET 3.5 runtime to install the SQL or MYSQL resource providers. |
