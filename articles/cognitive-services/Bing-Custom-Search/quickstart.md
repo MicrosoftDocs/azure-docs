@@ -10,7 +10,7 @@ This article provides information to help you quickly get started using Bing Cus
 7. Programmatically retrieve custom search results
 
 
-# Create a custom search instance 
+## Create a custom search instance 
 
 After logging in, you see all your custom search instances that you have created so far.
 
@@ -26,7 +26,7 @@ Provide a meaningful name for your custom search instance. Confirm the name by c
 ![picture alt](CreateSearch.PNG "Create a new custom search instance called 'BikeTours'")
 
 
-# Define the slices of the web to search over
+## Define the slices of the web to search over
 
 **Note**: All  custom search settings, that is, the slices that you want to search over, and your ranking controls, are automatically saved.
 
@@ -44,7 +44,7 @@ To be able to search over your sites, they must be available online, and in Bing
 
 **Note**: If you own a site site that you want to search over, but is not available in Bing's web-index, you can follow up with Bing directly. Consult the [Bing webmaster documentation](https://www.bing.com/webmaster/help/webmaster-guidelines-30fba23a).
 
-## Add first slice
+### Add first slice
 Start building your search by entering a domain, subdomain, or single webpage. To confirm your choice and click **ADD**. 
 You can omit the "http", "https", "www" etc. prefixes when you specify your subset of the web.
 
@@ -52,14 +52,14 @@ You can omit the "http", "https", "www" etc. prefixes when you specify your subs
 ![picture alt](FirstEntry.PNG "Start to create your custom search by entering a first site, subsite or exact URL.")
 
 
-## Extend the slices to search over
+### Extend the slices to search over
 To add more domains, subdomains or webpages, select the row below your last entry, specify your entry, followed by pressing **enter**. To remove an entry, click **delete** under Controls.
 
 
 ![picture alt](AddingSites.png "Expand the set of sites, subsites and single web pages that you want to search over.")
 
 
-## Using Site Suggestions
+### Using Site Suggestions
 Once you have added at least three sites, or subsites to your search, Bing Custom Search generates site- and subsite-suggestions that you might want to add to your search. You see them under the section "You might want to add".
 
 Make sure to press **Refresh** after having added new sites or ranking adjustments, as the suggestions are regenerated based on your settings. 
@@ -67,7 +67,7 @@ Make sure to press **Refresh** after having added new sites or ranking adjustmen
 You can add relevant suggestions to your custom search by clicking **Add**. The selected site or subsite is added to the entries in the **Active** tab. You can now use it as any other site, subsite or webpage that you added by hand.
 
 
-# Adjust the ranking
+## Adjust the ranking
 Start validating your settings by searching over your defined subset of the web. On the right-hand side, you see the Search Preview. Enter a search term at the top, and press **enter** or click the search icon.
 
 **Note**: In case you do not see any result for your query, you might not have added enough websites to your custom slice of the web. As a result, no relevant search result can be found.
@@ -83,7 +83,7 @@ Next to each result you can see four different options to adjust the ranking for
 * Boost, that is, the site, subsite, or web pages that you "boost" are generically ranked higher among the search results that are retrieved, independently from the search query.
 * Demote, that is, the site, subsite, or web pages selected for demoting are ranked lower among the search results that are retrieved for any search query.
 
-## Creating pins
+### Creating pins
 Adjusting the ranking to pin search results to the top for specific queries can be done in two ways:
 
 1. Trigger a query on the search preview. Select from the results shown in the preview the web page that you want to pin on top for that query and click on **Pin to top**.	
@@ -97,7 +97,7 @@ You can track your pins in the **Pinned** tab. The pins are shown as 'exact quer
 
 ![picture alt](TrackingPins.PNG "Tracking pins, and pushing them to Bing API.")
 
-## Using pins
+### Using pins
 When you work with pins:
 
 * For a specific query, you can pin max. one URL to the top.
@@ -106,7 +106,7 @@ When you work with pins:
 * Deleting a pin is not instantaneously reflected in the Search Preview. You can still see the former pinned URL on top for the specific query, until you use again the **Push Pin** function. Remember that it takes around 15 minutes until the new pins are activated.
 
 
-# Track custom search settings
+## Track custom search settings
 
 You can control the ranking via the tabs **Active**, **Blocked**, and **Pinned**. 
 
@@ -119,11 +119,11 @@ You can control the ranking via the tabs **Active**, **Blocked**, and **Pinned**
 ![picture alt](TrackingSearchSettings.png "Track your custom search settings.")
 
 
-## Understanding quota
+### Understanding quota
 * Per custom search instance, the maximum number of ranking adjustments as documented in the tabs **Added** and **Blocked** are capped to  400.
 * Further, the maximum number of pins per custom search instance is limited to 200.
 
-# Publish search settings
+## Publish search settings
 When you completed your custom search settings, click the "Custom Search Endpoint" icon that is shown next to the custom instance name. 
 
 ![picture alt](EditCustomSearchInstanceName.png "Publish your custom search instance.")
@@ -136,7 +136,7 @@ To try out your search, specify a query and click **Test API**. You see on the r
 You can also validate calling your custom endpoint in different languages. In the UI, you find a Curl-based example in the box "API endpoint", which you can run in your Windows Cmd. 
 
 
-# Programmatically retrieve custom search results
+## Programmatically retrieve custom search results
 You can programmatically retrieve your custom search results via [Bing Web Search API](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-web-search/search-the-web). Requesting Bing Web Search API to obtain customized responses works the same way as requesting standard Bing web responses - with two differences:
 
 1. The request URL has an additional parameter called `customconfig`.
@@ -145,9 +145,9 @@ You can programmatically retrieve your custom search results via [Bing Web Searc
 **Note**: Bing Custom Search allows customizing web results only. For this reason, it's not possible to retrieve, for example, image or news answers.
 
 
-## Request Parameters
+### Request Parameters
 
-### Request URL
+#### Request URL
 The request URL looks as follows:
 ```
 https://cognitivegblppe.azure-api.net/bingcustomsearch/v5.0/search[?q][&customconfig][&count][&offset][&mkt][&safesearch]
@@ -163,13 +163,13 @@ https://cognitivegblppe.azure-api.net/bingcustomsearch/v5.0/search[?q][&customco
 | **safesearch** |string | Optional | A filter used to filter results for adult content.|
 
 
-### Request headers
+#### Request headers
 
 | Parameter | Type | Required / Optional| Description |
 | --- | --- | --- | ---|
 | Ocp-Apim-Subscription-Key | string | Required | Subscription key, which provides access to this API. Found in your subscriptions. |
 
-## Request Body
+### Request Body
 
 Bing Custom Search allows customizing web results only, which maps to the response field `webPages`. For example, images or news results cannot be customized. That's why they are not retrievable when calling Bing Web Search API with the `customconfig` parameter in the search request.
 
