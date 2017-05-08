@@ -55,7 +55,7 @@ As a globally distributed database service, Azure Cosmos DB provides the followi
     * SQL and Gremlin for queries. 
 
 * [**Elastically scale throughput and storage on demand, worldwide**](#horizontal-scale)
-    * Easily scale throughput at [second](../documentdb/documentdb-request-units.md) and [minute](request-units-per-minute.md) granularities, and change it anytime you want. 
+    * Easily scale throughput at [second](../documentdb/documentdb-request-units.md) and [minute](https://aka.ms/acdbrupm) granularities, and change it anytime you want. 
     * Scale storage [transparently and automatically](../documentdb/documentdb-partition-data.md) to cover your size requirements now and forever. [Learn more]()
 
 * [**Build highly responsive and mission-critical applications**](#low-latency) 
