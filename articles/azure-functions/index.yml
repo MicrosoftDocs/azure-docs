@@ -14,10 +14,12 @@ metadata:
   ms.date: 01/23/2017
   ms.author: carolz
 abstract:
-  description: Learn how to use Functions to develop and deploy small pieces of code in the language of your choice and in the cloud without setting up infrastructure. Tutorials, templates, and other documentation show you how to create functions for tasks you want to run in a background thread or on a schedule.
+  description: Azure Functions is a serverless compute service that allows you to run pieces of code without worry about infrastructure.  Use Azure Functions to run a script or piece of code in response to a variety of events. Learn how to use Azure Functions with our quickstarts, tutorials, and samples.
 sections:
 - title: 5-Minute Quickstarts
   items:
+  - type: paragraph
+    text: 'Learn how to create a Hello World function using:'
   - type: list
     style: icon48
     items: 
@@ -26,6 +28,7 @@ sections:
       text: Create function - portal
       href: /azure/azure-functions/functions-create-first-azure-function
 - title: Step-by-Step Tutorials
+  text: 'Learn how to build and manage Azure Functions'
   items:
   - type: list
     style: ordered
