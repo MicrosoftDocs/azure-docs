@@ -173,7 +173,8 @@ To register the application in Azure Active Directory:
 1. Sign in to the Azure portal.
 2. On the left, click **Active Directory**, and then select the directory in which you will register your application. <br> <br> 
 
-[!NOTE] You must select the same directory that contains the Azure subscription with which you created your key vault. If you do not know which directory this is, click **Settings**, identify the subscription with which you created your key vault, and note the name of the directory displayed in the last column.
+>[!NOTE] 
+> You must select the same directory that contains the Azure subscription with which you created your key vault. If you do not know which directory this is, click **Settings**, identify the subscription with which you created your key vault, and note the name of the directory displayed in the last column.
 
 3. Click **APPLICATIONS**. If no apps have been added to your directory, this page will show only the **Add an App** link. Click the link, or alternatively, you can click the **ADD** on the command bar.
 4. In the **ADD APPLICATION** wizard, on the **What do you want to do?** page, click **Add an application my organization is developing**.
