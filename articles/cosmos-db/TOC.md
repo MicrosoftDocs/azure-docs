@@ -40,7 +40,7 @@
 
 # Concepts
 ## [Global distribution](../documentdb/documentdb-distribute-data-globally.md)
-## [Partitioning](../documentdb/documentdb-partition-data.md)
+## [Partitioning](partition-data.md)
 ## [Consistency](../documentdb/documentdb-consistency-levels.md)
 ## [Throughput](../documentdb/documentdb-request-units.md)
 ## Multi-model APIs

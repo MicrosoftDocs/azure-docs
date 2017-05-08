@@ -41,7 +41,7 @@ This tutorial covers the following tasks by using the [DocumentDB .NET API](../d
 
 Partitioned collections are containers for storing data, they are logical resources and span one or more physical partitions or servers. A partition key is a property (or path) within your documents that is used to distribute your data among the servers or partitions. All documents with the same partition key are stored in the same partition. By using a partition key and partitioned collections, Azure Cosmos DB can efficiently index and query your big-data solutions.   
 
-Learn more about partitioning and scaling in, [How to partition and scale in Azure Cosmos DB?](../documentdb/documentdb-partition-data.md)
+Learn more about partitioning and scaling in, [How to partition and scale in Azure Cosmos DB?](partition-data.md)
 
 ## Prerequisites
 Please make sure you have the following:
