@@ -35,7 +35,7 @@ The sample created by this guide is based on a scenario where an Android applica
 * Android SDK 21 or newer is required (SDK 25 is recommended).
 * Google Chrome or a web browser using Custom Tabs is required for this release of Microsoft Authentication Library (MSAL) for Android.
 
-> Note: Google Chrome is not included on Visual Studio Emulator for Android. We recommend you to test this code on an Emulator with API 25 or a image with API 21 or newer that has with Google Chrome installed.
+> Note: Google Chrome is not included on Visual Studio Emulator for Android. We recommend you to test this code on an Emulator with API 25 or an image with API 21 or newer that has with Google Chrome installed.
 
 
 ## Handling token acquisition for accessing protected Web APIs
