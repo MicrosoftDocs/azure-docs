@@ -198,7 +198,7 @@ Follow [this guidance](site-recovery-test-failover-to-azure.md) to do a test fai
 
 For guidance on doing test failover for AD and DNS, refer to [Test failover considerations for AD and DNS](site-recovery-active-directory.md#test-failover-considerations) document.
 
-For guidance on doing test failover for SQL Always ON availability groups, refer to [Doing Test failover for SQL Server Always On](site-recovery-sql.md) document.
+For guidance on doing test failover for SQL Always ON availability groups, refer to [Doing Test failover for SQL Server Always On](site-recovery-sql.md#steps-to-do-a-test-failover) document.
 
 ## Doing a failover
 Follow [this guidance](site-recovery-failover.md) for doing a failover.
