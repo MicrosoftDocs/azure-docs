@@ -38,6 +38,7 @@ When determine which entities to use in your app, keep in mind that there are di
 
 ### Simple entity
 A simple entity describes a single concept.
+
 ![simple entity](./media/luis-plan-your-app/simple-entity.png)
 
 ### Hierarchical entity
