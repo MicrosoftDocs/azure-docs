@@ -242,10 +242,6 @@ The accuracy of text recognition depends on the quality of the image. An inaccur
 - Subscript, superscript, or strikethrough text.
 
 Limitations: On photos where text is dominant, false positives may come from partially recognized words. On some photos, especially photos without any text, precision can vary a lot depending on the type of image.
-- Small text size
-- Complex backgrounds, shadows, or glare over text or perspective distortion
-- Oversized or missing capital letters at the beginnings of words
-- Subscript, superscript, or strikethrough text
 
 ## <a name="RecognizeText">Recognize Handwritten Text</a>
 This technology allows you to detect and extract handwritten text from notes, letters, essays, whiteboards, forms, etc. It works with different surfaces and backgrounds, such as white paper, yellow sticky notes, and whiteboards.
