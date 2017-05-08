@@ -1,3 +1,5 @@
+- name: Functions Documentation
+  href: index.yml
 - name: Overview
   items:
   - name: About Functions
@@ -9,6 +11,8 @@
   items:
   - name: Create function - portal
     href: functions-create-first-azure-function.md
+  - name: Create function - Azure CLI
+    href: functions-create-first-azure-function-azure-cli.md
   - name: Triggers
     items:
     - name: Timer
@@ -23,6 +27,10 @@
     items:
     - name: Storage
       href: functions-integrate-storage-queue-output-binding.md
+- name: Samples
+  items:
+  - name: Azure CLI
+    href: functions-cli-samples.md
 - name: Tutorials
   items:
   - name: 1 - Create a serverless API

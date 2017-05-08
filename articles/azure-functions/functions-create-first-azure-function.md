@@ -95,5 +95,5 @@ You have created a function app with a simple HTTP triggered function.
 
 For more information, see [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md).
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+
 

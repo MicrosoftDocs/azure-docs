@@ -72,5 +72,5 @@ You have created a function that runs based on a schedule.
 
 For more information timer triggers, see [Schedule code execution with Azure Functions](functions-bindings-timer.md). 
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+
 

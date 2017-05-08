@@ -93,5 +93,5 @@ See these topics for more information about Azure Functions.
 * [How to scale Azure Functions](functions-scale.md)  
   Discusses service plans available with Azure Functions, including the Consumption plan, and how to choose the right plan.  
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+
 

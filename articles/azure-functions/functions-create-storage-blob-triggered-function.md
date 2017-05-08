@@ -97,5 +97,5 @@ You have created a function that runs when a blob is added to or updated in Blob
 
 For more information about Blob storage triggers, see [Azure Functions Blob storage bindings](functions-bindings-storage-blob.md). 
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+
 
