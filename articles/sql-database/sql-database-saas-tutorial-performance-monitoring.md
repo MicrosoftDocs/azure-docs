@@ -19,7 +19,7 @@ ms.date: 05/10/2017
 ms.author: billgib; sstein
 
 ---
-# Monitor performance of a sample SaaS application that uses Azure SQL Database
+# Monitor performance of the WTP sample SaaS application
 
 In this tutorial, built-in monitoring and alerting features of SQL Database and elastic pools are demonstrated, and then several key performance management scenarios used in SaaS applications are explored.
 

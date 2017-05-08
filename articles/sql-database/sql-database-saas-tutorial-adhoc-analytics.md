@@ -19,7 +19,7 @@ ms.date: 05/10/2017
 ms.author: billgib; sstein
 
 ---
-# Ad-hoc analytics
+# Run ad-hoc analytics queries across all WTP tenants
 
 In this tutorial, you create an ad-hoc analytics database and run several queries across all tenants. These queries can extract insights buried in the day-to-day operational data of the WTP app.
 

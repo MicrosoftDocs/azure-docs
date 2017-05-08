@@ -19,7 +19,7 @@ ms.date: 05/10/2017
 ms.author: billgib; sstein
 
 ---
-# Tenant Analytics
+# Run analytics queries against multiple tenants
 
 In this tutorial, you run analytics queries against each tenant in the catalog. An elastic job is created that runs the queries. The job retrieves data and loads it into a separate analytics database created on the catalog server. This database can be queried to extract insights that are buried in the day-to-day operational data of all tenants. As an output of the job, a table is created from the result-returning queries inside the tenant analytics database.
 

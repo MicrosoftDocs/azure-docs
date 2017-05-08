@@ -19,7 +19,7 @@ ms.date: 05/10/2017
 ms.author: billgib; sstein
 
 ---
-# Manage schema for multiple tenants in a SaaS application that uses Azure SQL Database
+# Manage schema for multiple tenants in the WTP SaaS application
 
 The Introduction to the WTP Application tutorial shows how the WTP app can provision a tenant database with its initial schema and register it in the catalog. Like any application, the WTP app will evolve over time, and will at times require changes to the database. Changes may include new or changed schema, new or changed reference data, and routine database maintenance tasks to ensure optimal app performance. With a SaaS application, these changes need to be deployed in a coordinated manner across a potentially massive fleet of tenant databases. Changes also need to be incorporated into the provisioning process for future tenant databases.
 
