@@ -45,11 +45,11 @@ For more information on the feed format, see [API reference](custom-decision-ser
 
 ## Registration
 
-Sign in with your [Microsoft Account](https://account.microsoft.com/account), and click *My Portal* menu item in the top ribbon.
+Sign in with your [Microsoft Account](https://account.microsoft.com/account), and click **My Portal** menu item in the top ribbon.
 
 ![Custom Decision Service portal](./media/custom-decision-service-tutorial/portal.png)
 
-To register a new application, click the "new app" button. Give your application a unique name and enter it in "app ID" field of the pop-up dialog. (The system may ask you to pick a different app id if this name is already in use by another customer.) Check "advanced" and enter the [connection string](../../storage/storage-configure-connection-string.md) for your Azure Storage account. Normally you would use the same Azure Storage account for all your applications
+To register a new application, click the **New App** button. Give your application a unique name and enter it in **App ID** field of the pop-up dialog. (The system may ask you to pick a different app id if this name is already in use by another customer.) Check "advanced" and enter the [connection string](../../storage/storage-configure-connection-string.md) for your Azure Storage account. Normally you would use the same Azure Storage account for all your applications
 
 ![New app dialog](./media/custom-decision-service-tutorial/new-app-dialog.png)
 
@@ -57,9 +57,9 @@ Once you register all three applications in our scenario, you should see them li
 
 ![List of apps](./media/custom-decision-service-tutorial/apps.png)
 
-(You can come back to this list by clicking the "Apps" button.)
+(You can come back to this list by clicking the **Apps** button.)
 
-You may use the "new app" dialog to specify an action feed. Action feeds can also be specified by clicking "feeds" button, and then "new feed" button.
+You may use the "new app" dialog to specify an action feed. Action feeds can also be specified by clicking **Feeds** button, and then **New Feed** button.
 
 ![New feed dialog](./media/custom-decision-service-tutorial/new-feed-dialog.png)
 
@@ -69,7 +69,7 @@ Action feeds can be used by any app, regardless of where they are specified. Onc
 
 ![List of feeds](./media/custom-decision-service-tutorial/feeds.png)
 
-(You can come back to this list by clicking the "feeds" button.)
+(You can come back to this list by clicking the **Feeds** button.)
 
 ## Our APIs
 
