@@ -61,15 +61,12 @@ Let's start by creating an Azure Cosmos DB account in the Azure portal.
 2. On the **File** menu, select **New**, and then choose **Project**.
 3. In the **New Project** dialog, select **Templates** / **Visual C#** / **Console App (.NET Framework)**, name your project, and then click **OK**.
 4. In the **Solution Explorer**, right click on your new console application, which is under your Visual Studio solution, and then click **Manage NuGet Packages...**
-5. In the **NuGet** tab, click **Browse**, and type **documentdb** in the search box.
-6. Within the results, find **[Microsoft.Azure.DocumentDB](../documentdb/documentdb-sdk-dotnet.md)** and click **Install**.
-   The package ID for the DocumentDB Client Library is [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB).
-
-    If you get a message about reviewing changes to the solution, click **OK**. If you get a message about license acceptance, click **I accept**.
-
-6. Now search for **[Microsoft.Azure.Graphs](https://aka.ms/graphdbextension)** extension library and click **Install**.
+5. In the **NuGet** tab, click **Browse**, and type **Microsoft.Azure.Graphs** in the search box, and check the **Include prerelease versions**.
+6. Within the results, find **Microsoft.Azure.Graphs** and click **Install**.
    
-The `Microsoft.Azure.Graphs` library provides a single extension method `CreateGremlinQuery<T>` for executing Gremlin operations. Gremlin is a functional programming language that supports write operations (DML) and query and traversal operations. We cover a few examples in this article to get your started with Gremlin. [Gremlin queries](gremlin-support.md) has a detailed walkthrough of Gremlin capabilities in Azure Cosmos DB.
+   If you get a message about reviewing changes to the solution, click **OK**. If you get a message about license acceptance, click **I accept**.
+   
+    The `Microsoft.Azure.Graphs` library provides a single extension method `CreateGremlinQuery<T>` for executing Gremlin operations. Gremlin is a functional programming language that supports write operations (DML) and query and traversal operations. We cover a few examples in this article to get your started with Gremlin. [Gremlin queries](gremlin-support.md) has a detailed walkthrough of Gremlin capabilities in Azure Cosmos DB.
 
 ## <a id="add-references"></a>Connect your app
 
