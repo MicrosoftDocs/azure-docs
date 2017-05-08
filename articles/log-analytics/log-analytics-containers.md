@@ -41,7 +41,7 @@ You can review the supported Docker and Linux operating system versions for your
 
 - If you have a Kubernetes cluster using the Azure Container Service, learn more at  [Monitor an Azure Container Service cluster with Microsoft Operations Management Suite (OMS)](../container-service/container-service-kubernetes-oms.md).
 - If you have an Azure Container Service DC/OS cluster, learn more at [Monitor an Azure Container Service DC/OS cluster with Operations Management Suite](../container-service/container-service-monitoring-oms.md).
-- If you use containers with Service Fabric, you use the same procedures and settings as Kubernetes or DC/OS. Learn more at [Overview of Azure Service Fabric ](../service-fabric/service-fabric-overview.md).
+- If you use containers with Service Fabric, learn more at [Overview of Azure Service Fabric ](../service-fabric/service-fabric-overview.md).
 - Review the [Docker Engine on Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) article for additional information about how to install and configure your Docker Engines on computers running Windows.
 
 > [!IMPORTANT]
@@ -107,7 +107,7 @@ Before you install agents on computers running Windows, you need to configure th
 
 There are steps needed to set up TCP named pipe for Windows Server:
 
-1. In Windows PowerShell, enable TCP pipe and named pipe. You need to update the third line in this example.
+1. In Windows PowerShell, enable TCP pipe and named pipe.
 
     ```
     Stop-Service docker
@@ -131,7 +131,9 @@ For more information about the Docker daemon configuration used with Windows Con
 
 ### Install Windows agents
 
-To enable Windows and Hyper-V container monitoring, install agents on Windows computers that are container hosts. For computers running Windows in your on-premises environment, see [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md). For virtual machines running in Azure,  connect them to Log Analytics using the [virtual machine extension](log-analytics-azure-vm-extension.md).
+To enable Windows and Hyper-V container monitoring, install agents on Windows computers that are container hosts. For computers running Windows in your on-premises environment, see [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md). For virtual machines running in Azure, connect them to Log Analytics using the [virtual machine extension](log-analytics-azure-vm-extension.md).
+
+You can monitor Windows containers running on Service Fabric. However, only [virtual machines running in Azure](log-analytics-azure-vm-extension.md) and [computers running Windows in your on-premises environment](log-analytics-windows-agents.md) are currently supported for Service Fabric.
 
 To verify that the Containers solution is set correctly:
 
