@@ -85,7 +85,7 @@ For now, the services that enable moving to both a new resource group and subscr
 * Data Lake Analytics
 * Data Lake Store
 * DNS
-* DocumentDB
+* Azure Cosmos DB
 * Event Hubs
 * HDInsight clusters - see [HDInsight limitations](#hdinsight-limitations)
 * IoT Hubs

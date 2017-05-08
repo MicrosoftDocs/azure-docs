@@ -1,4 +1,4 @@
-﻿---
+---
 title: Actions and NotActions - roles in Azure RBAC | Microsoft Docs
 description: This topic describes the built in roles for role-based access control (RBAC).
 services: active-directory
@@ -51,7 +51,7 @@ This article only addresses the different roles that exist today. When you assig
 | [Data Factory Contributor](#data-factory-contributor) |Can create and manage data factories, and child resources within them. |
 | [DevTest Labs User](#devtest-labs-user) |Can view everything and connect, start, restart, and shutdown virtual machines |
 | [DNS Zone Contributor](#dns-zone-contributor) |Can manage DNS zones and records |
-| [DocumentDB Account Contributor](#documentdb-account-contributor) |Can manage DocumentDB accounts |
+| [Azure Cosmos DB Account Contributor](#documentdb-account-contributor) |Can manage Azure Cosmos DB accounts |
 | [Intelligent Systems Account Contributor](#intelligent-systems-account-contributor) |Can manage Intelligent Systems accounts |
 | [Monitoring Reader](#monitoring-reader) |Can read all monitoring data |
 | [Monitoring Contributor](#monitoring-contributor) |Can read monitoring data and edit monitoring settings |
@@ -361,8 +361,8 @@ Can manage DNS zones and records.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Read resource groups |
 | Microsoft.Support/\* |Create and manage Support tickets |
 
-### DocumentDB Account Contributor
-Can manage DocumentDB accounts
+### Azure Cosmos DB Account Contributor
+Can manage Azure Cosmos DB accounts
 
 | **Actions** |  |
 | --- | --- |
