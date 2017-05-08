@@ -15,7 +15,7 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 03/20/2017
+  ms.date: 05/05/2017
   ms.author: curtand
 
   ms.custom: H1Hack27Feb2017
@@ -112,8 +112,7 @@ Some Microsoft services are not available in all locations. Before a license can
 For group license assignment, any users without a usage location specified inherit the location of the directory. If you have users in different locations, make sure to reflect that correctly in your user objects before adding users to groups with licenses.
 
 ## Use PowerShell to see who has inherited and direct licenses
-
-During the preview period of an Azure AD release, PowerShell cannot be used to fully control group license assignments. However, it can be used to discover basic information about user state, and to determine if licenses are inherited from a group or assigned directly. The following code sample shows how an admin can produce a basic report about license assignments.
+Whilre group-based licensing is in public preview, PowerShell cannot be used to fully control group license assignments. However, it can be used to discover basic information about user state, and to determine if licenses are inherited from a group or assigned directly. The following code sample shows how an admin can produce a basic report about license assignments.
 
 1. Run the `connect-msolservice` cmdlet to authenticate and connect to your tenant.
 
