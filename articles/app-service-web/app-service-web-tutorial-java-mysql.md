@@ -405,7 +405,8 @@ Note the location of the .War file, and use your favorite FTP method to deploy t
 
 Browse to `http://&lt;app_name&gt;.azurewebsites.net/&lt;app_name&gt;` and add a few tasks to the list. 
 
-![Java app running in Azure appservice](./media/Todolist on Aure appservice.png)
+![Java app running in Azure appservice](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
+
 
 **Congratulations!** You're running a data-driven Java app in Azure appservice.
 To update the app, repeat the maven clean package command and redeploy the app via FTP.
