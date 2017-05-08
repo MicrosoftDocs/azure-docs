@@ -1951,6 +1951,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </a>
                             </li>
+                        </ul>
+                    </li>
 <!-- Cognitive Services END -->
                     <li>
                         <a href="#analytics">Intelligence + Analytics</a>
