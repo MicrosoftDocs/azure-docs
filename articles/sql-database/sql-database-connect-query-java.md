@@ -60,7 +60,7 @@ Get the connection information needed to connect to the Azure SQL database. You 
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. If you have forget the server login information, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password.
+4. If you forget your server login information, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password.
 5. Click **Show database connection strings**.
 
 6. Review the complete **JDBC** connection string.
@@ -299,6 +299,4 @@ public class App {
 - [Design your first Azure SQL database](sql-database-design-first-database.md)
 - [Microsoft JDBC Driver for SQL Server](https://github.com/microsoft/mssql-jdbc)
 - [Report issues/ask questions](https://github.com/microsoft/mssql-jdbc/issues)
-- [Connect and query with SSMS](sql-database-connect-query-ssms.md)
-- [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md)
 
