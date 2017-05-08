@@ -598,7 +598,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <p>Bing Knowledge Graph</p>
                                             </a>
                                         </li>
-<!-- Cognitive Services ALL END -->
+                                    </ul>
                                     <h3>Intelligence + Analytics</h3>
                                     <ul>
                                         <li>
@@ -702,7 +702,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         </li>
                                     </ul>
                                 </div>                             
-                             </li>
+                            </li>
                             <li>
                                 <div class="group">
                                     <h3>Storage</h3>
