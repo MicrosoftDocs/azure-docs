@@ -14,7 +14,7 @@ ms.author: cahann
 
 # Cortana Prebuilt App
 
-In addition to allowing you to build your own applications, LUIS also provides selected models from Microsoft Cortana personal assistant as a prebuilt application. This is an "as-is" application; the intents and entities in this application cannot be edited or integrated into other LUIS applications. If you’d like your client to have access to both this prebuilt application and your own LUIS application, then your client will have to make two separate HTTP calls.
+In addition to allowing you to build your own applications, LUIS also provides selected models from Microsoft Cortana personal assistant as a prebuilt application. This is an "as-is" application; the intents and entities in this application cannot be edited or integrated into other LUIS applications. If you’d like your client to have access to both this prebuilt application and your own LUIS application, then your client will have to reference both LUIS apps.
 
 The pre-built personal assistant application is available in these cultures (locales): English, French, Italian, Spanish and Chinese.
 
@@ -124,3 +124,1287 @@ The pre-built personal assistant application can identify the following intents:
 |builtin.intent.weather.question_weather|will it be foggy tomorrow morning?<br/>will i need to shovel snow this weekend?|
 |builtin.intent.weather.show_weather_progression|show local weather radar<br/>begin radar|
 |builtin.intent.none|how old are you<br/>open camera|
+
+# Prebuilt entities 
+
+The prebuilt personal assistant application can identify the following entities:
+
+|Entity	|Example utterance |
+|-------|------------------|
+|builtin.alarm.alarm_state | turn `off` my wake up alarm	<br/> is my wake up alarm `on`	| 
+|builtin.alarm.duration |snooze for `10 minutes`	<br/> snooze alarm for `5 minutes`	|
+|builtin.alarm.start_date | set an alarm for `monday` at 7 am	<br/> set an alarm for `tomorrow` at noon	|
+|builtin.alarm.start_time | create an alarm for `30 minutes`	<br/> set the alarm to go off `in 20 minutes`	|
+|builtin.alarm.title | is my `wake up` alarm on	<br/> can you set an alarm for quarter to 12 monday to friday called `take antibiotics`	|
+|builtin.calendar.absolute_location | create an appointment for tomorrow at `123 main street`	<br/> the meeting will take place in `cincinnati` on the 5th of june	|
+|builtin.calendar.contact_name|put a marketing meeting on my calendar and be sure that `joe` is there <br/>i want to set up a lunch at il fornaio and invite `paul` |	
+|builtin.calendar.destination_calendar|add this to my `work` schedule	<br/>put this on my `personal` calendar	|
+|builtin.calendar.duration| set up an appointment for `an hour` at 6 tonight |	book a `2 hour` meeting with joe |	
+
+<!--
+builtin.calendar.end_date
+create a calendar entry called vacation from tomorrow until next monday	
+{
+    "type": "builtin.calendar.end_date",
+    "entity": "next monday",
+    "resolution": {
+        "resolution_type": "builtin.datetime.date",
+        "date": "2015-10-19"
+    }
+}
+block my time as busy until monday, october 5th	
+{
+    "type": "builtin.calendar.end_date",
+    "entity": "monday, october 5th",
+    "resolution": {
+        "resolution_type": "builtin.datetime.date",
+        "date": "XXXX-10-05"
+    }
+}
+builtin.calendar.end_time
+the meeting ends at 5:30 PM	
+{
+    "type": "builtin.calendar.end_time",
+    "entity": "5:30 PM",
+    "resolution": {
+        "resolution_type": "builtin.datetime.time",
+        "time": "T17:30"
+    }
+}
+schedule it from 11 to noon	
+{
+    "type": "builtin.calendar.end_time",
+    "entity": "noon",
+    "resolution": {
+        "resolution_type": "builtin.datetime.time",
+        "time": "T12:00:00"
+    }
+}
+builtin.calendar.implicit_location
+cancel the appointment at the dmv	
+{
+    "type": "builtin.calendar.implicit_location",
+    "entity": "dmv"
+}
+change the location of miles' birthday to poppy restaurant	
+{
+    "type": "builtin.calendar.implicit_location",
+    "entity": "poppy restaurant"
+}
+builtin.calendar.move_earlier_time
+push the meeting forward an hour	
+{
+    "type": "builtin.calendar.move_earlier_time",
+    "entity": "an hour",
+    "resolution": {
+        "resolution_type": "builtin.datetime.duration",
+        "duration": "PT1H"
+    }
+}
+move the dentist's appointment up 30 minutes	
+{
+    "type": "builtin.calendar.move_earlier_time",
+    "entity": "30 minutes",
+    "resolution": {
+        "resolution_type": "builtin.datetime.duration",
+        "duration": "PT30M"
+    }
+}
+builtin.calendar.move_later_time
+move my dentist appointment 30 minutes	
+{
+    "type": "builtin.calendar.move_later_time",
+    "entity": "30 minutes",
+    "resolution": {
+        "resolution_type": "builtin.datetime.duration",
+        "duration": "PT30M"
+    }
+}
+push the meeting out an hour	
+{
+    "type": "builtin.calendar.move_later_time",
+    "entity": "an hour",
+    "resolution": {
+        "resolution_type": "builtin.datetime.duration",
+        "duration": "PT1H"
+    }
+}
+builtin.calendar.original_start_date
+reschedule my appointment at the barber from tuesday to wednesday	
+{
+    "type": "builtin.calendar.original_start_date",
+    "entity": "tuesday",
+    "resolution": {
+        "resolution_type": "builtin.datetime.date",
+        "date": "XXXX-WXX-2"
+    }
+}
+move my meeting with ken from monday to tuesday	
+{
+    "type": "builtin.calendar.original_start_date",
+    "entity": "monday",
+    "resolution": {
+        "resolution_type": "builtin.datetime.date",
+        "date": "XXXX-WXX-1"
+    }
+}
+builtin.calendar.original_start_time
+reschedule my meeting from 2:00 to 3	
+{
+    "type": "builtin.calendar.original_start_time",
+    "entity": "2:00",
+    "resolution": {
+        "resolution_type": "builtin.datetime.time",
+        "comment": "ampm",
+        "time": "T02:00"
+    }
+}
+change my dentist appointment from 3:30 to 4	
+{
+    "type": "builtin.calendar.original_start_time",
+    "entity": "3:30",
+    "resolution": {
+        "resolution_type": "builtin.datetime.time",
+        "comment": "ampm",
+        "time": "T03:30"
+    }
+}
+builtin.calendar.start_date
+what time does my party start on flag day?	
+{
+    "type": "builtin.calendar.start_date",
+    "entity": "flag day",
+    "resolution": {
+        "resolution_type": "builtin.datetime.date",
+        "date": "2015-10-17"
+    }
+}
+schedule lunch for the friday after next at noon	
+{
+    "type": "builtin.calendar.start_date",
+    "entity": "friday after next",
+    "resolution": {
+        "resolution_type": "builtin.datetime.date",
+        "date": "XXXX-WXX-5"
+    }
+}
+builtin.calendar.start_time
+i want to schedule it for this morning	
+{
+    "type": "builtin.calendar.start_time",
+    "entity": "this morning",
+    "resolution": {
+        "resolution_type": "builtin.datetime.time",
+        "time": "2015-10-17TMO"
+    }
+}
+i want to schedule it in the morning	
+{
+    "type": "builtin.calendar.start_time",
+    "entity": "morning",
+    "resolution": {
+        "resolution_type": "builtin.datetime.time",
+        "time": "TMO"
+    }
+}
+builtin.calendar.title
+vet appointment	
+{
+    "type": "builtin.calendar.title",
+    "entity": "vet appointment"
+}
+dentist tuesday	
+{
+    "type": "builtin.calendar.title",
+    "entity": "dentist"
+}
+builtin.communication.audio_device_type
+make the call using bluetooth	
+{
+    "type": "builtin.communication.audio_device_type",
+    "entity": "bluetooth"
+}
+call using my headset	
+{
+    "type": "builtin.communication.audio_device_type",
+    "entity": "headset"
+}
+builtin.communication.contact_name
+text bob jones	
+{
+    "type": "builtin.communication.contact_name",
+    "entity": "bob jones"
+}
+call sarah	
+{
+    "type": "builtin.communication.contact_name",
+    "entity": "sarah"
+}
+builtin.communication.destination_platform
+call dave in london	
+{
+    "type": "builtin.communication.destination_platform",
+    "entity": "london"
+}
+call his work line	
+{
+    "type": "builtin.communication.destination_platform",
+    "entity": "work line",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "work"
+    }
+}
+builtin.communication.from_relationship_name
+show calls from my daughter	
+{
+    "type": "builtin.communication.from_relationship_name",
+    "entity": "daughter"
+}
+read the email from mom	
+{
+    "type": "builtin.communication.from_relationship_name",
+    "entity": "mom"
+}
+builtin.communication.key
+dial star	
+{
+    "type": "builtin.communication.key",
+    "entity": "star"
+}
+press the hash key	
+{
+    "type": "builtin.communication.key",
+    "entity": "hash"
+}
+builtin.communication.message
+email carly to say i'm running late	
+{
+    "type": "builtin.communication.message",
+    "entity": "i'm running late"
+}
+please text angus smith good luck on your exam	
+{
+    "type": "builtin.communication.message",
+    "entity": "good luck on your exam"
+}
+builtin.communication.message_category
+new email marked for follow up	
+{
+    "type": "builtin.communication.message_category",
+    "entity": "follow up"
+}
+new email marked high priority	
+{
+    "type": "builtin.communication.message_category",
+    "entity": "high priority",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "High"
+    }
+}
+builtin.communication.message_type
+send an email	
+{
+    "type": "builtin.communication.message_type",
+    "entity": "email",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "email"
+    }
+}
+read my text messages aloud	
+{
+    "type": "builtin.communication.message_type",
+    "entity": "text",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "sms"
+    }
+}
+builtin.communication.phone_number
+i want to dial 1-800-328-9459	
+{
+    "type": "builtin.communication.phone_number",
+    "entity": "1-800-328-9459"
+}
+call 555-555-5555	
+{
+    "type": "builtin.communication.phone_number",
+    "entity": "555-555-5555"
+}
+builtin.communication.relationship_name
+text my husband	
+{
+    "type": "builtin.communication.relationship_name",
+    "entity": "husband",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "husband"
+    }
+}
+email family	
+{
+    "type": "builtin.communication.relationship_name",
+    "entity": "family"
+}
+builtin.communication.slot_attribute
+change the recipient	
+{
+    "type": "builtin.communication.slot_attribute",
+    "entity": "recipient",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "recipient"
+    }
+}
+change the text	
+{
+    "type": "builtin.communication.slot_attribute",
+    "entity": "text"
+}
+builtin.communication.source_platform
+call him from skype	
+{
+    "type": "builtin.communication.source_platform",
+    "entity": "skype"
+}
+call him from my personal line	
+{
+    "type": "builtin.communication.source_platform",
+    "entity": "personal line"
+}
+builtin.mystuff.attachment
+with documents attached	
+{
+    "type": "builtin.mystuff.attachment",
+    "entity": "attached"
+}
+find the email attachment bob sent	
+{
+    "type": "builtin.mystuff.attachment",
+    "entity": "attachment"
+}
+builtin.mystuff.contact_name
+find the spreadsheet lisa sent to me	
+{
+    "type": "builtin.mystuff.contact_name",
+    "entity": "me",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "me"
+    }
+}
+where's the document i sent to susan last night	
+{
+    "type": "builtin.mystuff.contact_name",
+    "entity": "susan"
+}
+builtin.mystuff.data_source
+c:\dev\	
+{
+    "type": "builtin.mystuff.data_source",
+    "entity": "c:\dev\"
+}
+my desktop	
+{
+    "type": "builtin.mystuff.data_source",
+    "entity": "desktop",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "desktop"
+    }
+}
+builtin.mystuff.data_type
+locate the document i worked on last night	
+{
+    "type": "builtin.mystuff.data_type",
+    "entity": "document",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "Document"
+    }
+}
+bring up mike's visio diagram	
+{
+    "type": "builtin.mystuff.data_type",
+    "entity": "visio diagram"
+}
+builtin.mystuff.end_date
+show me the docs i worked on between yesterday and today	
+{
+    "type": "builtin.mystuff.end_date",
+    "entity": "today",
+    "resolution": {
+        "resolution_type": "builtin.datetime.date",
+        "date": "2015-10-17"
+    }
+}
+find what doc i was working on before thursday the 31st	
+{
+    "type": "builtin.mystuff.end_date",
+    "entity": "before thursday the 31st",
+    "resolution": {
+        "resolution_type": "builtin.datetime.date",
+        "date": "2015-08-31",
+        "mod": "Before"
+    }
+}
+builtin.mystuff.end_time
+find files i saved before noon	
+{
+    "type": "builtin.mystuff.end_time",
+    "entity": "before noon",
+    "resolution": {
+        "resolution_type": "builtin.datetime.time",
+        "time": "2015-10-16T12:00:00"
+    }
+}
+find what doc i was working on before 4pm	
+{
+    "type": "builtin.mystuff.end_time",
+    "entity": "before 4pm",
+    "resolution": {
+        "resolution_type": "builtin.datetime.time",
+        "mod": "Before",
+        "time": "2015-10-16T16"
+    }
+}
+builtin.mystuff.file_action
+open the spreadsheet i saved yesterday	
+{
+    "type": "builtin.mystuff.file_action",
+    "entity": "saved"
+}
+find the spreadsheet kevin created	
+{
+    "type": "builtin.mystuff.file_action",
+    "entity": "created"
+}
+builtin.mystuff.from_contact_name
+find the proposal jason sent me	
+{
+    "type": "builtin.mystuff.from_contact_name",
+    "entity": "jason"
+}
+open isaac 's last email	
+{
+    "type": "builtin.mystuff.from_contact_name",
+    "entity": "isaac"
+}
+builtin.mystuff.keyword
+show me the french conjugation files	
+{
+    "type": "builtin.mystuff.keyword",
+    "entity": "french conjugation"
+}
+find the marketing plan i drafted yesterday	
+{
+    "type": "builtin.mystuff.keyword",
+    "entity": "marketing plan"
+}
+builtin.mystuff.location
+the document i edited at work	
+{
+    "type": "builtin.mystuff.location",
+    "entity": "work",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "work"
+    }
+}
+photos i took in paris	
+{
+    "type": "builtin.mystuff.location",
+    "entity": "paris"
+}
+builtin.mystuff.message_category
+look for my new emails	
+{
+    "type": "builtin.mystuff.message_category",
+    "entity": "new"
+}
+search for my high priority email	
+{
+    "type": "builtin.mystuff.message_category",
+    "entity": "high priority"
+}
+builtin.mystuff.message_type
+check my email	
+{
+    "type": "builtin.mystuff.message_type",
+    "entity": "email",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "email"
+    }
+}
+show me my text messages	
+{
+    "type": "builtin.mystuff.message_type",
+    "entity": "text",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "sms"
+    }
+}
+builtin.mystuff.source_platform
+search my hotmail email for email from john	
+{
+    "type": "builtin.mystuff.source_platform",
+    "entity": "hotmail"
+}
+find the document i sent from work	
+{
+    "type": "builtin.mystuff.source_platform",
+    "entity": "work"
+}
+builtin.mystuff.start_date
+find notes from january	
+{
+    "type": "builtin.mystuff.start_date",
+    "entity": "january",
+    "resolution": {
+        "resolution_type": "builtin.datetime.date",
+        "date": "2015-01"
+    }
+}
+find the email i send rob after january 1st	
+{
+    "type": "builtin.mystuff.start_date",
+    "entity": "after january 1st",
+    "resolution": {
+        "resolution_type": "builtin.datetime.date",
+        "date": "2015-01-01",
+        "mod": "After"
+    }
+}
+builtin.mystuff.start_time
+find that email i sent rob sometime before 2pm but after noon?	
+{
+    "type": "builtin.mystuff.start_time",
+    "entity": "after noon",
+    "resolution": {
+        "resolution_type": "builtin.datetime.time",
+        "time": "2015-10-16T12:00:00"
+    }
+}
+find the worksheet kristin sent to me that i edited last night	
+{
+    "type": "builtin.mystuff.start_time",
+    "entity": "last night",
+    "resolution": {
+        "resolution_type": "builtin.datetime.time",
+        "time": "2015-10-16TNI"
+    }
+}
+builtin.mystuff.title
+c:\dev\mystuff.txt	
+{
+    "type": "builtin.mystuff.title",
+    "entity": "c:\dev\mystuff.txt"
+}
+*.txt	
+{
+    "type": "builtin.mystuff.title",
+    "entity": "*.txt"
+}
+builtin.mystuff.transform_action
+download the file john sent me	
+{
+    "type": "builtin.mystuff.transform_action",
+    "entity": "download"
+}
+open my annotation guidelines doc	
+{
+    "type": "builtin.mystuff.transform_action",
+    "entity": "open"
+}
+builtin.note.note_text
+create a grocery list including pork chops, applesauce and milk	
+{
+    "type": "builtin.note.note_text",
+    "entity": "pork chops, applesauce and milk"
+}
+make a note to buy milk	
+{
+    "type": "builtin.note.note_text",
+    "entity": "buy milk"
+}
+builtin.note.title
+make a note called grocery list	
+{
+    "type": "builtin.note.title",
+    "entity": "grocery list"
+}
+make a note called people to call	
+{
+    "type": "builtin.note.title",
+    "entity": "people to call"
+}
+builtin.ondevice.music_artist_name
+play everything by rufus wainwright	
+{
+    "type": "builtin.ondevice.music_artist_name",
+    "entity": "rufus wainwright"
+}
+play garth brooks music	
+{
+    "type": "builtin.ondevice.music_artist_name",
+    "entity": "garth brooks"
+}
+builtin.ondevice.music_genre
+show classic rock songs	
+{
+    "type": "builtin.ondevice.music_genre",
+    "entity": "classic rock"
+}
+play my classical music from the baroque period	
+{
+    "type": "builtin.ondevice.music_genre",
+    "entity": "classical"
+}
+builtin.ondevice.music_playlist
+shuffle all britney spears from workout playlist	
+{
+    "type": "builtin.ondevice.music_playlist",
+    "entity": "workout"
+}
+play breakup playlist	
+{
+    "type": "builtin.ondevice.music_playlist",
+    "entity": "breakup"
+}
+builtin.ondevice.music_song_name
+play summertime	
+{
+    "type": "builtin.ondevice.music_song_name",
+    "entity": "summertime"
+}
+play me and bobby mcgee	
+{
+    "type": "builtin.ondevice.music_song_name",
+    "entity": "me and bobby mcgee"
+}
+builtin.ondevice.setting_type
+quiet hours	
+{
+    "type": "builtin.ondevice.setting_type",
+    "entity": "quiet hours",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "Do not disturb"
+    }
+}
+airplane mode	
+{
+    "type": "builtin.ondevice.setting_type",
+    "entity": "airplane mode",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "Airplane mode"
+    }
+}
+builtin.places.absolute_location
+take me to the intersection of 5th and pike	
+{
+    "type": "builtin.places.absolute_location",
+    "entity": "5th and pike"
+}
+no , i want directions to 1 microsoft way redmond wa 98052	
+{
+    "type": "builtin.places.absolute_location",
+    "entity": "1 microsoft way redmond wa 98052"
+}
+builtin.places.atmosphere
+look for interesting places to go out	
+{
+    "type": "builtin.places.atmosphere",
+    "entity": "interesting"
+}
+where can i find a casual restaurant	
+{
+    "type": "builtin.places.atmosphere",
+    "entity": "casual"
+}
+builtin.places.audio_device_type
+call the post office on hands free	
+{
+    "type": "builtin.places.audio_device_type",
+    "entity": "hands free"
+}
+call papa john's with speakerphone	
+{
+    "type": "builtin.places.audio_device_type",
+    "entity": "speakerphone"
+}
+builtin.places.avoid_route
+avoid the toll road	
+{
+    "type": "builtin.places.avoid_route",
+    "entity": "toll road"
+}
+get me to san francisco avoiding the construction on 101	
+{
+    "type": "builtin.places.avoid_route",
+    "entity": "construction on 101"
+}
+builtin.places.cuisine
+halal deli near mountain view	
+{
+    "type": "builtin.places.cuisine",
+    "entity": "halal"
+}
+kosher fine dining on the peninsula	
+{
+    "type": "builtin.places.cuisine",
+    "entity": "kosher"
+}
+builtin.places.date
+make a reservation for next friday the 12th	
+{
+    "type": "builtin.places.date",
+    "entity": "next friday the 12th",
+    "resolution": {
+        "resolution_type": "builtin.datetime.date",
+        "date": "2015-10-23"
+    }
+}
+is mashiko open on mondays ?	
+{
+    "type": "builtin.places.date",
+    "entity": "mondays",
+    "resolution": {
+        "resolution_type": "builtin.datetime.set",
+        "set": "XXXX-WXX-1"
+    }
+}
+builtin.places.discount_type
+find a coupon for macy's	
+{
+    "type": "builtin.places.discount_type",
+    "entity": "coupon"
+}
+find me a coupon	
+{
+    "type": "builtin.places.discount_type",
+    "entity": "coupon"
+}
+builtin.places.distance
+is there a good diner within 5 miles of here	
+{
+    "type": "builtin.places.distance",
+    "entity": "within 5 miles"
+}
+find ones within 15 miles	
+{
+    "type": "builtin.places.distance",
+    "entity": "within 15 miles"
+}
+builtin.places.from_absolute_location
+directions from 45 elm street to home	
+{
+    "type": "builtin.places.from_absolute_location",
+    "entity": "45 elm street"
+}
+get me directions from san francisco to palo alto	
+{
+    "type": "builtin.places.from_absolute_location",
+    "entity": "san francisco"
+}
+builtin.places.from_place_name
+driving from the post office to 56 center street	
+{
+    "type": "builtin.places.from_place_name",
+    "entity": "post office"
+}
+get me directions from home depot to lowes	
+{
+    "type": "builtin.places.from_place_name",
+    "entity": "home depot"
+}
+builtin.places.from_place_type
+directions to downtown from work	
+{
+    "type": "builtin.places.from_place_type",
+    "entity": "work"
+}
+get me directions from the drug store to home	
+{
+    "type": "builtin.places.from_place_type",
+    "entity": "drug store"
+}
+builtin.places.meal_type
+nearby places for dinner	
+{
+    "type": "builtin.places.meal_type",
+    "entity": "dinner",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "restaurants"
+    }
+}
+find a good place for a business lunch	
+{
+    "type": "builtin.places.meal_type",
+    "entity": "lunch",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "restaurants"
+    }
+}
+builtin.places.nearby
+show me some cool shops near me	
+{
+    "type": "builtin.places.nearby",
+    "entity": "near"
+}
+are there any good lebanese restaurants around here?	
+{
+    "type": "builtin.places.nearby",
+    "entity": "around"
+}
+builtin.places.open_status
+when is the mall closed	
+{
+    "type": "builtin.places.open_status",
+    "entity": "closed"
+}
+get me the opening hours of the store	
+{
+    "type": "builtin.places.open_status",
+    "entity": "opening"
+}
+builtin.places.place_name
+take me to central park	
+{
+    "type": "builtin.places.place_name",
+    "entity": "central park"
+}
+look up the eiffel tower	
+{
+    "type": "builtin.places.place_name",
+    "entity": "eiffel tower"
+}
+builtin.places.place_type
+atms	
+{
+    "type": "builtin.places.place_type",
+    "entity": "atms",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "atms"
+    }
+}
+post office	
+{
+    "type": "builtin.places.place_type",
+    "entity": "post office",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "postal services"
+    }
+}
+builtin.places.prefer_route
+show directions by the shortest route	
+{
+    "type": "builtin.places.prefer_route",
+    "entity": "shortest"
+}
+take the fastest route	
+{
+    "type": "builtin.places.prefer_route",
+    "entity": "fastest"
+}
+builtin.places.price_range
+give me places that are moderately affordable	
+{
+    "type": "builtin.places.price_range",
+    "entity": "moderately affordable",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "average"
+    }
+}
+i want an expensive one	
+{
+    "type": "builtin.places.price_range",
+    "entity": "expensive",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "expensive"
+    }
+}
+builtin.places.product
+where can i get fresh fish around here	
+{
+    "type": "builtin.places.product",
+    "entity": "fresh fish"
+}
+where around here sells bare minerals	
+{
+    "type": "builtin.places.product",
+    "entity": "bare minerals"
+}
+builtin.places.public_transportation_route
+bus schedule for the m2 bus	
+{
+    "type": "builtin.places.public_transportation_route",
+    "entity": "m2"
+}
+bus route 3x	
+{
+    "type": "builtin.places.public_transportation_route",
+    "entity": "3x"
+}
+builtin.places.rating
+show 3 star restaurants	
+{
+    "type": "builtin.places.rating",
+    "entity": "3 star"
+}
+show results that are 3 stars or higher	
+{
+    "type": "builtin.places.rating",
+    "entity": "3 stars or higher",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": ">=3"
+    }
+}
+builtin.places.reservation_number
+book a table for seven people	
+{
+    "type": "builtin.places.reservation_number",
+    "entity": "seven"
+}
+make a reservation for two at il fornaio	
+{
+    "type": "builtin.places.reservation_number",
+    "entity": "two"
+}
+builtin.places.results_number
+show me the 10 coffee shops closest to here	
+{
+    "type": "builtin.places.results_number",
+    "entity": "10"
+}
+show me top 3 aquariums	
+{
+    "type": "builtin.places.results_number",
+    "entity": "3",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "3"
+    }
+}
+builtin.places.service_provided
+where can i go to whale watch by bus ?	
+{
+    "type": "builtin.places.service_provided",
+    "entity": "whale watch"
+}
+i need a mechanic to fix my brakes	
+{
+    "type": "builtin.places.service_provided",
+    "entity": "fix my brakes"
+}
+builtin.places.time
+i want places that are open on saturday at 8 am	
+{
+    "type": "builtin.places.time",
+    "entity": "8 am",
+    "resolution": {
+        "resolution_type": "builtin.datetime.time",
+        "time": "XXXX-WXX-6T08"
+    }
+}
+is mashiko open now ?	
+{
+    "type": "builtin.places.time",
+    "entity": "now",
+    "resolution": {
+        "resolution_type": "builtin.datetime.time",
+        "time": "PRESENT_REF"
+    }
+}
+builtin.places.transportation_company
+train schedules for new jersey transit	
+{
+    "type": "builtin.places.transportation_company",
+    "entity": "new jersey transit"
+}
+can i get there on bart	
+{
+    "type": "builtin.places.transportation_company",
+    "entity": "bart"
+}
+builtin.places.transportation_type
+where is a music store i can get to on foot ?	
+{
+    "type": "builtin.places.transportation_type",
+    "entity": "on foot",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "walking"
+    }
+}
+give me biking directions to mashiko	
+{
+    "type": "builtin.places.transportation_type",
+    "entity": "biking",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "bicycle"
+    }
+}
+builtin.places.travel_time
+i want to be able to drive less than 15 minutes	
+{
+    "type": "builtin.places.travel_time",
+    "entity": "less than 15 minutes",
+    "resolution": {
+        "resolution_type": "builtin.datetime.duration",
+        "duration": "PT15M"
+    }
+}
+i want somewhere i can get to in under 15 minutes	
+{
+    "type": "builtin.places.travel_time",
+    "entity": "under 15 minutes",
+    "resolution": {
+        "resolution_type": "builtin.datetime.duration",
+        "duration": "PT15M"
+    }
+}
+builtin.reminder.absolute_location
+remind me to call my dad when i land in chicago	
+{
+    "type": "builtin.reminder.absolute_location",
+    "entity": "chicago"
+}
+when i get back to seattle remind me to get gas	
+{
+    "type": "builtin.reminder.absolute_location",
+    "entity": "seattle"
+}
+builtin.reminder.contact_name
+when bob calls, remind me to tell him the joke	
+{
+    "type": "builtin.reminder.contact_name",
+    "entity": "bob"
+}
+create a reminder to mention the school bus when i talk to arthur	
+{
+    "type": "builtin.reminder.contact_name",
+    "entity": "arthur"
+}
+builtin.reminder.leaving_absolute_location
+reminder pick up craig when leaving 1200 main	
+{
+    "type": "builtin.reminder.leaving_absolute_location",
+    "entity": "1200 main"
+}
+builtin.reminder.leaving_implicit_location
+remind me to get gas when i leave work	
+{
+    "type": "builtin.reminder.leaving_implicit_location",
+    "entity": "work",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "work"
+    }
+}
+builtin.reminder.original_start_date
+change the reminder about the lawn from saturday to sunday	
+{
+    "type": "builtin.reminder.original_start_date",
+    "entity": "saturday"
+}
+move my reminder about school from monday to tuesday	
+{
+    "type": "builtin.reminder.original_start_date",
+    "entity": "monday"
+}
+builtin.reminder.relationship_name
+when my husband calls, remind me to tell him about the pta meeting	
+{
+    "type": "builtin.reminder.relationship_name",
+    "entity": "husband",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "husband"
+    }
+}
+remind me again when mom calls	
+{
+    "type": "builtin.reminder.relationship_name",
+    "entity": "mom",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "mother"
+    }
+}
+builtin.reminder.reminder_text
+can you remind me to bring up my small spot of patchy skin when dr smith'calls	
+{
+    "type": "builtin.reminder.reminder_text",
+    "entity": "bring up my small spot of patchy skin"
+}
+remind me to pick up dry cleaning at 4:40	
+{
+    "type": "builtin.reminder.reminder_text",
+    "entity": "pick up dry cleaning"
+}
+builtin.reminder.start_date
+remind me the thursday after next at 8 pm	
+{
+    "type": "builtin.reminder.start_date",
+    "entity": "thursday after next"
+}
+remind me next thursday the 18th at 8 pm	
+{
+    "type": "builtin.reminder.start_date",
+    "entity": "next thursday the 18th"
+}
+builtin.reminder.start_time
+create a reminder in 30 minutes	
+{
+    "type": "builtin.reminder.start_time",
+    "entity": "in 30 minutes"
+}
+create a reminder to water the plants this evening at 7	
+{
+    "type": "builtin.reminder.start_time",
+    "entity": "this evening at 7"
+}
+builtin.weather.absolute_location
+will it rain in boston	
+{
+    "type": "builtin.weather.absolute_location",
+    "entity": "boston"
+}
+what's the forecast for seattle?	
+{
+    "type": "builtin.weather.absolute_location",
+    "entity": "seattle"
+}
+builtin.weather.date_range
+weather in nyc this weekend	
+{
+    "type": "builtin.weather.date_range",
+    "entity": "this weekend",
+    "resolution": {
+        "resolution_type": "builtin.datetime.date",
+        "date": "2015-W42-WE"
+    }
+}
+look up the five day forecast in hollywood florida	
+{
+    "type": "builtin.weather.date_range",
+    "entity": "five day",
+    "resolution": {
+        "resolution_type": "builtin.datetime.duration",
+        "duration": "P5D"
+    }
+}
+builtin.weather.suitable_for
+can i go hiking in shorts this weekend?	
+{
+    "type": "builtin.weather.suitable_for",
+    "entity": "hiking"
+}
+will it be nice enough to walk to the game today?	
+{
+    "type": "builtin.weather.suitable_for",
+    "entity": "walk"
+}
+builtin.weather.temperature_unit
+what is the temperature today in kelvin	
+{
+    "type": "builtin.weather.temperature_unit",
+    "entity": "kelvin",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "kelvin"
+    }
+}
+show me the temps in celsius	
+{
+    "type": "builtin.weather.temperature_unit",
+    "entity": "celsius",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "celsius"
+    }
+}
+builtin.weather.time_range
+does it look like it will snow tonight?	
+{
+    "type": "builtin.weather.time_range",
+    "entity": "tonight",
+    "resolution": {
+        "resolution_type": "builtin.datetime.time",
+        "time": "2015-10-17TNI"
+    }
+}
+is it windy right now?	
+{
+    "type": "builtin.weather.time_range",
+    "entity": "now",
+    "resolution": {
+        "resolution_type": "builtin.datetime.time",
+        "time": "PRESENT_REF"
+    }
+}
+builtin.weather.weather_condition
+show precipitation	
+{
+    "type": "builtin.weather.weather_condition",
+    "entity": "precipitation",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "rain"
+    }
+}
+how thick is the snow at lake tahoe now?	
+{
+    "type": "builtin.weather.weather_condition",
+    "entity": "snow",
+    "resolution": {
+        "resolution_type": "metadataItems",
+        "metadataType": "CanonicalEntity",
+        "value": "snow"
+    }
+}
+-->
