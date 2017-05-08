@@ -187,7 +187,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>AI and Cognitive Services</h3>
-                                                <a class="barLink" style="width:100%" href="/azure/cognitive-services/computer-vision/">Computer Vision API</a>
+                                                <a class="barLink" style="width:100%" href="/azure/cognitive-services/computer-vision/">Computer Vision API</a><br />
                                                 <a class="barLink" href="/azure/cognitive-services/face/">Face API</a>
                                             </div>
                                         </div>
