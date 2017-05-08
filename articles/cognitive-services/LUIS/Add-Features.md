@@ -14,30 +14,39 @@ ms.author: cahann
 
 # Use features to improve your LUIS app's performance  
 
-Features help LUIS recognize both intents and entities, by providing hints to LUIS that certain words and phrases are part of a category or follow a pattern. If LUIS learns how to recognize one member of the category, it can treat the others similarly. When your LUIS app has difficulty identifying an entity, adding a feature and retraining the LUIS app can often help improve the detection of related intents and entities.   
+You can add features to your LUIS app to improve its performance. Features help LUIS recognize both intents and entities, by providing hints to LUIS that certain words and phrases are part of a category or follow a pattern. When your LUIS app has difficulty identifying an entity, adding a feature and retraining the LUIS app can often help improve the detection of related intents and entities.   
+
+* **Phrase list** features contain some or all of an entity's potential values. If LUIS learns how to recognize one member of the category, it can treat the others similarly.
+* **Pattern features** help your LUIS app easily recognize regular patterns that are frequently used in your application's domain, such as the pattern of flight numbers in a travel app or product codes in a shopping app.
 
 > [!NOTE]
 > Features don't define entities. They simply provide examples or patterns to help LUIS recognize entities and related intents. 
-> In particular, *phrase list* features are different from *list entities*. 
+
+## Phrase list features
+You can create a *phrase list* including a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products). What LUIS learns about one of them will be automatically applied to the others as well. 
+
+For example, in a travel agent app, you can create a phrase list named "Cities" that contains the values London, Paris, and Cairo. If you label one of these values as an entity, LUIS will learn to recognize the others. 
+
+> [!NOTE]
+> Phrase list features show LUIS some examples of an entity's potential values. The phrase list does not have to include all members of a category, although it may. 
+
+The maximum length of a phrase list is 5000 items. You may have a maximum of 10 phrase lists per LUIS app.
+<!--
+
+> [!NOTE] 
+> *Phrase list* features are different from *list entities*. 
 > * When you use a phrase list, LUIS could still take context into account and intelligently identify items that are similar to, but not an exact match as items in the list. 
 > * In contrast, a list entity explicity defines every value an entity can take, and only identifies values those that match exactly.
 
-## Phrase list features
-You can create a *phrase list* including a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products), so that what LUIS learns about one of them will be automatically applied to the others as well. 
+-->
 
-> [!NOTE]
-> **Phrase list** features show LUIS some examples of an entity's potential values. The phrase list does not have to include all members of a category, although it may. 
+### Use phrase lists for rare, proprietary and foreign words
 
-For example, in a TravelAgent app, London, Paris, Cairo, etc. can be values of a phrase list named as “Cities”. If you label one of these values as an entity, others will be mostly predicted the same. 
+LUIS may be unable to recognize rare and proprietary words, as well as foreign words (outside of the culture of the app), and therefore they should be added to a phrase list feature. 
+This phrase list should be marked non-exchangeable, to indicate that the set of rare words form a class that LUIS should learn to recognize, but they are not synonyms or exchangable with each other.
 
-> [!TIP]
-> LUIS may be unable to recognize rare and proprietary words, as well as foreign words (outside of the culture of the app), and therefore they should be added to a phrase list feature. 
-> This phrase list should be marked non-exchangeable, to indicate that the 
-> set of rare words form a class that LUIS should learn to recognize, but they are not synonyms or exchangable with each other.
 
-The maximum length of a phrase list is 5000 items. You may have a maximum of 10 phrase lists per LUIS app.
-
-**To add a phrase list:**
+### How to add a phrase list
 
 1. Open your app by clicking its name on **My Apps** page, and then click **Features** in your app's left panel. 
 
@@ -80,7 +89,7 @@ The maximum length of a phrase list is 5000 items. You may have a maximum of 10 
 > [!NOTE:]
 > A pattern feature isn't meant to guarantee exact matching every time an utterance matches regular expression. It's just a hint to LUIS that an entity takes a certain form. LUIS still takes context into account when labeling entities that match a pattern.
 
-**To add a pattern:**
+### How to add a pattern
 
 1. Open your app by clicking its name on **My Apps** page, and then click **Features** in your app's left panel. 
 2. On the **Features** page, click the **Pattern Features** tab, and then click **Add Pattern Feature**.
