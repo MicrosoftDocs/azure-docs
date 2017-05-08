@@ -47,6 +47,7 @@ Follow these steps to create an Azure Database for PostgreSQL server:
        - Choose the closest available region to your location.
     - **PostgreSQL Version:**  9.6  
        - Choose the latest version of PostgreSQL.
+
   > [!IMPORTANT]
   > The server admin login and password that you specify here are required to log in to the server and its databases later in this quick start. Remember or record this information for later use.
 
