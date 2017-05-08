@@ -25,21 +25,21 @@ Follow the below steps to dump and restore your PostgreSQL database.
 ## Create a dump file using pg_dump that contains the data to be loaded
 To backup an existing PostgreSQL database on-premise or in a VM, run the following command:
 ```bash
-pg_dump -Fc -v –-host=<host> --username=<name> --dbname=<database name> > <database>.dump
+pg_dump -Fc -v --host=<host> --username=<name> --dbname=<database name> > <database>.dump
 ```
 For example, if you have a local server and a database called **testdb** in it
 ```bash
-pg_dump -Fc -v –-host=localhost --username=masterlogin --dbname=testdb > testdb.dump
+pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb > testdb.dump
 ```
 
 ## Restore the data into the target Azure Database for PostrgeSQL using pg_restore
 Once you have created the target database, you can use the pg_restore command and the -d, --dbname parameter to restore the data into the target database from the dump file.
 ```bash
-pg_restore -v –host=<server name> --port=<port> --username=<user@servername> --dbname=<target database name> <database>.dump
+pg_restore -v –-host=<server name> --port=<port> --username=<user@servername> --dbname=<target database name> <database>.dump
 ```
 In this example, we will restore the data to the database **mypgsqldb** on target server **mypgserver-20170401.postgres.database.azure.com** from the dump file generated **testdb.dump**
 ```bash
-pg_restore -v -–host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=mypgsqldb testdb.dump
+pg_restore -v --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=mypgsqldb testdb.dump
 ```
 
 ## Next steps
