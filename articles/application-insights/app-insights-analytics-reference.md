@@ -30,7 +30,7 @@ Additional sources of information:
 ## Index
 **Let** [let](#let-clause) | [materialize](#materialize) 
 
-**Queries and operators** [as](#as-operator) | [autocluster](#evaluate-autocluster) | [basket](#evaluate-basket) | [count](#count-operator) | [datatable](#datatable-operator) | [diffpatterns](#evaluate-diffpatterns) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [extractcolumns](#evaluate-extractcolumns) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
+**Queries and operators** [as](#as-operator) | [autocluster](#evaluate-autocluster) | [basket](#evaluate-basketv2) | [count](#count-operator) | [datatable](#datatable-operator) | [diffpatterns](#evaluate-diffpatterns) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [extractcolumns](#evaluate-extractcolumns) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
 
 **Aggregations** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -314,7 +314,7 @@ datatable (Supplier: string, Fruit: string, Price:int)
 
 `evaluate` must be the last operator in the query pipeline (except for a possible `render`). It must not appear in a function body.
 
-[evaluate autocluster](#evaluate-autocluster) | [evaluate basket](#evaluate-basket) | [evaluate diffpatterns](#evaluate-diffpatterns) | [evaluate extractcolumns](#evaluate-extractcolumns)
+[evaluate autocluster](#evaluate-autocluster) | [evaluate basket](#evaluate-basketv2) | [evaluate diffpatterns](#evaluate-diffpatterns) | [evaluate extractcolumns](#evaluate-extractcolumns)
 
 #### evaluate autocluster
      T | evaluate autocluster()
@@ -370,10 +370,11 @@ Note that the patterns are not disjoint: they may be overlapping, and usually do
   
     Example: `T | evaluate autocluster("weight_column=sample_Count")` 
 
-#### evaluate basket
+#### evaluate basket (deprecated)
+
      T | evaluate basket()
 
-Basket finds all frequent patterns of discrete attributes (dimensions) in the data and will return all frequent patterns that passed the frequency threshold in the original query. Basket is guaranteed to find all frequent patterns in the data but is not guaranteed to have polynomial run-time. The run-time of the query is linear in the number of rows but in some cases might be exponential in the number of columns (dimensions). Basket is based on the Apriori algorithm originally developed for basket analysis data mining. 
+**This version of `basket` is deprecated. Please use [basket_v2](#evaluate-basketv2).**
 
 **Returns**
 
@@ -400,6 +401,51 @@ All patterns appearing in more than a specified fraction (default 0.05) of the e
   
   * `minimize` - filters out columns with only '*' in the results.
   * `all` - all the columns from the input are output.
+
+<a name="evaluate-basket"></a>
+#### evaluate basket_v2
+
+     T | evaluate basket_v2()
+
+Basket finds all frequent patterns of discrete attributes (dimensions) in the data and will return all frequent patterns that passed the frequency threshold in the original query. Basket is guaranteed to find all frequent patterns in the data but is not guaranteed to have polynomial run-time. The run-time of the query is linear in the number of rows but in some cases might be exponential in the number of columns (dimensions). Basket is based on the Apriori algorithm originally developed for basket analysis data mining. 
+
+Replaces the deprecated `evaluate basket` syntax.
+
+**Returns**
+
+All patterns appearing in more than a specified fraction (default 0.05) of the events. For each pattern, columns that are not set in the pattern (i.e. without restricition on a specific value) will contain a wildcard value which are by default null values (see in the Arguments section below how they can be manually changed).
+
+**Arguments (all optional)**
+
+All arguments are optional, but must be in the following order. To indicate that a default value should be used, use the tilde character '~' (see examples below).
+
+* Threshold: 0.015 < *double* < 1 (default: 0.05) 
+  
+    Sets the minimal ratio of the rows to be considered frequent (patterns with smaller ratio will not be returned).
+  
+    Example: `T | evaluate basket(0.02)`
+* Weight column *itemCount*
+  
+    Use this to take into account sampling and metric pre-aggregation. Each row is attributed the weight specified in this column. By default each row has a weight of '1'. This takes into account the bucketing or aggregation of the data that is already embedded into each row.
+  
+    Example: `T | evaluate basket('~', itemCount)`
+* Max dimensions: 1 < *int* (default: 5)
+  
+    Sets the maximal number of uncorrelated dimensions per basket, limited by default to decrease the query runtime.
+
+    Example: `T | evaluate basket('~', '~', 3)`
+* Custom wildcard types: *any value per type*
+  
+    Sets the wildcard value for a specific type in the result table that will indicate that the current pattern doesn't have a restriction on this column. Default is null, for string default is an empty string. If the default is a viable value in the data, a different wildcard value should be used (e.g. *).
+
+    Example: `T | evaluate basket_v2('~', '~', '~', '*', int(-1), double(-1), long(0), datetime(1900-1-1))`
+
+**Example**
+
+``` AIQL
+requests 
+| evaluate basket_v2(0.7, itemCount)
+```
 
 #### evaluate diffpatterns
      requests | evaluate diffpatterns("split=success")
