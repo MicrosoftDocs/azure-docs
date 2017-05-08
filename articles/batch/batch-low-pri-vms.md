@@ -35,7 +35,7 @@ Low-priority VMs are significantly less expensive than dedicated VMs. For pricin
 details, see [Batch Pricing](https://azure.microsoft.com/pricing/details/batch/).
 
 > [!IMPORTANT]
-> Low-priority VMs are currently in preview. Low-priority VMs are available only for workloads running in Batch. 
+> Low-priority VMs are currently in preview, and are available only for workloads running in Batch. 
 >
 >
 
@@ -123,13 +123,11 @@ benefit from low-priority VMs:
 allocation mode is set to [User
 subscription](batch-account-create-portal.md#user-subscription-mode).
 >
-> A compute node is a single virtual machine or cloud service VM deployed in a Batch pool.  
->
 >
 
 ## Create and update pools
 
-A Batch pool can contain both dedicated and low-priority VMs. You can set the target number of compute nodes for both dedicated and low-priority VMs. The target number of nodes specifies the number of VMs you want to have in the pool.
+A Batch pool can contain both dedicated and low-priority VMs (also referred to as compute nodes). You can set the target number of compute nodes for both dedicated and low-priority VMs. The target number of nodes specifies the number of VMs you want to have in the pool.
 
 For example, to create a pool using Azure cloud service VMs with a target of 5 dedicated VMs and
 20 low-priority VMs:
@@ -227,7 +225,7 @@ support is as follows:
     is available to a task application so that it can determine whether it is running on a 
     low-priority or dedicated node. The environment variable is AZ_BATCH_NODE_IS_DEDICATED.
 
-## Catering for preemption
+## Handling preemption
 
 VMs may occasionally be preempted; when this happens, Batch does the following:
 
