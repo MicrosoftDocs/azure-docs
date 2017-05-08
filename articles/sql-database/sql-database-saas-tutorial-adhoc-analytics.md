@@ -21,30 +21,30 @@ ms.author: billgib; sstein
 ---
 # Ad-hoc analytics
 
-In this tutorial, you create an ad-hoc analytics database, and then run several queries across all tenants (or a subset of tenants you define). These queries can extract insights buried in the day-to-day operational data of the WTP app.
+In this tutorial, you create an ad-hoc analytics database and run several queries across all tenants. These queries can extract insights buried in the day-to-day operational data of the WTP app.
 
-To facilitate running ad-hoc analytics queries across multiple tenants, the WTP app uses [Elastic Query](sql-database-elastic-query-overview.md) in conjunction with an analytics database.
+To run ad-hoc analytics queries (across multiple tenants), the WTP app uses [Elastic Query](sql-database-elastic-query-overview.md) along with an analytics database.
 
 
 In this tutorial you learn how to:
 
 > [!div class="checklist"]
 
-> * Deploy the ad-hoc analytics database
+> * Deploy an ad-hoc analytics database
 > * Run distributed queries across all tenant databases
 
 
 
-To complete this tutorial, make sure of the following:
+To complete this tutorial, make sure the following prerequisites are completed:
 
 * The WTP app is deployed. To deploy in less than five minutes, see [Deploy and explore the WTP SaaS application](sql-database-saas-tutorial.md).
 * Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ## Ad-hoc Analytics pattern
 
-One of the great opportunities with SaaS applications is to leverage the vast amount of tenant data you have stored centrally in the cloud, to gain insights into the operation and usage of your applications, your tenants, their users, and their preferences and behavior. This can guide feature development, usability improvements and other investments in your apps and services.
+One of the great opportunities with SaaS applications is to use the vast amount of tenant data you have stored centrally in the cloud. Use this data to gain insights into the operation and usage of your applications, your tenants, their users, and their preferences and behaviors. The insights you find can guide feature development, usability improvements and other investments in your apps and services.
 
-Accessing this data when its in a single multi-tenant database is easy, but not so easy when distributed at scale across potentially thousands of databases. One approach is to use Elastic Query, which enables ad-hoc querying across a distributed set of databases with common schema. Elastic Query uses a single *head* database in which external tables are defined that mirror tables in the distributed (tenant) databases. Queries submitted to this head database are compiled to produce a distributed query plan, with portions of the query pushed down to the tenant databases as needed. Elastic Query uses the shard map in the catalog database to provide the location of the tenant databases. Setup and query is straightforward using normal T-SQL, and supports ad hoc query from tools like Power BI and Excel.
+Accessing this data in a single multi-tenant database is easy, but not so easy when distributed at scale across potentially thousands of databases. One approach is to use Elastic Query, which enables ad-hoc querying across a distributed set of databases with common schema. Elastic Query uses a single *head* database in which external tables are defined that mirror tables in the distributed (tenant) databases. Queries submitted to this head database are compiled to produce a distributed query plan, with portions of the query pushed down to the tenant databases as needed. Elastic Query uses the shard map in the catalog database to provide the location of the tenant databases. Setup and query are straightforward using normal T-SQL, and supports ad-hoc querying from tools like Power BI and Excel.
 
 
 
@@ -56,14 +56,14 @@ This exercise deploys the Ad-hoc Analytics database that contains the schema use
    * **$DemoScenario** = 2, **Deploy Ad-hoc analytics database**.
 
 1. Press **F5** to run the script and create a new SQL database for ad-hoc analytics and add it to the WTP catalog. TicketPurchases, Tickets, and Venues tables are added as external tables that can be queried.
-   Note that it's ok if you encounter warnings here about *The RPC server is unavailable*.
+   It's ok if you encounter warnings here about *The RPC server is unavailable*.
 
 
 You now have an *adhocanalytics* database, that can be used to run distributed queries, and gather insights across all tenants!
 
 ## Run Ad-hoc analytics queries
 
-This exercise will run ad-hoc analytics queries to uncover tenant insights from the WTP application.
+This exercise runs ad-hoc analytics queries to uncover tenant insights from the WTP application.
 
 1. Open *Demo-AdhocAnalyticsQueries.sql* in SSMS.
 1. Select the individual query you want to run and press *F5*.
@@ -75,13 +75,13 @@ In this tutorial you learned how to:
 
 > [!div class="checklist"]
 
-> * Deploy the ad-hoc analytics database
+> * Deploy an ad-hoc analytics database
 > * Run distributed queries across all tenant databases
 
 
 ## Next steps
 
-Try the [Tenant Analytics tutorial](sql-database-saas-tutorial-tenant-analytics.md) which explores another way to run analytics over your tenants (by extracting tenant data into a separate database and querying it there).
+Try the [Tenant Analytics tutorial that explores another way to run analytics over your tenants (by extracting tenant data into a separate database and querying it there).
 
 ## Additional resources
 

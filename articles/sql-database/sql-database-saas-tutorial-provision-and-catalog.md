@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 
 > * Provision a single new tenant
-> * Provision a batch of 17 additional tenants
+> * Provision a batch of additional tenants
 > * Step into the details of provisioning new tenants, and registering them into the catalog.
 
 
@@ -71,7 +71,7 @@ After the script completes, the new tenant is provisioned, and their *Events* ap
 
 ## Provision a batch of Tenants
 
-This exercise provisions a batch of 17 additional tenants. It’s recommended you do this before completing other WTP tutorials.
+This exercise provisions a batch of additional tenants. It’s recommended you do this before completing other WTP tutorials.
 
 1. Open ...\\Learning Modules\\Utilities\\*Demo-ProvisionAndCatalog.ps1* in the *PowerShell ISE* and set the following value:
    * **$DemoScenario** = **3**, Set to **3** to **Provision a batch of tenants**.
@@ -162,7 +162,7 @@ In this tutorial you learned how to:
 > [!div class="checklist"]
 
 > * Provision a single new tenant
-> * Provision a batch of 17 additional tenants
+> * Provision a batch of additional tenants
 > * Step into the details of provisioning new tenants, and registering them into the catalog.
 
 
