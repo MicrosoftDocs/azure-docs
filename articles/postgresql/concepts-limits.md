@@ -12,7 +12,7 @@ ms.tgt_pltfrm: portal
 ms.topic: article
 ms.date: 05/10/2017
 ---
-# Limitations in Azure Database for PostgreSQL (Preview)
+# Limitations in Azure Database for PostgreSQL
 The Azure Database for PostgreSQL service is in public preview. The following sections describe capacity and functional limits in the database service.
 
 ## Service Tier Maximums
