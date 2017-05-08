@@ -82,6 +82,20 @@ To save the filters you have applied, pin the filtered view onto a [dashboard](a
 
 ![Pin to dashboard](./media/app-insights-app-map/12.png)
 
+## Error pane
+When you click on a node in the map, an error pane will be displayed on the right hand side summarizing failures for that node. Failures are grouped first by operation ID and then grouped by problem ID.
+
+![Error pane](./media/app-insights-app-map/error-pane.png)
+
+Clicking on a failure will allow you take you to the most recent instance of that failure.
+
+## Resource health
+For some resource types, resource health will be displayed at the top of the error pane. For example, clicking on a SQL node will show the database health and any alerts that have fired.
+
+![Resource health](./media/app-insights-app-map/resource-health.png)
+
+You can click on the resource name to view standard overview metrics for that resource.
+
 ## End-to-end system app maps
 
 *Requires SDK version 2.3 or higher*
