@@ -20,11 +20,11 @@ ms.author: motanv
 # Induce controlled Chaos in Service Fabric clusters
 Large-scale distributed systems like cloud infrastructures are inherently unreliable. Azure Service Fabric enables developers to write reliable distributed services on top of an unreliable infrastructure. To write robust distributed services on top of an unreliable infrastructure, developers need to be able to test the stability of their services while the underlying unreliable infrastructure is going through complicated state transitions due to faults.
 
-The [Fault Injection and Cluster Analysis Service](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-testability-overview) (also known as the Fault Analysis Service) gives developers the ability to induce faults to test their services. These targeted simulated faults, like [restarting a partition](https://docs.microsoft.com/en-us/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps), can help exercise the most common state transitions, however targeted simulated faults are biased by definition and thus may miss bugs that show up only in long and complicated sequence of state transitions. For an unbiased testing, you can use Chaos.
+The [Fault Injection and Cluster Analysis Service](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-testability-overview) (also known as the Fault Analysis Service) gives developers the ability to induce faults to test their services. These targeted simulated faults, like [restarting a partition](https://docs.microsoft.com/en-us/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps), can help exercise the most common state transitions. However targeted simulated faults are biased by definition and thus may miss bugs that show up only in hard-to-predict, long and complicated sequence of state transitions. For an unbiased testing, you can use Chaos.
 
-Chaos simulates periodic, interleaved faults (both graceful and ungraceful) throughout the cluster over extended periods of time. Once you have configured Chaos with the rate and the kind of faults, you can start Chaos through C# or Powershell APIs to start generating faults in the cluster and in your services. You can configure Chaos to run for a specified time period (e.g., for one hour), after which Chaos will stop automatically, or you can call StopChaos API (C# or Powershell) to stop it at any time.
+Chaos simulates periodic, interleaved faults (both graceful and ungraceful) throughout the cluster over extended periods of time. Once you have configured Chaos with the rate and the kind of faults, you can start Chaos through C# or Powershell APIs to start generating faults in the cluster and in your services. You can configure Chaos to run for a specified time period (for example, for one hour), after which Chaos stops automatically, or you can call StopChaos API (C# or Powershell) to stop it at any time.
 
-While Chaos is running, it produces different events that capture the state of the run at the moment. For example, an ExecutingFaultsEvent contains all the faults that Chaos has decided to execute in that iteration. A ValidationFailedEvent contains the details of a validation failure (health or stability issues) that was found during the validation of the cluster. You can invoke the GetChaosReport API (C# or Powershell) to get the report of Chaos runs. These events get persisted in a [reliable dictionary](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-reliable-collections) which has a truncation policy dictated by two configurations: **MaxStoredChaosEventCount** (default value is 25000) and **StoredActionCleanupIntervalInSeconds** (default value is 3600). Every *StoredActionCleanupIntervalInSeconds* Chaos will check and all but the most recent *MaxStoredChaosEventCount* events, will be purged from the reliable dictionary.
+While Chaos is running, it produces different events that capture the state of the run at the moment. For example, an ExecutingFaultsEvent contains all the faults that Chaos has decided to execute in that iteration. A ValidationFailedEvent contains the details of a validation failure (health or stability issues) that was found during the validation of the cluster. You can invoke the GetChaosReport API (C# or Powershell) to get the report of Chaos runs. These events get persisted in a [reliable dictionary](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-reliable-collections), which has a truncation policy dictated by two configurations: **MaxStoredChaosEventCount** (default value is 25000) and **StoredActionCleanupIntervalInSeconds** (default value is 3600). Every *StoredActionCleanupIntervalInSeconds* Chaos checks and all but the most recent *MaxStoredChaosEventCount* events, are purged from the reliable dictionary.
 
 ## Faults induced in Chaos
 Chaos generates faults across the entire Service Fabric cluster and compresses faults that are seen in months or years into a few hours. The combination of interleaved faults with the high fault rate finds corner cases that may otherwise be missed. This exercise of Chaos leads to a significant improvement in the code quality of the service.
@@ -43,7 +43,7 @@ Chaos runs in multiple iterations. Each iteration consists of faults and cluster
 For example, consider an instance of Chaos that is set to run for an hour with a maximum of three concurrent faults. Chaos induces three faults, and then validates the cluster health. It iterates through the previous step until it is explicitly stopped through the StopChaosAsync API or one-hour passes. If the cluster becomes unhealthy in any iteration (that is, it does not stabilize within the passed-in MaxClusterStabilizationTimeout), Chaos generates a ValidationFailedEvent. This event indicates that something has gone wrong and might need further investigation.
 
 > [!NOTE]
-> In its current form, Chaos induces only safe faults. This implies that, in the absence of external faults, a quorum loss or data loss never occurs.
+> In its current form, Chaos induces only safe faults, which implies that in the absence of external faults a quorum loss, or data loss never occurs.
 >
 
 ## Important configuration options
@@ -53,18 +53,18 @@ For example, consider an instance of Chaos that is set to run for an hour with a
   * If the service health is OK
   * If the target replica set size is achieved for the service partition
   * That no InBuild replicas exist
-* **MaxConcurrentFaults**: The maximum number of concurrent faults that are induced in each iteration. The higher the number, the more aggressive Chaos is and the failovers and the state transition combinations that the cluster go through are also more complex. 
+* **MaxConcurrentFaults**: The maximum number of concurrent faults that are induced in each iteration. The higher the number, the more aggressive Chaos is and the failovers and the state transition combinations that the cluster goes through are also more complex. 
 
 > [!NOTE]
 > Regardless how high a value *MaxConcurrentFaults* has, Chaos guarantees - in the absence of external faults - there is no quorum loss or data loss.
 >
 
 * **EnableMoveReplicaFaults**: Enables or disables the faults that cause the primary or secondary replicas to move. These faults are disabled by default.
-* **WaitTimeBetweenIterations**: The amount of time to wait between iterations; that is, the amount of time Chaos will pause after having executed a round of faults and having finished the corresponding validation of the health of the cluster. The higher the value, the lower is the average fault injection rate.
+* **WaitTimeBetweenIterations**: The amount of time to wait between iterations. That is, the amount of time Chaos will pause after having executed a round of faults and having finished the corresponding validation of the health of the cluster. The higher the value, the lower is the average fault injection rate.
 * **WaitTimeBetweenFaults**: The amount of time to wait between two consecutive faults in a single iteration. The higher the value, the lower the concurrency of (or the overlap between) faults.
 
 > [!NOTE]
-> Chaos may not stop as soon as *TimeToRun* is up, it can take as much as (MaxClusterStabilizationTime + MaxConcurrentFaults * WaitTimeBetweenFaults + WaitTimeBetweenIterations) additional time to automatically stop.
+> Chaos may still be running when *TimeToRun* is up, it can take as much as (MaxClusterStabilizationTime + MaxConcurrentFaults * WaitTimeBetweenFaults + WaitTimeBetweenIterations) additional time to automatically stop.
 >
 
 ## How to run Chaos
