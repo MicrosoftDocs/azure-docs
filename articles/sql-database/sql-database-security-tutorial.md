@@ -224,6 +224,4 @@ You can improve the protection of your database against malicious users or unaut
 > * Enable SQL Database threat detection
 
 * [SQL Database Security Overview](sql-database-security-overview.md).
-* For additional encryption of sensitive columns, use client-side encryption with [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
-* [Row Level Security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) enables you to restrict access to specific rows based on a user’s group membership or execution context
-* [Dynamic Data Masking](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limits sensitive data exposure by masking it to non-privileged users on the application layer. 
+
