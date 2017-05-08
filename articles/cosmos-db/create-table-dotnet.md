@@ -22,7 +22,7 @@ ms.author: arramac
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, and create a table within that account using the Azure portal. You'll then write code to insert, update, and delete entities, and run some queries. You can download the [Azure Storage Preview SDK](https://www.nuget.org/packages/WindowsAzure.Storage-Preview) SDK from Nuget, that has the same classes and method signatures as the public [Azure storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), but also has the ability to connect to Azure Cosmos DB accounts using the [Table API](table-introduction.md). 
+This quick start demonstrates how to create an Azure Cosmos DB account, and create a table within that account using the Azure portal. You'll then write code to insert, update, and delete entities, and run some queries. You can download the [Azure Storage Preview SDK](https://www.nuget.org/packages/WindowsAzure.Storage-Preview) from NuGet, that has the same classes and method signatures as the public [Azure storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), but also has the ability to connect to Azure Cosmos DB accounts using the [Table API](table-introduction.md). 
 
 ## Prerequisites
 
@@ -36,22 +36,18 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 
 ## Add a table
 
-[!INCLUDE [cosmosdb-create-graph](../../includes/cosmosdb-create-graph.md)]
+[!INCLUDE [cosmosdb-create-table](../../includes/cosmosdb-create-table.md)]
 
 ## Add sample data
 
-You can now add data to your new graph using Data Explorer.
+You can now add data to your new table using Data Explorer.
 
-1. In Data Explorer, the new database appears in the Graphs pane. Expand **sample-database** database, expand **sample-graph** collection, click **Entities**, and then click **New Entity**. 
+1. In Data Explorer, expand **sample-database**, **sample-table**, click **Entities**, and then click **Add Entity**.
+2. Now add data to the PartitionKey value box and RowKey value box, and click **Add Entity**.
 
-   ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-dotnet/azure-cosmosdb-data-explorer-emulator-new-document.png)
+   ![Create new documents in Data Explorer in the Azure portal](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
   
-2. Now add a few new nodes and edges to the graph.
-
-     You can now use Graph Explorer to traverse your data. 
-
-    ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-dotnet/graph-explorer.png)
-
+    You can now add more entities to your table, edit your entities, or query your data in Data Explorer. Data Explorer is also where you can scale your throughput and add stored procedures, user defined functions, and triggers to your table.
 
 ## Clone the sample application
 
@@ -96,19 +92,26 @@ Let's make a quick review of what's happening in the app. Open the DocumentDBRep
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the web.config file in the next step.
+1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the app.config file in the next step.
 
-    ![View and copy an access key in the Azure Portal, Keys blade](./media/create-documentdb-dotnet-core/keys.png)
+    ![View and copy an access key in the Azure portal, Keys blade](./media/create-documentdb-dotnet-core/keys.png)
 
-2. In Visual Studio 2017, open the web.config file. 
+2. In Visual Studio, open the app.config file. 
 
-3. Copy your URI value from the portal (using the copy button) and make it the value of the endpoint key in web.config. 
+3. Copy your Azure Cosmos DB account name from the portal and make it the value of the AccountName in the PremiumStorageConnection string value in app.config. In the screenshot above, the account name is cosmos-db-quickstart. Your account name is in displayed at the top of the portal.
 
-    `<add key="endpoint" value="FILLME" />`
+    `<add key="PremiumStorageConnectionString" 
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMODB.documents.azure.com" />`
 
-4. Then copy your PRIMARY KEY value from the portal and make it the value of the authKey in web.confif. 
+4. Then copy your PRIMARY KEY value from the portal and make it the value of the AccountKey in PremiumStorageConnectionString. 
 
-    `<add key="authKey" value="FILLME" />`
+    `AccountKey=AUTHKEY`
+
+5. Finally, copy your URI value from the Keys page of the portal (using the copy button) and make it the value of the TableEndpoint of the PremiumStorageConnectionString.
+
+    `TableEndpoint=https://COSMODB.documents.azure.com`
+
+    You can leave the StandardStorageConnectionString as is.
 
 You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
@@ -116,17 +119,15 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 1. In Visual Studio, right-click on the project in **Solution Explorer** and then click **Manage NuGet Packages**. 
 
-2. In the NuGet **Browse** box, type *DocumentDB*. 
+2. In the NuGet **Browse** box, type *WindowsAzure.Storage* and check the **Include prerelease** box. 
 
-3. From the results, install the **Microsoft.Azure.DocumentDB** library. This installs the Azure Cosmos DB package as well as all dependencies.
+3. From the results, install the **WindowsAzure.Storage** library. This installs the preview Azure Cosmos DB Table API package as well as all dependencies.
 
-4. Again in the NuGet **Browse** box, type *Microsoft graph*.
+4. Click CTRL + F5 to run the application.
 
-3. From the results, install the **Microsoft.Azure.Graph** library. 
+    The console window displays the data being added to the table. When the script completes, close the console window. 
 
-4. Click CTRL + F5 to run the application. Your app displays in your browser. 
-
-You can now go back to Graph Explorer and see query, modify, and work with this new data. 
+You can now go back to Data Explorer and see query, modify, and work with this new data. 
 
 ## Review SLAs in the Azure portal
 
