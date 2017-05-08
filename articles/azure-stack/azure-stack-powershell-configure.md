@@ -32,9 +32,7 @@ After downloading the tools, navigate to the downloaded folder and import the **
 ```PowerShell
 Import-Module .\Connect\AzureStack.Connect.psm1
 ```
-
-> [!NOTE]
-> When importing the module specified earlier, if you receive an error that “AzureStack.Connect.psm1 is not digitally signed and you cannot run this script on the current system”, you can resolve it by executing the following command in an elevated PowerShell window:  
+When importing the module specified earlier, if you receive an error that “AzureStack.Connect.psm1 is not digitally signed and you cannot run this script on the current system”, you can resolve it by executing the following command in an elevated PowerShell window:  
 
 ```PowerShell
 Set-ExecutionPolicy Unrestricted
