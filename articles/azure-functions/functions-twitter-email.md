@@ -31,30 +31,36 @@ This article shows you how to create a logic app in the Azure portal that:
 > * Uses a condition to check if the sentiment is RED (poor).
 > * Sends an email if the condition is RED.
 
-<!-- no bullets - -->
+<!-- no bullets -
 
 This article shows you how to create a logic app in the Azure portal that checks for new tweets using a keyword you supply. It then uses the **Detect Sentiment** connector to estimate the tweets sentiment (from poor to good). It then  uses an Azure function to process the tweet sentiment into three categories (RED, YELLOW, or GREEN - for poor, neutral, and good). It then uses a condition to check if the sentiment is RED (poor). It then sends an email if the condition is RED.
+ -->
 
-
+<!-- TODO -->
 The following image shows the completed app in the **Logic App Designer**.
-
+<!-- TODO  update image-->
 ![image of completed app in Logic App Designer](media/functions-twitter-email/designer1.png)
 
 ## Prerequisites
 
 * An Azure account. [Free accounts](https://azure.microsoft.com/free/) are available.
 * A twitter account.
-* Complete the [Create your first function in the Azure portal](functions-create-first-azure-function) quickstart.
 
-## Create a function to categorize the tweet sentiment
-<!-- Also, tell folks why you are using an HTTP trigger versus a timer or some other kind of trigger. -->
+## Create an Azure function app
 
-In this section you add a function to categorize the tweet sentiment into three categories (RED, YELLOW or GREEN).
+[!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
 
+### Create a function to categorize the tweet sentiment
 
-* Add a function to the Azure Function app you created the [Create your first function in the Azure portal](functions-create-first-azure-function) quickstart.
+Once the function app deployment completes, open the new function app. In this section you'll create a function to categorize tweet sentiment into three categories (RED, YELLOW, or GREEN - for bad, neural, and good).
 
- ![Function Apps blade, Functions +](media/functions-twitter-email/add_fun.png)
+![Function Apps blade, Functions +](media/functions-twitter-email/add_fun.png)
+
+* Keep the default **Webhook + API**, **CSharp**, and then select **Create this function**.
+
+![Function Apps blade, Functions +](media/functions-twitter-email/add_fun2.png)
+
+You created a Webhook/API (also known as HTTP trigger) function that can be called on demand by the app you are building. 
 
 * Replace the contents of the `run.csx` file with the following code:
 
@@ -82,11 +88,8 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 }
 ```
 
- ![enter new code and save](media/functions-twitter-email/save_fun.png)
-
 * Save the change.
-
-* Select **Test** (shown above in red).
+* Select **Test** (on the right of the code box).
 * Enter 0.2 in the **Request body** text box and then select **Run**. The output shows "RED" and the HTTP status is 200 OK.
 
  ![test ](media/functions-twitter-email/test.png)
@@ -95,11 +98,12 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 
 A Cognitive Services account is required to detect the sentiment of tweets we are monitoring.
 
-* Sign in to the [Azure portal](https://portal.azure.com/).
 * Navigate to **New > Intelligence + analytics > Cognitive  Services**. Set each required field:
 
- * **API type**: **Text Analytics API**
- * **Pricing tier**: **F0 (5K Calls per 30 days)**. If you run out of calls, set to a higher tier.
+  * **Account name**: Enter a unique name.
+  * **API type**: **Text Analytics API**
+  * **Pricing tier**: **F0**. If you run out of calls, set to a higher tier.
+  * **Resource group**: Use the resource group you previously specified.
 
  ![Create Cognitive account blade](media/functions-twitter-email/cog_svcs_account.png)
 
@@ -107,12 +111,9 @@ A Cognitive Services account is required to detect the sentiment of tweets we ar
 
  ![Keys](media/functions-twitter-email/keys.png)
 
-
 ## Create a logic app
 
-<!-- Maybe use + New > Enterprise Integration > Logic App instead of Web & Mobile -->
-
-* In the Azure portal, click the **New > Web + Mobile > Logic App**
+* In the Azure portal, click the **New >  Enterprise Integration > Logic App**
 
 ![new logic app step preceeding step](media/functions-twitter-email/new_logicApp.png)
 
@@ -146,9 +147,11 @@ The **Logic App Designer** displays many services and triggers you can connect t
 
   ![authentication twitter new window from above](media/functions-twitter-email/auth_twit.png)
 
-* Enter the search text, frequency, and interval. If you specify a popular term (such as #football, #soccer, or #futbol), you can quickly use all your [TODO]. We'll search for #Azure every 15 minutes:
+* Enter the search text, frequency, and interval. If you specify a popular term (such as #football, #soccer, or #futbol), you can quickly use all your alotted service calls in your cognitive services account. If you run out of calls, you can increase the pricing tier. We'll search for #Azure every 15 minutes:
 
   ![#Azure every 15 min](media/functions-twitter-email/azure_tweet.png)
+
+* Save the app.
 
 ### Add a **Text Analytics** connector
 
@@ -213,7 +216,7 @@ In this section, we add a conditional check for negative sentiment tweets (condi
   ![condition box](media/functions-twitter-email/condition.png)
 
 * In the **IF YES, DO NOTHING** box select **Add an action**.
-* Enter Outlook or Gmail in the **Search all services and actions** box. Outlook is used in this tutorial. See [Add a Gmail actions) (../logic-apps/logic-apps-create-a-logic-app#add-an-action-that-responds-to-your-trigger) for Gmail instructions. Note: If you have a personal [Microsoft account](https://account.microsoft.com/account), you can use that for the Outlook.com account.
+* Enter Outlook or Gmail in the **Search all services and actions** box. Outlook is used in this tutorial. See [Add a Gmail actions] (../logic-apps/logic-apps-create-a-logic-app#add-an-action-that-responds-to-your-trigger) for Gmail instructions. Note: If you have a personal [Microsoft account](https://account.microsoft.com/account), you can use that for the Outlook.com account.
 
   ![Choose an action box](media/functions-twitter-email/outlook.png)
 
@@ -227,9 +230,9 @@ In this section, we add a conditional check for negative sentiment tweets (condi
 
 * Enter the following items:
 
-  * **To**: The email the message should be sent to.
-  * **Subject**: Score.
-  * **Body**: The location and the Tweet text.
+   * **To**: The email the message should be sent to.
+   * **Subject**: Score.
+   * **Body**: The location and the Tweet text.
 
   ![Send an email box](media/functions-twitter-email/sendEmail2.png)
 
@@ -246,16 +249,17 @@ The image following shows the run details when the condition was not true, email
 
 ![Overview blade](media/functions-twitter-email/skipped.png)
 
+If want to immediatly test the **Send an email** function, change the **INPUTS**  in the first step (**When a new tweet is posted) to a popular term, such as #football, #soccer, or #futbol. Processing popular terms consumes more resources than less popular terms, so you might want to change it back after you've verified email is working.
+
 The image following shows the run details when the condition was true, and email was sent.
 
 ![Overview blade](media/functions-twitter-email/sent.png)
 
 You can select any of the service boxes to show find more information on the data used for the run. Select the **When a new tweet is posted**, it shows the search text and all the outputs, even those outputs we're not using.
 
-
 ## Next steps
 
-*  [Introduction to Azure Functions](../azure-functions/functions-overview)
+*  [Introduction to Azure Functions](functions-overview.md)
 *  [Add conditions and run workflows](../logic-apps/logic-apps-use-logic-app-features.md)
 *  [Logic app templates](../logic-apps/logic-apps-use-logic-app-templates.md)
 *  [Create logic apps from Azure Resource Manager templates](../logic-apps/logic-apps-arm-provision.md)
