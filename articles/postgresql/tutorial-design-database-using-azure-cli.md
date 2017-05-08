@@ -17,7 +17,7 @@ ms.date: 05/10/2017
 # Design your first Azure Database for PostgreSQL using Azure CLI 
 In this tutorial, you use Azure CLI (command-line interface) and other utilities to learn how to:
 > [!div class="checklist"]
-> * Create an Azure Database for MySQL
+> * Create an Azure Database for PostgreSQL
 > * Configure the server firewall
 > * Use [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility to create a database
 > * Load sample data
@@ -192,7 +192,7 @@ To restore the server to [restore to a point-in-time](./howto-restore-server-por
 ## Next Steps
 In this tutorial, you learned how to use Azure CLI (command-line interface) and other utilities to:
 > [!div class="checklist"]
-> * Create an Azure Database for MySQL
+> * Create an Azure Database for PostgreSQL
 > * Configure the server firewall
 > * Use [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility to create a database
 > * Load sample data
