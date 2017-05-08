@@ -39,6 +39,8 @@
       href: azure-stack-run-powershell-script.md#activate-the-administrator-and-tenant-portals
     - name: Register
       href: azure-stack-register.md
+    - name: Connect to Azure Stack
+      href: azure-stack-connect-azure-stack.md
     - name: Add default image
       href: azure-stack-add-default-image.md
     - name: Create a test VM
