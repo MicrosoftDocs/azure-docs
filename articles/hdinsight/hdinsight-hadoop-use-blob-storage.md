@@ -1,7 +1,7 @@
 ---
 title: Query data from HDFS-compatible Azure storage | Microsoft Docs
 description: Learn how to query data from Azure storage and Azure Data Lake Store to store results of your analysis.
-keywords: blob storage,hdfs,structured data,unstructured data, data lake store
+keywords: blob storage,hdfs,structured data,unstructured data,data lake store,Hadoop input,Hadoop output, hadoop storage, hdfs input,hdfs output,hdfs storage,wasb azure
 services: hdinsight,storage
 documentationcenter: ''
 tags: azure-portal

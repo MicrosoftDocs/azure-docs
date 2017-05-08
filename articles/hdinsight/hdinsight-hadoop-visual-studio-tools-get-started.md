@@ -1,7 +1,7 @@
 ---
 title: Learn to use Data Lake (HDInsight) Tools for Visual Studio | Microsoft Docs
 description: Learn how to install and use Data Lake (HDInsight) Tools for Visual Studio to connect to a Hadoop cluster and run a Hive query.
-keywords: hadoop tools,hive query,visual studio
+keywords: hadoop tools,hive query,visual studio,visual studio hadoop
 services: HDInsight
 documentationcenter: ''
 tags: azure-portal
