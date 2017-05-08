@@ -487,7 +487,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/">
-                                                <img src="media/index/API_Sear_BingSpeech.svg" alt="" />
+                                                <img src="media/index/API_Spc_BingSpeech.svg" alt="" />
                                                 <p>Bing Speech Service</p>
                                             </a>
                                         </li>
