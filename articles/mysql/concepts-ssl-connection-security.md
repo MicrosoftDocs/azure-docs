@@ -27,4 +27,4 @@ Likewise, connection strings that are pre-defined in the "Connection Strings" se
 To learn how to enable or disable SSL connection when developing application, please refer to [How to configure SSL](howto-configure-ssl.md).
 
 ## Next steps
-- Review various application connectivity options following [Connection libraries for Azure Database for MySQL](concepts-connection-libraries.md)
+[Connection libraries for Azure Database for MySQL](concepts-connection-libraries.md)
