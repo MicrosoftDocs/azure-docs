@@ -50,6 +50,27 @@
 ## [Language customization](active-directory-b2c-reference-language-customization.md)
 ## [Set up self-service password reset](active-directory-b2c-reference-sspr.md)
 
+# Identity Experience Engine
+## [Custom Policies](active-directory-b2c-overview-custom.md)
+## Guides
+### [Get Started](active-directory-b2c-get-started-custom.md)
+### Configure OIDC Providers
+#### [Azure AD](active-directory-b2c-setup-aad-custom.md)
+### Configure SAML Providers
+#### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
+### Integrate RESTful APIs
+#### [Insert into an orchestration step](active-directory-b2c-rest-api-step-custom.md)
+#### [Validate user input](active-directory-b2c-rest-api-validation-custom.md)
+### Customize Login
+#### [Configure User Input](active-directory-b2c-configure-signup-self-asserted-custom.md)
+#### [Customize UI](active-directory-b2c-ui-customization-custom.md)
+#### [Customize Token](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
+### Troubleshooting
+#### [Collect logs using Application Insights](active-directory-b2c-troubleshoot-custom.md)
+## Reference
+### [Release Notes](active-directory-b2c-developer-notes-custom.md)
+
+
 # Reference
 ## Glossary
 ### [Types of applications](active-directory-b2c-apps.md)
