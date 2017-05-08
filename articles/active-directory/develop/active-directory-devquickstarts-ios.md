@@ -90,7 +90,7 @@ Now that you have an application in Azure AD, you can install ADAL and write you
     pod 'ADALiOS'
     ```
 
-3. Now load the podfile by using CocoaPods. This step creates a new XCode Workspace that you'll load.
+3. Now load the podfile by using CocoaPods. This step creates a new XCode Workspace that you load.
 
     ```
     $ pod install
@@ -227,7 +227,7 @@ The basic principle behind ADAL is that whenever your app needs an access token,
 >
 
 ## 5: Build and run the application
-Congratulations! You now have a working iOS application that has the ability to authenticate users, securely call Web APIs by using OAuth 2.0, and get basic information about the user.  If you haven't already, now is the time to populate your tenant with some users.  Start your QuickStart app, and then sign in with one of those users.  Search for other users based on their UPN.  Close the app, and then start it again.  Notice that the user's session remains intact.
+Congratulations! You now have a working iOS application that can authenticate users, securely call Web APIs by using OAuth 2.0, and get basic information about the user.  If you haven't already, now is the time to populate your tenant with some users.  Start your QuickStart app, and then sign in with one of those users.  Search for other users based on their UPN.  Close the app, and then start it again.  Notice that the user's session remains intact.
 
 ADAL makes it easy to incorporate all of these common identity features into your application.  It takes care of all the dirty work for you, like cache management, OAuth protocol support, presenting the user with a UI to sign in, and refreshing expired tokens.  All you really need to know is a single API call, `getToken`.
 
