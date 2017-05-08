@@ -1,6 +1,6 @@
 ---
-title: Overview of LUIS machine learning in Azure | Microsoft Docs 
-description: Use Language Understanding Intelligent Service (LUIS) to bring the power of machine learning to your applications.
+title: Learn about Language Understanding Intelligent Service (LUIS) in Azure | Microsoft Docs 
+description: Learn how to use Language Understanding Intelligent Service (LUIS) to bring the power of machine learning to your applications.
 services: cognitive-services
 author: cahann
 manager: hsalama
@@ -12,7 +12,7 @@ ms.date: 03/01/2017
 ms.author: cahann
 ---
 
-# Overview
+# Learn about Language Understanding Intelligent Service (LUIS)
 
 One of the key problems in human-computer interactions is the ability of the computer to understand what a person wants. Language Understanding Intelligent Service (LUIS) enables developers to build smart applications that can understand human language and react accordingly to user requests. LUIS uses the power of machine learning to solve the difficult problem of extracting meaning from natural language input, so that your application doesn't have to. Any client application that converses with users, like a dialog system or a chat bot, can pass user input to a LUIS app and receive results that provide natural language understanding. 
 

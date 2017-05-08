@@ -13,7 +13,10 @@ ms.author: cahann
 ---
 
 # Add entities
-Entities are key data in your application’s domain. An entity represents a class including a collection of similar objects (places, things, people, events or concepts). Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task. For example, a News Search app may include entities such as “topic”, “source”, “keyword” and “publishing date”, which are key data to search for news. In a travel booking app, the “location”, “date”, "airline", "travel class" and "tickets" are key information for flight booking (relevant to the "Bookflight" intent). So, we'll add them as entities. 
+Entities are key data in your application’s domain. An entity represents a class including a collection of similar objects (places, things, people, events or concepts). 
+Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task. 
+
+For example, a News Search app may include entities such as “topic”, “source”, “keyword” and “publishing date”, which are key data to search for news. In a travel booking app, the “location”, “date”, "airline", "travel class" and "tickets" are key information for flight booking (relevant to the "Bookflight" intent), that you can add as entities.
 
 You do not need to create entities for every concept in your app, but only for those required for the app to take action. You can add up to **30** entities in a single LUIS app. 
 
@@ -86,7 +89,7 @@ Do the following steps to add hierarchical entities and make sure to add the chi
 
  
 ### Add composite entities
-You can also define relationships between entities based on associative patterns by creating “composite entities”. A composite entity is created by combining two or more existing entities (simple/hierarchical) and treating them as one entity. Unlike a hierarchical entity, the composite entity and the children forming it are not in a parent-child relationship; they are independent of each other and they do not share common characteristics. The composite pattern enables your app to identify entities, not only individually, but also in groups. 
+You can also define relationships between entities by creating “composite entities”. A composite entity is created by combining two or more existing entities (simple or hierarchical) and treating them as one entity. Unlike a hierarchical entity, the composite entity and the children forming it are not in a parent-child relationship. They are independent of each other and they do not need to share common characteristics. The composite pattern enables your app to identify entities, not only individually, but also in groups. 
 
 In the TravelAgent app example, a user may say “Book 2 adult business tickets to Paris next Monday”. In this example, we can create a composite entity called “TicketsOrder”, including three children entities: “number”, “category” and "class" which describe the tickets to be booked. Before creating a composite entity, you must first add the entities forming it, if they do not already exist. 
 
@@ -116,7 +119,7 @@ In the TravelAgent app example, a user may say “Book 2 adult business tickets 
 ## List entities
 A list entity is an entity that is defined by a list of all its values. This entity type is identified in utterances, not by active learning of context, but by the direct matching of utterance text to the defined values.   
 
-In some use cases, you may have a closed list of definite values for an entity. In this case, you can create a list entity including these values. For each value, you define a standard form "Canonical Form" and variant forms "Synonyms". Your app will identify this entity in an utterance if the utterance includes an exact match of any of the entity values (canonical forms/synonyms), so the list entity will be predicted as existing in the utterance, with a prediction score of 100%.
+In some use cases, you may have a fixed list of definite values for an entity. In this case, you can create a list entity including these values. For each value, you define a standard form "Canonical Form" and variant forms "Synonyms". Your app will identify this entity in an utterance if the utterance includes an exact match of any of the entity values (canonical forms/synonyms), so the list entity will be predicted as existing in the utterance, with a prediction score of 100%.
 
 For example, in the TravelAgent app, we can create a list entity named “Coastal Cities”; including values such as “Barcelona, Venice, Miami, etc.” as canonical forms. For each canonical form, you can add synonyms. For example, synonyms of “Barcelona” can be “Capital City of Catalonia”, “BCN”, “Barna” and “Second Spanish City”. 
 
@@ -203,6 +206,8 @@ To review the labeled utterances that contain a specific entity, click the **Lab
 
 ![Labeled Utterances for an entity](./Images/Entities-LabeledUtter.JPG)
 
+
+## Next steps
 Now that you have added intents, utterances and entities, you have a basic LUIS app ready to be trained and tested for publishing. 
 For more information on how to train and test your app, [click here](Train-Test.md).
  
