@@ -71,8 +71,8 @@ To interact with Azure Resource Manager, make sure that you have access to an [A
     ```    
     private static async Task<AuthenticationResult> GetAccessTokenAsync()
     {
-      var cc = new ClientCredential("{client-id}", "{client-secret}");
-      var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
+      var cc = new ClientCredential("client-id", "client-secret");
+      var context = new AuthenticationContext("https://login.windows.net/tenant-id");
       var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
       if (token == null)
       {
@@ -84,9 +84,9 @@ To interact with Azure Resource Manager, make sure that you have access to an [A
 
     Replace these values:
     
-    - *{client-id}* with the identifier of the Azure Active Directory application. You can find this identifier on the Properties blade of your AD application. To find your AD application in the Azure portal, click **Azure Active Directory** in the resource menu, and then click **App registrations**.
-    - *{client-secret}* with the access key of the AD application. You can find this identifier on the Properties blade of your AD application.
-    - *{tenant-id}* with the tenant identifier of your subscription. You can find the tenant identifier on the Properties blade for Azure Active Directory in the Azure portal. It is labeled *Directory ID*.
+    - *client-id* with the identifier of the Azure Active Directory application. You can find this identifier on the Properties blade of your AD application. To find your AD application in the Azure portal, click **Azure Active Directory** in the resource menu, and then click **App registrations**.
+    - *client-secret* with the access key of the AD application. You can find this identifier on the Properties blade of your AD application.
+    - *tenant-id* with the tenant identifier of your subscription. You can find the tenant identifier on the Properties blade for Azure Active Directory in the Azure portal. It is labeled *Directory ID*.
 
 4. To call the method that you previously added, add this code to the Main method in the Program.cs file:
    
