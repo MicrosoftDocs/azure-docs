@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/04/2017
+ms.date: 05/08/2017
 ms.author: iainfou
 ---
 
@@ -227,3 +227,8 @@ In this tutorial, you configured GitHub to run a Jenkins build job on each code 
 > * Create and trigger Jenkins build jobs from GitHub commits
 > * Create a Docker image for your app
 > * Verify GitHub commits build new Docker image and updates running app
+
+Follow this link to see pre-built virtual machine script samples.
+
+> [!div class="nextstepaction"]
+> [Linux virtual machine script samples](./cli-samples.md)
