@@ -19,7 +19,11 @@ ms.author: nepeters
 ---
 # Monitor virtual machine security by using Azure Security Center
 
+<<<<<<< HEAD
 Azure Security Center can help you gain visibility into your Azure resource security practices. It offers integrated security monitoring, which can detect threats that otherwise might go unnoticed. In this tutorial, you learn about Azure Security Center, and how to:
+=======
+Azure security center helps you gain visibility into the configuration of Azure resource as related to security practices. It also provides integrated security monitoring, which can detect threats that may otherwise go unnoticed. In this tutorial you learn about Azure Security Center and how to:
+>>>>>>> b769e44e04c38c263e9f7e6cc4e1e1964bda5ace
  
 > [!div class="checklist"]
 > * Configure data collection
@@ -128,7 +132,11 @@ After you've changed the pricing tier, the security alerts graph begins to popul
 
 Select an alert to view information. For example, you can see a description of the threat, the detection time, threat attempts, and recommended remediation. In the following example, an RDP brute-force attack was detected, with 294 failed RDP attempts. A recommended resolution is provided.
 
+<<<<<<< HEAD
 ![RDP attack](./media/tutorial-azure-security/rdp-attack.png)
+=======
+![RDP Attack](./media/tutorial-azure-security/rdp-attack.png)
+>>>>>>> b769e44e04c38c263e9f7e6cc4e1e1964bda5ace
 
 ## Next steps
 In this tutorial, you configured and reviewed VMs with Azure Security Center. You learned how to:
@@ -138,3 +146,7 @@ In this tutorial, you configured and reviewed VMs with Azure Security Center. Yo
 > * Configure security policies
 > * View and fix configuration health issues
 > * Review detected threats
+<<<<<<< HEAD
+=======
+
+>>>>>>> b769e44e04c38c263e9f7e6cc4e1e1964bda5ace
