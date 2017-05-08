@@ -9,7 +9,7 @@
 - name: Quickstart
   items:
   - name: Build a custom search
-  - href: quick-start.md
+  - href: quickstart.md
 - name: Resources
   items:
   - name: Bing Web Search API Documentation
