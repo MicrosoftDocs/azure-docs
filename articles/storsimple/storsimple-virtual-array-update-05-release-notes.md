@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/03/2017
+ms.date: 05/08/2017
 ms.author: alkohli
 
 ---
@@ -28,7 +28,7 @@ The release notes are continuously updated, and as critical issues requiring a w
 Update 0.5 corresponds to the software version **10.0.10290.0**.
 
 > [!NOTE]
-> Updates are disruptive and restart your device. If I/O are in progress, the device incurs downtime.
+> Updates are disruptive and restart your device. If I/O are in progress, the device incurs downtime. For detailed instructions on how to apply the update, go to [Install Update 0.5](storsimple-virtual-array-install-update-05.md).
 
 
 ## What's new in the Update 0.5
@@ -36,10 +36,7 @@ Update 0.5 is primarily a bug-fix build. The main enhancements and bug-fixes are
 
 - **Backup resiliency improvements** - This release has fixes that improve the backup resiliency. In the earlier releases, backups were retried only for certain exceptions. This release retries all the backup exceptions and makes the backups more resilient.
 
-- **Fixes to allow storage usage monitoring service** - Starting 30 June 2017, the storage usage monitoring service for StorSimple Virtual Device Series will be retired. This applies to all the virtual arrays running Update 0.4 or lower. This update contains the fixes required for you to continue the use of storage usage monitoring. Install this critical update before June 30, 2017 to continue using the monitoring feature.
-
-    For detailed instructions on how to apply the update, go to [Install Update 0.5](storsimple-virtual-array-install-update-05.md).
-
+- **Fixes to allow storage usage monitoring service** - Starting 30 June 2017, the storage usage monitoring for StorSimple Virtual Device Series will be retired. This applies to all the virtual arrays running Update 0.4 or lower. This update contains the fixes required for you to continue the use of storage usage monitoring. Install this critical update before June 30, 2017 to continue using the monitoring feature.
 
 
 ## Issues fixed in the Update 0.5
@@ -49,9 +46,8 @@ The following table provides a summary of issues fixed in this release.
 | No. | Feature | Issue |
 | --- | --- | --- |
 | 1 |Backup resiliency| In the earlier releases, backups were retried only for certain exceptions. This release contains a fix to make backups more resilient by retrying all the backup exceptions.|
-| 2 |Monitoring| The storage usage monitoring service will be deprecated starting June 30, 2017. This action impacts the monitoring charts on the StorSimple Device Manager service. This release has fixes that would allow the user to continue the use of storage usage monitoring on the virtual arrays beyond June 30, 2017.|
-| 3 |File server| In the earlier releases, a user could copy encrypted files to the virtual array. This release contains a fix that would not allow copying of encrypted files to virtual array. If your device has existing encrypted files prior to the update, backups will continue to fail until all the encrypted files are deleted from the system. |
-
+| 2 |Monitoring| The storage usage monitoring for StorSimple Virtual Device Series will be deprecated starting June 30, 2017. This action impacts the monitoring charts on the StorSimple Device Manager service running on StorSimple Virtual Arrays (1200 model). This release has fixes that would allow the user to continue the use of storage usage monitoring on the virtual arrays beyond June 30, 2017.|
+| 3 |File server| In the earlier releases, a user could mistakenly copy encrypted files to the virtual array. This release contains a fix that would not allow copying of encrypted files to virtual array. If your device has existing encrypted files prior to the update, backups will continue to fail until all the encrypted files are deleted from the system. |
 
 
 ## Known issues in the Update 0.5
@@ -68,7 +64,7 @@ The following table provides a summary of known issues for the StorSimple Virtua
 | **6.** |Tiered volumes or shares |Byte range locking for applications that work with the StorSimple tiered volumes is not supported. If byte range locking is enabled, StorSimple tiering does not work. |Recommended measures include: <br></br>Turn off byte range locking in your application logic.<br></br>Choose to put data for this application in locally pinned volumes as opposed to tiered volumes.<br></br>*Caveat*: When using locally pinned volumes and byte range locking is enabled, the locally pinned volume can be online even before the restore is complete. In such instances, if a restore is in progress, then you must wait for the restore to complete. |
 | **7.** |Tiered shares |Working with large files could result in slow tier out. |When working with large files, we recommend that the largest file is smaller than 3% of the share size. |
 | **8.** |Used capacity for shares |You may see share consumption when there is no data on the share. This consumption is because the used capacity for shares includes metadata. | |
-| **9.** |Disaster recovery |You can only perform the disaster recovery of a file server to the same domain as that of the source device. Disaster recovery to a target device in another domain is not supported in this release. |This is implemented in a later release. |
+| **9.** |Disaster recovery |You can only perform the disaster recovery of a file server to the same domain as that of the source device. Disaster recovery to a target device in another domain is not supported in this release. |This is implemented in a later release. For more information, go to [Failover and disaster recovery for your StorSimple Virtual Array](storsimple-virtual-array-failover-dr.md) |
 | **10.** |Azure PowerShell |The StorSimple virtual devices cannot be managed through the Azure PowerShell in this release. |All the management of the virtual devices should be done through the Azure portal and the local web UI. |
 | **11.** |Password change |The virtual array device console only accepts input in en-us keyboard format. | |
 | **12.** |CHAP |CHAP credentials once created cannot be removed. Additionally, if you modify the CHAP credentials, you need to take the volumes offline and then bring them online for the change to take effect. |This issue is addressed in a later release. |
