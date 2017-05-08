@@ -12,7 +12,7 @@ ms.tgt_pltfrm: portal
 ms.topic: article
 ms.date: 05/10/2017
 ---
-# PostgreSQL Extensions in Azure Database for PostgreSQL (Preview)
+# PostgreSQL Extensions in Azure Database for PostgreSQL
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions allow for multiple related SQL objects to be bundled together in a single package and can be loaded or removed from your database with a single command. Extensions once loaded into the database can function just like features that are built in. For more information on PostgreSQL extensions, see [Packaging Related Objects into an Extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
 
 ## How to use PostgreSQL extensions?
