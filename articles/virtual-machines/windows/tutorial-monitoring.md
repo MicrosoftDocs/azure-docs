@@ -39,7 +39,7 @@ To complete the example in this tutorial, you must have an existing virtual mach
 
 As Windows virtual machines boot up, the boot diagnostic agent captures screen output that can be used for troubleshooting purpose. This capability is enabled by default. The capture screen shots are stored in an Azure storage account which is also created by default. 
 
-You can get the boot diagnostic data with the [Get-​Azure​Rm​VM​Boot​Diagnostics​Data](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata?view=azurermps-3.8.0) command. In the following example, the boot diagnostics is downloaded to the root of the *c:\* drive. 
+You can get the boot diagnostic data with the [Get-​Azure​Rm​VM​Boot​Diagnostics​Data](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata) command. In the following example, the boot diagnostics is downloaded to the root of the *c:\* drive. 
 
 ```powershell
 Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -Windows -LocalPath "c:\"
@@ -201,7 +201,7 @@ Finally, update this line, replacing *mydiagnosticsstorage* with the name of you
 <StorageAccount>mydiagnosticsstorage</StorageAccount>
 ```
 
-Now you can install the diagnostic extension with the [Set-AzureRmVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdiagnosticsextension?view=azurermps-3.8.0) command.
+Now you can install the diagnostic extension with the [Set-AzureRmVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdiagnosticsextension) command.
 
 ```powershell
 Set-AzureRmVMDiagnosticsExtension ` 
@@ -223,13 +223,13 @@ You can view the VM metrics in the same way that you viewed the Host VM metrics:
 
 Azure activity alerts provide automation in response to diagnostic data. For example, a rule can be configured to fire after CPU utilization has been higher than 50% over a specified amount of time. This alert can send an email, an SMS message, or send an HTTP post to a rest endpoint. Azure Automation Runbooks, and / or Azure logic apps can also be configured to fire because of an alert.
 
-Use the [New-AzureRmAlertRuleEmail](powershell/module/azurerm.insights/new-azurermalertruleemail) command to configure an alert action, in this case that the alert should send an email. This example configures the Azure service owners as the recipient of the alert email. 
+Use the [New-AzureRmAlertRuleEmail](https://docs.microsoft.com/powershell/module/azurerm.insights/new-azurermalertruleemail) command to configure an alert action, in this case that the alert should send an email. This example configures the Azure service owners as the recipient of the alert email. 
 
 ```powershell
 $action = New-AzureRmAlertRuleEmail -SendToServiceOwners
 ```
 
-Next, use the [Add-AzureRmMetricAlertRule](powershell/module/azurerm.insights/add-azurermmetricalertrule) to create an alert rule. This example creates a times span of 5 minutes. The rule is then created which defines that if CPU utilization is greater than 1 for the time span of 5 minutes, the alert will fire.
+Next, use the [Add-AzureRmMetricAlertRule](https://docs.microsoft.com/powershell/module/azurerm.insights/add-azurermmetricalertrule) to create an alert rule. This example creates a times span of 5 minutes. The rule is then created which defines that if CPU utilization is greater than 1 for the time span of 5 minutes, the alert will fire.
 
 ```powershell
 $vmName = "myVM"
@@ -254,7 +254,7 @@ Add-AzureRmMetricAlertRule -ResourceGroup $resourceGroup `
 
 You can do more advanced monitoring of your VM by using [Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview). If you haven't already done so, you can sign up for a [free trial](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-trial) of Operations Management Suite.
 
-When you have access to the OMS portal, you can find the workspace key and workspace identifier on the Settings blade. Replace <workspace-key> and <workspace-id> with the values for from your OMS workspace and then you can use [Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension?view=azurermps-3.8.0) to add the OMS extension to the VM:
+When you have access to the OMS portal, you can find the workspace key and workspace identifier on the Settings blade. Replace <workspace-key> and <workspace-id> with the values for from your OMS workspace and then you can use [Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension) to add the OMS extension to the VM:
 
 ```powershell
 Set-AzureRmVMExtension -ResourceGroupName myResourceGroup `
