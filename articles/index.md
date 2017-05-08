@@ -1773,7 +1773,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                             </li>
                         </ul>
                     </li>
-<!-- Cognitive Services START -->
                     <li>
                         <a href="#cognitive">Cognitive Services</a>
                         <ul id="cognitive" class="cardsA">
@@ -1784,7 +1783,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/CognitiveServices.svg" alt="" />
+                                                        <img src="media/index/API_Vis_ComputerVision.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1803,7 +1802,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/CognitiveServices.svg" alt="" />
+                                                        <img src="media/index/API_Vis_Face.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1822,7 +1821,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/CognitiveServices.svg" alt="" />
+                                                        <img src="media/index/API_Sear_BingSearch.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1841,7 +1840,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/CognitiveServices.svg" alt="" />
+                                                        <img src="media/index/API_Spc_CustomSpeechService.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1860,7 +1859,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/CognitiveServices.svg" alt="" />
+                                                        <img src="media/index/API_Lang_LanguageUnderstanding.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1879,7 +1878,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/CognitiveServices.svg" alt="" />
+                                                        <img src="media/index/API_Sear_BingSearch.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1917,7 +1916,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/CognitiveServices.svg" alt="" />
+                                                        <img src="media/index/API_Spc_SpeakerRecognition.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
