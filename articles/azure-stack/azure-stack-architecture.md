@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
+ms.date: 03/30/2017
 ms.author: helaw
 
 ---
@@ -42,8 +42,8 @@ The Azure Stack POC offers services using the following VMs on the POC host:
 | **MAS-SLB01** | Load balancing multiplexer services in Azure Stack for both tenants and Azure Stack infrastructure services.  |
 | **MAS-SUS01** | Windows Server Update Services, and responsible for providing updates to other Azure Stack virtual machines.|
 | **MAS-SQL01** | Internal data store for Azure Stack infrastructure roles.  |
-| **MAS-WAS01** | Azure Stack user (tenant) portal and Azure Resource Manager services.|
-| **MAS-WASP01**| Azure Stack administrative portal and Azure Resource Manager services.|
+| **MAS-WAS01** | Azure Stack administrative portal and Azure Resource Manager services.|
+| **MAS-WASP01**| Azure Stack user (tenant) portal and Azure Resource Manager services.|
 | **MAS-XRP01** | Infrastructure management controller for Microsoft Azure Stack, including the Compute, Network, and Storage resource providers.|
 
 ## Storage services

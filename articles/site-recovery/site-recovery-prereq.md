@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/11/2016
+ms.date: 03/27/2017
 ms.author: rajanaki
 ---
 
@@ -54,7 +54,7 @@ Following are the required components for disaster recovery of VMware virtual ma
 | **Component** | **Requirements** |
 | --- | --- |
 | **vSphere** | One or more VMware vSphere hypervisors.<br/><br/>Hypervisors should be running vSphere version 6.0, 5.5, or 5.1 with the latest updates.<br/><br/>We recommend that vSphere hosts and vCenter servers are located in the same network as the process server. This is the network in which the configuration server is located, unless you’ve set up a dedicated process server. |
-| **vCenter** | We recommend that you deploy a VMware vCenter server to manage your vSphere hosts. It should be running vCenter version 6.0 or 5.5, with the latest updates.<br/><br/>**Limitation**: Site Recovery doesn't support new vCenter and vSphere 6.0 features such as cross vCenter vMotion, virtual volumes, and storage DRS. Site Recovery support is limited to features that were also available in version 5.5.||
+| **vCenter** | We recommend that you deploy a VMware vCenter server to manage your vSphere hosts. It should be running vCenter version 6.0 or 5.5, with the latest updates.<br/><br/>**Limitation**: Site Recovery does not support cross vCenter vMotion. Storage DRS and Storage vMotion is also not supported on Master target virtual machine post a reprotect operation.||
 
 1. **Replicated machine prerequisites**
 

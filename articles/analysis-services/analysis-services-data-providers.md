@@ -38,7 +38,7 @@ Use the following data providers to get the latest bug fixes and updates. These 
 [ADOMD Preview](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.304.138/1033/x64/SQL_AS_ADOMD.msi)</br>
 
 ## Download the latest **RTM** data providers  
-Use the following data providers if you are in a production enviroment and require fully released and supported versions.
+Use the following data providers if you are in a production environment and require fully released and supported versions.
 
 [MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)</br>
 [MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)</br>

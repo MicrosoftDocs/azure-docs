@@ -13,7 +13,7 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 03/20/2017
 ms.author: cephalin
 ---
 
@@ -21,9 +21,9 @@ ms.author: cephalin
 
 This sample script creates a web app in App Service with its related resources, and then deploys your web app code in a local Git repository.
 
-Before running this script, ensure that a connection with Azure has been created using the `az login` command, and that your application code is committed into a local Git repository.
+If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure. Also, your application code needs to be committed into a local Git repository.
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/windows/cli-options.md).
 
 ## Sample script
 

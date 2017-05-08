@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 03/27/2017
 ms.author: cherylmc
 
 ---
@@ -22,6 +22,7 @@ ms.author: cherylmc
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Classic - Azure Portal](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Classic - Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 > 
 > 
@@ -134,7 +135,7 @@ If you are creating this configuration as an exercise, refer to these [Example s
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## <a name="DNSServer"></a>4. Specify a DNS server (optional)
-If you want to have name resolution for virtual machines that are deployed to your VNets, you should specify a DNS server.
+DNS is not required for VNet-to-VNet connections. However, if you want to have name resolution for resources that are deployed to your virtual network, you should specify a DNS server. This setting lets you specify the DNS server that you want to use for name resolution for this virtual network. It does not create a DNS server.
 
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 

@@ -17,7 +17,7 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: larryfr
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
 # Correlate events that arrive at different times using Storm and HBase
 

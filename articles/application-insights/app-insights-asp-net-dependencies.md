@@ -1,10 +1,10 @@
 ---
-title: Dependency Tracking in Application Insights
+title: Dependency Tracking in Azure Application Insights | Microsoft Docs
 description: Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights.
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: d15c4ca8-4c1a-47ab-a03d-c322b4bb2a9e
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 03/14/2017
 ms.author: awills
 
 ---
@@ -30,6 +30,8 @@ The out-of-the-box dependency monitor currently reports calls to these  types of
   * Azure DocumentDb, table, blob storage, and queue
 * Web pages
   * AJAX calls
+
+Monitoring works by using [byte code instrumentation](https://msdn.microsoft.com/library/z9z62c29.aspx) around selected methods. Performance overhead is minimal.
 
 You can also write your own SDK calls to monitor other dependencies, both in the client and server code, using the [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
 
@@ -198,6 +200,10 @@ If you want to switch off the standard dependency tracking module, remove the re
 * Upgrade to the latest version of the SDK. If your .NET version is less than 4.6:
   * IIS host: Install [Application Insights Agent](app-insights-monitor-performance-live-website-now.md) on the host servers.
   * Azure web app: Open Application Insights tab in the web app control panel, and install Application Insights.
+
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## Next steps
 * [Exceptions](app-insights-asp-net-exceptions.md)

@@ -541,7 +541,7 @@ Returns a substring that starts at the specified character position and contains
 |:--- |:--- |:--- |:--- |
 | stringToParse |Yes |String |The original string from which the substring is extracted. |
 | startIndex |No |Integer |The zero-based starting character position for the substring. |
-| length |No |Integer |The number of characters for the substring. |
+| length |No |Integer |The number of characters for the substring. Must refer to a location within the string. |
 
 The following example extracts the first three characters from a parameter.
 
@@ -551,6 +551,17 @@ The following example extracts the first three characters from a parameter.
 },
 "variables": { 
     "prefix": "[substring(parameters('inputString'), 0, 3)]"
+}
+```
+
+The following example will fail with the error "The index and length parameters must refer to a location within the string. The index parameter: '0', the length parameter: '11', the length of the string parameter: '10'.".
+
+```json
+"parameters": {
+    "inputString": { "type": "string", "value": "1234567890" }
+},
+"variables": { 
+    "prefix": "[substring(parameters('inputString'), 0, 11)]"
 }
 ```
 

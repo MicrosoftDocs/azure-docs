@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: 3adfb1ba-8924-4a13-98db-10a67ab24fca
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -47,12 +48,7 @@ Connect to the fully qualified domain name (FQDN) of your HDInsight cluster by u
 
 **If you provided a password for SSH authentication** when you created the HDInsight cluster, you will need to provide the password when prompted.
 
-For more information on using SSH with HDInsight, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X, and Unix](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-### PuTTY (Windows-based clients)
-Windows does not provide a built-in SSH client. We recommend using **PuTTY**, which can be downloaded from [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-
-For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows ](hdinsight-hadoop-linux-use-ssh-windows.md).
+For more information on using SSH with HDInsight, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a id="beeline"></a>Use the Beeline command
 1. Once connected, use the following to start Beeline:

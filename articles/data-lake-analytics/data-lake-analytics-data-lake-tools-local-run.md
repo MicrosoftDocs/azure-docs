@@ -77,13 +77,35 @@ You can also click the **(Local)** account on the top of script window, and then
 
     ![Data Lake Tools for Visual Studio local-run submit jobs](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-submit-job.png)
 
+### Debug scripts and C# assemblies locally
+
+You can debug C# assemblies without submitting and registering it to Azure Data Lake Analytics Service. You can set breakpoints in both the code behind file and in a referenced C# project.
+
+#### To debug local code in code behind file
+
+1. Set breakpoints in the code behind file.
+2. Press F5 to debug the script locally.
+
+> [!NOTE]
+   > The following procedure only works in Visual Studio 2015. In older Visual Studio you may need to manually add the pdb files.  
+   >
+   >
+
+#### To debug local code in a referenced C# project
+
+1. Create a C# Assembly project, and build it to generate the output dll.
+2. Register the dll using a U-SQL statement:
+
+        CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+        
+3. Set breakpoints in the C# code.
+4. Press F5 to debug the script with referencing the C# dll locally.
+
 ## Use local run from the Data Lake U-SQL SDK
 
 In addition to running U-SQL scripts locally by using Visual Studio, you can use the Azure Data Lake U-SQL SDK to run U-SQL scripts locally with command-line and programming interfaces. Through these, you can scale your U-SQL local test.
 
 Learn more about [Azure Data Lake U-SQL SDK](data-lake-analytics-u-sql-sdk.md).
-
-
 
 
 ## Next steps

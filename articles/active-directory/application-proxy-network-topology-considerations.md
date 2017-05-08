@@ -12,15 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 03/22/2017
 ms.author: kgremban
 
 ---
 
 # Network topology considerations when using Azure Active Directory Application Proxy
-> [!NOTE]
-> Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
->
 
 This article explains network topology considerations when using Azure Active Directory (Azure AD) Application Proxy for publishing and accessing your applications remotely.
 
@@ -84,7 +81,6 @@ To optimize hop 3, the connector is placed close to the target application in th
 
 > [!NOTE]
 There are some scenarios where you need to optimize both hop 2 and hop 3 to get the latency characteristics you want. For example, if you have a VPN or ExpressRoute set up between your network and the Azure datacenter, you can optimize both of these hops.
->
 
 ### Pattern 2: Take advantage of ExpressRoute with public peering
 
@@ -106,7 +102,7 @@ Although the focus of this article is connector placement, you can also change t
 
 Increasingly, organizations are moving their networks into hosted environments. This enables them to place their apps in a hosted environment that is also part of their corporate network, and still be within the domain. In this case, the patterns discussed in the preceding sections can be applied to the new application location.
 
-Consider using connector groups to target apps that are in different locations and networks. If you're considering this option, see [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds).
+Consider using connector groups to target apps that are in different locations and networks. If you're considering this option, see [Azure AD Domain Services](../active-directory-domain-services/active-directory-ds-overview.md).
 
 ## Common scenarios
 
@@ -169,7 +165,8 @@ You can also consider using one other variant in this situation. If most users i
 ![Diagram showing outline of global continents, and how the hops are arranged in this use case](./media/application-proxy-network-topologies/application-proxy-pattern5c.png)
 
 ## Next steps
-[Enable Application Proxy](active-directory-application-proxy-enable.md)<br>
-[Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)<br>
-[Enable conditional access](active-directory-application-proxy-conditional-access.md)<br>
-[Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
+
+- [Enable Application Proxy](active-directory-application-proxy-enable.md)
+- [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
+- [Enable conditional access](active-directory-application-proxy-conditional-access.md)
+- [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)

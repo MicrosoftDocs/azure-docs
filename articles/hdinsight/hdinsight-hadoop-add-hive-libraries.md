@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.date: 02/27/2017
 ms.author: larryfr
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
 # Add custom Hive libraries when creating your HDInsight cluster
 

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/1/2017
+ms.date: 3/16/2017
 ms.author: helaw
 
 ---
@@ -30,7 +30,7 @@ This release provides new features for both tenants and administrators.
 ## Infrastructure and operations
 * Isolated administrator and user portals and APIs provide enhanced security.
 * Use enhanced infrastructure management functionality, such as improved alerting.
-* Using the Windows Azure Pack connector, you can view and manage IaaS virtual machines that are hosted on a Cloud Platform System (CPS) stamp. For this preview release, you can try this only with a CPS environment and additional configuration is required.
+* Using the Windows Azure Pack Connector, you can view and manage IaaS virtual machines that are hosted on Windows Azure Pack. For this preview release, try this only in test environments (both Windows Azure Pack and Azure Stack). Additional configuration is required.
 
 ## Next steps
 * [Understand Azure Stack POC architecture](azure-stack-architecture.md)      

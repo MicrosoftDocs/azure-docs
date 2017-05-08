@@ -46,8 +46,8 @@ Let's touch on some key aspects of the app and its deployment flow that we are s
 >[!IMPORTANT]
 > To create a secure cluster you pass your SSH public key file to pass when you call `az acs create` . Either you can have the Azure CLI 2.0 generate the keys for you and pass them at the same time using the `--generate-ssh-keys` option, or you can pass the path to your keys using the `--ssh-key-value` option (the default location on Linux is `~/.ssh/id_rsa.pub` and on Windows `%HOMEPATH%\.ssh\id_rsa.pub`, but this can be changed).
 <!---Loc Comment: What do you mean by "you pass your SSH public key file to pass"? Thank you.--->
-> To create SSH public and private key files on Linux, see [Create SSH keys on Linux and Mac](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
-> To create SSH public and private key files on Windows, see [Create SSH keys on Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
+> To create SSH public and private key files on Linux, see [Create SSH keys on Linux and Mac](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
+> To create SSH public and private key files on Windows, see [Create SSH keys on Windows](../virtual-machines/linux/ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
 
 1. First, type the [az login](/cli/azure/#login) command in a terminal window to log in to your Azure subscription with the Azure CLI: 
 
@@ -284,6 +284,7 @@ If you open the build definition in VSTS, you'll see something like this:
 	```
 
 	* For the label value, you can either specify the URL of your ACS agent's fully qualified domain name (FQDN), or a custom domain (for example, app.contoso.com). To find your ACS agent's FQDN, run the command `az acs list`, and check the property for `agentPoolProfiles.fqdn`. For example, `myacsagents.westus.cloudapp.azure.com`.
+	* The sample app by default is listening on port 80, for those who have their docker applications listening on other ports, for instance `port 8080` or `443`, attach the port number to the FQDN. For example, `myacsagents.westus.cloudapp.azure.com:8080`. However when you try to access the application from outside, you will need to query it at port 80.
 	* By following the filename convention docker-compose.env.*environment-name*.yml, these settings only affect the named environment (in this case, the environment named *Production*). Inspect the release definition in VSTS, each environment's deployment task is set up to read from a docker-compose file named after this convention.
 
 1. Commit and push the file to your master source repository to start another build.

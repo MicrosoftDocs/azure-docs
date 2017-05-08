@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 03/27/2017
 ms.author: cherylmc
 
 ---
@@ -22,9 +22,10 @@ ms.author: cherylmc
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Classic - Azure Portal](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Classic - Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 > 
-> 
+>
 
 This article walks you through the steps to create a connection between VNets in the Resource Manager deployment model by using VPN Gateway. The virtual networks can be in the same or different regions, and from the same or different subscriptions.
 

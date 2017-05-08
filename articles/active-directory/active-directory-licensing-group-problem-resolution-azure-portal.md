@@ -40,6 +40,8 @@ To see how many licenses are available, go to **Azure Active Directory** > **Lic
 
 To see which users and groups are consuming licenses, click a product. Under **Licensed users**, you'll see all users who've had licenses assigned directly or via one or more groups. Under **Licensed groups**, you'll see all groups that have that product assigned.
 
+**PowerShell:** PowerShell cmdlets report this error as _CountViolation_.
+
 ## Conflicting service plans
 
 **Problem:** One of the products that's specified in the group contains a service plan that conflicts with another service plan that's already assigned to the user via a different product. Some service plans are configured in a way that they can't be assigned to the same user as another related service plan.
@@ -53,12 +55,16 @@ To solve this conflict, you need to disable those two plans either on the E1 lic
 
 The decision about how to resolve conflicting product licenses always belongs to the administrator. Azure AD doesn't automatically resolve license conflicts.
 
+**PowerShell:** PowerShell cmdlets report this error as _MutuallyExclusiveViolation_.
+
 ## Other products depend on this license
 
 **Problem:** One of the products that's specified in the group contains a service plan that must be enabled for another service plan, in another product, to
 function. This error occurs when Azure AD attempts to remove the underlying service plan. For example, this can happen as a result of the user being removed from the group.
 
 To solve this problem, you'll need to make sure that the required plan is still assigned to users through some other method, or that the dependent services are disabled for those users. After doing that, you can properly remove the group license from those users.
+
+**PowerShell:** PowerShell cmdlets report this error as _DependencyViolation_.
 
 ## Usage location isn't allowed
 
@@ -67,6 +73,8 @@ To solve this problem, you'll need to make sure that the required plan is still 
 When Azure AD attempts to assign a group license to a user whose usage location isn't supported, it will fail and record this error on the user.
 
 To solve this problem, remove users from nonsupported locations from the licensed group. Alternatively, if the current usage location values don't represent the actual user location, you can modify them so that the licenses are correctly assigned next time (if the new location is supported).
+
+**PowerShell:** PowerShell cmdlets report this error as _ProhibitedInUsageLocationViolation_.
 
 > [!NOTE]
 > When Azure AD assigns group licenses, any users without a usage location specified inherit the location of the directory. We recommend that administrators set the correct usage location values on users before using group-based licensing to comply with local laws and regulations.

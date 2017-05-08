@@ -37,7 +37,7 @@ You can complete the task using one of the following CLI versions:
 
 To create a virtual network using the Azure CLI, complete the following steps:
 
-1. Install and configure the Azure CLI by following the steps in the [Install and Configure the Azure CLI](../xplat-cli-install.md) article.
+1. Install and configure the Azure CLI by following the steps in the [Install and Configure the Azure CLI](../cli-install-nodejs.md) article.
 
 2. Create a VNet and a subnet:
 
@@ -115,6 +115,6 @@ To create a virtual network using the Azure CLI, complete the following steps:
 
 Learn how to connect:
 
-- A virtual machine (VM) to a virtual network by reading the [Create a Linux VM](../virtual-machines/virtual-machines-linux-quick-create-cli.md) article. Instead of creating a VNet and subnet in the steps of the articles, you can select an existing VNet and subnet to connect a VM to.
+- A virtual machine (VM) to a virtual network by reading the [Create a Linux VM](../virtual-machines/linux/quick-create-cli.md) article. Instead of creating a VNet and subnet in the steps of the articles, you can select an existing VNet and subnet to connect a VM to.
 - The virtual network to other virtual networks by reading the [Connect VNets](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article.
 - The virtual network to an on-premises network using a site-to-site virtual private network (VPN) or ExpressRoute circuit. Learn how by reading the [Connect a VNet to an on-premises network using a site-to-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) and [Link a VNet to an ExpressRoute circuit](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).

@@ -28,7 +28,7 @@ ms.author: jroth
 ## Overview
 This tutorial shows you how to create a single Azure virtual machine using the **Azure Resource Manager** deployment model using Azure PowerShell cmdlets. In this tutorial, we will create a single virtual machine using a single disk drive from an image in the SQL Gallery. We will create new providers for the storage, network, and compute resources that will be used by the virtual machine. If you have existing providers for any of these resources, you can use those providers instead.
 
-If you need the classic version of this topic, see [Provision a SQL Server virtual machine using Azure PowerShell Classic](../sqlclassic/virtual-machines-windows-classic-ps-sql-create.md).
+If you need the classic version of this topic, see [Provision a SQL Server virtual machine using Azure PowerShell Classic](../classic/ps-sql-create.md).
 
 ## Prerequisites
 For this tutorial you'll need:
@@ -187,7 +187,7 @@ Execute the following cmdlet and, in the Windows PowerShell credential request w
     $Credential = Get-Credential -Message "Type the name and password of the local administrator account."
 
 ### Set the operating system properties for the virtual machine
-Now we are ready to set the virtual machine's operating system properties. We will use the [Set-AzureRmVMOperatingSystem](https://msdn.microsoft.com/library/mt603843.aspx) cmdlet to set the type of operating system as Windows, require the [virtual machine agent](../../virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) to be installed, specify that the cmdlet enables auto update and set the virtual machine name, the computer name, and the credential using the variables that you previously initialized.
+Now we are ready to set the virtual machine's operating system properties. We will use the [Set-AzureRmVMOperatingSystem](https://msdn.microsoft.com/library/mt603843.aspx) cmdlet to set the type of operating system as Windows, require the [virtual machine agent](../classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) to be installed, specify that the cmdlet enables auto update and set the virtual machine name, the computer name, and the credential using the variables that you previously initialized.
 
 Execute the following cmdlet to set the operating system properties for your virtual machine.
 

@@ -26,7 +26,7 @@ DocumentDB database accounts are currently the only DocumentDB resource that can
 
 ## Getting ready
 
-Before you can use Azure CLI 1.0 with Azure resource groups, you need to have the right Azure CLI 1.0 version and an Azure account. If you don't have Azure CLI 1.0, [install it](../xplat-cli-install.md).
+Before you can use Azure CLI 1.0 with Azure resource groups, you need to have the right Azure CLI 1.0 version and an Azure account. If you don't have Azure CLI 1.0, [install it](../cli-install-nodejs.md).
 
 ### Update your Azure CLI 1.0 version
 
@@ -35,7 +35,7 @@ At the command prompt, type `azure --version` to see whether you have already in
 	azure --version
     0.10.4 (node: 4.2.4)
 
-If your version is not 0.10.4 or later, you need to either [install Azure CLI 1.0](../xplat-cli-install.md) or update by using one of the native installers, or through **npm** by typing `npm update -g azure-cli` to update or `npm install -g azure-cli` to install.
+If your version is not 0.10.4 or later, you need to either [install Azure CLI 1.0](../cli-install-nodejs.md) or update by using one of the native installers, or through **npm** by typing `npm update -g azure-cli` to update or `npm install -g azure-cli` to install.
 
 ### Set your Azure account and subscription
 
@@ -52,7 +52,7 @@ Which produces the following output:
     Enter the code E1A2B3C4D to authenticate.
 
 > [!NOTE]
-> If you don't have an Azure account, you'll see an error message indicating that you need a different type of account. To create one from your current Azure account, see [Creating a work or school identity in Azure Active Directory](../virtual-machines/virtual-machines-windows-create-aad-work-id.md).
+> If you don't have an Azure account, you'll see an error message indicating that you need a different type of account. To create one from your current Azure account, see [Creating a work or school identity in Azure Active Directory](../virtual-machines/windows/create-aad-work-id.md).
 
 Open [https://aka.ms/devicelogin](https://aka.ms/devicelogin) in a browser and enter the code provided in the command output.
 

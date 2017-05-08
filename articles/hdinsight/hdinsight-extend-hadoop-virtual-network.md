@@ -9,6 +9,7 @@ editor: cgronlun
 
 ms.assetid: 37b9b600-d7f8-4cb1-a04a-0b3a827c6dcc
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -150,6 +151,12 @@ These steps assume that you have already created a Virtual Network and subnet th
 > If you have custom rules that broadly block inbound traffic (such as a **deny all** rule), you may need to adjust the priority values in these examples. The rules in the examples need to occur before rules that block access. Otherwise, the **deny all** rule are tested first and the rules in this example are never applied. You must not block the default rules for an Azure Virtual Network. For example, you should not create a **deny all** rule that is applied before the default **ALLOW VNET INBOUND** rule (which has a priority of 65000.)
 > 
 > For more information on Network Security Group rules, see [What is a Network Security Group?](../virtual-network/virtual-networks-nsg.md).
+
+**Using Azure Resource Management template**
+
+Using the following Resource Management template from the [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/) to create an HDInsight cluster in a VNet with the secure network configurations:
+
+[Deploy a secured Azure VNet and an HDInsight Hadoop cluster within the VNet](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
 **Using Azure PowerShell**
 

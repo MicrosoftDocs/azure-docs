@@ -405,7 +405,7 @@ You specify the name and key of your Azure storage account in this section. See 
 The connectionString uses the storageAccountName and storageAccountKey parameters. The values for these parameters passed by using a configuration file. The definition also uses variables: azureStroageLinkedService and dataFactoryName defined in the template. 
 
 #### Azure SQL Database linked service
-You specify the Azure SQL server name, database name, user name, and user password in this section. See [Azure SQL linked service](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) for details about JSON properties used to define an Azure SQL linked service.  
+You specify the Azure SQL server name, database name, user name, and user password in this section. See [Azure SQL linked service](data-factory-azure-sql-connector.md#linked-service-properties) for details about JSON properties used to define an Azure SQL linked service.  
 
 ```json
 {
@@ -428,7 +428,7 @@ You specify the Azure SQL server name, database name, user name, and user passwo
 The connectionString uses sqlServerName, databaseName, sqlServerUserName, and sqlServerPassword parameters whose values are passed by using a configuration file. The definition also uses the following variables from the template: azureSqlLinkedServiceName, dataFactoryName.
 
 #### Azure blob dataset
-You specify the names of blob container, folder, and file that contains the input data. See [Azure Blob dataset properties](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) for details about JSON properties used to define an Azure Blob dataset. 
+You specify the names of blob container, folder, and file that contains the input data. See [Azure Blob dataset properties](data-factory-azure-blob-connector.md#dataset-properties) for details about JSON properties used to define an Azure Blob dataset. 
 
 ```json
 {
@@ -470,7 +470,7 @@ You specify the names of blob container, folder, and file that contains the inpu
 ```
 
 #### Azure SQL dataset
-You specify the name of the table in the Azure SQL database that holds the copied data from the Azure Blob storage. See [Azure SQL dataset properties](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties) for details about JSON properties used to define an Azure SQL dataset. 
+You specify the name of the table in the Azure SQL database that holds the copied data from the Azure Blob storage. See [Azure SQL dataset properties](data-factory-azure-sql-connector.md#dataset-properties) for details about JSON properties used to define an Azure SQL dataset. 
 
 ```json
 {

@@ -124,7 +124,7 @@ ProxyPassword="Password"
 
 ## Registering a Configuration Server with a different Recovery Services Vault.
 1. Login to your Configuration Server.
-2. from and admin command prompt, run the command
+2. from an admin command prompt, run the command
 
 ```
 reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration

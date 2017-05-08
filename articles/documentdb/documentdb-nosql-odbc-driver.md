@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 01/26/2017
+ms.date: 03/27/2017
 ms.author: mimig
 
 ---
@@ -33,7 +33,14 @@ This is where the ODBC driver comes in. By using the ODBC driver, you can now re
 Now lets get started with the ODBC driver.
 
 ## <a id="install"></a>Step 1: Install the DocumentDB ODBC driver
-1. Download either the [Microsoft Azure DocumentDB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) for 64-bit Windows OS or [Microsoft Azure DocumentDB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) for 32-bit Windows OS.2. Run the msi file locally, which starts the **Microsoft Azure DocumentDB ODBC Driver Installation Wizard**. 
+
+1. Download the drivers for your environment:
+
+    * [Microsoft Azure DocumentDB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) for 64-bit Windows
+    * [Microsoft Azure DocumentDB ODBC 32x64-bit.msi](https://aka.ms/documentdb-odbc-32x64) for 32-bit on 64-bit Windows
+    * [Microsoft Azure DocumentDB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) for 32-bit Windows
+
+    Run the msi file locally, which starts the **Microsoft Azure DocumentDB ODBC Driver Installation Wizard**. 
 2. Complete the installation wizard using the default input to install the ODBC driver.
 3. Open the **ODBC Data source Administrator** app on your computer, you can do this by typing **ODBC Data sources** in the Windows search box. 
     You can confirm the driver was installed by clicking the **Drivers** tab and ensuring **Microsoft DocumentDB ODBC Driver** is listed.

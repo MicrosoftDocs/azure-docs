@@ -161,6 +161,10 @@ When an alert is raised, Application Insights can automatically create a work it
 * [Support](app-insights-get-dev-support.md) - You can take advantage of the Azure support program. There are lively forums where you can get answers from our developers. And in the last resort, we can give you individual help.
 * [Pricing](app-insights-pricing.md) - You can get started for free, and that continues while you're in low volume.
 
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
 ## Next steps
 Getting started with Application Insights is easy. The main options are:
 

@@ -128,7 +128,6 @@
 
 ## Manage devices
 ### [Register devices](active-directory-device-registration-overview.md)
-#### [Manage automatic registration](active-directory-device-registration.md)
 #### [Setup](active-directory-conditional-access-automatic-device-registration-setup.md)
 #### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md)
 #### [FAQs](active-directory-device-registration-faq.md)
@@ -160,6 +159,7 @@
 #### Publish apps
 ##### [Azure portal](application-proxy-publish-azure-portal.md)
 ##### [Classic portal](active-directory-application-proxy-publish.md)
+
 #### [Security](application-proxy-security-considerations.md)
 #### [Networks](application-proxy-network-topology-considerations.md)
 #### [Remote Desktop](application-proxy-publish-remote-desktop.md)
@@ -172,7 +172,8 @@
 #### [Custom domains](active-directory-application-proxy-custom-domains.md)
 #### [Access apps](active-directory-appssoaccess-whatis.md)
 ##### [Azure portal](application-proxy-sso-azure-portal.md)
-#### [Single sign-on](active-directory-application-proxy-sso-using-kcd.md)
+#### [SSO with KCD](active-directory-application-proxy-sso-using-kcd.md)
+#### [SSO with headers](application-proxy-ping-access.md)
 #### [Claims-aware apps](active-directory-application-proxy-claims-aware-apps.md)
 #### [Native client apps](active-directory-application-proxy-native-client.md)
 #### [Custom home page](application-proxy-office365-app-launcher.md)

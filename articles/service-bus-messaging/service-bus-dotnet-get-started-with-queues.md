@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 03/23/2017
 ms.author: jotaub;sethm
 
 ---
@@ -167,8 +167,4 @@ Check out our [GitHub repository with samples](https://github.com/Azure-Samples/
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
 [queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
 [queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
-
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
-
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples

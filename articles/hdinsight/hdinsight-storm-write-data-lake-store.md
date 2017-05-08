@@ -9,6 +9,7 @@ editor: cgronlun
 
 ms.assetid: 1df98653-a6c8-4662-a8c6-5d288fc4f3a6
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -179,8 +180,7 @@ The project containing this topology is available as a download from [https://gi
    
     When prompted, enter the password used when creating the SSH user for the cluster. If you used a public key instead of a password, you may need to use the `-i` parameter to specify the path to the matching private key.
    
-   > [!NOTE]
-   > If you are using a Windows client for development, follow the information in [Connect to Linux-based HDInsight with SSH from Windows](hdinsight-hadoop-linux-use-ssh-windows.md) for information on using the PuTTY client to connect to the cluster.
+   For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 3. Once connected, use the following command to create a file named `dev.properties`:
 

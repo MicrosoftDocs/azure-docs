@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2017
+ms.date: 03/17/2017
 ms.author: johnkem; magoedte
 
 ---
@@ -195,8 +195,10 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 ## Supported log categories per resource type
 |Resource Type|Category|Category Display Name|
 |---|---|---|
+|Microsoft.ApiManagement/service|GatewayLogs|Logs related to ApiManagement Gateway|
 |Microsoft.Automation/automationAccounts|JobLogs|Job Logs|
 |Microsoft.Automation/automationAccounts|JobStreams|Job Streams|
+|Microsoft.Automation/automationAccounts|DscNodeStatus|Dsc Node Status|
 |Microsoft.Batch/batchAccounts|ServiceLog|Service Logs|
 |Microsoft.DataLakeAnalytics/accounts|Audit|Audit Logs|
 |Microsoft.DataLakeAnalytics/accounts|Requests|Request Logs|
@@ -204,16 +206,19 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 |Microsoft.DataLakeStore/accounts|Requests|Request Logs|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Archive Logs|
 |Microsoft.EventHub/namespaces|OperationalLogs|Operational Logs|
+|Microsoft.EventHub/namespaces|AutoScaleLogs|Auto Scale Logs|
 |Microsoft.KeyVault/vaults|AuditEvent|Audit Logs|
 |Microsoft.Logic/workflows|WorkflowRuntime|Workflow runtime diagnostic events|
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Integration Account track events|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Network Security Group Event|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Network Security Group Rule Counter|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Network Security Group Rule Flow Event|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Load Balancer Alert Events|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Load Balancer Probe Health Status|
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Application Gateway Access Log|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Application Gateway Performance Log|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Application Gateway Firewall Log|
+|Microsoft.Network/expressRouteCircuits|GWMCountersTable|Table of GWM counters|
 |Microsoft.Search/searchServices|OperationLogs|Operation Logs|
 |Microsoft.ServerManagement/nodes|RequestLogs|Request Logs|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Operational Logs|

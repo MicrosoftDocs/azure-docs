@@ -26,8 +26,6 @@ The following are required to complete the tutorial:
 
 * An Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 * A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
-* .NET Framework 4.0 or later.
-* Visual Studio.
 * Understanding of [how to use Azure functions](../azure-functions/functions-overview.md). Also, review [Azure functions HTTP and webhook bindings](../azure-functions/functions-bindings-http-webhook.md).
 
 This topic shows how to

@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/14/2017
+ms.date: 03/18/2017
 ms.author: sasubram
 
 ---
@@ -96,6 +96,13 @@ Azure AD has a fixed set of character, password strength, and account lockout re
 ### Applications want to differentiate their experience between a tenant user and a guest user. Is there standard guidance for this? Is the presence of the identity provider claim the right model for this?
  
 A guest user can use any identity provider to authenticate as we discuss in [Properties of a B2B collaboration user](active-directory-b2b-user-properties.md). Hence, the UserType is the right property to determine this. The UserType claim is not currently included in the token. Applications should use Graph API to query the directory for the user and getting their UserType.
+
+### Where can find a B2B collaboration community to share solutions and submit ideas?
+
+We're constantly listening to your feedback on ways to improve B2B collaboration. We invite you join the discussion, share your user scenarios, best practices, and what you like about Azure AD B2B collaboration at the [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b)
+ 
+We also invite you to submit your ideas and vote for future features at the [B2B Collaboration Ideas](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas) site.
+
 
 ### Next steps
 

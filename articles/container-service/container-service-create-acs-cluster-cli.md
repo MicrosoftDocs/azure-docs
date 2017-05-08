@@ -72,7 +72,7 @@ Other inputs are set to default values (see the following screen) unless overwri
 
 
 ### Quick `acs create` using defaults
-If you have an SSH RSA public key file `id_rsa.pub` in the default location (or created one for [OS X and Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)), use a command like the following:
+If you have an SSH RSA public key file `id_rsa.pub` in the default location (or created one for [OS X and Linux](../virtual-machines/linux/mac-create-ssh-keys.md) or [Windows](../virtual-machines/linux/ssh-from-windows.md)), use a command like the following:
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789

@@ -59,7 +59,7 @@ Azure customers can unlock 25,000 free emails each month. These 25,000 free mont
     ![key][key]
 2. The password is the one you chose at setup. You can select **Change password** or **Reset password** to make any changes.
 
-To manage your email deliverability settings, click the **Manage button**. This will redirect to your [SendGrid dashboard][SendGrid dashboard]
+To manage your email deliverability settings, click the **Manage button**. This will redirect to your SendGrid dashboard.
 
     ![manage][manage]
 
@@ -78,7 +78,6 @@ To manage your email deliverability settings, click the **Manage button**. This 
 [general-api-key]: ./media/sendgrid-sign-up/general-api-key.png
 [access]: ./media/sendgrid-sign-up/access.png
 [key]: ./media/sendgrid-sign-up/key.png
-[SendGrid dashboard]: ./media/sendgrid-sign-up/dashboard.png
 
 <!--Links-->
 
@@ -88,4 +87,3 @@ To manage your email deliverability settings, click the **Manage button**. This 
 [SendGrid Provisioning Process]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [all APIs]: https://sendgrid.com/docs/API_Reference/index.html
 [Email API Overview]: https://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/index.html
-

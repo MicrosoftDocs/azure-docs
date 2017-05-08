@@ -2,7 +2,7 @@
 title: Create an Azure IoT Hub using a template (PowerShell) | Microsoft Docs
 description: How to use an Azure Resource Manager template to create an IoT Hub with PowerShell.
 services: iot-hub
-documentationcenter: .net
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
 editor: ''

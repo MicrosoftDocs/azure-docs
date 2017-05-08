@@ -32,7 +32,7 @@ You can use the Azure portal to register your application with your Azure Active
 
 ## Update application settings from the Azure portal
 
-You can easily modify an existing application's settings using the Azure portal. For example, you may want to configure a reply URL, which is where Azure AD issues token responses. You may also want to configure permissions to other applications, for instance to allow your application to access the MS Graph API. You can do all this through the application settings page.
+You can easily modify an existing application's settings using the Azure portal. For example, you may want to configure a reply URL, which is where Azure AD issues token responses. You may also want to configure permissions to other applications, for instance to allow your application to access the Microsoft Graph API. You can do all this through the application settings page.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Choose your Azure AD tenant by selecting your account in the top right corner of the page.
@@ -41,7 +41,7 @@ You can easily modify an existing application's settings using the Azure portal.
   * The **Properties** page lets you modify the general information for the application. This includes the application name, the sign-on URL, and the logout URL.
   * The **Reply URLs** page allows you to add a reply URL, which is where Azure AD sends token responses.
   * The **Owners** page allows you to add application owners.
-  * The **Permissions** page allows you to configure permissions for the app. For example, to access the MS Graph API, click **Add** and select **Microsoft Graph** in the API selector, then choose the permission required, for example **Read Directory Data**.
+  * The **Permissions** page allows you to configure permissions for the app. For example, to access the Microsoft Graph API, click **Add** and select **Microsoft Graph** in the API selector, then choose the permission required, for example **Read Directory Data**.
   * The **Keys** page allows you to add application secrets. The secret will only be displayed once immediately after creation, so make sure to copy it for further use.
 
 ## Use the inline manifest editor
@@ -57,4 +57,4 @@ You can use the inline manifest editor to modify certain application properties 
 ## Next Steps
 
 1. Check out the [Quickstarts](active-directory-developers-guide.md) for detailed walkthroughs of applications performing authentication using Azure AD.
-2. Check out our full list of code samples in [Github](https://github.com/azure-samples).
+2. Check out our full list of code samples in [GitHub](https://github.com/azure-samples).

@@ -18,7 +18,7 @@ ms.author: mbaldwin
 ---
 # Best practices for configuring and using Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://blogs.technet.microsoft.com/enterprisemobility/2016/08/12/application-remoting-and-the-cloud/) for details.
+> Azure RemoteApp is being discontinued on August 31, 2017. Read the [announcement](https://blogs.technet.microsoft.com/enterprisemobility/2016/08/12/application-remoting-and-the-cloud/) for details.
 > 
 > 
 

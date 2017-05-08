@@ -61,7 +61,7 @@ Users creating recovery services vault would be able to avail all the Security F
    As part of Security Features, when critical operations are performed in Azure Backup, you have to enter Security PIN available on Azure portal. Enabling Azure Multi-Factor authentication adds a layer of security, ensuring only authorized users with valid Azure credentials and authenticated from second device can access Azure portal and perform such critical operations.
 6. Use the toggle button to **Enable** and click **Save** button on top to save Security Settings as shown in the figure. You can select **Enable** only after you select a value from "Have you configured Azure Multi-Factor Authentication?" drop down.
 
-    ![Enable security settings](./media/backup-azure-security-feature/enable-security-settings.png)
+    ![Enable security settings](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
 ## Recovering deleted backup data
 As a security measure, Azure Backup retains deleted backup data for additional 14 days and does not delete it immediately if Stop backup with delete backup data operation is performed. To restore this data in the 14-day period, use the following steps:

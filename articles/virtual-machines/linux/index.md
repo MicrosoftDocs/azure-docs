@@ -15,7 +15,19 @@ ms.author: carolz
 ---
 # Linux Virtual Machine Documentation
 
-Learn how to run Virtual Machines on Azure using the Linux distribution of your choice. Documentation, API references, and samples show you different ways to create and deploy VM templates.
+<div class="introHolder">
+    <div class="intro">
+        Learn how to run Virtual Machines on Azure using the Linux distribution of your choice. Documentation, API references, and samples show you different ways to create and deploy VM templates.
+    </div>
+    <div class="calloutHolder">
+        <div class="callout">
+            <a href="https://azure.microsoft.com/community/training/courses/managing-infrastructure-microsoft-azure-getting-started/">
+                <img src="media/index/pluralsight.svg" />
+                Free PluralSight video training - Managing Infrastructure using Microsoft Azure
+            </a>
+        </div>
+    </div>
+</div>
 
 <ul class="panelContent cardsFTitle">
     <li>

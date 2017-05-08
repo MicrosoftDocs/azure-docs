@@ -65,6 +65,7 @@
 ### [Predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 ### [Analyze website logs](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 ### [Use Caffe for deep learning](hdinsight-deep-learning-caffe-spark.md)
+### [Use with Microsoft Cognitive Toolkit](hdinsight-apache-spark-microsoft-cognitive-toolkit.md)
 ### [Use Zeppelin notebooks](hdinsight-apache-spark-zeppelin-notebook.md)
 ### [Jupyter notebook kernels](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 ### [Use external packages with Jupyter using cell magic](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
@@ -141,9 +142,8 @@
 #### [Use REST to install apps](https://msdn.microsoft.com/library/mt706515.aspx)
 #### [Publish HDInsight apps to Azure Marketplace](hdinsight-apps-publish-applications.md)
 ## Secure
+### [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 ### [Use SSH tunneling](hdinsight-linux-ambari-ssh-tunnel.md)
-### [Use SSH from Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-### [Use SSH from Windows OS](hdinsight-hadoop-linux-use-ssh-windows.md)
 ### [Restrict access to data](hdinsight-storage-sharedaccesssignature-permissions.md)
 ## Manage
 ### [Create Linux clusters](hdinsight-hadoop-provision-linux-clusters.md)
@@ -195,16 +195,7 @@
 # Related
 ## Windows clusters
 ### [Migrate Windows clusters to Linux clusters](hdinsight-migrate-from-windows-to-linux.md)
-### [Start with Hadoop](hdinsight-hadoop-tutorial-get-started-windows.md)
-### [Start with Storm](hdinsight-apache-storm-tutorial-get-started.md)
-### [Start with HBase](hdinsight-hbase-tutorial-get-started.md)
 ### [Run Hadoop MapReduce samples](hdinsight-run-samples.md)
-### [Create Hadoop clusters](hdinsight-provision-clusters.md)
-#### [Use the Azure portal](hdinsight-hadoop-create-windows-clusters-portal.md)
-#### [Use .NET SDK](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md)
-#### [Use Azure CLI](hdinsight-hadoop-create-windows-clusters-cli.md)
-#### [Use Azure PowerShell](hdinsight-hadoop-create-windows-clusters-powershell.md)
-#### [Use Resource Manager templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 ### [Use Solr on clusters](hdinsight-hadoop-solr-install-linux.md)
 ### [Use Giraph to process large-scale graphs](hdinsight-hadoop-giraph-install.md)
 ### [Use Oozie for workflows](hdinsight-use-oozie.md)
@@ -212,7 +203,6 @@
 ### [Use Maven to build Java applications](hdinsight-hbase-build-java-maven.md)
 ### [Use the Tez UI to debug Tez Jobs](hdinsight-debug-tez-ui.md)
 ### [Customize using Script Action](hdinsight-hadoop-customize-cluster.md)
-### [Availability and reliability](hdinsight-high-availability.md)
 ### [Access YARN application logs](hdinsight-hadoop-access-yarn-app-logs.md)
 ### [Use Apache Phoenix and SQuirreL](hdinsight-hbase-phoenix-squirrel.md)
 ### [Generate movie recommendations using Mahout](hdinsight-mahout.md)

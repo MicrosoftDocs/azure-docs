@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 03/14/2017
 ms.author: awills
 
 ---
@@ -170,6 +170,10 @@ See the [Limits summary](app-insights-pricing.md#limits-summary).
 
 ### How can I see POST data in my server requests?
 We don't log the POST data automatically, but you can use [TrackTrace or log calls](app-insights-search-diagnostic-logs.md). Put the POST data in the message parameter. You can't filter on the message in the same way you can filter on properties, but the size limit is longer.
+
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="add"></a>Next steps
 * [Write complex queries in Analytics](app-insights-analytics-tour.md)

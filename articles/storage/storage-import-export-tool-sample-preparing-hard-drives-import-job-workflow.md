@@ -1,6 +1,6 @@
 ---
-title: Sample workflow to prep hard drives for an Azure Import job | Microsoft Docs
-description: See a walkthrough for the complete process of preparing drives for an import job in the Azure Import/Export service
+title: Sample workflow to prep hard drives for an Azure Import/Export import job | Microsoft Docs
+description: See a walkthrough for the complete process of preparing drives for an import job in the Azure Import/Export service.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -76,7 +76,7 @@ The tool will distribute data across two hard drives in an optimized way.
 
 In addition, you can set the following metadata for all files:
 
-* **UploadMethod:** Windows Azure Import/Export Service
+* **UploadMethod:** Windows Azure Import/Export service
 * **DataSetName:** SampleData
 * **CreationDate:** 10/1/2013
 
@@ -85,7 +85,7 @@ To set metadata for the imported files, create a text file, `c:\WAImportExport\S
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Metadata>
-    <UploadMethod>Windows Azure Import/Export Service</UploadMethod>
+    <UploadMethod>Windows Azure Import/Export service</UploadMethod>
     <DataSetName>SampleData</DataSetName>
     <CreationDate>10/1/2013</CreationDate>
 </Metadata>
@@ -108,9 +108,9 @@ To set these properties, create a text file, `c:\WAImportExport\SampleProperties
 </Properties>
 ```
 
-## Run the Azure Import/Export tool (WAImportExport.exe)
+## Run the Azure Import/Export Tool (WAImportExport.exe)
 
-Now you are ready to run the Azure Import/Export tool to prepare the two hard drives.
+Now you are ready to run the Azure Import/Export Tool to prepare the two hard drives.
 
 **For the first session:**
 

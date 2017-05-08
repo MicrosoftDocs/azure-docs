@@ -1,7 +1,7 @@
 
 Since the Azure Functions quickstarts contain functional code, you can immediately test your new function.
 
-1. In the **Develop** tab, review the **Code** window and notice that this Node.js code expects an HTTP request with a *name* value passed either in the message body or in a query string. When the function runs, this value is returned in the response message.
+1. In the **Develop** tab, review the **Code** window and notice that the provided code expects an HTTP request with a *name* value passed either in the message body or in a query string. When the function runs, this value is returned in the response message. The example shown below is a JavaScript function.
    
 2. Click **Test** to display the built-in HTTP test request pane for the function.
  

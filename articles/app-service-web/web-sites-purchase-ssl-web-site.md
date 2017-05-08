@@ -82,15 +82,15 @@ In this Step, you will learn how to place an Order for an SSL Certificate of you
 > 
 
 ## <a name="bkmk_StoreKeyVault"></a>Step 1: Store the certificate in Azure Key Vault
-In this Step, you will learn how to place an Store an SSL Certificate that you purchased to Azure Key Vault of your choice.
+In this step, you will learn how to store an SSL Certificate that you purchased in the Azure Key Vault of your choice.
 
-1. Once the SSL Certificate purchase is complete You will need to manually open **App Service Certificates** Resource blade by browsing to it again (See Step 1 above)   
+1. Once the SSL Certificate purchase is complete you will need to manually open **App Service Certificates** Resource blade by browsing to it again (See Step 1 above)   
    
    ![insert image of ready to store in KV](./media/app-service-web-purchase-ssl-web-site/ReadyKV.jpg)
    
-   You will notice that Certificate status is **“Pending Issuance”** as there are few more steps you need to complete before you can start using this certificates.
-2. Click on **“Certificate Configuration”** inside Certificate Properties blade and Click on **“Step 1: Store”** to store this certificate in Azure Key Vault.
-3. From **“Key Vault Status”** Blade click on **“Key Vault Repository”** to choose an existing Key Vault to store this certificate **OR “Create New Key Vault”** to create new Key Vault inside same subscription and resource group.
+   You will notice that Certificate status is **“Pending Issuance”** as there are a few more steps you need to complete before you can start using this certificate.
+2. Click on **“Certificate Configuration”** inside the Certificate Properties blade and Click on **“Step 1: Store”** to store this certificate in Azure Key Vault.
+3. From **“Key Vault Status”** Blade click on **“Key Vault Repository”** to choose an existing Key Vault to store this certificate **OR “Create New Key Vault”** to create new Key Vault inside the same subscription and resource group.
    
    ![insert image of create new KV](./media/app-service-web-purchase-ssl-web-site/NewKV.jpg)
    
@@ -171,8 +171,16 @@ If you selected **IP based SSL** and your custom domain is configured using an A
 * Using the tools provided by your domain name registrar, modify the A record for your custom domain name to point to the IP address from the previous step.
    At this point, you should be able to visit your app using HTTPS:// instead of HTTP:// to verify that the certificate has been configured correctly.
 
-## <a name="bkmk_Rekey"></a>Export App Service Certificate
+## <a name="bkmk_Export"></a>Export App Service Certificate
 You can create a local PFX copy of an App Service certificate so that you can use it with other Azure Services. For more information, **[read our blog post](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/)**
+
+## <a name="bkmk_Renew"></a>Auto Renew App Service Certificate
+To toggle Auto Renew settings for your certificate or to manually renew your certificate simply select **"Auto Renew Settings"** option from **"Certificate Properties"** Blade. 
+
+
+  ![insert image of create using browse](./media/app-service-web-purchase-ssl-web-site/autorenew.png)
+
+Turn **"Auto Renew"** ON if you would like to automatically renew your certificate before it expires. This is defsault option. If turned on, we would attempt to renew your certificate starting 90th day before expiration. If you have created SSL bindings on your App Service Apps using Azure portal experience then those bindings would be updated as well with the new certificate once it’s ready (Just like ReKey and Sync scenario). On the other hand, if you would like to take care of renewals manually then you should turn this setting off. You can manually renew an App Service Certificate only if its expiration is within 90 days.
 
 ## <a name="bkmk_Rekey"></a>Rekey and Sync the Certificate
 1. For security reasons, if you ever need to Rekey your certificate then simply select **"Rekey and Sync"** option from **"Certificate Properties"** Blade. 

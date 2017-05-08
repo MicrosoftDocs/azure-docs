@@ -209,7 +209,7 @@ Azure Backup supports the following list of operating systems for backing up: fi
 
 **For Azure VM backup:**
 
-* **Linux**: Azure Backup supports [a list of distributions that are endorsed by Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) except Core OS Linux.  Other Bring-Your-Own-Linux distributions also might work as long as the VM agent is available on the virtual machine and support for Python exists.
+* **Linux**: Azure Backup supports [a list of distributions that are endorsed by Azure](../virtual-machines/linux/endorsed-distros.md) except Core OS Linux.  Other Bring-Your-Own-Linux distributions also might work as long as the VM agent is available on the virtual machine and support for Python exists.
 * **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
 
 

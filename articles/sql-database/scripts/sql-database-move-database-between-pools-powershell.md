@@ -23,7 +23,7 @@ ms.author: janeng
 
 This sample PowerShell script creates two elastic pools and moves a database from one elastic pool into another elastic pool, and then moves a database out of an elastic pool to a single database performance level. 
 
-Before running this script, ensure that a connection with Azure has been created using the `Add-AzureRmAccount` cmdlet.
+[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Sample script
 

@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2017
 ms.author: jgao
+ROBOTS: NOINDEX
 
 ---
 # Run Hadoop MapReduce samples in Windows-based HDInsight

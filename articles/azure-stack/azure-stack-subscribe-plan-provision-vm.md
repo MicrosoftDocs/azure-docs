@@ -30,5 +30,14 @@ Now that you've [created an offer](azure-stack-create-offer.md), test that your 
 
 After you subscribe to an offer, refresh the portal to see which services are part of the new subscription.
 
+# Subscribe to an add-on plan
+If the offer has an add-on plan, tenants can add them to their subscription at any time.  
+
+1. In the tenant portal, select More services > Subscriptions .
+
+2. Click on the subscription > Add Plan button, and select the add-on plan.
+
+
+
 ## Next steps
 [Provision a virtual machine](azure-stack-provision-vm.md)

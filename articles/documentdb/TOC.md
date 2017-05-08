@@ -21,6 +21,7 @@
 ## Build a web app
 ### [.NET web app](documentdb-dotnet-application.md)
 ### [.NET web app for MongoDB API](documentdb-mongodb-application.md)
+### [Xamarin app](documentdb-mobile-apps-with-xamarin.md)
 ### [Node.js web app](documentdb-nodejs-application.md)
 ### [Java web app](documentdb-java-application.md)
 ### [Python Flask web app](documentdb-python-application.md)

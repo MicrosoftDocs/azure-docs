@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/sql-database/sql-database-get-started
+redirect_url: /azure/sql-database/sql-database-service-tiers
 --- 

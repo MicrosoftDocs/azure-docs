@@ -26,6 +26,7 @@
 ### [Manage artifacts](devtest-lab-add-vm-with-artifacts.md)
 
 ## Manage VM bases and templates
+### [Create claimable VM](devtest-lab-add-claimable-vm.md)
 ### [Create multi-VM environments with Azure Resource Manager templates](devtest-lab-create-environment-from-arm.md)
 ### [Configure Marketplace images](devtest-lab-configure-marketplace-images.md)
 ### [Comparing images versus formulas](devtest-lab-comparing-vm-base-image-types.md)

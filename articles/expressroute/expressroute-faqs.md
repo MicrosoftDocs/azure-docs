@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2017
+ms.date: 03/29/2017
 ms.author: cherylmc
 
 ---
@@ -48,27 +48,25 @@ Please refer to the [ExpressRoute SLA page](https://azure.microsoft.com/support/
 ## Supported services
 ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) for various types of services.
 
-Private peering
+### Private peering
 * Virtual Networks, including all virtual machines and cloud services
 
-Public peering
-* Most of the Azure services with a few exceptions below
+### Public peering
 * Power BI
 * Dynamics 365 for Operations (formerly known as Dynamics AX Online)
+* Most of the Azure services with a few exceptions below
+  * CDN
+  * Visual Studio Team Services Load Testing
+  * Multi-factor Authentication
+  * Traffic Manager
 
-Microsoft peering
+### Microsoft peering
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
 * Most of the Dynamics 365 services (formerly known as CRM Online)
   * Dynamics 365 for Sales
   * Dynamics 365 for Customer Service
   * Dynamics 365 for Field Service
   * Dynamics 365 for Project Service
-
-The following Azure services are not supported on ExpressRoute
-* CDN
-* Visual Studio Team Services Load Testing
-* Multi-factor Authentication
-* Traffic Manager
 
 ## Data and connections
 ### Are there limits on the amount of data that I can transfer using ExpressRoute?
@@ -107,7 +105,7 @@ Yes. You can have more than one ExpressRoute circuit in your subscription. The d
 Yes. You can have ExpressRoute circuits with many service providers. Each ExpressRoute circuit will be associated with one service provider only. 
 
 ### Can I have multiple ExpressRoute circuits in the same location?
-Yes. You can have multiple ExpressRoute circuits, with the same or different service providers in the same location. However it will not be possible for you to link more than one ExpressRoute circuit to the same Virtual Network.
+Yes. You can have multiple ExpressRoute circuits, with the same or different service providers in the same location. However it will not be possible for you to link more than one ExpressRoute circuit to the same Virtual Network from the same location.
 
 ### How do I connect my virtual networks to an ExpressRoute circuit
 The basic steps are outlined below.
@@ -173,9 +171,10 @@ The following steps will help Azure recognize the activation request:
 
 1. Establish the public peering for your ExpressRoute circuit.
 2. Perform a DNS lookup and find the IP address of **kms.core.windows.net**
-3. Then do one of the following two items so that the Key Management Service will recognize that the activation request comes from Azure and will honor the request.
+3. Then do one of the following three items so that the Key Management Service will recognize that the activation request comes from Azure and will honor the request.
    * On your on-premises network, route the traffic destined for the IP address (obtained in step 2) back to Azure via the public peering.
    * Have your NSP provider hair-pin the traffic back to Azure via the public peering.
+   * Create a User Defined Route that points that IP that has Internet as a next hop, and apply it to the subnet(s) where these virtual machines are.
 
 ### Can I change the bandwidth of an ExpressRoute circuit?
 Yes, you can attempt to increase the bandwidth of your ExpressRoute circuit in the Azure Portal or by using PowerShell. If there is capacity available on the physical port on which your circuit was created, your change will succeed. If your change fails, it means there isn’t enough capacity left on the current port and that you need to create a new ExpressRoute circuit with the higher bandwidth OR that there is no additional capacity at that location, in which case you will not be able to increase the bandwidth. You will also have to follow up with your connectivity provider to ensure that they update the throttles within their networks to support the bandwidth increase. You cannot, however, reduce the bandwidth of your ExpressRoute circuit. You will have to create a new ExpressRoute circuit with lower bandwidth and delete the old circuit.

@@ -26,7 +26,7 @@ From this table you can find more information about the parameters that are used
 In addition to these templates, you can search through the [gallery templates](https://azure.microsoft.com/documentation/templates/).
 
 ## Azure portal
-Deploying a template by using the Azure portal is easy to do by just sending a URL to it. You need the name of the template file to deploy it. You can find the name by looking at the pages in the template gallery or by looking in the Github repository. Change {template name} in this URL to the name of the template that you want to deploy and then enter it into your browser:
+Deploying a template by using the Azure portal is easy to do by just sending a URL to it. You need the name of the template file to deploy it. You can find the name by looking at the pages in the template gallery or by looking in the GitHub repository. Change {template name} in this URL to the name of the template that you want to deploy and then enter it into your browser:
 
     https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F{template name}%2Fazuredeploy.json
 
@@ -53,7 +53,7 @@ Run these commands to create the resource group and the deployment after you rep
 When you run the **New-AzureRmResourceGroupDeployment** command, you are prompted to enter values for the parameters in the template. Depending on the template, it can take some time for Azure to deploy the resources.
 
 ## Azure CLI
-[Install Azure CLI](../articles/xplat-cli-install.md), log in, and make sure you enable Resource Manager commands. For information about how to do this, see [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md).
+[Install Azure CLI](../articles/cli-install-nodejs.md), log in, and make sure you enable Resource Manager commands. For information about how to do this, see [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md).
 
 Run these commands to create the resource group and the deployment after you replace the text in brackets with the resource group name, location, deployment name, and template name:
 

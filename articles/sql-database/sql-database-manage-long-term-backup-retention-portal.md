@@ -88,10 +88,6 @@ For more information about long-term backup retention, see [Long-term backup ret
 
    ![define retention policy](./media/sql-database-get-started-backup-recovery/enable-long-term-retention.png)
 
-14. After long-term backup retention has been enabled, open the **Recovery Services vault** blade (go to **All resources** and select it from the list of resources for your subscription).
-
-   ![view recovery services vault](./media/sql-database-get-started-backup-recovery/view-recovery-services-vault.png)
-
 
 ## Restore from long-term backup retention using the Azure portal
 

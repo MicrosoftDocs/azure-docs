@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 03/01/2017
 ms.author: tarcher
 
 ---
@@ -104,5 +104,6 @@ The following additional configuration entries have been added.
 ### Your Azure Active Directory App was updated
 Your Azure Active Directory App was updated to include the *Read directory data* permission and an additional key was created which was then used as the *ida:Password* in the `web.config` file.
 
-[Learn more about Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+## Next steps
+- [Learn more about Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 

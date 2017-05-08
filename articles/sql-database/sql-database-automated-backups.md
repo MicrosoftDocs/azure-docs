@@ -86,6 +86,6 @@ The restore API supports backups stored in the vault as long as the vault is in 
 
 - Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. To learn about the other Azure SQL Database business continuity solutions, see [Business continuity overview](sql-database-business-continuity.md).
 - To restore to a point in time using the Azure portal, see [restore database to a point in time using the Azure portal](sql-database-point-in-time-restore-portal.md).
-- To restore to a point in time using PowerShell, see [restore database to a point in time using PowerShell](sql-database-point-in-time-restore-powershell.md).
+- To restore to a point in time using PowerShell, see [restore database to a point in time using PowerShell](scripts/sql-database-restore-database-powershell.md).
 - To configure, manage, and restore from long-term retention of automated backups in an Azure Recovery Services vault using the Azure portal, see [Manage long-term backup retention usihg the Azure portal](sql-database-manage-long-term-backup-retention-portal.md).
 - To configure, manage, and restore from long-term retention of automated backups in an Azure Recovery Services vault using PowerShell, see [Manage long-term backup retention usihg PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).

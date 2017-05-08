@@ -1,5 +1,5 @@
 ---
-title: Create templates for Azure deployments | Microsoft Docs
+title: Azure Resource Manger template structure and syntax | Microsoft Docs
 description: Describes the structure and properties of Azure Resource Manager templates using declarative JSON syntax.
 services: azure-resource-manager
 documentationcenter: na
@@ -13,16 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2017
+ms.date: 03/23/2017
 ms.author: tomfitz
 
 ---
-# Authoring Azure Resource Manager templates
-This topic describes the structure of an Azure Resource Manager template. It presents the different sections of a template and the properties that are available in those sections. The template consists of JSON and expressions that you can use to construct values for your deployment. 
-
-To view the template for resources you have already deployed, see [Export an Azure Resource Manager template from existing resources](resource-manager-export-template.md). For guidance on creating a template, see [Resource Manager Template Walkthrough](resource-manager-template-walkthrough.md). For recommendations about creating templates, see [Best practices for creating Azure Resource Manager templates](resource-manager-template-best-practices.md).
-
-A good JSON editor can simplify the task of creating templates. For information about using Visual Studio with your templates, see [Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). For information about using VS Code, see [Working with Azure Resource Manager Templates in Visual Studio Code](resource-manager-vs-code.md).
+# Understand the structure and syntax of Azure Resource Manager templates
+This topic describes the structure of an Azure Resource Manager template. It presents the different sections of a template and the properties that are available in those sections. The template consists of JSON and expressions that you can use to construct values for your deployment. For a step-by-step tutorial on creating a template, see [Create your first Azure Resource Manager template](resource-manager-create-first-template.md).
 
 Limit the size your template to 1 MB, and each parameter file to 64 KB. The 1-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. 
 
@@ -31,12 +27,12 @@ In its simplest structure, a template contains the following elements:
 
 ```json
 {
-   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-   "contentVersion": "",
-   "parameters": {  },
-   "variables": {  },
-   "resources": [  ],
-   "outputs": {  }
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "",
+    "parameters": {  },
+    "variables": {  },
+    "resources": [  ],
+    "outputs": {  }
 }
 ```
 
@@ -49,20 +45,76 @@ In its simplest structure, a template contains the following elements:
 | resources |Yes |Resource types that are deployed or updated in a resource group. |
 | outputs |No |Values that are returned after deployment. |
 
+Each element contains properties you can set. The following example contains the full syntax for a template:
+
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "",
+    "parameters": {  
+        "<parameter-name>" : {
+            "type" : "<type-of-parameter-value>",
+            "defaultValue": "<default-value-of-parameter>",
+            "allowedValues": [ "<array-of-allowed-values>" ],
+            "minValue": <minimum-value-for-int>,
+            "maxValue": <maximum-value-for-int>,
+            "minLength": <minimum-length-for-string-or-array>,
+            "maxLength": <maximum-length-for-string-or-array-parameters>,
+            "metadata": {
+                "description": "<description-of-the parameter>" 
+            }
+        }
+    },
+    "variables": {  
+        "<variable-name>": "<variable-value>",
+        "<variable-name>": { 
+            <variable-complex-type-value> 
+        }
+    },
+    "resources": [
+      {
+          "apiVersion": "<api-version-of-resource>",
+          "type": "<resource-provider-namespace/resource-type-name>",
+          "name": "<name-of-the-resource>",
+          "location": "<location-of-resource>",
+          "tags": "<name-value-pairs-for-resource-tagging>",
+          "comments": "<your-reference-notes>",
+          "dependsOn": [
+              "<array-of-related-resource-names>"
+          ],
+          "properties": "<settings-for-the-resource>",
+          "copy": {
+              "name": "<name-of-copy-loop>",
+              "count": "<number-of-iterations>"
+          },
+          "resources": [
+              "<array-of-child-resources>"
+          ]
+      }
+    ],
+    "outputs": {
+        "<outputName>" : {
+            "type" : "<type-of-output-value>",
+            "value": "<output-value-expression>"
+        }
+    }
+}
+```
+
 We examine the sections of the template in greater detail later in this topic.
 
 ## Expressions and functions
-The basic syntax of the template is JSON. However, expressions and functions extend the JSON that is available in the template. With expressions, you create values that are not strict literal values. Expressions are enclosed with brackets `[` and `]`, and are evaluated when the template is deployed. Expressions can appear anywhere in a JSON string value and always return another JSON value. If you need to use a literal string that starts with a bracket `[`, you must use two brackets `[[`.
+The basic syntax of the template is JSON. However, expressions and functions extend the JSON values available within the template.  Expressions are written within JSON string literals whose first and last characters are the brackets: `[` and `]`, respectively. The value of the expression is evaluated when the template is deployed. While written as a string literal, the result of evaluating the expression can be of a different JSON type, such as an array or integer, depending on the actual expression.  To have a literal string start with a bracket `[`, but not have it interpreted as an expression, add an extra bracket to start the string with `[[`.
 
-Typically, you use expressions with functions to perform operations for configuring the deployment. Just like in JavaScript, function calls are formatted as **functionName(arg1,arg2,arg3)**. You reference properties by using the dot and [index] operators.
+Typically, you use expressions with functions to perform operations for configuring the deployment. Just like in JavaScript, function calls are formatted as `functionName(arg1,arg2,arg3)`. You reference properties by using the dot and [index] operators.
 
 The following example shows how to use several functions when constructing values:
 
 ```json
 "variables": {
-   "location": "[resourceGroup().location]",
-   "usernameAndPassword": "[concat(parameters('username'), ':', parameters('password'))]",
-   "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
+    "location": "[resourceGroup().location]",
+    "usernameAndPassword": "[concat(parameters('username'), ':', parameters('password'))]",
+    "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
 }
 ```
 
@@ -71,24 +123,22 @@ For the full list of template functions, see [Azure Resource Manager template fu
 ## Parameters
 In the parameters section of the template, you specify which values you can input when deploying the resources. These parameter values enable you to customize the deployment by providing values that are tailored for a particular environment (such as dev, test, and production). You do not have to provide parameters in your template, but without parameters your template would always deploy the same resources with the same names, locations, and properties.
 
-You can use these parameter values throughout the template to set values for the deployed resources. Only parameters that are declared in the parameters section can be used in other sections of the template.
-
 You define parameters with the following structure:
 
 ```json
 "parameters": {
-   "<parameter-name>" : {
-     "type" : "<type-of-parameter-value>",
-     "defaultValue": "<default-value-of-parameter>",
-     "allowedValues": [ "<array-of-allowed-values>" ],
-     "minValue": <minimum-value-for-int>,
-     "maxValue": <maximum-value-for-int>,
-     "minLength": <minimum-length-for-string-or-array>,
-     "maxLength": <maximum-length-for-string-or-array-parameters>,
-     "metadata": {
-         "description": "<description-of-the parameter>" 
-     }
-   }
+    "<parameter-name>" : {
+        "type" : "<type-of-parameter-value>",
+        "defaultValue": "<default-value-of-parameter>",
+        "allowedValues": [ "<array-of-allowed-values>" ],
+        "minValue": <minimum-value-for-int>,
+        "maxValue": <maximum-value-for-int>,
+        "minLength": <minimum-length-for-string-or-array>,
+        "maxLength": <maximum-length-for-string-or-array-parameters>,
+        "metadata": {
+            "description": "<description-of-the parameter>" 
+        }
+    }
 }
 ```
 
@@ -102,7 +152,7 @@ You define parameters with the following structure:
 | maxValue |No |The maximum value for int type parameters, this value is inclusive. |
 | minLength |No |The minimum length for string, secureString, and array type parameters, this value is inclusive. |
 | maxLength |No |The maximum length for string, secureString, and array type parameters, this value is inclusive. |
-| description |No |Description of the parameter, which is displayed to users of the template through the portal custom template interface. |
+| description |No |Description of the parameter that is displayed to users through the portal. |
 
 The allowed types and values are:
 
@@ -130,53 +180,53 @@ The following example shows how to define parameters:
 
 ```json
 "parameters": {
-  "siteName": {
-    "type": "string",
-    "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]"
-  },
-  "hostingPlanName": {
-    "type": "string",
-    "defaultValue": "[concat(parameters('siteName'),'-plan')]"
-  },
-  "skuName": {
-    "type": "string",
-    "defaultValue": "F1",
-    "allowedValues": [
-      "F1",
-      "D1",
-      "B1",
-      "B2",
-      "B3",
-      "S1",
-      "S2",
-      "S3",
-      "P1",
-      "P2",
-      "P3",
-      "P4"
-    ]
-  },
-  "skuCapacity": {
-    "type": "int",
-    "defaultValue": 1,
-    "minValue": 1
-  }
+    "siteName": {
+        "type": "string",
+        "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]"
+    },
+    "hostingPlanName": {
+        "type": "string",
+        "defaultValue": "[concat(parameters('siteName'),'-plan')]"
+    },
+    "skuName": {
+        "type": "string",
+        "defaultValue": "F1",
+        "allowedValues": [
+          "F1",
+          "D1",
+          "B1",
+          "B2",
+          "B3",
+          "S1",
+          "S2",
+          "S3",
+          "P1",
+          "P2",
+          "P3",
+          "P4"
+        ]
+    },
+    "skuCapacity": {
+        "type": "int",
+        "defaultValue": 1,
+        "minValue": 1
+    }
 }
 ```
 
 For how to input the parameter values during deployment, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md). 
 
 ## Variables
-In the variables section, you construct values that can be used throughout your template. Typically, variables are based on values provided from the parameters. You do not need to define variables, but they often simplify your template by reducing complex expressions.
+In the variables section, you construct values that can be used throughout your template. You do not need to define variables, but they often simplify your template by reducing complex expressions.
 
 You define variables with the following structure:
 
 ```json
 "variables": {
-   "<variable-name>": "<variable-value>",
-   "<variable-name>": { 
-       <variable-complex-type-value> 
-   }
+    "<variable-name>": "<variable-value>",
+    "<variable-name>": { 
+        <variable-complex-type-value> 
+    }
 }
 ```
 
@@ -192,57 +242,57 @@ The next example shows a variable that is a complex JSON type, and variables tha
 
 ```json
 "parameters": {
-   "environmentName": {
-     "type": "string",
-     "allowedValues": [
-       "test",
-       "prod"
-     ]
-   }
+    "environmentName": {
+        "type": "string",
+        "allowedValues": [
+          "test",
+          "prod"
+        ]
+    }
 },
 "variables": {
-   "environmentSettings": {
-     "test": {
-       "instancesSize": "Small",
-       "instancesCount": 1
-     },
-     "prod": {
-       "instancesSize": "Large",
-       "instancesCount": 4
-     }
-   },
-   "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]",
-   "instancesSize": "[variables('currentEnvironmentSettings').instancesSize]",
-   "instancesCount": "[variables('currentEnvironmentSettings').instancesCount]"
+    "environmentSettings": {
+        "test": {
+            "instancesSize": "Small",
+            "instancesCount": 1
+        },
+        "prod": {
+            "instancesSize": "Large",
+            "instancesCount": 4
+        }
+    },
+    "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]",
+    "instancesSize": "[variables('currentEnvironmentSettings').instancesSize]",
+    "instancesCount": "[variables('currentEnvironmentSettings').instancesCount]"
 }
 ```
 
 ## Resources
-In the resources section, you define the resources that are deployed or updated. This section can get complicated because you must understand the types you are deploying to provide the right values. 
+In the resources section, you define the resources that are deployed or updated. This section can get complicated because you must understand the types you are deploying to provide the right values. For the resource-specific values (apiVersion, type, and properties) that you need to set, see [Define resources in Azure Resource Manager templates](/azure/templates/). 
 
 You define resources with the following structure:
 
 ```json
 "resources": [
-   {
-     "apiVersion": "<api-version-of-resource>",
-     "type": "<resource-provider-namespace/resource-type-name>",
-     "name": "<name-of-the-resource>",
-     "location": "<location-of-resource>",
-     "tags": "<name-value-pairs-for-resource-tagging>",
-     "comments": "<your-reference-notes>",
-     "dependsOn": [
-       "<array-of-related-resource-names>"
-     ],
-     "properties": "<settings-for-the-resource>",
-     "copy": {
-       "name": "<name-of-copy-loop>",
-       "count": "<number-of-iterations>"
-     },
-     "resources": [
-       "<array-of-child-resources>"
-     ]
-   }
+  {
+      "apiVersion": "<api-version-of-resource>",
+      "type": "<resource-provider-namespace/resource-type-name>",
+      "name": "<name-of-the-resource>",
+      "location": "<location-of-resource>",
+      "tags": "<name-value-pairs-for-resource-tagging>",
+      "comments": "<your-reference-notes>",
+      "dependsOn": [
+          "<array-of-related-resource-names>"
+      ],
+      "properties": "<settings-for-the-resource>",
+      "copy": {
+          "name": "<name-of-copy-loop>",
+          "count": "<number-of-iterations>"
+      },
+      "resources": [
+          "<array-of-child-resources>"
+      ]
+  }
 ]
 ```
 
@@ -250,143 +300,40 @@ You define resources with the following structure:
 |:--- |:--- |:--- |
 | apiVersion |Yes |Version of the REST API to use for creating the resource. |
 | type |Yes |Type of the resource. This value is a combination of the namespace of the resource provider and the resource type (such as **Microsoft.Storage/storageAccounts**). |
-| name |Yes |Name of the resource. The name must follow URI component restrictions defined in RFC3986. In addition, Azure services that expose the resource name to outside parties validate the name to make sure it is not an attempt to spoof another identity. See [Check resource name](https://msdn.microsoft.com/library/azure/mt219035.aspx). |
-| location |Varies |Supported geo-locations of the provided resource. You can select any of the available locations, but typically it makes sense to pick one that is close to your users. Usually, it also makes sense to place resources that interact with each other in the same region. Most resource types require a location, but some types (such as a role assignment) do not require a location. |
-| tags |No |Tags that are associated with the resource. |
+| name |Yes |Name of the resource. The name must follow URI component restrictions defined in RFC3986. In addition, Azure services that expose the resource name to outside parties validate the name to make sure it is not an attempt to spoof another identity. |
+| location |Varies |Supported geo-locations of the provided resource. You can select any of the available locations, but typically it makes sense to pick one that is close to your users. Usually, it also makes sense to place resources that interact with each other in the same region. Most resource types require a location, but some types (such as a role assignment) do not require a location. See [Set resource location in Azure Resource Manager templates](resource-manager-template-location.md). |
+| tags |No |Tags that are associated with the resource. See [Tag resources in Azure Resource Manager templates](resource-manager-template-tags.md). |
 | comments |No |Your notes for documenting the resources in your template |
 | dependsOn |No |Resources that must be deployed before this resource is deployed. Resource Manager evaluates the dependencies between resources and deploys them in the correct order. When resources are not dependent on each other, they are deployed in parallel. The value can be a comma-separated list of a resource names or resource unique identifiers. Only list resources that are deployed in this template. Resources that are not defined in this template must already exist. Avoid adding unnecessary dependencies as they can slow your deployment and create circular dependencies. For guidance on setting dependencies, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md). |
-| properties |No |Resource-specific configuration settings. The values for the properties are the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. For links to resource schema documentation or REST API, see [Resource Manager providers, regions, API versions, and schemas](resource-manager-supported-services.md). |
+| properties |No |Resource-specific configuration settings. The values for the properties are the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. |
 | copy |No |If more than one instance is needed, the number of resources to create. For more information, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md). |
 | resources |No |Child resources that depend on the resource being defined. Only provide resource types that are permitted by the schema of the parent resource. The fully qualified type of the child resource includes the parent resource type, such as **Microsoft.Web/sites/extensions**. Dependency on the parent resource is not implied. You must explicitly define that dependency. |
-
-Knowing what values to specify for **apiVersion**, **type**, and **location** is not immediately obvious. Fortunately, you can determine these values through Azure PowerShell or Azure CLI.
-
-To get all the resource providers with **PowerShell**, use:
-
-```powershell
-Get-AzureRmResourceProvider -ListAvailable
-```
-
-From the returned list, find the resource providers you are interested in. To get the resource types for a resource provider (such as Storage), use:
-
-```powershell
-(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes
-```
-
-To get the API versions for a resource type (such storage accounts), use:
-
-```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes | Where-Object ResourceTypeName -eq storageAccounts).ApiVersions
-```
-
-To get supported locations for a resource type, use:
-
-```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes | Where-Object ResourceTypeName -eq storageAccounts).Locations
-```
-
-To get all the resource providers with **Azure CLI**, use:
-
-```azurecli
-azure provider list
-```
-
-From the returned list, find the resource providers you are interested in. To get the resource types for a resource provider (such as Storage), use:
-
-```azurecli
-azure provider show Microsoft.Storage
-```
-
-To get supported locations and API versions, use:
-
-```azurecli
-azure provider show Microsoft.Storage --details --json
-```
-
-To learn more about resource providers, see [Resource Manager providers, regions, API versions, and schemas](resource-manager-supported-services.md).
 
 The resources section contains an array of the resources to deploy. Within each resource, you can also define an array of child resources. Therefore, your resources section could have a structure like:
 
 ```json
 "resources": [
-   {
-       "name": "resourceA",
-   },
-   {
-       "name": "resourceB",
-       "resources": [
-           {
-               "name": "firstChildResourceB",
-           },
-           {   
-               "name": "secondChildResourceB",
-           }
-       ]
-   },
-   {
-       "name": "resourceC",
-   }
+  {
+      "name": "resourceA",
+  },
+  {
+      "name": "resourceB",
+      "resources": [
+        {
+            "name": "firstChildResourceB",
+        },
+        {   
+            "name": "secondChildResourceB",
+        }
+      ]
+  },
+  {
+      "name": "resourceC",
+  }
 ]
 ```      
 
-The following example shows a **Microsoft.Web/serverfarms** resource and a **Microsoft.Web/sites** resource with a child **Extensions** resource. Notice that the site is marked as dependent on the server farm since the server farm must exist before the site can be deployed. Notice too that the **Extensions** resource is a child of the site.
-
-```json
-"resources": [
-  {
-    "apiVersion": "2015-08-01",
-    "name": "[parameters('hostingPlanName')]",
-    "type": "Microsoft.Web/serverfarms",
-    "location": "[resourceGroup().location]",
-    "tags": {
-      "displayName": "HostingPlan"
-    },
-    "sku": {
-      "name": "[parameters('skuName')]",
-      "capacity": "[parameters('skuCapacity')]"
-    },
-    "properties": {
-      "name": "[parameters('hostingPlanName')]",
-      "numberOfWorkers": 1
-    }
-  },
-  {
-    "apiVersion": "2015-08-01",
-    "type": "Microsoft.Web/sites",
-    "name": "[parameters('siteName')]",
-    "location": "[resourceGroup().location]",
-    "tags": {
-      "environment": "test",
-      "team": "Web"
-    },
-    "dependsOn": [
-      "[concat(parameters('hostingPlanName'))]"
-    ],
-    "properties": {
-      "name": "[parameters('siteName')]",
-      "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
-    },
-    "resources": [
-      {
-        "apiVersion": "2015-08-01",
-        "type": "extensions",
-        "name": "MSDeploy",
-        "dependsOn": [
-          "[concat('Microsoft.Web/sites/', parameters('siteName'))]"
-        ],
-        "properties": {
-          "packageUri": "https://auxmktplceprod.blob.core.windows.net/packages/StarterSite-modified.zip",
-          "dbType": "None",
-          "connectionString": "",
-          "setParameters": {
-            "Application Path": "[parameters('siteName')]"
-          }
-        }
-      }
-    ]
-  }
-]
-```
+For more information about defining child resources, see [Set name and type for child resource in Resource Manager template](resource-manager-template-child-resource.md).
 
 ## Outputs
 In the Outputs section, you specify values that are returned from deployment. For example, you could return the URI to access a deployed resource.
@@ -395,10 +342,10 @@ The following example shows the structure of an output definition:
 
 ```json
 "outputs": {
-   "<outputName>" : {
-     "type" : "<type-of-output-value>",
-     "value": "<output-value-expression>"
-   }
+    "<outputName>" : {
+        "type" : "<type-of-output-value>",
+        "value": "<output-value-expression>"
+    }
 }
 ```
 
@@ -412,10 +359,10 @@ The following example shows a value that is returned in the Outputs section.
 
 ```json
 "outputs": {
-   "siteUri" : {
-     "type" : "string",
-     "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
-   }
+    "siteUri" : {
+        "type" : "string",
+        "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
+    }
 }
 ```
 

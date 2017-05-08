@@ -17,7 +17,7 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: larryfr
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
 # Use Python User Defined Functions (UDF) with Hive and Pig in HDInsight
 
@@ -180,7 +180,8 @@ When the data is returned to Pig, it has a consistent schema as defined in the *
 If you are using a Linux-based HDInsight cluster, use the **SSH** steps. If you are using a Windows-based HDInsight cluster and a Windows client, use the **PowerShell** steps.
 
 ### SSH
-For more information on using SSH, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md) or [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+
+For more information on using SSH, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 1. Using the Python examples [streaming.py](#streamingpy) and [pig_python.py](#jythonpy), create local copies of the files on your development machine.
 
