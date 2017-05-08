@@ -68,22 +68,18 @@ Docker containers are a widely used method for deploying web applications. By us
     c. **Region**: Enter the geographical region where your host is located.
 
     d. On the **Host OS and Size** tab:
-
       * **Host OS**: Enter the operating system for the virtual machine that contains your host.
       * **Size**: Enter the virtual-machine size for your host.
 
     e. On the **Resource Group** tab:
-
       * **New resource group**: Create a new resource group for your host.
       * **Existing resource group**: Enter an existing resource group from your Azure account.
 
     f. On the **Network** tab:
-
       * **New virtual network**: Create a new virtual network for your host.
       * **Existing virtual network**: Enter an existing virtual network from your Azure account.
 
     g. On the **Storage** tab:
-
       * **New storage account**: Create a new storage account for your host.
       * **Existing storage account**: Enter an existing storage account from your Azure account.
 
@@ -135,17 +131,13 @@ Docker containers are a widely used method for deploying web applications. By us
     a. In the **Docker container name** box, enter a unique name for your Docker container.
 
     b. Choose one of the following Docker images:
-
       * **Predefined Docker image**: Specifies a pre-existing Docker image from Azure.
-
         >[!NOTE]
         >The list of Docker images in this box consists of several images that the Azure Toolkit has been configured to patch so that your artifact is deployed automatically.
-
       * **Custom Dockerfile**: Specifies a previously saved Dockerfile from your local computer.
-
         >[!NOTE]
         >This is a more advanced feature for developers who want to deploy their own Dockerfile. However, it is up to developers who use this option to ensure that their Dockerfile is built correctly. The Azure Toolkit does not validate the content in a custom Dockerfile, so the deployment might fail if the Dockerfile has issues. In addition, the Azure Toolkit expects the custom Dockerfile to contain a web app artifact, and it will attempt to open an HTTP connection. If developers publish a different type of artifact, they may receive innocuous errors after deployment.
-        
+
     c. **Port settings**: Enter the unique TCP port binding for your Docker container.
 
       ![The Configure the Docker container to be created window][PUB08]
