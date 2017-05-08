@@ -18,19 +18,23 @@ ms.author: riande
 
 ---
 # Create a static HTML web app in Azure in five minutes
+<!-- 
 [!INCLUDE [login-to-azure](../../includes/login-to-azure.md)] 
 [!INCLUDE [configure-deployment-user](../../includes/configure-deployment-user.md)] 
 [!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
+
+To see what possible values you can use for `--location`, use the `az appservice list-locations` Azure CLI command.
+-->
 
 This quickstart walks through how to and deploy a basic HTML+CSS site to Azure. You’ll run the app using an [Azure App Service plan](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview), and create a web app in it using the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli). You’ll use Git to deploy the app to Azure. It takes about five minutes to complete the tutorial once the prerequisites are installed.
 
 ![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
-## Before you begin
+## Prerequisites
 
-Before running this sample, download and install the following prerequisites locally:
+Before creating this sample, download and install the following:
 
-- [git](https://git-scm.com/)
+- [Git](https://git-scm.com/)
 - [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 ## Download the sample
@@ -43,14 +47,11 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 
 ## View the HTML
 
-To see what possible values you can use for `--location`, use the `az appservice list-locations` Azure CLI comman
-
 Navigate to the directory that contains the sample HTML. Open the *index.html* file in your browser.
 
 ![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser.png)
 
 [!INCLUDE [app-service-web-quickstart1](../../includes/app-service-web-quickstart1.md)] 
-
 
 Create a [Web App](app-service-web-overview.md) in the `quickStartPlan` App Service plan. 
 The web app provides a hosting space for your code and provides a URL for to view the deployed app.

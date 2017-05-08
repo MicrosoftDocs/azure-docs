@@ -27,7 +27,7 @@ You can follow the steps below using a Mac, Windows, or Linux machine. It should
 
 ## Prerequisites
 
-Before creating this sample, download and install the following prerequisites:
+Before creating this sample, download and install the following:
 
 * [Git](https://git-scm.com/)
 * [PHP](https://php.net)
