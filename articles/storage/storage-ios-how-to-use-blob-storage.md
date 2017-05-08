@@ -30,7 +30,7 @@ This article will show you how to perform common scenarios using Microsoft Azure
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## Import the Azure Storage iOS library into your application
-You can import the Azure Storage iOS library into your application either by using the [Azure Storage CocoaPod](https://cocoapods.org/pods/AZSClient) or by importing the **Framework** file. CocoaPod is the recommended way as it makes integrating the library easier, however importing from the framework file is less intrusive.
+You can import the Azure Storage iOS library into your application either by using the [Azure Storage CocoaPod](https://cocoapods.org/pods/AZSClient) or by importing the **Framework** file. CocoaPod is the recommended way as it makes integrating the library easier, however importing from the framework file is less intrusive for your existing project.
 
 ## CocoaPod
 1. If you haven't done so already, [Install CocoaPods](https://guides.cocoapods.org/using/getting-started.html#toc_3) on your computer by opening a terminal window and running the following command
@@ -44,8 +44,7 @@ You can import the Azure Storage iOS library into your application either by usi
     ```ruby
     platform :ios, '8.0'
 
-    target 'TargetName' do 
-      use_frameworks!
+    target 'TargetName' do
       pod 'AZSClient'
     end
     ```
@@ -58,23 +57,13 @@ You can import the Azure Storage iOS library into your application either by usi
 
 4. If your .xcodeproj is open in Xcode, close it. In your project directory open the newly created project file which will have the .xcworkspace extension. This is the file you'll work from for now on.
 
-5. Import statement:
-    ```objc
-    // Include the following import statement to use blob APIs.
-    #import <AZSClient/AZSClient.h>
-    ```
-
-    ```swift
-    import AZSClient
-    ```
-
 ## Framework
-In order to use the Azure Storage iOS library, you will first need to build the framework file.
+The other way to use the library is to build the framework manually:
 
 1. First, download or clone the [azure-storage-ios repo](https://github.com/azure/azure-storage-ios).
-2. Go into *azure-storage-ios* -> *Lib* -> *Azure Storage Client Library*, and open AZSClient.xcodeproj in Xcode.
+2. Go into *azure-storage-ios* -> *Lib* -> *Azure Storage Client Library*, and open `AZSClient.xcodeproj` in Xcode.
 3. At the top-left of Xcode, change the active scheme from "Azure Storage Client Library" to "Framework".
-4. Build the project (⌘+B). This will create an AZSClient.framework file on your Desktop.
+4. Build the project (⌘+B). This will create an `AZSClient.framework` file on your Desktop.
 
 You can then import the framework file into your application by doing the following:
 
@@ -85,19 +74,19 @@ You can then import the framework file into your application by doing the follow
 5. Under the *Linked Frameworks and Libraries* section, click the Add button (+).
 6. In the list of libraries already provided, search for `libxml2.2.tbd` and add it to your project.
 
-Finally, if you are using Objective-C, you should put the import statement in the file where you want to invoke the Azure Storage API:
-
+## Import the Library 
 ```objc
 // Include the following import statement to use blob APIs.
 #import <AZSClient/AZSClient.h>
 ```
 
-However, if you are using Swift, then you will need to create a bridging header:
-1. Create a header file "Bridging-Header.h", and add the above import statement.
-2. Go to the *Build Settings* tab, and search for `Objective-C Bridging Header`.
-3. Double-click on the field of `Objective-C Bridging Header` and add the path to your header file: `ProjectName/Bridging-Header.h`
+If you are using Swift, you will need to create a bridging header and import <AZSClient/AZSClient.h> there:
+
+1. Create a header file `Bridging-Header.h`, and add the above import statement.
+2. Go to the *Build Settings* tab, and search for *Objective-C Bridging Header*.
+3. Double-click on the field of *Objective-C Bridging Header* and add the path to your header file: `ProjectName/Bridging-Header.h`
 4. Build the project (⌘+B) to verify that the bridging header was picked up by Xcode.
-5. Start using the framework directly in any Swift file, there is no need for import statements.
+5. Start using the library directly in any Swift file, there is no need for import statements.
 
 [!INCLUDE [storage-mobile-authentication-guidance](../../includes/storage-mobile-authentication-guidance.md)]
 
