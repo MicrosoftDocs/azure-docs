@@ -47,22 +47,21 @@
 #### [Template](virtual-networks-create-vnetpeering-arm-template-click.md)
 
 ### Network interfaces
-#### [Settings and tasks](virtual-network-network-interface.md)
+#### [Add, change, or delete](virtual-network-network-interface.md)
 #### [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md)
-#### [Add to or remove from virtual machines](virtual-network-network-interface-vm.md) 
 
 ### [Public IP addresses](virtual-network-public-ip-address.md)
 
 ### Virtual machines
-
-#### Static public IP addresses
+#### [Add or remove network interfaces](virtual-network-network-interface-vm.md) 
+#### Create a VM with a static public IP address
 ##### [Portal](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 ##### [CLI](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [Template](virtual-network-deploy-static-pip-arm-template.md)
 ##### [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
 
-#### Static private IP addresses
+#### Create a VM with a static private IP address
 ##### [Portal](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 ##### [CLI](virtual-networks-static-private-ip-arm-cli.md)
@@ -70,13 +69,13 @@
 ##### [PowerShell (Classic)](virtual-networks-static-private-ip-classic-ps.md)
 ##### [CLI (Classic)](virtual-networks-static-private-ip-classic-cli.md)
 
-#### Multiple network interfaces
+#### Create a VM with multiple network interfaces
 ##### [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [PowerShell (Classic)](virtual-network-deploy-multinic-classic-ps.md)
 ##### [CLI (Classic)](virtual-network-deploy-multinic-classic-cli.md)
 
-#### Multiple IP addresses
+#### Create a VM with multiple IP addresses
 ##### [Azure portal](virtual-network-multiple-ip-addresses-portal.md)
 ##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 ##### [CLI](virtual-network-multiple-ip-addresses-cli.md)

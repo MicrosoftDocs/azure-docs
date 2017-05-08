@@ -98,7 +98,8 @@ In this tutorial, you learned how to:
 
 Advance to the next tutorial to learn about Azure security center.
 
-[Manage VM security](tutorial-azure-security.md)
+> [!div class="nextstepaction"]
+> [Manage VM security](tutorial-azure-security.md)
 
 
 

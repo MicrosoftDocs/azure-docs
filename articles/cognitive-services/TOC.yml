@@ -30,7 +30,7 @@
   - name: Content Moderator
     href: Content-Moderator/overview.md
   - name: Custom Speech Service
-    href: Custom-Speech-Service/Home.md
+    href: Custom-Speech-Service/cognitive-services-custom-speech-home.md
   - name: Emotion
     href: Emotion/Home.md
   - name: Entity Linking
