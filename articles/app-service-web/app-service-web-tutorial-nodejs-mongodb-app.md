@@ -1,6 +1,6 @@
 ---
 title: Build a Node.js and MongoDB web app in Azure | Microsoft Docs 
-description: Learn how to get a Node.js app working in Azure, with connection to a DocumentDB database with a MongoDB connection string.
+description: Learn how to get a Node.js app working in Azure, with connection to an Azure Cosmos DB database with a MongoDB connection string.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -104,7 +104,7 @@ To stop Node.js at anytime, type `Ctrl`+`C` in the terminal.
 
 In this step, you create a MongoDB database in Azure. When your app is deployed to Azure, it uses this database for its production workload.
 
-For MongoDB, this tutorial uses [Azure DocumentDB](/azure/documentdb/). Azure DocumentDB supports MongoDB client connections, which means your Node.js application only knows that it's connecting to a MongoDB database. The fact that the connection is backed by a DocumentDB database is transparent to the application.
+For MongoDB, this tutorial uses [Azure Cosmos DB](/azure/documentdb/). Azure Cosmos DB supports MongoDB client connections, which means your Node.js application only knows that it's connecting to a MongoDB database. The fact that the connection is backed by a Cosmos DB database is transparent to the application.
 
 ### Log in to Azure
 
@@ -126,11 +126,11 @@ az group create --name myResourceGroup --location "West Europe"
 
 To see what possible values you can use for `--location`, use the `az appservice list-locations` Azure CLI command.
 
-### Create a DocumentDB account
+### Create a Cosmos DB account
 
-Create a DocumentDB account with the [az documentdb create](/cli/azure/documentdb#create) command.
+Create a Cosmos DB account with the [az documentdb create](/cli/azure/documentdb#create) command.
 
-In the following command, substitute your own unique DocumentDB name where you see the `<documentdb_name>` placeholder. This unique name will be used as the part of your DocumentDB endpoint (`https://<documentdb_name>.documents.azure.com/`), so the name needs to be unique across all DocumentDB accounts in Azure. 
+In the following command, substitute your own unique Cosmos DB name where you see the `<documentdb_name>` placeholder. This unique name will be used as the part of your Cosmos DB endpoint (`https://<documentdb_name>.documents.azure.com/`), so the name needs to be unique across all Cosmos DB accounts in Azure. 
 
 ```azurecli
 az documentdb create --name <documentdb_name> --resource-group myResourceGroup --kind MongoDB
@@ -143,7 +143,7 @@ The `--kind MongoDB` parameter enables MongoDB client connections.
 >
 >
 
-When the DocumentDB account is created, the Azure CLI shows information similar to the following example:
+When the Cosmos DB account is created, the Azure CLI shows information similar to the following example:
 
 ```json
 {
@@ -167,11 +167,11 @@ DB/databaseAccounts/<documentdb_name>",
 
 ## Connect your Node.js application to the database
 
-In this step, you connect your MEAN.js sample application to the DocumentDB database you just created, using a MongoDB connection string. 
+In this step, you connect your MEAN.js sample application to the Cosmos DB database you just created, using a MongoDB connection string. 
 
 ### Retrieve the database key
 
-To connect to the DocumentDB database, you need the database key. Use the [az documentdb list-keys](/cli/azure/documentdb#list-keys) command to retrieve the primary key.
+To connect to the Cosmos DB database, you need the database key. Use the [az documentdb list-keys](/cli/azure/documentdb#list-keys) command to retrieve the primary key.
 
 ```azurecli
 az documentdb list-keys --name <documentdb_name> --resource-group myResourceGroup
@@ -195,7 +195,7 @@ Copy the value of `primaryMasterKey` to a text editor. You need this information
 
 In your MEAN.js repository, open `config/env/production.js`.
 
-In the `db` object, replace the value of `uri` as show in the following example. Be sure to also replace the two `<documentdb_name>` placeholders with your DocumentDB database name, and the `<primary_master_key>` placeholder with the key you copied in the previous step.
+In the `db` object, replace the value of `uri` as show in the following example. Be sure to also replace the two `<documentdb_name>` placeholders with your Cosmos DB database name, and the `<primary_master_key>` placeholder with the key you copied in the previous step.
 
 ```javascript
 db: {
@@ -205,7 +205,7 @@ db: {
 ```
 
 > [!NOTE] 
-> The `ssl=true` option is important because [Azure DocumentDB requires SSL](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
+> The `ssl=true` option is important because [Azure Cosmos DB requires SSL](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
 >
 >
 
@@ -242,7 +242,7 @@ App version:     0.5.0
 MEAN.JS version: 0.5.0
 ```
 
-Navigate to `http://localhost:8443` in a browser. Click **Sign Up** in the top menu and try to create a dummy user just like before. If you are successful, then your app is writing data to the DocumentDB database in Azure. 
+Navigate to `http://localhost:8443` in a browser. Click **Sign Up** in the top menu and try to create a dummy user just like before. If you are successful, then your app is writing data to the Cosmos DB database in Azure. 
 
 In the terminal, stop Node.js by typing `Ctrl`+`C`. 
 
@@ -571,7 +571,7 @@ Once the `git push` is complete, navigate to your Azure web app and try out the 
 ![Model and database changes published to Azure](media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field-published.png)
 
 > [!NOTE]
-> If you added any articles earlier, you still can see them. Existing data in your DocumentDB is not lost. Also, your updates to the data schema and leaves your existing data intact.
+> If you added any articles earlier, you still can see them. Existing data in your Cosmos DB is not lost. Also, your updates to the data schema and leaves your existing data intact.
 >
 >
 
@@ -711,9 +711,9 @@ In this step, you scale your Node.js app to serve your customers in a new region
     az appservice web config appsettings update --settings region="Asia" --name <app_name>-asia --resource-group myResourceGroup    
     ```
 
-    Since DocumentDB is a [geographically distributed](../documentdb/documentdb-distribute-data-globally.md) NoSQL service, you can use the same MongoDB connection string in the Southeast Asia web app. When the MongoDB client driver connects to your DocumentDB account, Azure automatically figures out where is the closest place to route the connection. No code change is necessary. You only need to add the regions you want to support to your DocumentDB account, which you will do next.
+    Since Cosmos DB is a [geographically distributed](../documentdb/documentdb-distribute-data-globally.md) NoSQL service, you can use the same MongoDB connection string in the Southeast Asia web app. When the MongoDB client driver connects to your Cosmos DB account, Azure automatically figures out where is the closest place to route the connection. No code change is necessary. You only need to add the regions you want to support to your Cosmos DB account, which you will do next.
 
-6. Add `Southeast Asia` as a region to your DocumentDB account.
+6. Add `Southeast Asia` as a region to your Cosmos DB account.
 
     ```azurecli
     az documentdb update --locations "West Europe"=0 "Southeast Asia"=1 --name $accountname --resource-group myResourceGroup
