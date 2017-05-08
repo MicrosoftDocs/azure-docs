@@ -95,7 +95,7 @@ end
 ## Insert data
 Use the following code to insert a new product into the SalesLT.Product table using the [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) function with an [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL statement. Replace the server, database, username, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data.
 
-Tis example demonstrates how to execute an INSERT statement safely, pass parameters which protect your application from [SQL injection](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) vulnerability, and retrieve the auto-generated [Primary Key](https://docs.microsoft.com/sql/relational-databases/tables/primary-and-foreign-key-constraints) value.    
+This example demonstrates how to execute an INSERT statement safely, pass parameters which protect your application from [SQL injection](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) vulnerability, and retrieve the auto-generated [Primary Key](https://docs.microsoft.com/sql/relational-databases/tables/primary-and-foreign-key-constraints) value.    
   
 To use TinyTDS with Azure, it is recommended that you execute several `SET` statements to change how the current session handles specific information. Recommended `SET` statements are provided in the code sample. For example, `SET ANSI_NULL_DFLT_ON` will allow new columns created to allow null values even if the nullability status of the column is not explicitly stated.  
   
@@ -187,6 +187,6 @@ delete('BrandNewProduct', client)
 - [GitHub repository for TinyTDS](https://github.com/rails-sqlserver/tiny_tds)
 - [Report issues/ask questions](https://github.com/rails-sqlserver/tiny_tds/issues)
 - [Ruby Drivers for SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/)
-- To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md)
-- To connect and query using Visual Studio, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md)
+- [Connect and query with SSMS](sql-database-connect-query-ssms.md)
+- [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md)
 
