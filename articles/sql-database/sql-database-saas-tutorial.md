@@ -90,6 +90,9 @@ The WTP application uses [*Azure Traffic Manager*](https://docs.microsoft.com/a
 
 In a production environment, you would typically create a CNAME DNS record to [*point a company internet domain*](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-point-internet-domain) to the traffic manager profile.
 
+## Get the Wingtip application scripts
+
+The Wingtip Tickets scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. Script files are located in the [Learning Modules folder](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Download the **Learning Modules** folder to your local computer, maintaining its folder structure.
 
 ## Provision a new tenant
 
@@ -166,12 +169,13 @@ In this tutorial you learned:
 > * How to view pool utilization to monitor tenant activity
 > * How to delete sample resources to stop related billing
 
-[Provision and catalog tutorial](sql-database-saas-tutorial-provision-and-catalog.md)
+Now try the [Provision and catalog tutorial](sql-database-saas-tutorial-provision-and-catalog.md)
 
 
 
 ## Additional resources
 
+* [Additonal tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
 * To learn about elastic pools, see [*What is an Azure SQL elastic pool*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)
 * To learn about elastic jobs, see [*Managing scaled-out cloud databases*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview)
 * To learn about multi-tenant SaaS applications, see [*Design patterns for multi-tenant SaaS applications*](https://docs.microsoft.com/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications)

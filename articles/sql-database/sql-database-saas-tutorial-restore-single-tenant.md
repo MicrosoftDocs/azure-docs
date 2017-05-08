@@ -50,6 +50,9 @@ In the first pattern, data is restored into a new database. The tenant is then g
 
 In the second pattern, which assumes that the tenant has suffered a loss or corruption of data, the tenant’s production database is restored to a prior point in time. In the restore in place pattern, the tenant is taken offline for a brief time while the database is restored and brought back online. The original database is deleted, but can still be restored from if you need to go back to an even earlier point in time. A variation of this pattern could rename the database instead of deleting it, although renaming the database offers no additional advantage in terms of data security.
 
+## Get the Wingtip application scripts
+
+The Wingtip Tickets scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. Script files are located in the [Learning Modules folder](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Download the **Learning Modules** folder to your local computer, maintaining its folder structure.
 
 ## Simulate a tenant accidentally deleting data
 
@@ -140,5 +143,6 @@ In this tutorial, you learned how to:
 
 ## Additional resources
 
-[Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md)
-[Learn about SQL Database backups](sql-database-automated-backups.md)
+* [Additonal tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md)
+* [Learn about SQL Database backups](sql-database-automated-backups.md)

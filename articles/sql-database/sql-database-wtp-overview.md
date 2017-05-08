@@ -28,6 +28,7 @@ After deploying the WTP app, explore the [collection of tutorials](#sql-database
 While the WTP application is somewhat complete and compelling as a sample application, it is important to focus on the core SaaS patterns as they relate to the data tier. In other words, focus on the data tier, and don't over analyze the app itself. Understanding the implementation of these core SaaS patterns is key to implementing these patterns in your applications, while considering any necessary modifications for your specific business requirements.
 
 
+
 ## Application architecture
 
 The WTP app uses the database-per-tenant model, and uses SQL elastic pools to maximize efficiency.
@@ -47,7 +48,7 @@ The core Wingtip application, uses a pool with three sample tenants, plus a cata
 ![WTP architecture](media/sql-database-wtp-overview/wtp-architecture.png)
 
 
-## SQL Database SaaS tutorials
+## SQL Database WTP SaaS tutorials
 
 The following tutorials build upon the initial deployment of the [Wingtip Tickets Platform SaaS application sample](sql-database-saas-tutorial.md):
 
@@ -61,7 +62,9 @@ The following tutorials build upon the initial deployment of the [Wingtip Ticket
 |[Manage with Log Analytics (OMS) tutorial](sql-database-saas-tutorial-log-analytics.md) | Configure and explore Log Analytics | [Scripts on github](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Performance%20Monitoring%20and%20Management/LogAnalytics) |
 |[Run tenant analytics tutorial](sql-database-saas-tutorial-tenant-analytics.md) | Setup and run tenant analytics queries | [Scripts on github](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Operational%20Analytics/Tenant%20Analytics) |
 
+## Get the Wingtip application scripts
 
+The Wingtip Tickets scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. Script files are located in the [Learning Modules folder](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Download the **Learning Modules** folder to your local computer, maintaining its folder structure.
 
 ## Working with the WTP PowerShell Scripts
 
@@ -71,9 +74,6 @@ To view the provided scripts and modules, and to facilitate stepping through the
 
 For each WTP app deployment, there is a **UserConfig.psm1** file containing two parameters for setting the resource group and user name values that you defined during deployment. After deployment is complete, edit the **UserConfig.psm1** module setting the _ResourceGroupName_ and _Name_  parameters. These values are used by other scripts to successfully run, so setting them when the deployment completes is recommended!
 
-### Get the WTP scripts
-
-The Wingtip Tickets scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. Script files are located in the [Learning Modules folder](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Download the **Learning Modules** folder to your local computer, maintaining its folder structure.
 
 
 ### Execute Scripts by pressing F5

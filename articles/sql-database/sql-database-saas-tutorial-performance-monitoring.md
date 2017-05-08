@@ -59,6 +59,9 @@ The [Azure portal](https://portal.azure.com) provides built-in monitoring and al
 
 For high-volume scenarios, Log Analytics (also known as OMS) can be used. This is a separate Azure service that provides analytics over emitted diagnostic logs and telemetry gathered in a log analytics workspace, which can collect telemetry from many services and be used to query and set alerts.
 
+## Get the Wingtip application scripts
+
+The Wingtip Tickets scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. Script files are located in the [Learning Modules folder](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Download the **Learning Modules** folder to your local computer, maintaining its folder structure.
 
 ## Provision additional tenants
 
@@ -241,6 +244,7 @@ In this tutorial you learn how to:
 
 ## Additional resources
 
+* [Additonal tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
 * [SQL Elastic pools](sql-database-elastic-pool.md)
 * [Azure automation](../automation/automation-intro.md)
 * [Log Analytics](sql-database-saas-tutorial-log-analytics.md) - Setting up and using Log Analytics tutorial

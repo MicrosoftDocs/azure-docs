@@ -40,13 +40,16 @@ To complete this tutorial, make sure the following prerequisites are completed:
 * The WTP app is deployed. To deploy in less than five minutes, see [Deploy and explore the WTP SaaS application](sql-database-saas-tutorial.md)
 * Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
+
 ## Ad-hoc Analytics pattern
 
 One of the great opportunities with SaaS applications is to use the vast amount of tenant data you have stored centrally in the cloud. Use this data to gain insights into the operation and usage of your applications, your tenants, their users, and their preferences and behaviors. The insights you find can guide feature development, usability improvements and other investments in your apps and services.
 
 Accessing this data in a single multi-tenant database is easy, but not so easy when distributed at scale across potentially thousands of databases. One approach is to use Elastic Query, which enables ad-hoc querying across a distributed set of databases with common schema. Elastic Query uses a single *head* database in which external tables are defined that mirror tables in the distributed (tenant) databases. Queries submitted to this head database are compiled to produce a distributed query plan, with portions of the query pushed down to the tenant databases as needed. Elastic Query uses the shard map in the catalog database to provide the location of the tenant databases. Setup and query are straightforward using normal T-SQL, and supports ad-hoc querying from tools like Power BI and Excel.
 
+## Get the Wingtip application scripts
 
+The Wingtip Tickets scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. Script files are located in the [Learning Modules folder](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Download the **Learning Modules** folder to your local computer, maintaining its folder structure.
 
 ## Deploy the database used for ad-hoc analytics queries
 
@@ -87,4 +90,5 @@ In this tutorial you learned how to:
 
 ## Additional resources
 
-[Elastic Query](sql-database-elastic-query-overview.md)
+* [Additonal tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Elastic Query](sql-database-elastic-query-overview.md)

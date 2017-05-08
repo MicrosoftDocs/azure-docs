@@ -57,6 +57,9 @@ There is a new version of Elastic Jobs that is now an integrated feature of Azur
 > [!NOTE]
 > *This tutorial uses features of the SQL Database service that are in a limited preview (Elastic Database jobs). If you wish to do this tutorial, provide your subscription id to SaaSFeedback@microsoft.com with subject=Elastic Jobs Preview. After you receive confirmation that your subscription has been enabled, [download and install the latest pre-release jobs cmdlets](https://github.com/jaredmoo/azure-powershell/releases). As this is a limited preview, you should contact SaaSFeedback@microsoft.com for related questions or support.*
 
+## Get the Wingtip application scripts
+
+The Wingtip Tickets scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. Script files are located in the [Learning Modules folder](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Download the **Learning Modules** folder to your local computer, maintaining its folder structure.
 
 ## Create a job account database and new job account
 
@@ -125,6 +128,6 @@ In this tutorial you learned how to:
 
 ## Additional resources
 
-[Managing scaled-out cloud databases](sql-database-elastic-jobs-overview.md)
-
-[Create and manage scaled-out cloud databases](sql-database-elastic-jobs-create-and-manage.md)
+* [Additonal tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Managing scaled-out cloud databases](sql-database-elastic-jobs-overview.md)
+* [Create and manage scaled-out cloud databases](sql-database-elastic-jobs-create-and-manage.md)

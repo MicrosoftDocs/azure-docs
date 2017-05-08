@@ -40,6 +40,9 @@ To complete this tutorial, make sure the following prerequisites are met:
 
 One of the great opportunities with SaaS applications is to use the rich tenant data that is stored in the cloud. Use this data to gain insights into the operation and usage of your application, and your tenants. This data can guide feature development, usability improvements, and other investments in the app and platform. Accessing this data when it's in a single multi-tenant database is easy, but not so easy when distributed at scale across potentially thousands of databases. One approach to accessing this data is to use Elastic jobs, which enable result-returning query results from job execution to be captured in an output database and table.
 
+## Get the Wingtip application scripts
+
+The Wingtip Tickets scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. Script files are located in the [Learning Modules folder](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Download the **Learning Modules** folder to your local computer, maintaining its folder structure.
 
 ## Deploy a database for tenant analytics results
 
@@ -107,8 +110,9 @@ In this tutorial you learned how to:
 > * Deploy a tenant analytics database
 > * Create a scheduled job to retrieve analytical data across tenants
 
-[Catalog synchronization tutorial](sql-database-saas-tutorial-catalog-sync.md)
+Congratulations!
 
 ## Additional resources
 
-[Elastic Jobs](sql-database-elastic-jobs-overview.md)
+* [Additonal tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Elastic Jobs](sql-database-elastic-jobs-overview.md)
