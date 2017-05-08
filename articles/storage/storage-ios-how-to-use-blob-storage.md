@@ -32,6 +32,10 @@ This article will show you how to perform common scenarios using Microsoft Azure
 ## Import the Azure Storage iOS library into your application
 You can import the Azure Storage iOS library into your application either by using the [Azure Storage CocoaPod](https://cocoapods.org/pods/AZSClient) or by importing the **Framework** file. CocoaPod is the recommended way as it makes integrating the library easier, however importing from the framework file is less intrusive for your existing project.
 
+To use this library, you need the following:
+- iOS 8+
+- Xcode 7+
+
 ## CocoaPod
 1. If you haven't done so already, [Install CocoaPods](https://guides.cocoapods.org/using/getting-started.html#toc_3) on your computer by opening a terminal window and running the following command
     
