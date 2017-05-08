@@ -47,22 +47,22 @@ The information below list the proxy and firewall configuration information requ
 |Resource | Port number| Bypass HTTP Inspection|  
 |---------|------|-----------------------|  
 |**Agent**|||  
-|*.ods.opinsights.azure.com| 443 ||  
-|*.oms.opinsights.azure.com| 443||  
-|*.blob.core.windows.net/*| 443||  
+|\*.ods.opinsights.azure.com| 443 ||  
+|\*.oms.opinsights.azure.com| 443||  
+|\*.blob.core.windows.net| 443||  
 |**Management server**|||  
 |service.systemcenteradvisor.com| 443||  
-|*.service.opinsights.azure.com| 443||  
-|*.blob.core.windows.net| 443| Yes|  
-|*.ods.opinsights.azue.com| 443| Yes|  
+|\*.service.opinsights.azure.com| 443||  
+|\*.blob.core.windows.net| 443| Yes|  
+|\*.ods.opinsights.azue.com| 443| Yes|  
 |*.azure-automation.net | 443| Yes|  
 |**Operations Manager console to OMS**|||  
 |service.systemcenteradvisor.com| 443||  
-|*.service.opinsights.azure.com| 443||  
-|*.live.com| 80 and 443||  
-|*.microsoft.com| 80 and 443||  
-|*.microsoftonline.com| 80 and 443||  
-|*.mms.microsoft.com| 80 and 443||  
+|\*.service.opinsights.azure.com| 443||  
+|\*.live.com| 80 and 443||  
+|\*.microsoft.com| 80 and 443||  
+|\*.microsoftonline.com| 80 and 443||  
+|\*.mms.microsoft.com| 80 and 443||  
 |login.windows.net| 80 and 443||  
 
 

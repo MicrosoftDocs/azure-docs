@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/01/2017
+ms.date: 05/07/2017
 ms.author: nepeters
 ---
 # Monitor VM security with the Azure Security Center
@@ -120,3 +120,8 @@ In this tutorial, you configured and reviewed VMs with Azure Security Center. Yo
 > * Configure security policies
 > * View and fix configuration health issues
 > * Review detected threats
+
+Follow this link to see pre-built virtual machine script samples.
+
+> [!div class="nextstepaction"]
+> [Linux virtual machine script samples](./cli-samples.md)
