@@ -8,7 +8,7 @@
     href: how-it-works.md
 - name: Quickstart
   items:
-  - name: Build a custom search
+  - name: Build a custom search service
   - href: quickstart.md
 - name: Resources
   items:
