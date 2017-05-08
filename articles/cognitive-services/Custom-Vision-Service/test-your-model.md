@@ -2,14 +2,14 @@
 title: Test and Retrain Your Model | Microsoft Docs
 description: How to quickly test an image and then add it to the model and retrain the model.
 services: cognitive-services
-author: v-moib
+author: gitbeams
 manager: juliakuz
 
-ms.service: custom-vision
-ms.technology: cognitive-services
+ms.service: cognitive-services
+ms.technology: custom vision service
 ms.topic: article
 ms.date: 04/28/2017
-ms.author: v-moib
+ms.author: gitbeams
 ---
 
 # Test and Retrain Your Model

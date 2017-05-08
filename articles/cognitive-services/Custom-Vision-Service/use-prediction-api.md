@@ -2,14 +2,14 @@
 title: Use the Prediction Endpoint | Microsoft Docs
 description: How to use the API to programmatically test images.
 services: cognitive-services
-author: v-moib
+author: gitbeams
 manager: juliakuz
 
 ms.service: cognitive-services
-ms.technology: cognitive-services
+ms.technology: custom vision service
 ms.topic: article
 ms.date: 04/28/2017
-ms.author: v-moib
+ms.author: gitbeams
 ---
 
 # Use the Prediction Endpoint to Test Images Programmatically
