@@ -219,7 +219,7 @@ The basic principle behind ADAL is that whenever your app needs an access token,
     ```
 
 
-3. When your app requests a token by calling `getToken(...)`, ADAL attempts to return a token without asking the user for credentials.  If ADAL determines that the user needs to sign in to get a token, it will display a dialog box for sign in, collect the user's credentials, and then return a token after successful authentication.  If ADAL is not able to return a token for any reason, it throws an `AdalException`.
+3. When your app requests a token by calling `getToken(...)`, ADAL attempts to return a token without asking the user for credentials.  If ADAL determines that the user needs to sign in to get a token, it will display a dialog box for sign-in, collect the user's credentials, and then return a token after successful authentication.  If ADAL is not able to return a token for any reason, it throws an `AdalException`.
 
 > [!Note] 
 > The `AuthenticationResult` object contains a `tokenCacheStoreItem` object that can be used to collect the information that your app may need. In the QuickStart, `tokenCacheStoreItem` is used to determine if authentication is already done.
