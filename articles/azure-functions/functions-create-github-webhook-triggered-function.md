@@ -20,7 +20,7 @@ ms.author: glenga
 ---
 # Create a function triggered by a GitHub webhook
 
-Learn how to create a function that is triggered by an HTTP request with a JSON payload. 
+Learn how to create a function that is triggered by an HTTP webhook request with a GitHub-specific payload. 
 
 ![Github Webhook triggered function in the Azure portal](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 

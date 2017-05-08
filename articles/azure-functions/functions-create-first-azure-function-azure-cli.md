@@ -57,12 +57,12 @@ In the following command, substitute your own globally unique storage account na
 az storage account create --name <storage_name> --location westeurope --resource-group myResourceGroup --sku Standard_LRS
 ```
 
-After the storage account has been created, the Azure CLI shows information similar to the following example (null values removed for readability):
+After the storage account has been created, the Azure CLI shows information similar to the following example:
 
 ```json
 {
   "creationTime": "2017-04-15T17:14:39.320307+00:00",
-  "id": "/subscriptions/bbbef702-e769-477b-9f16-bc4d3aa97387/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myfunctionappstorage",
+  "id": "/subscriptions/bbbef702-e769-477b-9f16-bc4d3aa97387/resourceGroups/myresourcegroup/...",
   "kind": "Storage",
   "location": "westeurope",
   "name": "myfunctionappstorage",
@@ -72,16 +72,8 @@ After the storage account has been created, the Azure CLI shows information simi
     "queue": "https://myfunctionappstorage.queue.core.windows.net/",
     "table": "https://myfunctionappstorage.table.core.windows.net/"
   },
-  "primaryLocation": "westeurope",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "myresourcegroup",
-  "sku": {
-    "name": "Standard_LRS",
-    "tier": "Standard"
-  },
-  "statusOfPrimary": "available",
-  "tags": {},
-  "type": "Microsoft.Storage/storageAccounts"
+     ....
+    // Remaining output has been truncated for readability.
 }
 ```
 
@@ -96,7 +88,7 @@ az functionapp create --name <app_name> --storage-account  <storage_name>  --res
 ```
 By default, a function app is created with the Consumption hosting plan, which means that resources are added dynamically as required by your functions and you only pay when functions are running. For more information, see [Choose the correct hosting plan](functions-scale.md). 
 
-After the function app has been created, the Azure CLI shows information similar to the following example (null values removed for readability):
+After the function app has been created, the Azure CLI shows information similar to the following example:
 
 ```json
 {
@@ -111,37 +103,8 @@ After the function app has been created, the Azure CLI shows information similar
     "quickstart.azurewebsites.net",
     "quickstart.scm.azurewebsites.net"
   ],
-  "hostNameSslStates": [
-    {
-      "hostType": "Standard",
-      "name": "quickstart.azurewebsites.net",
-      "sslState": "Disabled"
-    },
-    {
-      "hostType": "Repository",
-      "name": "quickstart.scm.azurewebsites.net",
-      "sslState": "Disabled"
-    }
-  ],
-  "hostNames": [
-    "quickstart.azurewebsites.net"
-  ],
-  "hostNamesDisabled": false,
-  "id": "/subscriptions/bbbef702-e769-477b-9f16-bc4d3aa97387/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/quickstart",
-  "kind": "functionapp",
-  "lastModifiedTimeUtc": "2017-04-15T17:21:30.460000",
-  "location": "westeurope",
-  "microService": "false",
-  "name": "quickstart",
-  "outboundIpAddresses": "104.40.129.119,104.40.129.252,104.40.130.52,104.40.130.72",
-  "repositorySiteName": "quickstart",
-  "reserved": false,
-  "resourceGroup": "myResourceGroup",
-  "scmSiteAlsoStopped": false,
-  "serverFarmId": "/subscriptions/bbbef702-e769-477b-9f16-bc4d3aa97387/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/WestEuropePlan",
-  "state": "Running",
-  "type": "Microsoft.Web/sites",
-  "usageState": "Normal"
+   ....
+    // Remaining output has been truncated for readability.
 }
 ```
 
@@ -152,7 +115,7 @@ Now that you have a function app, you can deploy the actual function code from t
 There are several ways to create your function code in your new function app. This topic connects to a sample repository in GitHub. As before, in the following code replace the `<app_name>` placeholder with the name of the function app you created. 
 
 ```azurecli
-az appservice web source-control config --name <app_name> --resource-group myResourceGroup --repo-url https://github.com/Azure-Samples/functions-quickstart --branch master --manual-integration
+az functionapp deployment source config --name <app_name> --resource-group myResourceGroup --repo-url https://github.com/Azure-Samples/functions-quickstart --branch master --manual-integration
 ```
 After the deployment source been set, the Azure CLI shows information similar to the following example (null values removed for readability):
 
@@ -160,7 +123,7 @@ After the deployment source been set, the Azure CLI shows information similar to
 {
   "branch": "master",
   "deploymentRollbackEnabled": false,
-  "id": "/subscriptions/bbbef702-e769-477b-9f16-bc4d3aa97387/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/quickstart/sourcecontrols/web",
+  "id": "/subscriptions/bbbef702-e769-477b-9f16-bc4d3aa97387/resourceGroups/myResourceGroup/...",
   "isManualIntegration": true,
   "isMercurial": false,
   "location": "West Europe",
@@ -194,6 +157,7 @@ Other quickstarts in this collection build upon this quickstart. If you plan to 
 ```azurecli
 az group delete --name myResourceGroup
 ```
+Type `y` when prompted.
 
 ## Next steps
 
