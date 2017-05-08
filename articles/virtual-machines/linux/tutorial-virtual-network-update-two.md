@@ -203,9 +203,24 @@ az network nsg rule update \
   --access allow
 ```
 
-Finally, because NSGs have a default rule allowing all traffic between VMs in the same VNet, a rule can be created for the back-end NSGs to block all traffic.
+Now add a rule for MySQL traffic on port 3306.
 
-Back-end:
+```azurecli
+az network nsg rule create \
+  --resource-group myRGNetwork \
+  --nsg-name myNSGBackEnd \
+  --name MySQL \
+  --access Allow \
+  --protocol Tcp \
+  --direction Inbound \
+  --priority 200 \
+  --source-address-prefix 10.0.2.0/24 \
+  --source-port-range "*" \
+  --destination-address-prefix "*" \
+  --destination-port-range "*"
+```
+
+Finally, because NSGs have a default rule allowing all traffic between VMs in the same VNet, a rule can be created for the back-end NSGs to block all traffic.
 
 ```azurecli
 az network nsg rule create \
