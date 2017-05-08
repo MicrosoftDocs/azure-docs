@@ -14,18 +14,19 @@ ms.author: tobih
 
 # Bing Custom Search - Free Preview
 
-Bing Custom Search empowers businesses of any size, hobbyists, developers, and entrepreneurs  to create tailored search experiences for intents and topics that they really care about. The core technology works in three steps: 
+Bing Custom Search empowers businesses of any size, hobbyists, developers, and entrepreneurs to create tailored search experiences for intents and topics that they really care about. To create a custom search service, follow these three steps: 
 
-1. Sign-up and start building your search in the Custom Search Portal.
-2. Publish your Custom Search.
-3. Integrate Your Search into your endpoint application of choice.
+1. Sign-up to the Custom Search Portal to build your custom search service
+2. Publish your custom search service
+3. Integrate your serach service into an application endpoint
 
 
 ![picture alt](bcs-overview.png "How Bing Custom Search works.")
 
 
 ## Use cases
-The most common custom search solutions supported by Bing Custom Search are building site search and topical search solutions. All solutions are retrievable via Bing Web Search API. Bing Web Search API returns a JSON file with the custom results, which can be integrated into many search endpoints. For example, internal websites, public websites, blogs, apps, etc. There are unlimited integration scenarios and end-user entry points for your custom search solutions.
+The most common custom search services supported by Bing Custom Search are building site search and topical search solutions. All solutions are retrievable via Bing Web Search API. Bing Web Search API returns a JSON file with the custom results, which can be integrated into many search endpoints. For example, internal websites, public websites, blogs, or apps.
+
 
 ## Free subscription keys
 Upon sign-up, you are granted a free Azure subscription key.
@@ -39,6 +40,6 @@ Bing Custom Search is in free preview. Check the pricing overview for further in
 If your search needs go beyond the quota of Bing Custom Search Free Preview, email bingcustomsearch@microsoft.com
 
 ## Next Steps
-1. Learn more about potential application areas
+1. Learn more about application areas
 2. Create a custom search service
-3. Retrieve custom search results programmatically from Bing Web Search API
+3. Retrieve custom search results programmatically
