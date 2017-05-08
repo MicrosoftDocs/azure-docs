@@ -14,8 +14,7 @@ metadata:
   ms.date: 04/28/2017
   ms.author: carolz
 abstract:
-  description: Learn how to use Azure Cosmos DB to build globally distributed multi-model databases. Quickstarts, tutorials, and other documentation 
-Azure Cosmos DB is a globally distributed database service designed to allow you to elastically and independently scale throughput and storage across any number of geographical regions with a comprehensive SLA.  You can develop with Cosmos DB using a series of popular APIs and programming models.  Learn how to use Cosmos DB with our quickstarts, tutorials, and samples that show you how to build document, key/value, and graph databases for mission-critical apps using popular APIs such as .NET, Node.js, Java, Python, MongoDB, SQL, and Gremlin.
+  description: Azure Cosmos DB is a globally distributed database service designed to allow you to elastically and independently scale throughput and storage across any number of geographical regions with a comprehensive SLA.  You can develop document, key/value, or graph databases with Cosmos DB using a series of popular APIs and programming models. Learn how to use Cosmos DB with our quickstarts, tutorials, and samples.
 sections:
 - title: 5-Minute Quickstarts
   items:
