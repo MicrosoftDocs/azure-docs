@@ -20,7 +20,7 @@ ms.author: lbosq
 ---
 # Azure SQL Database: Use Node.js to connect and query data
 
-This quick start demonstrates how to connect to an Azure SQL database using [Node.js](https://nodejs.org/en/) and then use Transact-SQL statements to query, insert, update, and delete data in the database from Windows, Ubuntu Linux, and Mac platforms.
+This quick start demonstrates how to connect to an Azure SQL database using [Node.js](https://nodejs.org/en/); then use Transact-SQL statements to query, insert, update, and delete data in the database from Windows, Ubuntu Linux, and Mac platforms.
 
 This quick start uses as its starting point the resources created in any of these guides:
 
@@ -29,7 +29,7 @@ This quick start uses as its starting point the resources created in any of thes
 
 ## Install Node.js 
 
-The steps in this section assume that you are familar with developing using Node.js and are new to working with Azure SQL Database. If you are new to developing with Node.js, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) and select **Node.js** and then select your operating system.
+The steps in this section assume that you are familiar with developing using Node.js and are new to working with Azure SQL Database. If you are new to developing with Node.js, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) and select **Node.js** and then select your operating system.
 
 ### **Mac OS**
 Enter the following commands to install **brew**, an easy-to-use package manager for Mac OS X and **Node.js**.
@@ -207,7 +207,7 @@ function updateInDatabase(){
 ```
 
 ## Delete data from the database
-Use the following code to delete data from the database. Replace the **username**, **password**, **server** and **database** variables with the values that you specified when you created the database with the AdventureWorksLT sample data. This time, use an **DELETE statement** in the `deleteFromDatabase()` function. This sample also uses the Product name inserted in the previous example.
+Use the following code to delete data from the database. Replace the **username**, **password**, **server** and **database** variables with the values that you specified when you created the database with the AdventureWorksLT sample data. This time, use a **DELETE statement** in the `deleteFromDatabase()` function. This sample also uses the Product name inserted in the previous example.
 
 ```js
 var Connection = require('tedious').Connection;
