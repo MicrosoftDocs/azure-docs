@@ -21,9 +21,19 @@ ms.author: mimig
 # Frequently asked questions about Azure Cosmos DB
 ## Database questions about Microsoft Azure Cosmos DB fundamentals
 ### What is Microsoft Azure Cosmos DB?
-Microsoft Azure Cosmos DB is a blazing fast, planet-scale NoSQL document database-as-a-service that offers rich querying over schema-free data, helps deliver configurable and reliable performance, and enables rapid development, all through a managed platform backed by the power and reach of Microsoft Azure. Azure Cosmos DB is the right solution for web, mobile, gaming, and IoT applications when predictable throughput, high availability, low latency, and a schema-free data model are key requirements. Azure Cosmos DB delivers schema flexibility and rich indexing via a native JSON data model, and includes multi-document transactional support with integrated JavaScript.  
+Microsoft Azure Cosmos DB is a globally replicated, multi-model database service that that offers rich querying over schema-free data, helps deliver configurable and reliable performance, and enables rapid development, all through a managed platform backed by the power and reach of Microsoft Azure. Azure Cosmos DB is the right solution for web, mobile, gaming, and IoT applications when predictable throughput, high availability, low latency, and a schema-free data model are key requirements. Azure Cosmos DB delivers schema flexibility and rich indexing, and includes multi-document transactional support with integrated JavaScript.  
+
+The Cosmos DB project started in 2011 as “Project Florence” to address developer pain-points that are faced by large Internet-scale applications inside Microsoft. Observing that these problems are not unique to Microsoft’s applications, we decided to make Cosmos DB generally available to external developers in 2015 in the form of Azure DocumentDB. The exponential growth of the service has validated our design choices and the unique tradeoffs we have made. The service is used ubiquitously internally within Microsoft, and is one of the fastest-growing services used by Azure developers externally. 
 
 For more database questions, answers, and instructions on deploying and using this service, see the [Azure Cosmos DB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).
+
+## Where did DocumentDB go?
+
+The DocumentDB API is one of the supported APIs and data models for Azure Cosmos DB. In addition, Azure Cosmos DB enables you to create graph, table, and key-value databases.
+
+## How do I get to my DocumentDB account in the Azure portal?
+
+Just click the Azure Cosmos DB icon in the menu on the left side of the Azure portal. If you had a DocumentDB account before, you now have an Azure Cosmos DB account, with no change to your billing.
 
 ### Do Azure Cosmos DB databases support schema-free data?
 Yes, Azure Cosmos DB allows applications to store arbitrary JSON documents without schema definition or hints. Data is immediately available for query through the Azure Cosmos DB SQL query interface.   
@@ -69,8 +79,8 @@ A master key is a security token to access all resources for an account. Individ
 ### How do I create a database?
 You can create databases using the [Azure Portal]() as described in [Create an Azure Cosmos DB collection and database](documentdb-create-collection.md), one of the [Azure Cosmos DB SDKs](documentdb-sdk-dotnet.md), or through the [REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx).  
 
-### What is a collection?
-A collection is a container of JSON documents and the associated JavaScript application logic. A collection is a billable entity, where the [cost](documentdb-performance-levels.md) is determined by the throughput and storage used. Collections can span one or more partitions/servers and can scale to handle practically unlimited volumes of storage or throughput.
+### What is a container?
+A container is a group of documents, key/value entities and graph items, and their associated JavaScript application logic. A collection is a billable entity, where the [cost](documentdb-performance-levels.md) is determined by the throughput and storage used. Collections can span one or more partitions/servers and can scale to handle practically unlimited volumes of storage or throughput.
 
 Collections are also the billing entities for Azure Cosmos DB. Each collection is billed hourly based on the provisioned throughput and the storage space used. For more information, see [Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/documentdb/).  
 
