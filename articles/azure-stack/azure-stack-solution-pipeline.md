@@ -172,6 +172,7 @@ Finally, configure the release definition to use the agent pool containing the a
 You can now test the hybrid CI/CD pipeline, with the final step publishing to Azure Stack.  In this section, you modify the site's footer and start deployment through the pipeline.  Once complete, you will see your changes deployed to Azure for review, then once you approve the release, they are published to Azure Stack.
 
 1. In Visual Studio, open the *site.master* file and change this line:
+    
     `
         <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
     `
@@ -186,6 +187,7 @@ You can now test the hybrid CI/CD pipeline, with the final step publishing to Az
 5.  You will see a build in progress.  Double-click the status, and you can watch the build progress.  Once you see "Finished build" in the console, move on to check the release from **Build & Release** > **Release**.  Double-click the release.
 6.  You will receive notification that a release requires review. Check the Web App URL and verify the new changes are present.  Approve the release in VSTS.
     ![image showing configuration of release definition to use specific queue](./media/azure-stack-solution-pipeline/image4.png)
+    
 7.  Verify publishing to Azure Stack is complete by visiting the website using the URL noted when creating the Web App.
     ![image showing ASP.NEt app with footer changed](./media/azure-stack-solution-pipeline/image5.png)
 
