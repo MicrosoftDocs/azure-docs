@@ -289,7 +289,7 @@ To see your table, expand the tree elements as follows:
 For final clean-up, right-click the testpy1 node, and then click **Delete/Drop**.
 
 
-## Related articles
+## Next Steps
 
-- [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md)
 - [Python connection to Azure SQL Database](../sql-database/sql-database-connect-query-python.md)
+- [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md)
