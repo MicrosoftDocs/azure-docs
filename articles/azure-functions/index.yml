@@ -35,3 +35,18 @@ sections:
     style: ordered
     items:
     - html: <a href="/azure/azure-functions/functions-create-serverless-api">Create a serverless API using Azure Functions</a>
+- title: Samples
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/azure-functions/functions-cli-samples">Azure CLI</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/cli/azure">Azure CLI</a></p>
