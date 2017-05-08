@@ -33,83 +33,9 @@ ms.author: davidmu
 > * Create an alert
 > * Set up advanced monitoring
 
-The steps in this tutorial can be completed using the latest [Azure PowerShell](/powershell/azure/overview) module.
+This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
-## Create VNet
-
-A VM must be in a virtual network (VNet), so you need to create one before you create the VM.
-
-Before you can create any other Azure resources, you need to create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resource group named `myResourceGroupMonitor` in the `eastus` location:
-
-```powershell
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroupMonitor -Location eastus
-```
-
-A subnet is a child resource of a VNet, and helps define segments of address spaces within a CIDR block, using IP address prefixes. NICs can be added to subnets, and connected to VMs, providing connectivity for various workloads.
-
-Create the network resources that are needed with [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) and [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork):
-
-```powershell
-$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet `
-  -AddressPrefix 10.0.0.0/24
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupMonitor `
-  -Location eastus `
-  -Name myVNet `
-  -AddressPrefix 10.0.0.0/16 `
-  -Subnet $subnet
-```
-
-## Create VM
-
-For a VM to communicate in a VNet, it needs a virtual network interface (NIC). The `myMonitorVM` is accessed from the internet, so it also needs a public IP address. 
-
-Create the resources that the VM needs to communicate in the network with [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) and [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface):
-
-```powershell
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroupMonitor `
-  -Location eastus `
-  -AllocationMethod Static `
-  -Name myPublicIPAddress
-$nic = New-AzureRmNetworkInterface -ResourceGroupName myResourceGroupMonitor `
-  -Location eastus `
-  -Name myNic `
-  -SubnetId $vnet.Subnets[0].Id `
-  -PublicIpAddressId $pip.Id
-```
-
-Set the username and password needed for the administrator account on the VM with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
-
-```powershell
-$cred = Get-Credential
-```
-
-Create the VM with [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-3.8.0), [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmoperatingsystem?view=azurermps-3.8.0), [Set-AzureRmVMSourceImage](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage?view=azurermps-3.8.0), [Set-AzureRmVMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-3.8.0), [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmnetworkinterface?view=azurermps-3.8.0), and [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). 
-
-```powershell
-$vm = New-AzureRmVMConfig -VMName myMonitorVM `
-  -VMSize Standard_D1
-$vm = Set-AzureRmVMOperatingSystem -VM $vm `
-  -Windows `
-  -ComputerName myMonitorVM `
-  -Credential $cred `
-  -ProvisionVMAgent `
-  -EnableAutoUpdate
-$vm = Set-AzureRmVMSourceImage -VM $vm `
-  -PublisherName MicrosoftWindowsServer `
-  -Offer WindowsServer `
-  -Skus 2016-Datacenter `
-  -Version latest
-$vm = Set-AzureRmVMOSDisk -VM $vm `
-  -Name myOSDisk `
-  -DiskSizeInGB 128 `
-  -CreateOption FromImage `
-  -Caching ReadWrite
-$vm = Add-AzureRmVMNetworkInterface -VM $vm `
-  -Id $nic.Id
-New-AzureRmVM -ResourceGroupName myResourceGroupMonitor `
-  -Location eastus `
-  -VM $vm
-```
+To complete the example in this tutorial, you must have an existing virtual machine. If needed, this [script sample](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) can create one for you. When working through the tutorial, replace the resource group and VM names where needed.
 
 ## View boot diagnostics
 
