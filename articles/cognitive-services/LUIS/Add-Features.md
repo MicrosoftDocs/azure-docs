@@ -114,3 +114,7 @@ This phrase list should be marked non-exchangeable, to indicate that the set of 
 **To delete a pattern:** 
 
 * Click the trash bin button ![Trash bin button](./media/luis-how-to-add-features/trashbin-button.png) next to the pattern name in the list of pattern features.
+
+## Next steps
+
+After adding a pattern, [train and test the app](Train-Test.md) again to see if performance improves.

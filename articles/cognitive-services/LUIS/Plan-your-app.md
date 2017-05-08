@@ -12,13 +12,12 @@ ms.date: 03/01/2017
 ms.author: cahann
 ---
 
-# Plan Your Application
+# Plan your LUIS app
 
-
-It is advisable to plan your application before you start creating it in LUIS. Prepare an outline (schema) of the possible intents and entities that are relevant to the domain-specific topic of your application.  
+It is important to plan your app before you start creating it in LUIS. Prepare an outline or schema of the possible intents and entities that are relevant to the domain-specific topic of your application.  
 
 ## Identify your domain
-All LUIS applications are centered around a domain-specific topic.  For example, you may have an travel app that performs booking of tickets, flights, hotels, rental cars. Another app may provide content related to exercising, tracking fitness efforts and setting goals. 
+A LUIS apps is usually centered around a domain-specific topic.  For example, you may have an travel app that performs booking of tickets, flights, hotels, and rental cars. Another app may provide content related to exercising, tracking fitness efforts and setting goals. 
 
 > [!TIP]
 > LUIS offers [prebuilt domains](luis-how-to-use-prebuilt-domains.md) for many common scenarios.

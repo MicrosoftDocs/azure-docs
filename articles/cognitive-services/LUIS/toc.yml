@@ -78,3 +78,7 @@
       href: https://github.com/Microsoft/Cognitive-LUIS-Python
     - name: Windows
       href: https://github.com/Microsoft/Cognitive-LUIS-Windows
+- name: Resources
+  items: 
+  - name: LUIS FAQ
+    href: luis-resources-faq.md

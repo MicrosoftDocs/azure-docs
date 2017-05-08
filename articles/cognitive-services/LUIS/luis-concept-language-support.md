@@ -23,7 +23,7 @@ LUIS understands utterances in the following languages. Support for prebuilt ent
 Locale  | Language | Prebuilt entity support |
 ------| ------- | ------- |
 en-US | American English | :ballot_box_with_check:  |
-fr-CA | Canandian French |   -   |
+fr-CA | Canadian French |   -   |
 fr-FR | French (France) | :ballot_box_with_check: |
 it-IT | Italian | :ballot_box_with_check: |
 nl-NL | Dutch |  -   |
