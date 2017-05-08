@@ -193,8 +193,8 @@ MySQL, MongoDB, Azure (Redis) Cache, etc., and use the corresponding
 [datastore adapter](https://github.com/balderdashy/sails#compatibility) to connect to it. The steps in this section
 show you how to connect to MongoDB by using an [Azure Cosmos DB](../documentdb/documentdb-protocol-mongodb.md) database, which can support MongoDB client connections.
 
-1. [Create an Azure Cosmos DB account with MongoDB protocol support](../documentdb/documentdb-create-mongodb-account.md).
-2. [Create a DocumentDB collection and database](../documentdb/documentdb-create-collection.md). The name of the collection doesn't matter,
+1. [Create a Cosmos DB account with MongoDB protocol support](../documentdb/documentdb-create-mongodb-account.md).
+2. [Create a Cosmos DB collection and database](../documentdb/documentdb-create-collection.md). The name of the collection doesn't matter,
 but you need the name of the database when you connect from Sails.js.
 3. [Find the connection information for your Cosmos DB database](../documentdb/documentdb-connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize).
 2. From your command-line terminal, install the MongoDB adapter:
@@ -214,12 +214,12 @@ but you need the name of the database when you connect from Sails.js.
         },
 
     > [!NOTE] 
-    > The `ssl: true` option is important because [Azure Cosmos DB requires it](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
+    > The `ssl: true` option is important because [Cosmos DB requires it](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
     >
     >
 
 4. For each environment variable (`process.env.*`), you need to set it in App Service. To do this, run the following commands
-   from your terminal. Use the connection information for your Cosmos DB database.
+   from your terminal. Use the connection information for your Cosmos DB.
 
         az appservice web config appsettings update --settings dbuser="<database user>" --name <app_name> --resource-group my-sailsjs-app-group
         az appservice web config appsettings update --settings dbpassword="<database password>" --name <app_name> --resource-group my-sailsjs-app-group
