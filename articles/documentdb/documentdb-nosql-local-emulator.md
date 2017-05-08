@@ -335,13 +335,11 @@ In this tutorial, you've done the following:
 > * Used the emulator
 > * Authenticated requests
 > * Developed with the emulator
-> * Exported the SSL ceritficate
+> * Exported the SSL certificate
 > * Used the command-line reference
 
 ## Next steps
-* To learn more about Azure Cosmos DB, see [Introduction to Azure Cosmos DB](documentdb-introduction.md)
-* To start developing against the Azure Cosmos DB Emulator, download one of the [supported Azure Cosmos DB SDKs](documentdb-sdk-dotnet.md).
 
-In this tutorial, you've learned how to use the local emulator for free local development. You can now proceed to the next tutorial and learn how to query data using Azure Cosmos DB. 
+In this tutorial, you've learned how to use the local emulator for free local development. You can now proceed to the next tutorial and learn how to export emulator SSL certificates. 
 
-[Azure Cosmos DB: How to query data?](tutorial-query-documentdb-dotnet.md)
+[Export the Azure Cosmos DB Emulator certificates](documentdb-nosql-local-emulator-export-ssl-certificates.md)
