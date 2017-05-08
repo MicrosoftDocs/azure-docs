@@ -13,16 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/03/2017
+ms.date: 05/10/2017
 ms.author: sngun
 
 ---
 # Add the Windows Server 2016 VM image to the Azure Stack marketplace
 
-By default, there aren’t any virtual machine images available in the Azure stack marketplace. The administrator must add a Virtual Machine image to the Azure Stack marketplace before users can create them. This topic describes the steps required to add a Windows Server 2016 image to the marketplace. The steps described in this topic are helpful if you have deployed your Azure Stack instance in a disconnected scenario.
+By default, there aren’t any virtual machine images available in the Azure stack marketplace. The administrator must add a Virtual Machine image to the Azure Stack marketplace before users can create them. This topic describes the steps required to add a Windows Server 2016 image to the marketplace by using PowerShell. The steps described in this topic are helpful if you have deployed your Azure Stack instance in a disconnected scenario.
 
 > [!NOTE]
-> If you have registered your Azure Stack instance with Azure, then you can download the Windows Server 2016 VM image from the Azure Marketplace by using the steps described in the [Download marketplace items from Azure to Azure Stack](azure-stack-download-azure-marketplace-item.md) topic. 
+> If you are operating in a connected scenario and if you have registered your Azure Stack instance with Azure, then you can download the Windows Server 2016 VM image from the Azure Marketplace by using the steps described in the [Download marketplace items from Azure to Azure Stack](azure-stack-download-azure-marketplace-item.md) topic. 
 
 1. After deploying Azure Stack, sign in to the MAS-CON01 virtual machine.
 
@@ -32,10 +32,7 @@ By default, there aren’t any virtual machine images available in the Azure sta
 
 4. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 
-5. [Download the Azure Stack tools from GitHub](azure-stack-powershell-download.md).
-   
-   > [!NOTE]
-   > Make sure that you download and extract the Azure Stack tool repository to a folder that is NOT under the C:\Windows\System32 directory.  
+5. [Download the Azure Stack tools from GitHub](azure-stack-powershell-download.md). Make sure that you download and extract the Azure Stack tool repository to a folder that is NOT under the C:\Windows\System32 directory.  
    
 6. Import the Azure Stack Connect and ComputeAdmin modules by using the following commands:
    ```powershell
@@ -73,7 +70,8 @@ By default, there aren’t any virtual machine images available in the Azure sta
   
    # Store the service administrator account credentials in a variable 
    $UserName='<Username of the service administrator account>'
-   $Password='<Admin password provided when deploying Azure Stack>'| ConvertTo-SecureString -Force -AsPlainText
+   $Password='<Admin password provided when deploying Azure Stack>'| `
+     ConvertTo-SecureString -Force -AsPlainText
    $Credential=New-Object PSCredential($UserName,$Password)
 
    # Add a Windows Server 2016 Evaluation VM Image.
