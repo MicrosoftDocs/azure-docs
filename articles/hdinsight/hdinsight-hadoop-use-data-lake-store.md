@@ -52,7 +52,7 @@ As of now, only some of the HDInsight cluster types/versions support using Data 
 | HBase (all HDInsight versions) | No | No| |
 | Storm | | |You can use Data Lake Store to write data from a Storm topology. You can also use Data Lake Store for reference data that can then be read by a Storm topology.|
 
-Adding a Data Lake Store account as additional and adding more than one Data Lake Store account are accomplished by giving the HDInsight cluster permission on data in one ore more Data Lake Store accounts. See [Configure Data Lake Store access](#configure-data-lake-store-access).
+Adding a Data Lake Store account as additional and adding more than one Data Lake Store accounts are accomplished by giving the HDInsight cluster permission on data in one ore more Data Lake Store accounts. See [Configure Data Lake Store access](#configure-data-lake-store-access).
 
 Using Data Lake Store as an additional storage account does not affect performance or the ability to read or write to Azure storage from the cluster.
 
