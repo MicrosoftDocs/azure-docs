@@ -132,9 +132,12 @@ Docker containers are a widely used method for deploying web applications. By us
 
    b. Choose one of the following Docker images:
      * **Predefined Docker image**: Specifies a pre-existing Docker image from Azure.
+
        >[!NOTE]
        >The list of Docker images in this box consists of several images that the Azure Toolkit has been configured to patch so that your artifact is deployed automatically.
+
      * **Custom Dockerfile**: Specifies a previously saved Dockerfile from your local computer.
+
        >[!NOTE]
        >This is a more advanced feature for developers who want to deploy their own Dockerfile. However, it is up to developers who use this option to ensure that their Dockerfile is built correctly. The Azure Toolkit does not validate the content in a custom Dockerfile, so the deployment might fail if the Dockerfile has issues. In addition, the Azure Toolkit expects the custom Dockerfile to contain a web app artifact, and it will attempt to open an HTTP connection. If developers publish a different type of artifact, they may receive innocuous errors after deployment.
 
