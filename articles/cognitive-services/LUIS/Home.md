@@ -26,27 +26,33 @@ A LUIS app is a place for a developer to define a custom language model. The out
 
 * **What is an utterance?** An utterance is the textual input from the user, that your app needs to interpret. It may be a sentence, like "Book me a ticket to Paris", or a fragment of a sentence, like "Booking" or "Paris flight." Utterances aren't always well-formed, and there can be many utterance variations for a particular intent. See [Add example utterances][add-example-utterances] for information on training a LUIS app to understand user utterances.
 * **What are intents?** Intents are like verbs in a sentence. An intent represents actions the user wants to perform. It is a purpose or goal expressed in a user's input, such as booking a flight, paying a bill, or finding a news article. You define a set of named intents that correspond to actions users want to take in your application. A travel app may define an intent named "BookFlight", that LUIS extracts from the utterance "Book me a ticket to Paris".
-* **What are entities?** If intents are verbs, then entities are nouns. An entity represents an instance of a class of object that is relevant to a user’s intent. In the utterance "Book me a ticket to Paris", "Paris" is an entity of type location. By recognizing the entities that are mentioned in the user’s input, LUIS helps you choose the specific actions to take to fulfill an intent. LUIS also provides [pre-built entities][pre-built-entities] that you can use in your app.
+* **What are entities?** If intents are verbs, then entities are nouns. An entity represents an instance of a class of object that is relevant to a user’s intent. In the utterance "Book me a ticket to Paris", "Paris" is an entity of type location. By recognizing the entities that are mentioned in the user’s input, LUIS helps you choose the specific actions to take to fulfill an intent. See [Entities in LUIS](luis-concept-entity-types.md) for more detail on the types of entities that LUIS provides.
 
-## How do you plan a LUIS app?
-Before you start creating it in LUIS web interface, plan your LUIS app by preparing an outline or schema of the possible intents and entities that are relevant to the domain-specific purpose of your application.
-<!-- Let's take the example of a travel app. In this travel booking application, users would like to book a flight and check the weather at their travel destination. Some of the the relevant intents would be "BookFlight" and "GetWeather". To book a flight, some relevant information is needed such as the location, date, airline, tickets category and travel class These can be added as entities. --> 
-See [Plan your app](Plan-your-app.md) for an example of how to choose intents and entities to reflect the functions and relations in app. Once you have a planned outline of intents and entities, you can start creating your application in LUIS and add these intents and entities to the LUIS app.
+## Plan your LUIS app
+Before you start creating it in LUIS web interface, plan your LUIS app by preparing an outline or schema to describe intents and entities in your application. Generally, you create an intent to trigger an action in a client application or bot and create an entity to model some parameters required to execute an action. For example, a "BookFlight" intent could trigger an API call to an external service for booking a plane ticket, which requires entities like the travel destination, date, and airline. See [Plan your app](Plan-your-app.md) for examples and guidance on how to choose intents and entities to reflect the functions and relationships in an app. 
 
-## Get started creating a LUIS app
-Once you've planned your app so that you know which intents and entities it will recognize, you can [create a new LUIS app](LUIS-get-started-create-app.md), that you can monitor using the [Dashboard](App-Dashboard.md).
-Once you've created it, the following articles provide more detail about the main steps in configuring your LUIS app:
+## Build and train a LUIS app
+Once you have determined which intents and entities you want your app to recognize, you can start adding them to your LUIS app. See [create a new LUIS app](LUIS-get-started-create-app.md), for a quick walkthrough of creating a LUIS app.<!-- that you can monitor using the [Dashboard](App-Dashboard.md)-->
+For more detail about the steps in configuring your LUIS app, see the following articles:
 1.	[Add intents](Add-intents.md)
-2.	[Add entities](Add-entities.md)
-3.	[Train and test](Train-Test.md)
-4.	[Publish](PublishApp.md)
+2.  [Add utterances](Add-example-utterances.md)
+3.	[Add entities](Add-entities.md)
+4.  [Improve performance using features](Add-Features.md)
+5.	[Train and test](Train-Test.md)
+6.  [Use active learning](label-suggested-utterances.md)
+7.	[Publish](PublishApp.md)
 
 You can also watch a basic [video tutorial](https://www.youtube.com/watch?v=jWeLajon9M8&index=4&list=PLD7HFcN7LXRdHkFBFu4stPPeWJcQ0VFLx) on these steps.
 
-## How do you use active learning to improve performance?
+## Improve performance using active learning
 Once your application is deployed and traffic starts to flow into the system, LUIS uses active learning to improve itself. In the active learning process, LUIS identifies the utterances that it is relatively unsure of, and asks you to label them according to intent and entities. This process has tremendous advantages. LUIS knows what it is unsure of, and asks for your help in the cases that lead to the maximum improvement in system performance. LUIS learns quicker, and takes the minimum amount of your time and effort. This is active machine learning at its best. See [Label suggested utterances][label-suggested-utterances] for an explanation of how to implement active learning using the LUIS web interface.
 
-## How do you use LUIS from a bot?
+## Configure LUIS programmatically
+LUIS offers a set of programmatic REST APIs that can be used by developers to automate the application creation process. These APIs allow you to author, train,  and publish your application.
+
+* [LUIS Programmatic API](https://dev.projectoxford.ai/docs/services/56d95961e597ed0f04b76e58/operations/5739a8c71984550500affdfa).
+
+## Integrate LUIS with a bot
 It's easy to use a LUIS app from a bot built using the [Bot Framework](https://docs.microsoft.com/bot-framework/), which provides the Bot Builder SDK for Node.js or .NET. You simply reference the HTTPS endpoint for the LUIS app as shown in the following examples:
 
 #### Node.js 
@@ -70,12 +76,8 @@ The Bot Builder SDK provides classes that automatically handle the intents and e
 *	[LUIS demo bot (C#)](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-LUIS)
 *	[LUIS demo bot (Node.js)](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/intelligence-LUIS) 
 
-## Configure LUIS programmatically
-LUIS offers a set of programmatic REST APIs that can be used by developers to automate the application creation process. These APIs allow you to author and publish your application.
 
-[LUIS Programmatic API](https://dev.projectoxford.ai/docs/services/56d95961e597ed0f04b76e58/operations/5739a8c71984550500affdfa).
-
-## Speech Integration
+## Integrate LUIS with Speech
 Your LUIS endpoints work seamlessly with Microsoft Cognitive Service's speech recognition service. In the C# SDK for Microsoft Cognitive Services Speech API, you can add the LUIS application ID and LUIS subscription key, and the speech recognition result is sent for interpretation. 
 
 See [Microsoft Cognitive Services Speech API Overview](../Speech/Home.md).

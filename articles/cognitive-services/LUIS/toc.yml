@@ -10,7 +10,7 @@
     href: luis-get-started-create-app.md
 - name: Tutorials
   items: 
-  - name: Build a bot using Node.js
+  - name: Integrate LUIS with a bot using Node.js
     href: luis-nodejs-tutorial-build-bot-framework-sample.md
 - name: Concepts
   items: 
@@ -26,38 +26,44 @@
   items: 
   - name: Plan your app
     href: Plan-your-app.md
-  - name: Start a new app
-    href: Create-new-app.md
-  - name: Add intents
-    href: Add-intents.md
-  - name: Add utterances
-    href: Add-example-utterances.md
-  - name: Add entities
-    href: Add-entities.md
-  - name: Improve performance using features
-    href: Add-Features.md
-  - name: Train and test the app
-    href: Train-Test.md
-  - name: Use active learning
-    href: Label-Suggested-Utterances.md
-  - name: Publish your app
-    href: PublishApp.md
-  - name: Use prebuilt entities
-    href: Pre-builtEntities.md
-  - name: Use prebuilt domains
-    href: luis-how-to-use-prebuilt-domains.md
-  - name: Use the Cortana prebuilt app
-    href: Cortana-Prebuilt-App.md
-  - name: Monitor your app using the dashboard
-    href: App-Dashboard.md
-  - name: Manage keys
-    href: Manage-Keys.md
-  - name: Create subscription keys
-    href: AzureIbizaSubscription.md
-  - name: Manage versions
-    href: luis-how-to-manage-versions.md
-  - name: Collaborate on a LUIS app
-    href: luis-how-to-collaborate.md    
+  - name: Build a LUIS app
+    items: 
+    - name: Start a new app
+      href: Create-new-app.md
+    - name: Add intents
+      href: Add-intents.md
+    - name: Add utterances
+      href: Add-example-utterances.md
+    - name: Add entities
+      href: Add-entities.md
+    - name: Improve performance using features
+      href: Add-Features.md
+    - name: Train and test the app
+      href: Train-Test.md
+    - name: Use active learning
+      href: Label-Suggested-Utterances.md
+    - name: Publish your app
+      href: PublishApp.md
+  - name: Prebuilt models
+    items: 
+    - name: Use prebuilt entities
+      href: Pre-builtEntities.md
+    - name: Use prebuilt domains
+      href: luis-how-to-use-prebuilt-domains.md
+    - name: Use the Cortana prebuilt app
+      href: Cortana-Prebuilt-App.md
+  - name: Manage your LUIS app
+    items: 
+    - name: Monitor your app using the dashboard
+      href: App-Dashboard.md
+    - name: Manage keys
+      href: Manage-Keys.md
+    - name: Create subscription keys
+      href: AzureIbizaSubscription.md
+    - name: Manage versions
+      href: luis-how-to-manage-versions.md
+    - name: Collaborate on a LUIS app
+      href: luis-how-to-collaborate.md    
 - name: Reference
   items: 
   - name: LUIS API
