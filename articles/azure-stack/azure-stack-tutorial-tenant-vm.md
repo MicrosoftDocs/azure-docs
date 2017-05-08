@@ -45,7 +45,7 @@ Now you can get things ready for your users. Create an offer that they can then 
 
    Quotas define the limits of resources that a user subscription can provision or consume. For example, a quota might allow a user to create up to five VMs. To add a service to a plan, the administrator must configure the quota settings for that service.
 
-   a. In a browser, go to [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external/). Sign in to the Azure Stack portal as an administrator (by using the credentials that you provided during deployment).
+   a. Sign in to the Azure Stack portal at https://adminportal.local.azurestack.external using the administrator credentials you provided during deployment.
 
    b. Select **New**, then **Tenant Offers + Plans**, and select **Quota**.
 
@@ -55,6 +55,7 @@ Now you can get things ready for your users. Create an offer that they can then 
    > ![Creating a new Compute quota](./media/azure-stack-setting-quota/NewComputeQuota.PNG)
    > 
    > 
+
    d. Choose the location where the quota is defined (for example, 'local').
 
    e. On the **Quota Settings** item, it says **Set the
@@ -69,9 +70,7 @@ Now you can get things ready for your users. Create an offer that they can then 
    > 
    > 
 
-   g. After you have configured the values and clicked **Ok**, the **Quota
-   Settings** item appears as **Configured**. Click **Ok** to
-   create the **Quota** resource.
+   g. After you have configured the values and clicked **OK**, the **Quota Settings** item appears as **Configured**. Click **Create** to create the **Quota** resource.
    
    You should see a notification indicating that the quota resource is
    being created.
@@ -88,7 +87,7 @@ Now you can get things ready for your users. Create an offer that they can then 
 
    a. In an internet browser, navigate to https://adminportal.local.azurestack.external.
 
-   b. [Sign in](azure-stack-connect-azure-stack.md) to the Azure Stack Portal as a service administrator. Enter the credentials for the account that you created during step 5 of the [Run the PowerShell script](azure-stack-run-powershell-script.md) section.
+   b. Sign in to the Azure Stack Portal as a service administrator.
 
    Service administrators can create offers and plans, and manage users.
 
@@ -108,29 +107,11 @@ Now you can get things ready for your users. Create an offer that they can then 
 
    ![](media/azure-stack-create-plan/image03.png)
 
-   g. Click **Quotas**, click **Microsoft.Storage (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
+   g. Click **Quotas**, click **Microsoft.Storage (local)**, and then select the quota you created previously.
 
-   ![](media/azure-stack-create-plan/image04.png)
+   i. Click **Microsoft.Network (local)**, and then select the quota you created previously.
 
-   h. Type a name for the quota, click **Quota Settings**, set the quota values and click **OK**, and then click **OK**.
-
-   ![](media/azure-stack-create-plan/image06.png)
-
-   i. Click **Microsoft.Network (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
-
-   ![](media/azure-stack-create-plan/image07.png)
-
-   j. Type a name for the quota, click **Quota Settings**, set the quota values and click **OK**, and then click **OK**.
-
-   ![](media/azure-stack-create-plan/image08.png)
-
-   k. Click **Microsoft.Compute (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
-
-   ![](media/azure-stack-create-plan/image09.png)
-
-   l. Type a name for the quota, click **Quota Settings**, set the quota values and click **OK**, and then click **OK**.
-
-   ![](media/azure-stack-create-plan/image10.png)
+   k. Click **Microsoft.Compute (local)**, and then select the quota you created previously.
 
    m. In the **Quotas** blade, click **OK**, and then in the **New Plan** blade, click **Create** to create the plan.
 
@@ -166,26 +147,25 @@ Now you can get things ready for your users. Create an offer that they can then 
 
 ## Add an image
 
-Before you can provision virtual machines, you must add an image to the Azure Stack marketplace. This example shows you how to add a Windows Server 2016 image, but you can add the image of your choice, including Linux images.This step can take almost an hour to complete!
+Before you can provision virtual machines, you must add an image to the Azure Stack marketplace. This example shows you how to add a Windows Server 2016 image, but you can add the image of your choice, including Linux images.
+
+If you are operating in a connected scenario and if you have registered your Azure Stack instance with Azure, then you can download the Windows Server 2016 VM image from the Azure Marketplace by using the steps described in the [Download marketplace items from Azure to Azure Stack](azure-stack-download-azure-marketplace-item.md) topic.
 
 For information about adding different items to the marketplace , see [The Azure Stack Marketplace](azure-stack-marketplace.md).
 
-> [!NOTE]
-> If you have registered your Azure Stack instance with Azure, then you can download the Windows Server 2016 VM image from the Azure Marketplace by using the steps described in the [Download marketplace items from Azure to Azure Stack](azure-stack-download-azure-marketplace-item.md) topic. 
+This step can take almost an hour to complete!
+
 
 1. After deploying Azure Stack, sign in to the MAS-CON01 virtual machine.
 
-2. Go to https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 and download the Windows Server 2016 evaluation. When prompted, select the **ISO** version of the download. Record the path to the download location, which is used later in these steps.
+2. If you haven't downloaded the Windows Server 2016 image already, go to https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 and download the Windows Server 2016 evaluation. When prompted, select the **ISO** version of the download. Record the path to the download location, which is used later in these steps.
 
 3. Open PowerShell ISE as an administrator.
 
 4. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 
-5. [Download the Azure Stack tools from GitHub](azure-stack-powershell-download.md).
-   
-   > [!NOTE]
-   > Make sure that you download and extract the Azure Stack tool repository to a folder that is NOT under the C:\Windows\System32 directory.  
-   
+5. [Download the Azure Stack tools from GitHub](azure-stack-powershell-download.md). Make sure that you download and extract the Azure Stack tool repository to a folder that is NOT under the C:\Windows\System32 directory.
+
 6. Import the Azure Stack Connect and ComputeAdmin modules by using the following commands:
    ```powershell
    Import-Module .\Connect\AzureStack.Connect.psm1
@@ -222,7 +202,8 @@ For information about adding different items to the marketplace , see [The Azure
   
    # Store the service administrator account credentials in a variable 
    $UserName='<Username of the service administrator account>'
-   $Password='<Admin password provided when deploying Azure Stack>'| ConvertTo-SecureString -Force -AsPlainText
+   $Password='<Admin password provided when deploying Azure Stack>'| `
+     ConvertTo-SecureString -Force -AsPlainText
    $Credential=New-Object PSCredential($UserName,$Password)
 
    # Add a Windows Server 2016 Evaluation VM Image.
@@ -237,25 +218,6 @@ For information about adding different items to the marketplace , see [The Azure
 
    When you run the `New-Server2016VMImage` cmdlet, the output displays a warning message that says, “Unable to acquire token for tenant ‘Common’”, which you can ignore and the download continues. The output also displays the “Downloading” message for a while and if the download is successful, it ends with the “StatusCode: Created” message.
 
-### Parameters
-
-|New-Server2016VMImage parameters|Required?|Description|
-|-----|-----|------|
-|ArmEndpoint|No|The Azure Resource Manager endpoint for your Azure Stack environment. The default is the one used by the Proof of Concept (PoC) environment.|
-|AzureStackCredentials|Yes|The credentials provided during deployment that are used to sign in to the Azure Stack Administrator portal. |
-|EnvironmentName|yes|The Azure Stack administrator's PowerShell environment name. |
-|IncludeLatestCU|No|Set this switch to apply the latest Windows Server 2016 cumulative update to the new VHD.|
-|ISOPath|Yes|The full path to the downloaded Windows Server 2016 ISO.|
-|Net35|No|This parameter allows you to install the .NET 3.5 runtime on the Windows Server 2016 image. By default, this value is set to true. It is mandatory that the image contains the .NET 3.5 runtime to install the SQL or MYSQL resource providers. |
-|TenantID|Yes|The GUID value of your Azure Stack Tenant ID.|
-|Version|No|This parameter allows you to choose whether to add a Core or Full (or both) Windows Server 2016 images. Valid values include Full (the default this parameter is not provided), Core, and Both.|
-|VHDSizeInMB|No|Sets the size (in MB) of the VHD image to be added to your Azure Stack environment. Default value is 40960 MB.|
-|CreateGalleryItem|No|Specifies if a Marketplace item should be created for the Windows Server 2016 image. By default, this value is set to true.|
-|location |No |Specifies the location to which the Windows Server 2016 image should be published. By default, this value is set to local.|
-|CUUri |No |Set this value to choose the Windows Server 2016 cumulative update from a specific URI. |
-|CUPath |No |Set this value to choose the Windows Server 2016 cumulative update from a local path. This option is helpful if you have deployed Azure Stack in a disconnected environment.|
-
-
 ## Test the offer
 
 Now that you’ve created an offer, you can test it. Log in as a user and subscribe to the offer and then add a virtual machine.
@@ -264,7 +226,7 @@ Now that you’ve created an offer, you can test it. Log in as a user and subscr
 
    Now you can log in to the portal as a user to subscribe to an offer.
 
-   a. On the Azure Stack POC computer, log in to `https://portal.local.azurestack.external` as a user(azure-stack-connect-azure-stack.md) and click **Get a Subscription**.
+   a. On the Azure Stack POC computer, log in to `https://portal.local.azurestack.external` as a user and click **Get a Subscription**.
 
    ![](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
