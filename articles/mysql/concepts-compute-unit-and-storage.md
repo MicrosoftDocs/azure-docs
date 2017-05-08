@@ -16,7 +16,7 @@ ms.date: 05/10/2017
 This article explains the concepts of Compute Unit and Storage Unit and what happens when you hit the maximum Compute Unit or Storage Unit.
 
 ## What are Compute Units?
-Compute Units are a measure of CPU processing throughput that is guaranteed to be available to a single Azure Database for MySQL server. A Compute Unit is a blended measure of CPU and memory resources. In general, 50 Compute Units equate to half-core, 100 Compute Units equate to one core, and 2000 Compute Units equate to twenty cores of guaranteed processing throughput available to your server.
+Compute Units are a measure of CPU processing throughput guaranteed to be available to a single Azure Database for MySQL server. A Compute Unit is a blended measure of CPU and memory resources. In general, 50 Compute Units equate to half-core, 100 Compute Units equate to one core, and 2000 Compute Units equate to twenty cores of guaranteed processing throughput available to your server.
 
 The amount of memory per Compute Unit is optimized for the Basic, Standard and Premium service tiers. Doubling the Compute Units by increasing the performance level equates to doubling the set of resource available to that single Azure Database for MySQL
 
