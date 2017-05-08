@@ -20,7 +20,7 @@ ms.author: anhoh
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal and then use the the [Gremlin console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) to work with data. In this tutorial, you'll create and query vertices and edges, updating a vertex property, query vertices, traverse the graph, and drop a vertex.
+This quick start demonstrates how to create an Azure Cosmos DB account, database, and graph (container) using the Azure portal and then use the the [Gremlin console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) to work with data. In this tutorial, you'll create and query vertices and edges, updating a vertex property, query vertices, traverse the graph, and drop a vertex.
 
 ![Azure Cosmos DB from the Apache Gremlin console](./media/create-graph-gremlin-console/gremlin-console.png)
 
@@ -260,7 +260,7 @@ If you're not going to continue to use this app, delete all resources created by
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a graph container using the Data Explorer, create vertices and edges, and traverse your graph using the Gremlin console. You can now build more complex queries and implement powerful graph traversal logic using Gremlin or distribute your data globally. 
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a graph using the Data Explorer, create vertices and edges, and traverse your graph using the Gremlin console. You can now build more complex queries and implement powerful graph traversal logic using Gremlin or distribute your data globally. 
 
 [Query using Gremlin](tutorial-query-graph.md)
 

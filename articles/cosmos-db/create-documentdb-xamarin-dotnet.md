@@ -36,36 +36,23 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 
 ## Add a collection
 
-You can now use Data Explorer to create a collection. 
-
-1. In the Azure portal, in the navigation menu, under **Collections**, click **Data Explorer (Preview)**. 
-2. In the Data Explorer blade, click **New Collection**, then fill in the page using the following information.
-
-    Setting|Suggested value|Description
-    ---|---|---
-    Database id|Items|The ID for your new database. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space.
-    Collection id|UserItems|The ID for your new collection. Collection names have the same character requirements as database ids.
-    Storage Capacity| 10 GB|Leave the default value. This is the storage capacity of the database.
-    Throughput|400 RUs|Leave the default value. You can scale up the throughput later if you want to reduce latency.
-    Partition key|/userid|A partition key that will distribute data evenly to each partition. Selecting the correct partition key is important in creating a performant collection, read more about it in [Designing for partitioning](../documentdb/documentdb-partition-data.md#designing-for-partitioning).    
-
-   ![Data Explorer in the Azure portal](./media/create-documentdb-xamarin-dotnet/azure-cosmosdb-data-explorer.png)
-
-3. Once the form is filled out, click **OK**.
+[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
 
 ## Clone the sample application
 
 Now let's clone a DocumentDB API app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
-1. Open a git terminal window, such as git bash, and `CD` to a working directory.  
+1. Open a git terminal window, such as git bash, and `cd` to a working directory.  
 
-2. Run the following command to clone the sample repository. 
+2. In your browser, go to [Github](https://aka.ms/acdbxamarinsample) and click the **Clone or download** button and then copy the Clone with HTTPS URL.
+
+3. Run the following command to clone the sample repository, using your copied URL. 
 
     ```bash
-    git clone https://github.com/Azure/azure-documentdb-dotnet.git
+    git clone https://github.com/Azure/COPIED-URL
     ```
 
-3. Then open the azure-documentdb-dotnet/samples/xamarin/UserItems/xamarin.forms/DocumentDBTodo.sln file in Visual Studio. 
+3. Then open the DocumentDBTodo.sln file in Visual Studio. 
 
 ## Review the code
 
@@ -79,7 +66,7 @@ The authentication and data flow is illustrated in the diagram below.
 * The UserItems collection is created with the partition key '/userid'. Specifying a partition key for a collection allows Azure Cosmos DB to scale infinitely as the number of users and items grows.
 * The Xamarin app allows users to login with Facebook credentials.
 * The Xamarin app uses Facebook access token to authenticate with ResourceTokenBroker API
-* The resource token broker API authenticates the request using App Service Auth feature, and requests an Azure Cosmos DB resoure token with read/write access to all documents sharing the authenticated user's partition key.
+* The resource token broker API authenticates the request using App Service Auth feature, and requests an Azure Cosmos DB resource token with read/write access to all documents sharing the authenticated user's partition key.
 * Resource token broker returns the resource token to the client app.
 * The app accesses the user's todo items using the resource token.
 
@@ -89,9 +76,9 @@ The authentication and data flow is illustrated in the diagram below.
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the Web.config file in the next step.
+1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the Web.config file in the next step.
 
-    ![View and copy an access key in the Azure Portal, Keys blade](./media/create-documentdb-xamarin-dotnet/keys.png)
+    ![View and copy an access key in the Azure portal, Keys blade](./media/create-documentdb-xamarin-dotnet/keys.png)
 
 2. In Visual Studio 2017, open the Web.config file in the azure-documentdb-dotnet/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker folder. 
 

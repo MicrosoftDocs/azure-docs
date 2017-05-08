@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [What is Azure Active Directory?](active-directory-whatis.md)
 ## [Choose edition](active-directory-editions.md)
 
@@ -18,7 +18,9 @@
 
 # How to
 ## Plan and design
+### [Understand Azure AD architecture](active-directory-architecture.md)
 ### [Deploy a hybrid identity solution](active-directory-hybrid-identity-design-considerations-overview.md)
+
 #### Determine requirements
 ##### [Identity](active-directory-hybrid-identity-design-considerations-business-needs.md)
 ##### [Directory sync](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
@@ -91,6 +93,7 @@
 ###	Programmatic Access
 #### [Audit reference](active-directory-reporting-api-audit-reference.md)
 #### [Audit samples](active-directory-reporting-api-audit-samples.md)
+#### [Get data](active-directory-reporting-api-with-certificates.md)
 #### [Prerequisites](active-directory-reporting-api-prerequisites.md)
 #### [Sign-in reference](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Sign-in samples](active-directory-reporting-api-sign-in-activity-samples.md)
@@ -114,6 +117,7 @@
 ## [Manage passwords](active-directory-passwords.md)
 ### User documents
 #### [Reset or change your password](active-directory-passwords-update-your-own-password.md)
+#### [Password best practices](active-directory-secure-passwords.md)
 #### [Register for self-service password reset](active-directory-passwords-reset-register.md)
 ### [Quick start: Self-service password reset](active-directory-passwords-getting-started.md)
 ### [License SSPR](active-directory-passwords-licensing.md)
@@ -301,14 +305,18 @@
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
 
 ## Secure your identities
-### [Conditional access](active-directory-conditional-access.md)
-#### [Get started](active-directory-conditional-access-azuread-connected-apps.md)
+### [Conditional access](active-directory-conditional-access-azure-portal.md)
+#### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Supported apps](active-directory-conditional-access-supported-apps.md)
 #### [Understand device policies](active-directory-conditional-access-device-policies.md)
 #### [Set up access to connected apps](active-directory-conditional-access-policy-connected-applications.md)
+#### [Technical reference](active-directory-conditional-access-technical-reference.md)
 #### [FAQs](active-directory-conditional-faqs.md)
-#### [Troubleshoot](active-directory-conditional-access-device-remediation.md)
-#### [Reference](active-directory-conditional-access-technical-reference.md)
+#### [Remediation](active-directory-conditional-access-device-remediation.md)
+###  [Classic portal](active-directory-conditional-access.md)
+#### [Get started](active-directory-conditional-access-azuread-connected-apps.md)
+
+
 ### Windows Hello
 #### [Authenticate without passwords](active-directory-azureadjoin-passport.md)
 #### [Enable Windows Hello for Business](active-directory-azureadjoin-passport-deployment.md)

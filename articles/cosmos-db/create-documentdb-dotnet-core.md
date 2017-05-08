@@ -22,7 +22,9 @@ ms.author: mimig
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and deploy a todo list web app built on the [DocumentDB .NET Core API](../documentdb/documentdb-introduction.md).  
+This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and deploy a todo list web app built on the [DocumentDB .NET Core API](../documentdb/documentdb-introduction.md), as shown in the following screenshot. 
+
+![Todo app with sample data](./media/create-documentdb-dotnet-core/azure-cosmosdb-todo-app-list.png)
 
 ## Prerequisites
 
@@ -48,7 +50,7 @@ Install .NET Core using the instructions on the [.NET Core SDK](https://www.micr
 
 ## Clone the sample application
 
-Now let's clone a  DocumentDB API app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's clone a DocumentDB API app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically.
 
 1. Open a git terminal window, such as git bash, and `CD` to a working directory.  
 
@@ -68,9 +70,9 @@ Now let's clone a  DocumentDB API app from github, set the connection string, an
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the web.config file in the next step.
+1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the web.config file in the next step.
 
-    ![View and copy an access key in the Azure Portal, Keys blade](./media/create-documentdb-dotnet-core/keys.png)
+    ![View and copy an access key in the Azure portal, Keys blade](./media/create-documentdb-dotnet-core/keys.png)
 
 2. In Visual Studio 2017, open the web.config file. 
 

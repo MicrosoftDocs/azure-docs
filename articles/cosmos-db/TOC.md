@@ -44,9 +44,10 @@
 
 # Concepts
 ## [Global distribution](../documentdb/documentdb-distribute-data-globally.md)
-## [Partitioning](../documentdb/documentdb-partition-data.md)
+## [Partitioning](partition-data.md)
 ## [Consistency](../documentdb/documentdb-consistency-levels.md)
 ## [Throughput](../documentdb/documentdb-request-units.md)
+### [Request units per minute](request-units-per-minute.md)
 ## Multi-model APIs
 ### [DocumentDB](../documentdb/documentdb-introduction.md)
 ### [MongoDB](../documentdb/documentdb-protocol-mongodb.md)
@@ -63,6 +64,7 @@
 #### [Resources](../documentdb/documentdb-resources.md)
 #### [SQL query](../documentdb/documentdb-sql-query.md)
 #### [SQL playground](https://www.documentdb.com/sql/demo)
+#### [Partitioning](../documentdb/documentdb-partition-data.md)
 #### [Stored procedures, triggers, and UDFs](../documentdb/documentdb-programming.md)
 #### [Performance testing](../documentdb/documentdb-performance-testing.md)
 #### [Performance tips](../documentdb/documentdb-performance-tips.md)

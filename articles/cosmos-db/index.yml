@@ -14,7 +14,7 @@ metadata:
   ms.date: 04/28/2017
   ms.author: carolz
 abstract:
-  description: Azure Cosmos DB is a globally distributed database service designed to allow you to elastically and independently scale throughput and storage across any number of geographical regions with a comprehensive SLA.  You can develop document, key/value, or graph databases with Cosmos DB using a series of popular APIs and programming models. Learn how to use Cosmos DB with our quickstarts, tutorials, and samples.
+  description: Azure Cosmos DB is a globally distributed database service designed to enable you to elastically and independently scale throughput and storage across any number of geographical regions with a comprehensive SLA.  You can develop document, key/value, or graph databases with Cosmos DB using a series of popular APIs and programming models. Learn how to use Cosmos DB with our quickstarts, tutorials, and samples.
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -54,7 +54,7 @@ sections:
     - html: Import data into Cosmos DB&#58; <a href="../documentdb/documentdb-import-data">DocumentDB</a> | <a href="../documentdb/documentdb-mongodb-migrate">MongoDB</a>
     - html: Query data with Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-query-documentdb">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-query-table">Table</a> | <a href="/azure/cosmos-db/tutorial-query-graph">Graph</a>
     - html: <a href="https://aka.ms/acdbglobaltut">Global database replication with Cosmos DB</a>
-    - html: <a href="../documentdb/documentdb-nosql-local-emulator">Develop you application locally using the emulator</a>
+    - html: <a href="../documentdb/documentdb-nosql-local-emulator">Develop your application locally using the emulator</a>
 - title: Samples
   items:
   - type: list

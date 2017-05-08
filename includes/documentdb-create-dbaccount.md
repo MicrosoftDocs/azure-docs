@@ -5,25 +5,23 @@
 
 3. In the **New account** blade, specify the desired configuration for the Azure Cosmos DB account. 
 
-    With Azure Cosmos DB, you can choose one of four programming models: DocumentDB, MongoDB, Table, and Graph. 
+    With Azure Cosmos DB, you can choose one of four programming models: Gremlin (graph), MongoDB, SQL (DocumentDB), and Table (key-value). 
     
-    ![Screen shot of the four programming models Azure Cosmos DB provides](./media/documentdb-create-dbaccount/account-type.png)
-    
-    In this quick start we'll be programming against the DocumentDB API, so you'll choose **DocumentDB** as you fill out the form. But if you have graph data for a social media app, or key/value (table) data, or data migrated from a MongoDB app, realize that Azure Cosmos DB can provide a highly available, globally-distributed database service platform for all your mission-critical applications.
+    In this quick start we'll be programming against the DocumentDB API, so you'll choose **SQL (DocumentDB)** as you fill out the form. But if you have graph data for a social media app, or key/value (table) data, or data migrated from a MongoDB app, realize that Azure Cosmos DB can provide a highly available, globally-distributed database service platform for all your mission-critical applications.
 
-    Fill out the New account blade using the information in the screenshot as a guide, the exact values you choose will be slightly different.
+    Fill out the New account blade using the information in the screenshot as a guide. You will choose unique values as you set up your account so your values will not match the screenshot exactly. 
  
     ![Screen shot of the New Azure Cosmos DB blade](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
 
     Setting|Suggested value|Description
     ---|---|---
-    ID|*Unique value*|A unique name you choose to identify the Azure Cosmos DB account. *documents.azure.com* is appended to the ID you provide to create your URI, so use a unique but identifyable ID. The ID may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters.
-    API|DocumentDB|We'll be programming against the DocumentDB API later in this article.|
-    Subscription|*Your subscription*|The Azure subscription that you want to use for the Azure Cosmos DB account. 
+    ID|*Unique value*|A unique name you choose to identify your Azure Cosmos DB account. *documents.azure.com* is appended to the ID you provide to create your URI, so use a unique but identifiable ID. The ID may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters.
+    API|SQL (DocumentDB)|We'll be programming against the [DocumentDB API](../articles/documentdb/documentdb-introduction.md) later in this article.|
+    Subscription|*Your subscription*|The Azure subscription that you want to use for your Azure Cosmos DB account. 
     Resource Group|*The same value as ID*|The new resource group name for your account. For simplicity, you can use the same name as your ID. 
     Location|*The region closest to your users*|The geographic location in which to host your Azure Cosmos DB account. Choose the location closest to your users to give them the fastest access to the data.
 4. Click **Create** to create the account.
-5. On the toolbar, click **Notifications** to monitor the deployment process.
+5. On the top toolbar, click **Notifications** to monitor the deployment process.
 
     ![Deployment started notification](./media/documentdb-create-dbaccount/azure-documentdb-nosql-notification.png)
 

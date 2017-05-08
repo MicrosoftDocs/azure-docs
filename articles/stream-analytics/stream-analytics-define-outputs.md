@@ -297,15 +297,15 @@ The table below lists the property names and their description for creating a ta
 | Encoding |If CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time |
 | Delimiter |Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab and vertical bar. |
 
-## DocumentDB
-[Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) is a fully-managed NoSQL document database service that offers query and transactions over schema-free data, predictable and reliable performance, and rapid development.
+## Azure Cosmos DB
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is a fully-managed NoSQL document database service that offers query and transactions over schema-free data, predictable and reliable performance, and rapid development.
 
-The below list details the property names and their description for creating a DocumentDB output.
+The below list details the property names and their description for creating an Azure Cosmos DB output.
 
 * **Output Alias** – An alias to refer this output in your ASA query  
-* **Account Name** – The name or endpoint URI of the DocumentDB account.  
-* **Account Key** – The shared access key for the DocumentDB account.  
-* **Database** – The DocumentDB database name.  
+* **Account Name** – The name or endpoint URI of the Cosmos DB account.  
+* **Account Key** – The shared access key for the Cosmos DB account.  
+* **Database** – The Cosmos DB database name.  
 * **Collection Name Pattern** – The collection name or their pattern for the collections to be used. The collection name format can be constructed using the optional {partition} token, where partitions start from 0. Following are sample valid inputs:  
   1\) MyCollection – One collection named “MyCollection” must exist.  
   2\) MyCollection{partition} – Such collections must exist– "MyCollection0”, “MyCollection1”, “MyCollection2” and so on.  

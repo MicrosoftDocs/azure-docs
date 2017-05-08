@@ -18,7 +18,9 @@ ms.author: arramac
 
 ---
 # How to distribute data globally with Azure Cosmos DB?
-Azure is ubiquitous - it has a global footprint across 30+ geographical regions and is continuously expanding. With its worldwide presence, one of the differentiated capabilities Azure offers to its developers is the ability to build, deploy, and manage globally distributed applications easily. Azure Cosmos DB is Microsoft's multi-tenant, globally distributed database system designed to enable developers to build planet scale applications. Azure Cosmos DB allows you to elastically scale both, throughput and storage across any number of geographical regions. The service offers guaranteed low latency at P99, 99.99% high availability, predictable throughput, and [multiple well-defined consistency models](documentdb-consistency-levels.md) – all backed by comprehensive SLAs. By virtue of its [schema-agnostic and write optimized database engine](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), by default Azure Cosmos DB is capable of automatically indexing all the data it ingests and serve [SQL](documentdb-sql-query.md), [MongoDB](documentdb-protocol-mongodb.md), and [JavaScript language-integrated queries](documentdb-programming.md#javascript-language-integrated-query-api) in a scale-independent manner. As a cloud service, Azure Cosmos DB is carefully engineered with multi-tenancy and global distribution from the ground up.
+Azure is ubiquitous - it has a global footprint across 30+ geographical regions and is continuously expanding. With its worldwide presence, one of the differentiated capabilities Azure offers to its developers is the ability to build, deploy, and manage globally distributed applications easily. 
+
+[Azure Cosmos DB](../cosmos-db/introduction.md) is Microsoft's globally distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides [turn-key global distribution](../documentdb/documentdb-distribute-data-globally.md), [elastic scaling of throughput and storage](../cosmos-db/partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, [five well-defined consistency levels](../documentdb/documentdb-consistency-levels.md), and guaranteed high availability, all backed by [industry-leading SLAs](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/). Azure Cosmos DB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value, graph, and columnar data models. As a cloud-born service, Azure Cosmos DB is carefully engineered with multi-tenancy and global distribution from the ground up.
 
 **A single Azure Cosmos DB collection partitioned and distributed across three Azure regions**
 
@@ -156,7 +158,7 @@ Azure Cosmos DB's consistency SLA guarantees that 100% of read requests will mee
 		<td>100%</td>
 	</tr>
 	<tr>
-		<td>Eventual</td>
+		<td>Consistent prefix</td>
 		<td>Consistent prefix</td>
 		<td>100%</td>
 	</tr>
@@ -185,7 +187,7 @@ Azure Cosmos DB allows you to scale throughput (as well as, storage), elasticall
 
 **A single Azure Cosmos DB collection partitioned (across three shards) and then distributed across three Azure regions**
 
-![Azure Cosmos DB distributed and partitioned collections](./media/documentdb-distribute-data-globally/documentdb-throughput.png)
+![Azure Cosmos DB distributed and partitioned collections](../cosmos-db/media/introduction/azure-cosmos-db-global-distribution.png)
 
 A Azure Cosmos DB collection gets distributed using two dimensions – within a region and then across regions. Here's how: 
 
