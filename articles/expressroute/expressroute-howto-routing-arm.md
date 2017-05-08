@@ -264,6 +264,7 @@ This section provides instructions on how to create, get, update, and delete the
   ServiceKey                       : **************************************
   Peerings                         : []
   ```
+
 4. Configure Azure public peering for the circuit.
 
   Make sure that you have the following information before you proceed further:
