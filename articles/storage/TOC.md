@@ -55,10 +55,10 @@
 ## [Create a storage account](storage-create-storage-account.md)
 ## Use blobs
 ### [Service overview](https://msdn.microsoft.com/library/dd179376.aspx)
-### [Searching Blob Storage with Azure Search](search-blob-storage-integration.md)
+### [Searching Blob Storage with Azure Search](../search/search-blob-storage-integration.md)
 ### [Hot and cool tiers](storage-blob-storage-tiers.md)
 ### [Custom domains](storage-custom-domain-name.md)
-### [Using the Azure CDN to access blobs with custom domains over HTTPs](storage-http-custom-domain-cdn.md) 
+### [Using the Azure CDN to access blobs with custom domains over HTTPs](storage-https-custom-domain-cdn.md) 
 ### [Anonymous access to blobs](storage-manage-access-to-resources.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob)
 ## Use queues
