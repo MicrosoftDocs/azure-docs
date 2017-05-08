@@ -67,5 +67,4 @@ az group delete --name myresource
 ```
 
 ## Next steps
-- For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
-- Additional Azure Database for MySQL CLI script samples can be found in [Azure CLI samples for Azure Database for MySQL](../sample-scripts-azure-cli.md)
+[Azure CLI samples for Azure Database for MySQL](../sample-scripts-azure-cli.md)

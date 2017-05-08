@@ -1,6 +1,6 @@
-﻿---
+---
 title: Overview of Azure Database for MySQL relational database service | Microsoft Docs
-description: Provides an overview of Azure Database for MySQL relational database service.
+description: Overview of the Azure Database for MySQL relational database service.
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
@@ -34,10 +34,10 @@ For a set of Azure CLI samples, see:
 - [Azure CLI samples for Azure Database for MySQL](sample-scripts-azure-cli.md)
 
 ## Adjust performance and scale without downtime
-Azure Database for MySQL service offers two service tiers: Basic and Standard. Each service tier offers different levels of performance and capabilities to support lightweight to heavyweight database workloads. You can build your first app on a small database for a few bucks a month and then change its service tier manually or programmatically at any time to meet the needs of your solution. You can do this without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
+Azure Database for MySQL service offers two service tiers: Basic and Standard. Each tier offers different performance and capabilities to support lightweight to heavyweight database workloads. You can build your first app on a small database for a few dollars a month, then change your service tier to scale with needs of your solution with no downtime. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you need, when you need them.
 
 ## Monitoring and alerting
-How do you know the right click-stop when you dial up and down? You use the built-in performance monitoring and alerting features, combined with the performance ratings based on Compute Unit. Using these features, you can quickly assess the impact of scaling up or down based on your current or project performance needs. See [Concepts: Service tiers](concepts-service-tiers.md) for details.
+How do you know the right click-stop when you dial up and down? Use the built-in performance monitoring and alerting features, combined with the performance ratings based on Compute Unit. Using these features, you can quickly assess the impact of scaling up or down based on your current or project performance needs. See [Concepts: Service tiers](concepts-service-tiers.md) for details.
 
 ## Keep your app and business running
 Azure's industry leading 99.99% availability service level agreement (SLA), powered by a global network of Microsoft-managed datacenters, helps keep your app running 24/7. With every Azure Database for MySQL server, you take advantage of built-in security, fault tolerance, and data protection that you would otherwise have to buy or design, build, and manage. With Azure Database for MySQL, you can use point-in-time restore to recover a server to an earlier state, as far back as 35 days.

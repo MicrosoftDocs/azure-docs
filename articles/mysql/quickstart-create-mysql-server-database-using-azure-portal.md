@@ -84,7 +84,7 @@ You can create multiple databases within a MySQL server. There is no limit to th
   ![Command prompt - mysql command line example](./media/quickstart-create-mysql-server-database-using-azure-portal/7_connect-to-server.png)
 
 > [!TIP]
-> TIP: For additional commands, see [MySQL 5.6 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.6/en/mysql.html).
+> For additional commands, see [MySQL 5.6 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.6/en/mysql.html).
 
 ## Connect to the server using the MySQL Workbench GUI tool
 1.	Launch the MySQL Workbench application on your client computer. You can download and install MySQL Workbench from [here](https://dev.mysql.com/downloads/workbench/).
@@ -116,5 +116,6 @@ If you don't need these resources for another quickstart/tutorial, you can delet
 2. On your resource group page, click **Delete**, type **myresource** in the text box, and then click **Delete**.
 
 ## Next steps
-- To create Azure Database for MySQL server via Azure CLI, see [Create Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md).
-- For a technical overview, see [About the Azure Database for MySQL service](./overview.md).
+
+[Design your first Azure Database for MySQL database](./tutorial-design-database-using-portal.md)
+
