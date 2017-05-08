@@ -20,7 +20,12 @@ ms.author: cynthn
 
 # Create a custom image of an Azure VM using the CLI
 
-Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. In this tutorial, you learn how to create your own custom image of an Azure virtual machine.
+Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. In this tutorial, you create your own custom image of an Azure virtual machine. You learn how to:
+
+> [!div class="checklist"]
+> * Deprovision and generalize VMs
+> * Create a custom image
+> * Create a VM from a custom image
 
 This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
@@ -32,7 +37,7 @@ To complete the example in this tutorial, you must have an existing virtual mach
 
 ## Create a custom image
 
-To create an image of a virtual machine, you need to prepare the VM by deprovisioning, deallocating, and then marking the source VM as generalized. Once the VM has been prepared, you can create an the image.
+To create an image of a virtual machine, you need to prepare the VM by deprovisioning, deallocating, and then marking the source VM as generalized. Once the VM has been prepared, you can create an image.
 
 ### Deprovision the VM 
 
@@ -97,7 +102,15 @@ az vm create \
 
 ## Next steps
 
-In this tutorial, you have learned about creating custom VM images. Advance to the next tutorial to learn about how highly available virtual machines.
+In this tutorial, you created a custom VM image. You learned how to:
 
-[Create highly available VMs](tutorial-availability-sets.md).
+> [!div class="checklist"]
+> * Deprovision and generalize VMs
+> * Create a custom image
+> * Create a VM from a custom image
+
+Advance to the next tutorial to learn about highly available virtual machines.
+
+> [!div class="nextstepaction"]
+> [Create highly available VMs](tutorial-availability-sets.md).
 

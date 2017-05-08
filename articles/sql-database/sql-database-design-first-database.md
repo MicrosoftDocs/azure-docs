@@ -4,7 +4,7 @@ description: Learn to design your first Azure SQL database.
 services: sql-database
 documentationcenter: ''
 author: janeng
-manager: jstrauss
+manager: jhubbard
 editor: ''
 tags: ''
 
@@ -15,14 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 03/30/2017
+ms.date: 05/07/2017
 ms.author: janeng
 
 ---
 
 # Design your first Azure SQL database
 
-In this tutorial, you build a database for a university to track student grades and courses enrollment. This tutorial demonstrates how to use the [Azure portal](https://portal.azure.com/) and [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) to create an Azure SQL database on an Azure SQL Database logical server, add tables to the database, load data into the tables, and query the database. It also demonstrates how to use SQL Database [point in time restore](sql-database-recovery-using-backups.md#point-in-time-restore) capabilities to restore the database to an earlier point in time.
+Azure SQL Database is a relational database-as-a service using the Microsoft SQL Server Engine. This tutorial covers basic database tasks such as create a database and tables, load and query data and restore the database to a previous point in time. You learn how to: 
+
+> [!div class="checklist"]
+> * Create a database
+> * Set up a firewall rule
+> * Connect to the database with [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)
+> * Create tables
+> * Bulk load data
+> * Query that data
+> * Restore the database to a previous point in time using SQL Database [point in time restore](sql-database-recovery-using-backups.md#point-in-time-restore) capabilities
 
 To complete this tutorial, make sure you have installed the newest version of [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS). 
 
@@ -276,6 +285,18 @@ Imagine you have accidentally deleted a table. This is something you cannot easi
 
 3. Click **OK** to restore the database to [restore to a point in time](sql-database-recovery-using-backups.md#point-in-time-restore) before the tables were added. Restoring a database to a different point in time creates a duplicate database in the same server as the original database as of the point in time you specify, provided that it is within the retention period for your [service tier](sql-database-service-tiers.md).
 
-## Next Steps 
 
-For PowerShell samples for common tasks, see [SQL Database PowerShell samples](sql-database-powershell-samples.md)
+
+## Next Steps 
+In this tutorial, you learned basic database tasks such as create a database and tables, load and query data and restore the database to a previous point in time. You learned how to:
+> [!div class="checklist"]
+> * Create a database
+> * Set up a firewall rule
+> * Connect to the database with [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)
+> * Create tables
+> * Bulk load data
+> * Query that data
+> * Restore the database to a previous point in time using SQL Database [point in time restore](sql-database-recovery-using-backups.md#point-in-time-restore) capabilities
+Advance to the next tutorial to learn about migrating your data.
+
+[Migrate your SQL Server database to Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
