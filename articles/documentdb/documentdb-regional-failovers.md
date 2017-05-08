@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
+ms.date: 05/10/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 
@@ -43,7 +43,7 @@ The following snippet shows how to initialize a multi-region application. Here, 
 * Configured with `West US` as the first preferred region for low latency reads
 * Configured with `North Europe` as the second preferred region (for high availability during regional failures)
 
-In .NET, this configuration looks like the following snippet:
+In the DocumentDB API, this configuration looks like the following snippet:
 
     ConnectionPolicy usConnectionPolicy = new ConnectionPolicy 
     { 
