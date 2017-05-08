@@ -40,8 +40,8 @@ Patch Orchestration Application includes following salient features:
 
 1. **Support all Service Fabric clusters** – The application is generic enough to
     work in both Azure based Service Fabric clusters as well as standalone clusters.
-    [!NOTE]
-    Support for standalone cluster is coming soon.
+    > [!NOTE]
+    > Support for standalone cluster is coming soon.
 
 ## Link to download the application package
 
@@ -73,12 +73,12 @@ Patch Orchestration Application comprises of following subcomponents :
     - Uploading the result of Windows Update to Coordinator Service.
     - Report health report in case operation has failed after exhausting all retries.
 
-[!NOTE]
-Patch Orchestration Application uses Service Fabric system
-    service **Repair Manager**, to disable/enable the node and
-    performing health checks. The repair tasks created by Patch
-    Orchestration Application also helps in keeping track of Windows
-    Update progress for each node.
+> [!NOTE]
+> Patch Orchestration Application uses Service Fabric system
+service **Repair Manager**, to disable/enable the node and
+performing health checks. The repair tasks created by Patch
+Orchestration Application also helps in keeping track of Windows
+Update progress for each node.
 
 ## Prerequisites for using the Application
 
@@ -98,14 +98,14 @@ Azure clusters in Silver durability tier would have Repair Manager enabled by de
 
 Azure cluster in gold durability tier may or may not have Repair Manager enabled. 
 
-[!NOTE]
-Support for enabling Repair Manager through ARM template is coming soon. This would cover both
+> [!NOTE]
+> Support for enabling Repair Manager through ARM template is coming soon. This would cover both
 Bronze durability cluster and Gold durability clusters where Repair Manager doesn't exist.
 
 #### Standalone On-Premise Clusters
 
-[!NOTE]
-Support for Standalone cluster is coming soon
+> [!NOTE]
+> Support for Standalone cluster is coming soon
 
 ### Disable Automatic Windows Update on all nodes.
 
@@ -212,8 +212,8 @@ At the time of creation/update application parameters can be provided by specify
 
     - Connect to Service Fabric cluster using ```Connect-ServiceFabricCluster```
     - Execute the powershell script Deploy.ps1 with appropriate ```ApplicationParameter``` value
-    [!NOTE]
-    The script and Application folder PatchOrchestrationApplication have to be kept in the same folder
+> [!NOTE]
+> The script and Application folder PatchOrchestrationApplication have to be kept in the same folder
 
 ## Steps to upgrade the application
 
@@ -230,8 +230,8 @@ For ease of user, we have provided script Undeploy.ps1 along with our
 application. To use it.
     - Connect to Service Fabric cluster using ```Connect-ServiceFabricCluster```
     - Execute the powershell script Undeploy.ps1
-    [!NOTE:]
-    The script and application folder PatchOrchestrationApplication have to be kept in the same folder
+   > [!NOTE:]
+   > The script and application folder PatchOrchestrationApplication have to be kept in the same folder
 
 ## Viewing the Windows Update results
 
@@ -250,12 +250,12 @@ In case reverse proxy is enabled on the cluster, one can access the URL from out
 http://&lt;SERVERURL&gt;:&lt;REVERSEPROXYPORT&gt;/PatchOrchestrationApplication/CoordinatorService/v1/GetWindowsUpdateResults
 Reverse proxy can be enabled on the cluster by following the steps [here.](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) 
 
-[!NOTE]
-Once Reverse Proxy is configured, all micro services in the cluster that expose 
+> [!NOTE]
+> Once Reverse Proxy is configured, all micro services in the cluster that expose 
 an HTTP endpoint are addressable from outside the cluster.
 
-[!NOTE]
-In case the cluster is secure, you might have to provide the certificate
+> [!NOTE]
+> In case the cluster is secure, you might have to provide the certificate
 to the browser as applicable.
 
 ## Diagnostics / Health events
