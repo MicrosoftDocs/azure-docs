@@ -16,6 +16,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
+redirect_url: https://aka.ms/acdbusecases
+ROBOTS: NOINDEX, NOFOLLOW
 
 ---
 # Going social with Azure Cosmos DB

@@ -9,7 +9,7 @@ manager: jhubbard
 editor: ''
 
 ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
-ms.service: documentdb
+ms.service: cosmosdb
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na

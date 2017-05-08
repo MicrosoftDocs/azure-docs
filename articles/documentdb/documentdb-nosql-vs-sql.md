@@ -9,7 +9,7 @@ manager: jhubbard
 editor: ''
 
 ms.assetid: 71ef1798-d709-4ccb-9f5c-57948fb96229
-ms.service: documentdb
+ms.service: cosmosdb
 ms.custom: overview
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -17,7 +17,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mimig
-
+redirect_url: https://aka.ms/cosmosdb
+ROBOTS: NOINDEX, NOFOLLOW
 ---
 # NoSQL vs SQL and Azure Cosmos DB
 SQL Server and relational databases (RDBMS) have been the go-to databases for over 20 years. However, the increased need to process higher volumes, velocities, and varieties of data at a rapid rate has altered the nature of data storage needs for application developers. In order to enable this scenario, NoSQL databases that enable storing unstructured and heterogeneous data at scale have gained in popularity. For most developers, relational databases are the default or go-to option because a table structure is easy to understand and is familiar, but there are many reasons to explore beyond relational databases.

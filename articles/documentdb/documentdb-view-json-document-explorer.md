@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cosmos DB portal tool: Document Explorer | Microsoft Docs'
-description: Learn about the Azure Cosmos DB Document Explorer, an Azure Portal tool to view JSON, edit, create, and upload JSON documents with Azure Cosmos DB, a NoSQL document database.
+description: Learn about the Azure Cosmos DB Document Explorer, an Azure Portal tool to view JSON, edit, create, and upload documents.
 keywords: view json
 services: cosmosdb
 author: kirillg
@@ -28,9 +28,9 @@ This article provides an overview of the two ways you can create, edit and query
 <a id="launch-document-explorer"></a>
 
 ## Launch Document Explorer in the Azure portal
-1. In the [Azure portal](https://portal.azure.com), on the left navigation, click ![Azure Cosmos DB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (Azure Cosmos DB)**. 
+1. In the [Azure portal](https://portal.azure.com), on the left navigation, click ![Azure Cosmos DB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**. 
 
-    If **NoSQL (Azure Cosmos DB)** is not visible, click **More Services** at the bottom, and then click ![Azure Cosmos DB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (Azure Cosmos DB)**.
+    If **Azure Cosmos DB** is not visible, click **More Services** at the bottom, and then click ![Azure Cosmos DB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**.
 2. Select the account name. 
 3. In the resource menu, click **Document Explorer**. 
    

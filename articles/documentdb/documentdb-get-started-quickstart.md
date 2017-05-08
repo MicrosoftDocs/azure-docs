@@ -4,14 +4,14 @@ ROBOTS: NOINDEX, NOFOLLOW
 
 
 ---
-# NoSQL tutorial: Build an Azure Cosmos DB C# console application
+# Build an Azure Cosmos DB C# console application for the DocumentDB API
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
 > 
 > 
 
-Welcome to the NoSQL tutorial for the Azure DocumentDB .NET SDK! After getting the QuickStart project or completing the tutorial, you'll have a console application that creates and queries DocumentDB resources.
+Welcome to the Azure Cosmos DB DocumentDB API getting started tutorial! After getting the QuickStart project or completing the tutorial, you'll have a console application that creates and queries DocumentDB resources.
 
 * **[QuickStart](#quickstart)**: Download the sample project, add your connection information, and have an Azure Cosmos DB app running in less than 10 minutes.
 * **[Tutorial](#tutorial)**: Build the QuickStart app from scratch in 30 minutes.
@@ -24,7 +24,7 @@ Welcome to the NoSQL tutorial for the Azure DocumentDB .NET SDK! After getting t
 ## QuickStart
 1. Download the sample project .zip from [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart/archive/master.zip) or clone the [documentdb-dotnet-getting-started-quickstart](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart) repo.
 2. Use the Azure portal to [create an Azure Cosmos DB account](documentdb-create-account.md).
-3. In the App.config file, replace the EndpointUri and PrimaryKey values with the values retrieved from the [Azure portal](https://portal.azure.com/), by navigating to **Azure Cosmos DB (NoSQL)** blade, then clicking the **Account name**,  and then clicking **Keys** on the resource menu.
+3. In the App.config file, replace the EndpointUri and PrimaryKey values with the values retrieved from the [Azure portal](https://portal.azure.com/), by navigating to **Azure Cosmos DB** blade, then clicking the **Account name**,  and then clicking **Keys** on the resource menu.
     ![Screen shot of the EndpointUri and PrimaryKey value to replace in App.config](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-keys.png)
 4. Build the project. The console window shows the new resources being created, queried, and then cleaned up.
    
@@ -67,7 +67,7 @@ First, add these references to the beginning of your C# application, in the Prog
     using Newtonsoft.Json;
 
 > [!IMPORTANT]
-> In order to complete this NoSQL tutorial, make sure you add the dependencies above.
+> In order to complete this tutorial, make sure you add the dependencies above.
 > 
 > 
 
@@ -402,7 +402,7 @@ Press **F5** to run your application.
 
 Congratulations! You have successfully created two Azure Cosmos DB documents.  
 
-![Diagram illustrating the hierarchical relationship between the account, the online database, the collection, and the documents used by the NoSQL tutorial to create a C# console application](./media/documentdb-get-started/nosql-tutorial-account-database.png)
+![Diagram illustrating the hierarchical relationship between the account, the online database, the collection, and the documents used by the tutorial to create a C# console application](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
 ## <a id="Query"></a>Step 7: Query Azure Cosmos DB resources
 Azure Cosmos DB supports rich [queries](documentdb-sql-query.md) against JSON documents stored in each collection.  The following sample code shows various queries - using both Azure Cosmos DB SQL syntax as well as LINQ - that we can run against the documents we inserted in the previous step.
@@ -572,10 +572,10 @@ You should see the output of your get started app. The output will show the resu
     Deleted Family Andersen.1
     End of demo, press any key to exit.
 
-Congratulations! You've completed this NoSQL tutorial and have a working C# console application!
+Congratulations! You've completed the tutorial and have a working C# console application!
 
 ## Next steps
-* Want a more complex ASP.NET MVC NoSQL tutorial? See [Build a web application with ASP.NET MVC using Azure Cosmos DB](documentdb-dotnet-application.md).
+* Want a more complex ASP.NET MVC tutorial? See [Build a web application with ASP.NET MVC using Azure Cosmos DB](documentdb-dotnet-application.md).
 * Want to perform scale and performance testing with Azure Cosmos DB? See [Performance and Scale Testing with Azure Cosmos DB](documentdb-performance-testing.md)
 * Learn how to [monitor an Azure Cosmos DB account](documentdb-monitor-accounts.md).
 * Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).

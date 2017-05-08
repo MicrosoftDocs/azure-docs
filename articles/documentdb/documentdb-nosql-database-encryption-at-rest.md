@@ -1,6 +1,6 @@
 ---
-title: NoSQL Database Encryption At Rest - Azure Cosmos DB | Microsoft Docs
-description: Learn how Azure Cosmos DB provides default encryption of all NoSQL data.
+title: Database Encryption At Rest - Azure Cosmos DB | Microsoft Docs
+description: Learn how Azure Cosmos DB provides default encryption of all data.
 services: cosmosdb
 author: voellm
 manager: jhubbard
@@ -8,7 +8,7 @@ editor: mimig
 documentationcenter: ''
 
 ms.assetid: 99725c52-d7ca-4bfa-888b-19b1569754d3
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,7 +18,7 @@ ms.author: voellm
 
 ---
 
-# Azure Cosmos DB NoSQL database encryption at rest
+# Azure Cosmos DB database encryption at rest
 
 Encryption at rest is a phrase that commonly refers the to encryption of data on non-volatile storage devices such as Solid State Drives (SSDs) and Hard Disks (HDDs).  Azure Cosmos DB stores its primary databases on SSD and its media attachments and backups into Azure Blobs which are generally HDD backed.  With the release of encryption at rest for Azure Cosmos DB all of your databases, media attachments, and backups are now encrypted.  This means your data is now encrypted in transit (over the network) and at rest (non-volatile storage) giving you end-to-end encryption.
 
@@ -66,6 +66,6 @@ A: The emulator is a stand-alone dev/test tool and does not use the key manageme
 
 ## Next steps
 
-For an overview of Azure Cosmos DB security and the latest improvements see [Azure Cosmos DB NoSQL database security](documentdb-nosql-database-security.md).
+For an overview of Azure Cosmos DB security and the latest improvements see [Azure Cosmos DB database security](documentdb-nosql-database-security.md).
 
 For more details about Microsoft certifications, see [Azure Trust Center](https://azure.microsoft.com/en-us/support/trust-center/).

@@ -8,7 +8,7 @@ manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 4c6a2e6f-6e78-48e3-8dc6-f4498b235a9e
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -23,7 +23,7 @@ You can monitor your Azure Cosmos DB accounts in the [Azure portal](https://port
 Metrics can be reviewed on the Account blade, the new Metrics blade, or in Azure Monitor.
 
 ## View performance metrics on the Metrics blade
-1. In the [Azure portal](https://portal.azure.com/), click **More Services**, scroll to **Databases**, click **NoSQL (Azure Cosmos DB)**, and then click the name of the Azure Cosmos DB account for which you would like to view performance metrics.
+1. In the [Azure portal](https://portal.azure.com/), click **More Services**, scroll to **Databases**, click **Azure Cosmos DB**, and then click the name of the Azure Cosmos DB account for which you would like to view performance metrics.
 2. In the resource menu, under **Monitoring**, click **Metrics**.
 
 The Metrics blade opens, and you can select the collection to review. You can review Availability, Requests, Throughput, and Storage metrics and compare them to the Azure Cosmos DB SLAs.
@@ -38,7 +38,7 @@ The Metrics blade opens, and you can select the collection to review. You can re
     Your metrics are displayed on in the **Plot** window. 
 
 ## View performance metrics on the account blade
-1. In the [Azure portal](https://portal.azure.com/), click **More Services**, scroll to **Databases**, click **NoSQL (Azure Cosmos DB)**, and then click the name of the Azure Cosmos DB account for which you would like to view performance metrics.
+1. In the [Azure portal](https://portal.azure.com/), click **More Services**, scroll to **Databases**, click **Azure Cosmos DB**, and then click the name of the Azure Cosmos DB account for which you would like to view performance metrics.
 2. The **Monitoring** lens displays the following tiles by default:
    
    * Total requests for the current day.
@@ -76,7 +76,7 @@ You may now treat this part as any other metric part, customizing the metrics an
     ![Screen shot of the Total Requests chart and the new Total Requests past hour chart](./media/documentdb-monitor-accounts/madocdb8.png)  
 
 ## Set up alerts in the portal
-1. In the [Azure portal](https://portal.azure.com/), click **More Services**, click **Azure Cosmos DB (NoSQL)**, and then click the name of the Azure Cosmos DB account for which you would like to setup performance metric alerts.
+1. In the [Azure portal](https://portal.azure.com/), click **More Services**, click **Azure Cosmos DB**, and then click the name of the Azure Cosmos DB account for which you would like to setup performance metric alerts.
 2. In the resource menu, click **Alert Rules** to open the Alert rules blade.  
    ![Screen shot of the Alert rules part selected](./media/documentdb-monitor-accounts/madocdb10.5.png)
 3. In the **Alert rules** blade, click **Add alert**.  
