@@ -168,6 +168,7 @@ After creating the cluster and connecting with `kubectl`, try starting a Windows
   }
   ```
 2. To start the application, type:  
+  
   ```bash
   kubectl apply -f iis.json
   ```  
