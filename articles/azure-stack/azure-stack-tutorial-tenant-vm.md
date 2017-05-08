@@ -40,10 +40,10 @@ To learn more, see [Key features and concepts in Azure Stack](azure-stack-key-fe
 ## Create an offer
 
 Now you can get things ready for your users. Create an offer that they can then subscribe to.
+
 1. **Set quotas**
 
-    Quotas define the limits of resources that a user subscription can provision or consume. For example, a quota might allow a user to create up to five VMs. To add a service to a plan, the administrator must configure the quota settings for that service.
-
+   Quotas define the limits of resources that a user subscription can provision or consume. For example, a quota might allow a user to create up to five VMs. To add a service to a plan, the administrator must configure the quota settings for that service.
 
    a. In a browser, go to [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external/). Sign in to the Azure Stack portal as an administrator (by using the credentials that you provided during deployment).
 
@@ -81,7 +81,6 @@ Now you can get things ready for your users. Create an offer that they can then 
    > ![Notification upon quota creation success](./media/azure-stack-setting-quota/QuotaSuccess.png)
    > 
    > 
-
 
 2. **Create a plan**
 
@@ -143,7 +142,7 @@ Now you can get things ready for your users. Create an offer that they can then 
 
 3. **Create an offer**
 
-    Offers are groups of one or more plans that providers present to users to purchase or subscribe to.
+   Offers are groups of one or more plans that providers present to users to purchase or subscribe to.
 
    a. [Sign in](azure-stack-connect-azure-stack.md) to the portal as a service administrator and then click **New** > **Tenant Offers + Plans** > **Offer**.
    ![](media/azure-stack-create-offer/image01.png)
@@ -170,7 +169,6 @@ Now you can get things ready for your users. Create an offer that they can then 
 Before you can provision virtual machines, you must add an image to the Azure Stack marketplace. This example shows you how to add a Windows Server 2016 image, but you can add the image of your choice, including Linux images.This step can take almost an hour to complete!
 
 For information about adding different items to the marketplace , see [The Azure Stack Marketplace](azure-stack-marketplace.md).
-
 
 > [!NOTE]
 > If you have registered your Azure Stack instance with Azure, then you can download the Windows Server 2016 VM image from the Azure Marketplace by using the steps described in the [Download marketplace items from Azure to Azure Stack](azure-stack-download-azure-marketplace-item.md) topic. 
