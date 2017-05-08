@@ -20,7 +20,7 @@ ms.author: ganesr;cherylmc
 ---
 # Create and modify peering for an ExpressRoute circuit using PowerShell
 > [!div class="op_single_selector"]
-> * [Resource Manager- Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [Resource Manager- Azure portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-routing-arm.md)
 > * [Classic- PowerShell](expressroute-howto-routing-classic.md)
 > * [Video - Private peering](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
@@ -237,8 +237,6 @@ This section provides instructions on how to create, get, update, and delete the
   ```powershell
   Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
-
-
   The response will be something similar to the following example:
 
   ```
@@ -264,7 +262,6 @@ This section provides instructions on how to create, get, update, and delete the
   ServiceKey                       : **************************************
   Peerings                         : []
   ```
-
 4. Configure Azure public peering for the circuit.
 
   Make sure that you have the following information before you proceed further:
