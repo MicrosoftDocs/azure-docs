@@ -73,7 +73,7 @@ Push to the Azure remote to deploy your app. You are prompted for the password y
 git push azure master
 ```
 
-The command preceding displays information similar to the following example:
+The command above displays information similar to the following example:
 
 ```bash
 Counting objects: 13, done.
@@ -100,3 +100,13 @@ remote: Deployment successful.
 To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
+
+### Browse to the app
+
+
+Browse to the deployed app:
+
+```
+http://<app_name>.azurewebsites.net
+```
+
