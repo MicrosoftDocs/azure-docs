@@ -45,10 +45,7 @@ Now you can get things ready for your users. Create an offer that they can then 
     Quotas define the limits of resources that a user subscription can provision or consume. For example, a quota might allow a user to create up to five VMs. To add a service to a plan, the administrator must configure the quota settings for that service.
 
 
-      a. In a browser, go to
-   [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external/).
-   
-      Sign in to the Azure Stack portal as an administrator (by using the credentials that you provided during deployment).
+   a. In a browser, go to [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external/). Sign in to the Azure Stack portal as an administrator (by using the credentials that you provided during deployment).
 
    b. Select **New**, then **Tenant Offers + Plans**, and select **Quota**.
 
@@ -265,7 +262,6 @@ For information about adding different items to the marketplace , see [The Azure
 
 Now that you’ve created an offer, you can test it. Log in as a user and subscribe to the offer and then add a virtual machine.
 
-
 1. **Subscribe to an offer**
 
    Now you can log in to the portal as a user to subscribe to an offer.
@@ -281,7 +277,6 @@ Now that you’ve created an offer, you can test it. Log in as a user and subscr
    c. To view the subscription you created, click **More services**, click **Subscriptions**, then click your new subscription.  
 
 After you subscribe to an offer, refresh the portal to see which services are part of the new subscription.
-
 
 2. **Provision a virtual machine**
 
