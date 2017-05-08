@@ -26,7 +26,7 @@ ms.author: rodsan
 | Database | <ul><li>[Ensure that least-privileged accounts are used to connect to Database server](#privileged-server)</li><li>[Implement Row Level Security RLS to prevent tenants from accessing each others data](#rls-tenants)</li><li>[Sysadmin role should only have valid necessary users](#sysadmin-users)</li></ul> |
 | IoT Cloud Gateway | <ul><li>[Connect to Cloud Gateway using least-privileged tokens](#cloud-least-privileged)</li></ul> |
 | Azure Event Hub | <ul><li>[Use a send-only permissions SAS Key for generating device tokens](#sendonly-sas)</li><li>[Do not use access tokens that provide direct access to the Event Hub](#access-tokens-hub)</li><li>[Connect to Event Hub using SAS keys that have the minimum permissions required](#sas-minimum-permissions)</li></ul> |
-| Azure Document DB | <ul><li>[Use resource tokens to connect to Azure Cosmos DB whenever possible](#resource-docdb)</li></ul> |
+| Azure Cosmos DB | <ul><li>[Use resource tokens to connect to Azure Cosmos DB whenever possible](#resource-docdb)</li></ul> |
 | Azure Trust Boundary | <ul><li>[Enable fine-grained access management to Azure Subscription using RBAC](#grained-rbac)</li></ul> |
 | Service Fabric Trust Boundary | <ul><li>[Restrict client's access to cluster operations using RBAC](#cluster-rbac)</li></ul> |
 | Dynamics CRM | <ul><li>[Perform security modeling and use Field Level Security where required](#modeling-field)</li></ul> |
