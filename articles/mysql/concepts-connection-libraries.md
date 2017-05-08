@@ -30,7 +30,7 @@ MySQL offers standard database driver connectivity for using MySQL with applicat
 | Python | Windows, Linux, Mac OS X | [MySQL Connector/Python Developer Guide](https://dev.mysql.com/doc/connector-python/en/) | [Download](https://dev.mysql.com/downloads/connector/python/) |
 | C++ | Windows, Linux, Mac OS X | [MySQL Connector/C++ Developer Guide](https://dev.mysql.com/doc/connector-cpp/en/) | [Download](https://dev.mysql.com/downloads/connector/python/) |
 | C | Windows, Linux, Mac OS X | [MySQL Connector/C Developer Guide](https://dev.mysql.com/doc/connector-c/en/) | [Download](https://dev.mysql.com/downloads/connector/c/)
-| &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+
 
 ## Next steps
 - For an overview of the service, see [Azure Database for MySQL Overview](./overview.md).
