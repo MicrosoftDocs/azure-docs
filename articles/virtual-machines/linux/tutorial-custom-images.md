@@ -109,7 +109,9 @@ Here are some examples of common image management tasks and how to complete them
 List all images by name in a table format.
 
 ```azurecli
-az resource list --resource-type=Microsoft.Compute/images --output table
+az resource list \
+    --resource-type=Microsoft.Compute/images \
+	--output table
 ```
 
 Delete an image. This example deletes the image named *myOldImage* from the *myResourceGroup*.
