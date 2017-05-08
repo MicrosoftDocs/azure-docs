@@ -118,7 +118,7 @@ To use Network Watcher PowerShell cmdlets, you need to upload the latest PowerSh
 
     ![functions kudu][functions2]
 
-1. Right-click the **AlertPacketCapturePowershell** folder and create a folder called **azuremodules**. Continue creating subfolders for each module that's needed.
+1. Right-click the **AlertPacketCapturePowershell** folder, and then create a folder called **azuremodules**. Create a subfolders for each module that's needed.
 
     ![functions kudu][functions3]
 
@@ -138,7 +138,7 @@ To use Network Watcher PowerShell cmdlets, you need to upload the latest PowerSh
 
 ### Authentication
 
-To use the PowerShell cmdlets, you must authenticate. Authentication needs to be configured in the Function app. To configure authencation, you need to configure environment variables are configured upload an encrypted key file needs to the Function app.
+To use the PowerShell cmdlets, you must authenticate. Authentication needs to be configured in the Function app. To configure authencation, you must configure environment variables and upload an encrypted key file needs to the Function app.
 
 > [!NOTE]
 > This scenario provides just one example of how to implement authentication with Azure Functions. There are other ways to do this.
@@ -170,7 +170,7 @@ In the App Service Editor of the Function app, create a folder called **keys** u
 
 ### Retrieve values for environment variables
 
-The final configuration that's required is to set up the environment variables necessary to access the values for authentication. The following list shows the environment variables that are created:
+The final requirement is to set up the environment variables that are necessary to access the values for authentication. The following list shows the environment variables that are created:
 
 * AzureClientID
 
@@ -205,7 +205,7 @@ The client ID is the Application ID of an application in Azure Active Directory.
 
 #### AzureTenant
 
-You obtain the tenant ID is by running the following PowerShell sample:
+Obtain the tenant ID  by running the following PowerShell sample:
 
 ```powershell
 (Get-AzureRmSubscription -SubscriptionName "<subscriptionName>").TenantId
@@ -238,7 +238,7 @@ $Encryptedpassword
 
     ![configure app settings][functions11]
 
-1. Add the environment variables and their values to the app settings, and then select **Save**
+1. Add the environment variables and their values to the app settings, and then select **Save**.
 
     ![app settings][functions12]
 
@@ -250,9 +250,9 @@ It's now time to make calls into Network Watcher from within the Azure Function.
 2. Query existing packet captures to verify limits and resolve name conflicts.
 3. Create a packet capture with appropriate parameters.
 4. Poll packet capture periodically until complete.
-5. Notify user that packet capture session is complete.
+5. Notify the user that the packet capture session is complete.
 
-The following example is PowerShell that can be used in the Azure Function. There are values that need to be replaced for subscriptionId, resourceGroupName, and storageAccountName.
+The following example is PowerShell that can be used in the function. There are values that need to be replaced for subscriptionId, resourceGroupName, and storageAccountName.
 
 ```powershell
 #Import Azure PowerShell modules required to make calls to Network Watcher
@@ -350,7 +350,7 @@ After the criteria for the alert triggers, a packet capture is created. Go to yo
 
 ![view packet capture][functions14]
 
-If the capture file is stored locally, the capture file is retrieved by signing in to the virtual machine.
+If the capture file is stored locally, you can retrieve it by signing in to the virtual machine.
 
 For instructions about downloading files from Azure storage accounts, see to [Get started with Azure Blob storage using .NET](../storage/storage-dotnet-how-to-use-blobs.md). Another tool you can use is Storage Explorer. More information about Storage Explorer can be found here at [Storage Explorer](http://storageexplorer.com/).
 
