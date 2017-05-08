@@ -1,6 +1,6 @@
 - name: Overview
 - href: home.md
-- name: How-to
+- name: Quickstarts
   items: 
   - name: Build a classifier
     href: getting-started-build-a-classifier.md
