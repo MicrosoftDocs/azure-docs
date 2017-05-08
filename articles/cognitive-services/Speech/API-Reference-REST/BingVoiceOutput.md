@@ -1,6 +1,6 @@
 ---
 title: Bing Text To Speech API in Microsoft Cognitive Services | Microsoft Docs
-description: Use the Bing Text to Speech API to provide real-time text to speech conversion in a variety of voices and languages
+description: Use the Bing Text to Speech API to provide real-time text-to-speech conversion in a variety of voices and languages
 services: cognitive-services
 author: priyaravi20
 manager: yanbo
@@ -15,14 +15,14 @@ ms.author: prrajan
 # Bing Text To Speech API
 
 ## <a name="Introduction"> Introduction</a>
-With the Bing Text to Speech API your application can send HTTP requests to a cloud server, where text is instantly synthesized into human sounding speech, and returned as an audio file.  The API can be used in many different contexts to provide real-time text to speech conversion in a variety of different voices and languages.  
+With the Bing Text to Speech API, your application can send HTTP requests to a cloud server. There, text is instantly synthesized into human-sounding speech and returned as an audio file. The API can be used in many different contexts to provide real-time text-to-speech conversion in a variety of different voices and languages.  
 
 ## <a name="VoiceSynReq"> Voice Synthesis Request</a>
 
-### <a name="Subscription">Authorization Tokens</a>
-Every request requires a JSON Web Token (JWT) access token. The JWT access token is passed through in the Speech request header. The token has an expiry time of 10 minutes. See [Get Started for Free](https://www.microsoft.com/cognitive-services/en-US/sign-up?ReturnUrl=/cognitive-services/en-us/subscriptions?productId=%2fproducts%2fBing.Speech.Preview) for information about subscribing and obtaining API keys used to retrieve valid JWT access tokens.
+### <a name="Subscription">Authorization Token</a>
+Every request requires a JSON Web Token (JWT) access token. The JWT access token is passed through in the speech request header. The token has an expiry time of 10 minutes. For information about subscribing and obtaining API keys used to retrieve valid JWT access tokens, see [Get Started for Free](https://www.microsoft.com/cognitive-services/en-US/sign-up?ReturnUrl=/cognitive-services/en-us/subscriptions?productId=%2fproducts%2fBing.Speech.Preview).
 
-The API key is passed to the token service, for example:
+The API key is passed to the token service. For example:
 
 ```
 POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken
@@ -35,16 +35,16 @@ Name	| Format	| Description, Example and Use
 ---------|---------|--------
 Ocp-Apim-Subscription-Key |	ASCII	| Your subscription key.
 
-The token service returns the JWT access token as text/plain. Then the JWT is passed as a Base64 access_token to the Speech endpoint as an Authorization header prefixed with the string Bearer, for example:
+The token service returns the JWT access token as text/plain. Then the JWT is passed as a `Base64 access_token` to the speech endpoint as an authorization header prefixed with the string `Bearer`. For example:
 
 `Authorization: Bearer [Base64 access_token]`
 
-Clients must use the following endpoint to access the text to speech service: 
+Clients must use the following endpoint to access the text-to-speech service: 
 
 `https://speech.platform.bing.com/synthesize` 
 
 >[!NOTE]
->Until you have acquired an access token with your subscription key as described above this link will generate a 403 Response Error.
+>Until you have acquired an access token with your subscription key as described earlier, this link will generate a 403 Response Error.
 
 ### <a name="Http">HTTP Headers</a>
 HTTP headers for the request include:
@@ -53,7 +53,7 @@ Header   |Value  |Comments
 ---------|---------|---------
 Content-Type     |    application/ssml+xml     |      The input content type   
 X-Microsoft-OutputFormat     |  **1)** ssml-16khz-16bit-mono-tts, **2)** raw-16khz-16bit-mono-pcm, **3)** audio-16khz-16kbps-mono-siren, **4)** riff-16khz-16kbps-mono-siren **5)** riff-16khz-16bit-mono-pcm **6)** audio-16khz-128kbitrate-mono-mp3, **7)** audio-16khz-64kbitrate-mono-mp3, **8)** audio-16khz-32kbitrate-mono-mp3 |       The output audio format  
-X-Search-AppId     |    A GUID (hex only, no dashes)     |     An ID that uniquely identifies the client application. This can be Store ID for Apps. If one is not available, the ID may be user generated per-application.     
+X-Search-AppId     |    A GUID (hex only, no dashes)     |     An ID that uniquely identifies the client application. This can be Store ID for Apps. If one is not available, the ID can be user generated per-application.     
 X-Search-ClientID     |     A GUID (hex only, no dashes)    |    An ID that uniquely identifies application instance per-installation.     
 User-Agent     |     Application name    |     Application name is required and must be less than 255 characters.    
 
