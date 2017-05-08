@@ -35,12 +35,12 @@ Azure Cosmos DB provides the best capabilities of relational and non-relational 
 
 | Capabilities | Relational DBs	| Non-relational (NoSQL) DBs | 	Azure Cosmos DB |
 | --- | --- | --- | --- |
-| Global distribution | x | x | ✓ (Turn-key, 30+ regions, multi-homing) |
-| Horizontal scale | x | ✓ | ✓ (Independently storage and throughput) | 
-| Latency guarantees | x | ✓ | ✓ (<10 ms for reads, <15 ms for writes at p99) | 
-| High availability | x | ✓ | ✓ (Always on, PACELC tradeoffs, automatic & manual failover) |
+| Global distribution | x | x | ✓ Turn-key, 30+ regions, multi-homing |
+| Horizontal scale | x | ✓ | ✓ Independently scale storage and throughput | 
+| Latency guarantees | x | ✓ | ✓ <10 ms for reads, <15 ms for writes at p99 | 
+| High availability | x | ✓ | ✓ Always on, PACELC tradeoffs, automatic & manual failover |
 | Data model + API | Relational + SQL | Multi-model + OSS API | Multi-model + SQL + OSS API (more coming soon) |
-| SLAs | ✓ | x | ✓ (Comprehensive SLAs latency, throughput, consistency, availability) |
+| SLAs | ✓ | x | ✓ Comprehensive SLAs for latency, throughput, consistency, availability |
 
 ## Key capabilities
 As a globally distributed database service, Azure Cosmos DB provides the following capabilities to help you build scalable, globally distributed, highly responsive applications:
