@@ -192,6 +192,16 @@ You can now test the hybrid CI/CD pipeline, with the final step publishing to Az
 
 You can now use your new hybrid CI/CD pipeline as a building block for other hybrid cloud patterns.
 
+## Next steps
+In this tutorial, you learned how to build a hybrid CI/CD pipeline that:
+
+> [!div class="checklist"]
+> * Initiates a new build based on code commits to your Visual Studio Team Services (VSTS) repository.
+> * Automatically deploys your newly built code to Azure for user acceptance testing.
+> * Once your code has passed testing, automatically deploys to Azure Stack. 
+
+Now that you have a hybrid CI/CD, continue learning how to develop apps for Azure Stack.
+
 > [!div class="nextstepaction"]
 > [Develop for Azure Stack](azure-stack-developer.md)
 
