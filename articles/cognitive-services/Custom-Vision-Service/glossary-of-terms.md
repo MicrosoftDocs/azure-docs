@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: v-royhar
 ---
-# Overview
+# Glossary
 
 The following are some terms used in Custom Vision Service, and their meaning.
 
@@ -25,7 +25,7 @@ When you create a project, you select a "domain" for that project. The domain op
 
 - **The Food domain.** Optimized for dishes you would see on a restaurant menu. It was not optimized for recognizing individual fruit or vegetables. If you want to classify photographs of individual fruits or vegetables, use the Generic domain for that purpose.
 - **The Landmark domain.** Optimized for recognizable landmarks, both natural and artificial. This domain works best when the landmark is clearly visible in the photograph, even if the landmark is slightly obstructed by a group of people posing in front of it.
-- **The Retail domain.** Optimized for classifying images in a shopping catalog or shopping website. If you want to high precision when classifying dresses, pants, shirts, etc., then use the Retail domain.
+- **The Retail domain.** Optimized for classifying images in a shopping catalog or shopping website. If you want high precision when classifying dresses, pants, shirts, etc., then use the Retail domain.
 - **The Adult domain.** Optimized to better define between adult content and non-adult content. For example, if you want to block images of people in bathing suits, this domain allows you to build a custom classifier to do that.
 
 ## Training Image
@@ -38,7 +38,7 @@ Every time you Train or re-train your classifier, you create a new iteration of 
 
 ## Workspace
 
-Your workspace contains all your training images, and it reflects all the changes from your most recent iteration such as removed or added images. When you Train your classifier, you create a new iteration of your classifier, by using the images present in your Workspace.
+Your workspace contains all your training images, and it reflects all changes from your most recent iteration such as removed or added images. When you Train your classifier, you create a new iteration of your classifier, by using the images present in your Workspace.
 
 ## Tags
 
