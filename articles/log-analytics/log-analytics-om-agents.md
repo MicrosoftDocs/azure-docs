@@ -4,7 +4,7 @@ description: To maintain your existing investment in System Center Operations Ma
 services: log-analytics
 documentationcenter: ''
 author: MGoedtel
-manager: jwhit
+manager: carmonm
 editor: ''
 
 ms.assetid: 245ef71e-15a2-4be8-81a1-60101ee2f6e6
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 05/08/2017
 ms.author: magoedte
 ---
 
@@ -40,6 +40,31 @@ Before starting, review the following details to verify you meet necessary prere
 * OMS only supports Operations Manager 2016, Operations Manager 2012 SP1 UR6 and greater, and Operations Manager 2012 R2 UR2 and greater.  Proxy support was added in Operations Manager 2012 SP1 UR7 and Operations Manager 2012 R2 UR3.
 * All Operations Manager agents must meet minimum support requirements. Ensure that agents are up to the minimum update, otherwise Windows agent traffic will fail and many errors might fill the Operations Manager event log.
 * An OMS subscription.  For further information, review [Get started with Log Analytics](log-analytics-get-started.md).
+
+### Network
+The information below list the proxy and firewall configuration information required for the Operations Manager agent, management servers, and Operations console to communicate with OMS.  Traffic from each component is outbound from your network to the OMS service.     
+
+|Resource | Port number| Bypass HTTP Inspection|  
+|---------|------|-----------------------|  
+|**Agent**|||  
+|*.ods.opinsights.azure.com| 443 ||  
+|*.oms.opinsights.azure.com| 443||  
+|*.blob.core.windows.net/*| 443||  
+|**Management server**|||  
+|service.systemcenteradvisor.com| 443||  
+|*.service.opinsights.azure.com| 443||  
+|*.blob.core.windows.net| 443| Yes|  
+|*.ods.opinsights.azue.com| 443| Yes|  
+|*.azure-automation.net | 443 Yes|  
+|**Operations Manager console to OMS**|||  
+|service.systemcenteradvisor.com| 443||  
+|*.service.opinsights.azure.com| 443||  
+|*.live.com| 80 and 443||  
+|*.microsoft.com| 80 and 443||  
+|*.microsoftonline.com| 80 and 443||  
+|*.mms.microsoft.com| 80 and 443||  
+|login.windows.net| 80 and 443||  
+
 
 ## Connecting Operations Manager to OMS
 Perform the following series of steps to configure your Operations Manager management group to connect to one of your OMS workspaces.
@@ -268,6 +293,6 @@ To delete the two connectors - Microsoft.SystemCenter.Advisor.DataConnector and 
 In the future if you plan on reconnecting your management group to an OMS workspace, you will need to re-import the `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb` management pack file from the most recent update rollup applied to your management group.  You can find this file in the `%ProgramFiles%\Microsoft System Center 2012` or the `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups` folder.
 
 ## Next steps
-* [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) to add functionality and gather data.
-* [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md) if your organization uses a proxy server or firewall so that agents can communicate with the Log Analytics service.
+[Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) to add functionality and gather data.
+
 
