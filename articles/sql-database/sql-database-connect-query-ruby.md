@@ -66,7 +66,7 @@ Get the connection information needed to connect to the Azure SQL database. You 
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. If you have forgotten the login information for your Azure SQL Database server, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password.
+4. If you forget your server login information, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password.
     
 
 ## Select data
@@ -187,6 +187,4 @@ delete('BrandNewProduct', client)
 - [GitHub repository for TinyTDS](https://github.com/rails-sqlserver/tiny_tds)
 - [Report issues/ask questions](https://github.com/rails-sqlserver/tiny_tds/issues)
 - [Ruby Drivers for SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/)
-- [Connect and query with SSMS](sql-database-connect-query-ssms.md)
-- [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md)
 
