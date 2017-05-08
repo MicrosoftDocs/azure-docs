@@ -60,6 +60,7 @@
 #### [Resources](../documentdb/documentdb-resources.md)
 #### [SQL query](../documentdb/documentdb-sql-query.md)
 #### [SQL playground](https://www.documentdb.com/sql/demo)
+#### [Partitioning](../documentdb/documentdb-partition-data.md)
 #### [Stored procedures, triggers, and UDFs](../documentdb/documentdb-programming.md)
 #### [Multi-region development](../documentdb/documentdb-developing-with-multiple-regions.md)
 #### [Performance testing](../documentdb/documentdb-performance-testing.md)

@@ -36,22 +36,7 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 
 ## Add a collection
 
-You can now use Data Explorer to create a collection. 
-
-1. In the Azure portal, in the navigation menu, under **Collections**, click **Data Explorer**. 
-2. In the Data Explorer blade, click **New Collection**, then fill in the page using the following information.
-
-    Setting|Suggested value|Description
-    ---|---|---
-    Database id|Items|The ID for your new database. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space.
-    Collection id|UserItems|The ID for your new collection. Collection names have the same character requirements as database ids.
-    Storage Capacity| 10 GB|Leave the default value. This is the storage capacity of the database.
-    Throughput|400 RUs|Leave the default value. You can scale up the throughput later if you want to reduce latency.
-    Partition key|/userid|A partition key that will distribute data evenly to each partition. Selecting the correct partition key is important in creating a performant collection, read more about it in [Designing for partitioning](partition-data.md#designing-for-partitioning).    
-
-   ![Data Explorer in the Azure portal](./media/create-documentdb-xamarin-dotnet/azure-cosmosdb-data-explorer.png)
-
-3. Once the form is filled out, click **OK**.
+[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
 
 ## Clone the sample application
 
