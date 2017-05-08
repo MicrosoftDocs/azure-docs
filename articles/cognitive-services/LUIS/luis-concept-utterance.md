@@ -43,9 +43,9 @@ Where do I get a credit card?
 I want to get a credit card, how do I go about it?
 When can I have a credit card? 
 ```
-The core term here, "credit card", is not varied. They could say visa, master card, gold card, plastic or even just card. LUIS can be quite intelligent at inferring synonyms from context, but when you create utterances for training, it's stil better to vary them.
+The core term here, "credit card", is not varied. They could say visa, master card, gold card, plastic or even just card. LUIS can be quite intelligent at inferring synonyms from context, but when you create utterances for training, it's still better to vary them.
 
 ## Next steps
-See [Active learning][add-example-utterances] for information on training a LUIS app to understand user utterances.
+See [Add example utterances][add-example-utterances] for information on training a LUIS app to understand user utterances.
 
 [add-example-utterances]: Add-example-utterances.md
