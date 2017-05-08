@@ -146,7 +146,7 @@ To connect to Azure PostgreSQL server using the GUI tool _pgAdmin_
 8.	Right-click on **Databases** to Create a Database.
 9.	Choose a database name **mypgsqldb** and the owner for it as server admin login **mylogin**.
 10. Click **Save** to create a blank database.
-11. In the **Browser**, expand the **Server **. Expand the server you created, and see the database **mypgsqldb** under it.
+11. In the **Browser**, expand the **Server**. Expand the server you created, and see the database **mypgsqldb** under it.
  ![pgAdmin - Create - Database](./media/quickstart-create-database-portal/11-pgadmin-database.png)
 
 
