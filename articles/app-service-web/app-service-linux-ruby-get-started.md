@@ -167,7 +167,7 @@ In this tutorial, we use Git to deploy the local Ruby application to Azure.
 
 	While the app is restarting, attempting to browse the site results in an HTTP status code error 503 (Server Unavailable). It may take a couple minutes to fully restart.
 
-		http://{your web app name}/azurewebsites.net
+		http://{your web app name}.azurewebsites.net
 
 	![updated web app](./media/app-service-linux-ruby-get-started/hello-world-updated.png)
 	
