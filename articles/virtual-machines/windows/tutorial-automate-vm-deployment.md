@@ -1,4 +1,4 @@
-﻿---
+---
 title: Customize a Windows VM in Azure | Microsoft Docs
 description: Learn how to use the custom script extension and Key Vault to customize Windows VMs in Azure 
 services: virtual-machines-windows
@@ -14,14 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/27/2017
+ms.date: 05/02/2017
 ms.author: iainfou
 ---
 
 # How to customize a Windows virtual machine in Azure
-To configure virtual machines (VMs) in a quick and consistent manner, some form of automation is typically desired. A common approach to customize a Windows VM is to use [Custom Script Extension for Windows](extensions-customscript.md). This tutorial describes how to use the Custom Script Extension to install and configure IIS to run a basic website.
+To configure virtual machines (VMs) in a quick and consistent manner, some form of automation is typically desired. A common approach to customize a Windows VM is to use [Custom Script Extension for Windows](extensions-customscript.md). In this tutorial you learn how to:
 
-The steps in this tutorial can be completed using the latest [Azure PowerShell](/powershell/azure/overview) module.
+> [!div class="checklist"]
+> * Use the Custom Script Extension to install IIS
+> * Create a VM that uses the Custom Script Extension
+> * View a running IIS site after the extension is applied
+
+This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 
 ## Custom script extension overview
@@ -153,6 +158,14 @@ You can then enter the public IP address in to a web browser. The website is dis
 
 ## Next steps
 
-In this tutorial, you have learned how to customize a VM on first boot. Advance to the next tutorial to learn how to create custom VM images.
+In this tutorial, you automated the IIS install on a VM. You learned how to:
 
-[Create custom VM images](./tutorial-custom-images.md)
+> [!div class="checklist"]
+> * Use the Custom Script Extension to install IIS
+> * Create a VM that uses the Custom Script Extension
+> * View a running IIS site after the extension is applied
+
+Advance to the next tutorial to learn how to create custom VM images.
+
+> [!div class="nextstepaction"]
+> [Create custom VM images](./tutorial-custom-images.md)

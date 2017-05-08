@@ -137,7 +137,7 @@ Learn how to use Resource Manager to deploy, monitor, and manage solution resour
                         <p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html">Python</a></p>
                         <p><a href="/azure/templates/">Template format</a></p>
-	                    <p><a href="/resource-group-template-functions.md">Template functions</a></p>
+	                    <p><a href="/azure/resource-group-template-functions">Template functions</a></p>
                     </div>
                 </div>
             </div>

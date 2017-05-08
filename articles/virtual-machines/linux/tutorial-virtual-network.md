@@ -14,15 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/18/2017
+ms.date: 05/02/2017
 ms.author: davidmu
 ---
 
 # Manage Azure Virtual Networks and Linux Virtual Machines with the Azure CLI
 
-In this tutorial, you learn about creating multiple virtual machines (VMs) in a virtual network and configure network connectivity between them. When completed a 'front-end' VM is accessible from the internet on port 22 for SSH and port 80 for HTTP connections. A 'back-end' VM with a MySQL database is isolated and only accessible from the front-end VM on port 3306.
+Azure virtual machines use Azure networking for internal and external network communication. In this tutorial, you create multiple virtual machines (VMs) in a virtual network and configure network connectivity between them. You learn how to:
 
-The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
+> [!div class="checklist"]
+> * Create a virtual network
+> * Open network ports to a VM
+> * Control network traffic with Network Security Groups
+> * Add additional subnets
+> * View traffic rules in action
+
+This tutorial requires the Azure CLI version 2.0.4 or later. To find the CLI version run `az --version`. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Create VM and VNet
 
@@ -202,6 +209,16 @@ MySQL is installed to show how an application can be installed on *myBackendVM*,
 
 ## Next steps
 
-In this tutorial, you learned about creating and securing Azure networks as related to virtual machines. Advance to the next tutorial to learn about monitoring VM security with Azure Security Center.
+In this tutorial, you created and secured Azure networks as related to virtual machines. You learned how to:
 
-[Manage virtual machine security](./tutorial-azure-security.md)
+> [!div class="checklist"]
+> * Create a virtual network
+> * Open network ports to a VM
+> * Control network traffic with Network Security Groups
+> * Add additional subnets
+> * View traffic rules in action
+
+Advance to the next tutorial to learn about securing data on virtual machines using Azure backup. 
+
+> [!div class="nextstepaction"]
+> [Back up Linux virtual machines in Azure](./tutorial-backup-vms.md)
