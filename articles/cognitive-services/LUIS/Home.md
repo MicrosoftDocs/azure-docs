@@ -19,6 +19,7 @@ One of the key problems in human-computer interactions is the ability of the com
 ## What is a LUIS app?
 
 A LUIS app is a place for a developer to define a custom language model. The output of a LUIS app is a web service with an HTTP endpoint that you reference from your client application to add natural language understanding to it. A LUIS app takes a user utterance and extracts intents and entities that correspond to activities in the client application’s logic. Your client application can then take appropriate action based on the user intentions that LUIS recognizes.
+
     ![LUIS recognizes user intent](./media/luis-overview/luis-overview-process.png)
 
 ## Key concepts
@@ -29,7 +30,7 @@ A LUIS app is a place for a developer to define a custom language model. The out
 
 ## How do you plan a LUIS app?
 All LUIS applications are centered around a domain-specific topic, for example booking of tickets, flights, hotels, rental cars etc. or content related to exercising, tracking fitness efforts and setting goals. Before you start creating it in LUIS web interface, plan your LUIS app by preparing an outline (schema) of the possible intents and entities that are relevant to the domain-specific topic of your application.
-Let's take the example of a virtual travel booking agency application. In this travel booking application, users would like to book a flight and check the weather at their travel destination. Some of the the relevant intents would be "BookFlight" and "GetWeather". To book a flight, some relevant information is needed such as the location, date, airline, tickets category and travel class. These can be added as entities. Once you have a planned outline of intents and entities, you can start creating your application in LUIS and add these intents and entities to the LUIS app.
+Let's take the example of a travel app. In this travel booking application, users would like to book a flight and check the weather at their travel destination. Some of the the relevant intents would be "BookFlight" and "GetWeather". To book a flight, some relevant information is needed such as the location, date, airline, tickets category and travel class. These can be added as entities. Once you have a planned outline of intents and entities, you can start creating your application in LUIS and add these intents and entities to the LUIS app.
 
 ## Get started creating a LUIS app
 Once you've planned your app so that you know which intents and entities it will recognize, you can [create a new LUIS app](LUIS-get-started-create-app.md), that you can monitor using the [Dashboard](App-Dashboard.md).
@@ -63,7 +64,7 @@ bot.recognizer(new builder.LuisRecognizer(model));
       // ...
 ```
 
-The Bot Builder SDK provides classes that automatically handle the intents and entities returned from the LUIS app. For samples that demonstrate how to use these classes, see the following samples:
+The Bot Builder SDK provides classes that automatically handle the intents and entities returned from the LUIS app. For code that demonstrate how to use these classes, see the following samples:
 
 *	[LUIS demo bot (C#)](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-LUIS)
 *	[LUIS demo bot (Node.js)](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/intelligence-LUIS) 
@@ -74,7 +75,7 @@ LUIS offers a set of programmatic REST APIs that can be used by developers to au
 [LUIS Programmatic API](https://dev.projectoxford.ai/docs/services/56d95961e597ed0f04b76e58/operations/5739a8c71984550500affdfa).
 
 ## Speech Integration
-Your LUIS endpoints work seamlessly with [Microsoft Cognitive Service's speech recognition service](https://www.microsoft.com/cognitive-services/speech-api). In the C# SDK for Microsoft Cognitive Services Speech API, you can add the LUIS application ID and LUIS subscription key, and the speech recognition result is sent for interpretation. 
+Your LUIS endpoints work seamlessly with Microsoft Cognitive Service's speech recognition service. In the C# SDK for Microsoft Cognitive Services Speech API, you can add the LUIS application ID and LUIS subscription key, and the speech recognition result is sent for interpretation. 
 
 See [Microsoft Cognitive Services Speech API Overview](../Speech/Home.md).
 
@@ -82,3 +83,6 @@ See [Microsoft Cognitive Services Speech API Overview](../Speech/Home.md).
 [add-example-utterances]: https://docs.microsoft.com/azure/cognitive-services/luis/add-example-utterances
 [pre-built-entities]: https://docs.microsoft.com/azure/cognitive-services/luis/pre-builtentities
 [label-suggested-utterances]: label-suggested-utterances.md
+
+<!-- this link not working 5/8 -->
+[cs-speech-service]: https://www.microsoft.com/cognitive-services/speech-api
