@@ -59,7 +59,7 @@ To be able to search over your sites, they must be available online, and in Bing
 If you own a site that you want to search over, which is not available in Bing's web-index, you can follow up with Bing directly. Consult the [Bing webmaster documentation](https://www.bing.com/webmaster/help/webmaster-guidelines-30fba23a).
 
 ### Add first slice
-Start building your search by entering a domain, subdomain, or single webpage. To confirm your choice and click **ADD**. 
+Start building your search by entering a domain, subdomain, or single webpage. To confirm your choice click **ADD**. 
 You can omit the "http", "https", "www" etc. prefixes when you specify your subset of the web.
 
 
@@ -67,7 +67,7 @@ You can omit the "http", "https", "www" etc. prefixes when you specify your subs
 
 
 ### Extend the slices to search over
-To add more domains, subdomains, or webpages, select the row below your last entry, specify your entry, followed by pressing **enter**. To remove an entry, click **delete** under Controls.
+To add more domains, subdomains, or webpages, select the row below your last entry. Specify your new entry there, followed by pressing **enter**. To remove an entry, click **delete** under Controls.
 
 
 ### Using standard Bing search
@@ -80,7 +80,7 @@ You can use standard Bing search to get inspirations of sites, subsites or web-p
 You can see search results from Bing. Click **+** to add any of the returned results to your custom slice of the web that you want to search over.
 
 ### Using Site Suggestions
-Once you have added at least three sites, or subsites to your search, Bing Custom Search generates site- and subsite-suggestions that you might want to add to your search. You see them under the section **You might want to add**.
+Once you have added at least three sites, or subsites to your search, Bing Custom Search generates site- and subsite suggestions that you might want to add to your search. You see them under the section **You might want to add**.
 
 Make sure to press **Refresh** after having added new sites or ranking adjustments, as the suggestions are regenerated based on your settings. 
 
@@ -114,9 +114,10 @@ Adjusting the ranking to pin search results to the top for specific queries can 
 ![picture alt](manualpin.png "Manually add a pin-to-top URL for a given query.")
 
 
-You can track your pins in the **Pinned** tab. The pins are shown as 'exact query, exact URL'-pairs. To activate your pins, that is, make the retrievable via Bing Web Search API, you must click **Push Pins** on the bottom left of the portal.
+You can track your pins in the **Pinned** tab. The pins are shown as 'exact query, exact URL'-pairs. To activate your pins, that is, make them retrievable via Bing Web Search API, you must click **Push Pins** on the bottom left of the portal.
 
 ![picture alt](trackingpins.png "Tracking pins, and pushing them to Bing API.")
+
 
 ### Using pins
 When you work with pins:
@@ -124,7 +125,7 @@ When you work with pins:
 * For a specific query, you can pin max. one URL to the top.
 * It takes around 15 minutes until a **pin-to-top** adjustment is retrievable via Bing Web Search API. 
 * Press **Push Pins** to activate your **pin-to-top** adjustments.
-* Deleting a pin is not instantaneously reflected in the Search Preview. You can still see the former pinned URL on top for the specific query, until you use again the **Push Pin** function. Remember that it takes around 15 minutes until the new pins are activated.
+* Deleting a pin is not instantaneously reflected in the search preview. You can still see the former pinned URL on top for the specific query, until you use again the **Push Pin** function. Remember that it takes around 15 minutes until the new pins are activated.
 
 
 ## Track custom search settings
@@ -133,9 +134,9 @@ You can control the ranking via the tabs **Active**, **Blocked**, and **Pinned**
 
 | Tab | Explanation |
 |---|---|
-|**Active**| Every time you add a boost, super boost or demote adjustment, you see a new entry in the Active tab. You can modify your adjustments at any time by using the options under **Ranking Adjust** and **Controls**. |
+|**Active**| Every time you add a boost, super boost or demote adjustment, you see a new entry in the **Active** tab. You can modify your adjustments at any time by using the options under **Ranking Adjust** and **Controls**. |
 |**Blocked** | Every time you add a block adjustment, you see a new entry in the **Block** tab. You can deactivate a block rule by using the control **delete**. |
-| **Pinned**| Every time you add a pin-to-top adjustment, it is added to the tab **Pinned**. |
+| **Pinned**| Every time you add a **pin-to-top** adjustment, it is added to the tab **Pinned**. |
 
 
 ![picture alt](trackingcustomsettings.png "Track your custom search settings.")
@@ -151,20 +152,19 @@ You can control the ranking via the tabs **Active**, **Blocked**, and **Pinned**
 * Further, the maximum number of pins per custom search instance is limited to 200.
 
 ## Publish search settings
-When you completed your custom search settings, click the **Custom Search Endpoint** icon that is shown next to the custom instance name. 
+When you completed your custom search settings, click the **Custom Search Endpoint** icon that is shown next to the custom search instance name. 
 
 
 ![picture alt](publishsearch.png "Publish your custom search instance.")
 
 
-You are routed to a page that shows you details on the Bing Web Search API endpoint for your custom search instance. 
-To try out your search, specify a query and click **Test API**. You see on the right-hand side the algorithmic results from your custom search.
+You are routed to a page that shows you details on the Bing Web Search API endpoint for your custom search instance. To try out your search, specify a query and click **Test API**. You see on the right-hand side the algorithmic results from your custom search.
 
 
 ![picture alt](api-endpoint.png "Test retrieving custom search results via Bing Web Search API.")
 
 
-You can also validate calling your custom endpoint using different programming languages. In the UI, you find a Curl-based example in the box **API endpoint**. You can copy and paste the example in your Windows Command line to make a Bing Web Search API call and retrieve your custom search results.
+You can also validate your settings by calling your custom endpoint using different programming languages. In the UI, you find a Curl-based example in the box **API endpoint**. You can copy and paste the example in your Windows Command line to make a Bing Web Search API call and retrieve your custom search results.
 
 
 ## Programmatically retrieve custom search results
