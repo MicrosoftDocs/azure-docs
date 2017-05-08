@@ -116,7 +116,7 @@ After the AzureRM environment is registered to target the Azure Stack instance, 
 
 ## Register resource providers 
 
-After you sign in to the administrator or user portal, you can issue operations against resource providers registered in that subscription. By default, all the foundational resource providers are registered in the **Default Provider Subscription(administrator subscription)**. When operating on a newly created user subscription, and if these subscription doesn’t have any resources deployed through the portal, you should register the resource providers for this subscription by using the following command:
+After you sign in to the administrator or user portal, you can issue operations against resource providers registered in that subscription. By default, all the foundational resource providers are registered in the **Default Provider Subscription(administrator subscription)**. When operating on a newly created user subscription, and if this subscription doesn’t have any resources deployed through the portal, you should register the resource providers for this subscription by using the following command:
 
 ```PowerShell
   Get-AzureRmResourceProvider `
