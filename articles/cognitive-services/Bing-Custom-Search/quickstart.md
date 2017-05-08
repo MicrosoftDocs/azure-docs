@@ -59,6 +59,9 @@ To add more domains, subdomains or webpages, select the row below your last entr
 ![picture alt](AddingSites.png "Expand the set of sites, subsites and single web pages that you want to search over.")
 
 
+### Using standard Bing search
+You can use standard Bing search to get inspirations of sites, subsites or web-pages that you want to add to your custom search instance. On the right-hand side, you see the Search Preview. Select from the drop-down menu next to the search icon Bing and submit a query. You can see search results from Bing. Click **+** to add any of the returned results to your custom slice of the web that you want to search over.
+
 ### Using Site Suggestions
 Once you have added at least three sites, or subsites to your search, Bing Custom Search generates site- and subsite-suggestions that you might want to add to your search. You see them under the section **You might want to add**.
 
@@ -68,6 +71,7 @@ You can add relevant suggestions to your custom search by clicking **Add**. The 
 
 
 ## Adjust the ranking
+
 Start validating your settings by searching over your defined subset of the web. On the right-hand side, you see the Search Preview. Enter a search term at the top, and press **enter** or click the search icon.
 
 **Note**: In case you do not see any result for your query, you might not have added enough websites to your custom slice of the web. As a result, no relevant search result can be found.
@@ -121,6 +125,11 @@ You can control the ranking via the tabs **Active**, **Blocked**, and **Pinned**
 
 ### Understanding quota
 * Per custom search instance, the maximum number of ranking adjustments as documented in the tabs **Added** and **Blocked** are capped to  400.
+* **Note**
+	* Adding a site to the **Active** tab counts as one ranking adjustment.
+	* If you boost this site, this counts as another ranking adjustment. That is, boosting a site counts as two ranking adjustmets: you whitelist a site first, then you boost it.
+	* Demoting works similar like boosting, that is, demoting a site counts as two ranking adjustments.
+	* Blocking a site counts as one ranking adjustment. 
 * Further, the maximum number of pins per custom search instance is limited to 200.
 
 ## Publish search settings
@@ -147,6 +156,8 @@ You can programmatically retrieve your custom search results via [Bing Web Searc
 2. The response contains the elementary and customizable elements of the Bing Web Search API output.
 
 **Note**: Bing Custom Search allows customizing web results only. For this reason, it's not possible to retrieve, for example, image or news answers.
+
+**Note**: Read the [Bing Web Search API Use and Display requirements](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-web-search/useanddisplayrequirements) to understand how to display the retrieved results.
 
 
 ### Request Parameters
@@ -178,7 +189,7 @@ https://cognitivegblppe.azure-api.net/bingcustomsearch/v5.0/search[?q][&customco
 ### Request Body
 Bing Custom Search allows customizing web results only, which maps to the response field `webPages`. For example, images or news results cannot be customized. That's why they are not retrievable when calling Bing Web Search API with the `customconfig` parameter in the search request.
 
-Below you see a JSON response of a Bing Web Search API call with a `customconfig` parameter.
+Below you see a JSON response of a Bing Web Search API call with a `customconfig` parameter. 
 
 ```
 {
