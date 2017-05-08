@@ -80,7 +80,7 @@ Get the connection information needed to connect to the Azure SQL database. You 
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. If you forget the login information for your Azure SQL Database server, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password.     
+4. If you forget your server login information, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password.     
     
 ## Select data
 Use the following code to query for the top 20 products by category using the [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) function with a [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) Transact-SQL statement. The sqlsrv_query function is used to retrieve a result set from a query against a SQL database. This function accepts a query and returns a result set that can be iterated over with the use of [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php). Replace the server, database, username, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data. 
@@ -192,5 +192,4 @@ else{
 - [Design your first Azure SQL database](sql-database-design-first-database.md)
 - [Microsoft PHP Drivers for SQL Server](https://github.com/Microsoft/msphpsql/)
 - [Report issues/ask questions](https://github.com/Microsoft/msphpsql/issues)
-- [Connect and query with SSMS](sql-database-connect-query-ssms.md)
-- [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md)
+
