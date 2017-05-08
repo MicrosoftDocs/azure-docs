@@ -1,5 +1,5 @@
 ---
-title: Run Azure Batch workloads on cost-effective low-priority VMs | Microsoft Docs
+title: Run Azure Batch workloads on cost-effective low-priority VMs (Preview) | Microsoft Docs
 description: Learn how to provision low-priority VMs to reduce the cost of Azure Batch workloads.
 services: batch
 author: markscu
@@ -15,7 +15,7 @@ ms.author: mscurrell
 
 ---
 
-# Use low-priority VMs with Batch
+# Use low-priority VMs with Batch (Preview)
 
 Azure Batch offers low-priorty virtual machines (VMs) to reduce the cost of
 Batch workloads. Low-priority VMs make new types of Batch workloads possible by
@@ -25,7 +25,7 @@ Low-priority VMs take advantage of surplus capacity in Azure. When you specify
 low-priority VMs in your pools, Azure Batch can automatically use this surplus
 when available.
 
-The tradeoff for using low-priority VMs is that those VMs may be pre-empted when
+The tradeoff for using low-priority VMs is that those VMs may be preempted when
 no surplus capacity is available in Azure. For this reason, low-priority VMs are
 most suitable for certain types of workloads. Use low-priority VMs for batch and
 asynchronous processing workloads where the job completion time is flexible and
@@ -34,7 +34,10 @@ the work is distributed across many VMs.
 Low-priority VMs are significantly less expensive than dedicated VMs. For pricing
 details, see [Batch Pricing](https://azure.microsoft.com/pricing/details/batch/).
 
-Low-priority VMs are available only for workloads running in Batch. 
+> [!IMPORTANT]
+> Low-priority VMs are currently in preview. Low-priority VMs are available only for workloads running in Batch. 
+>
+>
 
 ## Use cases for low-priority VMs
 
@@ -82,7 +85,7 @@ Batch pools can be configured to use low-priority VMs in a few ways, depending
 on the flexibility in job execution time:
 
 -   Low-priority VMs can solely be used in a pool and Batch will simply recover
-    any pre-empted capacity when available. This is the cheapest way to execute
+    any preempted capacity when available. This is the cheapest way to execute
     jobs as only low-priority VMs are used.
 
 -   Low-priority VMs can be used in conjunction with a fixed baseline of
@@ -120,15 +123,15 @@ benefit from low-priority VMs:
 allocation mode is set to [User
 subscription](batch-account-create-portal.md#user-subscription-mode).
 >
+> A compute node is a single virtual machine or cloud service VM deployed in a Batch pool.  
+>
 >
 
 ## Create and update pools
 
-Batch pools can contain both dedicated and low-priority VMs, with it being
-possible to set the target number of nodes and get the current number of nodes
-for both types of VM.
+A Batch pool can contain both dedicated and low-priority VMs. You can set the target number of compute nodes for both dedicated and low-priority VMs. The target number of nodes specifies the number of VMs you want to have in the pool.
 
-For example, to create a pool using cloud services VMs with 5 dedicated VMs and
+For example, to create a pool using Azure cloud service VMs with a target of 5 dedicated VMs and
 20 low-priority VMs:
 
 ```csharp
@@ -136,12 +139,13 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
     poolId: "cspool",
     targetDedicatedComputeNodes: 5,
     targetLowPriorityComputeNodes: 20,
-    virtualMachineSize: "Standard\_D2\_v2",
+    virtualMachineSize: "Standard_D2_v2",
     cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4") // WS 2012 R2
 );
 ```
 
-Low-priority VMs can also be used with Virtual Machine pools:
+To create a pool using Azure virtual machines (in this case Linux VMs) with a target of 5 dedicated VMs and
+20 low-priority VMs:
 
 ```csharp
 ImageReference imageRef = new ImageReference(
@@ -162,7 +166,7 @@ pool = batchClient.PoolOperations.CreatePool(
     virtualMachineConfiguration: virtualMachineConfiguration);
 ```
 
-The current number of both dedicated and low-priority VMs can be obtained:
+You can get the current number of nodes for both dedicated and low-priority VMs:
 
 ```csharp
 int? numDedicated = pool1.CurrentDedicatedComputeNodes;
