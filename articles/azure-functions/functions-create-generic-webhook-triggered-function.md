@@ -57,7 +57,7 @@ Next, you create a webhook endpoint in an activity log alert in Azure Monitor.
 
     | Setting      |  Suggested value   | Description                              |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Activity log alert name** | FunctionAppError | Name of the activity log alert.
+    | **Activity log alert name** | FunctionAppError | Name of the activity log alert that is unique in the resource group. |
     | **Description** | Some description | Description that is shown in the alert payload. |
     | **Subscription** | Auto-filled | The subscription you are using. | 
     |  **Resource Group** | myResourceGroup | The resource group the alert is deployed to and that is being monitored. Use for both **Resource group** fields.|
