@@ -448,7 +448,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Cognitive Services</h3>
+                                    <h3>AI and Cognitive Services</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/cognitive-services/emotion/home">
@@ -668,7 +668,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Intelligence + Analytics</h3>
+                                    <h3>Data and Analytics</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/hdinsight/">
@@ -1781,7 +1781,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                         </ul>
                     </li>
                     <li>
-                        <a href="#cognitive">Cognitive Services</a>
+                        <a href="#cognitive">AI and Cognitive Services</a>
                         <ul id="cognitive" class="cardsA">
                             <li>
                                 <a href="/azure/cognitive-services/computer-vision/home">
@@ -1938,7 +1938,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                         </ul>
                     </li>
                     <li>
-                        <a href="#analytics">Intelligence + Analytics</a>
+                        <a href="#analytics">Data and Analytics</a>
                         <ul id="analytics" class="cardsA">
                             <li>
                                 <a href="/azure/hdinsight/">
