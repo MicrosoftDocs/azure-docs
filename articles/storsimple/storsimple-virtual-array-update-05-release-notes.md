@@ -36,7 +36,7 @@ Update 0.5 is primarily a bug-fix build. The main enhancements and bug-fixes are
 
 - **Backup resiliency improvements** - This release has fixes that improve the backup resiliency. In the earlier releases, backups were retried only for certain exceptions. This release retries all the backup exceptions and makes the backups more resilient.
 
-- **Fixes to allow storage usage monitoring service** - Starting 30 June 2017, the storage usage monitoring for StorSimple Virtual Device Series will be retired. This applies to all the virtual arrays running Update 0.4 or lower. This update contains the fixes required for you to continue the use of storage usage monitoring. Install this critical update before June 30, 2017 to continue using the monitoring feature.
+- **Updates for storage usage monitoring** - Starting 30 June 2017, the storage usage monitoring for StorSimple Virtual Device Series will be retired. This applies to the monitoring charts on all the virtual arrays running Update 0.4 or lower. This update contains the changes required for you to continue the use of storage usage monitoring in the Azure portal. Install this critical update before June 30, 2017 to continue using the monitoring feature.
 
 
 ## Issues fixed in the Update 0.5
@@ -46,7 +46,7 @@ The following table provides a summary of issues fixed in this release.
 | No. | Feature | Issue |
 | --- | --- | --- |
 | 1 |Backup resiliency| In the earlier releases, backups were retried only for certain exceptions. This release contains a fix to make backups more resilient by retrying all the backup exceptions.|
-| 2 |Monitoring| The storage usage monitoring for StorSimple Virtual Device Series will be deprecated starting June 30, 2017. This action impacts the monitoring charts on the StorSimple Device Manager service running on StorSimple Virtual Arrays (1200 model). This release has fixes that would allow the user to continue the use of storage usage monitoring on the virtual arrays beyond June 30, 2017.|
+| 2 |Monitoring| The storage usage monitoring for StorSimple Virtual Device Series will be deprecated starting June 30, 2017. This action impacts the monitoring charts on the StorSimple Device Manager service running on StorSimple Virtual Arrays (1200 model). This release has updates that allow the user to continue the use of storage usage monitoring on the virtual arrays beyond June 30, 2017.|
 | 3 |File server| In the earlier releases, a user could mistakenly copy encrypted files to the virtual array. This release contains a fix that would not allow copying of encrypted files to virtual array. If your device has existing encrypted files prior to the update, backups will continue to fail until all the encrypted files are deleted from the system. |
 
 
