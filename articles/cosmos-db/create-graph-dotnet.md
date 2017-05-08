@@ -22,7 +22,7 @@ ms.author: arramac
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, document database, and graph container using the Azure portal. You'll then build and run a console app built on the [Graph API](graph-sdk-dotnet.md).  
+This quick start demonstrates how to create an Azure Cosmos DB account, database, and graph (container) using the Azure portal. You'll then build and run a console app built on the [Graph API](graph-sdk-dotnet.md).  
 
 ## Prerequisites
 
@@ -71,12 +71,12 @@ Let's make a quick review of what's happening in the app. Open the Program.cs fi
     Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" });
     ```
 
-* A new graph container is created.
+* A new graph is created.
 
     ```csharp
     DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync(
         UriFactory.CreateDatabaseUri("graphdb"),
-        new DocumentCollection { Id = "graphcoll" },
+        new DocumentCollection { Id = "graph" },
         new RequestOptions { OfferThroughput = 1000 });
     ```
 * A series of Gremlin steps are executed using the `CreateGremlinQuery` method.
@@ -157,7 +157,7 @@ If you're not going to continue to use this app, delete all resources created by
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a graph container using the Data Explorer, and run an app. You can now build more complex queries and implement powerful graph traversal logic using Gremlin or distribute your data globally. 
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a graph using the Data Explorer, and run an app. You can now build more complex queries and implement powerful graph traversal logic using Gremlin or distribute your data globally. 
 
 [Query using Gremlin](tutorial-query-graph.md)
 

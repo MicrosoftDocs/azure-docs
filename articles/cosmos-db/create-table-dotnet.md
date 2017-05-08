@@ -36,22 +36,7 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 
 ## Add a table
 
-[!INCLUDE [cosmosdb-create-graph](../../includes/cosmosdb-create-graph.md)]
-
-## Add sample data
-
-You can now add data to your new graph using Data Explorer.
-
-1. In Data Explorer, the new database appears in the Graphs pane. Expand **sample-database** database, expand **sample-graph** collection, click **Entities**, and then click **New Entity**. 
-
-   ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-dotnet/azure-cosmosdb-data-explorer-emulator-new-document.png)
-  
-2. Now add a few new nodes and edges to the graph.
-
-     You can now use Graph Explorer to traverse your data. 
-
-    ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-dotnet/graph-explorer.png)
-
+[!INCLUDE [cosmosdb-create-table](../../includes/cosmosdb-create-table.md)]
 
 ## Clone the sample application
 
