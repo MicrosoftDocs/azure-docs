@@ -29,7 +29,7 @@ This quick start uses as its starting point the resources created in one of thes
 
 ## Install PHP and database communications software
 
-The steps in this section assume that you are familar with developing using PHP and are new to working with Azure SQL Database. If you are new to developing with PHP, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) and select **PHP** and then select your operating system.
+The steps in this section assume that you are familiar with developing using PHP and are new to working with Azure SQL Database. If you are new to developing with PHP, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) and select **PHP** and then select your operating system.
 
 ### **Mac OS**
 Open your terminal and enter the following commands to install **brew**, **Microsoft ODBC Driver for Mac** and the **Microsoft PHP Drivers for SQL Server**. 
@@ -191,10 +191,6 @@ else{
 ## Next steps
 - [Design your first Azure SQL database](sql-database-design-first-database.md)
 - [Microsoft PHP Drivers for SQL Server](https://github.com/Microsoft/msphpsql/)
-- [File issues/ask questions](https://github.com/Microsoft/msphpsql/issues)
+- [Report issues/ask questions](https://github.com/Microsoft/msphpsql/issues)
 - [Connect and query with SSMS](sql-database-connect-query-ssms.md)
 - [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md)
-- [Connect and query with Node.js](sql-database-connect-query-nodejs.md).
-- [Connect and query with Java](sql-database-connect-query-java.md).
-- [Connect and query with Python](sql-database-connect-query-python.md).
-- [Connect and query with Ruby](sql-database-connect-query-ruby.md).
