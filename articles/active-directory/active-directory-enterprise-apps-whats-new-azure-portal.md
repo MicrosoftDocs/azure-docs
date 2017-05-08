@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/08/2016
+ms.date: 05/04/2017
 ms.author: asteen
 
 ---
 # What's new in Enterprise Application management in Azure Active Directory 
 
-The new Azure Portal has enhanced Enterprise Application management tools, some of which  you've used in the Azure classic portal, and some new features and capabilities to make managing apps simpler and efficient.
+Azure Active Directory (Azure AD) has enhanced enterprise application management tools, with new features and capabilities to make managing apps simpler and efficient.
 
-Following are some of the enhancements for Azure AD in the Azure portal:
+Following are some of the enhancements for Azure AD in the [Azure portal](https://portal.azure.com).
 
-- New and improved application gallery experience, with a simplified application creation model and support for all the application types that you’re used to in the classic portal. 
-- A brand-new quick start experience that gets you going quickly with a pilot of your new application. 
-- Ability to configure self-service policies with just a few clicks. 
-- And finally, significant improvements to application proxy, single-sign on configuration, and bring your own application experiences, allowing you to get more than ever done in our new portal. Read on to learn about all this cool new stuff!
+- An improved application gallery experience, with a simplified application creation model and support for all the application types that you’re used to. 
+- A brand-new quick start experience that can help you get going with a pilot of your application. 
+- Configure self-service policies with just a few clicks. 
+- Improvements to application proxy, single sign-on configuration, and bring your own application experiences, allowing you to get more done than before.
 
-## The new and improved application gallery
+## Improvements to the Azure Active Directory Application Gallery
 
-Now, it’s easier to add all your favorite applications using our new streamlined experience, whether they be from our massive gallery, custom applications you’re extending to the cloud, or brand new applications you’re developing.  You can get started with this new experience by clicking the **Add** button on the **Enterprise Applications** overview or **All applications** blades.
+Add your favorite applications whether they are from the [application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), custom applications you’re extending to the cloud, or new applications you’re developing.  You can get started with this new experience by clicking **Add** on the **Enterprise Applications** overview or **All applications** blades.
  
   ![Adding an application](./media/active-directory-enterprise-apps-whats-new-azure-portal/01.png)
 
@@ -145,7 +145,7 @@ After you’ve added lots of new applications, maybe you want to allow your user
 
 ##Feedback
 
-We hope you like using the updated preview experience. Please keep the feedback coming! Post your feedback and ideas for improvement in the **Admin Portal** section of our [feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  We’re excited about building cool new stuff every day, and use your guidance to shape and define what we build next.
+We hope you like using the improved Azure AD experience. Please keep the feedback coming! Post your feedback and ideas for improvement in the **Admin Portal** section of our [feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  We’re excited about building cool new stuff every day, and use your guidance to shape and define what we build next.
 
 ## Next steps
 
