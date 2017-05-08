@@ -43,7 +43,7 @@ Only the principal steps are outlined in this walkthrough. You can download the 
 Before you begin these topics, you must have the following:
 
 * An Azure subscription. If you do not already have one, see [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* [Recommended] Visual Studio 2013, or 2015. If you do not already have one of these versions installed, you can download a free Community edition from [here](https://www.visualstudio.com/visual-studio-homepage-vs.aspx). Click on the **Download Community 2015** button under the Visual Studio section. 
+* [Recommended] Visual Studio 2013 or later. If you do not already have one of these versions installed, you can download a free Community version from [Visual Studio Community](https://www.visualstudio.com/vs/community/).
 
 > [!NOTE]
 > Instead of Visual Studio, you can also use the Azure Portal to submit Azure Data Lake queries. We will provide instructions on how to do so both with Visual Studio and on the portal in the section titled **Process data with U-SQL**. 

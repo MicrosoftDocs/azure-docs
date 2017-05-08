@@ -1,4 +1,4 @@
----
+﻿---
 title: Autoscale Windows Virtual Machine Scale Sets | Microsoft Docs
 description: Set up autoscaling for a Windows Virtual Machine Scale Set using Azure PowerShell
 services: virtual-machine-scale-sets
@@ -38,7 +38,7 @@ In this article, you deploy the following resources and extensions:
 For more information about Resource Manager resources, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## Step 1: Install Azure PowerShell
-See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to Azure.
+See [How to install and configure Azure PowerShell](/powershell/azure/overview) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to Azure.
 
 ## Step 2: Create a resource group and a storage account
 1. **Create a resource group** – All resources must be deployed to a resource group. Use [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx) to create a resource group named **vmsstestrg1**.
@@ -106,7 +106,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
         * The IP address names and prefixes for the virtual network and subnets.
         * The names and identifiers of the virtual network, load balancer, and network interfaces.
         * Storage account names for the accounts associated with the machines in the scale set.
-        * Settings for the Diagnostics extension that is installed on the virtual machines. For more information about the Diagnostics extension, see [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        * Settings for the Diagnostics extension that is installed on the virtual machines. For more information about the Diagnostics extension, see [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 4. Add the storage account resource under the resources parent element that you added to the template. This template uses a loop to create the recommended five storage accounts where the operating system disks and diagnostic data are stored. This set of accounts can support up to 100 virtual machines in a scale set, which is the current maximum. Each storage account is named with a letter designator that was defined in the variables combined with the prefix that you provide in the parameters for the template.
 

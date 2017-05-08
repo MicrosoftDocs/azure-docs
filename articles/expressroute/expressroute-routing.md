@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/27/2017
+ms.date: 03/03/2017
 ms.author: osamam
 
 ---
@@ -158,6 +158,9 @@ You can purchase more than one ExpressRoute circuit per geopolitical region. Hav
 | India South |12076:51019 |
 | India West |12076:51018 |
 | India Central |12076:51017 |
+| **Korea** | |
+| Korea South |12076:51028 |
+| Korea Central |12076:51029 |
 
 All routes advertised from Microsoft will be tagged with the appropriate community value. 
 

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/13/2017
+ms.date: 2/17/2017
 ms.author: johnkem
 
 ---
@@ -409,13 +409,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
 |Throughput|Throughput|BytesPerSecond|Average||
-
-## Microsoft.Network/expressRouteCircuits
-
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|
-|---|---|---|---|---|
-|ConnectionsFailuresCounters|ConnectionsFailuresCounters|Count|Total||
-|ConnectionsActiveCounters|ConnectionsActiveCounters|Count|Total||
 
 ## Microsoft.NotificationHubs/Namespaces/NotificationHubs
 

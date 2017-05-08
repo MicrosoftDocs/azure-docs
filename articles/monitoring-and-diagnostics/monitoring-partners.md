@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/10/2017
+ms.date: 5/5/2017
 ms.author: johnkem
 
 ---
@@ -87,8 +87,8 @@ ScienceLogic delivers the next generation IT service assurance platform for mana
 
 [Learn more.][sciencelogic-doc]
 
-## Splunk Add-on for Microsoft Cloud Services
-The Splunk Add-on for Microsoft Cloud Services is [available in the Splunkbase here](https://splunkbase.splunk.com/app/3110/).
+## Azure Monitor Add-on for Splunk
+The Azure Monitor Add-on for Splunk is [available in the Splunkbase here](https://splunkbase.splunk.com/app/3534/).
 
 [Go to the documentation.][splunk-doc]
 
@@ -116,7 +116,7 @@ Sumo Logic is a secure, cloud-native, machine data analytics service, delivering
 [opsgenie-anchor]: #opsgenie "OpsGenie"
 [pagerduty-anchor]: #pagerduty "PagerDuty"
 [sciencelogic-anchor]: #sciencelogic "ScienceLogic"
-[splunk-anchor]: #splunk-add-on-for-microsoft-cloud-services "Splunk"
+[splunk-anchor]: #azure-monitor-add-on-for-splunk "Splunk"
 [sumologic-anchor]: #sumo-logic "Sumo Logic"
 
 <!--Icon references-->
@@ -137,7 +137,7 @@ Sumo Logic is a secure, cloud-native, machine data analytics service, delivering
 
 <!--Partner Documentation-->
 [alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "AlertLogic documentation."
-[appdynamics-doc]: https://docs.appdynamics.com/display/PRO42/Register+for+AppDynamics+for+Windows+Azure "AppDynamics documentation."
+[appdynamics-doc]: https://www.appdynamics.com/net/azure/ "AppDynamics documentation."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
 [cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "CloudMonix introduction."
@@ -148,5 +148,5 @@ Sumo Logic is a secure, cloud-native, machine data analytics service, delivering
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "OpsGenie documentation."
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "PagerDuty documentation."
 [sciencelogic-doc]: https://www.sciencelogic.com/product/technologies/microsoft/azure "ScienceLogic documentation."
-[splunk-doc]: http://docs.splunk.com/Documentation/AddOns/released/MSCloudServices/About "Splunk documentation."
+[splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Splunk documentation."
 [sumologic-doc]: https://www.sumologic.com/azure "SumoLogic documentation."

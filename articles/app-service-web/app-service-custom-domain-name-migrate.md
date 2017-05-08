@@ -4,7 +4,7 @@ description: Learn how to migrate a custom domain that is already assigned to a 
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 tags: top-support-issue
 
@@ -27,7 +27,7 @@ the migration process. In this case, you need to preemptively bind the domain na
 
 ## Prerequisites
 
-This article assumes that you arleady know how to [manually map a custom domain to App Service](web-sites-custom-domain-name.md).
+This article assumes that you already know how to [manually map a custom domain to App Service](web-sites-custom-domain-name.md).
 
 ## Bind the domain name preemptively
 

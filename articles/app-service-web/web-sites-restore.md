@@ -4,7 +4,7 @@ description: Learn how to restore your app from a backup.
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: 4444dbf7-363c-47e2-b24a-dbd45cb08491

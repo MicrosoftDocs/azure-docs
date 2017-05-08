@@ -61,10 +61,10 @@ In the script, you'll find the following concepts and keywords:
 
  >[!NOTE]
  >The two paths are relative paths. You can also use absolute paths. For example:    
- >     adl://<ADLStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
+ >     adl://\<ADLStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
  >
  >You must use an absolute path to access the files in the linked storage accounts.  The syntax for files stored in linked Azure storage account is:
- >     wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
+ >     wasb://\<BlobContainerName>@\<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
  >[!NOTE]
  >Azure Blob storage containers with public blobs or public containers access permissions are not currently supported.
@@ -139,7 +139,7 @@ The following script uses the DateTime.Parse() method and a conjunction.
         WHERE Start >= DateTime.Parse("2012/02/16") AND Start <= DateTime.Parse("2012/02/17");
 
     OUTPUT @rs1   
-        TO "/output/SearchLog-transform-datatime.csv"
+        TO "/output/SearchLog-transform-datetime.csv"
         USING Outputters.Csv();
 
  >[!NOTE]

@@ -77,14 +77,12 @@ The following is a screen shot of the start page of the completed web applicatio
 Before you can begin developing Azure applications, download the tools and set up your development environment:
 
 1. Install the Azure SDK for .NET from the SDK [downloads page](https://azure.microsoft.com/downloads/).
-2. In the **.NET** column, click the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2015.
+2. In the **.NET** column, click the version of [Visual Studio](http://www.visualstudio.com) you are using. The steps in this tutorial use Visual Studio 2015.
 3. When prompted to run or save the installer, click **Run**.
 4. In the **Web Platform Installer**, click **Install** and proceed with the installation.
 5. Once the installation is complete, you will have everything
    necessary to start to develop the app. The SDK includes tools that let you
-   easily develop Azure applications in Visual Studio. If you
-   do not have Visual Studio installed, the SDK also installs the free
-   Visual Studio Express.
+   easily develop Azure applications in Visual Studio.
 
 ## Create a namespace
 To begin using the relay features in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Azure resources within your application. Follow the [instructions here](relay-create-namespace-portal.md) to create a Relay namespace.
@@ -267,7 +265,7 @@ In this section you will build a simple ASP.NET application that displays data r
 
    ![][19]
 8. Click **OK**.
-9. Now you must configure Azure resources for a new web app. Follow all the steps in [Create a web application](../app-service-web/web-sites-dotnet-get-started.md#create-a-web-application) and [Create the Azure resources](../app-service-web/web-sites-dotnet-get-started.md#create-the-azure-resources). Then, return to this tutorial and proceed to the next step.
+9. Now you must configure Azure resources for a new web app. Follow all the steps in [Create a web application](../app-service-web/app-service-web-get-started-dotnet.md) and [Create the Azure resources](../app-service-web/app-service-web-get-started-dotnet.md). Then, return to this tutorial and proceed to the next step.
 10. In Solution Explorer, right-click **Models** and then click **Add**,
     then click **Class**. In the **Name** box, type the name
     **Product.cs**. Then click **Add**.
@@ -439,7 +437,7 @@ Press **Refresh** on the **ProductsPortal** page. Each time you refresh the page
 Close both applications before proceeding to the next step.
 
 ## Deploy the ProductsPortal project to an Azure web app
-The next step is to convert the **ProductsPortal** frontend to an Azure web app. First, deploy the **ProductsPortal** project, following all the steps in the section [Deploy the web project to Azure](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-azure). After deployment is complete, return to this tutorial and proceed to the next step.
+The next step is to convert the **ProductsPortal** frontend to an Azure web app. First, deploy the **ProductsPortal** project, following all the steps in the section [Deploy the web project to Azure](../app-service-web/app-service-web-get-started-dotnet.md). After deployment is complete, return to this tutorial and proceed to the next step.
 
 > [!NOTE]
 > You may see an error message in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is expected, and occurs because the **ProductsServer** application isn't running yet.

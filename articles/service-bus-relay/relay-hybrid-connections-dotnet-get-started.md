@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 03/27/2017
 ms.author: jotaub;sethm
 
 ---
@@ -31,7 +31,7 @@ Because Hybrid Connections requires both a client and a server component, the tu
 4. Write a client (sender) console application to send messages.
 
 ## Prerequisites
-1. [Visual Studio 2013 or Visual Studio 2015](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2015.
+1. [Visual Studio 2015 or higher](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2015.
 2. An Azure subscription.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]

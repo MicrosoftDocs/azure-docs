@@ -4,7 +4,7 @@ description: Describes how to create a new Mobile Engagement App Collection in A
 services: mobile-engagement
 documentationcenter: ''
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: b8aa1798-28c6-424c-a5b5-8a264d5a0ff0

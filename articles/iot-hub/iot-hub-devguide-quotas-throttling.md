@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 03/27/2017
 ms.author: dobett
 
 ---
@@ -33,16 +33,16 @@ The following is the list of enforced throttles. Values refer to an individual h
 
 | Throttle | Free and S1 hubs | S2 hubs | S3 hubs | 
 | -------- | ------- | ------- | ------- |
-| Identity registry operations (create, retrieve, list, update, delete) | 100/min/unit | 100/min/unit | 5000/min/unit |
+| Identity registry operations (create, retrieve, list, update, delete) | 1.67/sec/unit (100/min/unit) | 1.67/sec/unit (100/min/unit) | 83.33/sec/unit (5000/min/unit) |
 | Device connections | Max of 100/sec or 12/sec/unit <br/> For example, two S1 units are 2\*12 = 24/sec, but you have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. | 120/sec/unit | 6000/sec/unit |
 | Device-to-cloud sends | Max of 100/sec or 12/sec/unit <br/> For example, two S1 units are 2\*12 = 24/sec, but you have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. | 120/sec/unit | 6000/sec/unit |
-| Cloud-to-device sends | 100/min/unit | 100/min/unit | 5000/min/unit |
-| Cloud-to-device receives <br/> (only when device uses HTTP)| 1000/min/unit | 1000/min/unit| 50000/min/unit |
-| File upload | 100 file upload notifications/min/unit | 100 file upload notifications/min/unit | 5000 file upload notifications/min/unit |
+| Cloud-to-device sends | 1.67/sec/unit (100/min/unit) | 1.67/sec/unit (100/min/unit) | 83.33/sec/unit (5000/min/unit) |
+| Cloud-to-device receives <br/> (only when device uses HTTP)| 16.67/sec/unit (1000/min/unit) | 16.67/sec/unit (1000/min/unit) | 833.33/sec/unit (50000/min/unit) |
+| File upload | 1.67 file upload notifications/sec/unit (100/min/unit) | 1.67 file upload notifications/sec/unit (100/min/unit) | 83.33 file upload notifications/sec/unit (5000/min/unit) |
 | Direct methods | 10/sec/unit | 30/sec/unit | 1500/sec/unit | 
 | Device twin reads | 10/sec | Maximum of 10/sec or 1/sec/unit | 50/sec/unit |
 | Device twin updates | 10/sec | Maximum of 10/sec or 1/sec/unit | 50/sec/unit |
-| Jobs operations <br/> (create, update, list, delete) | 100/min/unit | 100/min/unit | 5000/min/unit |
+| Jobs operations <br/> (create, update, list, delete) | 1.67/sec/unit (100/min/unit) | 1.67/sec/unit (100/min/unit) | 83.33/sec/unit (5000/min/unit) |
 | Jobs per-device operation throughput | 10/sec | Maximum of 10/sec or 1/sec/unit | 50/sec/unit |
 
 It is important to clarify that the *device connections* throttle governs the rate at which new device connections can be established with an IoT hub, and not the maximum number of simultaneously connected devices. The throttle depends on the number of units that are provisioned for the IoT hub.
@@ -69,6 +69,9 @@ IoT Hub enforces other limits on its different functionalities.
 | Jobs | Job history is retained up to 30 days <br/> Max concurrent jobs is 1 (for Free and S1, 5 (for S2), 10 (for S3). |
 | Additional endpoints | Paid SKU hubs may have 10 additional endpoints. Free SKU hubs may have one additional endpoint. |
 | Message routing rules | Paid SKU hubs may have 100 routing rules. Free SKU hubs may have five routing rules. |
+
+> [!NOTE]
+> Currently, the maximum number of devices you can connect to a single IoT hub is 500,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
 
 ## Next steps
 Other reference topics in this IoT Hub developer guide include:

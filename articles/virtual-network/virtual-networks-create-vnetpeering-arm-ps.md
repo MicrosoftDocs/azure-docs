@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Virtual Network peering - PowerShell | Microsoft Docs
 description: Learn how to create a virtual network peering using Azure PowerShell.
 services: virtual-network
@@ -27,7 +27,7 @@ ms.author: narayan; annahar
 
 To create a VNet peering by using PowerShell, please follow the steps below:
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](/powershell/azureps-cmdlets-docs) and follow the instructions all the way to the end to sign into Azure and select your subscription.
+1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](/powershell/azure/overview) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 
 	> [!NOTE]
 	> The PowerShell cmdlet for managing VNet peering is shipped with [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
@@ -152,7 +152,7 @@ To create a VNet peering by using PowerShell, please follow the steps below:
         RemoteGateways        : null
         RemoteVirtualNetworkAddressSpace : null
 
-	After peering is established, VMs should be able to communicate with each other across both VNets. By default, `AllowVirtualNetworkAccess` is *True* and VNet peering will provision the proper ACLs to allow the communication between VNets. You can still apply network security group (NSG) rules to block connectivity between specific subnets or virtual machines to gain fine grain control of access between two VNets. Read the ]network security group](virtual-networks-create-nsg-arm-ps.md) article to learn more about NSGs.
+	After peering is established, VMs should be able to communicate with each other across both VNets. By default, `AllowVirtualNetworkAccess` is *True* and VNet peering will provision the proper ACLs to allow the communication between VNets. You can still apply network security group (NSG) rules to block connectivity between specific subnets or virtual machines to gain fine grain control of access between two VNets. Read the [network security group](virtual-networks-create-nsg-arm-ps.md) article to learn more about NSGs.
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 

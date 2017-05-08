@@ -16,35 +16,25 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: padmavc
 
+ms.custom: H1Hack27Feb2017 
+
 ---
-# Monitor B2B messages
+# Start or enable logging of AS2, X12, and EDIFACT messages to monitor success, errors, and message properties
 
-B2B communication involves message exchanges between 
-two running business processes or applications. 
-The relationship defines an agreement between business processes. 
-After communication is established, 
-you can set up message monitoring 
-to check that communication is working as expected.
-For richer details and debugging, 
-you can set up diagnostics for your integration account.
+B2B communication involves message exchanges between two running business processes or applications. The relationship defines an agreement between business processes. 
+After communication is established, you can set up message monitoring to check that communication is working as expected. For richer details and debugging, you can set up diagnostics for your integration account.
 
-Message tracking is available 
-for these B2B protocols: AS2, X12, and EDIFACT. 
+Message tracking is available for these B2B protocols: AS2, X12, and EDIFACT. 
 
 ## Prerequisites
 
-* An Azure account; you can create a 
-[free account](https://azure.microsoft.com/free).
-* An Integration Account; you can create an 
-[Integration Account](logic-apps-enterprise-integration-create-integration-account.md).
-* A Logic App; you can create a 
-[Logic App](logic-apps-create-a-logic-app.md) 
-and [enable logging](logic-apps-monitor-your-logic-apps.md).
+* An Azure account; you can create a [free account](https://azure.microsoft.com/free).
+* An Integration Account; you can create an [Integration Account](logic-apps-enterprise-integration-create-integration-account.md).
+* A Logic App; you can create a [Logic App](logic-apps-create-a-logic-app.md) and [enable logging](logic-apps-monitor-your-logic-apps.md).
 
 ## Enable logging for an integration account
 
-You can enable logging for an integration account 
-either with the **Azure portal** or with **Monitor**.
+You can enable logging for an integration account either with the **Azure portal** or with **Monitor**.
 
 ### Enable logging with Azure portal
 
@@ -90,19 +80,15 @@ Click **Turn on Diagnostics** to enable diagnostics for your selected integratio
 
 ## Extend your solutions
 
-In addition to the **Log Analytics**, you can configure your integration account and 
-[Logic Apps](./logic-apps-monitor-your-logic-apps.md) to an Event Hub or Storage Account.
+In addition to the **Log Analytics**, you can configure your integration account and [Logic Apps](./logic-apps-monitor-your-logic-apps.md) to an Event Hub or Storage Account.
 
 ![Azure Diagnostics settings](./media/logic-apps-monitor-your-logic-apps/diagnostics.png)
 
-You can use this telemetry from the Event Hub or Storage into other services like 
-[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/), 
-and [Power BI](https://powerbi.com) to have real-time monitoring of your integration workflows.
+You can use this telemetry from the Event Hub or Storage into other services like [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/), and [Power BI](https://powerbi.com) to have real-time monitoring of your integration workflows.
 
 ## Supported Tracking Schema
 
-We support these tracking schema types, 
-which all have fixed schemas except the Custom type.
+We support these tracking schema types, which all have fixed schemas except the Custom type.
 
 * [Custom Tracking Schema](logic-apps-track-integration-account-custom-tracking-schema.md)
 * [AS2 Tracking Schema](logic-apps-track-integration-account-as2-tracking-schemas.md)

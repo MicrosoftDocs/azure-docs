@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/10/2017
 ms.author: billmath
 
 ---
@@ -141,10 +141,25 @@ On this page, you configure for all reference attributes which partition (object
 
 If you use **DN is anchor**, then you must use the same object type as the one you are referring from. You cannot reference another object type.
 
+>[!NOTE]
+Starting in the March 2017 update there is now an option for "*" When this option is chosen then all possible member types will be imported.
+
+![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
+
+
+After import you will see something similar to the image below:
+
+  ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/after-import.png)
+
+
+
 ### Global Parameters
 The Global Parameters page is used to configure Delta Import, Date/Time format, and Password method.
 
 ![globalparameters1](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters1.png)
+
+>[!IMPORTANT]
+ “*” aka **any option** cannot be used during export/delete operations.
 
 The Generic SQL Connector supports the following methods for Delta Import:
 

@@ -11,11 +11,12 @@ editor: cgronlun
 
 ms.assetid: ce9c572a-1e98-46bf-9581-13a9767f1fa5
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 03/07/2017
 ms.author: jgao
 
 ---
@@ -28,17 +29,11 @@ Data Lake Tools for Visual Studio can be used to access both Data Lake Analytics
 
 To complete this tutorial and use the Data Lake Tools in Visual Studio, you'll need the following:
 
-* An Azure HDInsight cluster: Either a Linux-based or Windows-based cluster will work with the steps in this document. See one of the following for information on creating a cluster:
-  
-  * [Get started using Linux-based HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
-  * [Get started using Windows-based HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md)
+* An Azure HDInsight cluster: To create one, see [Get started using Linux-based HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * A workstation with the following software:
   
-  * Windows 8.1, Windows 8, or Windows 7
-  * Visual Studio (one of the following versions):
-    
-    * Visual Studio 2013 Community/Professional/Premium/Ultimate with [Update 4](https://www.microsoft.com/download/details.aspx?id=44921)
-    * Visual Studio 2015 (Community/Enterprise)
+  * Windows 10, Windows 8.1, Windows 8, or Windows 7.
+  * Visual Studio 2013/2015/2017.
     
     > [!NOTE]
     > Currently, the Data Lake Tools for Visual Studio only come with the English version.
@@ -46,7 +41,8 @@ To complete this tutorial and use the Data Lake Tools in Visual Studio, you'll n
     > 
 
 ## Install Data Lake Tools for Visual Studio
-You can install Data Lake Tools using the [Web Platform Installer](https://www.microsoft.com/web/downloads/). You must choose the one that matches your version of Visual Studio. If you don't have Visual Studio installed, you can install the latest Visual Studio Community and Azure SDK using the [Web Platform Installer](https://www.microsoft.com/web/downloads/):
+
+Data Lake Tools is installed by default for Visual Studio 2017. For older versions, you can install it using the [Web Platform Installer](https://www.microsoft.com/web/downloads/). You must choose the one that matches your version of Visual Studio. If you don't have Visual Studio installed, you can install the latest Visual Studio Community and Azure SDK using the [Web Platform Installer](https://www.microsoft.com/web/downloads/):
 
 ![Data Lake Tools for Visual Studio Web Platform installer.][1]
 

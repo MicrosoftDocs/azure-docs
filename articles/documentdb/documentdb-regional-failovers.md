@@ -1,5 +1,5 @@
 ---
-title: Regional Failovers in Azure DocumentDB | Microsoft Docs
+title: Regional failovers in Azure DocumentDB | Microsoft Docs
 description: Learn about how manual and automatic failovers work with Azure DocumentDB.
 services: documentdb
 documentationcenter: ''
@@ -15,15 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2017
 ms.author: arramac
+ms.custom: H1Hack27Feb2017
 
 ---
-# Regional Failovers in Azure DocumentDB
+# Automatic regional failovers for business continuity in DocumentDB
 Azure DocumentDB simplifies the global distribution of data by offering fully managed, [multi-region database accounts](documentdb-distribute-data-globally.md) that provide clear tradeoffs between consistency, availability, and performance, all with corresponding guarantees. DocumentDB accounts offer high availability, single digit ms latencies, [well-defined consistency levels](documentdb-consistency-levels.md), transparent regional failover with multi-homing APIs, and the ability to elastically scale throughput and storage across the globe. 
 
 Azure DocumentDB supports both explicit and policy driven failovers that allow you to control the end-to-end system behavior in the event of failures. In this article, we look at:
 
 * How do manual failovers work in DocumentDB?
-* How do automatic failovers work in DocumentDB?
+* How do automatic failovers work in DocumentDB and what happens when a data center goes down?
 * How can you use manual failovers in application architectures?
 
 You can also learn about regional failovers in this Azure Friday video with Scott Hanselman and Principal Engineering Manager Karthik Raman.
@@ -67,7 +68,7 @@ The following architecture diagram shows a multi-region application deployment w
 Now, let's look at how the DocumentDB service handles regional failures via automatic failovers. 
 
 ## <a id="AutomaticFailovers"></a>Automatic Failovers
-In the rare event of an Azure regional outage, DocumentDB automatically triggers failovers of all DocumentDB accounts with a presence in the affected region. 
+In the rare event of an Azure regional outage or data center outage, DocumentDB automatically triggers failovers of all DocumentDB accounts with a presence in the affected region. 
 
 **What happens if a read region has an outage?**
 
@@ -107,7 +108,7 @@ Some of the common scenarios where manual failover can be useful are:
 
 **Service update**: Certain globally distributed application deployment may involve rerouting traffic to different region via traffic manager during their planned service update. Such application deployment now can use manual failover to keep the write status to the region where there is going to be active traffic during the service update window.
 
-**Business Continuity and Disaster Recovery (BCDR) drills**: Most enterprise applications include business continuity tests as part of their development and release process. BCDR testing is often an important step in compliance certifications and guaranteeing service availability in the case of regional outages. You can test the BCDR readiness of your applications that use DocumentDB for storage by triggering a manual failover of your DocumentDB account and/or adding and removing a region dynamically.
+**Business Continuity and Disaster Recovery (BCDR) and High Availability and Disaster Recovery (HADR) drills**: Most enterprise applications include business continuity tests as part of their development and release process. BCDR and HADR testing is often an important step in compliance certifications and guaranteeing service availability in the case of regional outages. You can test the BCDR readiness of your applications that use DocumentDB for storage by triggering a manual failover of your DocumentDB account and/or adding and removing a region dynamically.
 
 In this article, we reviewed how manual and automatic failovers work in Azure DocumentDB, and how you can configure your DocumentDB accounts and applications to be globally available. By using Azure DocumentDB's global replication support, you can improve end-to-end latency and ensure that they are highly available even in the event of region failures. 
 

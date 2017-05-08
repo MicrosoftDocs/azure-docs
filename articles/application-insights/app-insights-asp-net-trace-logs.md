@@ -134,7 +134,7 @@ Use the [Java log adapters](app-insights-java-trace-logs.md).
 ### No log adapter option in the configuration tool
 * You need to install the logging framework first.
 * If you're using System.Diagnostics.Trace, make sure you [configured it in `web.config`](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
-* Have you got the latest version of Application Insights tools? In Visual Studio **Tools** menu, choose **Extensions and Updates**, and open the **Updates** tab. If Application Insights tools is there, click to update it.
+* Have you got the latest version of Application Insights? In Visual Studio **Tools** menu, choose **Extensions and Updates**, and open the **Updates** tab. If Developer Analytics tools is there, click to update it.
 
 ### <a name="emptykey"></a>I get an error "Instrumentation key cannot be empty"
 Looks like you installed the logging adapter Nuget package without installing Application Insights.

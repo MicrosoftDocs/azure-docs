@@ -12,11 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2017
+ms.date: 03/20/2017
 ms.author: bwren
+
+ms.custom: H1Hack27Feb2017
+
 ---
 
-# Log Analytics saved searches and alerts in OMS solutions (Preview)
+# Adding Log Analytics saved searches and alerts to OMS management solution (Preview)
 
 > [!NOTE]
 > This is preliminary documentation for creating management solutions in OMS which are currently in preview. Any schema described below is subject to change.   
@@ -33,7 +36,7 @@ This article assumes that you're already familiar with how to [create a manageme
 
 
 ## Log Analytics Workspace
-All resources in Log Analytics are contained in a [workspace](../log-analytics/log-analytics-manage-access.md).  As described in [OMS workspace and Automation account](operations-management-suite-solutions-creating.md#oms-workspace-and-automation-account) the workspace isn't included in the management solution but must exist before the solution is installed.  If it isn't available, then the solution install will fail.
+All resources in Log Analytics are contained in a [workspace](../log-analytics/log-analytics-manage-access.md).  As described in [OMS workspace and Automation account](operations-management-suite-solutions.md#oms-workspace-and-automation-account) the workspace isn't included in the management solution but must exist before the solution is installed.  If it isn't available, then the solution install will fail.
 
 The name of the workspace is in the name of each Log Analytics resource.  This is done in the solution with the **workspace** parameter as in the following example of a savedsearch resource.
 
@@ -77,7 +80,7 @@ Alert rules in a management solution are made up of the following three differen
 
 - **Saved search.**  Defines the log search that will be run.  Multiple alert rules can share a single saved search.
 - **Schedule.**  Defines how often the log search will be run.  Each alert rule will have one and only one schedule.
-- **Alert action.**  Each alert rule will have one action resource with a type of **Alert** that defines the details of the alert such the criteria for when an alert record will be created and the alert's severity.  The action resource will optionally define a mail and runbook response.
+- **Alert action.**  Each alert rule will have one action resource with a type of **Alert** that defines the details of the alert such as the criteria for when an alert record will be created and the alert's severity.  The action resource will optionally define a mail and runbook response.
 - **Webhook action (optional).**  If the alert rule will call a webhook, then it requires an additional action resource with a type of **Webhook**.    
 
 Saved search resources are described above.  The other resources are described below.
@@ -88,7 +91,7 @@ Saved search resources are described above.  The other resources are described b
 A saved search can have one or more schedules with each schedule representing a separate alert rule. The schedule defines how often the search is run and the time interval over which the data is retrieved.  Schedule resources have a type of `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/` and have the following structure. 
 
     {
-      "name": "<name-of-schedule>",
+      "name": "<name-of-schedule-resource>",
       "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/",
       "apiVersion": "<api-version-of-resource>",
       "dependsOn": [
@@ -98,7 +101,7 @@ A saved search can have one or more schedules with each schedule representing a 
         "etag": "*",               
         "interval": <schedule-interval-in-minutes>,
         "queryTimeSpan": <query-timespan-in-minutes>,
-        "enabled": <schedule-interval-in-minutes>       
+        "enabled": <schedule-enabled>       
       }
     }
 
@@ -224,7 +227,7 @@ This section is optional  Include it if you want a runbook to start in response 
 
 Webhook actions start a process by calling a URL and optionally providing a payload to be sent. They are similar to Remediation actions except they are meant for webhooks that may invoke processes other than Azure Automation runbooks. They also provide the additional option of providing a payload to be delivered to the remote process.
 
-If your alert will call a webhook, then it need an action resource with a type of **Webhook** in addition to the **Alert** action resource.  
+If your alert will call a webhook, then it will need an action resource with a type of **Webhook** in addition to the **Alert** action resource.  
 
 	{
 		"name": "<name-of-the-action>",
@@ -243,7 +246,7 @@ If your alert will call a webhook, then it need an action resource with a type o
 		}
 	}
 
-The properties for Alert action resources are described in the following tables.
+The properties for Webhook action resources are described in the following tables.
 
 | Element name | Required | Description |
 |:--|:--|:--|
@@ -255,7 +258,7 @@ The properties for Alert action resources are described in the following tables.
 
 
 
-### Sample
+## Sample
 
 Following is a sample of a solution that include that includes the following resources:
 
@@ -264,10 +267,10 @@ Following is a sample of a solution that include that includes the following res
 - Alert action
 - Webhook action
 
-The sample uses [standard solution parameters](operations-management-suite-solutions-creating.md#parameters) variables that would commonly be used in a solution as opposed to hardcoding values in the resource definitions.
+The sample uses [standard solution parameters](operations-management-suite-solutions-solution-file.md#parameters) variables that would commonly be used in a solution as opposed to hardcoding values in the resource definitions.
 
 	{
-	    "$schema": "http://schemas.microsoft.org/azure/deploymentTemplate?api-version=2015-01-01#",
+	    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
 	    "contentVersion": "1.0",
 	    "parameters": {
 	      "workspaceName": {

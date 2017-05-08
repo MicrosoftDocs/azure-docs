@@ -1,6 +1,6 @@
 ---
-title: Create multi-VM environments with Azure Resource Manager templates | Microsoft Docs
-description: Learn how to create multi-VM environments in Azure DevTest Labs from an Azure Resource Manager template
+title: Create multi-VM environments and PaaS resources with Azure Resource Manager templates | Microsoft Docs
+description: Learn how to create multi-VM environments and PaaS resources in Azure DevTest Labs from an Azure Resource Manager template
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: tomarcher
@@ -18,7 +18,7 @@ ms.author: tarcher
 
 ---
 
-# Create multi-VM environments with Azure Resource Manager templates
+# Create multi-VM environments and PaaS resources with Azure Resource Manager templates
 
 The [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) enables you to easily [create and add a VM to a lab](./devtest-lab-add-vm-with-artifacts.md). This works well for creating one VM at a time. However, if the environment contains multiple VMs, each VM has to be individually created. For scenarios such as a multi-tier Web app or a SharePoint farm, a mechanism is needed to allow for the creation of multiple VMs in a single step. By using Azure Resource Manager templates, you can now define the infrastructure and configuration of your Azure solution and repeatedly deploy multiple VMs in a consistent state. This feature provides the following benefits:
 
@@ -65,7 +65,7 @@ The following steps guide you through adding a repository to your lab using the 
 1. Select **Add+** to add your Azure Resource Manager template repository.
 1. When the second **Repositories** blade opens, enter the necessary information as follows:
 	- **Name** - Enter the repository name that is used in the lab.
-	- **Git clone URI** - Enter the GIT HTTPS clone URL from GitHub or Visual Studio Team Services.  
+	- **Git clone URL** - Enter the GIT HTTPS clone URL from GitHub or Visual Studio Team Services.  
 	- **Branch** - Enter the branch name to access your Azure Resource Manager template definitions. 
 	- **Personal access token** - The personal access token is used to securely access your repository. To get your token from Visual Studio Team Services, select **&lt;YourName> > My profile > Security > Public access token**. To get your token from GitHub, select your avatar followed by selecting **Settings > Public access token**. 
 	- **Folder paths** - Using one of the two input fields, enter the folder path that starts with a forward slash - / - and is relative to your Git clone URI to either your artifact definitions (first input field) or your Azure Resource Manager template definitions.   
@@ -111,4 +111,4 @@ Once an Azure Resource Manager template repository has been configured in the la
 
 ## Next steps
 * Once a VM has been created, you can connect to the VM by selecting **Connect** on the VM's blade.
-* Explore the [Azure Resource Manager templates from Azure QuickStart template gallery](https://github.com/Azure/azure-quickstart-templates)
+* Explore the [Azure Resource Manager templates from Azure Quickstart template gallery](https://github.com/Azure/azure-quickstart-templates)

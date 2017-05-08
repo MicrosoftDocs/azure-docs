@@ -4,20 +4,20 @@
 | Resource | Default Limit | 
 | --- | --- | 
 | Azure Media Services (AMS) accounts in a single subscription | 25 (fixed) |
-| Media Reserved Units (RUs) per AMS account |25 (S1, S2)<br/>10 (S3) <sup>1</sup> | 
-| Jobs per AMS account | 50,000<sup>2</sup> |
+| Media Reserved Units (RUs) per AMS account |25 (S1, S2)<br/>10 (S3) <sup>(1)</sup> | 
+| Jobs per AMS account | 50,000<sup>(2)</sup> |
 | Chained tasks per job | 30 (fixed) |
 | Assets per AMS account | 1,000,000|
 | Assets per task | 50 |
 | Assets per job | 100 |
-| Unique locators associated with an asset at one time | 5<sup>4</sup> |
+| Unique locators associated with an asset at one time | 5<sup>(4)</sup> |
 | Live channels per AMS account |5|
 | Programs in stopped state per channel |50|
 | Programs in running state per channel |3|
 | Streaming endpoints in running state per AMS account|2|
 | Streaming units per streaming endpoint |10 |
-| Storage accounts | 1,000<sup>5</sup> (fixed) |
-| Policies | 1,000,000<sup>6</sup> |
+| Storage accounts | 1,000<sup>(5)</sup> (fixed) |
+| Policies | 1,000,000<sup>(6)</sup> |
 | File size| In some scenarios there is a limit on the maximum file size supported for processing in Media Services. <sup>7</sup> |
   
 <sup>1</sup> S3 RUs are not available in India West.

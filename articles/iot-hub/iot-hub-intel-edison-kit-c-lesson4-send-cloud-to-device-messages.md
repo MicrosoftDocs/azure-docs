@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'arduino control led from web, arduino control led via web'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-c-get-started
+
 ms.assetid: 820d38f3-d3b8-4249-9e2b-f1b9b771e62f
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---
