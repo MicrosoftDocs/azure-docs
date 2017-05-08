@@ -1,6 +1,6 @@
 ---
-title: Bing Custom Search Quickstart | Microsoft Docs
-description: Shows how to create a custom search service in less than ten minutes
+title: Bing Custom Search Overview | Microsoft Docs
+description: Provides a high-level overview over Bing Custom Search
 services: cognitive-services
 author: TobiasHassmann
 manager: carolz
