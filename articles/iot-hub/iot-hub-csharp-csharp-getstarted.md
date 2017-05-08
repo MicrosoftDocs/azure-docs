@@ -27,7 +27,7 @@ At the end of this tutorial, you have three .NET console apps:
 * **ReadDeviceToCloudMessages**, which displays the telemetry sent by your simulated device app.
 * **SimulatedDevice**, which connects to your IoT hub with the device identity created earlier, and sends a telemetry message every second by using the MQTT protocol.
 
-You can download or clone the Visual Studio solution which contains the three apps above from Github,
+You can download or clone the Visual Studio solution, which contains the three apps from Github,
 
 ```bash
 git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-client-app.git
