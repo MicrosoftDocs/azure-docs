@@ -42,7 +42,7 @@ The supported languages are as follows:
 
 | Feature | Supported language codes |
 |:--- |:--- |
-| Sentiment |<div class="inline-block">`en` (English)</div>, <div class="inline-block">`es` (Spanish)</div>, <div class="inline-block">`fr` (French)</div>, <div class="inline-block">`pt` (Portuguese)</div> |
-| Sentiment (additional preview languages) | <span class="inline-block">`de` (German),</span> <span class="inline-block">`it` (Italian),</span> <span class="inline-block">`nl` (Dutch),</span> <span class="inline-block">`no` (Norwegian),</span> <span class="inline-block">`sv` (Swedish),</span> <span class="inline-block">`pl` (Polish),</span> <span class="inline-block">`da` (Danish),</span> <span class="inline-block">`fi` (Finnish),</span> <span class="inline-block">`ru` (Russian),</span> <span class="inline-block">`el` (Greek),</span> <span class="inline-block">`tr` (Turkish)</span>
+| Sentiment |<div style="display:inline-block">`en` (English)</div>, <div style="display:inline-block">`es` (Spanish)</div>, <div style="display:inline-block">`fr` (French)</div>, <div style="display:inline-block">`pt` (Portuguese)</div> |
+| Sentiment (additional preview languages) | <span style="display:inline-block">`de` (German),</span> <span style="display:inline-block">`it` (Italian),</span> <span style="display:inline-block">`nl` (Dutch),</span> <span style="display:inline-block">`no` (Norwegian),</span> <span style="display:inline-block">`sv` (Swedish),</span> <span style="display:inline-block">`pl` (Polish),</span> <span style="display:inline-block">`da` (Danish),</span> <span style="display:inline-block">`fi` (Finnish),</span> <span style="display:inline-block">`ru` (Russian),</span> <span style="display:inline-block">`el` (Greek),</span> <span style="display:inline-block">`tr` (Turkish)</span>
 | Key Phrases |`en` (English)</span>, `es` (Spanish)</span>, `de` (German)</span>, `ja` (Japanese)</span> |
 | Topics |`en` (English)</span> |
