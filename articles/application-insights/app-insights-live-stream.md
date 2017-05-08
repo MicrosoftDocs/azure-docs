@@ -41,11 +41,12 @@ You can monitor custom KPI live by applying arbitrary filters on any Application
 
 ![Custom Request KPI](./media/app-insights-live-stream/live-stream-filteredMetric.png)
 
-You could monitor a value different from Count as well. The options depend on the type of stream, which could be any Application Insights telemetry: requests, dependencies, exceptions, traces, events, or metrics. With the custom metric or dimension option, you can provide the name in the next input box:
+You can monitor a value different from Count. The options depend on the type of stream, which could be any Application Insights telemetry: requests, dependencies, exceptions, traces, events, or metrics. It can be your own [custom properties](app-insights-api-custom-events-metrics.md#properties):
 
 ![Value Options](./media/app-insights-live-stream/live-stream-valueoptions.png)
 
 In addition to Application Insights telemetry, you can also monitor any Windows performance counter by selecting that from the stream options, and providing the name of the performance counter.
+
 Live metrics are aggregated at two points: locally on each server, and then across all servers. You can change the default at either by selecting other options in the respective drop-downs.
 
 ## Sample Telemetry: Custom Live Diagnostic Events
