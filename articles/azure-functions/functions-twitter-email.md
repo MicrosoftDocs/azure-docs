@@ -215,8 +215,13 @@ In this section, we add a conditional check for negative sentiment tweets (condi
 
   ![condition box](media/functions-twitter-email/condition.png)
 
+* [MD] (../logic-apps/logic-apps-create-a-logic-app.md)
+* [No md] (../logic-apps/logic-apps-create-a-logic-app)
+[Add a Gmail actions] (../logic-apps/logic-apps-create-a-logic-app.md#add-an-action-that-responds-to-your-trigger)
+[Add a Gmail actions] (../logic-apps/logic-apps-create-a-logic-app#add-an-action-that-responds-to-your-trigger)
+
 * In the **IF YES, DO NOTHING** box select **Add an action**.
-* Enter Outlook or Gmail in the **Search all services and actions** box. Outlook is used in this tutorial. See [Add a Gmail actions] (../logic-apps/logic-apps-create-a-logic-app#add-an-action-that-responds-to-your-trigger) for Gmail instructions. Note: If you have a personal [Microsoft account](https://account.microsoft.com/account), you can use that for the Outlook.com account.
+* Enter Outlook or Gmail in the **Search all services and actions** box. Outlook is used in this tutorial. See [Add a Gmail actions] (../logic-apps/logic-apps-create-a-logic-app.md#add-an-action-that-responds-to-your-trigger) for Gmail instructions. Note: If you have a personal [Microsoft account](https://account.microsoft.com/account), you can use that for the Outlook.com account.
 
   ![Choose an action box](media/functions-twitter-email/outlook.png)
 
