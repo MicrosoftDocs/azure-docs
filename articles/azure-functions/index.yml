@@ -25,29 +25,9 @@ sections:
         src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
       text: Create function - portal
       href: /azure/azure-functions/functions-create-first-azure-function
-- title: Resources
+- title: Step-by-Step Tutorials
   items:
   - type: list
-    style: cards
-    className: cardsFTitle
-    items: 
-    - title: Learn about Azure Functions
-      image: 
-        src: https://docs.microsoft.com/en-us/azure/azure-functions/media/index/azure-functions.svg
-      href: /azure/azure-functions/functions-overview
-    - title: Get started with Azure Functions
-      image: 
-        src: https://docs.microsoft.com/en-us/media/common/i_get-started.svg
-      href: /azure/azure-functions/functions-create-first-azure-function
-    - title: Get started with a webhook function
-      image: 
-        src: https://docs.microsoft.com/en-us/media/common/i_get-started.svg
-      href: /azure/azure-functions/functions-create-a-web-hook-or-api-function
-    - title: Get started with an Azure connected function
-      image: 
-        src: https://docs.microsoft.com/en-us/media/common/i_get-started.svg
-      href: /azure/azure-functions/functions-create-an-azure-connected-function
-    - title: Get started with an event processing function
-      image: 
-        src: https://docs.microsoft.com/en-us/media/common/i_get-started.svg
-      href: /azure/azure-functions/functions-create-an-event-processing-function
+    style: ordered
+    items:
+    - html: <a href="/azure/azure-functions/functions-create-serverless-api">Create a serverless API using Azure Functions</a>
