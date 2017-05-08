@@ -162,6 +162,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## Next steps
 
-[Create highly available virtual machines tutorial](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+In this quick start, you’ve deployed a simple virtual machine, a network security group rule, and installed a web server. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
 
-[Explore VM deployment PowerShell samples](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+> [!div class="nextstepaction"]
+> [Azure Linux virtual machine tutorials](./tutorial-manage-vm.md)

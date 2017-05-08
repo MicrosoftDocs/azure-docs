@@ -150,6 +150,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## Next steps
 
-[Install a role and configure firewall tutorial](hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+In this quick start, you’ve deployed a simple virtual machine, a network security group rule, and installed a web server. To learn more about Azure virtual machines, continue to the tutorial for Windows VMs.
 
-[Explore VM deployment PowerShell samples](powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> [!div class="nextstepaction"]
+> [Azure Windows virtual machine tutorials](./tutorial-manage-vm.md)
