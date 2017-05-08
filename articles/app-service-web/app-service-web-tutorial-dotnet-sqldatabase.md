@@ -61,7 +61,7 @@ This sample project contains a simple [ASP.NET MVC](https://www.asp.net/mvc) CRU
 
 ### Run the application
 
-From the extracted directory, launch _dotnet-sqldb-tutorial-master\DotNetAppSqlDb.sln_ in Visual Studio 2017.
+From the extracted directory, open _dotnet-sqldb-tutorial-master\DotNetAppSqlDb.sln_ in Visual Studio 2017.
 
 Once the sample solution is opened, type `F5` to run it in the browser.
 
@@ -191,7 +191,7 @@ At the top of **SQL Server Object Explorer**, click the **Add SQL Server** butto
 
 In the **Connect** dialog, expand the **Azure** node. All your SQL Databases in Azure are listed here.
 
-Select the SQL Database that you created earlier. The connection you used earlier are automatically filled at the bottom.
+Select the SQL Database that you created earlier. The connection you used earlier is automatically filled at the bottom.
 
 Type the database administrator password you used earlier and click **Connect**.
 
@@ -358,7 +358,7 @@ In **Server Explorer**, expand **Azure** > **App Service**.
 
 Expand the **myResourceGroup** resource group, you created when you first created the Azure web app.
 
-Right-click your Azure web app and select **View Streaming Longs**.
+Right-click your Azure web app and select **View Streaming Logs**.
 
 ![Enable log streaming](./media/app-service-web-tutorial-dotnet-sqldatabase/stream-logs.png)
 
@@ -446,4 +446,5 @@ In this tutorial, you learned how to:
 
 Advance to the next tutorial to learn how to map a custom DNS name to it.
 
-[Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [!div class="nextstepaction"]
+> [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)

@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions for the Custom Speech Service | Microsoft Docs
+title: Frequently asked questions for the Custom Speech Service on Azure | Microsoft Docs
 description: Here are answers to the most popular questions about the Custom Speech Service.
 services: cognitive-services
 author: PanosPeriorellis
@@ -28,7 +28,7 @@ We are working on improved methods for communication processing status, such as 
 
 **Answer**: There is no limit to how many models are in your collection but only one can be created at a time on each page.
 For example, you cannot start a language model creation process if there is currently a language model in the process stage.
-You can, however, have an acoustic model and a langauge model processing at the same time. 
+You can, however, have an acoustic model and a language model processing at the same time. 
 
 **Question**: What does a status of Exception mean?
 
@@ -79,8 +79,8 @@ If you have privacy concerns that prohibit you from using the Custom Speech Serv
 
 **Question**: The data report says there were failed utterances. Is this a problem?
 
-**Answer**: If only a few uterances failed to be imported successfully, this is not a problem.
-If the vast majority of the utterances in an acoustic or language data set (e.g. >95%) are succesfully imported,
+**Answer**: If only a few utterances failed to be imported successfully, this is not a problem.
+If the vast majority of the utterances in an acoustic or language data set (e.g. >95%) are successfully imported,
 the data set can be usable. However, it is recommended that you try to understand why the utterances failed and fix the problems.
 Most common problems, such as formatting errors, are easy to fix. 
 
@@ -93,7 +93,7 @@ Most common problems, such as formatting errors, are easy to fix. 
 **Question**: What sort of data should I collect?
 
 **Answer**: You should collect data that's as close to the application scenario and use case as possible.
-This means the data collection should match the target appllication and users in terms of device or devices,
+This means the data collection should match the target application and users in terms of device or devices,
 environments, and types of speakers. In general, you should collect data from as broad a range of speakers as possible. 
 
 **Question**: How should I collect it? 
@@ -104,7 +104,7 @@ You can also create a version of your application that logs the audio data and u
 **Question**: Do I need to transcribe it myself? 
 
 **Answer**: The data must be transcribed. You can transcribe it yourself
-or use a pofressional transcription service. Some of these use professional transcribers and others
+or use a professional transcription service. Some of these use professional transcribers and others
 use crowdsourcing. 
 
 **Question**: How long does it take to create a custom acoustic model?
@@ -114,18 +114,18 @@ So, a customized acoustic model created from a five hour data set will take abou
 
 ## Offline Testing
 
-**Question**: Can I perform offline testing of my custom acoustic model using a custom lanugage model?
+**Question**: Can I perform offline testing of my custom acoustic model using a custom language model?
 
 **Answer**: Yes, just select the custom language model in the drop down when you set up the offline test
 
-**Question**: Can I perform offline testing of my custom language model using a custom acoustic model model?
+**Question**: Can I perform offline testing of my custom language model using a custom acoustic model?
 
 **Answer**: Yes, just select the custom acoustic model in the drop-down menu when you set up the offline test.
 
 **Question**: What is Word Error Rate and how is it computed?
 
 **Answer**: Word Error Rate is the evaluation metric for speech recognition. It is counted as the total number of errors,
-which includes insertions, deletions, and subsitutions, divided by the total number of words in the reference transcription.
+which includes insertions, deletions, and substitutions, divided by the total number of words in the reference transcription.
 
 **Question**: I now know the test results of my custom model, is this a good or bad number?
 
@@ -143,20 +143,19 @@ You should aim to beat the baseline model to make the customization worthwhile
 **Answer**: This is a difficult question to give a precise answer to, as it depends on how different the vocabulary and phrases
 used in your application are from the starting language models. For all new words, it is useful to provide
 as many examples as possible of the usage of those words. For common phrases that are used in your application,
-including those in the language data is also useful as it tells the system to listen for these terms as well. 
+including those in the language data is also useful as it tells the system to listen for these terms as well.
 It is common to have at least one hundred and typically several hundred utterances in the language data set or more.
 Also if certain types * of queries are expected to be more common than others, you can insert multiple copies of the common queries in the data set.
 
 **Question**: Can I just upload a list of words?
 
-**Answer**: Uploadng a list of words will get the words into to vocabulary but not teach the system how the words are typically used.
+**Answer**: Uploading a list of words will get the words into to vocabulary but not teach the system how the words are typically used.
 By providing full or partial utterances (sentences or phrases of things users are likely to say) the language model can learn
 the new words and how they are used. The custom language model is good not just for getting new words in the system
 but also for adjusting the likelihood of known words for your application. Providing full utterances helps the system learn this. 
 
 -----
 
-
- * [Overview](Home.md)
- * [Started](GetStarted.md)
- * [Glossary](Glossary.md)
+ * [Overview](cognitive-services-custom-speech-home.md)
+ * [Started](cognitive-services-custom-speech-get-started.md)
+ * [Glossary](cognitive-services-custom-speech-glossary.md)
