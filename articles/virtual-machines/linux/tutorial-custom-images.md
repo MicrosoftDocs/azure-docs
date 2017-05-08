@@ -100,6 +100,24 @@ az vm create \
     --generate-ssh-keys
 ```
 
+## Image management 
+
+Here are some examples of common image management tasks and how to complete them using the Azure CLI.
+
+List all images by name in a table format.
+
+```azurecli
+az resource list --resource-type=Microsoft.Compute/images --output table
+```
+
+Delete an image. This example deletes the image named *myOldImage* from the *myResourceGroup*.
+
+```azurecli
+az image delete \
+    --name myOldImage \
+	--resource-group myResourceGroup
+```
+
 ## Next steps
 
 In this tutorial, you created a custom VM image. You learned how to:

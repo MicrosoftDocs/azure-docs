@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 05/08/2017
 ms.author: cynthn
 ---
 
@@ -167,6 +167,25 @@ New-AzureRmVM `
     -ResourceGroupName myResourceGroupFromImage `
     -Location EastUS `
     -VM $vmConfig
+```
+
+## Image management 
+
+Here are some examples of common management image tasks and how to complete them using PowerShell.
+
+List all images by name.
+
+```powershell
+$images = Find-AzureRMResource -ResourceType Microsoft.Compute/images 
+$images.name
+```
+
+Delete an image. This example deletes the image named *myOldImage* from the *myResourceGroup*.
+
+```powershell
+Remove-AzureRmImage `
+    -ImageName myOldImage `
+	-ResourceGroupName myResourceGroup
 ```
 
 ## Next steps
