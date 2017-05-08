@@ -30,7 +30,7 @@ For example, assuming server name is **wpdemo**, database name is **wpdb**, user
 Then, the connection string shoud be:
 
 ```ado.net
-Server= “wpdemo.mysql.database.azure.com”; Port=3306; Database= “wpdb”; Uid= “WPAdmin@wpdemo”; Pwd=”orcas!2”; SslMode=Required;
+Server= "wpdemo.mysql.database.azure.com"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@wpdemo"; Pwd="orcas!2"; SslMode=Required;
 ```
 
 ## JDBC

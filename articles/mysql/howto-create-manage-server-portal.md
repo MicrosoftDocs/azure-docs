@@ -28,20 +28,23 @@ Follow these steps to create an Azure Database for MySQL server named “mysqlse
 2- Select **Databases** from the New page, and select **Azure Database for MySQL** from the Databases page.
 
 > An Azure Database for MySQL server is created with a defined set of [compute and storage](./concepts-compute-unit-and-storage.md) resources. The database is created within an Azure resource group and in an Azure Database for MySQL server.
+
 ![create-new-server](./media/howto-create-manage-server-portal/create-new-server.png)
 
 3- Fill out the Azure Database for MySQL form with the following information:
 
-- **Server name**: azure-mysql (server name is globally unique) 
-- **Subscription**: MySQLaaS (select from drop down) 
-- **Resource group**: myresource (create a new resource group or use an existing one) 
-- **Server admin login**: myadmin (setup admin account name) 
-- **Password**: (setup admin account password) 
-- **Confirm password**: (confirm admin account password) 
-- **Location**: North Europe (select between North Europe and West US) 
-- **Version**: 5.6 (choose Azure Database for MySQL server version) 
+| **Form Field** | **Field Description** |
+|----------------|-----------------------|
+| *Server name* | azure-mysql (server name is globally unique) |
+| *Subscription* | MySQLaaS (select from drop down) |
+| *Resource group* | myresource (create a new resource group or use an existing one) |
+| *Server admin login* | myadmin (setup admin account name) |
+| *Password* | setup admin account password |
+| *Confirm password* | confirm admin account password |
+| *Location* | North Europe (select between North Europe and West US) |
+| *Version* | 5.6 (choose Azure Database for MySQL server version) |
 
-4- Click **Pricing tier** to specify the service tier and performance level for your new server. Compute Unit can be configured between 50 and 100 in Basic tier, 100 and 200 in Standard tier, and storage can be added based on included amount. For this HowTo guide, let’s keep the default option (100 Compute Units, 50GB). Click **OK** to save your selection.
+4- Click **Pricing tier** to specify the service tier and performance level for your new server. Compute Unit can be configured between 50 and 100 in Basic tier, 100 and 200 in Standard tier, and storage can be added based on included amount. For this HowTo guide, let’s choose 50 Compute Unit and 50GB. Click **OK** to save your selection.
 ![create-server-pricing-tier](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
 
 5- Click **Create** to provision the server. Provisioning takes a few minutes.
@@ -52,7 +55,7 @@ Follow these steps to create an Azure Database for MySQL server named “mysqlse
 </Include>
 
 ## Update an Azure Database for MySQL server
-After new MySQL server is provisioned, there’re 2 ways to edit existing servers currently: reset administrator password and scale up/down the server by changing the compute-units.
+After new server is provisioned, user has 2 options to edit an existing server: reset administrator password or scale up/down the server by changing the compute-units.
 
 ### Change the administrator user password
 1- On the server **Overview** blade, click **Reset password** to populate a password input and confirmation window.
@@ -78,11 +81,11 @@ After new MySQL server is provisioned, there’re 2 ways to edit existing server
 
 ## List the Azure Database for MySQL databases
 On the server **Overview** blade, scroll down until you see the database tile on the bottom. All the databases will be listed in the table. click **Delete** command button to open the Deleting confirmation blade.
+
 ![show-databases](./media/howto-create-manage-server-portal/show-databases.png)
 
 ## Show details of an Azure Database for MySQL server
 Click **Properties** under **Settings** on the server blade will open the **Properties** blade. Then you can view all detailed information about the server.
 
 ## Next steps
-- For an introduction about how to provisioning and connecting to an Azure Database for MySQL server using Azure portal, see [Quickstart: Create Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md).
-- For an introduction about how to provisioning and connecting to an Azure Database for MySQL server using Azure CLI, see [Quickstart: Create Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md).
+- For instructions on how to create server using Azure portal, please refer to [Quickstart: Create Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md).

@@ -2,8 +2,8 @@
 title: Configure SSL connectivity in your application to securely connect to Azure Database for MySQL | Microsoft Docs
 description: Instructions for how to properly configure Azure Database for MySQL and associated applications to correctly use SSL connections
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
+author: JasonMAnderson
+ms.author: janders
 editor: jasonh
 manager: jhubbard
 ms.assetid: 
@@ -24,12 +24,75 @@ When provisioning a new Azure Database for MySQL server through the Azure portal
 
 Likewise, connection strings that are pre-defined in the "Connection Strings" settings under your server in the Azure portal include the required parameters for common languages to connect to your database server using SSL. The SSL parameter varies based on the connector, for example "ssl=true" or "sslmode=require" or "sslmode=required" and other variations.
 
-In some cases, applications require a local certificate file (.pem) generated from a Certificate Authority (CA) certificate file (.cer) to connect securely. See the following steps to obtain the .cer file, generate the local .pem file and bind it to your application.
+## Configure Enforcement of SSL
+You can disable or enable Enforcing SSL. Microsoft Azure recommends to always enable Enforce SSL connection setting for enhanced security.
+
+### Using Azure portal
+Using the Azure portal, visit your Azure Database for MySQL server and click **Connection security**. Use the toggle button to enable or disable the **Enforce SSL connection** setting. Then click **Save**. Microsoft recommends to always enable **Enforce SSL connection** setting for enhanced security. 
+![enable-ssl](./media/howto-configure-ssl/enable-ssl.png)
+
+You can confirm the setting by viewing the **Overview** page to see the **SSL enforce status** indicator.
+
+### Using Azure CLI
+You can enable or disable the **ssl-enforcement** parameter using Enabled or Disabled values respectively in Azure CLI.
+```azurecli
+az mysql server update --resource-group myresource --name mysqlserver4demo --ssl-enforcement Enabled
+```
+## Ensure your application or framework supports SSL connections
+Many common applications that use MySQL for database services, such as Wordpress, Drupal, and Magento, do not enable SSL by default during installation.  Enabling SSL connectivity must be done after installation or through CLI commands specific to the application.  If your MySQL server is enforcing SSL connections and the associated application is not configured properly, the application may fail to connect to your database server.  Consult your application's documentation to learn how to enable SSL connections.
+
+## Applications that require a local certificate for SSL connectivity
+In some cases, applications require a local certificate file (.pem) generated from a Certificate Authority (CA) certificate file (.cer) to connect securely.  See the following steps to obtain the .cer file, generate the local .pem file and bind it to your application.
 
 ### Download the certificate file from the Certificate Authority (CA) 
-The certificate needed to communicate over SSL with your Azure Database for MySQL server is located [here](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt). Download the certificate file to your local drive (with this tutorial, we will use **c:\ssl**). 
+The certificate needed to communicate over SSL with your Azure Database for MySQL server is located [here](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt).  Download the certificate file to your local drive (with this tutorial, we will use **c:\ssl**).
 
 ### Download and install OpenSSL on your PC 
+To generate the local **.pem** file needed for your application to connect securely to your database server, you need to install OpenSSL on your local computer.  
+
+The following sections describe the approach you could use, either from a Linux or Windows PC, depending on your preferred OS, and you only need to follow one.
+
+### Linux Users - Download and install OpenSSL using a Linux PC
+The OpenSSL libraries are provided in source code directly from the [OpenSSL Software Foundation](http://www.openssl.org).  The following instructions guide you through the steps necessary to install OpenSSL on your Linux PC.  For this guide, we will be showing commands for Ubuntu 12.04 and higher.
+
+Open a terminal session and install OpenSSL
+```bash
+wget http://www.openssl.org/source/openssl-1.1.0e.tar.gz
+```  
+Extract the files from the download package
+```bash
+tar -xvzf openssl-1.1.0e.tar.gz
+```
+Enter the directory where the files were extracted.  By default, it should be as follows.
+
+```bash
+cd openssl-1.1.0e
+```
+Configure OpenSSL by executing the following command:  If you want the files in a folder different than /usr/local/openssl, make sure to change the following as appropriate.
+
+```bash
+./config --prefix=/usr/local/openssl --openssldir=/usr/local/openssl
+```
+Now that OpenSSL is configured properly, you need to compile it in order to convert your certificate.  To compile, run the following command:
+
+```bash
+make
+```
+Once compiling is complete, you're ready to install OpenSSL as an executable by running the following command:
+```bash
+make install
+```
+To confirm that you've successfully installed OpenSSL on your system, run the following command and check to make sure you get the same output.
+
+```bash
+/usr/local/openssl/bin/openssl version
+```
+If successful you should see the following message:
+```bash
+OpenSSL 1.1.0e 7 Apr 2014
+```
+
+### Windows PC users - Download and install OpenSSL using a Windows PC
 To generate the local **.pem** file needed for your application to connect securely to your database server, you need to install OpenSSL on your local computer.
 
 The OpenSSL libraries are provided in source code directly from the [OpenSSL Software Foundation](http://www.openssl.org). The following instructions guide you through the steps necessary to install OpenSSL on your Linux PC.
@@ -84,7 +147,6 @@ Threads: 4  Questions: 26082  Slow queries: 0  Opens: 112  Flush tables: 1  Open
 
 ### Connecting to server using the MySQL Workbench over SSL
 Configuring MySQL Workbench to connect securely over SSL requires you to navigate to the **SSL** tab in the MySQL Workbench Setup New Connection dialogue, and enter the file location of the **MyServerCACert.pem** in the **SSL CA File:** field.
-
 ![save customized tile](./media/concepts-ssl-connection-security/mysql-workbench-ssl.png)
 
 ## Next steps

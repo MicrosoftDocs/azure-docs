@@ -30,19 +30,22 @@ An Azure Database for MySQL server is created with a defined set of [compute and
 
 In our example, fill out the Azure Database for MySQL form with the following information:
 
-- **Server name**: mysqlserver4demo (server name is globally unique)
--	**Subscription**: MySQLaaS (select from drop down)
--	**Resource group**: myresource (create a new resource group or use an existing one)
--	**Server admin login**: myadmin (setup admin account name)
--	**Password**: (setup admin account password)
--	**Confirm password**: (confirm admin account password)
--	**Location**: North Europe (select between **North Europe** and **West US**)
--	**Version**: 5.6 (choose MySQL server version)
--	**Configure performance**: Basic (choose **Performance tier**, **Compute Units**, **Storage** and click **OK**)
+| **Form Field** | **Field Description** |
+|----------------|-----------------------|
+| *Server name* | mysqlserver4demo (server name is globally unique) |
+| *Subscription* | MySQLaaS (select from drop-down) |
+| *Resource group* | myresource (create a resource group or use an existing one) |
+| *Server admin login* | myadmin (setup admin account name) |
+| *Password* | set up admin account password |
+| *Confirm password* | confirm admin account password |
+| *Location* | North Europe (select between **North Europe** and **West US**) |
+| *Version* | 5.6 (choose MySQL server version) |
+| *Configure performance* | Basic (choose **Performance tier**, **Compute Units**, **Storage**, and then click **OK**) |
 
 Then, click **Create**. In a minute or two, you will have a new Azure Database for MySQL server running in the cloud. You can click **Notifications** button on the toolbar to monitor the deployment process.
 
-> We strongly recommend that you put Azure services in the same region and select the location closest to you. In addition, you can check **Pin to dashboard** option to allow easy tracking of your deployments.
+> [!TIP]
+> We recommend that you put Azure services in the same region and select the location closest to you. In addition, you can check the **Pin to dashboard** option to allow easy tracking of your deployments.
 
 ![2-2 Create server](./media/tutorial-design-database-using-portal/2_2-Create-server.png)
 
@@ -57,7 +60,7 @@ Azure Databases for MySQL are protected by a firewall. By default, all connectio
 
 You can now connect to the server using mysql command line tool or MySQL Workbench GUI tool.
 
-> Azure MySQL server communicates over port 3306. If you are trying to connect from within a corporate network, outbound traffic over port 3306 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure MySQL server unless your IT department opens port 3306.
+> Azure Database for MySQL server communicates over port 3306. If you are trying to connect from within a corporate network, outbound traffic over port 3306 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure MySQL server unless your IT department opens port 3306.
 
 ## Get connection information
 Get the fully qualified server name for your Azure MySQL server in the Azure portal. You use the fully qualified server name to connect to your server using mysql command line tool.
@@ -66,6 +69,7 @@ Get the fully qualified server name for your Azure MySQL server in the Azure por
 
 2.	Click **Properties**. Note down **SERVER NAME** and **SERVER ADMIN LOGIN**.
 ![4-2 server properties](./media/tutorial-design-database-using-portal/4_2-server-properties.png)
+
 In this example, the server name is *mysql4doc.database.windows.net*, and the server admin login is *mysqladmin@mysql4doc*.
 
 ## Connect to the server using mysql
@@ -77,12 +81,12 @@ mysql -h mysqlserver4demo.database.windows.net -u myadmin@mysqlserver4demo -p
 ## Create a blank database
 Once you’re connected to the server, create a blank database to work with.
 ```sql
-mysql> CREATE DATABASE mysampledb;
+CREATE DATABASE mysampledb;
 ```
 
 At the prompt, run the following command to switch connection to this newly created database:
 ```sql
-mysql> USE mysampledb;
+USE mysampledb;
 ```
 
 ## Create tables in the database
@@ -125,10 +129,10 @@ SELECT * FROM inventory;
 ## Restore a database to a previous point in time
 Imagine you have accidentally deleted this table. This is something you cannot easily recover from. Azure Database for MySQL allows you to go back to any point in time in the last up to 35 days and restore this point in time to a new server. You can use this new server to recover your deleted data. The following steps restore the sample server to a point before the table was added.
 
-1.	On the Azure Database for MySQL page for your server, click **Restore** on the toolbar. The **Restore** page opens.
+1- On the Azure Database for MySQL page for your server, click **Restore** on the toolbar. The **Restore** page opens.
 ![10-1 restore a database](./media/tutorial-design-database-using-portal/10_1-restore-a-db.png)
 
-2.	Fill out the **Restore** form with the required information:
+2- Fill out the **Restore** form with the required information:
 
 -	Restore point: Select a point-in-time that occurs before the server was changed.
 -	Target server: Provide a new server name you want to restore to.
@@ -136,7 +140,7 @@ Imagine you have accidentally deleted this table. This is something you cannot e
 -	Pricing tier: You cannot change this value when restoring a server. It is same as the source server.
 ![10-2 restore form](./media/tutorial-design-database-using-portal/10_2-restore-form.png)
 
-3.	Click **OK** to restore the server to [restore to a point in time](./howto-restore-server-portal.md) before the tables was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, provided that it is within the retention period for your service tier.
+3- Click **OK** to restore the server to [restore to a point in time](./howto-restore-server-portal.md) before the tables was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, provided that it is within the retention period for your service tier.
 
 ## Next Steps
 - For tutorial on how to design Azure Database for MySQL database using Azure CLI, please refer to [Design your first Azure Database for MySQL database using Azuzre CLI](./tutorial-design-database-using-cli.md).

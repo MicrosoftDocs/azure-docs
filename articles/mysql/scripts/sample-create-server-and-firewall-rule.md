@@ -24,45 +24,39 @@ This sample CLI script creates an Azure Database for MySQL server and configures
 ```bash
 #!/bin/bash
 
-# Set an admin login and password for your server
-adminlogin=ServerAdmin
-password=ChangeYourAdminPassword1
-
-# The server name has to be unique in the system
-servername=server-$RANDOM
-
-# The ip address range that you want to allow to access your server
-startip=0.0.0.0
-endip=255.255.255.255
-
 # Create a resource group
 az group create \
---name myResourceGroup \
+--name myresource \
 --location westus
 
 # Create a MySQL server in the resource group
+# Name of a server maps to DNS name and is thus required to be globally unique in Azure.
+# Substitute the <server_admin_password> with your own value.
 az mysql server create \
---name $servername \
---resource-group myResourceGroup \
+--name mysqlserver4demo \
+--resource-group myresource \
 --location westus \
---admin-user $adminlogin \
---admin-password $password \
---performance-tier Standard \
---compute-units 100 \
+--admin-user myadmin \
+--admin-password <server_admin_password> \
+--performance-tier Basic \
+--compute-units 50 \
 
 # Configure a firewall rule for the server
+# The ip address range that you want to allow to access your server
 az mysql server firewall-rule create \
---resource-group myResourceGroup \
---server $servername \
+--resource-group myresource \
+--server mysqlserver4demo \
 --name AllowIps \
---start-ip-address $startip \
---end-ip-address $endip
+--start-ip-address 0.0.0.0 \
+--end-ip-address 255.255.255.255
+
+# Default database ‘postgres’ gets created on the server.
 ```
 
 ## Clean up deployment
  After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 ```azurecli
-az group delete --name myResourceGroup
+az group delete --name myresource
 ```
 ## Script explanation
 This script uses the following commands. Each command in the table links to command specific documentation.
