@@ -38,7 +38,7 @@ The following diagram shows the relationship between your Windows computers and 
 
 ![oms-direct-agent-diagram](./media/log-analytics-windows-agents/oms-direct-agent-diagram.png)
 
-If your IT security policies do not allow computers on your network to connect to the Internet, you can configure your computers to connect to the OMS Gateway. For more information and steps on how to configure your servers to communicate through an OMS Gateway to the OMS service, see [Connect computers to OMS using the OMS Gateway](log-analytics-oms-gateway).
+If your IT security policies do not allow computers on your network to connect to the Internet, you can configure your computers to connect to the OMS Gateway. For more information and steps on how to configure your servers to communicate through an OMS Gateway to the OMS service, see [Connect computers to OMS using the OMS Gateway](log-analytics-oms-gateway.md).
 
 ## System requirements and required configuration
 Before you install or deploy agents, review the following details to ensure you meet necessary requirements.
