@@ -36,7 +36,7 @@
     href: Add-example-utterances.md
   - name: Add entities
     href: Add-entities.md
-  - name: Add features
+  - name: Improve performance using features
     href: Add-Features.md
   - name: Train and test the app
     href: Train-Test.md
@@ -46,6 +46,8 @@
     href: PublishApp.md
   - name: Use prebuilt entities
     href: Pre-builtEntities.md
+  - name: Use prebuilt domains
+    href: luis-how-to-use-prebuilt-domains.md
   - name: Use the Cortana prebuilt app
     href: Cortana-Prebuilt-App.md
   - name: Manage keys
