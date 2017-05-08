@@ -41,15 +41,15 @@ For a list of libraries that work with the v2.0 endpoint, see the next sections 
 
 ## Microsoft-supported client libraries
 
+> [!IMPORTANT]
+> The MSAL preview libraries are suitable for use in a production environment. We provide the same production level support for these libraries as we do our current production libraries (ADAL). During the preview we may make changes to the MSAL API, internal cache format, and other mechanisms of these libraries without notice, which you will be required to take along with bug fixes or feature improvements. This may impact your application. For instance, a change to the cache format may impact your users, such as requiring them to sign in again. An API change may require you to update your code. When we provide the General Availability release we will require you to update to the General Availability version within six months, as applications written using a preview version of library may no longer work.
+
 | Platform | Library | Download | Source Code | Sample | Reference
 | --- | --- | --- | --- | --- | --- |
 | .NET Client, Windows Store, UWP, Xamarin iOS and Android | MSAL .NET (Preview) |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Desktop App](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) |  |
 | JavaScript | MSAL.js (Preview) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [Single Page App](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |  |
 | iOS, macOS | MSAL (Preview) | [CocoaPods]() |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [iOS App](https://github.com/Azure-Samples/active-directory-msal-ios-swift) |  |
 | Android | MSAL (Preview) | [The Central Repository](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android App](guidedsetups/active-directory-mobileanddesktopapp-android-intro.md) | [JavaDocs](http://javadoc.io/doc/com.microsoft.identity.client/msal) |
-
-> [!IMPORTANT]
-> The MSAL preview libraries are suitable for use in a production environment. We provide the same production level support for these libraries as we do our current production libraries (ADAL). During the preview we may make changes to the MSAL API, internal cache format, and other mechanisms of these libraries without notice, which you will be required to take along with bug fixes or feature improvements. This may impact your application. For instance, a change to the cache format may impact your users, such as requiring them to sign in again. An API change may require you to update your code. When we provide the General Availability release we will require you to update to the General Availability version within six months, as applications written using a preview version of library may no longer work.
 
 ## Microsoft-supported server middleware libraries
 
