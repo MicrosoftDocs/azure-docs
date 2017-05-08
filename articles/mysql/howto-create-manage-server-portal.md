@@ -88,4 +88,5 @@ On the server **Overview** blade, scroll down until you see the database tile on
 Click **Properties** under **Settings** on the server blade will open the **Properties** blade. Then you can view all detailed information about the server.
 
 ## Next steps
-- For instructions on how to create server using Azure portal, please refer to [Quickstart: Create Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md).
+
+[Quickstart: Create Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
