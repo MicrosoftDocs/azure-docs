@@ -27,11 +27,11 @@ The Cosmos DB project started in 2011 as “Project Florence” to address devel
 
 For more database questions, answers, and instructions on deploying and using this service, see the [Azure Cosmos DB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).
 
-## Where did DocumentDB go?
+### Where did DocumentDB go?
 
 The DocumentDB API is one of the supported APIs and data models for Azure Cosmos DB. In addition, Azure Cosmos DB enables you to create graph, table, and key-value databases.
 
-## How do I get to my DocumentDB account in the Azure portal?
+### How do I get to my DocumentDB account in the Azure portal?
 
 Just click the Azure Cosmos DB icon in the menu on the left side of the Azure portal. If you had a DocumentDB account before, you now have an Azure Cosmos DB account, with no change to your billing.
 
@@ -148,7 +148,7 @@ The Azure Cosmos DB: Table API (preview) refers to premium offering by Azure Cos
 The standard Table SDK is the pre-existing Azure Storage Table SDK. 
 
 ### How can I use the new Table API offering? 
-Complete the [Table API](../cosmos-db/create-dotnet-table.md) quickstart to get started.
+Complete the [Table API](../cosmos-db/create-table-dotnet.md) quickstart to get started.
 
 ### Do I need a new SDK to use the Table API (preview)? 
 Yes – a new SDK in form of a Nuget package is available here [Table API](../cosmos-db/table-sdk-dotnet.md). It is called SDK for Windows Azure Storage 8.1.2 with Premium Tables API (preview).  
@@ -164,7 +164,7 @@ Please share your feedback using one of these methods:
 The connection string is `DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB;AccountKey=<FromKeysPaneofCosmosDB>;TableEndpoint=https://<AccountNameFromDocumentDB>.documents.azure.com`. You can get the connection string from the Keys page in the Azure portal. 
 
 ### How do I override the config settings for the request options in the new Tables API(Preview)?
-These settings are documented [Azure Cosmos DB capabilities](../cosmos-db/tutorial-develop-table-dotnet#azure-cosmos-db-capabilities). You can change the settings by adding them to app.config in the appsettings section in client application.
+These settings are documented [Azure Cosmos DB capabilities](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities). You can change the settings by adding them to app.config in the appsettings section in client application.
 <appSettings>
 	<add key="TableConsistencyLevel" value="Eventual|Strong|Session|BoundedStaleness|ConsistentPrefix"/>
 	<add key="TableThroughput" value="<PositiveIntegerValue"/>
@@ -226,7 +226,7 @@ No, existing customers can create and use present Standard Table assets without 
 You can use the Cosmos DB portal’s [global replication settings](documentdb-portal-global-replication.md) for adding regions. 
 
 ### How do I change the primary write region Premium Table API(preview)?
-You can use Cosmos DB’s global replication portal pane to add a region and then failover to it. For instructions see [Developing with multi-region Azure Cosmos DB accounts](ocumentdb-developing-with-multiple-regions.md).
+You can use Cosmos DB’s global replication portal pane to add a region and then failover to it. For instructions see [Developing with multi-region Azure Cosmos DB accounts](documentdb-developing-with-multiple-regions.md).
 
 ### How do I configure my preferred read regions for low latency when I distribute my data? 
 Cosmos DB Consistency settings in the portal help in providing options for low latency when application is distributed. Consistency options can be set for the container for distribution. Cosmos DB also allows client to choose a consistency level on individual operation.  
@@ -237,7 +237,7 @@ By default, Premium Tables API(Preview) provides low latency reads with Read you
 Yes, these choices are documented in the [Consistency levels](documentdb-consistency-levels.md) article to help application developers leverage the distributed nature of Cosmos DB. 
 
 ### When global distribution is enabled – how long does it take to replicate the data?
-We commit the data durably in local region and push the data to other regions immediately in matter of milliseconds and this replication is only dependent on the RTT of the datacenter. Please read up on the global distribution abilities of Cosmos DB in [Azure Cosmos DB: A globally distributed database service on Azure](documentdb-distribute-data-globally).
+We commit the data durably in local region and push the data to other regions immediately in matter of milliseconds and this replication is only dependent on the RTT of the datacenter. Please read up on the global distribution abilities of Cosmos DB in [Azure Cosmos DB: A globally distributed database service on Azure](documentdb-distribute-data-globally.md).
 
 
 ### Can the request consistency be changed?
@@ -251,7 +251,7 @@ Yes, by default all attributes of the entity are indexed. The indexing details a
 Yes, Cosmos DB provides automatic indexing of all attributes without any schema definition. This frees up developer to focus on the application rather than worry about index creation and management. The indexing details are documented in the [Azure Cosmos DB: Indexing policies](documentdb-indexing-policies.md) article.
 
 ### Can the indexing policy be changed?
-Yes, you can change the index by providing the index definition. The meaning of these settings is documented in the [Azure Cosmos DB capabilities](../cosmos-db/tutorial-develop-table-dotnet#azure-cosmos-db-capabilities) article. You need to properly encode and escape these settings.  
+Yes, you can change the index by providing the index definition. The meaning of these settings is documented in the [Azure Cosmos DB capabilities](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities) article. You need to properly encode and escape these settings.  
 
 In string json format in the app.config file.
 {
