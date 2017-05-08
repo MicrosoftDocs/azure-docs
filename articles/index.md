@@ -422,6 +422,16 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                     </ul>
+<!-- Cognitive Services START -->
+                                    <h3>Cognitive Services</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/hdinsight/">
+                                                <img src="media/index/HDInsight.svg" alt="" />
+                                                <p>HDInsight</p>
+                                            </a>
+                                        </li>
+<!-- Cognitive Services END -->
                                     <h3>Intelligence + Analytics</h3>
                                     <ul>
                                         <li>
@@ -1599,6 +1609,30 @@ description: Learn how to build and manage powerful applications using Microsoft
                             </li>
                         </ul>
                     </li>
+<!-- Cognitive Services START -->
+                    <li>
+                        <a href="#cognitive">Cognitive Services</a>
+                        <ul id="cognitive" class="cardsA">
+                            <li>
+                                <a href="/azure/hdinsight/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/HDInsight.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>HDInsight</h3>
+                                                    <p>Provision cloud Hadoop, Spark, R Server, Hbase, and Storm clusters</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+<!-- Cognitive Services END -->
                     <li>
                         <a href="#analytics">Intelligence + Analytics</a>
                         <ul id="analytics" class="cardsA">
