@@ -158,19 +158,22 @@ mysql>
 ```
 
 > [!TIP]
-> TIP: For additional commands, see [MySQL 5.6 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.6/en/mysql.html).
+> For additional commands, see [MySQL 5.6 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.6/en/mysql.html).
 
 ## Connect to the server using the MySQL Workbench GUI tool
 1.	Launch the MySQL Workbench application on your client computer. You can download and install MySQL Workbench from [here](https://dev.mysql.com/downloads/workbench/).
 
 2.	In the **Setup New Connection** dialog box, enter the following information on **Parameters** tab:
 
--	**Connection Name**: specify a name for this connection (this can be anything)
--	**Connection Method**: choose Standard (TCP/IP)
--	**Hostname**: mycliserver.database.windows.net (SERVER NAME you note down previously)
--	**Port**: 3306
--	**Username**: myadmin@mycliserver (SERVER ADMIN LOGIN you note down previously)
--	**Password**: you can store admin account password in vault
+| **Parameters** | **Description** |
+|----------------|-----------------|
+|	*Connection Name* | specify a name for this connection (this can be anything) |
+| *Connection Method* | choose Standard (TCP/IP) |
+| *Hostname* | mycliserver.database.windows.net (SERVER NAME you note down previously) |
+| *Port* | 3306 |
+| *Username* | myadmin@mycliserver (SERVER ADMIN LOGIN you note down previously) |
+| *Password* | you can store admin account password in vault |
+
 ![setup new connection](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
 
 3.	Click **Test Connection** to test if all parameters are correctly configured.
@@ -179,18 +182,10 @@ mysql>
 
 ## Clean up resources
 
-Clean-up all resources you created in the quickstart by deleting the [Azure resource group](../azure-resource-manager/resource-group-overview.md).
-
-> [!TIP]
-> Other quickstarts in this collection build upon this quick start. If you plan to continue on to work with subsequent quickstarts, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart in the Azure CLI.
+If you don't need these resources for another quickstart/tutorial, you can delete them by doing the following: 
 
 ```azurecli
 az group delete --name mycliresource
-```
-
-If you just would like to delete the newly created server
-```azurecli
-az mysql server delete --resource-group mycliresource --name mycliserver
 ```
 
 ## Next steps
