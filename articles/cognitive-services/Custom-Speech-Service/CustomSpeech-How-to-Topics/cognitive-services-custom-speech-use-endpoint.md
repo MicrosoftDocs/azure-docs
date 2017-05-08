@@ -36,7 +36,7 @@ All four types of clients can be instantiated in two ways. The first will utiliz
 
 For example, a DataRecognitionClient that will send requests to a custom endpoint can be created using the following method.
 
-```
+```csharp
 public static DataRecognitionClient CreateDataClient(SpeeechRecognitionMode speechRecognitionMode, string language, string primaryOrSecondaryKey, **string url**);
 ```
 
@@ -46,7 +46,7 @@ The authenticationUri is used to receive a token from the authentication service
 
 Here is some sample code showing how to use the client SDK:
 
-```
+```csharp
 var dataClient = SpeechRecognitionServiceFactory.CreateDataClient(
   SpeechRecognitionMode.LongDictation,
   "en-us",
