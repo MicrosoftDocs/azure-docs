@@ -31,11 +31,11 @@ This tutorial walks through how to use the Azure Portal to create an Azure Funct
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-## Create a GenericWebHook-CSharp
+## Create a GenericWebHook-CSharp Function App
 Create a new C# generic WebHook named `MyTaskList`.
 1. Expand your existing functions list, and click the + sign to create a new function
 2. Select GenericWebHook-CSharp and name it `MyTaskList`
-![Add new C# Generic WebHook](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-create-generic-csharp-function.png)
+![Add new C# Generic WebHook Function App](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-new-functionapp.png)
 
 ## Add an output binding
 
