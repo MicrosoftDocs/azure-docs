@@ -104,10 +104,9 @@ Verify your image locally before pushing it the container registry.
 2. Once the container starts, find its IP address so that you can connect to your running container from a browser:
     ```
     docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
-    172.31.194.61
     ```
 
-3. Connect to the running container.  Open a web browser and browse to "http://172.31.194.61:8000". You should see the heading "Hello World!" display in the browser.
+3. Connect to the running container.  Open a web browser pointing to the IP address returned on port 8000, for example "http://172.31.194.61:8000". You should see the heading "Hello World!" display in the browser.
 
 4. To stop your container, run:
 
