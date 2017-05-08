@@ -18,18 +18,11 @@ Server-level firewall rules enable administrators to manage access to an Azure D
 
 ## Prerequisites
 To step through this how-to guide, you need:
-- An [Azure Database for PostgreSQL server and database](quickstart-create-server-database-portal.md)
-- [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) command line utility installed
+- An [Azure Database for PostgreSQL server and database](quickstart-create-server-database-azure-cli.md)
+- [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) command-line utility installed
 
-## Firewall-Rule Commands:
-The **az postgres server firewall-rule** command is used from Azure CLI to create, delete, list, show, and update firewall rules.
-
-Commands:
-- **create**: Create an Azure PostgreSQL server firewall rule.
-- **delete**: Delete an Azure PostgreSQL server firewall rule.
-- **list** : List the Azure PostgreSQL server firewall rules.
-- **show** : Show the details of an Azure PostgreSQL server firewall rule.
-- **update**: Update an Azure PostgreSQL server firewall rule.
+## Configure firewall rules for Azure Database for PostgreSQL
+The **az postgres server firewall-rule** command is used from Azure CLI to create, delete, list, show, and update firewall rules. This 
 
 ## Login to Azure and List servers
 Securely connect Azure CLI with your Azure account. Use the **az login** command to do this.
