@@ -113,7 +113,6 @@ hubName | Name of IoT Hub |
 deviceId | Id of the device |
 operationTimestamp | ISO8601 timestamp of operation |
 iothub-message-schema | deviceLifecycleNotification |
-iothub-connection-device-id | Id of the device |
 
  Message system properties are prefixed with the `'$'` symbol.
 

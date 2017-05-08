@@ -171,6 +171,7 @@ The solution back end operates on the device twin using the following atomic ope
     hubName | Name of IoT Hub |
     operationTimestamp | ISO8601 timestamp of operation |
     iothub-message-schema | deviceLifecycleNotification |
+    opType | "replaceTwin" or "updateTwin" |
 
     Message system properties are prefixed with the `'$'` symbol.
 
