@@ -32,10 +32,10 @@ and [Build a Cosmos DB console application](../documentdb/documentdb-get-started
 
 <a id="docdbinput"></a>
 
-## Cosmos DB input binding
-The Cosmos DB input binding retrieves a Cosmos DB document and passes it to the named input parameter of the function. The document ID can be determined based on the trigger that invokes the function. 
+## DocumentDB API input binding
+The DocumentDB API input binding retrieves a Cosmos DB document and passes it to the named input parameter of the function. The document ID can be determined based on the trigger that invokes the function. 
 
-The Cosmos DB input binding has the following properties in *function.json*:
+The DocumentDB API input binding has the following properties in *function.json*:
 
 - `name` : Identifier name used in function code for the document
 - `type` : must be set to "documentdb"
@@ -48,7 +48,7 @@ The Cosmos DB input binding has the following properties in *function.json*:
 
 The properties `id` and `sqlQuery` cannot both be specified. If neither `id` nor `sqlQuery` is set, the entire collection is retrieved.
 
-## Using a Cosmos DB input binding
+## Using a DocumentDB API input binding
 
 * In C# and F# functions, when the function exits successfully, any changes made to the input document via named input parameters are automatically persisted. 
 * In JavaScript functions, updates are not made automatically upon function exit. Instead, use `context.bindings.<documentName>In` and `context.bindings.<documentName>Out` to make updates. See the [JavaScript sample](#injavascript).
@@ -56,7 +56,7 @@ The properties `id` and `sqlQuery` cannot both be specified. If neither `id` nor
 <a name="inputsample"></a>
 
 ## Input sample for single document
-Suppose you have the following Cosmos DB input binding in the `bindings` array of function.json:
+Suppose you have the following DocumentDB API input binding in the `bindings` array of function.json:
 
 ```json
 {
@@ -80,7 +80,7 @@ See the language-specific sample that uses this input binding to update the docu
 ### Input sample in C# #
 
 ```cs
-// Change input document contents using Cosmos DB input binding 
+// Change input document contents using DocumentDB API input binding 
 public static void Run(string myQueueItem, dynamic inputDocument)
 {   
   inputDocument.text = "This has changed.";
@@ -91,7 +91,7 @@ public static void Run(string myQueueItem, dynamic inputDocument)
 ### Input sample in F# #
 
 ```fsharp
-(* Change input document contents using Cosmos DB input binding *)
+(* Change input document contents using DocumentDB API input binding *)
 open FSharp.Interop.Dynamic
 let Run(myQueueItem: string, inputDocument: obj) =
   inputDocument?text <- "This has changed."
@@ -120,7 +120,7 @@ To add a `project.json` file, see [F# package management](functions-reference-fs
 ### Input sample in JavaScript
 
 ```javascript
-// Change input document contents using Cosmos DB input binding, using context.bindings.inputDocumentOut
+// Change input document contents using DocumentDB API input binding, using context.bindings.inputDocumentOut
 module.exports = function (context) {   
   context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
   context.bindings.inputDocumentOut.text = "This was updated!";
@@ -176,8 +176,8 @@ module.exports = function (context, input) {
 };
 ```
 
-## <a id="docdboutput"></a>Cosmos DB output binding
-The Cosmos DB output binding lets you write a new document to an Azure Cosmos DB database. 
+## <a id="docdboutput"></a>DocumentDB API output binding
+The DocumentDB API output binding lets you write a new document to an Azure Cosmos DB database. 
 It has the following properties in *function.json*:
 
 - `name` : Identifier used in function code for the new document
@@ -188,8 +188,8 @@ It has the following properties in *function.json*:
 - `connection` : The name of the app setting containing your Cosmos DB connection string
 - `direction` : must be set to `"out"`
 
-## Using a Cosmos DB output binding
-This section shows you how to use your Cosmos DB output binding in your function code.
+## Using a DocumentDB API output binding
+This section shows you how to use your DocumentDB API output binding in your function code.
 
 When you write to the output parameter in your function, by default a new document is generated in your database, with an automatically generated GUID as the document ID. You can specify the document ID of output document by specifying the `id` JSON property in
 the output parameter. 
@@ -201,8 +201,8 @@ To output multiple documents, you can also bind to `ICollector<T>` or `IAsyncCol
 
 <a name="outputsample"></a>
 
-## Cosmos DB output binding sample
-Suppose you have the following Cosmos DB output binding in the `bindings` array of function.json:
+## DocumentDB API output binding sample
+Suppose you have the following DocumentDB API output binding in the `bindings` array of function.json:
 
 ```json
 {
