@@ -100,7 +100,7 @@ After creating the cluster and connecting with `kubectl`, you can try starting a
     selector:
       app: win-webserver
     type: LoadBalancer
-  ---
+  
   apiVersion: extensions/v1beta1
   kind: Deployment
   metadata:
