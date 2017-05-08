@@ -33,7 +33,7 @@ Azure monitoring uses agents to collect boot and performance data from Azure VMs
 
 This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
-To complete the example in this tutorial, you must have an existing virtual machine. If needed, this [script sample](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) can create one for you. When working through the tutorial, replace the resource group and VM names where needed.
+To complete the example in this tutorial, you must have an existing virtual machine. If needed, this [script sample](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) can create one for you. When working through the tutorial, replace the resource group, VM name, and location where needed.
 
 ## View boot diagnostics
 
@@ -204,10 +204,10 @@ Finally, update this line, replacing *mydiagnosticsstorage* with the name of you
 Now you can install the diagnostic extension with the [Set-AzureRmVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdiagnosticsextension) command.
 
 ```powershell
-Set-AzureRmVMDiagnosticsExtension ` 
+Set-AzureRmVMDiagnosticsExtension `
   -ResourceGroupName myResourceGroup `
   -VMName myVM `
-  -DiagnosticsConfigurationPath c:\diagnosticsPubConfig.xml
+  -DiagnosticsConfigurationPath c:\diagnosticsconfig.xml
 ```
 
 ## View VM metrics
@@ -234,7 +234,7 @@ Next, use the [Add-AzureRmMetricAlertRule](https://docs.microsoft.com/powershell
 ```powershell
 $vmName = "myVM"
 $resourceGroup = "myResourceGroup"
-$subscriptionId = Get-AzureRmSubscription | Select SubscriptionId
+$subscriptionId = (Get-AzureRmSubscription).SubscriptionId
 
 $time = New-TimeSpan -Minutes 5
 
@@ -242,7 +242,7 @@ Add-AzureRmMetricAlertRule -ResourceGroup $resourceGroup `
   -WindowSize $time `
   -Operator GreaterThan `
   -Threshold 1 `
-  -TargetResourceId "/subscriptions/$subscriptionId/resourceGroups/myResourceGroupMonitor/providers/Microsoft.Compute/virtualMachines/$vmName" `
+  -TargetResourceId "/subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.Compute/virtualMachines/$vmName" `
   -MetricName "Percentage CPU" `
   -TimeAggregationOperator Total `
   -Location eastus `
