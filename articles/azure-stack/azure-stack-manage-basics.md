@@ -19,15 +19,7 @@ ms.author: twooley
 ---
 # Azure Stack administration basics
 
-There are several things you need to know if you're new to Azure Stack administration. This guidance provides an overview of your role as an administrator, and what you need to tell your users for them to become productive quickly. Specifically, you will:
-
-> [!div class="checklist"]
-> * Learn about Azure Stack Proof of Concept (POC) builds
-> * Learn about available services
-> * Learn about the tools you can use to manage
-> * Learn about your typical responsibilities
-> * Learn what to tell your users
-> * Learn where to get support
+There are several things you need to know if you're new to Azure Stack administration. This guidance provides an overview of your role as an administrator, and what you need to tell your users for them to become productive quickly.
 
 For the Azure Stack Technical Preview 3 (TP3) timeframe, this guidance is scoped to the Azure Stack Proof of Concept (POC).
 
@@ -119,6 +111,6 @@ For the Azure Stack POC, you can ask support-related questions in the [Microsoft
 
 ## Next steps
 
-- [Make virtual machines available to your Azure Stack users](azure-stack-tutorial-tenant-vm.md)
+- [Region management in Azure Stack](azure-stack-region-management.md)
 
 

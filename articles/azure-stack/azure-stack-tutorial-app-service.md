@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 5/9/2017
+ms.date: 5/10/2017
 ms.author: erikje
 
 ---
@@ -77,7 +77,14 @@ Now that you've deployed the App Service resource provider and created an offer,
 5. Click **Database** and enter the information for the SQL database you created earlier.
 6. Click **Create**.
 
-> [!NEXT]
-> Now that you've created an offer to let users create applications, you can [deploy apps to Azure and Azure Stack](azure-stack-solution-pipeline.md).
+In this tutorial, you learned how to:
 
+> [!div class="checklist"]
+> * Deploy the App Service resource provider
+> * Create an offer
+> * Test the offer
 
+Advance to the next tutorial to learn how to:
+
+> [!div class="nextstepaction"]
+> [Deploy apps to Azure and Azure Stack](azure-stack-solution-pipeline.md)
