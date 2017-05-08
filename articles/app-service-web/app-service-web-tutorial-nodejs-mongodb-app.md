@@ -170,6 +170,7 @@ When the Cosmos DB account is created, the Azure CLI shows information similar t
   "documentEndpoint": "https://<cosmosdb_name>.documents.azure.com:443/",
   "failoverPolicies": 
   ...
+  < Output has been truncated for readability >
 }
 ```
 
@@ -287,17 +288,17 @@ When the App Service plan is created, the Azure CLI shows information similar to
 
 ```json 
 { 
-    "adminSiteName": null,
-    "appServicePlanName": "myAppServicePlan",
-    "geoRegion": "North Europe",
-    "hostingEnvironmentProfile": null,
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan", 
-    "kind": "app",
-    "location": "North Europe",
-    "maximumNumberOfWorkers": 1,
-    "name": "myAppServicePlan",
-    ...
-    < Output has been truncated for readability >
+  "adminSiteName": null,
+  "appServicePlanName": "myAppServicePlan",
+  "geoRegion": "North Europe",
+  "hostingEnvironmentProfile": null,
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan", 
+  "kind": "app",
+  "location": "North Europe",
+  "maximumNumberOfWorkers": 1,
+  "name": "myAppServicePlan",
+  ...
+  < Output has been truncated for readability >
 } 
 ```
 
@@ -318,16 +319,16 @@ When the web app has been created, the Azure CLI shows information similar to th
 
 ```json 
 {
-    "availabilityState": "Normal",
-    "clientAffinityEnabled": true,
-    "clientCertEnabled": false,
-    "cloningInfo": null,
-    "containerSize": 0,
-    "dailyMemoryTimeQuota": 0,
-    "defaultHostName": "<app_name>.azurewebsites.net",
-    "enabled": true,
-    ...
-    < Output has been truncated for readability >
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "cloningInfo": null,
+  "containerSize": 0,
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "<app_name>.azurewebsites.net",
+  "enabled": true,
+  ...
+  < Output has been truncated for readability >
 }
 ```
 
