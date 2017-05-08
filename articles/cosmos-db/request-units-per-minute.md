@@ -32,22 +32,22 @@ After reading this article, you will be able to answer the following questions:
 
 ## Concept of provisioning Request Unit per Minute
 
-When you provision Azure Cosmos DB at the second granularity (RU/s), you get the guarantee that your request will succeed at a very low latency if your throughput has not exceeded the capacity provisioned within that second. With RU/m, the granularity is at the minute with the guarantee that your request will succeed within that minute. Compared to bursting systems, we make sure that the performance you get is predictable and you can plan on it.
+When you provision Azure Cosmos DB at the second granularity (RU/s), you get the guarantee that your request succeeds at a low latency if your throughput has not exceeded the capacity provisioned within that second. With RU/m, the granularity is at the minute with the guarantee that your request succeeds within that minute. Compared to bursting systems, we make sure that the performance you get is predictable and you can plan on it.
 
 The way per minute provisioning works is simple:
 
 * RU/m is billed hourly and in addition to RU/s. For more details, please visit Azure Cosmos DB [pricing page](https://aka.ms/acdbpricing).
-* RU/m can be enabled at collection level. This can be done through the SDKs (Node.js, Java or .Net) or through the portal (also include MongoDB API workloads)
+* RU/m can be enabled at collection level. That can be done through the SDKs (Node.js, Java, or .Net) or through the portal (also include MongoDB API workloads)
 * When RU/m is enabled, for every 100 RU/s provisioned, you also get 1,000 RU/m provisioned (the ratio is 10x)
-* At a given second, a request unit will consume your RU/m provisioning only if you have exceeded your per second provisioning within that second
-* Once the 60 second period (UTC) ends, the per minute provisioning is refilled
+* At a given second, a request unit consumes your RU/m provisioning only if you have exceeded your per second provisioning within that second
+* Once the 60-second period (UTC) ends, the per minute provisioning is refilled
 * RU/m can be enabled only for collections with a maximum provisioning of 5,000 RU/s per partition. If you scale your throughput needs and have such a high level of provisioning per partition, you will get a warning message
 
 Below is a concrete example, in which a customer can provision 10kRU/s with 100kRU/m, saving 73% in cost against provisioning for peak (at 50kRU/sec) through a 90-second period on a collection that has 10,000 RU/s and 100,000 RU/m provisioned:
 
 * 1st second: The RU/m budget is set at 100,000
 * 3rd second: During that second the consumption of Request Unit was 11,010 RUs, 1,010 RUs above the RU/s provisioning. Therefore, 1,010 RUs are deducted from the RU/m budget. 98,990 RUs are available for the next 57 seconds in the RU/m budget
-* 29th second: During that second, a large spike happened (>4x the per second provisioning) and the consumption of Request Unit was 46,920 RUs. 36,920 RUs are deducted from the RU/m budget that dropped from 92,323 RUs (28th second) to 55,403 RUs (29th second)
+* 29th second: During that second, a large spike happened (>4x higher than provisioning per second) and the consumption of Request Unit was 46,920 RUs. 36,920 RUs are deducted from the RU/m budget that dropped from 92,323 RUs (28th second) to 55,403 RUs (29th second)
 * 61st second: RU/m budget is set back to 100,000 RUs.
  
     ![Graph showing the consumption and provisioning of Azure Cosmos DB](./media/request-units-per-minute/azure-cosmos-db-request-units-per-minute.png)
@@ -104,17 +104,17 @@ await client.ReplaceOfferAsync(offerV2);
 
 In this section, we provide an overview of scenarios that are a good fit for enabling Request Unit per Minute.
 
-**Dev/Test environment:** Good fit. During the development stage, if you are testing your application with different workloads, RU/m can provide the flexibility at this stage. While the [emulator](../documentdb/documentdb-nosql-local-emulator.md) is a great free tool to test Azure Cosmos DB, if you want to start in a cloud environment, you will have a great flexibility with RU/m for your adhoc performance needs. You will spend more time developing, less worrying about performance needs at first. We recommend to start with the minimum RU/s provisioning and enable RU/m.
+**Dev/Test environment:** Good fit. During the development stage, if you are testing your application with different workloads, RU/m can provide the flexibility at this stage. While the [emulator](../documentdb/documentdb-nosql-local-emulator.md) is a great free tool to test Azure Cosmos DB. However if you want to start in a cloud environment, you will have a great flexibility with RU/m for your adhoc performance needs. You will spend more time developing, less worrying about performance needs at first. We recommend starting with the minimum RU/s provisioning and enable RU/m.
 
-**Unpredictable, spiky, minute granularity needs:** Good fit – Savings: 25-75%. We have seen large improvement from RU/m and most production scenarios are into that group. If you have an IoT workload that has spike a few times in a minute, if you have queries running when your system makes mass insert at the same time, you will need extra capacity for that. We recommend to optimize your resource needs by leveraging our step by step approach below.
+**Unpredictable, spiky, minute granularity needs:** Good fit – Savings: 25-75%. We have seen large improvement from RU/m and most production scenarios are into that group. If you have an IoT workload that has spike a few times in a minute, if you have queries running when your system makes mass insert at the same time, you will need extra capacity for hadndling spiky needs. We recommend optimizing your resource needs by applying our step by step approach below.
 
  ![Graph showing request consumption in 5 minute granularity](./media/request-units-per-minute/azure-cosmos-db-request-units-per-minute-consumption.png)
  
  *Figure - RU consumption benchmark*
 
-**Peace of mind:** Good fit – Savings: 10-20%. Sometimes, you just want to have peace of mind and not worry about potential peaks and throttling. This feature is the right one for you. In that case, we just recommend to enable RU/m and slightly lower your per second provisioning. This case is different from the above as you will not try to optimize aggressively your provisioning. This is more of a “Zero Throttling” mindset you are in.
+**Peace of mind:** Good fit – Savings: 10-20%. Sometimes, you just want to have peace of mind and not worry about potential peaks and throttling. This feature is the right one for you. In that case, we recommend enabling RU/m and slightly lower your per second provisioning. This case is different from the above as you will not try to optimize aggressively your provisioning. This is more of a “Zero Throttling” mindset you are in.
 
-Critical operations with adhoc needs: We sometimes recommend to only let critical operations access RU/m budget so the budget doesn’t get consume by adhoc or less important operations. This can be easily defined in the section below.
+Critical operations with adhoc needs: We sometimes recommend to only let critical operations access RU/m budget so the budget doesn’t get consume by adhoc or less important operations. That can be easily defined in the section below.
 
 ## Using the portal metrics to optimize cost and performance
 
@@ -122,18 +122,18 @@ In the coming weeks, we will further develop the content around monitoring RUs m
 
 Through the portal metrics, you can see how much of regular RU seconds you consume versus RU minutes. Monitoring these metrics should help you optimize your provisioning. 
 
-We recommend a step by step approach on how to use RU/m to your advantage. For each step, you should have an overview of the RU consumption representing a full cycle of your workload (it could be hours, days or even weeks) and get insights on the utilization of what you provision.
+We recommend a step by step approach on how to use RU/m to your advantage. For each step, you should have an overview of the RU consumption representing a full cycle of your workload (it could be hours, days, or even weeks) and get insights on the utilization of what you provision.
 
 The principle behind this approach is to make your throughput provisioning as close as possible to a provisioning point that matches your performance criteria below. 
 
-![Graph showing request consumption in 5 minute granularity](./media/request-units-per-minute/azure-cosmos-db-request-units-per-minute-adjust-provisioning.png)
+![Graph showing request consumption in 5-minute granularity](./media/request-units-per-minute/azure-cosmos-db-request-units-per-minute-adjust-provisioning.png)
  
-To understand the optimal provisioning point for your workload you need to understand:
+To understand the optimal provisioning point for your workload, you need to understand:
 
 * Consumption patterns: no, infrequent or sustained spikes? Small (2x average), medium large (>10x average) spikes?
 * Percent of throttled requests: do you feel comfortable if you have a bit of throttling? If so by how much? 
 
-Once you have identified what your goals are, you can will be able to get closer to the optimal provisioning.
+Once you have identified what your goals are, you will be able to get closer to the optimal provisioning.
 
 To assist you, we want to provide an overall guidance on how to optimize your provisioning based on your RU/m consumption. This guidance doesn’t apply to all kind of workloads but is based on the private preview knowledge. We might change such baselines as we learn more:
 
@@ -143,13 +143,13 @@ To assist you, we want to provide an overall guidance on how to optimize your pr
 |1-10%|Healthy use|Keep the same provisioning level|
 |Above 10%|Over utilization|Increase RU/s to rely less on RU/m|
 
-This methodology works by leveraging RU (second and minute) consumption, % throttled requests through the portal metrics. Below are very important metrics to monitor based on a full cycle (here the cycle is 7 days):
+This methodology works by using RU (second and minute) consumption, % throttled requests through the portal metrics. Below are important metrics to monitor based on a full cycle (here the cycle is 7 days):
 
 ![RU/m consumption and throttled request metrics from the Azure portal](./media/request-units-per-minute/azure-cosmos-db-request-units-per-minute-monitor.png)
  
 ## Select which type of operation can consume your RU/m budget
 
-At request level, you can also enable/disable RU/m budget to serve the request irrespective of operation type. If regular provisioned RUs/sec budget is consumed and the request cannot consume the RU/m budget, this request will be throttled. By default, any request is enabled to be served by RU/m budget if RU/m throughput budget is activated.  Here is a code snippet for disabling RU/m budget using the .NET SDK:
+At request level, you can also enable/disable RU/m budget to serve the request irrespective of operation type. If regular provisioned RUs/sec budget is consumed and the request cannot consume the RU/m budget, this request will be throttled. By default, any request is served by RU/m budget if RU/m throughput budget is activated.  Here is a code snippet for disabling RU/m budget using the .NET SDK:
 
 ```csharp
 // Fetch the resource to be updated
