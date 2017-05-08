@@ -36,7 +36,7 @@ Access live metrics & events by clicking either the option in the left, or the b
 
 ![In the Overview blade, click Live Stream](./media/app-insights-live-stream/live-stream-2.png)
 
-##Custom Live KPI
+## Custom Live KPI
 You can monitor custom KPI live by applying arbitrary filters on any Application Insights telemetry from the portal. You can also choose any custom metric you may be sending directly (by using TrackMetric), or as a measurement property. Click the filter control that shows when you mouse-over any of the charts. The following chart is plotting a custom Request count KPI with filters on URL and Duration attributes. Validate your filters with the Stream Preview section that shows a live feed of telemetry that matches the criteria you have specified at any point in time. 
 
 ![Custom Request KPI](./media/app-insights-live-stream/live-stream-filteredMetric.png)
