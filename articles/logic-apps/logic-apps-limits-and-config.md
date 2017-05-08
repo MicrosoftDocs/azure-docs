@@ -79,9 +79,10 @@ These are limits for a single logic app instance.
 |Name|Limit|Notes|
 |----|----|----|
 |Actions executions per 5 minutes |100,000|Can distribute workload across multiple apps as needed|
+|Actions concurrent outgoing calls |~10,000|Decrease number of concurrent requests or reduce the duration as needed|
+|Runtime endpoint concurrent incoming calls |~1,000|Decrease number of concurrent requests or reduce the duration as needed|
 |Runtime endpoint read calls per 5 minutes |60,000|Can distribute workload across multiple apps as needed|
 |Runtime endpoint invoke calls per 5 minutes |45,000|Can distribute workload across multiple apps as needed|
-|Runtime endpoint blocking concurrent calls |~1,000|Decrease number of concurrent requests or reduce the duration as needed|
 
 If you expect to exceed this limit in normal processing or wish to run load testing that may exceed this limit for a period of time please [contact us](mailto://logicappsemail@microsoft.com) so that we can help with your requirements.
 
