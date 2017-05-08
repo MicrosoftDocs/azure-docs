@@ -41,7 +41,7 @@ If you currently use Azure Table storage, you gain the following benefits by mov
 | Pricing | Storage-optimized  | Throughput-optimized |
 | SLAs | 99.9% availability | 99.99% availability within a single region, and ability to add more regions for higher availability. [Industry-leading comprehensive SLAs](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/) on general availability |
 
-## How to get started?
+## How to get started
 
 Create an Azure Cosmos DB account in the [Azure portal](https://portal.azure.com), and get started with our [Quickstart for Table API using .NET](create-table-dotnet.md). 
 

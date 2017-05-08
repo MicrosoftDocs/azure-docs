@@ -48,8 +48,7 @@ Learn more in this Azure Friday video with Scott Hanselman and Azure Cosmos DB P
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/DocumentDB-Database-as-a-Service-for-MongoDB-Developers/player]
 > 
 
-
-## How to get started?
+## How to get started
 
 Create an Azure Cosmos DB account in the [Azure Portal](https://portal.azure.com) and swap the MongoDB connection string to your new account. 
 

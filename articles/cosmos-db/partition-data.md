@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
-# How to partition and scale in Azure Cosmos DB?
+# How to partition and scale in Azure Cosmos DB
 
 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is a global distributed, multi-model database service designed to help you achieve fast, predictable performance and scale seamlessly along with your application as it grows. This article provides an overview of how partitioning works for all the data models in Azure Cosmos DB, and describes how you can configure Azure Cosmos DB collections to effectively scale your applications.
 
