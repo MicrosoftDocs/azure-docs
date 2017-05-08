@@ -6,16 +6,14 @@
   expanded: true
   items:
   - name: Deploy Azure Stack
-    href: azure-stack-deploy-overview.md
-  - name: Connect to Azure Stack POC
-    href: azure-stack-connect-azure-stack.md
+    href: azure-stack-deploy-overview.md  
 - name: Tutorials
   items:
-  - name: Make VMs available
+  - name: Enable Virtual Machines
     href: azure-stack-tutorial-tenant-vm.md
-  - name: Make SQL databases available
+  - name: Enable SQL databases
     href: azure-stack-tutorial-sql-server.md
-  - name: Make apps available
+  - name: Enable Web Apps
     href: azure-stack-tutorial-app-service.md
   - name: Deploy apps to Azure & Azure Stack
     href: azure-stack-solution-pipeline.md
