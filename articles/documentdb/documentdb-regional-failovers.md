@@ -45,19 +45,21 @@ The following snippet shows how to initialize a multi-region application. Here, 
 
 In the DocumentDB API, this configuration looks like the following snippet:
 
-    ConnectionPolicy usConnectionPolicy = new ConnectionPolicy 
-    { 
-        ConnectionMode = ConnectionMode.Direct,
-        ConnectionProtocol = Protocol.Tcp
-    };
+```cs
+ConnectionPolicy usConnectionPolicy = new ConnectionPolicy 
+{ 
+    ConnectionMode = ConnectionMode.Direct,
+    ConnectionProtocol = Protocol.Tcp
+};
 
-    usConnectionPolicy.PreferredLocations.Add(LocationNames.WestUS);
-    usConnectionPolicy.PreferredLocations.Add(LocationNames.NorthEurope);
+usConnectionPolicy.PreferredLocations.Add(LocationNames.WestUS);
+usConnectionPolicy.PreferredLocations.Add(LocationNames.NorthEurope);
 
-    DocumentClient usClient = new DocumentClient(
-        new Uri("https://contosodb.documents.azure.com"),
-        "memf7qfF89n6KL9vcb7rIQl6tfgZsRt5gY5dh3BIjesarJanYIcg2Edn9uPOUIVwgkAugOb2zUdCR2h0PTtMrA==",
-        usConnectionPolicy);
+DocumentClient usClient = new DocumentClient(
+    new Uri("https://contosodb.documents.azure.com"),
+    "memf7qfF89n6KL9vcb7rIQl6tfgZsRt5gY5dh3BIjesarJanYIcg2Edn9uPOUIVwgkAugOb2zUdCR2h0PTtMrA==",
+    usConnectionPolicy);
+```
 
 The application is also deployed in the North Europe region with the order of preferred regions reversed. That is, the North Europe region is specified first for low latency reads. Then, the West US region is specified as the second preferred region for high availability during regional failures.
 
