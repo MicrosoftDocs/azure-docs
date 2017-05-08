@@ -25,7 +25,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 Log in to the [Azure portal](https://portal.azure.com).
 
-## Create an Azure PostgreSQL server
+## Create an Azure Database for PostgreSQL
 
 An Azure Database for PostgreSQL server is created with a defined set of [compute and storage resources](./concepts-compute-unit-and-storage.md). The server is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
 
@@ -35,16 +35,19 @@ Follow these steps to create an Azure Database for PostgreSQL server:
  ![Azure Database for PostgreSQL - Create the database](./media/quickstart-create-database-portal/1-create-database.png)
 
 3.	Fill out the new server details form with the following information, as shown on the preceding image:
+    - **Server name:** mypgserver-20170401 
+       - The server name maps to DNS name and is thus required to be globally unique across Azure)
+    - **Subscription:** If you have multiple subscriptions, choose the appropriate subscription in which the resource will be billed.
+    - **Resource group:** myresourcegroup
+       - You may create a resource group for this quickstart.
+    - **Server admin login:** mylogin  
+       - This login is the administrator account within your PostgreSQL server.
+    - **Password:** Choose a strong password and remember it for later use.
+    - **Location:** West US
+       - Choose the closest available region to your location.
+    - **PostgreSQL Version:**  9.6  
+       - Choose the latest version of PostgreSQL.
 
-| Setting     | Suggested value     | Description                                                                               |
-| ----------- | ------------------- | ----------------------------------------------------------------------------------------- |
-| Server name        | mypgserver-20170401 | The server name maps to DNS name and is thus required to be globally unique across Azure)      |
-| Subscription       |                     | If you have multiple subscriptions, choose the appropriate subscription in which the resource will be billed. |
-| Resource group     | myresourcegroup     | You may create a resource group for this quickstart.  |
-| Server admin login | mylogin             | This login is the administrator account within your PostgreSQL server. |
-| Password           |             | Choose a strong password and remember it for later use.  |
-| Location           | West US             | Choose the closest available region to your location.  |
-| PostgreSQL Version | 9.6                 | Choose the latest version of PostgreSQL.  |
   > [!IMPORTANT]
   > The server admin login and password that you specify here are required to log in to the server and its databases later in this quick start. Remember or record this information for later use.
 
@@ -124,26 +127,26 @@ To connect to Azure PostgreSQL server using the GUI tool _pgAdmin_
 2.	Choose **Add New Server** from the **Quick Links** menu.
 3.	In the **Create - Server** dialog box **General** tab, enter a unique friendly Name for the server, such as **Azure PostgreSQL Server**.
 ![pgAdmin tool - create - server](./media/quickstart-create-database-portal/9-pgadmin-create-server.png)
-4.	In the **Create - Server** dialog box, **Connection** tab, use the settings as specified in the table and click **Save**.
+4.	In the **Create - Server** dialog box, **Connection** tab, use the settings as specified and click **Save**.
    ![pgAdmin - Create - Server](./media/quickstart-create-database-portal/10-pgadmin-create-server.png)
-
-| Setting | Suggested value    | Description   | 
-| ------- | ------------------ | ------------- | 
-| Host Name/Address | mypgserver-20170401.postgres.database.azure.com | Fully qualified server name. |
-| Port    | 5432 | Port number used by this database server is 5432. |
-| Maintenance Database | postgres | Default system generated database name. |
-| User Name | mylogin@mypgserver-20170401  | The Server admin login (user@mypgserver) obtained earlier in this quickstart. |
-| Password |  | The password you chose when you created the server earlier in this quickstart. |
-| SSL Mode | Require | By default, all Azure PostgreSQL servers are created with SSL enforcing turned ON. To turn OFF SSL enforcing, see details in [Enforcing SSL](./concepts-ssl-connection-security.md). |
-    
-
+    - **Host Name/Address**: mypgserver-20170401.postgres.database.azure.com 
+        - Fully qualified server name.
+    - **Port:**  5432
+        - Port number used by this database server is 5432.
+    - **Maintenance Database**: postgres 
+        - Default system generated database name.
+    - **User Name:** mylogin@mypgserver-20170401 
+        - The Server admin login (user@mypgserver) obtained earlier in this quickstart.
+    - **Password**: The password you chose when you created the server earlier in this quickstart.
+    - **SSL Mode**: Require
+        - By default, all Azure PostgreSQL servers are created with SSL enforcing turned ON. To turn OFF SSL enforcing, see details in [Enforcing SSL](./concepts-ssl-connection-security.md).
 5.	Click **Save**.
 6.	In the Browser left pane, expand the **Server Groups**. Choose your server **Azure PostgreSQL Server**.
 7.  Choose the **Server** you connected to, and then choose **Databases** under it. 
 8.	Right-click on **Databases** to Create a Database.
 9.	Choose a database name **mypgsqldb** and the owner for it as server admin login **mylogin**.
 10. Click **Save** to create a blank database.
-11. In the Browser, expand the **Server Groups**. Choose the Server you created, and you should be able to see the database **mypgsqldb** under it.
+11. In the **Browser**, expand the **Server**. Expand the server you created, and see the database **mypgsqldb** under it.
  ![pgAdmin - Create - Database](./media/quickstart-create-database-portal/11-pgadmin-database.png)
 
 
