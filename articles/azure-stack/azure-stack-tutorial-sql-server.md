@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 5/9/2017
+ms.date: 5/10/2017
 ms.author: erikje
 
 ---
@@ -69,8 +69,15 @@ Now that you've deployed the SQL Server resource provider and created an offer, 
 4. Click **SKU** > select the SQL SKU that you created for the SQL Hosting Server > **OK**.
 5. Click **Create**.
 
-You can now use the new SQL database with your cloud-native apps, websites, and workloads.
+In this tutorial, you learned how to:
 
-> [!NEXT]
-> Now that you've created an offer to let users create SQL databases, you can also [make web, mobile, and API apps available to them]( azure-stack-tutorial-app-service.md).
+> [!div class="checklist"]
+> * Deploy the SQL Server resource provider
+> * Create an offer
+> * Test the offer
+
+Advance to the next tutorial to learn how to:
+
+> [!div class="nextstepaction"]
+> [Make web, mobile, and API apps available to them]( azure-stack-tutorial-app-service.md)
 
