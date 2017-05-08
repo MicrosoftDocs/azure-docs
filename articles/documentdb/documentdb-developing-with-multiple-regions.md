@@ -1,6 +1,6 @@
 ---
 title: Developing with multiple regions in Azure Cosmos DB | Microsoft Docs
-description: Learn how to access your data in multiple regions from Azure Cosmos DB, a fully managed NoSQL database service.
+description: Learn how to access your data in multiple regions from Azure Cosmos DB, a globally replicated, multi-model database service.
 services: documentdb
 documentationcenter: ''
 author: mimig1

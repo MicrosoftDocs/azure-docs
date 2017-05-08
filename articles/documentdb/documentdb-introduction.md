@@ -64,7 +64,7 @@ All resources within Azure Cosmos DB are modeled and stored as JSON documents. R
 
 The image below shows the relationships between the Azure Cosmos DB resources:
 
-![The hierarchical relationship between resources in Azure Cosmos DB, a NoSQL JSON database][1] 
+![The hierarchical relationship between resources in Azure Cosmos DB][1] 
 
 A database account consists of a set of databases, each containing multiple collections, each of which can contain stored procedures, triggers, UDFs, documents, and related attachments. A database also has associated users, each with a set of permissions to access various other collections, stored procedures, triggers, UDFs, documents, or attachments. While databases, users, permissions, and collections are system-defined resources with well-known schemas - documents, stored procedures, triggers, UDFs, and attachments contain arbitrary, user defined JSON content.  
 

@@ -55,7 +55,7 @@ The following code sample illustrates how to use a Cosmos DB account endpoint an
 
 ```csharp
 //Read the DocumentDB endpointUrl and authorization keys from config.
-//These values are available from the Azure portal on the NOSQL (Azure Cosmos DB) account blade under "Keys".
+//These values are available from the Azure portal on the Azure Cosmos DB account blade under "Keys".
 //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
 
 private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
@@ -177,6 +177,6 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
 
 ## Next steps
-* To learn more about Cosmos DB database security, see [Cosmos DB: NoSQL database security](documentdb-nosql-database-security.md).
+* To learn more about Cosmos DB database security, see [Cosmos DB: Database security](documentdb-nosql-database-security.md).
 * To learn about managing master and read-only keys, see [How to manage an Azure Cosmos DB account](documentdb-manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
 * To learn how to construct Azure Cosmos DB authorization tokens, see [Access Control on Azure Cosmos DB Resources](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources).

@@ -9,7 +9,7 @@ editor: ''
 documentationcenter: ''
 
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -36,7 +36,7 @@ If you are importing data from MongoDB and plan to use it with the DocumentDB AP
 
 ## Find your connection string information (host, port, username, and password)
 
-1. In the [Azure portal](https://portal.azure.com), in the left pane, click the **NoSQL (Azure Cosmos DB)** entry.
+1. In the [Azure portal](https://portal.azure.com), in the left pane, click the **Azure Cosmos DB** entry.
 2. In the **Subscriptions** pane, select your account name.
 3. In the **Connection String** blade, click **Connection String**.  
 The right pane contains all the information you need to successfully connect to your account.

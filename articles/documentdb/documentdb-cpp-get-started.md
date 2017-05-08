@@ -1,14 +1,14 @@
 ---
-title: NoSQL C++ tutorial for Azure Cosmos DB | Microsoft Docs
-description: A NoSQL C++ tutorial that creates a C++ database and console application using an Azure Cosmos DB endorsed SDK for C++. Azure Cosmos DB is a planet-scale NoSQL database service.
-services: documentdb
+title: C++ tutorial for Azure Cosmos DB | Microsoft Docs
+description: A C++ tutorial that creates a C++ database and console application using an Azure Cosmos DB endorsed SDK for C++. Azure Cosmos DB is a planet-scale database service.
+services: cosmosdb
 documentationcenter: cpp
 author: asthana86
 manager: jhubbard
 editor: ''
 
 ms.assetid: b8756b60-8d41-4231-ba4f-6cfcfe3b4bab
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: cpp
@@ -17,7 +17,7 @@ ms.date: 12/25/2016
 ms.author: aasthan
 
 ---
-# NoSQL C++ tutorial: Azure Cosmos DB C++ console application for the DocumentDB API
+# Azure Cosmos DB: C++ console application tutorial for the DocumentDB API
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -78,7 +78,7 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
     Once the packages have been added to your project, we are all set to start writing some code.   
 
 ## <a id="Config"></a>Step 3: Copy connection details from Azure portal for your Azure Cosmos DB database
-Bring up [Azure portal](https://portal.azure.com) and traverse to the NoSQL (DocumentDB) database account you created. We will need the URI and the primary key from Azure portal in the next step to establish a connection from our C++ code snippet. 
+Bring up [Azure portal](https://portal.azure.com) and traverse to the Azure Cosmos DB database account you created. We will need the URI and the primary key from Azure portal in the next step to establish a connection from our C++ code snippet. 
 
 ![Azure Cosmos DB URI and keys in the Azure portal](media/documentdb-cpp-get-started/nosql-tutorial-keys.png)
 

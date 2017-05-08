@@ -22,9 +22,9 @@ ms.author: kirillg
 This article provides an overview of the [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) Script Explorer, which is a JavaScript editor in the Azure portal that enables you to view and execute Cosmos DB server-side programming artifacts including stored procedures, triggers, and user-defined functions. Read more about Cosmos DB server-side programming in the [Stored procedures, database triggers, and UDFs](documentdb-programming.md) article.
 
 ## Launch Script Explorer
-1. In the [Azure portal](https://portal.azure.com), on the left navigation, click ![Azure Cosmos DB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (Cosmos DB)**. 
+1. In the [Azure portal](https://portal.azure.com), on the left navigation, click ![Azure Cosmos DB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**. 
 
-    If **NoSQL (Azure Cosmos DB)** is not visible, click **More Services** at the bottom, and then click ![Azure Cosmos DB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (Azure Cosmos DB)**.
+    If **Azure Cosmos DB** is not visible, click **More Services** at the bottom, and then click ![Azure Cosmos DB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**.
 2. In the resources menu, click **Script Explorer**.
    
     ![Screenshot of the Script Explorer command](./media/documentdb-view-scripts/scriptexplorercommand.png)

@@ -8,7 +8,7 @@ manager: jhubbard
 editor: ''
 
 ms.assetid: 
-ms.service: documentdb
+ms.service: cosmosdb
 ms.custom: quick start connect
 ms.workload: 
 ms.tgt_pltfrm: na

@@ -1,6 +1,6 @@
 ---
-title: NoSQL Python examples for Azure Cosmos DB | Microsoft Docs
-description: Find NoSQL Python examples on github for common tasks in Azure Cosmos DB, including CRUD operations for JSON documents in NoSQL databases.
+title: DocumentDB API Python examples for Azure Cosmos DB | Microsoft Docs
+description: Find Python examples on github for common tasks in Azure Cosmos DB, including CRUD operations.
 keywords: python examples
 services: cosmosdb
 author: moderakh

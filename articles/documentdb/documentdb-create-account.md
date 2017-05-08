@@ -16,6 +16,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/17/2017
 ms.author: mimig
+redirect_url: https://aka.ms/acdbnetqa
+ROBOTS: NOINDEX, NOFOLLOW
 
 ---
 # How to create an Azure Cosmos DB NoSQL account using the Azure portal
@@ -35,7 +37,7 @@ You can create a Azure Cosmos DB account using either the Azure portal, Azure Re
 Are you new to Azure Cosmos DB? Watch [this](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) four-minute video by Scott Hanselman to see how to complete the most common tasks in the online portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. On the left navigation, click **New**, click **Databases**, and then click **NoSQL (DocumentDB)**.
+2. On the left navigation, click **New**, click **Databases**, and then click **Azure Cosmos DB**.
 
    ![Screen shot of the Azure portal, highlighting More Services, and NoSQL (Azure Cosmos DB))](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-1.png)  
 3. In the **New account** blade, specify the desired configuration for the Azure Cosmos DB account.

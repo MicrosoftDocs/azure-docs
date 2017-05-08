@@ -27,8 +27,8 @@ For information about how global database replication works in Cosmos DB, see [D
 ## <a id="addregion"></a>Add global database regions
 Cosmos DB is available in most [Azure regions][azureregions]. After selecting the default consistency level for your database account, you can associate one or more regions (depending on your choice of default consistency level and global distribution needs).
 
-1. In the [Azure portal](https://portal.azure.com/), in the left bar, click **NoSQL (Azure Cosmos DB)**.
-2. In the **NoSQL (Azure Cosmos DB)** blade, select the database account to modify.
+1. In the [Azure portal](https://portal.azure.com/), in the left bar, click **Azure Cosmos DB**.
+2. In the **Azure Cosmos DB** blade, select the database account to modify.
 3. In the account blade, click **Replicate data globally** from the menu.
 4. In the **Replicate data globally** blade, select the regions to add or remove, and then click **Save**. There is a cost to adding regions, see the [pricing page](https://azure.microsoft.com/pricing/details/documentdb/) or the [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md) article for more information.
    
@@ -49,7 +49,7 @@ This guidance is important to follow when only two regions are configured for di
 While all regions associated with your Cosmos DB database account can serve reads (both, single item as well as multi-item paginated reads) and queries, only one region can actively receive the write (insert, upsert, replace, delete) requests. To set the active write region, do the following  
 
 
-1. In the **NoSQL (Azure Cosmos DB)** blade, select the database account to modify.
+1. In the **Azure Cosmos DB** blade, select the database account to modify.
 2. In the account blade, if the **All Settings** blade is not already opened, click **All Settings**.
 3. In the **All Settings** blade, click **Write Region Priority**.
     ![Change the write region under Azure Cosmos DB Account > Settings > Add/Remove Regions][2]

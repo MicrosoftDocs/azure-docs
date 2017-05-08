@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Cosmos DB database and collection | Microsoft Docs
-description: Learn how to create NoSQL databases and JSON document collections using the online service portal for Azure Cosmos DB, a cloud based document database. Get a free trial today.
+description: Learn how to create databases and container using the online service portal for Azure Cosmos DB, a cloud based document database. Get a free trial today.
 services: documentdb
 author: mimig1
 manager: jhubbard
@@ -26,11 +26,11 @@ There are two ways to create a colletion in the portal, by using the Add Collect
 
 ## Create a colletion using Add Collection button
 
-1. In the [Azure portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB (NoSQL)**, and then in the **DocumentDB (NoSQL)** blade, select the account in which to add a collection. If you don't have any accounts listed, you'll need to [create a DocumentDB account](documentdb-create-account.md).
+1. In the [Azure portal](https://portal.azure.com/), in the Jumpbar, click **Azure Cosmos DB**, and then in the **Azure Cosmos DB** blade, select the account in which to add a collection. If you don't have any accounts listed, you'll need to [create a DocumentDB account](documentdb-create-account.md).
 
    ![Screen shot highlighting the Azure Cosmos DB Accounts in the Jumpbar, the account in the Azure Cosmos DB Accounts blade, and the database in the Azure Cosmos DB account blade, in the Databases lens](./media/documentdb-create-collection/docdb-database-creation-1-2.png)
 
-   If **DocumentDB (NoSQL)** is not visible in the Jumpbar, click **More Services** and then click **DocumentDB (NoSQL)**. If you don't have any accounts listed, you'll need to [create a DocumentDB account](documentdb-create-account.md).
+   If **Azure Cosmos DB** is not visible in the Jumpbar, click **More Services** and then click **Azure Cosmos DB**. If you don't have any accounts listed, you'll need to [create a DocumentDB account](documentdb-create-account.md).
 2. In the **Azure Cosmos DB account** blade for the selected account, click **Add Collection**.
 
     ![Screen shot highlighting the Azure Cosmos DB Accounts in the Jumpbar, the account in the Azure Cosmos DB Accounts blade, and the database in the Azure Cosmos DB account blade, in the Databases lens](./media/documentdb-create-collection/docdb-database-creation-3.png)

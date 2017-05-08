@@ -1,6 +1,6 @@
 ---
-title: NoSQL Node.js tutorial for Azure Cosmos DB | Microsoft Docs
-description: A NoSQL Node.js tutorial that creates a NoSQL database and console application using the DocumentDB Node.js SDK. DocumentDB is a NoSQL database for JSON.
+title: Node.js tutorial for the DocumentDB API for Azure Cosmos DB | Microsoft Docs
+description: A Node.js tutorial that creates a Cosmos DB with the DocumentDB API. 
 keywords: node.js tutorial, node database
 services: cosmosdb
 documentationcenter: node.js
@@ -18,7 +18,7 @@ ms.date: 12/25/2016
 ms.author: anhoh
 
 ---
-# NoSQL Node.js tutorial: DocumentDB Node.js console application
+# Node.js tutorial: DocumentDB Node.js console application
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)

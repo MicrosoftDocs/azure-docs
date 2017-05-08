@@ -1,6 +1,6 @@
 ---
-title: 'NoSQL tutorial: DocumentDB .NET SDK | Microsoft Docs'
-description: A NoSQL tutorial that creates an online database and C# console application using the DocumentDB .NET SDK. DocumentDB is a NoSQL database for JSON.
+title: 'Azure Cosmos DB: DocumentDB API getting started tutorial | Microsoft Docs'
+description: A tutorial that creates an online database and C# console application using the DocumentDB API.
 keywords: nosql tutorial, online database, c# console application
 services: cosmosdb
 documentationcenter: .net
@@ -18,7 +18,7 @@ ms.date: 03/19/2017
 ms.author: anhoh
 
 ---
-# NoSQL tutorial: Build an Azure Cosmos DB C# console application
+# Azure Cosmos DB: DocumentDB API getting started tutorial
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -29,7 +29,7 @@ ms.author: anhoh
 >  
 > 
 
-Welcome to the NoSQL tutorial for the Azure DocumentDB .NET SDK! After following this tutorial, you'll have a console application that creates and queries DocumentDB resources.
+Welcome to the Azure Cosmos DB DocumentDB API getting started tutorial! After following this tutorial, you'll have a console application that creates and queries DocumentDB resources.
 
 We'll cover:
 
@@ -92,7 +92,7 @@ First, add these references to the beginning of your C# application, in the Prog
     using Newtonsoft.Json;
 
 > [!IMPORTANT]
-> In order to complete this NoSQL tutorial, make sure you add the dependencies above.
+> In order to complete the tutorial, make sure you add the dependencies above.
 > 
 > 
 
@@ -522,9 +522,9 @@ You should see the output of your get started app. The output will show the resu
     Deleted Family Andersen.1
     End of demo, press any key to exit.
 
-Congratulations! You've completed this NoSQL tutorial and have a working C# console application!
+Congratulations! You've completed the tutorial and have a working C# console application!
 
-## <a id="GetSolution"></a> Get the complete NoSQL tutorial solution
+## <a id="GetSolution"></a> Get the complete tutorial solution
 If you didn't have time to complete the steps in this tutorial, or just want to download the code samples, you can get it from [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
 
 To build the GetStarted solution, you will need the following:
@@ -539,7 +539,7 @@ That's it, build it and you're on your way!
 
 
 ## Next steps
-* Want a more complex ASP.NET MVC NoSQL tutorial? See [Build a web application with ASP.NET MVC using Azure Cosmos DB](documentdb-dotnet-application.md).
+* Want a more complex ASP.NET MVC tutorial? See [Build a web application with ASP.NET MVC using Azure Cosmos DB](documentdb-dotnet-application.md).
 * Want to perform scale and performance testing with Azure Cosmos DB? See [Performance and Scale Testing with Azure Cosmos DB](documentdb-performance-testing.md)
 * Learn how to [monitor an Azure Cosmos DB account](documentdb-monitor-accounts.md).
 * Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).

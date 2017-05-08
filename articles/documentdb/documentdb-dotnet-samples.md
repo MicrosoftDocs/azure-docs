@@ -1,6 +1,6 @@
 ---
-title: .NET NoSQL example for DocumentDB | Microsoft Docs
-description: Find C# .NET NoSQL examples on github for common tasks in DocumentDB, including CRUD operations for JSON documents in NoSQL databases.
+title: 'Azure Cosmos DB: .NET examples for the DocumentDB API | Microsoft Docs'
+description: Find C# .NET examples on github for common tasks in DocumentDB, including CRUD operations.
 keywords: NoSQL example
 services: documentdb
 author: rnagpal
@@ -34,7 +34,7 @@ Latest sample solutions that perform CRUD operations and other common operations
 
 **Prerequisites**
 
-1. You need an Azure account to use these NoSQL examples:
+1. You need an Azure account to use these examples:
    * You can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
      * You can [activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
 2. You also need the [Microsoft.Azure.DocumentDB NuGet package](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). 
