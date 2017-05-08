@@ -14,7 +14,7 @@ ms.topic: article
 ms.date: 05/10/2017
 ---
 
-# Create a Azure Database for PostgreSQL server and configure a firewall rule using the Azure CLI
+# Create an Azure Database for PostgreSQL server and configure a firewall rule using the Azure CLI
 This sample CLI script creates an Azure Database for PostgreSQL server and configures a server-level firewall rule. Once the script has been successfully run, the PostgreSQL server can be accessed from all Azure services and the configured IP address.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -22,38 +22,32 @@ This sample CLI script creates an Azure Database for PostgreSQL server and confi
 ## Sample Script
 ```azurecli
 #!/bin/bash
-# Set an admin login and password for your server
-adminlogin=ServerAdmin
-password=ChangeYourAdminPassword1
-# The server name has to be unique in the system
-servername=server-$RANDOM
-# The ip address range that you want to allow to access your server
-startip=0.0.0.0
-endip=255.255.255.255
 
 # Create a resource group
-
 az group create \
---name myResourceGroup \
+--name myresourcegroup \
 --location westus
 
 # Create a PostgreSQL server in the resource group
+# Name of a server maps to DNS name and is thus required to be globally unique in Azure.
+# Substitute the <server_admin_password> with your own value.
 az postgres server create \
---name $servername \
---resource-group myResourceGroup \
+--name mypgserver-20170401 \
+--resource-group myresourcegroup \
 --location westus \
---admin-user $adminlogin \
---admin-password $password \
---performance-tier Standard \
---compute-units 100 \
+--admin-user mylogin \
+--admin-password <server_admin_password> \
+--performance-tier Basic \
+--compute-units 50 \
 
 # Configure a firewall rule for the server
+# The ip address range that you want to allow to access your server
 az postgres server firewall-rule create \
---resource-group myResourceGroup \
---server $servername \
+--resource-group myresourcegroup \
+--server mypgserver-20170401 \
 --name AllowIps \
---start-ip-address $startip \
---end-ip-address $endip
+--start-ip-address 0.0.0.0 \
+--end-ip-address 255.255.255.255
 
 # Default database ‘postgres’ gets created on the server.
 ```
@@ -61,7 +55,7 @@ az postgres server firewall-rule create \
 ## Clean up deployment
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 ```azurecli
-az group delete --name myResourceGroup
+az group delete --name myresourcegroup
 ```
 
 ## Next steps
