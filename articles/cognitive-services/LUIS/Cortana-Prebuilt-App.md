@@ -125,11 +125,11 @@ The pre-built personal assistant application can identify the following intents:
 |builtin.intent.weather.show_weather_progression|show local weather radar<br/>begin radar|
 |builtin.intent.none|how old are you<br/>open camera|
 
-# Prebuilt entities 
+## Prebuilt entities 
 
-The prebuilt personal assistant application can identify the following entities:
+Here are some examples of entities the prebuilt personal assistant application can identify:
 
-|Entity	|Example utterance |
+|Entity	|Example of entity in utterance |
 |-------|------------------|
 |builtin.alarm.alarm_state | turn `off` my wake up alarm	<br/> is my wake up alarm `on`	| 
 |builtin.alarm.duration |snooze for `10 minutes`	<br/> snooze alarm for `5 minutes`	|
@@ -139,336 +139,30 @@ The prebuilt personal assistant application can identify the following entities:
 |builtin.calendar.absolute_location | create an appointment for tomorrow at `123 main street`	<br/> the meeting will take place in `cincinnati` on the 5th of june	|
 |builtin.calendar.contact_name|put a marketing meeting on my calendar and be sure that `joe` is there <br/>i want to set up a lunch at il fornaio and invite `paul` |	
 |builtin.calendar.destination_calendar|add this to my `work` schedule	<br/>put this on my `personal` calendar	|
-|builtin.calendar.duration| set up an appointment for `an hour` at 6 tonight |	book a `2 hour` meeting with joe |	
+|builtin.calendar.duration| set up an appointment for `an hour` at 6 tonight <br/>	book a `2 hour` meeting with joe |	
+|builtin.calendar.end_date | create a calendar entry called vacation from tomorrow until `next monday` <br/>	block my time as busy until `monday, october 5th` |	
+|builtin.calendar.end_time | the meeting ends at `5:30 PM` <br/> schedule it from 11 to `noon`	|	
+|builtin.calendar.implicit_location | cancel the appointment at the dmv	<br/> change the location of miles' birthday to `poppy restaurant` |	
+|builtin.calendar.move_earlier_time | push the meeting forward `an hour` <br/> move the dentist's appointment up `30 minutes`		|
+|builtin.calendar.move_later_time | move my dentist appointment `30 minutes`	<br/> push the meeting out `an hour` |	
+|builtin.calendar.original_start_date | reschedule my appointment at the barber from 'tuesday' to wednesday	<br/> move my meeting with ken from `monday` to tuesday	|
+|builtin.calendar.original_start_time | reschedule my meeting from `2:00` to 3	<br/> change my dentist appointment from `3:30` to 4 |	
+|builtin.calendar.start_date | what time does my party start on `flag day` <br/> schedule lunch for the `friday after next` at noon	
+|builtin.calendar.start_time | i want to schedule it for `this morning`	<br/> i want to schedule it in the `morning` |	
+|builtin.calendar.title | `vet appointment`	 <br/> `dentist` tuesday |
+|builtin.communication.audio_device_type | make the call using `bluetooth`	<br/> call using my `headset` |	
+|builtin.communication.contact_name | text `bob jones`	<br/> | call `sarah`|
+|builtin.communication.destination_platform | call dave in `london`	<br/> call his `work line` |	
+|builtin.communication.from_relationship_name | show calls from my `daughter` <br/> read the email from `mom`	|	
+|builtin.communication.key | dial `star` <br/> 	press the `hash` key	|
+|builtin.communication.message | email carly to say `i'm running late` <br/> please text angus smith `good luck on your exam` |	
+|builtin.communication.message_category | new email marked for `follow up`	<br/> new email marked `high priority` |	
+|builtin.communication.message_type | send an `email`	<br/> read my `text` messages aloud	|
+|builtin.communication.phone_number | i want to dial `1-800-328-9459` <br/> 	call `555-555-5555` |	
+|builtin.communication.relationship_name | text my `husband` <br/>	email `family`|	
+|builtin.communication.slot_attribute | change the `recipient` <br/>	change the `text` |	
 
-<!--
-builtin.calendar.end_date
-create a calendar entry called vacation from tomorrow until next monday	
-{
-    "type": "builtin.calendar.end_date",
-    "entity": "next monday",
-    "resolution": {
-        "resolution_type": "builtin.datetime.date",
-        "date": "2015-10-19"
-    }
-}
-block my time as busy until monday, october 5th	
-{
-    "type": "builtin.calendar.end_date",
-    "entity": "monday, october 5th",
-    "resolution": {
-        "resolution_type": "builtin.datetime.date",
-        "date": "XXXX-10-05"
-    }
-}
-builtin.calendar.end_time
-the meeting ends at 5:30 PM	
-{
-    "type": "builtin.calendar.end_time",
-    "entity": "5:30 PM",
-    "resolution": {
-        "resolution_type": "builtin.datetime.time",
-        "time": "T17:30"
-    }
-}
-schedule it from 11 to noon	
-{
-    "type": "builtin.calendar.end_time",
-    "entity": "noon",
-    "resolution": {
-        "resolution_type": "builtin.datetime.time",
-        "time": "T12:00:00"
-    }
-}
-builtin.calendar.implicit_location
-cancel the appointment at the dmv	
-{
-    "type": "builtin.calendar.implicit_location",
-    "entity": "dmv"
-}
-change the location of miles' birthday to poppy restaurant	
-{
-    "type": "builtin.calendar.implicit_location",
-    "entity": "poppy restaurant"
-}
-builtin.calendar.move_earlier_time
-push the meeting forward an hour	
-{
-    "type": "builtin.calendar.move_earlier_time",
-    "entity": "an hour",
-    "resolution": {
-        "resolution_type": "builtin.datetime.duration",
-        "duration": "PT1H"
-    }
-}
-move the dentist's appointment up 30 minutes	
-{
-    "type": "builtin.calendar.move_earlier_time",
-    "entity": "30 minutes",
-    "resolution": {
-        "resolution_type": "builtin.datetime.duration",
-        "duration": "PT30M"
-    }
-}
-builtin.calendar.move_later_time
-move my dentist appointment 30 minutes	
-{
-    "type": "builtin.calendar.move_later_time",
-    "entity": "30 minutes",
-    "resolution": {
-        "resolution_type": "builtin.datetime.duration",
-        "duration": "PT30M"
-    }
-}
-push the meeting out an hour	
-{
-    "type": "builtin.calendar.move_later_time",
-    "entity": "an hour",
-    "resolution": {
-        "resolution_type": "builtin.datetime.duration",
-        "duration": "PT1H"
-    }
-}
-builtin.calendar.original_start_date
-reschedule my appointment at the barber from tuesday to wednesday	
-{
-    "type": "builtin.calendar.original_start_date",
-    "entity": "tuesday",
-    "resolution": {
-        "resolution_type": "builtin.datetime.date",
-        "date": "XXXX-WXX-2"
-    }
-}
-move my meeting with ken from monday to tuesday	
-{
-    "type": "builtin.calendar.original_start_date",
-    "entity": "monday",
-    "resolution": {
-        "resolution_type": "builtin.datetime.date",
-        "date": "XXXX-WXX-1"
-    }
-}
-builtin.calendar.original_start_time
-reschedule my meeting from 2:00 to 3	
-{
-    "type": "builtin.calendar.original_start_time",
-    "entity": "2:00",
-    "resolution": {
-        "resolution_type": "builtin.datetime.time",
-        "comment": "ampm",
-        "time": "T02:00"
-    }
-}
-change my dentist appointment from 3:30 to 4	
-{
-    "type": "builtin.calendar.original_start_time",
-    "entity": "3:30",
-    "resolution": {
-        "resolution_type": "builtin.datetime.time",
-        "comment": "ampm",
-        "time": "T03:30"
-    }
-}
-builtin.calendar.start_date
-what time does my party start on flag day?	
-{
-    "type": "builtin.calendar.start_date",
-    "entity": "flag day",
-    "resolution": {
-        "resolution_type": "builtin.datetime.date",
-        "date": "2015-10-17"
-    }
-}
-schedule lunch for the friday after next at noon	
-{
-    "type": "builtin.calendar.start_date",
-    "entity": "friday after next",
-    "resolution": {
-        "resolution_type": "builtin.datetime.date",
-        "date": "XXXX-WXX-5"
-    }
-}
-builtin.calendar.start_time
-i want to schedule it for this morning	
-{
-    "type": "builtin.calendar.start_time",
-    "entity": "this morning",
-    "resolution": {
-        "resolution_type": "builtin.datetime.time",
-        "time": "2015-10-17TMO"
-    }
-}
-i want to schedule it in the morning	
-{
-    "type": "builtin.calendar.start_time",
-    "entity": "morning",
-    "resolution": {
-        "resolution_type": "builtin.datetime.time",
-        "time": "TMO"
-    }
-}
-builtin.calendar.title
-vet appointment	
-{
-    "type": "builtin.calendar.title",
-    "entity": "vet appointment"
-}
-dentist tuesday	
-{
-    "type": "builtin.calendar.title",
-    "entity": "dentist"
-}
-builtin.communication.audio_device_type
-make the call using bluetooth	
-{
-    "type": "builtin.communication.audio_device_type",
-    "entity": "bluetooth"
-}
-call using my headset	
-{
-    "type": "builtin.communication.audio_device_type",
-    "entity": "headset"
-}
-builtin.communication.contact_name
-text bob jones	
-{
-    "type": "builtin.communication.contact_name",
-    "entity": "bob jones"
-}
-call sarah	
-{
-    "type": "builtin.communication.contact_name",
-    "entity": "sarah"
-}
-builtin.communication.destination_platform
-call dave in london	
-{
-    "type": "builtin.communication.destination_platform",
-    "entity": "london"
-}
-call his work line	
-{
-    "type": "builtin.communication.destination_platform",
-    "entity": "work line",
-    "resolution": {
-        "resolution_type": "metadataItems",
-        "metadataType": "CanonicalEntity",
-        "value": "work"
-    }
-}
-builtin.communication.from_relationship_name
-show calls from my daughter	
-{
-    "type": "builtin.communication.from_relationship_name",
-    "entity": "daughter"
-}
-read the email from mom	
-{
-    "type": "builtin.communication.from_relationship_name",
-    "entity": "mom"
-}
-builtin.communication.key
-dial star	
-{
-    "type": "builtin.communication.key",
-    "entity": "star"
-}
-press the hash key	
-{
-    "type": "builtin.communication.key",
-    "entity": "hash"
-}
-builtin.communication.message
-email carly to say i'm running late	
-{
-    "type": "builtin.communication.message",
-    "entity": "i'm running late"
-}
-please text angus smith good luck on your exam	
-{
-    "type": "builtin.communication.message",
-    "entity": "good luck on your exam"
-}
-builtin.communication.message_category
-new email marked for follow up	
-{
-    "type": "builtin.communication.message_category",
-    "entity": "follow up"
-}
-new email marked high priority	
-{
-    "type": "builtin.communication.message_category",
-    "entity": "high priority",
-    "resolution": {
-        "resolution_type": "metadataItems",
-        "metadataType": "CanonicalEntity",
-        "value": "High"
-    }
-}
-builtin.communication.message_type
-send an email	
-{
-    "type": "builtin.communication.message_type",
-    "entity": "email",
-    "resolution": {
-        "resolution_type": "metadataItems",
-        "metadataType": "CanonicalEntity",
-        "value": "email"
-    }
-}
-read my text messages aloud	
-{
-    "type": "builtin.communication.message_type",
-    "entity": "text",
-    "resolution": {
-        "resolution_type": "metadataItems",
-        "metadataType": "CanonicalEntity",
-        "value": "sms"
-    }
-}
-builtin.communication.phone_number
-i want to dial 1-800-328-9459	
-{
-    "type": "builtin.communication.phone_number",
-    "entity": "1-800-328-9459"
-}
-call 555-555-5555	
-{
-    "type": "builtin.communication.phone_number",
-    "entity": "555-555-5555"
-}
-builtin.communication.relationship_name
-text my husband	
-{
-    "type": "builtin.communication.relationship_name",
-    "entity": "husband",
-    "resolution": {
-        "resolution_type": "metadataItems",
-        "metadataType": "CanonicalEntity",
-        "value": "husband"
-    }
-}
-email family	
-{
-    "type": "builtin.communication.relationship_name",
-    "entity": "family"
-}
-builtin.communication.slot_attribute
-change the recipient	
-{
-    "type": "builtin.communication.slot_attribute",
-    "entity": "recipient",
-    "resolution": {
-        "resolution_type": "metadataItems",
-        "metadataType": "CanonicalEntity",
-        "value": "recipient"
-    }
-}
-change the text	
-{
-    "type": "builtin.communication.slot_attribute",
-    "entity": "text"
-}
+<!-- 
 builtin.communication.source_platform
 call him from skype	
 {
