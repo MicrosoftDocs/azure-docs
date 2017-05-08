@@ -23,6 +23,8 @@ In the past, an app developer who wanted to support both personal Microsoft acco
 ## Getting Started
 Choose your favorite platform from the following list to build an app using our open source libraries & frameworks.  Alternatively, you can use our OAuth 2.0 & OpenID Connect protocol documentation to send & receive protocol messages directly without using an auth library.
 
+<br />
+
 [!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
 
 ## What's New

@@ -116,6 +116,8 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-[Create highly available virtual machines tutorial](create-cli-complete.md)
+In this quick start, you’ve deployed a simple virtual machine, a network security group rule, and installed a web server. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
 
-[Explore VM deployment CLI samples](cli-samples.md)
+
+> [!div class="nextstepaction"]
+> [Azure Linux virtual machine tutorials](./tutorial-manage-vm.md)
