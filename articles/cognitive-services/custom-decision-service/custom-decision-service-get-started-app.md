@@ -17,7 +17,7 @@ This article explains how to get started with some basic options. The example he
 
 ## Registering a new app on the portal
 
-To start using Custom Decision Service for your application, the first step is to register it on our portal. Click the *My Portal* menu item in the top ribbon, highlighted in the image.
+To start using Custom Decision Service for your application, the first step is to register it on our portal. Click the **My Portal** menu item in the top ribbon, highlighted in the image.
 
 ![Custom Decision Service home page](./media/custom-decision-service-get-started-app/home.png)
 
@@ -25,9 +25,9 @@ If you are not already signed in, the portal prompts you to sign in with your [M
 
 ![Custom Decision Service portal](./media/custom-decision-service-get-started-app/portal.png)
 
-To register your application, click the "new app" button. A pop-up should open for registering a new app. Let us see how to register an application in the *pooled learning mode* that was described in the [Overview](custom-decision-service-overview.md#pooled-learning-mode). Choose an identifier for your application. Custom Decision Service expects a unique identifier for each application. If someone else has already taken this id, the system asks you to pick a different id.
+To register your application, click the **New App** button. A pop-up should open for registering a new app. Let us see how to register an application in the *pooled learning mode* that was described in the [Overview](custom-decision-service-overview.md#pooled-learning-mode). Choose an identifier for your application. Custom Decision Service expects a unique identifier for each application. If someone else has already taken this id, the system asks you to pick a different id.
 
-Specify an Action Set API: an RSS or Atom feed that communicates the available content for your application to Custom Decision Service. Enter a name for the feed, along with the URL from which it is served. You can also do it later by clicking "feeds" button, and then "new feed" button. An example for creating an RSS feed is described later.
+Specify an Action Set API: an RSS or Atom feed that communicates the available content for your application to Custom Decision Service. Enter a name for the feed, along with the URL from which it is served. You can also do it later by clicking **Feeds** button, and then **New feed** button. An example for creating an RSS feed is described later.
 
 If you want to register your application in the [application-specific learning mode](custom-decision-service-overview.md#application-specific-learning-mode), then click the check box *Advanced* in the bottom-left corner of the dialog. Enter a [connection string](../../storage/storage-configure-connection-string.md) for the Azure Storage account where your application data would be logged. For more information on how to create an Azure Storage account, see [here](../../storage/storage-create-storage-account.md).
 
