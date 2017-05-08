@@ -22,6 +22,8 @@ ms.author: riande
 
 Azure Functions integrates with Azure Logic Apps to enable you to build complex orchestrations with other Azure and third-party services. This topic demonstrates how to trigger a logic app from a social media feed and analyze the text with Azure Cognitive Services.
 
+<!-- TODO make Azure Cognitive Services a link -->
+
 This article shows you how to create a logic app in the Azure portal that:
 
 > [!div class="checklist"]
@@ -163,7 +165,7 @@ The text analytics connector detects the tweets sentiment.
 
   ![Choose an action window](media/functions-twitter-email/choose_action.png)
 
-* Select the **Detect Sentiment** action. The sentiment rating is often good, but it sometimes misinterprets the text.
+* Select the **Detect Sentiment** action. The sentiment rating is often accurate, but it sometimes misinterprets the text.
 
 ![Detect Sentiment](media/functions-twitter-email/detect_sent.png)
 
@@ -249,8 +251,9 @@ The following image shows the run details when the condition was not true, email
 
 If want to immediately test the **Send an email** function: 
 
-* Change the **INPUTS**  in the first step (**When a new tweet is posted) to a popular term, such as #football, #soccer, or #futbol. 
-* Processing popular terms consumes more resources than less popular terms, so you might want to change it back after you've verified email is working.
+* Change the **INPUTS**  in the first step (**When a new tweet is posted**) to a popular term, such as #football, #soccer, or #futbol.
+ 
+Processing popular terms consumes more resources than less popular terms. You might want to change your search term after you've verified email is working.
 
 The following image shows the run details when the condition was true, and email was sent.
 
