@@ -70,9 +70,6 @@ You can omit the "http", "https", "www" etc. prefixes when you specify your subs
 To add more domains, subdomains, or webpages, select the row below your last entry, specify your entry, followed by pressing **enter**. To remove an entry, click **delete** under Controls.
 
 
-![picture alt](addingsites.png "Expand the set of sites, subsites and single web pages that you want to search over.")
-
-
 ### Using standard Bing search
 You can use standard Bing search to get inspirations of sites, subsites or web-pages that you want to add to your custom search instance. On the right-hand side, you see the search preview. Select from the drop-down menu next to the search icon Bing and submit a query.
 
@@ -146,11 +143,11 @@ You can control the ranking via the tabs **Active**, **Blocked**, and **Pinned**
 
 ### Understanding quota
 * Per custom search instance, the maximum number of ranking adjustments as documented in the tabs **Active** and **Blocked** are capped to  400.
-* **Note**
+* Boosting and demoting count twice:
 	* Adding a site to the **Active** tab counts as one ranking adjustment.
 	* Boosting a site counts as two ranking adjustments: you whitelist a site first, then you boost it.
 	* Demoting works similar like boosting, that is, demoting a site counts as two ranking adjustments.
-	* Blocking a site counts as one ranking adjustment. 
+	* Blocking is similar as whitelsting, that is, blocking a site counts as one ranking adjustment. 
 * Further, the maximum number of pins per custom search instance is limited to 200.
 
 ## Publish search settings
