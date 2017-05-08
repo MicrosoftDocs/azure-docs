@@ -69,10 +69,14 @@ Follow these steps to create an Azure Database for PostgreSQL server:
 The Azure Database for PostgreSQL service creates a firewall at the server-level. This firewall prevents external applications and tools from connecting to the server and any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. 
 
 1.	After the deployment completes, click **All Resources** from the left-hand menu and type in the name **mypgserver-20170401** to search for your newly created server. Click the server name listed in the search result. The **Overview** page for your server opens and provides options for further configuration.
+ 
  ![Azure Database for PostgreSQL - Search for server ](./media/quickstart-create-database-portal/4-locate.png)
+
 2.	In the server blade, select **Connection Security**. 
 3.	Click in the text box under **Rule Name,** and add a new firewall rule to whitelist the IP range for connectivity. For this quick start, let's allow all IPs by typing in **Rule Name = AllowAllIps**, **Start IP = 0.0.0.0** and **End IP = 255.255.255.255** and then click **Save**. You can set a firewall rule that covers an IP range to be able to connect from your network.
+
  ![Azure Database for PostgreSQL - Create Firewall Rule](./media/quickstart-create-database-portal/5-firewall-2.png)
+
 4.	Click **Save** and then click the **X** to close the **Connections Security** page.
 
   > [!NOTE]
@@ -84,9 +88,12 @@ The Azure Database for PostgreSQL service creates a firewall at the server-level
 When we created our Azure Database for PostgreSQL server, the default **postgres** database also gets created. To connect to your database server, you need to provide host information and access credentials.
 
 1. From the left-hand menu in Azure portal, click **All resources** and search for the server you just created **mypgserver-20170401**.
+
   ![Azure Database for PostgreSQL - Search for server ](./media/quickstart-create-database-portal/4-locate.png)
-3. Click the server name **mypgserver-20170401**.
-4. Select the server's **Overview** page. Make a note of the **Server name** and **Server admin login name**.
+
+2. Click the server name **mypgserver-20170401**.
+3. Select the server's **Overview** page. Make a note of the **Server name** and **Server admin login name**.
+
  ![Azure Database for PostgreSQL - Server Admin Login](./media/quickstart-create-database-portal/6-server-name.png)
 
 ## Connect to PostgreSQL database using psql in Cloud Shell
