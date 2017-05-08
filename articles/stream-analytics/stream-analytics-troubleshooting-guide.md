@@ -1,6 +1,6 @@
 ---
-title:  Troubleshooting guide for Azure Stream Analytics | Microsoft Docs
-description: How to troubleshoot your Stream Analytics job.
+title: Troubleshooting guide for Azure Stream Analytics | Microsoft Docs
+description: How to troubleshoot your Stream Analytics job
 keywords: troubleshoot guide
 documentationcenter: ''
 services: stream-analytics
@@ -21,62 +21,72 @@ ms.author: jeffstok
 
 # Troubleshooting guide for Azure Stream Analytics
 
-Azure Stream Analytics troubleshooting can be a complex effort at first glance. So after working with customers we have created this guide to help streamline the process and take away the guesswork of what is happening with your inputs, outputs, queries, and functions.
+Azure Stream Analytics troubleshooting can appear to be a complex effort at first glance. After working with many users, we have created this guide to help streamline the process and remove the guesswork about your inputs, outputs, queries, and functions.
 
-## Azure Stream Analytics troubleshooting guide
+## Troubleshoot your Stream Analytics job
 
-For best results, follow the guide below to troubleshoot your Stream Analytics job.
+For best results in troubleshooting your Stream Analytics job, use the following guidelines:
 
-1.  Testing your connectivity
-    - Verify connectivity to inputs and outputs by using the “Test Connection” button for each of the inputs and outputs.
-2.  Examine your input data
-    - Use [Service Bus Explorer](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a) to connect to Azure Event Hub (if Event Hub input is used) to verify that input data is flowing into Event Hub.  
-    - Use the [Sample Data](stream-analytics-sample-data-input.md) button for each of the inputs and download the input sample data.
+1.  Test your connectivity:
+    - Verify connectivity to inputs and outputs by using the **Test Connection** button for each input and output.
+
+2.  Examine your input data:
+    - To verify that input data is flowing into Event Hub, use [Service Bus Explorer](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a) to connect to Azure Event Hub (if Event Hub input is used).  
+    - Use the [**Sample Data**](stream-analytics-sample-data-input.md) button for each input, and download the input sample data.
     - Inspect the sample data to understand the shape of the data: the schema and the [data types](https://msdn.microsoft.com/library/azure/dn835065.aspx).
-3.  Test your query
-    - On the Query tab, use the “Test” button to test the query and use the sample data downloaded to [test the query](stream-analytics-test-query.md). Examine any errors and attempt to correct them.
-    - If [**Timestamp By**](https://msdn.microsoft.com/library/azure/mt573293.aspx) is used, verify the events have timestamps greater than the [job start time](stream-analytics-out-of-order-and-late-events.md).
-4.  Query debugging
-    - Re-build the query progressively from simple select statement to more complex aggregates using steps. Using [WITH](https://msdn.microsoft.com/library/azure/dn835049.aspx) clauses to build up the query logic, step by step.
+
+3.  Test your query:
+    - On the **Query** tab, use the **Test** button to test the query, and use the downloaded sample data to [test the query](stream-analytics-test-query.md). Examine any errors and attempt to correct them.
+    - If you use [**Timestamp By**](https://msdn.microsoft.com/library/azure/mt573293.aspx), verify that the events have timestamps greater than the [job start time](stream-analytics-out-of-order-and-late-events.md).
+
+4.  Debug your query:
+    - Rebuild the query progressively from simple select statement to more complex aggregates by using steps. To build up the query logic step by step, use [WITH](https://msdn.microsoft.com/library/azure/dn835049.aspx) clauses.
     - Use [SELECT INTO](stream-analytics-select-into.md) to debug query steps.
-5.  Eliminate common pitfalls such as:
+
+5.  Eliminate common pitfalls, such as:
     - A [**WHERE**](https://msdn.microsoft.com/library/azure/dn835048.aspx) clause in the query filtered out all events, preventing any output from being generated.
-    - When using window functions, you need to wait for the duration of the window duration to see an output from the query.
-    - Timestamp for events is before the job start time and therefore events are being dropped.
-6.  Event Ordering
-    - If all the above steps worked fine, go to Settings blade and select ["Event Ordering."](stream-analytics-out-of-order-and-late-events.md) Verify this policy is configuration for what makes sense in your scenario. It should be noted that this policy is **not** applied when the “Test” button is used to test the query. This is a difference between testing in-browser versus running the job in production.
-7.  Debug using metrics
-    - If no output is obtained after the expected duration (based on the query), try the following:
-        - Look at ["Monitoring Metrics"](stream-analytics-monitoring.md) on the Monitor tab. The metrics here are delayed by a few minutes as they are aggregated values.
-            - If Input Events > 0, the job is able to read input data. If not, then:
-                - Look at the data source and see if it has valid data for this job using [Service Bus Explorer](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a) (if Event Hub is used as input)
-                - Check if the Data serialization format and data encoding are as expected.
-                - If the job is using an Event Hub, check if the body of the message is "Null."
-            - If Data Conversion Errors > 0 and climbing, the following may be true:
-                - The job may not be able to de-serialize the events.
-                - The event schema may not match the defined/expected schema of the events in the query.
-                - The datatypes of some of the fields in the Event may not match expectations.
-            - If Runtime Errors > 0, means that the job can receive the data but is generating errors while processing the query.
-                - Go to the [Audit Logs](../azure-resource-manager/resource-group-audit.md) and filter on “Failed” status to find these errors.
-            - If InputEvents > 0 and OutputEvents = 0, means one of the following:
+    - When you use window functions, wait for the entire window duration to see an output from the query.
+    - The timestamp for events precedes the job start time and, therefore, events are being dropped.
+
+6.  Use event ordering:
+    - If all the previous steps worked fine, go to the **Settings** blade and select [**Event Ordering**](stream-analytics-out-of-order-and-late-events.md). Verify that this policy is configured for what makes sense in your scenario. The policy is *not* applied when you use the **Test** button to test the query. This result is one difference between testing in-browser versus running the job in production.
+
+7.  Debug by using metrics:
+    - If you obtain no output after the expected duration (based on the query), try the following:
+        - Look at [**Monitoring Metrics**](stream-analytics-monitoring.md) on the **Monitor** tab. Because the values are aggregated, the metrics are delayed by a few minutes.
+            - If Input Events > 0, the job is able to read input data. If Input Events is not > 0, then:
+                - To see whether the data source has valid data, check it by using [Service Bus Explorer](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a). This check applies if the job is using Event Hub as input.
+                - Check to see whether the data serialization format and data encoding are as expected.
+                - If the job is using an Event Hub, check to see whether the body of the message is *Null*.
+            - If Data Conversion Errors > 0 and climbing, the following might be true:
+                - The job might not be able to de-serialize the events.
+                - The event schema might not match the defined or expected schema of the events in the query.
+                - The datatypes of some of the fields in the event might not match expectations.
+            - If Runtime Errors > 0, it means that the job can receive the data but is generating errors while processing the query.
+                - To find the errors, go to the [Audit Logs](../azure-resource-manager/resource-group-audit.md) and filter on *Failed* status.
+            - If InputEvents > 0 and OutputEvents = 0, it means that one of the following is true:
                 - Query processing resulted in zero output events.
-                - Events or its fields may be malformed, resulting in zero output after query processing.
-                - The job was unable to push data to the [output sink](stream-analytics-select-into.md) for connectivity/authentication reasons.
-        - In all the above-mentioned error cases, operations log messages explain additional details (including what is happening), except for the cases the query logic filtered out all events. If the processing of multiple events generates errors, Stream Analytics logs the first 3 error messages of the same type within 10 minutes to Operations logs and then suppress additional identical errors with a message that reads “Errors are happening too rapidly, these are being suppressed”.
-8. Debug using Audit and Diagnostic logs
-    - Use [Audit Logs](../azure-resource-manager/resource-group-audit.md) and filter to identify and debug errors.
+                - Events or its fields might be malformed, resulting in zero output after query processing.
+                - The job was unable to push data to the [output sink](stream-analytics-select-into.md) for connectivity or authentication reasons.
+        - In all the previously mentioned error cases, operations log messages explain additional details (including what is happening), except in cases where the query logic filtered out all events. If the processing of multiple events generates errors, Stream Analytics logs the first three error messages of the same type within 10 minutes to Operations logs. It then suppresses additional identical errors with a message that reads “Errors are happening too rapidly, these are being suppressed.”
+
+8. Debug by using audit and diagnostic logs:
+    - Use [Audit Logs](../azure-resource-manager/resource-group-audit.md), and filter to identify and debug errors.
     - Use [job diagnostic logs](stream-analytics-job-diagnostic-logs.md) to identify and debug errors.
-9. Examining outputs
-    - Once the job status is “Running”, depending on the duration stipulated in the query, the output can be seen in the sink data-source.
-    - When outputs going to a specific output type are not seen, redirect the output to different output type that is less complex (such as an Azure Blob) and check if the output can be seen there (using Storage Explorer.) Additionally, verify if throttling limits at the output are preventing data from being received.
-10. Data flow analysis with Job diagram metrics
-    - Use the [job diagram with metrics](stream-analytics-job-diagram-with-metrics.md) to analyze data flow and identify issues
-11. Open a support case.
-    - Finally, if all else fails, open a Microsoft support case using the SubscriptionID that contains your job.
+
+9. Examine the outputs:
+    - When the job status is *Running*, depending on the duration that's stipulated in the query, you can see the output in the sink data source.
+    - If you cannot see outputs that are going to a specific output type, redirect them to an output type that is less complex, such as an Azure Blob. By using Storage Explorer, check to see whether the output can be seen. Additionally, verify whether throttling limits at the output are preventing data from being received.
+
+10. Use data-flow analysis with job diagram metrics:
+    - To analyze data flow and identify issues, use the [job diagram with metrics](stream-analytics-job-diagram-with-metrics.md).
+
+11. Open a support case:
+    - Finally, if all else fails, open a Microsoft support case by using the SubscriptionID that contains your job.
 
 ## Get help
 
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 

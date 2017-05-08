@@ -1,6 +1,6 @@
 ---
-title:  Azure Stream Analytics - sampling inputs | Microsoft Docs
-description: How to pinpoint issues when troubleshooting Stream Analytics jobs.
+title:  Sampling inputs in Azure Stream Analytics | Microsoft Docs
+description: Pinpoint issues when you troubleshoot Stream Analytics jobs.
 keywords: troubleshoot input, input sampling
 documentationcenter: ''
 services: stream-analytics
@@ -18,43 +18,43 @@ ms.date: 04/20/2017
 ms.author: jeffstok
 
 ---
-# Azure Stream Analytics input stream sampling
+# Azure Stream Analytics input-stream sampling
 
-Azure Stream Analytics enables the sampling of input events supplied via a file for the purpose of testing of queries in the portal without needing to start or stop a job.
+By using Azure Stream Analytics, you can sample input events that come from a file and test queries in the portal without needing to start or stop a job.
 
 ## Testing your query
 
-Open the Query editor blade from the job details screen by clicking on the query in the “Query” lens. Or in our case the "< >" placeholder because there is no query yet.
+In the Stream Analytics job details pane, open the **Query editor** blade by clicking the query name under **Query**. (In our example scenario, because no query has been created yet, click the **< >** placeholder.)
 
-![stream analytics query editor](media/stream-analytics-sample-data-input/stream-analytics-query-editor.png)
+![The Stream Analytics query editor](media/stream-analytics-sample-data-input/stream-analytics-query-editor.png)
 
-You will be presented with the rich editor as before where you create your query. This blade has now been enhanced with a new pane on the left. This new pane shows the Inputs and Outputs used by the query, and those defined for this job.
+The rich editor blade for creating your query is displayed as it was in the previous release. Now the blade has been updated with a new left pane that shows the inputs and outputs that are used by the query and defined for this job.
 
-![stream analytics query editor highlight](media/stream-analytics-sample-data-input/stream-analytics-query-editor-highlight.png)
+![The Stream Analytics query editor inputs and outputs lists](media/stream-analytics-sample-data-input/stream-analytics-query-editor-highlight.png)
 
-There is also 1 additional Input and Output shown which I did not define. These come from the new query template that we start off with. These will change, or even disappear all together, as we edit the query. You can safely ignore them for now.
+Also shown are an additional input and output, which are not defined. They come from the new query template that you start with. They change, or even disappear altogether, as you edit the query. You can safely ignore them for now.
 
-To test with sample input data, right-click on any of your Inputs and choose to "Upload sample data from file."
+To test with sample input data, right-click any of your inputs, and then select **Upload sample data from file**.
 
-![stream analytics query editor upload sample data](media/stream-analytics-sample-data-input/stream-analytics-query-editor-upload.png)
+![The Stream Analytics query editor Upload sample data from file command](media/stream-analytics-sample-data-input/stream-analytics-query-editor-upload.png)
 
-Once the upload has completed you can then use the Test button to test this query against the sample data you have just provided.
+After the upload is complete, click **Test** to test this query against the sample data you have just provided.
 
-![stream analytics query editor test sample data](media/stream-analytics-sample-data-input/stream-analytics-query-editor-test.png)
+![The Stream Analytics query editor Test button](media/stream-analytics-sample-data-input/stream-analytics-query-editor-test.png)
 
-The output of your query is displayed in the browser, with a link to Download results should you wish to save the test output for later use. You can now easily and iteratively modify your query, and test repeatedly to see how the output changes.
+If you want to save the test output for later use, the output of your query is displayed in the browser with a link to the download results. You can now easily and iteratively modify your query and test it repeatedly to see how the output changes.
 
 ![Stream Analytics query editor sample output](media/stream-analytics-sample-data-input/stream-analytics-query-editor-samples-output.png)
 
-In the diagram above a 2nd output has been added, called **HighAvgTempOutput**.
+In the preceding image, a second output has been added, called **HighAvgTempOutput**.
 
-With multiple outputs used in a query you can see the results for both outputs separately and easily toggle between them.
+When you use multiple outputs in a query, you can see the results for each output separately and easily toggle between them.
 
-Once you are satisfied with the results shown in the browser, you can save your query, start your job, sit back and watch the magic of Stream Analytics happen for you.
+After you are satisfied with the results, you can save your query, start your job, sit back and watch the magic of Stream Analytics.
 
 ## Get help
 
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

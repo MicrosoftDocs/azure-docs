@@ -1,6 +1,7 @@
 ---
-title: Sign-in activity reports in the Azure Active Directory portal - preview | Microsoft Docs
-description: Introduction to sign-in activity reports in the Azure Active Directory portal - preview
+
+title: Sign-in activity reports in the Azure Active Directory portal | Microsoft Docs
+description: Introduction to sign-in activity reports in the Azure Active Directory portal 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 05/04/2017
 ms.author: markvi
 
 ---
-# Sign-in activity reports in the Azure Active Directory portal - preview
+# Sign-in activity reports in the Azure Active Directory portal
 
-With reporting in the Azure Active Directory [preview](active-directory-preview-explainer.md), you get all the information you need to determine how your environment is doing.
+With Azure Active Directory (Azure AD) reporting in the [Azure portal](https://portal.azure.com), you can get the information you need to determine how your environment is doing.
 
 The reporting architecture in Azure Active Directory consists of the following components:
 
@@ -40,7 +41,7 @@ With the information provided by the user sign-in report, you find answers to qu
 * How many users have users signed in over a week?
 * What’s the status of these sign-ins?
 
-Your first entry point to all sign-in activities data is **Sign-ins** in the Activity section of **Azure Active**. Directory.
+Your first entry point to all sign-in activities data is **Sign-ins** in the Activity section of **Azure Active**.
 
 
 ![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/61.png "Sign-in activity")

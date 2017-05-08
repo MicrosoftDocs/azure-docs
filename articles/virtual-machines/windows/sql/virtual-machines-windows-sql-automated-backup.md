@@ -1,4 +1,4 @@
----
+﻿---
 title: Automated Backup for SQL Server 2014 Azure Virtual Machines | Microsoft Docs
 description: Explains the Automated Backup feature for SQL Server 2014 VMs running in Azure. This article is specific to VMs using the Resource Manager.
 services: virtual-machines-windows
@@ -55,7 +55,7 @@ To use Automated Backup, consider the following prerequisites:
 
 **Azure PowerShell**:
 
-- [Install the latest Azure PowerShell commands](/powershell/azureps-cmdlets-docs) if you plan to configure Automated Backup with PowerShell.
+- [Install the latest Azure PowerShell commands](/powershell/azure/overview) if you plan to configure Automated Backup with PowerShell.
 
 > [!NOTE]
 > Automated Backup relies on the SQL Server IaaS Agent Extension. Current SQL virtual machine gallery images add this extension by default. For more information, see [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).
