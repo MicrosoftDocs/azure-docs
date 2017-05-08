@@ -33,7 +33,7 @@ Since Cloud Shell is built for interactive sessions, shells automatically termin
 |Text editors           |vim<br> nano<br> emacs       |
 |Source control         |git                    |
 |Build tools            |make<br> maven<br> npm<br> pip         |
-|Containers             |Kubectl<br> DC/OS CLI         |
+|Containers             |Docker<br> Kubectl<br> DC/OS CLI         |
 |Databases              |MySQL client<br> PostgreSql client<br> sqlcmd Utility      |
 |Other                  |iPython Client |
 
@@ -50,12 +50,12 @@ Since Cloud Shell is built for interactive sessions, shells automatically termin
 Cloud Shell securely and automatically authenticates account access for the Azure CLI 2.0.
 
 ## Azure Files persistence
-Since Cloud Shell is allocated on a per-request basis using a temporary machine, local files and machine state are not persisted.
+Since Cloud Shell is allocated on a per-request basis using a temporary machine, local files outside of $Home and machine state are not persisted across sessions.
 To persist files across sessions, Cloud Shell walks you through attaching an Azure file share on first launch.
 Once completed Cloud Shell will automatically attach your storage for all future sessions.
 
 [Learn more about attaching Azure file shares to Cloud Shell.](persisting-shell-storage.md).
 
 ## Next steps
-- [Get Started with Quickstart](quickstart.md) 
-- [Learn more about Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) 
+[Cloud Shell Quickstart](quickstart.md) 
+[Learn about Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) 

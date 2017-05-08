@@ -19,12 +19,12 @@ ms.author: juluk
 # Overview of Azure Cloud Shell (Preview)
 Azure Cloud Shell is an interactive, browser-accessible shell for managing Azure resources.
 
+![](media/startup.gif)
+
 ## Features
 ### Browser-based shell experience
 Cloud Shell enables access to a command-line experience built with Azure management tasks in mind. Leverage Cloud Shell to work untethered 
 from a local machine in a way only the cloud can provide.
-
-![](media/storage-create.png)
 
 ### Pre-configured Azure workstation
 Cloud Shell comes pre-installed with popular command-line tools and language support so you can work faster.
@@ -35,22 +35,25 @@ Cloud Shell comes pre-installed with popular command-line tools and language sup
 Cloud Shell securely authenticates automatically on each session for instant access to your resources through the Azure CLI 2.0.
 
 ### Connect your Azure File storage
-Cloud Shell machines are allocated on-demand, thus Cloud Shell requires an Azure file share to be attached to persist your $Home directory.
-On first launch Cloud Shell asks to create a storage account and file share for you, this is a one-time step and will be automatically 
-attached on all sessions. 
+Cloud Shell machines are provided on-demand and as a result require an Azure file share to be mounted to persist your $Home directory.
+On first launch Cloud Shell prompts to create a resource group, storage account, and file share for you. This is a one-time step and will be automatically attached on all sessions. 
 
-![](media/storage-create.png)
+![](media/storage-prompt.png)
 
 An LRS storage account is created on your behalf with an Azure file share containing a default 5-GB disk image.
 This disk image is used to sync and persist your $Home directory. Regular storage costs apply.
+Three resources will be created on your behalf:
+1. Resource Group named: `cloud-shell-storage-<region>`
+2. Storage Account named: `cs-uniqueGuid`
+3. File Share named: `cs-<user>-<domain>-com-uniqueGuid`
 
 [Explore more about how Cloud Shell persists files] (persisting-shell-storage.md).
 
 ## Concepts
 * Cloud Shell runs on a temporary machine provided on a per-session, per-user basis
-* Cloud Shell times out and recycles after 10 minutes without interactive activity
+* Cloud Shell times out after 10 minutes without interactive activity
 * Cloud Shell can only be accessed with a file share attached
-* Cloud Shells are assigned one machine per user account
+* Cloud Shell is assigned one machine per user account
 * Permissions are set as a regular Linux user
 
 [Learn more about all Cloud Shell features.](features.md)
@@ -60,10 +63,10 @@ This disk image is used to sync and persist your $Home directory. Regular storag
 * Simultaneously manage resources via Azure portal and Azure CLI 2.0
 * Test-drive Azure CLI 2.0
 
-[Try out all these examples at the Cloud Shell quickstart](quickstart.md).
+[Try out all these examples at the Cloud Shell quickstart.](quickstart.md)
 
 ## Pricing
-The machine hosting Cloud Shell is free, with a pre-requisite of 5-GB of Azure File storage. 
+The machine hosting Cloud Shell is free, with a pre-requisite of a mounted Azure file share to persist the user $Home directory. 
 Regular storage costs apply.
 
 ## Supported browsers

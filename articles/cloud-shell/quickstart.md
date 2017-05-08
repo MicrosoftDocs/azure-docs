@@ -21,22 +21,20 @@ ms.author: juluk
 This document details how to use the Azure Cloud Shell in the [Azure portal](https://ms.portal.azure.com/).
 
 ## Start Cloud Shell
-1. Select the **Cloud Shell** icon in the top pane of the Azure portal <br>
+1. Launch **Cloud Shell** from the top navigation of the Azure portal <br>
 ![](media/shell-icon.png)
-2. Select a subscription to create a storage account and Azure file share <br>
-![](media/storage-create.png)
+2. Select a subscription to create a storage account and Azure file share with <br>
+![](media/storage-prompt.png)
 3. Select "Create storage"
 
 > [!TIP]
-> You are automatically authenticated for Azure CLI 2.0 every sesssion.
+> You are automatically authenticated for Azure CLI 2.0 in every sesssion.
 
 ### Set your subscription
 1. List subscriptions you have access to: <br>
 `az account list`
-2. Set your Cloud Shell to your preferred subscription: <br>
+2. Set your preferred subscription: <br>
 `az account set --subscription my-subscription-name`
-
-![](media/storage-create.png)
 
 > [!TIP]
 > Your subscription will be remembered for future sessions using `azureProfile.json` held in your $Home directory.
@@ -50,9 +48,7 @@ Create an Ubuntu VM in your new resource group. The Azure CLI 2.0 will create ss
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS`
 
 > [!NOTE]
-> The public and private keys used to authenticate your VM are placed in `/User/.ssh/id_rsa` and `/User/.ssh/id_rsa.pub` of Cloud Shell. This > is persisted in your attached Azure file share's 5-GB image. 
-
-![](media/storage-create.png)
+> The public and private keys used to authenticate your VM are placed in `/User/.ssh/id_rsa` and `/User/.ssh/id_rsa.pub` by Azure CLI 2.0 by default. Your .ssh folder is persisted in your attached Azure file share's 5-GB image.
 
 Your username on this VM will be your username used in Cloud Shell ($User@Azure:).
 
@@ -70,6 +66,6 @@ Delete your resource group and any resources within it: <br>
 Run `az group delete -n MyRG`
 
 ## Next Steps
-- [Learn more about persisting storage on Cloud Shell](persisting-shell-storage.md) 
-- [Learn more about Azure CLI 2.0] (https://docs.microsoft.com/cli/azure/) 
-- [Learn more about Azure File Storage] (https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) 
+[Learn about persisting storage on Cloud Shell](persisting-shell-storage.md) 
+[Learn about Azure CLI 2.0] (https://docs.microsoft.com/cli/azure/) 
+[Learn about Azure File Storage] (https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) 
