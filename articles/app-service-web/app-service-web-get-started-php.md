@@ -94,7 +94,7 @@ Create a "FREE" [App Service plan](../app-service/azure-web-sites-web-hosting-pl
 
 <!--
  An App Service plan represents the collection of physical resources used to ..
--- >
+-->
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 The following example creates an App Service plan named `quickStartPlan` using the **Free** pricing tier.

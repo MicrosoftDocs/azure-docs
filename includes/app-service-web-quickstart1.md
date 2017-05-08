@@ -8,8 +8,7 @@ Create a resource group with the [az group create](/cli/azure/group#create) comm
 az group create --name myResourceGroup --location westeurope
 ```
 
-To see the available locations, use the `az appservice list-locations` Azure CLI command. You generally create resources in a region near you.
-
+To see the available locations, use the `az appservice list-locations` command. You generally create resources in a region near you.
 
 ## Create an Azure App Service plan
 

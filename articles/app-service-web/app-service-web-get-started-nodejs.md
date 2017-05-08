@@ -91,7 +91,7 @@ az group create --name myResourceGroup --location westeurope
 
 Create a "FREE" [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) with the [az appservice plan create](/cli/azure/appservice/plan#create) command.
 
-<!--  An App Service plan represents the collection of physical resources used to ..  -- >
+<!--  An App Service plan represents the collection of physical resources used to ..  -->
 [!INCLUDE [cli-samples-clea](../../includes/cli-samples-clean-up.md)]
 
 The following example creates an App Service plan named `quickStartPlan` using the **Free** pricing tier.
@@ -148,7 +148,7 @@ When the Web App has been created, the Azure CLI shows information similar to th
     "serverFarmId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
     "state": "Running",
     "type": "Microsoft.Web/sites",
-}
+}```
 
 Browse to the site to see your newly created Web App.
 
