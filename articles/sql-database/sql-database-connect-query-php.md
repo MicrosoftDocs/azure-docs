@@ -14,7 +14,7 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 05/07/2017
 ms.author: meetb;carlrab;sstein
 
 ---
@@ -189,13 +189,12 @@ else{
 ```
 
 ## Next steps
-
-- More information on the [Microsoft PHP Driver for SQL Server](https://github.com/Microsoft/msphpsql/).
-- [File issues/ask questions](https://github.com/Microsoft/msphpsql/issues).
-- To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md)
-- To connect and query using Visual Studio, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
-- To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
-- To connect and query using Node.js, see [Connect and query with Node.js](sql-database-connect-query-nodejs.md).
-- To connect and query using Java, see [Connect and query with Java](sql-database-connect-query-java.md).
-- To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
-- To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).
+- [Design your first Azure SQL database](sql-database-design-first-database.md)
+- [Microsoft PHP Drivers for SQL Server](https://github.com/Microsoft/msphpsql/)
+- [File issues/ask questions](https://github.com/Microsoft/msphpsql/issues)
+- [Connect and query with SSMS](sql-database-connect-query-ssms.md)
+- [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md)
+- [Connect and query with Node.js](sql-database-connect-query-nodejs.md).
+- [Connect and query with Java](sql-database-connect-query-java.md).
+- [Connect and query with Python](sql-database-connect-query-python.md).
+- [Connect and query with Ruby](sql-database-connect-query-ruby.md).
