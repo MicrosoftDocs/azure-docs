@@ -1,3 +1,17 @@
+---
+title: Bing Custom Search Quickstart | Microsoft Docs
+description: Shows how to create a custom search service in less than ten minutes
+services: cognitive-services
+author: TobiasHassmann
+manager: carolz
+
+ms.service: cognitive-services
+ms.technology: bing-web-search
+ms.topic: article
+ms.date: 05/09/2017
+ms.author: tobih
+---
+
 # Bing Custom Search - Free Preview
 
 Bing Custom Search empowers businesses of any size, hobbyists, developers, and entrepreneurs  to create tailored search experiences for intents and topics that they really care about. The core technology works in three steps: 
@@ -7,7 +21,8 @@ Bing Custom Search empowers businesses of any size, hobbyists, developers, and e
 3. Integrate Your Search into your endpoint application of choice.
 
 
-![picture alt](BCS-Overview.png "How Bing Custom Search works.")
+![picture alt](bcs-overview.png "How Bing Custom Search works.")
+
 
 ## Use cases
 The most common custom search solutions supported by Bing Custom Search are building site search and topical search solutions. All solutions are retrievable via Bing Web Search API. Bing Web Search API returns a JSON file with the custom results, which can be integrated into many search endpoints. For example, internal websites, public websites, blogs, apps, etc. There are unlimited integration scenarios and end-user entry points for your custom search solutions.
@@ -22,3 +37,8 @@ Upon sign-up, you are granted a free Azure subscription key.
 ## Needs beyond free trial quota
 Bing Custom Search is in free preview. Check the pricing overview for further information on currently available features and quota.
 If your search needs go beyond the quota of Bing Custom Search Free Preview, email bingcustomsearch@microsoft.com
+
+## Next Steps
+1. Learn more about potential application areas
+2. Create a custom search service
+3. Retrieve custom search results programmatically from Bing Web Search API
