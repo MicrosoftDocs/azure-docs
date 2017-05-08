@@ -78,7 +78,7 @@ az login
 ```
 
 <!-- ## Configure a Deployment User -->
-[!INCLUDE [login-to-azure](../../includes/configure-deployment-user.md)] 
+[!INCLUDE [login-to-azure](../../includes/configure-deployment-user.md)]
 
 ## Create a resource group
 
@@ -92,7 +92,7 @@ az group create --name myResourceGroup --location westeurope
 
 Create a "FREE" [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) with the [az appservice plan create](/cli/azure/appservice/plan#create) command.
 
-<!--  
+<!--
  An App Service plan represents the collection of physical resources used to ..
 -- >
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
@@ -118,7 +118,7 @@ When the App Service Plan has been created, the Azure CLI shows information simi
     "status": "Ready",
     "type": "Microsoft.Web/serverfarms"
 }
-``` 
+```
 
 ## Create a web app
 
@@ -162,7 +162,7 @@ http://<app_name>.azurewebsites.net
 
 ![app-service-web-service-created](media/app-service-web-get-started-php/app-service-web-service-created.png)
 
-We’ve now created an empty new Web App in Azure. 
+We’ve now created an empty new Web App in Azure.
 
 ## Configure local git deployment
 

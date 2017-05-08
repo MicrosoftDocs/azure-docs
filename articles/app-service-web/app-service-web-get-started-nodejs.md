@@ -1,6 +1,6 @@
 ---
 title: Create a Node.js Application on Azure Web App | Microsoft Docs
-description: Deploy your first Node.js Hello World in App Service Web App in minutes. 
+description: Deploy your first Node.js Hello World in App Service Web App in minutes.
 services: app-service\web
 documentationcenter: ''
 author: syntaxc4
@@ -77,7 +77,7 @@ az login
 ```
 
 <!-- ## Configure a Deployment User -->
-[!INCLUDE [login-to-azure](../../includes/configure-deployment-user.md)] 
+[!INCLUDE [login-to-azure](../../includes/configure-deployment-user.md)]
 
 ## Create a resource group
 
@@ -158,7 +158,7 @@ http://<app_name>.azurewebsites.net
 
 ![app-service-web-service-created](media/app-service-web-get-started-nodejs-poc/app-service-web-service-created.png)
 
-We’ve now created an empty new Web App in Azure. 
+We’ve now created an empty new Web App in Azure.
 
 ## Configure local Git deployment
 

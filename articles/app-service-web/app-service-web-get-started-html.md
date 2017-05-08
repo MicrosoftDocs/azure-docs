@@ -19,8 +19,7 @@ ms.author: riande
 ---
 # Create a static HTML web app in Azure in five minutes
 <!-- 
-[!INCLUDE [login-to-azure](../../includes/login-to-azure.md)] 
-[!INCLUDE [configure-deployment-user](../../includes/configure-deployment-user.md)] 
+
 [!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
 To see what possible values you can use for `--location`, use the `az appservice list-locations` Azure CLI command.
@@ -37,6 +36,8 @@ Before creating this sample, download and install the following:
 - [Git](https://git-scm.com/)
 - [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## Download the sample
 
 In a terminal window, clone the sample app repository to your local machine:
@@ -50,6 +51,9 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 Navigate to the directory that contains the sample HTML. Open the *index.html* file in your browser.
 
 ![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser.png)
+
+[!INCLUDE [login-to-azure](../../includes/login-to-azure.md)] 
+[!INCLUDE [configure-deployment-user](../../includes/configure-deployment-user.md)] 
 
 [!INCLUDE [app-service-web-quickstart1](../../includes/app-service-web-quickstart1.md)] 
 
