@@ -40,11 +40,10 @@ The following steps restore the sample server to a point in time:
 4. Fill out the Restore form with the required information:
 
    ![Azure Database for PostgreSQL - Restore information ](./media/postgresql-howto-restore-server-portal/3_restore.png)
-
-   - **Restore point:** Using the Date calendar and time picker, select a point-in-time to restore to. The time specified is in UTC, so you likely need to convert the local time zone into UTC.
-   - **Restore to a new server:** Provide a new server name to restore the existing server into. The name is used for DNS, and therefore must be globally unique in Azure.
-   - **Location:** (inherited) The region choice automatically populates with the source server region, and cannot be changed here.
-   - **Pricing tier:** (inherited) The pricing tier choice automatically populates with the same pricing tier as the source server, and cannot be changed here. 
+  - **Restore point**: Select a point-in-time that occurs before the server was changed
+  - **Target server**: Provide a new server name you want to restore to
+  - **Location**: You cannot select the region, by default it is same as the source server
+  - **Pricing tier**: You cannot change this value when restoring a server. It is same as the source server. 
 
 5. Click **OK** to restore the server to restore to a point in time. 
 
