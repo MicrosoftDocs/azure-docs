@@ -4,7 +4,7 @@ description: This article helps you to get started with monitoring capabilities 
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: ''
 
 ms.assetid: 3bd5b122-1695-495f-ad9a-7c2a4cd1c808
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 05/08/2017
 ms.author: yurid
 
 ---
@@ -24,18 +24,17 @@ This article helps you use the monitoring capabilities in Azure Security Center 
 We often think of monitoring as watching and waiting for an event to occur so that we can react to the situation. Security monitoring refers to having a proactive strategy that audits your resources to identify systems that do not meet organizational standards or best practices.
 
 ## Monitoring security health
-After you enable [security policies](security-center-policies.md) for a subscription’s resources, Security Center analyzes the security of your resources to identify potential vulnerabilities. Information about your network configuration is available instantly. It may take an hour or more for information about virtual machine configuration, such as security update status and operating system configuration, to become available. You can view the security state of your resources and any issues in the **Resource Security Health** blade. You can also view a list of those issues on the **Recommendations** blade.
+After you enable [security policies](security-center-policies.md) for a subscription’s resources, Security Center analyzes the security of your resources to identify potential vulnerabilities. Information about your network configuration is available instantly. It may take an hour or more for information about virtual machine configuration, such as security update status and operating system configuration, to become available. You can view the security state of your resources and any issues in the **Prevention** section. You can also view a list of those issues on the **Recommendations** tile.
 
 For more information about how to apply recommendations, read [Implementing security recommendations in Azure Security Center](security-center-recommendations.md).
 
-On the **Resource security health** tile, you can monitor the security state of your resources. In the following example, you can see that a number of issues have high and medium severity and require attention. The security policies that are enabled will impact the types of controls that are monitored.
+Under the **Prevention** section, you can monitor the security state of your resources. In the following example, you can see that in each resource's tile (Compute, Networking, Storage & data, and Application) has the total number of issues that were identified.
 
-![Resources security health tile](./media/security-center-monitoring/security-center-monitoring-fig1-new001-2017.png)
+![Resources security health tile](./media/security-center-monitoring/security-center-monitoring-fig1-newUI-2017.png)
 
-If Security Center identifies a vulnerability that needs to be addressed, such as a virtual machine that has missing security updates or a subnet without a [network security group](/virtual-network/virtual-networks-nsg.md), it will be listed here.
 
 ### Monitor compute
-When you click **Compute** in the **Resource security health** tile, the **Compute** blade that opens shows three tabs:
+When you click **Compute** tile, the **Compute** blade that opens shows three tabs:
 
 - **Overview**: monitoring and virtual machine recommendations.
 - **Virtual Machines**: list all all virtual machines and its current security state.
@@ -115,7 +114,7 @@ To see a more prescriptive explanation about this recommendation, click **Update
 ![Cloud services recommendations](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 
 ### Monitor virtual networks
-When you click **Networking** in the **Resources security health** tile, the **Networking** blade opens with more details as shown in the following screenshot:
+When you click **Networking** tile, the **Networking** blade opens with more details as shown in the following screenshot:
 
 ![Networking blade](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
@@ -166,11 +165,11 @@ In this topology view, the first level has [virtual networks](../virtual-network
 
 The bottom part of this blade has the recommendations for this virtual machine, which is similar to what is described previously. You can click a recommendation to learn more or apply the needed security control or configuration.
 
-### Monitor data
+### Monitor Storage & data
 
-When you click **SQL & Data** in the **Resources security health** tile, the **Data Resources** blade opens with recommendations for SQL and Storage. It also has [recommendations](security-center-sql-service-recommendations.md) for the general health state of the database. For more information about storage encryption, read [Enable encryption for Azure storage account in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
+When you click **Storage & data** in the **Prevention** section, the **Data Resources** blade opens with recommendations for SQL and Storage. It also has [recommendations](security-center-sql-service-recommendations.md) for the general health state of the database. For more information about storage encryption, read [Enable encryption for Azure storage account in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
 
-![Data Resources](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
+![Data Resources](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
 
 Under **SQL Recommendations**, You can click any recommendation and get more details about further action to resolve an issue. The following example shows the expansion of the **Database Auditing & Threat detection on SQL databases** recommendation.
 
