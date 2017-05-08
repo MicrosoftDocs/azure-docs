@@ -23,7 +23,7 @@ To step through this how-to guide, you need:
 
 Follow these steps to export and import your PostgreSQL database.
 
-## Create a file using pg_dump that contains the data to be loaded
+## Create a script file using pg_dump that contains the data to be loaded
 To export your existing PostgreSQL database on-prem or in a VM to a sql script file, run the following command:
 ```bash
 pg_dump –-host=<host> --username=<name> --dbname=<database name> --file=<database>.sql
@@ -33,7 +33,7 @@ For example, if you have a local server and a database called `testdb` in it
 pg_dump --host=localhost --username=masterlogin --dbname=testdb --file=testdb.sql
 ```
 
-## Create a new database and load the data on target Azure PostgreSQL server
+## Import the data on target Azure Database for PostrgeSQL
 You can use the psql command line and the -d, --dbname parameter to import the data into Azure Database for PostrgeSQL we created and load data from the sql file.
 ```bash
 psql --file=<database>.sql --host=<server name> --port=5432 --username=<user@servername> --dbname=<target database name>
