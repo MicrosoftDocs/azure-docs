@@ -21,19 +21,19 @@ ms.author: juluk
 This document details how to use the Azure Cloud Shell in the [Azure portal](https://ms.portal.azure.com/).
 
 ## Start Cloud Shell
-1. Select the **Cloud Shell** icon in the top pane of the Azure portal <br>
+1. Launch **Cloud Shell** from the top navigation of the Azure portal <br>
 ![](media/shell-icon.png)
-2. Select a subscription to create a storage account and Azure file share <br>
+2. Select a subscription to create a storage account and Azure file share with <br>
 ![](media/storage-prompt.png)
 3. Select "Create storage"
 
 > [!TIP]
-> You are automatically authenticated for Azure CLI 2.0 every sesssion.
+> You are automatically authenticated for Azure CLI 2.0 in every sesssion.
 
 ### Set your subscription
 1. List subscriptions you have access to: <br>
 `az account list`
-2. Set your Cloud Shell to your preferred subscription: <br>
+2. Set your preferred subscription: <br>
 `az account set --subscription my-subscription-name`
 
 > [!TIP]
