@@ -106,13 +106,13 @@ In order to allow users to log in using Salesforce, you need to define Salesforc
             <Key Id="SamlMessageSigning" StorageReferenceId="ContosoIdpSamlCert "/>
           </CryptographicKeys>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="userId" PartnerClaimType="userId"/>
-            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="SAML Idp" />
+            <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="userId"/>
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name"/>
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name"/>
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email"/>
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name"/>
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="externalIdp"/>
+            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="SAMLIdp" />
           </OutputClaims>
           <OutputClaimsTransformations>
             <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName"/>
