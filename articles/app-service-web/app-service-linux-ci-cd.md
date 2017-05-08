@@ -32,7 +32,7 @@ Log in to the Azure portal at http://portal.azure.com
 
 In the **[Azure portal](https://portal.azure.com/)**, click the **App Service** option on the left of the page.
 
-Click the name of your app to which you want to configure Docker Hub continuous deployment for
+Click on the name of your app that you want to configure Docker Hub continuous deployment for.
 
 In the **App settings**, add an app setting called `DOCKER_ENABLE_CI` with the value `true`.
 
@@ -57,7 +57,7 @@ When the image gets updated, the web app get updated automatically with the new 
 
 ## Next steps
 * [What is Azure Web App on Linux?](./app-service-linux-intro.md)
-* [Creating Apps in Azure Web App on Linux](./app-service-linux-how-to-create-a-web-app.md)
+* [Creating Apps in Azure Web App on Linux](./app-service-linux-how-to-create-web-app.md)
 * [Using PM2 Configuration for Node.js in Azure Web App on Linux](app-service-linux-using-nodejs-pm2.md)
 * [Using .NET Core in Azure Web App on Linux](app-service-linux-using-dotnetcore.md)
 * [Using Ruby in Azure Web App on Linux](app-service-linux-ruby-get-started.md)

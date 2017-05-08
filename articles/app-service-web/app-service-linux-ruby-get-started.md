@@ -175,7 +175,7 @@ In this tutorial, we use Git to deploy the local Ruby application to Azure.
 ## Next steps
 For more information regarding Azure App Service Web App on Linux, see the following links. You can also post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Creating Web Apps in App Service on Linux](app-service-linux-how-to-create-a-web-app.md)
+* [Creating Web Apps in App Service on Linux](app-service-linux-how-to-create-web-app.md)
 * [How to use a custom Docker image for App Service on Linux](app-service-linux-using-custom-docker-image.md)
 * [Using PM2 Configuration for Node.js in Web Apps on Linux](app-service-linux-using-nodejs-pm2.md)
 * [Using .NET Core in Azure App Service Web Apps on Linux](app-service-linux-using-dotnetcore.md)

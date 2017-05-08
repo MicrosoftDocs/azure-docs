@@ -41,6 +41,6 @@ This loads the .Net Core image and starts your web app. You can check that the s
 
 ## Next steps
 * [What is Azure Web App on Linux?](app-service-linux-intro.md)
-* [Creating Web Apps in Azure Web App on Linux](./app-service-linux-how-to-create-a-web-app.md)
+* [Creating Web Apps in Azure Web App on Linux](./app-service-linux-how-to-create-web-app.md)
 * [Azure Web App Cross Platform CLI](app-service-web-app-azure-resource-manager-xplat-cli.md)
 * [Azure App Service Web App on Linux FAQ](app-service-linux-faq.md)
