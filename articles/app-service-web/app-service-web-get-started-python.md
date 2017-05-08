@@ -103,7 +103,7 @@ az group create --name myResourceGroup --location westeurope
 
 ## Create an Azure App Service
 
-Create a Linux-based App Service Plan with the [az appservice plan create](/cli/azure/appservice/plan#create) command.
+Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#create) command.
 
 > [!NOTE]
 > An App Service plan represents the collection of physical resources used to host your apps. All applications assigned to an App Service plan share the resources defined by it allowing you to save cost when hosting multiple apps.
@@ -115,7 +115,7 @@ Create a Linux-based App Service Plan with the [az appservice plan create](/cli/
 > * SKU (Free, Shared, Basic, Standard, Premium)
 >
 
-The following example creates an App Service Plan on Linux Workers named `quickStartPlan` using the **FREE** pricing tier.
+The following example creates an App Service Plan named `quickStartPlan` using the **FREE** pricing tier.
 
 ```azurecli
 az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
@@ -286,7 +286,7 @@ http://<app_name>.azurewebsites.net
 
 This time, the page that displays the Hello World message is running using our Python code running as an Azure App Service web app.
 
-![]()
+![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
 ## Updating and Deploying the Code
 
@@ -305,7 +305,7 @@ git push azure master
 
 Once deployment has completed, switch back to the browser window that opened in the Browse to the app step, and hit refresh.
 
-![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
+![hello-azure-in-browser](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
 ## Manage your new Azure web app
 
