@@ -12,7 +12,7 @@ ms.date: 04/17/2017
 ms.author: juliako;
 
 ---
-# Video Indexer Concepts
+# Video Indexer concepts
  
 This topic describes some concepts of the Video Indexer service.
  	
