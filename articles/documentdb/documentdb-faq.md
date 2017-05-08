@@ -243,7 +243,7 @@ We commit the data durably in local region and push the data to other regions im
 ### Can the request consistency be changed?
 Yes, by providing the value for TableConsistencyLevel key in the app.config file. Theses are the possible values - Session|Eventual|Strong|Bounded Staleness|ConsistentPrefix. This is documented in the [consistency levels](documentdb-consistency-levels.md) article. 
 
-# Indexing
+## Indexing
 ### Does the Table API (preview) index all attributes of entities by default?
 Yes, by default all attributes of the entity are indexed. The indexing details are documented in the [Azure Cosmos DB: Indexing policies](documentdb-indexing-policies.md) article. 
 
@@ -320,6 +320,16 @@ Cosmos DB will set a default throughput for your container if you do not provide
 Cosmos DB provides guarantees for performance, latency with upper bounds on operation. This is possible when engine can enforce governance on tenants. Setting TableThroughput is basically ensuring you get guaranteed throughput, latency as now platform will reserve this capacity and guarantee operation success.  
 The specification of throughput also allows you to elastically change it to leverage the seasonality of your application and meet the throughput needs and save costs.
 
+### Azure Storage SDK has been very cheap for me as I only pay to store the data, and I rarely query. Cosmos DB’s new offering seems to be charging me even though I have not performed single transaction or stored anything. What's going on here?
+
+Cosmos DB has been designed to be a globally distributed, SLA based system with guarantees for availability, latency, and throughput. When you reserve throughput in Cosmos DB – it is guaranteed unlike other systems. Cosmos DB also provides additional capabilities which customers have been asking for long time – like secondary indices, global distribution, etc. During the preview period we provide the throughput optimized model and in the long run we plan to provide a storage optimized model to meet our customer needs.  
+
+### I never get “quota” full (indicating a partition is full) when I keep ingesting data into Azure Table storage. With the Table API, there seems to be an issue around 8-10 GB of data that I get this error. Is this offering limiting me and forcing me to change my present application?
+
+Cosmos DB is SLA based system which provides unlimited scale with guarantees for latency, throughput, availability, consistency. To ensure you get guaranteed premium performance – you need to ensure that data size, index are manageable and scalable. The 10 GB limit on the number of entities per partition key is to ensure we provide great lookup, query performance. To ensure your application scales well even for Azure Storage we request you not to create a hot partition by storing all information for one partition and querying it. The only thing Cosmos DB requests is that you keep an eye on the amount of distinct items you keep in Table for a partition key. 
+
+### So PartitionKey and RowKey are still required with the new Table API ? 
+Yes. Because the surface area of Table API is similar to Azure Table storage SDK, the partition key provides great way to distribute the data. Row key is unique within that partition. 
 
 [azure-portal]: https://portal.azure.com
 [query]: documentdb-sql-query.md
