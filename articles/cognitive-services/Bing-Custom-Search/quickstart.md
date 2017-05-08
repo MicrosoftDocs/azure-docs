@@ -63,7 +63,7 @@ To add more domains, subdomains, or webpages, select the row below your last ent
 You can use standard Bing search to get inspirations of sites, subsites or web-pages that you want to add to your custom search instance. On the right-hand side, you see the search preview. Select from the drop-down menu next to the search icon Bing and submit a query.
 
 
-![picture alt](BingStandardSearch.png "Use standard Bing search to identify sites, subsites, or web-pages of interest for your custom search")
+![picture alt](BingStandardSearch.PNG "Use standard Bing search to identify sites, subsites, or web-pages of interest for your custom search")
 
 
 You can see search results from Bing. Click **+** to add any of the returned results to your custom slice of the web that you want to search over.
@@ -96,7 +96,7 @@ Next to each result you can see four different options to adjust the ranking for
 Adjusting the ranking to pin search results to the top for specific queries can be done in two ways:
 
 1. Trigger a query on the search preview. Select from the results shown in the preview the web page that you want to pin on top for that query and click **Pin to top**.	
-2. Go to the "Pinned" tab, and provide both exact URL, and the exact query, for which you want your URL to be show on top.
+2. Go to the **Pinned** tab, and provide both exact URL, and the exact query, for which you want your URL to be show on top.
 
 
 ![picture alt](ManualPin.PNG "Manually add a pin-to-top URL for a given query.")
@@ -123,7 +123,7 @@ You can control the ranking via the tabs **Active**, **Blocked**, and **Pinned**
 |---|---|
 |**Active**| Every time you add a boost, super boost or demote adjustment, you see a new entry in the Active tab. You can modify your adjustments at any time by using the options under **Ranking Adjust** and **Controls**. |
 |**Blocked** | Every time you add a block adjustment, you see a new entry in the **Block** tab. You can deactivate a block rule by using the control **delete**. |
-| **Pinned**| Every time you add a pin to top adjustment, it is added to the tab **Pinned**. |
+| **Pinned**| Every time you add a pin-to-top adjustment, it is added to the tab **Pinned**. |
 
 
 ![picture alt](TrackingCustomSettings.PNG "Track your custom search settings.")
