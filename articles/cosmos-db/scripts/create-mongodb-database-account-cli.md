@@ -27,7 +27,7 @@ This sample CLI script creates an Azure Cosmos DB MongoDB API account, database,
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/cosmosdb/create-cosmosdb-mongodb-account/create-cosmosdb-mongodb-account.sh?highlight=17-40 "Create an Azure Cosmos DB MongoDB API account, database, and collection")]
+[!code-azurecli[main](../../../cli_scripts/cosmosdb/create-cosmosdb-mongodb-account/create-cosmosdb-mongodb-account.sh?highlight=15-34 "Create an Azure Cosmos DB MongoDB API account, database, and collection")]
 
 ## Clean up deployment
 
@@ -44,7 +44,7 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 | [az group create](/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| az cosmosdb create | Creates an Azure Cosmos DB account. |
+| [az cosmosdb create](/cli/azure/cosmosdb#create) | Creates an Azure Cosmos DB account. |
 | [az group delete](/cli/azure/resource#delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
