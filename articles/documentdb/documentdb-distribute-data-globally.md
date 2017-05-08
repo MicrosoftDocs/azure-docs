@@ -41,11 +41,11 @@ Azure is constantly growing its geographical presence by bringing new regions on
 ![Azure Cosmos DB available on all Azure regions](./media/documentdb-distribute-data-globally/azure-regions.png)
 
 ### <a id="UnlimitedRegionsPerAccount"></a>Associating an unlimited number of regions with your Azure Cosmos DB database account
-Azure Cosmos DB allows you to associate any number of Azure regions with your Azure Cosmos DB database account. Outside of geo-fencing restrictions (for example, China, Germany), there are no limitations on the number of regions that can be associated with your Azure Cosmos DB database account. The following figure shows a database account configured to span across 21 Azure regions.  
+Azure Cosmos DB allows you to associate any number of Azure regions with your Azure Cosmos DB database account. Outside of geo-fencing restrictions (for example, China, Germany), there are no limitations on the number of regions that can be associated with your Azure Cosmos DB database account. The following figure shows a database account configured to span across 25 Azure regions.  
 
-**A tenant's Azure Cosmos DB database account spanning 21 Azure regions**
+**A tenant's Azure Cosmos DB database account spanning 25 Azure regions**
 
-![Azure Cosmos DB database account spanning 21 Azure regions](./media/documentdb-distribute-data-globally/documentdb-spanning-regions.png)
+![Azure Cosmos DB database account spanning 25 Azure regions](./media/documentdb-distribute-data-globally/documentdb-spanning-regions.png)
 
 ### <a id="PolicyBasedGeoFencing"></a>Policy-based geo-fencing
 Azure Cosmos DB is designed to have policy-based geo-fencing capabilities. Geo-fencing is an important component to ensure data governance and compliance restrictions and may prevent associating a specific region with your account. Examples of geo-fencing include (but are not restricted to), scoping global distribution to the regions within a sovereign cloud (for example, China and Germany), or within a government taxation boundary (for example, Australia). The policies are controlled using the metadata of your Azure subscription.
