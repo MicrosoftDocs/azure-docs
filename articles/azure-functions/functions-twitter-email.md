@@ -50,7 +50,7 @@ This article shows you how to create a logic app in the Azure portal that checks
 
 ### Create a function to categorize the tweet sentiment
 
-Once the function app deployment completes, open the new function app. In this section you create a function to categorize tweet sentiment into three categories (RED, YELLOW, or GREEN - for bad, neural, and good).
+Once the function app deployment completes, open the new function app. In this section, you create a function to categorize tweet sentiment into three categories (RED, YELLOW, or GREEN - for bad, neural, and good).
 
 ![Function Apps blade, Functions +](media/functions-twitter-email/add_fun.png)
 
@@ -161,7 +161,7 @@ The text analytics connector detects the tweets sentiment.
 
 * Add the **Text Analytics** connector.
 
-  ![Chopse an action window](media/functions-twitter-email/choose_action.png)
+  ![Choose an action window](media/functions-twitter-email/choose_action.png)
 
 * Select the **Detect Sentiment** action. The sentiment rating is often good, but it sometimes misinterprets the text.
 
@@ -252,7 +252,7 @@ If want to immediately test the **Send an email** function:
 * Change the **INPUTS**  in the first step (**When a new tweet is posted) to a popular term, such as #football, #soccer, or #futbol. 
 * Processing popular terms consumes more resources than less popular terms, so you might want to change it back after you've verified email is working.
 
-The image following shows the run details when the condition was true, and email was sent.
+The following image shows the run details when the condition was true, and email was sent.
 
 ![Overview blade](media/functions-twitter-email/sent.png)
 
