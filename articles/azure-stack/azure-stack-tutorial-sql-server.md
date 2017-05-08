@@ -79,5 +79,5 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn how to:
 
 > [!div class="nextstepaction"]
-> [Make web, mobile, and API apps available to them]( azure-stack-tutorial-app-service.md)
+> [Make web, mobile, and API apps available to your users]( azure-stack-tutorial-app-service.md)
 
