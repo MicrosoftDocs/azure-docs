@@ -9,6 +9,8 @@
   items:
   - name: Create function - portal
     href: functions-create-first-azure-function.md
+  - name: Create function - Azure CLI
+    href: functions-create-first-azure-function-azure-cli.md
   - name: Triggers
     items:
     - name: Timer
