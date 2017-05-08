@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 05/08/2017
 ms.author: jeedes
 
 ---
@@ -139,15 +139,29 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon2.png)
 
-10. Under Add-ons tab section, click **SAML SingleSignOn**.
+10. Under Add-ons tab section, click **Find new add-ons**. Search **SAML Single Sign On (SSO) for JIRA** and click **Install** button to install the new SAML plugin.
 
-	![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon3.png)
+	![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon7.png)
+
+11. The plugin installation will start. Click **Close**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon8.png)
+
+	![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon9.png)
+
+12.	Click **Manage**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon10.png)
     
-11. On **SAML SingleSignOn Plugin Configuration** page, click **Add additional Identity Provider** button to configure the settings of Identity Provider.
+13. Click **Configure** to configure the new plugin.
+
+	![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon11.png)
+
+14. On **SAML SingleSignOn Plugin Configuration** page, click **Add additional Identity Provider** button to configure the settings of Identity Provider.
 
 	![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon4.png)
 
-12. Perform following steps on this page:
+15. Perform following steps on this page:
 
 	![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon5.png)
  
@@ -155,12 +169,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	b. Add **Description** of the Identity Provider (e.g Azure AD).
 
-	c. Click **XML** and select the **Metadata** file, which you have downloaded from Azure Portal.
+	c. Click **XML** and select the **Metadata** file, which you have downloaded from Azure portal.
 
 	d. Click **Load** button.
 
-    e. It reads the IdP metadata and populate the fields as highlighted in the screenshot.	
-13. Click **Save settings** button to save the settings.
+    e. It reads the IdP metadata and populates the fields as highlighted in the screenshot.	
+
+16. Click **Save settings** button to save the settings.
 
 	![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon6.png)
 
