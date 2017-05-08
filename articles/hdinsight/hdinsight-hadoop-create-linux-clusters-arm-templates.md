@@ -34,9 +34,6 @@ To follow the instructions in this article, you'll need:
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
-### Access control requirements
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
-
 ### Resource Manager templates
 A Resource Manager template makes it easy to create the following for your application in a single, coordinated operation:
 * HDInsight clusters and their dependent resources (such as the default storage account)
@@ -161,6 +158,10 @@ See [Deploy with the REST API](../azure-resource-manager/resource-group-template
  Use Visual Studio to create a resource group project and deploy it to Azure through the user interface. You select the type of resources to include in your project. Those resources are automatically added to the Resource Manager template. The project also provides a PowerShell script to deploy the template.
 
 For an introduction to using Visual Studio with resource groups, see [Creating and deploying Azure resource groups through Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+
+## Troubleshoot
+
+If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## Next steps
 In this article, you have learned several ways to create an HDInsight cluster. To learn more, see the following articles:
