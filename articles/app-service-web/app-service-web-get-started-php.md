@@ -248,7 +248,7 @@ git commit -am "updated output"
 git push azure master
 ```
 
-Once deployment has completed, switch back to the browser window that opened in the Browse to the app step, and hit refresh.
+Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and hit refresh.
 
 ![hello-world-in-browser](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
