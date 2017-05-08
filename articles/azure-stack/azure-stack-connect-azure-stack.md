@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/05/2017
+ms.date: 05/10/2017
 ms.author: sngun
 
 ---
@@ -36,7 +36,7 @@ then close Server Manager.
 
 ## Connect with VPN
 
-In an Azure Stack Proof of Concept (POC) environment, you can use a Virtual Private Network (VPN) to connect your local Windows-based computer to Azure Stack.VPN connectivity is supported for Azure Stack instances deployed through Azure Active Directory(AAD) or Active Directory Federation Services(AD FS) . VPN connections enable multiple clients to connect to Azure Stack at the same time.
+In an Azure Stack Proof of Concept (POC) environment, you can use a Virtual Private Network (VPN) to connect your local Windows-based computer to Azure Stack. VPN connectivity is supported in both Azure Active Directory(AAD) and Active Directory Federation Services(AD FS) based deployments. VPN connections enable multiple clients to connect to Azure Stack at the same time.
  
 Through the VPN connection, you can access the administrator portal, user portal, and locally installed tools such as Visual Studio and PowerShell to manage Azure Stack resources.
 
@@ -57,7 +57,7 @@ After you download the tools, navigate to the downloaded folder and import the *
 ```PowerShell
 Import-Module .\Connect\AzureStack.Connect.psm1 
 ```
-When you import the module, if you receive an error that says "AzureStack.Connect.psm1 is not digitally signed. The script will not execute on the system”. To resolve this issue, run the following command in an elevated PowerShell session:
+When importing the module, if you receive an error that says "AzureStack.Connect.psm1 is not digitally signed. The script will not execute on the system”. To resolve this issue, run the following command in an elevated PowerShell session:
 
 ```PowerShell
 Set-ExecutionPolicy Unrestricted
@@ -68,7 +68,7 @@ Set-ExecutionPolicy Unrestricted
 To create a VPN connection to the Azure Stack PoC computer, use the following steps:
 
 
-1. Add the Azure Stack PoC computer’s host IP address & certificate authority (CA) to the list of trusted hosts on your client computer by running the following commands in an elevated PowerShell session:
+1. Add the Azure Stack PoC computer’s host IP address & certificate authority (CA) to the list of trusted hosts on your client computer by running the following script in an elevated PowerShell session:
 
     ```PowerShell
     #Change the IP address in the following command to match your Azure Stack host IP address
@@ -141,5 +141,5 @@ To test the portal connection, open an Internet browser and navigate to either t
 
 ## Next steps
 
-[Add the Windows Server 2016 VM image to the Azure Stack marketplace](azure-stack-add-default-image.md)
+[Make virtual machines available to your Azure Stack users](azure-stack-tutorial-tenant-vm.md)
 

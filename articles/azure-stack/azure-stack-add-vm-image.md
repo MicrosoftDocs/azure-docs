@@ -76,7 +76,8 @@ If the VM image VHD is available locally on the console VM (or another externall
      ```powershell
      # Store the service administrator account credentials in a variable 
      $UserName='<Username of the service administrator account>'
-     $Password='<Admin password provided when deploying Azure Stack>'| ConvertTo-SecureString -Force -AsPlainText
+     $Password='<Admin password provided when deploying Azure Stack>'| `
+       ConvertTo-SecureString -Force -AsPlainText
      $Credential=New-Object PSCredential($UserName,$Password)
 
      Add-VMImage `
