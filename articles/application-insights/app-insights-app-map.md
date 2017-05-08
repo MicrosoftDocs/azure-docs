@@ -83,18 +83,18 @@ To save the filters you have applied, pin the filtered view onto a [dashboard](a
 ![Pin to dashboard](./media/app-insights-app-map/12.png)
 
 ## Error pane
-When you click on a node in the map, an error pane will be displayed on the right hand side summarizing failures for that node. Failures are grouped first by operation ID and then grouped by problem ID.
+When you click a node in the map, an error pane is displayed on the right-hand side summarizing failures for that node. Failures are grouped first by operation ID and then grouped by problem ID.
 
 ![Error pane](./media/app-insights-app-map/error-pane.png)
 
-Clicking on a failure will allow you take you to the most recent instance of that failure.
+Clicking on a failure takes you to the most recent instance of that failure.
 
 ## Resource health
-For some resource types, resource health will be displayed at the top of the error pane. For example, clicking on a SQL node will show the database health and any alerts that have fired.
+For some resource types, resource health is displayed at the top of the error pane. For example, clicking a SQL node will show the database health and any alerts that have fired.
 
 ![Resource health](./media/app-insights-app-map/resource-health.png)
 
-You can click on the resource name to view standard overview metrics for that resource.
+You can click the resource name to view standard overview metrics for that resource.
 
 ## End-to-end system app maps
 
@@ -108,7 +108,7 @@ The app map finds server nodes by following any HTTP dependency calls made betwe
 
 ### Multi-role app map (preview)
 
-The preview multi-role app map feature will allow you to use the app map with multiple servers sending data to the same Application Insights resource  / instrumentation key. Servers in the map are segmented by the cloud_RoleName property on telemetry items. Set *Multi-role Application Map* to *On* from the Previews blade to enable this configuration.
+The preview multi-role app map feature allows you to use the app map with multiple servers sending data to the same Application Insights resource  / instrumentation key. Servers in the map are segmented by the cloud_RoleName property on telemetry items. Set *Multi-role Application Map* to *On* from the Previews blade to enable this configuration.
 
 This approach may be desired in a micro-services application, or in other scenarios where you want to correlate events across multiple servers within a single Application Insights resource.
 
