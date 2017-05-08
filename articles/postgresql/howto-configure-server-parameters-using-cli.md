@@ -18,14 +18,14 @@ You can list, show and update configuration parameters for an Azure PostgreSQL s
 
 ## Prerequisites
 To step through this how-to guide, you need:
-- A server and database [Create an Azure Database for PostgreSQL](quickstart-create-server-database-portal.md)
+- A server and database [Create an Azure Database for PostgreSQL](quickstart-create-server-database-azure-cli.md)
 - [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) command line utility installed
 
 ## List server configuration parameters for Azure PostgreSQL server
 To get a list of all modifiable parameters in an Azure PostgreSQL server and their values, run the following **az postgres server configuration** command as shown here:
 > az postgres server configuration list --resource-group <resource group name> --server <server name>
 
-For example, you can list the server configuration parameters for Azure PostgreSQL server **mypgserver.postgres.database.azure.com** under Resource Group **myresourcegroup. **
+For example, you can list the server configuration parameters for Azure PostgreSQL server **mypgserver.postgres.database.azure.com** under Resource Group **myresourcegroup**.
 ```azurecli
 az postgres server configuration list --resource-group myresourcegroup --server mypgserver
 ```

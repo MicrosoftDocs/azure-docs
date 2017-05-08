@@ -18,10 +18,10 @@ You can list and download Azure PostgreSQL server error logs using the Command L
 
 ## Prerequisites
 To step through this how-to guide, you need:
-- An [Azure Database for PostgreSQL server and database](quickstart-create-server-database-portal.md)
+- An [Azure Database for PostgreSQL server](quickstart-create-server-database-azure-cli.md)
 - [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) command line utility installed
 
-## Configure logging for Azure PostgreSQL server
+## Configure logging for Azure Database for PostgreSQL
 You can configure the server to access query logs and error logs. Error logs can contain auto-vacuum, connection and checkpoints information.
 1. Turn on logging
 2. Update log\_statement and log\_min\_duration\_statement to enable query logging

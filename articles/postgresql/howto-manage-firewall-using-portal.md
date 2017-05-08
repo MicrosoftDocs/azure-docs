@@ -15,6 +15,10 @@ ms.date: 05/10/2017
 # Create and manage Azure Database for PostgreSQL firewall rules using the Azure portal
 Server-level firewall rules enable administrators to access an Azure Database for PostgreSQL Server from a specified IP address or range of IP addresses. 
 
+## Prerequisites
+To step through this how-to guide, you need:
+- A server [Create an Azure Database for PostgreSQL](quickstart-create-server-database-portal.md)
+
 ## Create a server-level firewall rule in the Azure portal
 1. On the PostgreSQL server blade, under Settings heading, click **Connection Security** to open the Connection Security blade for the Azure Database for PostgreSQL.
 ![Azure portal - click Connection Security](./media/howto-manage-firewall-using-portal/1-connection-security.png)

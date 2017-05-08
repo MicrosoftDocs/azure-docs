@@ -17,28 +17,31 @@ You can use [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html
 
 ## Prerequisites
 To step through this how-to guide, you need:
-- An [Azure Database for PostgreSQL server](quickstart-create-server-database-portal.md)
+- An [Azure Database for PostgreSQL server](quickstart-create-server-database-portal.md) with firewall rules to allow access and database under it.
 - [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) command line utility installed
 - [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) command line utility installed
 
-Follow these steps to export and import your PostgreSQL database:
-## 1. Create a file using pg_dump that contains the data to be loaded
+Follow these steps to export and import your PostgreSQL database.
+
+## Create a file using pg_dump that contains the data to be loaded
 To export your existing PostgreSQL database on-prem or in a VM to a sql script file, run the following command:
-```dos
-pg_dump -Fc -v –-host=<host> --username=<name> --dbname=<database name> > <filename>.sql
+```bash
+pg_dump –-host=<host> --username=<name> --dbname=<database name> --file=<database>.sql
 ```
-For example, if you have a local server and a database called **testdb** in it
-```dos
-pg_dump -Fc -v –-host=localhost --username=masterlogin --dbname=testdb > testdb.sql
+For example, if you have a local server and a database called `testdb` in it
+```bash
+pg_dump --host=localhost --username=masterlogin --dbname=testdb --file=testdb.sql
 ```
-## 2. Create a new database and load the data on target Azure PostgreSQL server
-You can use the psql command line and the -d, --dbname parameter to import the data into the specific new database we create and the data we load from the sql file.
-```dos
-psql -f <filename>.sql –host=<server name> --port <port> --username=<user@servername> --password --dbname=<new database name>
+
+## Create a new database and load the data on target Azure PostgreSQL server
+You can use the psql command line and the -d, --dbname parameter to import the data into Azure Database for PostrgeSQL we created and load data from the sql file.
+```bash
+psql --file=<database>.sql --host=<server name> --port=5432 --username=<user@servername> --dbname=<target database name>
 ```
-In this example, we will use psql and script file named **testdb.sql** from previous step to create database **newdb** on target server **mypgserver-20170401.postgres.database.azure.com**.
-```dos
-psql -f testdb.sql –host=mypgserver-20170401.postgres.database.azure.com --port 5432 --username=mylogin@mypgserver --password --dbname=newdb
+In this example, we will use psql and script file named **testdb.sql** from previous step to import data into the database **mypgsqldb** on target server **mypgserver-20170401.postgres.database.azure.com**.
+```bash
+psql --file=D:\Orcas\testdb.sql --host=mypgserver-20170401.database.windows.net --port=5432 --username=mylogin@mypgserver-20170401 --dbname=mypgsqldb
 ```
+
 ## Next steps
 - To migrate a PostgreSQL database using dump and restore, see [Migrate your PostgreSQL database using dump and restore](howto-migrate-using-dump-and-restore.md)
