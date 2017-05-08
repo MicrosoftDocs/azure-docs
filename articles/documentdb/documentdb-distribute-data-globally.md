@@ -90,28 +90,7 @@ Currently the automatic and manual failover capabilities are exposed at the gran
 ### <a id="MultiHomingAPIs"></a>Multi-homing APIs in Azure Cosmos DB
 Azure Cosmos DB allows you to interact with the database using either logical (region agnostic) or physical (region-specific) endpoints. Using logical endpoints ensures that the application can transparently be multi-homed in case of failover. The latter, physical endpoints, provide fine-grained control to the application to redirect reads and writes to specific regions.
 
-### <a id="ReadPreferencesAPIforMongoDB"></a> Configurable read preferences in API for MongoDB
-API for MongoDB enables you to specify your collection's read preference for a globally distributed database. For both low latency reads and global high availability, we recommend setting your collection's read preference to *nearest*. A read preference of *nearest* is configured to read from the closest region.
-
-```csharp
-var collection = database.GetCollection<BsonDocument>(collectionName);
-collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Nearest));
-```
-
-For applications with a primary read/write region and a secondary region for disaster recovery (DR) scenarios, we recommend setting your collection's read preference to *secondary preferred*. A read preference of *secondary preferred* is configured to read from the secondary region when the primary region is unavailable.
-
-```csharp
-var collection = database.GetCollection<BsonDocument>(collectionName);
-collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.SecondaryPreferred));
-```
-
-Lastly, if you would like to manually specify your read regions. You can set the region Tag within your read preference.
-
-```csharp
-var collection = database.GetCollection<BsonDocument>(collectionName);
-var tag = new Tag("region", "Southeast Asia");
-collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Secondary, new[] { new TagSet(new[] { tag }) }));
-```
+You can find information on how to configure read preferences for the [DocumentDB, Graph](../cosmos-db/tutorial-global-distribution-documentdb.md), [Table](../cosmos-db/tutorial-global-distribution-table.md), and [MongoDBs](../cosmos-db/tutorial-global-distribution-mongodb.md) APIs in their respective linked articles.
 
 ### <a id="TransparentSchemaMigration"></a>Transparent and consistent database schema and index migration 
 Azure Cosmos DB is fully [schema agnostic](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). The unique design of its database engine allows it to automatically and synchronously index all of the data it ingests without requiring any schema or secondary indices from you. This enables you to iterate your globally distributed application rapidly without worrying about database schema and index migration or coordinating multi-phase application rollouts of schema changes. Azure Cosmos DB guarantees that any changes to indexing policies explicitly made by you does not result into degradation of either performance or availability.  
