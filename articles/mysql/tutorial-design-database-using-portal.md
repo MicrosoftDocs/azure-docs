@@ -1,4 +1,4 @@
-﻿---
+---
 title: Design your first Azure Database for MySQL database - Azure Portal | Microsoft Docs
 description: This tutorial explains how to create and manage Azure Database for MySQL server and database using Azure Portal.
 services: mysql
@@ -155,4 +155,15 @@ Imagine you have accidentally deleted this table. This is something you cannot e
 3- Click **OK** to restore the server to [restore to a point in time](./howto-restore-server-portal.md) before the tables was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, provided that it is within the retention period for your service tier.
 
 ## Next Steps
-- For tutorial on how to design Azure Database for MySQL database using Azure CLI, please refer to [Design your first Azure Database for MySQL database using Azuzre CLI](./tutorial-design-database-using-cli.md).
+In this tutorial, you learned how to:
+
+> [!div class="checklist"]
+> * Create an Azure Database for MySQL
+> * Configure the server firewall
+> * Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
+> * Load sample data
+> * Query data
+> * Update data
+> * Restore data
+
+Create and manage Azure Database for MySQL firewall rules using the Azure portal(/howto-manage-firewall-using-portal.md)
