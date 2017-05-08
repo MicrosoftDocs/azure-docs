@@ -67,7 +67,7 @@ az login
 To use Azure Cosmos DB commands, add the Azure Cosmos DB module. 
 
 ```azurecli
-az component update --add documentdb
+az component update --add cosmosdb
 ```
 
 ## Create a resource group
@@ -82,12 +82,12 @@ az group create --name myResourceGroup --location "West Europe"
 
 ## Create an Azure Cosmos DB account
 
-Create an Azure Cosmos DB account with the [az documentdb create](/cli/azure/documentdb#create) command.
+Create an Azure Cosmos DB account with the [az cosmosdb create](/cli/azure/cosmosdb#create) command.
 
 In the following command, please substitute your own unique Azure Cosmos DB account name where you see the `<cosmosdb_name>` placeholder. This unique name will be used as part of your Azure Cosmos DB endpoint (`https://<cosmosdb_name>.documents.azure.com/`), so the name needs to be unique across all Azure Cosmos DB accounts in Azure. 
 
 ```azurecli
-az documentdb create --name <cosmosdb_name> --resource-group myResourceGroup --kind MongoDB
+az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kind MongoDB
 ```
 
 The `--kind MongoDB` parameter enables MongoDB client connections.
@@ -135,7 +135,7 @@ In this step, you connect your MEAN.js sample application to the an Azure Cosmos
 In order to connect to the an Azure Cosmos DB database, you need the database key. Use the [az documentdb list-keys](/cli/azure/documentdb#list-keys) command to retrieve the primary key.
 
 ```azurecli
-az documentdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
+az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
 ```
 
 The Azure CLI outputs information similar to the following example. 
