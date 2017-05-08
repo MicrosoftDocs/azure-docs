@@ -17,7 +17,7 @@ ms.date: 02/22/2017
 ms.author: gwallace
 
 ---
-# Use packet capture to do proactive network monitoring with alerts and Azure Functions
+# Use packet capture for proactive network monitoring with alerts and Azure Functions
 
 Network Watcher packet capture creates capture sessions to track traffic in and out of virtual machines. The capture file can have a filter that is defined to track only the traffic that you want to monitor. This data is then stored in a storage blob or locally on the guest machine.
 
