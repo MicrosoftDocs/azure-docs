@@ -1,3 +1,5 @@
+- name: Functions Documentation
+  href: index.md
 - name: Overview
   items:
   - name: About Functions

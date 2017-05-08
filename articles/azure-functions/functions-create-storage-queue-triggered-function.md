@@ -96,5 +96,5 @@ You have created a function that runs when a message is added to a storage queue
 
 For more information about Queue storage triggers, see [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md). 
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+
 
