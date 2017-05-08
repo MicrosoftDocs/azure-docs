@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/05/2017
+ms.date: 05/10/2017
 ms.author: billgib; sstein
 
 ---
@@ -225,6 +225,9 @@ Because scaling is a task easily called via the management API, you can easily b
 Where aggregate tenant usage follows predictable usage patterns, you can use Azure Automation to scale a pool up and down on a schedule. For example, scale a pool down after 6pm and up again before 6am on weekdays when you know there is a drop in resource requirements.
 
 
+
+## Next steps
+
 In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -233,11 +236,7 @@ In this tutorial you learn how to:
 > * Scale up the Elastic pool in response to the increased database load
 > * Provision a second Elastic pool to load balance the database activity
 
-
-## Next steps
-
-
-
+[Restore a single tenant tutorial](sql-database-saas-tutorial-restore-single-tenant.md)
 
 
 ## Additional resources

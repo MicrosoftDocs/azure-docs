@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/05/2017
+ms.date: 05/10/2017
 ms.author: billgib; sstein
 
 ---
@@ -157,6 +157,9 @@ If you don’t plan to continue with another tutorial, it’s recommended you de
 * EDCL also provides important features that enable client applications to connect to and manipulate the catalog. You can also use EDCL to retrieve an ADO.NET connection for a given key value, enabling the application to connect to the correct database. The client caches this connection information to minimize the traffic to the catalog database and speed up the application.
 
 
+
+## Next steps
+
 In this tutorial you learned how to:
 
 > [!div class="checklist"]
@@ -165,14 +168,7 @@ In this tutorial you learned how to:
 > * Provision a batch of additional tenants
 > * Step into the details of provisioning new tenants, and registering them into the catalog.
 
-
-## Next steps
-
-Now that you have multiple tenants provisioned, try the [Schema management tutorial](sql-database-saas-tutorial-schema-management.md), where you learn how to roll out schema changes, and execute queries across all tenant databases.
-
-Check out the [Performance management and monitoring tutorial](sql-database-saas-tutorial-performance-monitoring.md), that shows how to take advantage of the monitoring capabilities in SQL Database.
-
-Complete the [Restore a tenant database tutorial](sql-database-saas-tutorial-restore-single-tenant.md), and see how to restore databases and maintain the correct mapping between the application and the restored database.
+[Performance monitoring tutorial](sql-database-saas-tutorial-performance-monitoring.md)
 
 ## Additional Resources
 

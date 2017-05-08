@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/06/2017
+ms.date: 05/10/2017
 ms.author: billgib;sstein
 
 ---
@@ -126,6 +126,9 @@ The script restores the tenant database to a point five minutes before the event
 
 You successfully restored the database to a point in time before the event was deleted. The Events page opens, so confirm the last event has been restored.
 
+
+## Next steps
+
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
@@ -133,10 +136,7 @@ In this tutorial, you learned how to:
 > * Restore a database into a parallel database (side-by-side)
 > * Restore a database in place
 
-
-## Next steps
-
-[Provision and catalog tutorial](sql-database-saas-tutorial-provision-and-catalog.md)
+[Manage tenant database schema](sql-database-saas-tutorial-schema-management.md)
 
 ## Additional resources
 

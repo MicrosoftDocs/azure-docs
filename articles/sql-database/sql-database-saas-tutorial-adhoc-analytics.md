@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/05/2017
+ms.date: 05/10/2017
 ms.author: billgib; sstein
 
 ---
@@ -52,7 +52,7 @@ Accessing this data in a single multi-tenant database is easy, but not so easy w
 
 This exercise deploys the Ad-hoc Analytics database that contains the schema used for issuing ad-hoc queries that span all the tenant databases.
 
-1. Open ...\\Learning Modules\\Operational Analytics\\*Demo-AdhocAnalytics.ps1* in the *PowerShell ISE* and set the following values:
+1. Open ...\\Learning Modules\\Operational Analytics\\Adhoc Analytics\\*Demo-AdhocAnalytics.ps1* in the *PowerShell ISE* and set the following values:
    * **$DemoScenario** = 2, **Deploy Ad-hoc analytics database**.
 
 1. Press **F5** to run the script and create a new SQL database for ad-hoc analytics and add it to the WTP catalog. TicketPurchases, Tickets, and Venues tables are added as external tables that can be queried.
@@ -65,11 +65,16 @@ You now have an *adhocanalytics* database, that can be used to run distributed q
 
 This exercise runs ad-hoc analytics queries to uncover tenant insights from the WTP application.
 
-1. Open *Demo-AdhocAnalyticsQueries.sql* in SSMS.
-1. Select the individual query you want to run and press *F5*.
+1. Open ...\\Learning Modules\\Operational Analytics\\Adhoc Analytics\\*Demo-AdhocAnalyticsQueries.sql* in SSMS.
+1. Ensure you are connected to the **adhocanalytics** database
+1. Select the individual query you want to run, and press **F5**:
 
     ![query](media/sql-database-saas-tutorial-adhoc-analytics/query.png)
 
+
+
+
+## Next steps
 
 In this tutorial you learned how to:
 
@@ -78,10 +83,7 @@ In this tutorial you learned how to:
 > * Deploy an ad-hoc analytics database
 > * Run distributed queries across all tenant databases
 
-
-## Next steps
-
-Try the [Tenant Analytics tutorial that explores another way to run analytics over your tenants (by extracting tenant data into a separate database and querying it there).
+[Log Analytics (OMS) tutorial](sql-database-saas-tutorial-log-analytics.md)
 
 ## Additional resources
 

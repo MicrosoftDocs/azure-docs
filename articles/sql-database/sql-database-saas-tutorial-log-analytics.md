@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/05/2017
+ms.date: 05/10/2017
 ms.author: billgib; sstein
 
 ---
@@ -113,18 +113,16 @@ The monitoring and alerting in Log Analytics and OMS is based on queries over th
 
 Log Analytics for SQL Database is charged for based on the data volume in the workspace. In this tutorial, you created a Free workspace, which is limited to 500MB per day. Once that limit is reached data is no longer added to the workspace.
 
+
+## Next steps
+
 In this tutorial you learned how to:
 
 > [!div class="checklist"]
 > * Install and configure Log Analytics (OMS)
 > * Use Log Analytics to monitor pools and databases
 
-
-## Next steps
-
-[Ad-hoc analytics](sql-database-saas-tutorial-adhoc-analytics.md)
-
-[Tenant analytics](sql-database-saas-tutorial-tenant-analytics.md)
+[Tenant analytics tutorial](sql-database-saas-tutorial-tenant-analytics.md)
 
 ## Additional resources
 

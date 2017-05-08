@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/28/2017
+ms.date: 05/10/2017
 ms.author: billgib; sstein
 
 ---
@@ -23,11 +23,16 @@ ms.author: billgib; sstein
 
 This tutorial covers setting up and running the CatalogSync WebJob, which synchronizes resource information from Azure into the catalog. As the CatalogSync WebJob runs unattended, it authenticates using a service principal. In this tutorial you create the service principal, deploy an App Service application, and configure and add the Catalog Sync WebJob to it.
 
+In this tutorial you learn how to:
 
-To complete this tutorial, make sure of the following:
+> [!div class="checklist"]
+> * Create and deploy the Catalog sync WebJob
+> * Verify the WebJob is keeping the catalog data synchronized
 
-* The WTP app is deployed. To deploy in less than five minutes, see [Deploy and explore the WTP SaaS application](sql-database-saas-tutorial.md).
-* Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+To complete this tutorial, make sure the following prerequisites are completed:
+
+* The WTP app is deployed. To deploy in less than five minutes, see [Deploy and explore the WTP SaaS application](sql-database-saas-tutorial.md)
+* Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## Catalog resource synchronization pattern
 
@@ -106,4 +111,9 @@ The WebJob should start running after a few moments. Every 60 seconds it wakes u
 
 ## Next steps
 
-## Additional resources
+In this tutorial you learn how to:
+
+> [!div class="checklist"]
+> * Create and deploy the Catalog sync WebJob
+> * Verify the WebJob is keeping the catalog data synchronized
+

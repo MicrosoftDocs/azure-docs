@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/05/2017
+ms.date: 05/10/2017
 ms.author: billgib; sstein
 
 ---
@@ -154,6 +154,9 @@ What these two charts nicely illustrate, is how well suited elastic pools and SQ
 
 When you are finished exploring and working with the WTP app, browse to the application's resource group in the portal and delete it to stop all billing related to this deployment. If you have used any of the accompanying tutorials, any resources they created will also be deleted with the application.
 
+
+## Next steps
+
 In this tutorial you learned:
 
 > [!div class="checklist"]
@@ -165,9 +168,8 @@ In this tutorial you learned:
 > * How to view pool utilization to monitor tenant activity
 > * How to delete sample resources to stop related billing
 
-## Next steps
+[Provision and catalog tutorial](sql-database-saas-tutorial-provision-and-catalog.md)
 
-Check out the series of tutorials that cover different SaaS patterns through hands-on exercises. Each exercise is quick to do, and while you can do the tutorials in any order, we recommend you first complete the [Provision and catalog tutorial](sql-database-saas-tutorial-provision-and-catalog.md) to provision an additional batch of tenants that set up a better demo environment for completing the other tutorials.
 
 
 ## Additional resources

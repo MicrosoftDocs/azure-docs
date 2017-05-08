@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/05/2017
+ms.date: 05/10/2017
 ms.author: billgib; sstein
 
 ---
@@ -108,6 +108,10 @@ Create a job using the same jobs 'system' stored procedures.
 * sp\_add\_jobstep creates the job step containing T-SQL command text to update the index
 
 
+
+
+## Next steps
+
 In this tutorial you learned how to:
 
 > [!div class="checklist"]
@@ -115,11 +119,6 @@ In this tutorial you learned how to:
 > * Create a job account to query across multiple tenants
 > * Update data in all tenant databases
 > * Create an index on a table in all tenant databases
-
-
-## Next steps
-
-[Tenant analytics tutorial](sql-database-saas-tutorial-tenant-analytics.md)
 
 [Ad-hoc analytics tutorial](sql-database-saas-tutorial-adhoc-analytics.md)
 

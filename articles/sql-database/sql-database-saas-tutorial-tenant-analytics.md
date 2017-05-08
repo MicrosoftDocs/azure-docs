@@ -15,13 +15,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/05/2017
+ms.date: 05/10/2017
 ms.author: billgib; sstein
 
 ---
 # Tenant Analytics
 
-This tutorial shows one way of using the catalog database to run analytics queries. In this tutorial, an elastic job is created that runs queries on each tenant in the WTP catalog. The job retrieves data and loads it into a separate analytics database created on the catalog server. This database can then be queried to extract insights buried in the day-to-day operational data of all the tenants. As an output of the job, a table is created from the result-returning queries inside the tenant analytics database.
+In this tutorial, you run analytics queries against each tenant in the catalog. An elastic job is created that runs the queries. The job retrieves data and loads it into a separate analytics database created on the catalog server. This database can be queried to extract insights that are buried in the day-to-day operational data of all tenants. As an output of the job, a table is created from the result-returning queries inside the tenant analytics database.
 
 
 In this tutorial you learn how to:
@@ -98,15 +98,16 @@ Successfully running the script should result in similar results:
 
 * The remaining views in the script display the existence of the objects and monitor job execution. Review the status value from the **lifecycle** column to monitor the status. Once, Succeeded, the job has successfully finished on all tenant databases and the two additional databases containing the reference table.
 
+
+## Next steps
+
 In this tutorial you learned how to:
 
 > [!div class="checklist"]
 > * Deploy a tenant analytics database
 > * Create a scheduled job to retrieve analytical data across tenants
 
-## Next steps
-
-Complete the [Log Analytics tutorial](sql-database-saas-tutorial-log-analytics.md)
+[Catalog synchronization tutorial](sql-database-saas-tutorial-catalog-sync.md)
 
 ## Additional resources
 
