@@ -8,7 +8,7 @@ editor: jasonh
 manager: jhubbard
 ms.assetid: 
 ms.service: postgresql-database
-ms.custom: quick start create
+ms.custom: connection security
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: article
@@ -43,7 +43,7 @@ az postgres server update --resource-group myresourcegroup --name mypgserver-201
 ```
 
 ## Ensure your application or framework supports SSL connections
-Many common applications that use PostgreSQL for database services, such as Wordpress, Drupal, and Magento, do not enable SSL by default during installation. Enabling SSL connectivity must be done after installation or through CLI commands specific to the application. If your PostgreSQL server is enforcing SSL connections and the associated application is not configured properly, the application may fail to connect to your database server. Consult your application's documentation to learn how to enable SSL connections.
+Many common application frameworks that use PostgreSQL for database services, such as Drupal and Django, do not enable SSL by default during installation. Enabling SSL connectivity must be done after installation or through CLI commands specific to the application. If your PostgreSQL server is enforcing SSL connections and the associated application is not configured properly, the application may fail to connect to your database server. Consult your application's documentation to learn how to enable SSL connections.
 
 
 ## Applications that require certificate verification for SSL connectivity
@@ -108,10 +108,10 @@ OpenSSL>x509 -inform DER -in BaltimoreCyberTrustRoot.cer -text -out root.cr
 ```
 
 ### Connecting to Azure Database for PostgreSQL with SSL certificate authentication
-Now that you have successfully decode your certificate, you can now connect to your database server securely over SSL. To allow server certificate verification, the certificate must be placed in the file ~/.postgresql/root.crt in the user's home directory. (On Microsoft Windows the file is named %APPDATA%\postgresql\root.crt.). The following provides instructions for connecting to Azure Database for PostgreSQL.
+Now that you have successfully decoded your certificate, you can now connect to your database server securely over SSL. To allow server certificate verification, the certificate must be placed in the file ~/.postgresql/root.crt in the user's home directory. (On Microsoft Windows the file is named %APPDATA%\postgresql\root.crt.). The following provides instructions for connecting to Azure Database for PostgreSQL.
 
-#### Using psql command line utility
-The following examples show you how to successfully connect to your PostgreSQL server through both the pgsql command-line interface and through using the psql coomand-line utility, using the `root.crt` file created and the `sslmode=verify-ca` option.
+#### Using psql command-line utility
+The following examples show you how to successfully connect to your PostgreSQL server through both the pgsql command-line interface and through using the psql command-line utility, using the `root.crt` file created and the `sslmode=verify-ca` option.
 
 Using the PostgreSQL command-line interface, execute the following command:
 ```bash
