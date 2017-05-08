@@ -237,31 +237,31 @@ This section provides instructions on how to create, get, update, and delete the
   ```powershell
   Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
-  The response will be something similar to the following example:
+    The response will be something similar to the following example:
 
-  ```
-  Name                             : ExpressRouteARMCircuit
-  ResourceGroupName                : ExpressRouteResourceGroup
-  Location                         : westus
-  Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-  Etag                             : W/"################################"
-  ProvisioningState                : Succeeded
-  Sku                              : {
-                                       "Name": "Standard_MeteredData",
-                                       "Tier": "Standard",
-                                       "Family": "MeteredData"
-                                     }
-  CircuitProvisioningState         : Enabled
-  ServiceProviderProvisioningState : Provisioned
-  ServiceProviderNotes             : 
-  ServiceProviderProperties        : {
-                                       "ServiceProviderName": "Equinix",
-                                       "PeeringLocation": "Silicon Valley",
-                                       "BandwidthInMbps": 200
-                                     }
-  ServiceKey                       : **************************************
-  Peerings                         : []
-  ```
+    ```
+    Name                             : ExpressRouteARMCircuit
+    ResourceGroupName                : ExpressRouteResourceGroup
+    Location                         : westus
+    Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+    Etag                             : W/"################################"
+    ProvisioningState                : Succeeded
+    Sku                              : {
+                                         "Name": "Standard_MeteredData",
+                                         "Tier": "Standard",
+                                         "Family": "MeteredData"
+                                       }
+    CircuitProvisioningState         : Enabled
+    ServiceProviderProvisioningState : Provisioned
+    ServiceProviderNotes             : 
+    ServiceProviderProperties        : {
+                                         "ServiceProviderName": "Equinix",
+                                         "PeeringLocation": "Silicon Valley",
+                                         "BandwidthInMbps": 200
+                                       }
+    ServiceKey                       : **************************************
+    Peerings                         : []
+    ```
 4. Configure Azure public peering for the circuit.
 
   Make sure that you have the following information before you proceed further:
