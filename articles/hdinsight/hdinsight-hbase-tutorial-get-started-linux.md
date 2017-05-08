@@ -157,28 +157,9 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
          SELECT count(*) FROM hbasecontacts;
 
 ## Use HBase REST APIs using Curl
-> [!NOTE]
-> When using Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the user name and password for the HDInsight cluster administrator. You must also use the cluster name as part of the Uniform Resource Identifier (URI) used to send the requests to the server.
-> 
-> For the commands in this section, replace **USERNAME** with the user to authenticate to the cluster, and replace **PASSWORD** with the password for the user account. Replace **CLUSTERNAME** with the name of your cluster.
-> 
-> The REST API is secured via [basic authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). You should always make requests by using Secure HTTP (HTTPS) to help ensure that your credentials are securely sent to the server.
-> 
-> 
 
-1. From a command line, use the following command to verify that you can connect to your HDInsight cluster:
-   
-        curl -u <UserName>:<Password> \
-        -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
-   
-    You should receive a response similar to the following:
-   
-        {"status":"ok","version":"v1"}
-   
-    The parameters used in this command are as follows:
-   
-   * **-u** - The user name and password used to authenticate the request.
-   * **-G** - Indicates that this is a GET request.
+The REST API is secured via [basic authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). You should always make requests by using Secure HTTP (HTTPS) to help ensure that your credentials are securely sent to the server.
+
 2. Use the following command to list the existing HBase tables:
    
         curl -u <UserName>:<Password> \
@@ -222,6 +203,17 @@ For more information about HBase Rest, see [Apache HBase Reference Guide](https:
 > [!NOTE]
 > Thrift is not supported by HBase in HDInsight.
 >
+> When using Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the user name and password for the HDInsight cluster administrator. You must also use the cluster name as part of the Uniform Resource Identifier (URI) used to send the requests to the server:
+> 
+>   
+>        curl -u <UserName>:<Password> \
+>        -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
+>   
+>    You should receive a response similar to the following:
+>   
+>        {"status":"ok","version":"v1"}
+   
+
 
 ## Check cluster status
 HBase in HDInsight ships with a Web UI for monitoring clusters. Using the Web UI, you can request statistics or information about regions.
