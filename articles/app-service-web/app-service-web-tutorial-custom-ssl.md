@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 05/04/2017
 ms.author: cephalin
 
 ---
@@ -23,12 +23,20 @@ This tutorial shows you how to bind a custom SSL certificate that you purchased 
 
 ![Web app with custom SSL certificate](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Upgrade your app's pricing tier
+> * Bind your custom SSL certificate to App Service
+> * Enforce HTTPS for your app
+> * Automate SSL certificate binding with scripts
+
 > [!TIP]
 > If you need to get a custom SSL certificate, you can get one in the Azure portal directly and bind it to your web app. Follow the [App Service Certificates tutorial](web-sites-purchase-ssl-web-site.md). 
 >
 > 
 
-## Before you begin
+## Prerequisites
 Before following this tutorial, make sure that you have done the following:
 
 - [Create an App Service app](/azure/app-service/)
@@ -106,7 +114,7 @@ If you generated your certificate request using OpenSSL, then you have created a
 openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 ```
 
-If you used IIS or `Certreq.exe` to generate your certificate request, then first install your certificate to your local machine, then export it to PFX by following the steps at [Export a Certificate with the Private Key](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
+If you used IIS or _Certreq.exe_ to generate your certificate request, then first install your certificate to your local machine, then export it to PFX by following the steps at [Export a Certificate with the Private Key](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
 
 ### Upload your SSL certificate
 
@@ -175,10 +183,10 @@ to `https://<your.custom.domain>` to see that it serves up your web app.
 ## Enforce HTTPS
 If you still want to allow HTTP access to your web app, skip this step. 
 
-App Service does *not* enforce HTTPS, so anyone can still access your web app using HTTP. To enforce HTTPS for your web app, you can define a rewrite rule in the `web.config` file for your web app. App Service uses this file, regardless of the language framework of your web app.
+App Service does *not* enforce HTTPS, so anyone can still access your web app using HTTP. To enforce HTTPS for your web app, you can define a rewrite rule in the _web.config_ file for your web app. App Service uses this file, regardless of the language framework of your web app.
 
 > [!NOTE]
-> There is language-specific redirection of requests. ASP.NET MVC can use the [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of the rewrite rule in `web.config` (see [Deploy a secure ASP.NET MVC 5 app to a web app](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)).
+> There is language-specific redirection of requests. ASP.NET MVC can use the [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of the rewrite rule in _web.config_ (see [Deploy a secure ASP.NET MVC 5 app to a web app](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)).
 > 
 > 
 
@@ -188,7 +196,7 @@ Alternatively, if you develop with PHP, Node.js, Python, or Java, there is a cha
 
 Connect to your web app's FTP endpoint by following the instructions at [Deploy your app to Azure App Service using FTP/S](app-service-deploy-ftp.md). 
 
-This file should be located in `/home/site/wwwroot`. If not, create a `web.config` in this folder with the following XML:
+This file should be located in _/home/site/wwwroot_. If not, create a _web.config_ in this folder with the following XML:
 
 ```xml   
 <?xml version="1.0" encoding="UTF-8"?>
@@ -211,7 +219,7 @@ This file should be located in `/home/site/wwwroot`. If not, create a `web.confi
 </configuration>
 ```
 
-For an existing `web.config`, you just need to copy the entire `<rule>` tag into your `web.config`'s `configuration/system.webServer/rewrite/rules` element. If there are other `<rule>` tags in your `web.config`, then place the copied `<rule>` tag before the other `<rule>` tags.
+For an existing _web.config_, you just need to copy the entire `<rule>` tag into your _web.config_'s `configuration/system.webServer/rewrite/rules` element. If there are other `<rule>` tags in your _web.config_, then place the copied `<rule>` tag before the other `<rule>` tags.
 
 This rule returns an HTTP 301 (permanent redirect) to the HTTPS protocol whenever the user makes an HTTP request to your web app. For example, it redirects from `http://contoso.com` to `https://contoso.com`.
 
@@ -226,28 +234,44 @@ You can automate SSL bindings for your web app with scripts, using the [Azure CL
 The following command uploads an exported PFX file and gets the thumbprint. 
 
 ```bash
-thumprint=$(az appservice web config ssl upload --certificate-file <path_to_PFX_file> \
---certificate-password <PFX_password> --name <app_name> --resource-group <resource_group_name> \
---query thumbprint --output tsv)
+thumprint=$(az appservice web config ssl upload \
+    --name <app_name> \
+    --resource-group <resource_group_name> \
+    --certificate-file <path_to_PFX_file> \
+    --certificate-password <PFX_password> \
+    --query thumbprint \
+    --output tsv)
 ```
 
-The following command adds an SNI based SSL binding, using the thumbprint from the previous command.
+The following command adds an SNI-based SSL binding, using the thumbprint from the previous command.
 
 ```bash
-az appservice web config ssl bind --certificate-thumbprint $thumbprint --ssl-type SNI \
---name <app_name> --resource-group <resource_group_name>
+az appservice web config ssl bind \
+    --name <app_name> \
+    --resource-group <resource_group_name>
+    --certificate-thumbprint $thumbprint \
+    --ssl-type SNI \
 ```
 
 ### Azure PowerShell
 
-The following command uploads an exported PFX file and adds an SNI based SSL binding.
+The following command uploads an exported PFX file and adds an SNI-based SSL binding.
 
 ```PowerShell
-New-AzureRmWebAppSSLBinding -WebAppName <app_name> -ResourceGroupName <resource_group_name> -Name <dns_name> `
--CertificateFilePath <path_to_PFX_file> -CertificatePassword <PFX_password> -SslState SniEnabled
+New-AzureRmWebAppSSLBinding `
+    -WebAppName <app_name> `
+    -ResourceGroupName <resource_group_name> `
+    -Name <dns_name> `
+    -CertificateFilePath <path_to_PFX_file> `
+    -CertificatePassword <PFX_password> `
+    -SslState SniEnabled
 ```
-## More Resources
-* [Microsoft Azure Trust Center](/support/trust-center/security/)
-* [Configuration options unlocked in Azure Web Sites](https://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
-* [Enable diagnostic logging](web-sites-enable-diagnostic-log.md)
-* [Configure web apps in Azure App Service](web-sites-configure.md)
+## What you have learned
+
+In this tutorial, you learned how to:
+
+> [!div class="checklist"]
+> * Upgrade your app's pricing tier
+> * Bind your custom SSL certificate to App Service
+> * Enforce HTTPS for your app
+> * Automate SSL certificate binding with scripts
