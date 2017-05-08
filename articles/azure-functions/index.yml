@@ -28,8 +28,9 @@ sections:
       text: Create function - portal
       href: /azure/azure-functions/functions-create-first-azure-function
 - title: Step-by-Step Tutorials
-  text: 'Learn how to build and manage Azure Functions'
   items:
+  - type: paragraph
+    text: 'Learn how to build and manage Azure Functions'
   - type: list
     style: ordered
     items:
