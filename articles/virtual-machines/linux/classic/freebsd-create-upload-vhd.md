@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/29/2016
+ms.date: 05/08/2017
 ms.author: kyliel
 
 ---
@@ -47,12 +47,7 @@ On the virtual machine where you installed the FreeBSD operating system, complet
         # service netif restart
 2. Enable SSH.
 
-    SSH is enabled by default after installation from disc. If it isn't enabled for some reason, or if you use FreeBSD VHD directly, type the following:
-
-        # echo 'sshd_enable="YES"' >> /etc/rc.conf
-        # ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
-        # ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
-        # service sshd restart
+    Ensure that the SSH server is installed and configured to start at boot time. By default it is enabled after installation from FreeBSD disc. 
 3. Set up a serial console.
 
         # echo 'console="comconsole vidconsole"' >> /boot/loader.conf
@@ -62,11 +57,11 @@ On the virtual machine where you installed the FreeBSD operating system, complet
     The root account is disabled in Azure. This means you need to utilize sudo from an unprivileged user to run commands with elevated privileges.
 
         # pkg install sudo
-   ;
+   
 5. Prerequisites for Azure Agent.
 
         # pkg install python27  
-        # pkg install Py27-setuptools27   
+        # pkg install Py27-setuptools  
         # ln -s /usr/local/bin/python2.7 /usr/bin/python   
         # pkg install git
 6. Install Azure Agent.
@@ -104,7 +99,7 @@ On the virtual machine where you installed the FreeBSD operating system, complet
         # waagent -version
         WALinuxAgent-2.1.4 running on freebsd 10.3
         Python: 2.7.11
-        # service –e | grep waagent
+        # ps auxw | grep waagent
         /etc/rc.d/waagent
         # cat /var/log/waagent.log
 7. Deprovision the system.
