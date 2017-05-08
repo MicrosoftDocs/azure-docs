@@ -42,6 +42,7 @@ The supported languages are as follows:
 
 | Feature | Supported language codes |
 |:--- |:--- |
-| Sentiment |`en` (English), `es` (Spanish), `fr` (French), `pt` (Portuguese) |
-| Key Phrases |`en` (English), `es` (Spanish), `de` (German), `ja` (Japanese) |
-| Topics |`en` (English) |
+| Sentiment |<div class="inline-block">`en` (English)</div>, <div class="inline-block">`es` (Spanish)</div>, <div class="inline-block">`fr` (French)</div>, <div class="inline-block">`pt` (Portuguese)</div> |
+| Sentiment (additional preview languages) | <span class="inline-block">`de` (German),</span> <span class="inline-block">`it` (Italian),</span> <span class="inline-block">`nl` (Dutch),</span> <span class="inline-block">`no` (Norwegian),</span> <span class="inline-block">`sv` (Swedish),</span> <span class="inline-block">`pl` (Polish),</span> <span class="inline-block">`da` (Danish),</span> <span class="inline-block">`fi` (Finnish),</span> <span class="inline-block">`ru` (Russian),</span> <span class="inline-block">`el` (Greek),</span> <span class="inline-block">`tr` (Turkish)</span>
+| Key Phrases |`en` (English)</span>, `es` (Spanish)</span>, `de` (German)</span>, `ja` (Japanese)</span> |
+| Topics |`en` (English)</span> |
