@@ -11,7 +11,7 @@
 ### Android
 #### [Android using MSAL](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal)
 #### [Android using AppAuth](https://github.com/Azure-Samples/active-directory-b2c-android-native-appauth)
-### [.NET](active-directory-b2c-devquickstarts-native-dotnet.md)
+### [.NET](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)
 ### [Xamarin](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native)
 ## Web Apps
 ### [Overview](active-directory-b2c-reference-oidc.md)
