@@ -39,39 +39,48 @@ To complete the example in this tutorial, you must have an existing virtual mach
 
 ## View boot diagnostics
 
-When you create a Windows VM, boot diagnostics are automatically enabled. A storage account is automatically created to store the boot diagnostics data.
+When you create a Windows VM, boot diagnostics are automatically enabled. A storage account is also created to store the boot diagnostics data.
 
-You can get the boot diagnostic data from `myMonitorVM` with [Get-​Azure​Rm​VM​Boot​Diagnostics​Data](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata?view=azurermps-3.8.0):
+You can get the boot diagnostic data from `myVM` with [Get-​Azure​Rm​VM​Boot​Diagnostics​Data](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata?view=azurermps-3.8.0) command. In the following example, the boot diagnostics will be downloaded to the root of the *c:\* drive. 
 
 ```powershell
-Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroupMonitor -Name myMonitorVM -Windows -LocalPath "./diagnosticsdata"
+Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -Windows -LocalPath "c:\"
 ```
 
 ## View host metrics
 
 A Linux VM has a dedicated Host VM in Azure that it interacts with. Metrics are automatically collected for the Host VM that you can easily view in the Azure portal.
 
-1. In the Azure portal, click **Resource Groups**, select **myResourceGroupMonitor**, and then select **myMonitorVM** in the resource list.
+1. In the Azure portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
 2. Click **Metrics** on the VM blade, and then select any of the Host metrics under **Available metrics** to see how the Host VM is performing.
 
 ![View host metrics](./media/tutorial-monitoring/tutorial-monitor-host-metrics.png)
 
 ## Install diagnostics extension
 
-[Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) enables the collection of diagnostic data on a VM.
+[Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) enables the collection of diagnostic data from a VM.
 
-For this tutorial, you need a storage account to store diagnostics data. You can create a new storage account named `mydiagnosticsstorage` with [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/new-azurermstorageaccount?view=azurermps-3.8.0): 
+When installing the diagnostic extension, a configuration file is required that defines the collected metrics. When creating this file, you will need the name of a storage account to hold the diagnostic data, and the Id of your Azure subscription.
+
+Use the [Get-AzureRmStorageAccount]() command to get the name of the storage account. In this example, we will use the storage account that was auto created for boot diagnostics. Get-AzureRmStorageAccount -ResourceGroupName myResourceGroup | Select StorageAccountName
 
 ```powershell
-New-AzureRmStorageAccount -ResourceGroupName myResourceGroupMonitor `
-  -AccountName mydiagnosticsstorage `
-  -Location eastus `
-  -Type Standard_LRS
+Get-AzureRmStorageAccount -ResourceGroupName myResourceGroup | Select StorageAccountName
 ```
 
-**Note:** Storage account names must be between 3 and 24 characters and must contain only numbers and lowercase letters.
+Use the [Get-AzureRmSubscription]() command to get your Azure subscription Id.
 
-The diagnostics extension that you are installing uses a configuration file to define the metrics that are collected. Replace `{subscriptionId}` in `resourceId`, and then save the metric configuration data to a file named *DiagnosticsPubConfig.xml*:
+```powershell
+Get-AzureRmSubscription | Select SubscriptionId
+```
+
+Create a file named diagnosticsconfig.xml. In this example, the file will be stored on the root of the *c:\* drive.
+
+```powershell
+New-Item -ItemType File c:\diagnosticsconfig.xml
+```
+
+Copy this XML into the *diagnosticsconfig.xml * file.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -162,7 +171,7 @@ The diagnostics extension that you are installing uses a configuration file to d
           <annotation displayName="Disk free space (MB)" locale="en-us"/>
         </PerformanceCounterConfiguration>
       </PerformanceCounters>
-      <Metrics resourceId="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroupMonitor/providers/Microsoft.Compute/virtualMachines/myMonitorVM" >
+      <Metrics resourceId="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM" >
           <MetricAggregation scheduledTransferPeriod="PT1H"/>
           <MetricAggregation scheduledTransferPeriod="PT1M"/>
       </Metrics>
@@ -176,21 +185,40 @@ The diagnostics extension that you are installing uses a configuration file to d
       <StorageAccount>mydiagnosticsstorage</StorageAccount>
   </PublicConfig>
 ```
+Update this line, replacing *{subscriptionId}* with your subscription Id. 
+
+```xml
+<Metrics resourceId="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM" >
+```
+
+When completed it should look like this.
+
+```xml
+<Metrics resourceId="/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM" >
+```
+
+Finally, update this line, replacing *mydiagnosticsstorage* with the name of your storage account. 
+
+```xml
+<StorageAccount>mydiagnosticsstorage</StorageAccount>
+```
 
 Now you can install the extension using the diagnostics configuration with [Set-AzureRmVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdiagnosticsextension?view=azurermps-3.8.0):
 
 ```powershell
-Set-AzureRmVMDiagnosticsExtension -ResourceGroupName myResourceGroupMonitor `
-  -VMName myMonitorVM `
-  -DiagnosticsConfigurationPath DiagnosticsPubConfig.xml
+Set-AzureRmVMDiagnosticsExtension -ResourceGroupName myResourceGroup `
+  -VMName myVM `
+  -DiagnosticsConfigurationPath c:\diagnosticsPubConfig.xml
 ```
 
 ## View VM metrics
 
 You can view the VM metrics in the same way that you viewed the Host VM metrics:
 
-1. In the Azure portal, click **Resource Groups**, select **myResourceGroupMonitor**, and then select **myMonitorVM** in the resource list.
+1. In the Azure portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
 2. Click **Metrics** on the VM blade, and then select any of the diagnostics metrics under **Available metrics** to see how the VM is performing.
+
+![View diagnostic metrics](./media/tutorial-monitoring/tutorial-monitor-diagnostic-metrics.png)
 
 ## Create alerts
 
@@ -201,11 +229,11 @@ Replace `{subscriptionId}` in `TargetResourceId`, and then you can create an ale
 ```powershell
 $action = New-AzureRmAlertRuleEmail -SendToServiceOwners
 $time = New-TimeSpan -Minutes 5
-Add-AzureRmMetricAlertRule -ResourceGroup myResourceGroupMonitor `
+Add-AzureRmMetricAlertRule -ResourceGroup myResourceGroup `
   -WindowSize $time `
   -Operator GreaterThan `
   -Threshold 1 `
-  -TargetResourceId "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroupMonitor/providers/Microsoft.Compute/virtualMachines/myMonitorVM" `
+  -TargetResourceId "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM" `
   -MetricName "Percentage CPU" `
   -TimeAggregationOperator Total `
   -Location eastus `
@@ -220,9 +248,9 @@ You can do more advanced monitoring of your VM by using [Operations Management S
 When you have access to the OMS portal, you can find the workspace key and workspace identifier on the Settings blade. Replace <workspace-key> and <workspace-id> with the values for from your OMS workspace and then you can use [Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension?view=azurermps-3.8.0) to add the OMS extension to the VM:
 
 ```powershell
-Set-AzureRmVMExtension -ResourceGroupName myResourceGroupmonitor `
+Set-AzureRmVMExtension -ResourceGroupName myResourceGroup `
   -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
-  -VMName myMonitorVM `
+  -VMName myVM `
   -Publisher "Microsoft.EnterpriseCloud.Monitoring" `
   -ExtensionType "MicrosoftMonitoringAgent" `
   -TypeHandlerVersion 1.0 `
@@ -231,6 +259,6 @@ Set-AzureRmVMExtension -ResourceGroupName myResourceGroupmonitor `
   -Location eastus
 ```
 
-On the Log Search blade of the OMS portal, you should see `myMonitorVM` such as what is shown in the following picture:
+On the Log Search blade of the OMS portal, you should see `myVM` such as what is shown in the following picture:
 
 ![OMS blade](./media/tutorial-monitoring/tutorial-monitor-oms.png)
