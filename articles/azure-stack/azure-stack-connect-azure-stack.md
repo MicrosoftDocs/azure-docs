@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/05/2017
+ms.date: 05/10/2017
 ms.author: sngun
 
 ---
@@ -141,5 +141,5 @@ To test the portal connection, open an Internet browser and navigate to either t
 
 ## Next steps
 
-[Add the Windows Server 2016 VM image to the Azure Stack marketplace](azure-stack-add-default-image.md)
+[Make virtual machines available to your Azure Stack users](azure-stack-tutorial-tenant-vm.md)
 
