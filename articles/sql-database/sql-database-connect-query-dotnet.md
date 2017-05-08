@@ -14,7 +14,7 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 05/07/2017
 ms.author: andrela;sstein;carlrab
 
 ---
@@ -304,12 +304,8 @@ namespace ConsoleApplication1
 ```
 
 ## Next steps
+- [Design your first Azure SQL database](sql-database-design-first-database.md)
+- [.NET documentation](https://docs.microsoft.com/dotnet/).
+- [Connect and query with SSMS](sql-database-connect-query-ssms.md)
+- [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
 
-- For .NET documentation, see [.NET documentation](https://docs.microsoft.com/dotnet/).
-- To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md)
-- To connect and query using Visual Studio, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
-- To connect and query using PHP, see [Connect and query with PHP](sql-database-connect-query-php.md).
-- To connect and query using Node.js, see [Connect and query with Node.js](sql-database-connect-query-nodejs.md).
-- To connect and query using Java, see [Connect and query with Java](sql-database-connect-query-java.md).
-- To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
-- To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).
