@@ -158,5 +158,4 @@ cnxn.commit()
 - [Design your first Azure SQL database](sql-database-design-first-database.md)
 - [Microsoft Python Drivers for SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)
 - [Python Developer Center](/develop/python/)
-- [Connect and query with SSMS](sql-database-connect-query-ssms.md)
-- [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md)
+
