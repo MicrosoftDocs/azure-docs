@@ -19,7 +19,7 @@ sections:
 - title: Quickstart
   items:
   - type: paragraph
-    text: Get up and running.
+    text: Set up your hardware and deploy Azure Stack:
   - type: list
     style: icon48
     items: 
@@ -34,11 +34,10 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/azure-stack/azure-stack-manage-basics">Administration basics</a>
-    - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Make Virtual Machines available on Azure Stack</a>
-    - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">Make SQL databases available on Azure Stack</a>
-    - html: <a href="/azure/azure-stack/azure-stack-tutorial-app-service">Make Web apps available on Azure Stack</a>
-    - html: <a href="/azure/azure-stack/azure-stack-solution-pipeline">Deploy apps across Azure &amp; Azure Stack</a>
+    - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Enable Virtual Machines on Azure Stack</a>
+    - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">Enable SQL Databases on Azure Stack</a>
+    - html: <a href="/azure/azure-stack/azure-stack-tutorial-app-service">Enable Web Apps on Azure Stack</a>
+    - html: <a href="/azure/azure-stack/azure-stack-solution-pipeline">Deploy applications across both Azure &amp; Azure Stack</a>
 - title: Reference
   items:
   - type: list
@@ -46,4 +45,4 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/azure/azure-stack/azure-stack-version-profiles">Manage API version profiles</a></p><p><a href="/powershell/azure/overview?view=azurestackps-1.2.9">PowerShell</a></p>
+      html: <p><a href="/powershell/azure/overview?view=azurestackps-1.2.9">PowerShell</a></p>
