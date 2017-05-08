@@ -144,15 +144,14 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Manage data</h3>
+                                                <p>&nbsp;</p>
                                                 <div class="likeAnH3"><strong>Relational Databases</strong></div>
                                                 <a class="barLink" href="/azure/sql-database/">SQL Database as a Service</a>
                                                 <a class="barLink" href="/azure/postgresql/">PostgreSQL Database as a Service</a>
                                                 <a class="barLink" href="/azure/mysql/">MySQL Database as a Service</a>
-                                                <div>
-                                                    <p> </p>
-                                                    <div class="likeAnH3"><strong>NoSQL</strong></div>
-                                                    <a class="barLink" href="/azure/cosmosdb/">Cosmos DB</a>
-                                                </div>
+                                                <p>&nbsp;</p>
+                                                <div class="likeAnH3"><strong>NoSQL</strong></div>
+                                                <a class="barLink" href="/azure/cosmosdb/">Cosmos DB</a>
                                             </div>
                                         </div>
                                     </div>
