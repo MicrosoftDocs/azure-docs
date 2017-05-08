@@ -33,13 +33,16 @@ We collect the live stream from your application instances before any sampling, 
 ![Live Metrics Stream video](./media/app-insights-live-stream/youtube.png) [Live Metrics Stream video](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
 Access live metrics & events by clicking either the option in the left, or the button on the Overview blade:
+
 ![In the Overview blade, click Live Stream](./media/app-insights-live-stream/live-stream-2.png)
 
 ##Custom Live KPI
 You can monitor custom KPI live by applying arbitrary filters on any Application Insights telemetry from the portal. You can also choose any custom metric you may be sending directly (by using TrackMetric), or as a measurement property. Click the filter control that shows when you mouse-over any of the charts. The following chart is plotting a custom Request count KPI with filters on URL and Duration attributes. Validate your filters with the Stream Preview section that shows a live feed of telemetry that matches the criteria you have specified at any point in time. 
+
 ![Custom Request KPI](./media/app-insights-live-stream/live-stream-filteredMetric.png)
 
 You could monitor a value different from Count as well. The options depend on the type of stream, which could be any Application Insights telemetry: requests, dependencies, exceptions, traces, events, or metrics. With the custom metric or dimension option, you can provide the name in the next input box:
+
 ![Value Options](./media/app-insights-live-stream/live-stream-valueoptions.png)
 
 In addition to Application Insights telemetry, you can also monitor any Windows performance counter by selecting that from the stream options, and providing the name of the performance counter.
@@ -47,13 +50,17 @@ Live metrics are aggregated at two points: locally on each server, and then acro
 
 ## Sample Telemetry: Custom Live Diagnostic Events
 By default, the live feed of events shows samples of failed requests and dependency calls, exceptions, events, and traces. Click the filter icon to see the applied criteria at any point in time. 
+
 ![Default live feed](./media/app-insights-live-stream/live-stream-eventsdefault.png)
 
 As with metrics, you can specify any arbitrary criteria to any of the Application Insights telemetry types. In this example, we are selecting specific request failures, traces, and events. We are also selecting all exceptions and dependency failures.
+
 ![Custom live feed](./media/app-insights-live-stream/live-stream-events.png)
+
 Note: Currently, for Exception message-based criteria, use the outermost exception message. In the preceding example, to filter out the benign exception with inner exception message (follows the "<--" delimiter) "The client disconnected." use a message not-contains "Error reading request content" criteria.
 
 See the details of an item in the live feed by clicking it. You can pause the feed either by clicking **Pause** or simply scrolling down, or clicking an item. Live feed will resume after you scroll back to the top, or by clicking the counter of items collected while it was paused.
+
 ![Sampled live failures](./media/app-insights-live-stream/live-metrics-eventdetail.png)
 
 ## Filter by server instance
@@ -68,13 +75,31 @@ Custom Live Metrics Stream is available with version 2.4.0-beta3 or newer of [Ap
 ## Authenticated Channel
 The custom filters criteria you specify are sent back to the Live Metrics component in the Application Insights SDK. The filters could potentially contain sensitive information such as customerIDs. You can make the channel secure with a secret API key in addition to the instrumentation key.
 ### Create an API Key
+
 ![Create api key](./media/app-insights-live-stream/live-metrics-apikeycreate.png)
-### <TBD>
-<TBD> add the API key into X config and redeploy.
+
+### Add API key to Configuration
+In the applicationinsights.config file, add the AuthenticationApiKey to the QuickPulseTelemetryModule:
+``` XML
+
+<Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
+      <AuthenticationApiKey>YOUR-API-KEY-HERE</AuthenticationApiKey>
+</Add> 
+
+```
+Or in code, set it on the QuickPulseTelemetryModule:
+
+``` C#
+
+    module.AuthenticationApiKey = "YOUR-API-KEY-HERE";
+
+```
 
 However, if you recognize and trust all the connected servers, you can try the custom filters without the authenticated channel. This option is available for six months. This override is required once every new session, or when a new server comes online.
+
 ![Live Metrics Auth options](./media/app-insights-live-stream/live-stream-auth.png)
 
+[!NOTE]
 We strongly recommend that you set up the authenticated channel before entering potentially sensitive information like CustomerID in the filter criteria.
 
 ## Troubleshooting
