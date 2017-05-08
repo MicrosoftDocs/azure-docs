@@ -12,7 +12,7 @@ ms.service: cosmosdb
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: article
 ms.date: 05/10/2017
 ms.author: acomet
 
@@ -30,7 +30,7 @@ After reading this article, you will be able to answer the following questions:
 * How to use the portal metrics to optimize my cost and performance?
 * Define which type of request can consume your RU/m budget?
 
-## Concept of provisioning Request Unit per Minute
+## Provisioning request units per minute (RU/m)
 
 When you provision Azure Cosmos DB at the second granularity (RU/s), you get the guarantee that your request succeeds at a low latency if your throughput has not exceeded the capacity provisioned within that second. With RU/m, the granularity is at the minute with the guarantee that your request succeeds within that minute. Compared to bursting systems, we make sure that the performance you get is predictable and you can plan on it.
 
@@ -52,7 +52,7 @@ Below is a concrete example, in which a customer can provision 10kRU/s with 100k
  
     ![Graph showing the consumption and provisioning of Azure Cosmos DB](./media/request-units-per-minute/azure-cosmos-db-request-units-per-minute.png)
 
-## Specifying Request Unit capacity with Request Unit per Minute
+## Specifying request unit capacity with RU/m
 
 When creating an Azure Cosmos DB collection, you specify the number of request units per second (RU per second) you want reserved for the collection. You can also decide if you want to add RU per minute. This can be done through the Portal or the SDK. 
 
@@ -100,9 +100,9 @@ offerV2 = new OfferV2(offer, 5000, false);
 await client.ReplaceOfferAsync(offerV2);
 ```
 
-## Good fit scenarios for provisioning Request Units per Minute
+## Good fit scenarios
 
-In this section, we provide an overview of scenarios that are a good fit for enabling Request Unit per Minute.
+In this section, we provide an overview of scenarios that are a good fit for enabling request units per minute.
 
 **Dev/Test environment:** Good fit. During the development stage, if you are testing your application with different workloads, RU/m can provide the flexibility at this stage. While the [emulator](../documentdb/documentdb-nosql-local-emulator.md) is a great free tool to test Azure Cosmos DB. However if you want to start in a cloud environment, you will have a great flexibility with RU/m for your adhoc performance needs. You will spend more time developing, less worrying about performance needs at first. We recommend starting with the minimum RU/s provisioning and enable RU/m.
 
@@ -143,11 +143,11 @@ To assist you, we want to provide an overall guidance on how to optimize your pr
 |1-10%|Healthy use|Keep the same provisioning level|
 |Above 10%|Over utilization|Increase RU/s to rely less on RU/m|
 
-This methodology works by using RU (second and minute) consumption, % throttled requests through the portal metrics. Below are important metrics to monitor based on a full cycle (here the cycle is 7 days):
+<!---This methodology works by using RU (second and minute) consumption, % throttled requests through the portal metrics. Below are important metrics to monitor based on a full cycle (here the cycle is 7 days):
 
-![RU/m consumption and throttled request metrics from the Azure portal](./media/request-units-per-minute/azure-cosmos-db-request-units-per-minute-monitor.png)
+![RU/m consumption and throttled request metrics from the Azure portal](./media/request-units-per-minute/azure-cosmos-db-request-units-per-minute-monitor.png)--->
  
-## Select which type of operation can consume your RU/m budget
+## Select which operations can consume the RU/m budget
 
 At request level, you can also enable/disable RU/m budget to serve the request irrespective of operation type. If regular provisioned RUs/sec budget is consumed and the request cannot consume the RU/m budget, this request will be throttled. By default, any request is served by RU/m budget if RU/m throughput budget is activated.  Here is a code snippet for disabling RU/m budget using the .NET SDK:
 
