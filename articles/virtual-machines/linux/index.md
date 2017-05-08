@@ -64,7 +64,9 @@ ms.author: carolz
     <li><a href="/azure/virtual-machines/linux/tutorial-load-balancer">Load balance VMs</a></li>
     <li><a href="/azure/virtual-machines/linux/tutorial-virtual-network">Manage VM networking</a></li>
     <li><a href="/azure/virtual-machines/linux/tutorial-backup-vms">Backup VMs</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-monitoring">Monitor VMs</a></li>
     <li><a href="/azure/virtual-machines/linux/tutorial-azure-security">Manage security on VMs</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Create a CI/CD infrastructure with Jenkins, Docker, and GitHub</a></li>
     
 </ol>
 
