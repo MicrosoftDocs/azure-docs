@@ -77,4 +77,3 @@ Smart Diagnostics only works when the following criteria are satisfied:
 
  * [Analytics tutorial](app-insights-analytics-tour.md)
  * [Smart detection](app-insights-proactive-diagnostics.md) automatically alerts you to performance issues.
-S
