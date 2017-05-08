@@ -179,7 +179,7 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
 
 1. [A] Setup disk layout
     1. LVM  
-    We generally recommend to use LVM for volumes that store data and log files. The example below assume that the virtual machines have four data disks attached that should be used to create two volumes.
+    We generally recommend to use LVM for volumes that store data and log files. The example below assumes that the virtual machines have four data disks attached that should be used to create two volumes.
         * Create physical volumes for all disks that you want to use.
     <pre><code>
     sudo pvcreate /dev/sdc
@@ -306,10 +306,10 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     } 
     <b>nodelist {
       node {
-        ring0_addr:     < ip address of note 1 >
+        ring0_addr:     < ip address of node 1 >
       }
       node {
-        ring0_addr:     < ip address of note 2 > 
+        ring0_addr:     < ip address of node 2 > 
       } 
     }</b>
     logging {
@@ -405,7 +405,7 @@ Change the default settings
 
 <pre>
 sudo vi crm-defaults.txt
-# enter the following to crm-saphana.txt
+# enter the following to crm-defaults.txt
 <code>
 property $id="cib-bootstrap-options" \
   no-quorum-policy="ignore" \
