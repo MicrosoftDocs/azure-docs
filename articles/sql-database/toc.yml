@@ -41,6 +41,8 @@
     href: sql-database-migrate-your-sql-server-database.md
   - name: 3 - Secure your SQL DB
     href: sql-database-security-tutorial.md
+  - name: 5 - Implement a multi-tenant SaaS app
+    href: sql-database-multi-tenant-application.md
 - name: Samples
   items:
   - name: Azure CLI
