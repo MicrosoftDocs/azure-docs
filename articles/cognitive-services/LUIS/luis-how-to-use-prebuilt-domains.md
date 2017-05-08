@@ -43,6 +43,7 @@ Prebuilt domains are designed to be general and contain many intents and entitie
 
 > [!TIP]
 > The intents and entities in a prebuilt domain work best together. It's better to combine intents and entities from the same domain when possible.
+> * A best practice is to use related intents from the same domain. For example, if you are customizing the `MakeReservation` intent, then select the cancel intent from the reservations domain instead of the cancel in the events or utilities domains.
 
 ### Changing the behavior of an prebuilt domain intent
 You might find that a prebuilt domain contains an intent that is similar to an intent you want to have in your LUIS app but you want it to behave differently. For example, the **Places** prebuilt domain provides an `MakeReservation` intent for making a restaurant reservation, but you want your app to use that intent to make hotel reservations. In that case, you can modify the behavior of that intent by providing utterances to LUIS about making hotel reservations and labeling them using the `MakeReservation` intent, so then LUIS can be retrained to recognize the `MakeReservation` intent in a request to book a hotel.
