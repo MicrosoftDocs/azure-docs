@@ -128,11 +128,11 @@ DB/databaseAccounts/<cosmosdb_name>",
 
 ## Connect your Node.js application to the database
 
-In this step, you connect your MEAN.js sample application to the an Azure Cosmos DB database you just created, using a MongoDB connection string. 
+In this step, you connect your MEAN.js sample application to an Azure Cosmos DB database you just created, using a MongoDB connection string. 
 
 ## Retrieve the key
 
-In order to connect to the an Azure Cosmos DB database, you need the database key. Use the [az documentdb list-keys](/cli/azure/documentdb#list-keys) command to retrieve the primary key.
+In order to connect to an Azure Cosmos DB database, you need the database key. Use the [az documentdb list-keys](/cli/azure/documentdb#list-keys) command to retrieve the primary key.
 
 ```azurecli
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -156,7 +156,7 @@ Copy the value of `primaryMasterKey` to a text editor. You need this information
 
 In your MEAN.js repository, open `config/env/local-development.js`.
 
-Replace the content of this file with the following code. Be sure to also replace the two `<cosmosdb_name>` placeholders with your an Azure Cosmos DB account name, and the `<primary_master_key>` placeholder with the key you copied in the previous step.
+Replace the content of this file with the following code. Be sure to also replace the two `<cosmosdb_name>` placeholders with your Azure Cosmos DB account name, and the `<primary_master_key>` placeholder with the key you copied in the previous step.
 
 ```javascript
 'use strict';
@@ -187,7 +187,7 @@ A console message should now tell you that the development environment is up and
 
 Navigate to `http://localhost:3000` in a browser. Click **Sign Up** in the top menu and try to create two dummy users. 
 
-The MEAN.js sample application stores user data in the database. If you are successful and MEAN.js automatically signs into the created user, then your an Azure Cosmos DB connection is working. 
+The MEAN.js sample application stores user data in the database. If you are successful and MEAN.js automatically signs into the created user, then your Azure Cosmos DB connection is working. 
 
 ![MEAN.js connects successfully to MongoDB](./media/create-mongodb-nodejs/mongodb-connect-success.png)
 

@@ -79,7 +79,7 @@ The authentication and data flow is illustrated in the diagram below.
 * The UserItems collection is created with the partition key '/userid'. Specifying a partition key for a collection allows Azure Cosmos DB to scale infinitely as the number of users and items grows.
 * The Xamarin app allows users to login with Facebook credentials.
 * The Xamarin app uses Facebook access token to authenticate with ResourceTokenBroker API
-* The resource token broker API authenticates the request using App Service Auth feature, and requests an Azure Cosmos DB resoure token with read/write access to all documents sharing the authenticated user's partition key.
+* The resource token broker API authenticates the request using App Service Auth feature, and requests an Azure Cosmos DB resource token with read/write access to all documents sharing the authenticated user's partition key.
 * Resource token broker returns the resource token to the client app.
 * The app accesses the user's todo items using the resource token.
 
