@@ -1,6 +1,6 @@
 ---
-title: Overview of Azure Managed Application | Microsoft Docs
-description: Describes the concepts for Azure Managed Application
+title: Consume an Azure Managed Application | Microsoft Docs
+description: Describes how a customer creates an Azure Managed Application from the published files.
 services: azure-resource-manager
 author: ravbhatnagar
 manager: rjmax
@@ -14,7 +14,7 @@ ms.date: 05/08/2017
 ms.author: gauravbh; tomfitz
 
 ---
-# Consume a Managed Application
+# Consume an Azure Managed Application
 
 As described in the Managed Application overview article here, there are two scenarios in the end to end experience. One is the publisher or ISV who wants to create a managed application for use by customers. The second is the end customer or the consumer of the managed application. This article covers the second scenario and explains how an end customer can consume a managed application provided by an ISV.
 
@@ -86,7 +86,28 @@ This command returns the appliance definition. You need the value of **Id** prop
 
 **parameters** - The parameters that are needed for the resources defined in the applianceMainTemplate.json.
 
+## Create the managed application using Portal
+
+The support to consume managed applications published by the ISVs is also present in the portal. You can follow the below steps -
+
+Select the Managed Application from the Create blade in Azure portal -
+
+![](./media/managed-application-consumption/create-blade.png)
+
+Next, you will see the list of offers from various ISVs/partners. Please select the one you would like to create and click "Create"
+
+![](./media/managed-application-consumption/select-offer.png)
+
+After clicking create, provide the parameters required to provision the resources in the blade that opens. 
+
+![](./media/managed-application-consumption/input-parameters.png)
+
+Once all these have been provided, click OK. The template will be validated against the inputs you have provided and if validation succeeds, the template deployment will start. After the deployment has completed, the appropriate resources as defined in the template will be provisioned in the managed resource group provided by you.
+
+
+
 
 ## Next steps
 
-* For an introduction to Resource Manager, see [Azure Resource Manager overview](resource-group-overview.md).
+* For an introduction to managed applications, see [Azure Managed Application overview](managed-application-overview.md).
+* To understand the vendor experience, see [Create and publish an Azure Managed Application](managed-application-publishing.md).
