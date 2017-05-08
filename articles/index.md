@@ -444,165 +444,171 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     <h3>Cognitive Services</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>Computer-vision</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>Face</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>Bing-Web-Search</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>Custom-Speech-Service</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>Custom Vision Service</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>Language Understanding Intelligent Services (LUIS)</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>Video</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>Bing Custom Search</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>Bing-Image-Search</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>Bing-News-Search</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>Bing-Video-Search</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>Translator</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>QnaMaker</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>Bing Speech</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>Speaker Recognition</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/">
+                                            <a href="/azure/cognitive-services/emotion/home">
                                                 <img src="media/index/CognitiveServices.svg" alt="" />
                                                 <p>Emotion</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/">
+                                            <a href="/azure/cognitive-services/face/overview">
                                                 <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>Content Moderator</p>
+                                                <p>Face</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>Bing-Autosuggest</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>Custom Decision Service</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>Bing-Spell-Check</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/">
+                                            <a href="/azure/cognitive-services/academic-knowledge/home">
                                                 <img src="media/index/CognitiveServices.svg" alt="" />
                                                 <p>Academic Knowledge</p>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/cognitive-services/bing-autosuggest/get-suggested-search-terms">
+                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <p>Bing Autosuggest</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-custom-search/overview">
+                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <p>Bing Custom Search</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-image-search/search-the-web">
+                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <p>Bing Image</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-news-search/search-the-web">
+                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <p>Bing News</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/cognitive-services/">
                                                 <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <p>Bing Speech Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-spell-check/proof-text">
+                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <p>Bing Spell Check</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-video-search/search-the-web">
+                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <p>Bing Video</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-web-search/search-the-web">
+                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <p>Bing Web Search</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/computer-vision/home">
+                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <p>Computer Vision</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/academic-knowledge/home">
+                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <p>Content Moderator</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview">
+                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <p>Custom Decision Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/custom-speech-service/home">
+                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <p>Custom Speech Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/Custom-Vision-Service/home">
+                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <p>Custom Vision Search</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/entitylinking/home">
+                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <p>Entity Linking</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/academic-knowledge/home">
+                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <p>Knowledge Exploration Service (KES)</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/luis/home">
+                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <p>Language Understanding Intelligent Services (LUIS)</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/linguisticanalysisapi/home">
+                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <p>Linguistic</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/qnamaker/home">
+                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <p>QnAMaker</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/recommendations/overview">
+                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <p>Recommendations</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/speaker-recognition/home">
+                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <p>Speaker Recognition</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/text-analytics/overview">
+                                                <img src="media/index/CognitiveServices.svg" alt="" />
                                                 <p>Text Analytics</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/translator/translator-info-overview">
+                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <p>Translator</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/video/home">
+                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <p>Video</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/video-indexer/overview">
+                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <p>Video Indexer</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/">
                                                 <img src="media/index/CognitiveServices.svg" alt="" />
                                                 <p>Web Language Model</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>Linguistic Analysis</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>Entity Linking</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>Knowledge Exploration Service</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>Recommendations</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1772,7 +1778,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                         <a href="#cognitive">Cognitive Services</a>
                         <ul id="cognitive" class="cardsA">
                             <li>
-                                <a href="/azure/cognitive-services/computer-vision/">
+                                <a href="/azure/cognitive-services/computer-vision/home">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1783,7 +1789,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Computer Vision</h3>
-                                                    <p>Add smart API capabilities to enable contextual interactions</p>
+                                                    <p>Extract rich information from images to categorize and process visual data</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1791,7 +1797,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cognitive-services/face/">
+                                <a href="/azure/cognitive-services/face/overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1802,7 +1808,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Face</h3>
-                                                    <p>Add smart API capabilities to enable contextual interactions</p>
+                                                    <p>Detect human faces and compare similar ones</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1810,7 +1816,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cognitive-services/Bing-Web-Search/">
+                                <a href="/azure/cognitive-services/bing-web-search/search-the-web">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1821,7 +1827,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Bing Web Search</h3>
-                                                    <p>Add smart API capabilities to enable contextual interactions</p>
+                                                    <p>Bring intelligent search to your apps</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1829,7 +1835,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cognitive-services/Custom-Speech-Service/">
+                                <a href="/azure/cognitive-services/custom-speech-service/home">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1840,7 +1846,26 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Custom Speech Service</h3>
-                                                    <p>Add smart API capabilities to enable contextual interactions</p>
+                                                    <p>Overcome speech recognition barriers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/cognitive-services/luis/home">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/CognitiveServices.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Language Understanding Intelligent Services (LUIS)</h3>
+                                                    <p>Teach your apps to understand commands from your users</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1858,8 +1883,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Custom Vision Service</h3>
-                                                    <p>Add smart API capabilities to enable contextual interactions</p>
+                                                    <h3>Bing Speech Service</h3>
+                                                    <p>Convert audio to text, understand intent, and convert text back to speech for natural responsiveness</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1867,7 +1892,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cognitive-services/Video/">
+                                <a href="/azure/cognitive-services/translator/translator-info-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1877,8 +1902,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Video Indexer</h3>
-                                                    <p>Add smart API capabilities to enable contextual interactions</p>
+                                                    <h3>Translator</h3>
+                                                    <p>Easily conduct real-time text translation with a simple REST API call</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1886,7 +1911,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cognitive-services/luis/">
+                                <a href="/azure/cognitive-services/speaker-recognition/home">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1896,46 +1921,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Language Understanding</h3>
-                                                    <p>Add smart API capabilities to enable contextual interactions</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/cognitive-services/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/CognitiveServices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Bing Custom Search</h3>
-                                                    <p>Add smart API capabilities to enable contextual interactions</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/cognitive-services/Bing-Image-Search/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/cognitiveservices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Bing Image Search</h3>
-                                                    <p>Add smart API capabilities to enable contextual interactions</p>
+                                                    <h3>Speaker Recognition</h3>
+                                                    <p>Identify individual speakers or use speech as a means of authentication</p>
                                                 </div>
                                             </div>
                                         </div>
