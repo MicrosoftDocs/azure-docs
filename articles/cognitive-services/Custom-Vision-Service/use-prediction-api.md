@@ -97,5 +97,5 @@ Follow these steps to mark an iteration as the default:
 After you mark an iteration as the default, you can write code that always uses the current default. To modify the preceding example to always use the current default, even when that default changes, remove the *IterationId* parameter and its value from the URL. In this example, the following URL is what you obtain.
 
 ```
-"https://deviris2.azure-api.net/v1.0/Prediction/d16e136c-5b0b-4b84-9341-6a3fff8fa7fe/image?"
+"http://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/prediction/d16e136c-5b0b-4b84-9341-6a3fff8fa7fe/image?"
 ```
