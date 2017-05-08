@@ -15,7 +15,19 @@ ms.date: 05/10/2017
 ---
 
 # Design your first Azure Database for MySQL database
-In this tutorial, you will use the Azure portal to create a server with a server-level firewall. You will then use Workbench GUI tool to create a database, a table in the database, load data into that table, query table, and update data in the table. Finally, you will use the server’s automated backups to restore the database to an earlier point-in-time before you added this new table. 
+
+Azure Database for MySQL is a managed service that enables you to run, manage, and scale highly available MySQL databases in the cloud. Using the Azure portal, you can easily manage your server and design a database.
+
+In this tutorial, you use the Azure portal to learn how to:
+
+> [!div class="checklist"]
+> * Create an Azure Database for MySQL
+> * Configure the server firewall
+> * Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
+> * Load sample data
+> * Query data
+> * Update data
+> * Restore data
 
 ## Log in to the Azure portal
 Open your favorite web browser, and visit [Microsoft Azure Portal](https://portal.azure.com/). Enter your credential to login to the portal. The default view is your service dashboard.
