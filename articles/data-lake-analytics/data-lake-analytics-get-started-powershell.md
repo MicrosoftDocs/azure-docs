@@ -46,20 +46,19 @@ $adla = "<DataLakeAnalyticsAccountName>"
 $location = "East US 2"
 ```
 
-## Create a Resource Group account
+## Create a Data Lake Analytics account
+
 If you don't already have a Resource Group to use, create one. 
 
 ```
 New-AzureRmResourceGroup -Name  $rg -Location $location
 ```
 
-## Create a Data Lake Store account
 Every Data Lake Analytics account requires a default Data Lake Store account that it uses for storing logs. You can reuse an existing account or create a new account. 
 
 ```
 New-AdlStore -ResourceGroupName $rg -Name $adls -Location $location
-````
-## Create a Data Lake Analytics account
+```
 Once a Resource Group and Data Lake Store account is available, create a Data Lake Analytics account.
 
 ```
@@ -95,6 +94,8 @@ Submit the script.
 Submit-AdlJob -AccountName $adla –ScriptPath "d:\test.usql"Submit
 ```
 
+## Monitor U-SQL Jobs
+
 List all the jobs in the account. The output includes the currently running jobs and those jobs that have recently completed.
 
 ```
@@ -112,6 +113,8 @@ Instead of calling Get-AdlAnalyticsJob over and over until a job finishes, you c
 ```
 Wait-AdlJob -Account $adla -JobId $job.JobId
 ```
+
+## Examine the Results of a Job
 
 After the job is completed, check if the output file exists by listing the files in a folder.
 
@@ -131,7 +134,9 @@ Download the file.
 Export-AdlStoreItem -AccountName $adls -Path "/data.csv"  -Destination "D:\data.csv"
 ```
 
-Upload a file.
+## Uploading Files
+
+Upload files to use as inputs for U-SQL scripts.
 
 ```
 Import-AdlStoreItem -AccountName $adls -Path "D:\data.tsv" -Destination "/data_copy.csv" 
