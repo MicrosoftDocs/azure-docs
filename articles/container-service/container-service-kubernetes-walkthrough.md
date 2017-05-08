@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/24/2017
+ms.date: 05/08/2017
 ms.author: anhowe
 ms.custom: H1Hack27Feb2017
 ---
@@ -25,7 +25,7 @@ ms.custom: H1Hack27Feb2017
 
 This walkthrough shows you how to use the Azure CLI 2.0 commands to create a Kubernetes cluster in Azure Container Service. Then, you can use the `kubectl` command-line tool to start working with containers in the cluster.
 
-The following image shows the architecture of a Container Service cluster with one master and two agents. The master serves the Kubernetes REST API. The agent nodes are grouped in an Azure availability set
+The following image shows the architecture of a Container Service cluster with one Linux master and two Linux agents. The master serves the Kubernetes REST API. The agent nodes are grouped in an Azure availability set
 and run your containers. All VMs are in the same private virtual network and are fully accessible to each other.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-walkthrough/kubernetes.png)
@@ -39,19 +39,16 @@ Additionally, you need (or you can use the Azure CLI to generate automatically d
 
 * **SSH RSA public key**: If you want to create Secure Shell (SSH) RSA keys in advance, see the [macOS and Linux](../virtual-machines/linux/mac-create-ssh-keys.md) or [Windows](../virtual-machines/linux/ssh-from-windows.md) guidance. 
 
-* **Service principal client ID and secret**: For details about creating an Azure Active Directory service principal for Kubernetes, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
+* **Service principal client ID and secret**: For steps to create an Azure Active Directory service principal and additional information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
 
-  > [!IMPORTANT]
-  > To create the service principal, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your Azure subscription. You can [check in the portal](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) for the required permissions. If you don't have them, ask your Azure AD or subscription administrator to assign the necessary permissions, or ask them for a service principal to use with Azure Container Service.
-  >
-
+  The command example in this article automatically generates the SSH keys and service principal.
 
 ## Create your Kubernetes cluster
 
 Here are brief shell commands that use the Azure CLI 2.0 to create your cluster. 
 
 ### Create a resource group
-To create your cluster, you first need to create a resource group in a specific location. Run commands similar to the following:
+To create your cluster, you first need to create a resource group in a location where Azure Container Servie is [available](https://azure.microsoft.com/regions/services/). Run commands similar to the following:
 
 ```azurecli
 RESOURCE_GROUP=my-resource-group
@@ -60,16 +57,11 @@ az group create --name=$RESOURCE_GROUP --location=$LOCATION
 ```
 
 ### Create a cluster
-Once you have a resource group, you can create a Kubernetes cluster in that group by using the `az acs create` command with `--orchestrator-type=kubernetes`. Here are a couple of ways to run the command.
+Create a Kubernetes cluster in your resource group by using the `az acs create` command with `--orchestrator-type=kubernetes`. For command syntax, see the `az acs create` [help](/cli/azure/acs#create).
 
-### Example 1: Automatically generate SSH keys and service principal
-The following example uses the `--generate-ssh-keys` option, which generates the necessary SSH public and private key files for the deployment if they don't exist already in the default `~/.ssh/` directory. 
+This version of the command automatically generates the SSH RSA keys and service principal for the Kubernetes cluster.
 
-This version of the command also automatically generates the [Azure Active Directory service principal](container-service-kubernetes-service-principal.md) needed for a Kubernetes cluster in Azure. 
 
-> [!IMPORTANT]
-> If your account doesn't have permissions to create the Azure AD service principal, the command generates an error similar to `Insufficient privileges to complete the operation.` See the requirements at the beginning of this article. 
-> 
 
 ```azurecli
 DNS_PREFIX=some-unique-value
@@ -77,36 +69,29 @@ CLUSTER_NAME=any-acs-cluster-name
 az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --name=$CLUSTER_NAME --dns-prefix=$DNS_PREFIX --generate-ssh-keys
 ```
 
-### Example 2: Pass existing SSH key and service principal
-
-The following example uses an existing SSH RSA public key file `id_rsa.pub` stored in the default `~/.ssh/` directory, and also passes the client ID and secret (password) of an existing [Azure Active Directory service principal](container-service-kubernetes-service-principal.md) with the required scope and role.
-
-
-```azurecli
-DNS_PREFIX=some-unique-value
-CLUSTER_NAME=any-acs-cluster-name
-CLIENT_ID=your-SP-id
-CLIENT_SECRET=your-SP-password
-az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --name=$CLUSTER_NAME --dns-prefix=$DNS_PREFIX --service-principal $CLIENT_ID --client-secret $CLIENT_SECRET
-```
-
-
 After several minutes, the command completes, and you should have a working Kubernetes cluster.
+
+> [!IMPORTANT]
+> If your account doesn't have permissions to create the Azure AD service principal, the command generates an error similar to `Insufficient privileges to complete the operation.` For more information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
+> 
+
+
 
 ### Connect to the cluster
 
 To connect to the Kubernetes cluster from your client computer, you use [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/), the Kubernetes command-line client. 
 
-If you don't already have `kubectl` installed, you can install it with:
+If you don't already have `kubectl` installed, you can install it with `az acs kubernetes install-cli`. (You can also download it from the [Kubernetes site](https://kubernetes.io/docs/tasks/kubectl/install/).)
 
 ```azurecli
 sudo az acs kubernetes install-cli
 ```
+
 > [!TIP]
 > By default, this command installs the `kubectl` binary to `/usr/local/bin/kubectl` on a Linux or macOS system, or to `C:\Program Files (x86)\kubectl.exe` on Windows. To specify a different installation path, use the `--install-location` parameter.
 >
-
-After `kubectl` is installed, ensure that its directory in your system path, or add it to the path. 
+> After `kubectl` is installed, ensure that its directory in your system path, or add it to the path. 
+>
 
 
 Then, run the following command to download the master Kubernetes cluster configuration to the `~/.kube/config` file:
@@ -176,7 +161,7 @@ To see the Kubernetes web interface, you can use:
 ```bash
 kubectl proxy
 ```
-This command runs a simple authenticated proxy on localhost, which you can use to view the Kubernetes web UI running on [http://localhost:8001/ui](http://localhost:8001/ui). For more information, see [Using the Kubernetes web UI with Azure Container Service](container-service-kubernetes-ui.md).
+This command runs an authenticated proxy on localhost, which you can use to view the Kubernetes web UI running on [http://localhost:8001/ui](http://localhost:8001/ui). For more information, see [Using the Kubernetes web UI with Azure Container Service](container-service-kubernetes-ui.md).
 
 ![Image of Kubernetes dashboard](media/container-service-kubernetes-walkthrough/kubernetes-dashboard.png)
 
@@ -188,7 +173,7 @@ Kubernetes allows you to run commands in a remote Docker container running in yo
 kubectl get pods
 ```
 
-Using your pod name, you can run a remote command on your pod.  For example:
+Using your pod name, you can run a remote command on your pod. For example:
 
 ```bash
 kubectl exec <pod name> date

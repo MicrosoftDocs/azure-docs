@@ -15,50 +15,41 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/24/2017
+ms.date: 05/08/2017
 ms.author: danlep
 
 ---
 
-# Set up an Azure Active Directory service principal for a Kubernetes cluster in Container Service
+# Set up an Azure AD service principal for a Kubernetes cluster in Container Service
 
 
+In Azure Container Service, a Kubernetes cluster requires an [Azure Active Directory service principal](../active-directory/active-directory-application-objects.md) to interact with Azure APIs. The service principal is needed to dynamically manage
+resources such as [user-defined routes](../virtual-network/virtual-networks-udr-overview.md)
+and the [Layer 4 Azure Load Balancer](../load-balancer/load-balancer-overview.md). 
 
-In Azure Container Service, a Kubernetes cluster requires an  [Azure Active Directory service principal](../active-directory/active-directory-application-objects.md) to interact with Azure APIs. The service principal is needed to dynamically manage
-resources such as
-user-defined routes
-and the Layer 4 Azure Load Balancer. 
 
 This article shows different options to set up a service principal for your Kubernetes cluster. For example, if you installed and set up the [Azure CLI 2.0](/cli/azure/install-az-cli2), you can run the [`az acs create`](/cli/azure/acs#create) command to create the Kubernetes cluster and the service principal at the same time.
-
-> [!NOTE]
-> The service principal for Kubernetes is a part of the cluster configuration. However, you don't use the identity to deploy the cluster.
-> 
 
 
 ## Requirements for the service principal
 
 You can use an existing Azure AD service principal that meets the following requirements, or create a new one.
 
-* **Scope**: the resource group in the subscription used to deploy the Kubernetes cluster
+* **Scope**: the resource group in the subscription used to deploy the Kubernetes cluster, or (less restrictively) the subscription used to deploy the cluster.
 
 * **Role**: **Contributor**
 
 * **Client secret**: must be a password. Currently, you can't use a service principal set up for certificate authentication.
 
 > [!IMPORTANT] 
-> To create a service principal in your subscription, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your subscription. To see if you have the required permissions, [check in the Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions). If you don't have these permissions, ask your Azure AD or subscription administrator to assign the necessary permissions, or ask them for a service principal to use with Azure Container Service. 
+> To create a service principal, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your subscription. To see if you have the required permissions, [check in the Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions). 
 >
 
-## Option 1: Create service principal directly in Azure AD
+## Option 1: Create a service principal in Azure AD
 
 If you want to create an Azure AD service principal before you deploy your Kubernetes cluster, Azure provides several methods. 
 
 The following example commands show you how to do this with the [Azure CLI 2.0](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). You can alternatively create a service principal using [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), the [portal](../azure-resource-manager/resource-group-create-service-principal-portal.md), or other methods.
-
-> [!IMPORTANT]
-> To complete these steps, make sure that you have the required Azure AD and subscription permissions to create a service principal. Review the requirements for the service principal earlier in this article.   
->
 
 ```azurecli
 az login
@@ -108,15 +99,11 @@ The following example shows one way to pass the parameters with the Azure CLI 2.
     ```
 
 
-## Option 2: Generate service principal when creating the cluster with the Azure CLI 2.0
+## Option 2: Generate a service principal when creating the cluster with `az acs create`
 
 If you run the [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) command to create the Kubernetes cluster, you have the option to generate a service principal automatically.
 
 As with other Kubernetes cluster creation options, you can specify parameters for an existing service principal when you run `az acs create`. However, when you omit these parameters, the Azure CLI creates one automatically for use with Container Service. This takes place transparently during the deployment. 
-
-> [!IMPORTANT]
-> To generate a service principal when you run `az acs create`, make sure that you have the required Azure AD and subscription permissions to create a service principal. Review the requirements for the service principal earlier in this article. If your account doesn't have permissions, the command generates an error similar to `Insufficient privileges to complete the operation.`
-> 
 
 The following command creates a Kubernetes cluster and generates both SSH keys and service principal credentials:
 
@@ -124,15 +111,19 @@ The following command creates a Kubernetes cluster and generates both SSH keys a
 az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys --orchestrator-type kubernetes
 ```
 
-
+> [!IMPORTANT]
+> If your account doesn't have the Azure AD and subscription permissions to create a service principal, the command generates an error similar to `Insufficient privileges to complete the operation.`
+> 
 
 ## Additional considerations
 
+* If you don't have permissions to create a service principal in your subscription, you might need to ask your Azure AD or subscription administrator to assign the necessary permissions, or ask them for a service principal to use with Azure Container Service. 
 
-* Every service principal is associated with an Azure AD application. The service principal for a Kubernetes cluster can be associated with any valid Azure AD application name (for example: `https://www.contoso.org/example`).
+* The service principal for Kubernetes is a part of the cluster configuration. However, don't use the identity to deploy the cluster.
+
+* Every service principal is associated with an Azure AD application. The service principal for a Kubernetes cluster can be associated with any valid Azure AD application name (for example: `https://www.contoso.org/example`). The URL for the application doesn't have to be a real endpoint.
 
 * When specifying the service principal **Client ID**, you can use the value of the `appId` (as shown in this article) or the corresponding service principal `name` (for example,`https://www.contoso.org/example`).
-
 
 * On the master and agent VMs in the Kubernetes cluster, the service principal credentials are stored in the file /etc/kubernetes/azure.json.
 
@@ -140,25 +131,13 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 * When you use the `az acs create` command to generate the service principal automatically, the service principal can also authenticate with an [Azure container registry](../container-registry/container-registry-intro.md) created in the same subscription.
 
-## Troubleshooting
 
-If the service principal for your Kubernetes cluster isn't configured properly, you can't run commands on the cluster such as `kubectl get nodes` and `kubectl proxy`. 
-
-To check whether the service principal is configured properly, SSH to the master node of the cluster. After making the connection, run the following command:
-
-```bash
-sudo journalctl -u kubelet | grep --text autorest
-```
-
-Output similar to the following, including `400 Bad Request`, typically indicates a problem with the service principal:
-
-```bash
-Nov 10 16:35:22 k8s-master-43D6F832-0 docker[3177]: E1110 16:35:22.840688 3201 kubelet_node_status.go:69] Unable to construct api.Node object for kubelet: failed to get external ID from cloud provider: autorest#WithErrorUnlessStatusCode: POST https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47/oauth2/token?api-version=1.0 failed with 400 Bad Request: StatusCode=400
-```
-
-Check that the service principal credentials were provided accurately when you created the cluster, and confirm that the service principal has both read and write permissions to the target subscription. Then, redeploy the cluster.
 
 
 ## Next steps
 
 * [Get started with Kubernetes](container-service-kubernetes-walkthrough.md) in your container service cluster.
+
+* To troubleshoot the service principal for Kubernetes, see the [ACS Engine documentation](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes.md#troubleshooting).
+
+

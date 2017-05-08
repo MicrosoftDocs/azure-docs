@@ -60,7 +60,7 @@ Here are the instructions you need to provide users, so they can change their pa
 A few minutes after you have changed your password, the new password is usable in Azure Active Directory Domain Services. After a few more minutes (typically, about 20 minutes), you can sign in to computers that are joined to the managed domain by using the newly changed password.
 
 ## Next steps
-* [How to update your own password](../active-directory/active-directory-passwords-update-your-own-password.md#reset-my-password)
+* [How to update your own password](../active-directory/active-directory-passwords-update-your-own-password.md)
 * [Getting started with Password Management in Azure AD](../active-directory/active-directory-passwords-getting-started.md)
 * [Enable password synchronization to Azure Active Directory Domain Services for a synced Azure AD tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Administer an Azure Active Directory Domain Services-managed domain](active-directory-ds-admin-guide-administer-domain.md)
