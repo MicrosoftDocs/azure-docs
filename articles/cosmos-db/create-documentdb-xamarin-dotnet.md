@@ -38,7 +38,7 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 
 You can now use Data Explorer to create a collection. 
 
-1. In the Azure portal, in the navigation menu, under **Collections**, click **Data Explorer (Preview)**. 
+1. In the Azure portal, in the navigation menu, under **Collections**, click **Data Explorer**. 
 2. In the Data Explorer blade, click **New Collection**, then fill in the page using the following information.
 
     Setting|Suggested value|Description
@@ -79,7 +79,7 @@ The authentication and data flow is illustrated in the diagram below.
 * The UserItems collection is created with the partition key '/userid'. Specifying a partition key for a collection allows Azure Cosmos DB to scale infinitely as the number of users and items grows.
 * The Xamarin app allows users to login with Facebook credentials.
 * The Xamarin app uses Facebook access token to authenticate with ResourceTokenBroker API
-* The resource token broker API authenticates the request using App Service Auth feature, and requests an Azure Cosmos DB resoure token with read/write access to all documents sharing the authenticated user's partition key.
+* The resource token broker API authenticates the request using App Service Auth feature, and requests an Azure Cosmos DB resource token with read/write access to all documents sharing the authenticated user's partition key.
 * Resource token broker returns the resource token to the client app.
 * The app accesses the user's todo items using the resource token.
 
@@ -89,9 +89,9 @@ The authentication and data flow is illustrated in the diagram below.
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the Web.config file in the next step.
+1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the Web.config file in the next step.
 
-    ![View and copy an access key in the Azure Portal, Keys blade](./media/create-documentdb-xamarin-dotnet/keys.png)
+    ![View and copy an access key in the Azure portal, Keys blade](./media/create-documentdb-xamarin-dotnet/keys.png)
 
 2. In Visual Studio 2017, open the Web.config file in the azure-documentdb-dotnet/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker folder. 
 

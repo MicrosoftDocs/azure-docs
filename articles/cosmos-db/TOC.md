@@ -43,6 +43,7 @@
 ## [Partitioning](partition-data.md)
 ## [Consistency](../documentdb/documentdb-consistency-levels.md)
 ## [Throughput](../documentdb/documentdb-request-units.md)
+### [Request units per minute](request-units-per-minute.md)
 ## Multi-model APIs
 ### [DocumentDB](../documentdb/documentdb-introduction.md)
 ### [MongoDB](../documentdb/documentdb-protocol-mongodb.md)
