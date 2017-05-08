@@ -26,9 +26,6 @@ Azure Cosmos DB is the future of massively scalable, globally distributed databa
 
 Azure Cosmos DB contains a write optimized, resource governed, schema-agnostic database engine that natively support multiple data models: key-value, documents, graphs, and columnar. It also supports many APIs for accessing data including [MongoDB](../documentdb/documentdb-protocol-mongodb.md), [DocumentDB SQL](../documentdb/documentdb-introduction.md), [Gremlin](graph-introduction.md), and [Azure Tables](table-introduction.md), in an extensible manner. 
 
-
-The Azure Cosmos DB project started in 2011 as "Project Florence" to address developer pain-points that are faced by large Internet-scale applications inside Microsoft. Cosmos DB was made generally available to external developers in 2015 in the form of [Azure DocumentDB](https://azure.microsoft.com/blog/documentdb-moving-to-general-availability/). The service is used ubiquitously internally within Microsoft, and is one of the fastest-growing services in Azure. As one of the foundational services of Azure, Cosmos DB gets installed in every new [Azure region](https://azure.microsoft.com/regions) by default. 
-
 ## Capability comparison
 
 Azure Cosmos DB provides the best capabilities of relational and non-relational databases.
@@ -108,7 +105,7 @@ Regardless of the amount of data or the number of regions, Cosmos DB guarantees 
 
 <a id="horizontal-scale"></a>
 ## Horizontal scaling of storage and throughput
- All the data within a Cosmos DB container (for example, a document collection, table, or graph) is horizontally partitioned and transparently managed by resource partitions. A resource partition is a consistent and highly available container of data partitioned by a [customer specified partition-key](../documentdb/documentdb-partition-data.md). It provides a single system image for a set of resources it manages and is a fundamental unit of scalability and distribution. Cosmos DB is designed to let you elastically scale throughput based on the application traffic patterns across different geographical regions to support fluctuating workloads varying both by geography and time. The service manages the partitions transparently without compromising the availability, consistency, latency, or throughput of a Cosmos DB container.  
+All the data within a Cosmos DB container (for example, a document collection, table, or graph) is horizontally partitioned and transparently managed by resource partitions. A resource partition is a consistent and highly available container of data partitioned by a [customer specified partition-key](../documentdb/documentdb-partition-data.md). It provides a single system image for a set of resources it manages and is a fundamental unit of scalability and distribution. Cosmos DB is designed to let you elastically scale throughput based on the application traffic patterns across different geographical regions to support fluctuating workloads varying both by geography and time. The service manages the partitions transparently without compromising the availability, consistency, latency, or throughput of a Cosmos DB container.  
  
 ![Azure Cosmos DB is horizontally scalable](./media/introduction/azure-cosmos-db-partitioning.png) 
 

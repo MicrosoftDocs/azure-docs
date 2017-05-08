@@ -47,7 +47,7 @@ If you currently use Azure Table storage, you gain the following benefits with t
 
 - Turn-key [global distribution](../documentdb/documentdb-distribute-data-globally.md) with multi-homing and [automatic and manual failovers](../documentdb/documentdb-regional-failovers.md)
 - Support for automatic schema-agnostic indexing against all properties ("secondary indexes"), and fast queries 
-- Support for [independent scaling of storage and throughput](../documentdb/documentdb-partition-data.md), across any number of regions
+- Support for [independent scaling of storage and throughput](partition-data.md), across any number of regions
 - Support for [dedicated throughput per table](../documentdb/documentdb-request-units.md) that can be scaled from hundreds to millions of requests per second
 - Support for [five tunable consistency levels](../documentdb/documentdb-consistency-levels.md) to trade off availability, latency, and consistency based on your application needs
 - 99.99% availability within a single region, and ability to add more regions for higher availability, and [industry-leading comprehensive SLAs](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/) on general availability
@@ -182,7 +182,7 @@ CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 This client is initialized using the `TableConnectionMode`, `TableConnectionProtocol`, `TableConsistencyLevel`, and `TablePreferredLocations` configuration values if specified in the app settings.
     
 ## Create a table
-Then, you create a table using `CloudTable`. Tables in Azure Cosmos DB can scale independently in terms of storage and throughput, and partitioning is handled automatically by the service. Azure Cosmos DB supports both fixed size and unlimited tables. See [Partitioning in Azure Cosmos DB](../documentdb/documentdb-partition-data.md) for details. 
+Then, you create a table using `CloudTable`. Tables in Azure Cosmos DB can scale independently in terms of storage and throughput, and partitioning is handled automatically by the service. Azure Cosmos DB supports both fixed size and unlimited tables. See [Partitioning in Azure Cosmos DB](partition-data.md) for details. 
 
 ```csharp
 CloudTable table = tableClient.GetTableReference("people");

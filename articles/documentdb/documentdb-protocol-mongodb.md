@@ -48,8 +48,7 @@ Learn more in this Azure Friday video with Scott Hanselman and Azure Cosmos DB P
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/DocumentDB-Database-as-a-Service-for-MongoDB-Developers/player]
 > 
 
-
-## How to get started?
+## How to get started
 
 Create an Azure Cosmos DB account in the [Azure Portal](https://portal.azure.com) and swap the MongoDB connection string to your new account. 
 
@@ -68,5 +67,5 @@ Information about Azure Cosmos DB's MongoDB API is integrated into the overall A
 * Build your first API for MongoDB web app using .[NET](documentdb-mongodb-application.md).
 * Connect to an API for MongoDB account using [Robomongo](documentdb-mongodb-robomongo.md).
 * Learn how many RUs your operations are using with the [GetLastRequestStatistics command and the Azure portal metrics](documentdb-request-units.md#GetLastRequestStatistics).
-* Learn how to [configure read preferences for globally distributed apps](documentdb-distribute-data-globally.md#ReadPreferencesAPIforMongoDB).
+* Learn how to [configure read preferences for globally distributed apps](documentdb-developing-with-multiple-regions.md#ReadPreferencesAPIforMongoDB).
 

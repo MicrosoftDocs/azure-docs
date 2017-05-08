@@ -122,6 +122,8 @@ await client.CreateDatabaseAsync(new Database { Id = "db" });
 ```
 ## Decide on a partition key 
 
+Collections are containers for storing documents. They are logical resources and can [span one or more physical partitions](partition-data.md). A [partition key](../documentdb/documentdb-partition-data.md) is a property (or path) within your documents that is used to distribute your data among the servers or partitions. All documents with the same partition key are stored in the same partition. 
+
 Determining a partition key is an important decision to make before you create a collection. Partition keys are a property (or path) within your documents that can be used by Azure Cosmos DB to distribute your data among multiple servers or partitions. Cosmos DB hashes the partition key value and uses the hashed result to determine the partition in which to store the document. All documents with the same partition key are stored in the same partition, and partition keys cannot be changed once a collection is created. 
 
 For this tutorial, we're going to set the partition key to `/deviceId` so that the all the data for a single device is stored in a single partition. You want to choose a partition key that has a large number of values, each of which are used at about the same frequency to ensure Cosmos DB can load balance as your data grows and achieve the full throughput of the collection. 
