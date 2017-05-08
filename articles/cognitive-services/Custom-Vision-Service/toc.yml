@@ -16,5 +16,7 @@
     href: csharp-tutorial.md
 - name: Reference
   items:
+  - name: Glossary
+    href: glossary-of-terms.md
   - name: SDK
     href: http://github.com/Microsoft/Cognitive-CustomVision-Windows/
