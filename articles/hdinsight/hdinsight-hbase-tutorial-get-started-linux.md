@@ -194,7 +194,6 @@ The REST API is secured via [basic authentication](http://en.wikipedia.org/wiki/
 
 For more information about HBase Rest, see [Apache HBase Reference Guide](https://hbase.apache.org/book.html#_rest).
 
->
 > [!NOTE]
 > Thrift is not supported by HBase in HDInsight.
 >
