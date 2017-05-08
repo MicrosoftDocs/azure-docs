@@ -48,10 +48,10 @@ To enable login for users from a specific Azure AD organization, you need to reg
 1. Choose **New application registration**.
 1. Type in a **Name** for your application (e.g. Azure AD B2C App)
 1. Select **Web app / API** for the Application type.
-1. For the 'Sign-on URL', enter the URL below, where the `{tenantName}` should be replaced by the name of your Azure AD B2C tenant (i.e. fabrikamb2c.onmicrosoft.com).
+1. For the 'Sign-on URL', enter the URL below, where `yourtenant` should be replaced by the name of your Azure AD B2C tenant (i.e. fabrikamb2c.onmicrosoft.com).
 
     ```
-    https://login.microsoftonline.com/te/{tenantName}.onmicrosoft.com/oauth2/authresp
+    https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
 1. Save the **Application ID**.
@@ -59,7 +59,7 @@ To enable login for users from a specific Azure AD organization, you need to reg
 1. Under the Settings blade, click on **Keys**.
 1. Create a new key and save it for the next section.
 
-## Add the Azure AD key to Azure AD B2C for use by your tenants
+## Add the Azure AD key to Azure AD B2C
 
 You need to store the `contoso.com` application key in your Azure AD B2C tenant. To do this:
 
@@ -73,7 +73,7 @@ You need to store the `contoso.com` application key in your Azure AD B2C tenant.
 1. Click `Create`
 1. Confirm you've created key: `B2C_1A_ContosoAppSecret`
 
-    When you run the command, make sure you sign in with the onmicrosoft.com admin account local to the Azure AD B2C tenant. If you receive an error that says 'TokenSigningKeyContainer' cannot be found, go through the [getting started](active-directory-b2c-get-started-custom.md) guide.
+    When you run the command, make sure you sign in with the onmicrosoft.com admin account local to the Azure AD B2C tenant. If you receive an error that says 'TokenSigningKeyContainer' or `B2C_1A_TokenSigningKeyContainer` cannot be found, go through the [getting started](active-directory-b2c-get-started-custom.md) guide.
 
 
 ## Add a claims provider in your base policy
@@ -106,7 +106,7 @@ In order to allow users to log in using Azure AD, you need to define Azure AD as
             <Key Id="client_secret" StorageReferenceId="ContosoAppSecret"/>
             </CryptographicKeys>
             <OutputClaims>
-                <OutputClaim ClaimTypeReferenceId="userId" PartnerClaimType="oid"/>
+                <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="oid"/>
                 <OutputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="tid"/>
                 <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
                 <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
@@ -138,9 +138,9 @@ In order to get a token from the Azure AD endpoint, you need to define the proto
 1. Update the value for `<Description>`.
 1. Azure AD uses the OpenID Connect protocol, so ensure that `<Protocol>` is "OpenIDConnect".
 
-You need to update the `<Metdata>` section in the XML above to reflect the configuration settings for your specific Azure AD tenant. In the XML, update the metadata values as following:
+You need to update the `<Metadata>` section in the XML above to reflect the configuration settings for your specific Azure AD tenant. In the XML, update the metadata values as following:
 
-1. Set `<Item Key="METADATA">` to `https://login.windows.net/{tenantName}/.well-known/openid-configuration`, where `tenantName` is your Azure AD tenant name (e.g. contoso.com).
+1. Set `<Item Key="METADATA">` to `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, where `yourAzureADtenant` is your Azure AD tenant name (e.g. contoso.com).
 1. Open your browser and navigate to the `Metadata` URL that you just updated.
 1. In the browser, look for the 'issuer' object and copy its value. It should look like the following `https://sts.windows.net/{tenantId}/`.
 1. Paste the value for `<Item Key="ProviderName">` in the XML.
@@ -149,9 +149,9 @@ You need to update the `<Metdata>` section in the XML above to reflect the confi
 1. Ensure that `<Item Key="response_types">` is set to `id_token`.
 1. Ensure that `<Item Key="UsePolicyInRedirectUri">` is set to `false`.
 
-You also need to link the [Azure AD secret that you registered in your Azure AD B2C tenant](#add-the-azure-ad-key-to-azure-ad-b2c) to the Azure AD `<ClaimsProvider>`.
+You also need to link the Azure AD secret that you registered in your Azure AD B2C tenant to the Azure AD `<ClaimsProvider>`.
 
-1. In the `<CryptographicKeys>` section in the XML above, update the value for `StorageReferenceId` to the reference ID of the secret that you defined (e.g. ContosoAppSecret).
+* In the `<CryptographicKeys>` section in the XML above, update the value for `StorageReferenceId` to the reference ID of the secret that you defined (e.g. ContosoAppSecret).
 
 ### Upload the extension file for verification
 
@@ -173,7 +173,7 @@ You now need to add the Azure AD identity provider into one of your user journey
 
 ### Display the "button"
 
-The `<ClaimsProviderSelection>` element is analagous to an identity provider button on a sign-up/sign-in screen. By adding an `<ClaimsProviderSelection>` element for Azure AD, a new button will show up when a user lands on the page. To do this:
+The `<ClaimsProviderSelection>` element is analogous to an identity provider button on a sign-up/sign-in screen. By adding an `<ClaimsProviderSelection>` element for Azure AD, a new button will show up when a user lands on the page. To do this:
 
 1. Find the `<OrchestrationStep>` with `Order="1"` in the `<UserJourney>` that you just created.
 1. Add the following:
