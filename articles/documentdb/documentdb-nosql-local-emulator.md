@@ -43,6 +43,17 @@ We recommend getting started by watching the following video, where Kirill Gavry
 > 
 > 
 
+This tutorial covers the following tasks:
+
+> [!div class="checklist"]
+> * Installing the local emulator
+> * Running the emulator on Docker for Windows
+> * Using the emulator
+> * Authenticating requests
+> * Developing with the emulator
+> * Exporting the SSL ceritficate
+> * Using the command-line reference
+
 ## System requirements
 The Azure Cosmos DB Emulator has the following hardware and software requirements:
 
@@ -316,7 +327,21 @@ To collect debugging traces, run the following commands from an administrative c
 6. Navigate to `%ProgramFiles%\DocumentDB Emulator` and find the docdbemulator_000001.etl file.
 7. Send the .etl file along with repro steps to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com) for debugging.
 
+In this tutorial, you've done the following:
+
+> [!div class="checklist"]
+> * Installed the local emulator
+> * Ran the emulator on Docker for Windows
+> * Used the emulator
+> * Authenticated requests
+> * Developed with the emulator
+> * Exported the SSL ceritficate
+> * Used the command-line reference
 
 ## Next steps
 * To learn more about Azure Cosmos DB, see [Introduction to Azure Cosmos DB](documentdb-introduction.md)
 * To start developing against the Azure Cosmos DB Emulator, download one of the [supported Azure Cosmos DB SDKs](documentdb-sdk-dotnet.md).
+
+In this tutorial, you've learned how to use the local emulator for free local development. You can now proceed to the next tutorial and learn how to query data using Azure Cosmos DB. 
+
+[Azure Cosmos DB: How to query data?](tutorial-query-documentdb-dotnet.md)

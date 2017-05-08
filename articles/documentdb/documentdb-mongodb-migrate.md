@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 05/10/2017
 ms.author: anhoh
 
 ---
@@ -28,7 +28,14 @@ To migrate data from MongoDB to an Azure Cosmos DB account for use with the Mong
 
 If you are importing data from MongoDB and plan to use it with the DocumentDB API, you should use the Data Migration Tool to import data. For more information, see [Data Migration Tool](documentdb-import-data.md).
 
-## Before you begin
+This tutorial covers the following tasks:
+
+> [!div class="checklist"]
+> * Retrieving your connection string
+> * Importing MongoDB data using mongoimport
+> * Importing MongoDB data using mongorestore
+
+## Prerequisites
 
 * Increase throughput: The duration of your data migration depends on the amount of throughput you set up for your collections. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the [Azure portal](https://portal.azure.com), see [Performance levels and pricing tiers in Azure Cosmos DB](documentdb-performance-levels.md).
 
@@ -67,5 +74,15 @@ Example:
 
     mongorestore.exe --host anhoh-host.documents.azure.com:10250 -u anhoh-host -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
 
+In this tutorial, you've done the following:
+
+> [!div class="checklist"]
+> * Retrieved your connection string
+> * Imported MongoDB data using mongoimport
+> * Imported MongoDB data using mongorestore
+
 ## Next steps
-* For more information, explore [API for MongoDB samples](documentdb-mongodb-samples.md).
+
+In this tutorial, you've learned how to import MongoDB data using mongoimport and mongorestore. You can now proceed to the next tutorial and learn how to query MongoDB data using Azure Cosmos DB. 
+
+[Azure Cosmos DB: How to migrate MongoDB data to Cosmos DB?](ddocumentdb-develop-n,md)
