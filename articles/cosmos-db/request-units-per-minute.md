@@ -121,7 +121,7 @@ Critical operations with adhoc needs: We sometimes recommend to only let critica
 
 ## Using the portal metrics to optimize cost and performance
 
-In the coming weeks, we will further develop the content around monitoring RUs minute consumption to optimize your throughput needs.
+**In the coming weeks, we will further develop the content around monitoring RUs minute consumption to optimize your throughput needs.**
 
 Through the portal metrics, you can see how much of regular RU seconds you consume versus RU minutes. Monitoring these metrics should help you optimize your provisioning. 
 
@@ -133,8 +133,8 @@ The principle behind this approach is to make your throughput provisioning as cl
  
 To understand the optimal provisioning point for your workload, you need to understand:
 
-* Consumption patterns: no, infrequent or sustained spikes? Small (2x average), medium large (>10x average) spikes?
-* Percent of throttled requests: do you feel comfortable if you have a bit of throttling? If so by how much? 
+* Consumption patterns: no, infrequent or sustained spikes? Small (2x average), medium, or large (>10x average) spikes?
+* Percent of throttled requests: do you feel comfortable if you have a bit of throttling? If so, by how much? 
 
 Once you have identified what your goals are, you will be able to get closer to the optimal provisioning.
 

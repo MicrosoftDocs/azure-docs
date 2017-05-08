@@ -24,7 +24,7 @@
 #### [Table storage](functions-bindings-storage-table.md)
 #### [Event Hub](functions-bindings-event-hubs.md)
 #### [Service Bus](functions-bindings-service-bus.md)
-#### [DocumentDB](functions-bindings-documentdb.md)
+#### [Cosmos DB](functions-bindings-documentdb.md)
 #### [SendGrid](functions-bindings-sendgrid.md)
 #### [Twilio](functions-bindings-twilio.md)
 #### [Notification Hubs](functions-bindings-notification-hubs.md)

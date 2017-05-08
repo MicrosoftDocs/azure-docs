@@ -27,7 +27,7 @@ This sample regenerates any kind of Azure Cosmos DB account key using the Azure 
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/cosmosdb/secure-cosmosdb-regenerate-keys/secure-cosmosdb-regenerate-keys.sh?highlight=30-34 "Regenerate Azure Cosmos DB account keys")]
+[!code-azurecli[main](../../../cli_scripts/cosmosdb/secure-cosmosdb-regenerate-keys/secure-cosmosdb-regenerate-keys.sh?highlight=27-31 "Regenerate Azure Cosmos DB account keys")]
 
 ## Clean up deployment
 

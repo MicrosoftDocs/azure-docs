@@ -27,7 +27,7 @@ This sample scales collection throughput for any kind of Azure Cosmos DB collect
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/cosmosdb/scale-cosmosdb-throughput/scale-cosmosdb-throughput.sh?highlight=40-45 "Scale Azure Cosmos DB throughput")]
+[!code-azurecli[main](../../../cli_scripts/cosmosdb/scale-cosmosdb-throughput/scale-cosmosdb-throughput.sh?highlight=40-46 "Scale Azure Cosmos DB throughput")]
 
 ## Clean up deployment
 
