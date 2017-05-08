@@ -25,7 +25,7 @@ ms.author: riande
 This article shows you how to create a logic app in the Azure portal that:
 
 > [!div class="checklist"]
-> * Checks for new tweets using a keyword you supply.
+> * Checks for new tweets using a keyword or hashtag you supply.
 > * Uses the **Detect Sentiment** connector to estimate the tweets sentiment (from poor to good).
 > * Uses an Azure function to process the tweet sentiment into three categories (RED, YELLOW, or GREEN - for poor, neutral, and good).
 > * Uses a condition to check if the sentiment is RED (poor).
@@ -147,7 +147,7 @@ The **Logic App Designer** displays many services and triggers you can connect t
 
   ![authentication of twitter in new window from above](media/functions-twitter-email/auth_twit.png)
 
-* Enter the search text, frequency, and interval. If you specify a popular term (such as #football, #soccer, or #futbol), you can quickly use all your allotted service calls in your cognitive services account. If you run out of calls, you can increase the pricing tier. Search for #Azure every 15 minutes:
+* Enter the search text, frequency, and interval. If you specify a popular hashtag (such as #football, #soccer, or #futbol), you can quickly use all your allotted service calls in your cognitive services account. If you run out of calls, you can increase the pricing tier. Search for #Azure every 15 minutes:
 
   ![#Azure every 15 min](media/functions-twitter-email/azure_tweet.png)
 
