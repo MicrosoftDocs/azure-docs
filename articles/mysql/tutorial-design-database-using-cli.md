@@ -61,7 +61,7 @@ az mysql server create --resource-group mycliresource --name mycliserver
 ## Configure firewall rule
 Create an Azure Database for MySQL server-level firewall rule with the az mysql server firewall-rule create command. A server-level firewall rule allows an external application, such as **mysql** command-line tool or MySQL Workbench to connect to your server through the Azure MySQL service firewall. 
 
-The following example creates a firewall rule for a predefined address range, which in this example is the entire possible range of IP addresses.
+The following example creates a firewall rule for a predefined address range. This example shows the entire possible range of IP addresses.
 
 ```azurecli
 az mysql server firewall-rule create --resource-group mycliresource
@@ -108,12 +108,12 @@ mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
 ```
 
 ## Create a blank database
-Once you’re connected to the server, create a blank database to work with.
+Once you’re connected to the server, create a blank database.
 ```sql
 mysql> CREATE DATABASE mysampledb;
 ```
 
-At the prompt, run the following command to switch connection to this newly created database:
+At the prompt, run the following command to switch the connection to this newly created database:
 ```sql
 mysql> USE mysampledb;
 ```
@@ -158,7 +158,7 @@ SELECT * FROM inventory;
 ## Restore a database to a previous point in time
 Imagine you have accidentally deleted this table. This is something you cannot easily recover from. Azure Database for MySQL allows you to go back to any point in time in the last up to 35 days and restore this point in time to a new server. You can use this new server to recover your deleted data. The following steps restore the sample server to a point before the table was added.
 
-For the Restore you’ll require the following information:
+For the Restore you need the following information:
 
 - Restore point: Select a point-in-time that occurs before the server was changed. Must be greater than or equal to the source database's Oldest backup value.
 - Target server: Provide a new server name you want to restore to
