@@ -1,6 +1,6 @@
 ---
 title: Create a Ruby App with Azure App Service Web App on Linux | Microsoft Docs
-description: Learn to create a Ruby apps with Azure App Service Web App on Linux.
+description: Learn to create Ruby apps with Azure App Service Web App on Linux.
 keywords: azure app service, linux, oss
 services: app-service
 documentationcenter: ''
