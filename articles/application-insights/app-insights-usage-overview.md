@@ -65,6 +65,12 @@ The example above is from a games web site. From the charts, we can instantly se
 * Most users visit the site during the U.S. working week, and in working hours. Perhaps we should provide a "quick hide" button on the web page.
 * The [annotations](app-insights-annotations.md) on the chart show when new versions of the website were deployed. None of the recent deployments had a noticeable effect on usage.
 
+What if you want to investigate the traffic to your site in more detail, like splitting by a custom property your site sends in its page view telemetry?
+
+1. Open the **Events** tool in the Application Insights resource menu. This tool lets you analyze how many page views and custom events were sent from your app, based on a variety of filtering, cohorting, and segmentation options.
+2. In the "Who used" dropdown, select "Any Page View".
+3. In the "Split by" dropdown, select a property by which to split your page view telemetry.
+
 ## Retention - how many users come back?
 
 Retention helps you understand how often your users return to use their app, based on cohorts of users that performed some business action during a certain time bucket. 
@@ -114,19 +120,7 @@ Learn more about [custom events](app-insights-api-custom-events-metrics.md#track
 In the Users, Sessions, and Events tools, you can slice and dice custom events by user, event name, and properties.
 
 ![Users](./media/app-insights-usage-overview/users.png)  
-
-
-
-## The conversion funnel - where do users drop out? (feature coming soon)
-
-How many people who visit your site actually browse your products or try your games (or whatever your web app lets them do)? How many of them go all the way through to buying an item or completing a game? 
-
-Funnels provide an easy way to visually represent the conversion rate - that is, the progress of your users through a series of steps. 
-
-- Identify bottlenecks in your flow   
-- Identify successes in your product   
-- Get real user data to plan to address pain points or to better successes   
-
+  
 ## Design the telemetry with the app
 
 When you are designing each feature of your app, consider how you are going to measure its success with your users. Decide what business events you need to record, and code the tracking calls for those events into your app from the start.
