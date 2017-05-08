@@ -32,7 +32,7 @@ This quick start uses as its starting point the resources created in one of thes
 The steps in this section assume that you are familiar with developing using Java and are new to working with Azure SQL Database. If you are new to developing with Java, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) and select **Java** and then select your operating system.
 
 ### **Mac OS**
-Open your terminal and navigate to a directory where you plan on creating your Java project. Enter the following commands to install **brew** and **Maven**. 
+Open your terminal and navigate to a directory where you plan on creating your Java project. Install **brew** and **Maven** by entering the following commands: 
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -41,14 +41,14 @@ brew install maven
 ```
 
 ### **Linux (Ubuntu)**
-Open your terminal and navigate to a directory where you plan on creating your Java project. Enter the following commands to install **Maven**. 
+Open your terminal and navigate to a directory where you plan on creating your Java project. Install **Maven** by entering the following commands:
 
 ```bash
 sudo apt-get install maven
 ```
 
 ### **Windows**
-Install [Maven](https://maven.apache.org/download.cgi) using the official installer. Maven can be used to help manage dependencies, build, test and run your Java project. 
+Install [Maven](https://maven.apache.org/download.cgi) using the official installer. Use Maven to help manage dependencies, build, test and run your Java project. 
 
 ## Get connection information
 
@@ -60,7 +60,7 @@ Get the connection information needed to connect to the Azure SQL database. You 
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. If you have forgotten the login information for your Azure SQL Database server, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password.
+4. If you have forget the server login information, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password.
 5. Click **Show database connection strings**.
 
 6. Review the complete **JDBC** connection string.
@@ -299,6 +299,6 @@ public class App {
 - [Design your first Azure SQL database](sql-database-design-first-database.md)
 - [Microsoft JDBC Driver for SQL Server](https://github.com/microsoft/mssql-jdbc)
 - [Report issues/ask questions](https://github.com/microsoft/mssql-jdbc/issues)
-- To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md)
-- To connect and query using Visual Studio, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md)
+- [Connect and query with SSMS](sql-database-connect-query-ssms.md)
+- [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md)
 
