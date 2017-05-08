@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [What is Log Analytics?](log-analytics-overview.md)
 ## [Data security](log-analytics-security.md)
 
@@ -14,7 +14,7 @@
 ## Collect data
 ### Connected sources
 #### [Windows agents](log-analytics-windows-agents.md)
-#### [Linux agents](log-analytics-linux-agents.md)
+#### [Linux agents](log-analytics-agent-linux.md)
 #### [Azure virtual machines](log-analytics-azure-vm-extension.md)
 #### [Azure resources](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
@@ -23,8 +23,12 @@
 ### Data sources
 #### [Data sources overview](log-analytics-data-sources.md)
 #### [Windows events](log-analytics-data-sources-windows-events.md)
+#### [Custom JSON data](log-analytics-data-sources-json.md)
+#### [Collectd performance data](log-analytics-data-sources-collectd.md)
+#### [Nagios and Zabbix alerts](log-analytics-data-sources-alerts-nagios-zabbix.md)
 #### [Syslog](log-analytics-data-sources-syslog.md)
 #### [Performance counters](log-analytics-data-sources-performance-counters.md)
+#### [Linux application performance](log-analytics-data-sources-linux-applications.md)
 #### [IIS logs](log-analytics-data-sources-iis-logs.md)
 #### [Custom logs](log-analytics-data-sources-custom-logs.md)
 #### [Custom fields](log-analytics-custom-fields.md)
@@ -32,6 +36,7 @@
 ### [Log searches overview](log-analytics-log-searches.md)
 ### [Search reference](log-analytics-search-reference.md)
 #### [Regular expressions](log-analytics-log-searches-regex.md)
+### [Take action from search results](log-analytics-log-search-takeaction.md) 
 ### [Computer groups](log-analytics-computer-groups.md)
 ## Analyze data
 ### [Dashboards](log-analytics-dashboards.md)

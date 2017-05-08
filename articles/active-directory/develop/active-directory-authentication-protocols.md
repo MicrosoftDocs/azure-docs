@@ -26,7 +26,8 @@ Azure Active Directory (Azure AD) supports several of the most widely used authe
 * [Federation Metadata](active-directory-federation-metadata.md) - Learn how to find and interpret the metadata documents that Azure AD generates.
 * [OAuth 2.0 in Azure AD](active-directory-protocols-oauth-code.md) - Learn about the implementation of OAuth 2.0 in Azure AD.
 * [OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) - Learn how to use OAuth 2.0, an authorization protocol, for authentication.
-* [Service to Service Calls](active-directory-protocols-oauth-service-to-service.md) - Learn how to use OAuth 2.0 client credentials grant flow for service to service calls.
+* [Service to Service Calls with Client Credentials](active-directory-protocols-oauth-service-to-service.md) - Learn how to use OAuth 2.0 client credentials grant flow for service to service calls.
+* [Service to Service Calls with On-Behalf-Of Flow](active-directory-protocols-oauth-on-behalf-of.md) - Learn how to use OAuth 2.0 On-Behalf-Of flow for service to service calls.
 * [SAML Protocol Reference](active-directory-saml-protocol-reference.md) - Learn about the Single Sign-On and Single Sign-out SAML profiles of Azure AD.
 
 ## See Also
@@ -35,4 +36,3 @@ Azure Active Directory (Azure AD) supports several of the most widely used authe
 [Using Azure AD for Authentication](../../app-service-web/web-sites-authentication-authorization.md)
 
 [Active Directory Code Samples](active-directory-code-samples.md)
-
