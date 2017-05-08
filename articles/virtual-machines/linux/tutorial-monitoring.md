@@ -113,7 +113,7 @@ A Linux VM has a dedicated host in Azure that it interacts with. Metrics are aut
 1. In the Azure portal, click **Resource Groups**, select **myResourceGroupMonitor**, and then select **myVM** in the resource list.
 2. To see how the host VM is performing, click **Metrics** on the VM blade, then select any of the *[Host]* metrics under **Available metrics**.
 
-![View host metrics](./media/tutorial-monitoring/monitor-host-metrics.png)
+    ![View host metrics](./media/tutorial-monitoring/monitor-host-metrics.png)
 
 
 ## Install diagnostics extension
@@ -125,7 +125,7 @@ The basic host metrics are available, but to see more granular and VM-specific m
 3. In the *Storage account* section, browse to and select the *mydiagdata[1234]* account created in the previous section.
 4. Click the **Save** button.
 
-![View diagnostic metrics](./media/tutorial-monitoring/enable-diagnostics-extension.png)
+    ![View diagnostic metrics](./media/tutorial-monitoring/enable-diagnostics-extension.png)
 
 
 ## View VM metrics
@@ -135,7 +135,7 @@ You can view the VM metrics in the same way that you viewed the host VM metrics:
 1. In the Azure portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
 2. To see how the VM is performing, click **Metrics** on the VM blade, and then select any of the diagnostics metrics under **Available metrics**.
 
-![View VM metrics](./media/tutorial-monitoring/monitor-vm-metrics.png)
+    ![View VM metrics](./media/tutorial-monitoring/monitor-vm-metrics.png)
 
 
 ## Create alerts
