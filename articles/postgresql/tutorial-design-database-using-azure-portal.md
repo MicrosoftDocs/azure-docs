@@ -188,4 +188,15 @@ Imagine you have accidentally deleted this table. This situation is something yo
 3.	Click **OK** to restore the server to [restore to a point-in-time](./howto-restore-server-portal.md) before the tables was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, provided that it is within the retention period for your [service tier](./concepts-service-tiers.md).
 
 ## Next Steps
-For Azure CLI samples for common tasks, see [Azure Database for PostgreSQL - Azure CLI samples](./sample-scripts-azure-cli.md)
+In this tutorial, you learned how to use the Azure portal and other utilities to:
+> [!div class="checklist"]
+> * Create an Azure Database for MySQL
+> * Configure the server firewall
+> * Use [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility to create a database
+> * Load sample data
+> * Query data
+> * Update data
+> * Restore data
+
+Next, learn how to use Azure CLI to do similar tasks, review this tutorial: 
+[Design your first Azure Database for PostgreSQL using Azure CLI](tutorial-design-database-using-azure-cli.md)
