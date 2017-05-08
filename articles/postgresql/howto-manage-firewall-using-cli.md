@@ -49,10 +49,12 @@ Copy the id of the desired subscription to set the current subscription to be us
 az account set --subscription {your subscription id}
 ```
 5. List the Azure Databases for PostgreSQL servers for your subscription and resource group if you are unsure of the names.
+
 ```azurecli
 az postgres server list --resource-group myresourcegroup
 ```
 Note the name attribute in the listing, which will be used to specify which PostgreSQL server to work on. If needed, confirm the details for that server to using the name attribute to confirm name is correct:
+
 ```azurecli
 az postgres server show --resource-group myresourcegroup --name mypgserver-20170401
 ```
