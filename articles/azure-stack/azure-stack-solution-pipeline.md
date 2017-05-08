@@ -200,7 +200,7 @@ In this tutorial, you learned how to build a hybrid CI/CD pipeline that:
 > * Automatically deploys your newly built code to Azure for user acceptance testing.
 > * Once your code has passed testing, automatically deploys to Azure Stack. 
 
-Now that you have a hybrid CI/CD, continue learning how to develop apps for Azure Stack.
+Now that you have a hybrid CI/CD pipeline, continue by learning how to develop apps for Azure Stack.
 
 > [!div class="nextstepaction"]
 > [Develop for Azure Stack](azure-stack-developer.md)
