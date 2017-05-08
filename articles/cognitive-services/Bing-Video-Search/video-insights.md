@@ -13,7 +13,7 @@ ms.date: 04/15/2017
 ms.author: scottwhi
 ---
 
-# Get Insights about a Video
+# Get insights about a video
 
 Each video includes a video ID that you can use to get more information about the video, such as related videos.  
   
@@ -45,7 +45,7 @@ Host: api.cognitive.microsoft.com
 ``` 
 
 > [!NOTE]
-> Version 7 Preview request:
+> V7 Preview request:
 >
 > To get all video insights, set the [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) query parameter to All.
 >
@@ -58,7 +58,7 @@ Host: api.cognitive.microsoft.com
 > Host: api.cognitive.microsoft.com  
 > ```  
 
-## Getting Related Videos Insights  
+## Getting related videos insights  
 
 To get videos that are related to the specified video, set the [modulesRequested](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#modulesrequested) query parameter to RelatedVideos.
   
@@ -105,7 +105,7 @@ The following is the response to the previous request. The top-level object is a
 ```
 
 > [!NOTE]
-> Version 7 Preview request:
+> V7 Preview request:
 >
 > To get related video insights, set the [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) query parameter to RelatedVideos.
 >

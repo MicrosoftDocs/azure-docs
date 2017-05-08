@@ -13,7 +13,7 @@ ms.date: 04/15/2017
 ms.author: scottwhi
 ---
 
-# Get Trending Videos  
+# Get trending videos  
 
 To get today's trending videos, send the following GET request:  
   
@@ -28,7 +28,7 @@ Host: api.cognitive.microsoft.com
 ```
 
 > [!NOTE]
-> Version 7 Preview request:
+> V7 Preview request:
 >
 > ```  
 > GET https://api.cognitive.microsoft.com/bing/v7.0/videos/trending?mkt=en-us HTTP/1.1  
