@@ -42,7 +42,7 @@ You can create and manage your applications on **My Apps** page. You can always 
 2. In the **Import new app** dialog box, click **Choose file** and navigate to `LuisBot.json` in the folder where you downloaded the bot in step 1. Name your application "Hotel Finder", and Click **Import**. <!--    ![A new app form](./Images/NewApp-Form.JPG) -->It may take a few minutes for LUIS to extract the intents and entities from the JSON file. When the import is complete, LUIS opens the Dashboard page of the Hotel Finder app<!-- which looks like the following screen-->. Use the navigation links in the left panel to move through your app pages to define data and work on your app. 
 
 ## 3. Train and publish the LUIS app
-Go to **Train & Test** and click **Train your app**.  Optionally, you can also test your app now, but it is not required for publishing. To publish, go to **Publish App**, select **BootstrapKey** as the **Endpoint Key**, select **Production** for the **Endpoint slot**, and click **Publish**.
+Go to **Train & Test** and click **Train your app**.  Optionally, you can also test your app now, but it is not required for publishing. To publish, go to **Publish App**, select an **Endpoint Key**, select **Production** for the **Endpoint slot**, and click **Publish**.
 
 ## 4. Copy the LUIS endpoint URL
 Once you've published the app, the **Publish App** page will display an endpoint URL. Copy this URL. You'll update the bot's code to point to it.
@@ -51,7 +51,7 @@ Once you've published the app, the **Publish App** page will display an endpoint
 1. Go to the `.env` file in the sample bot. Set `LUIS_MODEL_URL` to the URL from the previous step.
 2. Delete any trailing `&q=` from the URL. Here's an example of how the URL might look:
 ```
-LUIS_MODEL_URL=https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/2c2afc3e-6f39-4b6f-b8ad-c47ce1b98d8a?subscription-key=9823b75a8c9045f9bce7fee87a5e1fbc&staging=true&verbose=true&timezoneOffset=0
+LUIS_MODEL_URL=https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/2c2afc3e-5f39-4b6f-b8ad-c47ce1b98d8a?subscription-key=9823b65a8c9045f8bce7fee87a5e1fbc&verbose=true&timezoneOffset=0
 ```
 
 
@@ -61,7 +61,7 @@ In `app.js` this URL is used to initialize the recognizer object that the bot us
 var recognizer = new builder.LuisRecognizer(process.env.LUIS_MODEL_URL);
 ```
 ## 6. Register the bot
-Go to the Bot Framework developer portal and [register][RegisterInstructions] the bot. As part of this process, you'll generate a Microsoft App ID and password. Copy and securely store the password that is shown, and enter the App ID and password in the bot's `.env` file.
+Go to the [Bot Framework developer portal][BFPortal] and [register][RegisterInstructions] the bot. As part of this process, you'll generate a Microsoft App ID and password. Copy and securely store the password that is shown, and enter the App ID and password in the bot's `.env` file.
 
 ## 7. Start the bot
 Open a node.js command prompt, and run the bot: `node app.js`. 
@@ -75,8 +75,8 @@ Open a node.js command prompt, and run the bot: `node app.js`.
 
 ## Next steps
 
-* Try to improve your LUIS app's performance by continuing to add and label utterances.
-* Try adding [Features](Add-Features.md) to enrich your model and improve performance in language understanding. Features help your app identify alternative interchangeable words/phrases, as well as commonly-used patterns specific to your domain.
+* Try to improve your LUIS app's performance by continuing to [add](Add-example-utterances.md) and [label utterances](Label-Suggested-Utterances.md).
+* Try adding additional [Features](Add-Features.md) to enrich your model and improve performance in language understanding. Features help your app identify alternative interchangeable words/phrases, as well as commonly-used patterns specific to your domain.
 
 <!-- Links -->
 [EmulatorDownload]: https://github.com/Microsoft/BotFramework-Emulator
