@@ -313,8 +313,8 @@
 #### [Technical reference](active-directory-conditional-access-technical-reference.md)
 #### [FAQs](active-directory-conditional-faqs.md)
 #### [Remediation](active-directory-conditional-access-device-remediation.md)
-###  [Classic portal](active-directory-conditional-access.md)
-#### [Get started](active-directory-conditional-access-azuread-connected-apps.md)
+#### [Classic portal](active-directory-conditional-access.md)
+##### [Get started](active-directory-conditional-access-azuread-connected-apps.md)
 
 
 ### Windows Hello
