@@ -28,10 +28,10 @@ Hadoop refers to an open-source framework for distributed processing, storing, a
 Apache Hadoop was the original open-source project for big data processing. Following was the development of related software and utilities considered part of the Hadoop technology stack, including Apache Hive, HBase, Spark, Kafka, and many others. See [Overview of the Hadoop technology stack in HDInsight](#overview) for details.
 
 ## What is a Hadoop cluster, and what's it used for?
-The term *Hadoop* also refers to a type of cluster with the Hadoop distributed file system (HDFS), Hadoop YARN for job scheduling and resource management, and MapReduce for parallel processing. Hadoop clusters are work well for batch processing of stored data. 
+The term *Hadoop* also refers to a type of cluster with the Hadoop distributed file system (HDFS), Hadoop YARN for job scheduling and resource management, and MapReduce for parallel processing. Hadoop clusters are generally used for batch processing of stored data. 
 
 ## What is big data?
-Big data describes any large body of digital information, from a Twitter newsfeed, to sensor data from industrial equipment, to information about customer behavior on a website. Big data can be historical (meaning stored data) or real-time (meaning streamed directly from the source). Big data is being collected in ever-escalating volumes, at increasingly higher velocities, and in an expanding variety formats.
+Big data describes any large body of digital information, from a Twitter newsfeed, to sensor data from industrial equipment, to information about customer behavior on a website. Big data can be historical (meaning stored data) or real time (meaning streamed directly from the source). Big data is being collected in ever-escalating volumes, at increasingly higher velocities, and in an expanding variety formats.
 
 ## <a name="overview"></a>Overview of the Hadoop technology stack in HDInsight
 HDInsight is a cloud distribution on Microsoft Azure of the rapidly expanding Apache Hadoop technology stack for big data analysis. It includes implementations of Apache Spark, HBase, Kafka, Storm, Pig, Hive, Interactive Hive, Sqoop, Oozie, Ambari, and so on. HDInsight also integrates with business intelligence (BI) tools such as Power BI, Excel, SQL Server Analysis Services, and SQL Server Reporting Services.
@@ -106,7 +106,7 @@ Hadoop Distributed File System (HDFS) is a file system that, with YARN and MapRe
 ### <a name="mapreduce"></a>MapReduce
 MapReduce is the legacy software framework for Hadoop for writing applications to batch process big data sets in parallel. A MapReduce job splits large datasets and organizes the data into key-value pairs for processing.
 
-[YARN](#yarn) is the Hadoop next-generation resource manager and application framework, and is referred to as MapReduce 2.0. MapReduce jobs run on YARN. 
+MapReduce jobs run on [YARN](#yarn). 
 
 See <a target="_blank" href="http://wiki.apache.org/hadoop/MapReduce">MapReduce</a> in the Hadoop Wiki.
 
