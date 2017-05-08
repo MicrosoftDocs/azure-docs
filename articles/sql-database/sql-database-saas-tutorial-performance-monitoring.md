@@ -21,38 +21,39 @@ ms.author: billgib; sstein
 ---
 # Monitor performance of a sample SaaS application that uses Azure SQL Database
 
-This tutorial demonstrates the built-in monitoring and alerting features of Azure SQL Database, and then explores several of the key performance management scenarios used in SaaS applications.
+In this tutorial, built-in monitoring and alerting features of SQL Database and elastic pools are demonstrated, and then several key performance management scenarios used in SaaS applications are explored.
 
-The Wingtip Tickets Platform SaaS app is built using a single-tenant data model, with each venue (tenant) having their own database. Like many SaaS applications, the anticipated tenant workload pattern is unpredictable and sporadic. In other words, ticket sales may occur at any time, and event administration is only an occasional activity. To take advantage of this typical database usage pattern, the tenant databases are deployed into [elastic database pools](sql-database-elastic-pool.md), which optimizes the cost of the solution by sharing resources across many databases. With this type of pattern, it's important to monitor database and pool resource usage to ensure that loads are reasonably balanced across pools, that individual databases have adequate resources, and that pools are not hitting their [eDTU](sql-database-what-is-a-dtu.md) limits. This tutorial explores ways to monitor and manage databases and pools, and shows how to take corrective action in response to variations in workload.
+The Wingtip Tickets app uses a single-tenant data model, where each venue (tenant) has their own database. Like many SaaS applications, the anticipated tenant workload pattern is unpredictable and sporadic. In other words, ticket sales may occur at any time. To take advantage of this typical database usage pattern, tenant databases are deployed into elastic database pools. Elastic pools optimize the cost of a solution by sharing resources across many databases. With this type of pattern, it's important to monitor database and pool resource usage to ensure that loads are reasonably balanced across pools. You also need to ensure that individual databases have adequate resources, and that pools are not hitting their [eDTU](sql-database-what-is-a-dtu.md) limits. This tutorial explores ways to monitor and manage databases and pools, and how to take corrective action in response to variations in workload.
 
 In this tutorial you learn how to:
 
 > [!div class="checklist"]
+
 > * Simulate usage on the tenant databases by running a provided load generator
 > * Monitor the tenant databases as they respond to the increase in load
 > * Scale up the Elastic pool in response to the increased database load
-> * Provision a second Elastic pool to load balance the database activity
+> * Provision a second Elastic pool to load balance database activity
 
 
-**To complete this tutorial, make sure that:**
+To complete this tutorial, make sure the following prerequisites are completed:
 
-* The WTP app is deployed. To deploy the WTP app in less than five minutes, see [Deploy and explore the WTP SaaS application](sql-database-saas-tutorial.md).
-* Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* The WTP app is deployed. To deploy in less than five minutes, see [Deploy and explore the WTP SaaS application](sql-database-saas-tutorial.md)
+* Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## Introduction to SaaS Performance Management Patterns
 
-Managing database performance consists of compiling and analyzing performance data, and then reacting to this data by making adjustments to maintain an acceptable response time for your application. When your SaaS application hosts multiple tenants, Elastic database pools are a cost-effective way to provide and manage resources for a group of databases that have unpredictable workloads. With certain workload patterns, as few as two S3 databases can benefit from being managed in a pool. Not only does a pool share the cost of resources, it can also eliminate the need to constantly monitor and track individual databases.
+Managing database performance consists of compiling and analyzing performance data, and then reacting to this data by adjusting parameters to maintain an acceptable response time for your application. When hosting multiple tenants, Elastic database pools are a cost-effective way to provide and manage resources for a group of databases with unpredictable workloads. With certain workload patterns, as few as two S3 databases can benefit from being managed in a pool. Not only does a pool share the cost of resources, it can also eliminate the need to constantly monitor and track individual databases.
 
 ![media](./media/sql-database-saas-tutorial-performance-monitoring/app-diagram.png)
 
-Pools, and the databases in pools, still need to be monitored to ensure they stay within acceptable ranges of performance. Pool configuration can be tuned to meet the needs of the aggregate workload, ensuring that the pool eDTUs are appropriate for the overall workload, and that the per-database min and per-database max eDTU values are appropriately set for specific application requirements.
+Pools, and the databases in pools, still need to be monitored to ensure they stay within acceptable ranges of performance. Tune the pool configuration to meet the needs of the aggregate workload, ensuring that the pool eDTUs are appropriate for the overall workload. Adjust the per-database min and per-database max eDTU values to appropriate values for your specific application requirements.
 
 ### Performance management strategies
 
 * To avoid having to manually monitor performance, it’s most effective to **set alerts that fire if databases or pools stray out of normal ranges**.
-* To respond to short term fluctuations in the aggregate performance level of a pool the **pool eDTU level can be scaled up or down**. If this fluctuation occurs on a regular or predictable basis, **scaling the pool can be scheduled to occur automatically**, for example, scale down when you know your workload is light, maybe overnight, or during weekends.
+* To respond to short-term fluctuations in the aggregate performance level of a pool, the **pool eDTU level can be scaled up or down**. If this fluctuation occurs on a regular or predictable basis, **scaling the pool can be scheduled to occur automatically**. For example, scale down when you know your workload is light, maybe overnight, or during weekends.
 * To respond to longer-term fluctuations, or changes in the number of databases, **individual databases can be moved into other pools**.
-* To respond to short term increases in *individual* database load (which may be caused by tenant activity or database maintenance tasks), **individual databases can be taken out of a pool and assigned an individual performance level** for a period. Once the load is reduced the database can then be returned to the pool. Where this is known in advance databases can be moved pre-emptively to ensure the database always has the resources it needs and avoid impact on other databases in the pool. If this requirement is predictable, such as a venue experiencing a rush of ticket sales for a popular event, then this management behavior can be integrated into the application.
+* To respond to short term increases in *individual* database load **individual databases can be taken out of a pool and assigned an individual performance level** for a period. Once the load is reduced, the database can then be returned to the pool. Where this is known in advance, databases can be moved pre-emptively to ensure the database always has the resources it needs, and to avoid impact on other databases in the pool. If this requirement is predictable, such as a venue experiencing a rush of ticket sales for a popular event, then this management behavior can be integrated into the application.
 
 The [Azure portal](https://portal.azure.com) provides built-in monitoring and alerting on most resources. For SQL Database, monitoring and alerting is available on databases and pools. This built-in monitoring and alerting is resource-specific so it's convenient to use for small numbers of resources, but is not very convenient when working with many resources.
 
@@ -71,7 +72,7 @@ If you already provisioned a batch of tenants in a prior tutorial, you can skip 
 
 The script will deploy 17 tenants in less than five minutes.
 
-The *New-TenantBatch* script uses a nested or linked set of [Resource Manager](../azure-resource-manager/index.md) templates that create a batch of tenants, which by default copies the database **baseTenantDb** on the catalog server to create the new tenant databases, then registers these in the catalog, and finally initializes them with the tenant name and venue type. This is consistent with the way the WTP app provisions a new tenant. Any changes made to *baseTenantDB* will be applied to any new tenants provisioned thereafter. See the [Schema Management tutorial](sql-database-saas-tutorial-schema-management.md) to see how to make schema changes to *existing* tenant databases (including the *golden* database).
+The *New-TenantBatch* script uses a nested or linked set of [Resource Manager](../azure-resource-manager/index.md) templates that create a batch of tenants, which by default copies the database **baseTenantDb** on the catalog server to create the new tenant databases, then registers these in the catalog, and finally initializes them with the tenant name and venue type. This is consistent with the way the WTP app provisions a new tenant. Any changes made to *baseTenantDB* are applied to any new tenants provisioned thereafter. See the [Schema Management tutorial](sql-database-saas-tutorial-schema-management.md) to see how to make schema changes to *existing* tenant databases (including the *golden* database).
 
 ## Simulate different usage patterns by generating different load types
 
@@ -79,23 +80,23 @@ The *Demo-PerformanceMonitoringAndManagement.ps1* script starts the load generat
 
 | Demo | Scenario |
 |:--|:--|
-| 2 | Generate normal intensity load (approx 40 DTU) |
+| 2 | Generate normal intensity load (approx. 40 DTU) |
 | 3 | Generate load with longer and more frequent bursts per database|
-| 4 | Generate load with higher DTU bursts per database (approx 80 DTU)|
-| 5 | Generate a normal load plus a high load on a single tenant (approx 95 DTU)|
+| 4 | Generate load with higher DTU bursts per database (approx. 80 DTU)|
+| 5 | Generate a normal load plus a high load on a single tenant (approx. 95 DTU)|
 | 6 | Generate unbalanced load across multiple pools|
 
 ## Simulate usage on all tenant databases
 
-The load generator applies a *synthetic* CPU-only load to every tenant database. The generator starts a job for each tenant database which calls a stored procedure periodically that generates the load. The load levels (in eDTUs), duration, and intervals are varied across all databases, simulating unpredictable tenant activity.
+The load generator applies a *synthetic* CPU-only load to every tenant database. The generator starts a job for each tenant database, which calls a stored procedure periodically that generates the load. The load levels (in eDTUs), duration, and intervals are varied across all databases, simulating unpredictable tenant activity.
 
 1. Set **$DemoScenario** = **2**, *Generate a normal intensity load*.
-1. Press **F5** to apply a load to all of your tenant databases.
+1. Press **F5** to apply a load to all your tenant databases.
 
 Because of the sporadic nature of the load, let the generator run for 10-20 minutes so the activity can achieve a steady state and settle into a nice pattern.
 
 > [!IMPORTANT]
-> The load generator is running as a series of jobs in your local PowerShell session. Keep the *Demo-PerformanceMonitoringAndManagement.ps1* tab open! If you close the tab, or suspend your machine, the load generator will stop.
+> The load generator is running as a series of jobs in your local PowerShell session. Keep the *Demo-PerformanceMonitoringAndManagement.ps1* tab open! If you close the tab, or suspend your machine, the load generator stops.
 
 ## Monitor resource usage using the portal
 
@@ -103,21 +104,21 @@ To monitor the resource usage that results from the load being applied, open the
 
 1. Open the [Azure portal](https://portal.azure.com) and browse to the tenants1-&lt;USER&gt; server.
 1. You should see the list of tenant databases including the new batch of databases.
-1. Scroll down the blade and locate the elastic pools part and click on **Pool1**. This pool contains all the tenant databases created so far.
+1. Scroll down and locate elastic pools and click **Pool1**. This pool contains all the tenant databases created so far.
 1. Expand the pool blade that opens and observe the pool utilization chart and top database utilization chart.
 
 The pool utilization is essentially the aggregate of the database utilization for all databases in the pool. The database utilization chart shows the hottest 5 databases:
 
 ![](./media/sql-database-saas-tutorial-performance-monitoring/pool1.png)
 
-Because there are other databases in the pool beyond the top 5, the pool utilization will show activity that is not reflected in the top 5 databases chart. To see some additional details, click **Database Resource Utilization**:
+Because there are other databases in the pool beyond the top 5, the pool utilization shows activity that is not reflected in the top five databases chart. To see some additional details, click **Database Resource Utilization**:
 
 ![](./media/sql-database-saas-tutorial-performance-monitoring/database-utilization.png)
 
 
 ## Set performance alerts on the pool
 
-Set an alert on the pool that will trigger on \>75% utilization sustained for 5 minutes as follows:
+Set an alert on the pool that triggers on \>75% utilization sustained for 5 minutes as follows:
 
 1. Open *Pool1* (on the *tenants1-\<user\>* server) in the [Azure portal](https://portal.azure.com).
 1. Click **Alert Rules**, and then click **+ Add alert**:
@@ -133,30 +134,30 @@ Set an alert on the pool that will trigger on \>75% utilization sustained for 5 
 
    ![set alert](media/sql-database-saas-tutorial-performance-monitoring/alert-rule.png)
 
-You can have notifications sent to your Azure account email, and optionally other additional emails (recommend not to set this unless you own the subscription being used).
+You can have notifications sent to your Azure account email, and optionally other additional emails (recommend not to set this, unless you own the subscription being used).
 
 > [!NOTE]
-> As the alert will only fire if the threshold is exceeded for the last 30 minutes, you need to be running the load generator for over 30 minutes to test the alert.
+> As the alert only fires if the threshold is exceeded for the last 30 minutes, the load generator needs to be running for over 30 minutes to test the alert.
 
 
 ## Scale up a busy pool
 
-If the aggregate load level increases on a pool to the point that it maxes out the pool and reaches 100% eDTU usage, then individual database performance will be affected potentially slowing query response times for all databases in the pool.
+If the aggregate load level increases on a pool to the point that it maxes out the pool and reaches 100% eDTU usage, then individual database performance is affected, potentially slowing query response times for all databases in the pool.
 
 Short term, consider scaling up the pool to provide additional resources, or removing databases from the pool (moving them to other pools, or out of the pool to a stand-alone service tier).
 
-Longer term, consider optimizing queries or index usage to improve database performance. Depending on the application's sensitivity to performance issues it's best practice to scale a pool up before it reaches 100% eDTU usage. Use an alert to warn you well in advance.
+Longer term, consider optimizing queries or index usage to improve database performance. Depending on the application's sensitivity to performance issues its best practice to scale a pool up before it reaches 100% eDTU usage. Use an alert to warn you in advance.
 
-You can simulate a busy pool by increasing the load produced by the generator. Causing the databases to burst more frequently and for longer will increase the aggregate load on the pool without changing the requirements of the individual databases. Scaling up the pool is easily done in the portal or from PowerShell. This exercise uses the portal.
+You can simulate a busy pool by increasing the load produced by the generator. Causing the databases to burst more frequently, and for longer, increases the aggregate load on the pool without changing the requirements of the individual databases. Scaling up the pool is easily done in the portal or from PowerShell. This exercise uses the portal.
 
 1. Set *$DemoScenario* = **3**, _Generate load with longer and more frequent bursts per database_ to increase the intensity of the aggregate load on the pool without changing the peak load required by each database.
-1. Press **F5** to apply a load to all of your tenant databases.
+1. Press **F5** to apply a load to all your tenant databases.
 
 
 1. **Open the pool blade** **for tenants1/Pool1**.
 
 
-1. Monitor the increased pool DTU usage on the upper chart. It will take a few minutes for the new higher load to kick in, but you should quickly see that the pool starts to hit 100% utilization, and as the load steadies into the new pattern it will rapidly overload the pool.
+1. Monitor the increased pool DTU usage on the upper chart. It takes a few minutes for the new higher load to kick in, but you should quickly see the pool start to hit 100% utilization, and as the load steadies into the new pattern, it rapidly overloads the pool.
 
 
 1. To scale up the pool, click **Configure pool**
@@ -177,7 +178,7 @@ As an alternative to scaling up the pool, create a second pool and move database
 
     1. set **Name = Pool2**.
     1. Leave the pricing tier as **Standard Pool**.
-    1. Click on **Configure pool**,
+    1. Click **Configure pool**,
     1. On the Configure Pool blade that opens, set **Pool eDTU = 50 DTU**.
     1. Click the **Add databases** command to see a list of databases on this server that are not in the current pool.
     1. On the list, **check** half of the databases (10 out of 20) to move these to the new pool, and then click **Select**.
@@ -195,7 +196,7 @@ You should see that resource usage on Pool1 has dropped and that Pool2 is simila
 If a single database in a pool experiences a sustained high load, depending on the pool configuration, it may tend to dominate the resources in the pool and impact other databases. If the activity is likely to continue for some time, the database can be moved out of the pool temporarily. This both allows the database to be given more resources than the others in the pool, and isolates it from the other databases. This exercise simulates the effect of Contoso Concert Hall experiencing a high load when tickets go on sale for a popular concert.
 
 1. In the …\\**Demo-PerformanceManagementAndMonitoring**.ps1 script
-1. Set **$DemoScenario = 5, Generate a normal load plus a high load on a single tenant (approx 95 DTU).**
+1. Set **$DemoScenario = 5, Generate a normal load plus a high load on a single tenant (approx. 95 DTU).**
 1. Set **$SingleTenantDatabaseName = contosoconcerthall**
 1. Execute the script using **F5**.
 1. **Open the pool blade** **for Customers1/Pool1**.

@@ -32,10 +32,10 @@ In this tutorial, you learn how to:
 > * Step into the details of provisioning new tenants, and registering them into the catalog.
 
 
-To complete this tutorial:
+To complete this tutorial, make sure the following prerequisites are completed:
 
-* The Wingtip Tickets application is deployed. To deploy in less than five minutes, see [Deploy and explore the WTP SaaS application](sql-database-saas-tutorial.md).
-* Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* The WTP app is deployed. To deploy in less than five minutes, see [Deploy and explore the WTP SaaS application](sql-database-saas-tutorial.md)
+* Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## Introduction to the SaaS Catalog pattern
 

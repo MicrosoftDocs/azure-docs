@@ -23,12 +23,16 @@ ms.author: billgib; sstein
 
 In this tutorial, you set up and use *Log Analytics([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* with the WTP app for monitoring elastic pools and databases. It builds on the [Performance Monitoring and Management tutorial](sql-database-saas-tutorial-performance-monitoring.md), and shows how to use *Log Analytics* to augment the monitoring and alerting provided in the Azure portal. Log Analytics is particularly suitable for monitoring and alerting at scale because it supports hundreds of pools and hundreds of thousands of databases. It also provides a single monitoring solution, which can integrate monitoring of different applications and Azure services, across multiple Azure subscriptions.
 
+In this tutorial you learn how to:
 
+> [!div class="checklist"]
+> * Install and configure Log Analytics (OMS)
+> * Use Log Analytics to monitor pools and databases
 
-To complete this tutorial, make sure of the following:
+To complete this tutorial, make sure the following prerequisites are completed:
 
-* The WTP app is deployed. To deploy in less than five minutes, see [Deploy and explore the WTP SaaS application](sql-database-saas-tutorial.md).
-* Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* The WTP app is deployed. To deploy in less than five minutes, see [Deploy and explore the WTP SaaS application](sql-database-saas-tutorial.md)
+* Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 See the [Performance Monitoring and Management tutorial](sql-database-saas-tutorial-performance-monitoring.md) for a discussion of the SaaS scenarios and patterns, and how they affect the requirements on a monitoring solution.
 
@@ -108,6 +112,13 @@ In this exercise, open Log Analytics and the OMS portal to look at the telemetry
 The monitoring and alerting in Log Analytics and OMS is based on queries over the data in the workspace, unlike the alerting on each resource blade, which is resource-specific. Thus, you can define an alert that looks over all databases, say, rather than defining one per database. Or write an alert that uses a composite query over multiple resource types. Queries are only limited by the data available in the workspace.
 
 Log Analytics for SQL Database is charged for based on the data volume in the workspace. In this tutorial, you created a Free workspace, which is limited to 500MB per day. Once that limit is reached data is no longer added to the workspace.
+
+In this tutorial you learned how to:
+
+> [!div class="checklist"]
+> * Install and configure Log Analytics (OMS)
+> * Use Log Analytics to monitor pools and databases
+
 
 ## Next steps
 
