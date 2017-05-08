@@ -17,11 +17,13 @@ Custom pronunciation enables users to define the phonetic form and display for o
 
 Pronunciation is described by users using .txt files. In a single .txt file a user can enter several custom pronunciation entries. The pronunciation file is a .txt file. The structure is as follows:
 
-Display form<Tab>Spoken Form<Newline>
+```
+Display form <Tab> Spoken Form <Newline>
+```
 
-*Example*:
+*Examples*:
 
-| Display form | Spoken Form |
+| Display form | Spoken form |
 |----------|-------|
 | C3PO | see three pea o |
 | BB8 | bee bee eight |
@@ -31,6 +33,8 @@ Display form<Tab>Spoken Form<Newline>
 ## Spoken form
 Spoken form must be lower case which can be forced during the import. In addition, we need checks in the data importer. For sure, no tab in the Display Form and Spoken Form is permitted but there might be more forbidden characters such as ~, ^... in the display form
 Each .txt file can have several such entries. The picture below shows such as .txt file
+
+![try](../../../media/cognitive-services/custom-speech-service/custom-speech-pronunciation-file.png)
 
 ## Display form
 A display form can be only a custom word, term, acronym or even compound words which are a combination of existing words. We want to avoid having customers changing the pronunciation of baseline. We will allow users to enter alternative pronunciations for common words. Some customers might misuse this feature by badly reformulating common words, or by making mistakes in the spoken form but we expect most customers will use this feature correctly. The correct usage would be the customer to run the decoder, see that some unusual words (abbreviations, technical words, foreign words...) are not correctly decoded and then add them to the custom pronunciation file.
