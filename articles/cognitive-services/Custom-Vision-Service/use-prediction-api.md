@@ -84,7 +84,7 @@ namespace CSPredictionSample
 
 ## Obtain the default prediction endpoint URL for your project:
 
-The preceding example uses the prediction endpoint for a specific iteration. You can also mark an iteration as the default one for the project. You can then use the default endpoint in your code. This way, when you want your code to use a different iteration, you can use the web browser to mark that iteration as the new default. Your code will automatically use this new default iteration instead of the old one.
+The preceding example uses the prediction endpoint for a specific iteration. You can also mark an iteration as the default iteration for the project. You can then use the default endpoint in your code. This way, when you want your code to use a different iteration, you can use the web browser to mark that iteration as the new default. Your code will automatically use this new default iteration instead of the old iteration.
 
 Follow these steps to mark an iteration as the default:
 
