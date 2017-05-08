@@ -18,11 +18,9 @@ ms.date: 05/07/2017
 ms.author: mimig
 
 ---
-# How to setup Azure Cosmos DB global distribution using the DocumentDB and Graph API
+# How to setup Azure Cosmos DB global distribution using the DocumentDB API
 
 In this article, we show how to use the Azure portal to setup Azure Cosmos DB global distribution and then connect using the DocumentDB API.
-
-Because the Graph SDK is surfaced as an extension library on top of the DocumentDB SDK, you can use the same instructions as the DocumentDB API for setting up global distribution and connecting to preferred regions.
 
 [!INCLUDE [cosmosdb-tutorial-global-distribution-portal](../../includes/cosmosdb-tutorial-global-distribution-portal.md)]
 

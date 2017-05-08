@@ -33,7 +33,7 @@
 ### [DocumentDB](tutorial-global-distribution-documentdb.md)
 ### [MongoDB](tutorial-global-distribution-mongodb.md)
 ### [Table](tutorial-global-distribution-table.md)
-### [Graph](tutorial-global-distribution-documentdb.md)
+### [Graph](tutorial-global-distribution-graph.md)
 ## 5 - Develop locally
 ### [Use the emulator](../documentdb/documentdb-nosql-local-emulator.md)
 ### [Export certificates](../documentdb/documentdb-nosql-local-emulator-export-ssl-certificates.md)
