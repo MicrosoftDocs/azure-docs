@@ -19,7 +19,7 @@ sections:
 - title: Quickstart
   items:
   - type: paragraph
-    text: Set up your hardware and deploy Azure Stack:
+    text: 'Set up your hardware and deploy Azure Stack:'
   - type: list
     style: icon48
     items: 
@@ -30,7 +30,7 @@ sections:
 - title: Step-by-step tutorials
   items:
   - type: paragraph
-    text: Get started with Azure Stack.
+    text: 'Learn how to add services to your Azure Stack deployment:'
   - type: list
     style: unordered
     items:
