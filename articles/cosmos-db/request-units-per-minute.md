@@ -19,7 +19,9 @@ ms.author: acomet
 ---
 # Request units per minute in Azure Cosmos DB
 
-Microsoft Azure Cosmos DB is designed to help you achieve a fast, predictable performance and scale seamlessly along with your application’s growth. This article provides an overview of how the provisioning of Request Unit per Minute (RU/m) works. The goal in mind with provisioning of RU/m is to provide a predictable performance around unpredictable needs (very important in an analytical world) and spiky workloads. We want to have our customers consume more the throughput they provision so they can scale quickly with peace of mind.
+Azure Cosmos DB is designed to help you achieve a fast, predictable performance and scale seamlessly along with your application’s growth. You can provision throughput on a Cosmos DB container at both, per-second and at per-minute (RU/m) granularities. The provisioned throughput at per-minute granularity is used to manage unexpected spikes in the workload occurring at a per-second granularity. 
+
+This article provides an overview of how the provisioning of Request Unit per Minute (RU/m) works. The goal in mind with provisioning of RU/m is to provide a predictable performance around unpredictable needs (especially if you need to run analytics on top of your operational data) and spiky workloads. We want to have our customers consume more the throughput they provision so they can scale quickly with peace of mind.
 
 After reading this article, you will be able to answer the following questions:
 
@@ -50,7 +52,7 @@ Below is a concrete example, in which a customer can provision 10kRU/s with 100k
 * 29th second: During that second, a large spike happened (>4x higher than provisioning per second) and the consumption of Request Unit was 46,920 RUs. 36,920 RUs are deducted from the RU/m budget that dropped from 92,323 RUs (28th second) to 55,403 RUs (29th second)
 * 61st second: RU/m budget is set back to 100,000 RUs.
  
-    ![Graph showing the consumption and provisioning of Azure Cosmos DB](./media/request-units-per-minute/azure-cosmos-db-request-units-per-minute.png)
+![Graph showing the consumption and provisioning of Azure Cosmos DB](./media/request-units-per-minute/azure-cosmos-db-request-units-per-minute.png)
 
 ## Specifying request unit capacity with RU/m
 
@@ -77,12 +79,12 @@ Here is a code snippet for creating a collection with 3,000 request units per se
 DocumentCollection myCollection = new DocumentCollection();
 myCollection.Id = "coll";
 myCollection.PartitionKey.Paths.Add("/deviceId");
+
 // Set the throughput to 3,000 request units per second along with 30,000 request units per minute as the RU/m budget
 await client.CreateDocumentCollectionAsync(
     UriFactory.CreateDatabaseUri("db"),
     myCollection,
     new RequestOptions { OfferThroughput = 3000, EnableRUPerMinuteOnCollection = true });
-// If EnableRUPerMinuteOnCollection is set to true using RequestOptions as above, any further offer replace should explicitly need to pass the EnableRUPerMinuteOnCollection value as true. If it is not provided, RU/m would be disabled for Public Preview.
 ```
 
 Here is a code snippet for changing the throughput of a collection to 5,000 request units per second without provisioning RU per minute using the .NET SDK:
@@ -90,12 +92,13 @@ Here is a code snippet for changing the throughput of a collection to 5,000 requ
 ```csharp
 // Get the current offer
 Offer offer = client.CreateOfferQuery()
-                .Where(r => r.ResourceLink == collection.SelfLink)    
-                .AsEnumerable()
-                .SingleOrDefault();
+    .Where(r => r.ResourceLink == collection.SelfLink)    
+    .AsEnumerable()
+    .SingleOrDefault();
 
 // Set the throughput to 5000 request units per second without RU/m enabled (the last parameter to OfferV2 constructor below)
-offerV2 = new OfferV2(offer, 5000, false);
+OfferV2 offerV2 = new OfferV2(offer, 5000, false);
+
 // Now persist these changes to the database by replacing the original resource
 await client.ReplaceOfferAsync(offerV2);
 ```
@@ -149,30 +152,16 @@ To assist you, we want to provide an overall guidance on how to optimize your pr
  
 ## Select which operations can consume the RU/m budget
 
-At request level, you can also enable/disable RU/m budget to serve the request irrespective of operation type. If regular provisioned RUs/sec budget is consumed and the request cannot consume the RU/m budget, this request will be throttled. By default, any request is served by RU/m budget if RU/m throughput budget is activated.  Here is a code snippet for disabling RU/m budget using the .NET SDK:
+At request level, you can also enable/disable RU/m budget to serve the request irrespective of operation type. If regular provisioned RUs/sec budget is consumed and the request cannot consume the RU/m budget, this request will be throttled. By default, any request is served by RU/m budget if RU/m throughput budget is activated. 
+
+Here is a code snippet for disabling RU/m budget using the DocumentDB API.
 
 ```csharp
-// Fetch the resource to be updated
-DocumentCollection myCollection = new DocumentCollection();
-myCollection.Id = "coll";
-myCollection.PartitionKey.Paths.Add("/deviceId");
-DocumentCollection collection = await client.CreateDocumentCollectionAsync(
-    UriFactory.CreateDatabaseUri("db"),
-    myCollection,
-// Enable RU/m at collection level
-    new RequestOptions { OfferThroughput = 3000, IsRUPerMinuteEnabled = true });
-// In order to disable any CRUD request for RU/m, set DisableRUPerMinuteOnRequest to true in RequestOptions
-await client.CreateDocumentAsync(
-    UriFactory.CreateDocumentCollectionUri("db", "coll"),
-    new Document { Id = "CosmosDB" },
-    new RequestOptions { DisableRUPerMinuteOnRequest = true });
-
 // In order to disable any query request for RU/m, set DisableRUPerMinuteOnRequest to true in RequestOptions
-FeedOptions feedOptions = new FeedOptions();
-feedOptions. DisableRUPerMinuteOnRequest = true;
 var query = client.CreateDocumentQuery<Book>(
-UriFactory.CreateDocumentCollectionUri("db", "coll"),
-"select * from c",feedOptions).AsDocumentQuery();
+    UriFactory.CreateDocumentCollectionUri("db", "coll"),
+    "select * from c", 
+    new FeedOptions { DisableRUPerMinuteOnRequest = true }.AsDocumentQuery();
 ```
 
 ## Next steps
