@@ -52,7 +52,7 @@ A composite entity is made up of other entities that form parts of a whole.
 ![composite entity](./media/luis-plan-your-app/composite-entity.png)
 
 ### Prebuilt entity
-LUIS provides [prebuilt entities](Pre-builtEntities) for common types like `Number`, which you can use for the number of tickets in a ticket order.
+LUIS provides [prebuilt entities](Pre-builtEntities.md) for common types like `Number`, which you can use for the number of tickets in a ticket order.
 
 ![Number prebuilt entity](./media/luis-plan-your-app/number-entity.png)
 
