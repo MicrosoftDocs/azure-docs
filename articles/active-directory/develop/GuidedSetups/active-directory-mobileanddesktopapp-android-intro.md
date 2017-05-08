@@ -33,7 +33,9 @@ The sample created by this guide is based on a scenario where an Android applica
 ## Pre-Requisites
 * This guided setup is focused on Android Studio, but any other Android application development environment is also acceptable. 
 * Android SDK 21 or newer is required (SDK 25 is recommended).
-* Google Chrome or a web browser using Chrome Tabs is required for this release of Microsoft Authentication Library (MSAL) for Android.
+* Google Chrome or a web browser using Custom Tabs is required for this release of Microsoft Authentication Library (MSAL) for Android.
+
+> Note: Google Chrome is not included on Visual Studio Emulator for Android. We recommend you to test this code on an Emulator with API 25 or a image with API 21 or newer that has with Google Chrome installed.
 
 
 ## Handling token acquisition for accessing protected Web APIs
@@ -50,7 +52,7 @@ This guide uses the following libraries:
 
 |Library|Description|
 |---|---|
-|com.microsoft.identity.client|Microsoft Authentication Library (MSAL)|
+|[com.microsoft.identity.client](http://javadoc.io/doc/com.microsoft.identity.client/msal)|Microsoft Authentication Library (MSAL)|
 
 ### What is Next
 
