@@ -19,7 +19,7 @@
 
 ## How to
 ### [Manage via Azure portal](storsimple-virtual-array-manager-service-administration.md)
-#### [Install latest Update](storsimple-virtual-array-install-update-05.md)
+#### [Install latest update](storsimple-virtual-array-install-update-05.md)
 ##### [Install Update 0.4](storsimple-virtual-array-install-update-04.md)
 ##### [Install Update 0.3](storsimple-virtual-array-install-update.md)
 #### [Create & manage backups](storsimple-virtual-array-backup.md)
