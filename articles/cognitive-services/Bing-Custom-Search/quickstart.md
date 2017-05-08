@@ -30,7 +30,7 @@ This article provides information to help you quickly get started using Bing Cus
 After logging in, you see all your custom search instances that you have created so far.
 
 
-![picture alt](customsearchoverview.PNG "View all the custom search instances that you have created so far.")
+![picture alt](customsearchoverview.png "View all the custom search instances that you have created so far.")
 
 
 A custom search instance contains all the settings that are required to define a custom search tailored towards a scenario of your choice. For example, you might want to create a search to find bike touring related content. You might want to create a custom search instance called **BikeTouring**.
@@ -63,7 +63,7 @@ Start building your search by entering a domain, subdomain, or single webpage. T
 You can omit the "http", "https", "www" etc. prefixes when you specify your subset of the web.
 
 
-![picture alt](firstentry.PNG "Start to create your custom search by entering a first site, subsite or exact URL.")
+![picture alt](firstentry.png "Start to create your custom search by entering a first site, subsite or exact URL.")
 
 
 ### Extend the slices to search over
@@ -77,7 +77,7 @@ To add more domains, subdomains, or webpages, select the row below your last ent
 You can use standard Bing search to get inspirations of sites, subsites or web-pages that you want to add to your custom search instance. On the right-hand side, you see the search preview. Select from the drop-down menu next to the search icon Bing and submit a query.
 
 
-![picture alt](bingsstandardssearch.PNG "Use standard Bing search to identify sites, subsites, or web-pages of interest for your custom search")
+![picture alt](bing-standard-search.png "Use standard Bing search to identify sites, subsites, or web-pages of interest for your custom search")
 
 
 You can see search results from Bing. Click **+** to add any of the returned results to your custom slice of the web that you want to search over.
@@ -114,12 +114,12 @@ Adjusting the ranking to pin search results to the top for specific queries can 
 2. Go to the **Pinned** tab, and provide both exact URL, and the exact query, for which you want your URL to be show on top.
 
 
-![picture alt](manualpin.PNG "Manually add a pin-to-top URL for a given query.")
+![picture alt](manualpin.png "Manually add a pin-to-top URL for a given query.")
 
 
 You can track your pins in the **Pinned** tab. The pins are shown as 'exact query, exact URL'-pairs. To activate your pins, that is, make the retrievable via Bing Web Search API, you must click **Push Pins** on the bottom left of the portal.
 
-![picture alt](trackingpins.PNG "Tracking pins, and pushing them to Bing API.")
+![picture alt](trackingpins.png "Tracking pins, and pushing them to Bing API.")
 
 ### Using pins
 When you work with pins:
@@ -141,7 +141,7 @@ You can control the ranking via the tabs **Active**, **Blocked**, and **Pinned**
 | **Pinned**| Every time you add a pin-to-top adjustment, it is added to the tab **Pinned**. |
 
 
-![picture alt](trackingcustomsettings.PNG "Track your custom search settings.")
+![picture alt](trackingcustomsettings.png "Track your custom search settings.")
 
 
 ### Understanding quota
@@ -157,7 +157,7 @@ You can control the ranking via the tabs **Active**, **Blocked**, and **Pinned**
 When you completed your custom search settings, click the **Custom Search Endpoint** icon that is shown next to the custom instance name. 
 
 
-![picture alt](publishsearch.PNG "Publish your custom search instance.")
+![picture alt](publishsearch.png "Publish your custom search instance.")
 
 
 You are routed to a page that shows you details on the Bing Web Search API endpoint for your custom search instance. 
