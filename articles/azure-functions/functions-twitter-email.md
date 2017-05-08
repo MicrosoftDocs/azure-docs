@@ -20,9 +20,7 @@ ms.author: riande
 
 # Building a serverless social media dashboard in Azure
 
-Azure Functions integrates with Azure Logic Apps to enable you to build complex orchestrations with other Azure and third-party services. This topic demonstrates how to trigger a logic app from a social media feed and analyze the text with Azure Cognitive Services.
-
-<!-- TODO make Azure Cognitive Services a link -->
+[Azure Functions](functions-overview.md) integrates with [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) to enable you to build complex orchestrations with other Azure and third-party services. This topic demonstrates how to trigger a logic app from a social media feed and analyze the text with [Azure Cognitive Services](../cognitive-services/Welcome.md).
 
 This article shows you how to create a logic app in the Azure portal that:
 
@@ -264,6 +262,7 @@ You can select any of the service boxes to show more information on the data use
 ## Next steps
 
 *  [Introduction to Azure Functions](functions-overview.md)
+*  [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)
 *  [Add conditions and run workflows](../logic-apps/logic-apps-use-logic-app-features.md)
 *  [Logic app templates](../logic-apps/logic-apps-use-logic-app-templates.md)
 *  [Create logic apps from Azure Resource Manager templates](../logic-apps/logic-apps-arm-provision.md)
