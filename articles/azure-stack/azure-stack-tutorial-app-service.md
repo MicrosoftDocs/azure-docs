@@ -68,7 +68,7 @@ Now that you've deployed the App Service resource provider and created an offer,
 4. Click **SKU** > select the SQL SKU that you created for the SQL Hosting Server > **OK**.
 5. Click **Create**.
 
-## Create a DNN app    
+### Create a DNN app    
 
 1. Click **+** > **See all** > **DNN Platform preview** > **Create**.
 2. Type *DNNapp* under **App name** and select **TestAppServiceOffer** under **Subscription**.
