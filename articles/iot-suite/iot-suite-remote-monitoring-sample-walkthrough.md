@@ -46,7 +46,7 @@ Each simulated device can send the following message types to IoT Hub:
 | Telemetry |A device periodically sends a **telemetry** message that reports simulated values for the temperature and humidity collected from the device's simulated sensors. |
 
 > [!NOTE]
-> The solution stores the list of commands supported by the device in a DocumentDB database and not in the device twin.
+> The solution stores the list of commands supported by the device in a Cosmos DB database and not in the device twin.
 > 
 > 
 
@@ -225,10 +225,10 @@ The **device info** and **rules** ASA jobs output their data to Event Hubs to re
 The solution uses Azure blob storage to persist all the raw and summarized telemetry data from the devices in the solution. The portal reads the telemetry data from blob storage to populate the charts. To display alerts, the solution portal reads the data from blob storage that records when telemetry values exceeded the configured threshold values. The solution also uses blob storage to record the threshold values you set in the solution portal.
 
 ## WebJobs
-In addition to hosting the device simulators, the WebJobs in the solution also host the **Event Processor** running in an Azure WebJob that handles command responses. It uses command response messages to update the device command history (stored in the DocumentDB database).
+In addition to hosting the device simulators, the WebJobs in the solution also host the **Event Processor** running in an Azure WebJob that handles command responses. It uses command response messages to update the device command history (stored in the Cosmos DB database).
 
-## DocumentDB
-The solution uses a DocumentDB database to store information about the devices connected to the solution. This information includes the history of commands sent to devices from the solution portal and of methods invoked from the solution portal.
+## Cosmos DB
+The solution uses a Cosmos DB database to store information about the devices connected to the solution. This information includes the history of commands sent to devices from the solution portal and of methods invoked from the solution portal.
 
 ## Solution portal
 
@@ -240,7 +240,7 @@ This page in the web app uses PowerBI javascript controls (See [PowerBI-visuals 
 ### Device list
 From this page in the solution portal you can:
 
-* Provision a new device. This action sets the unique device id and generates the authentication key. It writes information about the device to both the IoT Hub identity registry and the solution-specific DocumentDB database.
+* Provision a new device. This action sets the unique device id and generates the authentication key. It writes information about the device to both the IoT Hub identity registry and the solution-specific Cosmos DB database.
 * Manage device properties. This action includes viewing existing properties and updating with new properties.
 * Send commands to a device.
 * View the command history for a device.
