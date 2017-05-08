@@ -57,7 +57,7 @@ Azure Functions supports *triggers*, which are ways to start execution of your c
 ## <a name="integrations"></a>Integrations
 Azure Functions integrates with various Azure and 3rd-party services. These services can trigger your function and start execution, or they can serve as input and output for your code. The following service integrations are supported by Azure Functions. 
 
-* Azure DocumentDB
+* Azure Cosmos DB
 * Azure Event Hubs 
 * Azure Mobile Apps (tables)
 * Azure Notification Hubs
