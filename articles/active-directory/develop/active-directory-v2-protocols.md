@@ -23,8 +23,8 @@ The v2.0 endpoint can use Azure AD for identity-as-a-service with industry stand
 
 > [!NOTE]
 > Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
-> 
-> 
+>
+>
 
 ## The Basics
 In nearly all OAuth & OpenID Connect flows, there are four parties involved in the exchange:
