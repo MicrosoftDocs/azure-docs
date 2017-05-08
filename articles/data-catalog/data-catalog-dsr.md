@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Data Catalog supported data sources | Microsoft Docs
 description: Specification of the currently supported data sources.
 services: data-catalog
@@ -1303,7 +1303,7 @@ If you need support for additional sources, submit a feature request using the [
       </td>
     </tr>
     <tr>
-      <td>Azure DocumentDB</td>
+      <td>Azure Cosmos DB</td>
       <td>Container</td>
       <td>Database</td>
       <td>
@@ -1317,7 +1317,7 @@ If you need support for additional sources, submit a feature request using the [
       </td>
     </tr>
     <tr>
-      <td>Azure DocumentDB</td>
+      <td>Azure Cosmos DB</td>
       <td>Collection</td>
       <td>Collection</td>
       <td>
