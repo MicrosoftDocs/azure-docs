@@ -82,9 +82,6 @@ Note that the code for this sample is in C# only.
 using System.Net;
 
 public static HttpResponseMessage Run(HttpRequestMessage req, out object taskDocument, TraceWriter log)
-using System.Net;
-
-public static HttpResponseMessage Run(HttpRequestMessage req, out object taskDocument, TraceWriter log)
 {
     string name = req.GetQueryNameValuePairs()
         .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
