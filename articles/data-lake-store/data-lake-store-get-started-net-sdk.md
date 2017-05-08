@@ -68,13 +68,12 @@ Learn how to use the [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com
 
         using System;
         using System.IO;
-	using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
         using System.Threading;
-
         using Microsoft.Azure.Management.DataLake.Store;
-	using Microsoft.Azure.Management.DataLake.Store.Models;
-	using Microsoft.IdentityModel.Clients.ActiveDirectory;
-	using Microsoft.Rest.Azure.Authentication;
+        using Microsoft.Azure.Management.DataLake.Store.Models;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+        using Microsoft.Rest.Azure.Authentication;
 
 7. Declare the variables as shown below, and provide the values for Data Lake Store name and the resource group name that already exist. Also, make sure the local path and file name you provide here must exist on the computer. Add the following code snippet after the namespace declarations.
 
