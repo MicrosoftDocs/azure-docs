@@ -32,14 +32,14 @@ The example application is written in Node.js, however, same technique can be us
 - Azure CLI
 
 
-## What is the SparkPost?
+## What is SparkPost?
 SparkPost is the world’s fastest-growing email delivery service, providing a developer friendly robust cloud API for apps and websites to send and receive email.
 
 
 For more information about SparkPost, visit [https://sparkpost.com](https://sparkpost.com).
 
 ## Create a SparkPost Account
-SparkPost provides 100K free emails per month including access to APIs and analytics. This free account is enough to get started. However, feel free to choose [appropriate package][sparkpost packages] based on your sending volume requirements.
+SparkPost provides 100K free emails per month including access to APIs and analytics. This free account is enough to get started. However, feel free to choose the [appropriate package][sparkpost packages] based on how many emails you'll be sending.
 
 
 ### To sign up for a SparkPost account
@@ -135,12 +135,12 @@ http://localhost:8080
 >
 > ```bash
 > PORT=3000 SPARKPOST_API_KEY=<API_KEY> npm start
-
+```
 -----------------------
 
 ## Log in to Azure
 
-We are now going to use the [Azure CLI](azure-cli) in terminal to create the resources needed to deploy our above sample Node.js application to Azure. Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
+We are now going to use the [Azure CLI](azure-cli) in a terminal to create the resources needed to deploy our above sample Node.js application to Azure. Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
 
 ```azurecli
 az login
@@ -300,17 +300,17 @@ http://<app_name>.azurewebsites.net
 
 ![default-app][default-app]
 
-This is default web app in Azure. We'll now configure it to use Node.js and then push our sample app.
+This is the default web app in Azure. We'll now configure it to use Node.js and then push our sample app.
 
 ## Set SparkPost API Key in environment variable
-In an earlier step, we've created API Key. Now we'll save this API Key to application's settings which will be available to our codes via environment variables. In our code we've already referenced to this environment variable, hence, it should work without any further modification in code.
+In an earlier step, we've created an API Key. Now we'll save this API Key to application's settings which will be available to our codes via environment variables. In our code we've already referenced this environment variable, hence, it should work without any further modification in code.
 
 ```azurecli
 az appservice web config appsettings update --name <app_name> --resource-group testResource --settings SPARKPOST_API_KEY=<api_key>
 ```
 
 >[!Tip]
-> If you ever modify API Key, you'll only need to update this environment variable. No code update is necessary.
+> If you ever modify your API Key, you'll only need to update this environment variable. No code update is necessary.
 
 Replace <api_key> with the API Key that you've noted earlier.
 
@@ -328,7 +328,7 @@ az appservice web config update --linux-fx-version "NODE|4.4.7"  --name <app_nam
 az appservice web source-control config-local-git --name <app_name> --resource-group testResource --query url --output tsv
 ```
 
-It'll return an git repo URL. Copy it as we'll use this in next step.
+It'll return a git repo URL. Copy it as we'll use this in the next step.
 
 ```bash
 https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
@@ -349,7 +349,7 @@ git push azure master
 
 Once prompted, enter the password we've used during creation of deployment user.
 
-During deployment, Azure App Service will communicate it's progress with Git.
+During deployment, Azure App Service will communicate its progress with Git.
 
 ```bash
 Counting objects: 3, done.
