@@ -84,8 +84,10 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Deploy infrastructure</h3>
-                                                <a class="barLink" href="/azure/virtual-machines/linux/">Linux virtual machines</a>
-                                                <a class="barLink" href="/azure/virtual-machines/windows/">Windows virtual machines</a>
+												<ul class="noBullet">
+													<li><a class="barLink" href="/azure/virtual-machines/linux/">Linux virtual machines</a></li>
+													<li><a class="barLink" href="/azure/virtual-machines/windows/">Windows virtual machines</a></li>
+												</ul>
                                             </div>
                                         </div>
                                     </div>
@@ -128,10 +130,11 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </a>
                                                 </div>
                                                 <div>
-                                                    <p> </p>
-                                                    <div class="likeAnH3"><strong>App Models</strong></div>
-                                                    <a class="barLink" href="/azure/app-service-web/">Web Apps</a>
-                                                    <a class="barLink" href="/azure/azure-functions/">Serverless Functions</a>
+                                                    <h4>App Models</h4>
+													<ul class="noBullet">
+														<li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
+														<li><a class="barLink" href="/azure/azure-functions/">Serverless Functions</a></li>
+													</ul>
                                                 </div>
                                             </div>
                                         </div>
@@ -144,14 +147,16 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Manage data</h3>
-                                                <p>&nbsp;</p>
-                                                <div class="likeAnH3"><strong>Relational Databases</strong></div>
-                                                <a class="barLink" href="/azure/sql-database/">SQL Database as a Service</a>
-                                                <a class="barLink" href="/azure/postgresql/">PostgreSQL Database as a Service</a>
-                                                <a class="barLink" href="/azure/mysql/">MySQL Database as a Service</a>
-                                                <p>&nbsp;</p>
-                                                <div class="likeAnH3"><strong>NoSQL</strong></div>
-                                                <a class="barLink" href="/azure/cosmosdb/">Cosmos DB</a>
+                                                <h4>Relational Databases</h4>
+												<ul class="noBullet">
+													<li><a class="barLink" href="/azure/sql-database/">SQL Database as a Service</a></li>
+													<li><a class="barLink" href="/azure/postgresql/">PostgreSQL Database as a Service</a></li>
+													<li><a class="barLink" href="/azure/mysql/">MySQL Database as a Service</a></li>
+												</ul>
+                                                <h4>NoSQL</h4>
+												<ul class="noBullet">
+													<li><a class="barLink" href="/azure/cosmosdb/">Cosmos DB</a></li>
+												</ul>
                                             </div>
                                         </div>
                                     </div>
@@ -187,8 +192,10 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>AI and Cognitive Services</h3>
-                                                <a class="barLink" style="width:100%" href="/azure/cognitive-services/computer-vision/">Computer Vision API</a><br />
-                                                <a class="barLink" href="/azure/cognitive-services/face/">Face API</a>
+												<ul class="noBullet">
+													<li><a class="barLink" href="/azure/cognitive-services/computer-vision/">Computer Vision API</a></li>
+													<li><a class="barLink" href="/azure/cognitive-services/face/">Face API</a></li>
+												</ul>
                                             </div>
                                         </div>
                                     </div>
