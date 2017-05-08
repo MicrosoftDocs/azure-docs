@@ -42,7 +42,7 @@ The supported languages are as follows:
 
 | Feature | Supported language codes |
 |:--- |:--- |
-| Sentiment |<div style="display:inline-block">`en` (English)</div>, <div style="display:inline-block">`es` (Spanish)</div>, <div style="display:inline-block">`fr` (French)</div>, <div style="display:inline-block">`pt` (Portuguese)</div> |
-| Sentiment (additional preview languages) | <span style="display:inline-block">`de` (German),</span> <span style="display:inline-block">`it` (Italian),</span> <span style="display:inline-block">`nl` (Dutch),</span> <span style="display:inline-block">`no` (Norwegian),</span> <span style="display:inline-block">`sv` (Swedish),</span> <span style="display:inline-block">`pl` (Polish),</span> <span style="display:inline-block">`da` (Danish),</span> <span style="display:inline-block">`fi` (Finnish),</span> <span style="display:inline-block">`ru` (Russian),</span> <span style="display:inline-block">`el` (Greek),</span> <span style="display:inline-block">`tr` (Turkish)</span>
-| Key Phrases |`en` (English)</span>, `es` (Spanish)</span>, `de` (German)</span>, `ja` (Japanese)</span> |
-| Topics |`en` (English)</span> |
+| Sentiment |`en` (English), `es` (Spanish), `fr` (French), `pt` (Portuguese) |
+| Sentiment (additional preview languages) |`da` (Danish), `de` (German), `el` (Greek), `fi` (Finnish), `it` (Italian), `nl` (Dutch), `no` (Norwegian), `pl` (Polish), `ru` (Russian), `sv` (Swedish), `tr` (Turkish) |
+| Key Phrases |`de` (German), `en` (English), `es` (Spanish), `ja` (Japanese) |
+| Topics |`en` (English) |
