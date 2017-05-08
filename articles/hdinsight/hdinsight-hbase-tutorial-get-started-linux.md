@@ -177,7 +177,7 @@ The REST API is secured via [basic authentication](http://en.wikipedia.org/wiki/
         -d "{\"Row\":[{\"key\":\"MTAwMA==\",\"Cell\": [{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}]}]}" \
         -v
    
-    You must base64 encode the values specified in the -d switch.  In the exmaple:
+    You must base64 encode the values specified in the -d switch.  In the example:
    
    * MTAwMA==: 1000
    * UGVyc29uYWw6TmFtZQ==: Personal:Name
