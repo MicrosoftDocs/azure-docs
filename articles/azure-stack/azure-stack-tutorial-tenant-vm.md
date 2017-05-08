@@ -274,7 +274,7 @@ Now that you’ve created an offer, you can test it. Log in as a user and subscr
 
    c. To view the subscription you created, click **More services**, click **Subscriptions**, then click your new subscription.  
 
-After you subscribe to an offer, refresh the portal to see which services are part of the new subscription.
+   After you subscribe to an offer, refresh the portal to see which services are part of the new subscription.
 
 2. **Provision a virtual machine**
 
