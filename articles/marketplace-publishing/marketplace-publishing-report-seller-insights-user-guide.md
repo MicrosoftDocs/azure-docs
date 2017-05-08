@@ -294,9 +294,9 @@ This section will show you how to add new users or change their permissions in t
 
 ![Edit a user panel][30]
 
-## Help
+## Help support requests
 
-## Support requests
+
 
 
 ### Access the support request format
