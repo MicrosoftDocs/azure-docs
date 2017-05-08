@@ -225,5 +225,5 @@ You can improve the protection of your database against malicious users or unaut
 > * Enable SQL Database auditing
 > * Enable SQL Database threat detection
 
-* [SQL Database Security Overview](sql-database-security-overview.md)
+[SQL Database Security Overview](sql-database-security-overview.md)
 
