@@ -35,7 +35,7 @@ This article shows you how to create a logic app in the Azure portal that:
 
 <!-- no bullets - 
 
-This article shows you how to create a logic app in the Azure portal that checks for new tweets using a keyword you supply. It then uses the **Detect Sentiment** connector to estimate the tweets sentiment (from poor to good). It then  uses an Azure function to process the tweet sentiment into three categories (RED, YELLOW, or GREEN - for poor, neutral, and good). It then uses a condition to check if the sentiment is RED (poor). It then sends an email if the condition is RED.
+This article shows you how to create a logic app in the Azure portal that checks for new tweets using a keyword you supply. It then uses the **Detect Sentiment** connector to estimate the tweets sentiment (from poor to good). It then  uses an Azure function to process the tweet sentiment into three categories (RED, YELLOW, or GREEN - for poor, neutral, and good). It then uses a condition to check if the sentiment is RED (poor). Finally, it sends an email if the condition is RED.
 
  -->
 
