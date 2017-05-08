@@ -26,10 +26,8 @@
   items: 
   - name: Plan your app
     href: Plan-your-app.md
-  - name: Create an app
+  - name: Start a new app
     href: Create-new-app.md
-  - name: Use the dashboard
-    href: App-Dashboard.md
   - name: Add intents
     href: Add-intents.md
   - name: Add utterances
@@ -40,7 +38,7 @@
     href: Add-Features.md
   - name: Train and test the app
     href: Train-Test.md
-  - name: Active learning
+  - name: Use active learning
     href: Label-Suggested-Utterances.md
   - name: Publish your app
     href: PublishApp.md
@@ -50,6 +48,8 @@
     href: luis-how-to-use-prebuilt-domains.md
   - name: Use the Cortana prebuilt app
     href: Cortana-Prebuilt-App.md
+  - name: Monitor your app using the dashboard
+    href: App-Dashboard.md
   - name: Manage keys
     href: Manage-Keys.md
   - name: Create subscription keys
