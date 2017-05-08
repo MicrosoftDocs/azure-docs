@@ -130,7 +130,7 @@ You can control the ranking via the tabs **Active**, **Blocked**, and **Pinned**
 
 
 ### Understanding quota
-* Per custom search instance, the maximum number of ranking adjustments as documented in the tabs **Added** and **Blocked** are capped to  400.
+* Per custom search instance, the maximum number of ranking adjustments as documented in the tabs **Active** and **Blocked** are capped to  400.
 * **Note**
 	* Adding a site to the **Active** tab counts as one ranking adjustment.
 	* Boosting a site counts as two ranking adjustments: you whitelist a site first, then you boost it.
