@@ -1,4 +1,18 @@
- # Create a custom search in four simple steps
+---
+title: Bing Custom Search Overview | Microsoft Docs
+description: Explains key steps to create a custom search service
+services: cognitive-services
+author: TobiasHassmann
+manager: carolz
+
+ms.service: cognitive-services
+ms.technology: bing-web-search
+ms.topic: article
+ms.date: 05/09/2017
+ms.author: tobih
+---
+
+# Create a custom search in four simple steps
 
 You can build a custom search engine in four simple steps.
 
@@ -49,4 +63,10 @@ To retrieve results from the Bing Web Search API, you need to specify your Azure
 ## Integrate your search into an endpoint application
 Finally, you want to show your customized search in your endpoint of choice. For example, you can provide your search experience in an external website, an internal web application, or in a mobile app. You can choose any endpoint as long as it is able to consume and render JSON files.
 
-**Note**: Read the [Bing Web Search API Use and Display requirements](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-web-search/useanddisplayrequirements) to understand how to display the retrieved results.
+[!Note]
+Read the [Bing Web Search API Use and Display requirements](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/useanddisplayrequirements) to understand how to display the retrieved results.
+
+## Next Steps
+1. Create a custom search instance
+2. Control the ranking of a custom search instance
+3. Publish a custom search instance
