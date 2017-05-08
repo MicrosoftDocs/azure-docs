@@ -127,5 +127,5 @@ For more information about how to work with App Service settings, see [Configure
 + [Configure Azure App Service Settings](../app-service-web/web-sites-configure.md)
 + [Continuous deployment for Azure Functions](functions-continuous-deployment.md)
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+
 
