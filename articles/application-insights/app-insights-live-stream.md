@@ -99,8 +99,9 @@ However, if you recognize and trust all the connected servers, you can try the c
 
 ![Live Metrics Auth options](./media/app-insights-live-stream/live-stream-auth.png)
 
-[!NOTE]
-We strongly recommend that you set up the authenticated channel before entering potentially sensitive information like CustomerID in the filter criteria.
+>[!NOTE]
+>We strongly recommend that you set up the authenticated channel before entering potentially sensitive information like CustomerID in the filter criteria.
+>
 
 ## Troubleshooting
 
