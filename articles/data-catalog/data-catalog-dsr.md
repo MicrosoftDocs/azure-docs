@@ -1303,7 +1303,7 @@ If you need support for additional sources, submit a feature request using the [
       </td>
     </tr>
     <tr>
-      <td>Azure Cosmos DB</td>
+      <td>Azure DocumentDB</td>
       <td>Container</td>
       <td>Database</td>
       <td>
@@ -1317,7 +1317,7 @@ If you need support for additional sources, submit a feature request using the [
       </td>
     </tr>
     <tr>
-      <td>Azure Cosmos DB</td>
+      <td>Azure DocumentDB</td>
       <td>Collection</td>
       <td>Collection</td>
       <td>
