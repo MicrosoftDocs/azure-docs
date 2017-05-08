@@ -23,7 +23,7 @@ ms.custom: hdinsightactive
 
 Learn how to install a specific version of [Mono](https://www.mono-project.com) on HDInsight 3.4 or higher.
 
-Mono is installed on HDInsight 3.4 and higher, and is used to run .NET applications. For information on the version of Mono included with each HDInsight version, see [HDInsight component versioning](hdinsight-component-versioning.md). To install a different version on your cluster, use the script action in this document.
+Mono is installed on HDInsight 3.4 and higher, and is used to run .NET applications. For information on the version of Mono included with each HDInsight version, see [HDInsight component versioning](hdinsight-component-versioning.md). To install a different version on your cluster, use the script action in this document. 
 
 ## How it works
 
@@ -49,7 +49,9 @@ __Requirements__:
 
 For information on how to use this script with HDInsight, see the [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) document. You can use the script through the Azure portal, Azure PowerShell, or the Azure CLI.
 
-When using the information provided in the customization document, replace any example script action URI with the URI for this script (https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash).
+While following the script action document, use the following URI:
+
+    https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash
 
 > [!NOTE]
 > When configuring HDInsight with this script, mark the script as __Persisted__. This setting allows HDInsight to apply the script to worker nodes added through scaling operations.
@@ -57,4 +59,11 @@ When using the information provided in the customization document, replace any e
 
 ## Next steps
 
-You have learned how to add additional storage accounts to an existing HDInsight cluster. For more information on script actions, see [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md)
+You have learned how to upgrade or install a specific version of Mono on HDInsight. For more information on using .NET applications with Mono on HDInsight, see the following documents:
+
+* [Use .NET for streaming MapReduce on HDInsight](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
+* [Use .NET with Hive and Pig on HDInsight](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Develop C# solutions with Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+* [Migrate .NET solutions to Linux-based HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md)
+
+For more information on using script actions, see [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md)
