@@ -156,7 +156,7 @@ You can also validate calling your custom endpoint using different programming l
 
 
 ## Programmatically retrieve custom search results
-You can programmatically retrieve your custom search results via [Bing Web Search API](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-web-search/search-the-web). Requesting Bing Web Search API to obtain customized responses works the same way as requesting standard Bing web responses - with two differences:
+You can programmatically retrieve custom search results for users via [Bing Web Search API](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-web-search/search-the-web). Requesting Bing Web Search API to obtain customized responses works the same way as requesting standard Bing web responses - with two differences:
 
 1. The request URL has an additional parameter called `customconfig`.
 2. The response contains the elementary and customizable elements of the Bing Web Search API output.
