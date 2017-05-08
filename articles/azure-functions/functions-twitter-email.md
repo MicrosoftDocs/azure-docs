@@ -31,14 +31,12 @@ This article shows you how to create a logic app in the Azure portal that:
 > * Uses a condition to check if the sentiment is RED (poor).
 > * Sends an email if the condition is RED.
 
-<!-- no bullets -
+<!-- no bullets - 
 
 This article shows you how to create a logic app in the Azure portal that checks for new tweets using a keyword you supply. It then uses the **Detect Sentiment** connector to estimate the tweets sentiment (from poor to good). It then  uses an Azure function to process the tweet sentiment into three categories (RED, YELLOW, or GREEN - for poor, neutral, and good). It then uses a condition to check if the sentiment is RED (poor). It then sends an email if the condition is RED.
+
  -->
 
-<!-- TODO -->
-The following image shows the completed app in the **Logic App Designer**.
-<!-- TODO  update image-->
 ![image of completed app in Logic App Designer](media/functions-twitter-email/designer1.png)
 
 ## Prerequisites
@@ -214,11 +212,6 @@ In this section, we add a conditional check for negative sentiment tweets (condi
 * Save the app.
 
   ![condition box](media/functions-twitter-email/condition.png)
-
-* [MD] (../logic-apps/logic-apps-create-a-logic-app.md)
-* [No md] (../logic-apps/logic-apps-create-a-logic-app)
-[Add a Gmail actions] (../logic-apps/logic-apps-create-a-logic-app.md#add-an-action-that-responds-to-your-trigger)
-[Add a Gmail actions] (../logic-apps/logic-apps-create-a-logic-app#add-an-action-that-responds-to-your-trigger)
 
 * In the **IF YES, DO NOTHING** box select **Add an action**.
 * Enter Outlook or Gmail in the **Search all services and actions** box. Outlook is used in this tutorial. See [Add a Gmail actions] (../logic-apps/logic-apps-create-a-logic-app.md#add-an-action-that-responds-to-your-trigger) for Gmail instructions. Note: If you have a personal [Microsoft account](https://account.microsoft.com/account), you can use that for the Outlook.com account.
