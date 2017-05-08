@@ -123,6 +123,7 @@ Build the custom module using the following commands:
 ```bash
 cd ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/basic
 chmod u+x build.sh
+sed -i -e 's/\r$//' build.sh
 ./build.sh
 ```
 
