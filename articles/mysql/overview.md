@@ -1,4 +1,4 @@
-﻿---
+---
 title: Overview of Azure Database for MySQL relational database service | Microsoft Docs
 description: Provides an overview of Azure Database for MySQL relational database service.
 services: mysql
