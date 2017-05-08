@@ -45,8 +45,8 @@ The list of devices in the solution dashboard uses a query to return the list of
 ### How many IoT Hub instances can I provision in a subscription?
 By default you can provision [10 IoT hubs per subscription][link-azuresublimits]. You can create an [Azure support ticket][link-azuresupportticket] to raise this limit. As a result, since every preconfigured solution provisions a new IoT Hub, you can only provision up to 10 preconfigured solutions in a given subscription. 
 
-### How many DocumentDB instances can I provision in a subscription?
-Fifty. You can create an [Azure support ticket][link-azuresupportticket] to raise this limit, but by default, you can only provision 50 DocumentDB instances per subscription. 
+### How many Azure Cosmos DB instances can I provision in a subscription?
+Fifty. You can create an [Azure support ticket][link-azuresupportticket] to raise this limit, but by default, you can only provision 50 Cosmos DB instances per subscription. 
 
 ### How many Free Bing Maps APIs can I provision in a subscription?
 Two. You can create only two Internal Transactions Level 1 Bing Maps for Enterprise plans in an Azure subscription. The remote monitoring solution is provisioned by default with the Internal Transactions Level 1 plan. As a result, you can only provision up to two remote monitoring solutions in a subscription with no modifications.
