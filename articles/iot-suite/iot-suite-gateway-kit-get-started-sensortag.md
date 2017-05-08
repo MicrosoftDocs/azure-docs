@@ -137,7 +137,7 @@ You can now configure the gateway to send telemetry from your SensorTag device t
 
 Open the sample configuration file in the **vi** editor using the following command:
 
-` vi ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/basic
+`vi ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/basic
 /remote_monitoring.json`
 
 Locate the following lines in the configuration for the IoTHub module:

@@ -9,7 +9,6 @@ The following steps describe how to install the pre-compiled gateway software on
 1. Configure the required smart package repositories by running the following commands on the Intel NUC:
 
     ```bash
-    rpm --import https://iotdk.intel.com/misc/iot_pub2.key
     smart channel --add IoT_Cloud type=rpm-md name="IoT_Cloud" baseurl=http://iotdk.intel.com/repos/iot-cloud/wrlinux7/rcpl13/ -y
     smart channel --add WR_Repo type=rpm-md baseurl=https://distro.windriver.com/release/idp-3-xt/public_feeds/WR-IDP-3-XT-Intel-Baytrail-public-repo/RCPL13/corei7_64/
     ```
@@ -25,6 +24,7 @@ The following steps describe how to install the pre-compiled gateway software on
 1. Install the Azure IoT Gateway package by running the following command:
 
     ```bash
+    smart config --set rpm-check-signatures=false
     smart install packagegroup-cloud-azure -y
     ```
 
@@ -39,17 +39,10 @@ The following steps describe how to install the pre-compiled gateway software on
 
     Use the following command to view the contents of the log file:
 
-    ```
+    ```bash
     cat log.txt | more
     ```
 
 ### Troubleshooting
-
-If you receive the error "Public key not available", try installing the package using the following commands:
-
-```bash
-smart config --set rpm-check-signatures=false
-smart install packagegroup-cloud-azure -y
-```
 
 If you receive the error "No package provides util-linux-dev", try rebooting the Intel NUC.

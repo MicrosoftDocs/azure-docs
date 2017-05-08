@@ -79,7 +79,7 @@ You can now configure the gateway to send simulated telemetry to your remote mon
 
 Open the sample configuration file in the **vi** editor using the following command:
 
-` vi ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/simulator
+`vi ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/simulator
 /remote_monitoring.json`
 
 Locate the following lines in the configuration for the IoTHub module:
