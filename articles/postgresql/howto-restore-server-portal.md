@@ -44,7 +44,7 @@ The following steps restore the sample server to a point in time:
 
 - **Restore point:** Using the Date calendar and time picker, select a point-in-time to restore to. The time specified is in UTC, so you likely need to convert the local time zone into UTC.
 - **Restore to a new server:** Provide a new server name to restore the existing server into. The name is used for DNS, and therefore must be globally unique in Azure.
-- **Location:** (inherited) The region choice automatically populates with the source server region, and cannot be changed here. |
+- **Location:** (inherited) The region choice automatically populates with the source server region, and cannot be changed here.
 - **Pricing tier:** (inherited) The pricing tier choice automatically populates with the same pricing tier as the source server, and cannot be changed here. 
 
 5. Click **OK** to restore the server to restore to a point in time. 
