@@ -1,6 +1,6 @@
 ---
-title: Implement multi-tenant SaaS application with Azure SQL database | Microsoft Docs
-description: Implement multi-tenant SaaS application with Azure SQL database.
+title: Implement multi-tenant SaaS application with Azure SQL Database | Microsoft Docs
+description: Implement multi-tenant SaaS application with Azure SQL Database.
 services: sql-database
 documentationcenter: ''
 author: 'AyoOlubeko'
@@ -20,11 +20,11 @@ ms.author: 'AyoOlubek'
 
 ---
 
-# Implement a multi-tenant SaaS application using Azure SQL database
+# Implement a multi-tenant SaaS application using Azure SQL Database
 
 A multi-tenant application is an application hosted in a cloud environment and that provides the same set of services to hundreds or thousands of tenants who do not share or see each other’s data. An example is an SaaS application that provides services to tenants in a cloud-hosted environment. This model isolates the data for each tenant and optimizes the distribution of resources for cost. 
 
-This tutorial demonstrates how to create a multi-tenant SaaS application using Azure SQL database
+This tutorial demonstrates how to create a multi-tenant SaaS application using Azure SQL Database.
 
 In this tutorial, you will learn to:
 > [!div class="checklist"]
