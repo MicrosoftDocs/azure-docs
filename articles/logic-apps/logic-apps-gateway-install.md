@@ -54,14 +54,14 @@ For more information about supported connectors, see
 > If you have an existing gateway that you set up with 
 > an installer that's earlier than version 14.16.6317.4, 
 > you can't change your gateway's location by 
-> running the latest installer in the following steps. 
+> running the latest installer. 
 > However, you can use the latest installer to set up 
 > a new gateway with the location that you want instead.
 >
 > If you have a gateway installer that's earlier than 
 > version 14.16.6317.4, but you haven't used that installer 
 > to set up your gateway, you can download and use the latest 
-> installer in the following steps.
+> installer.
 
 <a name="requirements"></a>
 ## Requirements
@@ -85,7 +85,7 @@ You can't install the gateway on a domain controller.
    > [!TIP]
    > You don't have to install the gateway on the same computer as your data source. 
    > To minimize latency, you can install the gateway as close as possible to your data source, 
-   > or on the same computer, if you have permissions.
+   > or on the same computer, assuming that you have permissions.
 
 * Don't install the gateway on a computer that turns off, goes to sleep, 
 or doesn't connect to the Internet because the gateway can't run under those circumstances. 
@@ -152,7 +152,7 @@ not a Microsoft account.
 
      3. When you're done, choose **Configure**.
 
-6. Now follow these steps in the Azure portal to 
+6. Now follow these steps in the Azure portal so you can 
 [create an Azure resource for your gateway](../logic-apps/logic-apps-gateway-connection.md). 
 
 Learn more about [how the data gateway works](#gateway-cloud-service).
