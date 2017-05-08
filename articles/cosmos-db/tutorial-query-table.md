@@ -73,7 +73,7 @@ Here's an example query that shows how to filter by PartitionKey, and the Email 
 https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and%20Email%20eq%20'Ben@contoso.com'
 ```
 
-More details on how to construct filter expressions for various data types are available at [Querying Tables and Entities](https://docs.microsoft.com/en-us/rest/api/storageservices/querying-tables-and-entities)
+More details on how to construct filter expressions for various data types are available at [Querying Tables and Entities](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities)
 
 **Results**
 
