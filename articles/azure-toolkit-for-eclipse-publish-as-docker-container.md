@@ -71,13 +71,16 @@ Docker containers are a widely used method for deploying web applications. By us
       * **Host OS**: Enter the operating system for the virtual machine that contains your host.
       * **Size**: Enter the virtual-machine size for your host.
 
+
     e. On the **Resource Group** tab:
       * **New resource group**: Create a new resource group for your host.
       * **Existing resource group**: Enter an existing resource group from your Azure account.
 
+
     f. On the **Network** tab:
       * **New virtual network**: Create a new virtual network for your host.
       * **Existing virtual network**: Enter an existing virtual network from your Azure account.
+
 
     g. On the **Storage** tab:
       * **New storage account**: Create a new storage account for your host.
@@ -137,6 +140,7 @@ Docker containers are a widely used method for deploying web applications. By us
       * **Custom Dockerfile**: Specifies a previously saved Dockerfile from your local computer.
         >[!NOTE]
         >This is a more advanced feature for developers who want to deploy their own Dockerfile. However, it is up to developers who use this option to ensure that their Dockerfile is built correctly. The Azure Toolkit does not validate the content in a custom Dockerfile, so the deployment might fail if the Dockerfile has issues. In addition, the Azure Toolkit expects the custom Dockerfile to contain a web app artifact, and it will attempt to open an HTTP connection. If developers publish a different type of artifact, they may receive innocuous errors after deployment.
+
 
     c. **Port settings**: Enter the unique TCP port binding for your Docker container.
 
