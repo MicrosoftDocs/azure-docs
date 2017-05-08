@@ -36,7 +36,7 @@ You can use the Stored Procedure Activity to invoke a stored procedure in one of
 
 - Azure SQL Database
 - Azure SQL Data Warehouse
-- SQL Server Database.  If you are using SQL Server, install Data Management Gateway on the same machine that hosts the database or on a separate machine that has access to the database. Data Management Gateway is a component that connects data sources on-premises/on Azure VM with cloud services in a secure and managed way. See [Move data between on-premises SQL Server and Azure Blob Storage](data-factory-move-data-between-onprem-and-cloud.md) article for details.
+- SQL Server Database.  If you are using SQL Server, install Data Management Gateway on the same machine that hosts the database or on a separate machine that has access to the database. Data Management Gateway is a component that connects data sources on-premises/on Azure VM with cloud services in a secure and managed way. See [Data Management Gateway](data-factory-data-management-gateway.md) article for details.
 
 > [!IMPORTANT]
 > When copying data into Azure SQL Database or SQL Server, you can configure the **SqlSink** in copy activity to invoke a stored procedure by using the **sqlWriterStoredProcedureName** property. For more information, see [Invoke stored procedure from copy activity](data-factory-invoke-stored-procedure-from-copy-activity.md). For details about the property, see following connector articles: [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties).
@@ -101,7 +101,7 @@ The following walkthrough uses the Stored Procedure Activity in a pipeline to in
    ![Data Factory home page](media/data-factory-stored-proc-activity/data-factory-home-page.png)
 
 ### Create an Azure SQL linked service
-After creating the data factory, you create an Azure SQL linked service that links your Azure SQL database to the data factory. This is the database in which you created the sampletable table and sp_sample stored procedure.
+After creating the data factory, you create an Azure SQL linked service that links your Azure SQL database, which contains the sampletable table and sp_sample stored procedure, to your data factory.
 
 1. Click **Author and deploy** on the **Data Factory** blade for **SProcDF** to launch the Data Factory Editor.
 2. Click **New data store** on the command bar and choose **Azure SQL Database**. You should see the JSON script for creating an Azure SQL linked service in the editor.
@@ -120,7 +120,7 @@ After creating the data factory, you create an Azure SQL linked service that lin
     ![tree view with linked service](media/data-factory-stored-proc-activity/tree-view.png)
 
 ### Create an output dataset
-You must specify an output dataset for a stored procedure activity even if the stored procedure does not produce any data. That's because it's the output dataset that drives the schedule of the activity (how often the activity is run - hourly, daily, etc.). The output dataset must use a **linked service** that refers to an Azure SQL Database or an Azure SQL Data Warehouse or a SQL Server Database in which you want the stored procedure to run. The output dataset can serve as a way to pass the result of the stored procedure for subsequent processing by another activity ([chaining activities](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) in the pipeline. However, Data Factory does not automatically write the output of a stored procedure to this dataset. It is the stored procedure that writes to a SQL table that the output dataset points to. In some cases, the output dataset can be a **dummy dataset** (a dataset that points to a table that does not really hold output of the stored procedure), which is used only to specify the schedule for running the stored procedure activity. 
+You must specify an output dataset for a stored procedure activity even if the stored procedure does not produce any data. That's because it's the output dataset that drives the schedule of the activity (how often the activity is run - hourly, daily, etc.). The output dataset must use a **linked service** that refers to an Azure SQL Database or an Azure SQL Data Warehouse or a SQL Server Database in which you want the stored procedure to run. The output dataset can serve as a way to pass the result of the stored procedure for subsequent processing by another activity ([chaining activities](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) in the pipeline. However, Data Factory does not automatically write the output of a stored procedure to this dataset. It is the stored procedure that writes to a SQL table that the output dataset points to. In some cases, the output dataset can be a **dummy dataset** (a dataset that points to a table that does not really hold output of the stored procedure). This dummy dataset is used only to specify the schedule for running the stored procedure activity. 
 
 1. Click **... More** on the toolbar, click **New dataset**, and click **Azure SQL**. **New dataset** on the command bar and select **Azure SQL**.
 
@@ -213,7 +213,7 @@ Notice the following properties:
 In the walkthrough, stored procedure activity does not have any input datasets. If you specify an input dataset, the stored procedure activity does not run until the slice of input dataset is available (in Ready state). The dataset can be an external dataset (that is not produced by another activity in the same pipeline) or an internal dataset that is produced by an upstream activity (the activity that runs before this activity). You can specify multiple input datasets for the stored procedure activity. If you do so, the stored procedure activity runs only when all the input dataset slices are available (in Ready state). The input dataset cannot be consumed in the stored procedure as a parameter. It is only used to check the dependency before starting the stored procedure activity.
 
 ## Chaining with other activities
-If you want to chain this activity with **upstream activities** (the activities that execute before this activity), the outputs of the upstream activities can be used as inputs in this activity. In such a case, this activity does not execute until upstream activities are completed and the output datasets of the upstream activities are available (in Ready status). 
+If you want to chain an upstream activity with this activity, specify the output of the upstream activity as an input of this activity. When you do so, the stored procedure activity does not run until the upstream activity completes and the output dataset of the upstream activity is available (in Ready status). You can specify output datasets of multiple upstream activities as input datasets of the stored procedure activity. When you do so, the stored procedure activity run only when all the input dataset slices are available.  
 
 In the following example, the output of the copy activity is: OutputDataset, which is an input of the stored procedure activity. Therefore, the stored procedure activity does not run until the copy activity completes and the OutputDataset slice is available (in Ready state). If you specify multiple input datasets, the stored procedure activity does not run until all the input dataset slices are available (in Ready state). The input datasets cannot be used directly as parameters to the stored procedure activity. 
 
@@ -270,7 +270,7 @@ For more information on chaining activities, see [multiple activities in a pipel
 }
 ```
 
-Similary, to link the store procedure activity with **downstream activities** (the activities that run after the stored procedure activity completes), specify the output dataset of the stored procedure activity as an input of the downstream activity in the pipeline.
+Similarly, to link the store procedure activity with **downstream activities** (the activities that run after the stored procedure activity completes), specify the output dataset of the stored procedure activity as an input of the downstream activity in the pipeline.
 
 > [!IMPORTANT]
 > When copying data into Azure SQL Database or SQL Server, you can configure the **SqlSink** in copy activity to invoke a stored procedure by using the **sqlWriterStoredProcedureName** property. For more information, see [Invoke stored procedure from copy activity](data-factory-invoke-stored-procedure-from-copy-activity.md). For details about the property, see the following connector articles: [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties).
