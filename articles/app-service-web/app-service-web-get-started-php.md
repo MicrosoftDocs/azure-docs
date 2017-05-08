@@ -23,15 +23,15 @@ This quickstart tutorial walks through how to develop and deploy a PHP app to Az
 
 ![hello-world-in-browser](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
-You can follow the steps below using a Mac, Windows or Linux machine. It should take you only about 5 minutes to complete all of the steps below.
+You can follow the steps below using a Mac, Windows, or Linux machine. It should take you only about 5 minutes to complete all of the steps below.
 
-## Before you begin
+## Prerequisites
 
-Before running this sample, install the following prerequisites locally:
+Before creating this sample, download and install the following prerequisites:
 
-1. [Download and install git](https://git-scm.com/)
-1. [Download and install PHP](https://php.net)
-1. Download and install the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* [Git](https://git-scm.com/)
+* [PHP](https://php.net)
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -166,7 +166,7 @@ We’ve now created an empty new Web App in Azure.
 
 ## Configure local git deployment
 
-You can deploy to your Web App in a variety of ways including FTP, local Git as well as GitHub, Visual Studio Team Services and Bitbucket.
+You can deploy to your Web App in a variety of ways including FTP, local Git as well as GitHub, Visual Studio Team Services, and Bitbucket.
 
 Use the [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git) command to configure local git access to the Web App.
 
@@ -190,11 +190,11 @@ git remote add azure <paste-previous-command-output-here>
 
 Push to the Azure remote to deploy your app. You are prompted for the password you supplied earlier when you created the deployment user. Make sure that you enter the password you created in [Configure a deployment user](#configure-a-deployment-user), not the password you use to log in to the Azure portal.
 
-```azurecli
+```bash
 git push azure master
 ```
 
-During deployment, Azure App Service will communicate it's progress with Git.
+During deployment, Azure App Service will communicate its progress with Git.
 
 ```bash
 Counting objects: 2, done.
@@ -280,6 +280,6 @@ These tabs in the blade show the many great features you can add to your web app
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## Next steps
+> [!div class="nextstepaction"]
+> [Explore sample Web Apps CLI scripts](app-service-cli-samples.md)
 
-Explore pre-created [Web Apps CLI scripts](app-service-cli-samples.md).
