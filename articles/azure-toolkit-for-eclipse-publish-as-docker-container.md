@@ -68,6 +68,7 @@ Docker containers are a widely used method for deploying web applications. By us
     c. **Region**: Enter the geographical region where your host is located.
 
     d. On the **Host OS and Size** tab:
+
       * **Host OS**: Enter the operating system for the virtual machine that contains your host.
       * **Size**: Enter the virtual-machine size for your host.
 
@@ -90,12 +91,12 @@ Docker containers are a widely used method for deploying web applications. By us
 
 6. In the **Configure log in credentials and port settings** window, select one of the following options:
 
-    * **Import credentials from Azure Key Vault**: Allows you to specify a previously saved set of credentials that are stored in your Azure subscription.
+    * **Import credentials from Azure Key Vault**: Specifies a previously saved set of credentials that are stored in your Azure subscription.
 
       >[!NOTE]
       >An Azure Key Vault that's created with a specific account or service principal is not automatically accessible by another account or service principal that shares the subscription. To allow another account or service principal to use the Key Vault, you must use the Azure portal to add the account or service principal.
 
-    * **New log in credentials**: Allows you to create a new set of login credentials. If you select this option, do the following:
+    * **New log in credentials**: Creates a new set of login credentials. If you select this option, do the following:
     
       * On the **VM Credentials** tab, choose one of the following options for the virtual-machine login credentials of your Docker host:
 
@@ -104,7 +105,7 @@ Docker containers are a widely used method for deploying web applications. By us
           * **SSH**: Enter the Secure Shell (SSH) settings for your Docker host. You can choose from the following options:
             * **None**: Specifies that your virtual machine will not allow SSH connections.
             * **Auto-generate**: Automatically creates the requisite settings for connecting via SSH.
-            * **Import from directory**: Allows you to specify a directory that contains a set of previously saved SSH settings. The directory must contain the following two files:
+            * **Import from directory**: Specifies a directory that contains a set of previously saved SSH settings. The directory must contain the following two files:
                 * *id_rsa*: Contains the RSA identification for a user.
                 * *id_rsa.pub*: Contains the RSA public key that is used for authentication.
         
@@ -135,15 +136,15 @@ Docker containers are a widely used method for deploying web applications. By us
 
     b. Choose one of the following Docker images:
 
-      * **Predefined Docker image**: Allows you to specify a pre-existing Docker image from Azure.
+      * **Predefined Docker image**: Specifies a pre-existing Docker image from Azure.
 
-        > [!NOTE]
-        > The list of Docker images in this box consists of several images that the Azure Toolkit has been configured to patch so that your artifact is deployed automatically.
+        >[!NOTE]
+        >The list of Docker images in this box consists of several images that the Azure Toolkit has been configured to patch so that your artifact is deployed automatically.
 
-      * **Custom Dockerfile**: Allows you to specify a previously saved Dockerfile from your local computer.
+      * **Custom Dockerfile**: Specifies a previously saved Dockerfile from your local computer.
 
-        > [!NOTE]
-        > This is a more advanced feature for developers who want to deploy their own Dockerfile. However, it is up to developers who use this option to ensure that their Dockerfile is built correctly. The Azure Toolkit does not validate the content in a custom Dockerfile, so the deployment might fail if the Dockerfile has issues. In addition, the Azure Toolkit expects the custom Dockerfile to contain a web app artifact, and it will attempt to open an HTTP connection. If developers publish a different type of artifact, they may receive innocuous errors after deployment.
+        >[!NOTE]
+        >This is a more advanced feature for developers who want to deploy their own Dockerfile. However, it is up to developers who use this option to ensure that their Dockerfile is built correctly. The Azure Toolkit does not validate the content in a custom Dockerfile, so the deployment might fail if the Dockerfile has issues. In addition, the Azure Toolkit expects the custom Dockerfile to contain a web app artifact, and it will attempt to open an HTTP connection. If developers publish a different type of artifact, they may receive innocuous errors after deployment.
         
     c. **Port settings**: Enter the unique TCP port binding for your Docker container.
 
