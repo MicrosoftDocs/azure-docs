@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/05/2017
+ms.date: 05/10/2017
 ms.author: billgib; sstein
 
 ---
@@ -82,29 +82,28 @@ Tips for working with and [debugging PowerShell scripts](https://msdn.microsoft.
 
 ## SQL Database SaaS tutorials
 
-The following tutorials build upon the initial WTP application and can be done in any order.
+The following tutorials build upon the initial deployment of the [Wingtip Tickets Platform SaaS application sample](sql-database-saas-tutorial.md):
 
 | Area | Description | Script location |
 |:--|:--|:--|
-|[Provision and Catalog](sql-database-saas-tutorial-provision-and-catalog.md)| Provision new tenants and register them in the catalog. | github link |
-|Restore Single Tenant| Restore tenant databases showing two recovery patterns. | github link |
-|Schema Management| Execute operations across all tenants.  | github link |
-|Catalog Sync| description | github link |
-|Performance Monitoring and Management| Monitor and manage databases and pools, and how to respond to variations in workload. | github link |
-|Log Analytics| description | github link |
-|Tenant Analytics| Run analytics queries that are distributed across all the tenants.  | github link |
-|Ad-hoc Analytics| Create an ad-hoc analytics database and query across tenants to expose hidden insights.  | github link |
-|Devops and Support| Search the catalog by venue name to determine the server and database names for each tenant | github link |
+|[Provision and catalog tenants tutorial](sql-database-saas-tutorial-provision-and-catalog.md)| Provision new tenants and register them in the catalog | [Scripts on github](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Provision%20and%20Catalog) |
+|[Monitor and manage performance tutorial](sql-database-saas-tutorial-performance-monitoring.md)| Monitor and manage database and pool performance | [Scripts on github](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Performance%20Monitoring%20and%20Management) |
+|[Restore a single tenant tutorial](sql-database-saas-tutorial-restore-single-tenant.md)| Restore tenant databases | [Scripts on github](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Business%20Continuity%20and%20Disaster%20Recovery/RestoreTenant) |
+|[Manage tenant schema tutorial](sql-database-saas-tutorial-schema-management.md)| Execute queries across all tenants  | [Scripts on github](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Schema%20Management) |
+|[Run ad-hoc analytics tutorial](sql-database-saas-tutorial-adhoc-analytics.md) | Create an ad-hoc analytics database and run queries across all tenants  | [Scripts on github]( |
+|[Manage with Log Analytics (OMS) tutorial](sql-database-saas-tutorial-log-analytics.md) | Configure and explore Log Analytics | [Scripts on github]( |
+|[Run tenant analytics tutorial](sql-database-saas-tutorial-tenant-analytics.md) | Setup and run tenant analytics queries | [Scripts on github]( |
+
 
 
 ## Explore database schema and execute SQL queries directly using SSMS
 
 Use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect and browse the WTP servers and databases.
 
-The WTP sample app initially has two SQL Database servers to connect to:
+The WTP sample app initially has two SQL Database servers to connect to - the *tenants1* server, and the *catalog* server:
 
 
-1. Open SSMS and connect to the *tenants1-\<User\>.database.windows.net* server.
+1. Open *SSMS* and connect to the *tenants1-\<User\>.database.windows.net* server.
 2. Click **Connect** > **Database Engine...**:
 
    ![catalog server](media/sql-database-wtp-overview/connect.png)
@@ -127,8 +126,6 @@ Deleting the resources created with this tutorial
 
 When you are finished exploring and working with the WTP app, browse to the application's resource group in the portal and delete it to stop all billing related to this deployment. If you have used any of the accompanying tutorials, any resources they created will also be deleted with the application.
 
-Other resources
+## Next steps
 
-* To learn about elastic pools, see [*What is an Azure SQL elastic pool*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)
-* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview)
-* To learn about multi-tenant SaaS applications, see [*Design patterns for multi-tenant SaaS applications*](https://docs.microsoft.com/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications)
+[Deploy the Wingtip Tickets SaaS application sample](sql-database-saas-tutorial.md)
