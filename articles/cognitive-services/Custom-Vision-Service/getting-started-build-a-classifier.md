@@ -20,7 +20,7 @@ To use the Custom Vision Service you must first build a classifier.
 
 To build a classifier, you must first have:
 
-- A subscription key from your Microsoft Azure account to access the Custom Vision Service web app. See [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/) to obtain your subscription key.
+- A valid MSA, so you can sign into customvision.ai and get started. Note that you will be able to access your subscription keys once you have created your first project.
 - A series of images to train your classifier (minimum of 30 images per tag).
 - A few images to test your classifier after the classifier is trained.
 
@@ -59,17 +59,29 @@ Add some images to train your classifier. Let's say you want a classifier to dis
 **Note:** Custom Vision Service accepts training images in JPG/JPEG, PNG, and BMP format, up to 6 MB per image (prediction images can be up to 4 MB per image). Images are recommended to be 256 pixels on the shortest edge. Any images shorter than 256 pixels on the shortest edge will be scaled up by Custom Vision Service.
 
 a. Click **Add images**.
+
    ![The add images control is shown in the upper left, and as a button at bottom center.](./media/getting-started-build-a-classifier/add-images01.png)
+
 b. Browse to the location of your training images.
+
    **Note:** You can use the REST API to load training images from URLs. The web app can only upload training images from your local computer.
+
    ![The browse local files button is shown near bottom center.](./media/getting-started-build-a-classifier/add-images02.png)
+
 c. Select the images for your first tag.
+
 d. Click `Open` to open the selected images.
+
 e. Assign tags: Type in the tag you want to assign, then press the **+** button to assign the tag. You can add more than one tag at a time to the images.
+
    ![The "add some tags" text control is below the images of dogs. The plus sign is to the right of the text control. The "upload files" button is on the lower right.](./media/getting-started-build-a-classifier/add-images03.png)
+
 f. When you are done adding tags, click **Upload [number] files**. The upload could take some time if you have a large number of images or a slow Internet connection.
+
 g. After the files have uploaded, click **Done**.
+
    ![The progress bar shows all tasks completed. The upload report shows 38 images uploaded successfully. The Done button is on the lower right.](./media/getting-started-build-a-classifier/add-images04.png)
+
 h. To load more images with a different set of tags, return to step a.
 
 ### 5. Train your classifier
@@ -78,7 +90,7 @@ After your images are uploaded, you are ready to train your classifier. All you 
 
 ![The train button is near the right top of the browser window.](./media/getting-started-build-a-classifier/train01.png)
 
-It should take less than two minutes to train your classifier.
+It should only take a few minutes to train your classifier.
 
 ![The train button is near the right top of the browser window.](./media/getting-started-build-a-classifier/train02.png)
 
@@ -98,6 +110,8 @@ The qualities of the classifier results are displayed
 |---|---|
 |Precision|When you classify an image, how likely is your classifier to correctly classify the image? Out of all images used to train the classifier (dogs and ponies), what percent did the model get correct? 99 correct tags out of 100 images gives a Precision of 99%.|
 |Recall|Out of all images that should have been classified correctly, how many did your classifier identify correctly? A Recall of 100% would mean, if there were 38 dog images in the images used to train the classifier, 38 dogs were found by the classifier.|
+
+## 
 
 ## Next steps
 
