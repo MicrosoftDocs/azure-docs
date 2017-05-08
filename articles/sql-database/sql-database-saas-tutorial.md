@@ -44,13 +44,11 @@ To complete this tutorial, make sure the following prerequisites are completed:
 
 ## Deploy the Wingtip tickets (WTP) SaaS Application
 
-Deploy the Wingtip tickets platform in less than five minutes. 
+Deploy the Wingtip tickets platform in less than five minutes:
 
 1. Click to deploy:
 
    [![Deploy to Azure](./media/sql-database-saas-tutorial/deploy.png)](https://aka.ms/deploywtpapp)
-
-   [Current Template Link](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fwingtipsaas.blob.core.windows.net%2Ftemplates%2Fwtpapp.json)
 
 1. Enter required parameter values for the deployment:
 

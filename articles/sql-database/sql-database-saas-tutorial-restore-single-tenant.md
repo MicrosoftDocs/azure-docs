@@ -63,7 +63,7 @@ Run the ticket generator script and create additional data. The ticket generator
 
 ### Open the Events app to review the current events
 
-1. Open the *Events Hub* (*http://events.wtp.\<user\>.trafficmanager.net*) and click **Contoso Concert Hall**:
+1. Open the *Events Hub* (http://events.wtp.&lt;user&gt;.trafficmanager.net) and click **Contoso Concert Hall**:
 
    ![events hub](media/sql-database-saas-tutorial-restore-single-tenant/events-hub.png)
 
@@ -101,7 +101,7 @@ This exercise restores the Contoso Concert Hall database to a point in time befo
 
 The script restores the tenant database (to a parallel database) to a point in time before you deleted the event in the previous section. It creates a second database, removes any existing catalog metadata that exists in this database, and adds the database to the catalog under the *ContosoConcertHall\_old* entry.
 
-The demo script opens the events page in your browser. Note from the URL: ```http://events.wtp.\<User\>.trafficmanager.net/contosoconcerthall_old``` that this is showing data from the restored database where *_old* is added to the name.
+The demo script opens the events page in your browser. Note from the URL: ```http://events.wtp.&lt;user&gt;.trafficmanager.net/contosoconcerthall_old``` that this is showing data from the restored database where *_old* is added to the name.
 
 Scroll the events listed in the browser to confirm that the event deleted in the previous section has been restored.
 
