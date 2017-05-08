@@ -7,25 +7,10 @@
   items:
   - name: Deploy Azure Stack
     href: azure-stack-deploy-overview.md
-    items:
-    - name: Prerequisites
-      href: azure-stack-deploy.md
-    - name: Deploy
-      href: azure-stack-run-powershell-script.md
-    - name: Activate portals
-      href: azure-stack-run-powershell-script.md#activate-the-administrator-and-tenant-portals
-    - name: Register
-      href: azure-stack-register.md
   - name: Connect to Azure Stack POC
     href: azure-stack-connect-azure-stack.md
-  - name: Add default image
-    href: azure-stack-add-default-image.md
-  - name: Create a VM
-    href: azure-stack-provision-vm.md
 - name: Tutorials
   items:
-  - name: Administration basics
-    href: azure-stack-manage-basics.md
   - name: Make VMs available
     href: azure-stack-tutorial-tenant-vm.md
   - name: Make SQL databases available
@@ -42,8 +27,24 @@
     href: azure-stack-key-features.md
   - name: POC architecture
     href: azure-stack-architecture.md
+  - name: Administration basics
+    href: azure-stack-manage-basics.md
 - name: How-to guides
   items:
+  - name: Deploy
+    items:
+    - name: Prerequisites
+      href: azure-stack-deploy.md
+    - name: Deploy
+      href: azure-stack-run-powershell-script.md
+    - name: Activate portals
+      href: azure-stack-run-powershell-script.md#activate-the-administrator-and-tenant-portals
+    - name: Register
+      href: azure-stack-register.md
+    - name: Add default image
+      href: azure-stack-add-default-image.md
+    - name: Create a test VM
+      href: azure-stack-provision-vm.md
   - name: Manage
     items:
     - name: Region management
@@ -118,13 +119,13 @@
         href: azure-stack-app-service-configure-deployment-sources.md
       - name: Enable FTP in App Service on Azure Stack
         href: azure-stack-app-service-enable-ftp.md
-    - name: Populate the Marketplace
+    - name: Populate the marketplace
       items:
       - name: Marketplace overview
         href: azure-stack-marketplace.md
       - name: Download marketplace items
         href: azure-stack-download-azure-marketplace-item.md
-      - name: Create and publish a Marketplace item
+      - name: Create and publish a marketplace item
         href: azure-stack-create-and-publish-marketplace-item.md
       - name: Add a custom virtual machine image
         href: azure-stack-add-vm-image.md
