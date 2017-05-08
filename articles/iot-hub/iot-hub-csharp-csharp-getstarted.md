@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/16/2017
+ms.date: 05/08/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 
@@ -26,6 +26,12 @@ At the end of this tutorial, you have three .NET console apps:
 * **CreateDeviceIdentity**, which creates a device identity and associated security key to connect your simulated device app.
 * **ReadDeviceToCloudMessages**, which displays the telemetry sent by your simulated device app.
 * **SimulatedDevice**, which connects to your IoT hub with the device identity created earlier, and sends a telemetry message every second by using the MQTT protocol.
+
+You can download or clone the Visual Studio solution which contains the three apps above from Github,
+
+```bash
+git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-client-app.git
+```
 
 > [!NOTE]
 > For information about the Azure IoT SDKs that you can use to build both applications to run on devices, and your solution back end, see [Azure IoT SDKs][lnk-hub-sdks].
@@ -44,13 +50,6 @@ You have now created your IoT hub, and you have the host name and IoT Hub connec
 ## Create a device identity
 In this section, you create a .NET console app that creates a device identity in the identity registry in your IoT hub. A device cannot connect to IoT hub unless it has an entry in the identity registry. For more information, see the "Identity registry" section of the [IoT Hub developer guide][lnk-devguide-identity]. When you run this console app, it generates a unique device ID and key that your device can use to identify itself when it sends device-to-cloud messages to IoT Hub.
 
-You can download or clone the full app source code from Github,
-
-```bash
-git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-client-app.git
-```
-
-Or start from scratch in Visual Studio with the following steps:
 
 1. In Visual Studio, add a Visual C# Windows Classic Desktop project to a new solution by using the **Console App (.NET Framework)** project template. Make sure the .NET Framework version is 4.5.1 or later. Name the project **CreateDeviceIdentity** and name the solution **IoTHubGetStarted**.
    
