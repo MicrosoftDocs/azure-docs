@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/28/2017
+ms.date: 05/08/2017
 ms.author: ryanwi
 
 ---
@@ -81,7 +81,7 @@ Define your Docker image in a Dockerfile. The Dockerfile contains instructions f
     ```
     This command builds the new image using the instructions in your Dockerfile, naming (-t tagging) the image "helloworldapp". Building an image pulls the base image down from Docker Hub and creates a new image that adds your app on top of the base image.  The [microsft/iis image](https://hub.docker.com/r/microsoft/iis/) and OS base images are 10.5 GB and take time to download and extract to your development computer.  Consider going out for lunch or a cup of coffee.  The download takes less time if you have previously pulled the base OS image to your development computer.
 
-3. Once the build command completes, run the ```docker images``` command to see information on the new image:
+3. Once the build command completes, run the `docker images` command to see information on the new image:
 
     ```
     docker images
@@ -90,7 +90,7 @@ Define your Docker image in a Dockerfile. The Dockerfile contains instructions f
     helloworldapp              latest              86838648aab6        2 minutes ago       10.1 GB
     ```
 
-## Verify the image
+## Verify the image runs locally
 Verify your image locally before pushing it the container registry.  
 
 1. Start the container with ```docker run```:
@@ -151,7 +151,7 @@ The Service Fabric SDK and tools provide a service template to help you deploy a
 3. Select **Guest Container** from the list of **service templates**.
 4. In **Image Name** enter "myregistry.azurecr.io/samples/helloworldapp", the image you pushed to your container repository. 
 5. Give your service a name, and click **OK**.
-6. If your containerized service needs an endpoint for communication, you can now add the protocol, port, and type to an ```Endpoint`` in the ServiceManifest.xml file. For this quick start, the containerized service listens on port 80: 
+6. If your containerized service needs an endpoint for communication, you can now add the protocol, port, and type to an ```Endpoint``` in the ServiceManifest.xml file. For this quick start, the containerized service listens on port 80: 
 
     ```xml
     <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
