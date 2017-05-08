@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Service Tiers in Azure Database for PosgreSQL | Microsoft Docs"
 description: "Service Tiers in Azure Database for PosgreSQL"
 services: postgresql
