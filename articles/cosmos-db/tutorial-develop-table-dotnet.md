@@ -280,11 +280,7 @@ TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smit
 TableResult retrievedResult = table.Execute(retrieveOperation);
 ```
 > [!TIP]
-<<<<<<< HEAD
 > Learn about multi-homing APIs at [Developing with multiple regions](tutorial-global-distribution-table.md)
-=======
-> Learn about multi-homing APIs at [Developing with multiple regions](../documentdb/documentdb-developing-with-multiple-regions.md).
->>>>>>> 2ecbd0bd6f7b6cba499390fb923dddda4178dff7
 >
 
 ## Query entities using automatic secondary indexes
