@@ -47,10 +47,10 @@ Cloud Shell will create a storage account and file share for you on first launch
 
 If mounting an existing file share, storage accounts must be:
 1. LRS or GRS to support file shares.
-2. Located in one of the following regions:
+2. Located in your assigned region. When onboarding, the region you are assigned to is listed in the resource group name `cloud-shell-storage-<region>`.
 
 ### Supported storage regions
-Your storage account and file share must exist in one of the following regions.
+Azure Files must reside in the same region as the machine being mounted to. Cloud Shell machines exist in the below regions:
 |Area|Region|
 |---|---|
 |Americas|East US, South Central US, West US|
@@ -86,9 +86,6 @@ To see more details run `clouddrive mount -h`: <br>
 > [!WARNING]
 > This command will not delete any resources. However, manually deleting the resource group, storage account, or file share mapped to Cloud Shell will erase your $Home directory disk image and any files in your file share. This cannot be undone.
 
-## Update clouddrive
-Run `clouddrive mount` specifying an existing or new file share. If the file share does not exist it will be created for you.
-
 ## List clouddrive
 To discover which file share is mounted as `clouddrive`:
 1. Run `df` 
@@ -110,7 +107,7 @@ justin@Azure:~$
 ```
 
 ## Upload or download local files
-Utilize Azure portal to upload or download files to or from the file share.
+Use the Azure portal to manage transferring local files to or from the file share.
 Updating files from within Cloud Shell reflects in the File Storage GUI on blade refresh.
 
 1. Navigate to the mounted fileshare

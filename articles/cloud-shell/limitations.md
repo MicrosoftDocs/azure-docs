@@ -41,8 +41,7 @@ Utilize right-click copy paste options if needed as well, however Firefox and In
 Cloud Shell is intended for interactive use cases, as a result any long-running non-interactive sessions are ended without warning.
 
 ## Network connectivity
-Any latency in the Cloud Shell is subject to local internet connectivity, Cloud Shell will continue to attempt functioning to any instructions sent.
+Any latency in Cloud Shell is subject to local internet connectivity, Cloud Shell will continue to attempt functioning with any instructions sent.
 
 ## Next steps
-- [Quickstart](quickstart.md) 
-- [Persist files by attaching a file share to Cloud Shell](persisting-shell-storage.md) 
+[Cloud Shell Quickstart](quickstart.md)

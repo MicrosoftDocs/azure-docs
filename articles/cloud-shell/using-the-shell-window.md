@@ -20,6 +20,10 @@ ms.author: juluk
 # Using the Azure Cloud Shell (Preview) window
 This document explains how to use the Azure Cloud Shell window.
 
+## Concurrent sessions
+Cloud Shell enables multiple concurrent sessions across browser tabs by allowing each session to exist as a separate Bash process.
+If exiting a session, be sure to exit from each session window as each process runs independently although they run on the same machine.
+
 ## Restart Cloud Shell
 ![](media/recycle.png)
 * Click the restart icon on the toolbar to reset the Cloud Shell machine.
