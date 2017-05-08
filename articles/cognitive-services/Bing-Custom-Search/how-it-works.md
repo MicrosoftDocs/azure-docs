@@ -1,4 +1,4 @@
-# Create a custom search in four simple steps
+ # Create a custom search in four simple steps
 
 You can build a custom search engine in four simple steps.
 
@@ -48,3 +48,5 @@ To retrieve results from the Bing Web Search API, you need to specify your Azure
 
 ## Integrate your search into an endpoint application
 Finally, you want to show your customized search results in your endpoint of choice. For example, you can show the results in an external website, an internal web application, or in a mobile app. You can choose any endpoint as long as it is able to consume and render JSON files.
+
+**Note**: Read the [Bing Web Search API Use and Display requirements](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-web-search/useanddisplayrequirements) to understand how to display the retrieved results.
