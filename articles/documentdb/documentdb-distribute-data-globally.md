@@ -156,7 +156,7 @@ Azure Cosmos DB's consistency SLA guarantees that 100% of read requests will mee
 		<td>100%</td>
 	</tr>
 	<tr>
-		<td>Eventual</td>
+		<td>Consistent prefix</td>
 		<td>Consistent prefix</td>
 		<td>100%</td>
 	</tr>
@@ -185,7 +185,7 @@ Azure Cosmos DB allows you to scale throughput (as well as, storage), elasticall
 
 **A single Azure Cosmos DB collection partitioned (across three shards) and then distributed across three Azure regions**
 
-![Azure Cosmos DB distributed and partitioned collections](./media/documentdb-distribute-data-globally/documentdb-throughput.png)
+![Azure Cosmos DB distributed and partitioned collections](../cosmos-db/media/introduction/azure-cosmos-db-global-distribution.png)
 
 A Azure Cosmos DB collection gets distributed using two dimensions – within a region and then across regions. Here's how: 
 
