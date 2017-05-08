@@ -23,13 +23,19 @@ ms.author: govindk
 
 The Azure Cosmos DB [Table API](table-introduction.md) (preview) supports OData and [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) queries against key/value (table) data. This article provides sample documents and queries to get you started. 
 
-For more information about queries using the Table API (preview), see [Querying Tables and Entities](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities). 
+Since Azure Cosmos DB is compatible with the Azure Table storage APIs, see [Querying Tables and Entities] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) for details on how to query with the Table API. 
+
+For more information on the premium capabilities offered by Azure Cosmos DB, see [Azure Cosmos DB: Table API](table-introduction.md) and [Develop with the Table API using .NET](tutorial-develop-table-dotnet.md). 
 
 ## Sample table
 
 The queries in this article use the following sample table:
 
-![Table showing sample data](./media/tutorial-query-table/cosmosdb-query-table2.png)
+| PartitionKey | RowKey | Email | PhoneNumber |
+| --- | --- | --- | --- |
+| Harp | Walter | Walter@contoso.com| 425-555-0101 |
+| Smith | Walter | Ben@contoso.com| 425-555-0102 |
+| Smith | Jeff | Jeff@contoso.com| 425-555-0104 | 
 
 ## Prerequisites
 
@@ -50,7 +56,10 @@ await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
 ```
 **Results**
 
-![Table showing sample data](./media/tutorial-query-table/cosmosdb-query-table-result1.png)
+| PartitionKey | RowKey | Email | PhoneNumber |
+| --- | --- | --- | --- |
+| Harp | Walter | Walter@contoso.com| 425-555-0104 |
+
 
 ## Example query 2
 Given the sample data  above, the following OData query returns the entities, where email matches Ben@contoso.com and PartitionKey matches Smith. In this example, you are querying based on PartitionKey and other property. Since, Azure Cosmos DB indexes all the property, below query does not require the whole table to be scanned. Azure Table does not have secondary indexes. So, query on other properties is faster with Azure Cosmos DB Table API.
@@ -68,7 +77,9 @@ await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
 
 **Results**
 
-![Table showing sample data](./media/tutorial-query-table/cosmosdb-query-table-result2.png)
+| PartitionKey | RowKey | Email | PhoneNumber |
+| --- | --- | --- | --- |
+| Ben |Smith | Ben@contoso.com| 425-555-0102 |
 
 ## Example query 3
 Given the sample family table above, the following LINQ query returns the documents, where RowKey matches Jeff and PartitionKey matches Smith.
@@ -84,7 +95,27 @@ await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query.AsTableQuery(), nul
 ```
 **Results**
 
-![Table showing query results](./media/tutorial-query-table/cosmosdb-query-table-result3.png)
+| PartitionKey | RowKey | Email | PhoneNumber |
+| --- | --- | --- | --- |
+| Jeff |Smith | Jeff@contoso.com| 425-555-0102 |
+
+## Querying with LINQ 
+You can also query using LINQ, which translates to the corresponding ODATA query expressions. Here's an example of how to build queries using the .NET SDK.
+
+```csharp
+CloudTableClient tableClient = account.CreateCloudTableClient();
+CloudTable table = tableClient.GetTableReference("people");
+
+TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>()
+    .Where(
+        TableQuery.CombineFilters(
+            TableQuery.GenerateFilterCondition(PartitionKey, QueryComparisons.Equal, "Smith"),
+            TableOperators.And,
+            TableQuery.GenerateFilterCondition(Email, QueryComparisons.Equal,"Ben@contoso.com")
+    ));
+
+await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
+```
 
 ## Next steps
 
