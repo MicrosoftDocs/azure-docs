@@ -28,7 +28,7 @@ To export your existing PostgreSQL database on-prem or in a VM to a sql script f
 ```bash
 pg_dump –-host=<host> --username=<name> --dbname=<database name> --file=<database>.sql
 ```
-For example, if you have a local server and a database called `testdb` in it
+For example, if you have a local server and a database called **testdb** in it
 ```bash
 pg_dump --host=localhost --username=masterlogin --dbname=testdb --file=testdb.sql
 ```
@@ -40,7 +40,7 @@ psql --file=<database>.sql --host=<server name> --port=5432 --username=<user@ser
 ```
 In this example, we will use psql and script file named **testdb.sql** from previous step to import data into the database **mypgsqldb** on target server **mypgserver-20170401.postgres.database.azure.com**.
 ```bash
-psql --file=D:\Orcas\testdb.sql --host=mypgserver-20170401.database.windows.net --port=5432 --username=mylogin@mypgserver-20170401 --dbname=mypgsqldb
+psql --file=testdb.sql --host=mypgserver-20170401.database.windows.net --port=5432 --username=mylogin@mypgserver-20170401 --dbname=mypgsqldb
 ```
 
 ## Next steps
