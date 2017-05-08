@@ -9,7 +9,7 @@ editor: mimig
 documentationcenter: ''
 
 ms.assetid: 2d7798db-857f-431a-b10f-3ccbc7d93b50
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api

@@ -2,14 +2,14 @@
 title: How to create an Azure Cosmos DB account | Microsoft Docs
 description: Build a NoSQL database with Azure Cosmos DB. Follow these instructions to create an Azure Cosmos DB account and start building your blazing fast, global-scale NoSQL database.
 keywords: build a database
-services: documentdb
+services: cosmosdb
 documentationcenter: ''
 author: mimig1
 manager: jhubbard
 editor: monicar
 
 ms.assetid: 0e7f8488-7bb7-463e-b6fd-3ae91a02c03a
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

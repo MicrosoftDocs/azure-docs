@@ -1,7 +1,7 @@
 ---
 title: Azure Cosmos DB Automation - Azure CLI 2.0 | Microsoft Docs
 description: Use Azure CLI 2.0 to create and manage Azure Cosmos DB accounts. Azure Cosmos DB is a highly available globally-distributed database.
-services: documentdb
+services: cosmosdb
 author: dmakwana
 manager: jhubbard
 editor: ''
@@ -10,7 +10,7 @@ documentationcenter: ''
 
 ms.assetid: 6158c27f-6b9a-404e-a234-b5d48c4a5b29
 ms.custom: quick start create
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli

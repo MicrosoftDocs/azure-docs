@@ -9,7 +9,7 @@ manager: jhubbard
 editor: monicar
 
 ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet

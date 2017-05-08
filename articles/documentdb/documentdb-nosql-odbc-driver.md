@@ -9,7 +9,7 @@ editor: ''
 documentationcenter: ''
 
 ms.assetid: 9967f4e5-4b71-4cd7-8324-221a8c789e6b
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api

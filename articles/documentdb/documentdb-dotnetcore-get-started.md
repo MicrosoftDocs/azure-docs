@@ -1,14 +1,14 @@
 ---
 title: 'Azure Cosmos DB: DocumentDB API getting started with .NET Core tutorial | Microsoft Docs'
 description: A tutorial that creates an online database and C# console application using the Azure Cosmos DB DocumentDB API .NET Core SDK. 
-services: documentdb
+services: cosmosdb
 documentationcenter: .net
 author: arramac
 manager: jhubbard
 editor: ''
 
 ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
