@@ -27,7 +27,7 @@ Learn how to use specific Azure Active Directory B2C features:
 * Configure OIDC Providers such as [Azure AD](active-directory-b2c-setup-aad-custom.md).
 * Configure SAML Providers such as [Salesforce](active-directory-b2c-setup-sf-app-custom.md).
 * Integrate RESTful APIs:
-    * [Insert into an orchestration step](active-directory-b2c-rest-api-step-custom.md).
+    * [Obtain additional claims](active-directory-b2c-rest-api-step-custom.md).
     * [Validate user input](active-directory-b2c-rest-api-validation-custom.md).
 * Customize Login:
     * [Configure User Input](active-directory-b2c-configure-signup-self-asserted-custom.md)
