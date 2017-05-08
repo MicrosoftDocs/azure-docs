@@ -63,7 +63,9 @@ You may use the "new app" dialog to specify an action feed. Action feeds can als
 
 ![New feed dialog](./media/custom-decision-service-tutorial/new-feed-dialog.png)
 
-Action feeds can be used by any app, regardless of whether they are specified. Once you specify both action feeds in our scenario, you should see them listed as follows:
+Provide a name of the new feed, the URL from which it is served, and the refresh time. The refresh time specifies how frequently Custom Decision Service should refresh the feed.
+
+Action feeds can be used by any app, regardless of where they are specified. Once you specify both action feeds in our scenario, you should see them listed as follows:
 
 ![List of feeds](./media/custom-decision-service-tutorial/feeds.png)
 
