@@ -182,4 +182,5 @@ In this tutorial you learned to:
 > * Query data
 > * Update data
 > * Restore data
+
 [Azure Database for MySQL - Azure CLI samples](./sample-scripts-azure-cli.md).
