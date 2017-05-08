@@ -552,4 +552,3 @@ These tabs in the blade show the many great features you can add to your web app
 * Scale up and out
 * Add user authentication
 
-## More resources
