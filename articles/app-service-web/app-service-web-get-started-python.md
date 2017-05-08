@@ -286,7 +286,6 @@ http://<app_name>.azurewebsites.net
 
 This time, the page that displays the Hello World message is running using our Python code running as an Azure App Service web app.
 
-![]()
 
 ## Updating and Deploying the Code
 
