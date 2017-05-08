@@ -26,6 +26,8 @@ Custom images are like marketplace images, but you create them yourself. Custom 
 > * Sysprep and generalize VMs
 > * Create a custom image
 > * Create a VM from a custom image
+> * List all the images in your subscription
+> * Delete an image
 
 This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
@@ -196,6 +198,8 @@ In this tutorial, you created a custom VM image. You learned how to:
 > * Sysprep and generalize VMs
 > * Create a custom image
 > * Create a VM from a custom image
+> * List all the images in your subscription
+> * Delete an image
 
 Advance to the next tutorial to learn about how highly available virtual machines.
 
