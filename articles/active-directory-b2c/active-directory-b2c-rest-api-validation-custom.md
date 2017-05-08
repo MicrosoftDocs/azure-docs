@@ -23,7 +23,7 @@ The **Identity Experience Framework** (IEF) underlying Azure AD B2C enables the 
 
 At the end of this walkthrough you will be able to create Azure AD B2C user journeys which interact with RESTful services.
 
-The IEE sends data in claims and receives data back in claims.  The interaction with the API can be designed as a REST API claims exchange, as a validation profile, which happens inside an orchestrations step.
+The IEF sends data in claims and receives data back in claims.  The interaction with the API can be designed as a REST API claims exchange, as a validation profile, which happens inside an orchestrations step.
 
 - This typically validates input from the user
 - If the value from the user is rejected, then the user can try again to enter a valid value with the opportunity to return an error message to the user.
@@ -44,7 +44,7 @@ We will simply verify that the given name provided by the user in the profile ed
 > [!NOTE]
 > Set up of REST API functions is outside the scope of this article. [Azure Function Apps](https://docs.microsoft.com/azure/azure-functions/functions-reference) provides an excellent toolkit to create RESTful services in the cloud.
 
-We have created an Azure Function that receives a claim which it expects as “playerTag” and validates whether or not this claim exists. You can access the complete Azure function code in <!--TODO: Add link to function-->[GitHub]().
+We have created an Azure Function that receives a claim which it expects as “playerTag” and validates whether or not this claim exists. You can access the complete Azure function code in [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
 
 ```
 if (requestContentAsJObject.playerTag == null)

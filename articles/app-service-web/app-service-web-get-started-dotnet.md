@@ -25,7 +25,7 @@ This Quickstart helps you deploy your first ASP.NET web app to [Azure App Servic
 
 ![ASP.NET web app in Azure App Service](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
-## Before you begin
+## Prerequisites
 
 This tutorial demonstrates how to use Visual Studio 2017 to build and deploy an ASP.NET web app to Azure. If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
@@ -189,6 +189,8 @@ In the confirmation blade, confirm by typing the resource group name **myResourc
 
 ## Next steps
 
-Advance to an end-to-end tutorial and learn how to [build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md).
+> [!div class="nextstepaction"]
+> [Learn how to build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
 
-Explore pre-created [Web apps PowerShell scripts](app-service-powershell-samples.md).
+> [!div class="nextstepaction"]
+> [Explore sample Web Apps PowerShell scripts](app-service-powershell-samples.md)
