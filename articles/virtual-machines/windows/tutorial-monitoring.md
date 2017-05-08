@@ -20,7 +20,7 @@ ms.author: davidmu
 
 # Monitor a Windows Virtual Machine with Azure PowerShell
 
-Azure monitoring uses agents to collect boot and performance data from Azure VMs, stores this data in Azure storage, and makes it accessible through portal, the Azure PowerShell module, and the Azure CLI. In this tutorial, you learn how to:
+Azure monitoring uses agents to collect boot and performance data from Azure VMs, store this data in Azure storage, and make it accessible through portal, the Azure PowerShell module, and the Azure CLI. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Enable boot diagnostics on a VM
@@ -37,9 +37,9 @@ To complete the example in this tutorial, you must have an existing virtual mach
 
 ## View boot diagnostics
 
-As Windows virtual machines boot up, the boot diagnostic agent captures screen output that can be used for troubleshooting purpose. This capability is enabled by default. The capture screen shots are stored in an Azure storage account which is also created by default. 
+As Windows virtual machines boot up, the boot diagnostic agent captures screen output that can be used for troubleshooting purpose. This capability is enabled by default. The captured screen shots are stored in an Azure storage account, which is also created by default. 
 
-You can get the boot diagnostic data with the [Get-​Azure​Rm​VM​Boot​Diagnostics​Data](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata) command. In the following example, the boot diagnostics is downloaded to the root of the *c:\* drive. 
+You can get the boot diagnostic data with the [Get-​Azure​Rm​VM​Boot​Diagnostics​Data](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata) command. In the following example, boot diagnostics are downloaded to the root of the *c:\* drive. 
 
 ```powershell
 Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -Windows -LocalPath "c:\"
@@ -47,7 +47,7 @@ Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -
 
 ## View host metrics
 
-A Windows VM has a dedicated Host VM in Azure that it interacts with. Metrics are automatically collected for the Host VM that you can easily view in the Azure portal.
+A Windows VM has a dedicated Host VM in Azure that it interacts with. Metrics are automatically collected for the Host and can be viewed in the Azure portal.
 
 1. In the Azure portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
 2. Click **Metrics** on the VM blade, and then select any of the Host metrics under **Available metrics** to see how the Host VM is performing.
@@ -56,7 +56,7 @@ A Windows VM has a dedicated Host VM in Azure that it interacts with. Metrics ar
 
 ## Install diagnostics extension
 
-[Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) enables the collection of diagnostic data from a VM.
+[Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) enable the collection of diagnostic data from a VM.
 
 When installing the diagnostic extension, a configuration file is required that defines the collected metrics. When creating this file, you need the name of a storage account to hold the diagnostic data, and the Id of your Azure subscription.
 
@@ -78,7 +78,7 @@ Create a file named diagnosticsconfig.xml. In this example, the file is stored o
 New-Item -ItemType File c:\diagnosticsconfig.xml
 ```
 
-Copy this XML into the *diagnosticsconfig.xml * file.
+Copy this XML into the *diagnosticsconfig.xml* file.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -212,7 +212,7 @@ Set-AzureRmVMDiagnosticsExtension `
 
 ## View VM metrics
 
-You can view the VM metrics in the same way that you viewed the Host VM metrics:
+You can view the VM metrics in the same way that you viewed the Host VM metrics.
 
 1. In the Azure portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
 2. To see how the VM is performing, click **Metrics** on the VM blade, and then select any of the diagnostics metrics under **Available metrics** 
@@ -221,15 +221,15 @@ You can view the VM metrics in the same way that you viewed the Host VM metrics:
 
 ## Create alerts
 
-Azure activity alerts provide automation in response to diagnostic data. For example, a rule can be configured to fire after CPU utilization has been higher than 50% over a specified amount of time. This alert can send an email, an SMS message, or send an HTTP post to a rest endpoint. Azure Automation Runbooks, and / or Azure logic apps can also be configured to fire because of an alert.
+Azure activity alerts provide automautomated actions in response to diagnostic data. For example, an alert rule can be configured to fire after CPU utilization has been higher than 50% over a specified amount of time. This alert can send an email, an SMS message, or send an HTTP post to a rest endpoint. Azure Automation Runbooks, and / or Azure logic apps can also be configured to fire because of an alert.
 
-Use the [New-AzureRmAlertRuleEmail](https://docs.microsoft.com/powershell/module/azurerm.insights/new-azurermalertruleemail) command to configure an alert action, in this case that the alert should send an email. This example configures the Azure service owners as the recipient of the alert email. 
+Use the [New-AzureRmAlertRuleEmail](https://docs.microsoft.com/powershell/module/azurerm.insights/new-azurermalertruleemail) command to configure an email alert action. This example configures the Azure service owners as the recipient of the alert email. 
 
 ```powershell
 $action = New-AzureRmAlertRuleEmail -SendToServiceOwners
 ```
 
-Next, use the [Add-AzureRmMetricAlertRule](https://docs.microsoft.com/powershell/module/azurerm.insights/add-azurermmetricalertrule) to create an alert rule. This example creates a times span of 5 minutes. The rule is then created which defines that if CPU utilization is greater than 1 for the time span of 5 minutes, the alert will fire.
+Next, use the [Add-AzureRmMetricAlertRule](https://docs.microsoft.com/powershell/module/azurerm.insights/add-azurermmetricalertrule) to create an alert rule. This example creates a times span of 5 minutes. The rule is then created which defines that if CPU utilization is greater than 1% for the time span of 5 minutes, the alert will fire.
 
 ```powershell
 $vmName = "myVM"
@@ -254,21 +254,24 @@ Add-AzureRmMetricAlertRule -ResourceGroup $resourceGroup `
 
 You can do more advanced monitoring of your VM by using [Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview). If you haven't already done so, you can sign up for a [free trial](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-trial) of Operations Management Suite.
 
-When you have access to the OMS portal, you can find the workspace key and workspace identifier on the Settings blade. Replace <workspace-key> and <workspace-id> with the values for from your OMS workspace and then you can use [Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension) to add the OMS extension to the VM:
+When you have access to the OMS portal, you can find the workspace key and workspace identifier on the Settings blade. Use the [Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension) cmmand to to add the OMS extension to the VM. Update the variable values in the below sample to reflect you OMS workspace key and workspace Id.  
 
 ```powershell
+$omsId = "<Replace with your OMS Id>"
+$omsKey = "<Replace with your OMS key>"
+
 Set-AzureRmVMExtension -ResourceGroupName myResourceGroup `
   -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
   -VMName myVM `
   -Publisher "Microsoft.EnterpriseCloud.Monitoring" `
   -ExtensionType "MicrosoftMonitoringAgent" `
   -TypeHandlerVersion 1.0 `
-  -Settings @{"workspaceId" = "<workspace-id>"} `
-  -ProtectedSettings @{"workspaceKey" = "<workspace-key>"} `
+  -Settings @{"workspaceId" = $omsId} `
+  -ProtectedSettings @{"workspaceKey" = $omsKey} `
   -Location eastus
 ```
 
-On the Log Search blade of the OMS portal, you should see `myVM` such as what is shown in the following picture:
+After a few minutes, you should see the new VM in the OMS workspace. 
 
 ![OMS blade](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
