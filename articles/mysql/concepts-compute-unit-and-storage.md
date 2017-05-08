@@ -75,4 +75,4 @@ If your workload is hitting the limits in one of Compute Units/provisioned IOPS 
 If you are hitting limits of maximum connections allowed, you see explicit errors. See [Azure Database for MySQL resource limits](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits) for more information on limit on resources. <Need to write about the behavior if a user reaches the storage capacity limits>
 
 ## Next steps
-- See [Azure Database for MySQL service tiers](./concepts-service-tiers.md) for information on the Compute Units and Storage Units available for single servers.
+[Azure Database for MySQL service tiers](./concepts-service-tiers.md) 
