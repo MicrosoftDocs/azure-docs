@@ -2,7 +2,7 @@
 title: 'Introduction to Azure Cosmos DB: API for MongoDB | Microsoft Docs'
 description: Learn how you can use Azure Cosmos DB to store and query massive volumes of JSON documents with low latency using the popular OSS MongoDB APIs.
 keywords: what is MongoDB
-services: documentdb
+services: cosmosdb
 author: AndrewHoh
 manager: jhubbard
 editor: ''
@@ -24,22 +24,22 @@ ms.author: anhoh
 
 ![Azure API for MongoDB](./media/documentdb-protocol-mongodb/cosmosdb-mongodb.png) 
 
-Azure Cosmos DB databases can be used as the data store for apps written for [MongoDB](https://docs.mongodb.com/manual/introduction/). This means that by using existing [drivers](https://docs.mongodb.org/ecosystem/drivers/), your application written for MongoDB can now communicate with Azure Cosmos DB and use Azure Cosmos DB databases instead of MongoDB databases. In many cases, you can switch from using MongoDB to Azure Cosmos DB by simply changing a connection string. Using this functionality, you can easily build and run MongoDB database applications in the Azure cloud with Azure Cosmos DB's global distribution and [comprehensive industry leading SLAs](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/), while continuing to use familiar skills and tools for MongoDB.
+DocumentDB databases can be used as the data store for apps written for [MongoDB](https://docs.mongodb.com/manual/introduction/). This means that by using existing [drivers](https://docs.mongodb.org/ecosystem/drivers/), your application written for MongoDB can now communicate with Cosmos DB and use DocumentDB databases instead of MongoDB databases. In many cases, you can switch from using MongoDB to DocumenetDB by simply changing a connection string. Using this functionality, you can easily build and run MongoDB database applications in the Azure cloud with Azure Cosmos DB's global distribution and [comprehensive industry leading SLAs](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/), while continuing to use familiar skills and tools for MongoDB.
 
 
 ## What is the benefit of using Azure Cosmos DB for MongoDB applications?
 
-* **Elastically scalable throughput and storage:** Easily scale up or scale down your MongoDB database to meet your application needs. Your data is stored on solid state disks (SSD) for low predictable latencies. Azure Cosmos DB supports MongoDB collections that can scale to virtually unlimited storage sizes and provisioned throughput. You can elastically scale DocumentDB with predictable performance seamlessly as your application grows. 
+* **Elastically scalable throughput and storage:** Easily scale up or scale down your MongoDB database to meet your application needs. Your data is stored on solid state disks (SSD) for low predictable latencies. Cosmos DB supports MongoDB collections that can scale to virtually unlimited storage sizes and provisioned throughput. You can elastically scale Cosmos DB with predictable performance seamlessly as your application grows. 
 
-* **Multi-region replication:** Azure Cosmos DB transparently replicates your data to all regions you've associated with your MongoDB account, enabling you to develop applications that require global access to data while providing tradeoffs between consistency, availability and performance, all with corresponding guarantees. DocumentDB provides transparent regional failover with multi-homing APIs, and the ability to elastically scale throughput and storage across the globe. Learn more in [Distribute data globally](documentdb-distribute-data-globally.md).
+* **Multi-region replication:** Cosmos DB transparently replicates your data to all regions you've associated with your MongoDB account, enabling you to develop applications that require global access to data while providing tradeoffs between consistency, availability and performance, all with corresponding guarantees. Cosmos DB provides transparent regional failover with multi-homing APIs, and the ability to elastically scale throughput and storage across the globe. Learn more in [Distribute data globally](documentdb-distribute-data-globally.md).
 
-**MongoDB compatibility**: You can use your existing MongoDB expertise, application code, and tooling. You can develop applications using MongoDB and deploy them to production using the fully managed globally distributed Azure Cosmos DB service.
+**MongoDB compatibility**: You can use your existing MongoDB expertise, application code, and tooling. You can develop applications using MongoDB and deploy them to production using the fully managed globally distributed Cosmos DB service.
 
-**No server management**: You don't have to manage and scale your MongoDB databases. Azure Cosmos DB is a fully managed service, which means you do not have to manage any infrastructure or Virtual Machines yourself. Azure Cosmos DB is available in 30+ [Azure Regions](https://azure.microsoft.com/regions/services/).
+**No server management**: You don't have to manage and scale your MongoDB databases. Cosmos DB is a fully managed service, which means you do not have to manage any infrastructure or Virtual Machines yourself. Cosmos DB is available in 30+ [Azure Regions](https://azure.microsoft.com/regions/services/).
 
-* **Tunable consistency levels:** Select from five well defined consistency levels to achieve optimal trade-off between consistency and performance. For queries and read operations, DocumentDB offers five distinct consistency levels: strong, bounded-staleness, session, consistent prefix, and eventual. These granular, well-defined consistency levels allow you to make sound trade-offs between consistency, availability, and latency. Learn more in [Using consistency levels to maximize availability and performance](documentdb-consistency-levels.md).
+* **Tunable consistency levels:** Select from five well defined consistency levels to achieve optimal trade-off between consistency and performance. For queries and read operations, Cosmos DB offers five distinct consistency levels: strong, bounded-staleness, session, consistent prefix, and eventual. These granular, well-defined consistency levels allow you to make sound trade-offs between consistency, availability, and latency. Learn more in [Using consistency levels to maximize availability and performance](documentdb-consistency-levels.md).
 
-* **Automatic indexing**: By default, Azure Cosmos DB automatically indexes all the properties within documents in your MongoDB database and does not expect or require any schema or creation of secondary indices.
+* **Automatic indexing**: By default, Cosmos DB automatically indexes all the properties within documents in your MongoDB database and does not expect or require any schema or creation of secondary indices.
 
 **Enterprise grade** - Azure Cosmos DB supports multiple local replicas to deliver 99.99% availability and data protection in the face of local and regional failures. Azure Cosmos DB has enterprise grade [compliance certifications](https://www.microsoft.com/trustcenter) and security features. 
 

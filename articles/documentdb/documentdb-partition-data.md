@@ -1,7 +1,7 @@
 ---
 title: Partitioning and scaling in Azure Cosmos DB | Microsoft Docs
 description: Learn about how partitioning works in Azure Cosmos DB, how to configure partitioning and partition keys, and how to pick the right partition key for your application.
-services: documentdb
+services: cosmosdb
 author: arramac
 manager: jhubbard
 editor: monicar
@@ -25,6 +25,14 @@ ms.custom: H1Hack27Feb2017
 This article provides an overview of how to work with partitioning of Cosmos DB containers with the DocumentDB API. See [partitioning and horizontal scaling](,,/cosmos-db/partition-data.md) for an overview of concepts and best practices for partitioning with any Azure Cosmos DB API. 
 
 To get started with code, download the project from [Github](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark). 
+
+After reading this article, you will be able to answer the following questions:   
+
+* How does partitioning work in Azure Cosmos DB?
+* How do I configure partitioning in Azure Cosmos DB
+* What are partition keys, and how do I pick the right partition key for my application?
+
+To get started with code, download the project from [Azure Cosmos DB Performance Testing Driver Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark). 
 
 <a name="partition-keys"></a>
 ## Partition keys
@@ -176,7 +184,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 Cosmos DB supports [aggregate functions](documentdb-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, `SUM` and `AVG` over partitioned containers using SQL starting with SDKs 1.12.0 and above. Queries must include a single aggregate operator, and must include a single value in the projection.
 
 ### Parallel query execution
-The DocumentDB SDKs 1.9.0 and above support parallel query execution options, which allow you to perform low latency queries against partitioned collections, even when they need to touch a large number of partitions. For example, the following query is configured to run in parallel across partitions.
+The Cosmos DB SDKs 1.9.0 and above support parallel query execution options, which allow you to perform low latency queries against partitioned collections, even when they need to touch a large number of partitions. For example, the following query is configured to run in parallel across partitions.
 
 ```csharp
 // Cross-partition Order By Queries
@@ -203,7 +211,9 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
     new RequestOptions { PartitionKey = new PartitionKey("XMS-001") }, 
     "XMS-001-FE24C");
 ```
-    
+   
+In the next section, we look at how you can move to partitioned containers from single-partition containers.
+
 ## Next steps
 In this article, we provided an overview of how to work with partitioning of Cosmos DB containers with the DocumentDB API. Also see [partitioning and horizontal scaling](,,/cosmos-db/partition-data.md) for an overview of concepts and best practices for partitioning with any Azure Cosmos DB API. 
 
