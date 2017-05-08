@@ -41,7 +41,7 @@ Browse to the site (`http://<app_name>.azurewebsites.net`) to see your newly cre
 
 ## Configure local git deployment
 
-App Service supports various ways to deploy content to a web app, such as FTP, local Git, GitHub, Visual Studio Team Services, and Bitbucket. 
+App Service supports several ways to deploy content to a web app, such as FTP, local Git, GitHub, Visual Studio Team Services, and Bitbucket. 
 
 For this quickstart, you deploy by using local Git. That means you'll deploy by using a Git command to push from a local repository to a repository in Azure. 
 

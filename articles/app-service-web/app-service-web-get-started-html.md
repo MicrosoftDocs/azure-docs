@@ -64,7 +64,7 @@ The page is running as an Azure App Service web app:
 
 Open the *index.html* file. Make a change to the markup. For example, change `Hello world!` to `Hello Azure!`
 
-Commit your changes in Git, then push the code changes to Azure.
+Commit your changes in Git, and then push the code changes to Azure.
 
 ```bash
 git commit -am "updated HTML"
