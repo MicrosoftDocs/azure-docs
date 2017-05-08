@@ -36,10 +36,6 @@ For this tutorial, a single virtual network will be created with three subnets. 
 - **Back-end** – VMs that host back-end databases.
 - **Remote access** – hosts a single VM that can be used to remotely access the front-end and back-end VMs.
 
-The end results of this tutorial is represent in this diagram.
-
-<center> ![Network Diagram](./media/tutorial-virtual-network/virtual-network-diagram.png) </center>
-
 Before you can create a virtual network, create a resource group with az group create. The following example creates a resource group named myRGNetwork in the eastus location.
 
 ```azurecli
@@ -135,6 +131,8 @@ First, deallocate the VM.
 ```azurecli
 az vm deallocate --resource-group myRGNetwork --name myRemoteAccessVM
 ```
+
+Use the [az network public-ip update](/azure/network/public-ip#update) command to update the allocation method. 
 
 ```azurecli
 az network public-ip update --resource-group myRGNetwork --name myRemoteAccessIP --allocation-method static
