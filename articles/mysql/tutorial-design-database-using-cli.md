@@ -15,7 +15,17 @@ ms.date: 05/10/2017
 ---
 
 # Design your first Azure Database for MySQL database
-In this tutorial, you will use the Azure CLI to create a server with a server-level firewall. You will then use mysql command-line tool to create a database, a table in the database, load data into that table, query table, and update data in the table. Finally, you will use the server’s automated backups to restore the database to an earlier point-in-time before you added this new table.
+
+In this tutorial, you use Azure CLI (command-line interface) and other utilities to learn how to:
+
+> [!div class="checklist"]
+> * Create an Azure Database for MySQL
+> * Configure the server firewall
+> Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
+> * Load sample data
+> * Query data
+> * Update data
+> * Restore data
 
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
