@@ -36,7 +36,7 @@ Visit your Azure Database for PostgreSQL server and click **Connection security*
 You can confirm the setting by viewing the **Overview** page to see the **SSL enforce status** indicator.
 
 #### Using Azure CLI
-You can enable or disable the **Enforce SSL connection** setting via Azure CLI as well.
+You can enable or disable the **Enforce SSL connection** setting using `Enabled` or `Disabled` values respectively in Azure CLI.
 
 ```azurecli
 az postgres server update --resource-group myresourcegroup --name mypgserver-20170401 --ssl-enforcement Enabled
