@@ -25,10 +25,8 @@ The following table includes links to sample Azure CLI scripts for Azure Cosmos 
 | |  |
 |---|---|
 |**Create Azure Cosmos DB account, database, and collections**||
-|[Create a Document API account, database, and collections](scripts/create-database-account-collections-cli.md)| Creates a single Azure Cosmos DB DocumentDB API account, database, and collection. |
-| [Create a MongoDB API account, database, and collections](scripts/create-mongodb-database-account-cli.md) | Creates a single Azure Cosmos DB MongoDB API account, database, and collection. |
-| [Create a Graph API account, database, and collections](scripts/create-gremlin-graph-database-account-cli.md) | Creates a single Azure Cosmos DB Graph API account, database, and collection. |
-| [Create a Tables API account, database, and collections](scripts/create-tables-database-account-cli.md) | Creates a single Azure Cosmos DB account, database, and collection. |
+|[Create a Document, Graph, or Table API account](scripts/create-database-account-collections-cli.md)| Creates a single Azure Cosmos DB DocumentDB API account, database, and collection. |
+| [Create a MongoDB API account](scripts/create-mongodb-database-account-cli.md) | Creates a single Azure Cosmos DB MongoDB API account, database, and collection. |
 |**Scale Azure Cosmos DB**||
 | [Scale collection throughput](scripts/scale-collection-throughput-cli.md) | Changes the provisioned througput on a collection.|
 |[Replicate Azure Cosmos DB database account in multiple regions and configure failover priorities](scripts/scale-multiregion-cli.md)|Globally replicates account data into multiple regions with a specified failover priority.|

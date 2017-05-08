@@ -14,17 +14,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 05/10/2017
 ms.author: anhoh
 
 ---
 # How to import data into Azure Cosmos DB for the DocumentDB API?
 
-This article provides instructions on using the Azure Cosmos DB Data Migration tool, which can import data from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB and DocumentDB collections into Azure Cosmos DB. The Data Migration tool can also be used when migrating from a single partition collection to a multi-partition collection for the DocumentDB API.
+This tutorial provides instructions on using the Azure Cosmos DB Data Migration tool, which can import data from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB and DocumentDB collections into Azure Cosmos DB. The Data Migration tool can also be used when migrating from a single partition collection to a multi-partition collection for the DocumentDB API.
 
 The Data Migration tool only works when importing data into Azure Cosmos DB for use with the DocumentDB API. Importing data for use with the Table API or Graph API is not supported at this time. 
 
 To import data for use with the MongoDB API, see [Azure Cosmos DB: How to migrate data for the MongoDB API?](documentdb-mongodb-migrate.md).
+
+This tutorial covers the following tasks:
+
+> [!div class="checklist"]
+> * Installing the Data Migration tool
+> * Importing data from different data sources
+> * Exporting from Azure Cosmos DB to JSON
 
 ## <a id="Prerequisites"></a>Prerequisites
 Before following the instructions in this article, ensure that you have the following installed:
@@ -564,5 +571,15 @@ Then, choose whether to log all, critical, or no error messages. Finally, decide
    
     ![Screenshot of Azure Cosmos DB JSON export option](./media/documentdb-import-data/newimport.png)
 
+In this tutorial, you've done the following:
+
+> [!div class="checklist"]
+> * Installed the Data Migration tool
+> * Imported data from different data sources
+> * Exported from Azure Cosmos DB to JSON
+
 ## Next steps
-Once you've imported data into Azure Cosmos DB, the next thing to do is [Query](../documentdb/documentdb-sql-query.md) your data, review your data in [Data Explorer](documentdb-view-json-document-explorer.md#create-a-document-by-using-data-explorer-preview) in the Azure portal, and [globally replicate](documentdb-distribute-data-globally.md) it so that it's closest to your users.
+
+In this tutorial, you've learned how to import and export data using the Data Migration tool. You can now proceed to the next tutorial and learn how to query data using Azure Cosmos DB. 
+
+[Azure Cosmos DB: How to query data?](tutorial-query-documentdb-dotnet.md)

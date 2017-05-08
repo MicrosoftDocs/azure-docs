@@ -57,15 +57,17 @@ You can now use Data Explorer to create a collection.
 
 Now let's clone a DocumentDB API app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
-1. Open a git terminal window, such as git bash, and `CD` to a working directory.  
+1. Open a git terminal window, such as git bash, and `cd` to a working directory.  
 
-2. Run the following command to clone the sample repository. 
+2. In your browser, go to [Github](https://aka.ms/acdbxamarinsample) and click the **Clone or download** button and then copy the Clone with HTTPS URL.
+
+3. Run the following command to clone the sample repository, using your copied URL. 
 
     ```bash
-    git clone https://github.com/Azure/azure-documentdb-dotnet.git
+    git clone https://github.com/Azure/COPIED-URL
     ```
 
-3. Then open the azure-documentdb-dotnet/samples/xamarin/UserItems/xamarin.forms/DocumentDBTodo.sln file in Visual Studio. 
+3. Then open the DocumentDBTodo.sln file in Visual Studio. 
 
 ## Review the code
 

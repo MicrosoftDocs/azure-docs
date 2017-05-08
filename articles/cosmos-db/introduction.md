@@ -20,7 +20,7 @@ ms.author: mimig
 
 # Welcome to Azure Cosmos DB
 
-Azure Cosmos DB is the future of massively scalable, globally distributed databases. With the click of a button, Azure Cosmos DB enables you to elastically and independently scale throughput and storage across any number of Azure's geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive [service level agreements](https://aka.ms/acdbsla) (SLAs), something no other database service can offer.
+Azure Cosmos DB is Microsoft's globally distributed, multi-model database. With the click of a button, Azure Cosmos DB enables you to elastically and independently scale throughput and storage across any number of Azure's geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive [service level agreements](https://aka.ms/acdbsla) (SLAs), something no other database service can offer.
 
 ![Azure Cosmos DB is Microsoft's globally distributed database service with elastic scale out, guaranteed low latency, five consistency models, and comprehensive guaranteed SLAs](./media/introduction/azure-cosmos-db.png)
 
@@ -35,7 +35,7 @@ Azure Cosmos DB provides the best capabilities of relational and non-relational 
 
 | Capabilities | Relational DBs	| Non-relational (NoSQL) DBs | 	Azure Cosmos DB |
 | --- | --- | --- | --- |
-| Global distribution | x | x | ✓ Turn-key, 30+ regions, multi-homing |
+| Global distribution | x | x | ✓ Turnkey, 30+ regions, multi-homing |
 | Horizontal scale | x | ✓ | ✓ Independently scale storage and throughput | 
 | Latency guarantees | x | ✓ | ✓ <10 ms for reads, <15 ms for writes at p99 | 
 | High availability | x | ✓ | ✓ Always on, PACELC tradeoffs, automatic & manual failover |
