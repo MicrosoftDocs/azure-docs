@@ -22,7 +22,7 @@ ms.author: mimig
 
 Learn how to use the Azure portal to replicate data in multiple regions for global availability of data in Azure Cosmos DB and API for MongoDB.
 
-For information about how global database replication works in Cosmos DB, see [Distribute data globally with Cosmos DB](documentdb-distribute-data-globally.md). For information about performing global database replication programmatically, see [Developing with multi-region Azure Cosmos DB accounts](documentdb-developing-with-multiple-regions.md).
+For information about how global database replication works in Cosmos DB, see [Distribute data globally with Cosmos DB](documentdb-distribute-data-globally.md). For information about performing global database replication programmatically, see [Developing with multi-region Azure Cosmos DB accounts](../cosmos-db/tutorial-global-distribution-documentdb.md).
 
 ## <a id="addregion"></a>Add global database regions
 Cosmos DB is available in most [Azure regions][azureregions]. After selecting the default consistency level for your database account, you can associate one or more regions (depending on your choice of default consistency level and global distribution needs).
@@ -95,7 +95,7 @@ Example results:
 ## <a id="next"></a>Next steps
 Learn how to manage the consistency of your globally replicated account by reading [Consistency levels in Azure Cosmos DB](documentdb-consistency-levels.md).
 
-For information about how global database replication works in Cosmos DB, see [Distribute data globally with Azure Cosmos DB](documentdb-distribute-data-globally.md). For information about programmatically replicating data in multiple regions, see [Developing with multi-region Azure Cosmos DB accounts](documentdb-developing-with-multiple-regions.md).
+For information about how global database replication works in Cosmos DB, see [Distribute data globally with Azure Cosmos DB](documentdb-distribute-data-globally.md). For information about programmatically replicating data in multiple regions, see [Developing with multi-region Azure Cosmos DB accounts](../cosmos-db/tutorial-global-distribution-documentdb.md).
 
 <!--Image references-->
 [1]: ./media/documentdb-portal-global-replication/documentdb-add-region.png

@@ -29,7 +29,11 @@
 ### [MongoDB](tutorial-query-mongodb.md)
 ### [Table](tutorial-query-table.md)
 ### [Graph](tutorial-query-graph.md)
-## [4 - Distribute globally](../documentdb/documentdb-portal-global-replication.md)
+## 4 - Distribute globally
+### [DocumentDB](tutorial-global-distribution-documentdb.md)
+### [MongoDB](tutorial-global-distribution-mongodb.md)
+### [Table](tutorial-global-distribution-table.md)
+### [Graph](tutorial-global-distribution-documentdb.md)
 ## 5 - Develop locally
 ### [Use the emulator](../documentdb/documentdb-nosql-local-emulator.md)
 ### [Export certificates](../documentdb/documentdb-nosql-local-emulator-export-ssl-certificates.md)
@@ -60,7 +64,6 @@
 #### [SQL query](../documentdb/documentdb-sql-query.md)
 #### [SQL playground](https://www.documentdb.com/sql/demo)
 #### [Stored procedures, triggers, and UDFs](../documentdb/documentdb-programming.md)
-#### [Multi-region development](../documentdb/documentdb-developing-with-multiple-regions.md)
 #### [Performance testing](../documentdb/documentdb-performance-testing.md)
 #### [Performance tips](../documentdb/documentdb-performance-tips.md)
 #### [Multi-master setup](../documentdb/documentdb-multi-region-writers.md)

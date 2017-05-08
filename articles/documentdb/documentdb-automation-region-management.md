@@ -20,7 +20,7 @@ ms.author: dimakwan
 ---
 # Automate Azure Cosmos DB account region management using Azure CLI 1.0 and Azure Resource Manager templates
 
-This article shows you how to add/remove a region in your Azure Cosmos DB DocumentDB API account by using Azure CLI 1.0 commands and Azure Resource Manager templates. Region management can also be accomplished through the [Azure Portal](documentdb-portal-global-replication.md). Note that the commands in the following tutorial do not allow you to change failover priorities of the various regions. Only read regions can  be added or removed. The write region of a database account (failover priority of 0) cannot be added/removed.
+This article shows you how to add/remove a region in your Azure Cosmos DB DocumentDB API account by using Azure CLI 1.0 commands and Azure Resource Manager templates. Region management can also be accomplished through the [Azure Portal](../cosmos-db/tutorial-global-distribution-documentdb.md). Note that the commands in the following tutorial do not allow you to change failover priorities of the various regions. Only read regions can  be added or removed. The write region of a database account (failover priority of 0) cannot be added/removed.
 
 Azure Cosmos DB database accounts are currently the only Azure Cosmos DB resource that can be created/modified using [Azure Resource Manager templates and Azure CLI 1.0](documentdb-automation-resource-manager-cli.md). 
 

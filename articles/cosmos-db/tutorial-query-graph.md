@@ -78,6 +78,6 @@ If you're not going to continue to use this app, use the following steps to dele
 
 In this tutorial, you've learned how to query graph data using Gremlin. You can now distribute data globally using the portal or install the Local emulator for local development.  
 
-[Distribute your data globally](../documentdb/documentdb-portal-global-replication.md)
+[Distribute your data globally](tutorial-global-distribution-documentdb.md)
 
 [Develop locally](../documentdb/documentdb-nosql-local-emulator.md)

@@ -115,6 +115,6 @@ In this article, we reviewed how manual and automatic failovers work in Cosmos D
 ## <a id="NextSteps"></a>Next Steps
 * Learn about how Cosmos DB supports [global distribution](documentdb-distribute-data-globally.md)
 * Learn about [global consistency with Azure Cosmos DB](documentdb-consistency-levels.md)
-* Develop with multiple regions using the [Azure DocumentDB SDK](documentdb-developing-with-multiple-regions.md)
+* Develop with multiple regions using Azure Cosmos DB's [DocumentDB SDK](../cosmos-db/tutorial-global-distribution-documentdb.md)
 * Learn how to build [Multi-region writer architectures](documentdb-multi-region-writers.md) with Azure DocumentDB
 

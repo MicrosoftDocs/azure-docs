@@ -242,7 +242,7 @@ Azure Cosmos DB transparently exposes the throughput, latency, consistency and a
 ![Azure Cosmos DB customer-visible SLA metrics](./media/documentdb-distribute-data-globally/documentdb-customer-slas.png)
 
 ## <a id="Next Steps"></a>Next Steps
-* To implement global replication on your Azure Cosmos DB account using the Azure portal, see [How to perform Azure Cosmos DB global database replication using the Azure portal](documentdb-portal-global-replication.md).
+* To implement global replication on your Azure Cosmos DB account using the Azure portal, see [How to perform Azure Cosmos DB global database replication using the Azure portal](../cosmos-db/tutorial-global-distribution-documentdb.md).
 * To learn about how to implement multi-master architectures with Azure Cosmos DB, see [Multi-master database architectures with Azure Cosmos DB](documentdb-multi-region-writers.md).
 * To learn more about how automatic and manual failovers work in Azure Cosmos DB, see [Regional Failovers in Azure Cosmos DB](documentdb-regional-failovers.md).
 

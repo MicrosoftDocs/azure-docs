@@ -151,6 +151,6 @@ Learn more about the distributing data globally with Azure Cosmos DB in the foll
 
 * [Distribute data globally with Azure Cosmos DB](documentdb-distribute-data-globally.md)
 * [Consistency levels](documentdb-consistency-levels.md)
-* [Add regions using the Azure portal](documentdb-portal-global-replication.md)
+* [Add regions using the Azure portal](../cosmos-db/tutorial-global-distribution-documentdb.md)
 
 [regions]: https://azure.microsoft.com/regions/
