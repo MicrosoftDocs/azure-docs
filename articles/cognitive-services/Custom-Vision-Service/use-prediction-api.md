@@ -18,11 +18,11 @@ After you train your model, you can obtain a URL that you can use to test images
 
 ## Obtain the prediction endpoint URL for a specific iteration:
 
-1. Click the "PERFORMANCE" tab, which is shown inside a red rectangle in the image below.
+1. Click the "PERFORMANCE" tab, which is shown inside a red rectangle in the following image.
 2. In the left pane, click on the iteration you want to use for testing images.
-3. In the upper part of the screen, click "Prediction URL", which is shown in a red rectangle in the following image.
+3. In the upper part of the screen, click "Prediction URL", which is also shown in a red rectangle in the following image.
 
-![The performance tab is shown with a red rectangle surrounding the Prediction URL.](./media/use-prediction-api/performance-tab-and-prediction-url.png)
+    ![The performance tab is shown with a red rectangle surrounding the Prediction URL.](./media/use-prediction-api/performance-tab-and-prediction-url.png)
 
 
 ### Test an image in C#

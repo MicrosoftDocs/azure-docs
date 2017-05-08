@@ -20,11 +20,11 @@ After you train your model, you can quickly test it using a locally stored image
 
 1. Click **Quick Test** on the right of the top menu bar. This action opens a window labeled **Quick Test**.
 
-![The Quick Test button is shown in the upper right corner of the window.](./media/test-your-model/quick-test-button.png)
+    ![The Quick Test button is shown in the upper right corner of the window.](./media/test-your-model/quick-test-button.png)
 
 2. In the **Quick Test** window, click in the **Submit Image** field and enter the URL of the image you want to use for your test. If you want to use a locally stored image instead, click the **Browse local files** button and select a local image file.
 
-![The Quick Test window is shown. It has a URL field and a button for selecting local files.](./media/test-your-model/quick-test-button.png)
+    ![The Quick Test window is shown. It has a URL field and a button for selecting local files.](./media/test-your-model/quick-test-results.png)
 
 The image you select appears in the middle of the page. Then the results appear below the image in the form of a table with two columns, labeled **Tags** and **Confidence**. After you view the results, you may close the **Quick Test** window.
 
