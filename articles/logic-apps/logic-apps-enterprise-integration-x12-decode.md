@@ -1,6 +1,6 @@
 ---
 title: Decode X12 messages - Azure Logic Apps | Microsoft Docs
-description: Validate EDI and generate XML for transaction sets with the X12 message decoder in the Enterprise Integration Pack for Azure Logic Apps
+description: Validate EDI and generate acknowledgements with the X12 message decoder in the Enterprise Integration Pack for Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc; LADocs
+ms.author: LADocs; padmavc
 
 ---
 # Decode X12 messages for Azure Logic Apps with the Enterprise Integration Pack
 
-With the Decode X12 message connector, you can validate EDI and partner-specific properties, 
-generate an XML document for each transaction set, 
-and generate acknowledgment for processed transactions. 
+With the Decode X12 message connector, you can validates the envelope against a trading partner agreement, validate EDI and partner-specific properties, split interchanges into transactions sets or preserve entire interchanges, and generate acknowledgments for processed transactions. 
 To use this connector, you must add the connector to an existing trigger in your logic app.
 
 ## Before you start
@@ -82,7 +80,6 @@ select the X12 flat file message to decode.
 The X12 Decode connector performs these tasks:
 
 * Validates the envelope against trading partner agreement
-* Generates an XML document for each transaction set.
 * Validates EDI and partner-specific properties
   * EDI structural validation, and extended schema validation
   * Validation of the structure of the interchange envelope.

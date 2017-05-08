@@ -1,6 +1,6 @@
 ---
 title: Decode EDIFACT messages - Azure Logic Apps | Microsoft Docs
-description: Validate EDI and generate XML for transaction sets with the EDIFACT message decoder in the Enterprise Integration Pack for Azure Logic Apps
+description: Validate EDI and generate acknowledgements with the EDIFACT message decoder in the Enterprise Integration Pack for Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -20,9 +20,7 @@ ms.author: padmavc; LADocs
 
 # Decode EDIFACT messages for Azure Logic Apps with the Enterprise Integration Pack
 
-With the Decode EDIFACT message connector, you can validate EDI and partner-specific properties, 
-generate an XML document for each transaction set, 
-and generate acknowledgment for processed transactions. 
+With the Decode EDIFACT message connector, you can validate EDI and partner-specific properties, split interchanges into transactions sets or preserve entire interchanges, and generate acknowledgments for processed transactions. 
 To use this connector, you must add the connector to an existing trigger in your logic app.
 
 ## Before you start
@@ -82,20 +80,19 @@ select the EDIFACT flat file message to decode.
 
 The Decode EDIFACT connector performs these tasks: 
 
-* Resolve the agreement by matching the sender qualifier & identifier and receiver qualifier & identifier
+* Validates the envelope against trading partner agreement.
+* Resolves the agreement by matching the sender qualifier & identifier and receiver qualifier & identifier.
 * Splits multiple interchanges in a single message into separate.
-* Validates the envelope against trading partner agreement
 * Disassembles the interchange.
-* Validates EDI and partner-specific properties includes
-  * Validation of the structure of the interchange envelope.
-  * Schema validation of the envelope against the control schema.
-  * Schema validation of the transaction-set data elements against the message schema.
+* Validates EDI and partner-specific properties including:
+  * Validation of the interchange envelope structure
+  * Schema validation of the envelope against the control schema
+  * Schema validation of the transaction-set data elements against the message schema
   * EDI validation performed on transaction-set data elements
 * Verifies that the interchange, group, and transaction set control numbers are not duplicates (if configured) 
   * Checks the interchange control number against previously received interchanges. 
   * Checks the group control number against other group control numbers in the interchange. 
   * Checks the transaction set control number against other transaction set control numbers in that group.
-* Generates an XML document for each transaction set.
 * Splits the interchange into transaction sets, or preserves the entire interchange:
   * Split Interchange as transaction sets - suspend transaction sets on error: 
   Splits interchange into transaction sets and parses each transaction set. 
