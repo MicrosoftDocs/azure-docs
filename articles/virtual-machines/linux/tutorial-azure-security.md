@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/01/2017
+ms.date: 05/07/2017
 ms.author: nepeters
 ---
 # Monitor VM security with the Azure Security Center
@@ -125,3 +125,4 @@ Advance to the next tutorial to learn more about creating a CI/CD pipeline with 
 
 > [!div class="nextstepaction"]
 > [Create CI/CD infrastructure with Jenkins, GitHub, and Docker](tutorial-jenkins-github-docker-cicd.md)
+
