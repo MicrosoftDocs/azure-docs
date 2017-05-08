@@ -17,7 +17,7 @@ ms.date: 05/10/2017
 # Configure SSL connectivity in Azure Database for PostgreSQL
 Azure Database for PostgreSQL prefers connecting your client applications to the PostgreSQL service using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.
 
-By default, the PostgreSQL database service is configured to require SSL connection. Optionally, you can disable requiring SSL for connecting to your database service if your clients application do not support SSL connectivity. 
+By default, the PostgreSQL database service is configured to require SSL connection. Optionally, you can disable requiring SSL for connecting to your database service if your client application does not support SSL connectivity. 
 
 ## Enforcing SSL connections
 For all Azure Database for PostgreSQL servers provisioned through the Azure portal and CLI, enforcement of SSL connections is enabled by default. 

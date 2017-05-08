@@ -18,8 +18,8 @@ You can use [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html
 ## Prerequisites
 To step through this how-to guide, you need:
 - An [Azure Database for PostgreSQL server](quickstart-create-server-database-portal.md) with firewall rules to allow access and database under it.
-- [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) command line utility installed
-- [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) command line utility installed
+- [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) command-line utility installed
+- [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) command-line utility installed
 
 Follow these steps to export and import your PostgreSQL database.
 

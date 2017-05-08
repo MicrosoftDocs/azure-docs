@@ -18,8 +18,7 @@ You can use [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html
 ## Prerequisites
 To step through this how-to guide, you need:
 - An [Azure Database for PostgreSQL server](quickstart-create-server-database-portal.md) with firewall rules to allow access and database under it.
-- [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html) command line utility installed
-- [createdb](https://www.postgresql.org/docs/9.6/static/app-createdb.html) command line utility installed
+- [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html) command-line utilities installed
 
 Follow the below steps to dump and restore your PostgreSQL database.
 
@@ -28,7 +27,7 @@ To backup an existing PostgreSQL database on-premise or in a VM, run the followi
 ```bash
 pg_dump -Fc -v –-host=<host> --username=<name> --dbname=<database name> > <database>.dump
 ```
-For example if you have a local server and a database called **testdb** in it
+For example, if you have a local server and a database called **testdb** in it
 ```bash
 pg_dump -Fc -v –-host=localhost --username=masterlogin --dbname=testdb > testdb.dump
 ```
