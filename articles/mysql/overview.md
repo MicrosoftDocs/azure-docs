@@ -14,8 +14,17 @@ ms.tgt_pltfrm: portal
 ms.date: 05/10/2017
 ---
 
-# What is MySQL Database? Introduction to MySQL Database
-Azure Database for MySQL is a relational database service in the Microsoft cloud based on the open source MySQL Server engine and capable of handling mission-critical workloads. Azure Database for MySQL delivers predictable performance at multiple service levels, dynamic scalability with no downtime, built-in high availability, and data protection — all with near-zero administration. These capabilities allow you to focus on rapid app development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. In addition, you can continue to develop your application with the open source tools and platform of your choice, and deliver with the speed and efficiency your business demands without having to learn new skills.
+# What is Azure Database for MySQL? Service Introduction
+Azure Database for MySQL is a relational database service in the Microsoft cloud based on [MySQL Community Edition](https://www.mysql.com/products/community/) database engine.  Azure Database for MySQL delivers:
+
+- Predictable performance at multiple service levels
+- Dynamic scalability with no application downtime
+- Built-in high availability
+- Data protection
+
+These capabilities require almost no administration, and all are provided at no additional cost. They allow you to focus on rapid app development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. In addition, you can continue to develop your application with the open source tools and platform of your choice, and deliver with the speed and efficiency your business demands without having to learn new skills.
+
+![Azure Database for MySQL conceptual diagram](media/overview/1-azure-db-for-mysql-conceptual-diagram.png)
 
 This article is an introduction to Azure Database for MySQL core concepts and features related to performance, scalability, and manageability, with links to explore details. See these quick starts to get you started:
 - [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md)
@@ -28,7 +37,7 @@ For a set of Azure CLI samples, see:
 Azure Database for MySQL service offers two service tiers: Basic and Standard. Each service tier offers different levels of performance and capabilities to support lightweight to heavyweight database workloads. You can build your first app on a small database for a few bucks a month and then change its service tier manually or programmatically at any time to meet the needs of your solution. You can do this without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
 
 ## Monitoring and alerting
-How do you know the right click-stop when you dial up and down? You use the built-in performance monitoring and alerting features, combined with the performance ratings based on Compute Unit. Using these features, you can quickly assess the impact of scaling up or down based on your current or project performance needs. See Concepts: Service tiers for details.
+How do you know the right click-stop when you dial up and down? You use the built-in performance monitoring and alerting features, combined with the performance ratings based on Compute Unit. Using these features, you can quickly assess the impact of scaling up or down based on your current or project performance needs. See [Concepts: Service tiers](concepts-service-tiers.md) for details.
 
 ## Keep your app and business running
 Azure's industry leading 99.99% availability service level agreement (SLA), powered by a global network of Microsoft-managed datacenters, helps keep your app running 24/7. With every Azure Database for MySQL server, you take advantage of built-in security, fault tolerance, and data protection that you would otherwise have to buy or design, build, and manage. With Azure Database for MySQL, you can use point-in-time restore to recover a server to an earlier state, as far back as 35 days.
