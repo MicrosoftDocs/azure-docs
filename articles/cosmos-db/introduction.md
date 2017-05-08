@@ -56,7 +56,7 @@ As a globally distributed database service, Azure Cosmos DB provides the followi
 
 * [**Elastically scale throughput and storage on demand, worldwide**](#horizontal-scale)
     * Easily scale throughput at [second](../documentdb/documentdb-request-units.md) and [minute](https://aka.ms/acdbrupm) granularities, and change it anytime you want. 
-    * Scale storage [transparently and automatically](../documentdb/documentdb-partition-data.md) to cover your size requirements now and forever. [Learn more]()
+    * Scale storage [transparently and automatically](../documentdb/documentdb-partition-data.md) to cover your size requirements now and forever.
 
 * [**Build highly responsive and mission-critical applications**](#low-latency) 
     * Get access to your data with single digit millisecond latencies at the 99th percentile, anywhere in the world. 
@@ -96,7 +96,7 @@ Global distribution of resources in Cosmos DB is [turn-key](../documentdb/docume
 
 Regardless of the amount of data or the number of regions, Cosmos DB guarantees each newly associated region to start processing client requests under an hour at the 99th percentile. This is done by parallelizing the seeding and copying data from all the source resource partitions to the newly associated region. Customers can also remove an existing region or take a region that was previously associated with their database account offline.
 
-<a id="data-model"></a>
+<a id="data-models"></a>
 ## Multi-model, multi-API support
  Azure Cosmos DB natively supports multiple data models including documents, key-value, graph, and column-family. The core content-model of Cosmos DB’s database engine is based on atom-record-sequence (ARS). Atoms consist of a small set of primitive types like string, bool, and number. Records are structs composed of these types. Sequences are arrays consisting of atoms, records, or sequences. 
 
