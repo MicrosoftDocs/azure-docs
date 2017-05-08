@@ -21,7 +21,7 @@ ms.author: erikje
 As an administrator, you can create a virtual machine to test your Azure Stack deployment.
 
 > [!NOTE]
-> Before you can provision virtual machines, you must [add the Windows Server 2016 Eval image to the Azure Stack marketplace](azure-stack-add-default-image.md).
+> Before you can provision virtual machines, you must [add the Windows Server 2016 Evaluation image to the Azure Stack marketplace](azure-stack-add-default-image.md).
 > 
 > 
 
