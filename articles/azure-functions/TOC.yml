@@ -27,6 +27,10 @@
     items:
     - name: Storage
       href: functions-integrate-storage-queue-output-binding.md
+- name: Samples
+  items:
+  - name: Azure CLI
+    href: functions-cli-samples.md
 - name: Tutorials
   items:
   - name: 1 - Create a serverless API
