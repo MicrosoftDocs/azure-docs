@@ -31,7 +31,7 @@ The following steps restore the sample server to a point in time:
 1. Sign into the [Azure portal](https://portal.azure.com/)
 2. Locate your Azure Database for PostgreSQL server. In the Azure portal, click **All Resources** from the left-hand menu and type in the name, such as **mypgserver-20170401**, to search for your existing server. Click the server name listed in the search result. The **Overview** page for your server opens and provides options for further configuration.
 
-![Azure portal - Search to locate your server](media/postgresql-howto-restore-server-portal/1-locate.png)
+   ![Azure portal - Search to locate your server](media/postgresql-howto-restore-server-portal/1-locate.png)
 
 3. On the top of the server overview blade, click **Restore** on the toolbar. The Restore blade opens.
 
