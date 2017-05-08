@@ -582,4 +582,4 @@ In this tutorial, you've done the following:
 
 In this tutorial, you've learned how to import and export data using the Data Migration tool. You can now proceed to the next tutorial and learn how to query data using Azure Cosmos DB. 
 
-[Azure Cosmos DB: How to query data?](../cosmos-db/tutorial-query-documentdb-dotnet.md)
+[Azure Cosmos DB: How to query data?](../cosmos-db/tutorial-query-documentdb.md)

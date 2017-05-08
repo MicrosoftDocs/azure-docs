@@ -85,4 +85,4 @@ In this tutorial, you've done the following:
 
 In this tutorial, you've learned how to import MongoDB data using mongoimport and mongorestore. You can now proceed to the next tutorial and learn how to query MongoDB data using Azure Cosmos DB. 
 
-[Azure Cosmos DB: How to query MongoDB data?](tutorial-query-mongodb.md)
+[Azure Cosmos DB: How to query MongoDB data?](../cosmos-db/tutorial-query-mongodb.md)
