@@ -40,7 +40,7 @@ To complete this tutorial, make sure the following prerequisites are met:
 * Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * The latest version of SQL Server Management Studio (SSMS) is installed. [Download and Install SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
-*This tutorial uses features of the SQL Database service that are in a limited preview (Elastic Database jobs). If you wish to do this tutorial, provide your subscription id to EMAIL with subject=Elastic Jobs Preview. After you receive confirmation that your subscription has been enabled, [download and install the latest pre-release jobs cmdlets](https://github.com/jaredmoo/azure-powershell/releases). As this is a limited preview, you should contact EMAIL for related questions or support.*
+*This tutorial uses features of the SQL Database service that are in a limited preview (Elastic Database jobs). If you wish to do this tutorial, provide your subscription id to SaaSFeedback@microsoft.com with subject=Elastic Jobs Preview. After you receive confirmation that your subscription has been enabled, [download and install the latest pre-release jobs cmdlets](https://github.com/jaredmoo/azure-powershell/releases). As this is a limited preview, you should contact SaaSFeedback@microsoft.com for related questions or support.*
 
 
 ## Introduction to SaaS Schema Management patterns
@@ -55,7 +55,7 @@ The single tenant per database SaaS pattern benefits in many ways from the data 
 There is a new version of Elastic Jobs that is now an integrated feature of Azure SQL Database (that requires no additional services or components). This new version of Elastic Jobs is currently in limited preview. This limited preview currently supports PowerShell to create job accounts, and T-SQL to create and manage jobs.
 
 > [!NOTE]
-> *This tutorial uses features of the SQL Database service that are in a limited preview (Elastic Database jobs). If you wish to do this tutorial, provide your subscription id to EMAIL with subject=Elastic Jobs Preview. After you receive confirmation that your subscription has been enabled, [download and install the latest pre-release jobs cmdlets](https://github.com/jaredmoo/azure-powershell/releases). As this is a limited preview, you should contact EMAIL for related questions or support.*
+> *This tutorial uses features of the SQL Database service that are in a limited preview (Elastic Database jobs). If you wish to do this tutorial, provide your subscription id to SaaSFeedback@microsoft.com with subject=Elastic Jobs Preview. After you receive confirmation that your subscription has been enabled, [download and install the latest pre-release jobs cmdlets](https://github.com/jaredmoo/azure-powershell/releases). As this is a limited preview, you should contact SaaSFeedback@microsoft.com for related questions or support.*
 
 
 ## Create a job account database and new job account

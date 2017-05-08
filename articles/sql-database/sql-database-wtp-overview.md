@@ -47,6 +47,21 @@ The core Wingtip application, uses a pool with three sample tenants, plus a cata
 ![WTP architecture](media/sql-database-wtp-overview/wtp-architecture.png)
 
 
+## SQL Database SaaS tutorials
+
+The following tutorials build upon the initial deployment of the [Wingtip Tickets Platform SaaS application sample](sql-database-saas-tutorial.md):
+
+| Area | Description | Script location |
+|:--|:--|:--|
+|[Provision and catalog tenants tutorial](sql-database-saas-tutorial-provision-and-catalog.md)| Provision new tenants and register them in the catalog | [Scripts on github](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Provision%20and%20Catalog) |
+|[Monitor and manage performance tutorial](sql-database-saas-tutorial-performance-monitoring.md)| Monitor and manage database and pool performance | [Scripts on github](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Performance%20Monitoring%20and%20Management) |
+|[Restore a single tenant tutorial](sql-database-saas-tutorial-restore-single-tenant.md)| Restore tenant databases | [Scripts on github](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Business%20Continuity%20and%20Disaster%20Recovery/RestoreTenant) |
+|[Manage tenant schema tutorial](sql-database-saas-tutorial-schema-management.md)| Execute queries across all tenants  | [Scripts on github](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Schema%20Management) |
+|[Run ad-hoc analytics tutorial](sql-database-saas-tutorial-adhoc-analytics.md) | Create an ad-hoc analytics database and run queries across all tenants  | [Scripts on github](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Operational%20Analytics/Adhoc%20Analytics) |
+|[Manage with Log Analytics (OMS) tutorial](sql-database-saas-tutorial-log-analytics.md) | Configure and explore Log Analytics | [Scripts on github](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Performance%20Monitoring%20and%20Management/LogAnalytics) |
+|[Run tenant analytics tutorial](sql-database-saas-tutorial-tenant-analytics.md) | Setup and run tenant analytics queries | [Scripts on github](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Operational%20Analytics/Tenant%20Analytics) |
+
+
 
 ## Working with the WTP PowerShell Scripts
 
@@ -80,30 +95,15 @@ Tips for working with and [debugging PowerShell scripts](https://msdn.microsoft.
 
 
 
-## SQL Database SaaS tutorials
 
-The following tutorials build upon the initial deployment of the [Wingtip Tickets Platform SaaS application sample](sql-database-saas-tutorial.md):
-
-| Area | Description | Script location |
-|:--|:--|:--|
-|[Provision and catalog tenants tutorial](sql-database-saas-tutorial-provision-and-catalog.md)| Provision new tenants and register them in the catalog | [Scripts on github](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Provision%20and%20Catalog) |
-|[Monitor and manage performance tutorial](sql-database-saas-tutorial-performance-monitoring.md)| Monitor and manage database and pool performance | [Scripts on github](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Performance%20Monitoring%20and%20Management) |
-|[Restore a single tenant tutorial](sql-database-saas-tutorial-restore-single-tenant.md)| Restore tenant databases | [Scripts on github](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Business%20Continuity%20and%20Disaster%20Recovery/RestoreTenant) |
-|[Manage tenant schema tutorial](sql-database-saas-tutorial-schema-management.md)| Execute queries across all tenants  | [Scripts on github](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Schema%20Management) |
-|[Run ad-hoc analytics tutorial](sql-database-saas-tutorial-adhoc-analytics.md) | Create an ad-hoc analytics database and run queries across all tenants  | [Scripts on github]( |
-|[Manage with Log Analytics (OMS) tutorial](sql-database-saas-tutorial-log-analytics.md) | Configure and explore Log Analytics | [Scripts on github]( |
-|[Run tenant analytics tutorial](sql-database-saas-tutorial-tenant-analytics.md) | Setup and run tenant analytics queries | [Scripts on github]( |
-
-
-
-## Explore database schema and execute SQL queries directly using SSMS
+## Explore database schema and execute SQL queries using SSMS
 
 Use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect and browse the WTP servers and databases.
 
 The WTP sample app initially has two SQL Database servers to connect to - the *tenants1* server, and the *catalog* server:
 
 
-1. Open *SSMS* and connect to the *tenants1-\<User\>.database.windows.net* server.
+1. Open *SSMS* and connect to the *tenants1-&lt;User&gt;.database.windows.net* server.
 2. Click **Connect** > **Database Engine...**:
 
    ![catalog server](media/sql-database-wtp-overview/connect.png)
@@ -112,7 +112,7 @@ The WTP sample app initially has two SQL Database servers to connect to - the *t
 
    ![](media\sql-database-wtp-overview\tenants1-connect.png)
 
-1. Repeat steps 2-3 and connect to the *catalog-\<User\>.database.windows.net* server.
+1. Repeat steps 2-3 and connect to the *catalog-&lt;User&gt;.database.windows.net* server.
 
 After successfully connecting you should see both servers. You might see more or less databases depending on how many tenants you provisioned:
 
@@ -120,11 +120,8 @@ After successfully connecting you should see both servers. You might see more or
 
 ## Learn more about SaaS applications
 
-A series of tutorials is provided that accompany the WTP app which each explores a different set of SaaS patterns through hand-on exercises that lead you through sample scripts and templates. Each exercise is quick to do and the tutorials can be followed in any order. To locate the tutorials look in the folders beneath …\\Learning Modules\\ .
+A series of tutorials is provided that accompany the WTP app which each explores a different set of SaaS patterns through hand-on exercises that lead you through sample scripts and templates. Each exercise is quick to do and the tutorials can be followed in any order. To locate the tutorials look in the [Learning Module folder](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules).
 
-Deleting the resources created with this tutorial
-
-When you are finished exploring and working with the WTP app, browse to the application's resource group in the portal and delete it to stop all billing related to this deployment. If you have used any of the accompanying tutorials, any resources they created will also be deleted with the application.
 
 ## Next steps
 
