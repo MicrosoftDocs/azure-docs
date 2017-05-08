@@ -1897,7 +1897,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/placeholder.svg" alt="" />
+                                                        <img src="media/index/cognitive-services-translator.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
