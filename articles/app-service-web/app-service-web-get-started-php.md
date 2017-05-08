@@ -151,7 +151,8 @@ When the Web App has been created, the Azure CLI shows information similar to th
     "serverFarmId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
     "state": "Running",
     "type": "Microsoft.Web/sites",
-}```
+}
+```
 
 Browse to the site to see your newly created Web App.
 
