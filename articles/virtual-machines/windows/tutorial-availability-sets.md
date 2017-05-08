@@ -21,7 +21,12 @@ ms.author: cynthn
 
 # How to use availability sets
 
-To protect application workload from downtime during maintenance or hardware fault, virtual machines need to be made highly available. In this tutorial, you learn about increasing the availability of your virtual machines (VMs) by putting them into a logical grouping called availability sets.
+To protect application workload from downtime during maintenance or hardware fault, virtual machines need to be made highly available. In this tutorial, you increase the availability of your virtual machines (VMs) by putting them into a logical grouping called availability sets. You learn how to:
+
+> [!div class="checklist"]
+> * Create an availability set
+> * Create a VM in an availability set
+> * Check available VM sizes
 
 This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
@@ -154,8 +159,16 @@ Get-AzureRmVMSize `
 
 ## Next steps
 
-In this tutorial, you learned how to create a virtual machine scale set. Advance to the next tutorial to learn about virtual machine scale sets.
+In this tutorial, you learned how to:
 
-[Create a VM scale set](tutorial-create-vmss.md)
+> [!div class="checklist"]
+> * Create an availability set
+> * Create a VM in an availability set
+> * Check available VM sizes
+
+Advance to the next tutorial to learn about virtual machine scale sets.
+
+> [!div class="nextstepaction"]
+> [Create a VM scale set](tutorial-create-vmss.md)
 
 

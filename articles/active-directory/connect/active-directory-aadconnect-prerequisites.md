@@ -25,8 +25,8 @@ Before you install Azure AD Connect, there are a few things that you need.
 
 ### Azure AD
 * An Azure subscription or an [Azure trial subscription](https://azure.microsoft.com/pricing/free-trial/). This subscription is only required for accessing the Azure portal and not for using Azure AD Connect. If you are using PowerShell or Office 365, then you do not need an Azure subscription to use Azure AD Connect. If you have an Office 365 license, then you can also use the Office 365 portal. With a paid Office 365 license, you can also get into the Azure portal from the Office 365 portal.
-  * You can also use the Azure AD preview functionality in the [Azure portal](https://portal.azure.com). This portal does not require an Azure license.
-* [Add and verify the domain](../active-directory-add-domain.md) you plan to use in Azure AD. For example, if you plan to use contoso.com for your users then make sure this domain has been verified and you are not only using the contoso.onmicrosoft.com default domain.
+  * You can also use the [Azure portal](https://portal.azure.com). This portal does not require an Azure AD license.
+* [Add and verify the domain](../active-directory-domains-add-azure-portal.md) you plan to use in Azure AD. For example, if you plan to use contoso.com for your users then make sure this domain has been verified and you are not only using the contoso.onmicrosoft.com default domain.
 * An Azure AD tenant allows by default 50k objects. When you verify your domain, the limit is increased to 300k objects. If you need even more objects in Azure AD, then you need to open a support case to have the limit increased even further. If you need more than 500k objects, then you need a license, such as Office 365, Azure AD Basic, Azure AD Premium, or Enterprise Mobility and Security.
 
 ### Prepare your on-premises data
@@ -49,6 +49,7 @@ Before you install Azure AD Connect, there are a few things that you need.
 * If you plan to use the feature **password synchronization**, then the Azure AD Connect server must be on Windows Server 2008 R2 SP1 or later.
 * If you plan to use a **group managed service account**, then the Azure AD Connect server must be on Windows Server 2012 or later.
 * The Azure AD Connect server must have [.NET Framework 4.5.1](#component-prerequisites) or later and [Microsoft PowerShell 3.0](#component-prerequisites) or later installed.
+* The Azure AD Connect server must not have PowerShell Transcription Group Policy enabled.
 * If Active Directory Federation Services is being deployed, the servers where AD FS or Web Application Proxy are installed must be Windows Server 2012 R2 or later. [Windows remote management](#windows-remote-management) must be enabled on these servers for remote installation.
 * If Active Directory Federation Services is being deployed, you need [SSL Certificates](#ssl-certificate-requirements).
 * If Active Directory Federation Services is being deployed, then you need to configure [name resolution](#name-resolution-for-federation-servers).
