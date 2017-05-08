@@ -33,7 +33,7 @@ Provide a meaningful name for your custom search instance. Confirm the name by c
 Next, define the right set of slices of the web to search over for your scenario. The custom slices can comprise:
 		
 * Domains, for example https://www.adventurecycling.org/
-* Subdomains up to two sub-paths, for example https://www.adventurecycling.org/resources/portrait-gallery/
+* Subdomains up to two subpaths, for example https://www.adventurecycling.org/resources/portrait-gallery/
 * Web-pages, for example https://www.adventurecycling.org/resources/blog/the-best-of-2016-new-signs-new-routes-new-amtrak-bike-services/
 
 
@@ -53,14 +53,20 @@ You can omit the "http", "https", "www" etc. prefixes when you specify your subs
 
 
 ### Extend the slices to search over
-To add more domains, subdomains or webpages, select the row below your last entry, specify your entry, followed by pressing **enter**. To remove an entry, click **delete** under Controls.
+To add more domains, subdomains, or webpages, select the row below your last entry, specify your entry, followed by pressing **enter**. To remove an entry, click **delete** under Controls.
 
 
 ![picture alt](AddingSites.png "Expand the set of sites, subsites and single web pages that you want to search over.")
 
 
 ### Using standard Bing search
-You can use standard Bing search to get inspirations of sites, subsites or web-pages that you want to add to your custom search instance. On the right-hand side, you see the Search Preview. Select from the drop-down menu next to the search icon Bing and submit a query. You can see search results from Bing. Click **+** to add any of the returned results to your custom slice of the web that you want to search over.
+You can use standard Bing search to get inspirations of sites, subsites or web-pages that you want to add to your custom search instance. On the right-hand side, you see the search preview. Select from the drop-down menu next to the search icon Bing and submit a query.
+
+
+![picture alt](BingStandardSearch.png "Use standard Bing search to identify sites, subsites, or web-pages of interest for your custom search")
+
+
+You can see search results from Bing. Click **+** to add any of the returned results to your custom slice of the web that you want to search over.
 
 ### Using Site Suggestions
 Once you have added at least three sites, or subsites to your search, Bing Custom Search generates site- and subsite-suggestions that you might want to add to your search. You see them under the section **You might want to add**.
@@ -82,7 +88,7 @@ Start validating your settings by searching over your defined subset of the web.
 
 Next to each result you can see four different options to adjust the ranking for your custom search: 
 * Pin to top, that is, for a specific query you define which specific web page appears on top of the results.
-* Block, that is, sites, subsites, or web pages that you "block" are never shown in your custom search, regardless of the search query
+* Block, that is, sites, subsites, or web pages that you "block" are never shown in your custom search, regardless of the search query.
 * Boost, that is, the site, subsite, or web pages that you "boost" are generically ranked higher among the search results that are retrieved, independently from the search query.
 * Demote, that is, the site, subsite, or web pages selected for demoting are ranked lower among the search results that are retrieved for any search query.
 
@@ -127,7 +133,7 @@ You can control the ranking via the tabs **Active**, **Blocked**, and **Pinned**
 * Per custom search instance, the maximum number of ranking adjustments as documented in the tabs **Added** and **Blocked** are capped to  400.
 * **Note**
 	* Adding a site to the **Active** tab counts as one ranking adjustment.
-	* If you boost this site, this counts as another ranking adjustment. That is, boosting a site counts as two ranking adjustmets: you whitelist a site first, then you boost it.
+	* Boosting a site counts as two ranking adjustments: you whitelist a site first, then you boost it.
 	* Demoting works similar like boosting, that is, demoting a site counts as two ranking adjustments.
 	* Blocking a site counts as one ranking adjustment. 
 * Further, the maximum number of pins per custom search instance is limited to 200.
