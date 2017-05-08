@@ -49,7 +49,7 @@ Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -
 
 ## View host metrics
 
-A Linux VM has a dedicated Host VM in Azure that it interacts with. Metrics are automatically collected for the Host VM that you can easily view in the Azure portal.
+A Windows VM has a dedicated Host VM in Azure that it interacts with. Metrics are automatically collected for the Host VM that you can easily view in the Azure portal.
 
 1. In the Azure portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
 2. Click **Metrics** on the VM blade, and then select any of the Host metrics under **Available metrics** to see how the Host VM is performing.
@@ -222,18 +222,24 @@ You can view the VM metrics in the same way that you viewed the Host VM metrics:
 
 ## Create alerts
 
-Alerts are a method of monitoring Azure resource metrics, events, or logs and being notified when a condition you specify is met.
+Azure activity log alerts provide automation in response to diagnostic data. For example, a rule can be configured to fire after CPU utilization has been higher than 50% over a specified amount of time. This alert can send an email, an SMS message, or send an HTTP post to a rest endpoint. Azure Automation Runbooks, and / or Azure logic apps can also be configured to fire because of an alert.
 
-Replace `{subscriptionId}` in `TargetResourceId`, and then you can create an alert with [New-AzureRmAlertRuleEmail](https://docs.microsoft.com/powershell/module/azurerm.insights/new-azurermalertruleemail?view=azurermps-3.8.0) and [Add-AzureRmMetricAlertRule](https://docs.microsoft.com/powershell/module/azurerm.insights/add-azurermmetricalertrule?view=azurermps-3.8.0). The alert sends an email to the owners of the resource group when the percentage of CPU usage goes over the threshold of 1:
+Use the [New-AzureRmAlertRuleEmail](https://docs.microsoft.com/powershell/module/azurerm.insights/new-azurermalertruleemail?view=azurermps-3.8.0) command to configure an alert action, in this case that the alert should send an email. This example configures the Azure service owners as the recipient of the alert email. 
 
 ```powershell
 $action = New-AzureRmAlertRuleEmail -SendToServiceOwners
+```
+
+Next, use the [Add-AzureRmMetricAlertRule](https://docs.microsoft.com/powershell/module/azurerm.insights/add-azurermmetricalertrule?view=azurermps-3.8.0). This example creates a times span of 5 minutes. The rule is then created which defines that if CPU utilization is greater than 1 for the time span of 5 minutes, the alert will fire.
+
+```powershell
 $time = New-TimeSpan -Minutes 5
+
 Add-AzureRmMetricAlertRule -ResourceGroup myResourceGroup `
   -WindowSize $time `
   -Operator GreaterThan `
   -Threshold 1 `
-  -TargetResourceId "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM" `
+  -TargetResourceId "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroupMonitor/providers/Microsoft.Compute/virtualMachines/myMonitorVM" `
   -MetricName "Percentage CPU" `
   -TimeAggregationOperator Total `
   -Location eastus `
@@ -262,3 +268,22 @@ Set-AzureRmVMExtension -ResourceGroupName myResourceGroup `
 On the Log Search blade of the OMS portal, you should see `myVM` such as what is shown in the following picture:
 
 ![OMS blade](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+
+## Next steps
+In this tutorial, you configured and reviewed VMs with Azure Security Center. You learned how to:
+
+> [!div class="checklist"]
+> * Create a virtual network
+> * Create a resource group and VM 
+> * Enable boot diagnostics on the VM
+> * View boot diagnostics
+> * View host metrics
+> * Install the diagnostics extension
+> * View VM metrics
+> * Create an alert
+> * Set up advanced monitoring
+
+Advance to the next tutorial to learn about Azure security center.
+
+> [!div class="nextstepaction"]
+> [Manage VM security](./tutorial-backup-vms.md)

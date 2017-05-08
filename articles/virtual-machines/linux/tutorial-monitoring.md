@@ -128,3 +128,18 @@ az vm extension set \
 On the Log Search blade of the OMS portal, you should see `myMonitorVM` such as what is shown in the following picture:
 
 ![OMS blade](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+
+## Next steps
+
+In this tutorial, you configured and reviewed VMs with Azure Security Center. You learned how to:
+
+> [!div class="checklist"]
+> * Enable boot diagnostics on the VM
+> * View boot diagnostics
+> * View host metrics
+> * Set up advanced monitoring
+
+Advance to the next tutorial to learn about Azure security center.
+
+> [!div class="nextstepaction"]
+> [Manage VM security](./tutorial-backup-vms.md)
