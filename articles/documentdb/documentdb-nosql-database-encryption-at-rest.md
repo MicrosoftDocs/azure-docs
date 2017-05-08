@@ -20,7 +20,7 @@ ms.author: voellm
 
 # DocumentDB NoSQL database encryption at rest
 
-Encryption at rest is a phrase that commonly refers to the encryption of data on nonvolatile storage devices, such as solid state drives (SSDs) and hard disk drives (HDDs). Azure DocumentDB stores its primary databases on SSDs. Its media attachments and backups are stored in Azure Blob storage, which is generally backed up by HDDs. With the release of encryption at rest for DocumentDB, all of your databases, media attachments, and backups are now encrypted. This means your data is now encrypted in transit (over the network) and at rest (nonvolatile storage), giving you end-to-end encryption.
+Encryption at rest is a phrase that commonly refers to the encryption of data on nonvolatile storage devices, such as solid-state drives (SSDs) and hard disk drives (HDDs). Azure DocumentDB stores its primary databases on SSDs. Its media attachments and backups are stored in Azure Blob storage, which is generally backed up by HDDs. With the release of encryption at rest for DocumentDB, all your databases, media attachments, and backups are encrypted. Your data is now encrypted in transit (over the network) and at rest (nonvolatile storage), giving you end-to-end encryption.
 
 As a PaaS service, DocumentDB is easy to use. Because all user data stored in DocumentDB is encrypted at rest and in transport, you don't have to take any action. Another way to put this is that encryption at rest is "on" by default. There are no controls to turn it off or on. We have provided this feature while continuing to meet our [availability and performance SLAs](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/).
 
@@ -47,10 +47,10 @@ A: There is no additional cost.
 A: The keys are managed by Microsoft.
 
 ### Q: How often are encryption keys rotated?
-A: Microsoft has a set of internal guidelines for encryption key rotation, which DocumentDB follows. The specific guidelines are not published. Microsoft does publish the [Security Development Lifecycle [SDL]](https://www.microsoft.com/sdl/default.aspx), which is seen as a subset of internal guidance and has useful best practices for developers.
+A: Microsoft has a set of internal guidelines for encryption key rotation, which DocumentDB follows. The specific guidelines are not published. Microsoft does publish the [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx), which is seen as a subset of internal guidance and has useful best practices for developers.
 
 ### Q: Can I use my own encryption keys?
-A: DocumentDB is a PaaS service, and we have worked hard to keep the service easy to use. We have noticed this question is often asked as a proxy question for meeting a compliance like PCI-DSS. As part of building this feature, we have worked with compliance auditors to ensure that customers using DocumentDB meet their requirements without needing to manage keys themselves. This is why we currently do not offer users the option to burden themselves with key management.
+A: DocumentDB is a PaaS service, and we have worked hard to keep the service easy to use. We have noticed this question is often asked as a proxy question for meeting a compliance like PCI-DSS. As part of building this feature, we have worked with compliance auditors to ensure that customers using DocumentDB meet their requirements without needing to manage keys themselves. As a result, we currently do not offer users the option to burden themselves with key management.
 
 ### Q: What regions have encryption turned on?
 A: All DocumentDB regions have encryption turned on for all user data.
@@ -65,4 +65,4 @@ A: The emulator is a standalone dev/test tool and does not use the key managemen
 
 For an overview of DocumentDB security and the latest improvements, see [DocumentDB NoSQL database security](documentdb-nosql-database-security.md).
 
-For more details about Microsoft certifications, see the [Azure Trust Center](https://azure.microsoft.com/en-us/support/trust-center/).
+For more information about Microsoft certifications, see the [Azure Trust Center](https://azure.microsoft.com/en-us/support/trust-center/).
