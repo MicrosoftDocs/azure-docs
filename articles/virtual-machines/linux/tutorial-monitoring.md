@@ -20,7 +20,7 @@ ms.author: davidmu
 
 # Monitor a Linux Virtual Machine with the Azure CLI
 
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) can be used to investigate diagnostics data that can be collected on a Linux Virtual Machine (VM). In this tutorial, you learn how to:
+Azure monitoring uses agents to collect boot and performance data from Azure VMs, stores this data in Azure storage, and makes it accessible through portal, the Azure PowerShell module, and the Azure CLI. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Enable boot diagnostics on the VM
@@ -50,7 +50,7 @@ az vm create \
 
 ## Enable boot diagnostics
 
-Using boot diagnostics, you can diagnose and recover your VM from boot failures. Boot diagnostics are not automatically enabled when you create a Linux VM using the Azure CLI.
+As Linux VMs boot up, the boot diagnostic extension captures boot output and stores it in Azure storage. This data can be used to troubleshoot VM boot issues. Boot diagnostics are not automatically enabled when you create a Linux VM using the Azure CLI.
 
 Before enabling boot diagnostics, a storage account needs to be created for storing boot logs. A storage account can be created using the [az storage account create](/cli/azure/storage/account#create) command. Storage accounts must have a globally unique name, be between 3 and 24 characters, and must contain only numbers and lowercase letters. In this example, a random string is being used to create a unique storage account name. 
 
@@ -64,7 +64,7 @@ az storage account create \
   --location eastus
 ```
 
-When enabling boot diagnostics, the URI to the blob storage container is needed. The following command queries the storage account to return this URI. The URI value is stored in a variable name *bloburi*, which is used in the next step.
+When enabling boot diagnostics, the URI to the blob storage container is needed. The following command queries the storage account to return this URI. The URI value is stored in a variable names *bloburi*, which is used in the next step.
 
 ```azurecli
 bloburi=$(az storage account show --resource-group myResourceGroupMonitor --name $storageacct --query 'primaryEndpoints.blob' -o tsv)
@@ -93,7 +93,7 @@ Start the VM with the [az vm start]( /cli/azure/vm#stop) command.
 az vm start --resource-group myResourceGroupMonitor --name myMonitorVM
 ```
 
-You can get the boot diagnostic data from `myMonitorVM` with the [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#get-boot-log) command.
+You can get the boot diagnostic data for `myMonitorVM` with the [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#get-boot-log) command.
 
 ```azurecli
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --name myMonitorVM
@@ -104,7 +104,7 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 A Linux VM has a dedicated Host VM in Azure that it interacts with. Metrics are automatically collected for the Host VM that you can easily view in the Azure portal.
 
 1. In the Azure portal, click **Resource Groups**, select **myResourceGroupMonitor**, and then select **myMonitorVM** in the resource list.
-2. Click **Metrics** on the VM blade, and then select any of the Host metrics under **Available metrics** to see how the Host VM is performing.
+2. To see how the Host VM is performing, click **Metrics** on the VM blade, and then select any of the Host metrics under **Available metrics** .
 
 ![View host metrics](./media/tutorial-monitoring/tutorial-monitor-host-metrics.png)
 
@@ -142,4 +142,4 @@ In this tutorial, you configured and reviewed VMs with Azure Security Center. Yo
 Advance to the next tutorial to learn about Azure security center.
 
 > [!div class="nextstepaction"]
-> [Manage VM security](./tutorial-backup-vms.md)
+> [Manage VM security](./tutorial-azure-security.md)

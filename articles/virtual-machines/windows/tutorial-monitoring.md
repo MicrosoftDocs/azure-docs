@@ -20,14 +20,12 @@ ms.author: davidmu
 
 # Monitor a Windows Virtual Machine with Azure PowerShell
 
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) can be used to investigate diagnostics data that can be collected on a Windows Virtual Machine (VM). You learn to:
+Azure monitoring uses agents to collect boot and performance data from Azure VMs, stores this data in Azure storage, and makes it accessible through portal, the Azure PowerShell module, and the Azure CLI. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a virtual network
-> * Create a resource group and VM 
-> * Enable boot diagnostics on the VM
+> * Enable boot diagnostics on a VM
 > * View boot diagnostics
-> * View host metrics
+> * View VM host metrics
 > * Install the diagnostics extension
 > * View VM metrics
 > * Create an alert
@@ -39,9 +37,9 @@ To complete the example in this tutorial, you must have an existing virtual mach
 
 ## View boot diagnostics
 
-When you create a Windows VM, boot diagnostics are automatically enabled. A storage account is also created to store the boot diagnostics data.
+As Windows virtual machines boot up, the boot diagnostic agent captures screen output that can be used for troubleshooting purpose. This capability is enabled by default. The capture screen shots are stored in an Azure storage account which is also created by default. 
 
-You can get the boot diagnostic data from `myVM` with [Get-​Azure​Rm​VM​Boot​Diagnostics​Data](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata?view=azurermps-3.8.0) command. In the following example, the boot diagnostics will be downloaded to the root of the *c:\* drive. 
+You can get the boot diagnostic data with the [Get-​Azure​Rm​VM​Boot​Diagnostics​Data](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata?view=azurermps-3.8.0) command. In the following example, the boot diagnostics is downloaded to the root of the *c:\* drive. 
 
 ```powershell
 Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -Windows -LocalPath "c:\"
@@ -60,21 +58,21 @@ A Windows VM has a dedicated Host VM in Azure that it interacts with. Metrics ar
 
 [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) enables the collection of diagnostic data from a VM.
 
-When installing the diagnostic extension, a configuration file is required that defines the collected metrics. When creating this file, you will need the name of a storage account to hold the diagnostic data, and the Id of your Azure subscription.
+When installing the diagnostic extension, a configuration file is required that defines the collected metrics. When creating this file, you need the name of a storage account to hold the diagnostic data, and the Id of your Azure subscription.
 
-Use the [Get-AzureRmStorageAccount]() command to get the name of the storage account. In this example, we will use the storage account that was auto created for boot diagnostics. Get-AzureRmStorageAccount -ResourceGroupName myResourceGroup | Select StorageAccountName
+Use the [Get-AzureRmStorageAccount](/powershell/module/azurerm.storage/get-azurermstorageaccount) command to get the name of the storage account. In this example, the storage account that was auto created for boot diagnostics is used.
 
 ```powershell
 Get-AzureRmStorageAccount -ResourceGroupName myResourceGroup | Select StorageAccountName
 ```
 
-Use the [Get-AzureRmSubscription]() command to get your Azure subscription Id.
+Use the [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription) command to get your Azure subscription Id.
 
 ```powershell
 Get-AzureRmSubscription | Select SubscriptionId
 ```
 
-Create a file named diagnosticsconfig.xml. In this example, the file will be stored on the root of the *c:\* drive.
+Create a file named diagnosticsconfig.xml. In this example, the file is stored on the root of the *c:\* drive.
 
 ```powershell
 New-Item -ItemType File c:\diagnosticsconfig.xml
@@ -191,7 +189,7 @@ Update this line, replacing *{subscriptionId}* with your subscription Id.
 <Metrics resourceId="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM" >
 ```
 
-When completed it should look like this.
+When completed, it should look like this.
 
 ```xml
 <Metrics resourceId="/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM" >
@@ -203,10 +201,11 @@ Finally, update this line, replacing *mydiagnosticsstorage* with the name of you
 <StorageAccount>mydiagnosticsstorage</StorageAccount>
 ```
 
-Now you can install the extension using the diagnostics configuration with [Set-AzureRmVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdiagnosticsextension?view=azurermps-3.8.0):
+Now you can install the diagnostic extension with the [Set-AzureRmVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdiagnosticsextension?view=azurermps-3.8.0) command.
 
 ```powershell
-Set-AzureRmVMDiagnosticsExtension -ResourceGroupName myResourceGroup `
+Set-AzureRmVMDiagnosticsExtension ` 
+  -ResourceGroupName myResourceGroup `
   -VMName myVM `
   -DiagnosticsConfigurationPath c:\diagnosticsPubConfig.xml
 ```
@@ -216,30 +215,34 @@ Set-AzureRmVMDiagnosticsExtension -ResourceGroupName myResourceGroup `
 You can view the VM metrics in the same way that you viewed the Host VM metrics:
 
 1. In the Azure portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
-2. Click **Metrics** on the VM blade, and then select any of the diagnostics metrics under **Available metrics** to see how the VM is performing.
+2. To see how the VM is performing, click **Metrics** on the VM blade, and then select any of the diagnostics metrics under **Available metrics** 
 
 ![View diagnostic metrics](./media/tutorial-monitoring/tutorial-monitor-diagnostic-metrics.png)
 
 ## Create alerts
 
-Azure activity log alerts provide automation in response to diagnostic data. For example, a rule can be configured to fire after CPU utilization has been higher than 50% over a specified amount of time. This alert can send an email, an SMS message, or send an HTTP post to a rest endpoint. Azure Automation Runbooks, and / or Azure logic apps can also be configured to fire because of an alert.
+Azure activity alerts provide automation in response to diagnostic data. For example, a rule can be configured to fire after CPU utilization has been higher than 50% over a specified amount of time. This alert can send an email, an SMS message, or send an HTTP post to a rest endpoint. Azure Automation Runbooks, and / or Azure logic apps can also be configured to fire because of an alert.
 
-Use the [New-AzureRmAlertRuleEmail](https://docs.microsoft.com/powershell/module/azurerm.insights/new-azurermalertruleemail?view=azurermps-3.8.0) command to configure an alert action, in this case that the alert should send an email. This example configures the Azure service owners as the recipient of the alert email. 
+Use the [New-AzureRmAlertRuleEmail](powershell/module/azurerm.insights/new-azurermalertruleemail) command to configure an alert action, in this case that the alert should send an email. This example configures the Azure service owners as the recipient of the alert email. 
 
 ```powershell
 $action = New-AzureRmAlertRuleEmail -SendToServiceOwners
 ```
 
-Next, use the [Add-AzureRmMetricAlertRule](https://docs.microsoft.com/powershell/module/azurerm.insights/add-azurermmetricalertrule?view=azurermps-3.8.0). This example creates a times span of 5 minutes. The rule is then created which defines that if CPU utilization is greater than 1 for the time span of 5 minutes, the alert will fire.
+Next, use the [Add-AzureRmMetricAlertRule](powershell/module/azurerm.insights/add-azurermmetricalertrule) to create an alert rule. This example creates a times span of 5 minutes. The rule is then created which defines that if CPU utilization is greater than 1 for the time span of 5 minutes, the alert will fire.
 
 ```powershell
+$vmName = "myVM"
+$resourceGroup = "myResourceGroup"
+$subscriptionId = Get-AzureRmSubscription | Select SubscriptionId
+
 $time = New-TimeSpan -Minutes 5
 
-Add-AzureRmMetricAlertRule -ResourceGroup myResourceGroup `
+Add-AzureRmMetricAlertRule -ResourceGroup $resourceGroup `
   -WindowSize $time `
   -Operator GreaterThan `
   -Threshold 1 `
-  -TargetResourceId "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroupMonitor/providers/Microsoft.Compute/virtualMachines/myMonitorVM" `
+  -TargetResourceId "/subscriptions/$subscriptionId/resourceGroups/myResourceGroupMonitor/providers/Microsoft.Compute/virtualMachines/$vmName" `
   -MetricName "Percentage CPU" `
   -TimeAggregationOperator Total `
   -Location eastus `
@@ -286,4 +289,4 @@ In this tutorial, you configured and reviewed VMs with Azure Security Center. Yo
 Advance to the next tutorial to learn about Azure security center.
 
 > [!div class="nextstepaction"]
-> [Manage VM security](./tutorial-backup-vms.md)
+> [Manage VM security](./tutorial-azure-security.md)
