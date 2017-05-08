@@ -16,7 +16,7 @@ ms.date: 05/10/2017
 
 # Design your first Azure Database for MySQL database
 
-In this tutorial, you use Azure CLI (command-line interface) and other utilities to learn how to:
+Azure Database for MySQL is a relational database service in the Microsoft cloud based on MySQL Community Edition database engine. In this tutorial, you use Azure CLI (command-line interface) and other utilities to learn how to:
 
 > [!div class="checklist"]
 > * Create an Azure Database for MySQL
@@ -173,5 +173,13 @@ az mysql server restore --resource-group mycliresource --name mycliserver-restor
 To restore the server and [restore to a point-in-time](./howto-restore-server-portal.md) before the table was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, provided that it is within the retention period for your [service tier](./concepts-service-tiers.md).
 
 ## Next Steps
-- For Azure CLI samples of common tasks, see [Azure Database for MySQL - Azure CLI samples](./sample-scripts-azure-cli.md).
-- For tutorial on how to design Azure Database for MySQL database using Azure Portal, please refer to [Design your first Azure Database for MySQL database using Azuzre Portal](./tutorial-design-database-using-portal.md).
+In this tutorial you learned to:
+> [!div class="checklist"]
+> * Create an Azure Database for MySQL
+> * Configure the server firewall
+> Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
+> * Load sample data
+> * Query data
+> * Update data
+> * Restore data
+[Azure Database for MySQL - Azure CLI samples](./sample-scripts-azure-cli.md).
