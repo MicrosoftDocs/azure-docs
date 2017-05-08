@@ -81,7 +81,7 @@ At this point, the logic app has been configured with a trigger to monitor a fol
 
 The logic app also has been configured with an action to get the contents of the new or modified file.
 
-You can now add another action such as the [SQL Server - insert row](connectors-create-api-sqlazure.md#insert-row) action to insert the contents of the new or modified file into a SQL database table.  
+You can now add another action such as the [SQL Server - insert row](connectors-create-api-sqlazure.md) action to insert the contents of the new or modified file into a SQL database table.  
 
 ## View the swagger
 See the [swagger details](/connectors/ftpconnector/). 
