@@ -371,7 +371,7 @@ az appservice web config update --name &lt;app_name&gt; --resource-group myResou
 You can deploy your application to Azure appservice in various ways including FTP, local Git, GitHub, Visual Studio Team Services, and BitBucket. 
 For this example, we use Maven to compile a .WAR file and FTP to deploy the .WAR file to the Web App
 
-To determine what credentials to pass along in an ftp command to the Web App, Use [az appservice web deployment list-publishing-profiles](https://docs.microsoft.com/en-us/cli/azure/appservice/web/deployment#list-publishing-profiles) command, like this: 
+To determine what credentials to pass along in an ftp command to the Web App, Use [az appservice web deployment list-publishing-profiles](https://docs.microsoft.com/cli/azure/appservice/web/deployment#list-publishing-profiles) command, like this: 
 
 ```azurecli
 
