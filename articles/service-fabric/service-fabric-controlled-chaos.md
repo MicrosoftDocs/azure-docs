@@ -61,7 +61,7 @@ For example, consider an instance of Chaos that is set to run for an hour with a
 
 * **EnableMoveReplicaFaults**: Enables or disables the faults that cause the primary or secondary replicas to move. These faults are disabled by default.
 * **WaitTimeBetweenIterations**: The amount of time to wait between iterations; that is, the amount of time Chaos will pause after having executed a round of faults and having finished the corresponding validation of the health of the cluster. The higher the value, the lower is the average fault injection rate.
-* **WaitTimeBetweenFaults**: The amount of time to wait between two consecutive faults in a single iteration. The higher the value, the lower the concurrency (or overlap between) faults.
+* **WaitTimeBetweenFaults**: The amount of time to wait between two consecutive faults in a single iteration. The higher the value, the lower the concurrency of (or the overlap between) faults.
 
 > [!NOTE]
 > Chaos may not stop as soon as *TimeToRun* is up, it can take as much as (MaxClusterStabilizationTime + MaxConcurrentFaults * WaitTimeBetweenFaults + WaitTimeBetweenIterations) additional time to automatically stop.
