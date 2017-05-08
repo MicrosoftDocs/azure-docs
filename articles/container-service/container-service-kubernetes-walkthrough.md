@@ -48,7 +48,7 @@ Additionally, you need (or you can use the Azure CLI to generate automatically d
 Here are brief shell commands that use the Azure CLI 2.0 to create your cluster. 
 
 ### Create a resource group
-To create your cluster, you first need to create a resource group in a location where Azure Container Servie is [available](https://azure.microsoft.com/regions/services/). Run commands similar to the following:
+To create your cluster, you first need to create a resource group in a location where Azure Container Service is [available](https://azure.microsoft.com/regions/services/). Run commands similar to the following:
 
 ```azurecli
 RESOURCE_GROUP=my-resource-group
@@ -117,8 +117,8 @@ After completing this walkthrough, you will know how to:
 * use `kubectl exec` to run commands in a container 
 * access the Kubernetes dashboard
 
-### Start a simple container
-You can run a simple container (in this case the Nginx web server) by running:
+### Start a container
+You can run a container (in this case the Nginx web server) by running:
 
 ```bash
 kubectl run nginx --image nginx
