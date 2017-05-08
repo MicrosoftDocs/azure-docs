@@ -167,4 +167,4 @@ In this tutorial, you use the Azure portal to learned how to:
 > * Update data
 > * Restore data
 
-[Create and manage Azure Database for MySQL firewall rules using the Azure portal](./howto-manage-firewall-using-portal.md).
+[Create and manage Azure Database for MySQL firewall rules using the Azure portal](./howto-manage-firewall-using-portal.md)
