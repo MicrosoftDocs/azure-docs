@@ -14,13 +14,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 05/07/2017
 ms.author: andrela;carlrab;sstein
 
 ---
 # Azure SQL Database: Use Java to connect and query data
 
-This quick start demonstrates how to use [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms.
+This quick start demonstrates how to use [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) to connect to an Azure SQL database; then use Transact-SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms.
 
 This quick start uses as its starting point the resources created in one of these quick starts:
 
@@ -29,7 +29,7 @@ This quick start uses as its starting point the resources created in one of thes
 
 ## Install Java software
 
-The steps in this section assume that you are familar with developing using Java and are new to working with Azure SQL Database. If you are new to developing with Java, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) and select **Java** and then select your operating system.
+The steps in this section assume that you are familiar with developing using Java and are new to working with Azure SQL Database. If you are new to developing with Java, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) and select **Java** and then select your operating system.
 
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your Java project. Enter the following commands to install **brew** and **Maven**. 
@@ -296,14 +296,9 @@ public class App {
 ```
 
 ## Next steps
-
-- GitHub repository for [Microsoft JDBC Driver for SQL Server](https://github.com/microsoft/mssql-jdbc).
-- [File issues/ask questions](https://github.com/microsoft/mssql-jdbc/issues).
+- [Design your first Azure SQL database](sql-database-design-first-database.md)
+- [Microsoft JDBC Driver for SQL Server](https://github.com/microsoft/mssql-jdbc)
+- [Report issues/ask questions](https://github.com/microsoft/mssql-jdbc/issues)
 - To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md)
-- To connect and query using Visual Studio, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
-- To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
-- To connect and query using PHP, see [Connect and query with PHP](sql-database-connect-query-php.md).
-- To connect and query using Node.js, see [Connect and query with Node.js](sql-database-connect-query-nodejs.md).
-- To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
-- To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).
+- To connect and query using Visual Studio, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md)
 
