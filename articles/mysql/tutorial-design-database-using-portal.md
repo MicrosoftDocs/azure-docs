@@ -155,7 +155,8 @@ Imagine you have accidentally deleted this table. This is something you cannot e
 3- Click **OK** to restore the server to [restore to a point in time](./howto-restore-server-portal.md) before the tables was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, provided that it is within the retention period for your service tier.
 
 ## Next Steps
-In this tutorial, you learned how to:
+
+In this tutorial, you use the Azure portal to learned how to:
 
 > [!div class="checklist"]
 > * Create an Azure Database for MySQL
@@ -166,4 +167,4 @@ In this tutorial, you learned how to:
 > * Update data
 > * Restore data
 
-[Create and manage Azure Database for MySQL firewall rules using the Azure portal](/howto-manage-firewall-using-portal.md)
+[Create and manage Azure Database for MySQL firewall rules using the Azure portal](./howto-manage-firewall-using-portal.md)
