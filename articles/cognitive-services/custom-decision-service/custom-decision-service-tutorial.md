@@ -96,12 +96,41 @@ callback({
    "actionSets":[{"id":"feed-politics","lastRefresh":"date"}] });
 ```
 
-The browser then executes this string as a call to `callback()` function. Thus, the `data` argument in `callback()` function contains the app id and the ranking of URLs to be rendered. In particular, `callback()` should use `data.appId` to distinguish between the three applications.
+The browser then executes this string as a call to `callback()` function. Thus, the `data` argument in `callback()` function contains the app id and the ranking of URLs to be rendered. In particular, `callback()` should use `data.appId` to distinguish between the three applications. `eventId` is used internally by Custom Decision Service to match the provided ranking with the corresponding click, if any.
 
 > [!TIP]
 > `callback()` may check each action feed for freshness using `lastRefresh` field. If a given feed is not sufficiently fresh, `callback()` may ignore the provided ranking, call this feed directly, and use the default ranking served by the feed.
 
-For more information on specifications and additional options provided by our APIs, see [API reference](custom-decision-service-api-reference.md).
+For more information on specifications and additional options provided by the Ranking API, see [API reference](custom-decision-service-api-reference.md).
+
+Clicks on the top article are returned by calling the Reward API. The following code should be invoked on the front page when a click on the top article is received:
+
+```javascript
+$.ajax({
+    type: "POST",
+    url: '//ds.microsoft.com/<appId>/reward/<eventId>',
+    contentType: "application/json" })
+```
+
+Using appId and eventId in the click handling code requires some care. For example, you can implement the `callback()` function as follows:
+
+```javascript
+function callback(data) {
+    $.map(data.ranking, function (element) {
+        //custom rendering function given content info
+        render({appId:data.appId,
+                article:element,
+                onClick: element.id != data.rewardAction ? null :
+                   function() {
+                       $.ajax({
+                       type: "POST",
+                       url: '//ds.microsoft.com/' + data.appId + '/reward/' + data.eventId,
+                       contentType: "application/json" })}
+                });
+}}
+```
+
+In this example, implement the `render()` function to render a given article for a given application. This function inputs the app id and the article (in the format from the Ranking API).  The `onClick` parameter is a function that should be called from `render()` when handling a click. It checks whether the click is on the top slot. Then it calls Reward API with appropriate app id and event id.
 
 ## Performance dashboard
 

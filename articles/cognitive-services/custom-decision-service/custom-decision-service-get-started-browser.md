@@ -40,17 +40,22 @@ The basic usage of our APIs is fairly easy (but see API reference for additional
 <script> function callback(data) { … } </script>
 
 // call Ranking API, after callback() is defined
-<script src="https://ds.microsoft.com/<app id>/rank/<actionSetId>" async></script>
+<script src="https://ds.microsoft.com/<appId>/rank/<actionSetId>" async></script>
 ```
 
-The `data` argument contains the ranking of URLs to be rendered. For more information, see the [tutorial](custom-decision-service-tutorial.md) and [API reference](custom-decision-service-api-reference.md).
+The `data` argument contains the ranking of URLs to be rendered. For more information, see the [API reference](custom-decision-service-api-reference.md).
 
-For each article page, make sure the [canonical URL](https://en.wikipedia.org/wiki/Canonical_link_element) is set and matches the URLs provided your RSS feed. Insert the following code into the HTML head to call Reward API:
+Invoke the following code on the front page when handling a click on the top article:
 
-```html
-<script src="https://ds.microsoft.com/DecisionService.js"></script>
-<script> window.DecisionService.trackPageView(); </script>
+```javascript
+// call Reward API to report a click
+$.ajax({
+    type: "POST",
+    url: '//ds.microsoft.com/<appId>/reward/' + data.eventId,,
+    contentType: "application/json" })
 ```
+
+Here `data` is the argument to the `callback()` function, as described previously. We provide an implementation example in the [tutorial](custom-decision-service-tutorial.md#our-apis).
 
 Finally, you need to provide the Action Set API, which returns the list of articles (a.k.a., actions) to be considered by Custom Decision Service. Implement this API as an RSS feed, as shown here:
 
