@@ -37,22 +37,28 @@ To book a flight, you need some information like the destination, date, airline,
 When determine which entities to use in your app, keep in mind that there are different types of entities for capturing relationships between types of objects. [Entities in LUIS](luis-concept-entity-types.md) provides more detail about the different types.
 
 ### Simple entity
-
-![simple entity](./media/plan-your-app/simple-entity.png)
+A simple entity describes a single concept.
+![simple entity](./media/luis-plan-your-app/simple-entity.png)
 
 ### Hierarchical entity
+ A hierarchical entity represents a category and its members. 
 
-![hierarchical entity](./media/plan-your-app/simple-entity.png)
+![hierarchical entity](./media/luis-plan-your-app/hierarchical-entity.png)
 
 ### Composite entity
+A composite entity is made up of other entities that form parts of a whole. 
 
-![composite entity](./media/plan-your-app/simple-entity.png)
+![composite entity](./media/luis-plan-your-app/composite-entity.png)
 
 ### Prebuilt entity
-LUIS provides prebuilt entities like `number`, which you can use for the number of tickets in a ticket order.
+LUIS provides [prebuilt entities](Pre-builtEntities) for common types like `Number`, which you can use for the number of tickets in a ticket order.
 
-<!-- ### List entity 
-include a list of airport synonyms {JFK: "john f kennedy international", "JFK", LGA: "LaGuardia", "LGA", ...}
+![Number prebuilt entity](./media/luis-plan-your-app/number-entity.png)
+
+### List entity 
+A list entity is an explicitly specified list of values. Each value consists of one or more synonyms. In a travel app you might choose to create a list entity to represent airport names.
+
+![list entity](./media/luis-plan-your-app/list-entity.png)
 
 
 
