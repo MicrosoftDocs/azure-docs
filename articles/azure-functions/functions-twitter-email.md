@@ -29,7 +29,7 @@ This article shows you how to create a logic app in the Azure portal that:
 > * Uses the **Detect Sentiment** connector to estimate the tweets sentiment (from poor to good).
 > * Uses an Azure function to process the tweet sentiment into three categories (RED, YELLOW, or GREEN - for poor, neutral, and good).
 > * Uses a condition to check if the sentiment is RED (poor).
-> * Sends an email if the condition is RED.
+> * If the condition is RED, sends an email.
 
 <!-- no bullets - 
 
@@ -50,7 +50,7 @@ This article shows you how to create a logic app in the Azure portal that checks
 
 ### Create a function to categorize the tweet sentiment
 
-Once the function app deployment completes, open the new function app. In this section you'll create a function to categorize tweet sentiment into three categories (RED, YELLOW, or GREEN - for bad, neural, and good).
+Once the function app deployment completes, open the new function app. In this section you create a function to categorize tweet sentiment into three categories (RED, YELLOW, or GREEN - for bad, neural, and good).
 
 ![Function Apps blade, Functions +](media/functions-twitter-email/add_fun.png)
 
@@ -105,7 +105,7 @@ A Cognitive Services account is required to detect the sentiment of tweets we ar
 
  ![Create Cognitive account blade](media/functions-twitter-email/cog_svcs_account.png)
 
-* Select **Keys**. You'll need a key in a later step.
+* Select **Keys**. You need a key in a later step.
 
  ![Keys](media/functions-twitter-email/keys.png)
 
@@ -113,11 +113,11 @@ A Cognitive Services account is required to detect the sentiment of tweets we ar
 
 * In the Azure portal, click the **New >  Enterprise Integration > Logic App**
 
-![new logic app step preceeding step](media/functions-twitter-email/new_logicApp.png)
+![new logic app step preceding step](media/functions-twitter-email/new_logicApp.png)
 
 * In the **Create logic app** blade, enter each field, and the select **Create**.
 
-![Create logic app step preceeding step](media/functions-twitter-email/new_logicApp2.png)
+![Create logic app step preceding step](media/functions-twitter-email/new_logicApp2.png)
 
  Once the logic app is created, it opens in the designer.
 
@@ -143,9 +143,9 @@ The **Logic App Designer** displays many services and triggers you can connect t
 
 * Enter your password and select **Authorize app**.
 
-  ![authentication twitter new window from above](media/functions-twitter-email/auth_twit.png)
+  ![authentication of twitter in new window from above](media/functions-twitter-email/auth_twit.png)
 
-* Enter the search text, frequency, and interval. If you specify a popular term (such as #football, #soccer, or #futbol), you can quickly use all your alotted service calls in your cognitive services account. If you run out of calls, you can increase the pricing tier. We'll search for #Azure every 15 minutes:
+* Enter the search text, frequency, and interval. If you specify a popular term (such as #football, #soccer, or #futbol), you can quickly use all your allotted service calls in your cognitive services account. If you run out of calls, you can increase the pricing tier. Search for #Azure every 15 minutes:
 
   ![#Azure every 15 min](media/functions-twitter-email/azure_tweet.png)
 
@@ -153,7 +153,7 @@ The **Logic App Designer** displays many services and triggers you can connect t
 
 ### Add a **Text Analytics** connector
 
-The text analytics connector will detect the tweets sentiment.
+The text analytics connector detects the tweets sentiment.
 
 * Select **New Step**, and then **Add an action**.
 
@@ -161,7 +161,7 @@ The text analytics connector will detect the tweets sentiment.
 
 * Add the **Text Analytics** connector.
 
-  ![Chose an action window](media/functions-twitter-email/choose_action.png)
+  ![Chopse an action window](media/functions-twitter-email/choose_action.png)
 
 * Select the **Detect Sentiment** action. The sentiment rating is often good, but it sometimes misinterprets the text.
 
@@ -186,7 +186,7 @@ The text analytics connector will detect the tweets sentiment.
 
 ## Connect to the Azure function
 
-In this section, you'll add the function you created previously that categorized tweet sentiment as RED, YELLOW, or GREEN.
+In this section, you add the function you created previously that categorized tweet sentiment as RED, YELLOW, or GREEN.
 
 * In the Logic Apps Designer, select **New step**, and then select **Add an action**.
 * Select **Azure Functions**.
@@ -214,7 +214,7 @@ In this section, we add a conditional check for negative sentiment tweets (condi
   ![condition box](media/functions-twitter-email/condition.png)
 
 * In the **IF YES, DO NOTHING** box select **Add an action**.
-* Enter Outlook or Gmail in the **Search all services and actions** box. Outlook is used in this tutorial. See [Add a Gmail actions] (../logic-apps/logic-apps-create-a-logic-app.md#add-an-action-that-responds-to-your-trigger) for Gmail instructions. Note: If you have a personal [Microsoft account](https://account.microsoft.com/account), you can use that for the Outlook.com account.
+* Enter Outlook or Gmail in the **Search all services and actions** box. Outlook is used in this tutorial. See [Add a Gmail action] (../logic-apps/logic-apps-create-a-logic-app.md#add-an-action-that-responds-to-your-trigger) for Gmail instructions. Note: If you have a personal [Microsoft account](https://account.microsoft.com/account), you can use that for the Outlook.com account.
 
   ![Choose an action box](media/functions-twitter-email/outlook.png)
 
@@ -224,7 +224,7 @@ In this section, we add a conditional check for negative sentiment tweets (condi
 
 * Sign into Outlook.com.
 
-  ![sig in in box](media/functions-twitter-email/signin_outlook.png)
+  ![sig in box](media/functions-twitter-email/signin_outlook.png)
 
 * Enter the following items:
 
@@ -243,17 +243,20 @@ In the Logic app blade, select **Overview**, and then select a row in the **Runs
 
 ![Overview blade](media/functions-twitter-email/over1.png)
 
-The image following shows the run details when the condition was not true, email was not sent.
+The following image shows the run details when the condition was not true, email was not sent.
 
 ![Overview blade](media/functions-twitter-email/skipped.png)
 
-If want to immediatly test the **Send an email** function, change the **INPUTS**  in the first step (**When a new tweet is posted) to a popular term, such as #football, #soccer, or #futbol. Processing popular terms consumes more resources than less popular terms, so you might want to change it back after you've verified email is working.
+If want to immediately test the **Send an email** function: 
+
+* Change the **INPUTS**  in the first step (**When a new tweet is posted) to a popular term, such as #football, #soccer, or #futbol. 
+* Processing popular terms consumes more resources than less popular terms, so you might want to change it back after you've verified email is working.
 
 The image following shows the run details when the condition was true, and email was sent.
 
 ![Overview blade](media/functions-twitter-email/sent.png)
 
-You can select any of the service boxes to show find more information on the data used for the run. Select the **When a new tweet is posted**, it shows the search text and all the outputs, even those outputs we're not using.
+You can select any of the service boxes to show more information on the data used for the run. Select the **When a new tweet is posted**, it shows the search text and all the outputs, even those outputs we're not using.
 
 ## Next steps
 
