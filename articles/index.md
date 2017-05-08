@@ -445,73 +445,73 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     <ul>
                                         <li>
                                             <a href="/azure/cognitive-services/emotion/home">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <img src="media/index/API_Vis_Emotion.svg" alt="" />
                                                 <p>Emotion</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/face/overview">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <img src="media/index/API_Vis_Face.svg" alt="" />
                                                 <p>Face</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/academic-knowledge/home">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <img src="media/index/API_Know_Academic.svg" alt="" />
                                                 <p>Academic Knowledge</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/bing-autosuggest/get-suggested-search-terms">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <img src="media/index/API_Sear_BingAutoSuggest.svg" alt="" />
                                                 <p>Bing Autosuggest</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/bing-custom-search/overview">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <img src="media/index/API_Sear_BingSearch.svg" alt="" />
                                                 <p>Bing Custom Search</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/bing-image-search/search-the-web">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <img src="media/index/API_Sear_BingImageSearch.svg" alt="" />
                                                 <p>Bing Image</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/bing-news-search/search-the-web">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <img src="media/index/API_Sear_BingNewsSearch.svg" alt="" />
                                                 <p>Bing News</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <img src="media/index/API_Sear_BingSpeech.svg" alt="" />
                                                 <p>Bing Speech Service</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/bing-spell-check/proof-text">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <img src="media/index/API_Lang_BingSpellCheck.svg" alt="" />
                                                 <p>Bing Spell Check</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/bing-video-search/search-the-web">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <img src="media/index/API_Sear_BingVideoSearch.svg" alt="" />
                                                 <p>Bing Video</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/bing-web-search/search-the-web">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <img src="media/index/API_Sear_BingSearch.svg" alt="" />
                                                 <p>Bing Web Search</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/computer-vision/home">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <img src="media/index/API_Vis_ComputerVision.svg" alt="" />
                                                 <p>Computer Vision</p>
                                             </a>
                                         </li>
@@ -529,7 +529,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/custom-speech-service/home">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <img src="media/index/API_Spc_CustomSpeechService.svg" alt="" />
                                                 <p>Custom Speech Service</p>
                                             </a>
                                         </li>
@@ -541,49 +541,49 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/entitylinking/home">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <img src="media/index/API_Know_EntityLink.svg" alt="" />
                                                 <p>Entity Linking</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/academic-knowledge/home">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <img src="media/index/API_Know_Exploration.svg" alt="" />
                                                 <p>Knowledge Exploration Service (KES)</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/luis/home">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <img src="media/index/API_Lang_LanguageUnderstanding.svg" alt="" />
                                                 <p>Language Understanding Intelligent Services (LUIS)</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/linguisticanalysisapi/home">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <img src="media/index/API_Lang_LinguisticAnalysis.svg" alt="" />
                                                 <p>Linguistic</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/qnamaker/home">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <img src="media/index/API_Know_QandA_Maker.svg" alt="" />
                                                 <p>QnAMaker</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/recommendations/overview">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <img src="media/index/API_Know_Recommendations.svg" alt="" />
                                                 <p>Recommendations</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/speaker-recognition/home">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <img src="media/index/API_Spc_SpeakerRecognition.svg" alt="" />
                                                 <p>Speaker Recognition</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/text-analytics/overview">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <img src="media/index/API_Lang_TextAnalytics.svg" alt="" />
                                                 <p>Text Analytics</p>
                                             </a>
                                         </li>
@@ -607,14 +607,14 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/">
-                                                <img src="media/index/CognitiveServices.svg" alt="" />
+                                                <img src="media/index/API_Lang_WebLM.svg" alt="" />
                                                 <p>Web Language Model</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/">
                                                 <img src="media/index/CognitiveServices.svg" alt="" />
-                                                <p>Video Breakdown</p>
+                                                <p>Video Indexer</p>
                                             </a>
                                         </li>
                                         <li>
