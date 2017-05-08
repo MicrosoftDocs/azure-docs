@@ -121,7 +121,8 @@ In this tutorial, you configured and reviewed VMs with Azure Security Center. Yo
 > * View and fix configuration health issues
 > * Review detected threats
 
-Follow this link to see pre-built virtual machine script samples.
+Advance to the next tutorial to learn more about creating a CI/CD pipeline with Jenkins, GitHub, and Docker.
 
 > [!div class="nextstepaction"]
-> [Linux virtual machine script samples](./cli-samples.md)
+> [Create CI/CD infrastructure with Jenkins, GitHub, and Docker](tutorial-jenkins-github-docker-cicd.md)
+
