@@ -287,19 +287,19 @@ When the App Service plan is created, the Azure CLI shows information similar to
 
 ```json 
 { 
+    "adminSiteName": null,
+    "appServicePlanName": "myAppServicePlan",
+    "geoRegion": "North Europe",
+    "hostingEnvironmentProfile": null,
     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan", 
-    "kind": "app", 
-    "location": "West Europe", 
-    "sku": { 
-    "capacity": 0, 
-    "family": "F", 
-    "name": "F1", 
-    "tier": "Free" 
-    }, 
-    "status": "Ready", 
-    "type": "Microsoft.Web/serverfarms" 
+    "kind": "app",
+    "location": "North Europe",
+    "maximumNumberOfWorkers": 1,
+    "name": "myAppServicePlan",
+    ...
+    < Output has been truncated for readability >
 } 
-``` 
+```
 
 ### Create a web app
 
@@ -317,21 +317,18 @@ az appservice web create \
 When the web app has been created, the Azure CLI shows information similar to the following example: 
 
 ```json 
-{ 
-    "clientAffinityEnabled": true, 
-    "defaultHostName": "<app_name>.azurewebsites.net", 
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app_name>", 
-    "isDefaultContainer": null, 
-    "kind": "app", 
-    "location": "West Europe", 
-    "name": "<app_name>", 
-    "repositorySiteName": "<app_name>", 
-    "reserved": true, 
-    "resourceGroup": "myResourceGroup", 
-    "serverFarmId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan", 
-    "state": "Running", 
-    "type": "Microsoft.Web/sites", 
-} 
+{
+    "availabilityState": "Normal",
+    "clientAffinityEnabled": true,
+    "clientCertEnabled": false,
+    "cloningInfo": null,
+    "containerSize": 0,
+    "dailyMemoryTimeQuota": 0,
+    "defaultHostName": "<app_name>.azurewebsites.net",
+    "enabled": true,
+    ...
+    < Output has been truncated for readability >
+}
 ```
 
 ### Configure an environment variable
@@ -662,4 +659,5 @@ In this tutorial, you learned how to:
 
 Advance to the next tutorial to learn how to map a custom DNS name to it.
 
-[Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [!div class="nextstepaction"] 
+> [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)
