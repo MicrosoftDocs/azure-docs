@@ -81,7 +81,7 @@ string authKey = ConfigurationManager.AppSettings["AuthKey"];
 ``` 
 Next, head back to the [Azure portal](https://portal.azure.com) to retrieve your endpoint URL and primary key. The endpoint URL and primary key are necessary for your application to understand where to connect to, and for Azure Cosmos DB to trust your application's connection. 
 
-In the Azure portal, navigate to your Azure Cosmos DB account, and then click **Keys**. 
+In the Azure portal, navigate to your Azure Cosmos DB account, click **Keys**, and then click **Read-write Keys**. 
 
 Copy the URI from the portal and paste it over `Endpoint` in the endpoint property above. Then copy the PRIMARY KEY from the portal and paste it into the `AuthKey` property above. 
 
