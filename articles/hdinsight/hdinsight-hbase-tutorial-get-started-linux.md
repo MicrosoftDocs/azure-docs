@@ -132,19 +132,14 @@ You can create a text file and upload the file to your own storage account if yo
 3. You can open the HBase shell, and use the scan command to list the table content.
 
 ## Use Hive to query HBase
-You can query data in HBase tables by using Hive. This section creates a Hive table that maps to the HBase table and uses it to query the data in your HBase table.
 
-> [!NOTE]
-> If Hive and HBase are on different clusters in the same VNet, you need to pass zookeeper quorum while invoking the Hive shell:
->
->       hive --hiveconf hbase.zookeeper.quorum=zk0-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk1-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk2-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net --hiveconf zookeeper.znode.parent=/hbase-unsecure  
->
->
+You can query data in HBase tables by using Hive. In this section, you create a Hive table that maps to the HBase table and uses it to query the data in your HBase table.
 
 1. Open **PuTTY**, and connect to the cluster.  See the instructions in the previous procedure.
-2. Open the Hive shell.
-   
-       hive
+2. From the SSH session, use the following command to start Beeline:
+
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    For more information about Beeline, see [Use Hive with Hadoop in HDInsight with Beeline](hdinsight-hadoop-use-hive-beeline.md).
        
 3. Run the following HiveQL script  to create a Hive table that maps to the HBase table. Make sure that you have created the sample table referenced earlier in this tutorial by using the HBase shell before you run this statement.
    
@@ -154,7 +149,7 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
         TBLPROPERTIES ('hbase.table.name' = 'Contacts');
 4. Run the following HiveQL script to query the data in the HBase table:
    
-         SELECT count(*) FROM hbasecontacts;
+         SELECT * FROM hbasecontacts;
 
 ## Use HBase REST APIs using Curl
 
