@@ -8,7 +8,7 @@ manager: jhubbard
 editor: ''
 tags: ''
 
-ms.assetid:
+ms.assetid: 14bcb94e-583c-46f7-9ea8-db010eb2ab43
 ms.service: cosmosdb
 ms.devlang: na
 ms.topic: article
@@ -29,7 +29,7 @@ For more information on the premium capabilities offered by Azure Cosmos DB, see
 
 ## Sample table
 
-The queries in this article use the following sample table:
+The queries in this article use the following sample `People` table:
 
 | PartitionKey | RowKey | Email | PhoneNumber |
 | --- | --- | --- | --- |
@@ -41,18 +41,13 @@ The queries in this article use the following sample table:
 
 For these queries to work, you must have an Azure Cosmos DB account and have entity data in the collection. Don't have any of those? Complete the [5-minute quickstart](https://aka.ms/acdbtnetqs) or the [developer tutorial](https://aka.ms/acdbtabletut) to create an account and populate your database.
 
-## Example query 1
-Given the sample family table above, the following OData query returns the documents, where RowKey matches Walter and PartitionKey matches Harp.
- 
+## Querying on partition key and row key
+Because the PartitionKey and RowKey properties form an entity's primary key, you can use a special syntax to identify the entity, as follows: 
+
 **Query**
 
-```csharp
-CloudTableClient tableClient = account.CreateCloudTableClient();
-CloudTable table = tableClient.GetTableReference("people");
-TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>().Where(TableQuery.CombineFilters(TableQuery.GenerateFilterCondition(PartitionKey, QueryComparisons.Equal, "Harp"),
-TableOperators.And,
-TableQuery.GenerateFilterCondition(RowKey, QueryComparisons.Equal,"Walter")));
-await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
+```
+https://<mytableendpoint>/People(PartitionKey='Harp',RowKey='Walter')  
 ```
 **Results**
 
@@ -60,44 +55,31 @@ await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
 | --- | --- | --- | --- |
 | Harp | Walter | Walter@contoso.com| 425-555-0104 |
 
+Alternatively, you can specify these properties as part of the `$filter` option, as shown in the following section. Note that the key property names and constant values are case-sensitive. Both the PartitionKey and RowKey properties are of type String. 
 
-## Example query 2
-Given the sample data  above, the following OData query returns the entities, where email matches Ben@contoso.com and PartitionKey matches Smith. In this example, you are querying based on PartitionKey and other property. Since, Azure Cosmos DB indexes all the property, below query does not require the whole table to be scanned. Azure Table does not have secondary indexes. So, query on other properties is faster with Azure Cosmos DB Table API.
+## Querying with an ODATA filter
+When constructing a filter string, keep these rules in mind: 
+
+* Use the logical operators defined by the OData Protocol Specification to compare a property to a value. Note that it is not possible to compare a property to a dynamic value; one side of the expression must be a constant. 
+* The property name, operator, and constant value must be separated by URL-encoded spaces. A space is URL-encoded as `%20`. 
+* All parts of the filter string are case-sensitive. 
+* The constant value must be of the same data type as the property in order for the filter to return valid results. For more information about supported property types, see [Understanding the Table Service Data Model](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model). 
+
+Here's an example query that shows how to filter by PartitionKey, and the Email property using an ODATA `$filter`.
 
 **Query**
 
-```csharp
-CloudTableClient tableClient = account.CreateCloudTableClient();
-CloudTable table = tableClient.GetTableReference("people");
-TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>().Where(TableQuery.CombineFilters(TableQuery.GenerateFilterCondition(PartitionKey, QueryComparisons.Equal, "Smith"),
-TableOperators.And,
-TableQuery.GenerateFilterCondition(Email, QueryComparisons.Equal,"Ben@contoso.com")));
-await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
 ```
+https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and%20Email%20eq%20'Ben@contoso.com'
+```
+
+More details on how to construct filter expressions for various data types are available at [Querying Tables and Entities](https://docs.microsoft.com/en-us/rest/api/storageservices/querying-tables-and-entities)
 
 **Results**
 
 | PartitionKey | RowKey | Email | PhoneNumber |
 | --- | --- | --- | --- |
 | Ben |Smith | Ben@contoso.com| 425-555-0102 |
-
-## Example query 3
-Given the sample family table above, the following LINQ query returns the documents, where RowKey matches Jeff and PartitionKey matches Smith.
-
-**Query**
-```charp
-CloudTableClient tableClient = account.CreateCloudTableClient();
-CloudTable table = tableClient.GetTableReference("people");
-var query = from customer in customers.CreateQuery<CustomerEntity>()
-                        where customer.PartitionKey == "Smith" && customer.RowKey == "Jeff"
-                        select customer;
-await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query.AsTableQuery(), null);
-```
-**Results**
-
-| PartitionKey | RowKey | Email | PhoneNumber |
-| --- | --- | --- | --- |
-| Jeff |Smith | Jeff@contoso.com| 425-555-0102 |
 
 ## Querying with LINQ 
 You can also query using LINQ, which translates to the corresponding ODATA query expressions. Here's an example of how to build queries using the .NET SDK.
@@ -119,7 +101,7 @@ await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
 
 ## Next steps
 
-In this tutorial, you've learned how to query graph data using the Table API. You can now distribute data globally using the portal or install the Local emulator for local development.  
+In this tutorial, you've learned how to query data using the Table API. You can now distribute data globally using the portal or install the Local emulator for local development.  
 
 [Distribute your data globally](../documentdb/documentdb-portal-global-replication.md)
 
