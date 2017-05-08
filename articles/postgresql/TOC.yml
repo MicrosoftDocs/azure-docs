@@ -23,6 +23,10 @@
       href: tutorial-design-database-using-azure-portal.md
     - name: Azure CLI
       href: tutorial-design-database-using-azure-cli.md
+  - name: 2 - Design a Web App
+    items:
+    - name: Python - Azure CLI
+      href: ../app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md
 - name: Concepts
   items:
   - name: DB & Servers
