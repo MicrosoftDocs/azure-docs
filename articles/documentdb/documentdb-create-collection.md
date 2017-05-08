@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2017
+ms.date: 05/10/2017
 ms.author: mimig
 
 ---
@@ -45,7 +45,7 @@ There are two ways to create a colletion in the portal, by using the Add Collect
 
     Set storage capacity to **Custom** if you want to provision an amount other than 10 GB or 250 GB. Azure Cosmos DB has virtually limitless scale, so please include your requested storage size and throughput value in the support request.
 
-6. In the **Partition Key** box, enter a partition key for the collection. This is required for partitioned collections and optional for single partition collections. Selecting the correct partition key is important in creating a performant collection. For more information on selecting a partition key, see [Designing for partitioning](documentdb-partition-data.md#designing-for-partitioning).
+6. In the **Partition Key** box, enter a partition key for the collection. This is required for partitioned collections and optional for single partition collections. Selecting the correct partition key is important in creating a performant collection. For more information on selecting a partition key, see [Designing for partitioning](../cosmos-db/partition-data.md#designing-for-partitioning).
 7. In the **Database** blade, either create a new database or use an existing one. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space. To validate the name, click outside the text box. When the name is validated, a green check mark appears in the box.
 8. Click **OK** at the bottom of the screen to create the new collection.
 9. The new collection now appears in the **Collections** lens on the **Overview** blade.

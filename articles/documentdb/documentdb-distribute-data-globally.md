@@ -18,7 +18,9 @@ ms.author: arramac
 
 ---
 # How to distribute data globally with Azure Cosmos DB?
-Azure is ubiquitous - it has a global footprint across 30+ geographical regions and is continuously expanding. With its worldwide presence, one of the differentiated capabilities Azure offers to its developers is the ability to build, deploy, and manage globally distributed applications easily. Azure Cosmos DB is Microsoft's multi-tenant, globally distributed database system designed to enable developers to build planet scale applications. Azure Cosmos DB allows you to elastically scale both, throughput and storage across any number of geographical regions. The service offers guaranteed low latency at P99, 99.99% high availability, predictable throughput, and [multiple well-defined consistency models](documentdb-consistency-levels.md) – all backed by comprehensive SLAs. By virtue of its [schema-agnostic and write optimized database engine](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), by default Azure Cosmos DB is capable of automatically indexing all the data it ingests and serve [SQL](documentdb-sql-query.md), [MongoDB](documentdb-protocol-mongodb.md), and [JavaScript language-integrated queries](documentdb-programming.md#javascript-language-integrated-query-api) in a scale-independent manner. As a cloud service, Azure Cosmos DB is carefully engineered with multi-tenancy and global distribution from the ground up.
+Azure is ubiquitous - it has a global footprint across 30+ geographical regions and is continuously expanding. With its worldwide presence, one of the differentiated capabilities Azure offers to its developers is the ability to build, deploy, and manage globally distributed applications easily. 
+
+[Azure Cosmos DB](../cosmos-db/introduction.md) is Microsoft's globally distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides [turn-key global distribution](../documentdb/documentdb-distribute-data-globally.md), [elastic scaling of throughput and storage](../cosmos-db/partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, [five well-defined consistency levels](../documentdb/documentdb-consistency-levels.md), and guaranteed high availability, all backed by [industry-leading SLAs](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/). Azure Cosmos DB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value, graph, and columnar data models. As a cloud-born service, Azure Cosmos DB is carefully engineered with multi-tenancy and global distribution from the ground up.
 
 **A single Azure Cosmos DB collection partitioned and distributed across three Azure regions**
 
@@ -89,29 +91,6 @@ Currently the automatic and manual failover capabilities are exposed at the gran
 
 ### <a id="MultiHomingAPIs"></a>Multi-homing APIs in Azure Cosmos DB
 Azure Cosmos DB allows you to interact with the database using either logical (region agnostic) or physical (region-specific) endpoints. Using logical endpoints ensures that the application can transparently be multi-homed in case of failover. The latter, physical endpoints, provide fine-grained control to the application to redirect reads and writes to specific regions.
-
-### <a id="ReadPreferencesAPIforMongoDB"></a> Configurable read preferences in API for MongoDB
-API for MongoDB enables you to specify your collection's read preference for a globally distributed database. For both low latency reads and global high availability, we recommend setting your collection's read preference to *nearest*. A read preference of *nearest* is configured to read from the closest region.
-
-```csharp
-var collection = database.GetCollection<BsonDocument>(collectionName);
-collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Nearest));
-```
-
-For applications with a primary read/write region and a secondary region for disaster recovery (DR) scenarios, we recommend setting your collection's read preference to *secondary preferred*. A read preference of *secondary preferred* is configured to read from the secondary region when the primary region is unavailable.
-
-```csharp
-var collection = database.GetCollection<BsonDocument>(collectionName);
-collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.SecondaryPreferred));
-```
-
-Lastly, if you would like to manually specify your read regions. You can set the region Tag within your read preference.
-
-```csharp
-var collection = database.GetCollection<BsonDocument>(collectionName);
-var tag = new Tag("region", "Southeast Asia");
-collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Secondary, new[] { new TagSet(new[] { tag }) }));
-```
 
 ### <a id="TransparentSchemaMigration"></a>Transparent and consistent database schema and index migration 
 Azure Cosmos DB is fully [schema agnostic](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). The unique design of its database engine allows it to automatically and synchronously index all of the data it ingests without requiring any schema or secondary indices from you. This enables you to iterate your globally distributed application rapidly without worrying about database schema and index migration or coordinating multi-phase application rollouts of schema changes. Azure Cosmos DB guarantees that any changes to indexing policies explicitly made by you does not result into degradation of either performance or availability.  
