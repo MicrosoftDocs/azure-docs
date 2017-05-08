@@ -37,6 +37,8 @@ This article shows you how to create a logic app in the Azure portal that checks
 
  -->
 
+The following image shows the completed logic app in the designer:
+
 ![image of completed app in Logic App Designer](media/functions-twitter-email/designer1.png)
 
 ## Prerequisites
@@ -113,17 +115,17 @@ A Cognitive Services account is required to detect the sentiment of tweets we ar
 
 * In the Azure portal, click the **New >  Enterprise Integration > Logic App**
 
-![new logic app step preceding step](media/functions-twitter-email/new_logicApp.png)
+  ![new logic app step preceding step](media/functions-twitter-email/new_logicApp.png)
 
 * In the **Create logic app** blade, enter each field, and the select **Create**.
 
-![Create logic app step preceding step](media/functions-twitter-email/new_logicApp2.png)
+  ![Create logic app step preceding step](media/functions-twitter-email/new_logicApp2.png)
 
  Once the logic app is created, it opens in the designer.
 
 * Select the **Blank Logic App** template.
 
-![Blank Logic App](media/functions-twitter-email/blank.png)
+  ![Blank Logic App](media/functions-twitter-email/blank.png)
 
 ## Add a trigger to twitter
 
@@ -165,7 +167,7 @@ The text analytics connector detects the tweets sentiment.
 
 * Select the **Detect Sentiment** action. The sentiment rating is often accurate, but it sometimes misinterprets the text.
 
-![Detect Sentiment](media/functions-twitter-email/detect_sent.png)
+  ![Detect Sentiment](media/functions-twitter-email/detect_sent.png)
 
 ### Create the Detect Sentiment action
 
