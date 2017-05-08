@@ -28,6 +28,7 @@
 
 ## Table Storage
 ### [.NET](storage-dotnet-how-to-use-tables.md)
+### [F#](/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage)
 ### [Java](storage-java-how-to-use-table-storage.md)
 ### [Node.js](storage-nodejs-how-to-use-table-storage.md)
 ### [C++](storage-c-plus-plus-how-to-use-tables.md)
@@ -54,8 +55,10 @@
 ## [Create a storage account](storage-create-storage-account.md)
 ## Use blobs
 ### [Service overview](https://msdn.microsoft.com/library/dd179376.aspx)
+### [Searching Blob Storage with Azure Search](search-blob-storage-integration.md)
 ### [Hot and cool tiers](storage-blob-storage-tiers.md)
 ### [Custom domains](storage-custom-domain-name.md)
+### [Using the Azure CDN to access blobs with custom domains over HTTPs](storage-http-custom-domain-cdn.md) 
 ### [Anonymous access to blobs](storage-manage-access-to-resources.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob)
 ## Use queues
@@ -178,6 +181,7 @@
 ## [C++](http://azure.github.io/azure-storage-cpp)
 ## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
+## [Python](http://azure.github.io/azure-storage-php/)
 ## REST
 ### [Blobs, Queues, Tables, and Files](/rest/api/storageservices)
 ### [Resource provider](/rest/api/storagerp)
