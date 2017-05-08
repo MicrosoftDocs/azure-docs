@@ -109,15 +109,15 @@ Now you can get things ready for your users. Create an offer that they can then 
 
    g. Click **Quotas**, click **Microsoft.Storage (local)**, and then select the quota you created previously.
 
-   i. Click **Microsoft.Network (local)**, and then select the quota you created previously.
+   h. Click **Microsoft.Network (local)**, and then select the quota you created previously.
 
-   k. Click **Microsoft.Compute (local)**, and then select the quota you created previously.
+   i. Click **Microsoft.Compute (local)**, and then select the quota you created previously.
 
-   m. In the **Quotas** blade, click **OK**, and then in the **New Plan** blade, click **Create** to create the plan.
+   j. In the **Quotas** blade, click **OK**, and then in the **New Plan** blade, click **Create** to create the plan.
 
    ![](media/azure-stack-create-plan/image11.png)
 
-   n. To see your new plan, click **All resources**, then search for the plan and click its name.
+   k. To see your new plan, click **All resources**, then search for the plan and click its name.
 
    ![](media/azure-stack-create-plan/image12.png)
 
