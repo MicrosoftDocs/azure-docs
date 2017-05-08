@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/22/2017
+ms.date: 05/10/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
 
@@ -25,6 +25,13 @@ ms.custom: H1Hack27Feb2017
 [**Download the Emulator**](https://aka.ms/documentdb-emulator)
 
 The Azure Cosmos DB Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes including its use of SSL connections. This post demonstrates how to export the SSL certificates for use in languages and runtimes that do not integrate with the Windows Certificate Store such as Java which uses its own [certificate store](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) and Python which uses [socket wrappers](https://docs.python.org/2/library/ssl.html) and Node.js which uses [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback). You can read more about the emulator in [Use the Azure Cosmos DB Emulator for development and testing](./documentdb-nosql-local-emulator.md).
+
+This tutorial covers the following tasks:
+
+> [!div class="checklist"]
+> * Rotating certificates
+> * Exporting SSL certificate
+> * Learning how to use the certificate in Java, Python, and Node.js
 
 ## Certification rotation
 
@@ -84,6 +91,15 @@ By default the [Python SDK(version 2.0.0 or higher)](https://docs.microsoft.com/
 
 By default the [Node.js SDK(version 1.10.1 or higher)](https://docs.microsoft.com/azure/documentdb/documentdb-sdk-node) for DocumentDB will not try and use the SSL certificate when connecting to the local emulator. If however you want to use SSL validation you can follow the examples in the [Node.js documentation](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
+In this tutorial, you've done the following:
+
+> [!div class="checklist"]
+> * Rotated certificates
+> * Exported the SSL certificate
+> * Learned how to use the certificate in Java, Python and Node.js
+
 ## Next steps
-* To learn more about Azure Cosmos DB, see [Introduction to Azure Cosmos DB](documentdb-introduction.md)
-* To start developing against the Azure Cosmos DB Emulator, download one of the [supported Azure Cosmos DB SDKs](documentdb-sdk-dotnet.md).
+
+In this tutorial, you've learned how to export Azure Cosmos DB certificates. You can now proceed to the Concepts section for more information about Cosmos DB. 
+
+[Global distribution](../documentdb/documentdb-distribute-data-globally.md) 
