@@ -27,7 +27,7 @@ This sample gets an Azure Cosmos DB connection string for MongoDB apps using the
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/cosmosdb/secure-cosmosdb-get-mongodb-connection-string/secure-cosmosdb-get-mongodb-connection-string.sh?highlight=38-40  "Get Azure Cosmos DB connection string for MongoDB apps")]
+[!code-azurecli[main](../../../cli_scripts/cosmosdb/secure-cosmosdb-get-mongodb-connection-string/secure-cosmosdb-get-mongodb-connection-string.sh?highlight=22-25 "Get Azure Cosmos DB connection string for MongoDB apps")]
 
 ## Clean up deployment
 

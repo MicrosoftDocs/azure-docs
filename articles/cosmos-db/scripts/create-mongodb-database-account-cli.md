@@ -27,7 +27,7 @@ This sample CLI script creates an Azure Cosmos DB MongoDB API account, database,
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/cosmosdb/create-cosmosdb-mongodb-account/create-cosmosdb-mongodb-account.sh?highlight=15-34 "Create an Azure Cosmos DB MongoDB API account, database, and collection")]
+[!code-azurecli[main](../../../cli_scripts/cosmosdb/create-cosmosdb-mongodb-account/create-cosmosdb-mongodb-account.sh?highlight=15-35 "Create an Azure Cosmos DB MongoDB API account, database, and collection")]
 
 ## Clean up deployment
 

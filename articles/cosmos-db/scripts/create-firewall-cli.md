@@ -27,7 +27,7 @@ This sample CLI script creates a firewall policy for any kind of Azure Cosmos DB
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/cosmosdb/secure-cosmosdb-create-firewall/secure-cosmosdb-create-firewall.sh?highlight=39-42 "Create an Azure Cosmos DB firewall")]
+[!code-azurecli[main](../../../cli_scripts/cosmosdb/secure-cosmosdb-create-firewall/secure-cosmosdb-create-firewall.sh?highlight=38-42 "Create an Azure Cosmos DB firewall")]
 
 ## Clean up deployment
 
