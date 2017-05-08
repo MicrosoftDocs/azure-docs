@@ -60,9 +60,9 @@ Once the function app deployment completes, open the new function app. In this s
 
 ![Function Apps blade, Functions +](media/functions-twitter-email/add_fun2.png)
 
-You created a Webhook/API (also known as HTTP trigger) function that can be called on demand by the app you are building. 
+You created a Webhook/API (also known as HTTP trigger) function that can be called on demand by the app you are building. If you wanted to to create a function that runs on a schedule, you would create a Timer function.
 
-* Replace the contents of the `run.csx` file with the following code:
+* Replace the contents of the *run.csx* file with the following code:
 
 ```c#
 using System.Net;
@@ -72,7 +72,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
     log.Info("C# HTTP trigger function processed a request.");
     string category = "GREEN";
 
-    // Get request body
+    // Get request body.
     double score = await req.Content.ReadAsAsync<double>();
 
     if (score < .3)
