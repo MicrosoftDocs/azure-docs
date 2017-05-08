@@ -177,11 +177,11 @@
 ## [Java](http://azure.github.io/azure-storage-java/)
 ## [Node.js](http://azure.github.io/azure-storage-node)
 ## [Ruby](http://azure.github.io/azure-storage-ruby)
+## [PHP](http://azure.github.io/azure-storage-php/)
 ## [Python](https://azure-storage.readthedocs.io/en/latest/index.html)
 ## [C++](http://azure.github.io/azure-storage-cpp)
 ## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
-## [Python](http://azure.github.io/azure-storage-php/)
 ## REST
 ### [Blobs, Queues, Tables, and Files](/rest/api/storageservices)
 ### [Resource provider](/rest/api/storagerp)
