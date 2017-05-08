@@ -1,14 +1,15 @@
 - name: Bing Custom Search Documentation
   href: ../index.md
 - name: Overview
-  items: 
+  items:
   - name: Customize your search
     href: overview.md
   - name: How it works
     href: how-it-works.md
 - name: Quickstart
-  - items: Build a custom search
-    href: quick-start.md
+  items:
+  - name: Build a custom search
+  - href: quick-start.md
 - name: Resources
   items:
   - name: Bing Web Search API Documentation
