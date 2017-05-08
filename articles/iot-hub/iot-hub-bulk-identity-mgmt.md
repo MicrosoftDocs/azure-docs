@@ -119,16 +119,46 @@ The following example shows the output data:
 If a device has twin data, then the twin data are also exported together with the device data. The following example shows this format. All data from the "twinETag" line until the end are twin data.
 ```
 {
-  "id":"export-6d84f075-0",
-  "eTag":"MQ==",
-  "status":"enabled",
-  "statusReason":"firstUpdate",
-  "authentication":null,
-  "twinETag":"AAAAAAAAAAI=",
-  "tags":{"Location":"LivingRoom"},
-  "properties":{
-  "desired":{"Thermostat":{"Temperature":75.1,"Unit":"F"},"$metadata":{"$lastUpdated":"2017-03-09T18:30:52.3167248Z","$lastUpdatedVersion":2,"Thermostat":{"$lastUpdated":"2017-03-09T18:30:52.3167248Z","$lastUpdatedVersion":2,"Temperature":{"$lastUpdated":"2017-03-09T18:30:52.3167248Z","$lastUpdatedVersion":2},"Unit":{"$lastUpdated":"2017-03-09T18:30:52.3167248Z","$lastUpdatedVersion":2}}},"$version":2},
-  "reported":{"$metadata":{"$lastUpdated":"2017-03-09T18:30:51.1309437Z"},"$version":1}}
+   "id":"export-6d84f075-0",
+   "eTag":"MQ==",
+   "status":"enabled",
+   "statusReason":"firstUpdate",
+   "authentication":null,
+   "twinETag":"AAAAAAAAAAI=",
+   "tags":{
+      "Location":"LivingRoom"
+   },
+   "properties":{
+      "desired":{
+         "Thermostat":{
+            "Temperature":75.1,
+            "Unit":"F"
+         },
+         "$metadata":{
+            "$lastUpdated":"2017-03-09T18:30:52.3167248Z",
+            "$lastUpdatedVersion":2,
+            "Thermostat":{
+               "$lastUpdated":"2017-03-09T18:30:52.3167248Z",
+               "$lastUpdatedVersion":2,
+               "Temperature":{
+                  "$lastUpdated":"2017-03-09T18:30:52.3167248Z",
+                  "$lastUpdatedVersion":2
+               },
+               "Unit":{
+                  "$lastUpdated":"2017-03-09T18:30:52.3167248Z",
+                  "$lastUpdatedVersion":2
+               }
+            }
+         },
+         "$version":2
+      },
+      "reported":{
+         "$metadata":{
+            "$lastUpdated":"2017-03-09T18:30:51.1309437Z"
+         },
+         "$version":1
+      }
+   }
 }
 ```
 
@@ -193,8 +223,11 @@ You can use the **ImportDevicesAsync** method to perform the following bulk oper
 * Bulk status changes (enable or disable devices)
 * Bulk assignment of new device authentication keys
 * Bulk auto-regeneration of device authentication keys
+* Bulk update of twin data
 
 You can perform any combination of the preceding operations within a single **ImportDevicesAsync** call. For example, you can register new devices and delete or update existing devices at the same time. When used along with the **ExportDevicesAsync** method, you can completely migrate all your devices from one IoT hub to another.
+
+If the import file specifies twin metadata, then this metadata overwrites the existing metadata of the twin. If it does not, then only the `lastUpdateTime` metadata is updated using the current time. 
 
 Use the optional **importMode** property in the import serialization data for each device to control the import process per-device. The **importMode** property has the following options:
 

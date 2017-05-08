@@ -98,25 +98,16 @@ A more complex implementation could include the information from [operations mon
 
 ## Device lifecycle notifications
 
-IoT Hub can notify your IoT solution when a device identity is created or deleted by sending device lifecycle notifications. To do so, your IoT solution needs to create a route and to set the Data Source equal to *DeviceLifecycleEvents*. By default, no lifecycle notifications are sent, that is, no such routes pre-exist.
+IoT Hub can notify your IoT solution when a device identity is created or deleted by sending device lifecycle notifications. To do so, your IoT solution needs to create a route and to set the Data Source equal to *DeviceLifecycleEvents*. By default, no lifecycle notifications are sent, that is, no such routes pre-exist. The notification message includes properties, and body.
 
-The notification message has three sections:
-1. System properties
-2. Properties
-3. Body
-
-### System Properties
+- Properties
 
 | Name | Value |
 | --- | --- |
-Content-type | application/json |
-EnqueuedTime |  Time when the notification was sent |
-MessageSchema | deviceLifecycleNotification |
-
-### Properties
-
-| Name | Value |
-| --- | --- |
+$content-type | application/json |
+$iothub-enqueuedtime |  Time when the notification was sent |
+$iothub-message-source | deviceLifecycleEvents |
+$content-encoding | utf-8 |
 opType | “createDeviceIdentity” or “deleteDeviceIdentity” |
 hubName | Name of IoT Hub |
 deviceId | Id of the device |
@@ -124,27 +115,28 @@ operationTimestamp | ISO8601 timestamp of operation |
 iothub-message-schema | deviceLifecycleNotification |
 iothub-connection-device-id | Id of the device |
 
+ Message system properties are prefixed with the `'$'` symbol.
 
-### Body
+- Body
 
 This section is in JSON format and represents the twin of the created device identity. For example,
 ``` 
-        {
-            "properties": {
-                "desired": {
-                    "$metadata": {
-                        "$lastUpdated": "2016-02-30T16:24:48.789Z"
-                    },
-                    "$version": 1
-                },
-                "reported": {
-                    "$metadata": {
-                        "$lastUpdated": "2016-02-30T16:24:48.789Z"
-                    },
-                    "$version": 1
-                }
-            }
+{
+    "properties": {
+        "desired": {
+            "$metadata": {
+                "$lastUpdated": "2016-02-30T16:24:48.789Z"
+            },
+            "$version": 1
+        },
+        "reported": {
+            "$metadata": {
+                "$lastUpdated": "2016-02-30T16:24:48.789Z"
+            },
+            "$version": 1
         }
+    }
+}
 ```
 
 ## Reference topics:
