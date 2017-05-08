@@ -35,8 +35,8 @@ Cloud Shell comes pre-installed with popular command-line tools and language sup
 Cloud Shell securely authenticates automatically on each session for instant access to your resources through the Azure CLI 2.0.
 
 ### Connect your Azure File storage
-Cloud Shell machines are provided on-demand and as a result require an Azure file share to be mounted to persist your $Home directory.
-On first launch Cloud Shell prompts to create a resource group, storage account, and file share for you. This is a one-time step and will be automatically attached on all sessions. 
+Cloud Shell machines are temporary and as a result require an Azure file share to be mounted to persist your $Home directory.
+On first launch Cloud Shell prompts to create a resource group, storage account, and file share on your behalf. This is a one-time step and will be automatically attached for all sessions. 
 
 ![](media/storage-prompt.png)
 
@@ -66,7 +66,7 @@ Three resources will be created on your behalf:
 [Try out all these examples at the Cloud Shell quickstart.](quickstart.md)
 
 ## Pricing
-The machine hosting Cloud Shell is free, with a pre-requisite of a mounted Azure file share to persist the user $Home directory. 
+The machine hosting Cloud Shell is free, with a pre-requisite of a mounted Azure file share to persist your $Home directory. 
 Regular storage costs apply.
 
 ## Supported browsers
