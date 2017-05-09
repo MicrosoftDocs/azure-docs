@@ -30,7 +30,7 @@ using Microsoft.Identity.Client;
 <!-- Workaround for Docs conversion bug -->
 <ol start="2">
 <li>
-Replace *MainWindow* class code with:
+Replace <code>MainWindow</code> class code with:
 </li>
 </ol>
 
