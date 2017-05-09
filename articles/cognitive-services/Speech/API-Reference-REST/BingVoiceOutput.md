@@ -50,9 +50,9 @@ Clients must use the following endpoint to access the text-to-speech service:
 The following table shows HTTP headers that are used for voice synthesis requests.
 
 Header   |Value  |Comments 
----------|---------|---------
+---------|-------------|-----
 Content-Type     |    application/ssml+xml     |      The input content type   
-X-Microsoft-OutputFormat     |  **1)** ssml-16khz-16bit-mono-tts, **2)** raw-16khz-16bit-mono-pcm, **3)** audio-16khz-16kbps-mono-siren, **4)** riff-16khz-16kbps-mono-siren, **5)** riff-16khz-16bit-mono-pcm, **6)** audio-16khz-128kbitrate-mono-mp3, **7)** audio-16khz-64kbitrate-mono-mp3, or **8)** audio-16khz-32kbitrate-mono-mp3 |       The output audio format  
+X-Microsoft-OutputFormat     |  **1.** ssml-16khz-16bit-mono-tts <br> **2.** raw-16khz-16bit-mono-pcm <br>**3.** audio-16khz-16kbps-mono-siren <br> **4.** riff-16khz-16kbps-mono-siren <br>  **5.** riff-16khz-16bit-mono-pcm <br> **6.** audio-16khz-128kbitrate-mono-mp3 <br>  **7.** audio-16khz-64kbitrate-mono-mp3 <br> **8.** audio-16khz-32kbitrate-mono-mp3 |       The output audio format  
 X-Search-AppId     |    A GUID (hex only, no dashes)     |     An ID that uniquely identifies the client application. This can be the store ID for apps. If one is not available, the ID can be user generated for an application.     
 X-Search-ClientID     |     A GUID (hex only, no dashes)    |    An ID that uniquely identifies an application instance per installation.     
 User-Agent     |     Application name    |     The application name is required and must be fewer than 255 characters.    
@@ -64,13 +64,13 @@ The following table provides a complete list of recognized input parameters.
 
 Parameter   |Description | Values 
 ---------|---------|----------
-VoiceType | Indicates the preferred gender of the voice to speak the synthesized text. | Female, Male 
-VoiceName | Indicates the processor-specific voice name used to speak the synthesized text. | See [Supported locales and voice fonts](#SupLocales).
-Locale | Indicates the language used to speak the synthesized text. | See [Supported locales and voice fonts](#SupLocales).  
+VoiceType | Indicates the preferred gender of the voice to speak the synthesized text | Female, Male 
+VoiceName | Indicates the processor-specific voice name used to speak the synthesized text | See [Supported locales and voice fonts](#SupLocales).
+Locale | Indicates the language used to speak the synthesized text | See [Supported locales and voice fonts](#SupLocales).  
 OutputFormat | Indicates the audio format that the text will be synthesized into | SSML16Khz16BitMonoTTS, Raw16khz16bitMonoPCM, Audio16khz16kbpsMonoSiren, Riff16khz16kbpsMonoSiren, Riff16khz16bitMonoPcm, Audio16khz128kbitrateMonoMp3, Audio16khz64kbitrateMonoMp3, Audio16khz32kbitrateMonoMp3 
 RequestUri | Indicates the URI of the Internet resource associated with the request | 
 AuthorizationToken | Token used to validate the transaction | 
-Text | The text to be synthesized. |  Unsafe characters should be escaped in accordance with the [W3C URL specifications](http://www.w3.org/Addressing/URL/url-spec.txt).
+Text | The text to be synthesized |  Unsafe characters should be escaped in accordance with the [W3C URL specifications](http://www.w3.org/Addressing/URL/url-spec.txt).
 
 >[!NOTE]
 >Requests with more than one instance of any parameter result in an HTTP 400 error response.
