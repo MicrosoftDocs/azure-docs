@@ -56,4 +56,4 @@ The publisher needs to specify the permissions required by the vendor to manage 
 ## Next steps
 
 * To understand the vendor experience, see [Create and publish an Azure Managed Application](managed-application-publishing.md).
-* To understand the consumer experience, see [Consume an Azure Managed Application](managed-application-consumption,md).
+* To understand the consumer experience, see [Consume an Azure Managed Application](managed-application-consumption.md).

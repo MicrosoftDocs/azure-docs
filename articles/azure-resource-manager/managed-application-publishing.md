@@ -203,4 +203,4 @@ The parameters used in the preceding example are:
 ## Next steps
 
 * For an introduction to managed applications, see [Azure Managed Application overview](managed-application-overview.md).
-* To understand the consumer experience, see [Consume an Azure Managed Application](managed-application-consumption,md).
+* To understand the consumer experience, see [Consume an Azure Managed Application](managed-application-consumption.md).

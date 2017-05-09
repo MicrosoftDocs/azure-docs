@@ -88,13 +88,13 @@ This command returns the appliance definition. You need the value of **Id** prop
 
 ## Create the managed application using Portal
 
-The support to consume managed applications published by the ISVs is also present in the portal. You can follow the below steps -
+The support to consume managed applications published by the ISVs is also present in the portal. You can follow the following steps:
 
 Select the Managed Application from the Create blade in Azure portal -
 
 ![](./media/managed-application-consumption/create-blade.png)
 
-Next, you will see the list of offers from various ISVs/partners. Please select the one you would like to create and click "Create"
+Next, you see the list of offers from various ISVs/partners. Select the one you would like to create and click "Create"
 
 ![](./media/managed-application-consumption/select-offer.png)
 
@@ -102,7 +102,7 @@ After clicking create, provide the parameters required to provision the resource
 
 ![](./media/managed-application-consumption/input-parameters.png)
 
-Once all these have been provided, click OK. The template will be validated against the inputs you have provided and if validation succeeds, the template deployment will start. After the deployment has completed, the appropriate resources as defined in the template will be provisioned in the managed resource group provided by you.
+Once all these have been provided, click OK. The template is validated against the inputs you provided. If validation succeeds, the template deployment starts. After the deployment has completed, the appropriate resources defined in the template are provisioned in the managed resource group you provided.
 
 
 
