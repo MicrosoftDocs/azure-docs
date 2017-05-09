@@ -31,7 +31,6 @@ ms.author: spelluru
 > * [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
 > * [.NET Custom Activity](data-factory-use-custom-activities.md)
 
-## Overview
 There are two types of activities that you can use in an Azure Data Factory pipeline.
 
 - [Data Movement Activities](data-factory-data-movement-activities.md) to move data between [supported source and sink data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
@@ -47,7 +46,7 @@ The following walkthrough provides step-by-step instructions for creating a cust
 > - The custom .NET activities run only on Windows-based HDInsight clusters. A workaround for this limitation is to use the Map Reduce Activity to run custom Java code on a Linux-based HDInsight cluster. Another option is to use an Azure Batch pool of VMs to run custom activities instead of using a HDInsight cluster.
 > - It is not possible to use a Data Management Gateway from a custom activity to access on-premises data sources. Currently, [Data Management Gateway](data-factory-data-management-gateway.md) supports only the copy activity and stored procedure activity in Data Factory.   
 
-## Walkthrough
+## Walkthrough: create a custom activity
 ### Prerequisites
 * Visual Studio 2012/2013/2015
 * Download and install [Azure .NET SDK][azure-developer-center]
@@ -84,7 +83,7 @@ Here are the two high-level steps you perform as part of this walkthrough:
 1. Create a custom activity that contains simple data transformation/processing logic.
 2. Create an Azure data factory with a pipeline that uses the custom activity.
 
-## Create a custom activity
+### Create a custom activity
 To create a .NET custom activity, create a **.NET Class Library** project with a class that implements that **IDotNetActivity** interface. This interface has only one method: [Execute](https://msdn.microsoft.com/library/azure/mt603945.aspx) and its signature is:
 
 ```csharp
@@ -377,18 +376,8 @@ The method returns a dictionary that can be used to chain custom activities toge
 14. Create a blob container named **customactivitycontainer** if it does not already exist.	
 15. Upload MyDotNetActivity.zip as a blob to the customactivitycontainer in a **general-purpose** Azure blob storage (not hold/cool Blob storage) that is referred by AzureStorageLinkedService.  
 
-## Data Factory project in Visual Studio  
-You can create and publish Data Factory entities by using Visual Studio instead of using Azure portal. For detailed information about creating and publishing Data Factory entities by using Visual Studio, See [Build your first pipeline using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) and [Copy data from Azure Blob to Azure SQL](data-factory-copy-activity-tutorial-using-visual-studio.md) articles.
-
-Do the following additional steps if you are creating Data Factory project in Visual Studio:
- 
-1. Add the Data Factory project to the Visual Studio solution that contains the custom activity project. 
-2. Add a reference to the .NET activity project from the Data Factory project. Right-click Data Factory project, point to **Add**, and then click **Reference**.
-3. Select the **MyDotNetActivity** project, and click **OK**.
-4. Build and publish the solution.
-
 > [!IMPORTANT]
-> When you publish Data Factory entities, a zip file is automatically created for you and is uploaded to the blob container: customactivitycontainer. If the blob container does not exist, it is automatically created too.      
+> If you add this .NET activity project to a solution in Visual Studio that contains a Data Factory project, and add a reference to .NET activity project from the Data Factory application project, you do not need to perform the last two steps of manually creating the zip file and uploading it to the general-purpose Azure blob storage. When you publish Data Factory entities using Visual Studio, these steps are automatically done by the publishing process. For more information, see [Data Factory project in Visual Studio](#data-factory-project-in-visual-studio) section.
 
 ## Create a pipeline with custom activity
 You have created a custom activity and uploaded the zip file with binaries to a blob container in a **general-purpose** Azure Storage Account. In this section, you create an Azure data factory with a pipeline that uses the custom activity.
@@ -654,6 +643,20 @@ In this step, you create datasets to represent input and output data.
    ![download logs from custom activity][image-data-factory-download-logs-from-custom-activity]
 
 See [Monitor and Manage Pipelines](data-factory-monitor-manage-pipelines.md) for detailed steps for monitoring datasets and pipelines.      
+
+## Data Factory project in Visual Studio  
+You can create and publish Data Factory entities by using Visual Studio instead of using Azure portal. For detailed information about creating and publishing Data Factory entities by using Visual Studio, See [Build your first pipeline using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) and [Copy data from Azure Blob to Azure SQL](data-factory-copy-activity-tutorial-using-visual-studio.md) articles.
+
+Do the following additional steps if you are creating Data Factory project in Visual Studio:
+ 
+1. Add the Data Factory project to the Visual Studio solution that contains the custom activity project. 
+2. Add a reference to the .NET activity project from the Data Factory project. Right-click Data Factory project, point to **Add**, and then click **Reference**. 
+3. In the **Add Reference** dialog box, select the **MyDotNetActivity** project, and click **OK**.
+4. Build and publish the solution.
+
+	> [!IMPORTANT]
+	> When you publish Data Factory entities, a zip file is automatically created for you and is uploaded to the blob container: customactivitycontainer. If the blob container does not exist, it is automatically created too.  
+
 
 ## Data Factory and Batch integration
 The Data Factory service creates a job in Azure Batch with the name: **adf-poolname: job-xxx**. Click **Jobs** from the left menu. 
