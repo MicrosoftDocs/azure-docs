@@ -33,7 +33,7 @@ ms.author: sedusch
 [sap-hana-ha]:sap-hana-high-availability.md
 
 This article describes how to deploy the virtual machines, configure the virtual machines, install the cluster framework and install a highly available SAP NetWeaver 7.50 system.
-In the example configurations, installation commands etc. ASCS instance number 00, ERS instance number 02 and SAP System ID NWS is used. The names of the resources (e.g. virtual machines, virtual networks) in the example assume that you have used the  [converged template][template-converged] with SAP system ID NWS to create the resources.
+In the example configurations, installation commands etc. ASCS instance number 00, ERS instance number 02 and SAP System ID NWS is used. The names of the resources (for example virtual machines, virtual networks) in the example assume that you have used the  [converged template][template-converged] with SAP system ID NWS to create the resources.
 
 Read the following SAP Notes and papers first
 
@@ -43,55 +43,66 @@ Read the following SAP Notes and papers first
   The guide contains all required information to set up a highly available NFS server. Use this guide as a baseline.
 
 
-## Load balancer configuration
+## Overview
 
-NFS Server
+To achieve high availability, SAP NetWeaver requires an NFS server. To reduce the number of virtual machines, the NFS server is configured in the same cluster together with the SAP NetWeaver ASCS/SCS and ERS. The NFS shares are mounted using autofs.
+
+![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse/img_001.png)
+
+The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the load balancer.
+
+### NFS Server
 * Frontend configuration
   * IP address 10.0.0.6
 * Backend configuration
+  * Connected to primary network interfaces of all virtual machines that should be part of the cluster
 * Probe Port
   * Port 61000
 * Loadbalancing rules
   * 2049 TCP 
   * 2049 UDP
-TODO 111???
+  * 111 TCP
+  * 111 UDP
 
-ASCS
+### ASCS
 * Frontend configuration
   * IP address 10.0.0.7
 * Backend configuration
+  * Connected to primary network interfaces of all virtual machines that should be part of the cluster
 * Probe Port
-  * Port 62000
+  * Port 620**&lt;nr&gt;**
 * Loadbalancing rules
-  * 3200 TCP
-  * 3600 TCP
-  * 3900 TCP
-  * 8100 TCP
-  * 50013 TCP
-  * 50014 TCP
-  * 50016 TCP
+  * 32**&lt;nr&gt;** TCP
+  * 36**&lt;nr&gt;** TCP
+  * 39**&lt;nr&gt;** TCP
+  * 81**&lt;nr&gt;** TCP
+  * 5**&lt;nr&gt;**13 TCP
+  * 5**&lt;nr&gt;**14 TCP
+  * 5**&lt;nr&gt;**16 TCP
 
-ERS
+### ERS
 * Frontend configuration
   * IP address 10.0.0.8
 * Backend configuration
+  * Connected to primary network interfaces of all virtual machines that should be part of the cluster
 * Probe Port
-  * Port 62102
+  * Port 621**&lt;nr&gt;**
 * Loadbalancing rules
-  * 3302 TCP
-  * 50213 TCP
-  * 50214 TCP
-  * 50216 TCP
+  * 33**&lt;nr&gt;** TCP
+  * 5**&lt;nr&gt;**13 TCP
+  * 5**&lt;nr&gt;**14 TCP
+  * 5**&lt;nr&gt;**16 TCP
 
-SAP HANA
+### SAP HANA
 * Frontend configuration
   * IP address 10.0.0.9
 * Backend configuration
+  * Connected to primary network interfaces of all virtual machines that should be part of the cluster
 * Probe Port
-  * Port 62503
+  * Port 625**&lt;nr&gt;**
 * Loadbalancing rules
-  * 30315 TCP
-  * 30317 TCP
+  * 3**&lt;nr&gt;**15 TCP
+  * 3**&lt;nr&gt;**17 TCP
 
 ## Deploying Linux
 
@@ -101,13 +112,13 @@ The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP
 You can use one of the quick start templates on github to deploy all required resources. The template deploys the virtual machines, the load balancer, availability set etc.
 Follow these steps to deploy the template:
 
-1. Open the [ASCS/SCS Multi SID template][template-multisid-xscs] or the [converged template][template-converged] on the Azure Portal
-   The ASCS/SCS template only creates the load-balancing rules for the SAP NetWeaver ASCS/SCS and ERS (Linux only) instances whereas the converged template also creates the load-balancing rules for a database (e.g. Microsoft SQL Server or SAP HANA). If you plan to install an SAP NetWeaver based system and you also want to install the database on the same machines, use the [converged template][template-converged].
+1. Open the [ASCS/SCS Multi SID template][template-multisid-xscs] or the [converged template][template-converged] on the Azure portal
+   The ASCS/SCS template only creates the load-balancing rules for the SAP NetWeaver ASCS/SCS and ERS (Linux only) instances whereas the converged template also creates the load-balancing rules for a database (for example Microsoft SQL Server or SAP HANA). If you plan to install an SAP NetWeaver based system and you also want to install the database on the same machines, use the [converged template][template-converged].
 1. Enter the following parameters
     1. Resource Prefix (ASCS/SCS Multi SID template only)  
-       Enter the prefix you want to use. The value will be used as a prefix for the resources that are deployed.
+       Enter the prefix you want to use. The value is used as a prefix for the resources that are deployed.
     3. Sap System Id (converged template only)
-       Enter the SAP system Id of the SAP system you want to install. The Id will be used as a prefix for the resources that are deployed.
+       Enter the SAP system Id of the SAP system you want to install. The Id is used as a prefix for the resources that are deployed.
     4. Stack Type
        Select the SAP NetWeaver stack type
     5. Os Type
@@ -115,7 +126,7 @@ Follow these steps to deploy the template:
     6. Db Type
        Select HANA
     7. Sap System Size
-       The amount of SAPS the new system will provide. If you are not sure how many SAPS the system will require, please ask your SAP Technology Partner or System Integrator
+       The amount of SAPS the new system provides. If you are not sure how many SAPS the system requires, please ask your SAP Technology Partner or System Integrator
     8. System Availability
        Select HA
     9. Admin Username and Admin Password
@@ -123,18 +134,21 @@ Follow these steps to deploy the template:
     10. New Or Existing Subnet
        Determines whether a new virtual network and subnet should be created or an existing subnet should be used. If you already have a virtual network that is connected to your on-premises network, select existing.
     11. Subnet Id
-    The ID of the subnet to which the virtual machines should be connected to. Select the subnet of your VPN or Express Route virtual network to connect the virtual machine to your on-premises network. The ID usually looks like /subscriptions/`<subscription id`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`>
+    The ID of the subnet to which the virtual machines should be connected to. Select the subnet of your VPN or Express Route virtual network to connect the virtual machine to your on-premises network. The ID usually looks like /subscriptions/**&lt;subscription id&gt;**/resourceGroups/**&lt;resource group name&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;virtual network name&gt;**/subnets/**&lt;subnet name&gt;**
 
 ## Setting up a highly available NFS server
 
-1. [A] Update SLES
-    ```bash
+The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1 or **[2]** - only applicable to node 2.
+
+1. **[A]** Update SLES
+
+    <pre><code>
     sudo zypper update
+    </code></pre>
 
-    ```
+1. **[1]** Enable ssh access
 
-1. [1] Enable ssh access
-    ```bash
+    <pre><code>
     sudo ssh-keygen -tdsa
     
     # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
@@ -143,10 +157,11 @@ Follow these steps to deploy the template:
     
     # copy the public key
     sudo cat /root/.ssh/id_dsa.pub
-    ```
+    </code></pre>
 
-2. [2] Enable ssh access
-    ```bash
+2. **[2]** Enable ssh access
+
+    <pre><code>
     sudo ssh-keygen -tdsa
 
     # insert the public key you copied in the last step into the authorized keys file on the second server
@@ -158,27 +173,29 @@ Follow these steps to deploy the template:
     
     # copy the public key    
     sudo cat /root/.ssh/id_dsa.pub
-    ```
+    </code></pre>
 
-1. [1] Enable ssh access
+1. **[1]** Enable ssh access
     ```bash
     # insert the public key you copied in the last step into the authorized keys file on the first server
     sudo vi /root/.ssh/authorized_keys
-    
-    ```
+    </code></pre>
 
-1. [A] Install HA extension
-    ```bash
+1. **[A]** Install HA extension
+    
+    <pre><code>
     sudo zypper install sle-ha-release fence-agents
-    
-    ```
+    </code></pre>
 
-1. [A] Setup host name resolution    
+1. **[A]** Setup host name resolution    
+
     You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
     Replace the IP address and the hostname in the following commands
-    ```bash
+
+    <pre><code>
     sudo vi /etc/hosts
-    ```
+    </code></pre>
+    
     Insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment    
     
     <pre><code>
@@ -195,40 +212,42 @@ Follow these steps to deploy the template:
     <b>10.0.0.11 nws-cl-1</b>
     </code></pre>
 
-1. [1] Install Cluster
-    ```bash
+1. **[1]** Install Cluster
+    
+    <pre><code>
     sudo ha-cluster-init
     
     # Do you want to continue anyway? [y/N] -> y
-    # Network address to bind to (e.g.: 192.168.1.0) [10.79.227.0] -> ENTER
-    # Multicast address (e.g.: 239.x.x.x) [239.174.218.125] -> ENTER
+    # Network address to bind to (for example: 192.168.1.0) [10.79.227.0] -> ENTER
+    # Multicast address (for example: 239.x.x.x) [239.174.218.125] -> ENTER
     # Multicast port [5405] -> ENTER
     # Do you wish to use SBD? [y/N] -> N
     # Do you wish to configure an administration IP? [y/N] -> N
-    ```
+    </code></pre>
         
-1. [2] Add node to cluster
-    ```bash
+1. **[2]** Add node to cluster
+    
+    <pre><code> 
     sudo ha-cluster-join
         
     # WARNING: NTP is not configured to start at system boot.
     # WARNING: No watchdog device found. If SBD is used, the cluster will be unable to start without a watchdog.
     # Do you want to continue anyway? [y/N] -> y
-    # IP address or hostname of existing node (e.g.: 192.168.1.1) [] -> IP address of node 1 e.g. 10.0.0.8
+    # IP address or hostname of existing node (for example: 192.168.1.1) [] -> IP address of node 1 for example 10.0.0.8
     # /root/.ssh/id_dsa already exists - overwrite? [y/N] N
-    ```
+    </code></pre>
 
-1. [A] Change hacluster password to the same password
-    ```bash
+1. **[A]** Change hacluster password to the same password
+    
+    <pre><code> 
     sudo passwd hacluster
-    
-    ```
+    </code></pre>
 
-1. [A] Configure corosync to use other transport and add nodelist. Cluster will not work otherwise.
-    ```bash
-    sudo vi /etc/corosync/corosync.conf    
+1. **[A]** Configure corosync to use other transport and add nodelist. Cluster will not work otherwise.
     
-    ```
+    <pre><code> 
+    sudo vi /etc/corosync/corosync.conf    
+    </code></pre>
 
     Add the following bold content to the file.
     
@@ -253,31 +272,31 @@ Follow these steps to deploy the template:
 
     Then restart the corosync service
 
-    ```bash
+    <pre><code>
     sudo service corosync restart
-    
-    ```
+    </code></pre>
 
-1. [A] Install drbd components
-    ```bash
+1. **[A]** Install drbd components
+
+    <pre><code>
     sudo zypper install drbd drbd-kmp-default drbd-utils
-    
-    ```
+    </code></pre>
 
-1. [A] Create a partition for the drbd device
+1. **[A]** Create a partition for the drbd device
 
     <pre><code>
     sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/sdc'
     </code></pre>
 
-1. [A] Create a LVM configuration
+1. **[A]** Create an LVM configuration
+
     <pre><code>
     sudo pvcreate /dev/sdc1    
     sudo vgcreate vg_<b>NWS</b> /dev/sdc1
     sudo lvcreate -l 100%FREE -n <b>NWS</b> vg_<b>NWS</b>
     </code></pre>
 
-1. [A] Create the drbd device
+1. **[A]** Create the drbd device
 
     <pre><code>
     sudo vi /etc/drbd.d/<b>NWS</b>_nfs.res
@@ -313,13 +332,13 @@ Follow these steps to deploy the template:
     sudo drbdadm up <b>NWS</b>_nfs
     </code></pre>
 
-1. [1] Set the primary node
+1. **[1]** Set the primary node
 
     <pre><code>
     sudo drbdadm primary --force <b>NWS</b>_nfs
     </code></pre>
 
-1. [1] Wait until the new drbd device is syncronized
+1. **[1]** Wait until the new drbd device is synchronized
 
     <pre><code>
     sudo cat /proc/drbd
@@ -331,16 +350,16 @@ Follow these steps to deploy the template:
 
     </code></pre>
 
-1. [1] Create a file system on the drbd device
+1. **[1]** Create a file system on the drbd device
 
     <pre><code>
     sudo mkfs.xfs /dev/drbd0
     </code></pre>
 
 
-## Configure Cluster Framework
+### Configure Cluster Framework
 
-1. [1] Change the default settings
+1. **[1]** Change the default settings
 
     <pre><code>
     sudo crm configure
@@ -351,7 +370,7 @@ Follow these steps to deploy the template:
     crm(live)configure# exit
     </code></pre>
 
-1. [1] Add the drbd device to the cluster configuration
+1. **[1]** Add the drbd device to the cluster configuration
 
     <pre><code>
     sudo crm configure
@@ -370,7 +389,7 @@ Follow these steps to deploy the template:
     crm(live)configure# exit
     </code></pre>
 
-1. [1] Create the NFS server
+1. **[1]** Create the NFS server
 
     <pre><code>
     sudo crm configure
@@ -385,7 +404,7 @@ Follow these steps to deploy the template:
     crm(live)configure# exit
     </code></pre>
 
-1. [1] Create the File System resources
+1. **[1]** Create the File System resources
 
     <pre><code>
     sudo crm configure
@@ -409,7 +428,7 @@ Follow these steps to deploy the template:
     crm(live)configure# exit
     </code></pre>
 
-1. [1] Create the NFS exports
+1. **[1]** Create the NFS exports
 
     <pre><code>
     sudo mkdir /srv/nfs/NWS/sidsys
@@ -432,7 +451,7 @@ Follow these steps to deploy the template:
     crm(live)configure# exit
     </code></pre>
 
-1. [1] Create a virtual IP resources and healt-probe for the internal load balancer
+1. **[1]** Create a virtual IP resource and health-probe for the internal load balancer
 
     <pre><code>
     sudo crm configure
@@ -454,7 +473,7 @@ Follow these steps to deploy the template:
 
 ## Prepare for SAP NetWeaver installation
 
-1. [A] Create the shared directories
+1. **[A]** Create the shared directories
 
     <pre><code>
     sudo mkdir -p /sapmnt/<b>NWS</b>
@@ -466,7 +485,7 @@ Follow these steps to deploy the template:
     sudo chattr +i /usr/sap/<b>NWS</b>/SYS
     </code></pre>
 
-1. [A] Configure autofs
+1. **[A]** Configure autofs
  
     <pre><code>
     sudo vi /etc/auto.master
@@ -476,7 +495,7 @@ Follow these steps to deploy the template:
     /- /etc/auto.direct
     </code></pre>
 
-    Create a new file with
+    Create a file with
 
     <pre><code>
     sudo vi /etc/auto.direct
@@ -494,7 +513,7 @@ Follow these steps to deploy the template:
     sudo service autofs restart
     </code></pre>
 
-1. [A] Configure SWAP file
+1. **[A]** Configure SWAP file
  
     <pre><code>
     sudo vi /etc/waagent.conf
@@ -514,7 +533,7 @@ Follow these steps to deploy the template:
 
 ## Installing SAP NetWeaver ASCS/ERS
 
-1. [1] Create a virtual IP resources and healt-probe for the internal load balancer
+1. **[1]** Create a virtual IP resource and health-probe for the internal load balancer
 
     <pre><code>
     sudo crm configure
@@ -550,15 +569,15 @@ Follow these steps to deploy the template:
     sudo crm resource move g-<b>NWS</b>_ERS <b>nws-cl-0</b>
     </code></pre>
 
-1. [1] Install SAP NetWeaver ASCS  
+1. **[1]** Install SAP NetWeaver ASCS  
 
-  Install SAP NetWeaver ASCS as root using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ASCS e.g. <b>nws-ascs</b>, <b>10.0.0.7</b> and the instance number that you used for the probe of the load balancer e.g. <b>00</b>.
+Install SAP NetWeaver ASCS as root using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ASCS for example <b>nws-ascs</b>, <b>10.0.0.7</b> and the instance number that you used for the probe of the load balancer for example <b>00</b>.
 
-1. [1] Install SAP NetWeaver ERS  
+1. **[1]** Install SAP NetWeaver ERS  
 
-  Install SAP NetWeaver ERS as root using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ERS e.g. <b>nws-ers</b>, <b>10.0.0.8</b> and the instance number that you used for the probe of the load balancer e.g. <b>02</b>.
+Install SAP NetWeaver ERS as root using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ERS for example <b>nws-ers</b>, <b>10.0.0.8</b> and the instance number that you used for the probe of the load balancer for example <b>02</b>.
 
-1. [1] Adapt the ASCS/SCS and ERS instance profiles
+1. **[1]** Adapt the ASCS/SCS and ERS instance profiles
  
     * ASCS profile
 
@@ -580,7 +599,7 @@ Follow these steps to deploy the template:
     service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
     </code></pre>
 
-1. [1] Create the SAP users and groups
+1. **[1]** Create the SAP users and groups
  
     <pre><code>
     # Add sidadm to the haclient group
@@ -593,7 +612,7 @@ Follow these steps to deploy the template:
     sapid=$(sudo cat /etc/passwd | grep -Eo 'sapadm:x:([^:]*):' | grep -oe '\([0-9.]*\)';); sudo ssh <b>nws-cl-1</b> "useradd -u $sapid -g $sapsysid sapadm"
     </code></pre>
 
-1. [2] Configure the SAP users on the second node
+1. **[2]** Configure the SAP users on the second node
 
     <pre><code>
     # Add sidadm to the haclient group
@@ -610,7 +629,7 @@ Follow these steps to deploy the template:
     sudo chsh -s /bin/false sapadm
     </code></pre>
 
-1. [1] Copy the SAP directories to second node
+1. **[1]** Copy the SAP directories to second node
 
     <pre><code>
     sudo rsync -av /home/<b>nws</b>adm/ <b>nws-cl-1</b>:/home/<b>nws</b>adm
@@ -619,14 +638,14 @@ Follow these steps to deploy the template:
     sudo rsync -av /usr/sap/<b>NWS</b>/ERS<b>02</b>/ <b>nws-cl-1</b>:/usr/sap/<b>NWS</b>/ERS<b>02</b>
     sudo rsync -av /usr/sap/<b>NWS</b>/ASCS<b>00</b>/ <b>nws-cl-1</b>:/usr/sap/<b>NWS</b>/ASCS<b>00</b>
 
-    # Copy the services e.g. copy the complete file
+    # Copy the services for example copy the complete file
     sudo rsync -av /etc/services <b>nws-cl-1</b>:/etc
 
-    # Copy the SAP services e.g. copy the complete file
+    # Copy the SAP services for example copy the complete file
     sudo rsync -av /usr/sap/sapservices <b>nws-cl-1</b>:/usr/sap/
     </code></pre>
 
-1. [1] Create the SAP cluster resources
+1. **[1]** Create the SAP cluster resources
 
     <pre><code>
     sudo crm configure
@@ -653,7 +672,7 @@ Follow these steps to deploy the template:
     crm(live)configure# exit
     </code></pre>
 
-1. [1] Remove location restriction
+1. **[1]** Remove location restriction
 
     <pre><code>
     sudo crm configure delete cli-prefer-g-NWS_ASCS
@@ -662,7 +681,7 @@ Follow these steps to deploy the template:
 
 ## Create STONITH device
 
-The STONITH device uses a Service Principal to authorize against Microsoft Azure. Please follow these steps to create a Service Principal.
+The STONITH device uses a Service Principal to authorize against Microsoft Azure. Follow these steps to create a Service Principal.
 
 1. Go to <https://portal.azure.com>
 1. Open the Azure Active Directory blade  
@@ -689,11 +708,11 @@ The Service Principal does not have permissions to access your Azure resources b
 
 After you edited the permissions for the virtual machines, you can configure the STONITH devices in the cluster.
 
-<pre>
+<pre><code>
 sudo vi crm-fencing.txt
 # enter the following to crm-fencing.txt
 # replace the bold string with your subscription id, resource group, tenant id, service principal id and password
-<code>
+
 primitive rsc_st_azure_1 stonith:fence_azure_arm \
     params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
 
@@ -701,11 +720,10 @@ primitive rsc_st_azure_2 stonith:fence_azure_arm \
     params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
 
 colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
-</code>
 
 # now we load the file to the cluster
 sudo crm configure load update crm-fencing.txt
-</pre>
+</code></pre>
 
 Enable the use of a STONITH device
 
@@ -715,11 +733,11 @@ crm configure property stonith-enabled=true 
 
 ## Install database
 
-In this example a SAP HANA System Replication is installed and configured. SAP HANA will run in the same cluster as the SAP ASCS/SCS and ERS. You can also install SAP HANA on a dedicated cluster. See [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha] for more information.
+In this example an SAP HANA System Replication is installed and configured. SAP HANA will run in the same cluster as the SAP ASCS/SCS and ERS. You can also install SAP HANA on a dedicated cluster. See [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha] for more information.
 
-1. [A] Setup disk layout
+1. **[A]** Setup disk layout
     1. LVM  
-    We generally recommend to use LVM for volumes that store data and log files. The example below assumes that the virtual machines have four data disks attached that should be used to create two volumes.
+    We generally recommend to using LVM for volumes that store data and log files. The example below assumes that the virtual machines have four data disks attached that should be used to create two volumes.
         * Create physical volumes for all disks that you want to use.
     <pre><code>
     sudo pvcreate /dev/sdd
@@ -785,17 +803,17 @@ In this example a SAP HANA System Replication is installed and configured. SAP H
 
     Create the target directory and mount the disk.
 
-    ```bash
+    <pre><code>
     sudo mkdir /hana
     sudo chattr +i /hana
     sudo service autofs restart
-    ```
+    </code></pre>
 
-## Installing SAP HANA
+1. **[A]** Installing SAP HANA
 
-Follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-hana-ha-guide] to install SAP HANA System Replication.
+    The following steps are based on chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-hana-ha-guide] to install SAP HANA System Replication. Please read it before you continue the installation.
 
-1. [A] Run hdblcm from the HANA DVD
+    1. **[A]** Run hdblcm from the HANA DVD
 
     Use a virtual hostname for the installation that maps to the IP address of the load balancer frontend configuration for the database.
     <pre><code>
@@ -803,13 +821,15 @@ Follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-
     sudo hdblcm --sid=HDB --number=03 --action=install --batch --hostname <b>nws-db</b> --password=<b>&lt;password&gt;</b> --system_user_password=<b>&lt;password for system user&gt;</b>
     </code></pre>
 
-1. [A] Upgrade SAP Host Agent
-  Download the latest SAP Host Agent archive from the [SAP Softwarecenter][sap-swcenter] and run the following command to upgrade the agent. Replace the path to the archive to point to the file you downloaded.
+    1. **[A]** Upgrade SAP Host Agent
+
+    Download the latest SAP Host Agent archive from the [SAP Softwarecenter][sap-swcenter] and run the following command to upgrade the agent. Replace the path to the archive to point to the file you downloaded.
     <pre><code>
     sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <b>&lt;path to SAP Host Agent SAR&gt;</b> 
     </code></pre>
 
-1. [1] Create HANA replication (as root)  
+    1. **[1]** Create HANA replication (as root)  
+
     Run the following command. Make sure to replace bold strings (HANA System ID HDB and instance number 03) with the values of your SAP HANA installation.
     <pre><code>
     PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
@@ -818,29 +838,36 @@ Follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-
     hdbsql -u system -i <b>03</b> 'ALTER USER <b>hdb</b>hasync DISABLE PASSWORD LIFETIME' 
     </code></pre>
 
-1. [A] Create keystore entry (as root)
+    1. **[A]** Create keystore entry (as root)
+
     <pre><code>
     PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
     hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
     </code></pre>
-1. [1] Backup database (as root)
+
+    1. **[1]** Backup database (as root)
+
     <pre><code>
     PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
     hdbsql -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')" 
     </code></pre>
-1. [1] Switch to the sapsid user (for example hdbadm) and create the primary site.
+
+    1. **[1]** Switch to the sapsid user (for example hdbadm) and create the primary site.
+
     <pre><code>
     su - <b>hdb</b>adm
     hdbnsutil -sr_enable –-name=<b>SITE1</b>
     </code></pre>
-1. [2] Switch to the sapsid user (for example hdbadm) and create the secondary site.
+
+    1. **[2]** Switch to the sapsid user (for example hdbadm) and create the secondary site.
+
     <pre><code>
     su - <b>hdb</b>adm
     sapcontrol -nr <b>03</b> -function StopWait 600 10
     hdbnsutil -sr_register --remoteHost=<b>nws-cl-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
     </code></pre>
 
-1. [1] Create SAP HANA cluster resources
+    1. **[1]** Create SAP HANA cluster resources
 
     <pre>
     sudo vi crm-saphanatop.txt
@@ -901,9 +928,9 @@ Follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-
     sudo crm configure load update crm-saphana.txt
     </pre>
 
-1. [1] Install the SAP NetWeaver database instance
+1. **[1]** Install the SAP NetWeaver database instance
 
-  Install the SAP NetWeaver database intance as root using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the database e.g. <b>nws-db</b> and <b>10.0.0.9</b>.
+Install the SAP NetWeaver database instance as root using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the database for example <b>nws-db</b> and <b>10.0.0.9</b>.
 
 ## SAP NetWeaver application server installation
 
@@ -978,6 +1005,18 @@ Follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-
 
     # Restart the Agent to activate the change
     sudo service waagent restart
+    </code></pre>
+
+1. Install SAP NetWeaver application server
+
+Install a primary or additional SAP NetWeaver applications server.
+
+1. Update SAP HANA secure store
+
+    Update the SAP HANA secure store to point to the virtual name of the SAP HANA System Replication setup.
+    <pre><code>
+    su - <b>nws</b>adm
+    hdbuserstore SET DEFAULT <b>nws-db</b>:3<b>03</b>15 <b>SAPABAP1</b> <b>&lt;password of ABAP schema&gt;</b>
     </code></pre>
 
 ## Next steps
