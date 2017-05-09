@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 03/09/2017
 ms.author: jeedes
 
 ---
@@ -28,16 +28,17 @@ After completing this tutorial, the Azure AD users you have assigned to ITRP wil
 The scenario outlined in this tutorial consists of the following building blocks:
 
 1. Enabling the application integration for ITRP
-2. Configuring single sign-on
+2. Configuring single sign-on (SSO)
 3. Configuring user provisioning
 4. Assigning users
 
 ![Scenario](./media/active-directory-saas-itrp-tutorial/IC775551.png "Scenario")
 
-## Enabling the application integration for ITRP
+## Enable the application integration for ITRP
 The objective of this section is to outline how to enable the application integration for ITRP.
 
-### To enable the application integration for ITRP, perform the following steps:
+**To enable the application integration for ITRP, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
     ![Active Directory](./media/active-directory-saas-itrp-tutorial/IC700993.png "Active Directory")
@@ -64,13 +65,16 @@ The objective of this section is to outline how to enable the application integr
    
     ![ITRP](./media/active-directory-saas-itrp-tutorial/IC775566.png "ITRP")
    
-## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to ITRP with their account in Azure AD using federation based on the SAML protocol.  
+
 Configuring single sign-on for ITRP requires you to retrieve a thumbprint value from a certificate.  
+
 If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
 
-### To configure single sign-on, perform the following steps:
+**To configure single sign-on, perform the following steps:**
+
 1. In the Azure classic portal, on the **ITRP** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
     ![Configure single sign-on](./media/active-directory-saas-itrp-tutorial/IC771709.png "Configure single sign-on")
@@ -101,33 +105,30 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
    
     ![Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775572.png "Single Sign-On")
     
-    ![Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775573.png "Single Sign-On")
-   
-    a. Click **Enable**.
-   
-    b. In the Azure classic portal, on the **Configure single sign-on at ITRP** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Remote Logout URL** textbox.
-   
-    c. In the Azure classic portal, on the **Configure single sign-on at ITRP** dialog page, copy the **SAML SSO URL** value, and then paste it into the **SAML SSO URL** textbox.
-   
-    d. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Certificate Fingerprint** textbox.
+    ![Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775573.png "Single Sign-On")   
+  1. Click **Enable**.
+  2. In the Azure classic portal, on the **Configure single sign-on at ITRP** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Remote Logout URL** textbox.
+  3. In the Azure classic portal, on the **Configure single sign-on at ITRP** dialog page, copy the **SAML SSO URL** value, and then paste it into the **SAML SSO URL** textbox.
+  4. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Certificate Fingerprint** textbox.
       
-    > [!TIP]
-    > For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
-    > 
-    > 
-   
-    e. Click **Save**.
+     >[!TIP]
+     >For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
+     >
+    
+  5. Click **Save**.
 
 9. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    
     ![Configure Single Sign-On](./media/active-directory-saas-itrp-tutorial/IC775574.png "Configure Single Sign-On")
    
-## Configuring user provisioning
+## Configure user provisioning
 
 In order to enable Azure AD users to log into ITRP, they must be provisioned into ITRP.  
+
 In the case of ITRP, provisioning is a manual task.
 
-### To provision a user accounts, perform the following steps:
+**To provision a user accounts, perform the following steps:**
+
 1. Log in to your **ITRP** tenant.
 
 2. In the toolbar on the top, click **Records**.
@@ -144,21 +145,19 @@ In the case of ITRP, provisioning is a manual task.
 
 5. On the Add New Person dialog, perform the following steps:
    
-    ![User](./media/active-directory-saas-itrp-tutorial/IC775577.png "User")
-   
-    a. Type the **Name**, **Email** of a valid AAD account you want to provision.
-   
-    b. Click **Save**.
+    ![User](./media/active-directory-saas-itrp-tutorial/IC775577.png "User")   
+  1. Type the **Name**, **Email** of a valid AAD account you want to provision.
+  2. Click **Save**.
 
-> [!NOTE]
-> You can use any other ITRP user account creation tools or APIs provided by ITRP to provision AAD user accounts.
-> 
+>[!NOTE]
+>You can use any other ITRP user account creation tools or APIs provided by ITRP to provision AAD user accounts. 
 > 
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to ITRP, perform the following steps:
+**To assign users to ITRP, perform the following steps:**
+
 1. In the Azure AD portal, create a test account.
 
 2. On the **ITRP **application integration page, click **Assign users**.

@@ -23,7 +23,7 @@ ms.author: genli
 
 You might receive errors when you try to delete the Azure storage account, container, or VHD in the [Azure portal](https://portal.azure.com/) or the [Azure classic portal](https://manage.windowsazure.com/). The issues can be caused by the following circumstances:
 
-* When you delete a VM, the disk and VHD are not automatically deleted. That might be the reason for failure on storage account deletion. We don’t delete the disk so that you can use the disk to mount another VM.
+* When you delete a VM, the disk and VHD are not automatically deleted. That might be the reason for failure on storage account deletion. We don't delete the disk so that you can use the disk to mount another VM.
 * There is still a lease on a disk or the blob that's associated with the disk.
 * There is still a VM image that is using a blob, container, or storage account.
 
@@ -67,7 +67,7 @@ After you delete a VM and then try to delete the blobs for the associated VHDs, 
 
 Or
 
-*Blob ‘BlobName.vhd’ is in use as virtual machine disk ‘VirtualMachineDiskName’, so the blob cannot be deleted.*
+*Blob 'BlobName.vhd' is in use as virtual machine disk 'VirtualMachineDiskName', so the blob cannot be deleted.*
 
 ## Solution
 To resolve the most common issues, try the following method:
@@ -131,7 +131,7 @@ VMs that were created in the classic deployment model and that have been retaine
 
 ![Stopped (deallocated) status for VMs on Azure classic portal.](./media/storage-cannot-delete-storage-account-container-vhd/moreinfo1.png)
 
-A “Stopped (deallocated)” status releases the computer resources, such as the CPU, memory, and network. The disks, however, are still retained so that you can quickly re-create the VM if necessary. These disks are created on top of VHDs, which are backed by Azure storage. The storage account has these VHDs, and the disks have leases on those VHDs.
+A "Stopped (deallocated)" status releases the computer resources, such as the CPU, memory, and network. The disks, however, are still retained so that you can quickly re-create the VM if necessary. These disks are created on top of VHDs, which are backed by Azure storage. The storage account has these VHDs, and the disks have leases on those VHDs.
 
 ## Next steps
 * [Delete a storage account](storage-create-storage-account.md#delete-a-storage-account)

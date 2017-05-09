@@ -1,4 +1,4 @@
-# StorSimple Virtual Array
+﻿# StorSimple Virtual Array
 ## Overview
 ### [What is the solution?](storsimple-ova-overview.md)
 
@@ -161,6 +161,7 @@
 
 ### Troubleshoot
 #### [Deployment issues](storsimple-troubleshoot-deployment.md)
+#### [Using diagnostics tool](storsimple-8000-diagnostics.md)
 #### [Operational issues](storsimple-troubleshoot-operational-device.md)
 #### [Hardware replacement](storsimple-hardware-component-replacement.md)
 ##### [Replace device controller](storsimple-controller-replacement.md)
@@ -196,7 +197,7 @@
 ### [Release - GA](storsimple-july-2014-release-notes.md)
 
 ## Reference
-### [Azure PowerShell](/powershell/servicemanagement)
+### [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
 ### [Windows PowerShell for StorSimple cmdlets](https://technet.microsoft.com/library/dn688168.aspx)
 
 # StorSimple Data Manager (Private preview)
@@ -208,7 +209,9 @@
 ### [Using StorSimple Data Manager](storsimple-data-manager-ui.md)
 
 ## How to
-### [Use .NET to transform data](storsimple-data-manager-dotnet-jobs.md)
+### [Use .NET to start jobs](storsimple-data-manager-dotnet-jobs.md)
+### [Use Automation to start jobs](storsimple-data-manager-job-using-automation.md)
+### [Change default blob path](storsimple-data-manager-change-default-blob-path.md)
 
 # StorSimple for partners
 ## Overview

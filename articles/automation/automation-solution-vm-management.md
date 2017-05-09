@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 04/26/2017
 ms.author: magoedte
 ---
 
@@ -25,7 +25,7 @@ The Start/Stop VMs during off-hours [Preview] solution starts and stops your Azu
 
 - The runbooks work with an [Azure Run As account](automation-sec-configure-azure-runas-account.md).  The Run As account is the preferred authentication method since it uses certificate authentication instead of a password that may expire or change frequently.  
 
-- This solution can only manage VMs which are in the same subscription and resource group as where the Automation account resides.  
+- This solution can only manage VMs that are in the same subscription as where the Automation account resides.  
 
 - This solution only deploys to the following Azure regions - Australia Southeast, East US, Southeast Asia, and West Europe.  The runbooks that manage the VM schedule can target VMs in any region.  
 

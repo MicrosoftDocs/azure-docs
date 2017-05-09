@@ -46,7 +46,7 @@ Network Watcher currently has the following capabilities:
 
 ### Role-based Access Control (RBAC) in Network Watcher
 
-Network watcher uses the [Azure Role-Based Access Control (RBAC) model](../active-directory/role-based-access-control-what-is.md). The following permission are required by the Network Watcher in Preview. It is important to make sure that the role used for initiating Network Watcher APIs or using Network Watcher from the portal has the required access.
+Network watcher uses the [Azure Role-Based Access Control (RBAC) model](../active-directory/role-based-access-control-what-is.md). The following permissions are required by the Network Watcher. It is important to make sure that the role used for initiating Network Watcher APIs or using Network Watcher from the portal has the required access.
 
 |Resource| Permission|
 |---|---|
@@ -70,7 +70,7 @@ Network watcher uses the [Azure Role-Based Access Control (RBAC) model](../activ
 
 ### Network subscription limits
 
-Network subscription limits provides you with details of the usage of each of the network resource in a subscription in a region against the maximum number of resources available.
+Network subscription limits provide you with details of the usage of each of the network resource in a subscription in a region against the maximum number of resources available.
 
 ![network subscription limit][nsl]
 
@@ -96,7 +96,7 @@ Periodic and spontaneous events are created by network resources and logged in s
 
 Diagnostic logs are available for [Load Balancer](../load-balancer/load-balancer-monitor-log.md), [Network Security Groups](../virtual-network/virtual-network-nsg-manage-log.md), Routes, and [Application Gateway](../application-gateway/application-gateway-diagnostics.md).
 
-Network Watcher provides a diagnostic logs view. This view contains all networking resources that support diagnostic logging. From this view you can enable and disable networking resources conveniently and quickly.
+Network Watcher provides a diagnostic logs view. This view contains all networking resources that support diagnostic logging. From this view, you can enable and disable networking resources conveniently and quickly.
 
 ![logs][logs]
 
@@ -108,7 +108,7 @@ The troubleshooting blade, an experience in the portal, is provided on network r
 
 ### Resource health
 
-The health of a network resources is provided on a periodic basis. Such resources include VPN Gateway and VPN tunnel. Resource health is accessible on the Azure portal. To learn more about resource health, visit [Resource Health Overview](../resource-health/resource-health-overview.md)
+The health of a network resource is provided on a periodic basis. Such resources include VPN Gateway and VPN tunnel. Resource health is accessible on the Azure portal. To learn more about resource health, visit [Resource Health Overview](../resource-health/resource-health-overview.md)
 
 ## Next steps
 

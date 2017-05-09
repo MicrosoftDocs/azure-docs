@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/14/2017
+ms.date: 03/22/2017
 ms.author: ryanwi, mikhegn
 
 ---
@@ -43,8 +43,8 @@ The following operating system versions are supported for development:
 > 
 
 ## Install the SDK and tools
-### To use Visual Studio 2017 RC
-Service Fabric Tools are part of the Azure Development and Management workload in Visual Studio 2017 RC. Enable this workload as part of your Visual Studio installation.
+### To use Visual Studio 2017
+Service Fabric Tools are part of the Azure Development and Management workload in Visual Studio 2017. Enable this workload as part of your Visual Studio installation.
 In addition, you need to install the Microsoft Azure Service Fabric SDK, using Web Platform Installer.
 
 * [Install the Microsoft Azure Service Fabric SDK][core-sdk]
@@ -52,7 +52,7 @@ In addition, you need to install the Microsoft Azure Service Fabric SDK, using W
 ### To use Visual Studio 2015 (requires Visual Studio 2015 Update 2 or later)
 For Visual Studio 2015, Service Fabric tools are installed together with the SDK, using the Web Platform Installer:
 
-* [Install the Microsoft Azure Service Fabric SDK and Tools)][full-bundle-vs2015]
+* [Install the Microsoft Azure Service Fabric SDK and Tools][full-bundle-vs2015]
 
 ### SDK installation only
 If you only need the SDK, you can install this package:
@@ -66,9 +66,9 @@ If you only need the SDK, you can install this package:
 > We apologize for the inconvenience. 
 
 The current versions are:
-* Service Fabric SDK 2.4.164
-* Service Fabric runtime 5.4.164
-* Visual Studio 2015 tools 1.4.50124
+* Service Fabric SDK 2.5.216
+* Service Fabric runtime 5.5.216
+* Visual Studio 2015 tools 1.5.50311.1
 
 For a list of supported versions, see [Service Fabric support](service-fabric-support.md)
 

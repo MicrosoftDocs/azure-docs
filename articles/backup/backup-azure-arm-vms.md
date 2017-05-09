@@ -16,9 +16,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/15/2017
 ms.author: trinadhk;jimpark;markgal;
+ms.custom: H1Hack27Feb2017
 
 ---
-# Back up Azure VMs to a Recovery Services vault
+# Back up Azure virtual machines to a Recovery Services vault
 > [!div class="op_single_selector"]
 > * [Back up VMs to Recovery Services vault](backup-azure-arm-vms.md)
 > * [Back up VMs to Backup vault](backup-azure-vms.md)

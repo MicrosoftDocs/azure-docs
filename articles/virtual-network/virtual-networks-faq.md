@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Virtual Network FAQ | Microsoft Docs
 description: Answers to the most frequently asked questions about Microsoft Azure virtual networks.
 services: virtual-network
@@ -213,5 +213,5 @@ Yes. You can use REST APIs for VNets in the [Azure Resource Manager](https://msd
 ### Is there tooling support for VNets?
 Yes. Learn more about using:
 - The Azure portal to deploy VNets through the [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) and [classic](virtual-networks-create-vnet-classic-pportal.md) deployment models.
-- PowerShell to manage VNets deployed through the [Resource Manager](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network.md) and [classic](/powershell/servicemanagement/azure.networking/v3.1.0/azure.networking) deployment models.
+- PowerShell to manage VNets deployed through the [Resource Manager](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network.md) and [classic](/powershell/module/azure/?view=azuresmps-3.7.0) deployment models.
 - The [Azure command-line interface (CLI)](../virtual-machines/azure-cli-arm-commands.md#azure-network-commands-to-manage-network-resources) to manage VNets deployed through both deployment models.  

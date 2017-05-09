@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/30/2016
+ms.date: 4/6/2017
 ms.author: v-six
 
 ---
@@ -52,7 +52,7 @@ To ensure that your `DiagnosticsConnectionString` setting is correct before you 
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 
-  If you are developing your application by using Azure Tools for Microsoft Visual Studio, you can use the [property pages](https://msdn.microsoft.com/library/ee405486) to set this value.
+  If you are developing your application by using Azure Tools for Microsoft Visual Studio, you can use the property pages to set this value.
 
 ## Exported certificate does not include private key
 To run a web role under SSL, you must ensure that your exported management certificate includes the private key. If you use the *Windows Certificate Manager* to export the certificate, be sure to select **Yes** for the **Export the private key** option. The certificate must be exported in the PFX format, which is the only format currently supported.

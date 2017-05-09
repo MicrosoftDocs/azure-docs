@@ -1,10 +1,10 @@
 ---
-title: Using Analytics - the powerful search tool of Application Insights | Microsoft Docs
+title: Using Analytics - the powerful search tool of Azure Application Insights | Microsoft Docs
 description: 'Using the Analytics, the powerful diagnostic search tool of Application Insights. '
 services: application-insights
 documentationcenter: ''
 author: danhadari
-manager: douge
+manager: carmonm
 
 ms.assetid: c3b34430-f592-4c32-b900-e9f50ca096b3
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 03/14/2017
 ms.author: awills
 
 ---
@@ -132,7 +132,7 @@ This means that, when you put together a dashboard to help you monitor the perfo
 You can pin a table to the dashboard, if it has four or fewer columns. Only the top seven rows are displayed.
 
 ### Dashboard refresh
-The chart pinned to the dashboard is refreshed automatically by re-running the query approximately every two hours.
+The chart pinned to the dashboard is refreshed automatically by re-running the query approximately every hours. You can also click the Refresh button.
 
 ### Automatic simplifications
 
@@ -221,7 +221,9 @@ The resulting table of requests has an additional column, `realName`.
 
 If you use [LogStash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html), you can use Analytics to query your logs. Use the [plugin that pipes data into Analytics](https://github.com/Microsoft/logstash-output-application-insights). 
 
+## Video
 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 

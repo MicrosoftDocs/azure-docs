@@ -35,6 +35,9 @@ The following are required to complete the tutorial:
 >[!NOTE]
 >When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
+>[!NOTE]
+>There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
+
 The following code shows how to create an asset, upload a media file to the asset, run a job with a task to transform the asset, and create a locator to stream your video.
 
 You need to set up a Media Services account before using this code. For information about setting up an account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
@@ -81,7 +84,7 @@ Substitute your values for the 'clientId' and 'clientSecret' variables. The code
 
         // Encoder configuration
         private static String preferedEncoder = "Media Encoder Standard";
-        private static String encodingPreset = "H264 Multiple Bitrate 720p";
+        private static String encodingPreset = "Adaptive Streaming";
 
         public static void main(String[] args)
         {

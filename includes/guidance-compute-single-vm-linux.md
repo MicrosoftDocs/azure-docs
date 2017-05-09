@@ -168,9 +168,9 @@ For higher availability, deploy two or more VMs behind a load balancer. For more
 <!-- links -->
 
 [audit-logs]: https://azure.microsoft.com/en-us/blog/analyze-azure-audit-logs-in-powerbi-more/
-[availability-set]: ../articles/virtual-machines/virtual-machines-windows-create-availability-set.md
+[availability-set]:../articles/virtual-machines/windows/create-availability-set.md
 [azure-cli]: /cli/azure/get-started-with-az-cli2
-[azure-linux]: ../articles/virtual-machines/virtual-machines-linux-azure-overview.md
+[azure-linux]:../articles/virtual-machines/linux/overview.md
 [azure-storage]: ../articles/storage/storage-introduction.md
 [blob-snapshot]: ../articles/storage/storage-blob-snapshots.md
 [blob-storage]: ../articles/storage/storage-introduction.md
@@ -179,16 +179,16 @@ For higher availability, deploy two or more VMs behind a load balancer. For more
 [data-disk]: ../articles/storage/storage-about-disks-and-vhds-linux.md
 [disk-encryption]: ../articles/security/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md
-[fqdn]: ../articles/virtual-machines/virtual-machines-linux-portal-create-fqdn.md
+[fqdn]:../articles/virtual-machines/linux/portal-create-fqdn.md
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/
 [iostat]: https://en.wikipedia.org/wiki/Iostat
-[manage-vm-availability]: ../articles/virtual-machines/virtual-machines-linux-manage-availability.md
+[manage-vm-availability]:../articles/virtual-machines/linux/manage-availability.md
 [multi-vm]: ../articles/guidance/guidance-compute-multi-vm.md
 [naming conventions]: ../articles/guidance/guidance-naming-conventions.md
 [nsg]: ../articles/virtual-network/virtual-networks-nsg.md
 [nsg-default-rules]: ../articles/virtual-network/virtual-networks-nsg.md#default-rules
 [OSPatching]: https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching
-[planned-maintenance]: ../articles/virtual-machines/virtual-machines-linux-planned-maintenance.md
+[planned-maintenance]:../articles/virtual-machines/linux/planned-maintenance.md
 [premium-storage]: ../articles/storage/storage-premium-storage.md
 [rbac]: ../articles/active-directory/role-based-access-control-what-is.md
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
@@ -199,17 +199,17 @@ For higher availability, deploy two or more VMs behind a load balancer. For more
 [Resize virtual machines]: https://azure.microsoft.com/en-us/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md
 [resource-manager-overview]: ../articles/azure-resource-manager/resource-group-overview.md
-[select-vm-image]: ../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md
+[select-vm-image]:../articles/virtual-machines/linux/cli-ps-findimage.md
 [services-by-region]: https://azure.microsoft.com/en-us/regions/#services
-[ssh-linux]: ../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md
+[ssh-linux]:../articles/virtual-machines/linux/mac-create-ssh-keys.md
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
 [storage-account-limits]: ../articles/azure-subscription-service-limits.md#storage-limits
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
-[virtual-machine-sizes]: ../articles/virtual-machines/virtual-machines-linux-sizes.md
+[virtual-machine-sizes]:../articles/virtual-machines/linux/sizes.md
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
-[vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
-[vm-size-tables]: ../articles/virtual-machines/virtual-machines-windows-sizes.md#size-tables
+[vm-resize]:../articles/virtual-machines/linux/change-vm-size.md
+[vm-size-tables]:../articles/virtual-machines/windows/sizes.md#size-tables
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm
 [components]: #Solution-components

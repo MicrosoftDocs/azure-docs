@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'azure cli, iot cloud service, arduino cloud'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-c-get-started
+
 ms.assetid: 1035760e-cdd1-4d99-8003-067e98b29762
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

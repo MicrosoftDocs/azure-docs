@@ -57,8 +57,8 @@ In order to get the optimization, first update to the latest supported version, 
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
-"Sku": "16.04.0-LTS",
-"Version": "16.04.201609071"
+"Sku": "16.04-LTS",
+"Version": "latest"
 ```
 After the update is complete, enter the following commands to get the latest kernel:
 
@@ -90,7 +90,7 @@ commands to install LIS:
 ```bash
 sudo yum update
 sudo reboot
-sudo yum install microsoft-hyper-v-4.1.3 kmod-microsoft-hyper-v-4.1.3
+sudo yum install microsoft-hyper-v
 ```
 
 ### Red Hat
@@ -111,7 +111,7 @@ cd lis4.1.3
 wget https://download.microsoft.com/download/7/6/B/76BE7A6E-E39F-436C-9353-F4B44EF966E9/lis-rpms-4.1.3.tar.gz
 tar xvzf lis-rpms-4.1.3.tar.gz
 cd LISISO
-install.sh  #or upgrade.sh if previous LIS was previously installed
+install.sh #or upgrade.sh if previous LIS was previously installed
 ```
  
 Learn more about Linux Integration Services Version 4.1 for Hyper-V by viewing the [download page](https://www.microsoft.com/download/details.aspx?id=51612).

@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 03/03/2017
 ms.author: curtand
 
 ---
@@ -130,6 +130,10 @@ If your language preference is German, you get the default Banner Logo but the G
 
 While you could technically configure a different set for each language supported by Azure AD, we recommend that you keep the number of variations low, for maintenance and performance reasons.
 
+> [!IMPORTANT]
+> Yammer does not show the Azure AD branded sign-in page until after the user signs in. The user sees the generic Office 365 sign-in page first, and then the branded page after that.   
+ 
+ 
 **To add company branding to your directory, perform the following steps:**
 
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator of the directory you want to customize.
@@ -145,7 +149,7 @@ It can take up to an hour for new change you made to the sign-in page branding t
 
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator of the directory you want to customize.
 2. Select the directory you want to customize.
-3. In the toolbar on the top, click **Configure**.
+fs3. In the toolbar on the top, click **Configure**.
 4. Click **Customize Branding**.
 5. Click **Add branding for a specific language**.
 6. Select the language you want to customize the logo for, and then click **Next**.

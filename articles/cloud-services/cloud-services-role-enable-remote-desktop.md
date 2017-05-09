@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 04/19/2017
 ms.author: adegeo
 ---
 
@@ -131,3 +131,4 @@ The [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg) file
 
 ## Additional Resources
 [How to Configure Cloud Services](cloud-services-how-to-configure.md)
+[Cloud services FAQ - Remote Desktop](cloud-services-faq.md#remote-desktop)

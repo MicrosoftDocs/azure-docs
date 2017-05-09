@@ -39,6 +39,7 @@ ms.author: rodsan
 | Steps | XSLT supports scripting inside style sheets using the `<msxml:script>` element. This allows custom functions to be used in an XSLT transformation. The script is executed under the context of the process performing the transform. XSLT script must be disabled when in an untrusted environment to prevent execution of untrusted code. *If using .NET:* XSLT scripting is disabled by default; however, you must ensure that it has not been explicitly enabled through the `XsltSettings.EnableScript` property.|
 
 ### Example 
+
 ```C#
 XsltSettings settings = new XsltSettings();
 settings.EnableScript = true; // WRONG: THIS SHOULD BE SET TO false
@@ -46,12 +47,14 @@ settings.EnableScript = true; // WRONG: THIS SHOULD BE SET TO false
 
 ### Example
 If you are using using MSXML 6.0, XSLT scripting is disabled by default; however, you must ensure that it has not been explicitly enabled through the XML DOM object property AllowXsltScript. 
+
 ```C#
 doc.setProperty("AllowXsltScript", true); // WRONG: THIS SHOULD BE SET TO false
 ```
 
 ### Example
 If you are using MSXML 5 or below, XSLT scripting is enabled by default and you must explicitly disable it. Set the XML DOM object property AllowXsltScript to false. 
+
 ```C#
 doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables XSLT scripting.
 ```
@@ -71,6 +74,7 @@ doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables
 To enable the required header globally for all pages in the application, you can do one of the following: 
 
 * Add the header in the web.config file if the application is hosted by Internet Information Services (IIS) 7 
+
 ```
 <system.webServer> 
   <httpProtocol> 
@@ -82,6 +86,7 @@ To enable the required header globally for all pages in the application, you can
 ```
 
 * Add the header through the global Application\_BeginRequest 
+
 ``` 
 void Application_BeginRequest(object sender, EventArgs e)
 {
@@ -90,6 +95,7 @@ void Application_BeginRequest(object sender, EventArgs e)
 ```
 
 * Implement custom HTTP module 
+
 ``` 
 public class XContentTypeOptionsModule : IHttpModule 
   {
@@ -117,6 +123,7 @@ public class XContentTypeOptionsModule : IHttpModule
 ``` 
 
 * You can enable the required header only for specific pages by adding it to individual responses: 
+
 ```
 this.Response.Headers[""X-Content-Type-Options""] = ""nosniff""; 
 ``` 
@@ -134,6 +141,7 @@ this.Response.Headers[""X-Content-Type-Options""] = ""nosniff"";
 
 ### Example
 For .NET Framework code, you can use the following approaches:
+
 ```C#
 XmlTextReader reader = new XmlTextReader(stream);
 reader.ProhibitDtd = true;
@@ -151,6 +159,7 @@ Note that the default value of `ProhibitDtd` in `XmlReaderSettings` is true, but
 
 ### Example
 To disable entity resolution for XmlDocuments, use the `XmlDocument.Load(XmlReader)` overload of the Load method and set the appropriate properties in the XmlReader argument to disable resolution, as illustrated in the following code: 
+
 ```C#
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = true;
@@ -161,6 +170,7 @@ doc.Load(reader);
 
 ### Example
 If disabling entity resolution is not possible for your application, set the XmlReaderSettings.MaxCharactersFromEntities property to a reasonable value according to your application's needs. This will limit the impact of potential exponential expansion DoS attacks. The following code provides an example of this approach: 
+
 ```C#
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = false;
@@ -170,6 +180,7 @@ XmlReader reader = XmlReader.Create(stream, settings);
 
 ### Example
 If you need to resolve inline entities but do not need to resolve external entities, set the XmlReaderSettings.XmlResolver property to null. For example: 
+
 ```C#
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = false;
@@ -203,6 +214,7 @@ Note that in MSXML6, ProhibitDTD is set to true (disabling DTD processing) by de
 
 ### Example
 For the last point regarding file format signature validation, refer to the class below for details: 
+
 ```C#
         private static Dictionary<string, List<byte[]>> fileSignature = new Dictionary<string, List<byte[]>>
                     {
@@ -318,6 +330,7 @@ For the last point regarding file format signature validation, refer to the clas
 
 ### Example 
 The following code shows how to use type safe parameters with the SqlParameterCollection when calling a stored procedure. 
+
 ```C#
 using System.Data;
 using System.Data.SqlClient;
@@ -357,6 +370,7 @@ In the preceding code example, the input value cannot be longer than 11 characte
 | Steps | Cross-site scripting (commonly abbreviated as XSS) is an attack vector for online services or any application/component that consumes input from the web. XSS vulnerabilities may allow an attacker to execute script on another user's machine through a vulnerable web application. Malicious scripts can be used to steal cookies and otherwise tamper with a victim's machine through JavaScript. XSS is prevented by validating user input, ensuring it is well formed and encoding before it is rendered in a web page. Input validation and output encoding can be done by using Web Protection Library. For Managed code (C\#, VB.net, etc), use one or more appropriate encoding methods from the Web Protection (Anti-XSS) Library, depending on the context where the user input gets manifested:| 
 
 ### Example
+
 ```C#
 * Encoder.HtmlEncode 
 * Encoder.HtmlAttributeEncode 
@@ -404,6 +418,7 @@ In the preceding code example, the input value cannot be longer than 11 characte
 
 ### Example
 Following are insecure examples: 
+
 ```
 document.getElementByID("div1").innerHtml = value;
 $("#userName").html(res.Name);
@@ -447,6 +462,7 @@ Don't use `innerHtml`; instead use `innerText`. Similarly, instead of `$("#elm")
 
 ### Example
 For example, the following configuration will throw a RegexMatchTimeoutException, if the processing takes more than 5 seconds: 
+
 ```C#
 <httpRuntime targetFramework="4.5" defaultRegexMatchTimeout="00:00:05" />
 ```
@@ -464,6 +480,7 @@ For example, the following configuration will throw a RegexMatchTimeoutException
 
 ### Example
 Following is an insecure example: 
+
 ```C#
 <div class="form-group">
             @Html.Raw(Model.AccountConfirmText)
@@ -488,6 +505,7 @@ Do not use `Html.Raw()` unless you need to display markup. This method does not 
 
 ### Example
 Following is an example of insecure dynamic Stored Procedure: 
+
 ```C#
 CREATE PROCEDURE [dbo].[uspGetProductsByCriteria]
 (
@@ -547,6 +565,7 @@ AS
 
 ### Example
 The following code demonstrates the same: 
+
 ```C#
 using System.ComponentModel.DataAnnotations;
 
@@ -563,9 +582,11 @@ namespace MyApi.Models
         public double Weight { get; set; }
     }
 }
+```
 
 ### Example
 In the action method of the API controllers, validity of the model has to be explicitly checked as shown below: 
+
 ```C#
 namespace MyApi.Controllers
 {
@@ -612,6 +633,7 @@ namespace MyApi.Controllers
 
 ### Example
 The following code shows how to use type safe parameters with the SqlParameterCollection when calling a stored procedure. 
+
 ```C#
 using System.Data;
 using System.Data.SqlClient;

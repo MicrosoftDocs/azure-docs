@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 04/08/2017
 ms.author: arramac
 
 ---
@@ -1818,6 +1818,7 @@ Here is a list of supported LINQ operators in the LINQ provider included with th
 * **Where**: Filters translate to the SQL WHERE, and support translation between && , || and ! to the SQL operators
 * **SelectMany**: Allows unwinding of arrays to the SQL JOIN clause. Can be used to chain/nest expressions to filter on array elements
 * **OrderBy and OrderByDescending**: Translates to ORDER BY ascending/descending
+* **Count**, **Sum**, **Min**, **Max**, and **Average** operators for aggregation, and their async equivalents **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, and **AverageAsync**.
 * **CompareTo**: Translates to range comparisons. Commonly used for strings since they’re not comparable in .NET
 * **Take**: Translates to the SQL TOP for limiting results from a query
 * **Math Functions**: Supports translation from .NET’s Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan, Truncate to the equivalent SQL built-in functions.
@@ -1826,11 +1827,6 @@ Here is a list of supported LINQ operators in the LINQ provider included with th
 * **Geospatial Extension Functions**: Supports translation from stub methods Distance, Within, IsValid, and IsValidDetailed to the equivalent SQL built-in functions.
 * **User Defined Function Extension Function**: Supports translation from the stub method UserDefinedFunctionProvider.Invoke to the corresponding user defined function.
 * **Miscellaneous**: Supports translation of the coalesce and conditional operators. Can translate Contains to String CONTAINS, ARRAY_CONTAINS or the SQL IN depending on context.
-
-> [!NOTE]
-> Aggregate operators **Count, Sum, Min, Max, and Average** are not currently supported but will be available in future versions of the SDK.  
-> 
-> 
 
 ### SQL query operators
 Here are some examples that illustrate how some of the standard LINQ query operators are translated down to DocumentDB queries.

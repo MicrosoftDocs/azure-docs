@@ -13,11 +13,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/06/2017
+ms.date: 04/27/2017
 ms.author: yurid
 
 ---
-# Handling Security Incident in Azure Security Center
+# Handling Security Incidents in Azure Security Center
 Triaging and investigating security alerts can be time consuming for even the most skilled security analysts, and for many it is hard to even know where to begin. By using [analytics](security-center-detection-capabilities.md) to connect the information between distinct [security alerts](security-center-managing-and-responding-alerts.md), Security Center can provide you with a single view of an attack campaign and all of the related alerts – you can quickly understand what actions the attacker took and what resources were impacted.
 
 This document discusses how to use security alert capability in Security Center to assist you handling security incidents.

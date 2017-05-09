@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.date: 02/07/2017
 ms.author: awills
 
@@ -130,22 +130,16 @@ Get started at development time with:
   * [Troubleshooting][qna]
   * [MSDN Forum](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
   * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
-  * [Get developer support](app-insights-get-dev-support.md)
 * Your suggestions:
   * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 * Blog:
   * [Application Insights blog](https://azure.microsoft.com/blog/tag/application-insights)
 
 ## Videos
+
 [![Animated introduction](./media/app-insights-overview/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
 
-> [!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/218/player]
->
-> [!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/231/player]
->
-> [!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/222/player]
->
->
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
 
 <!--Link references-->
 
@@ -157,7 +151,7 @@ Get started at development time with:
 [greenbrown]: app-insights-asp-net.md
 [ios]: https://github.com/Microsoft/ApplicationInsights-iOS
 [java]: app-insights-java-get-started.md
-[knowUsers]: app-insights-overview-usage.md
+[knowUsers]: app-insights-web-track-usage.md
 [platforms]: app-insights-platforms.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md

@@ -10,11 +10,12 @@ tags: azure-portal
 
 ms.assetid: 9da7d4e3-458e-4296-a628-77b14643f7e4
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2017
+ms.date: 04/03/2017
 ms.author: nitinme
 
 ---
@@ -80,7 +81,7 @@ For applications running in the Jupyter notebook, you can use the `%%configure` 
 The snippet below shows how to change the configuration for an application running in Jupyter.
 
     %%configure
-    {"executorMemory": "3072M", "executorCores": 4, “numExecutors”:10}
+    {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
 
 Configuration parameters must be passed in as a JSON string and must be on the next line after the magic, as shown in the example column.
 

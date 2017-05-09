@@ -56,6 +56,15 @@ Log in to armclient with your Azure credentials.
 armclient login
 ```
 
+## Register Insights provider
+
+In order for flow logging to work successfully, the **Microsoft.Insights** provider must be registered. If you are not sure if the **Microsoft.Insights** provider is registered, run the following script.
+
+```powershell
+$subscriptionId = "00000000-0000-0000-0000-000000000000"
+armclient post "https://management.azure.com//subscriptions/${subscriptionId}/providers/Microsoft.Insights/register?api-version=2016-09-01"
+```
+
 ## Enable Network Security Group flow logs
 
 The command to enable flow logs is shown in the following example:
@@ -87,7 +96,7 @@ The response returned from the preceding example is as follows:
 
 ```json
 {
-  "targetResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/{nsgName}",
+  "targetResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{nsgName}",
   "properties": {
     "storageId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{saName}",
     "enabled": true,
@@ -114,7 +123,7 @@ $requestBody = @"
     'targetResourceId': '${targetUri}',
     'properties': {
     'storageId': '${storageId}',
-    'enabled': 'true',
+    'enabled': 'false',
     'retentionPolicy' : {
 			days: 5,
 			enabled: true
@@ -130,7 +139,7 @@ The response returned from the preceding example is as follows:
 
 ```json
 {
-  "targetResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/{nsgName}",
+  "targetResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{nsgName}",
   "properties": {
     "storageId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{saName}",
     "enabled": false,
@@ -164,7 +173,7 @@ The following is an example of the response returned:
 
 ```json
 {
-  "targetResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/{nsgName}",
+  "targetResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{nsgName}",
   "properties": {
     "storageId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{saName}",
     "enabled": true,

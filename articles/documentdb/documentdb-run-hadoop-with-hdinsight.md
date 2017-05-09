@@ -1,5 +1,5 @@
 ---
-title: Run a Hadoop job using DocumentDB and HDInsight | Microsoft Docs
+title: Run a Hadoop job using Azure DocumentDB and HDInsight | Microsoft Docs
 description: Learn how to run a simple Hive, Pig, and MapReduce job with DocumentDB and Azure HDInsight.
 services: documentdb
 author: dennyglee
@@ -15,9 +15,10 @@ ms.devlang: java
 ms.topic: article
 ms.date: 09/20/2016
 ms.author: denlee
+ms.custom: H1Hack27Feb2017
 
 ---
-# <a name="DocumentDB-HDInsight"></a>Run a Hadoop job using DocumentDB and HDInsight
+# <a name="DocumentDB-HDInsight"></a>Run an Apache Hive, Pig, or Hadoop job using DocumentDB and HDInsight
 This tutorial shows you how to run [Apache Hive][apache-hive], [Apache Pig][apache-pig], and [Apache Hadoop][apache-hadoop] MapReduce jobs on Azure HDInsight with DocumentDB's Hadoop connector. DocumentDB's Hadoop connector allows DocumentDB to act as both a source and sink for Hive, Pig, and MapReduce jobs. This tutorial will use DocumentDB as both the data source and destination for Hadoop jobs.
 
 After completing this tutorial, you'll be able to answer the following questions:

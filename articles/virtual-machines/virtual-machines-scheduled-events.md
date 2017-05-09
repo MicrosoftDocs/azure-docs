@@ -48,8 +48,12 @@ Otherwise, in the default cases for cloud services and classic VMs, an additiona
 Refer to this sample to learn how to [discover the host endpoint] (https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)
 
 ### Versioning 
-The Metadata Service uses a versioned API in the following format: http://{ip}/metadata/{version}/scheduledevents
-It is recommended that your service consumes the latest version available at: http://{ip}/metadata/latest/scheduledevents
+The Instance Metadata Service is versioned. Versions are mandatory and the current version is 2017-03-01
+
+> [!NOTE] 
+> Previous preview releases of scheduled events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
+>
+
 
 ### Using Headers
 When you query the Metadata Service, you must provide the following header *Metadata: true*. 
@@ -67,7 +71,8 @@ In both cases, the user initiated operation takes longer to complete since sched
 ### Query for events
 You can query for Scheduled Events simply by making the following call
 
-	curl -H Metadata:true http://169.254.169.254/metadata/latest/scheduledevents
+	curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
+
 
 A response contains an array of scheduled events. An empty array means that there are currently no events scheduled.
 In the case where there are scheduled events, the response contains an array of events: 
@@ -85,13 +90,25 @@ In the case where there are scheduled events, the response contains an array of 
          }
      ]
 	}
+	
+### Event Properties
+|Property  |  Description |
+| - | - |
+| EventId |Globally unique identifier for event. <br><br> Example: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
+| EventType | Impact that event causes. <br><br> Values: <br><ul><li> <i>Freeze</i>: The Virtual Machine is scheduled to pause for few seconds. There is no impact on memory, open files, or network connections. <li> <i>Reboot</i>: The Virtual Machine is scheduled for reboot (memory is wiped).<li> <i>Redeploy</i>: The Virtual Machine is scheduled to move to another node (ephemeral disks are lost). |
+| ResourceType | Type of resource that event impacts. <br><br> Values: <ul><li>VirtualMachine|
+| Resources| List of resources that event impacts. <br><br> Example: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Event Status | Status of the event. <br><br> Values: <ul><li><i>Scheduled:</i> Event is scheduled to start after the time specified in the <i>NotBefore</i> property.<li><i>Started</i>: Event has started.</i>
+| NotBefore| Time after which event may start. <br><br> Example: <br><ul><li> 2016-09-19T18:29:47Z  |
 
-EventType Captures the expected impact on the Virtual Machine where:
-- Freeze: The Virtual Machine is scheduled to pause for few seconds. There is no impact on memory, open files, or network connections
-- Reboot: The Virtual Machine is scheduled for reboot (memory is wiped).
-- Redeploy: The Virtual Machine is scheduled to move to another node (ephemeral disk are lost). 
+### Event Scheduling
+Each event is scheduled a minimum amount of time in the future based on event type. This time is reflected in an event's <i>NotBefore</i> property. 
 
-When an event is scheduled (Status = Scheduled), Azure shares the time after which the event can start (specified in the NotBefore field).
+|EventType  | Minimum Notice |
+| - | - |
+| Freeze| 15 minutes |
+| Reboot | 15 minutes |
+| Redeploy | 10 minutes |
 
 ### Starting an event (expedite)
 
@@ -100,37 +117,63 @@ Once you have learned of an upcoming event and completed your logic for graceful
 
 ## PowerShell Sample 
 
-The following sample reads the metadata server for scheduled events and
-records them in the Application event log before acknowledging.
+The following sample reads the metadata server for scheduled events and approves the events.
 
 ```PowerShell
-$localHostIP = "169.254.169.254"
-$ScheduledEventURI = "http://"+$localHostIP+"/metadata/latest/scheduledevents"
-
-# Call Azure Metadata Service - Scheduled Events 
-$scheduledEventsResponse =  Invoke-RestMethod -Headers @{"Metadata"="true"} -URI $ScheduledEventURI -Method get 
-
-if ($json.Events.Count -eq 0 )
+# How to get scheduled events 
+function GetScheduledEvents($uri)
 {
-    Write-Output "++No scheduled events were found"
+    $scheduledEvents = Invoke-RestMethod -Headers @{"Metadata"="true"} -URI $uri -Method get
+    $json = ConvertTo-Json $scheduledEvents
+    Write-Host "Received following events: `n" $json
+    return $scheduledEvents
 }
 
-for ($eventIdx=0; $eventIdx -lt $scheduledEventsResponse.Events.Length ; $eventIdx++)
-{
-    if ($scheduledEventsResponse.Events[$eventIdx].Resources[0].ToLower().substring(1) -eq $env:COMPUTERNAME.ToLower())
-    {    
-        # YOUR LOGIC HERE 
-         pause "This Virtual Machine is scheduled for to "+ $scheduledEventsResponse.Events[$eventIdx].EventType
+# How to approve a scheduled event
+function ApproveScheduledEvent($eventId, $uri)
+{    
+    # Create the Scheduled Events Approval Json
+    $startRequests = [array]@{"EventId" = $eventId}
+    $scheduledEventsApproval = @{"StartRequests" = $startRequests} 
+    $approvalString = ConvertTo-Json $scheduledEventsApproval
 
-        # Acknoledge the event to expedite
-        $jsonResp = "{""StartRequests"" : [{ ""EventId"": """+$scheduledEventsResponse.events[$eventIdx].EventId +"""}]}"
-        $respbody = convertto-JSon $jsonResp
-       
-        Invoke-RestMethod -Uri $ScheduledEventURI  -Headers @{"Metadata"="true"} -Method POST -Body $jsonResp 
+    Write-Host "Approving with the following: `n" $approvalString
+
+    # Post approval string to scheduled events endpoint
+    Invoke-RestMethod -Uri $uri -Headers @{"Metadata"="true"} -Method POST -Body $approvalString
+}
+
+# Add logic relevant to your service here
+function HandleScheduledEvents($scheduledEvents)
+{
+
+}
+
+######### Sample Scheduled Events Interaction #########
+
+# Set up the scheduled events uri for VNET enabled VM
+$localHostIP = "169.254.169.254"
+$scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2017-03-01' -f $localHostIP 
+
+
+# Get the document
+$scheduledEvents = GetScheduledEvents $scheduledEventURI
+
+
+# Handle events however is best for your service
+HandleScheduledEvents $scheduledEvents
+
+
+# Approve events when ready (optional)
+foreach($event in $scheduledEvents.Events)
+{
+    Write-Host "Current Event: `n" $event
+    $entry = Read-Host "`nApprove event? Y/N"
+    if($entry -eq "Y" -or $entry -eq "y")
+    {
+	ApproveScheduledEvent $event.EventId $scheduledEventURI 
     }
 }
-
-
 ``` 
 
 
@@ -144,7 +187,7 @@ The following sample is of a client surfacing APIs to communicate with the Metad
 
         public ScheduledEventsClient()
         {
-            scheduledEventsEndpoint = string.Format("http://{0}/metadata/latest/scheduledevents", defaultIpAddress);
+            scheduledEventsEndpoint = string.Format("http://{0}/metadata/scheduledevents?api-version=2017-03-01", defaultIpAddress);
         }
         /// Retrieve Scheduled Events 
         public string GetDocument()
@@ -184,7 +227,7 @@ Scheduled Events could be parsed using the following data structures
         public string EventType { get; set; }
         public string ResourceType { get; set; }
         public List<string> Resources { get; set; }
-        public DateTime NoteBefore { get; set; }
+        public DateTime? NotBefore { get; set; }
     }
 
     public class ScheduledEventsApproval
@@ -267,7 +310,7 @@ import urllib2
 import socket
 import sys
 
-metadata_url="http://169.254.169.254/metadata/latest/scheduledevents"
+metadata_url="http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01"
 headers="{Metadata:true}"
 this_host=socket.gethostname()
 
@@ -302,4 +345,5 @@ if __name__ == '__main__':
 
 ```
 ## Next Steps 
-[Planned maintenance for virtual machines in Azure](./virtual-machines-linux-planned-maintenance.md)
+[Planned maintenance for virtual machines in Azure](linux/planned-maintenance.md)
+[Instance metadata service](virtual-machines-instancemetadataservice-overview.md)

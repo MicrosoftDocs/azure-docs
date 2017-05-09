@@ -2,8 +2,7 @@
 title: What is the Azure .NET SDK
 description: Learn what is included in the Azure .NET SDK.
 documentationcenter: .net
-author: tdykstra
-manager: wpickett
+author: chrissfanos
 editor: mollybos
 services: ''
 
@@ -14,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/30/2016
-ms.author: rachelap
+ms.author: juliako
 
 ---
 # What is the Azure SDK for .NET?
@@ -78,7 +77,7 @@ This enables you to work with Azure resources, primarily Cloud Services and Virt
 
 * [Create, open, and publish cloud service projects](cloud-services/cloud-services-dotnet-get-started.md).
 * [Create deployment packages for cloud service projects](http://msdn.microsoft.com/library/ff683672.aspx).
-* [Create Azure Virtual Machines while creating new web projects](virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* [Create Azure Virtual Machines while creating new web projects](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * [Create PowerShell scripts while creating new virtual machines](http://msdn.microsoft.com/library/dn642480.aspx).
 * [View and manage cloud service project settings in Visual Studio Project Properties windows](http://msdn.microsoft.com/library/ee405486.aspx).
 * View and manage [cloud services](http://msdn.microsoft.com/library/ff683675.aspx), [virtual machines](http://msdn.microsoft.com/library/jj131259.aspx), and [Service Bus](http://msdn.microsoft.com/library/jj149828.aspx) in Server Explorer.
@@ -88,7 +87,7 @@ This enables you to work with Azure resources, primarily Cloud Services and Virt
 ### <a id="wte"></a>Microsoft App Service Tools for Visual Studio
 This enables you to work with Azure Websites:
 
-* [Publish web projects to Azure Websites](app-service-web/web-sites-dotnet-get-started.md).
+* [Publish web projects to Azure App Service](app-service-web/app-service-web-get-started-dotnet.md).
 * [Publish console application projects to Azure WebJobs](app-service-web/websites-dotnet-deploy-webjobs.md).
 * [Create Azure Website and SQL Database resources while creating a new web project or while publishing a web project](app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 * [Create PowerShell deployment scripts while creating new Websites](http://msdn.microsoft.com/library/dn642480.aspx).

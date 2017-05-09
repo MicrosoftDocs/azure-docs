@@ -4,16 +4,17 @@ description: Learn how to use the Azure Data Lake Tools for VIsual Studio with t
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: paulettm
+manager: jhubbard
 editor: cgronlun
 
 ms.assetid: e3434c45-95d1-4b96-ad4c-fb59870e2ff0
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/10/2017
+ms.date: 02/28/2017
 ms.author: larryfr
 
 ---
@@ -27,7 +28,7 @@ Using the Hortonworks Sandbox allows you to work with Hadoop locally on your dev
 
 * The Hortonworks Sandbox running in a virtual machine on your development environment. This document was written and tested with the sandbox running in Oracle VirtualBox, which was configured using the information in the [Get started in the Hadoop ecosystem](hdinsight-hadoop-emulator-get-started.md) document.
 
-* Visual Studio 2013 or 2015, any edition.
+* Visual Studio 2013, 2015, or 2017 any edition.
 
 * The [Azure SDK for .NET](https://azure.microsoft.com/downloads/) 2.7.1 or higher.
 
@@ -35,13 +36,13 @@ Using the Hortonworks Sandbox allows you to work with Hadoop locally on your dev
 
 ## Configure passwords for the sandbox
 
-Make sure that the Hortonworks Sandbox is running, then follow the steps in [Get started in the Hadoop ecosystem](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords) to configure the password for the SSH `root` account, and the Ambari `admin` account. These passwords will be used when connecting to the sandbox from Visual Studio.
+Make sure that the Hortonworks Sandbox is running, then follow the steps in [Get started in the Hadoop ecosystem](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords). These steps configure the password for the SSH `root` account, and the Ambari `admin` account. These passwords are used when connecting to the sandbox from Visual Studio.
 
 ## Connect the tools to the sandbox
 
 1. Open Visual Studio, and select **View**, then **Server Explorer**.
 
-2. From **Server Explorer**, right click the **HDInsight** entry, and then select **Connect to HDInsight Emulator**.
+2. From **Server Explorer**, right-click the **HDInsight** entry, and then select **Connect to HDInsight Emulator**.
 
     ![Connect to HDInsight Emulator](./media/hdinsight-hadoop-emulator-visual-studio/connect-emulator.png)
 
@@ -57,7 +58,7 @@ Make sure that the Hortonworks Sandbox is running, then follow the steps in [Get
 
     Select **Next** to continue.
 
-5. Wait for validation of the services to complete. In some cases, validation may fail and prompt you to update the configuration. When this happens, select the **update** button and wait for the configuration and verification for the service to complete.
+5. Wait for validation of the services to complete. In some cases, validation may fail and prompt you to update the configuration. If validation fails, select the **update** button and wait for the configuration and verification for the service to complete.
 
     ![Errors and update button](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update.png)
 
@@ -75,7 +76,7 @@ After following these steps, you now have an "HDInsight local cluster" entry in 
 
 ## Write a Hive query
 
-Hive provides a SQL-like query language (HiveQL,) for working with structured data. Use the following steps to learn how to run ad-hoc queries against the local cluster.
+Hive provides a SQL-like query language (HiveQL) for working with structured data. Use the following steps to learn how to run ad-hoc queries against the local cluster.
 
 1. In **Server Explorer**, right-click on the entry for the local cluster that you added previously, and then select **Write a Hive query**.
 
@@ -83,23 +84,23 @@ Hive provides a SQL-like query language (HiveQL,) for working with structured da
 
     This opens a new query window that allows you to quickly type up and submit a query to the local cluster.
 
-2. In the new query window, enter the following:
+2. In the new query window, enter the following command:
 
         select count(*) from sample_08;
 
-    From the top of the query window, make sure that configuration for the local cluster is selected, and then select **Submit**. Leave the other values (**Batch** and server name,) at the default values.
+    From the top of the query window, make sure that configuration for the local cluster is selected, and then select **Submit**. Leave the other values (**Batch** and server name) at the default values.
 
     ![query window and submit button](./media/hdinsight-hadoop-emulator-visual-studio/submit-hive.png)
 
-    Note that you can also use the drop down menu next to **Submit** to select **Advanced**. This opens a dialog that lets you provide additional options when submitting the job.
+    You can also use the drop-down menu next to **Submit** to select **Advanced**. Advanced options allow you to provide additional options when submitting the job.
 
     ![advanced submit](./media/hdinsight-hadoop-emulator-visual-studio/advanced-hive.png)
 
-3. Once you submit the query, the job status will appear. This provides information on the job as it is processed by Hadoop. The **Job State** entry provides the current status of the job. The state will be updated periodically, or you can use the refresh icon to manually refresh the state.
+3. Once you submit the query, the job status appears. The job status displays information on the job as it is processed by Hadoop. The **Job State** entry provides the status of the job. The state is updated periodically, or you can use the refresh icon to manually refresh the state.
 
     ![Job state](./media/hdinsight-hadoop-emulator-visual-studio/job-state.png)
 
-    Once the **Job Status** changes to **Finished**, a Directed Acyclic Graph (DAG) is displayed. This describes the execution path that was determined by Tez (the default execution engine for Hive on the local cluster.)
+    Once the **Job Status** changes to **Finished**, a Directed Acyclic Graph (DAG) is displayed. This diagram describes the execution path that was determined by Tez (the default execution engine for Hive on the local cluster.)
 
     > [!NOTE]
     > Tez is also the default when using Linux-based HDInsight clusters. It is not the default on Windows-based HDInsight; to use it there, you must add the line `set hive.execution.engine = tez;` to the beginning of your Hive query.
@@ -110,16 +111,16 @@ Hive provides a SQL-like query language (HiveQL,) for working with structured da
 
     ![Interactive query](./media/hdinsight-hadoop-emulator-visual-studio/interactive-query.png)
 
-    This streams the output log generated during processing to the **HiveServer2 Output** window.
+    An interactive query streams the output log generated during processing to the **HiveServer2 Output** window.
 
     > [!NOTE]
-    > This is the same information that is available from the **Job Log** link after a job has completed.
+    > The information is the same that is available from the **Job Log** link after a job has completed.
 
     ![HiveServer2 output](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output.png)
 
 ## Create a Hive project
 
-You can also create a project that contains multiple Hive scripts. This is useful when you have related scripts that you need to keep together, or maintain using a version control systems.
+You can also create a project that contains multiple Hive scripts. A project is useful when you have related scripts that you need to keep together, or maintain using a version control systems.
 
 1. In Visual Studio, select **File**, **New**, and then__Project__.
 
@@ -131,13 +132,13 @@ The **Hive Sample** project contains two scripts, **WebLogAnalysis.hql** and **S
 
 ## Create a Pig project
 
-While Hive provides a SQL-like language for working with structured data, Pig provides a language (Pig Latin,) that allows you to develop a pipeline of transformations that are applied to your data. Use the following steps to use Pig with the local cluster.
+While Hive provides a SQL-like language for working with structured data, Pig works by performing transformations on data. Pig provides a language (Pig Latin) that allows you to develop a pipeline of transformations. Use the following steps to use Pig with the local cluster:
 
 1. Open Visual Studio and select **File**, **New**, and then **Project**. From the list of projects, expand **Templates**, **Azure Data Lake**, and then select **Pig (HDInsight)**. From the list of templates, select **Pig Application**. Enter a name, location, and then select **OK**.
 
     ![Pig (HDInsight) project](./media/hdinsight-hadoop-emulator-visual-studio/new-pig.png)
 
-2. Enter the following as the contents of the **script.pig** file that was created with this project.
+2. Enter the following text as the contents of the **script.pig** file that was created with this project.
 
         a = LOAD '/demo/data/Website/Website-Logs' AS (
             log_id:int,
@@ -150,7 +151,7 @@ While Hive provides a SQL-like language for working with structured data, Pig pr
         c = GROUP b BY ip_address;
         DUMP c;
 
-    While Pig uses a different language than Hive, how you run the jobs is consistent between both languages through the **Submit** button. Selecting the drop down beside **Submit** displays an advanced submit dialog for Pig.
+    While Pig uses a different language than Hive, how you run the jobs is consistent between both languages through the **Submit** button. Selecting the drop-down beside **Submit** displays an advanced submit dialog for Pig.
 
     ![Pig advanced submit](./media/hdinsight-hadoop-emulator-visual-studio/advanced-pig.png)
 
@@ -162,7 +163,7 @@ While Hive provides a SQL-like language for working with structured data, Pig pr
 
 Azure Data Lake Tools also allow you to easily view information about jobs that have been ran on Hadoop. Use the following steps to see the jobs that have been ran on the local cluster.
 
-1. From **Server Explorer**, right-click on the local cluster, and then select **View Jobs**. This will display a list of jobs that have been submitted to the cluster.
+1. From **Server Explorer**, right-click on the local cluster, and then select **View Jobs**. A list of jobs that have been submitted to the cluster is displayed.
 
     ![View jobs](./media/hdinsight-hadoop-emulator-visual-studio/view-jobs.png)
 
@@ -176,7 +177,7 @@ Azure Data Lake Tools also allow you to easily view information about jobs that 
 
 ## View Hive databases
 
-1. In **Server Explorer**, expand the **HDInsight local cluster** entry, and then expand **Hive Databases**. This will reveal the **Default** and **xademo** databases on the local cluster. Expanding a database reveals the tables within the database.
+1. In **Server Explorer**, expand the **HDInsight local cluster** entry, and then expand **Hive Databases**. The **Default** and **xademo** databases on the local cluster are displayed. Expanding a database reveals the tables within the database.
 
     ![expanded databases](./media/hdinsight-hadoop-emulator-visual-studio/expanded-databases.png)
 
@@ -186,7 +187,7 @@ Azure Data Lake Tools also allow you to easily view information about jobs that 
 
 ### Database and Table properties
 
-You may have noticed that you can select to view **Properties** on a database or table. This will show details for the selected item in the properties window.
+You may have noticed that you can select to view **Properties** on a database or table. Selecting **Properties** displays details for the selected item in the properties window.
 
 ![Properties](./media/hdinsight-hadoop-emulator-visual-studio/properties.png)
 

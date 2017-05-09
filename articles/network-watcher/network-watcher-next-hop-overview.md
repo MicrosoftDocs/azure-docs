@@ -21,9 +21,6 @@ ms.author: gwallace
 
 Traffic from a VM is sent to a destination based on the effective routes associated with a NIC. Next hop gets the next hop type and IP address of a packet from a specific virtual machine and NIC. This helps to determine if the packet is being directed to the destination or is the traffic being black holed. An improper configuration of routes by the user, where a traffic is directed to an on-premises location or a virtual appliance, can lead to connectivity issues. Next hop also returns the route table associated with the next hop. When querying a next hop if the route is defined as a user-defined route, that route will be returned. Otherwise Next hop returns "System Route".
 
-> [!NOTE]
-> Network Watcher is currently in preview, in order to use the features of Network Watcher the [feature needs to be registered](network-watcher-create.md#register-the-preview-capability).
-
 ![next hop overview][1]
 
 The following is a list of the next hop types that can be returned when querying Next hop.

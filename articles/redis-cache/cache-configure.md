@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/14/2017
+ms.date: 05/02/2017
 ms.author: sdanie
 
 ---
@@ -43,11 +43,12 @@ You can view and configure the following settings using the **Resource Menu**.
 	* [Access keys](#access-keys)
 	* [Advanced settings](#advanced-settings)
 	* [Redis Cache Advisor](#redis-cache-advisor)
-	* [Pricing tier](#pricing-tier)
+	* [Scale](#scale)
 	* [Redis cluster size](#cluster-size)
 	* [Redis data persistence](#redis-data-persistence)
 	* [Schedule updates](#schedule-updates)
 	* [Virtual Network](#virtual-network)
+	* [Firewall](#firewall)
 	* [Properties](#properties)
 	* [Locks](#locks)
 	* [Automation script](#automation-script)
@@ -70,7 +71,7 @@ You can view and configure the following settings using the **Resource Menu**.
 
 ### Activity log
 
-Click **Activity log** to view actions performed on your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) and [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md). For more information on monitoring Azure Redis Cache events, see [Operations and alerts](cache-how-to-monitor.md#operations-and-alerts).
+Click **Activity log** to view actions performed on your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md). For more information on monitoring Azure Redis Cache events, see [Operations and alerts](cache-how-to-monitor.md#operations-and-alerts).
 
 ### Access control (IAM)
 
@@ -95,11 +96,12 @@ The **Settings** section allows you to access and configure the following settin
 * [Access keys](#access-keys)
 * [Advanced settings](#advanced-settings)
 * [Redis Cache Advisor](#redis-cache-advisor)
-* [Pricing tier](#pricing-tier)
+* [Scale](#scale)
 * [Redis cluster size](#cluster-size)
 * [Redis data persistence](#redis-data-persistence)
 * [Schedule updates](#schedule-updates)
 * [Virtual Network](#virtual-network)
+* [Firewall](#firewall)
 * [Properties](#properties)
 * [Locks](#locks)
 * [Automation script](#automation-script)
@@ -184,11 +186,11 @@ Each pricing tier has different limits for client connections, memory, and bandw
 | Server load |[Usage charts - Redis Server Load](cache-how-to-monitor.md#usage-charts) |
 | Memory usage |[Cache performance - size](cache-faq.md#cache-performance) |
 
-To upgrade your cache, click **Upgrade now** to change the [pricing tier](#pricing-tier) and scale your cache. For more information on choosing a pricing tier, see [What Redis Cache offering and size should I use?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+To upgrade your cache, click **Upgrade now** to change the pricing tier and [scale](#scale) your cache. For more information on choosing a pricing tier, see [What Redis Cache offering and size should I use?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
 
-### Pricing tier
-Click **Pricing tier** to view or change the pricing tier for your cache. For more information on scaling, see [How to Scale Azure Redis Cache](cache-how-to-scale.md).
+### Scale
+Click **Scale** to view or change the pricing tier for your cache. For more information on scaling, see [How to Scale Azure Redis Cache](cache-how-to-scale.md).
 
 ![Redis Cache pricing tier](./media/cache-configure/pricing-tier.png)
 
@@ -258,7 +260,7 @@ To specify a maintenance window, check the desired days and specify the maintena
 
 
 
-## Virtual Network
+### Virtual Network
 The **Virtual Network** section allows you to configure the virtual network settings for your cache. For information on creating a premium cache with VNET support and updating its settings, see [How to configure Virtual Network Support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md).
 
 > [!IMPORTANT]
@@ -266,6 +268,20 @@ The **Virtual Network** section allows you to configure the virtual network sett
 > 
 > 
 
+### Firewall
+
+Click **Firewall** to view and configure firewall rules for your Premium Azure Redis Cache.
+
+![Firewall](./media/cache-configure/redis-firewall-rules.png)
+
+You can specify firewall rules with a start and end IP address range. When firewall rules are configured, only client connections from the specified IP address ranges can connect to the cache. When a firewall rule is saved there is a short delay before the rule is effective. This delay is typically less than one minute.
+
+> [!IMPORTANT]
+> Connections from Azure Redis Cache monitoring systems are always permitted, even if firewall rules are configured.
+> 
+> Firewall rules are only available for Premium tier caches.
+> 
+> 
 
 ### Properties
 Click **Properties** to view information about your cache, including the cache endpoint and ports.
@@ -410,6 +426,8 @@ New Azure Redis Cache instances are configured with the following default Redis 
   * P4 (53 GB - 530 GB) - up to 64 databases
   * All premium caches with Redis cluster enabled - Redis cluster only supports use of database 0 so the `databases` limit for any premium cache with Redis cluster enabled is effectively 1 and the [Select](http://redis.io/commands/select) command is not allowed. For more information, see [Do I need to make any changes to my client application to use clustering?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
+For more information about databases, see [What are Redis databases?](cache-faq.md#what-are-redis-databases)
+
 > [!NOTE]
 > The `databases` setting can be configured only during cache creation and only using PowerShell, CLI, or other management clients. For an example of configuring `databases` during cache creation using PowerShell, see [New-AzureRmRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
 > 
@@ -431,6 +449,13 @@ New Azure Redis Cache instances are configured with the following default Redis 
   * P2 (13 GB - 130 GB) - up to 15,000 connections
   * P3 (26 GB - 260 GB) - up to 30,000 connections
   * P4 (53 GB - 530 GB) - up to 40,000 connections
+
+> [!NOTE]
+> While each size of cache allows *up to* a certain number of connections, each connection to Redis has overhead associated with it. An example of such overhead would be CPU and memory usage as a result of TLS/SSL encryption. The maximum connection limit for a given cache size assumes a lightly loaded cache. If load from connection overhead *plus* load from client operations exceeds capacity for the system, the cache can experience capacity issues even if you have not exceeded the connection limit for the current cache size.
+> 
+> 
+
+
 
 ## Redis commands not supported in Azure Redis Cache
 > [!IMPORTANT]

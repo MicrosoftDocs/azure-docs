@@ -64,7 +64,7 @@ You must also have the Power BI Desktop client installed on your machine, and en
 
 ## Understanding the visuals
 
-Provided in the template are set of visuals that help make sense of the NSG Flow Log data. The following images show a sample of what the dashboard looks like when populated with data. Below we examine each visual in greater detail 
+Provided in the template are a set of visuals that help make sense of the NSG Flow Log data. The following images show a sample of what the dashboard looks like when populated with data. Below we examine each visual in greater detail 
 
 ![powerbi][5]
  
@@ -72,7 +72,7 @@ The Top Talkers visual shows the IPs that have initiated the most connections ov
 
 ![toptalkers][6]
 
-The following time series graphs show the number of flows over the period. The upper graph is segmented by the flow direction, and the lower is segmented by the decision madd (allow or deny). With this visual, you can examine you traffic trends over time, and spot any abnormal spikes or decline in traffic or traffic segmentation.
+The following time series graphs show the number of flows over the period. The upper graph is segmented by the flow direction, and the lower is segmented by the decision made (allow or deny). With this visual, you can examine your traffic trends over time, and spot any abnormal spikes or decline in traffic or traffic segmentation.
 
 ![flowsoverperiod][7]
 

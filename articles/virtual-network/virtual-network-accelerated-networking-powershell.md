@@ -1,4 +1,4 @@
----
+﻿---
 title: Accelerated networking for a virtual machine - PowerShell | Microsoft Docs
 description: Learn how to configure Accelerated Networking for an Azure virtual machine using PowerShell.
 services: virtual-network
@@ -52,12 +52,12 @@ The following limitations exist when using this capability:
 * **VM creation:** A network interface with accelerated networking enabled can only be attached to a VM when the VM is created. The network interface cannot be attached to an existing VM.
 * **Regions:** Offered in the West Central US and West Europe Azure regions only. The set of regions will expand in the future.
 * **Supported operating system:** Microsoft Windows Server 2012 R2 and Windows Server 2016 Technical Preview 5. Linux and Windows Server 2012 support will be added soon.
-* **VM Size:** Standard_D15_v2 and Standard_DS15_v2 are the only supported VM instance sizes. For more information, see the [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) article. The set of supported VM instance sizes will expand in the future.
+* **VM Size:** Standard_D15_v2 and Standard_DS15_v2 are the only supported VM instance sizes. For more information, see the [Windows VM sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) article. The set of supported VM instance sizes will expand in the future.
 
 Changes to these limitations will be announced through the [Azure Virtual Networking updates](https://azure.microsoft.com/updates/accelerated-networking-in-preview) page.
 
 ## Create a Windows VM with Accelerated Networking
-1. Open a PowerShell command prompt and complete the remaining steps in this section within a single PowerShell session. If you don't already have PowerShell installed and configured, complete the steps in the [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) article.
+1. Open a PowerShell command prompt and complete the remaining steps in this section within a single PowerShell session. If you don't already have PowerShell installed and configured, complete the steps in the [How to install and configure Azure PowerShell](/powershell/azure/overview) article.
 2. To register for the preview, send an email to [Accelerated Networking Subscriptions](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your subscription ID and intended use. Do not complete the remaining steps until after you receive an e-mail notifying you that you've been accepted into the preview.
 3. Register the capability with your subscription by entering the following commands:
    

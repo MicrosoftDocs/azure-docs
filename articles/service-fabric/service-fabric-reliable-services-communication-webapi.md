@@ -16,6 +16,8 @@ ms.workload: required
 ms.date: 02/10/2017
 ms.author: vturecek
 
+redirect_url: /azure/service-fabric/service-fabric-reliable-services-communication-aspnetcore
+
 ---
 # Get started: Service Fabric Web API services with OWIN self-hosting
 Azure Service Fabric puts the power in your hands when you're deciding how you want your services to communicate with users and with each other. This tutorial focuses on implementing service communication using ASP.NET Web API with Open Web Interface for .NET (OWIN) self-hosting in Service Fabric's Reliable Services API. We'll delve deeply into the Reliable Services pluggable communication API. We'll also use Web API in a step-by-step example to show you how to set up a custom communication listener.
@@ -31,19 +33,13 @@ Web API in Service Fabric is the same ASP.NET Web API you know and love. The dif
 A Web API application itself doesn't change. It's no different from Web API applications you may have written in the past, and you should be able to simply move over most of your application code. But if you've been hosting on IIS, where you host the application may be a little different from what you're used to. Before we get to the hosting part, let's start with something more familiar: the Web API application.
 
 ## Create the application
-Start by creating a new Service Fabric application with a single stateless service in Visual Studio 2015:
-
-![Create a new Service Fabric application](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
+Start by creating a new Service Fabric application with a single stateless service in Visual Studio 2015.
 
 A Visual Studio template for a stateless service using Web API is available to you. In this tutorial, we'll build a Web API project from scratch that results in what you'd get if you selected this template.
 
 Select a blank Stateless Service project to learn how to build a Web API project from scratch, or you can start with the stateless service Web API template and simply follow along.  
 
-![Create a single stateless service](media/service-fabric-reliable-services-communication-webapi/webapi-newproject2.png)
-
 The first step is to pull in some NuGet packages for Web API. The package we want to use is Microsoft.AspNet.WebApi.OwinSelfHost. This package includes all the necessary Web API packages and the *host* packages. This will be important later.
-
-![Create Web API by using the NuGet Package Manager](media/service-fabric-reliable-services-communication-webapi/webapi-nuget.png)
 
 After the packages have been installed, you can begin building out the basic Web API project structure. If you've used Web API, the project structure should look very familiar. Start by adding a `Controllers` directory and a simple values controller:
 
@@ -623,16 +619,12 @@ namespace WebService
 }
 ```
 
-Now that you have put all the pieces in place, your project should look like a typical Web API application with Reliable Services API entry points and an OWIN host:
-
-![Web API with Reliable Services API entry points and OWIN host](media/service-fabric-reliable-services-communication-webapi/webapi-projectstructure.png)
+Now that you have put all the pieces in place, your project should look like a typical Web API application with Reliable Services API entry points and an OWIN host.
 
 ## Run and connect through a web browser
 If you haven't done so, [set up your development environment](service-fabric-get-started.md).
 
 You can now build and deploy your service. Press **F5** in Visual Studio to build and deploy the application. In the Diagnostic Events window, you should see a message that indicates that the web server opened on http://localhost:8281/.
-
-![Visual Studio Diagnostic Events window](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
 
 > [!NOTE]
 > If the port has already been opened by another process on your machine, you may see an error here. This indicates that the listener couldn't be opened. If that's the case, try using a different port for the endpoint configuration in ServiceManifest.xml.

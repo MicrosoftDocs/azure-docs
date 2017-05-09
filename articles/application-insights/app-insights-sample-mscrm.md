@@ -4,7 +4,7 @@ description: Get telemetry from Microsoft Dynamics CRM Online using Application 
 services: application-insights
 documentationcenter: ''
 author: mazharmicrosoft
-manager: douge
+manager: carmonm
 
 ms.assetid: 04c66338-687e-49e5-9975-be935f98f156
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2015
+ms.date: 04/16/2017
 ms.author: awills
 
 ---
@@ -34,9 +34,9 @@ To monitor your application, you add an Application Insights SDK to your applica
     ![Click +, Developer Services, Application Insights.](./media/app-insights-sample-mscrm/01.png)
    
     Choose ASP.NET as the application type.
-3. Open the Quick Start tab and open the code script.
+3. Open the Getting Started page and open "Monitor and diagnose client side".
    
-    ![](./media/app-insights-sample-mscrm/03.png)
+    ![Code snippet for insertion in your web page](./media/app-insights-sample-mscrm/03.png)
 
 **Keep the code page open** while you do the next step in another browser window. You'll need the code soon. 
 
@@ -44,40 +44,40 @@ To monitor your application, you add an Application Insights SDK to your applica
 1. Open your CRM Online instance and login with administrator privileges.
 2. Open Microsoft Dynamics CRM Settings, Customizations, Customize the System
    
-    ![](./media/app-insights-sample-mscrm/04.png)
+    ![Microsoft Dynamics CRM settings](./media/app-insights-sample-mscrm/04.png)
    
-    ![](./media/app-insights-sample-mscrm/05.png)
+    ![Settings > Customizations](./media/app-insights-sample-mscrm/05.png)
 
-    ![](./media/app-insights-sample-mscrm/06.png)
+    ![Customize the system option](./media/app-insights-sample-mscrm/06.png)
 
 1. Create a JavaScript resource.
    
-    ![](./media/app-insights-sample-mscrm/07.png)
+    ![New Web Resource dialog](./media/app-insights-sample-mscrm/07.png)
    
     Give it a name, select **Script (JScript)** and open the text editor.
    
-    ![](./media/app-insights-sample-mscrm/08.png)
+    ![Open the text editor](./media/app-insights-sample-mscrm/08.png)
 2. Copy the code from Application Insights. While copying make sure to ignore script tags. Refer below screenshot:
    
-    ![](./media/app-insights-sample-mscrm/09.png)
+    ![Set your instrumentation key](./media/app-insights-sample-mscrm/09.png)
    
     The code includes the instrumentation key that identifies your Application insights resource.
 3. Save and publish.
    
-    ![](./media/app-insights-sample-mscrm/10.png)
+    ![Save and publish](./media/app-insights-sample-mscrm/10.png)
 
 ### Instrument Forms
 1. In Microsoft CRM Online, open the Account form
    
-    ![](./media/app-insights-sample-mscrm/11.png)
+    ![Account form](./media/app-insights-sample-mscrm/11.png)
 2. Open the form Properties
    
-    ![](./media/app-insights-sample-mscrm/12.png)
+    ![Form properties](./media/app-insights-sample-mscrm/12.png)
 3. Add the JavaScript web resource that you created
    
-    ![](./media/app-insights-sample-mscrm/13.png)
+    ![Add menu](./media/app-insights-sample-mscrm/13.png)
    
-    ![](./media/app-insights-sample-mscrm/14.png)
+    ![Add the web resource](./media/app-insights-sample-mscrm/14.png)
 4. Save and publish your form customizations.
 
 ## Metrics captured
@@ -86,45 +86,45 @@ You have now set up telemetry capture for the form. Whenever it is used, data wi
 Here are samples of the data that you'll see.
 
 #### Application health
-![](./media/app-insights-sample-mscrm/15.png)
+![Example page load time](./media/app-insights-sample-mscrm/15.png)
 
-![](./media/app-insights-sample-mscrm/16.png)
+![Example page views chart](./media/app-insights-sample-mscrm/16.png)
 
 Browser exceptions:
 
-![](./media/app-insights-sample-mscrm/17.png)
+![Browser exceptions chart](./media/app-insights-sample-mscrm/17.png)
 
 Click the chart to get more detail:
 
-![](./media/app-insights-sample-mscrm/18.png)
+![Exceptions list](./media/app-insights-sample-mscrm/18.png)
 
 #### Usage
-![](./media/app-insights-sample-mscrm/19.png)
+![Users, sessions and page views](./media/app-insights-sample-mscrm/19.png)
 
-![](./media/app-insights-sample-mscrm/20.png)
+![Sesion charts](./media/app-insights-sample-mscrm/20.png)
 
-![](./media/app-insights-sample-mscrm/21.png)
+![Browser versions](./media/app-insights-sample-mscrm/21.png)
 
 #### Browsers
-![](./media/app-insights-sample-mscrm/22.png)
+![Breakdown of page load time](./media/app-insights-sample-mscrm/22.png)
 
-![](./media/app-insights-sample-mscrm/23.png)
+![Count of sessions by browser version](./media/app-insights-sample-mscrm/23.png)
 
 #### Geolocation
-![](./media/app-insights-sample-mscrm/24.png)
+![Session count by country](./media/app-insights-sample-mscrm/24.png)
 
-![](./media/app-insights-sample-mscrm/25.png)
+![Sessions and users by country](./media/app-insights-sample-mscrm/25.png)
 
 #### Inside page view request
-![](./media/app-insights-sample-mscrm/26.png)
+![Page view summary](./media/app-insights-sample-mscrm/26.png)
 
-![](./media/app-insights-sample-mscrm/27.png)
+![Search on page view events](./media/app-insights-sample-mscrm/27.png)
 
-![](./media/app-insights-sample-mscrm/28.png)
+![Similar page views](./media/app-insights-sample-mscrm/28.png)
 
-![](./media/app-insights-sample-mscrm/29.png)
+![Page view properties](./media/app-insights-sample-mscrm/29.png)
 
-![](./media/app-insights-sample-mscrm/30.png)
+![Pages per session](./media/app-insights-sample-mscrm/30.png)
 
 ## Sample code
 [Browse the sample code](https://dynamicsandappinsights.codeplex.com/).
@@ -139,4 +139,3 @@ You can do even deeper analysis if you [export the data to Microsoft Power BI](a
 * [What is Application Insights?](app-insights-overview.md)
 * [Application Insights for web pages](app-insights-javascript.md)
 * [More samples and walkthroughs](app-insights-code-samples.md)
-

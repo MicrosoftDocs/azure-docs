@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 04/27/2017
 ms.author: sdanie
 
 ---
@@ -46,7 +46,7 @@ The following FAQs cover basic concepts and questions about Azure Redis Cache an
 * [Azure Redis Cache performance](#azure-redis-cache-performance)
 * [In what region should I locate my cache?](#in-what-region-should-i-locate-my-cache)
 * [How am I billed for Azure Redis Cache?](#how-am-i-billed-for-azure-redis-cache)
-* [Can I use Azure Redis Cache with Azure Government Cloud or Azure China Cloud?](#can-i-use-azure-redis-cache-with-azure-government-cloud-or-azure-china-cloud)
+* [Can I use Azure Redis Cache with Azure Government Cloud, Azure China Cloud, or Microsoft Azure Germany?](#can-i-use-azure-redis-cache-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
 
 ## Development FAQs
 * [What do the StackExchange.Redis configuration options do?](#what-do-the-stackexchangeredis-configuration-options-do)
@@ -55,6 +55,7 @@ The following FAQs cover basic concepts and questions about Azure Redis Cache an
 * [How can I run Redis commands?](#how-can-i-run-redis-commands)
 * [Why doesn't Azure Redis Cache have an MSDN class library reference like some of the other Azure services?](#why-doesnt-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
 * [Can I use Azure Redis Cache as a PHP session cache?](#can-i-use-azure-redis-cache-as-a-php-session-cache)
+* [What are Redis databases?](#what-are-redis-databases)
 
 ## Security FAQs
 * [When should I enable the non-SSL port for connecting to Redis?](#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis)
@@ -65,6 +66,7 @@ The following FAQs cover basic concepts and questions about Azure Redis Cache an
 * [How can I benchmark and test the performance of my cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * [Important details about ThreadPool growth](#important-details-about-threadpool-growth)
 * [Enable server GC to get more throughput on the client when using StackExchange.Redis](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
+* [Performance considerations around connections](#performance-considerations-around-connections)
 
 ## Monitoring and troubleshooting FAQs
 The FAQs in this section cover common monitoring and troubleshooting questions. For more information about monitoring and troubleshooting your Azure Redis Cache instances, see [How to monitor Azure Redis Cache](cache-how-to-monitor.md) and [How to troubleshoot Azure Redis Cache](cache-how-to-troubleshoot.md).
@@ -129,7 +131,7 @@ From this table, we can draw the following conclusions:
 * With Redis clustering, throughput increases linearly as you increase the number of shards (nodes) in the cluster. For example, if you create a P4 cluster of 10 shards, then the available throughput is 250K *10 = 2.5 Million RPS.
 * Throughput for bigger key sizes is higher in the Premium tier as compared to the Standard Tier.
 
-| Pricing tier | Size | CPU cores | Available bandwidth | 1 KB Key size |
+| Pricing tier | Size | CPU cores | Available bandwidth | 1 KB value size |
 | --- | --- | --- | --- | --- |
 | **Standard cache sizes** | | |**Megabits per sec (Mb/s) / Megabytes per sec (MB/s)** |**Requests per second (RPS)** |
 | C0 |250 MB |Shared |5 / 0.625 |600 |
@@ -157,15 +159,28 @@ For best performance and lowest latency, locate your Azure Redis Cache in the sa
 ### How am I billed for Azure Redis Cache?
 Azure Redis Cache pricing is [here](https://azure.microsoft.com/pricing/details/cache/). The pricing page lists pricing as an hourly rate. Caches are billed on a per-minute basis from the time that the cache is created until the time that a cache is deleted. There is no option for stopping or pausing the billing of a cache.
 
-## Can I use Azure Redis Cache with Azure Government Cloud or Azure China Cloud?
-Yes, Azure Redis Cache is available in both Azure Government Cloud and Azure China Cloud. The URLs for accessing and managing Azure Redis Cache are different in Azure Government Cloud and Azure China Cloud compared with Azure Public Cloud. For more information on considerations when using Azure Redis Cache with Azure Government Cloud and Azure China Cloud, see [Azure Government Databases - Azure Redis Cache](../azure-government/documentation-government-services-database.md#azure-redis-cache) and [Azure China Cloud - Azure Redis Cache](https://www.azure.cn/documentation/services/redis-cache/).
+### Can I use Azure Redis Cache with Azure Government Cloud, Azure China Cloud, or Microsoft Azure Germany?
+Yes, Azure Redis Cache is available in Azure Government Cloud, Azure China Cloud, and Microsoft Azure Germany. The URLs for accessing and managing Azure Redis Cache are different in these clouds compared with Azure Public Cloud. 
 
-For information on using Azure Redis Cache with PowerShell in Azure Government Cloud and Azure China Cloud, see [How to connect to Azure Government Cloud or Azure China Cloud](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-azure-government-cloud-or-azure-china-cloud).
+| Cloud   | Dns Suffix for Redis            |
+|---------|---------------------------------|
+| Public  | *.redis.cache.windows.net       |
+| US Gov  | *.redis.cache.usgovcloudapi.net |
+| Germany | *.redis.cache.cloudapi.de       |
+| China   | *.redis.cache.chinacloudapi.cn  |
+
+For more information on considerations when using Azure Redis Cache with other clouds, see the following links.
+
+- [Azure Government Databases - Azure Redis Cache](../azure-government/documentation-government-services-database.md#azure-redis-cache)
+- [Azure China Cloud - Azure Redis Cache](https://www.azure.cn/documentation/services/redis-cache/)
+- [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
+
+For information on using Azure Redis Cache with PowerShell in Azure Government Cloud, Azure China Cloud, and Microsoft Azure Germany, see [How to connect to other clouds - Azure Redis Cache PowerShell](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
 
 <a name="cache-configuration"></a>
 
 ### What do the StackExchange.Redis configuration options do?
-StackExchange.Redis has many options. This section talks about some of the common settings. For more detailed information about StackExchange.Redis options, see [StackExchange.Redis configuration](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md).
+StackExchange.Redis has many options. This section talks about some of the common settings. For more detailed information about StackExchange.Redis options, see [StackExchange.Redis configuration](https://stackexchange.github.io/StackExchange.Redis/Configuration).
 
 | ConfigurationOptions | Description | Recommendation |
 | --- | --- | --- |
@@ -259,6 +274,16 @@ Yes, to use Azure Redis Cache as a PHP session cache, specify the connection str
 >
 
 For more information about using Redis Cache as a PHP session cache with the PhpRedis client, see [PHP Session handler](https://github.com/phpredis/phpredis#php-session-handler).
+
+### What are Redis databases?
+
+Redis Databases are just a logical separation of data within the same Redis instance. The cache memory is shared between all the databases and actual memory consumption of a given database depends on the keys/values stored in that database. For example a C6 cache has 53 GB of memory. You can choose to put all 53 GB into one database or you can split it up between multiple databases. 
+
+> [!NOTE]
+> When using a Premium Azure Redis Cache with clustering enabled, only database 0 is available. This limitation is an intrinsic Redis limitation and is not specific to Azure Redis Cache. For more information, see [Do I need to make any changes to my client application to use clustering?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+> 
+> 
+
 
 <a name="cache-ssl"></a>
 
@@ -377,6 +402,13 @@ Enabling server GC can optimize the client and provide better performance and th
 * [To enable server GC](https://msdn.microsoft.com/library/ms229357.aspx)
 * [Fundamentals of Garbage Collection](https://msdn.microsoft.com/library/ee787088.aspx)
 * [Garbage Collection and Performance](https://msdn.microsoft.com/library/ee851764.aspx)
+
+
+### Performance considerations around connections
+
+Each pricing tier has different limits for client connections, memory, and bandwidth. While each size of cache allows *up to* a certain number of connections, each connection to Redis has overhead associated with it. An example of such overhead would be CPU and memory usage as a result of TLS/SSL encryption. The maximum connection limit for a given cache size assumes a lightly loaded cache. If load from connection overhead *plus* load from client operations exceeds capacity for the system, the cache can experience capacity issues even if you have not exceeded the connection limit for the current cache size.
+
+For more information about the different connections limits for each tier, see [Azure Redis Cache pricing](https://azure.microsoft.com/pricing/details/cache/). For more information about connections and other default configurations, see [Default Redis server configuration](cache-configure.md#default-redis-server-configuration).
 
 <a name="cache-monitor"></a>
 

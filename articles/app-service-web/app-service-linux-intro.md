@@ -28,15 +28,26 @@ Customers can use App Service on Linux to host web apps natively on Linux for su
 App Service on Linux currently supports the following application stacks:
 
 * Node.js
+	* 4.4
+	* 4.5
+	* 6.2
+	* 6.6
+	* 6.9
 * PHP
+	* 5.6
+	* 7.0
 * .Net Core
+	* 1.0
+    * 1.1
 * Ruby
+	* 2.3
 
 Customers can deploy their applications by using:
 
 * FTP
 * Local Git
 * GitHub
+* Bitbucket
 
 For application scaling:
 
@@ -75,3 +86,4 @@ See the following links to get started with App Service on Linux. You can post q
 * [Using .NET Core in Azure App Service Web Apps on Linux](app-service-linux-using-dotnetcore.md)
 * [Using Ruby in Azure App Service Web Apps on Linux](app-service-linux-using-ruby.md)
 * [Azure App Service Web Apps on Linux FAQ](app-service-linux-faq.md)
+

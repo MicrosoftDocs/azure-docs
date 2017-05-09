@@ -1,25 +1,11 @@
 ---
-title: Create a DocumentDB account for use with MongoDB apps | Microsoft Docs
-description: Use this tutorial to learn how to create a DocumentDB account with protocol support for MongoDB, now available for preview.
-keywords: mongodb apps, mongodb app
-services: documentdb
-author: AndrewHoh
-manager: jhubbard
-editor: ''
-documentationcenter: ''
+redirect_url: https://docs.microsoft.com/azure/documentdb/documentdb-create-account
+ROBOTS: NOINDEX, NOFOLLOW
 
-ms.assetid: 413f3ae1-a68e-43be-b0d7-fa2987644f3e
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/24/2016
-ms.author: anhoh
 
 ---
 
-# Create a DocumentDB account for use with MongoDB apps
+# Create a DocumentDB account with MongoDB API
 DocumentDB databases can now be used as the data store for apps written for MongoDB. To use this functionality, you need an Azure account and a DocumentDB account. This tutorial walks you through the process of creating a DocumentDB account for use with MongoDB apps. 
 
 You can create a DocumentDB with support for MongoDB account using either the Azure portal or Azure CLI with Azure Resource Manager templates. This article shows how to create a DocumentDB with support for MongoDB account using the Azure portal. To create an account using Azure CLI with Azure Resource Manager, see [Automate Azure DocumentDB account management using Azure CLI 2.0](documentdb-automation-resource-manager-cli.md).

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 04/24/2017
 ms.author: dobett
 
 ---
@@ -39,6 +39,7 @@ The following table shows how the solutions map to specific IoT features:
 | --- | --- | --- | --- | --- | --- | --- |
 | [Remote monitoring][lnk-getstarted-preconfigured] |Yes |Yes |Yes |Yes |Yes |- |
 | [Predictive maintenance][lnk-predictive-maintenance] |Yes |Yes |- |Yes |Yes |Yes |
+| [Connected factory][lnk-getstarted-factory] |Yes |Yes |Yes |Yes |Yes |- |
 
 * *Data ingestion*: Ingress of data at scale to the cloud.
 * *Device identity*: Manage unique device identities and control device access to the solution.
@@ -162,3 +163,4 @@ Now you know what a preconfigured solution is, you can get started by deploying 
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
+[lnk-getstarted-factory]: iot-suite-connected-factory-overview.md

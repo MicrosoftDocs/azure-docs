@@ -1,5 +1,5 @@
 ---
-title: Azure Monitoring and Diagnostics Documentation - Tutorials, API Reference | Microsoft Docs
+title: Azure Monitor Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use monitoring and diagnostics services to track performance, maintain security, and identify trends. API references, best practices, and more.
 services: monitoring-and-diagnostics
 author: carolz
@@ -13,7 +13,7 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ---
-# Monitoring and Diagnostics Documentation
+# Azure Monitor Documentation
 
 Learn how to use Azure monitoring and diagnostics services to track performance, maintain security, and identify trends. Tutorials, API references, best practices, and other documentation help you understand the uses of monitoring and diagnostics and how to plan and deploy scalable and reliable solutions.
 
@@ -155,10 +155,24 @@ Learn how to use Azure monitoring and diagnostics services to track performance,
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema">Azure Diagnostics Schema</a></h3>
+                        <h3>Monitoring</h3>
+                            <p><a href="/azure/monitoring-and-diagnostics/monitoring-supported-metrics">List of supported metrics</a></p>
+                            <p><a href="/azure/monitoring-and-diagnostics/monitoring-data-sources">Sources of monitoring data</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Diagnostics</h3>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema">Azure Diagnostics Schema</a></p>
                         <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot0">Azure Diagnostics Schema 1.0</a></p>
                         <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot2">Azure Diagnostics Schema 1.2</a></p>
-                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-to-1dot5">Azure Diagnostics Schema 1.3 to 1.5</a></p>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later">Azure Diagnostics Schema 1.3 to 1.5</a></p>
                     </div>
                 </div>
             </div>

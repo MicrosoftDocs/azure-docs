@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 04/05/2017
 ms.author: nberdy
+ms.custom: H1Hack27Feb2017
 
 ---
-# Use direct methods (Node)
+# Use direct methods on your IoT device with Node.js
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
 At the end of this tutorial, you have two Node.js console apps:
@@ -139,7 +140,7 @@ In this section, you create a Node.js console app that calls a method in the sim
     ```
     var methodParams = {
         methodName: methodName,
-        payload: 'a line to be written',
+        payload: 'hello world',
         timeoutInSeconds: 30
     };
    

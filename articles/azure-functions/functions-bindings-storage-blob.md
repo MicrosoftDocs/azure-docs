@@ -15,8 +15,8 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/11/2017
-ms.author: chrande
+ms.date: 03/06/2017
+ms.author: chrande, glenga
 
 ---
 # Azure Functions Storage blob bindings
@@ -54,7 +54,7 @@ Note the following:
 * For `path`, see [Name patterns](#pattern) to find out how to format blob name patterns.
 * `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
   editor in the **Integrate** tab configures this app setting for you when you create a storage account or selects an existing 
-  one. To manually create this app setting, see [configure this app setting manually](). 
+  one. To manually create this app setting, see [configure this app setting manually](functions-how-to-use-azure-function-app-settings.md). 
 
 When running on a Consumption plan, if a Function App has gone idle, there can be be up to a 10-minute day in processing new blobs. Once the Function App is running, blobs are processed more quickly. To avoid this initial delay, either use a regular App Service Plan with Always On enabled or use another mechanism to trigger the blob processing, such as a queue message that contains the blob name. 
 
@@ -102,7 +102,7 @@ For example:
 This path would find a blob named *{20140101}-soundfile.mp3* in the *images* container, and the `name` variable value in the function code 
 would be *soundfile.mp3*. 
 
-<a name"receipts"></a>
+<a name="receipts"></a>
 
 ### Blob receipts
 The Azure Functions runtime makes sure that no blob trigger function gets called more than once for the same new or updated blob. 
@@ -246,7 +246,7 @@ Note the following:
   matches the blob name specified in the trigger message.   
 * `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
   editor in the **Integrate** tab configures this app setting for you when you create a Storage account or selects an existing 
-  one. To manually create this app setting, see [configure this app setting manually](). 
+  one. To manually create this app setting, see [configure this app setting manually](functions-how-to-use-azure-function-app-settings.md). 
 
 <a name="inputusage"></a>
 
@@ -258,7 +258,7 @@ Where `T` is the data type that you want to deserialize the data into, and `para
 The blob can be deserialized into any of the following types:
 
 * Any [Object](https://msdn.microsoft.com/library/system.object.aspx) - useful for JSON-serialized blob data.
-  If you declare a custom input type (e.g. `FooType`), Azure Functions attempts to deserialize the JSON data
+  If you declare a custom input type (e.g. `InputType`), Azure Functions attempts to deserialize the JSON data
   into your specified type.
 * String - useful for text blob data.
 
@@ -367,7 +367,7 @@ Note the following:
   matches the blob name specified in the trigger message.   
 * `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
   editor in the **Integrate** tab configures this app setting for you when you create a storage account or selects an existing 
-  one. To manually create this app setting, see [configure this app setting manually](). 
+  one. To manually create this app setting, see [configure this app setting manually](functions-how-to-use-azure-function-app-settings.md). 
 
 <a name="outputusage"></a>
 
@@ -379,7 +379,7 @@ where `T` is the data type that you want to serialize the data into, and `paramN
 You can write to the output blob using any of the following types:
 
 * Any [Object](https://msdn.microsoft.com/library/system.object.aspx) - useful for JSON-serialization.
-  If you declare a custom output type (e.g. `out FooType paramName`), Azure Functions attempts to serialize object 
+  If you declare a custom output type (e.g. `out OutputType paramName`), Azure Functions attempts to serialize object 
   into JSON. If the output parameter is null when the function exits, the Functions runtime creates a blob as 
   a null object.
 * String - (`out string paramName`) useful for text blob data. the Functions runtime creates a blob only if the 
@@ -393,8 +393,6 @@ In C# functions you can also output to any of the following types:
 * `ICloudBlob`
 * `CloudBlockBlob` 
 * `CloudPageBlob` 
-* `ICollector<T>` (to output multiple blobs)
-* `IAsyncCollector<T>` (async version of `ICollector<T>`)
 
 <a name="outputsample"></a>
 
