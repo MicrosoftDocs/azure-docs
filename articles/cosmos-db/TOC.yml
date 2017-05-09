@@ -1,3 +1,5 @@
+- name: Cosmos DB Documentation
+  href: index.yml
 - name: Overview
   items:
   - name: About Azure Cosmos DB
