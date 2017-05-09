@@ -115,19 +115,7 @@ az vm start --resource-group myRGNetwork --name myFrontEndVM --no-wait
 
 ### No public IP address
 
-In many cases, a VM does not need to be accessible over the internet. To create a VM without a public IP address use the ` --public-ip-address` argument with an empty set of double quotes.
-
-```azurecli
-az vm create \
-  --resource-group myRGNetwork \
-  --name myBackEndVM \
-  --vnet-name myVnet \
-  --subnet mySubnetBackEnd \
-  --nsg myNSGBackEnd \
-  --public-ip-address "" \
-  --image UbuntuLTS \
-  --generate-ssh-keys
-```
+In many cases, a VM does not need to be accessible over the internet. To create a VM without a public IP address use the `--public-ip-address ""` argument with an empty set of double quotes. This is demonstrated later in this tutorial
 
 ## Secure network traffic
 
@@ -147,10 +135,37 @@ All NSGs contain a set of default rules. The default rules cannot be deleted, bu
 
 A network security group can be created with the VM when using the [az vm create](/cli/azure/vm#create) command. When doing so an NSG rule is auto created to allow traffic on port 22 from any destination. You may decide to modify this default rule, which will be shown in a later example.
 
+Use the [az network nsg create]() command to create a network security group.
+
+```azurecli
+az network nsg create --resource-group myRGNetwork --name myNSGBackEnd
+```
+
+Instead of associating the NSG to a network interface, it will be associated with a subnet. In this configuration and VM that is attached to the subnet will inherit the NSG rules.
+
+Update the exsisting subnet named *mySubnetBackEnd* with the new NSG.
+
+```azurecli
+az network vnet subnet update --resource-group --name mySubnetBackEnd --network-security-group myNSGBackEnd
+```
+
+Now create a virtual machine, which will be attached to the *mySubnetBackEnd*.
+
+```azurecli
+az vm create \
+  --resource-group myRGNetwork \
+  --name myBackEndVM \
+  --vnet-name myVnet \
+  --subnet mySubnetBackEnd \
+  --nsg myNSGBackEnd \
+  --public-ip-address "" \
+  --image UbuntuLTS \
+  --generate-ssh-keys
+```
+
 ### Secure incoming traffic
 
 When the front end VM was created, an NSG rule was created to allow incoming traffic on port 22. This rule will allow SSH connections to the VM. For this example, traffic should also be allowed on port 80. This allows a web application to be accessed on the VM.
-Add a rule for port 80. 
 
 Use the [az network nsg rule create](/cli/azure/network/nsg/rule#create) command to create a new rule for port 80.
 
