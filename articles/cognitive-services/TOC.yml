@@ -32,6 +32,8 @@
     href: Computer-vision/Home.md
   - name: Content Moderator
     href: Content-Moderator/overview.md
+  - name: Custom Decision Service
+    href: custom-decision-service/custom-decision-service-overview.md
   - name: Custom Speech Service
     href: Custom-Speech-Service/cognitive-services-custom-speech-home.md
   - name: Custom Vision Service
