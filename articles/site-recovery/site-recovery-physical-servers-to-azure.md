@@ -34,7 +34,7 @@ Post comments and questions at the bottom of this article or on the [Azure Recov
 **Azure** | Learn about [Azure requirements](site-recovery-prereq.md#azure-requirements).
 **On-premises configuration server** | On-premises machine (physical or VMware VM) running Windows Server 2012 R2 or later. You set up the configuration server during Site Recovery deployment.<br/><br/> By default, the process server and master target server are also installed on this machine. When you scale up, you might need a separate process server, and it has the same requirements as the configuration server.<br/><br/> Learn more about these components in [Set up the source environment](site-recovery-set-up-vmware-to-azure.md#configuration-server-minimum-requirements).
 **On-premises VMs** | Machines you want to replicate should be running a [supported operating system](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) and conform with [Azure prerequisites](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
-**URLs** | The configuration server needs access to these URLs:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/> If you have IP address-based firewall rules, ensure that they allow communication to Azure.<br/></br> Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) and the HTTPS (443) port.<br/></br> Allow IP address ranges for the Azure region of your subscription and for West US (used for Access Control and Identity Management).<br/><br/> Allow this URL for the MySQL download: http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi.
+**URLs** | The configuration server needs access to these URLs:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/> If you have IP address-based firewall rules, ensure that they allow communication to Azure.<br/></br> Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) and the HTTPS (443) port.<br/></br> Allow IP address ranges for the Azure region of your subscription and for West US (used for access control and identity management).<br/><br/> Allow this URL for the MySQL download: http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi.
 **Mobility service** | This service is installed on each machine you want to replicate.
 
 ## Limitations
@@ -69,10 +69,9 @@ Post comments and questions at the bottom of this article or on the [Azure Recov
 
 ## Prepare for Mobility service installation
 
-If you want to push the Mobility service to a physical machine, you need an account that can be used by the process server to access the machines. The account is only used for the push installation. You can use a domain or local account:
+If you want to push the Mobility service to a physical machine, you need an account that can be used by the process server to access the machines. The account is used only for the push installation. You can use a domain or local account:
 
-  - For Windows, if you're not using a domain account, you need to disable Remote User Access control on the local machine. To do this, in the register under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, add the DWORD entry **LocalAccountTokenFilterPolicy**, with a value of 1.
-    - If you want to add the registry entry for Windows from a CLI, type:
+  - For Windows, if you're not using a domain account, you need to disable Remote User Access control on the local machine. To do this, in the registry under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, add the DWORD entry **LocalAccountTokenFilterPolicy**, with a value of 1. If you want to add the registry entry for Windows from a command-line interface, type:
 
         ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
   - For Linux, the account should be a root user on the source Linux server.
@@ -119,8 +118,8 @@ Before you start, do the following:
 
     > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video1-Source-Infrastructure-Setup/player]
 
-- On the configuration server machine, make sure that the system clock is synchronized with a [time server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). If it's 15 minutes in front or behind, setup might fail.
-- Run setup as a local administrator on the configuration server machine.
+- On the configuration server machine, make sure that the system clock is synchronized with a [time server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). If it's 15 minutes in front or behind, Setup might fail.
+- Run Setup as a local administrator on the configuration server machine.
 - Make sure TLS 1.0 is enabled on the machine.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
@@ -134,7 +133,7 @@ Before you start, do the following:
 Before you set up the target environment, check to make sure that you have an [Azure storage account and network](#set-up-azure).
 
 1. Click **Prepare Infrastructure** > **Target**, and select the Azure subscription you want to use.
-2. Specify whether your target deployment model is Resource Manager-based or classic.
+2. Specify whether your target deployment model is Resource Manager or classic.
 3. Site Recovery checks to make sure that you have one or more compatible Azure storage accounts and networks.
 
    ![Target](./media/site-recovery-vmware-to-azure/gs-target.png)
@@ -150,8 +149,8 @@ Before you start, get a quick video overview. (The video describes how to replic
 1. To create a new replication policy, click **Site Recovery infrastructure** > **Replication Policies** > **+Replication Policy**.
 2. In **Create replication policy**, specify a policy name.
 3. In **RPO threshold**, specify the RPO limit. This value specifies how often data recovery points are created. An alert is generated if continuous replication exceeds this limit.
-4. In **Recovery point retention**, specify (in hours) how long the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window. Up to 24 hours retention is supported for machines replicated to premium storage. Up to 72 hours retention is supported for machines replicated to standard storage.
-5. In **App-consistent snapshot frequency**, specify how often (in minutes) recovery points containing application-consistent snapshots are created. Click **OK** to create the policy.
+4. In **Recovery point retention**, specify (in hours) how long the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window. Up to 24 hours' retention is supported for machines replicated to premium storage. Up to 72 hours' retention is supported for machines replicated to standard storage.
+5. In **App-consistent snapshot frequency**, specify how often (in minutes) recovery points that contain application-consistent snapshots are created. Click **OK** to create the policy.
 
     ![Replication policy](./media/site-recovery-vmware-to-azure/gs-replication2.png)
 
@@ -204,7 +203,7 @@ By default, all disks on a machine are replicated. You can exclude disks from re
 
     ![Enable replication](./media/site-recovery-physical-to-azure/chooseVM.png)
 
-6. In **Target**, select the **Subscription** and the **Resource group** in which you want to create the Azure VMs after failover. Choose the deployment model that you want to use in Azure (classic or Resource Manager) for the failed over VMs.
+6. In **Target**, select the **Subscription** and the **Resource group** in which you want to create the Azure VMs after failover. Choose the deployment model that you want to use in Azure (classic or Resource Manager) for the failed-over VMs.
 
 7. Select the Azure storage account you want to use for replicating data. If you don't want to use an account you've already set up, you can create a new one.
 
@@ -226,7 +225,7 @@ By default, all disks on a machine are replicated. You can exclude disks from re
 
     a. Machines in replication groups replicate together and have shared crash-consistent and app-consistent recovery points when they fail over.
 
-    b. We recommend that you gather VMs and physical servers together so that they mirror your workloads. Enabling multi-VM consistency can impact workload performance. It should only be used if machines are running the same workload and you need consistency.
+    b. We recommend that you gather VMs and physical servers together so that they mirror your workloads. Enabling multi-VM consistency can affect workload performance. It should be used only if machines are running the same workload and you need consistency.
 
     ![Enable replication](./media/site-recovery-physical-to-azure/policy.png)
 
@@ -246,7 +245,7 @@ We recommend that you verify the VM properties and make any changes you need.
 
     a. You can set the target IP address.
 
-    b.  If you don't provide an address, the failed over machine uses DHCP.
+    b.  If you don't provide an address, the failed-over machine uses DHCP.
 
     c. If you set an address that isn't available at failover, failover doesn't work.
 
@@ -275,7 +274,7 @@ After you've set up everything, run a test failover to make sure everything's wo
 2. To fail over a recovery plan, in **Settings** > **Recovery Plans**, right-click the plan > **Test Failover**. To create a recovery plan, [follow these instructions](site-recovery-create-recovery-plans.md).  
 3. In **Test Failover**, select the Azure network to which Azure VMs are connected after failover occurs.
 4. Click **OK** to begin the failover. You can track progress by clicking the VM to open its properties or by clicking the **Test Failover** job in vault name > **Settings** > **Jobs** > **Site Recovery jobs**.
-5. After the failover completes, you should also be able to see the replica Azure machine appear in the Azure portal > **Virtual Machines**. Make sure that the VM is the appropriate size, that it's connected to the appropriate network, and that it's running.
+5. After the failover finishes, you should also be able to see the replica Azure machine appear in the Azure portal > **Virtual Machines**. Make sure that the VM is the appropriate size, that it's connected to the appropriate network, and that it's running.
 6. If you [prepared for connections after failover](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover), you should be able to connect to the Azure VM.
 7. After you're done, click **Cleanup test failover** on the recovery plan. In **Notes**, record and save any observations associated with the test failover. This step deletes the virtual machines that were created during test failover.
 
