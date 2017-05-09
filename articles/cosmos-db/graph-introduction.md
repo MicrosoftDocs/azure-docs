@@ -1,12 +1,12 @@
 ﻿---
 title: 'Introduction to Azure Cosmos DB Graph APIs | Microsoft Docs'
 description: Learn how you can use Azure Cosmos DB to store, query, and traverse massive graphs with low latency using the Gremlin query language. 
-services: documentdb
+services: cosmosdb
 author: arramac
 documentationcenter: ''
 
 ms.assetid: b916644c-4f28-4964-95fe-681faa6d6e08
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet

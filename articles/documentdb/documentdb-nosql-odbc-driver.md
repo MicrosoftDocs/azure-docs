@@ -9,7 +9,7 @@ editor: ''
 documentationcenter: ''
 
 ms.assetid: 9967f4e5-4b71-4cd7-8324-221a8c789e6b
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
@@ -26,7 +26,7 @@ The Azure Cosmos DB ODBC driver enables you to connect to Azure Cosmos DB using 
 The Azure Cosmos DB ODBC driver is ODBC 3.8 compliant and supports ANSI SQL-92 syntax. The driver offers rich features to help you renormalize data in Azure Cosmos DB. Using the driver, you can represent data in Azure Cosmos DB as tables and views. The driver enables you to perform SQL operations against the tables and views including group by queries, inserts, updates, and deletes.
 
 ## Why do I need to normalize my data?
-Azure Cosmos DB is a NoSQL database, so it enables rapid development of apps by enabling applications to iterate their data model on the fly and not confine them to a strict schema. A single Azure Cosmos DB database can contain JSON documents of various structures. This is great for rapid application development, but when you want to analyze and create reports of your data using data analytics and BI tools, the data often needs to be flattened and adhere to a specific schema.
+Azure Cosmos DB is a schemaless database, so it enables rapid development of apps by enabling applications to iterate their data model on the fly and not confine them to a strict schema. A single Azure Cosmos DB database can contain JSON documents of various structures. This is great for rapid application development, but when you want to analyze and create reports of your data using data analytics and BI tools, the data often needs to be flattened and adhere to a specific schema.
 
 This is where the ODBC driver comes in. By using the ODBC driver, you can now renormalized data in Azure Cosmos DB into tables and views fitting to your data analytic and reporting needs. The renormalized schemas have no impact on the underlying data and do not confine developers to adhere to them, they simply enable you to leverage ODBC-compliant tools to access the data. So now your Azure Cosmos DB database will not only be a favorite for your development team, but your data analysts will love it too.
 

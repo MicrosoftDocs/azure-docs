@@ -50,7 +50,7 @@ The following table lists the throughput available for collections:
 ## To set the throughput by using the Azure portal
 
 1. In a new window, open the [Azure portal](https://portal.azure.com).
-2. On the left bar, click **NoSQL (Azure Cosmos DB)**, or click **More Services** at the bottom, then scroll to **Databases**, and then click **NoSQL (Azure Cosmos DB)**.
+2. On the left bar, click **Azure Cosmos DB**, or click **More Services** at the bottom, then scroll to **Databases**, and then click **Azure Cosmos DB**.
 3. Select your Cosmos DB account.
 4. In the new window, under **Collections**, click **Scale** as shown in the following screenshot.
 5. In the new window, select your collection from the drop-down, change the **Throughput** value, and then click **Save**.
