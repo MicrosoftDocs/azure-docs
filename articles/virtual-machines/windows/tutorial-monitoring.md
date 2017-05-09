@@ -52,203 +52,39 @@ A Windows VM has a dedicated Host VM in Azure that it interacts with. Metrics ar
 1. In the Azure portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
 2. Click **Metrics** on the VM blade, and then select any of the Host metrics under **Available metrics** to see how the Host VM is performing.
 
-![View host metrics](./media/tutorial-monitoring/tutorial-monitor-host-metrics.png)
+    ![View host metrics](./media/tutorial-monitoring/tutorial-monitor-host-metrics.png)
 
 ## Install diagnostics extension
 
-[Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) enable the collection of diagnostic data from a VM.
+The basic host metrics are available, but to see more granular and VM-specific metrics, you to need to install the Azure diagnostics extension on the VM. The Azure diagnostics extension allows additional monitoring and diagnostics data to be retrieved from the VM. You can view these performance metrics and create alerts based on how the VM performs. The diagnostic extension is installed through the Azure portal as follows:
 
-When installing the diagnostic extension, a configuration file is required that defines the collected metrics. When creating this file, you need the name of a storage account to hold the diagnostic data, and the Id of your Azure subscription.
+1. In the Azure portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
+2. Click **Diagnosis settings**. The list shows that *Boot diagnostics* are already enabled from the previous section. Click the check box for *Basic metrics*.
+3. Click the **Enable guest-level monitoring** button.
 
-Use the [Get-AzureRmStorageAccount](/powershell/module/azurerm.storage/get-azurermstorageaccount) command to get the name of the storage account. In this example, the storage account that was auto created for boot diagnostics is used.
-
-```powershell
-Get-AzureRmStorageAccount -ResourceGroupName myResourceGroup | Select StorageAccountName
-```
-
-Use the [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription) command to get your Azure subscription Id.
-
-```powershell
-Get-AzureRmSubscription | Select SubscriptionId
-```
-
-Create a file named diagnosticsconfig.xml. In this example, the file is stored on the root of the *c:\* drive.
-
-```powershell
-New-Item -ItemType File c:\diagnosticsconfig.xml
-```
-
-Copy this XML into the *diagnosticsconfig.xml* file.
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-  <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
-    <WadCfg>
-      <DiagnosticMonitorConfiguration overallQuotaInMB="4096">
-        <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Error"/>
-        <PerformanceCounters scheduledTransferPeriod="PT1M">
-        <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT15S" unit="Percent">
-          <annotation displayName="CPU utilization" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-        <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Privileged Time" sampleRate="PT15S" unit="Percent">
-          <annotation displayName="CPU privileged time" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-        <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% User Time" sampleRate="PT15S" unit="Percent">
-          <annotation displayName="CPU user time" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-        <PerformanceCounterConfiguration counterSpecifier="\Processor Information(_Total)\Processor Frequency" sampleRate="PT15S" unit="Count">
-          <annotation displayName="CPU frequency" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-        <PerformanceCounterConfiguration counterSpecifier="\System\Processes" sampleRate="PT15S" unit="Count">
-          <annotation displayName="Processes" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-        <PerformanceCounterConfiguration counterSpecifier="\Process(_Total)\Thread Count" sampleRate="PT15S" unit="Count">
-          <annotation displayName="Threads" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-        <PerformanceCounterConfiguration counterSpecifier="\Process(_Total)\Handle Count" sampleRate="PT15S" unit="Count">
-          <annotation displayName="Handles" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-        <PerformanceCounterConfiguration counterSpecifier="\Memory\% Committed Bytes In Use" sampleRate="PT15S" unit="Percent">
-          <annotation displayName="Memory usage" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-        <PerformanceCounterConfiguration counterSpecifier="\Memory\Available Bytes" sampleRate="PT15S" unit="Bytes">
-          <annotation displayName="Memory available" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-        <PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT15S" unit="Bytes">
-          <annotation displayName="Memory committed" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-        <PerformanceCounterConfiguration counterSpecifier="\Memory\Commit Limit" sampleRate="PT15S" unit="Bytes">
-          <annotation displayName="Memory commit limit" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-        <PerformanceCounterConfiguration counterSpecifier="\Memory\Pool Paged Bytes" sampleRate="PT15S" unit="Bytes">
-          <annotation displayName="Memory paged pool" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-        <PerformanceCounterConfiguration counterSpecifier="\Memory\Pool Nonpaged Bytes" sampleRate="PT15S" unit="Bytes">
-          <annotation displayName="Memory non-paged pool" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-        <PerformanceCounterConfiguration counterSpecifier="\PhysicalDisk(_Total)\% Disk Time" sampleRate="PT15S" unit="Percent">
-          <annotation displayName="Disk active time" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-        <PerformanceCounterConfiguration counterSpecifier="\PhysicalDisk(_Total)\% Disk Read Time" sampleRate="PT15S" unit="Percent">
-          <annotation displayName="Disk active read time" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-        <PerformanceCounterConfiguration counterSpecifier="\PhysicalDisk(_Total)\% Disk Write Time" sampleRate="PT15S" unit="Percent">
-          <annotation displayName="Disk active write time" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-        <PerformanceCounterConfiguration counterSpecifier="\PhysicalDisk(_Total)\Disk Transfers/sec" sampleRate="PT15S" unit="CountPerSecond">
-          <annotation displayName="Disk operations" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-        <PerformanceCounterConfiguration counterSpecifier="\PhysicalDisk(_Total)\Disk Reads/sec" sampleRate="PT15S" unit="CountPerSecond">
-          <annotation displayName="Disk read operations" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-        <PerformanceCounterConfiguration counterSpecifier="\PhysicalDisk(_Total)\Disk Writes/sec" sampleRate="PT15S" unit="CountPerSecond">
-          <annotation displayName="Disk write operations" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-        <PerformanceCounterConfiguration counterSpecifier="\PhysicalDisk(_Total)\Disk Bytes/sec" sampleRate="PT15S" unit="BytesPerSecond">
-          <annotation displayName="Disk speed" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-        <PerformanceCounterConfiguration counterSpecifier="\PhysicalDisk(_Total)\Disk Read Bytes/sec" sampleRate="PT15S" unit="BytesPerSecond">
-          <annotation displayName="Disk read speed" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-        <PerformanceCounterConfiguration counterSpecifier="\PhysicalDisk(_Total)\Disk Write Bytes/sec" sampleRate="PT15S" unit="BytesPerSecond">
-          <annotation displayName="Disk write speed" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-        <PerformanceCounterConfiguration counterSpecifier="\PhysicalDisk(_Total)\Avg. Disk Queue Length" sampleRate="PT15S" unit="Count">
-          <annotation displayName="Disk average queue length" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-        <PerformanceCounterConfiguration counterSpecifier="\PhysicalDisk(_Total)\Avg. Disk Read Queue Length" sampleRate="PT15S" unit="Count">
-          <annotation displayName="Disk average read queue length" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-        <PerformanceCounterConfiguration counterSpecifier="\PhysicalDisk(_Total)\Avg. Disk Write Queue Length" sampleRate="PT15S" unit="Count">
-          <annotation displayName="Disk average write queue length" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-        <PerformanceCounterConfiguration counterSpecifier="\LogicalDisk(_Total)\% Free Space" sampleRate="PT15S" unit="Percent">
-          <annotation displayName="Disk free space (percentage)" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-        <PerformanceCounterConfiguration counterSpecifier="\LogicalDisk(_Total)\Free Megabytes" sampleRate="PT15S" unit="Count">
-          <annotation displayName="Disk free space (MB)" locale="en-us"/>
-        </PerformanceCounterConfiguration>
-      </PerformanceCounters>
-      <Metrics resourceId="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM" >
-          <MetricAggregation scheduledTransferPeriod="PT1H"/>
-          <MetricAggregation scheduledTransferPeriod="PT1M"/>
-      </Metrics>
-      <WindowsEventLog scheduledTransferPeriod="PT1M">
-        <DataSource name="Application!*[System[(Level = 1 or Level = 2)]]"/>
-        <DataSource name="Security!*[System[(Level = 1 or Level = 2)]"/>
-        <DataSource name="System!*[System[(Level = 1 or Level = 2)]]"/>
-      </WindowsEventLog>
-        </DiagnosticMonitorConfiguration>
-      </WadCfg>
-      <StorageAccount>mydiagnosticsstorage</StorageAccount>
-  </PublicConfig>
-```
-Update this line, replacing *{subscriptionId}* with your subscription Id. 
-
-```xml
-<Metrics resourceId="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM" >
-```
-
-When completed, it should look like this.
-
-```xml
-<Metrics resourceId="/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM" >
-```
-
-Finally, update this line, replacing *mydiagnosticsstorage* with the name of your storage account. 
-
-```xml
-<StorageAccount>mydiagnosticsstorage</StorageAccount>
-```
-
-Now you can install the diagnostic extension with the [Set-AzureRmVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdiagnosticsextension) command.
-
-```powershell
-Set-AzureRmVMDiagnosticsExtension `
-  -ResourceGroupName myResourceGroup `
-  -VMName myVM `
-  -DiagnosticsConfigurationPath c:\diagnosticsconfig.xml
-```
+    ![View diagnostic metrics](./media/tutorial-monitoring/enable-diagnostics-extension.png)
 
 ## View VM metrics
 
-You can view the VM metrics in the same way that you viewed the Host VM metrics.
+You can view the VM metrics in the same way that you viewed the host VM metrics:
 
 1. In the Azure portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
-2. To see how the VM is performing, click **Metrics** on the VM blade, and then select any of the diagnostics metrics under **Available metrics** 
+2. To see how the VM is performing, click **Metrics** on the VM blade, and then select any of the diagnostics metrics under **Available metrics**.
 
-![View diagnostic metrics](./media/tutorial-monitoring/tutorial-monitor-diagnostic-metrics.png)
+    ![View VM metrics](./media/tutorial-monitoring/monitor-vm-metrics.png)
 
 ## Create alerts
 
-Azure activity alerts provide automautomated actions in response to diagnostic data. For example, an alert rule can be configured to fire after CPU utilization has been higher than 50% over a specified amount of time. This alert can send an email, an SMS message, or send an HTTP post to a rest endpoint. Azure Automation Runbooks, and / or Azure logic apps can also be configured to fire because of an alert.
+You can create alerts based on specific performance metrics. Alerts can be used to notify you when average CPU usage exceeds a certain threshold or available free disk space drops below a certain amount, for example. Alerts are displayed in the Azure portal or can be sent via email. You can also trigger Azure Automation runbooks or Azure Logic Apps in response to alerts being generated.
 
-Use the [New-AzureRmAlertRuleEmail](https://docs.microsoft.com/powershell/module/azurerm.insights/new-azurermalertruleemail) command to configure an email alert action. This example configures the Azure service owners as the recipient of the alert email. 
+The following example creates an alert for average CPU usage.
 
-```powershell
-$action = New-AzureRmAlertRuleEmail -SendToServiceOwners
-```
-
-Next, use the [Add-AzureRmMetricAlertRule](https://docs.microsoft.com/powershell/module/azurerm.insights/add-azurermmetricalertrule) to create an alert rule. This example creates a times span of 5 minutes. The rule is then created which defines that if CPU utilization is greater than 1% for the time span of 5 minutes, the alert will fire.
-
-```powershell
-$vmName = "myVM"
-$resourceGroup = "myResourceGroup"
-$subscriptionId = (Get-AzureRmSubscription).SubscriptionId
-
-$time = New-TimeSpan -Minutes 5
-
-Add-AzureRmMetricAlertRule -ResourceGroup $resourceGroup `
-  -WindowSize $time `
-  -Operator GreaterThan `
-  -Threshold 1 `
-  -TargetResourceId "/subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.Compute/virtualMachines/$vmName" `
-  -MetricName "Percentage CPU" `
-  -TimeAggregationOperator Total `
-  -Location eastus `
-  -Name cpu-alert `
-  -Actions $action
-```
+1. In the Azure portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
+2. Click **Alert rules** on the VM blade, then click **Add metric alert** across the top of the alerts blade.
+4. Provide a **Name** for your alert, such as *myAlertRule*
+5. To trigger an alert when CPU percentage exceeds 1.0 for five minutes, leave all the other defaults selected.
+6. Optionally, check the box for *Email owners, contributors, and readers* to send email notification. The default action is to present a notification in the portal.
+7. Click the **OK** button.
 
 ## Advanced monitoring 
 
