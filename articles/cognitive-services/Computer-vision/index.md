@@ -53,25 +53,25 @@ ms.author: carolz
     <div class="ico48Link">
         <a href="/azure/cognitive-services/Computer-vision/QuickStarts/JavaScript">
             <img src="https://docs.microsoft.com/media/logos/logo_js.svg" alt="">
-            <span>Java</span>
+            <span>JavaScript</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/cognitive-services/Computer-vision/QuickStarts/PHP">
             <img src="https://docs.microsoft.com/media/logos/logo_php.svg" alt="">
-            <span>Java</span>
+            <span>PHP</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/cognitive-services/Computer-vision/QuickStarts/Python">
             <img src="https://docs.microsoft.com/media/logos/logo_python.svg" alt="">
-            <span>Java</span>
+            <span>Python</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/cognitive-services/Computer-vision/QuickStarts/Ruby">
             <img src="https://docs.microsoft.com/media/logos/logo_ruby.svg" alt="">
-            <span>Java</span>
+            <span>Ruby</span>
         </a>
     </div>
 </div>
