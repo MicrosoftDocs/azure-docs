@@ -22,7 +22,7 @@ Large-scale distributed systems like cloud infrastructures are inherently unreli
 
 The [Fault Injection and Cluster Analysis Service](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-testability-overview) (also known as the Fault Analysis Service) gives developers the ability to induce faults to test their services. These targeted simulated faults, like [restarting a partition](https://docs.microsoft.com/en-us/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps), can help exercise the most common state transitions. However targeted simulated faults are biased by definition and thus may miss bugs that show up only in hard-to-predict, long and complicated sequence of state transitions. For an unbiased testing, you can use Chaos.
 
-Chaos simulates periodic, interleaved faults (both graceful and ungraceful) throughout the cluster over extended periods of time. Once you have configured Chaos with the rate and the kind of faults, you can start Chaos through C# or Powershell APIs to start generating faults in the cluster and in your services. You can configure Chaos to run for a specified time period (for example, for one hour), after which Chaos stops automatically, or you can call StopChaos API (C# or Powershell) to stop it at any time.
+Chaos simulates periodic, interleaved faults (both graceful and ungraceful) throughout the cluster over extended periods of time. Once you have configured Chaos with the rate and the kind of faults, you can start Chaos through C# or Powershell API to start generating faults in the cluster and in your services. You can configure Chaos to run for a specified time period (for example, for one hour), after which Chaos stops automatically, or you can call StopChaos API (C# or Powershell) to stop it at any time.
 
 While Chaos is running, it produces different events that capture the state of the run at the moment. For example, an ExecutingFaultsEvent contains all the faults that Chaos has decided to execute in that iteration. A ValidationFailedEvent contains the details of a validation failure (health or stability issues) that was found during the validation of the cluster. You can invoke the GetChaosReport API (C# or Powershell) to get the report of Chaos runs. These events get persisted in a [reliable dictionary](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-reliable-collections), which has a truncation policy dictated by two configurations: **MaxStoredChaosEventCount** (default value is 25000) and **StoredActionCleanupIntervalInSeconds** (default value is 3600). Every *StoredActionCleanupIntervalInSeconds* Chaos checks and all but the most recent *MaxStoredChaosEventCount* events, are purged from the reliable dictionary.
 
@@ -68,7 +68,6 @@ For example, consider an instance of Chaos that is set to run for an hour with a
 >
 
 ## How to run Chaos
-**C#:**
 
 ```csharp
 using System;
@@ -150,7 +149,6 @@ class Program
     }
 }
 ```
-**PowerShell:**
 
 ```powershell
 $connection = "localhost:19000"
