@@ -21,26 +21,37 @@ ms.author: iainfou
 # Create a continuous integration pipeline with VSTS and IIS on a Windows virtual machine in Azure
 
 ## Create new project in VSTS
-1. Open VSTS dashboard, click **New project**.
-2. Enter *myWebApp* for the **Project name**. Leave all other defaults to use **Git** version control and **Agile** work item process.
+To manage the code commit process, build definitions, and release definitions, create a new project in VSTS as follows:
+
+1. Open your VSTS dashboard in a web browser and click **New project**.
+2. Enter *myWebApp* for the **Project name**. Leave all other default values to use *Git* version control and *Agile* work item process.
 3. Select the option to **Share with** *Team Members* and then click **Create**.
-5. To get started with your new project, select the option **Initialize with a README or gitignore** and then click **Initialize**.
-6. Select **Dashboards** across the top, then select **Open in Visual Studio**.
+5. One your project has been created, select the option to **Initialize with a README or gitignore** and then click **Initialize**.
+6. Inside your new project, select **Dashboards** across the top and then click **Open in Visual Studio**.
 
 
 ## Create ASP.NET web application
-Visual Studio opens the **Team Explorer** window to connect to your project.
+In the previous step, you created a project in VSTS. The final step opens your new project in Visual Studio. You manage your code and commits in the **Team Explorer** window. Create a local copy of your new project, then create an ASP.NET web application from a template as follows:
 
 1. Click **Clone** to create a local git repo of your VSTS project.
+    
+    ![Clone repo from VSTS project](media/tutorial-vsts-iis-cicd/clone_repo.png)
+
 2. Under **Solutions**, click **New**.
-3. Select the **Web** templates section, and then choose the **ASP.NET Web Application** template.
+
+    ![Create new web application solution](media/tutorial-vsts-iis-cicd/new_solution.png)
+
+3. Select **Web** templates, and then choose the **ASP.NET Web Application** template.
     a. Enter a name for your application, such as *myWebApp*, and uncheck the box for **Create directory for solution**.
-    b. For this tutorial, uncheck the box to **Add Application Insights to project** if the option is available.
+    b. If the option is available, uncheck the box to **Add Application Insights to project**. Application Insights requires you to authorize your web application with Azure Application Insights. To keep it simple in this tutorial, skip this process.
     c. Click **OK**.
 4. Select **MVC** from the template list.
-    a. Click **Change Authentication**, select **No Authentication**, and click **OK**.
-    b. Click **OK**
+    a. Click **Change Authentication**, select **No Authentication**, and then click **OK**.
+    b. Click **OK** to create your solution.
 5. In the **Team Explorer** window, click **Changes**.
+
+    ![Commit local changes to VSTS git repo](media/tutorial-vsts-iis-cicd/commit_changes.png)
+
 6. In the commit text box, enter *Initial commit*. Select **Commit All and Sync** from the drop-down menu.
 
 
@@ -50,10 +61,15 @@ Visual Studio opens the **Team Explorer** window to connect to your project.
 3. Click **+ New definition**.
 4. Select the **ASP.NET (PREVIEW)** template and click **Apply**.
 5. You can leave all the default tasks. Under **Get sources**, ensure the *myWebApp* repository and *master* branch are selected.
+
+    ![Create build definition in VSTS project](media/tutorial-vsts-iis-cicd/create_build_definition.png)
+
 6. On the **Triggers** tab, click the slider for **Enable this trigger** to *Enabled*.
 7. Save the build definition and queue a new build by selecting the **Save & queue** , then **Save & queue** again. Leave the defaults and click **Queue**.
 
 Watch as the build is scheduled on a hosted agent, then begins to build.
+
+![Successful build of VSTS project](media/tutorial-vsts-iis-cicd/successful_build.png)
 
 
 ## Create VM
@@ -61,7 +77,7 @@ Create a Windows Server 2016 VM using [this script sample](../scripts/virtual-ma
 
 ```powershell
 Get-AzureRmNetworkSecurityGroup `
-  -ResourceGroupName "myResourceGroup" `
+  -ResourceGroupName $resourceGroup `
   -Name "myNetworkSecurityGroup" | `
 Add-AzureRmNetworkSecurityRuleConfig `
   -Name "myNetworkSecurityGroupRuleWeb" `
