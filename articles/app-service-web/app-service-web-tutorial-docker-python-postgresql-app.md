@@ -131,11 +131,11 @@ az group create --name myResourceGroup --location "West US"
 
 To see what possible values you can use for `--location`, use the `az appservice list-locations` Azure CLI command.
 
-### Create a PostgreSQL account
+### Create an Azure Database for PostgreSQL server
 
-Create a PostgreSQL account with the [az postgres server create](/cli/azure/documentdb#create) command.
+Create a PostgreSQL server with the [az postgres server create](/cli/azure/documentdb#create) command.
 
-In the following command, substitute your own unique PostgreSQL name where you see the `<postgresql_name>` placeholder. This unique name is used as part of your PostgreSQL endpoint (`https://<postgresql_name>.documents.azure.com/`), so the name needs to be unique across all PostgreSQL accounts in Azure. 
+In the following command, substitute your own unique PostgreSQL server name where you see the `<postgresql_name>` placeholder. This unique name is used as part of your PostgreSQL endpoint (`https://<postgresql_name>.postgres.database.azure.com`), so the name needs to be unique across all servers in Azure. 
 
 ```azurecli
 az postgres server create --resource-group myResourceGroup --name <postgresql_name> --admin-user <my_admin_username>
@@ -143,12 +143,12 @@ az postgres server create --resource-group myResourceGroup --name <postgresql_na
 
 The `--admin-user` is required to create the initial database admin user account. You are prompted to pick a password for this user.
 
-When the PostgreSQL account is created, the Azure CLI shows information similar to the following example:
+When the Azure Database for PostgreSQL server is created, the Azure CLI shows information similar to the following example:
 
 ```json
 {
   "administratorLogin": "<my_admin_username>",
-  "fullyQualifiedDomainName": "<postgresql_name>.database.windows.net",
+  "fullyQualifiedDomainName": "<postgresql_name>.postgres.database.azure.com",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>",
   "location": "westus",
   "name": "<postgresql_name>",
@@ -169,7 +169,7 @@ When the PostgreSQL account is created, the Azure CLI shows information similar 
 }
 ```
 
-### Creating a firewall rule for the PostgreSQL database
+### Creating a firewall rule for the Azure Database for PostgreSQL server
 
 Before we can access the database, we must now allow it to be reached from all IP addresses. This can be done via the following Azure CLI command:
 
@@ -192,7 +192,7 @@ When the firewall has been created, the Azure CLI confirms the rules presence as
 
 ## Connect your Python Flask application to the database
 
-In this step, you connect your Python Flask sample application to the PostgreSQL database you created.
+In this step, you connect your Python Flask sample application to the Azure Database for PostgreSQL server you created.
 
 ### Creating an empty database and setting up a new database application user
 
@@ -200,7 +200,7 @@ We create a new database user with access to a single database only. This step a
 
 Connect to the database (you are prompted for your admin password).
 ```bash
-psql -h <postgresql_name>.database.windows.net -U <my_admin_username>@<postgresql_name> postgres
+psql -h <postgresql_name>.postgres.database.azure.com -U <my_admin_username>@<postgresql_name> postgres
 ```
 
 Then create the database and user from the PostgreSQL CLI.
@@ -217,7 +217,7 @@ Type `\q` to exit the PostgreSQL client.
 Going back now to the `app` folder of the cloned Github repository, we can run our Python Flask application simply by updating our database environment variables.
 
 ```bash
-FLASK_APP=app.py;DBHOST="<postgresql_name>.database.windows.net";DBUSER="manager@<postgresql_name>";DBNAME="eventregistration";DBPASS="supersecretpass";flask db upgrade;flask run
+FLASK_APP=app.py;DBHOST="<postgresql_name>.postgres.database.azure.com";DBUSER="manager@<postgresql_name>";DBNAME="eventregistration";DBPASS="supersecretpass";flask db upgrade;flask run
 ```
 
 When the app is fully loaded, once again you should see something similar to the following message:
@@ -252,7 +252,7 @@ Successfully built 7548f983a36b
 Let's add our database environment variables to an environment variable file `db.env`.
 
 ```
-DBHOST="<postgresql_name>.database.windows.net"
+DBHOST="<postgresql_name>.postgres.database.azure.com"
 DBUSER="manager@<postgresql_name>"
 DBNAME="eventregistration"
 DBPASS="supersecretpass"
@@ -444,7 +444,7 @@ In App Service, you set environment variables as _app settings_ by using the [az
 The following lets you specify the database connection details as app settings. We additionally use the `PORT` variable to specify that we want to map PORT 5000 from our Docker Container to receive HTTP traffic on PORT 80.
 
 ```azurecli
-az appservice web config appsettings update --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.database.windows.net" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="eventregistration" PORT=5000
+az appservice web config appsettings update --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="eventregistration" PORT=5000
 ```
 
 ### Configure Docker container deployment 
