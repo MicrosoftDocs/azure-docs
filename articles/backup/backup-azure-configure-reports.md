@@ -93,6 +93,7 @@ After configuring storage account for reports using recovery services vault, it 
       ![Azure Backup dashboard](./media/backup-azure-configure-reports/azure-backup-dashboard.png) <br/>
 9. To view the complete set of reports, click any report in the dashboard.
 
+      ![Azure Backup job health](./media/backup-azure-configure-reports/azure-backup-job-health.png) <br/>
 10. Click each tab in the reports to view reports in that area.
 
       ![Azure Backup Reports tabs](./media/backup-azure-configure-reports/reports-tab-view.png)
