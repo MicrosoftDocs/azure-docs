@@ -33,7 +33,7 @@ This article shows you how to create a logic app in the Azure portal that:
 
 The following image shows the completed logic app in the designer:
 
-![image of completed app in Logic App Designer](media/functions-twitter-email/designer1.png)
+![image first 2 steps of app in Logic App Designer](media/functions-twitter-email/designer1.png)
 
 ## Prerequisites
 
