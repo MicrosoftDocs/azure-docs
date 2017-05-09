@@ -90,9 +90,9 @@ Select **Test** (on the right of the code box).  Enter 0.2 in the **Request body
 
  ![test ](media/functions-twitter-email/test.png)
 
-## Create a Cognitive Services account
+## Cognitive Services
 
-A Cognitive Services account is required to detect the sentiment of tweets we are monitoring.
+Create a Cognitive Services account. A Cognitive Services account is required to detect the sentiment of tweets we are monitoring.
 
 Navigate to **New > Intelligence + analytics > Cognitive  Services**. Set each required field:
 
@@ -171,7 +171,7 @@ Select the **Detect Sentiment** action. The sentiment rating is often accurate, 
 ### Create the Detect Sentiment action
 
   * Enter a connection name such as **MyKey**.
-  * Copy and paste the key you created in the [Create a Cognitive Services account](#create-a-cognitive-services-account) step.
+  * Copy and paste the key you created in the [Create a Cognitive Services account](#cognitive-services) step.
   * Select **Create**.
   * Save the app.
 
