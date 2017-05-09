@@ -355,7 +355,7 @@ To learn more about Azure Table storage, follow these links to learn about more 
 * Read about [Azure Cosmos DB: Table API](table-introduction.md)
 * View the Table service reference documentation for complete details about available APIs: [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 
-ou can now proceed to the next tutorial and learn more about querying table data. 
+You can now proceed to the next tutorial and learn more about querying table data. 
 
 > [!div class="nextstepaction"]
 > [Query with the Table API](tutorial-query-table.md)
