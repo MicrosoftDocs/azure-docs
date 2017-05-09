@@ -176,7 +176,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     </code></pre>
 
 1. **[1]** Enable ssh access
-    ```bash
+
+    <pre><code>
     # insert the public key you copied in the last step into the authorized keys file on the first server
     sudo vi /root/.ssh/authorized_keys
     </code></pre>
@@ -201,9 +202,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     <pre><code>
     # IP address of the load balancer frontend configuration for NFS
     <b>10.0.0.6 nws-nfs</b>
-    # IP address of the load balancer frontend configuration for SAP ASCS/SCS
+    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS/SCS
     <b>10.0.0.7 nws-ascs</b>
-    # IP address of the load balancer frontend configuration for SAP ERS
+    # IP address of the load balancer frontend configuration for SAP NetWeaver ERS
     <b>10.0.0.8 nws-ers</b>
     # IP address of the load balancer frontend configuration for database
     <b>10.0.0.9 nws-db</b>
@@ -440,7 +441,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     crm(live)configure# primitive exportfs_<b>NWS</b> \
       ocf:heartbeat:exportfs \
       params directory="/srv/nfs/<b>NWS</b>" \
-      options="rw,mountpoint" \
+      options="rw,no_root_squash" \
       clientspec="*" fsid=0 \
       wait_for_leasetime_on_stop=true \
       op monitor interval="30s"
@@ -525,9 +526,12 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     # Set the size of the SWAP file with property ResourceDisk.SwapSizeMB
     # The free space of resource disk varies by virtual machine size. Make sure that you do not set a value that is too big. You can check the SWAP space with command swapon
     # Size of the swapfile.
-    ResourceDisk.SwapSizeMB=2000
+    ResourceDisk.SwapSizeMB=<b>2000</b>
+    </code></pre>
 
-    # Restart the Agent to activate the change
+    Restart the Agent to activate the change
+
+    </code></pre>
     sudo service waagent restart
     </code></pre>
 
@@ -571,11 +575,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[1]** Install SAP NetWeaver ASCS  
 
-Install SAP NetWeaver ASCS as root using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ASCS for example <b>nws-ascs</b>, <b>10.0.0.7</b> and the instance number that you used for the probe of the load balancer for example <b>00</b>.
+    Install SAP NetWeaver ASCS as root using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ASCS for example <b>nws-ascs</b>, <b>10.0.0.7</b> and the instance number that you used for the probe of the load balancer for example <b>00</b>.
 
 1. **[1]** Install SAP NetWeaver ERS  
 
-Install SAP NetWeaver ERS as root using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ERS for example <b>nws-ers</b>, <b>10.0.0.8</b> and the instance number that you used for the probe of the load balancer for example <b>02</b>.
+    Install SAP NetWeaver ERS as root using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ERS for example <b>nws-ers</b>, <b>10.0.0.8</b> and the instance number that you used for the probe of the load balancer for example <b>02</b>.
 
 1. **[1]** Adapt the ASCS/SCS and ERS instance profiles
  
@@ -733,25 +737,31 @@ crm configure property stonith-enabled=true 
 
 ## Install database
 
-In this example an SAP HANA System Replication is installed and configured. SAP HANA will run in the same cluster as the SAP ASCS/SCS and ERS. You can also install SAP HANA on a dedicated cluster. See [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha] for more information.
+In this example an SAP HANA System Replication is installed and configured. SAP HANA will run in the same cluster as the SAP NetWeaver ASCS/SCS and ERS. You can also install SAP HANA on a dedicated cluster. See [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha] for more information.
 
 1. **[A]** Setup disk layout
     1. LVM  
     We generally recommend to using LVM for volumes that store data and log files. The example below assumes that the virtual machines have four data disks attached that should be used to create two volumes.
-        * Create physical volumes for all disks that you want to use.
+
+    Create physical volumes for all disks that you want to use.
+
     <pre><code>
     sudo pvcreate /dev/sdd
     sudo pvcreate /dev/sde
     sudo pvcreate /dev/sdf
     sudo pvcreate /dev/sdg
     </code></pre>
-        * Create a volume group for the data files, one volume group for the log files and one for the shared directory of SAP HANA
+
+    Create a volume group for the data files, one volume group for the log files and one for the shared directory of SAP HANA
+
     <pre><code>
     sudo vgcreate vg_hana_data /dev/sdd /dev/sde
     sudo vgcreate vg_hana_log /dev/sdf
     sudo vgcreate vg_hana_shared /dev/sdg
     </code></pre>
-        * Create the logical volumes
+
+    Create the logical volumes
+
     <pre><code>
     sudo lvcreate -l 100%FREE -n hana_data vg_hana_data
     sudo lvcreate -l 100%FREE -n hana_log vg_hana_log
@@ -760,7 +770,9 @@ In this example an SAP HANA System Replication is installed and configured. SAP 
     sudo mkfs.xfs /dev/vg_hana_log/hana_log
     sudo mkfs.xfs /dev/vg_hana_shared/hana_shared
     </code></pre>
-        * Create the mount directories and copy the UUID of all logical volumes
+
+    Create the mount directories and copy the UUID of all logical volumes
+
     <pre><code>
     sudo mkdir -p /hana/data
     sudo mkdir -p /hana/log
@@ -771,20 +783,27 @@ In this example an SAP HANA System Replication is installed and configured. SAP 
     # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
     sudo blkid
     </code></pre>
-        * Create autofs entries for the three logical volumes
+
+    Create autofs entries for the three logical volumes
+
     <pre><code>
     sudo vi /etc/auto.direct
     </code></pre>
+
     Insert this line to sudo vi /etc/auto.direct
+
     <pre><code>
     /hana/data -fstype=xfs :UUID=<b>&lt;UUID of /dev/vg_hana_data/hana_data&gt;</b>
     /hana/log -fstype=xfs :UUID=<b>&lt;UUID of /dev/vg_hana_log/hana_log&gt;</b>
     /hana/shared -fstype=xfs :UUID=<b>&lt;UUID of /dev/vg_hana_shared/hana_shared&gt;</b>
     </code></pre>
-        * Mount the new volumes
+
+    Mount the new volumes
+
     <pre><code>
     sudo service autofs restart 
     </code></pre>
+
     1. Plain Disks  
        For small or demo systems, you can place your HANA data and log files on one disk. The following commands create a partition on /dev/sdc and format it with xfs.
     ```bash
@@ -818,7 +837,7 @@ In this example an SAP HANA System Replication is installed and configured. SAP 
     Use a virtual hostname for the installation that maps to the IP address of the load balancer frontend configuration for the database.
     <pre><code>
     sudo
-    sudo hdblcm --sid=HDB --number=03 --action=install --batch --hostname <b>nws-db</b> --password=<b>&lt;password&gt;</b> --system_user_password=<b>&lt;password for system user&gt;</b>
+    sudo hdblcm --sid=<b>HDB</b> --number=<b>03</b> --action=install --batch --password=<b>&lt;password&gt;</b> --system_user_password=<b>&lt;password for system user&gt;</b>
     </code></pre>
 
     1. **[A]** Upgrade SAP Host Agent
@@ -869,25 +888,25 @@ In this example an SAP HANA System Replication is installed and configured. SAP 
 
     1. **[1]** Create SAP HANA cluster resources
 
-    <pre>
+    <pre><code>
     sudo vi crm-saphanatop.txt
     # enter the following to crm-saphana.txt
     # replace the bold string with your instance number and HANA system id
-    <code>
+    
     primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHanaTopology \
-      operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
-      op monitor interval="10" timeout="600" \
-      op start interval="0" timeout="600" \
-      op stop interval="0" timeout="300" \
-      params SID="<b>HDB</b>" InstanceNumber="<b>03</b>"
+        operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
+        op monitor interval="10" timeout="600" \
+        op start interval="0" timeout="600" \
+        op stop interval="0" timeout="300" \
+        params SID="<b>HDB</b>" InstanceNumber="<b>03</b>"
 
     clone cln_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> \
-      meta is-managed="true" clone-node-max="1" target-role="Started" interleave="true"
-    </code>
+        meta is-managed="true" clone-node-max="1" target-role="Started" interleave="true"
+    
 
     # now we load the file to the cluster
     sudo crm configure load update crm-saphanatop.txt
-    </pre>
+    </code></pre>
 
     <pre>
     sudo vi crm-saphana.txt
@@ -895,33 +914,33 @@ In this example an SAP HANA System Replication is installed and configured. SAP 
     # replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
     <code>
     primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
-      operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \
-      op start interval="0" timeout="3600" \
-      op stop interval="0" timeout="3600" \
-      op promote interval="0" timeout="3600" \
-      op monitor interval="60" role="Master" timeout="700" \
-      op monitor interval="61" role="Slave" timeout="700" \
-      params SID="<b>HDB</b>" InstanceNumber="<b>03</b>" PREFER_SITE_TAKEOVER="true" \
-      DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
+        operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \
+        op start interval="0" timeout="3600" \
+        op stop interval="0" timeout="3600" \
+        op promote interval="0" timeout="3600" \
+        op monitor interval="60" role="Master" timeout="700" \
+        op monitor interval="61" role="Slave" timeout="700" \
+        params SID="<b>HDB</b>" InstanceNumber="<b>03</b>" PREFER_SITE_TAKEOVER="true" \
+        DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
 
     ms msl_SAPHana_<b>HDB</b>_HDB<b>03</b> rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> \
-      meta is-managed="true" notify="true" clone-max="2" clone-node-max="1" \
-      target-role="Started" interleave="true"
+        meta is-managed="true" notify="true" clone-max="2" clone-node-max="1" \
+        target-role="Started" interleave="true"
 
     primitive rsc_ip_<b>HDB</b>_HDB<b>03</b> ocf:heartbeat:IPaddr2 \ 
-      meta target-role="Started" is-managed="true" \ 
-      operations $id="rsc_ip_<b>HDB</b>_HDB<b>03</b>-operations" \ 
-      op monitor interval="10s" timeout="20s" \ 
-      params ip="<b>10.0.0.9</b>" 
+        meta target-role="Started" is-managed="true" \ 
+        operations $id="rsc_ip_<b>HDB</b>_HDB<b>03</b>-operations" \ 
+        op monitor interval="10s" timeout="20s" \ 
+        params ip="<b>10.0.0.9</b>" 
     primitive rsc_nc_<b>HDB</b>_HDB<b>03</b> anything \ 
-      params binfile="/usr/bin/nc" cmdline_options="-l -k 625<b>03</b>" \ 
-      op monitor timeout=20s interval=10 depth=0 
+        params binfile="/usr/bin/nc" cmdline_options="-l -k 625<b>03</b>" \ 
+        op monitor timeout=20s interval=10 depth=0 
     group g_ip_<b>HDB</b>_HDB<b>03</b> rsc_ip_<b>HDB</b>_HDB<b>03</b> rsc_nc_<b>HDB</b>_HDB<b>03</b>
  
     colocation col_saphana_ip_<b>HDB</b>_HDB<b>03</b> 2000: g_ip_<b>HDB</b>_HDB<b>03</b>:Started \ 
-      msl_SAPHana_<b>HDB</b>_HDB<b>03</b>:Master  
+        msl_SAPHana_<b>HDB</b>_HDB<b>03</b>:Master  
     order ord_SAPHana_<b>HDB</b>_HDB<b>03</b> 2000: cln_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> \ 
-      msl_SAPHana_<b>HDB</b>_HDB<b>03</b>
+        msl_SAPHana_<b>HDB</b>_HDB<b>03</b>
     </code>
 
     # now we load the file to the cluster
@@ -930,7 +949,7 @@ In this example an SAP HANA System Replication is installed and configured. SAP 
 
 1. **[1]** Install the SAP NetWeaver database instance
 
-Install the SAP NetWeaver database instance as root using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the database for example <b>nws-db</b> and <b>10.0.0.9</b>.
+    Install the SAP NetWeaver database instance as root using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the database for example <b>nws-db</b> and <b>10.0.0.9</b>.
 
 ## SAP NetWeaver application server installation
 
@@ -945,9 +964,9 @@ Install the SAP NetWeaver database instance as root using a virtual hostname tha
     <pre><code>
     # IP address of the load balancer frontend configuration for NFS
     <b>10.0.0.6 nws-nfs</b>
-    # IP address of the load balancer frontend configuration for SAP ASCS/SCS
+    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS/SCS
     <b>10.0.0.7 nws-ascs</b>
-    # IP address of the load balancer frontend configuration for SAP ERS
+    # IP address of the load balancer frontend configuration for SAP NetWeaver ERS
     <b>10.0.0.8 nws-ers</b>
     # IP address of the load balancer frontend configuration for database
     <b>10.0.0.9 nws-db</b>
@@ -1001,15 +1020,18 @@ Install the SAP NetWeaver database instance as root using a virtual hostname tha
     # Set the size of the SWAP file with property ResourceDisk.SwapSizeMB
     # The free space of resource disk varies by virtual machine size. Make sure that you do not set a value that is too big. You can check the SWAP space with command swapon
     # Size of the swapfile.
-    ResourceDisk.SwapSizeMB=2000
+    ResourceDisk.SwapSizeMB=<b>2000</b>
+    </code></pre>
 
-    # Restart the Agent to activate the change
+    Restart the Agent to activate the change
+
+    </code></pre>
     sudo service waagent restart
     </code></pre>
 
 1. Install SAP NetWeaver application server
 
-Install a primary or additional SAP NetWeaver applications server.
+    Install a primary or additional SAP NetWeaver applications server.
 
 1. Update SAP HANA secure store
 
