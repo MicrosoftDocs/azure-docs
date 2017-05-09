@@ -43,6 +43,8 @@
     href: sql-database-security-tutorial.md
   - name: 4 - Improve SQL DB performance
     href: sql-database-performance-tutorial.md
+  - name: 5 - Improve SQL DB performance
+    href: sql-database-multi-tenant-application.md
 
 - name: Samples
   items:
