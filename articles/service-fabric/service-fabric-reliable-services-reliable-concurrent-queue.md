@@ -3,9 +3,9 @@ title: ReliableConcurrentQueue in Azure Serice Fabric
 description: ReliableConcurrentQueue is a high throughput queue which allows parallel enqueues and dequeues.
 services: service-fabric
 documentationcenter: .net
-author: sangarg,tyadam
+author: sangarg
 manager: timlt
-editor: raja,masnider,vturecek
+editor: raja,tyadam,masnider,vturecek
 
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
@@ -14,18 +14,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
-ms.author: sangarg,tyadam
+ms.author: sangarg
 
 ---
 # Introduction to ReliableConcurrentQueue
 Reliable Concurrent Queue is an asynchronous queue which is transactional and replicated. The queue allows concurrent enqueues and dequeues to process the queue. The data structure is aimed to deliver high throughput by relaxing the strict FIFO constraint and offers a best-effort ordering for the items.
 
 ## Apis offered
-|Concurrent Queue   |Reliable Concurrent Queue   |
-|-------------------|----------------------------|
-| void Enqueue(T item)  | Task EnqueueAsync(ITransaction tx, T item)  |
+
+|Concurrent Queue                |Reliable Concurrent Queue                                         |
+|--------------------------------|------------------------------------------------------------------|
+| void Enqueue(T item)           | Task EnqueueAsync(ITransaction tx, T item)                       |
 | bool TryDequeue(out T result)  | Task< ConditionalValue < T > > TryDequeueAsync(ITransaction tx)  |
-| int Count()  | long Count()  |
+| int Count()                    | long Count()                                                     |
 
 ## Comparison with [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx)
 
@@ -48,7 +49,7 @@ A good use case for the ReliableConcurrentQueue would be a [Messaging Queue](htt
 ## Code Snippets
 Let us look at a few code snippets and the expected outputs for the same. Exception handling is ignored in this section.
 
-##### - EnqueueAsync
+### - EnqueueAsync
 Here are a few code snippets for using EnqueueAsync followed by the expected outputs.
 
 - *Case 1: Single Enqueue task*
@@ -64,10 +65,10 @@ using (var txn = this.StateManager.CreateTransaction())
 ```
 
 Assume that the task completed successfully and there were no parallel tasks processing the queue. The user can expect the queue to have the items in any of the following orders:
+
 > 10, 20
 
-> 20, 10
-
+>20, 10
 
 
 - *Case 2: Parallel enqueue task*
@@ -95,7 +96,7 @@ using (var txn = this.StateManager.CreateTransaction())
 Assume that there are no other parallel tasks processing the queue, and that Task 1 and Task 2 are running in parallel. No inference can be made about the order of items in the queue. For this code snippet, the items may appear in any of the 4! order currently.
 
 
-##### - DequeueAsync
+### - DequeueAsync
 Here are a few code snippets for using TryDequeueAsync followed by the expected outputs. Assume that the queue is already populated with the following items in the queue:
 > 10, 20, 30, 40, 50, 60
 
@@ -181,7 +182,7 @@ The same is true for all case where the transaction was not successfully *Commit
 ## Programming patterns
 In this section, let us look at a few programming patterns that might be helpful in using the ReliableConcurrentQueue.
 
-##### Batch Dequeues
+### Batch Dequeues
 A recommended programming pattern is for the consumer task to batch its deueues instead of doing one dequeue at a time. The user can choose to throttle between every batch. The following code snippet shows this programming model.
 
 ```
@@ -227,7 +228,7 @@ while(!cancellationToken.IsCancellationRequested)
 }
 ```
 
-##### Notification based processing
+### Notification based processing
 Another interesting programming pattern uses the Count api. Here, we can implement notification based processing for the queue. The queue Count can be used to throttle an enqueue or a dequeue task.
 
 ```
@@ -275,7 +276,7 @@ while(!cancellationToken.IsCancellationRequested)
 }
 ```
 
-##### Best effort DrainQueueAsync
+### Best effort DrainQueueAsync
 We cannot guarantee draining of queue due to the concurrent nature of the data structure. To implement a *DrainQueueAsync* Task, the user must wait for all parallel tasks processing the queue to be completed. As both committed enqueues and aborted dequeues adds items to the queue, all in-flight enqueues and dequeues should be completed. If the number of items is the queue is large, the user should choose to batch the dequeues. Once all the parallel tasks are completed, *DrainQueueAsync* can be implemented as follows:
 
 ```
@@ -314,7 +315,7 @@ do
 } while (ret.HasValue);
 ```
 
-##### TryPeekAsync
+### TryPeekAsync
 ReliableConcurrentQueue does not support the *TryPeekAsync* api. The users can get the same behavior by using a *TryDequeueAsync* and then aborting the transaction. Let us look at a code snippet for the same. In this example, we would process dequeues only if the item's value is greater than 10;
 
 ```
