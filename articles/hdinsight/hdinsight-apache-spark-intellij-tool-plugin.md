@@ -64,10 +64,10 @@ For installation instructions, see [Installing the Azure Toolkit for IntelliJ](.
 ## Run a Spark Scala application on an HDInsight Spark cluster
 1. Start IntelliJ IDEA and create a project. In the **New Project** dialog box, make the following choices, and then click **Next**.
    
-    ![New Project dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
-   
    * In the left pane, select **HDInsight**.
-   * In the right pane, select **Spark on HDInsight (Scala)**. 
+   * In the right pane, select **Spark on HDInsight (Scala)**.
+   
+    ![New Project dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 2. In the next window, provide the following project details, and then click **Finish**.
    
    * Provide a project name and project location.
@@ -166,7 +166,7 @@ You can also open the Spark history UI and the YARN UI (at the application level
 
 ### Access the Spark history server
 1. In Azure Explorer, expand **HDInsight**, right-click your Spark cluster name, and then select **Open Spark History UI**. When you're prompted, enter the admin credentials for the cluster. You must have specified these while provisioning the cluster.
-2. In the Spark history server dashboard, you can look for the application that you just finished running by using the application name. In the preceding code, you set the application name by using `val conf = new SparkConf().setAppName("MyClusterApp")`. Hence, your Spark application name was **MyClusterApp**.
+2. In the Spark history server dashboard, you can use the application name to look for the application that you just finished running. In the preceding code, you set the application name by using `val conf = new SparkConf().setAppName("MyClusterApp")`. Hence, your Spark application name was **MyClusterApp**.
 
 ### Start the Ambari portal
 1. In Azure Explorer, expand **HDInsight**, right-click your Spark cluster name, and then select **Open Cluster Management Portal (Ambari)**. 
@@ -189,10 +189,10 @@ To resolve this error, you must [download the executable](http://public-repo-1.h
 ### Run a local Spark Scala application
 1. Start IntelliJ IDEA and create a project. In the **New Project** dialog box, make the following choices, and then click **Next**.
    
-    ![Selections in New Project dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-local-run.png)
-   
    * In the left pane, select **HDInsight**.
-   * In the right pane, select **Spark on HDInsight Local Run Sample (Scala)**.   
+   * In the right pane, select **Spark on HDInsight Local Run Sample (Scala)**.
+   
+    ![Selections in New Project dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-local-run.png)
 2. In the next window, provide the following project details, and then click **Finish**.
    
    * Provide a project name and project location.
