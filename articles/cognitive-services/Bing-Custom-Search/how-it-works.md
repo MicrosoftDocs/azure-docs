@@ -17,16 +17,14 @@ ms.author: tobih
 You can build a custom search engine in four simple steps.
 
 
-## Sign-up to get your free trial Azure subscription key
-Signing up to Bing Custom Search requires you to have a Microsoft Account.
-After you have successfully completed the sign-up, you have been automatically granted a free trial Azure subscription key. 
-You can start now to configure your custom search service.
+## Sign-up
+Signing up to Bing Custom Search requires you to have a Microsoft Account. After you have successfully completed the sign-up, you have been automatically granted a free trial Azure subscription key. Now you can start to configure your custom search service.
 
 > [!NOTE]
 > It is free to sign up to Bing Custom Search. The usage is capped to certain quota.
 
-## Build your custom search in the Bing Custom Search Portal
-You can build your custom search service in the Custom Search Portal.
+## Build your custom search service
+You can build your custom search service in the [Custom Search Portal](https://customsearch.ai).
 
 Bing Custom Search portal supports these browsers:
 * Microsoft Edge - Desktop
