@@ -1,3 +1,4 @@
+
 - name: Overview
   href: index.md
   items:
@@ -25,6 +26,8 @@
     href: Bing-Video-Search/search-the-web.md
   - name: Bing Web Search
     href: Bing-Web-Search/search-the-web.md
+  - name: Bing Custom Search
+    href: Bing-Custom-Search/overview.md
   - name: Computer Vision
     href: Computer-vision/Home.md
   - name: Content Moderator

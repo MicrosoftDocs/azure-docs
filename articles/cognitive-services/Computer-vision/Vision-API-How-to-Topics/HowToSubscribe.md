@@ -18,4 +18,4 @@ Every call to the Computer Vision API requires a subscription key. This key need
 To sign up for subscription keys, see [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). It's free to sign up. Pricing for these services is subject to change. 
 
 ### Related Links:
-* [Pricing Options for Microsoft Cognitive APIs](https://www.microsoft.com/cognitive-services/en-us/pricing) 
+* [Pricing Options for Microsoft Cognitive APIs](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/) 

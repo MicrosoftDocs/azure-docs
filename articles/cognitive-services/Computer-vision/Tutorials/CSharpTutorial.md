@@ -41,7 +41,7 @@ You can choose to persist your subscription key on your PC or laptop by clicking
 
 	![Vision Subscription Key](../Images/Vision_UI_Subscription.PNG)
 
-3. Under "Select Scenario" click to use one of the six scenarios, then follow the instructions on the screen. Microsoft receives the images you upload and may use them to improve Computer Vision API and related services. By submitting an image, you confirm that you have followed our Developer Code of Conduct.
+3. Under "Select Scenario" click to use one of the six scenarios, then follow the instructions on the screen. Microsoft receives the images you upload and may use them to improve Computer Vision API and related services. By submitting an image, you confirm that you have followed our [Developer Code of Conduct](https://azure.microsoft.com/en-us/support/legal/developer-code-of-conduct/).
 
 	![Analyze Image Interface](../Images/Analyze_Image_Example.PNG)
 

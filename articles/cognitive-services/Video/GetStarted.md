@@ -50,7 +50,7 @@ Explore a basic Windows application that uses Microsoft Cognitive Services (form
   * **Motion Tracking:** Original video will run in the left window. If motion is detected, a red rectangle will frame your video. In the right window, Json will be displayed indicating the region (at this point there is only one, the entire frame) and duration of movements.
   * **Face Detection:** Original video will run in the left window. If or when faces are detected, Json coordinates (left, top, width, and height) are returned in the right window indicating the location of faces in the video in pixels, as well as a face ID indicating the tracking number of the person. If no human faces are detected, it will be indicated as "FacesDetected": null.
   * **Lower horizontal window:** Progress during loading and recognition will be displayed in real time.  
-5. Microsoft receives the videos you upload and may use them to improve Video API and related services. By submitting a video, you confirm that you have followed our [Developer Code of Conduct](http://go.microsoft.com/fwlink/?LinkId=698895).
+5. Microsoft receives the videos you upload and may use them to improve Video API and related services. By submitting a video, you confirm that you have followed our [Developer Code of Conduct](https://azure.microsoft.com/en-us/support/legal/developer-code-of-conduct/).
 
 ## <a name="Review"></a>Review summary
 

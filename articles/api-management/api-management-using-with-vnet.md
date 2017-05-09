@@ -91,8 +91,8 @@ Following is a list of common misconfiguration issues that can occur while deplo
 * **Custom DNS server setup**: The API Management service depends on several Azure services. When API Management is hosted in a VNET with a custom DNS server, it needs to resolve the hostnames of those Azure services. Please follow [this](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) guidance on custom DNS setup. See the ports table below and other network requirements for reference.
 
 > [!IMPORTANT]
-> It is recommended that, if you are using a Custom DNS Server for the VNET, you set that up **before** deploying an API Management service into it. Otherwise we need to restart the CloudService hosting the service, for it to pick up the new DNS Server settings.
->
+> It is recommended that, if you are using a Custom DNS Server(s) for the VNET, you set that up **before** deploying an API Management service into it. Otherwise you need to 
+> update the API Management service each time you change the DNS Servers(s) by running the [Apply Network Configuration Operation](https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementservices#ApiManagementServices_ApplyNetworkConfigurationUpdates)
 
 * **Ports required for API Management**: Inbound and Outbound traffic into the Subnet in which API Management is deployed can be controlled using [Network Security Group][Network Security Group]. If any of these ports are unavailable, API Management may not operate properly and may become inaccessible. Having one or more of these ports blocked is another common misconfiguration issue when using API Management with a VNET.
 
