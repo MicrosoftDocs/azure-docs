@@ -33,7 +33,7 @@ After logging in, you see all your custom search instances that you have created
 ![picture alt](customsearchoverview.png "View all the custom search instances that you have created so far.")
 
 
-A custom search instance contains all the settings that are required to define a custom search tailored towards a scenario of your choice. For example, you might want to create a search to find bike touring related content. You might want to create a custom search instance called **BikeTouring**.
+A custom search instance contains all the settings that are required to define a custom search service tailored towards a scenario of your choice. For example, you might want to create a search service to find bike touring related content. You might want to create a custom search instance called **BikeTouring**.
 
 Provide a meaningful name for your custom search instance. Confirm the name by clicking **configure**. You can change the name of your custom search instance later.
 
@@ -60,10 +60,10 @@ If you own a site that you want to search over, which is not available in Bing's
 
 ### Add first slice
 Start building your search by entering a domain, subdomain, or single webpage. To confirm your choice click **ADD**. 
-You can omit the "http", "https", "www" etc. prefixes when you specify your subset of the web.
-
 
 ![picture alt](firstentry.png "Start to create your custom search by entering a first site, subsite or exact URL.")
+
+You can omit the 'http', and 'https' prefixes. When you omit the 'www' prefix, Bing Custom Search does also match domains with different prefixes. For example, if you add _seattle.org_ to your search, it will also return results from _bagshaw.seattle.gov_ or _council.seattle.gov_. 
 
 
 ### Extend the slices to search over
@@ -100,7 +100,7 @@ Start validating your settings by searching over your defined subset of the web.
 
 
 Next to each result you can see four different options to adjust the ranking for your custom search: 
-* Pin to top, that is, for a specific query you define which specific web page appears on top of the results.
+* Pin-to-top, that is, for a specific query you define which specific web page appears on top of the results.
 * Block, that is, sites, subsites, or web pages that you "block" are never shown in your custom search, regardless of the search query.
 * Boost, that is, the site, subsite, or web pages that you "boost" are generically ranked higher among the search results that are retrieved, independently from the search query.
 * Demote, that is, the site, subsite, or web pages selected for demoting are ranked lower among the search results that are retrieved for any search query.
@@ -169,7 +169,9 @@ You can also validate your settings by calling your custom endpoint using differ
 
 
 ## Programmatically retrieve custom search results
-You can programmatically retrieve custom search results for users via [Bing Web Search API](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/search-the-web). Requesting Bing Web Search API to obtain customized responses works the same way as requesting standard Bing web responses - with two differences:
+You can programmatically retrieve custom search results for users via [Bing Web Search API](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/search-the-web). 
+
+Requesting Bing Web Search API to obtain customized responses works the same way as requesting standard Bing web responses - with two differences:
 
 1. The request URL has an additional parameter called `customconfig`.
 2. The response contains the elementary and customizable elements of the Bing Web Search API output.
@@ -186,7 +188,7 @@ Read the [Bing Web Search API Use and Display requirements](https://docs.microso
 The request URL looks as follows:
 
 ```
-https://cognitivegblppe.azure-api.net/bingcustomsearch/v5.0/search[?q][&customconfig][&count][&offset][&mkt][&safesearch]
+https://api.cognitive.microsoft.com/bingcustomsearch/v5.0/search[?q][&customconfig][count][&offset][&mkt][&safesearch]
 ```
 
 | **Parameter** | Type | Required / Optional| Description |
