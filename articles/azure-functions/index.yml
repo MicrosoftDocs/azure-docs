@@ -34,11 +34,11 @@ sections:
     items: 
     - image: 
         src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
-      text: Create function - portal
+      text: Azure portal
       href: /azure/azure-functions/functions-create-first-azure-function
     - image: 
         src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg
-      text: Create function - Azure CLI
+      text: Azure CLI
       href: /azure/azure-functions/functions-create-first-azure-function-azure-cli
 - title: Step-by-Step Tutorials
   items:
