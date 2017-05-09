@@ -1,8 +1,8 @@
 ---
-title: Previewing Drive Usage for an Export Job | Microsoft Docs
-description: Learn how to preview the list of blobs you have selected for an export job in the Azure Import-Export Service
-author: renashahmsft
-manager: aungoo
+title: Previewing drive usage for an Azure Import/Export export job - v1 | Microsoft Docs
+description: Learn how to preview the list of blobs you've selected for an export job in the Azure Import/Export service.
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: ''
@@ -13,25 +13,31 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2015
-ms.author: renash
+ms.date: 01/15/2017
+ms.author: muralikk
 
 ---
 
-# Previewing Drive Usage for an Export Job
-Before you create an export job, you need to choose a set of blobs that are to be exported. The Microsoft Azure Import/Export service allows you to use a list of blob paths or blob prefixes to represent the blobs you have selected.  
+# Previewing drive usage for an export job
+Before you create an export job, you need to choose a set of blobs to be exported. The Microsoft Azure Import/Export service allows you to use a list of blob paths or blob prefixes to represent the blobs you've selected.  
   
- Next you need to determine how many drives you need to send. The Microsoft Azure Import/Export tool provides the `PreviewExport` command to preview drive usage for the blobs you selected, based on the size of the drives you are going to use. You can specify the following parameters:  
-  
-|Command-line Option|Description|  
+Next, you need to determine how many drives you need to send. The Import/Export Tool provides the `PreviewExport` command to preview drive usage for the blobs you selected, based on the size of the drives you are going to use.
+
+## Command-line parameters
+
+You can use the following parameters when using the `PreviewExport` command of the Import/Export Tool.
+
+|Command-line parameter|Description|  
 |--------------------------|-----------------|  
 |**/logdir:**<LogDirectory\>|Optional. The log directory. Verbose log files will be written to this directory. If no log directory is specified, the current directory will be used as the log directory.|  
 |**/sn:**<StorageAccountName\>|Required. The name of the storage account for the export job.|  
 |**/sk:**<StorageAccountKey\>|Required if and only if a container SAS is not specified. The account key for the storage account for the export job.|  
 |**/csas:**<ContainerSas\>|Required if and only if a storage account key is not specified. The container SAS for listing the blobs to be exported in the export job.|  
-|**/ExportBlobListFile:**<ExportBlobListFile\>|Required. Path to the XML file containing list of blob paths or blob path prefixes for the blobs to be exported. The file format used in the `BlobListBlobPath` element in the [Put Job](/rest/api/storageservices/importexport/Put-Job) operation of the Import/Export Service REST API.|  
+|**/ExportBlobListFile:**<ExportBlobListFile\>|Required. Path to the XML file containing list of blob paths or blob path prefixes for the blobs to be exported. The file format used in the `BlobListBlobPath` element in the [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operation of the Import/Export service REST API.|  
 |**/DriveSize:**<DriveSize\>|Required. The size of drives to use for an export job, *e.g.*, 500GB, 1.5TB.|  
-  
+
+## Command-line example
+
 The following example demonstrates the `PreviewExport` command:  
   
 ```  
@@ -49,7 +55,7 @@ The export blob list file may contain blob names and blob prefixes, as shown her
 </BlobList>  
 ```
 
-The Azure Import/Export tool lists all blobs to be exported and calculates how to pack them into drives of the specified size, taking into account any necessary overhead, then estimates the number of drives needed to hold the blobs and drive usage information.  
+The Azure Import/Export Tool lists all blobs to be exported and calculates how to pack them into drives of the specified size, taking into account any necessary overhead, then estimates the number of drives needed to hold the blobs and drive usage information.  
   
 Here is an example of the output, with informational logs omitted:  
   
@@ -67,5 +73,6 @@ Number of drives needed:        3
         Drive #3:       blobs = 2, occupied space = 131.28 GB    
 ```  
   
-## See Also  
-[Azure Import-Export Tool Reference](storage-import-export-tool-how-to-v1.md)
+## Next steps
+
+* [Azure Import/Export Tool reference](storage-import-export-tool-how-to-v1.md)

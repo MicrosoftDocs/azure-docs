@@ -1,5 +1,5 @@
 ---
-title: Run a simulated device sample app to send data to Azure IoT Hub | Microsoft Docs
+title: 'Simulated device & Azure IoT Gateway - Lesson 3: Run sample app | Microsoft Docs'
 description: 'Run a simulated device sample app to send temperature data to your IoT hub'
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'data to cloud'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
+
 ms.assetid: 5d051d99-9749-4150-b3c8-573b0bda9c52
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

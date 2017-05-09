@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Application Insights Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use Application Insights an extensible application performance management to detect, triage, and diagnose issues in web apps and services.
+services: application-insights
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:
+ms.service: application-insights
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Application Insights Documentation
 
@@ -148,11 +159,4 @@ Learn how to use Application Insights, an extensible application performance man
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-insights.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Application Insights Documentation
-        </div>
-    </a>
-</div>
+

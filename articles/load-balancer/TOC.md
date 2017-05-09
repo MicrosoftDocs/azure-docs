@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [What is Load Balancer?](load-balancer-overview.md)
 ## [Internet Load Balancer](load-balancer-internet-overview.md)
 ## [Internal Load Balancer](load-balancer-internal-overview.md)
@@ -40,12 +40,16 @@
 ## [Configure multiple VIPs for cloud service](load-balancer-multivip.md)
 ## [Combining load balancing services](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 ## [Using multiple IP configurations](load-balancer-multiple-ip.md)
+### [Using multiple IP configurations (CLI)](load-balancer-multiple-ip-cli.md)
+### [Using multiple IP configurations (PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Log analytics for Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Configuring DHCPv6 for Linux VMs](load-balancer-ipv6-for-linux.md)
+## Troubleshoot
+### [Troubleshoot Azure Load Balancer](load-balancer-troubleshoot.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network)
-## [Azure CLI 2.0 (Preview)](/cli/azure/network/lb)
+## [PowerShell](/powershell/module/azurerm.network)
+## [Azure CLI 2.0](/cli/azure/network/lb)
 ## [.NET](/dotnet/api/microsoft.azure.management.network.models)
 ## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)

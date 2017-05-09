@@ -1,5 +1,5 @@
 ---
-title: Configure your Edison Azure IoT Starter Kit | Microsoft Docs
+title: 'Connect Intel Edison (C) to Azure IoT - Lesson 1: Configure device | Microsoft Docs'
 description: Configure Intel Edison for first-time use.
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'arduino set up, connect arduino to pc, setup arduino, arduino board'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-c-get-started
+
 ms.assetid: bb8aa45b-d3ff-4438-b9d6-a9725a45ade1
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/7/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

@@ -4,7 +4,7 @@ description: Learn how to create backups of your apps in Azure App Service.
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
@@ -178,7 +178,7 @@ For information on restoring an app from a backup, see [Restore an app in Azure]
 using REST API (see [Use REST to back up and restore App Service apps](websites-csm-backup.md)).
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 > 
 > 
 

@@ -1,1 +1,0 @@
-[Start here: Intro](active-directory-mobileanddesktopapp-windowsdesktop-intro.md)

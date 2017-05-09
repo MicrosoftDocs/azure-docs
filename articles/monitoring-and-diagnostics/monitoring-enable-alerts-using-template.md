@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 4/13/2017
 ms.author: johnkem
 
 ---
@@ -150,9 +150,9 @@ To create an alert using a Resource Manager template, you create a resource of t
                     "dataSource": {
                         "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
                         "resourceUri": "[parameters('resourceId')]",
-                        "metricName": "[parameters('metricName')]",
-                        "operator": "[parameters('operator')]"
+                        "metricName": "[parameters('metricName')]"
                     },
+                    "operator": "[parameters('operator')]",
                     "threshold": "[parameters('threshold')]",
                     "windowSize": "[parameters('windowSize')]",
                     "timeAggregation": "[parameters('aggregation')]"
@@ -372,9 +372,9 @@ An alert on a Resource Manager template is most often useful when creating an al
                     "dataSource": {
                         "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
                         "resourceUri": "[variables('vmID')]",
-                        "metricName": "[variables('metricName')]",
-                        "operator": "[variables('operator')]"
+                        "metricName": "[variables('metricName')]"
                     },
+                    "operator": "[variables('operator')]",
                     "threshold": "[variables('threshold')]",
                     "windowSize": "[variables('windowSize')]",
                     "timeAggregation": "[variables('aggregation')]"

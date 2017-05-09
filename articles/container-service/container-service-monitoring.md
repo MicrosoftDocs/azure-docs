@@ -1,9 +1,9 @@
 ---
-title: Monitor an Azure Container Service cluster with Datadog| Microsoft Docs
+title: Monitor Azure DC/OS cluster - Datadog | Microsoft Docs
 description: Monitor an Azure Container Service cluster with Datadog. Use the DC/OS web UI to deploy the Datadog agents to your cluster.
 services: container-service
 documentationcenter: ''
-author: rbitia
+author: sauryadas
 manager: timlt
 editor: ''
 tags: acs, azure-container-service
@@ -16,10 +16,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure
 ms.date: 07/28/2016
-ms.author: t-ribhat
+ms.author: saudas
 
 ---
-# Monitor an Azure Container Service cluster with Datadog
+# Monitor an Azure Container Service DC/OS cluster with Datadog
 In this article we will deploy Datadog agents to all the agent nodes in your Azure Container Service cluster. You will need an account with Datadog for this configuration. 
 
 ## Prerequisites
@@ -37,7 +37,7 @@ Access your DC/OS UI via [http://localhost:80/](http://localhost:80/). Once in t
 
 ![Datadog package within the DC/OS Universe](./media/container-service-monitoring/datadog1.png)
 
-Now to complete the configuration you will need a Datadog account or a free trial account. Once you're logged in to the Datadog website look to the left and go to Integrations -> then API's. 
+Now to complete the configuration you will need a Datadog account or a free trial account. Once you're logged in to the Datadog website look to the left and go to Integrations -> then [APIs](https://app.datadoghq.com/account/settings#api). 
 
 ![Datadog API key](./media/container-service-monitoring/datadog2.png)
 
@@ -45,5 +45,5 @@ Next enter your API key into the Datadog configuration within the DC/OS Universe
 
 ![Datadog configuration in the DC/OS Universe](./media/container-service-monitoring/datadog3.png) 
 
-In the above configuration instances are set to 10000000 so whenever a new node is added to the cluster Datadog will automatically deploy an agent to that node. This is an interim solution. Once you've installed the package you should navigate back to the Datadog website and find "Dashboards." From there you will see Custom and Integration Dashboards. The Docker Integration Dashboard will have all the container metrics you need for monitoring your cluster. 
+In the above configuration instances are set to 10000000 so whenever a new node is added to the cluster Datadog will automatically deploy an agent to that node. This is an interim solution. Once you've installed the package you should navigate back to the Datadog website and find "[Dashboards](https://app.datadoghq.com/dash/list)." From there you will see Custom and Integration Dashboards. The [Docker dashboard](https://app.datadoghq.com/screen/integration/docker) will have all the container metrics you need for monitoring your cluster. 
 

@@ -4,7 +4,7 @@ description: Learn how to use Azure Notification Hubs from a PHP back-end.
 services: notification-hubs
 documentationcenter: ''
 author: ysxu
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 0156f994-96d0-4878-b07b-49b7be4fd856

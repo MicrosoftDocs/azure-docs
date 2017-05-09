@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 05/02/2017
 ms.author: spelluru
 
 ---
@@ -31,7 +31,7 @@ If you receive this error, the Azure Data Factory resource provider has not been
 	Login-AzureRmAccount
 	```
 3. Run the following command to register the Azure Data Factory provider.
-	
+
 	```powershell        
 	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
 	```
@@ -106,7 +106,7 @@ This error usually indicates that the location of the storage account specified 
 Additionally, there is a second JSON property additionalLinkedServiceNames where additional storage accounts may be specified in on-demand HDInsight. Those additional linked storage accounts should be in the same location as the HDInsight cluster, or it fails with the same error.
 
 ### Problem: Custom .NET activity fails
-See [Debug a pipeline with custom activity](data-factory-use-custom-activities.md#debug-the-pipeline) for detailed steps.
+See [Debug a pipeline with custom activity](data-factory-use-custom-activities.md#troubleshoot-failures) for detailed steps.
 
 ## Use Azure portal to troubleshoot
 ### Using portal blades

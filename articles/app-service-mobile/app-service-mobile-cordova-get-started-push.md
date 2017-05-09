@@ -3,7 +3,7 @@ title: Add Push Notifications to Apache Cordova App with Azure Mobile Apps | Mic
 description: Learn how to use Azure Mobile Apps to send push notifications to your Apache Cordova app.
 services: app-service\mobile
 documentationcenter: javascript
-manager: erikre
+manager: adrianha
 editor: ''
 author: ysxu
 

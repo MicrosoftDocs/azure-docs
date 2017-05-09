@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Advisor
+title: Query performance tuning recommendations - Azure SQL Database | Microsoft Docs
 description: The Azure SQL Database Advisor provides recommendations for your existing SQL Databases that can improve current query performance.
 services: sql-database
 documentationcenter: ''
@@ -19,15 +19,10 @@ ms.author: sstein
 
 ---
 # SQL Database Advisor
-> [!div class="op_single_selector"]
-> * [SQL Database Advisor Overview](sql-database-advisor.md)
-> * [Portal](sql-database-advisor-portal.md)
-> 
-> 
 
 Azure SQL Database learns and adapts with your application and provides customized recommendations enabling you to maximize the performance of your SQL databases. The SQL Database Advisor provides recommendations for creating and dropping indexes, parameterizing queries, and fixing schema issues. The advisor assesses performance by analyzing your SQL database's usage history. The recommendations that are best suited for running your database’s typical workload are recommended. 
 
-The following recommendations are available for V12 servers (recommendations are not available for V11 servers). Currently you can set the create and drop index recommendations to be applied automatically, see [Automatic index management](sql-database-advisor-portal.md#enable-automatic-index-management) for details.
+The following recommendations are available for Azure SQL Database servers. Currently you can set the create and drop index recommendations to be applied automatically, see [Automatic index management](sql-database-advisor-portal.md#enable-automatic-index-management) for details.
 
 ## Create Index recommendations
 **Create Index** recommendations appear when the SQL Database service detects a missing index that if created, can benefit your databases workload (non-clustered indexes only).

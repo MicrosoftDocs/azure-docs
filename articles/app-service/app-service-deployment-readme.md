@@ -5,7 +5,7 @@ keywords: app service, azure app service, deploying, deployment
 services: app-service
 documentationcenter: ''
 author: dariagrigoriu
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: de12cd6e-e124-4e48-90bc-c3a3801305da
