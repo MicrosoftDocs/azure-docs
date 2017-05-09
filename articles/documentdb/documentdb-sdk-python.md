@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/30/2016
+ms.date: 05/01/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -47,6 +47,14 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
+### <a name="2.1.0"/>2.1.0
+* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG).
+* Added an option for disabling SSL verification when running against DocumentDB Emulator.
+* Removed the restriction of dependent requests module to be exactly 2.10.0.
+* Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s.
+* Added support for enabling script logging during stored procedure execution.
+* REST API version bumped to '2017-01-19' with this release.
+
 ### <a name="2.0.1"/>2.0.1
 * Made editorial changes to documentation comments.
 
@@ -110,6 +118,7 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.1.0](#2.1.0) |May 01, 2017 |--- |
 | [2.0.1](#2.0.1) |October 30, 2016 |--- |
 | [2.0.0](#2.0.0) |September 29, 2016 |--- |
 | [1.9.0](#1.9.0) |July 07, 2016 |--- |

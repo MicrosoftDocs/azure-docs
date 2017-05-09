@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2017
+ms.date: 05/08/2017
 ms.author: yurid
 
 ---
@@ -53,7 +53,7 @@ Based on the configuration of your Azure environment and the security policy you
 
 Once a partner solution has been deployed, you can view information about the health of the solution and perform basic management tasks from the Partner solution tile in the main Security Center dashboard. For more information about managing partner solutions in Security Center, read [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md).
 
-![Partner Integration](./media/security-center-partner-integration/security-center-partner-integration-fig1-new.png)
+![Partner Integration](./media/security-center-partner-integration/security-center-partner-integration-fig1-newUI.png)
 
 
 ## See also

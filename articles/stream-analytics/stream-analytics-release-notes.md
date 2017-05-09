@@ -13,11 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/06/2017
+ms.date: 05/03/2017
 ms.author: jeffstok
 
 ---
 # Stream Analytics release notes
+
+## Notes for 05/03/2017 update of Stream Analytics
+This update is for our troubleshooting documentation release.
+
+The [troubleshooting guide](stream-analytics-troubleshooting-guide.md) and other docs were released. Please review, feedback is welcome.
+
 ## Notes for 02/01/2017 release of Stream Analytics
 This release contains the following update.
 

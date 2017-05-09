@@ -38,10 +38,6 @@ You must have the following to successfully complete this Apache Kafka tutorial:
 
 * [Apache Maven](http://maven.apache.org/) 
 
-### Access control requirements
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
-
 ## Create a Kafka cluster
 
 Use the following steps to create a Kafka on HDInsight cluster:
@@ -329,6 +325,10 @@ The streaming API was added to Kafka in version 0.10.0; earlier versions rely on
 ## Delete the cluster
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+## Troubleshoot
+
+If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## Next steps
 

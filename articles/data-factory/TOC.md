@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [Introduction to Azure Data Factory](data-factory-introduction.md)
 ## Concepts
 ### [Pipelines and activities](data-factory-create-pipelines.md)
@@ -29,6 +29,7 @@
 ### [Data Factory Copy Wizard](data-factory-azure-copy-wizard.md)
 #### [Load 1 TB in 15 minutes](data-factory-load-sql-data-warehouse.md)
 ### [Performance and tuning guide](data-factory-copy-activity-performance.md)
+### [Security considerations](data-factory-data-movement-security-considerations.md)
 ### Connectors
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
 #### [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)

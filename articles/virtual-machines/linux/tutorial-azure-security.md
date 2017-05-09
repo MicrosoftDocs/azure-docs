@@ -14,12 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/01/2017
+ms.date: 05/07/2017
 ms.author: nepeters
 ---
 # Monitor VM security with the Azure Security Center
 
-Azure security center helps you gain visibility into the configuration of Azure resource as related to security practices. It also provides integrated security monitoring, which can detect threats that may otherwise go unnoticed. This tutorial provides a brief overview of Azure security center and describes how to use it with Azure virtual machines.   
+Azure security center helps you gain visibility into the configuration of Azure resource as related to security practices. It also provides integrated security monitoring, which can detect threats that may otherwise go unnoticed. In this tutorial you learn about Azure Security Center and how to:
+   
+> [!div class="checklist"]
+> * Configure data collection
+> * Configure security policies
+> * View and fix configuration health issues
+> * Review detected threats
 
 ## Security Center overview
 
@@ -38,7 +44,7 @@ Azure security center extends beyond data discovery by providing recommendations
 Before you can gain visibility into VM security configurations, Azure security center data collection needs to be configured. This involves enabling data collection and creating and Azure storage account to hold the collected data. 
 
 1. From the Azure security center dashboard, click **Security Policy** and select your subscription. 
-2. Under **Data collection**, select **On**.
+2. Under **Data collection**, select *On*.
 3. Click **Choose a storage account** and create a new storage account. Select **OK** when done.
 4. Click **Save** on the **Security Policy** blade. 
 
@@ -56,9 +62,9 @@ To configure a security policy for all Azure resources:
 4. Click **OK** when done.
 5. Click **Save** on the **Security Policy** blade. 
 
-To configure a policy for a specific resource group, follow the same steps, however instead of selecting the subscription on the security policy blade, select a resource group. When configuring the policy, select **Unique** under **Inheritance**. If you would like to disable data collection for a specific resource group, this configuration can also be made here.
+To configure a policy for a specific resource group, follow the same steps, however instead of selecting the subscription on the security policy blade, select a resource group. When configuring the policy, select *Unique* under **Inheritance**. If you would like to disable data collection for a specific resource group, this configuration can also be made here.
 
-In the following example, a unique policy has been crated for the resource group named `myResoureGroup`. In this policy, both disk encryption and web application firewall recommendations have been disabled.
+In the following example, a unique policy has been created for the resource group named *myResoureGroup*. In this policy, both disk encryption and web application firewall recommendations have been disabled.
 
 ![Unique Policy](./media/tutorial-azure-security/unique-policy.png)
 
@@ -91,7 +97,7 @@ As recommendations are remediated, they are marked as resolved.
 
 In addition to resource configuration recommendations, Azure security center also provides threat detection alerts. The security alert feature aggregates data collected from each VM, Azure networking logs, and connected partner solutions to detect security threats against Azure resources. For in-depth information on Azure security center threat detection capabilities, see [Azure security center detection capabilities](../../security-center/security-center-detection-capabilities.md).
 
-The security alerts feature requires that the Azure security center pricing tier is increased from **Free** to **Standard**. When doing so, a 30-day **Free Trial** is available. To change the pricing tier:  
+The security alerts feature requires that the Azure security center pricing tier is increased from *Free* to *Standard*. When doing so, a 30-day **Free Trial** is available. To change the pricing tier:  
 
 1. From the Azure security center dashboard, click **Security Policy** and then select your subscription.
 2. Click **Pricing tier**.
@@ -105,3 +111,18 @@ Once enabled, the security alerts graph begins to populate as security threats a
 Select an alert to view information such as a description of the threat, detection time, threat attempts, and recommended remediation. In this example, an RDP brute force attack was detected with 294 failed RDP attempts and a recommended resolution is provided.
 
 ![RDP Attack](./media/tutorial-azure-security/rdp-attack.png)
+
+## Next steps
+In this tutorial, you configured and reviewed VMs with Azure Security Center. You learned how to:
+
+> [!div class="checklist"]
+> * Configure data collection
+> * Configure security policies
+> * View and fix configuration health issues
+> * Review detected threats
+
+Advance to the next tutorial to learn more about creating a CI/CD pipeline with Jenkins, GitHub, and Docker.
+
+> [!div class="nextstepaction"]
+> [Create CI/CD infrastructure with Jenkins, GitHub, and Docker](tutorial-jenkins-github-docker-cicd.md)
+
