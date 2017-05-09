@@ -218,6 +218,7 @@ In this tutorial, you created and secured Azure networks as related to virtual m
 > * Add additional subnets
 > * View traffic rules in action
 
-Advance to the next tutorial to learn about monitoring VM security with Azure Security Center.
+Advance to the next tutorial to learn about securing data on virtual machines using Azure backup. 
 
-[Manage virtual machine security](./tutorial-azure-security.md)
+> [!div class="nextstepaction"]
+> [Back up Linux virtual machines in Azure](./tutorial-backup-vms.md)

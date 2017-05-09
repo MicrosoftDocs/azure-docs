@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage Azure disks with the Azure PowerShell | Microsoft Docs
 description: Tutorial - Manage Azure disks with the Azure PowerShell 
 services: virtual-machines-windows
@@ -149,4 +149,5 @@ In this tutorial, you learned about VM disks topics such as:
 
 Advance to the next tutorial to learn about automating VM configuration.
 
-[Automate VM configuration](./tutorial-automate-vm-deployment.md)
+> [!div class="nextstepaction"]
+> [Automate VM configuration](./tutorial-automate-vm-deployment.md)

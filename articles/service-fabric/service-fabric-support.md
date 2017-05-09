@@ -3,7 +3,7 @@ title: Learn about Azure Service Fabric Support options | Microsoft Docs
 description: Azure Service Fabric cluster versions supported and links to file support tickets.
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: pkc
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/10/2017
-ms.author: chackdan
+ms.date: 05/05/2017
+ms.author: pkc
 
 ---
 # Azure Service Fabric support options
