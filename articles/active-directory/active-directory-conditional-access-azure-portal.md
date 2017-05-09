@@ -109,13 +109,18 @@ By selecting cloud apps, you define the scope of cloud apps your policy applies 
 
 - **How** - As long as access to your apps is performed under conditions you can control, there might be no need for imposing additional controls on how your cloud apps are accessed by your users. However, things might look different if access to your cloud apps is performed, for example, from networks that are not trusted or devices that are not compliant. In a condition statement, you can define certain access conditions that have additional requirements for how access to your apps is performed.
 
-	![Conditions](./media/active-directory-conditional-access-azure-portal/01.png)
+	![Conditions](./media/active-directory-conditional-access-azure-portal/21.png)
 
 
 ## Conditions
 
 In the current implementation of Azure Active Directory, you can define conditions for the following areas:
 
+- **Sign-in risk** – A sign-in risk is an object that is used by Azure Active Directory to track the likelihood that a sign-in attempt was not performed by the legitimate owner of a user account. In this object, the likelihood 
+(High, Medium, or Low) is stored in form of an attribute called [sign-in risk level](active-directory-reporting-risk-events.md#risk-level). This object is generated during a sign-in of a user if sign-in risks have been detected by Azure Active Directory. For more details, see [Risky sign-ins](active-directory-identityprotection.md#risky-sign-ins).  
+You can use the calculated sign-in risk level as condition in a conditional access policy. 
+
+	![Conditions](./media/active-directory-conditional-access-azure-portal/22.png)
 
 - **Device platforms** – The device platform is characterized by the operating system that is running on your device (Android, iOS, Windows Phone, Windows). You can define the device platforms that are included as well as device platforms that are exempted from a policy.  
 To use device platforms in the policy, first change the configure toggles to **Yes**, and then select all or individual device platforms the policy applies to. If you select individual device platforms, the policy has only an impact on these platforms. In this case, sign-ins to other supported platforms are not impacted by the policy.
