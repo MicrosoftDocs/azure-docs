@@ -20,7 +20,14 @@ ms.author: nepeters
 
 # Create and Manage Linux VMs with the Azure CLI
 
-Azure virtual machines provide a fully configurable and flexible computing environment. This tutorial covers basic Azure virtual machine deployment items such as selecting a VM size, selecting a VM image, and deploying a VM. This tutorial also covers basic management operations such as managing state, deleting, and resizing a VM.
+Azure virtual machines provide a fully configurable and flexible computing environment. This tutorial covers basic Azure virtual machine deployment items such as selecting a VM size, selecting a VM image, and deploying a VM. You learn how to:
+
+> [!div class="checklist"]
+> * Create and connect to a VM
+> * Select and use VM images
+> * View and use specific VM sizes
+> * Resize a VM
+> * View and understand VM state
 
 This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
@@ -292,6 +299,16 @@ az group delete --name myResourceGroupVM --no-wait --yes
 
 ## Next steps
 
-In this tutorial, you have learned about basic VM creation and management. Advance to the next tutorial to learn about VM disks.  
+In this tutorial, you learned about basic VM creation and management such as how to:
 
-[Create and Manage VM disks](./tutorial-manage-disks.md)
+> [!div class="checklist"]
+> * Create and connect to a VM
+> * Select and use VM images
+> * View and use specific VM sizes
+> * Resize a VM
+> * View and understand VM state
+
+Advance to the next tutorial to learn about VM disks.  
+
+> [!div class="nextstepaction"]
+> [Create and Manage VM disks](./tutorial-manage-disks.md)
