@@ -9,7 +9,7 @@
   items:
   - name: Create DB - Portal
     href: quickstart-create-server-database-portal.md
-  - name: Create DB - Python and Azure CLI
+  - name: Create DB - Python + Azure CLI
     href: quickstart-create-server-database-azure-cli.md
 - name: Sample Scripts
   items:
