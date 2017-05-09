@@ -254,18 +254,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/service-fabric/">
-                                                <img src="media/index/Fabric.svg" alt="" />
-                                                <p>Service Fabric</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/batch/">
-                                                <img src="media/index/Batch.svg" alt="" />
-                                                <p>Batch</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/cloud-services/">
                                                 <img src="media/index/CloudService.svg" alt="" />
                                                 <p>Cloud Services</p>
@@ -308,6 +296,39 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
                                                 <p>Data Factory</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Containers</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/container-service/">
+                                                <img src="media/index/ContainerService.svg" alt="" />
+                                                <p>Azure Container Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/container-registry/">
+                                                <img src="media/index/container-registry.svg" alt="" />
+                                                <p>Azure Container Registry</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/service-fabric/">
+                                                <img src="media/index/Fabric.svg" alt="" />
+                                                <p>Service Fabric</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/app-service/">
+                                                <img src="media/index/AppService.svg" alt="" />
+                                                <p>App Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/batch/">
+                                                <img src="media/index/Batch.svg" alt="" />
+                                                <p>Batch</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -752,31 +773,10 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Containers</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/container-service/">
-                                                <img src="media/index/ContainerService.svg" alt="" />
-                                                <p>Azure Container Service</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/container-registry/">
-                                                <img src="media/index/container-registry.svg" alt="" />
-                                                <p>Azure Container Registry</p>
-                                            </a>
-                                        </li>
-                                    </ul>
                                 </div>
                                 <div class="group">
                                     <h3>Web + Mobile</h3>
                                     <ul>
-                                        <li>
-                                            <a href="/azure/app-service/">
-                                                <img src="media/index/AppService.svg" alt="" />
-                                                <p>App Service</p>
-                                            </a>
-                                        </li>
                                         <li>
                                             <a href="/azure/app-service-web/">
                                                 <img src="media/index/app-service-web.svg" alt="" />
@@ -1094,44 +1094,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/service-fabric/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Fabric.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Service Fabric</h3>
-                                                    <p>Build and operate always-on, scalable, distributed applications</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/batch/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Batch.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Batch</h3>
-                                                    <p>Run large-scale parallel and batch compute jobs</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/cloud-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1434,25 +1396,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                         <a href="#web">Web + Mobile</a>
                         <ul id="web" class="cardsA">
                             <li>
-                                <a href="/azure/app-service/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/AppService.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>App Service</h3>
-                                                    <p>Learn about building scalable web and mobile apps</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/app-service-web">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1618,6 +1561,106 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="cardText">
                                                     <h3>Notification Hubs</h3>
                                                     <p>A scalable, push notification engine for quickly sending millions of messages</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#mgmt">Containers</a>
+                        <ul id="mgmt" class="cardsA">
+                            <li>
+                                <a href="/azure/container-service/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ContainerService.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Container Service</h3>
+                                                    <p>Scale and orchestrate containers using Kubernetes, DC/OS or Docker Swarm</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/container-registry/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/container-registry.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Container Registry</h3>
+                                                    <p>Store and manage container images across all types of Azure deployments</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/service-fabric/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Fabric.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Service Fabric</h3>
+                                                    <p>Develop microservices and orchestrate containers on Windows or Linux</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/app-service/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/AppService.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>App Service</h3>
+                                                    <p>Deploy web apps on Linux using containers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/batch/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Batch.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Batch</h3>
+                                                    <p>Run compute jobs using containers</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2817,49 +2860,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="cardText">
                                                     <h3>Azure Resource Manager</h3>
                                                     <p>Deploy and manage Azure resources</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </ul>
-                    <li>
-                        <a href="#mgmt">Containers</a>
-                        <ul id="mgmt" class="cardsA">
-                            <li>
-                                <a href="/azure/container-service/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/ContainerService.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Container Service</h3>
-                                                    <p>Use Docker based tools to deploy and manage containers</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/container-registry/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/container-registry.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Container Registry</h3>
-                                                    <p>Store and manage images for all types of container deployments</p>
                                                 </div>
                                             </div>
                                         </div>
