@@ -21,21 +21,22 @@ ms.author: kumud
 
 Traffic Manager profiles use traffic-routing methods to control the distribution of traffic to your cloud services or website endpoints. This article explains how to create and manage these profiles.
 
-## Create a Traffic Manager profile using Quick Create
+## Create a Traffic Manager profile
 
-You can quickly create a Traffic Manager profile by using Quick Create in the Azure portal. Quick Create allows you to create profiles with basic configuration settings. However, you cannot use Quick Create for settings such as the set of endpoints (cloud services and websites), the failover order for the failover traffic routing method, or monitoring settings. After creating your profile, you can configure these settings in the Azure portal. Traffic Manager supports up to 200 endpoints per profile. However, most usage scenarios require only a few of endpoints.
+You can create a Traffic Manager profile by using the Azure portal. After creating your profile, you can configure endpoints, monitoring and other settings in the Azure portal. Traffic Manager supports up to 200 endpoints per profile. However, most usage scenarios require only a few of endpoints.
 
-### To create a Traffic Manager profile
+### To Create a Traffic Manager profile
 
-1. **Deploy your cloud services and websites to your production environment.** For more information about cloud services, see [Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=314074). For more information about websites, see [Websites](http://go.microsoft.com/fwlink/p/?LinkId=393327).
-2. **Log in to the Azure portal.** Click **New** on the top left of the portal, click **Network Services >See all> Traffic Manager profile**, and then click **Create** to begin configuring your profile.
-3. **Configure the DNS prefix.** Give your traffic manager profile a unique DNS prefix name. You can specify only the prefix for a Traffic Manager domain name.
-4. **Select the subscription.** Select the appropriate Azure subscription. Each profile is associated with a single subscription. If you only have one subscription, this option does not appear.
-5. **Select the traffic routing method.** Select the traffic routing method in **Routing method**. For more information about traffic routing methods, see [About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md).
-6. **Create a Resource group** Create a resource group for your Traffic Manager profile.
-7. **Select Resource group location** Specify the location of the resource group for the Traffic Manager profile.
-8. **Click "Create" to create the profile**. When the profile configuration is completed, you can locate your profile in the Traffic Manager pane in the Azure portal.
-9. **Configure endpoints, monitoring, and additional settings in the Azure portal.** Using Quick Create only configures basic settings. It is necessary to configure additional settings such as the list of endpoints and the endpoint failover order.
+1. From a browser, sign in to the [Azure portal](http://portal.azure.com). If you don’t already have an account, you can sign-up for a [free one-month trial](https://azure.microsoft.com/free/). 
+2. On the **Hub** menu, click **New** > **Networking** > **See all**, click **Traffic Manager** profile to open the **Create Traffic Manager profile** blade, then click **Create**.
+3. On the **Create Traffic Manager profile** blade, complete as follows:
+    1. In **Name**, provide a name for your profile. This name needs to be unique within the trafficmanager.net zone and results in the DNS name <name>,trafficmanager.net which is used to access your Traffic Manager profile.
+    2. In **Routing method**, select the **Priority** routing method.
+    3. In **Subscription**, select the subscription you want to create this profile under
+    4. In **Resource Group**, create a new resource group to place this profile under.
+    5. In **Resource group location**, select the location of the resource group. This setting refers to the location of the resource group, and has no impact on the Traffic Manager profile that will be deployed globally.
+    6. Click **Create**.
+    7. When the global deployment of your Traffic Manager profile is complete, it is listed in respective resource group as one of the resources.
 
 ## Disable, enable, or delete a profile
 
