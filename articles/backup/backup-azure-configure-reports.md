@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 04/21/2017
+ms.date: 05/09/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 
@@ -67,6 +67,8 @@ After configuring storage account for reports using recovery services vault, it 
 
      ![Import content pack](./media/backup-azure-configure-reports/content-pack-import.png)
 3. Type **Azure Backup** in Search bar and click **Get it now**.
+
+      ![Get content pack](./media/backup-azure-configure-reports/content-pack-get.png)
 4. Enter storage account name configured in step 5 above and click **Next** button.
 
     ![Enter storage account name](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
@@ -82,12 +84,15 @@ After configuring storage account for reports using recovery services vault, it 
     
     ![Import success content pack](./media/backup-azure-configure-reports/content-pack-import-success.png) <br/>
     
-7. Once data is imported successfully, type **Azure Backup** in the navigation pane. The list now shows Azure Backup dashboard, reports, and dataset with a yellow star indicating newly imported reports.
+7. Once data is imported successfully, **Azure Backup** content pack is visible in **Apps** in the navigation pane. The list now shows Azure Backup dashboard, reports, and dataset with a yellow star indicating newly imported reports. 
 
      ![Azure Backup content pack](./media/backup-azure-configure-reports/content-pack-azure-backup.png) <br/>
      
 8. Click **Azure Backup** under Dashboards, which shows a set of pinned key reports.
+
+      ![Azure Backup dashboard](./media/backup-azure-configure-reports/azure-backup-dashboard.png) <br/>
 9. To view the complete set of reports, click any report in the dashboard.
+
 10. Click each tab in the reports to view reports in that area.
 
       ![Azure Backup Reports tabs](./media/backup-azure-configure-reports/reports-tab-view.png)
