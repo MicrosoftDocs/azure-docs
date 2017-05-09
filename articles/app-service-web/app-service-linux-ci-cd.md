@@ -1,6 +1,6 @@
 ---
-title: Docker Hub Continuous Deployment with Azure App Service on Linux | Microsoft Docs
-description: How to setup continuous deployment in App Service on Linux.
+title: Docker Hub Continuous Deployment with Azure Web App on Linux | Microsoft Docs
+description: How to setup continuous deployment in Azure Web App on Linux.
 keywords: azure app service, linux, oss
 services: app-service
 documentationcenter: ''
@@ -18,9 +18,9 @@ ms.date: 05/10/2017
 ms.author: aelnably;wesmc
 
 ---
-# Docker Hub Continuous Deployment with Azure App Service on Linux
+# Docker Hub Continuous Deployment with Azure Web App on Linux
 
-App Service on Linux is currently in Public Preview and enables customers to run their web apps natively on a Linux platform.
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
 In this tutorial, you configure continuous deployment for a custom container image from [Docker Hub](https://hub.docker.com).
 
@@ -32,7 +32,7 @@ Log in to the Azure portal at http://portal.azure.com
 
 In the **[Azure portal](https://portal.azure.com/)**, click the **App Service** option on the left of the page.
 
-Click the name of your app to which you want to configure Docker Hub continuous deployment for
+Click on the name of your app that you want to configure Docker Hub continuous deployment for.
 
 In the **App settings**, add an app setting called `DOCKER_ENABLE_CI` with the value `true`.
 
@@ -56,8 +56,13 @@ You can obtain your `publishingusername` and `publishingpwd` by downloading the 
 When the image gets updated, the web app get updated automatically with the new image.
 
 ## Next steps
-* [What is App Service on Linux?](./app-service-linux-intro.md)
-* [Creating Apps in an App Service on Linux](./app-service-linux-how-to-create-a-web-app.md)
-* [How to use a custom Docker image for App Service on Linux](./app-service-linux-using-custom-docker-image.md)
-* [Azure App Service Web Apps on Linux FAQ](./app-service-linux-faq.md) 
+* [What is Azure Web App on Linux?](./app-service-linux-intro.md)
+* [Creating Apps in Azure Web App on Linux](./app-service-linux-how-to-create-web-app.md)
+* [Using PM2 Configuration for Node.js in Azure Web App on Linux](app-service-linux-using-nodejs-pm2.md)
+* [Using .NET Core in Azure Web App on Linux](app-service-linux-using-dotnetcore.md)
+* [Using Ruby in Azure Web App on Linux](app-service-linux-ruby-get-started.md)
+* [How to use a custom Docker image for Azure Web App on Linux](./app-service-linux-using-custom-docker-image.md)
+* [Azure App Service Web App on Linux FAQ](./app-service-linux-faq.md) 
+
+
 

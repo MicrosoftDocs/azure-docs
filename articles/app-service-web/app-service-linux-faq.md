@@ -1,6 +1,6 @@
 ---
-title: Azure App Service web apps on Linux FAQ | Microsoft Docs
-description: Azure App Service web apps on Linux FAQ.
+title: Azure App Service Web App on Linux FAQ | Microsoft Docs
+description: Azure App Service Web App on Linux FAQ.
 keywords: azure app service, web app, faq, linux, oss
 services: app-service
 documentationCenter: ''
@@ -19,9 +19,12 @@ ms.author: aelnably;wesmc
 
 ---
 
-# Azure App Service web apps on Linux FAQ
+# Azure App Service Web App on Linux FAQ
 
-With the release of Azure App Service on Linux (currently in preview), we're working on adding features and making improvements to our platform. Here are some frequently asked questions (FAQ) that our customers have been asking us over the last months.
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+
+
+With the release of Web App on Linux, we're working on adding features and making improvements to our platform. Here are some frequently asked questions (FAQ) that our customers have been asking us over the last months.
 If you have a question, comment on the article and we'll answer it as soon as possible.
 
 ## Built-in images
@@ -42,15 +45,16 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 **Q:** Can I use Secure Shell (SSH) to connect to the app container virtual machine (VM)?
 
-**A:** Yes, you can do that through the SCM site, check the following article for more information [SSH support for App Service on Linux](app-service-linux-ssh-support.md)
+**A:** Yes, you can do that through the SCM site, check the following article for more information [SSH support for Web App on Linux](./app-service-linux-ssh-support.md)
 
 ## Continuous integration/deployment
 
 **Q:** My web app still uses an old Docker container image after I've updated the image on Docker Hub. Do you support continuous integration/deployment of custom containers?
 
-**A:** To set up continuous integration/deployment for DockerHub images by check the following article [Docker Hub Continuous Deployment with App Service on Linux](./app-service-linux-ci-cd.md). For private registries, you can refresh the container by stopping and then starting your web app. Or you can change or add a dummy application setting to force a refresh of your container.
+**A:** To set up continuous integration/deployment for DockerHub images by check the following article [Docker Hub Continuous Deployment with Web App on Linux](./app-service-linux-ci-cd.md). For private registries, you can refresh the container by stopping and then starting your web app. Or you can change or add a dummy application setting to force a refresh of your container.
 
 **Q:** Do you support staging environments?
+
 **A:** Yes.
 
 ## Language support
@@ -114,8 +118,8 @@ If you have a question, comment on the article and we'll answer it as soon as po
 **A:** You can submit your idea at the [Web Apps feedback forum](https://aka.ms/webapps-uservoice). Add "[Linux]" to the title of your idea.
 
 ## Next steps
-* [What is App Service on Linux?](app-service-linux-intro.md)
-* [Creating web apps in App Service on Linux](app-service-linux-how-to-create-a-web-app.md)
-* [SSH support for App Service on Linux](./app-service-linux-ssh-support.md)
+* [What is Azure Web App on Linux?](app-service-linux-intro.md)
+* [Creating web apps in Azure Web App on Linux](app-service-linux-how-to-create-web-app.md)
+* [SSH support for Azure Web App on Linux](./app-service-linux-ssh-support.md)
 * [Set up staging environments in Azure App Service](./web-sites-staged-publishing.md)
-* [Docker Hub Continuous Deployment with App Service on Linux](./app-service-linux-ci-cd.md)
+* [Docker Hub Continuous Deployment with Azure Web App on Linux](./app-service-linux-ci-cd.md)
