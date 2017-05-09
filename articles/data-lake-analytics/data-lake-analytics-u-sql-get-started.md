@@ -28,11 +28,11 @@ To understand the **U-SQL design philosophy**, see the Visual Studio blog post [
 
 ## Prerequisites
 
-Before you go through the U-SQL samples in this document, please read and complete [Tutorial: Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). That tutorial explains the mechanics of using U-SQL with Azure Data Lake Tools for Visual Studio.
+Before you go through the U-SQL samples in this document, read and complete [Tutorial: Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). That tutorial explains the mechanics of using U-SQL with Azure Data Lake Tools for Visual Studio.
 
 ## Your first U-SQL script
 
-Below, is a simple U-SQL script. Although it simple, it lets us explore many aspects of U-SQL.
+The following U-SQL script is very simple and lets us explore many aspects the U-SQL language.
 
 ```
 @searchlog =
@@ -51,35 +51,36 @@ OUTPUT @searchlog
     USING Outputters.Csv();
 ```
 
-This script doesn't have any transformation steps. It reads from the source file called SearchLog.tsv, schematizes it, and writes the rowset back into a file called SearchLog-first-u-sql.csv.
+This script doesn't have any transformation steps. It reads from the source file called `SearchLog.tsv`, schematizes it, and writes the rowset back into a file called SearchLog-first-u-sql.csv.
 
-Notice the question mark next to the data type in the **Duration** field. It means that the **Duration** field could be null.
+Notice the question mark next to the data type in the `Duration` field. It means that the `Duration` field could be null.
 
 ### Key concepts
-* **Rowset variables**: Each query expression that produces a rowset can be assigned to a variable. U-SQL follows the T-SQL variable naming pattern (@searchlog, for example) in the script.
-* The **EXTRACT** keyword reads data from a file and defines the schema on read. **Extractors.Tsv** is a built-in U-SQL extractor for tab-separated-value files. You can develop custom extractors.
-* The **OUTPUT** writes data from a rowset to a file. **Outputters.Csv()** is a vuilt-in U-SQL outputter to create a comma-separated-value file. You can develop custom outputters.
+* **Rowset variables**: Each query expression that produces a rowset can be assigned to a variable. U-SQL follows the T-SQL variable naming pattern (`@searchlog`, for example) in the script.
+* The **EXTRACT** keyword reads data from a file and defines the schema on read. `Extractors.Tsv` is a built-in U-SQL extractor for tab-separated-value files. You can develop custom extractors.
+* The **OUTPUT** writes data from a rowset to a file. `Outputters.Csv()` is a built-in U-SQL outputter to create a comma-separated-value file. You can develop custom outputters.
 
 ### File paths
 
 The EXTRACT and OUTPUT statements use file paths. File paths can be absolute or relative:
 
-This absolute file path refers to a file in a Data Lake Store named "mystore":
+This absolute file path refers to a file in a Data Lake Store named `mystore`:
 
     adl://mystore.azuredatalakestore.net/Samples/Data/SearchLog.tsv
 
-This absolute file path refers to a file in an Azure Blog Storage account named "myblobaccount" and in a container named "mycontainer":
+This absolute file path refers to a file in an Azure Blog Storage account named `myblobaccount` and in a container named `mycontainer`:
 
     wasb://mycontainer@myblobaccount.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
  >[!NOTE]
  >Azure Blob storage containers with public blobs or public containers access permissions are not currently supported.
 
-This relative file path refers to a file in the default Data Lake Store account associated with the Data Lake Analytics account:
+This relative file path starts with `"/"`. It refers to a file in the default Data Lake Store account that is associated with the Data Lake Analytics account:
 
     TO "/output/SearchLog-first-u-sql.csv"
 
 ## Use scalar variables
+
 You can use scalar variables as well to make your script maintenance easier. The previous U-SQL script can also be written as:
 
     DECLARE @in  string = "/Samples/Data/SearchLog.tsv";
@@ -101,6 +102,7 @@ You can use scalar variables as well to make your script maintenance easier. The
         USING Outputters.Csv();
 
 ## Transform rowsets
+
 Use **SELECT** to transform rowsets:
 
     @searchlog =
