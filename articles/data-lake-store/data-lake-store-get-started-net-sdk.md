@@ -252,5 +252,5 @@ The following snippet shows a `DownloadFile` method that you use to download a f
 * [Secure data in Data Lake Store](data-lake-store-secure-data.md)
 * [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-* [Data Lake Store .NET SDK Reference](https://docs.microsoft.com/en-us/dotnet/api/?view=azuremgmtdatalakestore-2.1.0-preview&term=DataLake.Store)
+* [Data Lake Store .NET SDK Reference](https://docs.microsoft.com/dotnet/api/?view=azuremgmtdatalakestore-2.1.0-preview&term=DataLake.Store)
 * [Data Lake Store REST Reference](https://msdn.microsoft.com/library/mt693424.aspx)
