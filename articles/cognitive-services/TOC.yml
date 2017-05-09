@@ -40,6 +40,8 @@
     href: EntityLinking/Home.md
   - name: Face
     href: Face/Overview.md
+  - name: Video Indexer
+    href: video-indexer/video-indexer-overview.md  
   - name: Knowledge Exploration Service
     href: KES/Overview.md
   - name: Linguistic Analysis
