@@ -20,7 +20,7 @@ ms.author: cgronlun
 
 ---
 # Introduction to the Azure HDInsight Hadoop technology stack and Hadoop clusters
- This article provides an introduction to Azure HDInsight, a cloud distribution of the Hadoop technology stack. You'll also learn what a Hadoop cluster is and what it's used for. 
+ This article provides an introduction to Azure HDInsight, a cloud distribution of the Hadoop technology stack. It also covers what a Hadoop cluster is and what it's used for. 
 
 ## What is the Hadoop technology stack in HDInsight? 
 Hadoop is an open-source framework for distributed processing and analysis of big data sets on clusters of computers. Azure HDInsight makes the Hadoop components from the **Hortonworks Data Platform (HDP)** distribution available in the cloud. HDInsight deploys managed clusters with high reliability and availability, and provides enterprise-grade security and governance with Active Directory.  
@@ -28,7 +28,7 @@ Hadoop is an open-source framework for distributed processing and analysis of bi
 Apache Hadoop was the original open-source project for big data processing. Following was the development of related software and utilities considered part of the Hadoop technology stack, including Apache Hive, HBase, Spark, Kafka, and many others. See [Overview of the Hadoop technology stack in HDInsight](#overview) for details.
 
 ## What is a Hadoop cluster, and what's it used for?
-The term *Hadoop* also refers to a type of cluster that has the Hadoop distributed file system (HDFS), Hadoop YARN for job scheduling and resource management, and MapReduce for parallel processing. Hadoop clusters are most often used for batch processing of stored data. There are other kinds of clusters available with additional capabilities, such as faster, in-memory processing or processing for streaming message queues. For details, see [Overview of the Hadoop technology stack](#overview) following.
+The term *Hadoop* also refers to a type of cluster that has the Hadoop distributed file system (HDFS), Hadoop YARN for job scheduling and resource management, and MapReduce for parallel processing. Hadoop clusters are most often used for batch processing of stored data. There are other kinds of clusters available with additional capabilities, such as faster, in-memory processing or processing for streaming message queues. For details, see [Overview of the Hadoop technology stack](#overview).
 
 ## What is big data?
 Big data describes any large body of digital information, from a Twitter newsfeed, to sensor data from industrial equipment, to information about customer behavior on a website. Big data can be historical (meaning stored data) or real time (meaning streamed directly from the source). Big data is being collected in ever-escalating volumes, at increasingly higher velocities, and in an expanding variety formats.
@@ -74,7 +74,7 @@ The following components and utilities are included on HDInsight clusters.
 * **[Pig](#pig)**: Simpler scripting for MapReduce transformations.
 * **[Sqoop](#sqoop)**: Data import and export.
 * **[Tez](#tez)**: Allows data-intensive processes to run efficiently at scale.
-* **[YARN](#yarn)**: Part of the Hadoop core library and next generation of the MapReduce software framework.
+* **[YARN](#yarn)**: A resource manager that is part of the Hadoop core library.
 * **[ZooKeeper](#zookeeper)**: Coordination of processes in distributed systems.
 
 > [!NOTE]
@@ -117,7 +117,7 @@ See <a target="_blank" href="http://wiki.apache.org/hadoop/MapReduce">MapReduce<
 <a  target="_blank" href="http://phoenix.apache.org/">Apache Phoenix</a> is a relational database layer over HBase. Phoenix includes a JDBC driver that allows you to query and manage SQL tables directly. Phoenix translates queries and other statements into native NoSQL API calls - instead of using MapReduce - thus enabling faster applications on top of NoSQL stores. See [Use Apache Phoenix and SQuirreL with HBase clusters](hdinsight-hbase-phoenix-squirrel.md).
 
 ### <a name="pig"></a>Pig
-<a  target="_blank" href="http://pig.apache.org/">Apache Pig</a> is a high-level platform that allows you to perform complex MapReduce transformations on very large datasets by using a simple scripting language called Pig Latin. Pig translates the Pig Latin scripts so they’ll run within Hadoop. You can create User-Defined Functions (UDFs) to extend Pig Latin. See [Use Pig with Hadoop](hdinsight-use-pig.md).
+<a  target="_blank" href="http://pig.apache.org/">Apache Pig</a> is a high-level platform that allows you to perform complex MapReduce transformations on large datasets by using a simple scripting language called Pig Latin. Pig translates the Pig Latin scripts so they’ll run within Hadoop. You can create User-Defined Functions (UDFs) to extend Pig Latin. See [Use Pig with Hadoop](hdinsight-use-pig.md).
 
 ### <a name="sqoop"></a>Sqoop
 <a  target="_blank" href="http://sqoop.apache.org/">Apache Sqoop</a> is tool that transfers bulk data between Hadoop and relational databases such a SQL, or other structured data stores, as efficiently as possible. See [Use Sqoop with Hadoop](hdinsight-use-sqoop.md).
@@ -160,7 +160,7 @@ HDInsight clusters support the following languages that are specific to the Hado
 * HiveQL for Hive jobs and SparkSQL
 
 ## <a name="advantage"></a>Advantages of Hadoop in the cloud
-As part of the Azure cloud ecosystem, Hadoop in HDInsight has many benefits, among them:
+As part of the Azure cloud, Hadoop in HDInsight has many benefits, among them:
 
 * Automatic provisioning of Hadoop clusters. HDInsight clusters are much easier to create than manually configuring Hadoop clusters. For details, see [Provision Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * State-of-the-art Hadoop components. For details, see [Hadoop components, versioning, and service offerings in HDInsight][component-versioning].
@@ -169,7 +169,7 @@ As part of the Azure cloud ecosystem, Hadoop in HDInsight has many benefits, amo
 * Integration with other Azure services, including [Web apps](https://azure.microsoft.com/documentation/services/app-service/web/) and [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/).
 * Additional VM sizes and types for running HDInsight clusters. See [Hadoop components, versioning, and service offerings in HDInsight][component-versioning] for details.
 * Cluster scaling. Cluster scaling enables you to change the number of nodes of a running HDInsight cluster without having to delete or re-create it.
-* Virtual Network support. HDInsight clusters can be used with Azure Virtual Network to support isolation of cloud resources or hybrid scenarios that link cloud resources with those in your datacenter.
+* Virtual Network support. HDInsight clusters can be used with Azure Virtual Network to support isolation of cloud resources or hybrid scenarios that link cloud resources with resources in your datacenter.
 * Low entry cost. Start a [free trial](https://azure.microsoft.com/free/), or consult [HDInsight pricing details](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 To read more about the advantages on Hadoop in HDInsight, see the [Azure features page for HDInsight][marketing-page].
