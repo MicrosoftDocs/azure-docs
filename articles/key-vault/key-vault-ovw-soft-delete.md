@@ -40,7 +40,10 @@ Enabling Key Vault’s soft delete behavior is done through ----. You may also q
 
 ### Soft-delete retention period
 
-Soft deleted resources are retained for a given period of time, the default is set to 90 days. This retention period can be configured via -----. 
+Soft deleted resources are retained for a set period of time, 90 days. 
+
+>[!NOTE]
+> This the soft-delete retention period is not configurable for our May 10, 2017 preview release. 
 
 During the soft-delete retention interval, the following apply:
 
