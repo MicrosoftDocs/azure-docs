@@ -26,19 +26,19 @@ To build a classifier, you must first have:
 
 ## Getting Started: Build a Classifier
 
-Custom Vision Service can be found by clicking here [https://customvision.ai](https://customvision.ai)
+Custom Vision Service can be found by clicking here: [https://customvision.ai](https://customvision.ai)
 
 After you log into Custom Vision Service, you will be presented with a list of projects.
 
-### 1. Click **New Project** to create your first project.
+1. Click **New Project** to create your first project.
 
-### 2. If this is your first project, you are asked to agree to the Terms of Service. Check the check box, then click the **I agree** button.
+2. If this is your first project, you are asked to agree to the Terms of Service. Check the check box, then click the **I agree** button.
 
 The New Project dialog box appears.
 
 ![The new project dialog box, which has fields for name, description, and domains which consist of general, food, landmarks, retail, and adult.](./media/getting-started-build-a-classifier/new-project.png)
 
-### 3. Enter a name for this project, a description of the project, and select one domain.
+3. Enter a name for this project, a description of the project, and select one domain.
 
 There are several domains available, and each one optimizes the classifier for a specific type of images:
 
@@ -52,7 +52,7 @@ There are several domains available, and each one optimizes the classifier for a
 
 You can change the domain later if you wish.
 
-### 4. Add images to train your classifier.
+4. Add images to train your classifier.
 
 Add some images to train your classifier. Let's say you want a classifier to distinguish between dogs and ponies. You would upload and tag at least 30 images of dogs and 30 images of ponies. Try to upload a variety of images with different camera angles, lighting, background, types, styles, groups, sizes, etc. We recommend variety in your photos to ensure your classifier is not biased in any way and can generalize well.
 
@@ -84,7 +84,7 @@ g. After the files have uploaded, click **Done**.
 
 h. To load more images with a different set of tags, return to step a.
 
-### 5. Train your classifier
+5. Train your classifier
 
 After your images are uploaded, you are ready to train your classifier. All you have to do is click the **Train** button.
 
@@ -94,7 +94,7 @@ It should only take a few minutes to train your classifier.
 
 ![The train button is near the right top of the browser window.](./media/getting-started-build-a-classifier/train02.png)
 
-### 6. Evaluate your classifier
+6. Evaluate your classifier
 
 The precision and recall indicators tell you how good your classifier is, based on automatic testing. Note that Custom Vision Service uses the images you submitted for training to calculate these numbers, using a process called [k-fold cross validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)).
 
@@ -111,8 +111,6 @@ The qualities of the classifier results are displayed
 |Precision|When you classify an image, how likely is your classifier to correctly classify the image? Out of all images used to train the classifier (dogs and ponies), what percent did the model get correct? 99 correct tags out of 100 images gives a Precision of 99%.|
 |Recall|Out of all images that should have been classified correctly, how many did your classifier identify correctly? A Recall of 100% would mean, if there were 38 dog images in the images used to train the classifier, 38 dogs were found by the classifier.|
 
-## 
-
 ## Next steps
 
-[Tutorial](csharp-tutorial.md)
+[Custom Vision API C# tutorial](csharp-tutorial.md)

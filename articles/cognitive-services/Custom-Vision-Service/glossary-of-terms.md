@@ -48,7 +48,7 @@ Use tags to label the objects in your training images. If you are creating a cla
 
 Once you have trained your classifier, you can submit any image for evaluation by using the auto-generated https endpoint. Your classifier returns a set of predicted tags, in order of confidence.
 
-## Active Learning (Improve My Set)
+## Predictions
 
 As your classifier accepts new images to classify, it stores the images for you. You can use these images to improve the precision of your classifier by correctly tagging the mis-predicted images. You can then use these new images to re-train your classifier.
 
