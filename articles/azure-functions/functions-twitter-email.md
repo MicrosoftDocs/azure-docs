@@ -1,6 +1,6 @@
 ---
 title: Building a serverless social media dashboard in Azure | Microsoft Docs
-description: TODO
+description: Building a serverless social media dashboard in Azure
 services: functions, logic-apps, cognitive-services
 keywords: workflow, cloud apps, cloud services, business processes, system integration, enterprise application integration, EAI
 documentationcenter: ''
@@ -30,12 +30,6 @@ This article shows you how to create a logic app in the Azure portal that:
 > * Uses an Azure function to process the tweet sentiment into three categories (RED, YELLOW, or GREEN - for poor, neutral, and good).
 > * Uses a condition to check if the sentiment is RED (poor).
 > * If the condition is RED, sends an email.
-
-<!-- no bullets - 
-
-This article shows you how to create a logic app in the Azure portal that checks for new tweets using a keyword you supply. It then uses the **Detect Sentiment** connector to estimate the tweets sentiment (from poor to good). It then  uses an Azure function to process the tweet sentiment into three categories (RED, YELLOW, or GREEN - for poor, neutral, and good). It then uses a condition to check if the sentiment is RED (poor). Finally, it sends an email if the condition is RED.
-
- -->
 
 The following image shows the completed logic app in the designer:
 
@@ -249,10 +243,10 @@ The following image shows the run details when the condition was not true, email
 
 ![Overview blade](media/functions-twitter-email/skipped.png)
 
-If want to immediately test the **Send an email** function: 
+If want to immediately test the **Send an email** function:
 
 * Change the **INPUTS**  in the first step (**When a new tweet is posted**) to a popular term, such as #football, #soccer, or #futbol.
- 
+
 Processing popular terms consumes more resources than less popular terms. You might want to change your search term after you've verified email is working.
 
 The following image shows the run details when the condition was true, and email was sent.
