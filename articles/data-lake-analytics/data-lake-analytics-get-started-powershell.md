@@ -94,7 +94,7 @@ Submit the script.
 Submit-AdlJob -AccountName $adla –ScriptPath "d:\test.usql"Submit
 ```
 
-# Monitor U-SQL Jobs
+## Monitor U-SQL Jobs
 
 List all the jobs in the account. The output includes the currently running jobs and those jobs that have recently completed.
 
@@ -126,7 +126,7 @@ Check for the existence of a file.
 Test-AdlStoreItem -Account $adls -Path "/data.csv"
 ```
 
-# Uploading and Downloading files
+## Uploading and Downloading files
 
 Download the output of the U-SQL script.
 
