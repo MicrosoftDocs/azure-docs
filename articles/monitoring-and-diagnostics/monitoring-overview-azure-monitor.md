@@ -91,7 +91,7 @@ Some monitoring data is already stored and available in Azure Monitor for a set 
 - Activity log entries are stored for 90 days. 
 - Diagnostics logs are not stored at all. 
 
-If you want to store data longer than the time periods listed above, you can use Azure storage. Monitoring data is kept there based on a retention policy you set. You do have to pay for the space the data takes up in Azure storage. 
+If you want to store data longer than the time periods listed above, you can use an Azure storage. Monitoring data is kept in your storage acccount based on a retention policy you set. You do have to pay for the space the data takes up in Azure storage. 
 
 A few ways to use this data:
 
