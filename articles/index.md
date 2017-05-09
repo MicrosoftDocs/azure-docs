@@ -274,7 +274,19 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <li>
                                             <a href="/azure/documentdb/">
                                                 <img src="media/index/DocumentDB.svg" alt="" />
-                                                <p>DocumentDB</p>
+                                                <p>Cosmos DB</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/postgresql/">
+                                                <img src="media/index/PostgreSQL.svg" alt="" />
+                                                <p>PostgreSQL</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/mysql/">
+                                                <img src="media/index/MySQL.svg" alt="" />
+                                                <p>MySQL</p>
                                             </a>
                                         </li>
                                         <li>
@@ -457,7 +469,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/face/overview">
+                                            <a href="/azure/cognitive-services/face/">
                                                 <img src="media/index/API_Vis_Face.svg" alt="" />
                                                 <p>Face</p>
                                             </a>
@@ -523,7 +535,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/computer-vision/home">
+                                            <a href="/azure/cognitive-services/computer-vision/">
                                                 <img src="media/index/API_Vis_ComputerVision.svg" alt="" />
                                                 <p>Computer Vision</p>
                                             </a>
@@ -1715,7 +1727,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/documentdb/">
+                                <a href="/azure/cosmos-db/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1725,8 +1737,46 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>DocumentDB</h3>
+                                                    <h3>Cosmos DB</h3>
                                                     <p>Managed NoSQL document database-as-a-service</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/postgresql/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/PostgreSQL.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>PostgreSQL</h3>
+                                                    <p>Managed PostgreSQL database service for app developers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/mysql/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/MySQL.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>MySQL</h3>
+                                                    <p>Managed MySQL database service for app developers</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1777,7 +1827,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                         <a href="#cognitive">AI + Cognitive Services</a>
                         <ul id="cognitive" class="cardsA">
                             <li>
-                                <a href="/azure/cognitive-services/computer-vision/home">
+                                <a href="/azure/cognitive-services/computer-vision/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1788,7 +1838,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Computer Vision</h3>
-                                                    <p>Extract rich information from images to categorize and process visual data</p>
+                                                    <p>Distill actionable information from images</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1796,7 +1846,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cognitive-services/face/overview">
+                                <a href="/azure/cognitive-services/face/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1807,7 +1857,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Face</h3>
-                                                    <p>Detect human faces and compare similar ones</p>
+                                                    <p>Detect, identify, analyze, organize, and tag faces in photos</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1826,7 +1876,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Bing Web Search</h3>
-                                                    <p>Bring intelligent search to your apps</p>
+                                                    <p>Connect powerful web search to your apps</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1846,6 +1896,44 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="cardText">
                                                     <h3>Custom Speech Service</h3>
                                                     <p>Overcome speech recognition barriers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/cognitive-services/custom-speech-service/home">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/cs-custom-vision.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Custom Vision Service</h3>
+                                                    <p>A customizable web service that learns to recognize specific content in imagery</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/cognitive-services/video-indexer/video-indexer-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/cs-video-indexer.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Video Indexer</h3>
+                                                    <p>Search, edit, analyze, and learn from your videos</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1882,46 +1970,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Bing Speech Service</h3>
-                                                    <p>Convert audio to text, understand intent, and convert text back to speech for natural responsiveness</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/cognitive-services/translator/translator-info-overview">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/cognitive-services-translator.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Translator</h3>
-                                                    <p>Easily conduct real-time text translation with a simple REST API call</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/cognitive-services/speaker-recognition/home">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/API_Spc_SpeakerRecognition.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Speaker Recognition</h3>
-                                                    <p>Identify individual speakers or use speech as a means of authentication</p>
+                                                    <h3>Bing Custom Search</h3>
+                                                    <p>Build the search results you’re looking for</p>
                                                 </div>
                                             </div>
                                         </div>
