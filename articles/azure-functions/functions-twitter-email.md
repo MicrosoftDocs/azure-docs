@@ -31,7 +31,7 @@ This article shows you how to create a logic app in the Azure portal that:
 > * Uses a condition to check if the sentiment is RED (poor).
 > * If the condition is RED, sends an email.
 
-The following image shows the completed logic app in the designer:
+The following image shows a portion of the logic app in the designer:
 
 ![image first 2 steps of app in Logic App Designer](media/functions-twitter-email/designer1.png)
 
@@ -56,7 +56,7 @@ Keep the default **Webhook + API**, **CSharp**, and then select **Create this fu
 
 You created a Webhook/API (also known as HTTP trigger) function that can be called on demand by the app you are building. If you wanted to create a function that runs on a schedule, you would create a Timer function.
 
-* Replace the contents of the *run.csx* file with the following code:
+Replace the contents of the *run.csx* file with the following code:
 
 ```c#
 using System.Net;
@@ -92,7 +92,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 
 A Cognitive Services account is required to detect the sentiment of tweets we are monitoring.
 
-* Navigate to **New > Intelligence + analytics > Cognitive  Services**. Set each required field:
+Navigate to **New > Intelligence + analytics > Cognitive  Services**. Set each required field:
 
 ![Create Cognitive account blade](media/functions-twitter-email/cog_svcs_account.png)
 
@@ -100,7 +100,7 @@ A Cognitive Services account is required to detect the sentiment of tweets we ar
 | ----------------- | ------------ | ------------- |
 | Account name | MyCognitiveServicesAccnt | Enter a unique name. |
 | API type | Text Analytics API | Select Text Analytics |
-| Location | West US | Currently only West US is available |
+| Location | West US | Currently only **West US** is available |
 | Pricing tier | F0 | If you run out of calls, set to a higher tier.|
 | Resource group | rg1 | Use the resource group you previously specified.|
 
@@ -118,9 +118,7 @@ In the **Create logic app** blade, enter each field, and the select **Create**.
 
 ![Create logic app step preceding step](media/functions-twitter-email/new_logicApp2.png)
 
- Once the logic app is created, it opens in the designer.
-
-Select the **Blank Logic App** template.
+Once the logic app is created, it opens in the designer. Select the **Blank Logic App** template.
 
 ![Blank Logic App](media/functions-twitter-email/blank.png)
 
@@ -144,7 +142,9 @@ Enter your password and select **Authorize app**.
 
 ![authentication of twitter in new window from above](media/functions-twitter-email/auth_twit.png)
 
-Enter the search text, frequency, and interval. If you specify a popular hashtag (such as #football, #soccer, or #futbol), you can quickly use all your allotted service calls in your cognitive services account. If you run out of calls, you can increase the pricing tier. Search for #Azure every 15 minutes:
+Enter the search text, frequency, and interval. If you specify a popular hashtag (such as #football, #soccer, or #futbol), you can quickly use all your allotted service calls in your cognitive services account. If you run out of calls, you can increase the pricing tier. 
+
+Search for #Azure every 15 minutes:
 
 ![#Azure every 15 min](media/functions-twitter-email/azure_tweet.png)
 
