@@ -19,6 +19,17 @@ ms.author: iainfou
 ---
 
 # Create a continuous integration pipeline with VSTS and IIS on a Windows virtual machine in Azure
+To automate the build and test phase of application development, you can use a continuous integration and deployment (CI/CD) pipeline. In this tutorial, you create a CI/CD pipeline using Visual Studio Team Services (VSTS) and a Windows virtual machine (VM) in Azure that runs IIS. You learn how to:
+
+> [!div class="checklist"]
+> * Publish an ASP.NET web application to a VSTS project
+> * Create a build definition that is triggered by code commits
+> * Install and configure IIS on a virtual machine in Azure
+> * Add the IIS instance to a deployment group in VSTS
+> * Create a release defintion to publish new web deploy packages to IIS
+> * Test the CI/CD pipeline
+
+This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 ## Create project in VSTS
 To manage the code commit process, build definitions, and release definitions, create a project in VSTS as follows:
@@ -56,6 +67,8 @@ In the previous step, you created a project in VSTS. The final step opens your n
 
 
 ## Create build definition
+In VSTS, you use a build definition to outline how you application should be built. In this tutorial, we create a basic definition that takes our source code, builds the solution, then creates web deploy package we can use to run the web app on an IIS server.
+
 1. Within your VSTS project, click **Build & Release** across the top, then select **Builds**.
 3. Click **+ New definition**.
 4. Select the **ASP.NET (PREVIEW)** template and click **Apply**.
@@ -111,6 +124,8 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 
 
 ## Create VSTS deployment group
+To push out the web deploy package to the IIS server, you define a deployment group in VSTS. This group allows you to specify which servers are the target of new builds as you commit code to VSTS.
+
 1. In VSTS, click **Build & Release** and then **Deployment groups**.
 2. Click **Add Deployment group**.
 3. Enter a name for the group, such as *myIIS*, then click **Create**.
@@ -119,6 +134,8 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 
 
 ### Add IIS VM to the deployment group
+With the deployment group created, you add each IIS instance to the group. VSTS generates a script that downloads and configures a build agent on the VM that receives new web deploy packages then applies it to IIS.
+
 1. Back in your **Administrator PowerShell** session on your VM, paste and run the script copied from VSTS.
 2. When prompted to configure tags for the agent, press *Y* and enter *web*.
 3. When prompted for the user account, press *Return* to accept the defaults.
@@ -129,6 +146,7 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 
 
 ## Create release definition
+To publish your builds, you create a release definition in VSTS. This definition is triggered automatically by a successful build of your application. You select the deployment group to push your web deploy package to, and define the appropriate IIS settings.
 
 1. Click **Build & Release**, then select **Builds**. Select the build definition created in a previous step.
 2. Under **Recently completed**, select the most recent build, then click **Release**.
@@ -153,6 +171,8 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 
 
 ## Create release and publish
+You can now push your web deploy package as a new release. This step reaches out to the build agent on each instance that is part of the deployment group, pushes the web deploy package, then configures IIS to run the updated web application.
+
 1. In your release definition, click **+ Release**, then click **Create Release**.
 2. Verify that the latest build is selected in the drop-down list, along with **Automated deployment: After release creation**. Click **Create**.
 3. A small banner appears across the top of your release definition, such as *Release 'Release-1' has been created*. Click the release link.
@@ -166,6 +186,8 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 
 
 ## Test the whole CI/CD pipeline
+With your web application running on IIS, now try the whole CI/CD pipeline. After you make a change in Visual Studio and commit your code, a build is triggered which then triggers a release of your updated web deploy package to IIS.
+
 1. In Visual Studio, open the **Solution Explorer** window.
 2. Navigate to and open *myWebApp | Views | Home | Index.cshtml*
 3. Edit line 6 to read:
@@ -183,3 +205,13 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 
 
 ## Next steps
+
+In this tutorial, you created an ASP.NET web application in VSTS and configured build and release definitions to deploy new web deploy packages to IIS on each code commit. You learned how to:
+
+> [!div class="checklist"]
+> * Publish an ASP.NET web application to a VSTS project
+> * Create a build definition that is triggered by code commits
+> * Install and configure IIS on a virtual machine in Azure
+> * Add the IIS instance to a deployment group in VSTS
+> * Create a release defintion to publish new web deploy packages to IIS
+> * Test the CI/CD pipeline
