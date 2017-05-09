@@ -160,7 +160,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <h4>AI and Cognitive Services</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/cognitive-services/computer-vision/">Computer Vision API</a></li>
-                                                    <li><a class="barLink" href="/azure/cognitive-services/Face/">Face API</a></li>
+                                                    <li><a class="barLink" href="/azure/cognitive-services/face/">Face API</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -469,7 +469,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/Face/">
+                                            <a href="/azure/cognitive-services/face/">
                                                 <img src="media/index/API_Vis_Face.svg" alt="" />
                                                 <p>Face</p>
                                             </a>
@@ -1846,7 +1846,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cognitive-services/Face/">
+                                <a href="/azure/cognitive-services/face/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
