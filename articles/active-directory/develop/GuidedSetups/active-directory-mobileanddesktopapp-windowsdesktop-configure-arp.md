@@ -17,7 +17,9 @@ ms.date:
 ms.author: andret
 
 ---
-<div id="RedirectURLUX"/>
+# Configure your Windows Desktop App with the application's registration information
+
+This step shows how to configure your Visual Studio project with the application's registration information.
 
 ## Add the application’s registration information to your App
 In this step, you need to add the Application Id to your project.
