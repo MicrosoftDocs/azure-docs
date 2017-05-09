@@ -12,7 +12,7 @@ ms.date: 05/02/2017
 ms.author: anroth
 ---
 
-# How to Add Faces
+# How to add faces
 
 This guide demonstrates the best practice to add massive number of persons and faces to a person group, which also applies to face lists. The samples are written in C# using the Face API client library.
 
@@ -126,6 +126,6 @@ The following are a quick reminder of the features previously explained and demo
 - Creating persons using the [Person - Create a Person](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API
 - Adding faces to persons using the [Person - Add a Person Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API
 
-## <a name="related"></a> Related Topics
+## <a name="related"></a> Next steps
 - [How to Identify Faces in Image](HowtoIdentifyFacesinImage.md)
 - [How to Detect Faces in Image](HowtoDetectFacesinImage.md)
