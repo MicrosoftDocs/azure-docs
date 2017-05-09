@@ -4,6 +4,8 @@
   items:
   - name: About Functions
     href: functions-overview.md
+  - name: Functions Runtime
+    href: functions-runtime-overview.md
   - name: Choose between Flow, Logic Apps, Functions, and WebJobs
     href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Quickstarts
@@ -37,9 +39,9 @@
     href: functions-cli-samples.md
 - name: Tutorials
   items:
-#  - name: 1 - Functions with Logic Apps
-#    href: functions-twitter-email.md
-  - name: 1 - Create a serverless API
+  - name: 1 - Functions with Logic Apps
+    href: functions-twitter-email.md
+  - name: 2 - Create a serverless API
     href: functions-create-serverless-api.md
 - name: Concepts
   items:
@@ -61,6 +63,8 @@
     href: functions-infrastructure-as-code.md
   - name: Monitoring Azure Functions
     href: functions-monitoring.md
+  - name: Install Functions Runtime
+    href: functions-runtime-install.md
 - name: Reference
   items:
   - name: Develop function apps
