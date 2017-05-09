@@ -176,7 +176,6 @@ You can programmatically retrieve custom search results for users via [Bing Web 
 [!NOTE]
 Bing Custom Search allows customizing web results only. For this reason, it's not possible to retrieve, for example, image or news answers.
 
-[!NOTE]
 Read the [Bing Web Search API Use and Display requirements](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/useanddisplayrequirements) to understand how to display the retrieved results.
 
 
