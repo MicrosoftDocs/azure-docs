@@ -57,21 +57,27 @@ Notice the question mark next to the data type in the **Duration** field. It mea
 
 ### Key concepts
 * **Rowset variables**: Each query expression that produces a rowset can be assigned to a variable. U-SQL follows the T-SQL variable naming pattern (@searchlog, for example) in the script.
-* **EXTRACT**: By using this keyword, you can define a schema on read. The schema is specified by a column name and C# type name pair per column. The schema uses a so-called extractor (Extractors.Tsv(), for example) to extract .tsv files. You can develop custom extractors.
-* **OUTPUT**: This keyword takes a rowset and serializes it. Outputters.Csv() writes a comma-separated file into the specified location. You can also develop custom outputters.
+* The **EXTRACT** keyword reads data from a file and defines the schema on read. **Extractors.Tsv** is a built-in U-SQL extractor for tab-separated-value files. You can develop custom extractors.
+* The **OUTPUT** writes data from a rowset to a file. **Outputters.Csv()** is a vuilt-in U-SQL outputter to create a comma-separated-value file. You can develop custom outputters.
 
- >[!NOTE]
- >The rowset assignment does not force execution. It merely names the expression so that you can build up more complex expressions.
+### File paths
 
- >[!NOTE]
- >The two paths are relative paths. You can also use absolute paths. For example:    
- >     adl://\<ADLStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
- >
- >You must use an absolute path to access the files in the linked storage accounts.  The syntax for files stored in linked Azure storage account is:
- >     wasb://\<BlobContainerName>@\<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
+The EXTRACT and OUTPUT statements use file paths. File paths can be absolute or relative:
+
+This absolute file path refers to a file in a Data Lake Store named "mystore":
+
+    adl://mystore.azuredatalakestore.net/Samples/Data/SearchLog.tsv
+
+This absolute file path refers to a file in an Azure Blog Storage account named "myblobaccount" and in a container named "mycontainer":
+
+    wasb://mycontainer@myblobaccount.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
  >[!NOTE]
  >Azure Blob storage containers with public blobs or public containers access permissions are not currently supported.
+
+This relative file path refers to a file in the default Data Lake Store account associated with the Data Lake Analytics account:
+
+    TO "/output/SearchLog-first-u-sql.csv"
 
 ## Use scalar variables
 You can use scalar variables as well to make your script maintenance easier. The previous U-SQL script can also be written as:
