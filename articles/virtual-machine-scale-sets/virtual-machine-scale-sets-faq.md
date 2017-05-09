@@ -407,7 +407,7 @@ To define an extension, use the JsonADDomainExtension property:
                                 "properties": {
                                     "publisher": "Microsoft.Compute",
                                     "type": "JsonADDomainExtension",
-                                    "typeHandlerVersion": "1.0",
+                                    "typeHandlerVersion": "1.3",
                                     "settings": {
                                         "Name": "[parameters('domainName')]",
                                         "OUPath": "[variables('ouPath')]",
