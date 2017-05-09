@@ -37,7 +37,7 @@ The following image shows the completed logic app in the designer:
 
 ## Prerequisites
 
-* An Azure account. [Free accounts](https://azure.microsoft.com/free/) are available.
+* An Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * A twitter account.
 
 ## Create an Azure function app
@@ -46,7 +46,7 @@ The following image shows the completed logic app in the designer:
 
 ### Create a function to categorize the tweet sentiment
 
-Once the function app deployment completes, open the new function app. In this section, you create a function to categorize tweet sentiment into three categories (RED, YELLOW, or GREEN - for bad, neural, and good).
+Once the function app deployment completes, open the new function app. In this section, you create a function to categorize tweet sentiment into three categories (RED, YELLOW, or GREEN - for bad, neutral, and good).
 
 ![Function Apps blade, Functions +](media/functions-twitter-email/add_fun.png)
 
@@ -94,12 +94,15 @@ A Cognitive Services account is required to detect the sentiment of tweets we ar
 
 * Navigate to **New > Intelligence + analytics > Cognitive  Services**. Set each required field:
 
-  * **Account name**: Enter a unique name.
-  * **API type**: **Text Analytics API**
-  * **Pricing tier**: **F0**. If you run out of calls, set to a higher tier.
-  * **Resource group**: Use the resource group you previously specified.
+![Create Cognitive account blade](media/functions-twitter-email/cog_svcs_account.png)
 
- ![Create Cognitive account blade](media/functions-twitter-email/cog_svcs_account.png)
+| Field               | Sample value | Comment |
+| ----------------- | ------------ | ------------- |
+| Account name | MyCognitiveServicesAccnt | Enter a unique name. |
+| API type | Text Analytics API | Select Text Analytics |
+| Location | West US | Currently only West US is available |
+| Pricing tier | F0 | If you run out of calls, set to a higher tier.|
+| Resource group | rg1 | Use the resource group you previously specified.|
 
 * Select **Keys**. You need a key in a later step.
 
