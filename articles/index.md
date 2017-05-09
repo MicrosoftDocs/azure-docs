@@ -546,12 +546,12 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <p>Content Moderator</p>
                                             </a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview">
                                                 <img src="media/index/cs-decision-maker.svg" alt="" />
                                                 <p>Custom Decision Service</p>
                                             </a>
-                                        </li>
+                                        </li> -->
                                         <li>
                                             <a href="/azure/cognitive-services/custom-speech-service/home">
                                                 <img src="media/index/API_Spc_CustomSpeechService.svg" alt="" />
