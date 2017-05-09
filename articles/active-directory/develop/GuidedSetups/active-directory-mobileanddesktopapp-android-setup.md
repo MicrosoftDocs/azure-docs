@@ -35,7 +35,9 @@ ms.author: andret
 2.	Copy and paste the following code under `Dependencies`:
 
 ```ruby  
-compile 'com.microsoft.identity.client:msal:0.1.0'
+compile ('com.microsoft.identity.client:msal:0.1.+') {
+    exclude group: 'com.android.support', module: 'appcompat-v7'
+}
 compile 'com.android.volley:volley:1.0.0'
 ```
 
