@@ -25,9 +25,9 @@ To manage the code commit process, build definitions, and release definitions, c
 
 1. Open your VSTS dashboard in a web browser and click **New project**.
 2. Enter *myWebApp* for the **Project name**. Leave all other default values to use *Git* version control and *Agile* work item process.
-3. Select the option to **Share with** *Team Members* and then click **Create**.
-5. One your project has been created, select the option to **Initialize with a README or gitignore** and then click **Initialize**.
-6. Inside your new project, select **Dashboards** across the top and then click **Open in Visual Studio**.
+3. Select the option to **Share with** *Team Members*, then click **Create**.
+5. Once your project has been created, select the option to **Initialize with a README or gitignore**, then click **Initialize**.
+6. Inside your new project, select **Dashboards** across the top, then click **Open in Visual Studio**.
 
 
 ## Create ASP.NET web application
@@ -42,12 +42,12 @@ In the previous step, you created a project in VSTS. The final step opens your n
     ![Create web application solution](media/tutorial-vsts-iis-cicd/new_solution.png)
 
 3. Select **Web** templates, and then choose the **ASP.NET Web Application** template.
-    a. Enter a name for your application, such as *myWebApp*, and uncheck the box for **Create directory for solution**.
-    b. If the option is available, uncheck the box to **Add Application Insights to project**. Application Insights requires you to authorize your web application with Azure Application Insights. To keep it simple in this tutorial, skip this process.
-    c. Click **OK**.
+    1. Enter a name for your application, such as *myWebApp*, and uncheck the box for **Create directory for solution**.
+    2. If the option is available, uncheck the box to **Add Application Insights to project**. Application Insights requires you to authorize your web application with Azure Application Insights. To keep it simple in this tutorial, skip this process.
+    3. Click **OK**.
 4. Select **MVC** from the template list.
-    a. Click **Change Authentication**, select **No Authentication**, and then click **OK**.
-    b. Click **OK** to create your solution.
+    1. Click **Change Authentication**, select **No Authentication**, then click **OK**.
+    2. Click **OK** to create your solution.
 5. In the **Team Explorer** window, click **Changes**.
 
     ![Commit local changes to VSTS git repo](media/tutorial-vsts-iis-cicd/commit_changes.png)
@@ -56,11 +56,10 @@ In the previous step, you created a project in VSTS. The final step opens your n
 
 
 ## Create build definition
-1. In VSTS, you should be on the *myWebApp* project landing page.
-2. To create a build definition, click **Build & Release** across the top, then select **Builds**.
+1. Within your VSTS project, click **Build & Release** across the top, then select **Builds**.
 3. Click **+ New definition**.
 4. Select the **ASP.NET (PREVIEW)** template and click **Apply**.
-5. You can leave all the default tasks. Under **Get sources**, ensure the *myWebApp* repository and *master* branch are selected.
+5. Leave all the default task values. Under **Get sources**, ensure that the *myWebApp* repository and *master* branch are selected.
 
     ![Create build definition in VSTS project](media/tutorial-vsts-iis-cicd/create_build_definition.png)
 
@@ -72,7 +71,7 @@ Watch as the build is scheduled on a hosted agent, then begins to build.
 ![Successful build of VSTS project](media/tutorial-vsts-iis-cicd/successful_build.png)
 
 
-## Create VM
+## Create virtual machine
 Create a Windows Server 2016 VM using [this script sample](../scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json). It takes a few minutes for the script to run and create the VM. Once the VM has been created, open port 80 for web traffic:
 
 ```powershell
@@ -114,7 +113,7 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 ## Create VSTS deployment group
 1. In VSTS, click **Build & Release** and then **Deployment groups**.
 2. Click **Add Deployment group**.
-3. Enter a name for the group, such as *myIIS*, and click **Create**.
+3. Enter a name for the group, such as *myIIS*, then click **Create**.
 4. In the **Register machines** section, ensure *Windows* is selected, then click the checkbox to **Use a personal access token in the script for authentication**.
 5. Click **Copy script to clipboard**.
 
@@ -123,7 +122,7 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 1. Back in your **Administrator PowerShell** session on your VM, paste and run the script copied from VSTS.
 2. When prompted to configure tags for the agent, press *Y* and enter *web*.
 3. When prompted for the user account, press *Return* to accept the defaults.
-4. Wait for the script to finish with a message `Service vstsagent.account.computername started successfully`.
+4. Wait for the script to finish with a message *Service vstsagent.account.computername started successfully*.
 5. In the **Deployment groups** page of the **Build & Release** menu, open the *myIIS* deployment group. On the **Machines** tab, verify that your VM is listed.
 
     ![VM successfully added to VSTS deployment group](media/tutorial-vsts-iis-cicd/deployment_group.png)
@@ -132,24 +131,24 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 ## Create release definition
 
 1. Click **Build & Release**, then select **Builds**. Select the build definition created in a previous step.
-2. Under **Recently completed**, click the most recent build and then click **Release**.
+2. Under **Recently completed**, select the most recent build, then click **Release**.
 3. Click **Yes** to create a release definition.
-4. Select the **Empty** template and click **Next**.
+4. Select the **Empty** template, thenclick **Next**.
 5. Verify the project and source build definition are populated with your project.
-6. Select the **Continuous deployment** check box, and then choose **Create**.
+6. Select the **Continuous deployment** check box, then click **Create**.
 7. Click the drop-down box next to **+ Add tasks** and select *Add a deployment group phase*.
     
     ![Add task to release definition in VSTS](media/tutorial-vsts-iis-cicd/add_release_task.png)
 8. Click **Add** next to **IIS Web App Deploy(Preview)**, then click **Close**.
 9. Click the **Run on deployment group** parent task.
-    a. For **Deployment Group**, select the deployment group you created earlier, such as *myIIS*.
-    b. In the **Machine tags** box, click **Add** and select the *web* tag.
+    1. For **Deployment Group**, select the deployment group you created earlier, such as *myIIS*.
+    2. In the **Machine tags** box, click **Add** and select the *web* tag.
     
     ![Release definition deployment group task for IIS](media/tutorial-vsts-iis-cicd/release_definition_iis.png)
  
 11. Click the **Deploy: IIS Web App Deploy** task to configure your IIS instance settings as follows:
-    e. For **Website Name**, enter *Default Web Site*. If you created a different website on the IIS servers, use that name instead.
-    f. Leave all the other default settings.
+    1. For **Website Name**, enter *Default Web Site*. If you created a different website on the IIS servers, use that name instead.
+    2. Leave all the other default settings.
 12. Click **Save**, then click **OK** twice.
 
 
@@ -161,7 +160,7 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
     
     ![Successful VSTS release and web deploy package push](media/tutorial-vsts-iis-cicd/successful_release.png)
 
-5. After the release is complete, open a web browser and enter the public IIP address of your VM. Your ASP.NET website is running.
+5. After the release is complete, open a web browser and enter the public IIP address of your VM. Your ASP.NET web application is running.
 
     ![ASP.NET web app running on IIS VM](media/tutorial-vsts-iis-cicd/running_web_app.png)
 
@@ -169,7 +168,7 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 ## Test the whole CI/CD pipeline
 1. In Visual Studio, open the **Solution Explorer** window.
 2. Navigate to and open *myWebApp | Views | Home | Index.cshtml*
-3. Edit line 6 (`<h1>ASP.NET</h1>`) to read:
+3. Edit line 6 to read:
 
     `<h1>ASP.NET with VSTS and CI/CD!</h1>`
 
