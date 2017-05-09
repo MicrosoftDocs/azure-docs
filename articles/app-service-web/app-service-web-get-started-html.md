@@ -81,4 +81,4 @@ Once deployment has completed, refresh your browser to see the changes.
 ## Next steps
 
 - Explore sample [Web Apps CLI scripts](app-service-cli-samples.md).
-- Learn how to [Map a custom domain name](app-service-web-tutorial-custom-domain.md), such as contoso.com, to an App Service app(app-service-web-tutorial-custom-domain.md).
+- Learn how to [Map a custom domain name](app-service-web-tutorial-custom-domain.md), such as contoso.com, to an [App Service app](app-service-web-tutorial-custom-domain.md).
