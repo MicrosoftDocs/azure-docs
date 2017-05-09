@@ -29,9 +29,9 @@
     href: app-service-web-tutorial-nodejs-mongodb-app.md
 #  - name: 1- PHP with MySQL
 #    href: app-service-web-tutorial-php-mysql-app.md
-  - name: WordPress with MySQL
+  - name: 1 - WordPress with MySQL
     href: app-service-web-create-web-app-from-marketplace.md
-  - name: Java with MySQL
+  - name: 1 - Java with MySQL
     href: app-service-web-tutorial-java-mysql.md
   - name: 1 - Python with PostgreSQL
     href: app-service-web-tutorial-docker-python-postgresql-app.md
@@ -41,6 +41,8 @@
     href: app-service-web-tutorial-custom-ssl.md
   - name: 4 - Add Content Delivery Network
     href: app-service-web-tutorial-content-delivery-network.md
+#  - name: 5 - Monitor your app
+#    href: app-service-web-tutorial-monitoring.md
 - name: Samples
   items:
   - name: Azure CLI
