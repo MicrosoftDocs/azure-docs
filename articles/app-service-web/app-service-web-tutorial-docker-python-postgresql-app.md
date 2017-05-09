@@ -131,11 +131,11 @@ az group create --name myResourceGroup --location "West US"
 
 To see what possible values you can use for `--location`, use the `az appservice list-locations` Azure CLI command.
 
-### Create a PostgreSQL account
+### Create an Azure Database for PostgreSQL server
 
-Create a PostgreSQL account with the [az postgres server create](/cli/azure/documentdb#create) command.
+Create a PostgreSQL server with the [az postgres server create](/cli/azure/documentdb#create) command.
 
-In the following command, substitute your own unique PostgreSQL name where you see the `<postgresql_name>` placeholder. This unique name is used as part of your PostgreSQL endpoint (`https://<postgresql_name>.documents.azure.com/`), so the name needs to be unique across all PostgreSQL accounts in Azure. 
+In the following command, substitute your own unique PostgreSQL server name where you see the `<postgresql_name>` placeholder. This unique name is used as part of your PostgreSQL endpoint (`https://<postgresql_name>.postgres.database.azure.com`), so the name needs to be unique across all servers in Azure. 
 
 ```azurecli
 az postgres server create --resource-group myResourceGroup --name <postgresql_name> --admin-user <my_admin_username>
@@ -143,7 +143,7 @@ az postgres server create --resource-group myResourceGroup --name <postgresql_na
 
 The `--admin-user` is required to create the initial database admin user account. You are prompted to pick a password for this user.
 
-When the PostgreSQL account is created, the Azure CLI shows information similar to the following example:
+When the Azure Database for PostgreSQL server is created, the Azure CLI shows information similar to the following example:
 
 ```json
 {
@@ -169,7 +169,7 @@ When the PostgreSQL account is created, the Azure CLI shows information similar 
 }
 ```
 
-### Creating a firewall rule for the PostgreSQL database
+### Creating a firewall rule for the Azure Database for PostgreSQL server
 
 Before we can access the database, we must now allow it to be reached from all IP addresses. This can be done via the following Azure CLI command:
 
@@ -192,7 +192,7 @@ When the firewall has been created, the Azure CLI confirms the rules presence as
 
 ## Connect your Python Flask application to the database
 
-In this step, you connect your Python Flask sample application to the PostgreSQL database you created.
+In this step, you connect your Python Flask sample application to the Azure Database for PostgreSQL server you created.
 
 ### Creating an empty database and setting up a new database application user
 
