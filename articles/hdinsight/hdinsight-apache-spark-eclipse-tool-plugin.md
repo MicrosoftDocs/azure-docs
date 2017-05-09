@@ -57,10 +57,10 @@ HDInsight Tools for Eclipse is available as part of Azure Toolkit for Eclipse. F
 
     ![Show View dialog box](./media/hdinsight-apache-spark-eclipse-tool-plugin/view-explorer-1.png)
 2. Right-click the **Azure** node, and then click **Sign in**.
-3. In the **Azure Sign in** dialog box, choose the authentication method, click **Sign in**, and enter your Azure credentials.
+3. In the **Azure Sign In** dialog box, choose the authentication method, click **Sign in**, and enter your Azure credentials.
    
     ![Azure Sign In dialog box](./media/hdinsight-apache-spark-eclipse-tool-plugin/view-explorer-2.png)
-4. After you're signed in, the **Select Subscriptions** dialog box lists all the Azure subscriptions associated with the credentials. Click **Select** in the dialog box to close it.
+4. After you're signed in, the **Select Subscriptions** dialog box lists all the Azure subscriptions associated with the credentials. Click **Select** to close the dialog box.
 
     ![Select Subscriptions dialog box](./media/hdinsight-apache-spark-eclipse-tool-plugin/Select-Subscriptions.png)
 5. On the **Azure Explorer** tab, expand **HDInsight** to see the HDInsight Spark clusters under your subscription.
@@ -82,11 +82,10 @@ HDInsight Tools for Eclipse is available as part of Azure Toolkit for Eclipse. F
    * Make sure that Spark SDK is set to the location where you downloaded the SDK. The link to the download location is included in the [prerequisites](#prerequisites) earlier in this article. You can also download the SDK from the link included in the dialog box.
 
     ![New HDInsight Scala Project dialog box](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-3.png)
-4.	In the next dialog box, click the **Libraries** tab and keep the defaults. 
+4.	In the next dialog box, click the **Libraries** tab and keep the defaults, and then click **Finish**. 
    
     ![Libraries tab](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-4.png)
 
- 5. Click **Finish**.
 
 ## Run a Spark Scala application on an Azure Data Lake Store cluster
 If you want to submit an application to Azure Data Lake Store, you must choose **Interactive** mode during the Azure sign-in process. 
@@ -95,7 +94,7 @@ If you want to submit an application to Azure Data Lake Store, you must choose *
 
 ## Create a Scala application for an HDInsight Spark cluster
 
-1. In the Eclipse IDE, from **Package Explorer**, expand the project that you created earlier, right-click **src**, point to **New**, and then click **Other**.
+1. In the Eclipse IDE, from Package Explorer, expand the project that you created earlier, right-click **src**, point to **New**, and then click **Other**.
 2. In the **Select a wizard** dialog box, expand **Scala Wizards**, click **Scala Object**, and then click **Next**.
    
     ![Select a wizard dialog box](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-scala-proj-1.png)
@@ -122,11 +121,11 @@ If you want to submit an application to Azure Data Lake Store, you must choose *
         }
 5. Run the application on an HDInsight Spark cluster:
    
-   1. From **Package Explorer**, right-click the project name, and then select **Submit Spark Application to HDInsight**.        
+   1. From Package Explorer, right-click the project name, and then select **Submit Spark Application to HDInsight**.        
    2. In the **Spark Submission** dialog box, provide the following values, and then click **Submit**:
       
       * For **Cluster Name**, select the HDInsight Spark cluster on which you want to run your application.
-      * Select an artifact from the Eclipse project, or select one from hard drive.
+      * Select an artifact from the Eclipse project, or select one from a hard drive.
       * In the **Main class name** text box, enter the name of the object that you specified in the code.
       * Because the application code in this example does not require any command-line arguments or reference JARs or files, you can leave the remaining text boxes empty.
         
@@ -147,7 +146,7 @@ You can perform various operations by using HDInsight Tools, including accessing
 
 ### Access the Spark history server
 1. In Azure Explorer, right-click your Spark cluster name, and then select **Open Spark History UI**. When you're prompted, enter the admin credentials for the cluster. You must have specified these while provisioning the cluster.
-2. In the Spark history server dashboard, you can look for the application that you just finished running by using the application name. In the preceding code, you set the application name by using `val conf = new SparkConf().setAppName("MyClusterApp")`. Hence, your Spark application name was **MyClusterApp**.
+2. In the Spark history server dashboard, you use the application name to look for the application that you just finished running. In the preceding code, you set the application name by using `val conf = new SparkConf().setAppName("MyClusterApp")`. Hence, your Spark application name was **MyClusterApp**.
 
 ### Start the Ambari portal
 1. In Azure Explorer, right-click your Spark cluster name, and then select **Open Cluster Management Portal (Ambari)**. 
@@ -168,7 +167,7 @@ While you're running the local Spark Scala application on a Windows computer, yo
 To resolve this error, you must [download the executable](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) to a location like **C:\WinUtils\bin**. You must then add the environment variable **HADOOP_HOME** and set the value of the variable to **C\WinUtils**.
 
 ### Run a local Spark Scala application
-1. Start Eclipse and create a new project. In the **New Project** dialog box, make the following choices, and then click **Next**.
+1. Start Eclipse and create a project. In the **New Project** dialog box, make the following choices, and then click **Next**.
    
    * In the left pane, select **HDInsight**.
    * In the right pane, select **Spark on HDInsight Local Run Sample (Scala)**.
@@ -197,7 +196,7 @@ If you have any suggestions or feedback, or if you encounter any problems when u
 * [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
 * [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
-### Create and run applications
+### Creating and running applications
 * [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
 * [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
@@ -209,7 +208,7 @@ If you have any suggestions or feedback, or if you encounter any problems when u
 * [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
-### Manage resources
+### Managing resources
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md)
 
