@@ -18,7 +18,7 @@ Bing Custom Search empowers businesses of any size, hobbyists, developers, and e
 
 1. Sign-up to the Custom Search Portal to build your custom search service
 2. Publish your custom search service
-3. Integrate your serach service into an application endpoint
+3. Integrate your search service into an application endpoint
 
 
 ![picture alt](bcs-overview.png "How Bing Custom Search works.")
