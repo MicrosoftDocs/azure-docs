@@ -60,7 +60,7 @@ You can browse the data items that a connected OPC UA server can send to your so
 
     ![Published items][img-published]
 
-1. If you are an *Administrator* in the solution, you can choose to publish a data item to make it available in the connected factory solution.
+1. If you are an *Administrator* in the solution, you can choose to publish a data item to make it available in the connected factory solution. As an Administrator, you can also change the value of data items and call methods in the OPC UA server.
 
 ## Map the data
 
