@@ -51,7 +51,7 @@ For installation instructions, see [Installing the Azure Toolkit for IntelliJ](.
 3. In the **Azure Sign In** dialog box, click **Sign in** and enter your Azure credentials.
    
     ![Azure Sign In dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/view-explorer-2.png)
-4. After you're signed in, the **Select Subscriptions** dialog box lists all the Azure subscriptions associated with the credentials. Click **Select** in the dialog box to close it.
+4. After you're signed in, the **Select Subscriptions** dialog box lists all the Azure subscriptions associated with the credentials. Click **Select** to close the dialog box.
 
     ![Select Subscriptions dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/Select-Subscriptions.png)
 5. On the **Azure Explorer** tab, expand **HDInsight** to see the HDInsight Spark clusters under your subscription.
