@@ -17,7 +17,7 @@ ms.date: 10/04/2016
 ms.author: onewth
 
 ROBOTS: NOINDEX, NOFOLLOW
-redirect_url: ../Text-Analytics/quick-start
+redirect_url: ../text-analytics/quick-start
 
 ---
 # Getting started with the Text Analytics APIs to detect sentiment, key phrases, topics, and language
