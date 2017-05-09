@@ -20,7 +20,7 @@ ms.author: mandia; ladocs
 ---
 # Connectors list
 > [!TIP]
-> The [A-Z complete list](#az) (in this topic) lists all the available connectors you can use in your Logic Apps.
+> The [A-Z complete list](#az) (in this topic) lists all the available connectors you can use in your Logic Apps. [Connectors swagger](/connectors/) lists the swagger details for every connector.
 
 Connectors are integral part when creating logic apps. Using these connectors, you can really expand your on-premises and cloud applications to do different things with data that you create, and data you already have. The connectors are available in the following categories: 
 
