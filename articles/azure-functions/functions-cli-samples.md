@@ -31,7 +31,7 @@ The following table includes links to bash scripts for Azure Functions that use 
 |-|-|
 |**Integrate**||
 | [Create a function app and connect to a storage account](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | Create a function app and connect it to a storage account. |
-| [Create a function app and connect to an Azure DocumentDB](scripts/functions-cli-create-function-app-connect-to-documentdb.md) | Create a function app and connect it to an Azure DocumentDB |
+| [Create a function app and connect to an Azure Cosmos DB](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Create a function app and connect it to an Azure Cosmos DB |
 
 
 | | |

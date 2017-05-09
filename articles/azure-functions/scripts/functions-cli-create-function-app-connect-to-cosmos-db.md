@@ -27,7 +27,7 @@ This sample script creates an Azure Function App and connects to an Azure Docume
 
 Create app sample
 
-[!code-azurecli[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-document-db/create-function-app-connect-to-documentdb.sh "Create an Azure Function that connects to an Azure DocumentDB")]
+[!code-azurecli[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-cosmos-db/create-function-app-connect-to-cosmos.sh "Create an Azure Function that connects to an Azure Cosmos DB")]
 
 ## Clean up deployment
 
