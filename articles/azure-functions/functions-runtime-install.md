@@ -20,22 +20,23 @@ ms.author: anwestg
 
 # Install the Azure Functions Runtime Preview
 
-If you would like to install the Azure Functions Runtime Preview you must follow these steps:
+If you would like to install the Azure Functions Runtime preview, you must follow these steps:
 
 1. Ensure your machine passes the minimum requirements
-1. Download the Azure Functions Runtime Preview Installer
-1. Install the Azure Functions Runtime Preview
-1. Complete the configuration of the Azure Functions Runtime Preview
+1. Download the [Azure Functions Runtime Preview Installer](https://aka.ms/azafr). 
+1. Install the Azure Functions Runtime preview
+1. Complete the configuration of the Azure Functions Runtime preview
 
-## Installation Pre-requisites
+## Prerequisites
 
-To install the Azure Functions Runtime Preview you must have the following:
-1. A machine running Microsoft Windows Server 2016 or Microsoft Windows 10 Creators Update (Professional or Enterprise Edition)
+Before you install the Azure Functions Runtime preview, you must have the following:
+
+1. A machine running Microsoft Windows Server 2016 or Microsoft Windows 10 Creators Update (Professional or Enterprise Edition).
 1. A SQL Server instance running within your network.  Minimum edition requirement is SQL Server Express.
 
 ## Install the Azure Functions Runtime Preview
 
-The Azure Functions Runtime Preview Installer guides through the installation of the Azure Functions Runtime Preview Management and Worker Roles.  It is possible to install the Management and Worker role on the same machine.  However as you add more Functions you will need to deploy more worker roles on additional machines.
+The Azure Functions Runtime preview installer guides you through the installation of the the Azure Functions Runtime preview Management and Worker Roles.  It is possible to install the Management and Worker role on the same machine.  However, as you add more Functions, you must deploy more worker roles on additional machines to be able to scale your functions onto multiple workers.
 
 ## Install the Management and Worker Role on the same machine
 
@@ -49,16 +50,16 @@ The Azure Functions Runtime Preview Installer guides through the installation of
 
     ![Azure Functions Runtime Preview Installer - Role Selection][3]
 
-> [!NOTE]
-> You can install the **Functions Worker Role** on many other machines to do so, follow these instructions and only select **Functions Worker Role** in the installer.
+    > [!NOTE]
+    > You can install the **Functions Worker Role** on many other machines to do so, follow these instructions, and only select **Functions Worker Role** in the installer.
 
 1. **Click Next** to have the **Azure Functions Runtime Installer** install on your machine.
 1. Once complete the installer will launch the **Azure Functions Runtime Configuration tool**.
 
     ![Azure Functions Runtime Preview Installer Complete][5]
 
-> [!NOTE]
-> If you are installing on **Windows 10** and the **Container** feature has not been previously enabled, the **Azure Functions Runtime** Installer will prompt you to reboot your machine to complete the install.
+    > [!NOTE]
+    > If you are installing on **Windows 10** and the **Container** feature has not been previously enabled, the **Azure Functions Runtime** Installer prompts you to reboot your machine to complete the install.
 
 ## Configure the Azure Functions Runtime
 
