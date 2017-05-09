@@ -29,9 +29,7 @@ You can start now to configure your custom search service.
 ## Build your custom search in the Bing Custom Search Portal
 You can build your custom search service in the Custom Search Portal.
 
-[!NOTE]
 Bing Custom Search portal supports these browsers:
-
 * Microsoft Edge - Desktop
 * Google Chrome - Desktop
 
