@@ -110,8 +110,8 @@ If you already have a Service Fabric cluster to deploy your application to, you 
 >[!NOTE] The following procedure creates a Service Fabric cluster, secured by a self-signed certificate, that is placed in a KeyVault, created as part of the deployment. For more information on using Azure Active Directory authentication, see the [Create a Service Fabric cluster by using Azure Resource Manager][link-servicefabric-create-secure-clusters] article.
 
 1. Download a local copy of the Azure template and parameters files referenced in the following.
-    * [Azure Resource Manager template for Service Fabric](http://aka.ms/securepreviewonelineclustertemplate) - The Resource Manager template that defines a Service Fabric Cluster.
-    * [Template parameters file](http://aka.ms/securepreviewonelineclusterparameters) - A parameters file for you to customize the cluster deployment.
+    * [Azure Resource Manager template for Service Fabric][link-sf-clustertemplate] - The Resource Manager template that defines a Service Fabric Cluster.
+    * [Template parameters file][link-sf-clustertemplate-parameters] - A parameters file for you to customize the cluster deployment.
 2. Customize the following parameters in the parameters file:
   
    | Parameter       | Description |
@@ -203,21 +203,21 @@ Now that you have containerized and deployed the Fabrikam Call Center solution, 
 ## Next steps
 
 - [Container Tooling in Visual Studio][link-visualstudio-container-tools]
-- [Visual Studio Team Services - building containers][link-vsts-containers]
 - [Running containers in Service Fabric][link-servicefabric-containers]
 - [Creating Service Fabric applications][link-servicefabric-createapp]
 
 [link-debug-container]: ~/dotnet/articles/core/docker/visual-studio-tools-for-docker
-[link-fabrikam-github]: http://github/blah
+[link-fabrikam-github]: http://aka.ms/fabrikamcontainer
 [link-container-quickstart]: ~/virtualization/windowscontainers/quick-start/quick-start-windows-10
 [link-visualstudio-container-tools]: ~/dotnet/articles/core/docker/visual-studio-tools-for-docker
 [link-azure-powershell-install]: ~/powershell/azure/install-azurerm-ps
 [link-servicefabric-create-secure-clusters]: ~/azure/service-fabric/service-fabric-cluster-creation-via-arm
 [link-visualstudio-cd-extension]: http://aka.ms/cd4v
-[link-vsts-containers]: http://docs.microsoft.com
 [link-servicefabric-containers]: ~/azure/service-fabric/service-fabric-containers-overview
 [link-servicefabric-createapp]: ~/azure/service-fabric/service-fabric-create-your-first-application-in-visual-studio
 [link-azure-portal]: http://portal.azure.com
+[link-sf-clustertemplate]: http://aka.ms/securepreviewonelineclustertemplate
+[link-sf-clustertemplate-parameters]: http://aka.ms/securepreviewonelineclusterparameters
 
 [image-web-preview]: media/service-fabric-host-app-in-a-container/fabrikam-web-sample.png
 [image-source-control]: media/service-fabric-host-app-in-a-container/add-to-source-control.png
