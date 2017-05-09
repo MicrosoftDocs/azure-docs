@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Get started with Azure Data Lake Analytics U-SQL language | Microsoft Docs'
-description: Use this tutorial to learn about the Azure Data Lake Analytics U-SQL language.
+title: 'Get started with U-SQL language | Microsoft Docs'
+description: Learn the basics of the U-SQL language.
 services: data-lake-analytics
 documentationcenter: ''
 author: edmacauley
