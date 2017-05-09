@@ -107,7 +107,7 @@ ms.author: carolz
 </ul>
 
 <h2 style="margin-top: 36px">Resources</h2>
-<ul class="panelContent cardsW">
+<ul class="panelContent cardsD">
     <li>
         <div class="cardSize">
             <div class="cardPadding">
