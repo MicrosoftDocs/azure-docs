@@ -21,7 +21,7 @@ Explore a basic Windows application that uses Computer Vision API to perform opt
 The below example has been developed for the .NET Framework using [Visual Studio 2015, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs). 
 
 #### Subscribe to Computer Vision API and get a subscription key 
-Before creating the example, you must subscribe to Computer Vision API which is part of the Microsoft Cognitive Services (formerly Project Oxford). For subscription and key management details, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both the primary and secondary key can be used in this tutorial. 
+Before creating the example, you must subscribe to Computer Vision API which is part of the Microsoft Cognitive Services (formerly Project Oxford). For subscription and key management details, see [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). Both the primary and secondary key can be used in this tutorial. 
 
 #### Get the client library and example
 You may clone the Computer Vision API client library and example application to your computer via [SDK](https://www.github.com/microsoft/cognitive-vision-windows). Don't download it as a ZIP.
@@ -41,7 +41,7 @@ You can choose to persist your subscription key on your PC or laptop by clicking
 
 	![Vision Subscription Key](../Images/Vision_UI_Subscription.PNG)
 
-3. Under "Select Scenario" click to use one of the six scenarios, then follow the instructions on the screen. Microsoft receives the images you upload and may use them to improve Computer Vision API and related services. By submitting an image, you confirm that you have followed our Developer Code of Conduct.
+3. Under "Select Scenario" click to use one of the six scenarios, then follow the instructions on the screen. Microsoft receives the images you upload and may use them to improve Computer Vision API and related services. By submitting an image, you confirm that you have followed our [Developer Code of Conduct](https://azure.microsoft.com/en-us/support/legal/developer-code-of-conduct/).
 
 	![Analyze Image Interface](../Images/Analyze_Image_Example.PNG)
 

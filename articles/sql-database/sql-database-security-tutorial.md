@@ -21,6 +21,8 @@ ms.author: daredis
 ---
 # Secure your Azure SQL Database
 
+SQL Database secures your data by limiting access to your database using firewall rules, authentication mechanisms requiring users to prove their identity, and authorization to data through role-based memberships and permissions, as well as through row-level security and dynamic data masking.
+
 You can improve the protection of your database against malicious users or unauthorized access with just a few simple steps. In this tutorial you learn to: 
 
 > [!div class="checklist"]
@@ -223,5 +225,6 @@ You can improve the protection of your database against malicious users or unaut
 > * Enable SQL Database auditing
 > * Enable SQL Database threat detection
 
-* [SQL Database Security Overview](sql-database-security-overview.md).
+> [!div class="nextstepaction"]
+>[Improve SQL Database performance](sql-database-performance-tutorial.md)
 
