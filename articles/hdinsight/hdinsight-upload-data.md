@@ -184,7 +184,7 @@ Before using the tool, you must know your Azure storage account name and account
 
 1. Run Azure Storage Explorer. If this is the first time you have run the Storage Explorer, you will be prompted for the **_Storage account name** and **Storage account key**. If you have run it before, use the **Add** button to add a new storage account name and key.
 
-    Enter the name and key for the storage account used by your HDinsight cluster and then select **SAVE & OPEN**.
+    Enter the name and key for the storage account used by your HDInsight cluster and then select **SAVE & OPEN**.
 
     ![HDI.AzureStorageExplorer][image-azure-storage-explorer]
 2. In the list of containers to the left of the interface, click the name of the container that is associated with your HDInsight cluster. By default, this is the name of the HDInsight cluster, but may be different if you entered a specific name when creating the cluster.
