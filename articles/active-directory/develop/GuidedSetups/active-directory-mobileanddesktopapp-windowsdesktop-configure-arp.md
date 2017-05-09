@@ -18,7 +18,7 @@ ms.author: andret
 
 ---
 
-## Add the application’s registration information to your App
+## Add the application’s registration information to your app
 In this step, you need to add the Application Id to your project.
 
 1.	Open `App.xaml.cs` and replace the line containing the `ClientId` with:

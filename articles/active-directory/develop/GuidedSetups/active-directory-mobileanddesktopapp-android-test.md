@@ -17,7 +17,7 @@ ms.date: 05/09/2017
 ms.author: andret
 
 ---
-## Test querying Microsoft Graph API from your Android application
+## Test your code
 
 1. Deploy your code to your device/emulator.
 2. When you're ready to test, use a Microsoft Azure Active Directory (organizational account) or a Microsoft Account (live.com, outlook.com) account to sign in. 
@@ -32,7 +32,7 @@ The first time a user signs in to your application, they will be presented with 
 ![Consent](media/active-directory-mobileanddesktopapp-android-test/androidconsent.png)
 
 
-### Expected Results
+### Expected results
 You should see the results of a call to Microsoft Graph API ‘me’ endpoint used to to obtain the user profile - https://graph.microsoft.com/v1.0/me. For a list of common Microsoft Graph endpoints, please see this [article](https://developer.microsoft.com/graph/docs#common-microsoft-graph-queries).
 
 <!--start-collapse-->

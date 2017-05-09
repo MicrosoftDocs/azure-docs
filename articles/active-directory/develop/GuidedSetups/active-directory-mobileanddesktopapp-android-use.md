@@ -18,7 +18,7 @@ ms.author: andret
 
 ---
 
-## Use Microsoft Authentication Library (MSAL) to get a token for the Microsoft Graph API
+## Use the Microsoft Authentication Library (MSAL) to get a token for the Microsoft Graph API
 
 1.	Open: `MainActivity` (under `app` > `java` > `{domain}.{appname}`)
 2.	Add the following imports:
@@ -311,12 +311,12 @@ private void updateGraphUI(JSONObject graphResponse) {
 }
 ```
 <!--start-collapse-->
-### Making a REST call against a protected API
+### More information about making a REST call against a protected API
 
 In this sample application, `callGraphAPI` calls `getAccessToken` and then makes an HTTP `GET` request against a resource that requires a token and returns the content. This method adds the acquired token in the *HTTP Authorization header*. For this sample, the resource is the Microsoft Graph API *me* endpoint – which displays the user's profile information.
 <!--end-collapse-->
 
-## Setup Sign Out
+## Setup Sign-out
 
 1.	Add the following methods into the `MainActivity` class:
 
@@ -370,7 +370,7 @@ private void updateSignedOutUI() {
 }
 ```
 <!--start-collapse-->
-### More info on Sign-out
+### More information
 
 `onSignOutClicked` above removes the user from MSAL user cache – this will effectively tell MSAL to forget the current user so a future request to acquire a token will only succeed if it is made to be interactive.
 Although the application in this sample supports a single user, MSAL supports scenarios where multiple accounts can be signed-in at the same time – an example is an email application where a user has multiple accounts.

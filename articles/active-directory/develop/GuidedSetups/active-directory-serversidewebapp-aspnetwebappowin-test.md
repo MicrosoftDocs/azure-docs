@@ -17,7 +17,7 @@ ms.date: 05/09/2017
 ms.author: andret
 
 ---
-## Test sign-in users on your ASP.NET web application
+## Test your code
 
 Press `F5` to run your project in Visual Studio. The browser will open and direct you to *http://localhost:{port}* where you’ll see the *Sign in with Microsoft* button. Go ahead and click it to sign in.
 
@@ -30,10 +30,10 @@ When you're ready to test, use a work or school (Azure Active Directory), or a p
 #### Expected results
 After sign-in, the user is redirected to the home page of your web site which is the HTTPS URL specified in your application registration information in the Microsoft Application Registration Portal. This page now shows *Hello {User}* and a link to sign-out, and a link to see the user’s claims – which is a link to the Authorize controller created earlier.
 
-### See user claims
+### See user's claims
 Select the hyperlink to see the user's claims. This leads you to the controller and view that is only available to users that are authenticated.
 
-#### Expected Results
+#### Expected results
  You should see a table containing the basic properties of the logged user:
 
 | Property | Value | Description|
@@ -46,7 +46,7 @@ Select the hyperlink to see the user's claims. This leads you to the controller 
 In addition, you will see a table including all user claims included in authentication request. For a list of all claims in an Id Token and explanation please see this [article](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 
-### (Optional) Test accessing a method that has an `[Authorize]` attribute
+### Test accessing a method that has an *[Authorize]* attribute (Optional)
 In this step, you will test accessing the Authenticated controller as an anonymous user:<br/>
 Select the link to sign-out the user and complete the sign-out process.<br/>
 Now in your browser, type http://localhost:{port}/authenticated to access your controller that is protected with the `[Authorize]` attribute
@@ -54,7 +54,7 @@ Now in your browser, type http://localhost:{port}/authenticated to access your c
 #### Expected results
 You should receive the prompt requiring you to authenticate to see the view.
 
-## Additional Information
+## Additional information
 
 <!--start-collapse-->
 ### Protect your entire web site
@@ -69,7 +69,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 <br/>
 
 > [!NOTE]
-> **Restricting users from only one organization to sign in to your application**
+> **How to restrict users from only one organization to sign in to your application**
 
 > By default, personal accounts (including outlook.com, live.com, and others) as well as work and school accounts from any company or organization that has integrated with Azure Active Directory can sign-in to your application. 
 

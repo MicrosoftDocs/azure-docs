@@ -17,7 +17,7 @@ ms.date: 05/09/2017
 ms.author: andret
 
 ---
-## Test querying Microsoft Graph API from your Windows Desktop application
+## Test your code
 
 In order to test your application, press `F5` to run your project in Visual Studio. Your Main Window should appear:
 
@@ -32,7 +32,7 @@ The first time you sign in to your application, you will be presented with a con
 
 ![Consent Screen](media/active-directory-mobileanddesktopapp-windowsdesktop-test/consentscreen.png)
 
-### Expected Results
+### Expected results
 You should see user profile information returned by the Microsoft Graph API call on the API Call Results screen.
 
 You  should also see basic information about the token acquired via `AcquireTokenAsync` or `AcquireTokenSilentAsync` in the Token Info box:
