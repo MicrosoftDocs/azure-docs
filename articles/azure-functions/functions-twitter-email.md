@@ -39,12 +39,12 @@ The following image shows a portion of the logic app in the designer:
 
 * An Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * A twitter account.
-* 
- 
+
+## Create a function app
  
 [!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal2.md)]
 
-### Create a function to categorize the tweet sentiment
+### Create a categorize function
 
 Once the function app deployment completes, open the new function app. In this section, you create a function to categorize tweet sentiment into three categories (RED, YELLOW, or GREEN - for bad, neutral, and good).
 

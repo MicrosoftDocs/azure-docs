@@ -1,4 +1,6 @@
-Select the **New** > **Compute** > **Function App**:
+A function app hosts the execution of your functions. A function app lets you group functions as a logic unit for easier management, deployment, and sharing of resources.
+
+Select **New** > **Compute** > **Function App**:
 
 ![new function app](media/functions-create-function-app-portal2/new_fun_app.png)
 
