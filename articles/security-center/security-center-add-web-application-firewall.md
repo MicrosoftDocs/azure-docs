@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 05/09/2017
 ms.author: terrylan
 
 ---
@@ -57,7 +57,7 @@ Security Center recommends that you provision a WAF to help defend against attac
 
 The logs from that WAF are now fully integrated. Security Center can start automatically gathering and analyzing the logs so that it can surface important security alerts to you.
 
-## See also
+## Next steps
 This document showed you how to implement the Security Center recommendation "Add a web application." To learn more about configuring a web application firewall, see the following:
 
 * [Configuring a Web Application Firewall (WAF) for App Service Environment](../app-service-web/app-service-app-service-environment-web-application-firewall.md)
