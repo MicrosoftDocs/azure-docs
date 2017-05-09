@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2017
+ms.date: 05/08/2017
 ms.author: terrylan
 
 ---
@@ -108,10 +108,10 @@ Click the **Recommendations** tile for a list of recommendations. Click each rec
 
 ![Security recommendations in Azure Security Center][5]
 
-### Resource health
-The **Resource security health** tile shows the overall security posture of the environment by resource type, including VMs, web applications, and other resources.   
+### Security state of Azure resources
+The **Prevention** section of the dashboard shows the overall security posture of the environment by resource type, including VMs, web applications, and other resources.   
 
-Select a resource type on the **Resource security health** tile to view more information, including a list of any potential security vulnerabilities that have been identified. (**Compute** is selected in the example below.)
+Select a resource type under **Prevention** to view more information, including a list of any potential security vulnerabilities that have been identified. (**Compute** is selected in the example below.)
 
 ![Resources health tile][6]
 
