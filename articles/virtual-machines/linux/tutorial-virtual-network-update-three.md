@@ -3,7 +3,7 @@ title: Azure Virtual Networks and Linux Virtual Machines | Microsoft Docs
 description: Tutorial - Manage Azure Virtual Networks and Linux Virtual Machines with the Azure CLI 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: davidmu1
+author: neilpeterson
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/08/2017
-ms.author: davidmu
+ms.date: 05/09/2017
+ms.author: nepeters
 ---
 
 # Manage Azure Virtual Networks and Linux Virtual Machines with the Azure CLI
 
-Azure virtual machines use Azure networking for internal and external network communication. In this tutorial, you will learn about networking virtual machine, providing internet connectivity to VMs, and securing network communication.
+Azure virtual machines use Azure networking for internal and external network communication. When configuring Azure networking it is important to consider access and security requirements. In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Deploy a virtual network
+> * Create a subnet within a virtual network
+> * Attach virtual machines to a subnet
+> * Manage virtual machine public IP addresses
+> * Secure incoming internet traffic
+> * Secure VM to VM traffic
 
 This tutorial requires the Azure CLI version 2.0.4 or later. To find the CLI version run `az --version`. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
@@ -91,9 +99,13 @@ az vm create \
   --generate-ssh-keys
 ```
 
+### Static allocation
+
+When creating a virtual machine using the [az vm create](/cli/azure/vm#create) command, include the `--public-ip-address-allocation static` argument to assign a static public IP address. This is not demonstrated in this tutorial, however in the next section a dynamically allocated IP address will be updated to static allocation. 
+
 ### Change allocation method
 
-The IP address allocation method can be changed to using the [az network public-ip update](/cli/azure/network/public-ip#update) command. In this example, the IP address allocation method of the remote access VM is changed to static.
+The IP address allocation method can be changed to using the [az network public-ip update](/cli/azure/network/public-ip#update) command. In this example, the IP address allocation method of the front-end VM is changed to static.
 
 First, deallocate the VM.
 
@@ -123,7 +135,7 @@ A network security group (NSG) contains a list of security rules that allow or d
 
 ### Network security group rules
 
-NSG rules define networking ports over which traffic is allowed or denied. The rules can include source and destination IP address ranges so that traffic controlled between specific systems. NSG rules also include a priority (between 1—and 4096). Rules are evaluated in the order of priority, a rule with a priority of 100 is evaluated before a rule with priority 200.
+NSG rules define networking ports over which traffic is allowed or denied. The rules can include source and destination IP address ranges so that traffic is controlled between specific systems or subnets. NSG rules also include a priority (between 1—and 4096). Rules are evaluated in the order of priority, a rule with a priority of 100 is evaluated before a rule with priority 200.
 
 All NSGs contain a set of default rules. The default rules cannot be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that you create.
 
@@ -133,20 +145,20 @@ All NSGs contain a set of default rules. The default rules cannot be deleted, bu
 
 ### Create network security groups
 
-A network security group can be created with the VM when using the [az vm create](/cli/azure/vm#create) command. When doing so an NSG rule is auto created to allow traffic on port 22 from any destination. You may decide to modify this default rule, which will be shown in a later example.
+A network security group can be created at the same time as a VM using the [az vm create](/cli/azure/vm#create) command. When doing so an NSG rule is auto created to allow traffic on port 22 from any destination. Earlier in this tutorial, the front-end NSG was created with the VM, which also auto created a rule for port 22. 
 
-Use the [az network nsg create]() command to create a network security group.
+In some cases it may be helpful to create an NSG independently, such as when default SSH rules should not be created or when the NSG should be attached to a subnet as opposed to a network interface. Use the [az network nsg create](/cli/azure/network/nsg#create) command to create a network security group.
 
 ```azurecli
 az network nsg create --resource-group myRGNetwork --name myNSGBackEnd
 ```
 
-Instead of associating the NSG to a network interface, it will be associated with a subnet. In this configuration and VM that is attached to the subnet will inherit the NSG rules.
+Instead of associating the NSG to a network interface, it will be associated with a subnet. In this configuration any VM that is attached to the subnet will inherit the NSG rules.
 
 Update the exsisting subnet named *mySubnetBackEnd* with the new NSG.
 
 ```azurecli
-az network vnet subnet update --resource-group --name mySubnetBackEnd --network-security-group myNSGBackEnd
+az network vnet subnet update --resource-group myRGNetwork --vnet-name myVnet --name mySubnetBackEnd --network-security-group myNSGBackEnd
 ```
 
 Now create a virtual machine, which will be attached to the *mySubnetBackEnd*.
@@ -157,7 +169,6 @@ az vm create \
   --name myBackEndVM \
   --vnet-name myVnet \
   --subnet mySubnetBackEnd \
-  --nsg myNSGBackEnd \
   --public-ip-address "" \
   --image UbuntuLTS \
   --generate-ssh-keys
@@ -184,35 +195,40 @@ az network nsg rule create \
   --destination-port-range 80
 ```
 
-The front end VM is now only accessible on port 22 and port 80. All other incoming traffic will be blocked at the network security group.  
+The front end VM is now only accessible on port 22 and port 80. All other incoming traffic will be blocked at the network security group. It may be helpful to visualize the NSG rule configurations. This can be done with the [az network rule list](/cli/azure/network/nsg/rule#list) command. 
+
+```azurecli
+az network nsg rule list --resource-group myRGNetwork --nsg-name myNSGFrontEnd --output table
+```
+
+Output:
+
+```azurecli
+Access    DestinationAddressPrefix      DestinationPortRange  Direction    Name                 Priority  Protocol    ProvisioningState    ResourceGroup    SourceAddressPrefix    SourcePortRange
+--------  --------------------------  ----------------------  -----------  -----------------  ----------  ----------  -------------------  ---------------  ---------------------  -----------------
+Allow     *                                               22  Inbound      default-allow-ssh        1000  Tcp         Succeeded            myRGNetwork      *                      *
+Allow     *                                               80  Inbound      http                      200  Tcp         Succeeded            myRGNetwork      *                      *
+```
 
 ### Secure VM to VM traffic
 
-Network security rules can also apply between VMs. For this example, the front end VM needs to communicate with the back end VM on port 22 and 3306. This will SSH connections from th front-end VM and also allow the front-end application to communicate with a back-end MySQL database. All other traffic should be blocked between the front-end and back-end virtual machines.
+Network security rules can also apply between VMs. For this example, the front end VM needs to communicate with the back end VM on port 22 and 3306. This will allow SSH connections from the front-end VM, and also allow an application on the front-end VM to communicate with a back-end MySQL database. All other traffic should be blocked between the front-end and back-end virtual machines.
 
-A default rule for port 22 was auto created for the back end VM. This rule allows traffic from any origin. This rule needs to be updated so that traffic on port 22 is only allowed from the front end subnet.   
-
-First, get the name of the NSG rule for the back-end vm. In this example, the name is stored in a variable named *nsgrule*. 
+Use the [az network nsg rule create](/cli/azure/network/nsg/rule#create) command to create a rule for port 22. Notice that the `--source-address-prefix` argument specifies a value of * 10.0.1.0/24*. This will ensure that only traffic from the front-end is allowed through the NSG.
 
 ```azurecli
-nsgrule=$(az network nsg rule list --resource-group myRGNetwork --nsg-name myNSGBackEnd --query [0].name -o tsv)
-```
-
-Next, use the [az network nsg rule update](/cli/azure/network/nsg/rule#update) command to modify the rule. In this example the rule is modified so that only traffic originating at the front-end subnet is allowed on port 22. This configuration ensures that SSH connections can only be made from the remote access subnet. 
-
-```azurecli
-az network nsg rule update \
+az network nsg rule create \
   --resource-group myRGNetwork \
   --nsg-name myNSGBackEnd \
-  --name $nsgrule \
-  --protocol tcp \
-  --direction inbound \
+  --name SSH \
+  --access Allow \
+  --protocol Tcp \
+  --direction Inbound \
   --priority 100 \
-  --source-address-prefix 10.0.2.0/24 \
-  --source-port-range '*' \
-  --destination-address-prefix '*' \
-  --destination-port-range 22 \
-  --access allow
+  --source-address-prefix 10.0.1.0/24 \
+  --source-port-range "*" \
+  --destination-address-prefix "*" \
+  --destination-port-range "22"
 ```
 
 Now add a rule for MySQL traffic on port 3306.
@@ -226,13 +242,13 @@ az network nsg rule create \
   --protocol Tcp \
   --direction Inbound \
   --priority 200 \
-  --source-address-prefix 10.0.2.0/24 \
+  --source-address-prefix 10.0.1.0/24 \
   --source-port-range "*" \
   --destination-address-prefix "*" \
-  --destination-port-range "*"
+  --destination-port-range "80"
 ```
 
-Finally, because NSGs have a default rule allowing all traffic between VMs in the same VNet, a rule can be created for the back-end NSGs to block all traffic.
+Finally, because NSGs have a default rule allowing all traffic between VMs in the same VNet, a rule can be created for the back-end NSGs to block all traffic. Notice here that the `--priority` is given a value of *300*, which is lower that both the NSG and MySQL rules. This will ensure that SSH and MySQL traffic is still allowed through the NSG.
 
 ```azurecli
 az network nsg rule create \
@@ -249,8 +265,35 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
+The back-end VM is now only accessible on port 22 and port 3306 from the front-end subnet. All other incoming traffic will be blocked at the network security group. It may be helpful to visualize the NSG rule configurations. This can be done with the [az network rule list](/cli/azure/network/nsg/rule#list) command. 
+
+```azurecli
+az network nsg rule list --resource-group myRGNetwork --nsg-name myNSGBackEnd --output table
+```
+
+Output:
+
+```azurecli
+Access    DestinationAddressPrefix    DestinationPortRange    Direction    Name       Priority  Protocol    ProvisioningState    ResourceGroup    SourceAddressPrefix    SourcePortRange
+--------  --------------------------  ----------------------  -----------  -------  ----------  ----------  -------------------  ---------------  ---------------------  -----------------
+Allow     *                           22                      Inbound      SSH             100  Tcp         Succeeded            myRGNetwork      10.0.1.0/24            *
+Allow     *                           80                      Inbound      MySQL           200  Tcp         Succeeded            myRGNetwork      10.0.1.0/24            *
+Deny      *                           *                       Inbound      denyAll         300  Tcp         Succeeded            myRGNetwork      *                      *
+```
+
 ## Next steps
 
-In this tutorial, you learned about creating and securing Azure networks as related to virtual machines. Advance to the next tutorial to learn about monitoring VM security with Azure Security Center.
+In this tutorial, you created and secured Azure networks as related to virtual machines. You learned how to:
 
-[Manage virtual machine security](./tutorial-azure-security.md)
+> [!div class="checklist"]
+> * Deploy a virtual network
+> * Create a subnet within a virtual network
+> * Attach virtual machines to a subnet
+> * Manage virtual machine public IP addresses
+> * Secure incoming internet traffic
+> * Secure VM to VM traffic
+
+Advance to the next tutorial to learn about securing data on virtual machines using Azure backup. 
+
+> [!div class="nextstepaction"]
+> [Back up Linux virtual machines in Azure](./tutorial-backup-vms.md)
