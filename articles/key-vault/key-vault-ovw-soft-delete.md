@@ -14,6 +14,10 @@ For this preview version of Azure Key Vault we describe recoverable deletion of 
 - Support for recoverable deletion of a key vaults
 - Support for recoverable deletion of key vault objects (ex. keys, secrets, certificates)
 
+## Supporting interfaces
+
+The soft-delete feature is initially available through the REST, .NET/C# and PowerShell interfaces. Refere to the references for these for more details, [Key Vault Reference](https://docs.microsoft.com/azure/key-vault/).
+
 ## Scenarios
 
 Azure Key Vaults are tracked resources, managed by ARM (Azure Resource Manager). ARM also specifies a well-defined behavior for deletion, which requires that a successful DELETE operation must result in that resource not being accessible anymore. The soft-delete feature addresses the recovery of the deleted object, whether the deletion was accidental or intentional.
@@ -26,7 +30,7 @@ Azure Key Vaults are tracked resources, managed by ARM (Azure Resource Manager).
 
 With this preview, the DELETE operation on a key vault or key vault object is a soft-delete, effectively holding the resources for a given retention period, while giving the appearance that the object is deleted. The service further provides a mechanism for recovering the deleted object, essentially undoing the deletion. 
 
-Soft-delete is an optional Key Vault behavior and is **not enabled by default** in this release. For details on enabling soft-delete for your key vault, see the specific guidance in the reference for the interface of your choice.
+Soft-delete is an optional Key Vault behavior and is **not enabled by default** in this release. For details on enabling soft-delete for your key vault, see the specific guidance in the reference for the interface of your choice, [Key Vault Reference](https://docs.microsoft.com/azure/key-vault/).
 
 ### Key vault recovery
 
