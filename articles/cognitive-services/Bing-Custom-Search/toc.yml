@@ -10,11 +10,7 @@
   items:
     - name: Build a custom search service
       href: quickstart.md
-- name: Resources
+- name: References
   items:
-    - name: Bing Web Search API Documentation
-      href: https://docs.microsoft.com/azure/cognitive-services/bing-web-search/search-the-web 
     - name: Bing Web Search API Use and Display Requirements
       href: https://docs.microsoft.com/azure/cognitive-services/bing-web-search/useanddisplayrequirements
-    - name: Get started with Bing Web Search API
-      href: https://docs.microsoft.com/azure/cognitive-services/bing-web-search/quick-start
