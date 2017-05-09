@@ -21,7 +21,7 @@ The following steps describe how to install the pre-compiled gateway software on
     smart update
     ```
 
-1. Install the Azure IoT Gateway package by running the following command:
+1. Install the Azure IoT Edge package by running the following command:
 
     ```bash
     smart config --set rpm-check-signatures=false

@@ -21,9 +21,9 @@ ms.author: dobett
 
 [!INCLUDE [iot-suite-gateway-kit-selector](../../includes/iot-suite-gateway-kit-selector.md)]
 
-This tutorial shows you how to use the Gateway SDK to send temperature and humidity data from SensorTag device to the remote monitoring preconfigured solution. The SensorTag connects to the Intel NUC gateway using Bluetooth. The tutorial uses:
+This tutorial shows you how to use Azure IoT Edge to send temperature and humidity data from SensorTag device to the remote monitoring preconfigured solution. The SensorTag connects to the Intel NUC gateway using Bluetooth. The tutorial uses:
 
-- The Microsoft Azure IoT Gateway SDK to implement a sample gateway.
+- The Azure IoT Edge to implement a sample gateway.
 - The IoT Suite remote monitoring preconfigured solution as the cloud-based back end.
 
 ## Overview
@@ -109,7 +109,7 @@ Configure Bluetooth on the Intel NUC to enable the SensorTag device to connect a
 
 ## Build the custom gateway module
 
-You can now build the custom gateway module that enables the gateway to send messages to the remote monitoring solution. For more information about configuring a gateway and gateway modules, see [Azure IoT Gateway SDK concepts][lnk-gateway-concepts].
+You can now build the custom gateway module that enables the gateway to send messages to the remote monitoring solution. For more information about configuring a gateway and gateway modules, see [Azure IoT Edge concepts][lnk-gateway-concepts].
 
 Download the source code for the custom modules from GitHub using the following commands:
 
@@ -131,7 +131,7 @@ The build script places the libsensor2remotemonitoring.so custom module in the b
 
 ## Configure and run the gateway
 
-You can now configure the gateway to send telemetry from your SensorTag device to your remote monitoring dashboard. For more information about configuring a gateway and gateway modules, see [Azure IoT Gateway SDK concepts][lnk-gateway-concepts].
+You can now configure the gateway to send telemetry from your SensorTag device to your remote monitoring dashboard. For more information about configuring a gateway and gateway modules, see [Azure IoT Edge concepts][lnk-gateway-concepts].
 
 > [!NOTE]
 > In this tutorial, you use the standard `vi` text editor on the Intel NUC. If you have not used `vi` before, you should complete an introductory tutorial, such as [Unix - The vi Editor Tutorial][lnk-vi-tutorial] to familiarize yourself with this editor.
