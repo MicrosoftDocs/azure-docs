@@ -47,7 +47,7 @@ The following diagram outlines the logical components of the preconfigured solut
 
 The simulated stations and the simulated manufacturing execution systems (MES) make up a factory production line. The simulated devices and the OPC Publisher Module are based on the [OPC UA .NET Standard][lnk-OPC-UA-NET-Standard] published by the OPC Foundation.
 
-The OPC Proxy and OPC Publisher are implemented as modules based on the [Microsoft Azure IoT Gateway SDK][lnk-Azure-IoT-Gateway]. Each simulated production line has a designated gateway attached.
+The OPC Proxy and OPC Publisher are implemented as modules based on the [Azure IoT Edge][lnk-Azure-IoT-Gateway]. Each simulated production line has a designated gateway attached.
 
 All simulation components run in Docker containers  hosted in an Azure Linux VM. The simulation is configured to run eight simulated production lines by default.
 
