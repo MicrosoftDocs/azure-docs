@@ -47,6 +47,7 @@ sections:
   - type: list
     style: ordered
     items:
+    - html: <a href="/azure/azure-functions/functions-twitter-email">Build a serverless social media dashboard</a>
     - html: <a href="/azure/azure-functions/functions-create-serverless-api">Create a serverless API using Azure Functions</a>
 - title: Samples
   items:
