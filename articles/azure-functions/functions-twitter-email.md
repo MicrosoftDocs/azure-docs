@@ -50,7 +50,7 @@ Once the function app deployment completes, open the new function app. In this s
 
 ![Function Apps blade, Functions +](media/functions-twitter-email/add_fun.png)
 
-* Keep the default **Webhook + API**, **CSharp**, and then select **Create this function**.
+Keep the default **Webhook + API**, **CSharp**, and then select **Create this function**.
 
 ![Function Apps blade, Functions +](media/functions-twitter-email/add_fun2.png)
 
@@ -104,67 +104,67 @@ A Cognitive Services account is required to detect the sentiment of tweets we ar
 | Pricing tier | F0 | If you run out of calls, set to a higher tier.|
 | Resource group | rg1 | Use the resource group you previously specified.|
 
-* Select **Keys**. You need a key in a later step.
+Select **Keys**. You need a key in a later step.
 
  ![Keys](media/functions-twitter-email/keys.png)
 
 ## Create a logic app
 
-* In the Azure portal, click the **New >  Enterprise Integration > Logic App**
+In the Azure portal, click the **New >  Enterprise Integration > Logic App**
 
-  ![new logic app step preceding step](media/functions-twitter-email/new_logicApp.png)
+![new logic app step preceding step](media/functions-twitter-email/new_logicApp.png)
 
-* In the **Create logic app** blade, enter each field, and the select **Create**.
+In the **Create logic app** blade, enter each field, and the select **Create**.
 
-  ![Create logic app step preceding step](media/functions-twitter-email/new_logicApp2.png)
+![Create logic app step preceding step](media/functions-twitter-email/new_logicApp2.png)
 
  Once the logic app is created, it opens in the designer.
 
-* Select the **Blank Logic App** template.
+Select the **Blank Logic App** template.
 
-  ![Blank Logic App](media/functions-twitter-email/blank.png)
+![Blank Logic App](media/functions-twitter-email/blank.png)
 
 ## Add a trigger to twitter
 
 The **Logic App Designer** displays many services and triggers you can connect to.
 
-* Select the **Twitter** service.
+Select the **Twitter** service.
 
-  ![twitter connector](media/functions-twitter-email/twitter_connector.png)
+![twitter connector](media/functions-twitter-email/twitter_connector.png)
 
-* Select the trigger **When a new tweet is posted**.
+Select the trigger **When a new tweet is posted**.
 
-  ![When a new tweet is posted trigger](media/functions-twitter-email/tw_trig.png)
+![When a new tweet is posted trigger](media/functions-twitter-email/tw_trig.png)
 
-* Sign in to your twitter account.
+Sign in to your twitter account.
 
-  ![Sign in to your twitter account](media/functions-twitter-email/signin_twit.png)
+![Sign in to your twitter account](media/functions-twitter-email/signin_twit.png)
 
-* Enter your password and select **Authorize app**.
+Enter your password and select **Authorize app**.
 
-  ![authentication of twitter in new window from above](media/functions-twitter-email/auth_twit.png)
+![authentication of twitter in new window from above](media/functions-twitter-email/auth_twit.png)
 
-* Enter the search text, frequency, and interval. If you specify a popular hashtag (such as #football, #soccer, or #futbol), you can quickly use all your allotted service calls in your cognitive services account. If you run out of calls, you can increase the pricing tier. Search for #Azure every 15 minutes:
+Enter the search text, frequency, and interval. If you specify a popular hashtag (such as #football, #soccer, or #futbol), you can quickly use all your allotted service calls in your cognitive services account. If you run out of calls, you can increase the pricing tier. Search for #Azure every 15 minutes:
 
-  ![#Azure every 15 min](media/functions-twitter-email/azure_tweet.png)
+![#Azure every 15 min](media/functions-twitter-email/azure_tweet.png)
 
-* Save the app.
+Save the app.
 
 ### Add a **Text Analytics** connector
 
 The text analytics connector detects the tweets sentiment.
 
-* Select **New Step**, and then **Add an action**.
+Select **New Step**, and then **Add an action**.
 
-  ![New Step, and then Add an action](media/functions-twitter-email/new_step.png)
+![New Step, and then Add an action](media/functions-twitter-email/new_step.png)
 
-* Add the **Text Analytics** connector.
+Add the **Text Analytics** connector.
 
-  ![Choose an action window](media/functions-twitter-email/choose_action.png)
+![Choose an action window](media/functions-twitter-email/choose_action.png)
 
-* Select the **Detect Sentiment** action. The sentiment rating is often accurate, but it sometimes misinterprets the text.
+Select the **Detect Sentiment** action. The sentiment rating is often accurate, but it sometimes misinterprets the text.
 
-  ![Detect Sentiment](media/functions-twitter-email/detect_sent.png)
+![Detect Sentiment](media/functions-twitter-email/detect_sent.png)
 
 ### Create the Detect Sentiment action
 
@@ -173,15 +173,15 @@ The text analytics connector detects the tweets sentiment.
   * Select **Create**.
   * Save the app.
 
-  ![Detect Sentiment](media/functions-twitter-email/ta_detect_sent.png)
+![Detect Sentiment](media/functions-twitter-email/ta_detect_sent.png)
 
-* Select the **Tweet text** icon for the **Text to analyze**
+Select the **Tweet text** icon for the **Text to analyze**
 
-  ![Detect Sentiment](media/functions-twitter-email/ds_tta.png)
+![Detect Sentiment](media/functions-twitter-email/ds_tta.png)
 
-  ![Detect Sentiment](media/functions-twitter-email/ds_tta2.png)
+![Detect Sentiment](media/functions-twitter-email/ds_tta2.png)
 
-* Save the app.
+Save the app.
 
 ## Connect to the Azure function
 
@@ -191,14 +191,14 @@ In this section, you add the function you created previously that categorized tw
 * Select **Azure Functions**.
 * Select **Choose an Azure function**.
 
-  ![Azure Function box showing Choose an Azure function](media/functions-twitter-email/choose_fun.png)
+![Azure Function box showing Choose an Azure function](media/functions-twitter-email/choose_fun.png)
 
 * Select the Azure Function you previously created.
 * Select **Score** to populate the **Request Body**.
 
-  ![Score](media/functions-twitter-email/trigger_score.png)
+![Score](media/functions-twitter-email/trigger_score.png)
 
-* Save the app.
+Save the app.
 
 ## Add email notification
 
@@ -210,31 +210,31 @@ In this section, we add a conditional check for negative sentiment tweets (condi
 * Enter "RED" in the second  **Choose a value** text box.
 * Save the app.
 
-  ![condition box](media/functions-twitter-email/condition.png)
+![condition box](media/functions-twitter-email/condition.png)
 
 * In the **IF YES, DO NOTHING** box select **Add an action**.
 * Enter Outlook or Gmail in the **Search all services and actions** box. Outlook is used in this tutorial. See [Add a Gmail action] (../logic-apps/logic-apps-create-a-logic-app.md#add-an-action-that-responds-to-your-trigger) for Gmail instructions. Note: If you have a personal [Microsoft account](https://account.microsoft.com/account), you can use that for the Outlook.com account.
 
-  ![Choose an action box](media/functions-twitter-email/outlook.png)
+![Choose an action box](media/functions-twitter-email/outlook.png)
 
-* Select **Outlook.com Send an email**.
+Select **Outlook.com Send an email**.
 
-  ![Outlook.com  box](media/functions-twitter-email/sendEmail.png)
+![Outlook.com  box](media/functions-twitter-email/sendEmail.png)
 
-* Sign into Outlook.com.
+Sign into Outlook.com.
 
-  ![sig in box](media/functions-twitter-email/signin_outlook.png)
+![sig in box](media/functions-twitter-email/signin_outlook.png)
 
-* Enter the following items:
+Enter the following items:
 
    * **To**: The email the message should be sent to.
    * **Subject**: Score.
    * **Body**: The location and the Tweet text.
 
-  ![Send an email box](media/functions-twitter-email/sendEmail2.png)
+![Send an email box](media/functions-twitter-email/sendEmail2.png)
 
-* Save the app.
-* Select **Run** to start the app.
+Save the app.
+Select **Run** to start the app.
 
 ### Check the status
 
