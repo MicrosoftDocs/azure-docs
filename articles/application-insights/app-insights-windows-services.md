@@ -111,10 +111,7 @@ Now deploy your application to your server or to Azure and watch the data accumu
 When you run in debug mode, telemetry is expedited through the pipeline, so that you should see data appearing within seconds. When you deploy your app in Release configuration, data accumulates more slowly.
 
 #### No data after you publish to your server?
-Open these ports for outgoing traffic in your server's firewall:
-
-* `dc.services.visualstudio.com:443`
-* `f5.services.visualstudio.com:443`
+Open ports for outgoing traffic in your server's firewall. See [this page](https://docs.microsoft.com/azure/application-insights/app-insights-ip-addresses) for the list of required addresses 
 
 #### Trouble on your build server?
 Please see [this Troubleshooting item](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).

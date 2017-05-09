@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/30/2017
 ms.author: sethm;lmazuel
 
 ---
@@ -47,13 +47,13 @@ bus_service = ServiceBusService(
     shared_access_key_value='sharedaccesskey')
 ```
 
-The values for the SAS key name and value can be found in the [Azure classic portal][Azure classic portal] connection information, or in the Visual Studio **Properties** pane when selecting the Service Bus namespace in Server Explorer (as shown in the previous section).
+The values for the SAS key name and value can be found in the [Azure portal][Azure portal] connection information, or in the Visual Studio **Properties** pane when selecting the Service Bus namespace in Server Explorer (as shown in the previous section).
 
 ```python
 bus_service.create_queue('taskqueue')
 ```
 
-**create_queue** also supports additional options, which enable you to override default queue settings such as message time to live (TTL) or maximum queue size. The following example sets the maximum queue size to 5GB, and the TTL value to 1 minute:
+**create_queue** also supports additional options, which enable you to override default queue settings such as message time to live (TTL) or maximum queue size. The following example sets the maximum queue size to 5 GB, and the TTL value to 1 minute:
 
 ```python
 queue_options = Queue()
@@ -109,7 +109,7 @@ Now that you have learned the basics of Service Bus queues, see these articles t
 
 * [Queues, topics, and subscriptions][Queues, topics, and subscriptions]
 
-[Azure classic portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [Python Azure Service Bus package]: https://pypi.python.org/pypi/azure-servicebus  
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Service Bus quotas]: service-bus-quotas.md

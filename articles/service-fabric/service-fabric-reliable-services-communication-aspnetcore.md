@@ -115,7 +115,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
                         services => services
                             .AddSingleton<StatelessServiceContext>(serviceContext))
                     .UseContentRoot(Directory.GetCurrentDirectory())
-                    .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
+                    .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
                     .UseStartup<Startup>()
                     .UseUrls(url)
                     .Build()))

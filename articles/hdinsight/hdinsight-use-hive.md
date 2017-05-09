@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/04/2017
+ms.date: 04/14/2017
 ms.author: larryfr
 
 ---
@@ -28,15 +28,14 @@ Learn how to use Hive with HDInsight. Use the following table to discover the va
 |:--- |:---:|:---:|:--- |:--- |
 | [Hive View](hdinsight-hadoop-use-hive-ambari-view.md) |✔ |✔ |Linux |Any (browser based) |
 | [Beeline command](hdinsight-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X, or Windows |
-| [Hive command](hdinsight-hadoop-use-hive-ssh.md) (from an SSH session) |✔ |✔ |Linux |Linux, Unix, Mac OS X, or Windows |
-| [Curl](hdinsight-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux or Windows |Linux, Unix, Mac OS X, or Windows |
+| [REST API](hdinsight-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux or Windows |Linux, Unix, Mac OS X, or Windows |
 | [Query console](hdinsight-hadoop-use-hive-query-console.md) (HDInsight 3.2 and 3.3) |&nbsp; |✔ |Windows |Any (browser based) |
 | [HDInsight tools for Visual Studio](hdinsight-hadoop-use-hive-visual-studio.md) |&nbsp; |✔ |Linux or Windows |Windows |
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux or Windows |Windows |
 | [Remote Desktop](hdinsight-hadoop-use-hive-remote-desktop.md) (HDInsight 3.2 and 3.3) |✔ |✔ |Windows |Windows |
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## <a id="why"></a>What is Hive
 
@@ -166,15 +165,14 @@ HDInsight can run HiveQL jobs using various methods. Use the following table to 
 |:--- |:---:|:---:|:--- |:--- |
 | [Hive View](hdinsight-hadoop-use-hive-ambari-view.md) |✔ |✔ |Linux |Any (browser based) |
 | [Beeline command](hdinsight-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X, or Windows |
-| [Hive command](hdinsight-hadoop-use-hive-ssh.md) (from an SSH session) |✔ |✔ |Linux |Linux, Unix, Mac OS X, or Windows |
-| [Curl](hdinsight-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux or Windows |Linux, Unix, Mac OS X, or Windows |
+| [REST API](hdinsight-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux or Windows |Linux, Unix, Mac OS X, or Windows |
 | [Query console](hdinsight-hadoop-use-hive-query-console.md) (HDInsight 3.2 and 3.3) |&nbsp; |✔ |Windows |Any (browser based) |
 | [HDInsight tools for Visual Studio](hdinsight-hadoop-use-hive-visual-studio.md) |&nbsp; |✔ |Linux or Windows |Windows |
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux or Windows |Windows |
 | [Remote Desktop](hdinsight-hadoop-use-hive-remote-desktop.md) (HDInsight 3.2 and 3.3) |✔ |✔ |Windows |Windows |
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## Hive jobs and SQL Server Integration Services
 
@@ -217,7 +215,7 @@ Now that you've learned what Hive is and how to use it with Hadoop in HDInsight,
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 

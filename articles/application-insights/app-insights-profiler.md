@@ -38,6 +38,10 @@ In [https://portal.azure.com](https://portal.azure.com), open the Application In
 
 If you need to stop or restart the profiler, you'll find it **in the App Service resource**, in **Web Jobs**. To delete it, look under **Extensions**.
 
+If you use WebDeploy to deploy changes to your web application, ensure that you exclude the **App_Data** folder from being deleted during deployment. Otherwise, the profiler extension's files will be deleted when you next deploy the web application to Azure.
+
+**[Update]** Application Insights Site Extension has integrated the profiler agent from 2.3 release. It replaces the original Application Insights Profiler Site Extension. You can migrate to the latest version through the **Configure** wizard.
+
 ## Viewing profiler data
 
 Open the Performance blade and scroll down to the operation list.
@@ -194,7 +198,7 @@ When you configure the profiler, the following updates are made to the Web App's
 2. Set ".Net Framework version" to v4.6.
 3. Set "Always On" to On.
 4. Add app setting "__APPINSIGHTS_INSTRUMENTATIONKEY__" and set the value to the same instrumentation key used by the SDK.
-5. In **Extensions**, Add "Application Insights Profiler." It will take 2 or 3 minutes to install.
+5. In **Extensions**, Add "Application Insights". It will take a few minutes to install.
 
 ## <a id="aspnetcore"></a>ASP.NET Core Support
 

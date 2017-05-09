@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure Site Recovery: Frequently asked questions | Microsoft Docs'
 description: This article discusses popular questions about Azure Site Recovery.
 services: site-recovery
@@ -167,7 +167,7 @@ Azure is designed for resilience. Site Recovery is already engineered for failov
 You can trigger an unplanned failover from the secondary site. Site Recovery doesn't need connectivity from the primary site to perform the failover.
 
 ### Is failover automatic?
-Failover isn't automatic. You initiate failovers with single click in the portal, or you can use [Site Recovery PowerShell](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery) to trigger a failover. Failing back is a simple action in the Site Recovery portal.
+Failover isn't automatic. You initiate failovers with single click in the portal, or you can use [Site Recovery PowerShell](/powershell/module/azurerm.siterecovery) to trigger a failover. Failing back is a simple action in the Site Recovery portal.
 
 To automate you could use on-premises Orchestrator or Operations Manager to detect a virtual machine failure, and then trigger the failover using the SDK.
 

@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 04/14/2017
 ms.author: awills
 
 ---
@@ -22,7 +22,7 @@ Live Metrics Stream shows you your [Application Insights](app-insights-overview.
 
 Unlike [Metrics Explorer](app-insights-metrics-explorer.md), Live Metrics Stream displays a fixed set of metrics. The data persists only for as long as it's on the chart, and is then discarded.
 
-Live Metrics Stream data is free: it doesn't add to your bill.
+Live Metrics Stream data is free: it doesn't add to your bill. It is available for ASP.NET and Java applications.
 
 ![Live Metrics Stream video](./media/app-insights-live-stream/youtube.png) [Live Metrics Stream video](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
@@ -53,6 +53,6 @@ No data? Live Metrics Stream uses a different port than other Application Insigh
 
 
 ## Next steps
-* [Monitoring usage with Application Insights](app-insights-overview-usage.md)
+* [Monitoring usage with Application Insights](app-insights-web-track-usage.md)
 * [Using Diagnostic Search](app-insights-diagnostic-search.md)
 

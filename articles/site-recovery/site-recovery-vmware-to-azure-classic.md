@@ -224,7 +224,7 @@ For more information about Azure networks, see [Virtual networks overview](../vi
 ## Step 3: Install the VMware components
 If you want to replicate VMware virtual machines, follow these steps on the management server:
 
-1. [Download](https://developercenter.vmware.com/tool/vsphere_powercli/6.0) and install VMware vSphere PowerCLI 6.0.
+1. [Download](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) and install VMware vSphere PowerCLI 6.0.
 2. Restart the server.
 
 ## Step 4: Download a vault registration key

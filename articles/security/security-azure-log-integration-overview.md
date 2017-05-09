@@ -24,7 +24,7 @@ Learn about Azure log integration, its key capabilities, and how it works.
 
 Azure log integration is a free solution that enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems. 
 
-Azure log integration collects Windows Azure Diagnostics *(WAD)*  from your Windows virtual machines, [Azure Activity Logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), [Azure Security Center alerts](../security-center/security-center-intro.md) and [Azure Diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) from Azure resources. This integration provides a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events.
+Azure log integration collects Windows events from Windows Event Viewer Channels, [Azure Activity Logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), [Azure Security Center alerts](../security-center/security-center-intro.md) and [Azure Diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) from Azure resources. This integration helps your SIEM solution provide a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events.
 
 >[!NOTE]
 At this time the only supported clouds are Azure commercial and Azure government. Other clouds are not supported at this time.
@@ -32,11 +32,11 @@ At this time the only supported clouds are Azure commercial and Azure government
 ![Azure log integration][1]
 
 ## What logs can I integrate?
-Azure produces extensive logging for every Azure service. These logs are categorized by these main types:
+Azure produces extensive logging for every Azure service. These logs represent three types of logs:
 
-* **Control/management logs** give visibility into the [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) CREATE, UPDATE, and DELETE operations. Azure Activity Logs is an example of this type of log.
-* **Data plane logs** give visibility into the events raised as part of the usage of an Azure resource. Examples of this type of log are the Windows event System, Security, and Application logs in a virtual machine as well as the Diagnostics Logs configured through Azure Monitor
-* **Processed events** provide analyzed event and alert information processed on your behalf. Examples of this type include Azure Security Center Alerts, where Azure Security Center has processed and analyzed your subscription to provide alerts relevant to your current security posture.
+* **Control/management logs** provide visibility into the [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) CREATE, UPDATE, and DELETE operations. Azure Activity Logs is an example of this type of log.
+* **Data plane logs** provide visibility into the events raised as part of the usage of an Azure resource. An example of this type of log is the Windows Event Viewer's **System**, **Security**, and **Application** channels in a Windows virtual machine. Another example is  Diagnostics Logging configured through Azure Monitor
+* **Processed events** provide analyzed event and alert information processed on your behalf. An example of this type of event is Azure Security Center Alerts, where Azure Security Center has processed and analyzed your subscription to provide alerts relevant to your current security posture.
 
 Azure log integration currently supports integration of Azure Activity Logs, Windows Event logs from Windows virtual machines in your Azure subscription, Azure Security Center alerts, Azure Diagnostic logs, and Azure Active Directory audit logs.
 
@@ -53,7 +53,9 @@ The following table explains the Log category and SIEM integration detail
 >[!NOTE]
 While Azure Log Integration is a free solution there will be Azure storage costs resulting from the log file information storage.
 
-If you run into any issues during the installation and configuration, please open a [support request](../azure-supportability/how-to-create-azure-support-request.md), select **Log Integration** as the service for which you are requesting support.
+Community assistance is available through the [Azure Log Integration MSDN Forum](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). The forum provides the AzLog community the ability support each other with questions, answers, tips, and tricks on how to get the most out of Azure Log Integration. In addition, the Azure Log Integration team monitors this forum and will help whenever we can. 
+
+You can also open a [support request](../azure-supportability/how-to-create-azure-support-request.md). To do this, select **Log Integration** as the service for which you are requesting support.
 
 ## Next steps
 In this document, you were introduced to Azure log integration. To learn more about Azure log integration and the types of logs supported, see the following:

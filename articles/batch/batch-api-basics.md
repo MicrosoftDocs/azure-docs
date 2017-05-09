@@ -22,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 
 In this overview of the core components of the Azure Batch service, we discuss the primary service features and resources that Batch developers can use to build large-scale parallel compute solutions.
 
-Whether you're developing a distributed computational application or service that issues direct [REST API][batch_rest_api] calls or you're using one of the [Batch SDKs](batch-apis-tools.md#batch-development-apis), you'll use many of the resources and features discussed in this article.
+Whether you're developing a distributed computational application or service that issues direct [REST API][batch_rest_api] calls or you're using one of the [Batch SDKs](batch-apis-tools.md#azure-accounts-for-batch-development), you'll use many of the resources and features discussed in this article.
 
 > [!TIP]
 > For a higher-level introduction to the Batch service, see [Basics of Azure Batch](batch-technical-overview.md).
@@ -69,12 +69,13 @@ A Batch account is a uniquely identified entity within the Batch service. All pr
 
 You can create an Azure Batch account using the [Azure portal](batch-account-create-portal.md) or programmatically, such as with the [Batch Management .NET library](batch-management-dotnet.md). When creating the account, you can associate an Azure storage account.
 
-Batch supports two account configurations, based on the *pool allocation mode* property. The two configurations give you different options for authenticating with the Batch service and for provisioning and managing Batch [pools](#pool) (see later in this article). 
+Batch supports two account configurations, based on the *pool allocation mode* property. The two configurations give you access to different capabilities related to Batch [pools](#pool) (see later in this article).
 
 
-* **Batch service** (default): You can access the Batch APIs using either shared key authentication or [Azure Active Directory authentication](batch-aad-auth.md). Batch compute resources are allocated behind the scenes in an Azure-managed account.   
-* **User subscription**: You can only access the Batch APIs using [Azure Active Directory authentication](batch-aad-auth.md). Batch compute resources are allocated directly in your Azure subscription. This mode gives you more flexibility to configure the compute nodes and integrate with other services. This mode requires you to set up an additional Azure key vault for your Batch account.
- 
+* **Batch service**: : This is the default option, with Batch pool VMs being allocated behind the scenes in Azure-managed subscriptions. This account configuration must be used if Cloud Services pools are required, but cannot be used if Virtual Machine pools are required that are created from custom VM images or use a virtual network. You can access the Batch APIs using either shared key authentication or [Azure Active Directory authentication](batch-aad-auth.md).
+
+* **User subscription**: This account configuration must be used if Virtual Machine pools are required that are created from custom VM images or use a virtual network. You can only access the Batch APIs using [Azure Active Directory authentication](batch-aad-auth.md), and Cloud Services pools are not supported. Batch compute VMs are allocated directly in your Azure subscription. This mode requires you to set up an Azure key vault for your Batch account.
+
 
 ## Compute node
 A compute node is an Azure virtual machine (VM) that is dedicated to processing a portion of your application's workload. The size of a node determines the number of CPU cores, memory capacity, and local file system size that is allocated to the node. You can create pools of Windows or Linux nodes by using either Azure Cloud Services or Virtual Machines Marketplace images. See the following [Pool](#pool) section for more information on these options.
@@ -330,16 +331,16 @@ When you create a pool of compute nodes in Azure Batch, you can use the APIs to 
 
 * The VNet should have enough free **IP addresses** to accommodate the `targetDedicated` property of the pool. If the subnet doesn't have enough free IP addresses, the Batch service partially allocates the compute nodes in the pool and returns a resize error.
 
-* The specified subnet must allow communication from the Batch service to be able to schedule tasks on the compute nodes. If communication to the compute nodes is denied by a **Network Security Group (NSG)** associated with the VNet, then the Batch service sets the state of the compute nodes to **unusable**. 
+* The specified subnet must allow communication from the Batch service to be able to schedule tasks on the compute nodes. If communication to the compute nodes is denied by a **Network Security Group (NSG)** associated with the VNet, then the Batch service sets the state of the compute nodes to **unusable**.
 
-* If the specified VNet has any associated NSGs, then inbound communication must be enabled. For a Linux pool, ports 29876, 29877, and 22 must be enabled. For a Windows pool, port 3389 must be enabled.
+* If the specified VNet has any associated NSGs, then inbound communication must be enabled. For both Linux and Windows pools, ports 29876 and 29877 must be enabled. You can optionally enable (or selectively filter) ports 22 or 3389 for SSH on Linux pools or RDP on Windows pools, respectively.
 
 Additional settings for the VNet depend on the pool allocation mode of the Batch account.
 
 ### VNets for pools provisioned in the Batch service
 
 In Batch service allocation mode, only **Cloud Services Configuration** pools can be assigned a VNet. Additionally, the specified VNet must be a  **classic** VNet. VNets created with the Azure Resource Manager deployment model are not supported.
-   
+
 
 
 * The *MicrosoftAzureBatch* service principal must have the [Classic Virtual Machine Contributor](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) Role-Based Access Control (RBAC) role for the specified VNet. In the Azure portal:
@@ -362,7 +363,7 @@ With [automatic scaling](batch-automatic-scaling.md), you can have the Batch ser
 
 You enable automatic scaling by writing an [automatic scaling formula](batch-automatic-scaling.md#automatic-scaling-formulas) and associating that formula with a pool. The Batch service uses the formula to determine the target number of nodes in the pool for the next scaling interval (an interval that you can configure). You can specify the automatic scaling settings for a pool when you create it, or enable scaling on a pool later. You can also update the scaling settings on a scaling-enabled pool.
 
-As an example, perhaps a job requires that you submit a very large number of tasks to be executed. You can assign a scaling formula to the pool that adjusts the number of nodes in the pool based on the current number of queued tasks and the completion rate of the tasks in the job. The Batch service periodically evaluates the formula and resizes the pool, based on workload and your other formula settings. The service adds nodes as needed when there are a large number of queued tasks, and removes nodes when there are no queued or running tasks. 
+As an example, perhaps a job requires that you submit a very large number of tasks to be executed. You can assign a scaling formula to the pool that adjusts the number of nodes in the pool based on the current number of queued tasks and the completion rate of the tasks in the job. The Batch service periodically evaluates the formula and resizes the pool, based on workload and your other formula settings. The service adds nodes as needed when there are a large number of queued tasks, and removes nodes when there are no queued or running tasks.
 
 A scaling formula can be based on the following metrics:
 

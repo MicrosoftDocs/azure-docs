@@ -145,7 +145,7 @@ For a more simplistic, but more visually appealing performance demo for In-Memor
 
 #### Installation steps
 
-1. In the [Azure portal](https://portal.azure.com/), create a Premium database on a server. Set the **Source** to the AdventureWorksLT sample database. For detailed instructions, see [Create your first Azure SQL database](sql-database-get-started.md).
+1. In the [Azure portal](https://portal.azure.com/), create a Premium database on a server. Set the **Source** to the AdventureWorksLT sample database. For detailed instructions, see [Create your first Azure SQL database](sql-database-get-started-portal.md).
 
 2. Connect to the database with SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 

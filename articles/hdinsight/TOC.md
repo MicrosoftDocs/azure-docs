@@ -28,7 +28,6 @@
 ## Use Hadoop for batch queries
 ### [Hive with Hadoop](hdinsight-use-hive.md)
 #### [Use the Hive View](hdinsight-hadoop-use-hive-ambari-view.md)
-#### [Use SSH](hdinsight-hadoop-use-hive-ssh.md)
 #### [Use Beeline](hdinsight-hadoop-use-hive-beeline.md)
 #### [Use cURL](hdinsight-hadoop-use-hive-curl.md)
 #### [Use PowerShell](hdinsight-hadoop-use-hive-powershell.md)
@@ -106,9 +105,11 @@
 ### [Configure Hive policies](hdinsight-domain-joined-run-hive.md)
 ## Use Kafka (Preview)
 ### [Replicate Kafka data](hdinsight-apache-kafka-mirroring.md)
+### [Use with Virtual Networks](hdinsight-apache-kafka-connect-vpn-gateway.md)
 ### [Use with Spark](hdinsight-apache-spark-with-kafka.md)
 ### [Use with Storm](hdinsight-apache-storm-with-kafka.md)
 ## Develop
+### [Develop C# streaming MapReduce programs](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 ### [Develop Java MapReduce programs](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Develop Scalding MapReduce jobs](hdinsight-hadoop-mapreduce-scalding.md)
 ### [Use HDInsight Tools to create Spark apps](hdinsight-apache-spark-eclipse-tool-plugin.md)
@@ -131,8 +132,9 @@
 ## Extend clusters
 ### [Customize clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Customize clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md)
-### [Add Hive libraries](hdinsight-hadoop-add-hive-libraries.md)
 ### [Develop script actions](hdinsight-hadoop-script-actions-linux.md)
+### [Install or update Mono](hdinsight-hadoop-install-mono.md)
+### [Add Hive libraries](hdinsight-hadoop-add-hive-libraries.md)
 ### [Use Giraph](hdinsight-hadoop-giraph-install-linux.md)
 ### [Use Hue](hdinsight-hadoop-hue-linux.md)
 ### [Use R](hdinsight-hadoop-r-scripts-linux.md)
@@ -164,6 +166,7 @@
 #### [Use Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
 ### [Add storage accounts](hdinsight-hadoop-add-storage.md)
 ### [Upload data for Hadoop jobs](hdinsight-upload-data.md)
+### [Multiple HDInsight clusters with Data Lake Store](hdinsight-multiple-clusters-data-lake-store.md)
 ### [Import and export data with Sqoop](hdinsight-use-sqoop.md)
 #### [Connect with SSH](hdinsight-use-sqoop-mac-linux.md)
 #### [Run using cURL](hdinsight-hadoop-use-sqoop-curl.md)
@@ -189,7 +192,7 @@
 #### [Hive query performance](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight)
+## [PowerShell](/powershell/module/azurerm.hdinsight)
 ## [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
 ## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
@@ -199,6 +202,7 @@
 # Related
 ## Windows clusters
 ### [Migrate Windows clusters to Linux clusters](hdinsight-migrate-from-windows-to-linux.md)
+### [Migrate .NET solutions to Linux clusters](hdinsight-hadoop-migrate-dotnet-to-linux.md)
 ### [Run Hadoop MapReduce samples](hdinsight-run-samples.md)
 ### [Use Solr on clusters](hdinsight-hadoop-solr-install-linux.md)
 ### [Use Giraph to process large-scale graphs](hdinsight-hadoop-giraph-install.md)

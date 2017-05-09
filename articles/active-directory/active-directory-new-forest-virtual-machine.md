@@ -1,4 +1,4 @@
----
+﻿---
 title: Install an Active Directory forest on an Azure virtual network | Microsoft Docs
 description: A tutorial that explains how to create a new Active Directory forest on a virtual machine (VM) on an Azure Virtual Network.
 services: active-directory, virtual-network
@@ -67,7 +67,7 @@ To create the VMs by using Windows PowerShell instead of the UI, see [Use Azure 
    |  **Virtual Machine Configuration** |<p>Select <b>Install the VM Agent</b> and any other extensions you need.</p> |
 2. Attach a disk to each VM that will run the DC server role. The additional disk is needed to store the AD database, logs, and SYSVOL. Specify a size for the disk (such as 10 GB) and leave the **Host Cache Preference** set to **None**. For the steps, see [How to Attach a Data Disk to a Windows Virtual Machine](../virtual-machines/windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 3. After you first sign in to the VM, open **Server Manager** > **File and Storage Services** to create a volume on this disk using NTFS.
-4. Reserve a static IP address for VMs that will run the DC role. To reserve a static IP address, download the Microsoft Web Platform Installer and [install Azure PowerShell](/powershell/azureps-cmdlets-docs) and run the Set-AzureStaticVNetIP cmdlet. For example:
+4. Reserve a static IP address for VMs that will run the DC role. To reserve a static IP address, download the Microsoft Web Platform Installer and [install Azure PowerShell](/powershell/azure/overview) and run the Set-AzureStaticVNetIP cmdlet. For example:
 
     `Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM`
 
@@ -101,7 +101,7 @@ After the DC installation finishes, connect to the VM again and log on to the DC
 
 To create the VMs by using Windows PowerShell instead of the UI, see [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-For more information about using Windows PowerShell, see [Get Started with Azure Cmdlets](https://msdn.microsoft.com/library/azure/jj554332.aspx) and [Azure Cmdlet Reference](https://msdn.microsoft.com/library/azure/jj554330.aspx).
+For more information about using Windows PowerShell, see [Get Started with Azure Cmdlets](/powershell/azure/overview) and [Azure Cmdlet Reference](/powershell/azure/get-started-azureps).
 
 ## See Also
 * [How to install a new Active Directory forest on an Azure virtual network](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
@@ -111,9 +111,9 @@ For more information about using Windows PowerShell, see [Get Started with Azure
 * [Microsoft Azure IT Pro IaaS: (01) Virtual Machine Fundamentals](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 * [Microsoft Azure IT Pro IaaS: (05) Creating Virtual Networks and Cross-Premises Connectivity](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 * [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
-* [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs)
-* [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
-* [Azure Cmdlet Reference](https://msdn.microsoft.com/library/azure/jj554330.aspx)
+* [How to install and configure Azure PowerShell](/powershell/azure/overview)
+* [Azure PowerShell](/powershell/azure/overview)
+* [Azure Cmdlet Reference](/powershell/azure/get-started-azureps)
 * [Set Azure VM Static IP Address](http://windowsitpro.com/windows-azure/set-azure-vm-static-ip-address)
 * [How to assign Static IP to Azure VM](http://www.bhargavs.com/index.php/2014/03/13/how-to-assign-static-ip-to-azure-vm/)
 * [Install a New Active Directory Forest](https://technet.microsoft.com/library/jj574166.aspx)

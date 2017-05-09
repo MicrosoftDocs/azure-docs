@@ -1,4 +1,4 @@
----
+﻿---
 title: Build a management solution in OMS | Microsoft Docs
 description: Management solutions extend the functionality of Operations Management Suite (OMS) by providing packaged management scenarios that customers can add to their OMS workspace.  This article provides details on how you can create management solutions to be used in your own environment or made available to your customers.
 services: operations-management-suite
@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # Design and build a management solution in Operations Management Suite (OMS) (Preview)
 > [!NOTE]
-> This is preliminary documentation for creating management solutions in OMS which are currently in preview. Any schema described below is subject to change.   j
+> This is preliminary documentation for creating management solutions in OMS which are currently in preview. Any schema described below is subject to change.
 
 [Management solutions](operations-management-suite-solutions.md) extend the functionality of Operations Management Suite (OMS) by providing packaged management scenarios that customers can add to their OMS workspace.  This article presents a basic process to design and build a management solution that is suitable for most common requirements.  If you are new to building management solutions then you can use this process as a starting point and then leverage the concepts for more complex solutions as your requirements evolve.
 
@@ -53,7 +53,7 @@ You should define any queries that you think will be helpful to the user even if
 ### Alerts
 [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md) identify issues through [log searches](#log-searches) against the data in the repository.  They either notify the user or automatically run an action in response. You should identify different alert conditions for your application and include corresponding alert rules in your solution file.
 
-If the issue can potentially be corrected with an automated process, then you'll typically create a runbook in Azure Automation to perform this remediation.  Most Azure services can be managed with [cmdlets](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) which the runbook would leverage to perform such functionality.
+If the issue can potentially be corrected with an automated process, then you'll typically create a runbook in Azure Automation to perform this remediation.  Most Azure services can be managed with [cmdlets](/powershell/azure/overview) which the runbook would leverage to perform such functionality.
 
 If your solution requires external functionality in response to an alert, then you can use a [webhook response](../log-analytics/log-analytics-alerts-actions.md).  This allows you to call an external web service sending information from the alert.
 

@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/15/2017
+ms.date: 04/17/2017
 ms.author: muralikk
 
 ---
@@ -68,6 +68,7 @@ Download the latest version of the [WAImportExport tool](http://download.microso
 
 >[!NOTE]
 >**Previous Version:** You can [download WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) version of the tool and refer to [WAImportExpot V1 usage guide](storage-import-export-tool-how-to-v1.md). WAImportExpot V1 version of the tool does provide support for **preparing disks when data is already pre-written to the disk**. Also you will need to use WAImportExpot V1 tool if the only key available is SAS-Key.
+
 >
 
 ### Hard disk drives
@@ -99,9 +100,11 @@ Supported shipping locations:
 * East US
 * West US
 * East US 2
+* West US 2
 * Central US
 * North Central US
 * South Central US
+* West Central US
 * North Europe
 * West Europe
 * East Asia
@@ -111,9 +114,19 @@ Supported shipping locations:
 * Japan West
 * Japan East
 * Central India
-* Canada
-* US Gov
-* China
+* South India
+* West India
+* Canada Central
+* Canada East
+* Brazil South
+* Korea Central
+* US Gov Virginia
+* US Gov Iowa
+* US DoD East
+* US DoD Central
+* China East
+* China North
+* UK South
 
 ### Shipping
 **Shipping drives to the data center:**
@@ -492,6 +505,16 @@ Please refer to [Import PST files or SharePoint data to Office 365](https://tech
 
 Please refer to [Offline Backup workflow in Azure Backup](../backup/backup-azure-backup-import-export.md).
 
+**What is the maximum numbers of HDD for in one shipment?
+
+Any number of HDDs can be in one shipment and if the disks belong to multiple jobs it is recommended to 
+a) Have the disks labeled with the corresponding job names. 
+b) Update the jobs with a tracking number suffixed with -1, -2 etc.
+  
+**What is the Maximum Block Blob and Page Blob Size supported by Disk Import/Export?
+
+Max Block Blob size is approximately 4.768TB  or 5,000,000 MB.
+Max Page Blob size is 1TB.
 ## Next steps
 
 * [Setting up the WAImportExport tool](storage-import-export-tool-how-to.md)

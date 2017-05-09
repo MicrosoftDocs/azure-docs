@@ -4,7 +4,7 @@ description: This article provides information on installing and using Hybrid Ru
 services: automation
 documentationcenter: ''
 author: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: tysonn
 
 ms.assetid: 06227cda-f3d1-47fe-b3f8-436d2b9d81ee
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/31/2017
+ms.date: 05/02/2017
 ms.author: bwren
 ---
 
@@ -65,6 +65,7 @@ If you have an Automation account defined for a specific region and you want to 
 | --- | --- |
 | South Central US |scus-jobruntimedata-prod-su1.azure-automation.net |
 | East US 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
+| West Central US | wcus-jobruntimedata-prod-su1.azure-automation.net |
 | West Europe |we-jobruntimedata-prod-su1.azure-automation.net |
 | North Europe |ne-jobruntimedata-prod-su1.azure-automation.net |
 | Canada Central |cc-jobruntimedata-prod-su1.azure-automation.net |
@@ -72,6 +73,14 @@ If you have an Automation account defined for a specific region and you want to 
 | Central India |cid-jobruntimedata-prod-su1.azure-automation.net |
 | Japan East |jpe-jobruntimedata-prod-su1.azure-automation.net |
 | Australia South East |ase-jobruntimedata-prod-su1.azure-automation.net |
+| UK South | uks-jobruntimedata-prod-su1.azure-automation.net |
+| US Gov Virginia | usge-jobruntimedata-prod-su1.azure-automation.us |
+
+For a list of IP addresses instead of names, download and review the [Azure Datacenter IP address](https://www.microsoft.com/download/details.aspx?id=41653) xml file from the Microsoft Download Center. 
+
+> [!NOTE]
+> This file contains the IP address ranges (including Compute, SQL and Storage ranges) used in the Microsoft Azure Datacenters. An updated file is posted weekly which reflects the currently deployed ranges and any upcoming changes to the IP ranges. New ranges appearing in the file will not be used in the datacenters for at least one week. Please download the new xml file every week and perform the necessary changes on your site to correctly identify services running in Azure. Express Route users may note this file used to update the BGP advertisement of Azure space in the first week of each month. 
+> 
 
 ## Installing Hybrid Runbook Worker
 

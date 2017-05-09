@@ -3,7 +3,7 @@ title: What is the Azure WebJobs SDK
 description: An introduction to the Azure WebJobs SDK. Explains what the SDK is, typical scenarios it is useful for, and code samples.
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 

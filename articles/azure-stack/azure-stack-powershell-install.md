@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2017
+ms.date: 04/20/2017
 ms.author: sngun
 
 ---
@@ -60,13 +60,15 @@ AzureRM modules for Compute, Storage, Network, Key Vault etc.
   ```powershell
   Install-Module -Name AzureStack -RequiredVersion 1.2.9
   ```
-4. To confirm the installation of AzureRM modules, run the following command:  
+4. To confirm the installation, run the following command:  
 
   ```powershell
   Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”}
   ```
+  If the installation is successful, the AzureRM and AzureStack modules are displayed in the output.
 
 ## Next steps
+
+* [Download Azure Stack tools from GitHub](azure-stack-powershell-download.md)
 * [Configure PowerShell for use with Azure Stack](azure-stack-powershell-configure.md)  
 * [Manage API version profiles in Azure Stack](azure-stack-version-profiles.md)  
-* [Download Azure Stack tools from GitHub](azure-stack-powershell-download.md)

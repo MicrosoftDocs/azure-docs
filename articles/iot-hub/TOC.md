@@ -4,186 +4,41 @@
 ## [Overview of device management](iot-hub-device-management-overview.md)
 
 # [Get Started](iot-hub-get-started.md)
-## Use a simulated device
-### [.NET](iot-hub-csharp-csharp-getstarted.md)
-### [Java](iot-hub-java-java-getstarted.md)
-### [Node.js](iot-hub-node-node-getstarted.md)
 
-## Use a Raspberry Pi
-### [Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
-#### Lesson 1: Configure your device
-##### [Configure your device](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
-##### [Get the tools (Windows 7+)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
-##### [Get the tools (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md)
-##### [Get the tools (macOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
-##### [Create and deploy the blink application](iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md)
-#### Lesson 2: Create your IoT hub
-##### [Get the Azure tools (Windows 7+)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md)
-##### [Get the Azure tools (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-ubuntu.md)
-##### [Get the Azure tools (macOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md)
-##### [Create your IoT hub and register your Raspberry Pi](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
-#### Lesson 3: Send device-to-cloud messages
-##### [Create an Azure function app and storage account](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
-##### [Run the sample application to send messages](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)
-##### [Read messages persisted in storage](iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md)
-#### Lesson 4: Send cloud-to-device messages
-##### [Run the sample application to receive messages](iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md)
-##### [Optional: Change the LED behavior](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
-#### [Troubleshoot](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
+## Setup your device
+### Use a simulated device
+#### [.NET](iot-hub-csharp-csharp-getstarted.md)
+#### [Java](iot-hub-java-java-getstarted.md)
+#### [Node.js](iot-hub-node-node-getstarted.md)
+#### [Python](iot-hub-python-getstarted.md)
 
-### [C](iot-hub-raspberry-pi-kit-c-get-started.md)
-#### Lesson 1: Configure your device
-##### [Configure your device](iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md)
-##### [Get the tools (Windows 7+)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
-##### [Get the tools (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-ubuntu.md)
-##### [Get the tools (macOS 10.10)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-mac.md)
-##### [Create and deploy the blink application](iot-hub-raspberry-pi-kit-c-lesson1-deploy-blink-app.md)
-#### Lesson 2: Create your IoT hub
-##### [Get the Azure tools (Windows 7+)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md)
-##### [Get the Azure tools (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-ubuntu.md)
-##### [Get the Azure tools (macOS 10.10)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-mac.md)
-##### [Create your IoT hub and register your Raspberry Pi](iot-hub-raspberry-pi-kit-c-lesson2-prepare-azure-iot-hub.md)
-#### Lesson 3: Send device-to-cloud messages
-##### [Create an Azure function app and storage account](iot-hub-raspberry-pi-kit-c-lesson3-deploy-resource-manager-template.md)
-##### [Run the sample application to send messages](iot-hub-raspberry-pi-kit-c-lesson3-run-azure-blink.md)
-##### [Read messages persisted in storage](iot-hub-raspberry-pi-kit-c-lesson3-read-table-storage.md)
-#### Lesson 4: Send cloud-to-device messages
-##### [Run the sample application to receive messages](iot-hub-raspberry-pi-kit-c-lesson4-send-cloud-to-device-messages.md)
-##### [Optional: Change the LED behavior](iot-hub-raspberry-pi-kit-c-lesson4-change-led-behavior.md)
-#### [Troubleshoot](iot-hub-raspberry-pi-kit-c-troubleshooting.md)
+### Use a simulated gateway 
+#### [Simulation on Linux](iot-hub-linux-gateway-sdk-get-started.md)
+#### [Simulation on Windows](iot-hub-windows-gateway-sdk-get-started.md)
 
-## Use an Intel Edison
-### [Node.js](iot-hub-intel-edison-kit-node-get-started.md)
-#### Lesson 1: Configure your device
-##### [Configure your device](iot-hub-intel-edison-kit-node-lesson1-configure-your-device.md)
-##### [Get the tools (Windows 7+)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32.md)
-##### [Get the tools (Ubuntu 16.04)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-ubuntu.md)
-##### [Get the tools (macOS 10.10)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-mac.md)
-##### [Create and deploy the blink application](iot-hub-intel-edison-kit-node-lesson1-deploy-blink-app.md)
-#### Lesson 2: Create your IoT hub
-##### [Get the Azure tools (Windows 7+)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-win32.md)
-##### [Get the Azure tools (Ubuntu 16.04)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-ubuntu.md)
-##### [Get the Azure tools (macOS 10.10)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-mac.md)
-##### [Create your IoT hub and register your Raspberry Pi](iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub.md)
-#### Lesson 3: Send device-to-cloud messages
-##### [Create an Azure function app and storage account](iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md)
-##### [Run the sample application to send messages](iot-hub-intel-edison-kit-node-lesson3-run-azure-blink.md)
-##### [Read messages persisted in storage](iot-hub-intel-edison-kit-node-lesson3-read-table-storage.md)
-#### Lesson 4: Send cloud-to-device messages
-##### [Run the sample application to receive messages](iot-hub-intel-edison-kit-node-lesson4-send-cloud-to-device-messages.md)
-##### [Optional: Change the LED behavior](iot-hub-intel-edison-kit-node-lesson4-change-led-behavior.md)
-#### [Troubleshoot](iot-hub-intel-edison-kit-node-troubleshooting.md)
+### Use a physical device
+#### [Raspberry Pi with Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
+#### [Raspberry Pi with C](iot-hub-raspberry-pi-kit-c-get-started.md)
 
-### [C](iot-hub-intel-edison-kit-c-get-started.md)
-#### Lesson 1: Configure your device
-##### [Configure your device](iot-hub-intel-edison-kit-c-lesson1-configure-your-device.md)
-##### [Get the tools (Windows 7+)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32.md)
-##### [Get the tools (Ubuntu 16.04)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-ubuntu.md)
-##### [Get the tools (macOS 10.10)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-mac.md)
-##### [Create and deploy the blink application](iot-hub-intel-edison-kit-c-lesson1-deploy-blink-app.md)
-#### Lesson 2: Create your IoT hub
-##### [Get the Azure tools (Windows 7+)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-win32.md)
-##### [Get the Azure tools (Ubuntu 16.04)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-ubuntu.md)
-##### [Get the Azure tools (macOS 10.10)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-mac.md)
-##### [Create your IoT hub and register your Raspberry Pi](iot-hub-intel-edison-kit-c-lesson2-prepare-azure-iot-hub.md)
-#### Lesson 3: Send device-to-cloud messages
-##### [Create an Azure function app and storage account](iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template.md)
-##### [Run the sample application to send messages](iot-hub-intel-edison-kit-c-lesson3-run-azure-blink.md)
-##### [Read messages persisted in storage](iot-hub-intel-edison-kit-c-lesson3-read-table-storage.md)
-#### Lesson 4: Send cloud-to-device messages
-##### [Run the sample application to receive messages](iot-hub-intel-edison-kit-c-lesson4-send-cloud-to-device-messages.md)
-##### [Optional: Change the LED behavior](iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md)
-#### [Troubleshoot](iot-hub-intel-edison-kit-c-troubleshooting.md)
+#### [Intel Edison with Node.js](iot-hub-intel-edison-kit-node-get-started.md)
+#### [Intel Edison with C](iot-hub-intel-edison-kit-c-get-started.md)
 
-## Use an Arduino
+#### [Adafruit Feather HUZZAH ESP8266 with Arduino IDE](iot-hub-arduino-huzzah-esp8266-get-started.md)
+#### [Sparkfun ESP8266 Thing Dev with Arduino IDE](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
+#### [Adafruit Feather M0 with Arduino IDE](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
-### [Adafruit Feather HUZZAH ESP8266](iot-hub-arduino-huzzah-esp8266-get-started.md)
-#### [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-#### [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
-#### [Data Visualization in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
-#### [Data Visualization with Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
-#### [Weather forecast using Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
-
-### [Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
-#### [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-#### [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
-#### [Data Visualization in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
-#### [Data Visualization with Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
-#### [Weather forecast using Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
-
-
-### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
-#### Lesson 1: Configure your device
-##### [Configure your device](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
-##### [Get the tools (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
-##### [Get the tools (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-ubuntu.md)
-##### [Get the tools (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-mac.md)
-##### [Create and deploy the blink application](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md)
-#### Lesson 2: Create your IoT hub
-##### [Get the Azure tools (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md)
-##### [Get the Azure tools (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu.md)
-##### [Get the Azure tools (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md)
-##### [Create your IoT hub and register your Raspberry Pi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
-#### Lesson 3: Send device-to-cloud messages
-##### [Create an Azure function app and storage account](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
-##### [Run the sample application to send messages](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md)
-##### [Read messages persisted in storage](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md)
-#### Lesson 4: Send cloud-to-device messages
-##### [Run the sample application to receive messages](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
-##### [Optional: Change the LED behavior](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
-#### [Troubleshoot](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
-
-
-## Use the Gateway SDK
-### [Simulation on Linux](iot-hub-linux-gateway-sdk-get-started.md)
-### [Simulation on Windows](iot-hub-windows-gateway-sdk-get-started.md)
-
-## Use the IoT Gateway Starter Kit
-### [Simulated device](iot-hub-gateway-kit-c-sim-get-started.md)
-#### Lesson 1: Configure your NUC
-##### [Set up Intel NUC as an IoT gateway](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
-
-#### Lesson 2: Create your IoT Hub
-##### [Get the tools (Windows 7+)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
-##### [Get the tools (Ubuntu 16.04)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-ubuntu.md)
-##### [Get the tools (macOS 10.10)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-mac.md)
-##### [Create an IoT hub and register your device](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
-
-#### Lesson 3: Receive messages from the simulated device
-##### [Configure and run the BLE sample app](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
-##### [Read messages from your IoT hub](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md)
-
-#### Lesson 4: Save messages to Azure Table storage
-##### [Create an Azure function app and Azure Storage account](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
-##### [Read messages persisted in Azure Table storage](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md)
-
-#### [Lesson 5: Create your first Azure IoT Gateway module](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
-
-#### [Troubleshooting](iot-hub-gateway-kit-c-sim-troubleshooting.md)
-
-### [SensorTag device](iot-hub-gateway-kit-c-get-started.md)
-#### Lesson 1: Configure your NUC
+#### Use the IoT Gateway Starter Kit
 ##### [Set up Intel NUC as an IoT gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+##### [Connect IoT gateway to IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+##### [Use IoT gateway for data conversion](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 
-#### Lesson 2: Create your IoT Hub
-##### [Get the tools (Windows 7+)](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
-##### [Get the tools (Ubuntu 16.04)](iot-hub-gateway-kit-c-lesson2-get-the-tools-ubuntu.md)
-##### [Get the tools (macOS 10.10)](iot-hub-gateway-kit-c-lesson2-get-the-tools-mac.md)
-##### [Create an IoT hub and register your device](iot-hub-gateway-kit-c-lesson2-register-device.md)
-
-#### Lesson 3: Receive messages from the simulated device
-##### [Configure and run the BLE sample app](iot-hub-gateway-kit-c-lesson3-configure-ble-app.md)
-##### [Read messages from your IoT hub](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)
-
-#### Lesson 4: Save messages to Azure Table storage
-##### [Create an Azure function app and Azure Storage account](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
-##### [Read messages persisted in Azure Table storage](iot-hub-gateway-kit-c-lesson4-read-table-storage.md)
-
-#### [Lesson 5: Create your first Azure IoT Gateway module](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
-
-##### [Troubleshooting](iot-hub-gateway-kit-c-troubleshooting.md)
-
-
+## [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
+## [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
+## [Data Visualization in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
+## [Data Visualization with Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
+## [Weather forecast using Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+## [Device management with iothub-explorer](iot-hub-device-management-iothub-explorer.md)
+## [Remote monitoring and notifications with ​Logic ​Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 # How To
 ## Plan
@@ -226,6 +81,7 @@
 ### Use direct methods
 #### [Node.js back end/Node.js device](iot-hub-node-node-direct-methods.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-direct-methods.md)
+#### [Java back end/Java device](iot-hub-java-java-direct-methods.md)
 ### Get started with device management
 #### [Node.js back end/Node.js device](iot-hub-node-node-device-management-get-started.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-device-management-get-started.md)
@@ -250,6 +106,7 @@
 ### Configure file upload
 #### [Use the portal](iot-hub-configure-file-upload.md)
 #### [Use PowerShell](iot-hub-configure-file-upload-powershell.md)
+#### [Use CLI 2.0](iot-hub-configure-file-upload-cli.md)
 ### [Bulk manage IoT devices](iot-hub-bulk-identity-mgmt.md)
 ### [Usage metrics](iot-hub-metrics.md)
 ### [Operations monitoring](iot-hub-operations-monitoring.md)
@@ -286,6 +143,9 @@
 ## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 # Resources
+## [iothub-explorer tool](https://github.com/Azure/iothub-explorer)
+## [iothub-diagnostics tool](https://github.com/Azure/iothub-diagnostics)
+## [DeviceExplorer tool](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [Pricing](https://azure.microsoft.com/pricing/details/iot-hub/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)

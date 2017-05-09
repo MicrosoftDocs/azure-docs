@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 936d67d7-6921-4275-bf11-1e0115e66b7f
 ms.service: virtual-machines-linux
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure

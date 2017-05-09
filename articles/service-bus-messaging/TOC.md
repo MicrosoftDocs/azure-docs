@@ -42,21 +42,23 @@
 ### [Transaction processing](service-bus-transactions.md)
 ### [Diagnostic logs](service-bus-diagnostic-logs.md)
 ### AMQP
+#### [AMQP overview](service-bus-amqp-overview.md)
 #### [.NET](service-bus-amqp-dotnet.md)
 #### [Java](service-bus-amqp-java.md)
+#### [Java Message Service and AMQP](service-bus-java-how-to-use-jms-api-amqp.md)
 #### [AMQP protocol guide](service-bus-amqp-protocol-guide.md)
 #### [AMQP request-response-based operations](service-bus-amqp-request-response.md)
 
 ## Manage
 ### [Service Bus management libraries](service-bus-management-libraries.md)
 ### [Using Azure Resource Manager templates](service-bus-resource-manager-overview.md)
-### [Using PowerShell to provision entities](service-bus-powershell-how-to-provision.md)
+### [Using PowerShell to provision entities](service-bus-manage-with-ps.md)
 
 # Reference
 ## .NET
 ### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.Management.ServiceBus](/dotnet/api/microsoft.azure.management.servicebus)
-## [PowerShell](/powershell/resourcemanager/azurerm.servicebus/v0.0.2/azurerm.servicebus)
+## [PowerShell](/powershell/module/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
 ## [Exceptions](service-bus-messaging-exceptions.md)
 ## [Quotas](service-bus-quotas.md)
