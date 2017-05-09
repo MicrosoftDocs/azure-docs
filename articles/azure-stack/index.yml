@@ -24,7 +24,7 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/en-us/media/common/i_deploy.svg
+        src: https://docs.microsoft.com/media/common/i_deploy.svg
       text: Deploy Azure Stack
       href: azure-stack-deploy-overview.md
 - title: Step-by-step tutorials
