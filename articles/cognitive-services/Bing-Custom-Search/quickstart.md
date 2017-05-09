@@ -21,8 +21,8 @@ This article provides information to help you quickly get started using Bing Cus
 2. Define the slices of the web to search over
 3. Adjust the ranking
 4. Track custom search settings
-6. Publish your search settings
-7. Programmatically retrieve custom search results
+5. Use published search settings
+6. Programmatically retrieve custom search results
 
 
 ## Create a custom search instance 
@@ -109,7 +109,7 @@ Next to each result you can see four different options to adjust the ranking for
 Adjusting the ranking to pin search results to the top for specific queries can be done in two ways:
 
 1. Trigger a query on the search preview. Select from the results shown in the preview the web page that you want to pin on top for that query and click **Pin to top**.	
-2. Go to the **Pinned** tab, and provide both exact URL, and the exact query, for which you want your URL to be show on top.
+2. Go to the **Pinned** tab, and provide both exact URL, and the exact query, for which you want your URL to be shown on top.
 
 
 ![picture alt](manualpin.png "Manually add a pin-to-top URL for a given query.")
@@ -124,9 +124,9 @@ You can track your pins in the **Pinned** tab. The pins are shown as 'exact quer
 When you work with pins:
 
 * For a specific query, you can pin max. one URL to the top.
-* It takes around 15 minutes until a **pin-to-top** adjustment is retrievable via Bing Web Search API. 
-* Press **Push Pins** to activate your **pin-to-top** adjustments.
-* Deleting a pin is not instantaneously reflected in the search preview. You can still see the former pinned URL on top for the specific query, until you use again the **Push Pin** function. Remember that it takes around 15 minutes until the new pins are activated.
+* In search preview, **Pin-to-top** adjustments show up immediately.
+* Press **Push Pins** to activate your **Pin-to-top** adjustments. It takes around 15 minutes until a **Pin-to-top** adjustment is retrievable via Bing Web Search API. 
+* Deleting a pin is not instantaneously reflected in the search preview. You can still see the former pinned URL on top for the specific query, until you use again the **Push Pin** function. Remember that it takes around 15 minutes until the new pins are activated. For tracking, you can view the status of your submitted pins.
 
 
 ## Track custom search settings
@@ -149,10 +149,10 @@ You can control the ranking via the tabs **Active**, **Blocked**, and **Pinned**
 	* Adding a site to the **Active** tab counts as one ranking adjustment.
 	* Boosting a site counts as two ranking adjustments: you whitelist a site first, then you boost it.
 	* Demoting works similar like boosting, that is, demoting a site counts as two ranking adjustments.
-	* Blocking is similar as whitelsting, that is, blocking a site counts as one ranking adjustment. 
-* Further, the maximum number of pins per custom search instance is limited to 200.
+	* Blocking is similar to whitelisting, that is, blocking a site counts as one ranking adjustment. 
+* Furthermore, the maximum number of pins per custom search instance is limited to 200.
 
-## Publish search settings
+## Use published search settings
 When you completed your custom search settings, click the **Custom Search Endpoint** icon that is shown next to the custom search instance name. 
 
 
@@ -161,11 +161,10 @@ When you completed your custom search settings, click the **Custom Search Endpoi
 
 You are routed to a page that shows you details on the Bing Web Search API endpoint for your custom search instance. To try out your search, specify a query and click **Test API**. You see on the right-hand side the algorithmic results from your custom search.
 
-
 ![picture alt](api-endpoint.png "Test retrieving custom search results via Bing Web Search API.")
 
 
-You can also validate your settings by calling your custom endpoint using different programming languages. In the UI, you find a Curl-based example in the box **API endpoint**. You can copy and paste the example in your Windows Command line to make a Bing Web Search API call and retrieve your custom search results.
+You can also validate your settings by calling your custom endpoint using different methodologies. In the UI, you find a Curl-based example in the box **API endpoint**. You can copy and paste the example in your Windows Command line to make a Bing Web Search API call and retrieve your custom search results.
 
 
 ## Programmatically retrieve custom search results
@@ -177,7 +176,8 @@ Requesting Bing Web Search API to obtain customized responses works the same way
 2. The response contains the elementary and customizable elements of the Bing Web Search API output.
 
 > [!NOTE]
-> Bing Custom Search allows customizing web results only. It is not possible to retrieve, for example, image or news answers.
+> Bing Custom Search allows customizing web results only. It is not possible to retrieve, for example, customized image search results.
+
 
 Read the [Bing Web Search API Use and Display requirements](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/useanddisplayrequirements) to understand how to display the retrieved results.
 
@@ -188,7 +188,7 @@ Read the [Bing Web Search API Use and Display requirements](https://docs.microso
 The request URL looks as follows:
 
 ```
-https://api.cognitive.microsoft.com/bingcustomsearch/v5.0/search[?q][&customconfig][count][&offset][&mkt][&safesearch]
+https://api.cognitive.microsoft.com/bingcustomsearch/v5.0/search[?q][&customconfig][&count][&offset][&mkt][&safesearch]
 ```
 
 | **Parameter** | Type | Required / Optional| Description |
@@ -219,7 +219,6 @@ Below you see a JSON response of a Bing Web Search API call with a `customconfig
     "queryContext" : {...},
     "webPages" : {...},
     "spellSuggestion" : {...},
-    "timeZone" : {...},
     "rankingResponse" : {...}
 }
 ```
