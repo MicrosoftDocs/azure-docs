@@ -72,13 +72,21 @@ Let's make a quick review of what's happening in the app. Open the `app.js` file
 
 * The Gremlin client is initialized.
 
-    ```nodejs
-    const client = Gremlin.createClient(8182, 'localhost');
+    ```java
+    const client = Gremlin.createClient(
+        443, 
+        "https://<fillme>.graphs.azure.com", 
+        { 
+            "session": false, 
+            "ssl": true, 
+            "user": "/dbs/<db>/colls/<coll>",
+            "password": "<authKey>"
+        });
     ```
 
 * A series of Gremlin steps are executed using the `client.execute` method.
 
-    ```nodejs
+    ```java
     client.execute('g.V()', (err, results) => {
         if (!err) {
             console.log(results);
@@ -94,16 +102,19 @@ Now go back to the Azure portal to get your connection string information and co
 
     ![View and copy an access key in the Azure portal, Keys blade](./media/create-documentdb-dotnet/keys.png)
 
-2. Fill in your *host*, *port*, *username*, *password*, *connectionPool*, and *serializer* configurations in the `app.js` file:
+2. Fill in your *endpoint*, *db*, *coll*, and *authKey* configurations in the `Program.java` file:
 
-    Setting|Suggested value|Description
-    ---|---|---
-    Hosts|***.graphs.azure.com|Your graph service URI, which you can retrieve from the Azure portal
-    Port|443|Set to 443
-    Username|*Your username*|The resource of the form `/dbs/<db>/colls/<coll>`.
-    Password|*Your primary master key*|Your primary master key for the Azure Cosmos DB
-    ConnectionPool|{enableSsl: true}|Your connection pool setting for SSL
-    Serializer|{ className:org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Set to this value 
+    ```nodejs
+    const client = Gremlin.createClient(
+        443, 
+        "https://<endpoint>.graphs.azure.com", 
+        { 
+            "session": false, 
+            "ssl": true, 
+            "user": "/dbs/<db>/colls/<coll>",
+            "password": "<authKey>"
+        });
+    ```
 
 ## Run the console app
 
