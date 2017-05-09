@@ -40,8 +40,8 @@ Provide a meaningful name for your custom search instance. Confirm the name by c
 
 ## Define the slices of the web to search over
 
-[!NOTE]
-All  custom search settings, that is, the slices that you want to search over, and your ranking controls, are automatically saved.
+> [!NOTE]
+> All  custom search settings, that is, the slices that you want to search over, and your ranking controls, are automatically saved.
 
 Next, define the right set of slices of the web to search over for your scenario. The custom slices can comprise:
 		
@@ -55,8 +55,8 @@ Next, define the right set of slices of the web to search over for your scenario
 
 To be able to search over your sites, they must be available online, and in Bing's web-index. 
 
-[!NOTE]
 If you own a site that you want to search over, which is not available in Bing's web-index, you can follow up with Bing directly. Consult the [Bing webmaster documentation](https://www.bing.com/webmaster/help/webmaster-guidelines-30fba23a).
+
 
 ### Add first slice
 Start building your search by entering a domain, subdomain, or single webpage. To confirm your choice click **ADD**. 
@@ -91,8 +91,9 @@ You can add relevant suggestions to your custom search by clicking **Add**. The 
 
 Start validating your settings by searching over your defined subset of the web. On the right-hand side, you see the Search Preview. Enter a search term at the top, and press **enter** or click the search icon.
 
-[!NOTE]
-In case you do not see any result for your query, you might not have added enough websites to your custom slice of the web. As a result, no relevant search result can be found.
+> [!NOTE]
+> In case you do not see any result for your query, you might not have added enough websites to your custom slice of the web.
+> As a result, no relevant search result can be found.
 
 
 ![picture alt](searchpreview.png "Check your current search settings.")
@@ -173,8 +174,8 @@ You can programmatically retrieve custom search results for users via [Bing Web 
 1. The request URL has an additional parameter called `customconfig`.
 2. The response contains the elementary and customizable elements of the Bing Web Search API output.
 
-[!NOTE]
-Bing Custom Search allows customizing web results only. For this reason, it's not possible to retrieve, for example, image or news answers.
+> [!NOTE]
+> Bing Custom Search allows customizing web results only. It is not possible to retrieve, for example, image or news answers.
 
 Read the [Bing Web Search API Use and Display requirements](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/useanddisplayrequirements) to understand how to display the retrieved results.
 
