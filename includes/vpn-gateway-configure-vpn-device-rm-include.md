@@ -9,5 +9,4 @@ Site-to-Site connections to an on-premises network require a VPN device. While w
 When configuring your VPN device, you need the following:
 
 - A shared key. This is the same shared key that you specify when creating your Site-to-Site VPN connection. In our examples, we use a basic shared key. We recommend that you generate a more complex key to use.
-
 - The Public IP address of your virtual network gateway. You can view the public IP address by using the Azure portal, PowerShell, or CLI.

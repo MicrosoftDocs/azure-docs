@@ -25,40 +25,59 @@ The following example illustrates the basic steps for deploying R code:
 * Use the REDUCE operation to partition the input data on a key.
 * The R extensions for U-SQL include a built-in reducer (Extension.R.Reducer) that runs R code on each vertex assigned to the reducer. 
 * Usage of dedicated named data frames called inputFromUSQL and outputToUSQL respectively to pass data between USQL and R. Input and output DataFrame identifier names are fixed (that is, users cannot change these predefined names of input and output DataFrame identifiers).
-
+* The R code is embedded in the U-SQL script.
 
 --
 
-    REFERENCE ASSEMBLY [ExtPython];
-
-    DECLARE @myScript = @"
-    def get_mentions(tweet):
-        return ';'.join( ( w[1:] for w in tweet.split() if w[0]=='@' ) )
-
-    def usqlml_main(df):
-        del df['time']
-        del df['author']
-        df['mentions'] = df.tweet.apply(get_mentions)
-        del df['tweet']
-        return df
+    DECLARE @myRScript = @"
+    inputFromUSQL$Species = as.factor(inputFromUSQL$Species)
+    lm.fit=lm(unclass(Species)~.-Par, data=inputFromUSQL)
+    #do not return readonly columns and make sure that the column names are the same in usql and r scripts,
+    outputToUSQL=data.frame(summary(lm.fit)$coefficients)
+    colnames(outputToUSQL) <- c(""Estimate"", ""StdError"", ""tValue"", ""Pr"")
+    outputToUSQL
     ";
+    
+    @RScriptOutput = REDUCE … USING new Extension.R.Reducer(command:@myRScript, rReturnType:"dataframe");
 
-    @t  = 
-        SELECT * FROM 
-           (VALUES
-               ("D1","T1","A1","@foo Hello World @bar"),
-               ("D2","T2","A2","@baz Hello World @beer")
-           ) AS 
-               D( date, time, author, tweet );
+The following example illustrates a more complex usage. In this case, the R code is deployed as a RESOURCE that is the U-SQL script.
 
-    @m  =
-        REDUCE @t ON date
-        PRODUCE date string, mentions string
-        USING new Extension.Python.Reducer(pyScript:@myScript);
+--
 
-    OUTPUT @m
-        TO "/tweetmentions.csv"
-        USING Outputters.Csv();
+    REFERENCE ASSEMBLY [ExtR];
+
+    DEPLOY RESOURCE @"/usqlext/samples/R/RinUSQL_PredictUsingLinearModelasDF.R";
+    DEPLOY RESOURCE @"/usqlext/samples/R/my_model_LM_Iris.rda";
+    DECLARE @IrisData string = @"/usqlext/samples/R/iris.csv";
+    DECLARE @OutputFilePredictions string = @"/my/R/Output/LMPredictionsIris.txt";
+    DECLARE @PartitionCount int = 10;
+
+    @InputData =
+        EXTRACT 
+            SepalLength double,
+            SepalWidth double,
+            PetalLength double,
+            PetalWidth double,
+            Species string
+        FROM @IrisData
+        USING Extractors.Csv();
+
+    @ExtendedData =
+        SELECT 
+            Extension.R.RandomNumberGenerator.GetRandomNumber(@PartitionCount) AS Par,
+            SepalLength,
+            SepalWidth,
+            PetalLength,
+            PetalWidth
+        FROM @InputData;
+
+    // Predict Species
+
+    @RScriptOutput = REDUCE @ExtendedData ON Par
+        PRODUCE Par, fit double, lwr double, upr double
+        READONLY Par
+        USING new Extension.R.Reducer(scriptFile:"RinUSQL_PredictUsingLinearModelasDF.R", rReturnType:"dataframe", stringsAsFactors:false);
+        OUTPUT @RScriptOutput TO @OutputFilePredictions USING Outputters.Tsv();
 
 ## How R Integrates with U-SQL
 

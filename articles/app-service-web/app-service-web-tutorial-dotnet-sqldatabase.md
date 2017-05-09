@@ -170,7 +170,7 @@ Visual Studio lets you explorer and manage your new SQL Database easily in the *
 
 ### Create a database connection
 
-Open **SQL Server Object Explorer** by typing `Ctrl`+`\`, `Ctrl`+`S`.
+Open **SQL Server Object Explorer** by typing `Ctrl`+`` ` ``, `Ctrl`+`S`.
 
 At the top of **SQL Server Object Explorer**, click the **Add SQL Server** button.
 

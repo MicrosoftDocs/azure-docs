@@ -29,6 +29,8 @@
 ### [Set location](resource-manager-template-location.md)
 ### [Assign tags](resource-manager-template-tags.md)
 ### [Set child resource name and type](resource-manager-template-child-resource.md)
+### [Update resource](resource-manager-update.md)
+### [Use objects for parameters](resource-manager-objects-as-parameters.md)
 ### [Share state between linked templates](best-practices-resource-manager-state.md)
 ### [Patterns for designing templates](best-practices-resource-manager-design-templates.md)
 ## Deploy

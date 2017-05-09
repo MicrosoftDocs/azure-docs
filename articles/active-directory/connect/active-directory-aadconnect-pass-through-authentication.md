@@ -45,7 +45,7 @@ When combined with the [Seamless Single Sign-on](active-directory-aadconnect-sso
 ## What's available during preview?
 
 >[!NOTE]
->Azure AD pass-through authentication is currently in preview. It is a free feature and you don't need any paid editions of Azure AD to use it. 
+>Azure AD pass-through authentication is currently in preview. It is a free feature and you don't need any paid editions of Azure AD to use it.
 
 The following scenarios are fully supported during preview:
 
@@ -156,7 +156,7 @@ The diagram below also illustrates the various steps. Note that all requests and
 
 ### Note about password writeback
 
-In case you have configured [password writeback](../active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) on your tenant and for a specific user, if the user signs in using pass-through authentication, they will be able to change or reset their passwords as before. The passwords will be written back to your on-premises Active Directory as expected.
+In case you have configured [password writeback](../active-directory-passwords-update-your-own-password.md) on your tenant and for a specific user, if the user signs in using pass-through authentication, they will be able to change or reset their passwords as before. The passwords will be written back to your on-premises Active Directory as expected.
 
 However, if one of these conditions is not true (password writeback is not configured on your tenant or the user doesn't have a valid Azure AD license assigned to them), then the user will not be allowed to update their passwords in the cloud, including if their password has expired. The user will instead see a message as follows: "Your organization doesn't allow you to update your password on this site. Please update it according to the method recommended by your organization, or ask your admin if you need help.".
 

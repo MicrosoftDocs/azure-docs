@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/17/2017
+ms.date: 04/30/2017
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
@@ -41,7 +41,7 @@ The basic structure of a management solution file is the same as a [Resource Man
 
     {
        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "",
+       "contentVersion": "1.0",
        "parameters": {  },
        "variables": {  },
        "resources": [  ],
@@ -141,6 +141,7 @@ Following is a sample parameter entity for a solution.  This includes all of the
                 "category": "Schedule"
             }
         }
+	}
 
 
 You refer to parameter values in other elements of the solution with the syntax **parameters('parameter name')**.  For example, to access the workspace name, you would use **parameters('workspaceName')**

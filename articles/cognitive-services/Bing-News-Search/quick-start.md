@@ -15,7 +15,7 @@ ms.author: scottwhi
 
 # Your First News Search Query
 
-Before you can make your first call, you need to get a Cognitive Services subscription key. To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=search-api).
+Before you can make your first call, you need to get a Cognitive Services subscription key. To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api).
 
 To get News-only search results, you'd send a GET request to the following endpoint:  
   
@@ -32,18 +32,18 @@ https://api.cognitive.microsoft.com/bing/v5.0/news/search
   
 The request must use the HTTPS protocol, and all requests must be made from a server (calls may not be made from a client).  
   
-The request must specify the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference.md#query) query parameter, which contains the user's search term. Although it's optional, the request should also specify the [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference.md#mkt) query parameter, which identifies the market where you want the results to come from. For a list of optional query parameters such as `freshness` and `textDecorations`, see [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference.md#query-parameters). All query parameter values must be URL encoded.  
+The request must specify the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#query) query parameter, which contains the user's search term. Although it's optional, the request should also specify the [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#mkt) query parameter, which identifies the market where you want the results to come from. For a list of optional query parameters such as `freshness` and `textDecorations`, see [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#query-parameters). All query parameter values must be URL encoded.  
   
-The request must specify the [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference.md#subscriptionkey) header. Although optional, you are encouraged to also specify the following headers:  
+The request must specify the [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#subscriptionkey) header. Although optional, you are encouraged to also specify the following headers:  
   
--   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference.md#useragent)  
--   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference.md#clientid)  
--   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference.md#clientip)  
--   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference.md#location)  
+-   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#useragent)  
+-   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#clientid)  
+-   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#clientip)  
+-   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#location)  
 
 The client IP and location headers are important for returning location aware content.  
 
-For a list of all request and response headers, see [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference.md#headers).
+For a list of all request and response headers, see [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#headers).
 
 ## The Request
 
@@ -158,7 +158,7 @@ BingAPIs-Market: en-US
 > [!NOTE]
 > Version 7 Preview response changes:
 >
-> Added the `mentions` field to the [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference.md#newsarticle) object. The `mentions` field contains a list of entities (persons or places) that were found in the article.  
+> Added the `mentions` field to the [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) object. The `mentions` field contains a list of entities (persons or places) that were found in the article.  
 > 
 >     {
 >         "name" : "How Celebs Shacked Up at Coachella: Inside the Rental Mansions...",
@@ -176,7 +176,7 @@ BingAPIs-Market: en-US
 >         . . .
 >     }
 > 
-> Added the `video` field to the [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference.md#newsarticle) object. The `video` field contains a video that's related to the news article. The video is either an \<iframe\> that you can embed or a motion thumbnail.   
+> Added the `video` field to the [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) object. The `video` field contains a video that's related to the news article. The video is either an \<iframe\> that you can embed or a motion thumbnail.   
 >
 >         "video" : {
 >             "name" : "How Rock Stars do Coachella! Inside Gaga",
@@ -198,7 +198,7 @@ BingAPIs-Market: en-US
 >             }
 >         },
 >  
-> Added the `sort` field to the [News](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference.md#news) object. The `sort` field shows the sort order of the articles in the response. For example, the articles are sorted by relevance (default) or date. The `isSelected` field identifies the sort order that Bing applied. You can use `url` to send a request with a different sort order.
+> Added the `sort` field to the [News](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) object. The `sort` field shows the sort order of the articles in the response. For example, the articles are sorted by relevance (default) or date. The `isSelected` field identifies the sort order that Bing applied. You can use `url` to send a request with a different sort order.
 >
 > {
 >     "_type" : "News",

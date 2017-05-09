@@ -333,7 +333,7 @@ When you create a pool of compute nodes in Azure Batch, you can use the APIs to 
 
 * The specified subnet must allow communication from the Batch service to be able to schedule tasks on the compute nodes. If communication to the compute nodes is denied by a **Network Security Group (NSG)** associated with the VNet, then the Batch service sets the state of the compute nodes to **unusable**. 
 
-* If the specified VNet has any associated NSGs, then inbound communication must be enabled. For a Linux pool, ports 29876, 29877, and 22 must be enabled. For a Windows pool, port 3389 must be enabled.
+* If the specified VNet has any associated NSGs, then inbound communication must be enabled. For both Linux and Windows pools, ports 29876 and 29877 must be enabled. You can optionally enable (or selectively filter) ports 22 or 3389 for SSH on Linux pools or RDP on Windows pools, respectively.
 
 Additional settings for the VNet depend on the pool allocation mode of the Batch account.
 

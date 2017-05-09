@@ -63,6 +63,9 @@ First, download and install the [Microsoft Online Services Sign-In Assistant](ht
 
 After you install the PowerShell module, open PowerShell and connect to your B2C tenant. After you run `Get-Credential`, you will be prompted for a user name and password, Enter the user name and password of your B2C tenant administrator account.
 
+> [!IMPORTANT]
+> You need to use a B2C tenant administrator account that is **local** to the B2C tenant. These accounts look like this: myusername@myb2ctenant.onmicrosoft.com.
+
 ```powershell
 $msolcred = Get-Credential
 Connect-MsolService -credential $msolcred
