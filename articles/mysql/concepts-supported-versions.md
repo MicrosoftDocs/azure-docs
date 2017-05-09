@@ -25,6 +25,5 @@ Refer to the MySQL [documentation] (https://dev.mysql.com/doc/relnotes/mysql/5.7
 Azure Database for MySQL automatically manages patching for minor version updates. Currently, in public preview, major version upgrade is not supported. For example, upgrading from MySQL 5.6 to MySQL 5.7 is not supported.
 
 ## Next steps
-- For an overview of the service, see [Azure Database for MySQL Overview](./overview.md)
-- For information about specific resource quotas and limitations based on your **service tier**, see [Service tiers](./concepts-service-tiers.md)
-- For information on connecting to the service, see [Connection libraries for Azure Database for MySQL](./concepts-connection-libraries.md).
+
+For information about specific resource quotas and limitations based on your **service tier**, see [Service tiers](./concepts-service-tiers.md)
