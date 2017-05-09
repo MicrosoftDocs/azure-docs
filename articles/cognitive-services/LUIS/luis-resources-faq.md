@@ -11,9 +11,9 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: cahann
 ---
-# Language Understanding Intelligent Services (LUIS) in Azure Frequently Asked Questions
+# Language Understanding Intelligent Services (LUIS) Frequently Asked Questions
 
-This article contains answers to some frequently asked questions about LUIS
+This article contains answers to some frequently asked questions about LUIS.
 
 
 ## I want to build an app in LUIS with more than 80 intents. What should I do?
