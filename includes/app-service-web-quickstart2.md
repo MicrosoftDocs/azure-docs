@@ -59,7 +59,7 @@ https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
 
 Save the URI shown. You'll use it in the next step. The `<username>` is the [deployment user](#configure-a-deployment-user) that you created in a previous step.
 
-## Push to Azure from Git
+## Push to Azure from git
 
 Add an Azure remote to your local Git repository.
 

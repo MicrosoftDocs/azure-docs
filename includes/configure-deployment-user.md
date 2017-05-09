@@ -1,4 +1,4 @@
-## Configure a Deployment User  
+## Configure a deployment user  
 
 For FTP and local Git, you must have a deployment user configured on the server to authenticate your deployment.
 
