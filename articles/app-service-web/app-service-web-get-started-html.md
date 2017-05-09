@@ -60,7 +60,7 @@ The page is running as an Azure App Service web app:
 
 ![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
-# Update and redeploy the app
+## Update and redeploy the app
 
 Open the *index.html* file. Make a change to the markup. For example, change `Hello world!` to `Hello Azure!`
 

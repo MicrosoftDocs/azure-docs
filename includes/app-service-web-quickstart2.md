@@ -39,13 +39,13 @@ Browse to the site (`http://<app_name>.azurewebsites.net`) to see your newly cre
 ![app-service-web-service-created](../articles/app-service-web/media/app-service-web-get-started-nodejs-poc/app-service-web-service-created.png)
 
 
-## Configure local git deployment
+## Configure local Git deployment
 
 App Service supports several ways to deploy content to a web app, such as FTP, local Git, GitHub, Visual Studio Team Services, and Bitbucket. 
 
 For this quickstart, you deploy by using local Git. That means you'll deploy by using a Git command to push from a local repository to a repository in Azure. 
 
-Use the [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git) command to configure local git access to the web app.
+Use the [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git) command to configure local Git access to the web app.
 
 ```azurecli
 az appservice web source-control config-local-git --name <app_name> --resource-group myResourceGroup --query url --output tsv
