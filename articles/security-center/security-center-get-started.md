@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/11/2017
+ms.date: 05/08/2017
 ms.author: terrylan
 
 ---
@@ -76,8 +76,8 @@ You can configure security policies for your Azure subscriptions and resource gr
    ![Recommendations in Azure Security Center][5]
 2. Select a recommendation on the **Recommendations** blade to view more information and/or to take action to resolve the issue.
 
-### View the health and security state of your resources
-1. Return to the **Security Center** blade. The **Resource security health** tile contains indicators of the security state for virtual machines, networking, data, and applications.
+### View the security state of your resources
+1. Return to the **Security Center** blade. The **Prevention** section of the dashboard contains indicators of the security state for virtual machines, networking, data, and applications.
 2. Select **Compute** to view more information. The **Compute** blade opens showing three tabs:
 
   - **Overview** - Contains monitoring and virtual machine recommendations.
