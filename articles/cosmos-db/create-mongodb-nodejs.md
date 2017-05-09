@@ -231,8 +231,7 @@ If you're not going to continue to use this app, delete all resources created by
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a MongoDB collection using the Data Explorer. You can now migrate your data to Azure Cosmos DB or query your data.  
+In this quickstart, you've learned how to create an Azure Cosmos DB account and create a MongoDB collection using the Data Explorer. You can now query your Azure Cosmos DB data.  
 
-[Query using MongoDB](tutorial-query-mongodb.md)
-
-[How to query with API for MongoDB?](tutorial-query-mongodb.md)
+> [!div class="nextstepaction"]
+> [Query using MongoDB](tutorial-query-mongodb.md)

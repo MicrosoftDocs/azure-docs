@@ -326,6 +326,16 @@ Finally, the following code example deletes a table from a storage account. You 
 CloudTable table = tableClient.GetTableReference("people");
 table.DeleteIfExists();
 ```
+
+## Clean up resources 
+
+If you're not going to continue to use this app, use the following steps to delete all resources created by this tutorial in the Azure portal.   
+
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created.  
+2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**. 
+
+## Next steps
+
 In this tutorial, we covered how to get started using Azure Cosmos DB with the Table API, and you've done the following: 
 
 > [!div class="checklist"] 
@@ -340,20 +350,12 @@ In this tutorial, we covered how to get started using Azure Cosmos DB with the T
 > * Deleted an entity 
 > * Deleted a table  
 
-## Clean up resources 
-
-If you're not going to continue to use this app, use the following steps to delete all resources created by this tutorial in the Azure portal.   
-
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created.  
-2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**. 
-
-## Next steps
-
-In this tutorial, we covered how to get started using Azure Cosmos DB with the Table API. To learn more about Azure Table storage, follow these links to learn about more complex storage tasks:
+To learn more about Azure Table storage, follow these links to learn about more complex storage tasks:
 
 * Read about [Azure Cosmos DB: Table API](table-introduction.md)
 * View the Table service reference documentation for complete details about available APIs: [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 
 You can now proceed to the next tutorial and learn more about querying table data. 
 
-[Query with the Table API](tutorial-query-table.md)
+> [!div class="nextstepaction"]
+> [Query with the Table API](tutorial-query-table.md)
