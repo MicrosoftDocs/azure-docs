@@ -57,7 +57,7 @@ The steps below are used to create an OWIN middleware Startup Class to configure
 > 1. Right click on the project's root folder: >	`Add` > `New Item...` > `OWIN Startup class`<br/>
 > 2. Name it `Startup.cs`
 
-> Make sure the class selected is an OWIN Startup Class and not a standard C# class. Confirm this by checking if you see `[assembly: OwinStartup(typeof({NameSpace}.App_Start.Startup))]` above the namespace.
+> Make sure the class selected is an OWIN Startup Class and not a standard C# class. Confirm this by checking if you see `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` above the namespace.
 
 
 1. Add *OWIN* and *Microsoft.IdentityModel* references to `Startup.cs`:

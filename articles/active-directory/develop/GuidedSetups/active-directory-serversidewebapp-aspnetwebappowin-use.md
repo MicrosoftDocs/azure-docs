@@ -25,7 +25,7 @@ This step shows how to create a new controller to expose sign-in and sign-out me
 1.	Right click the `Controllers` folder and select `Add` > `Controller`
 2.	Select `MVC (.NET version) Controller – Empty`.
 3.	Click *Add*
-4.	Name it `HomeController`
+4.	Name it `HomeController` and click *Add*
 5.	Add *OWIN* references to the class:
 
 ```csharp
@@ -117,7 +117,7 @@ else
 <!--end-collapse-->
 
 ## Add a controller to display user's claims
-This controller demonstrates the uses of the `[Authorize]`s attribute to protect a controller. This attribute restricts access to the controller by only allowing authenticated users. The code below makes use of the attribute to display user claims that were retrieved as part of the sign-in.
+This controller demonstrates the uses of the `[Authorize]` attribute to protect a controller. This attribute restricts access to the controller by only allowing authenticated users. The code below makes use of the attribute to display user claims that were retrieved as part of the sign-in.
 
 1.	Right click the `Controllers` folder: `Add` > `Controller`
 2.	Select `MVC {version} Controller – Empty`.
