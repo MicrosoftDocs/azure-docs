@@ -68,6 +68,7 @@ The supported languages are as follows:
         Ocp-Apim-Subscription-Key: <your API key>
         Content-Type: application/json
         Accept: application/json
+
 2. Next, format your input rows in JSON. For sentiment, key phrases and language, the format is the same. Each ID should be unique and is the ID returned by the system. The maximum size of a single document that can be submitted is 10 KB, and the total maximum size of submitted input is 1 MB. No more than 1,000 documents may be submitted in one call. Rate limiting exists at a rate of 100 calls per minute - we therefore recommend that you submit large quantities of documents in a single call. Language is an optional parameter that should be specified if analyzing non-English text. An example of input is shown below, where the optional parameter `language` for sentiment analysis or key phrase extraction is included:
    
         {
