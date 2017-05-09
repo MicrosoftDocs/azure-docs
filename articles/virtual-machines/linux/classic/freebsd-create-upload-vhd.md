@@ -100,7 +100,7 @@ On the virtual machine where you installed the FreeBSD operating system, complet
         WALinuxAgent-2.1.4 running on freebsd 10.3
         Python: 2.7.11
         # ps auxw | grep waagent
-        /etc/rc.d/waagent
+        root   639   0.0  0.5 104620 17520 u0- I    05:17    0:00.20 python /usr/local/sbin/waagent -daemon (python2.7)
         # cat /var/log/waagent.log
 7. Deprovision the system.
 
