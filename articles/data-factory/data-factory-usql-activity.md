@@ -178,7 +178,7 @@ The following table describes names and descriptions of properties that are spec
 | runtimeVersion | Runtime version of the U-SQL engine to use | No | 
 | compilationMode | <p>Compilation mode of U-SQL. Must be one of these values:</p> <ul><li>**Semantic:** Only perform semantic checks and necessary sanity checks.</li><li>**Full:** Perform the full compilation, including syntax check, optimization, code generation, etc.</li><li>**SingleBox:** Perform the full compilation, with TargetType setting to SingleBox.</li></ul><p>If you don't specify a value for this property, the server determines the optimal compilation mode. </p>| No | 
 
-See [SearchLogProcessing.txt Script Definition](#script-definition) for the script definition. 
+See [SearchLogProcessing.txt Script Definition](#sample-u-sql-script) for the script definition. 
 
 ## Sample input and output datasets
 ### Input dataset
