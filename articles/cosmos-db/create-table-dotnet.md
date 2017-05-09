@@ -142,7 +142,7 @@ If you're not going to continue to use this app, delete all resources created by
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a table using the Data Explorer, and run an app.  
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a table using the Data Explorer, and run an app.  Now you can query your data using the Table API.  
 
 > [!div class="nextstepaction"]
 > [Query using Table API](tutorial-query-table.md)
