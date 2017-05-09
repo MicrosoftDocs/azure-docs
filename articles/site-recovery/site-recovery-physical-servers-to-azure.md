@@ -238,7 +238,7 @@ After you enable replication, the Mobility service is installed if you set up pu
 
 We recommend that you verify the VM properties and make any changes you need.
 
-1. Click **Replicated items** >, and select the machine. The **Essentials** blade shows information about machines settings and status.
+1. Click **Replicated items**, and select the machine. The **Essentials** blade shows information about machines settings and status.
 2. In **Properties**, you can view replication and failover information for the VM.
 3. In **Compute and Network** > **Compute properties**, you can specify the Azure VM name and target size. Modify the name to comply with [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) if you need to.
 4. Modify settings for the target network, subnet, and IP address that are assigned to the Azure VM:
