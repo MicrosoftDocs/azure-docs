@@ -469,7 +469,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/face/overview">
+                                            <a href="/azure/cognitive-services/face/">
                                                 <img src="media/index/API_Vis_Face.svg" alt="" />
                                                 <p>Face</p>
                                             </a>
@@ -535,7 +535,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/computer-vision/home">
+                                            <a href="/azure/cognitive-services/computer-vision/">
                                                 <img src="media/index/API_Vis_ComputerVision.svg" alt="" />
                                                 <p>Computer Vision</p>
                                             </a>
@@ -1827,7 +1827,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                         <a href="#cognitive">AI + Cognitive Services</a>
                         <ul id="cognitive" class="cardsA">
                             <li>
-                                <a href="/azure/cognitive-services/computer-vision/home">
+                                <a href="/azure/cognitive-services/computer-vision/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1846,7 +1846,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cognitive-services/face/overview">
+                                <a href="/azure/cognitive-services/face/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
