@@ -29,12 +29,12 @@
     href: app-service-web-tutorial-php-mysql.md
   - name: 1 - Node.js with MongoDB
     href: app-service-web-tutorial-nodejs-mongodb-app.md
-#  - name: 1- PHP with MySQL
-#    href: app-service-web-tutorial-php-mysql-app.md
+  - name: 1- PHP with MySQL
+    href: app-service-web-tutorial-php-mysql-app.md
   - name: 1 - WordPress with MySQL
     href: app-service-web-create-web-app-from-marketplace.md
-  - name: 1 - Java with MySQL
-    href: app-service-web-tutorial-java-mysql.md
+#  - name: 1 - Java with MySQL
+#    href: app-service-web-tutorial-java-mysql.md
   - name: 1 - Python with PostgreSQL
     href: app-service-web-tutorial-docker-python-postgresql-app.md
   - name: 2 - Map Custom Domain
