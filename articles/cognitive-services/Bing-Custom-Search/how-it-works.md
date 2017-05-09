@@ -23,8 +23,7 @@ After you have successfully completed the sign-up, you have been automatically g
 You can start now to configure your custom search service.
 
 > [!NOTE]
-> It is free to sign up to Bing Custom Search. The usage is capped to certain quota. The pricing overview provides detailed information on the available quota for Bing Custom Search Free Preview. 
-
+> It is free to sign up to Bing Custom Search. The usage is capped to certain quota.
 
 ## Build your custom search in the Bing Custom Search Portal
 You can build your custom search service in the Custom Search Portal.
@@ -33,25 +32,25 @@ Bing Custom Search portal supports these browsers:
 * Microsoft Edge - Desktop
 * Google Chrome - Desktop
 
-You can build as many different search services as you want. Technically, a search scenario is referred to as **custom search instance**. Before you publish a custom search instance, you should:
+You can build as many different search services as you want. Technically, a search service is referred to as **custom search instance**. Before you publish a custom search instance, you should:
 	
 1. Define the sites that you want to search over.
-2. Apply, and adjust based on your needs the Bing ranker for your selected sites.
+2. Apply, and adjust the Bing ranker for your selected sites, based on your needs.
 
 Bing Custom Search supports unlimited search application scenarios. The two most common scenarios are:
-* Building a site search
-* Building a topical search
+* Building a site search service
+* Building a topical search service
 
 ### Site search
 To build a site search service with Bing Custom Search, you can use the following features:
 * Let your users search across all your websites.
-* Pin top results to ensure sites that are important for your or your business are shown on top.
-* Adjust and control ranking based on your needs.
+* Pin top results to ensure sites that are important for you or your business are shown on top.
+* Adjust and control the ranking based on your needs.
 
 ### Vertical search
 To build a vertical search service, you can:
-* Design a custom search targeting hundreds of sites and webpages on a topic.
-* Deploy the search and use it on internal or external web applications.
+* Design a custom search service targeting hundreds of sites and webpages on a topic.
+* Deploy the search service and use it on internal or external web applications.
 
 
 ## Publish your custom search
