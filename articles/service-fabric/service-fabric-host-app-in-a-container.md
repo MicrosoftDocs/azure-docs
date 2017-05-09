@@ -66,9 +66,11 @@ To tell Docker that we want to run a SQL Server in a container, we can reference
          retries: 20
    ```
 
-   >[!NOTE] You can use any SQL Server you prefer for local debugging, as long as it is reachable from your host. However, **localdb** does not support `container -> host` communication.
+   >[!NOTE]
+   >You can use any SQL Server you prefer for local debugging, as long as it is reachable from your host. However, **localdb** does not support `container -> host` communication.
 
-   >[!NOTE] If you always want to run your SQL Server in a container, you can choose to add the preceding to the docker-compose.yml file instead of the docker-compose.override.yml file.
+   >[!NOTE]
+   >If you always want to run your SQL Server in a container, you can choose to add the preceding to the docker-compose.yml file instead of the docker-compose.override.yml file.
 
 
 4. Modify the `fabrikamfiber.web` node, add a new child node named `depends_on:`. This ensures that the `db` service (the SQL Server container) starts before our web application (fabrikamfiber.web).
@@ -89,11 +91,13 @@ To tell Docker that we want to run a SQL Server in a container, we can reference
    <add name="FabrikamFiber-DataWarehouse" connectionString="Data Source=db,1433;Database=MusicStore;User Id=sa;Password=Password1;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
    ```
 
-   >[!NOTE] If you want to use a different SQL Server when building a release build of your web application, add another connection string to your web.release.config file.
+   >[!NOTE]
+   >If you want to use a different SQL Server when building a release build of your web application, add another connection string to your web.release.config file.
 
 6. Press **F5** to run and debug the application in your container.
 
-   >[!NOTE] If it is the first time you have run a Windows container on your machine, Docker CE must pull down the base images for your containers first. The image is 14 GB.
+   >[!NOTE]
+   >If it is the first time you have run a Windows container on your machine, Docker CE must pull down the base images for your containers first. The image is 14 GB.
 
    Edge opens your application's defined launch page using the IP address of the container on the internal NAT network (typically 172.x.x.x). To learn more about debugging applications in containers using Visual Studio 2017, see [this article][link-debug-container].
 
@@ -107,7 +111,8 @@ For the remainder of this tutorial, you are using Visual Studio Team Services to
 
 If you already have a Service Fabric cluster to deploy your application to, you can skip this step. Otherwise, let us go ahead and create a Service Fabric Cluster.
 
->[!NOTE] The following procedure creates a Service Fabric cluster, secured by a self-signed certificate, that is placed in a KeyVault, created as part of the deployment. For more information on using Azure Active Directory authentication, see the [Create a Service Fabric cluster by using Azure Resource Manager][link-servicefabric-create-secure-clusters] article.
+>[!NOTE]
+>The following procedure creates a Service Fabric cluster, secured by a self-signed certificate, that is placed in a KeyVault, created as part of the deployment. For more information on using Azure Active Directory authentication, see the [Create a Service Fabric cluster by using Azure Resource Manager][link-servicefabric-create-secure-clusters] article.
 
 1. Download a local copy of the Azure template and parameters files referenced in the following.
     * [Azure Resource Manager template for Service Fabric][link-sf-clustertemplate] - The Resource Manager template that defines a Service Fabric Cluster.
@@ -152,7 +157,8 @@ If you already have a Service Fabric cluster to deploy your application to, you 
        -ResourceGroupName myclusterRG
    ```
 
-   >[!NOTE] The `-CertificateSubjectName` parameter should align with the clusterName parameter, specified in the parameters file, and the domain tied to the Azure region you choose, such as: `clustername.eastus.cloudapp.azure.com`.
+   >[!NOTE]
+   >The `-CertificateSubjectName` parameter should align with the clusterName parameter, specified in the parameters file, and the domain tied to the Azure region you choose, such as: `clustername.eastus.cloudapp.azure.com`.
    
     Once the configuration finishes, it will output information about the cluster created in Azure, as well as copy the certificate to the -CertificateOutputFolder directory.
 
@@ -182,13 +188,15 @@ Now that your code is synchronized with a VSTS source repository, you can config
 
 3. Set **Host Type** to **Service Fabric Cluster**.
 
-   >[!NOTE] Depending on the types of containers you are building, we are adding more options for you to host your application in containers in Azure. 
+   >[!NOTE]
+   >Depending on the types of containers you are building, we are adding more options for you to host your application in containers in Azure. 
 
 4. Set **Target Host** to the service fabric cluster you created in the previous section.
 
 5. Choose a **Container Registry** to publish your container to.
 
-   >[!TIP] Use the **Edit** button to create a container registry.
+   >[!TIP]
+   >Use the **Edit** button to create a container registry.
 	
 6. Press **OK**.
 
@@ -211,10 +219,10 @@ Now that you have containerized and deployed the Fabrikam Call Center solution, 
 [link-container-quickstart]: ~/virtualization/windowscontainers/quick-start/quick-start-windows-10
 [link-visualstudio-container-tools]: ~/dotnet/articles/core/docker/visual-studio-tools-for-docker
 [link-azure-powershell-install]: ~/powershell/azure/install-azurerm-ps
-[link-servicefabric-create-secure-clusters]: ~/azure/service-fabric/service-fabric-cluster-creation-via-arm
+[link-servicefabric-create-secure-clusters]: service-fabric-cluster-creation-via-arm
 [link-visualstudio-cd-extension]: http://aka.ms/cd4v
-[link-servicefabric-containers]: ~/azure/service-fabric/service-fabric-get-started-containers
-[link-servicefabric-createapp]: ~/azure/service-fabric/service-fabric-create-your-first-application-in-visual-studio
+[link-servicefabric-containers]: service-fabric-get-started-containers
+[link-servicefabric-createapp]: service-fabric-create-your-first-application-in-visual-studio
 [link-azure-portal]: http://portal.azure.com
 [link-sf-clustertemplate]: http://aka.ms/securepreviewonelineclustertemplate
 [link-sf-clustertemplate-parameters]: http://aka.ms/securepreviewonelineclusterparameters
