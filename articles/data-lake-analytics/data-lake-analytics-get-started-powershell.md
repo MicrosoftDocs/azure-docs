@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/06/2017
+ms.date: 05/04/2017
 ms.author: edmaca
 
 ---
@@ -27,7 +27,6 @@ Before you begin this tutorial, you must have the following information:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **A workstation with Azure PowerShell**. See [How to install and configure Azure PowerShell](/powershell/azure/overview).
-* **An Azure Resource Group**. 
 
 ## Preparing for the tutorial
 To create a Data Lake Analytics account, you first need to define:
@@ -46,20 +45,20 @@ $adla = "<DataLakeAnalyticsAccountName>"
 $location = "East US 2"
 ```
 
-## Create a Resource Group account
+## Create a Data Lake Analytics account
+
 If you don't already have a Resource Group to use, create one. 
 
 ```
 New-AzureRmResourceGroup -Name  $rg -Location $location
 ```
 
-## Create a Data Lake Store account
 Every Data Lake Analytics account requires a default Data Lake Store account that it uses for storing logs. You can reuse an existing account or create a new account. 
 
 ```
 New-AdlStore -ResourceGroupName $rg -Name $adls -Location $location
-````
-## Create a Data Lake Analytics account
+```
+
 Once a Resource Group and Data Lake Store account is available, create a Data Lake Analytics account.
 
 ```
@@ -95,6 +94,8 @@ Submit the script.
 Submit-AdlJob -AccountName $adla –ScriptPath "d:\test.usql"Submit
 ```
 
+## Monitor U-SQL Jobs
+
 List all the jobs in the account. The output includes the currently running jobs and those jobs that have recently completed.
 
 ```
@@ -125,13 +126,16 @@ Check for the existence of a file.
 Test-AdlStoreItem -Account $adls -Path "/data.csv"
 ```
 
-Download the file.
+## Uploading and Downloading files
+
+Download the output of the U-SQL script.
 
 ```
 Export-AdlStoreItem -AccountName $adls -Path "/data.csv"  -Destination "D:\data.csv"
 ```
 
-Upload a file.
+
+Upload a file to be used as an unput to a U-SQL script.
 
 ```
 Import-AdlStoreItem -AccountName $adls -Path "D:\data.tsv" -Destination "/data_copy.csv" 
