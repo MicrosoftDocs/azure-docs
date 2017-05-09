@@ -17,7 +17,7 @@ ms.date: 05/09/2017
 ms.author: andret
 
 ---
-# implementing sign in with Microsoft using ASP.NET MVC with a traditional web browser-based application
+# Implementing sign in with Microsoft using ASP.NET MVC with a traditional web browser-based application
 
 This guide demonstrates how to implement sign in with Microsoft using an ASP.NET MVC solution with a traditional web browser-based application using OpenID Connect. 
 
