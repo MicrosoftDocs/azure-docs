@@ -6,6 +6,8 @@
   items: 
   - name: Build a classifier
     href: getting-started-build-a-classifier.md
+  - name: Improve your classifier
+    href: getting-started-improving-your-classifier.md
   - name: Test your model
     href: test-your-model.md
   - name: Use the prediction API

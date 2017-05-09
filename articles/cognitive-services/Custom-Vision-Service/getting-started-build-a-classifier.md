@@ -20,25 +20,25 @@ To use the Custom Vision Service you must first build a classifier.
 
 To build a classifier, you must first have:
 
-- A subscription key from your Microsoft Azure account to access the Custom Vision Service web app. See [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/) to obtain your subscription key.
+- A valid MSA, so you can sign into customvision.ai and get started. Note that you will be able to access your subscription keys once you have created your first project.
 - A series of images to train your classifier (minimum of 30 images per tag).
 - A few images to test your classifier after the classifier is trained.
 
 ## Getting Started: Build a Classifier
 
-Custom Vision Service can be found by clicking here [https://customvision.ai](https://customvision.ai)
+Custom Vision Service can be found by clicking here: [https://customvision.ai](https://customvision.ai)
 
 After you log into Custom Vision Service, you will be presented with a list of projects.
 
-### 1. Click **New Project** to create your first project.
+1. Click **New Project** to create your first project.
 
-### 2. If this is your first project, you are asked to agree to the Terms of Service. Check the check box, then click the **I agree** button.
+2. If this is your first project, you are asked to agree to the Terms of Service. Check the check box, then click the **I agree** button.
 
 The New Project dialog box appears.
 
 ![The new project dialog box, which has fields for name, description, and domains which consist of general, food, landmarks, retail, and adult.](./media/getting-started-build-a-classifier/new-project.png)
 
-### 3. Enter a name for this project, a description of the project, and select one domain.
+3. Enter a name for this project, a description of the project, and select one domain.
 
 There are several domains available, and each one optimizes the classifier for a specific type of images:
 
@@ -52,37 +52,49 @@ There are several domains available, and each one optimizes the classifier for a
 
 You can change the domain later if you wish.
 
-### 4. Add images to train your classifier.
+4. Add images to train your classifier.
 
 Add some images to train your classifier. Let's say you want a classifier to distinguish between dogs and ponies. You would upload and tag at least 30 images of dogs and 30 images of ponies. Try to upload a variety of images with different camera angles, lighting, background, types, styles, groups, sizes, etc. We recommend variety in your photos to ensure your classifier is not biased in any way and can generalize well.
 
 **Note:** Custom Vision Service accepts training images in JPG/JPEG, PNG, and BMP format, up to 6 MB per image (prediction images can be up to 4 MB per image). Images are recommended to be 256 pixels on the shortest edge. Any images shorter than 256 pixels on the shortest edge will be scaled up by Custom Vision Service.
 
 a. Click **Add images**.
+
    ![The add images control is shown in the upper left, and as a button at bottom center.](./media/getting-started-build-a-classifier/add-images01.png)
+
 b. Browse to the location of your training images.
+
    **Note:** You can use the REST API to load training images from URLs. The web app can only upload training images from your local computer.
+
    ![The browse local files button is shown near bottom center.](./media/getting-started-build-a-classifier/add-images02.png)
+
 c. Select the images for your first tag.
+
 d. Click `Open` to open the selected images.
+
 e. Assign tags: Type in the tag you want to assign, then press the **+** button to assign the tag. You can add more than one tag at a time to the images.
+
    ![The "add some tags" text control is below the images of dogs. The plus sign is to the right of the text control. The "upload files" button is on the lower right.](./media/getting-started-build-a-classifier/add-images03.png)
+
 f. When you are done adding tags, click **Upload [number] files**. The upload could take some time if you have a large number of images or a slow Internet connection.
+
 g. After the files have uploaded, click **Done**.
+
    ![The progress bar shows all tasks completed. The upload report shows 38 images uploaded successfully. The Done button is on the lower right.](./media/getting-started-build-a-classifier/add-images04.png)
+
 h. To load more images with a different set of tags, return to step a.
 
-### 5. Train your classifier
+5. Train your classifier
 
 After your images are uploaded, you are ready to train your classifier. All you have to do is click the **Train** button.
 
 ![The train button is near the right top of the browser window.](./media/getting-started-build-a-classifier/train01.png)
 
-It should take less than two minutes to train your classifier.
+It should only take a few minutes to train your classifier.
 
 ![The train button is near the right top of the browser window.](./media/getting-started-build-a-classifier/train02.png)
 
-### 6. Evaluate your classifier
+6. Evaluate your classifier
 
 The precision and recall indicators tell you how good your classifier is, based on automatic testing. Note that Custom Vision Service uses the images you submitted for training to calculate these numbers, using a process called [k-fold cross validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)).
 
@@ -101,4 +113,4 @@ The qualities of the classifier results are displayed
 
 ## Next steps
 
-[Tutorial](csharp-tutorial.md)
+[Custom Vision API C# tutorial](csharp-tutorial.md)
