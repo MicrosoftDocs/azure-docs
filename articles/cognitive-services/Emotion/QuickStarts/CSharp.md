@@ -17,7 +17,7 @@ This article provides information and a code sample to help you quickly get star
 
 ## Prerequisites
 * Get the Microsoft Cognitive Emotion API Windows SDK [here](https://www.nuget.org/packages/Microsoft.ProjectOxford.Emotion/)
-* Get your free Subscription Key [here](https://www.microsoft.com/cognitive-services/en-us/sign-up)
+* Get your free Subscription Key [here](https://azure.microsoft.com/en-us/try/cognitive-services/)
 
 ## Emotion Recognition C# Example Request
 

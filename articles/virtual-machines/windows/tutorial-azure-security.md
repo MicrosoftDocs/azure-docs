@@ -120,3 +120,8 @@ In this tutorial, you configured and reviewed VMs with Azure Security Center. Yo
 > * Configure security policies
 > * View and fix configuration health issues
 > * Review detected threats
+
+Follow this link to see pre-built virtual machine script samples.
+
+> [!div class="nextstepaction"]
+> [Windows virtual machine script samples](./powershell-samples.md)
