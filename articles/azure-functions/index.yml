@@ -11,10 +11,19 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/23/2017
+  ms.date: 01-23-2017
   ms.author: carolz
 abstract:
-  description: Azure Functions is a serverless compute service that enables you to run code on-demand without having to explicitly provision or manage infrastructure.  Use Azure Functions to run a script or piece of code in response to a variety of events. Learn how to use Azure Functions with our quickstarts, tutorials, and samples.
+  description: Azure Functions is a serverless compute service that enables you to run code on-demand without having to explicitly provision or manage infrastructure. Use Azure Functions to run a script or piece of code in response to a variety of events. Learn how to use Azure Functions with our quickstarts, tutorials, and samples.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/get-started-with-azure-functions.png
+      width: 250  
+    title: Get started with Azure Functions. (2:39)
+    href: https://azure.microsoft.com/en-us/resources/videos/get-started-with-azure-functions/
+    width: 250
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -25,8 +34,12 @@ sections:
     items: 
     - image: 
         src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
-      text: Create function - portal
+      text: Azure portal
       href: /azure/azure-functions/functions-create-first-azure-function
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/azure-functions/functions-create-first-azure-function-azure-cli
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
