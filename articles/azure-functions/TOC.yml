@@ -41,7 +41,7 @@
   items:
   - name: 1 - Functions with Logic Apps
     href: functions-twitter-email.md
-  - name: 1 - Create a serverless API
+  - name: 2 - Create a serverless API
     href: functions-create-serverless-api.md
 - name: Concepts
   items:
