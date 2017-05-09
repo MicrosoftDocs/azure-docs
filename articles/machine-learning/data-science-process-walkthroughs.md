@@ -38,7 +38,7 @@ The [Data Science using Spark on Azure HDInsight](machine-learning-data-science-
 ## Data Science using Scala with Spark on Azure
 The [Data Science using Scala with Spark on Azure](machine-learning-data-science-process-scala-walkthrough.md) walkthrough shows how to use Scala for supervised machine learning tasks with the Spark scalable machine learning library (MLlib) and SparkML packages on an Azure HDInsight Spark cluster. It walks you through the tasks that constitute the [Data Science Process](http://aka.ms/datascienceprocess): data ingestion and exploration, visualization, feature engineering, modeling, and model consumption. The models built include logistic and linear regression, random forests, and gradient boosted trees.
 
-## Use Azure Data Lake Storage and Analytics
+## Use Azure Data Lake Store and Analytics
 The [Scalable Data Science in Azure Data Lake: An end-to-end Walkthrough](machine-learning-data-science-process-data-lake-walkthrough.md) shows how to use Azure Data Lake to do data exploration and binary classification tasks on a sample of the NYC taxi dataset to predict whether or not a tip is paid by a customer. 
 
 ## Use R with SQL Server R Services
