@@ -22,7 +22,7 @@ As you work in DevTest Labs, you might notice that there are certain default lim
 
 You can use each Azure resource until you reach its quota. Each subscription has separate quotas and usage is tracked per subscription.
 
-For example, each subscription has a default quota of twenty cores. So, if you are creating VMs in your lab with four cores each, then you can only create five VMs. 
+For example, each subscription has a default quota of 20 cores. So, if you are creating VMs in your lab with four cores each, then you can only create five VMs. 
 
 [Azure Subscription and Service Limits](https://docs.microsoft.com/azure/azure-subscription-service-limits) lists some of the most common quotas for Azure resources.
 
@@ -50,7 +50,7 @@ These steps show you how to request a quota increase through the [Azure portal](
 
    ![Request increase button](./media/devtest-lab-scale-lab/devtestlab-request-increase.png)
 
-1. Fill out the required information on all three tabs to complete and submit the request.
+1. To complete and submit the request, fill out the required information on all three tabs of the **New support request** form.
 
    ![Request increase form](./media/devtest-lab-scale-lab/devtestlab-support-form.png)
 
@@ -61,5 +61,4 @@ These steps show you how to request a quota increase through the [Azure portal](
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ### Next steps
-* Learn how to [create custom artifacts for your DevTest Labs VM](devtest-lab-artifact-author.md).
-* Explore the [DevTest Labs Azure Resource Manager QuickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates).
+* Explore the [DevTest Labs Azure Resource Manager QuickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
