@@ -1,6 +1,6 @@
 ---
-title: Simulate a device with the Azure IoT Gateway SDK (Linux) | Microsoft Docs
-description: How to use the Azure IoT Gateway SDK on Linux to create a simulated device that sends telemetry through a gateway to an IoT hub.
+title: Simulate a device with Azure IoT Edge (Linux) | Microsoft Docs
+description: How to use Azure IoT Edge on Linux to create a simulated device that sends telemetry through a gateway to an IoT hub.
 services: iot-hub
 documentationcenter: ''
 author: chipalost
@@ -17,7 +17,7 @@ ms.date: 02/08/2017
 ms.author: andbuc
 
 ---
-# Use the Azure IoT Gateway SDK to send device-to-cloud messages with a simulated device (Linux)
+# Use Azure IoT Edge to send device-to-cloud messages with a simulated device (Linux)
 [!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
 ## Build and run the sample
@@ -162,10 +162,10 @@ To run the sample:
 3. You can use the [device explorer][lnk-device-explorer] or [iothub-explorer][lnk-iothub-explorer] tool to monitor the messages that IoT hub receives from the gateway.
 
 ## Next steps
-If you want to gain a more advanced understanding of the IoT Gateway SDK and experiment with some code examples, visit the following developer tutorials and resources:
+If you want to gain a more advanced understanding of Azure IoT Edge and experiment with some code examples, visit the following developer tutorials and resources:
 
-* [Send device-to-cloud messages from a physical device with the IoT Gateway SDK][lnk-physical-device]
-* [Azure IoT Gateway SDK][lnk-gateway-sdk]
+* [Send device-to-cloud messages from a physical device with Azure IoT Edge][lnk-physical-device]
+* [Azure IoT Edge][lnk-gateway-sdk]
 
 To further explore the capabilities of IoT Hub, see:
 
