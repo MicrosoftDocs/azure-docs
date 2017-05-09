@@ -81,7 +81,7 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
 {
   "administratorLogin": "myadmin",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "mycliserver.database.windows.net",
+  "fullyQualifiedDomainName": "mycliserver.mysql.database.azure.com",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mycliresource/providers/Microsoft.DBforMySQL/servers/mycliserver",
   "location": "westus",
   "name": "mycliserver",
@@ -108,7 +108,7 @@ Open the command prompt and enter the following:
 
 1. Connect to the server using **mysql** command-line tool:
 ```dos
- mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
+ mysql -h mycliserver.mysql.database.azure.com -u myadmin@mycliserver -p
 ```
 
 2. View server status:
@@ -118,7 +118,7 @@ Open the command prompt and enter the following:
 If everything goes well, the command-line tool should output the following:
 
 ```dos
-C:\Users\v-chenyh>mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
+C:\Users\v-chenyh>mysql -h mycliserver.mysql.database.azure.com -u myadmin@mycliserver -p
 Enter password: ***********
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 65512
@@ -143,7 +143,7 @@ SSL:                    Not in use
 Using delimiter:        ;
 Server version:         5.6.26.0 MySQL Community Server (GPL)
 Protocol version:       10
-Connection:             mycliserver.database.windows.net via TCP/IP
+Connection:             mycliserver.mysql.database.azure.com via TCP/IP
 Server characterset:    latin1
 Db     characterset:    latin1
 Client characterset:    gbk
@@ -169,10 +169,10 @@ mysql>
 |----------------|-----------------|
 |	*Connection Name* | specify a name for this connection (this can be anything) |
 | *Connection Method* | choose Standard (TCP/IP) |
-| *Hostname* | mycliserver.database.windows.net (SERVER NAME you note down previously) |
+| *Hostname* | mycliserver.mysql.database.azure.com (Seerver name you previously noted) |
 | *Port* | 3306 |
-| *Username* | myadmin@mycliserver (SERVER ADMIN LOGIN you note down previously) |
-| *Password* | you can store admin account password in vault |
+| *Username* | myadmin@mycliserver (Server admin login you previously noted) |
+| *Password* | you can store the admin account password in vault |
 
 ![setup new connection](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
 
