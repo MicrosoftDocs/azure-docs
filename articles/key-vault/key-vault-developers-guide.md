@@ -110,6 +110,11 @@ These articles are about other scenarios and services that use or integrate with
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md) provides option for encryption of data that is stored in the account. For key management, Data Lake Store provides two modes for managing your master encryption keys (MEKs), which are required for decrypting any data that is stored in the Data Lake Store. You can either let Data Lake Store manage the MEKs for you, or choose to retain ownership of the MEKs using your Azure Key Vault account. You specify the mode of key management while creating a Data Lake Store account. 
 - [Azure Information Protection](/information-protection/plan-design/plan-implement-tenant-key) allows you to manager your own tenant key. For example, instead of Microsoft managing your tenant key (the default), you can manage your own tenant key to comply with specific regulations that apply to your organization. Managing your own tenant key is also referred to as bring your own key, or BYOK.
 
+## Key Vault overview and concepts
+
+- [Key Vault security worlds](key-vault-security-worlds.md)
+- [Key Vault soft-delete](key-vault-ovw-soft-delete.md)
+
 ## Social
 
 - [Key Vault Blog](http://aka.ms/kvblog)
