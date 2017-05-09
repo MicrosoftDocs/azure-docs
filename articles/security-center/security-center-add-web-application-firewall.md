@@ -38,6 +38,7 @@ Security Center recommends that you provision a WAF to help defend against attac
 4. To create a WAF, select a solution from the list of integrated partners. In this example, we select **Barracuda Web Application Firewall**.
 5. The **Barracuda Web Application Firewall** blade opens providing you information about the partner solution. Select **Create** in the information blade.
    ![Firewall information blade][3]
+
 6. The **New Web Application Firewall** blade opens, where you can perform **VM Configuration** steps and provide **WAF Information**. Select **VM Configuration**.
 7. In the **VM Configuration** blade, you enter information required to spin up the virtual machine that runs the WAF.
    ![VM configuration][4]
@@ -46,8 +47,10 @@ Security Center recommends that you provision a WAF to help defend against attac
 ## Finalize application protection
 1. Return to the **Recommendations** blade. A new entry was generated after you created the WAF, called **Finalize application protection**. This entry lets you know that you need to complete the process of actually wiring up the WAF within the Azure Virtual Network so that it can protect the application.
    ![Finalize application protection][5]
+
 2. Select **Finalize application protection**. A new blade opens. You can see that there is a web application that needs to have its traffic rerouted.
 3. Select the web application. A blade opens that gives you steps for finalizing the web application firewall setup. Complete the steps, and then select **Restrict traffic**. Security Center then does the wiring-up for you.
+
    ![Restrict traffic][6]
 
 > [!NOTE]
