@@ -279,13 +279,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         </li>
                                         <li>
                                             <a href="/azure/postgresql/">
-                                                <img src="media/index/SQLDatabase.svg" alt="" />
+                                                <img src="media/index/PostgreSQL.svg" alt="" />
                                                 <p>PostgreSQL</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/mysql/">
-                                                <img src="media/index/SQLDatabase.svg" alt="" />
+                                                <img src="media/index/MySQL.svg" alt="" />
                                                 <p>MySQL</p>
                                             </a>
                                         </li>
@@ -1752,7 +1752,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/SQLDatabase.svg" alt="" />
+                                                        <img src="media/index/PostgreSQL.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1771,7 +1771,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/SQLDatabase.svg" alt="" />
+                                                        <img src="media/index/MySQL.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
