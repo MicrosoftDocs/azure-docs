@@ -25,6 +25,8 @@
   items:
   - name: 1 - .NET with SQL DB
     href: app-service-web-tutorial-dotnet-sqldatabase.md
+  - name: 1 - PHP with MySQL
+    href: app-service-web-tutorial-php-mysql.md
   - name: 1 - Node.js with MongoDB
     href: app-service-web-tutorial-nodejs-mongodb-app.md
   - name: 2 - Map Custom Domain
