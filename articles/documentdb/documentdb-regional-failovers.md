@@ -37,7 +37,7 @@ Before we dive into failover modes, we look at how you can configure an applicat
 * First, deploy your application in multiple regions
 * To ensure low latency access from every region your application is deployed, configure the corresponding [preferred regions list](https://msdn.microsoft.com/library/microsoft.azure.documents.client.connectionpolicy.preferredlocations.aspx#P:Microsoft.Azure.Documents.Client.ConnectionPolicy.PreferredLocations) for each region via one of the supported SDKs.
 
-The following snippet shows how to initialize a multi-region application. Here, the Cosmos DB account `contoso.documents.azure.com` is configured with two regions - West US and North Europe. 
+The following snippet shows how to initialize a multi-region application. Here, the Azure Cosmos DB account `contoso.documents.azure.com` is configured with two regions - West US and North Europe. 
 
 * The application is deployed in the West US region (using Azure App Services for example) 
 * Configured with `West US` as the first preferred region for low latency reads
@@ -117,6 +117,6 @@ In this article, we reviewed how manual and automatic failovers work in Cosmos D
 ## <a id="NextSteps"></a>Next Steps
 * Learn about how Cosmos DB supports [global distribution](documentdb-distribute-data-globally.md)
 * Learn about [global consistency with Azure Cosmos DB](documentdb-consistency-levels.md)
-* Develop with multiple regions using the [Azure DocumentDB SDK](documentdb-developing-with-multiple-regions.md)
+* Develop with multiple regions using Azure Cosmos DB's [DocumentDB SDK](../cosmos-db/tutorial-global-distribution-documentdb.md)
 * Learn how to build [Multi-region writer architectures](documentdb-multi-region-writers.md) with Azure DocumentDB
 

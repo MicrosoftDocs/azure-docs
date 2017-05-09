@@ -166,4 +166,4 @@ In this quickstart, you've learned how to create an Azure Cosmos DB account, cre
 
 [Query using Gremlin](tutorial-query-graph.md)
 
-[Distribute your data globally](../documentdb/documentdb-portal-global-replication.md)
+[Distribute your data globally](tutorial-global-distribution-graph.md)

@@ -67,5 +67,4 @@ Information about Azure Cosmos DB's MongoDB API is integrated into the overall A
 * Build your first API for MongoDB web app using .[NET](documentdb-mongodb-application.md).
 * Connect to an API for MongoDB account using [Robomongo](documentdb-mongodb-robomongo.md).
 * Learn how many RUs your operations are using with the [GetLastRequestStatistics command and the Azure portal metrics](documentdb-request-units.md#GetLastRequestStatistics).
-* Learn how to [configure read preferences for globally distributed apps](documentdb-developing-with-multiple-regions.md#ReadPreferencesAPIforMongoDB).
-
+* Learn how to [configure read preferences for globally distributed apps](../cosmos-db/tutorial-global-distribution-mongodb.md).

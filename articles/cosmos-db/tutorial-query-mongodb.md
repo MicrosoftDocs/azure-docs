@@ -301,6 +301,6 @@ No results will be returned as we do not have more than 2 children. Only when pa
 
 In this tutorial, you've learned how to query graph data using MongoDB. You can now distribute data globally using the portal or install the Local emulator for local development.  
 
-[Distribute your data globally](../documentdb/documentdb-portal-global-replication.md)
+[Distribute your data globally](tutorial-global-distribution-mongodb.md)
 
 [Develop locally](../documentdb/documentdb-nosql-local-emulator.md)

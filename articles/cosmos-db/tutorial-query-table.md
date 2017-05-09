@@ -103,6 +103,6 @@ await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
 
 In this tutorial, you've learned how to query data using the Table API. You can now distribute data globally using the portal or install the Local emulator for local development.  
 
-[Distribute your data globally](../documentdb/documentdb-portal-global-replication.md)
+[Distribute your data globally](tutorial-global-distribution-table.md)
 
 [Develop locally](../documentdb/documentdb-nosql-local-emulator.md)

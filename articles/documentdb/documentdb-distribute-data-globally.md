@@ -43,11 +43,11 @@ Azure is constantly growing its geographical presence by bringing new regions on
 ![Azure Cosmos DB available on all Azure regions](./media/documentdb-distribute-data-globally/azure-regions.png)
 
 ### <a id="UnlimitedRegionsPerAccount"></a>Associating an unlimited number of regions with your Azure Cosmos DB database account
-Azure Cosmos DB allows you to associate any number of Azure regions with your Azure Cosmos DB database account. Outside of geo-fencing restrictions (for example, China, Germany), there are no limitations on the number of regions that can be associated with your Azure Cosmos DB database account. The following figure shows a database account configured to span across 21 Azure regions.  
+Azure Cosmos DB allows you to associate any number of Azure regions with your Azure Cosmos DB database account. Outside of geo-fencing restrictions (for example, China, Germany), there are no limitations on the number of regions that can be associated with your Azure Cosmos DB database account. The following figure shows a database account configured to span across 25 Azure regions.  
 
-**A tenant's Azure Cosmos DB database account spanning 21 Azure regions**
+**A tenant's Azure Cosmos DB database account spanning 25 Azure regions**
 
-![Azure Cosmos DB database account spanning 21 Azure regions](./media/documentdb-distribute-data-globally/documentdb-spanning-regions.png)
+![Azure Cosmos DB database account spanning 25 Azure regions](./media/documentdb-distribute-data-globally/documentdb-spanning-regions.png)
 
 ### <a id="PolicyBasedGeoFencing"></a>Policy-based geo-fencing
 Azure Cosmos DB is designed to have policy-based geo-fencing capabilities. Geo-fencing is an important component to ensure data governance and compliance restrictions and may prevent associating a specific region with your account. Examples of geo-fencing include (but are not restricted to), scoping global distribution to the regions within a sovereign cloud (for example, China and Germany), or within a government taxation boundary (for example, Australia). The policies are controlled using the metadata of your Azure subscription.
@@ -91,6 +91,8 @@ Currently the automatic and manual failover capabilities are exposed at the gran
 
 ### <a id="MultiHomingAPIs"></a>Multi-homing APIs in Azure Cosmos DB
 Azure Cosmos DB allows you to interact with the database using either logical (region agnostic) or physical (region-specific) endpoints. Using logical endpoints ensures that the application can transparently be multi-homed in case of failover. The latter, physical endpoints, provide fine-grained control to the application to redirect reads and writes to specific regions.
+
+You can find information on how to configure read preferences for the [DocumentDB](../cosmos-db/tutorial-global-distribution-documentdb.md), [Graph](../cosmos-db/tutorial-global-distribution-graph.md), [Table](../cosmos-db/tutorial-global-distribution-table.md), and [MongoDB](../cosmos-db/tutorial-global-distribution-mongodb.md) APIs in their respective linked articles.
 
 ### <a id="TransparentSchemaMigration"></a>Transparent and consistent database schema and index migration 
 Azure Cosmos DB is fully [schema agnostic](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). The unique design of its database engine allows it to automatically and synchronously index all of the data it ingests without requiring any schema or secondary indices from you. This enables you to iterate your globally distributed application rapidly without worrying about database schema and index migration or coordinating multi-phase application rollouts of schema changes. Azure Cosmos DB guarantees that any changes to indexing policies explicitly made by you does not result into degradation of either performance or availability.  
@@ -221,7 +223,7 @@ Azure Cosmos DB transparently exposes the throughput, latency, consistency and a
 ![Azure Cosmos DB customer-visible SLA metrics](./media/documentdb-distribute-data-globally/documentdb-customer-slas.png)
 
 ## <a id="Next Steps"></a>Next Steps
-* To implement global replication on your Azure Cosmos DB account using the Azure portal, see [How to perform Azure Cosmos DB global database replication using the Azure portal](documentdb-portal-global-replication.md).
+* To implement global replication on your Azure Cosmos DB account using the Azure portal, see [How to perform Azure Cosmos DB global database replication using the Azure portal](../cosmos-db/tutorial-global-distribution-documentdb.md).
 * To learn about how to implement multi-master architectures with Azure Cosmos DB, see [Multi-master database architectures with Azure Cosmos DB](documentdb-multi-region-writers.md).
 * To learn more about how automatic and manual failovers work in Azure Cosmos DB, see [Regional Failovers in Azure Cosmos DB](documentdb-regional-failovers.md).
 

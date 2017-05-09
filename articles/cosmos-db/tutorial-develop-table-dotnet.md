@@ -134,7 +134,7 @@ Azure Cosmos DB supports a number of capabilities that are not available in the 
 | --- | --- |
 | TableConnectionMode  | Azure Cosmos DB supports two connectivity modes. In `Gateway` mode, requests are always made to the Azure Cosmos DB gateway, which forwards it to the corresponding data partitions. In `Direct` connectivity mode, the client fetches the mapping of tables to partitions, and requests are made directly against data partitions. We recommend `Direct`, the default.  |
 | TableConnectionProtocol | Azure Cosmos DB supports two connection protocols - `Https` and `Tcp`. `Tcp` is the default, and recommended because it is more lightweight. |
-| TablePreferredLocations | Comma-separated list of preferred (multi-homing) locations for reads. Each Azure Cosmos DB account can be associated with 1-30+ regions. Each client instance can specify a subset of these regions in the preferred order for low latency reads. The regions must be named using their [display names](https://msdn.microsoft.com/library/azure/gg441293.aspx), for example, `West US`. Also see [Multi-homing APIs](../documentdb/documentdb-developing-with-multiple-regions.md).
+| TablePreferredLocations | Comma-separated list of preferred (multi-homing) locations for reads. Each Azure Cosmos DB account can be associated with 1-30+ regions. Each client instance can specify a subset of these regions in the preferred order for low latency reads. The regions must be named using their [display names](https://msdn.microsoft.com/library/azure/gg441293.aspx), for example, `West US`. Also see [Multi-homing APIs](tutorial-global-distribution-table.md).
 | TableConsistencyLevel | You can trade off between latency, consistency, and availability by choosing between five well-defined consistency levels: `Strong`, `Session`, `Bounded-Staleness`, `ConsistentPrefix`, and `Eventual`. Default is `Session`. The choice of consistency level makes a significant performance difference in multi-region setups. See [Consistency levels](../documentdb/documentdb-consistency-levels.md) for details. |
 | TableThroughput | Reserved throughput for the table expressed in request units (RU) per second. Single tables can support 100s-millions of RU/s. See [Request units](../documentdb/documentdb-request-units.md). Default is `400` |
 | TableIndexingPolicy | Consistent and automatic secondary indexing of all columns within tables | JSON string conforming to the indexing policy specification. See [Indexing Policy](../documentdb/documentdb-indexing-policies.md) to see how you can change indexing policy to include/exclude specific columns. | Automatic indexing of all properties (hash for strings, and range for numbers) |
@@ -280,7 +280,7 @@ TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smit
 TableResult retrievedResult = table.Execute(retrieveOperation);
 ```
 > [!TIP]
-> Learn about multi-homing APIs at [Developing with multiple regions](../documentdb/documentdb-developing-with-multiple-regions.md).
+> Learn about multi-homing APIs at [Developing with multiple regions](tutorial-global-distribution-table.md)
 >
 
 ## Query entities using automatic secondary indexes
