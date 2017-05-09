@@ -28,7 +28,7 @@ ms.author: iainfou
 6. Select **Dashboards** across the top, then select **Open in Visual Studio**.
 
 
-## Create ASP.NET web appplication
+## Create ASP.NET web application
 Visual Studio opens the **Team Explorer** window to connect to your project.
 
 1. Click **Clone** to create a local git repo of your VSTS project.
@@ -57,7 +57,7 @@ Watch as the build is scheduled on a hosted agent, then begins to build.
 
 
 ## Create VM
-Create a Windows Server 2016 VM using [this script sample](../scripts/virtual-machines-windows-powershell-sample-create-vm?toc=%2fpowershell%2fmodule%2ftoc.json). It takes a few minutees for the script to run and create the VM. Once the VM has been created, open port 80 for web traffic:
+Create a Windows Server 2016 VM using [this script sample](../scripts/virtual-machines-windows-powershell-sample-create-vm?toc=%2fpowershell%2fmodule%2ftoc.json). It takes a few minutes for the script to run and create the VM. Once the VM has been created, open port 80 for web traffic:
 
 ```powershell
 Get-AzureRmNetworkSecurityGroup `
@@ -133,7 +133,7 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 ## Create release and publish
 1. In your release definition, click **+ Release**, then click **Create Release**.
 2. Verify that the latest build is selected in the drop-down list, along with **Automated deployment: After release creation**. Click **Create**.
-3. A small banner appears across the top of you release definition, such as *Release 'Release-1' has been created*. Click the release link.
+3. A small banner appears across the top of your release definition, such as *Release 'Release-1' has been created*. Click the release link.
 4. Open the **Logs** tab to watch the release progress.
 5. After the release is complete, open a web browser and enter the public IIP address of your VM. Your ASP.NET website is running.
 
