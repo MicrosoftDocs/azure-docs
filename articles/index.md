@@ -143,7 +143,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardText">
-                                                <h3>Manage data</h3>
+                                                <h3>Manage data and AI</h3>
                                                 <p>&nbsp;</p>
                                                 <div class="likeAnH3"><strong>Relational Databases</strong></div>
                                                 <a class="barLink" href="/azure/sql-database/">SQL Database as a Service</a>
@@ -152,6 +152,9 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <p>&nbsp;</p>
                                                 <div class="likeAnH3"><strong>NoSQL</strong></div>
                                                 <a class="barLink" href="/azure/cosmosdb/">Cosmos DB</a>
+                                                <div class="likeAnH3"><strong>AI and Cognitive Services</strong></div>
+                                                <a class="barLink" href="/azure/cognitive-services/computer-vision/">Computer Vision API</a>
+                                                <a class="barLink" href="/azure/cosmosdb/">Face API</a>
                                             </div>
                                         </div>
                                     </div>
@@ -175,20 +178,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                         <span>Azure<br />PowerShell</span>
                                                     </a>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li></li>
-                            <li>
-                                <div class="cardSize">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardText">
-                                                <h3>AI and Cognitive Services</h3>
-                                                <a class="barLink" style="width:100%" href="/azure/cognitive-services/computer-vision/">Computer Vision API</a><br />
-                                                <a class="barLink" href="/azure/cognitive-services/face/">Face API</a>
                                             </div>
                                         </div>
                                     </div>
