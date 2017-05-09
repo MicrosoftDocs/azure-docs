@@ -42,12 +42,12 @@ Then choose your application development scenario:
 
 ## What's new
 
-Check back here often to learn about future changes to the Azure Active Directory B2C. We'll also tweet about any updates by using @AzureAD.
+Check back here often to learn about future changes to the Azure Active Directory B2C. We also tweet about any updates by using @AzureAD.
 
 * In addition to "Built-in Policies" (General Availability), the ["Custom Policies"](active-directory-b2c-overview-custom.md) feature is now available in public preview.  Custom policies are for identity pros that need control over the composition of their identity experience.
 * The [Access Token](https://azure.microsoft.com/en-us/blog/azure-ad-b2c-access-tokens-now-in-public-preview) feature is now available in public preview.
 * [General Availability of Europe-based Azure AD B2C](https://azure.microsoft.com/en-us/blog/azuread-b2c-ga-eu/) directories has been announced.
-* Check our our growing library of [code samples on Github](https://github.com/Azure-Samples?q=b2c)!
+* Check out our growing library of [code samples on Github](https://github.com/Azure-Samples?q=b2c)!
 
 ## How-to articles
 
@@ -57,12 +57,12 @@ Learn how to use specific Azure Active Directory B2C features:
 * [Use custom attributes to collect information about your consumers](active-directory-b2c-reference-custom-attr.md).
 * [Enable Azure Multi-Factor Authentication in your consumer-facing applications](active-directory-b2c-reference-mfa.md).
 * [Set up self-service password reset for your consumers](active-directory-b2c-reference-sspr.md).
-* [Customize the look and feel of sign up, sign in, and other consumer-facing pages](active-directory-b2c-reference-ui-customization.md) that are served by Azure Active Directory B2C.
+* [Customize the look and feel of sign-up, sign in, and other consumer-facing pages](active-directory-b2c-reference-ui-customization.md) that are served by Azure Active Directory B2C.
 * [Use the Azure Active Directory Graph API to programmatically create, read, update, and delete consumers](active-directory-b2c-devquickstarts-graph-dotnet.md) in your Azure Active Directory B2C tenant.
 
 ## Next steps
 
-These links will be useful for exploring the service in depth:
+These links are useful for exploring the service in depth:
 
 * See the [Azure Active Directory B2C pricing information](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 * Review our [code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory&term=b2c) for Azure Active Directory B2C. 
