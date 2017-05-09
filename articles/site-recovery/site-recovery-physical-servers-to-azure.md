@@ -17,7 +17,7 @@ ms.date: 04/19/2017
 ms.author: raynew
 
 ---
-# Replicate physical machines to Azure with Site Recovery
+# Replicate physical machines to Azure by using Site Recovery
 
 
 This article describes how to replicate on-premises physical machines to Azure by using the Azure Site Recovery service in the Azure portal.
