@@ -1,11 +1,11 @@
 ---
-title: How to save and configure your API Management service configuration using Git
+title: Configure your API Management service using Git - Azure | Microsoft Docs
 description: Learn how to save and configure your API Management service configuration using Git.
 services: api-management
 documentationcenter: ''
 author: steved0x
 manager: erikre
-editor: ''
+editor: mattfarm
 
 ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
@@ -13,13 +13,10 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: sdanie
-
+ms.date: 01/23/2017
+ms.author: apimpm
 ---
 # How to save and configure your API Management service configuration using Git
-> [!IMPORTANT]
-> Git configuration for API Management is currently in preview. It is functionally complete, but is in preview because we are actively seeking feedback on this feature. It is possible that we may make a breaking change in response to customer feedback, so we recommend not depending on the feature for use in production environments. If you have any feedback or questions, please let us know at `apimgmt@microsoft.com`.
 > 
 > 
 
@@ -37,7 +34,7 @@ When you make changes to your service using the publisher portal, PowerShell cmd
 
 The following steps provide an overview of managing your API Management service instance using Git.
 
-1. Enable Git access in your service
+1. Access Git configuration in your service
 2. Save your service configuration database to your Git repository
 3. Clone the Git repo to your local machine
 4. Pull the latest repo down to your local machine, and commit and push changes back to your repo
@@ -45,20 +42,14 @@ The following steps provide an overview of managing your API Management service 
 
 This article describes how to enable and use Git to manage your service configuration and provides a reference for the files and folders in the Git repository.
 
-## To enable Git access
-You can quickly view the status of your Git configuration by viewing the Git icon in the upper-right corner of the publisher portal. In this example, Git access has not yet been enabled.
+## Access Git configuration in your service
+You can quickly view the status of your Git configuration by viewing the Git icon in the upper-right corner of the publisher portal. In this example, the status message indicates that there are unsaved changes to the repository. This is because the API Management service configuration database has not yet been saved to the repository.
 
 ![Git status][api-management-git-icon-enable]
 
 To view and configure your Git configuration settings, you can either click the Git icon, or click the **Security** menu and navigate to the **Configuration repository** tab.
 
 ![Enable GIT][api-management-enable-git]
-
-To enable Git access, check the **Enable Git access** checkbox.
-
-After a moment the change is saved and a confirmation message is displayed. Note that Git icon has changed to color to indicate that Git access is enabled and the status message now indicates that there are unsaved changes to the repository. This is because the API Management service configuration database has not yet been saved to the repository.
-
-![Git enabled][api-management-git-enabled]
 
 > [!IMPORTANT]
 > Any secrets that are not defined as properties will be stored in the repository and will remain in its history until you disable and re-enable Git access. Properties provide a secure place to manage constant string values, including secrets, across all API configuration and policies, so you don't have to store them directly in your policy statements. For more information, see [How to use properties in Azure API Management policies](api-management-howto-properties.md).
@@ -164,7 +155,7 @@ Once your local changes are committed and pushed to the server repository, you c
 
 ![Deploy][api-management-configuration-deploy]
 
-For information on performing this operation using the REST API, see [Deploy Git changes to configuration database using the REST API](https://msdn.microsoft.com/library/dn781420.aspx#DeployChanges).
+For information on performing this operation using the REST API, see [Deploy Git changes to configuration database using the REST API](https://docs.microsoft.com/en-us/rest/api/apimanagement/tenantconfiguration).
 
 ## File and folder structure reference of local Git repository
 The files and folders in the local git repository contain the configuration information about the service instance.

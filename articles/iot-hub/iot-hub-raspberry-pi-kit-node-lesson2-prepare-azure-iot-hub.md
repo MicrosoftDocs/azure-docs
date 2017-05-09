@@ -1,5 +1,7 @@
 ---
-title: Create your Azure IoT hub and register Raspberry Pi 3 | Microsoft Docs
+featureFlags: 
+- usabilla
+title: 'Connect Raspberry Pi (Node) to Azure IoT - Lesson 2: Register device | Microsoft Docs'
 description: Create a resource group, create an Azure IoT hub, and register Pi in the IoT Hub identity registry by using Azure CLI.
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +10,16 @@ manager: timlt
 tags: ''
 keywords: 'raspberry pi cloud, pi cloud connect'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started
+
 ms.assetid: 736215b6-e7e4-46f9-af30-0ded9ffa5204
 ms.service: iot-hub
 ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---
@@ -62,7 +67,7 @@ Azure IoT Hub helps you connect, monitor, and manage millions of IoT assets. To 
 4. Create a resource group named iot-sample in the West US region by running the following command:
 
    ```bash
-   az resource group create --name iot-sample --location westus
+   az group create --name iot-sample --location westus
    ```
 
    `westus` is the location you create your resource group. If you want to use another location, you can run `az account list-locations -o table` to see all the locations Azure supports.

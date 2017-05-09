@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 01/05/2017
 ms.author: juliako
 
 ---
@@ -24,18 +24,7 @@ ms.author: juliako
 
 This topic shows how to customize Media Encoder Standard presets. The [Encoding with Media Encoder Standard using custom presets](media-services-custom-mes-presets-with-dotnet.md) topic shows how to use .NET to create an encoding task and a job that executes this task. Once you customize a preset, supply the custom presets to the encoding task. 
 
-In this topic, the custom presets that perform the following encoding tasks are demonstrated:
-
-- [Generate thumbnails](#thumbnails)
-- [Trim a video (clipping)](#trim_video)
-- [Create an overlay](#overlay)
-- [Insert a silent audio track when input has no audio](#silent_audio)
-- [Disable auto de-interlacing](#deinterlacing)
-- [Audio-only presets](#audio_only)
-- [Concatenate two or more video files](#concatenate)
-- [Crop videos with Media Encoder Standard](#crop)
-- [Insert a video track when input has no video](#no_video)
-- [Rotate a video](#rotate_video)
+In this topic, the custom presets that perform the following encoding tasks are demonstrated.
 
 ## Support for relative sizes
 
@@ -804,7 +793,11 @@ This section demonstrates two audio-only MES presets: AAC Audio and AAC Good Qua
     }
 
 ## <a id="concatenate"></a>Concatenate two or more video files
+
 The following example illustrates how you can generate a preset to concatenate two or more video files. The most common scenario is when you want to add a header or a trailer to the main video. The intended use is when the video files being edited together share  properties (video resolution, frame rate, audio track count, etc.). You should take care not to mix videos of different frame rates, or with different number of audio tracks.
+
+>[!NOTE]
+>The current design of the concatenation feature expects that the input video clips are consistent in terms of resolution, frame rate etc. 
 
 ### Requirements and considerations
 
@@ -921,7 +914,7 @@ By default, if you send an input to the encoder that contains only audio, and no
 >
 
 ### Inserting video at only the lowest bitrate
-Suppose you are using a multiple bitrate encoding preset such as ["H264 Multiple Bitrate 720p"](https://msdn.microsoft.com/library/mt269960.aspx) to encode your entire input catalog for streaming, which contains a mix of video files and audio-only files. In this scenario, when the input has no video, you may want to force the encoder to insert a monochrome video track at just the lowest bitrate, as opposed to inserting video at every output bitrate. To achieve this, you need to specify the "InsertBlackIfNoVideoBottomLayerOnly" flag.
+Suppose you are using a multiple bitrate encoding preset such as ["H264 Multiple Bitrate 720p"](media-services-mes-preset-h264-multiple-bitrate-720p.md) to encode your entire input catalog for streaming, which contains a mix of video files and audio-only files. In this scenario, when the input has no video, you may want to force the encoder to insert a monochrome video track at just the lowest bitrate, as opposed to inserting video at every output bitrate. To achieve this, you need to specify the "InsertBlackIfNoVideoBottomLayerOnly" flag.
 
 You can take any of the MES presets documented in [this](media-services-mes-presets-overview.md) section, and make the following modification:
 

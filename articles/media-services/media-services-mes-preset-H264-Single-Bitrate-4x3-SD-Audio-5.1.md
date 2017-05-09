@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/05/2017
 ms.author: juliako
 
 ---
@@ -24,7 +24,7 @@ ms.author: juliako
   
  This topic shows the `H264 Single Bitrate 4x3 SD Audio 5.1` preset in XML and JSON format.  
   
- This preset produces a single MP4 file with a bitrate of 18000 kbps, and AAC 5.1 audio. For detailed information about profile, bitrate, sampling rate, etc. of this preset, examine the XML or JSON defined below. For explanations of what each element means, and the valid values for each element, see the [Media Encoder Standard schema](media-services-mes-schema.md).  
+ This preset produces a single MP4 file with a bitrate of 1800 kbps, and AAC 5.1 audio. For detailed information about profile, bitrate, sampling rate, etc. of this preset, examine the XML or JSON defined below. For explanations of what each element means, and the valid values for each element, see the [Media Encoder Standard schema](media-services-mes-schema.md).  
   
  XML  
   

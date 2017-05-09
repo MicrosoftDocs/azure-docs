@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 03/10/2017
 ms.author: billmath
 
 ---
@@ -111,7 +111,7 @@ The following LDAP controls/features must be available on the LDAP server for th
 
 The True/False filter is frequently not reported as supported by LDAP directories and might show up on the **Global Page** under **Mandatory Features Not Found**. It is used to create **OR** filters in LDAP queries, for example when importing multiple object types. If you can import more than one object type, then your LDAP server supports this feature.
 
-If you use a directory where a unique identifier is the anchor the following must also be available (see the [Configure Anchors](#configure-anchors) section later in this article for more information):  
+If you use a directory where a unique identifier is the anchor the following must also be available (For more information, see the [Configure Anchors](#configure-anchors) section):  
 `1.3.6.1.4.1.4203.1.5.1` All operational attributes
 
 If the directory has more objects than what can fit in one call to the directory, then it is recommended to use paging. For paging to work, you need one of the following options:
@@ -159,7 +159,7 @@ On the Connectivity page, you must specify the Host, Port, and Binding informati
 * For other bindings, enter information either in username / password or select a certificate.
 * If you are using Kerberos to authenticate, then also provide the Realm/Domain of the user.
 
-The **attribute aliases** text box is used for attributes defined in the schema with RFC4522 syntax. These attributes cannot be detected during schema detection and the Connector needs help to identify those attributes. For example the following is needed to be entered in the attribute aliases box to correctly identify the userCertificate attribute as a binary attribute:
+The **attribute aliases** text box is used for attributes defined in the schema with RFC4522 syntax. These attributes cannot be detected during schema detection and the Connector needs help to identify those attributes. For example the following must be entered in the attribute aliases box to correctly identify the userCertificate attribute as a binary attribute:
 
 `userCertificate;binary`
 
@@ -225,10 +225,18 @@ For each namespace, it is also possible to configure connectivity settings that 
 
 It is also possible to select which containers and OUs the Connector should import from and export to.
 
+When performing a search this is done across all containers in the partition. In cases where there are large numbers of containers this behavior leads to performance degradation.
+
+>[!NOTE]
+Starting in the March 2017 update to the Generic LDAP connector searches can be limited in scope to only the selected containers. This can be done by selecting the checkbox 'Search only in selected containers' as shown in the image below.
+
+![Search only selected containers](./media/active-directory-aadconnectsync-connector-genericldap/partitions-only-selected-containers.png)
+
 ### Configure Anchors
 This page does always have a preconfigured value and cannot be changed. If the server vendor has been identified, then the anchor might be populated with an immutable attribute, for example the GUID for an object. If it has not been detected or is known to not have an immutable attribute, then the connector uses dn (distinguished name) as the anchor.
 
 ![anchors](./media/active-directory-aadconnectsync-connector-genericldap/anchors.png)
+
 
 The following is a list of LDAP servers and the anchor being used:
 
@@ -258,4 +266,3 @@ For directories with a delta change log that is based on date/time, it is highly
 
 ## Troubleshooting
 * For information on how to enable logging to troubleshoot the connector, see the [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
-

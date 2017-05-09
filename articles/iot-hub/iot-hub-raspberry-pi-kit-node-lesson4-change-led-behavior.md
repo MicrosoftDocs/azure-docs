@@ -1,5 +1,5 @@
 ---
-title: 'Optional: Change the on and off behavior of the LED | Microsoft Docs'
+title: 'Connect Raspberry Pi (Node) to Azure IoT - Lesson 4: Modify app | Microsoft Docs'
 description: Customize the messages to change the LED’s on and off behavior.
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timlt
 tags: ''
 keywords: 'control led with raspberry pi, raspberry pi led control, raspberry pi control led'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started
+
 ms.assetid: 3b42a4ad-0197-42f6-8ca9-04c883e879e8
 ms.service: iot-hub
 ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

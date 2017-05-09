@@ -5,7 +5,7 @@ This article outlines a set of proven practices for running a Linux virtual mach
 > 
 > 
 
-We don't recommend using a single VM for production workloads, because there is no up-time service level agreement (SLA) for single VMs on Azure. To get the SLA, you must deploy multiple VMs in an [availability set][availability-set]. For more information, see [Running multiple VMs on Azure][multi-vm]. 
+We don't recommend using a single VM for mission critical workloads, because it creates a single point of failure. For higher availability, deploy multiple VMs in an [availability set][availability-set]. For more information, see [Running multiple VMs on Azure][multi-vm]. 
 
 ## Architecture diagram
 Provisioning a VM in Azure involves more moving parts than just the VM itself. There are compute, networking, and storage elements that you need to consider.
@@ -92,7 +92,7 @@ To scale out horizontally, put two or more VMs into an availability set behind a
 
 ## Availability considerations
 
-As noted above, there is no SLA for a single VM. To get the SLA, you must deploy multiple VMs into an availability set.
+For higher availabiility, deploy multiple VMs in an availability set. This also provides a higher [service level agreement][vm-sla]  (SLA). 
 
 Your VM may be affected by [planned maintenance][planned-maintenance] or [unplanned maintenance][manage-vm-availability]. You can use [VM reboot logs][reboot-logs] to determine whether a VM reboot was caused by planned maintenance.
 
@@ -136,7 +136,7 @@ Use [role-based access control][rbac] (RBAC) to control access to the Azure reso
 
 A user can be assigned to multiple roles, and you can create custom roles for even more fine-grained permissions.
 
-> [!NOTE]
+d> [!NOTE]
 > RBAC does not limit the actions that a user logged into a VM can perform. Those permissions are determined by the account type on the guest OS.   
 > 
 > 
@@ -146,7 +146,7 @@ Use [audit logs][audit-logs] to see provisioning actions and other VM events.
 Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks. 
 
 ## Solution deployment
-
+m
 A deployment for this reference architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, and a single VM. To deploy the architecture, follow these steps: 
 
 1. Right click the button below and select either "Open link in new tab" or "Open link in new window."
@@ -156,39 +156,39 @@ A deployment for this reference architecture is available on [GitHub][github-fol
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-single-vm-rg` in the text box.
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
-   * Select **linux** in the **Os Type** drop down box.
+.   * Select **linux** in the **Os Type** drop down box.
    * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
    * Click on the **Purchase** button.
 3. Wait for the deployment to complete.
 4. The parameter files include a hard-coded administrator user name and password, and it is strongly recommended that you immediately change both. Click on the VM named `ra-single-vm0 `in the Azure portal. Then, click on **Reset password** in the **Support + troubleshooting** section. Select **Reset password** in the **Mode** dropdown box, then select a new **User name** and **Password**. Click the **Update** button to persist the new user name and password.
 
 ## Next steps
-In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy two or more instances in an Availability Set. For more information, see [Running multiple VMs on Azure][multi-vm].
+For higher availability, deploy two or more VMs behind a load balancer. For more information, see [Running multiple VMs on Azure][multi-vm].
 
 <!-- links -->
 
 [audit-logs]: https://azure.microsoft.com/en-us/blog/analyze-azure-audit-logs-in-powerbi-more/
-[availability-set]: ../articles/virtual-machines/virtual-machines-windows-create-availability-set.md
-[azure-cli]: ../articles/virtual-machines-command-line-tools.md
-[azure-linux]: ../articles/virtual-machines/virtual-machines-linux-azure-overview.md
+[availability-set]:../articles/virtual-machines/windows/create-availability-set.md
+[azure-cli]: /cli/azure/get-started-with-az-cli2
+[azure-linux]:../articles/virtual-machines/linux/overview.md
 [azure-storage]: ../articles/storage/storage-introduction.md
 [blob-snapshot]: ../articles/storage/storage-blob-snapshots.md
 [blob-storage]: ../articles/storage/storage-introduction.md
 [boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
-[data-disk]: ../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md
+[data-disk]: ../articles/storage/storage-about-disks-and-vhds-linux.md
 [disk-encryption]: ../articles/security/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md
-[fqdn]: ../articles/virtual-machines/virtual-machines-linux-portal-create-fqdn.md
+[fqdn]:../articles/virtual-machines/linux/portal-create-fqdn.md
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/
 [iostat]: https://en.wikipedia.org/wiki/Iostat
-[manage-vm-availability]: ../articles/virtual-machines/virtual-machines-linux-manage-availability.md
+[manage-vm-availability]:../articles/virtual-machines/linux/manage-availability.md
 [multi-vm]: ../articles/guidance/guidance-compute-multi-vm.md
 [naming conventions]: ../articles/guidance/guidance-naming-conventions.md
 [nsg]: ../articles/virtual-network/virtual-networks-nsg.md
 [nsg-default-rules]: ../articles/virtual-network/virtual-networks-nsg.md#default-rules
 [OSPatching]: https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching
-[planned-maintenance]: ../articles/virtual-machines/virtual-machines-linux-planned-maintenance.md
+[planned-maintenance]:../articles/virtual-machines/linux/planned-maintenance.md
 [premium-storage]: ../articles/storage/storage-premium-storage.md
 [rbac]: ../articles/active-directory/role-based-access-control-what-is.md
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
@@ -199,18 +199,18 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [Resize virtual machines]: https://azure.microsoft.com/en-us/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md
 [resource-manager-overview]: ../articles/azure-resource-manager/resource-group-overview.md
-[select-vm-image]: ../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md
+[select-vm-image]:../articles/virtual-machines/linux/cli-ps-findimage.md
 [services-by-region]: https://azure.microsoft.com/en-us/regions/#services
-[ssh-linux]: ../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md
+[ssh-linux]:../articles/virtual-machines/linux/mac-create-ssh-keys.md
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
 [storage-account-limits]: ../articles/azure-subscription-service-limits.md#storage-limits
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
-[virtual-machine-sizes]: ../articles/virtual-machines/virtual-machines-linux-sizes.md
+[virtual-machine-sizes]:../articles/virtual-machines/linux/sizes.md
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
-[vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
-[vm-size-tables]: ../articles/virtual-machines/virtual-machines-windows-sizes.md#size-tables
-[vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
+[vm-resize]:../articles/virtual-machines/linux/change-vm-size.md
+[vm-size-tables]:../articles/virtual-machines/windows/sizes.md#size-tables
+[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm
 [components]: #Solution-components
 [blocks]: https://github.com/mspnp/template-building-blocks

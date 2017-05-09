@@ -2,7 +2,7 @@
 title: Streaming logs and console
 description: Streaming logs and console overview
 author: btardif
-manager: wpickett
+manager: erikre
 editor: ''
 services: app-service\web
 documentationcenter: ''

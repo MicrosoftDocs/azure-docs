@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Stack Documentation - Tutorials | Microsoft Docs
 description: Learn how to use Azure Stack preview to deliver Azure services from your datacenter. Learn and demonstrate features from a proof of concept environment.
+services: azure-stack
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: azure-stack
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 #Azure Stack Documentation
 
@@ -81,13 +92,6 @@ Learn how to use Azure Stack technical preview to deliver Azure services from yo
     </li>
 </ul>
 
----
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-stack.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Stack Documentation
-        </div>
-    </a>
-</div>
+
+

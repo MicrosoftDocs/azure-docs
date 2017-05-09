@@ -4,7 +4,7 @@ description: How to file support requests for Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: ''
 author: swkrish
-manager: msmbaldwin
+manager: mbaldwin
 editor: bryanla
 
 ms.assetid: 51922008-6fbd-487c-b2c7-a5db57d154b4

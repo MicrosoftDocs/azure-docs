@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting the Retraining of an Azure Machine Learning Classic Web service | Microsoft Docs
+title: Troubleshoot retraining an Azure Machine Learning Classic web service | Microsoft Docs
 description: Identify and correct common issues encounted when you are retraining the model for an Azure Machine Learning Web Service.
 services: machine-learning
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 04/19/2017
 ms.author: v-donglo
 
 ---

@@ -1,5 +1,5 @@
 ---
-title: Deploying a new Web Service
+title: Deploying a new web service in Azure Machine Learning | Microsoft Docs
 description: The workflow of deploying an ARM based web service
 services: machine-learning
 documentationcenter: ''
@@ -13,8 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 02/13/2017
 ms.author: v-donglo
+
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: machine-learning-publish-a-machine-learning-web-service
 
 ---
 # Deploy a new web service

@@ -1,27 +1,12 @@
 ---
-title: DocumentDB storage and performance | Microsoft Docs
-description: Learn about data storage and document storage in DocumentDB and how you can scale DocumentDB to meet the capacity needs of your application.
-keywords: document storage
-services: documentdb
-author: syamkmsft
-manager: jhubbard
-editor: cgronlun
-documentationcenter: ''
-
-ms.assetid: d3c0bae3-1862-4203-9260-e36216a7823d
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 08/18/2016
-ms.author: syamk
+redirect_url: https://azure.microsoft.com/services/documentdb/
+ROBOTS: NOINDEX, NOFOLLOW
 
 ---
 # Storage and predictable performance provisioning in DocumentDB
 Azure DocumentDB is a fully managed, scalable document-oriented NoSQL database service for JSON documents. With DocumentDB, you don’t have to rent virtual machines, deploy software, or monitor databases. DocumentDB is operated and continuously monitored by Microsoft engineers to deliver world class availability, performance, and data protection.  
 
-You can get started with DocumentDB by [creating a database account](documentdb-create-account.md) and a [DocumentDB database](documentdb-create-database.md) through the [Azure portal](https://portal.azure.com/). DocumentDB databases are offered in units of solid-state drive (SSD) backed storage and throughput. These storage units are provisioned by [creating database collections](documentdb-create-collection.md) within your database account, each collection with reserved throughput that can be scaled up or down at any time to meet the demands of your application.
+You can get started with DocumentDB by [creating a database account](documentdb-create-account.md) and then creating a [DocumentDB collection and database](documentdb-create-collection.md) through the [Azure portal](https://portal.azure.com/). DocumentDB databases are offered in units of solid-state drive (SSD) backed storage and throughput. These storage units are provisioned when you create database collections, each collection with reserved throughput that can be scaled up or down at any time to meet the demands of your application.
 
 If your application exceeds your reserved throughput for one or multiple collections, requests are limited on a per collection basis. This means that some application requests may succeed while others may be throttled.
 

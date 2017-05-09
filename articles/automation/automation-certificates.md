@@ -31,7 +31,7 @@ The cmdlets in the following table are used to create and manage automation cert
 
 |Cmdlets|Description|
 |:---|:---|
-|[Get-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603765.aspx)|Retrieves information about a certificate to use in a runbook or DSC configuration. You can only retrieve the certificate itself from Get-AzureRmAutomationCertificate activity.|
+|[Get-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603765.aspx)|Retrieves information about a certificate to use in a runbook or DSC configuration. You can only retrieve the certificate itself from Get-AutomationCertificate activity.|
 |[New-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603604.aspx)|Creates a new certificate into Azure Automation.|
 [Remove-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603529.aspx)|Removes a certificate from Azure Automation.|Creates a new certificate into Azure Automation.
 |[Set-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603760.aspx)|Sets the properties for an existing certificate including uploading the certificate file and setting the password for a .pfx.|

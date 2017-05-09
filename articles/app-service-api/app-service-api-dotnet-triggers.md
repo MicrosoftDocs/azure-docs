@@ -4,7 +4,7 @@ description: How to implement triggers in an API App in Azure App Service
 services: logic-apps
 documentationcenter: .net
 author: guangyang
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: 493c3703-786d-4434-9dca-8f77744b2f5d

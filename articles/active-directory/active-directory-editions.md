@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 05/04/2017
 ms.author: curtand
 
 ---
@@ -141,7 +141,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 **More details:**
 
-* [How to update your own password](active-directory-passwords-update-your-own-password.md)
+* [How to update your own password](active-directory-passwords-update-your-own-password.md#reset-or-unlock-my-password-for-a-work-or-school-account)
 
 #### Connect  (Sync engine that extends on-premises directories to Azure Active Directory)
 **Type:** Common Features
@@ -363,20 +363,9 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 
 * [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 
-## Azure AD preview features
-In addition to the generally available features of the Free, Basic, and Premium (P1 and P2) editions, Azure AD also provides you with a collection of preview features. You can use the preview features to get an impression of what is coming in the near future and to determine whether these features can help improving your environment.
-
-**Available preview features:**
-
-* [B2B collaboration](active-directory-b2b-collaboration-overview.md)
-* [Administrative Units](active-directory-administrative-units-management.md)
-* [HR application Integration](active-directory-saas-workday-inbound-tutorial.md)
-* [Certificate-based authentication on iOS](active-directory-certificate-based-authentication-ios.md)
-* [Certificate-based authentication on Android](active-directory-certificate-based-authentication-android.md)
-
-## What's next
+## Next steps
 * [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md)
-* [Add company branding to your Sign In and Access Panel pages](active-directory-add-company-branding.md)
+* [Add company branding to your sign-in and Access Panel pages](active-directory-add-company-branding.md)
 * [View your access and usage reports](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->

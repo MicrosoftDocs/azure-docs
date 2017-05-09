@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: hero-article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: robmcm
 
 ---
@@ -39,7 +39,7 @@ The WordPress site that you deploy in this tutorial uses MySQL for the database.
 > [!NOTE]
 > To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) or [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 > 
-> If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751). There, you can immediately create a short-lived starter web app in App Service—no credit card required, and no commitments.
+> If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/). There, you can immediately create a short-lived starter web app in App Service—no credit card required, and no commitments.
 > 
 > 
 
