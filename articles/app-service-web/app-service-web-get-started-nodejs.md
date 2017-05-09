@@ -85,7 +85,7 @@ For FTP and local Git it is necessary to have a deployment user configured on th
 
 > [!NOTE]
 > A deployment user is required for FTP and Local Git deployment to a Web App.
-> The `username` and `password` are account-level, as such, are different from your Azure Subscription credentials. These credentials are only required to be created once.
+> The `username` and `password` are account-level credentials, as such, are different from your Azure Subscription credentials. These credentials are only required to be created once.
 >
 
 Use the [az appservice web deployment user set](/cli/azure/appservice/web/deployment/user#set) command to create your account-level credentials.
