@@ -27,8 +27,8 @@ This article shows you how to create and upload a virtual hard disk (VHD) that c
 ## Prerequisites
 This article assumes that you have the following items:
 
-* **An Azure subscription**--If you don't have an account, you can create one in just a couple of minutes. If you have an MSDN subscription, see [Monthly Azure credit for Visual Studio subscribers.](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Otherwise, learn how to [create a free trial account](https://azure.microsoft.com/pricing/free-trial/).  
-* **Azure PowerShell tools**--The Azure PowerShell module must be installed and configured to use your Azure subscription. To download the module, see [Azure downloads](https://azure.microsoft.com/downloads/). A tutorial that describes how install and configure the module is available here. Use the [Azure Downloads](https://azure.microsoft.com/downloads/) cmdlet to upload the VHD.
+* **An Azure subscription**--If you don't have an account, you can create one in just a couple of minutes. If you have an MSDN subscription, see [Monthly Azure credit for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Otherwise, learn how to [create a free trial account](https://azure.microsoft.com/pricing/free-trial/).  
+* **Azure PowerShell tools**--The Azure PowerShell module must be installed and configured to use your Azure subscription. To download the module, see [Azure downloads](https://azure.microsoft.com/downloads/). A tutorial that describes how to install and configure the module is available here. Use the [Azure Downloads](https://azure.microsoft.com/downloads/) cmdlet to upload the VHD.
 * **FreeBSD operating system installed in a .vhd file**--A supported   FreeBSD operating system must be installed to a virtual hard disk. Multiple tools exist to create .vhd files. For example, you can use a virtualization solution such as Hyper-V to create the .vhd file and install the operating system. For instructions about how to install and use Hyper-V, see [Install Hyper-V and create a virtual machine](http://technet.microsoft.com/library/hh846766.aspx).
 
 > [!NOTE]
@@ -36,7 +36,7 @@ This article assumes that you have the following items:
 >
 >
 
-This task includes the following five steps.
+This task includes the following five steps:
 
 ## Step 1: Prepare the image for upload
 On the virtual machine where you installed the FreeBSD operating system, complete the following procedures:
@@ -104,7 +104,7 @@ On the virtual machine where you installed the FreeBSD operating system, complet
         # cat /var/log/waagent.log
 7. Deprovision the system.
 
-    Deprovision the system to clean it and make it suitable for re-provisioning. The following command also deletes the last provisioned user account and the associated data:
+    Deprovision the system to clean it and make it suitable for reprovisioning. The following command also deletes the last provisioned user account and the associated data:
 
         # echo "y" |  /usr/local/sbin/waagent -deprovision+user  
         # echo  'waagent_enable="YES"' >> /etc/rc.conf
@@ -145,7 +145,7 @@ You need a storage account in Azure to upload a .vhd file so it can be used to c
    >
 
 ## Step 3: Prepare the connection to Azure
-Before you can upload a .vhd file, you need to establish a secure connection between your computer and your Azure subscription. You can use the Azure Active Directory (Azure AD) method or the certificate method to do this.
+Before you can upload a .vhd file, you need to establish a secure connection between your computer and your Azure subscription. You can use the Azure Active Directory (Azure AD) method or the certificate method to do it.
 
 ### Use the Azure AD method to upload a .vhd file
 1. Open the Azure PowerShell console.
@@ -161,7 +161,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 1. Open the Azure PowerShell console.
 2. Type:
     `Get-AzurePublishSettingsFile`.
-3. A browser window opens and prompts you to download a .publishsettings file. This file contains information and a certificate for your Azure subscription.
+3. A browser window opens and prompts you to download the .publishsettings file. This file contains information and a certificate for your Azure subscription.
 
     ![Browser download page](./media/freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
 4. Save the .publishsettings file.
@@ -174,7 +174,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
    For more information about installing and configuring PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 ## Step 4: Upload the .vhd file
-When you upload the .vhd file, you can place it anywhere within your Blob storage. Following are some terms you'll use when you upload the file:
+When you upload the .vhd file, you can place it anywhere within your Blob storage. Following are some terms you will use when you upload the file:
 
 * **BlobStorageURL** is the URL for the storage account that you created in Step 2.
 * **YourImagesFolder** is the container within Blob storage where you want to store your images.
