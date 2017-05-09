@@ -712,7 +712,7 @@ Once the `git push` is complete, navigate to your Azure web app again and try ou
 ![Model and database changes published to Azure](media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
 
 > [!NOTE]
-> If you added any tasks earlier, you still can see them. Your updates to the data schema and leaves your existing data intact.
+> If you added any tasks earlier, you still can see them. Your updates to the data schema leaves your existing data intact.
 >
 >
 
