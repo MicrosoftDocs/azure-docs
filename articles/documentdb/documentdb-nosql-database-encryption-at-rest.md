@@ -50,7 +50,7 @@ A: The keys are managed by Microsoft.
 A: Microsoft has a set of internal guidelines for encryption key rotation, which DocumentDB follows. The specific guidelines are not published. Microsoft does publish the [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx), which is seen as a subset of internal guidance and has useful best practices for developers.
 
 ### Q: Can I use my own encryption keys?
-A: DocumentDB is a PaaS service, and we have worked hard to keep the service easy to use. We have noticed this question is often asked as a proxy question for meeting a compliance like PCI-DSS. As part of building this feature, we have worked with compliance auditors to ensure that customers using DocumentDB meet their requirements without needing to manage keys themselves. As a result, we currently do not offer users the option to burden themselves with key management.
+A: DocumentDB is a PaaS service, and we have worked hard to keep the service easy to use. We have noticed this question is often asked as a proxy question for meeting a compliance requirement like PCI-DSS. As part of building this feature, we have worked with compliance auditors to ensure that customers using DocumentDB meet their requirements without needing to manage keys themselves. As a result, we currently do not offer users the option to burden themselves with key management.
 
 ### Q: What regions have encryption turned on?
 A: All DocumentDB regions have encryption turned on for all user data.
