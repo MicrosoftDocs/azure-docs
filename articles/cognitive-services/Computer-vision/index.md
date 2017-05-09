@@ -40,7 +40,7 @@ ms.author: carolz
     </div>
     <div class="ico48Link">
         <a href="/azure/cognitive-services/Computer-vision/QuickStarts/curl">
-            <img src="/media/logos/logo_curl.svg" alt="">
+            <img src="https://docs.microsoft.com/media/logos/logo_curl.svg" alt="">
             <span>cURL</span>
         </a>
     </div>
