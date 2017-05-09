@@ -7,10 +7,10 @@
 ### [Overview](active-directory-b2c-reference-oauth-code.md)
 ### iOS
 #### [iOS Swift using MSAL](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal)
-#### [iOS ObjC using AppAuth](https://github.com/Azure-Samples/active-directory-b2c-ios-native-appauth)
+#### [iOS ObjC using AppAuth](active-directory-b2c-devquickstarts-ios.md)
 ### Android
 #### [Android using MSAL](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal)
-#### [Android using AppAuth](https://github.com/Azure-Samples/active-directory-b2c-android-native-appauth)
+#### [Android using AppAuth](active-directory-b2c-devquickstarts-android.md)
 ### [.NET](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)
 ### [Xamarin](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native)
 ## Web Apps
@@ -20,9 +20,8 @@
 ### [NodeJS](active-directory-b2c-devquickstarts-web-node.md)
 ## Single Page Apps
 ### [Overview](active-directory-b2c-reference-spa.md)
-### [JavaScript](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
-### [.NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
-### [NodeJS](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi)
+### [JavaScript - MSAL](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
+### [JavaScript - HelloJS](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## Web APIs
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
 ### [NodeJS](active-directory-b2c-devquickstarts-api-node.md)
