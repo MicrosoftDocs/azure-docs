@@ -112,7 +112,7 @@ These articles are about other scenarios and services that use or integrate with
 
 ## Key Vault overview and concepts
 
-- [Key Vault security worlds](key-vault-security-worlds.md)
+- [Key Vault security worlds](key-vault-ovw-security-worlds.md)
 - [Key Vault soft-delete](key-vault-ovw-soft-delete.md)
 
 ## Social
