@@ -1,5 +1,6 @@
 ﻿# Overview
-## [Azure Monitor Overview](monitoring-overview.md)
+## [Monitoring tools across Azure](monitoring-overview.md)
+## [Azure Monitor](monitoring-overview-azure-monitor.md)
 ## [Metrics](monitoring-overview-metrics.md)
 ## [Alerts](monitoring-overview-alerts.md)
 ## [Autoscale](monitoring-overview-autoscale.md)
@@ -7,7 +8,7 @@
 ## [Action Groups](monitoring-action-groups.md)
 ## [Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md)
 ## [Partner Integrations](monitoring-partners.md)
-## [Azure Diagnostics](azure-diagnostics.md)
+## [Azure Diagnostics Extension](azure-diagnostics.md)
 
 
 # Get Started
@@ -48,7 +49,7 @@
 ### [Enable Diagnostic Settings using Resource Manager templates](monitoring-enable-diagnostic-logs-using-template.md)
 ## Use the REST API
 ### [Walkthrough using REST API](monitoring-rest-api-walkthrough.md)
-## Use Azure Diagnostics
+## Use Azure Diagnostics extension
 ### [Send to Application Insights](azure-diagnostics-configure-application-insights.md)
 ### [Send to Event Hubs](azure-diagnostics-streaming-event-hubs.md)
 ### [Troubleshooting](azure-diagnostics-troubleshooting.md)
