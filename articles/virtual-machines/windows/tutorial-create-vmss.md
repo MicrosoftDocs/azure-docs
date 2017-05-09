@@ -297,4 +297,5 @@ In this tutorial, you created a virtual machine scale set. You learned how to:
 
 Advance to the next tutorial to learn more about load balancing concepts for virtual machines.
 
-[Load balance virtual machines](tutorial-load-balancer.md)
+> [!div class="nextstepaction"]
+> [Load balance virtual machines](tutorial-load-balancer.md)
