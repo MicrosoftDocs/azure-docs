@@ -17,7 +17,7 @@ ms.date: 05/10/2017
 ms.author: juluk
 ---
 
-# Using the Azure Cloud Shell (Preview) window
+# Using the shell window
 This document explains how to use the Azure Cloud Shell window.
 
 ## Concurrent sessions

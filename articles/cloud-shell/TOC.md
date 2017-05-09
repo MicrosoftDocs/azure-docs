@@ -3,7 +3,7 @@
 # [Quickstart](quickstart.md)
 
 # Concepts
-## [Features](features.md)
+## [Features & Tools](features.md)
 ## [Limitations](limitations.md)
 
 # How-to
