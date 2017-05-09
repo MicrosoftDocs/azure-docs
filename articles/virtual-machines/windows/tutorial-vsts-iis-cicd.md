@@ -20,8 +20,8 @@ ms.author: iainfou
 
 # Create a continuous integration pipeline with VSTS and IIS on a Windows virtual machine in Azure
 
-## Create new project in VSTS
-To manage the code commit process, build definitions, and release definitions, create a new project in VSTS as follows:
+## Create project in VSTS
+To manage the code commit process, build definitions, and release definitions, create a project in VSTS as follows:
 
 1. Open your VSTS dashboard in a web browser and click **New project**.
 2. Enter *myWebApp* for the **Project name**. Leave all other default values to use *Git* version control and *Agile* work item process.
@@ -39,7 +39,7 @@ In the previous step, you created a project in VSTS. The final step opens your n
 
 2. Under **Solutions**, click **New**.
 
-    ![Create new web application solution](media/tutorial-vsts-iis-cicd/new_solution.png)
+    ![Create web application solution](media/tutorial-vsts-iis-cicd/new_solution.png)
 
 3. Select **Web** templates, and then choose the **ASP.NET Web Application** template.
     a. Enter a name for your application, such as *myWebApp*, and uncheck the box for **Create directory for solution**.
@@ -121,10 +121,12 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 
 ### Add IIS VM to the deployment group
 1. Back in your **Administrator PowerShell** session on your VM, paste and run the script copied from VSTS.
-4. When prompted to configure tags for the agent, press *Y* and enter *web*.
-5. When prompted for the user account, press *Return* to accept the defaults.
-6. Wait for the script to finish with a message `Service vstsagent.account.computername started successfully`.
-7. In the **Deployment groups** page of the **Build & Release** menu, open the *myIIS* deployment group. On the **Machines** tab, verify that your VM is listed.
+2. When prompted to configure tags for the agent, press *Y* and enter *web*.
+3. When prompted for the user account, press *Return* to accept the defaults.
+4. Wait for the script to finish with a message `Service vstsagent.account.computername started successfully`.
+5. In the **Deployment groups** page of the **Build & Release** menu, open the *myIIS* deployment group. On the **Machines** tab, verify that your VM is listed.
+
+    ![VM successfully added to VSTS deployment group](media/tutorial-vsts-iis-cicd/deployment_group.png)
 
 
 ## Create release definition
@@ -132,18 +134,23 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 1. Click **Build & Release**, then select **Builds**. Select the build definition created in a previous step.
 2. Under **Recently completed**, click the most recent build and then click **Release**.
 3. Click **Yes** to create a release definition.
-4. Select the **IIS Website and SQL Database Deployment** template and click **Next**.
+4. Select the **Empty** template and click **Next**.
 5. Verify the project and source build definition are populated with your project.
 6. Select the **Continuous deployment** check box, and then choose **Create**.
-7. Select the **IIS Web App Manage (Preview)** task and click the red cross to delete it.
-8. Select the **SQL Deployment** section containing the **SQL DB Deploy** task and delete it.
-9. Click the **IIS Deployment** parent task to associate with your deployment group as follows:
+7. Click the drop-down box next to **+ Add tasks** and select *Add a deployment group phase*.
+    
+    ![Add task to release definition in VSTS](media/tutorial-vsts-iis-cicd/add_release_task.png)
+8. Click **Add** next to **IIS Web App Deploy(Preview)**, then click **Close**.
+9. Click the **Run on deployment group** parent task.
     a. For **Deployment Group**, select the deployment group you created earlier, such as *myIIS*.
     b. In the **Machine tags** box, click **Add** and select the *web* tag.
-10. Click the **Deploy: IIS Web App Deploy** task to configure your IIS instance settings as follows:
-    a. For **Website Name**, enter *Default Web Site*. If you created a different website on the IIS servers, use that name instead.
-    b. Leave all the other default settings.
-11. Click **Save**, then click **OK** twice.
+    
+    ![Release definition deployment group task for IIS](media/tutorial-vsts-iis-cicd/release_definition_iis.png)
+ 
+11. Click the **Deploy: IIS Web App Deploy** task to configure your IIS instance settings as follows:
+    e. For **Website Name**, enter *Default Web Site*. If you created a different website on the IIS servers, use that name instead.
+    f. Leave all the other default settings.
+12. Click **Save**, then click **OK** twice.
 
 
 ## Create release and publish
@@ -151,22 +158,29 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 2. Verify that the latest build is selected in the drop-down list, along with **Automated deployment: After release creation**. Click **Create**.
 3. A small banner appears across the top of your release definition, such as *Release 'Release-1' has been created*. Click the release link.
 4. Open the **Logs** tab to watch the release progress.
+    
+    ![Successful VSTS release and web deploy package push](media/tutorial-vsts-iis-cicd/successful_release.png)
+
 5. After the release is complete, open a web browser and enter the public IIP address of your VM. Your ASP.NET website is running.
+
+    ![ASP.NET web app running on IIS VM](media/tutorial-vsts-iis-cicd/running_web_app.png)
 
 
 ## Test the whole CI/CD pipeline
 1. In Visual Studio, open the **Solution Explorer** window.
-2. Navigate to and open *WmyWebApp | Views | Home | Index.cshtml*
+2. Navigate to and open *myWebApp | Views | Home | Index.cshtml*
 3. Edit line 6 (`<h1>ASP.NET</h1>`) to read:
 
     `<h1>ASP.NET with VSTS and CI/CD!</h1>`
 
 4. Save the file.
-5. Open Team Explorer window, select the *myWebApp* project, and click **Changes**.
-6. Enter commit message, such as *Testing CI/CD pipeline*, and then select **Commit All and Sync** from the drop-down menu.
+5. Open the **Team Explorer** window, select the *myWebApp* project, then click **Changes**.
+6. Enter a commit message, such as *Testing CI/CD pipeline*, then select **Commit All and Sync** from the drop-down menu.
 7. In VSTS workspace, a new build is triggered from the code commit. Click **Build & Release**, then **Builds**. Select your build definition, then click the **Queued & running** build to watch as the build progresses.
 8. Once the build is successful, a new release is triggered. Click **Build & Release**, then **Releases** to see the web deploy package pushed to your IIS VM. Click the **Refresh** icon to update the status. When the *Environments* column shows a green check mark, the release has successfully deployed to IIS.
-9. Refresh your IIS website in a browser to see your changes applied.
+9. To see your changes applied, refresh your IIS website in a browser.
+
+    ![ASP.NET web app running on IIS VM from CI/CD pipeline](media/tutorial-vsts-iis-cicd/running_web_app_cicd.png)
 
 
 ## Next steps
