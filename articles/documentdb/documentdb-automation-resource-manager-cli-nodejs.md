@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB Automation - Resource Manager - Azure CLI 1.0 | Microsoft Docs
-description: Use Azure Resource Manager templates or CLI to deploy an Azure Cosmos DB database account. Azure Cosmos DB is a cloud-based NoSQL database for JSON data.
+description: Use Azure Resource Manager templates or CLI to deploy an Azure Cosmos DB database account. Azure Cosmos DB is globally distributed cloud-based database.
 services: cosmosdb
 author: mimig1
 manager: jhubbard
@@ -16,6 +16,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
 ms.author: mimig
+redirect_url: https://aka.ms/acdbclisamples
+ROBOTS: NOINDEX, NOFOLLOW
 
 ---
 # Automate Azure Cosmos DB account creation using Azure CLI 1.0 and Azure Resource Manager templates

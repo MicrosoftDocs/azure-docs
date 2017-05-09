@@ -117,7 +117,6 @@
 ### [Back up and restore](../documentdb/documentdb-online-backup-and-restore.md)
 ### [Regional failover](../documentdb/documentdb-regional-failovers.md)
 ### Automation
-#### [Azure CLI 2.0](../documentdb/documentdb-automation-resource-manager-cli.md)
 #### [Azure CLI 1.0: Create an account](../documentdb/documentdb-automation-resource-manager-cli-nodejs.md)
 #### [Azure CLI 1.0: Add or remove regions](../documentdb/documentdb-automation-region-management.md)
 #### [Azure PowerShell](../documentdb/documentdb-manage-account-with-powershell.md)

@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cosmos DB portal tool: Query Explorer | Microsoft Docs'
-description: Learn about the Azure Cosmos DB Query Explorer, a SQL query editor in the Azure portal for writing SQL queries and running them against a NoSQL Azure Cosmos DB collection.
+description: Learn about the Azure Cosmos DB Query Explorer, a SQL query editor in the Azure portal for writing SQL queries and running them against a Azure Cosmos DB collection.
 keywords: writing sql queries, sql query editor
 services: cosmosdb
 author: kirillg
@@ -21,9 +21,9 @@ ms.author: kirillg
 # Write, edit, and run SQL queries for Azure Cosmos DB using Query Explorer in the Azure portal
 This article provides an overview of the [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) Query Explorer, an Azure portal tool that enables you to write, edit, and run SQL queries against a [DocumentDB collection](documentdb-create-collection.md).
 
-1. In the [Azure portal](https://portal.azure.com), on the left navigation, click ![Azure Cosmos DB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (Azure Cosmos DB)**. 
+1. In the [Azure portal](https://portal.azure.com), on the left navigation, click ![Azure Cosmos DB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**. 
 
-    If **NoSQL (Azure Cosmos DB)** is not visible, click **More Services** at the bottom, and then click ![Azure Cosmos DB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (Azure Cosmos DB)**.
+    If **Azure Cosmos DB** is not visible, click **More Services** at the bottom, and then click ![Azure Cosmos DB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**.
 2. In the resource menu, click **Query Explorer**. 
    
     ![Screenshot of the Azure portal with Query Explorer highlighted](./media/documentdb-query-collections-query-explorer/queryexplorercommand.png)

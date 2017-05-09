@@ -1,6 +1,6 @@
 ---
 title: Modeling data in Azure Cosmos DB | Microsoft Docs
-description: Learn about modeling data for Azure Cosmos DB, a NoSQL document database.
+description: Learn about modeling data for Azure Cosmos DB, a globally distributed, multi-model database.
 keywords: modeling data
 services: cosmosdb
 author: arramac
@@ -9,7 +9,7 @@ editor: mimig1
 documentationcenter: ''
 
 ms.assetid: 69521eb9-590b-403c-9b36-98253a4c88b5
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

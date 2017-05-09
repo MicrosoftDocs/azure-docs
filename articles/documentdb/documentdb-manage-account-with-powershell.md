@@ -9,7 +9,7 @@ tags: azure-resource-manager
 documentationcenter: ''
 
 ms.assetid:
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
