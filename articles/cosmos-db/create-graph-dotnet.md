@@ -164,6 +164,6 @@ If you're not going to continue to use this app, delete all resources created by
 
 In this quickstart, you've learned how to create an Azure Cosmos DB account, create a graph using the Data Explorer, and run an app. You can now build more complex queries and implement powerful graph traversal logic using Gremlin or distribute your data globally. 
 
-[Query using Gremlin](tutorial-query-graph.md)
+> [!div class="nextstepaction"]
+> [Query using Gremlin](tutorial-query-graph.md)
 
-[Distribute your data globally](tutorial-global-distribution-graph.md)
