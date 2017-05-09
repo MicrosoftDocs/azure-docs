@@ -13,14 +13,14 @@ ms.date: 04/15/2017
 ms.author: scottwhi
 ---
 
-# Search the Web for Images
+# Search the web for images
 
 The Images Search API provides a similar (but not exact) experience to Bing.com/Images. The API lets you send a search query to Bing and get back a list of relevant images.  
 
 If you're building an images-only search results page to find images that are relevant to the user's search query, call this API instead of calling the more general [Web Search API](../bing-web-search/search-the-web.md). If you want images and other types of content such as webpages, news, and videos, then call the Web Search API.
 
 
-## Search Query Term
+## Search query term
 
 If you're requesting images from Bing, your user experience must provide a search box where the user enters a search query term. You can determine the maximum term length that you allow, but the maximum length of all your query parameters should be less than 1,500 characters.
 
@@ -38,7 +38,7 @@ If the query term contains a spelling mistake, the response includes a [QueryCon
 
 You could use `originalQuery` and `alteredQuery` to let the user know the actual query term that Bing used.
   
-## Getting Images
+## Getting images
 
 To get images related to the user's search term from the web, send the following GET request:
 
@@ -53,7 +53,7 @@ Host: api.cognitive.microsoft.com
 ```  
 
 > [!NOTE]
-> Version 7 Preview request:
+> V7 Preview request:
 
 > ```  
 > GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies&mkt=en-us HTTP/1.1  
@@ -118,7 +118,7 @@ If `shoppingSourcesCount` or `recipeSourcesCount` are greater than zero, add bad
 To get insights about the image, such as web pages that include the image or people that were recognized in the image, use [imageInsightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#image-imageinsightstoken). For details, see [Image Insights](./image-insights.md).
 
 
-## Filtering Images
+## Filtering images
 
  By default, the Images Search API returns all images that are relevant to the query. But if you want only images with a transparent background or images of a specific size, you'd use the following query parameters to filter the images that Bing returns.  
   
@@ -134,7 +134,7 @@ To get insights about the image, such as web pages that include the image or peo
   
 -   [imageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#imagetype)—Filter images by type (for example, clip art, animated GIFs, or transparent backgrounds)  
   
--   [license](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#license)—Filter images by the type of license that applies to the image  
+-   [license](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#license)—Filter images by the type of license associated with the site  
   
 -   [size](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#size)—Filter images by size, such as small images up to 200x200 pixels  
   
@@ -155,7 +155,7 @@ Host: api.cognitive.microsoft.com
 ```  
 
 > [!NOTE]
-> Version 7 Preview request:
+> V7 Preview request:
 
 > ```  
 > GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies+site:contososailing.com&size=small&freshness=week&mkt=en-us HTTP/1.1  
@@ -166,7 +166,7 @@ Host: api.cognitive.microsoft.com
 > Host: api.cognitive.microsoft.com  
 > ```  
 
-## Pivoting the Query
+## Pivoting the query
 
 If Bing can segment the original search query, the [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#images) object contains the `pivotSuggestions` field. For example, if the original query was *Microsoft Surface*, Bing might segment the query into *Microsoft* and *Surface*.  
   
@@ -248,7 +248,7 @@ The following shows an example of the pivot queries.
 ![Pivot suggestions](./media/cognitive-services-bing-images-api/bing-image-pivotsuggestion.GIF)
 
 
-## Expanding the Query
+## Expanding the query
 
 If Bing can expand the query to narrow the original search, the [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#images) object contains the `queryExpansions` field. For example, if the query was *Microsoft Surface*, the expanded queries might be: Microsoft Surface **Pro 3**, Microsoft Surface **RT**, Microsoft Surface **Phone**, and Microsoft Surface **Hub**.  
 
@@ -301,12 +301,12 @@ The following shows an example Bing implementation that uses expanded queries. I
 
 
 
-## Throttling Requests
+## Throttling requests
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
 
 
-## Next Steps
+## Next steps
 
 To get started quickly with your first request, see [Making Your First Request](./quick-start.md).
 
