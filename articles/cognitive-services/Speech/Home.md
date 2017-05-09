@@ -68,4 +68,5 @@ de-DE    |   fr-CA  |   nl-NL  |   zh-CN
 el-GR    |   fr-CH  |   pl-PL  |   zh-HK
 en-AU    |   fr-FR  |   pt-BR  |   zh-TW     
 
+
 *ar-EG supports Modern Standard Arabic (MSA)
