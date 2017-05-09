@@ -22,11 +22,10 @@ A group of controls for selecting a new or existing virtual network.
 ## UI sample
 ![Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo.png)
 
-- In the top wireframe, the user has picked a new virtual network, so they will
-have the ability to customize each subnet's name and address prefix. Configuring
+- In the top wireframe, the user has picked a new virtual network, so the user can customize each subnet's name and address prefix. Configuring
 subnets in this case is optional.
 - In the bottom wireframe, the user has picked an existing virtual network, so
-they will have to map each subnet the deployment template requires to an
+the user must map each subnet the deployment template requires to an
 existing subnet. Configuring subnets in this case is required.
 
 ## Schema
@@ -84,26 +83,26 @@ existing subnet. Configuring subnets in this case is required.
 
 ## Remarks
 - If specified, the first non-overlapping address prefix of size
-`defaultValue.addressPrefixSize` will be determined automatically based on the
+`defaultValue.addressPrefixSize` is determined automatically based on the
 existing virtual networks in the user's subscription.
 - The default value for `defaultValue.name` and `defaultValue.addressPrefixSize`
 is `null`.
-- `constraints.minAddressPrefixSize` must be specified, and any existing virtual
+- `constraints.minAddressPrefixSize` must be specified. Any existing virtual
 networks with an address space smaller than `constraints.minAddressPrefixSize`
-will be made unavailable for selection.
+are unavailable for selection.
 - `subnets` must be specified, and `constraints.minAddressPrefixSize` must be
 specified for each subnet.
 - When creating a new virtual network, each subnet's address prefix is
 calculated automatically based on the virtual network's address prefix and the
 respective `addressPrefixSize`.
 - When using an existing virtual network, any subnets smaller than the
-respective `constraints.minAddressPrefixSize` will be made unavailable for
+respective `constraints.minAddressPrefixSize` are unavailable for
 selection. Additionally, if specified, subnets that do not contain at least
-`minAddressCount` available addresses will be made unavailable for selection;
-the default value is `0`. To ensure that the available addresses are contiguous,
-specify `true` for `requireContiguousAddresses`; the default value is `true`.
-- Creating new subnets in an existing virtual network is not supported.
-- If `options.hideExisting` is true, then the user won't be able to choose an
+`minAddressCount` available addresses are unavailable for selection.
+The default value is `0`. To ensure that the available addresses are contiguous,
+specify `true` for `requireContiguousAddresses`. The default value is `true`.
+- Creating subnets in an existing virtual network is not supported.
+- If `options.hideExisting` is true, then the user can't choose an
 existing virtual network. The default value is `false`.
 
 ## Output

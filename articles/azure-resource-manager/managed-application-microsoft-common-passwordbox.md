@@ -46,7 +46,7 @@ A control that can be used to provide and confirm a password.
 
 ## Remarks
 - This element doesn't support the `defaultValue` property.
-- For implementation details of `constraints`, see [Microsoft.Common.TextBox](./Microsoft.Common.TextBox.md).
+- For implementation details of `constraints`, see [Microsoft.Common.TextBox](managed-application-microsoft-common-textbox.md).
 - If `options.hideConfirmation` is set to `true`, then the second text box for
 confirming the user's password is hidden. The default value is `false`.
 

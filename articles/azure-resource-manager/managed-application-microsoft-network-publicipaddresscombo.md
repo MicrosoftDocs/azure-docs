@@ -22,12 +22,9 @@ A group of controls for selecting a new or existing public IP address.
 ## UI sample
 ![Microsoft.Network.PublicIpAddressCombo](./media/managed-application-elements/microsoft.network.publicipaddresscombo.png)
 
-- If the user selects no public IP address (i.e. 'None'), then the domain name
-label text box will be hidden.
-- If the user selects an existing public IP address, then the domain name
-label text box will be disabled and its value will be the domain name label of
-the selected IP address.
-- The domain name suffix (e.g. westus.cloudapp.azure.com) will update
+- If the user selects 'None' for public IP address, the domain name label text box is hidden.
+- If the user selects an existing public IP address, the domain name label text box is disabled. Its value is the domain name label of the selected IP address.
+- The domain name suffix (for example, westus.cloudapp.azure.com) updates
 automatically based on the selected location.
 
 ## Schema
@@ -62,27 +59,23 @@ automatically based on the selected location.
 ```
 
 ## Remarks
-- If `constraints.required.domainNameLabel` is set to `true`, then the a domain
-name label must be provided when creating a new public IP address, and existing
-public IP addresses that don't have a label will be made unavailable for
-selection.
+- If `constraints.required.domainNameLabel` is set to `true`, the user must provide a domain name label when creating a new public IP address. Existing public IP addresses without a label are not available for selection.
 - If `options.hideNone` is set to `true`, then the option to select 'None' for
-the public IP address will be hidden. The default value is `false`.
+the public IP address is hidden. The default value is `false`.
 - If `options.hideDomainNameLabel` is set to `true`, then the text box for
-domain name label will be hidden. The default value is `false`.
-- If `options.hideExisting` is true, then the user won't be able to choose an
+domain name label is hidden. The default value is `false`.
+- If `options.hideExisting` is true, then the user is not able to choose an
 existing public IP address. The default value is `false`.
 
 ## Output
-If the user selects no public IP address, then this is the expected output:
+If the user selects no public IP address, the following output is expected:
 ```json
 {
   "newOrExistingOrNone": "none"
 }
 ```
 
-If the user selects a new or existing IP address, then this is the expected
-output:
+If the user selects a new or existing IP address, the following output is expected:
 ```json
 {
   "name": "ip01",
@@ -91,10 +84,8 @@ output:
   "newOrExistingOrNone": "new"
 }
 ```
-- When `options.hideNone` is specified, `newOrExistingOrNone` will always return
-`none`.
-- When `options.hideDomainNameLabel` is specified, `domainNameLabel` will be
-undeclared.
+- When `options.hideNone` is specified, `newOrExistingOrNone` always returns `none`.
+- When `options.hideDomainNameLabel` is specified, `domainNameLabel` is undeclared.
 
 ## Next Steps
 * For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](resource-group-overview.md).

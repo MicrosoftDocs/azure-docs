@@ -51,10 +51,9 @@ default value is `null`.
 value fails the validation specified by `constraints.regex`. If not specified,
 then the text box's built-in validation messages are used. The default value is
 `null`.
-- This element has built-in validation, based on the value specified for
-`osPlatform`, that can be used in conjunction with a custom regular expression.
+- This element has built-in validation that is based on the value specified for `osPlatform`. The built-in validation can be used along with a custom regular expression.
 If a value for `constraints.regex` is specified, then both the built-in and
-custom validation are triggered.
+custom validations are triggered.
 
 ## Output
 ```json

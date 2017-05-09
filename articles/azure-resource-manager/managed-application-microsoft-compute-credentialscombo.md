@@ -24,7 +24,7 @@ and SSH public keys.
 ![Microsoft.Compute.CredentialsCombo](./media/managed-application-elements/microsoft.compute.credentialscombo.png)
 
 ## Schema
-If `osPlatform` is `Windows`, then this is the expected schema:
+If `osPlatform` is `Windows`, then the following schema is expected:
 ```json
 {
   "name": "element1",
@@ -49,7 +49,7 @@ If `osPlatform` is `Windows`, then this is the expected schema:
 }
 ```
 
-If `osPlatform` is `Linux`, then this is the expected schema:
+If `osPlatform` is `Linux`, then the following schema is expected:
 ```json
 {
   "name": "element1",
@@ -91,12 +91,12 @@ authentication is hidden. It can be used only when `osPlatform` is `Linux`. The
 default value is `false`.
 - Additional constraints on the allowed passwords can be implemented by using
 the `customPasswordRegex` property. The string in `customValidationMessage`
-will be displayed when a password fails custom validation. The default value
+is displayed when a password fails custom validation. The default value
 for both properties is `null`.
 
 ## Output
 If `osPlatform` is `Windows`, or the user provided a password instead of an SSH
-public key, then this is the expected output:
+public key, then the following output is expected:
 ```json
 {
   "authenticationType": "password",
@@ -104,7 +104,7 @@ public key, then this is the expected output:
 }
 ```
 
-If the user provided an SSH public key, then this is the expected output:
+If the user provided an SSH public key, then the following output is expected:
 ```json
 {
   "authenticationType": "sshPublicKey",

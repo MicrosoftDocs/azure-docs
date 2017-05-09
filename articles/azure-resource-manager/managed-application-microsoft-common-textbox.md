@@ -50,9 +50,7 @@ default value is `null`.
 value fails validation. If not specified, then the text box's built-in
 validation messages are used. The default value is `null`.
 - It's possible to specify a value for `constraints.regex` when
-`constraints.required` is set to `false`. In this scenario, a value will not be
-required for the text box to validate successfully, but if one is specified,
-then it must match the regular expression pattern.
+`constraints.required` is set to `false`. In this scenario, a value is not required for the text box to validate successfully. If one is specified, it must match the regular expression pattern.
 
 ## Output
 

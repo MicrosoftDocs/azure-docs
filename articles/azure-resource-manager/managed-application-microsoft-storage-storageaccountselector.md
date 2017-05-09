@@ -45,15 +45,13 @@ A control for selecting a new or existing storage account.
 ```
 
 ## Remarks
-- If specified, `defaultValue.name` will be validated for uniqueness
-automatically. If the storage account name is not unique, then the user will be
-required to specify a different name or choose an existing storage account.
+- If specified, `defaultValue.name` is automatically validated for uniqueness. If the storage account name is not unique, the user must specify a different name or choose an existing storage account.
 - The default value for `defaultValue.type` is `Premium_LRS`.
-- Any type not specified in `constraints.allowedTypes` will be hidden, and any
-type not specified in `constraints.excludedTypes` will be shown.
+- Any type not specified in `constraints.allowedTypes` is hidden, and any
+type not specified in `constraints.excludedTypes` is shown.
 `constraints.allowedTypes` and `constraints.excludedTypes` are both optional,
 but cannot be used simultaneously.
-- If `options.hideExisting` is `true`, then the user won't be able to choose an
+- If `options.hideExisting` is `true`, the user can't choose an
 existing storage account. The default value is `false`.
 
 

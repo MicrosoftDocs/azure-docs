@@ -50,21 +50,15 @@ A control for selecting a size for one or more virtual machine instances.
 ```
 
 ## Remarks
-- `recommendedSizes` should contain at least 1 size. The first recommended size
-will be used as the default.
-- Any size in `recommendedSizes` will be automatically skipped if it's not
-available in the selected location, and the next recommended size will be used
-in its place.
-- Any size not specified in the `constraints.allowedSizes` will be hidden, and
-any size not specified in `constraints.excludedSizes` will be shown.
+- `recommendedSizes` should contain at least one size. The first recommended size is used as the default.
+- If a recommended size is not available in the selected location, the size is automatically skipped. Instead, the next recommended size is used.
+- Any size not specified in the `constraints.allowedSizes` is hidden, and any size not specified in `constraints.excludedSizes` is shown.
 `constraints.allowedSizes` and `constraints.excludedSizes` are both optional,
 but cannot be used simultaneously. The list of available sizes can be determined
 by calling [this API](https://msdn.microsoft.com/library/azure/mt269440.aspx).
 - `osPlatform` must be specified, and can be either `Windows` or `Linux`. It's
 used to determine the hardware costs of the virtual machines.
-- `imageReference` must be omitted for first-party images, and should be provided
-for third-party images. It's used to determine the software costs of the virtual
-machines.
+- `imageReference` is omitted for first-party images, but provided for third-party images. It's used to determine the software costs of the virtual machines.
 - `count` is used to set the appropriate multiplier for the element. It supports
 a static value, like `2`, or a dynamic value from another element, like
 `[steps('step1').vmCount]`. The default value is `1`.

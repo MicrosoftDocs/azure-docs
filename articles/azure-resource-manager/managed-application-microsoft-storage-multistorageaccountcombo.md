@@ -21,7 +21,7 @@ A group of controls for creating multiple storage accounts, with names that
 start with a common prefix.
 
 ## UI sample
-![Microsoft.Storage.MultiStorageAccountCombo](./managed-application-elements/media/microsoft.storage.multistorageaccountcombo.png)
+![Microsoft.Storage.MultiStorageAccountCombo](./media/managed-application-elements/microsoft.storage.multistorageaccountcombo.png)
 
 ## Schema
 ```json
@@ -53,15 +53,15 @@ start with a common prefix.
 - The value for `defaultValue.prefix` is concatenated with one or more integers
 to generate the sequence of storage account names. For example, if
 `defaultValue.prefix` is `foobar` and `count` is `2`, then storage account names
-`foobar1` and `foobar2` will be generated. Generated storage account names are
+`foobar1` and `foobar2` are generated. Generated storage account names are
 validated for uniqueness automatically.
-- The storage account names will be generated lexicographically based on
-`count`. For example, if `count` is 10, then the storage account names will end
-with integers 2 digits long, i.e. 01, 02, 03, etc.
+- The storage account names are generated lexicographically based on
+`count`. For example, if `count` is 10, then the storage account names end
+with 2-digit integers (01, 02, 03, etc.).
 - The default value for `defaultValue.prefix` is `null`, and for
 `defaultValue.type` is `Premium_LRS`.
-- Any type not specified in `constraints.allowedTypes` will be hidden, and any
-type not specified in `constraints.excludedTypes` will be shown.
+- Any type not specified in `constraints.allowedTypes` is hidden, and any
+type not specified in `constraints.excludedTypes` is shown.
 `constraints.allowedTypes` and `constraints.excludedTypes` are both optional,
 but cannot be used simultaneously.
 - In addition to generating storage account names, `count` is used to set the

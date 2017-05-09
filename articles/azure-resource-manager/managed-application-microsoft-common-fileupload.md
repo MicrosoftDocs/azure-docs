@@ -44,36 +44,36 @@ A control that allows a user to specify one or more files to upload.
 ```
 
 ## Remarks
-- `constraints.accept` specifies the types of files that will be shown in the
+- `constraints.accept` specifies the types of files that are shown in the
 browser's file dialog. See the
 [HTML5 specification](http://www.w3.org/TR/html5/forms.html#attr-input-accept)
 for allowed values. The default value is `null`.
-- If `options.multiple` is set to `true`, then the user will be allowed to
+- If `options.multiple` is set to `true`, then the user is allowed to
 select more than one file in the browser's file dialog. The default value is
 `false`.
 - This element supports uploading files in two modes based on the value of
-`options.uploadMode`. If `file` is specified, then the output will be the
-contents of the file as a blob. If `url` is specified, then the file will be
-uploaded to a temporary location, and the output will be a URL of the blob.
+`options.uploadMode`. If `file` is specified, then the output contains the
+contents of the file as a blob. If `url` is specified, then the file is
+uploaded to a temporary location, and the output contains the URL of the blob.
 Temporary blobs will be purged after 24 hours. The default value is `file`.
-- The value of `options.openMode` determines how the file will be read. If the
+- The value of `options.openMode` determines how the file is read. If the
 file is expected to be plain text, specify `text`; else, specify `binary`. The
 default value is `text`.
 - If `options.uploadMode` is set to `file` and `options.openMode` is set to
-`binary`, then the output will be base64-encoded.
+`binary`, then the output is base64-encoded.
 - `options.encoding` specifies the encoding to use when reading the file. The
 default value is `UTF-8`, and is used only when `options.openMode` is set to
 `text`.
 
 ## Output
 If `options.multiple` is `false` and `options.uploadMode` is `file`, then the
-output will be the contents of the file as a JSON string:
+output contains the contents of the file as a JSON string:
 ```json
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 ```
 
 If `options.multiple` is `true` and `options.uploadMode` is `file`, then the
-output will be the contents of the files as a JSON array:
+output contains the contents of the files as a JSON array:
 ```json
 [
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -84,13 +84,13 @@ output will be the contents of the files as a JSON array:
 ```
 
 If `options.multiple` is `false` and `options.uploadMode` is `url`, then the
-output will be a URL as a JSON string:
+output contains a URL as a JSON string:
 ```json
 "https://myaccount.blob.core.windows.net/pictures/profile.jpg?sv=2013-08-15&st=2013-08-16&se=2013-08-17&sr=c&sp=r&rscd=file;%20attachment&rsct=binary &sig=YWJjZGVmZw%3d%3d&sig=a39%2BYozJhGp6miujGymjRpN8tsrQfLo9Z3i8IRyIpnQ%3d"
 ```
 
 If `options.multiple` is `true` and `options.uploadMode` is `url`, then the
-output will be a list URLs as a JSON array:
+output contains a list of URLs as a JSON array:
 ```json
 [
   "https://myaccount.blob.core.windows.net/pictures/profile1.jpg?sv=2013-08-15&st=2013-08-16&se=2013-08-17&sr=c&sp=r&rscd=file;%20attachment&rsct=binary &sig=YWJjZGVmZw%3d%3d&sig=a39%2BYozJhGp6miujGymjRpN8tsrQfLo9Z3i8IRyIpnQ%3d",
