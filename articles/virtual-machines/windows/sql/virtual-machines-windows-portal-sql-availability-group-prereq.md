@@ -15,7 +15,7 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/05/2017
+ms.date: 05/09/2017
 ms.author: mikeray
 
 ---
@@ -352,7 +352,7 @@ Before you proceed consider the following deisign decisions.
 
 * **Storage - Azure Managed Disks** 
 
-   For the virtual machine storage, use Azure Managed Disks. Microsoft recommends Managed Disks for SQL Server. Managed disks handles storage behind the scenes. In addition, when virtual machines with Managed Disks are in the same availability set, Azure distributes the storage resources to provide appropriate redundancy. For additional information, see [Azure Managed Disks Overview](../../../storage/storage-managed-disks-overview.md). For specifics about managed disks in an availability set, see [Use managed disks for VMs in availability set](../manage-availability.md#use-managed-disks-for-vms-in-availability-set)
+   For the virtual machine storage, use Azure Managed Disks. Microsoft recommends Managed Disks for SQL Server. Managed Disks handles storage behind the scenes. In addition, when virtual machines with Managed Disks are in the same availability set, Azure distributes the storage resources to provide appropriate redundancy. For additional information, see [Azure Managed Disks Overview](../../../storage/storage-managed-disks-overview.md). For specifics about managed disks in an availability set, see [Use managed disks for VMs in availability set](../manage-availability.md#use-managed-disks-for-vms-in-availability-set)
 
 * **Network - Private IP addresses in production**
 
