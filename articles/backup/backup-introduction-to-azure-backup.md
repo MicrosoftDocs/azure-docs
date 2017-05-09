@@ -86,15 +86,15 @@ The following table shows the Azure Backup components that have support for Linu
 | Component | Linux (Azure endorsed) Support |
 | --- | --- |
 | Azure Backup (MARS) agent |No (Only Windows based agent) |
-| System Center DPM |File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/> (not available for Azure VM)<br/> VM restore of Hyper-V and VMWare Linux Guest VMs |
-| Azure Backup Server |File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/> (not available for Azure VM)<br/> VM restore of Hyper-V and VMWare Linux Guest VMs |
-| Azure IaaS VM Backup |Application-consistent backup using [pre-script and post-script framework](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)<br/> [Granular file recovery](backup-azure-restore-files-from-vm.md)<br/> [Restore all VM disks](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-backed-up-disks)<br/> [VM restore](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-new-vm-from-restore-point) |
+| System Center DPM |<li> File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/> <li> VM restore of Hyper-V and VMWare Linux Guest VMs </br> </br>  *File-consistent backup not available for Azure VM* <br/> |
+| Azure Backup Server |<li>File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/> <li> VM restore of Hyper-V and VMWare Linux Guest VMs </br></br> *File-consistent backup not available for Azure VM*  |
+| Azure IaaS VM Backup |Application-consistent backup using [pre-script and post-script framework](backup-azure-linux-app-consistent.md)<br/> [Granular file recovery](backup-azure-restore-files-from-vm.md)<br/> [Restore all VM disks](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [VM restore](backup-azure-arm-restore-vms.md#create-a-new-vm-from-restore-point) |
 
 ## Using Premium Storage VMs with Azure Backup
 Azure Backup protects Premium Storage VMs. Azure Premium Storage is solid-state drive (SSD)-based storage designed to support I/O-intensive workloads. Premium Storage is attractive for virtual machine (VM) workloads. For more information about Premium Storage, see the article, [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md).
 
 ### Back up Premium Storage VMs
-While backing up Premium Storage VMs, the Backup service creates a temporary staging location, named "AzureBackup-", in the Premium Storage account. The staging location is equal to the size of the recovery point snapshot. Be sure there is free space in the storage account to accommodate the temporary staging location. For more information, see the article, [premium storage limitations](../storage/storage-premium-storage.md#scalability-and-performance-targets). Once the backup job finishes, the staging location is deleted. The price of storage used for the staging location is consistent with all [Premium storage pricing](../storage/storage-premium-storage.md#pricing-and-billing).
+While backing up Premium Storage VMs, the Backup service creates a temporary staging location, named "AzureBackup-", in the Premium Storage account. The size of the staging location is equal to the size of the recovery point snapshot. Be sure the Premium Storage account has adequate free space to accommodate the temporary staging location. For more information, see the article, [premium storage limitations](../storage/storage-premium-storage.md#scalability-and-performance-targets). Once the backup job finishes, the staging location is deleted. The price of storage used for the staging location is consistent with all [Premium storage pricing](../storage/storage-premium-storage.md#pricing-and-billing).
 
 > [!NOTE]
 > Do not modify or edit the staging location.
@@ -111,7 +111,7 @@ Azure Backup protects managed disk VMs. Managed disks free you from managing sto
 Backing up VMs on managed disks is no different than backing up Resource Manager VMs. In the Azure portal, you can configure the backup job directly from the Virtual Machine view or from the Recovery Services vault view. You can back up VMs on managed disks through RestorePoint collections built on top of managed disks. Azure Backup also supports backing up managed disk VMs encrypted using Azure Disk encryption(ADE).
 
 ### Restore managed disk VMs
-Azure Backup allows you to restore a complete VM with managed disks or restore managed disks to a Resource Manager storage account. Azure manages the managed disks during the restore process. You (the customer) manage the storage account created as part of the restore process. For restoring managed encrypted VMs, keys and secrets of the VM should already exist in the key vault prior to restore.
+Azure Backup allows you to restore a complete VM with managed disks, or restore managed disks to a storage account. Azure manages the managed disks during the restore process. You (the customer) manage the storage account created as part of the restore process. When restoring managed encrypted VMs, the VM's keys and secrets should exist in the key vault prior to starting the restore operation.
 
 ## What are the features of each Backup component?
 The following sections provide tables that summarize the availability or support of various features in each Azure Backup component. See the information following each table for additional support or details.
@@ -124,7 +124,7 @@ The following sections provide tables that summarize the availability or support
 | Tape storage | |![Yes][green] | | |
 | Compression <br/>(in Recovery Services vault) |![Yes][green] |![Yes][green] |![Yes][green] | |
 | Incremental backup |![Yes][green] |![Yes][green] |![Yes][green] |![Yes][green] |
-| Disk deduplication | |![Partially][yellow] |![Partially][yellow] | |
+| Disk deduplication | |![Partially][yellow] |![Partially][yellow] | | |
 
 ![table key](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -188,7 +188,7 @@ Backing up Azure VMs requires setting up encryption *within* the virtual machine
 
 The VM extension (on the IaaS VM) reads the data directly from the Azure storage account over the storage network, so it is not necessary to compress this traffic.
 
-If you are backing up data to a System Center DPM or Azure Backup Server, compress data going from the primary server to the backup server. Compressing data before backing it up to DPM or Azure Backup Server, saves bandwidth.
+If you use a System Center DPM server or Azure Backup Server as a secondary backup server, compress the data going from the primary server to the backup server. Compressing data before backing it up to DPM or Azure Backup Server, saves bandwidth.
 
 #### Network Throttling
 The Azure Backup agent offers network throttling, which allows you to control how network bandwidth is used during data transfer. Throttling can be helpful if you need to back up data during work hours but do not want the backup process to interfere with other internet traffic. Throttling for data transfer applies to back up and restore activities.
@@ -222,7 +222,7 @@ The vault credentials file is a certificate generated by the portal for each Rec
 You only use the vault credential to register the servers or computers. However, take care with the vault credentials, if it is lost or obtained by others, the vault credentials can be used to register other machines against the same vault. Since the backup data is encrypted using a passphrase, that only you can access, existing backup data cannot be compromised. Vault credentials expire after 48 hours. While you can download the Recovery Services vault's vault credentials as often as you like, only the latest credentials can be used for registration.
 
 ## How does Azure Backup differ from Azure Site Recovery?
-Azure Backup and Azure Site Recovery are related in that both services back up data and can restore that data. However, these services have different value propositions.
+Azure Backup and Azure Site Recovery are related in that both services back up data and can restore that data. However, these services serve different purposes in providing business continuity and disaster recovery in your business. Use Azure Backup to protect and restore data at a more granular level. For example, if a presentation on a laptop became corrupted, you would use Azure Backup to restore the presentation. If you wanted to replicate the configuration and data on a VM across another datacenter, use Azure Site Recovery.
 
 Azure Backup protects data on-premises and in the cloud. Azure Site Recovery coordinates virtual-machine and physical-server replication, failover, and failback. Both services are important because your disaster recovery solution needs to keep your data safe and recoverable (Backup) *and* keep your workloads available (Site Recovery) when outages occur.
 
