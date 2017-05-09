@@ -43,7 +43,7 @@ You can complete the task using one of the following CLI versions:
 * [Node.js](https://nodejs.org/)
 * [Sails.js](http://sailsjs.org/get-started)
 * [Git](http://www.git-scm.com/downloads)
-* [Azure CLI 2.0 Preview](/cli/azure/install-az-cli2)
+* [Azure CLI 2.0](/cli/azure/install-az-cli2)
 * A Microsoft Azure account. If you don't have an account, you can
   [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) or
   [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
