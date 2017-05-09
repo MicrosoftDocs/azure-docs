@@ -47,6 +47,7 @@
 ## [Customizing the UI](active-directory-b2c-reference-ui-customization.md)
 ### [Helper tool for customization](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Language customization](active-directory-b2c-reference-language-customization.md)
+## [Use the reporting API](active-directory-b2c-refererence-usage-reporting-api.md)
 ## [Set up self-service password reset](active-directory-b2c-reference-sspr.md)
 
 # Identity Experience Engine
@@ -77,6 +78,7 @@
 ### [Built-In Policies](active-directory-b2c-reference-policies.md)
 ### [Tokens](active-directory-b2c-reference-tokens.md)
 ## [Region availability & data residency](active-directory-b2c-reference-tenant-type.md)
+## [Enable Billing](active-directory-b2c-how-to-enable-billing.md)
 ## [Threat Management](active-directory-b2c-reference-threat-management.md)
 ## [Limitations & Restrictions](active-directory-b2c-limitations.md)
 ## [Issues when creating a directory](active-directory-b2c-support-create-directory.md)
