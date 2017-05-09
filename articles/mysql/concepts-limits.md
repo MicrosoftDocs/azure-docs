@@ -56,6 +56,5 @@ When too many connections are reached, you may receive the following error:
 2.	Restoring a dropped server is not supported.
 
 ## Next Steps:
-- Understand [What’s available in each service tier](concepts-service-tiers.md)
-- Understand [Supported MySQL Database Versions](concepts-supported-versions.md)
-- Review [How To Back up and Restore a server in Azure Database for MySQL using the Azure portal](howto-restore-server-portal.md)
+[What’s available in each service tier](concepts-service-tiers.md)
+[Supported MySQL Database Versions](concepts-supported-versions.md)
