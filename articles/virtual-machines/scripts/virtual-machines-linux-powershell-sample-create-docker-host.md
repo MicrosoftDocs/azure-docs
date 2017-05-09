@@ -11,7 +11,7 @@ tags: azure-service-management
 ms.assetid:
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/02/2017
