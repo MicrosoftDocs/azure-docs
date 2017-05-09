@@ -106,6 +106,8 @@ Navigate to **New > Intelligence + analytics > Cognitive  Services**. Set each r
 | Pricing tier | F0 | If you run out of calls, set to a higher tier.|
 | Resource group | rg1 | Use the resource group you previously specified.|
 
+### Copy the Cognitive Services key
+
 Select **Keys**. You need a key in a later step.
 
  ![Keys](media/functions-twitter-email/keys.png)
