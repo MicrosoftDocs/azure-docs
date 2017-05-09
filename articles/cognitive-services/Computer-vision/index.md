@@ -34,43 +34,43 @@ ms.author: carolz
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/cognitive-services/Computer-vision/QuickStarts/CSharp">
-            <img src="https://docs.microsoft.com/media/logos/logo_Csharp.svg" alt="">
-            <span>CSharp</span>
+            <img src="media/index/logo_Csharp.svg" alt="">
+            <span>C&#35;</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/cognitive-services/Computer-vision/QuickStarts/curl">
-            <img src="https://docs.microsoft.com/media/logos/logo_curl.svg" alt="">
+            <img src="media/index/logo_curl.svg" alt="">
             <span>cURL</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/cognitive-services/Computer-vision/QuickStarts/Java">
-            <img src="https://docs.microsoft.com/media/logos/logo_java.svg" alt="">
+            <img src="media/index/logo_java.svg" alt="">
             <span>Java</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/cognitive-services/Computer-vision/QuickStarts/JavaScript">
-            <img src="https://docs.microsoft.com/media/logos/logo_js.svg" alt="">
+            <img src="media/index/logo_js.svg" alt="">
             <span>JavaScript</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/cognitive-services/Computer-vision/QuickStarts/PHP">
-            <img src="https://docs.microsoft.com/media/logos/logo_php.svg" alt="">
+            <img src="media/index/logo_php.svg" alt="">
             <span>PHP</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/cognitive-services/Computer-vision/QuickStarts/Python">
-            <img src="https://docs.microsoft.com/media/logos/logo_python.svg" alt="">
+            <img src="media/index/logo_python.svg" alt="">
             <span>Python</span>
         </a>
     </div>
     <div class="ico48Link">
         <a href="/azure/cognitive-services/Computer-vision/QuickStarts/Ruby">
-            <img src="https://docs.microsoft.com/media/logos/logo_ruby.svg" alt="">
+            <img src="media/index/logo_ruby.svg" alt="">
             <span>Ruby</span>
         </a>
     </div>
