@@ -2939,19 +2939,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/azure/dotnet/ ">Get the .NET SDK</a>
+                                                    <a href="/dotnet/azure/dotnet-sdk-azure-install">Get the Azure libraries for .NET</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/azure/app-service-web/app-service-web-get-started-dotnet">Get started</a>
+                                                    <a href="https://azure.microsoft.com/develop/net/">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/dotnet/api/?term=Microsoft.Azure">API reference</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=dotnet">Get samples</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/net/">Learn more</a>
+                                                    <a href="/dotnet/api/overview/azure/?view=azure-dotnet">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
