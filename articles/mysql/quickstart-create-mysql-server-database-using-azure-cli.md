@@ -189,6 +189,6 @@ az group delete --name mycliresource
 ```
 
 ## Next steps
--  For a complete list of currently supported Azure CLI 2.0 commands, see [Azure CLI 2.0: Command reference - az](https://docs.microsoft.com/en-us/cli/azure/).
-- To create Azure Database for MySQL server via Azure portal, see [Create Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md).
-- For a technical overview, see [About the Azure Database for MySQL service](./overview.md).
+
+> [!div class="nextstepaction"]
+> [Design a MySQL Database with Azure CLI](./tutorial-design-database-using-cli.md).
