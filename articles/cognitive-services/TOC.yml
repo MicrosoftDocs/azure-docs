@@ -34,6 +34,8 @@
     href: Content-Moderator/overview.md
   - name: Custom Speech Service
     href: Custom-Speech-Service/cognitive-services-custom-speech-home.md
+  - name: Custom Vision Service
+    href: Custom-Vision-Service/home.md
   - name: Emotion
     href: Emotion/Home.md
   - name: Entity Linking
