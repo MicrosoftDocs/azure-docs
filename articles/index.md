@@ -489,6 +489,12 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/cognitive-services/">
+                                                <img src="media/index/cs-bing-knowledge-graph.svg" alt="" />
+                                                <p>Bing Knowledge Graph</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/cognitive-services/bing-news-search/search-the-web">
                                                 <img src="media/index/API_Sear_BingNewsSearch.svg" alt="" />
                                                 <p>Bing News</p>
@@ -526,13 +532,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/academic-knowledge/home">
-                                                <img src="media/index/placeholder.svg" alt="" />
+                                                <img src="media/index/cs-content-moderator.svg" alt="" />
                                                 <p>Content Moderator</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview">
-                                                <img src="media/index/placeholder.svg" alt="" />
+                                                <img src="media/index/cs-decision-maker.svg" alt="" />
                                                 <p>Custom Decision Service</p>
                                             </a>
                                         </li>
@@ -544,7 +550,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/Custom-Vision-Service/home">
-                                                <img src="media/index/placeholder.svg" alt="" />
+                                                <img src="media/index/cs-custom-vision.svg" alt="" />
                                                 <p>Custom Vision Search</p>
                                             </a>
                                         </li>
@@ -598,19 +604,19 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/translator/translator-info-overview">
-                                                <img src="media/index/placeholder.svg" alt="" />
+                                                <img src="media/index/cognitive-services-translator.svg" alt="" />
                                                 <p>Translator</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/video/home">
-                                                <img src="media/index/placeholder.svg" alt="" />
+                                                <img src="media/index/cs-video.svg" alt="" />
                                                 <p>Video</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/video-indexer/overview">
-                                                <img src="media/index/placeholder.svg" alt="" />
+                                                <img src="media/index/cs-video-indexer.svg" alt="" />
                                                 <p>Video Indexer</p>
                                             </a>
                                         </li>
@@ -618,18 +624,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <a href="/azure/cognitive-services/">
                                                 <img src="media/index/API_Lang_WebLM.svg" alt="" />
                                                 <p>Web Language Model</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/placeholder.svg" alt="" />
-                                                <p>Video Indexer</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/placeholder.svg" alt="" />
-                                                <p>Bing Knowledge Graph</p>
                                             </a>
                                         </li>
                                     </ul>
