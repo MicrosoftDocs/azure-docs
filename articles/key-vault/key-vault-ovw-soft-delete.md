@@ -9,7 +9,7 @@ ms.date: 05/09/2017
 ---
 # Soft delete feature overview
 
-In this preview version of Azure Key Vault (Azure Key Vault endpoint v = VVVV) we’ll describe recoverable deletion of Key Vaults and Key Vault objects, known as soft-delete. Specifically, we’ll addresses the following scenarios:
+For this preview version of Azure Key Vault we describe recoverable deletion of Key Vaults and Key Vault objects, known as soft-delete. Specifically, we addresses the following scenarios:
 
 - Support for recoverable deletion of a key vaults
 - Support for recoverable deletion of key vault objects (ex. keys, secrets, certificates)
@@ -35,8 +35,6 @@ Upon deleting a key vault, the service will create a proxy resource under the su
 Upon deleting a key vault object, such as a key, the service will place the object in a deleted state, thus making it inaccessible to any retrieval operations. While in this state, the key vault object can only be listed, recovered or forcefully/permanently deleted. 
 
 At the same time, Key Vault will schedule the deletion of the underlying data corresponding to the deleted key vault or key vault object for execution after a predetermined retention interval. The DNS record corresponding to the vault is also retained for the duration of the retention interval.
-
-Enabling Key Vault’s soft delete behavior is done through ----. You may also query Key Vault to know the state of the soft-delete feature via -----.
 
 ### Soft-delete retention period
 
