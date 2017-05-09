@@ -33,14 +33,16 @@ Upon deleting a key vault, the service will create a proxy resource under the su
 ### Key vault object recovery
 
 Upon deleting a key vault object, such as a key, the service will place the object in a deleted state, thus making it inaccessible to any retrieval operations. While in this state, the key vault object can only be listed, recovered or forcefully/permanently deleted. 
+
 At the same time, Key Vault will schedule the deletion of the underlying data corresponding to the deleted key vault or key vault object for execution after a predetermined retention interval. The DNS record corresponding to the vault is also retained for the duration of the retention interval.
-Enabling Key Vault’s soft delete behavior is done through ----. You may also query Key Vault to know the state of the soft-delete feature via ____.
 
-### Retention period
+Enabling Key Vault’s soft delete behavior is done through ----. You may also query Key Vault to know the state of the soft-delete feature via -----.
 
-Soft deleted resources are retained for a given period of time, the default being set to 90 days. This retention interval can be configured via ___. 
+### Soft-delete retention period
 
-During the retention interval, the following apply:
+Soft deleted resources are retained for a given period of time, the default is set to 90 days. This retention period can be configured via -----. 
+
+During the soft-delete retention interval, the following apply:
 
 - You may list all of the key vaults and key vault objects in the soft-delete state for your subscription as well as access deletion and recovery information about them.
     - Only users with special permissions can list deleted vaults. We recommend that our users create a custom role with these special permissions for handling deleted vaults.
