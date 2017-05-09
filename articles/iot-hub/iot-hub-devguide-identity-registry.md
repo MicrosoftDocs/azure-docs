@@ -102,6 +102,8 @@ IoT Hub can notify your IoT solution when a device identity is created or delete
 
 - Properties
 
+Message system properties are prefixed with the `'$'` symbol.
+
 | Name | Value |
 | --- | --- |
 $content-type | application/json |
@@ -114,13 +116,13 @@ deviceId | Id of the device |
 operationTimestamp | ISO8601 timestamp of operation |
 iothub-message-schema | deviceLifecycleNotification |
 
- Message system properties are prefixed with the `'$'` symbol.
-
 - Body
 
 This section is in JSON format and represents the twin of the created device identity. For example,
 ``` 
 {
+    "deviceId":"11576-ailn-test-0-67333793211",
+    "etag":"AAAAAAAAAAE=",
     "properties": {
         "desired": {
             "$metadata": {
