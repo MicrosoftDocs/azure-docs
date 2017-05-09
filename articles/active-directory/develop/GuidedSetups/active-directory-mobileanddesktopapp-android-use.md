@@ -18,7 +18,7 @@ ms.author: andret
 
 ---
 
-## Use Microsoft Authentication Library (MSAL) to get a token for the Microsoft Graph API from your Android application
+## Use Microsoft Authentication Library (MSAL) to get a token for the Microsoft Graph API
 
 1.	Open: `MainActivity` (under `app` > `java` > `{domain}.{appname}`)
 2.	Add the following imports:
