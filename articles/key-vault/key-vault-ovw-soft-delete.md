@@ -52,6 +52,3 @@ Unless a key vault or key vault object is recovered, at the end of the retention
 Permanently deleting a key vault is possible via a DELETE operation on the proxy resource, and requires special privileges. Only members of the ‘vault owner’ role have this permission. An appropriately privileged user issuing a DELETE request against a proxy resource corresponding to a deleted vault will trigger the immediate and irrecoverable deletion of that vault. An exception to this is the case when the Azure subscription has been marked as **undeletable** – only the service may then perform the actual deletion, and will do so as a scheduled process. 
 
 
-## See Also
-
-- [About keys, secrets, and certificates](about-keys--secrets-and-certificates.md)

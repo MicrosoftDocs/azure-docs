@@ -22,6 +22,3 @@ For example, a backup taken by a given subscription of a key in a key vault in W
 
 For a complete list of Azure geographic regions and locations, see (Heather?  Alan?) LINK-HERE.
 
-## See Also
-
-- [About keys, secrets, and certificates](about-keys--secrets-and-certificates.md)
