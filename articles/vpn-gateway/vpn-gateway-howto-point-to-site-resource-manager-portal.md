@@ -112,10 +112,12 @@ Certificates are used by Azure to authenticate VPN clients for Point-to-Site VPN
 
 ## <a name="addresspool"></a>7 - Add the client address pool
 
+The client address pool is a range of private IP addresses that you specify. The clients that connect over P2S receive an IP address from this range. Use a private IP address range that does not overlap with the on-premises location that you will connect from, or the VNet that you want to connect to.
+
 1. Once the virtual network gateway has been created, navigate to the **Settings** section of the virtual network gateway blade. In the **Settings** section, click **Point-to-site configuration** to open the **Configuration** blade.
 
   ![Point-to-Site blade](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration.png)
-2. **Address pool** is the pool of IP addresses from which clients that connect receive an IP address. Use a private IP address range that does not overlap with the on-premises location that you will connect from, or with the VNet that you want to connect to. You can delete the auto-filled range, then add the private IP address range that you want to use. Click **Save** to validate and save the setting.
+2. You can delete the auto-filled range, then add the private IP address range that you want to use. Click **Save** to validate and save the setting.
 
   ![Client address pool](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/ipaddresspool.png)
 
