@@ -166,8 +166,8 @@ In this tutorial, you learned how to:
 > * Schedule a daily backup
 > * Restore a file from a backup
 
-Advance to the next tutorial to learn about Azure Security Center.
+Advance to the next tutorial to learn about monitoring virtual machines.
 
 > [!div class="nextstepaction"]
-> [Manage VM security](tutorial-azure-security.md)
+> [Monitor virtual machines](tutorial-monitoring.md)
 
