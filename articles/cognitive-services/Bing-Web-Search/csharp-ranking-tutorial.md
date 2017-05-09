@@ -2,7 +2,7 @@
 title: Using rank to display search results | Microsoft Docs
 description: Shows how to use the Bing RankingResponse answer to display search results in rank order.
 services: cognitive-services
-author: brumba-msft
+author: bradumbaugh
 manager: bking
 
 ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
