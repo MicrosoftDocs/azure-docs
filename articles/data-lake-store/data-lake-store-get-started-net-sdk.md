@@ -69,14 +69,14 @@ Learn how to use the [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com
 
         using System;
         using System.IO;
-	using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
         using System.Threading;
 
         using Microsoft.Azure.Management.DataLake.Store;
-	using Microsoft.Azure.Management.DataLake.Store.Models;
-	using Microsoft.Azure.Management.DataLake.StoreUploader;
-	using Microsoft.IdentityModel.Clients.ActiveDirectory;
-	using Microsoft.Rest.Azure.Authentication;
+        using Microsoft.Azure.Management.DataLake.Store.Models;
+        using Microsoft.Azure.Management.DataLake.StoreUploader;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+        using Microsoft.Rest.Azure.Authentication;
 
 7. Declare the variables as shown below, and provide the values for Data Lake Store name and the resource group name that already exist. Also, make sure the local path and file name you provide here must exist on the computer. Add the following code snippet after the namespace declarations.
 
@@ -125,7 +125,7 @@ For ease of use, the snippet below uses default values for client ID and redirec
     var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
     var creds = UserTokenProvider.LoginWithPromptAsync(tenant_id, activeDirectoryClientSettings).Result;
 
-Couple of things to know about this snippet above.
+A couple of things to know about this snippet above:
 
 * To help you complete the tutorial faster, this snippet uses an an Azure AD domain and client ID that is available by default for all Azure subscriptions. So, you can **use this snippet as-is in your application**.
 * However, if you do want to use your own Azure AD domain and application client ID, you must create an Azure AD native application and then use the Azure AD tenant ID, client ID, and redirect URI for the application you created. See [Create an Active Directory Application for end-user authentication with Data Lake Store](data-lake-store-end-user-authenticate-using-active-directory.md) for instructions.
