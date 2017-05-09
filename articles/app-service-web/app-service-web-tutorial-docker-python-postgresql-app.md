@@ -148,7 +148,7 @@ When the PostgreSQL account is created, the Azure CLI shows information similar 
 ```json
 {
   "administratorLogin": "<my_admin_username>",
-  "fullyQualifiedDomainName": "<postgresql_name>.database.windows.net",
+  "fullyQualifiedDomainName": "<postgresql_name>.postgres.database.azure.com",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>",
   "location": "westus",
   "name": "<postgresql_name>",
@@ -200,7 +200,7 @@ We create a new database user with access to a single database only. This step a
 
 Connect to the database (you are prompted for your admin password).
 ```bash
-psql -h <postgresql_name>.database.windows.net -U <my_admin_username>@<postgresql_name> postgres
+psql -h <postgresql_name>.postgres.database.azure.com -U <my_admin_username>@<postgresql_name> postgres
 ```
 
 Then create the database and user from the PostgreSQL CLI.
@@ -217,7 +217,7 @@ Type `\q` to exit the PostgreSQL client.
 Going back now to the `app` folder of the cloned Github repository, we can run our Python Flask application simply by updating our database environment variables.
 
 ```bash
-FLASK_APP=app.py;DBHOST="<postgresql_name>.database.windows.net";DBUSER="manager@<postgresql_name>";DBNAME="eventregistration";DBPASS="supersecretpass";flask db upgrade;flask run
+FLASK_APP=app.py;DBHOST="<postgresql_name>.postgres.database.azure.com";DBUSER="manager@<postgresql_name>";DBNAME="eventregistration";DBPASS="supersecretpass";flask db upgrade;flask run
 ```
 
 When the app is fully loaded, once again you should see something similar to the following message:
@@ -252,7 +252,7 @@ Successfully built 7548f983a36b
 Let's add our database environment variables to an environment variable file `db.env`.
 
 ```
-DBHOST="<postgresql_name>.database.windows.net"
+DBHOST="<postgresql_name>.postgres.database.azure.com"
 DBUSER="manager@<postgresql_name>"
 DBNAME="eventregistration"
 DBPASS="supersecretpass"
@@ -444,7 +444,7 @@ In App Service, you set environment variables as _app settings_ by using the [az
 The following lets you specify the database connection details as app settings. We additionally use the `PORT` variable to specify that we want to map PORT 5000 from our Docker Container to receive HTTP traffic on PORT 80.
 
 ```azurecli
-az appservice web config appsettings update --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.database.windows.net" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="eventregistration" PORT=5000
+az appservice web config appsettings update --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="eventregistration" PORT=5000
 ```
 
 ### Configure Docker container deployment 
