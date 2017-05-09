@@ -11,7 +11,7 @@ tags: azure-service-management
 ms.assetid:
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/14/2017
