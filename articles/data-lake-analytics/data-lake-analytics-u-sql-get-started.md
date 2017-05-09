@@ -17,34 +17,39 @@ ms.date: 12/05/2016
 ms.author: edmaca
 
 ---
-# Tutorial: Get started with Azure Data Lake Analytics U-SQL language
-U-SQL is a language that combines the benefits of SQL with the expressive power of your own code to process data at any scale. Through the scalable, distributed-query capability of U-SQL, you can efficiently analyze data across relational stores such as Azure SQL Database. With U-SQL, you can process unstructured data by applying schema on read and inserting custom logic and UDFs. Additionally, U-SQL includes extensibility that gives you fine-grained control over how to execute at scale. To learn more about the design philosophy behind U-SQL, see the Visual Studio blog post [Introducing U-SQL – A Language that makes Big Data Processing Easy](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
+# Get started with U-SQL
+U-SQL is a language that combines declarative SQL with imperative C# to let you process data at any scale. Through the scalable, distributed-query capability of U-SQL, you can efficiently analyze data across relational stores such as Azure SQL Database. With U-SQL, you can process unstructured data by applying schema on read and inserting custom logic and UDFs. Additionally, U-SQL includes extensibility that gives you fine-grained control over how to execute at scale. 
 
-U-SQL differs in some ways from ANSI SQL or T-SQL. For example, keywords such as SELECT must be in all-uppercase letters.
+## Learning resources
 
- Its type system and expression language, inside SELECT clauses and WHERE predicates, are C#. This means that the data types are the C# types, they use C# NULL semantics, and the comparison operations inside a predicate follow C# syntax (for example, a == "foo"). It also means that the values are full .NET objects, so you can easily use any method to operate on the object (for example, "f o o o".Split(' ')).
+For detailed information about the **U-SQL language syntax**, see the [U-SQL Language Reference](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
-For more information about U-SQL, see the [U-SQL Language Reference](http://go.microsoft.com/fwlink/p/?LinkId=691348).
+To understand the **U-SQL design philosophy**, see the Visual Studio blog post [Introducing U-SQL – A Language that makes Big Data Processing Easy](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
-### Prerequisites
-If you have not already done so, please read and complete [Tutorial: Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). After you have completed the tutorial, return to this article.
+## Prerequisites
 
-In the tutorial, you ran an Azure Data Lake Analytics job with the following U-SQL script:
+Please please read and complete [Tutorial: Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). That tutorial will teach you the mechanics of using U-SQL with Azure Data Lake Tools for Visual Studio.
 
-    @searchlog =
-        EXTRACT UserId          int,
-                Start           DateTime,
-                Region          string,
-                Query           string,
-                Duration        int?,
-                Urls            string,
-                ClickedUrls     string
-        FROM "/Samples/Data/SearchLog.tsv"
-        USING Extractors.Tsv();
+## Your first U-SQL script
 
-    OUTPUT @searchlog   
-        TO "/output/SearchLog-first-u-sql.csv"
+Below, is a simple U-SQL script. Although it simple, it lets us explore many aspects of U-SQL.
+
+```
+@searchlog =
+    EXTRACT UserId          int,
+            Start           DateTime,
+            Region          string,
+            Query           string,
+            Duration        int?,
+            Urls            string,
+            ClickedUrls     string
+    FROM "/Samples/Data/SearchLog.tsv"
+    USING Extractors.Tsv();
+
+OUTPUT @searchlog   
+    TO "/output/SearchLog-first-u-sql.csv"
     USING Outputters.Csv();
+```
 
 This script doesn't have any transformation steps. It reads from the source file called SearchLog.tsv, schematizes it, and writes the rowset back into a file called SearchLog-first-u-sql.csv.
 
