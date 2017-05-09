@@ -1,5 +1,5 @@
 ---
-title: What is the Hadoop technology stack vs. cluster on Azure HDInsight? | Microsoft Docs
+title: What is the Hadoop technology stack & cluster on Azure HDInsight? | Microsoft Docs
 description: An introduction to HDInsight and the Hadoop technology stack and components, including Spark, Kafka, Hive, HBase for big data analysis.
 keywords: azure hadoop, hadoop azure, hadoop intro, hadoop introduction, hadoop technology stack, intro to hadoop, introduction to hadoop, what is a hadoop cluster, what is hadoop cluster, what is hadoop used for
 services: hdinsight
@@ -20,17 +20,17 @@ ms.author: cgronlun
 
 ---
 # Introduction to the Hadoop technology stack and Hadoop clusters in Azure HDInsight
- This article provides an introduction to Azure HDInsight, a cloud distribution of the Hadoop technology stack. It also covers what a Hadoop cluster is and what it's used for. 
+ This article provides an introduction to Azure HDInsight, a cloud distribution of the Hadoop technology stack. It also covers what a Hadoop cluster is and when you would use it. 
 
 ## What is the Hadoop technology stack in HDInsight? 
 Azure HDInsight is a cloud distribution of the Hadoop components from the **Hortonworks Data Platform (HDP)**. [Apache Hadoop](http://hadoop.apache.org/) was the original open-source framework for distributed processing and analysis of big data sets on clusters of computers. 
 
 HDInsight makes Hadoop technologies easier to use, with:
 
-•	Less setup and configuration. See [Provision Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
-•	High availability and reliability. See [HDInsight availability and reliability](hdinsight-high-availability-linux.md).
-•	Security and governance through integration with Active Directory. See [Domain-joined clusters preview](hdinsight-domain-joined-introduction.md).
-•	Dynamic scaling without interrupting jobs
+*	Less setup and configuration. See [Provision Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+*	High availability and reliability. See [HDInsight availability and reliability](hdinsight-high-availability-linux.md).
+*	Security and governance through integration with Active Directory. See [Domain-joined clusters](hdinsight-domain-joined-introduction.md).
+*	Dynamic scaling without interrupting jobs
 * Component updates and current versions. See [Hadoop components and versions on HDInsight][component-versioning].
 * Integration with other Azure services, including [Web apps](https://docs.microsoft.com/en-us/azure/app-service-web/) and [SQL Database](https://docs.microsoft.com/azure/sql-database/)
 
@@ -63,12 +63,12 @@ HDInsight is a cloud distribution on Microsoft Azure of the rapidly expanding Ap
 HDInsight offers the following cluster types:
 
 * **[Apache Hadoop](https://wiki.apache.org/hadoop)**: Uses [HDFS](#hdfs), [YARN](#yarn) resource management, and a simple [MapReduce](#mapreduce) programming model to process and analyze data in parallel.
-* **[Apache Spark](http://spark.apache.org/)**: A parallel processing framework that supports in-memory processing to boost the performance of big-data analysis applications, Spark works for SQL, streaming data, and machine learning. See [Overview: What is Apache Spark in HDInsight?](hdinsight-apache-spark-overview.md)
-* **[Apache HBase](http://hbase.apache.org/)**: A NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semi-structured data - potentially billions of rows times millions of columns. See [Overview of HBase on HDInsight](hdinsight-hbase-overview.md).
+* **[Apache Spark](http://spark.apache.org/)**: A parallel processing framework that supports in-memory processing to boost the performance of big-data analysis applications, Spark works for SQL, streaming data, and machine learning. See [What is Apache Spark in HDInsight?](hdinsight-apache-spark-overview.md)
+* **[Apache HBase](http://hbase.apache.org/)**: A NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semi-structured data - potentially billions of rows times millions of columns. See [What is HBase on HDInsight?](hdinsight-hbase-overview.md).
 * **[Microsoft R Server](https://msdn.microsoft.com/en-us/microsoft-r/rserver)**: A server for hosting and managing parallel, distributed R processes. It provides data scientists, statisticians, and R programmers with on-demand access to scalable, distributed methods of analytics on HDInsight. See [Overview of R Server on HDInsight](hdinsight-hadoop-r-server-overview.md).
 * **[Apache Storm](https://storm.incubator.apache.org/)**: A distributed, real-time computation system for processing large streams of data fast. Storm is offered as a managed cluster in HDInsight. See [Analyze real-time sensor data using Storm and Hadoop](hdinsight-storm-sensor-data-analysis.md).
 * **[Apache Interactive Hive preview (AKA: Live Long and Process)](https://cwiki.apache.org/confluence/display/Hive/LLAP)**: In-memory caching for interactive and faster Hive queries. See [Use Interactive Hive in HDInsight](hdinsight-hadoop-use-interactive-hive.md).
-* **[Apache Kafka preview](https://kafka.apache.org/)**: An open-source platform used for building streaming data pipelines and applications. Kafka also provides message-queue functionality that allows you to publish and subscribe to data streams. See [Introduction to Apache Kafka on HDInsight](hdinsight-apache-kafka-introduction.md).
+* **[Apache Kafka](https://kafka.apache.org/)**: An open-source platform used for building streaming data pipelines and applications. Kafka also provides message-queue functionality that allows you to publish and subscribe to data streams. See [Introduction to Apache Kafka on HDInsight](hdinsight-apache-kafka-introduction.md).
 * **[Domain-joined clusters preview](hdinsight-domain-joined-introduction.md)**: A cluster joined to an Active Directory domain so that you can control access and provide governance for data.
 * **[Custom clusters with script actions](hdinsight-hadoop-customize-cluster-linux.md)**: Clusters with scripts that run during provisioning and install additional components.
 
@@ -106,8 +106,7 @@ The following components and utilities are included on HDInsight clusters.
 
 ### <a name="ambari"></a>Ambari
 Apache Ambari is for provisioning, managing, and monitoring Apache Hadoop clusters. It includes an intuitive collection of operator tools and a robust set of APIs that hide the complexity of Hadoop, simplifying the operation of clusters. HDInsight clusters on Linux provide both the Ambari web UI and the Ambari REST API. Ambari Views on HDInsight clusters allow plug-in UI capabilities.
-
-See [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md) (Linux only), [Monitor Hadoop clusters in HDInsight using the Ambari API](hdinsight-monitor-use-ambari-api.md), and <a target="_blank" href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md">Apache Ambari API reference</a>.
+See [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md) and <a target="_blank" href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md">Apache Ambari API reference</a>.
 
 ### <a name="avro"></a>Avro (Microsoft .NET Library for Avro)
 The Microsoft .NET Library for Avro implements the Apache Avro compact binary data interchange format for serialization for the Microsoft .NET environment. It uses <a target="_blank" href="http://www.json.org/">JSON</a> to define a language-agnostic schema so that data serialized in one language can be read in another. Detailed information on the format can be found in the <a target=_"blank" href="http://avro.apache.org/docs/current/spec.html">Apache Avro Specification</a>.
@@ -126,11 +125,7 @@ Hadoop Distributed File System (HDFS) is a file system that, with YARN and MapRe
 <a target="_blank" href="https://mahout.apache.org/">Apache Mahout</a> is a library of machine learning algorithms that run on Hadoop. Using principles of statistics, machine learning applications teach systems to learn from data and to use past outcomes to determine future behavior. See [Generate movie recommendations using Mahout on Hadoop](hdinsight-mahout.md).
 
 ### <a name="mapreduce"></a>MapReduce
-MapReduce is the legacy software framework for Hadoop for writing applications to batch process big data sets in parallel. A MapReduce job splits large datasets and organizes the data into key-value pairs for processing.
-
-MapReduce jobs run on [YARN](#yarn). 
-
-See <a target="_blank" href="http://wiki.apache.org/hadoop/MapReduce">MapReduce</a> in the Hadoop Wiki.
+MapReduce is the legacy software framework for Hadoop for writing applications to batch process big data sets in parallel. A MapReduce job splits large datasets and organizes the data into key-value pairs for processing. MapReduce jobs run on [YARN](#yarn). See <a target="_blank" href="http://wiki.apache.org/hadoop/MapReduce">MapReduce</a> in the Hadoop Wiki.
 
 ### <a name="oozie"></a>Oozie
 <a target="_blank" href="http://oozie.apache.org/">Apache Oozie</a> is a workflow coordination system that manages Hadoop jobs. It is integrated with the Hadoop stack and supports Hadoop jobs for MapReduce, Pig, Hive, and Sqoop. It can also be used to schedule jobs specific to a system, like Java programs or shell scripts. See [Use Oozie with Hadoop](hdinsight-use-oozie.md).
@@ -148,9 +143,7 @@ See <a target="_blank" href="http://wiki.apache.org/hadoop/MapReduce">MapReduce<
 <a  target="_blank" href="http://tez.apache.org/">Apache Tez</a> is an application framework built on Hadoop YARN that executes complex, acyclic graphs of general data processing. It's a more flexible and powerful successor to the MapReduce framework that allows data-intensive processes, such as Hive, to run more efficiently at scale. See ["Use Apache Tez for improved performance" in Use Hive and HiveQL](hdinsight-use-hive.md#usetez).
 
 ### <a name="yarn"></a>YARN
-Apache YARN is the next generation of MapReduce (MapReduce 2.0, or MRv2) and supports data processing scenarios beyond MapReduce batch processing with greater scalability and real-time processing. YARN provides resource management and a distributed application framework. MapReduce jobs run on YARN.
-
-See <a target="_blank" href="http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html">Apache Hadoop NextGen MapReduce (YARN)</a>.
+Apache YARN is the next generation of MapReduce (MapReduce 2.0, or MRv2) and supports data processing scenarios beyond MapReduce batch processing with greater scalability and real-time processing. YARN provides resource management and a distributed application framework. MapReduce jobs run on YARN. See <a target="_blank" href="http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html">Apache Hadoop NextGen MapReduce (YARN)</a>.
 
 ### <a name="zookeeper"></a>ZooKeeper
 <a  target="_blank" href="http://zookeeper.apache.org/">Apache ZooKeeper</a> coordinates processes in large distributed systems using a shared hierarchical namespace of data registers (znodes). Znodes contain small amounts of meta information needed to coordinate processes: status, location, configuration, and so on.
@@ -190,8 +183,8 @@ Familiar business intelligence (BI) tools retrieve, analyze, and report data int
 * [Connect Excel to Hadoop with Power Query](hdinsight-connect-excel-power-query.md): Learn how to connect Excel to the Azure Storage account that stores the data associated with your HDInsight cluster by using Microsoft Power Query for Excel. Windows workstation required. 
 * [Connect Excel to Hadoop with the Microsoft Hive ODBC Driver](hdinsight-connect-excel-hive-odbc-driver.md): Learn how to import data from HDInsight with the Microsoft Hive ODBC Driver. Windows workstation required. 
 * [Microsoft Cloud Platform](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx): Learn about Power BI for Office 365, download the SQL Server trial, and set up SharePoint Server 2013 and SQL Server BI.
-* [SQL Server Analysis Services](http://msdn.microsoft.com/library/hh231701.aspx).
-* [SQL Server Reporting Services](http://msdn.microsoft.com/library/ms159106.aspx).
+* [SQL Server Analysis Services](http://msdn.microsoft.com/library/hh231701.aspx)
+* [SQL Server Reporting Services](http://msdn.microsoft.com/library/ms159106.aspx)
 
 
 ## Next steps
