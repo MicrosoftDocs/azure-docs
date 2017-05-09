@@ -133,13 +133,13 @@ The following example creates a resource group in the West Europe region.
 ```azurecli
 az group create --name myResourceGroup --location "West Europe"
 ```
-f
+
 To see what possible values you can use for `--location`, use the `az appservice list-locations` Azure CLI command.
 
 ### Create a Cosmos DB account
 
 Create a Cosmos DB account with the [az cosmosdb create](/cli/azure/cosmosdb#create) command.
-f
+
 In the following command, substitute your own unique Cosmos DB name where you see the _&lt;cosmosdb_name>_ placeholder. This unique name is used as the part of your Cosmos DB endpoint, `https://<cosmosdb_name>.documents.azure.com/`, so the name needs to be unique across all Cosmos DB accounts in Azure. 
 
 ```azurecli
@@ -148,12 +148,12 @@ az cosmosdb create \
     --resource-group myResourceGroup \
     --kind MongoDB
 ```
-f
+
 The `--kind MongoDB` parameter enables MongoDB client connections.
-f
+
 > [!NOTE]
 > _&lt;cosmosdb_name>_ must contain only lowercase letters, numbers, and the _-_ character, and must be between 3 and 50 characters.
->f
+>
 >
 
 When the Cosmos DB account is created, the Azure CLI shows information similar to the following example:
@@ -206,7 +206,7 @@ Copy the value of `primaryMasterKey` to a text editor. You need this information
 
 In your MEAN.js repository, open _config/env/production.js_.
 
-In the `db` object, replace the value of `uri` as shown in the following example. Be sure to also replace the two _&lt;cosmosdb_name>_ placeholders with your Cosmos DB database name, and the _&lt;primarymasterkey>_ placeholder with the key you copied in the previous step.
+In the `db` object, replace the value of `uri` as shown in the following example. Be sure to also replace the two _&lt;cosmosdb_name>_ placeholders with your Cosmos DB database name, and the _&lt;primary_master_key>_ placeholder with the key you copied in the previous step.
 
 ```javascript
 db: {
@@ -248,7 +248,7 @@ MEAN.JS
 
 Environment:     production
 Server:          http://0.0.0.0:8443
-Database:        mongodb://<cosmosdb_name>:<primary_maste_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false
+Database:        mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false
 App version:     0.5.0
 MEAN.JS version: 0.5.0
 ```
@@ -306,7 +306,7 @@ When the App Service plan is created, the Azure CLI shows information similar to
 
 Now that an App Service plan has been created, create a web app within the _myAppServicePlan_ App Service plan. The web app gives you a hosting space to deploy your code and provides a URL for you to view the deployed application. Use the [az appservice web create](/cli/azure/appservice/web#create) command to create the web app. 
 
-In the following command, substitute _&lt;appname>_ placeholder with your own unique app name. This unique name is used as the part of the default domain name for the web app, so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the web app before you expose it to your users. 
+In the following command, substitute _&lt;app_name>_ placeholder with your own unique app name. This unique name is used as the part of the default domain name for the web app, so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the web app before you expose it to your users. 
 
 ```azurecli
 az appservice web create \
@@ -344,7 +344,7 @@ The following example lets you configure a `MONGODB_URI` app setting in your Azu
 az appservice web config appsettings update \
     --name <app_name> \
     --resource-group myResourceGroup \
-    --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_maste_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
+    --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
 ```
 
 In Node.js code, you access this app setting with `process.env.MONGODB_URI`, just like you would access any environment variable. 
