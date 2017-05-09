@@ -17,47 +17,51 @@ ms.date: 12/05/2016
 ms.author: edmaca
 
 ---
-# Tutorial: Get started with Azure Data Lake Analytics U-SQL language
-U-SQL is a language that combines the benefits of SQL with the expressive power of your own code to process data at any scale. Through the scalable, distributed-query capability of U-SQL, you can efficiently analyze data across relational stores such as Azure SQL Database. With U-SQL, you can process unstructured data by applying schema on read and inserting custom logic and UDFs. Additionally, U-SQL includes extensibility that gives you fine-grained control over how to execute at scale. To learn more about the design philosophy behind U-SQL, see the Visual Studio blog post [Introducing U-SQL – A Language that makes Big Data Processing Easy](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
+# Get started with U-SQL
+U-SQL is a language that combines declarative SQL with imperative C# to let you process data at any scale. Through the scalable, distributed-query capability of U-SQL, you can efficiently analyze data across relational stores such as Azure SQL Database. With U-SQL, you can process unstructured data by applying schema on read and inserting custom logic and UDFs. Additionally, U-SQL includes extensibility that gives you fine-grained control over how to execute at scale. 
 
-U-SQL differs in some ways from ANSI SQL or T-SQL. For example, keywords such as SELECT must be in all-uppercase letters.
+## Learning resources
 
- Its type system and expression language, inside SELECT clauses and WHERE predicates, are C#. This means that the data types are the C# types, they use C# NULL semantics, and the comparison operations inside a predicate follow C# syntax (for example, a == "foo"). It also means that the values are full .NET objects, so you can easily use any method to operate on the object (for example, "f o o o".Split(' ')).
+For detailed information about the **U-SQL language syntax**, see the [U-SQL Language Reference](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
-For more information about U-SQL, see the [U-SQL Language Reference](http://go.microsoft.com/fwlink/p/?LinkId=691348).
+To understand the **U-SQL design philosophy**, see the Visual Studio blog post [Introducing U-SQL – A Language that makes Big Data Processing Easy](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
-### Prerequisites
-If you have not already done so, please read and complete [Tutorial: Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). After you have completed the tutorial, return to this article.
+## Prerequisites
 
-In the tutorial, you ran an Azure Data Lake Analytics job with the following U-SQL script:
+Before you go through the U-SQL samples in this document, please read and complete [Tutorial: Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). That tutorial explains the mechanics of using U-SQL with Azure Data Lake Tools for Visual Studio.
 
-    @searchlog =
-        EXTRACT UserId          int,
-                Start           DateTime,
-                Region          string,
-                Query           string,
-                Duration        int?,
-                Urls            string,
-                ClickedUrls     string
-        FROM "/Samples/Data/SearchLog.tsv"
-        USING Extractors.Tsv();
+## Your first U-SQL script
 
-    OUTPUT @searchlog   
-        TO "/output/SearchLog-first-u-sql.csv"
+Below, is a simple U-SQL script. Although it simple, it lets us explore many aspects of U-SQL.
+
+```
+@searchlog =
+    EXTRACT UserId          int,
+            Start           DateTime,
+            Region          string,
+            Query           string,
+            Duration        int?,
+            Urls            string,
+            ClickedUrls     string
+    FROM "/Samples/Data/SearchLog.tsv"
+    USING Extractors.Tsv();
+
+OUTPUT @searchlog   
+    TO "/output/SearchLog-first-u-sql.csv"
     USING Outputters.Csv();
+```
 
 This script doesn't have any transformation steps. It reads from the source file called SearchLog.tsv, schematizes it, and writes the rowset back into a file called SearchLog-first-u-sql.csv.
 
 Notice the question mark next to the data type in the **Duration** field. It means that the **Duration** field could be null.
 
-In the script, you'll find the following concepts and keywords:
-
-* Rowset variables: Each query expression that produces a rowset can be assigned to a variable. U-SQL follows the T-SQL variable naming pattern (@searchlog, for example) in the script.
+### Key concepts
+* **Rowset variables**: Each query expression that produces a rowset can be assigned to a variable. U-SQL follows the T-SQL variable naming pattern (@searchlog, for example) in the script.
+* **EXTRACT**: By using this keyword, you can define a schema on read. The schema is specified by a column name and C# type name pair per column. The schema uses a so-called extractor (Extractors.Tsv(), for example) to extract .tsv files. You can develop custom extractors.
+* **OUTPUT**: This keyword takes a rowset and serializes it. Outputters.Csv() writes a comma-separated file into the specified location. You can also develop custom outputters.
 
  >[!NOTE]
- >The assignment does not force execution. It merely names the expression so that you can build up more complex expressions.
-* EXTRACT: By using this keyword, you can define a schema on read. The schema is specified by a column name and C# type name pair per column. The schema uses a so-called extractor (Extractors.Tsv(), for example) to extract .tsv files. You can develop custom extractors.
-* OUTPUT: This keyword takes a rowset and serializes it. Outputters.Csv() writes a comma-separated file into the specified location. You can also develop custom outputters.
+ >The rowset assignment does not force execution. It merely names the expression so that you can build up more complex expressions.
 
  >[!NOTE]
  >The two paths are relative paths. You can also use absolute paths. For example:    
@@ -189,7 +193,7 @@ U-SQL rowsets do not preserve their order for the next query. Thus, to order an 
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-The U-SQL ORDER BY clause has to be combined with the FETCH clause in a SELECT expression.
+The U-SQL ORDER BY clause requires using the FETCH clause in a SELECT expression.
 
 The U-SQL HAVING clause can be used to restrict the output to groups that satisfy the HAVING condition:
 
@@ -296,22 +300,25 @@ The following script shows you how to use the TVF that was defined in the previo
         USING Outputters.Csv();
 
 ### Create views
-If you have only one query expression that you want to abstract and do not want to create a parameter from it, you can create a view instead of a table-valued function.
 
-The following script creates a view called *SearchlogView* in the default database and schema:
+If you have a single query expression, instead of a TVF you can use a U-SQL VIEW to encapsulate that expression.
 
-    DROP VIEW IF EXISTS SearchlogView;
+The following script creates a view called **SearchlogView** in the default database and schema:
 
-    CREATE VIEW SearchlogView AS  
-        EXTRACT UserId          int,
-                Start           DateTime,
-                Region          string,
-                Query           string,
-                Duration        int?,
-                Urls            string,
-                ClickedUrls     string
-        FROM "/Samples/Data/SearchLog.tsv"
-    USING Extractors.Tsv();
+```
+DROP VIEW IF EXISTS SearchlogView;
+
+CREATE VIEW SearchlogView AS  
+    EXTRACT UserId          int,
+            Start           DateTime,
+            Region          string,
+            Query           string,
+            Duration        int?,
+            Urls            string,
+            ClickedUrls     string
+    FROM "/Samples/Data/SearchLog.tsv"
+USING Extractors.Tsv();
+```
 
 The following script demonstrates the use of the defined view:
 
