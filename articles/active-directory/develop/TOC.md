@@ -105,4 +105,5 @@
 #### [OpenID connect](active-directory-v2-protocols-oidc.md)
 #### [Implicit flow](active-directory-v2-protocols-implicit.md)
 #### [Oauth 2.0 client creds](active-directory-v2-protocols-oauth-client-creds.md)
+#### [Oauth 2.0 On-Behalf-Of flow](active-directory-v2-protocols-oauth-on-behalf-of.md)
 ### [Scopes](active-directory-v2-scopes.md)

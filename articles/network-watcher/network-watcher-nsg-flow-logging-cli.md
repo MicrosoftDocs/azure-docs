@@ -31,6 +31,14 @@ Network Security Group flow logs are a feature of Network Watcher that allows yo
 
 This article uses cross-platform Azure CLI 1.0, which is available for Windows, Mac and Linux. Network Watcher currently uses Azure CLI 1.0 for CLI support.
 
+## Register Insights provider
+
+In order for flow logging to work successfully, the **Microsoft.Insights** provider must be registered. If you are not sure if the **Microsoft.Insights** provider is registered, run the following script.
+
+```azurecli
+azure provider register --namespace Microsoft.Insights --subscription <subscriptionid>
+```
+
 ## Enable Network Security Group Flow logs
 
 The command to enable flow logs is shown in the following example:

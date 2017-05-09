@@ -18,9 +18,12 @@ ms.author: jotaub;sethm
 ---
 
 # Receive events from Event Hubs using Apache Storm
+
 [Apache Storm](https://storm.incubator.apache.org) is a distributed real-time computation system that simplifies reliable processing of unbounded streams of data. This section shows how to use an Azure Event Hubs Storm spout to receive events from Event Hubs. Using Apache Storm, you can split events across multiple processes hosted in different nodes. The Event Hubs integration with Storm simplifies event consumption by transparently checkpointing its progress using Storm's Zookeeper installation, managing persistent checkpoints and parallel receives from Event Hubs.
 
 For more information about Event Hubs receive patterns, see the [Event Hubs overview][Event Hubs overview].
+
+## Create project and add code
 
 This tutorial uses an [HDInsight Storm][HDInsight Storm] installation, which comes with the Event Hubs spout already available.
 
