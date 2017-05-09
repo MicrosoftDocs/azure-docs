@@ -24,7 +24,9 @@ Azure Key Vaults are tracked resources, managed by ARM (Azure Resource Manager).
 
 ### Soft-delete behavior
 
-With this preview, the DELETE operation on a key vault or key vault object is a soft-delete, effectively holding the resources for a given retention period, while giving the appearance that the object is deleted. The service further provides a mechanism for recovering the deleted object, essentially undoing the deletion. Soft-delete is an optional Key Vault behavior and is not enabled by default in this release.
+With this preview, the DELETE operation on a key vault or key vault object is a soft-delete, effectively holding the resources for a given retention period, while giving the appearance that the object is deleted. The service further provides a mechanism for recovering the deleted object, essentially undoing the deletion. 
+
+Soft-delete is an optional Key Vault behavior and is not enabled by default in this release.
 
 ### Key vault recovery
 
