@@ -206,7 +206,7 @@
       - name: Azure PowerShell
         href: attach-disk-ps.md
       - name: Azure portal
-        href: attach-disk-portal.md
+        href: attach-managed-disk-portal.md
     - name: Detach data disk
       href: detach-disk.md
     - name: Expand OS disk
@@ -227,6 +227,8 @@
         href: vhd-copy.md
       - name: Create a VM from a specialized VHD
         href: create-vm-specialized.md
+      - name: Attach an unmanaged data disk
+        href: attach-disk-portal.md
   - name: VM networking
     href: ps-common-network-ref.md
     items:
