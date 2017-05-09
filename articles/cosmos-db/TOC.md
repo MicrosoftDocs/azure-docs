@@ -6,12 +6,16 @@
 ## DocumentDB
 ### [.NET](create-documentdb-dotnet.md)
 ### [.NET Core](create-documentdb-dotnet-core.md)
+### [Java](create-documentdb-java.md)
+### [Node.js](create-documentdb-nodejs.md)
 ### [Xamarin](create-documentdb-xamarin-dotnet.md)
 ## MongoDB
 ### [Node.js](create-mongodb-nodejs.md)
 ## Graph
 ### [.NET](create-graph-dotnet.md)
 ### [Gremlin console](create-graph-gremlin-console.md)
+### [Java](create-graph-java.md)
+### [Node.js](create-graph-nodejs.md)
 ## Table
 ### [.NET](create-table-dotnet.md)
 
