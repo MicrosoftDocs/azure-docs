@@ -117,5 +117,6 @@ If you don't need these resources for another quickstart/tutorial, you can delet
 
 ## Next steps
 
-[Design your first Azure Database for MySQL database](./tutorial-design-database-using-portal.md)
+> [!div class="nextstepaction"]
+> [Design your first Azure Database for MySQL database](./tutorial-design-database-using-portal.md)
 
