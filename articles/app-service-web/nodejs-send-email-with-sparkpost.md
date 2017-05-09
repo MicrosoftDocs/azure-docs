@@ -70,7 +70,7 @@ SparkPost provides 100K free emails per month including access to APIs and analy
     ![sparkpost-resource-all-settings][sparkpost-resource-all-settings]
 
 
-1. In **Key Management** panel, it'll automatically generate one API Key (CLIENT_SECRET). Copy the API Key, we'll use it in next section.
+1. In **Key Management** panel, it'll automatically generate one API Key (CLIENT_SECRET). Copy the API Key, we'll use it in next sections.
 
     ![sparkpost-resource-key-mgt][sparkpost-resource-key-mgt]
 
@@ -113,15 +113,15 @@ npm install
 
 ## Run the application locally
 
-Run the application locally by using the `npm start` script for the sample to launch the built in Node.js http server. We'll also need to supply the API Key.
+Run the application locally by using the `npm start`. This will launch the built-in Node.js HTTP server. We'll also need to supply the API Key.
 
 ```bash
 SPARKPOST_API_KEY=<api_key> npm start
 ```
 
-Replace `<api_key>` with the API Key we've just created in the previous section.
+Replace `<api_key>` with the API Key that we've created in the previous section.
 
-Open a web browser, and navigate to the sample.
+Open a web browser, and navigate to the sample app.
 
 ```bash
 http://localhost:8080
@@ -131,11 +131,12 @@ http://localhost:8080
 
 
 > [!TIP]
-> To run the application on different port, run the command with desired port like
+> To run the application on different port, prefix port to the command like
 >
 > ```bash
 > PORT=3000 SPARKPOST_API_KEY=<API_KEY> npm start
-```
+> ```
+
 -----------------------
 
 ## Log in to Azure
@@ -165,7 +166,7 @@ Create a [resource group] with the [az group create](/cli/azure/group#create) co
 az group create --name testResource --location westus
 ```
 
-This created a new resource group named `testResource` in West US location.
+This creates a new resource group named `testResource` in West US location.
 
 ## Create an App Service Plan
 
@@ -310,7 +311,7 @@ az appservice web config appsettings update --name <app_name> --resource-group t
 ```
 
 >[!Tip]
-> If you ever modify your API Key, you'll only need to update this environment variable. No code update is necessary.
+> If you ever modify your API Key, you'll only need to update this in application's settings. No code update is necessary.
 
 Replace <api_key> with the API Key that you've noted earlier.
 
@@ -340,14 +341,14 @@ https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
 git remote add azure <git_repo_url>
 ```
 
-## Push to Azure from git
-Now that we've added git remote, we can simply push codes to this origin.
+## Push app to Azure using git
+Now that we've added git remote, we can simply push codes to this remote destination.
 
 ```bash
 git push azure master
 ```
 
-Once prompted, enter the password we've used during creation of deployment user.
+Once prompted, enter the password you've supplied during creation of deployment user.
 
 During deployment, Azure App Service will communicate its progress with Git.
 
