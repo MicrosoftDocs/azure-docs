@@ -22,13 +22,13 @@ ms.author: dobett
 
 ## Introduction
 
-The connected factory solution aggregates and displays data from the OPC UA servers connected to the solution. In some scenarios, you can send commands to devices through the OPC UA servers in your solution.
+The connected factory solution aggregates and displays data from the OPC UA servers connected to the solution. You can browse and send commands to the OPC UA servers in your solution.
 
 Examples of aggregated data in the solution include the Overall Equipment Efficiency (OEE) and Key Performance Indicators (KPIs) that you can view in the dashboard at the factory, line, and station levels. The following screenshot shows the OEE and KPI values for the **Assembly** station, on **Production line 1**, in the **Munich** factory:
 
 ![Example of OEE and KPI values in the solution][img-oee-kpi]
 
-The solution enables you to view detailed information from specific data items from the OPC UA server. The following screenshot shows plots of the number of manufactured items from a specific station:
+The solution enables you to view detailed information from specific data items from the OPC UA servers, called *stations*. The following screenshot shows plots of the number of manufactured items from a specific station:
 
 ![Plots of number of manufactured items][img-manufactured-items]
 
@@ -43,7 +43,7 @@ This article describes:
 
 ## Data sources
 
-The connected factory solution displays data from the OPC UA servers connected to the solution. The default installation includes several OPC UA simulators. You can add real OPC UA servers that [connect through a gateway][lnk-connect-cf] to your solution.
+The connected factory solution displays data from the OPC UA servers connected to the solution. The default installation includes several OPC UA servers running a factory simulation. You can add your own OPC UA servers that [connect through a gateway][lnk-connect-cf] to your solution.
 
 You can browse the data items that a connected OPC UA server can send to your solution in the dashboard:
 
@@ -53,15 +53,18 @@ You can browse the data items that a connected OPC UA server can send to your so
 
 1. Select a server and click **Connect**. Click **Proceed** when the security warning appears.
 
+    > [!NOTE]
+    > This warning only appears once for each server and establishes a trust relationship between the solution dashboard and the server.
+
 1. You can now browse the data items that the server can send to the solution. Items that are being sent to the solution have a green check mark:
 
     ![Published items][img-published]
 
-1. If you have the necessary permissions, you can choose to publish a data item to make it available in the connected factory solution.
+1. If you are an *Administrator* in the solution, you can choose to publish a data item to make it available in the connected factory solution.
 
 ## Map the data
 
-The connected factory solution maps and aggregates the published data items from the OPC UA server to the various views in the solution. The connected factory Visual Solution deploys to your Azure account when you provision the solution. A JSON file in the Visual Studio connected factory solution stores this mapping information. You can view and modify this JSON configuration file in the connected factory Visual Studio solution and redeploy it.
+The connected factory solution maps and aggregates the published data items from the OPC UA server to the various views in the solution. The connected factory solution deploys to your Azure account when you provision the solution. A JSON file in the Visual Studio connected factory solution stores this mapping information. You can view and modify this JSON configuration file in the connected factory Visual Studio solution and redeploy it.
 
 You can use the configuration file to:
 
@@ -72,7 +75,7 @@ To clone a copy of the connected factory Visual Studio solution, use the followi
 
 `git clone https://github.com/Azure/azure-iot-connected-factory.git`
 
-The file **ContosoTopologyDescription.json** defines the mapping from the OPC UA server data items to the views in the connected factory solution dashboard. You can find this configuration in the **Contoso\Topology** folder in the **WebApp** project in the Visual Studio solution.
+The file **ContosoTopologyDescription.json** defines the mapping from the OPC UA server data items to the views in the connected factory solution dashboard. You can find this configuration file in the **Contoso\Topology** folder in the **WebApp** project in the Visual Studio solution.
 
 The content of the JSON file is organized as a hierarchy of factory, production line, and station nodes. This hierarchy defines the navigation hierarchy in the connected factory dashboard. Values at each node of the hierarchy determine the information displayed in the dashboard. For example, the JSON file contains the following values for the Munich factory:
 
@@ -89,7 +92,7 @@ The content of the JSON file is organized as a hierarchy of factory, production 
 "Image": "munich.jpg"
 ```
 
-The name, description, and location (if you have [enabled dynamic mapping][lnk-faq]) appear on this view in the dashboard:
+The name, description, and location appear on this view in the dashboard:
 
 ![Munich data in the dashboard][img-munich]
 
@@ -99,7 +102,7 @@ Each station includes several detailed properties that define the mapping from t
 
 ### OpcUri
 
-The **OpcUri** value is a URI that identifies the data source in the OPC UA server. For example, the **OpcUri** value for the assembly station on production line 1 in Munich looks like this: **urn:scada2194:ua:munich:productionline0:assemblystation**.
+The **OpcUri** value is the OPC UA Application URI that uniquely identifies the OPC UA server. For example, the **OpcUri** value for the assembly station on production line 1 in Munich looks like this: **urn:scada2194:ua:munich:productionline0:assemblystation**.
 
 You can view the URIs of the connected OPC UA servers in the solution dashboard:
 
@@ -107,7 +110,7 @@ You can view the URIs of the connected OPC UA servers in the solution dashboard:
 
 ### Simulation
 
-The information in the **Simulation** node is specific to the OPC UA simulators provisioned by default. It is not present for a real OPC UA server.
+The information in the **Simulation** node is specific to the OPC UA simulation that runs in the OPC UA servers that are provisioned by default. It is not used for a real OPC UA server.
 
 ### Kpi1 and Kpi2
 
@@ -139,9 +142,9 @@ The following screenshot shows the KPI data in the dashboard.
 
 ### OpcNodes
 
-The **OpcNodes** nodes identify the published data items from the OPC UA server to use and specify how to process that data.
+The **OpcNodes** nodes identify the published data items from the OPC UA server and specify how to process that data.
 
-The **NodeId** value identifies the specific data item from the OPC UA server. The first node in the assembly station for production line 1 in Munich has a value **ns=2;i=385**. A **NodeId** value specifies the data stream to read from the OPC UA server, and the **SymbolicName** provides a user-friendly name to use in the dashboard for that data.
+The **NodeId** value identifies the specific OPC UA NodeID from the OPC UA server. The first node in the assembly station for production line 1 in Munich has a value **ns=2;i=385**. A **NodeId** value specifies the data item to read from the OPC UA server, and the **SymbolicName** provides a user-friendly name to use in the dashboard for that data.
 
 Other values associated with each node are summarized in the following table:
 
@@ -152,12 +155,12 @@ Other values associated with each node are summarized in the following table:
 | Units      | The units to use in the dashboard.  |
 | Visible    | Whether to display this value in the dashboard. Some values are used in calculations but not displayed.  |
 | Maximum    | The maximum value that triggers an alert in the dashboard. |
-| MaximumAlertActions | An action to take in response to an alert. For example, send a command to open a valve on a station. |
+| MaximumAlertActions | An action to take in response to an alert. For example, send a command to a station. |
 | ConstValue | A constant value used in a calculation. |
 
 ## Deploy the changes
 
-When you have finished making changes to the **ContosoTopologyDescription.json** file, you must redeploy the connected factory Visual Studio solution to your Azure account.
+When you have finished making changes to the **ContosoTopologyDescription.json** file, you must redeploy the connected factory solution to your Azure account.
 
 The **azure-iot-connected-factory** repository includes a **build.ps1** PowerShell script you can use to rebuild and deploy the solution.
 
