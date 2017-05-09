@@ -83,8 +83,9 @@ Bring up [Azure portal](https://portal.azure.com) and traverse to the NoSQL (Doc
 ![DocumentDB URI and keys in the Azure portal](media/documentdb-cpp-get-started/nosql-tutorial-keys.png)
 
 ## <a id="Connect"></a>Step 4: Connect to a DocumentDB account
+
 1. Add the following headers and namespaces to your source code, after `#include "stdafx.h"`.
-   
+
         #include <cpprest/json.h>
         #include <documentdbcpp\DocumentClient.h>
         #include <documentdbcpp\exceptions.h>
@@ -93,11 +94,13 @@ Bring up [Azure portal](https://portal.azure.com) and traverse to the NoSQL (Doc
         using namespace documentdb;
         using namespace std;
         using namespace web::json;
+        using namespace utility;
+
 2. Next add the following code to your main function and replace the account configuration and primary key to match your DocumentDB settings from step 3. 
-   
-        DocumentDBConfiguration conf (L"<account_configuration_uri>", L"<primary_key>");
+
+        DocumentDBConfiguration conf (U("<account_configuration_uri>"), U("<primary_key>"));
         DocumentClient client (conf);
-   
+
     Now that you have the code to initialize the documentdb client, let's take a look at working with DocumentDB resources.
 
 ## <a id="CreateDBColl"></a>Step 5: Create a C++ database and collection
@@ -106,10 +109,10 @@ Before we perform this step, let's go over how a database, collection and docume
 To create a database and a corresponding collection add the following code to the end of your main function. This creates a database called 'FamilyRegistry’ and a collection called ‘FamilyCollection’ using the client configuration you declared in the previous step.
 
     try {
-      shared_ptr<Database> db = client.CreateDatabase(L"FamilyRegistry");
-      shared_ptr<Collection> coll = db->CreateCollection(L"FamilyCollection");
+      shared_ptr<Database> db = client.CreateDatabase(U("FamilyRegistry"));
+      shared_ptr<Collection> coll = db->CreateCollection(U("FamilyCollection"));
     } catch (DocumentDBRuntimeException ex) {
-      wcout << ex.message();
+      ucout << ex.message();
     }
 
 
@@ -118,17 +121,17 @@ To create a database and a corresponding collection add the following code to th
 
     try {
       value document_family;
-      document_family[L"id"] = value::string(L"AndersenFamily");
-      document_family[L"FirstName"] = value::string(L"Thomas");
-      document_family[L"LastName"] = value::string(L"Andersen");
+      document_family[U("id")] = value::string(U("AndersenFamily"));
+      document_family[U("FirstName")] = value::string(U("Thomas"));
+      document_family[U"LastName")] = value::string(U("Andersen"));
       shared_ptr<Document> doc = coll->CreateDocumentAsync(document_family).get();
 
-      document_family[L"id"] = value::string(L"WakefieldFamily");
-      document_family[L"FirstName"] = value::string(L"Lucy");
-      document_family[L"LastName"] = value::string(L"Wakefield");
+      document_family[U("id")] = value::string(U("WakefieldFamily"));
+      document_family[U("FirstName")] = value::string(U("Lucy"));
+      document_family[U("LastName")] = value::string(U("Wakefield"));
       doc = coll->CreateDocumentAsync(document_family).get();
     } catch (ResourceAlreadyExistsException ex) {
-      wcout << ex.message();
+      ucout << ex.message();
     }
 
 To summarize, this code creates a DocumentDB database, collection, and documents, which you can query in Document Explorer in Azure portal. 
@@ -140,46 +143,48 @@ DocumentDB supports [rich queries](documentdb-sql-query.md) against JSON documen
 
 The function takes in as arguments the unique identifier or resource id for the database and the collection along with the document client. Add this code before main function.
 
+
     void executesimplequery(const DocumentClient &client,
-                            const wstring dbresourceid,
-                            const wstring collresourceid) {
+                            const string_t dbresourceid,
+                            const string_t collresourceid) {
       try {
         client.GetDatabase(dbresourceid).get();
         shared_ptr<Database> db = client.GetDatabase(dbresourceid);
         shared_ptr<Collection> coll = db->GetCollection(collresourceid);
-        wstring coll_name = coll->id();
+        string_t coll_name = coll->id();
         shared_ptr<DocumentIterator> iter =
-            coll->QueryDocumentsAsync(wstring(L"SELECT * FROM " + coll_name)).get();
-        wcout << "\n\nQuerying collection:";
+            coll->QueryDocumentsAsync(U("SELECT * FROM ") + coll_name)).get();
+        ucout << "\n\nQuerying collection:";
         while (iter->HasMore()) {
           shared_ptr<Document> doc = iter->Next();
-          wstring doc_name = doc->id();
-          wcout << "\n\t" << doc_name << "\n";
-          wcout << "\t"
+          string_t doc_name = doc->id();
+          ucout << "\n\t" << doc_name << "\n";
+          ucout << "\t"
                 << "[{\"FirstName\":"
                 << doc->payload().at(U("FirstName")).as_string()
                 << ",\"LastName\":" << doc->payload().at(U("LastName")).as_string()
                 << "}]";
         }
       } catch (DocumentDBRuntimeException ex) {
-        wcout << ex.message();
+        ucout << ex.message();
       }
     }
 
 ## <a id="Replace"></a>Step 8: Replace a document
 DocumentDB supports replacing JSON documents, as demonstrated in the following code. Add this code after the executesimplequery function.
 
-    void replacedocument(const DocumentClient &client, const wstring dbresourceid,
-                         const wstring collresourceid,
-                         const wstring docresourceid) {
+    void replacedocument(const DocumentClient &client,
+                         const string_t dbresourceid,
+                         const string_t collresourceid,
+                         const string_t docresourceid) {
       try {
         client.GetDatabase(dbresourceid).get();
         shared_ptr<Database> db = client.GetDatabase(dbresourceid);
         shared_ptr<Collection> coll = db->GetCollection(collresourceid);
         value newdoc;
-        newdoc[L"id"] = value::string(L"WakefieldFamily");
-        newdoc[L"FirstName"] = value::string(L"Lucy");
-        newdoc[L"LastName"] = value::string(L"Smith Wakefield");
+        newdoc[U("id")] = value::string(U("WakefieldFamily"));
+        newdoc[U("FirstName")] = value::string(U("Lucy"));
+        newdoc[U("LastName")] = value::string(U("Smith Wakefield"));
         coll->ReplaceDocument(docresourceid, newdoc);
       } catch (DocumentDBRuntimeException ex) {
         throw;
@@ -189,15 +194,15 @@ DocumentDB supports replacing JSON documents, as demonstrated in the following c
 ## <a id="Delete"></a>Step 9: Delete a document
 DocumentDB supports deleting JSON documents, you can do so by copy and pasting the following code after the replacedocument function. 
 
-    void deletedocument(const DocumentClient &client, const wstring dbresourceid,
-                        const wstring collresourceid, const wstring docresourceid) {
+    void deletedocument(const DocumentClient &client, const string_t dbresourceid,
+                        const string_t collresourceid, const string_t docresourceid) {
       try {
         client.GetDatabase(dbresourceid).get();
         shared_ptr<Database> db = client.GetDatabase(dbresourceid);
         shared_ptr<Collection> coll = db->GetCollection(collresourceid);
         coll->DeleteDocumentAsync(docresourceid).get();
       } catch (DocumentDBRuntimeException ex) {
-        wcout << ex.message();
+        ucout << ex.message();
       }
     }
 
@@ -206,62 +211,62 @@ Deleting the created database removes the database and all child resources (coll
 
 Copy and paste the following code snippet (function cleanup) after the deletedocument function to remove the database and all the child resources.
 
-    void deletedb(const DocumentClient &client, const wstring dbresourceid) {
+    void deletedb(const DocumentClient &client, const string_t dbresourceid) {
       try {
         client.DeleteDatabase(dbresourceid);
       } catch (DocumentDBRuntimeException ex) {
-        wcout << ex.message();
+        ucout << ex.message();
       }
     }
 
 ## <a id="Run"></a>Step 11: Run your C++ application all together!
 We have now added code to create, query, modify, and delete different DocumentDB resources.  Let us now wire this up by adding calls to these different functions from our main function in hellodocumentdb.cpp along with some diagnostic messages.
 
-You can do so by replacing the main function of your application with the following code. This writes over the account_configuration_uri and primary_key you copied into the code in Step 3, so save that line or copy the values in again from the portal. 
+You can do so by replacing the main function of your application with the following code. This writes over the account_configuration_uri and primary_key you copied into the code in Step 3, so save that line or copy the values in again from the portal.
 
     int main() {
         try {
             // Start by defining your account's configuration
-            DocumentDBConfiguration conf (L"<account_configuration_uri>", L"<primary_key>");
+            DocumentDBConfiguration conf (U("<account_configuration_uri>"), U("<primary_key>"));
             // Create your client
             DocumentClient client(conf);
             // Create a new database
             try {
-                shared_ptr<Database> db = client.CreateDatabase(L"FamilyDB");
-                wcout << "\nCreating database:\n" << db->id();
+                shared_ptr<Database> db = client.CreateDatabase(U("FamilyDB"));
+                ucout << "\nCreating database:\n" << db->id();
                 // Create a collection inside database
-                shared_ptr<Collection> coll = db->CreateCollection(L"FamilyColl");
-                wcout << "\n\nCreating collection:\n" << coll->id();
+                shared_ptr<Collection> coll = db->CreateCollection(U("FamilyColl"));
+                ucout << "\n\nCreating collection:\n" << coll->id();
                 value document_family;
-                document_family[L"id"] = value::string(L"AndersenFamily");
-                document_family[L"FirstName"] = value::string(L"Thomas");
-                document_family[L"LastName"] = value::string(L"Andersen");
+                document_family[U("id")] = value::string(U("AndersenFamily"));
+                document_family[U("FirstName")] = value::string(U("Thomas"));
+                document_family[U("LastName")] = value::string(U("Andersen"));
                 shared_ptr<Document> doc =
                     coll->CreateDocumentAsync(document_family).get();
-                wcout << "\n\nCreating document:\n" << doc->id();
-                document_family[L"id"] = value::string(L"WakefieldFamily");
-                document_family[L"FirstName"] = value::string(L"Lucy");
-                document_family[L"LastName"] = value::string(L"Wakefield");
+                ucout << "\n\nCreating document:\n" << doc->id();
+                document_family[U("id")] = value::string(U("WakefieldFamily"));
+                document_family[U("FirstName")] = value::string(U("Lucy"));
+                document_family[U("LastName")] = value::string(U("Wakefield"));
                 doc = coll->CreateDocumentAsync(document_family).get();
-                wcout << "\n\nCreating document:\n" << doc->id();
+                ucout << "\n\nCreating document:\n" << doc->id();
                 executesimplequery(client, db->resource_id(), coll->resource_id());
                 replacedocument(client, db->resource_id(), coll->resource_id(),
                     doc->resource_id());
-                wcout << "\n\nReplaced document:\n" << doc->id();
+                ucout << "\n\nReplaced document:\n" << doc->id();
                 executesimplequery(client, db->resource_id(), coll->resource_id());
                 deletedocument(client, db->resource_id(), coll->resource_id(),
                     doc->resource_id());
-                wcout << "\n\nDeleted document:\n" << doc->id();
+                ucout << "\n\nDeleted document:\n" << doc->id();
                 deletedb(client, db->resource_id());
-                wcout << "\n\nDeleted db:\n" << db->id();
+                ucout << "\n\nDeleted db:\n" << db->id();
                 cin.get();
             }
             catch (ResourceAlreadyExistsException ex) {
-                wcout << ex.message();
+                ucout << ex.message();
             }
         }
         catch (DocumentDBRuntimeException ex) {
-            wcout << ex.message();
+            ucout << ex.message();
         }
         cin.get();
     }
