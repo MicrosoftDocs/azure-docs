@@ -28,7 +28,7 @@ With this preview, the DELETE operation on a key vault or key vault object is a 
 
 ### Key vault recovery
 
-Upon deleting a key vault, the service will create a proxy resource under its namespace, adding sufficient metadata for recovery. The proxy resource is a stored object, available in the same location as the deleted key vault. 
+Upon deleting a key vault, the service will create a proxy resource under the subscription, adding sufficient metadata for recovery. The proxy resource is a stored object, available in the same location as the deleted key vault. 
 
 ### Key vault object recovery
 
@@ -41,14 +41,19 @@ Enabling Key Vault’s soft delete behavior is done through ----. You may also q
 During the retention interval, the following apply:
 
 - You may list all of the key vaults and key vault objects in the soft-delete state for your subscription as well as access deletion and recovery information about them.
+    - Only users with special permissions can list deleted vaults. We recommend that our users create a custom role with these special permissions for handling deleted vaults.
 - A key vault with the same name cannot be created in the same location; correspondingly, a key vault object cannot be created in a given vault if that key vault contains an object with the same name and which is in a deleted state 
 - Only a specifically privileged user may restore a key vault or key vault object by issuing a recover command on the corresponding proxy resource.
+    - The user, member of the custom role, who has the privilege to create a key vault under the resource group can restore the vault.
 - Only a specifically privileged user may forcibly delete a key vault or key vault object by issuing a delete command on the corresponding proxy resource.
 
 Unless a key vault or key vault object is recovered, at the end of the retention interval the service will perform a purge of the soft-deleted key vault or key vault object and its content. Resource deletion may not be rescheduled.
 
 ### Permissioned purge
 
-Permanently deleting a key vault is possible via a DELETE operation on the proxy resource, and requires special privileges. Only members of the ‘vault owner’ role have this permission. An appropriately privileged user issuing a DELETE request against a proxy resource corresponding to a deleted vault will trigger the immediate and irrecoverable deletion of that vault. An exception to this is the case when the Azure subscription has been marked as **undeletable** – only the service may then perform the actual deletion, and will do so as a scheduled process. 
+Permanently deleting, purging, a key vault is possible via a POST operation on the proxy resource and requires special privileges. Generally, only the subscription owner will be able to purge a key vault. The POST operation will trigger the immediate and irrecoverable deletion of that vault. 
+
+An exception to this is the case when the Azure subscription has been marked as *undeletable*. In this case, only the service may then perform the actual deletion, and will do so as a scheduled process. 
+
 
 
