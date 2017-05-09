@@ -1,5 +1,5 @@
 ---
-title: Deploy and manage backup for Windows Server/Client using PowerShell | Microsoft Docs
+title: Use PowerShell to back up Windows Server to Azure | Microsoft Docs
 description: Learn how to deploy and manage Azure Backup using PowerShell
 services: backup
 documentationcenter: ''
@@ -21,8 +21,8 @@ ms.author: saurse;markgal;jimpark;nkolli;trinadhk
 > [!div class="op_single_selector"]
 > * [ARM](backup-client-automation.md)
 > * [Classic](backup-client-automation-classic.md)
-> 
-> 
+>
+>
 
 This article shows you how to use PowerShell for setting up Azure Backup on Windows Server or a Windows client, and managing backup and recovery.
 
@@ -43,27 +43,27 @@ If you want to use your scripts written for the 0.9.8 environment, in the 1.0 or
 The following steps lead you through creating a Recovery Services vault. A Recovery Services vault is different than a Backup vault.
 
 1. If you are using Azure Backup for the first time, you must use the **Register-AzureRMResourceProvider** cmdlet to register the Azure Recovery Service provider with your subscription.
-   
+
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 2. The Recovery Services vault is an ARM resource, so you need to place it within a Resource Group. You can use an existing resource group, or create a new one. When creating a new resource group, specify the name and location for the resource group.  
-   
+
     ```
     PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
     ```
 3. Use the **New-AzureRmRecoveryServicesVault** cmdlet to create the new vault. Be sure to specify the same location for the vault as was used for the resource group.
-   
+
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
 4. Specify the type of storage redundancy to use; you can use [Locally Redundant Storage (LRS)](../storage/storage-redundancy.md#locally-redundant-storage) or [Geo Redundant Storage (GRS)](../storage/storage-redundancy.md#geo-redundant-storage). The following example shows the -BackupStorageRedundancy option for testVault is set to GeoRedundant.
-   
+
    > [!TIP]
    > Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it is convenient to store the Backup Recovery Services vault object in a variable.
-   > 
-   > 
-   
+   >
+   >
+
     ```
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
     PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
@@ -146,8 +146,8 @@ Machine registration succeeded.
 
 > [!IMPORTANT]
 > Do not use relative paths to specify the vault credentials file. You must provide an absolute path as an input to the cmdlet.
-> 
-> 
+>
+>
 
 ## Networking settings
 When the connectivity of the Windows machine to the internet is through a proxy server, the proxy settings can also be provided to the agent. In this example, there is no proxy server, so we are explicitly clearing any proxy-related information.
@@ -174,8 +174,8 @@ Server properties updated successfully
 
 > [!IMPORTANT]
 > Keep the passphrase information safe and secure once it is set. You will not be able to restore data from Azure without this passphrase.
-> 
-> 
+>
+>
 
 ## Back up files and folders
 All backups from Windows Servers and clients to Azure Backup are governed by a policy. The policy comprises three parts:
@@ -627,4 +627,3 @@ For more information about Azure Backup for Windows Server/Client see
 
 * [Introduction to Azure Backup](backup-introduction-to-azure-backup.md)
 * [Back up Windows Servers](backup-configure-vault.md)
-

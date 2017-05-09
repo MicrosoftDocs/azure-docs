@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/15/2016
+ms.date: 04/11/2017
 ms.author: spelluru
 
 ---
@@ -31,6 +31,11 @@ ms.author: spelluru
 > 
 
 This tutorial shows you how to create and monitor an Azure data factory using the Visual Studio. The pipeline in the data factory uses a Copy Activity to copy data from Azure Blob Storage to Azure SQL Database.
+
+> [!NOTE]
+> The data pipeline in this tutorial copies data from a source data store to a destination data store. It does not transform input data to produce output data. For a tutorial on how to transform data using Azure Data Factory, see [Tutorial: Build your first pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
+> 
+> You can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. See [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) for detailed information.
 
 Here are the steps you perform as part of this tutorial:
 
@@ -88,7 +93,7 @@ In this step, you create two linked services: **AzureStorageLinkedService1** and
 4. Save the **AzureSqlLinkedService1.json** file. 
 
 > [!NOTE]
-> See [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) for details about JSON properties.
+> See [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties) for details about JSON properties.
 > 
 > 
 
@@ -139,12 +144,12 @@ In this step, you create a dataset named **InputDataset** that points to a blob 
    * **linkedServiceName** is set to **AzureStorageLinkedService**. You created this linked service in Step 2.
    * **folderPath** is set to the **adftutorial** container. You can also specify the name of a blob within the folder using the **fileName** property. Since you are not specifying the name of the blob, data from all blobs in the container is considered as an input data.  
    * format **type** is set to **TextFormat**
-   * There are two fields in the text file – **FirstName** and **LastName** – separated by a comma character (**columnDelimiter**)    
-   * The **availability** is set to **hourly** (**frequency** is set to **hour** and **interval** is set to **1**). Therefore, Data Factory looks for input data every hour in the root folder of blob container (**adftutorial**) you specified. 
+   * There are two fields in the text file – **FirstName** and **LastName** – separated by a comma character (columnDelimiter)    
+   * The **availability** is set to **hourly** (frequency is set to hour and interval is set to 1). Therefore, Data Factory looks for input data every hour in the root folder of blob container (adftutorial) you specified. 
    
-   if you don't specify a **fileName** for an **input** dataset, all files/blobs from the input folder (**folderPath**) are considered as inputs. If you specify a fileName in the JSON, only the specified file/blob is considered asn input.
+   if you don't specify a **fileName** for an **input** dataset, all files/blobs from the input folder (folderPath) are considered as inputs. If you specify a fileName in the JSON, only the specified file/blob is considered asn input.
    
-   If you do not specify a **fileName** for an **output table**, the generated files in the **folderPath** are named in the following format: Data.&lt;Guid\&gt;.txt (example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+   If you do not specify a **fileName** for an **output table**, the generated files in the **folderPath** are named in the following format: Data.&lt;Guid&gt;.txt (example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
    
    To set **folderPath** and **fileName** dynamically based on the **SliceStart** time, use the **partitionedBy** property. In the following example, folderPath uses Year, Month, and Day from the SliceStart (start time of the slice being processed) and fileName uses Hour from the SliceStart. For example, if a slice is being produced for 2016-09-20T08:00:00, the folderName is set to wikidatagateway/wikisampledataout/2016/09/20 and the fileName is set to 08.csv. 
   
@@ -160,7 +165,7 @@ In this step, you create a dataset named **InputDataset** that points to a blob 
     ```
             
 > [!NOTE]
-> See [Move data from/to Azure Blob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) for details about JSON properties.
+> See [Move data from/to Azure Blob](data-factory-azure-blob-connector.md#dataset-properties) for details about JSON properties.
 > 
 > 
 
@@ -171,7 +176,7 @@ In this step, you create an output dataset named **OutputDataset**. This dataset
 2. In the **Add New Item** dialog box, select **Azure SQL**, and click **Add**. 
 3. Replace the JSON text with the following JSON and save the **AzureSqlTableLocation1.json** file.
 
-	```json
+  ```json
 	{
 	 "name": "OutputDataset",
 	 "properties": {
@@ -204,10 +209,10 @@ In this step, you create an output dataset named **OutputDataset**. This dataset
    * **linkedServiceName** is set to **AzureSqlLinkedService** (you created this linked service in Step 2).
    * **tablename** is set to **emp**.
    * There are three columns – **ID**, **FirstName**, and **LastName** – in the emp table in the database. ID is an identity column, so you need to specify only **FirstName** and **LastName** here.
-   * The **availability** is set to **hourly** (**frequency** set to **hour** and **interval** set to **1**).  The Data Factory service generates an output data slice every hour in the **emp** table in the Azure SQL database.
+   * The **availability** is set to **hourly** (frequency set to hour and interval set to 1).  The Data Factory service generates an output data slice every hour in the **emp** table in the Azure SQL database.
 
 > [!NOTE]
-> See [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) for details about JSON properties.
+> See [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#linked-service-properties) for details about JSON properties.
 > 
 > 
 
@@ -218,7 +223,7 @@ You have created input/output linked services and tables so far. Now, you create
 2. Select **Copy Data Pipeline** in the **Add New Item** dialog box and click **Add**. 
 3. Replace the JSON with the following JSON and save the **CopyActivity1.json** file.
 
-	```json   
+  ```json   
 	{
 	 "name": "ADFTutorialPipeline",
 	 "properties": {
@@ -272,7 +277,7 @@ You have created input/output linked services and tables so far. Now, you create
    
    Both start and end datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2016-10-14T16:32:41Z. The **end** time is optional, but we use it in this tutorial. 
    
-   If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property.
+   If you do not specify value for the **end** property, it is calculated as **start + 48 hours**. To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property.
    
    In the preceding example, there are 24 data slices as each data slice is produced hourly.
 
@@ -316,7 +321,7 @@ In this step, you publish Data Factory entities (linked services, datasets, and 
 
 Note the following points: 
 
-* If you receive the error: "**This subscription is not registered to use namespace Microsoft.DataFactory**", do one of the following and try publishing again: 
+* If you receive the error: "This subscription is not registered to use namespace Microsoft.DataFactory", do one of the following and try publishing again: 
   
   * In Azure PowerShell, run the following command to register the Data Factory provider. 
 
@@ -367,9 +372,8 @@ See [Monitor datasets and pipeline](data-factory-copy-activity-tutorial-using-az
 ## See Also
 | Topic | Description |
 |:--- |:--- |
-| [Data Movement Activities](data-factory-data-movement-activities.md) |This article provides detailed information about the Copy Activity you used in the tutorial. |
-| [Scheduling and execution](data-factory-scheduling-and-execution.md) |This article explains the scheduling and execution aspects of Azure Data Factory application model. |
 | [Pipelines](data-factory-create-pipelines.md) |This article helps you understand pipelines and activities in Azure Data Factory |
 | [Datasets](data-factory-create-datasets.md) |This article helps you understand datasets in Azure Data Factory. |
+| [Scheduling and execution](data-factory-scheduling-and-execution.md) |This article explains the scheduling and execution aspects of Azure Data Factory application model. |
 | [Monitor and manage pipelines using Monitoring App](data-factory-monitor-manage-app.md) |This article describes how to monitor, manage, and debug pipelines using the Monitoring & Management App. |
 

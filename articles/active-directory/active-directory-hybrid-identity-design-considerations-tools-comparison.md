@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/08/2016
+ms.date: 02/14/2017
 ms.author: billmath
 
 ---
@@ -54,7 +54,7 @@ PP = Public Preview
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Writeback of devices |● | |● | | |
 | Attribute writeback (for Exchange hybrid deployment ) |● |● |● |● |● |
-| Writeback of users and groups objects |● | | | | |
+| Writeback of groups objects |● | | | | |
 | Writeback of passwords (from self-service password reset (SSPR) and password change) |● |● | | | |
 
 ## Authentication Feature Support

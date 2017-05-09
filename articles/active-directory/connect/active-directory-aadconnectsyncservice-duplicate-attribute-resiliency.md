@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 04/24/2017
 ms.author: markvi
 
 ---
@@ -47,7 +47,8 @@ This is a multi-valued attribute that is used to store the conflicting attribute
 ### Enabling Duplicate Attribute Resiliency
 Duplicate Attribute Resiliency will be the new default behavior across all Azure Active Directory tenants. It will be on by default for all tenants that enabled synchronization for the first time on August 22nd, 2016 or later. Tenants that enabled sync prior to this date will have the feature enabled in batches. This rollout will begin in September 2016, and an email notification will be sent to each tenant's technical notification contact with the specific date when the feature will be enabled.
 
-Once Duplicate Attribute Resiliency has been turned on it cannot be disabled.
+> [!NOTE]
+> Once Duplicate Attribute Resiliency has been turned on it cannot be disabled.
 
 To check if the feature is enabled for your tenant, you can do so by downloading the latest version of the Azure Active Directory PowerShell module and running:
 
@@ -55,11 +56,8 @@ To check if the feature is enabled for your tenant, you can do so by downloading
 
 `Get-MsolDirSyncFeatures -Feature DuplicateProxyAddressResiliency`
 
-If you would like to proactively enable the feature before it is turned on for your tenant, you can do so by downloading the latest version of the Azure Active Directory PowerShell module and running:
-
-`Set-MsolDirSyncFeature -Feature DuplicateUPNResiliency -Enable $true`
-
-`Set-MsolDirSyncFeature -Feature DuplicateProxyAddressResiliency -Enable $true`
+> [!NOTE]
+> You can no longer use Set-MsolDirSyncFeature cmdlet to proactively enable the Duplicate Attribute Resiliency feature before it is turned on for your tenant. To be able to test the feature, you will need to create a new Azure Active Directory tenant.
 
 ## Identifying Objects with DirSyncProvisioningErrors
 There are currently two methods to identify objects that have these errors due to duplicate property conflicts, Azure Active Directory PowerShell and the Office 365 Admin Portal. There are plans to extend to additional portal based reporting in the future.

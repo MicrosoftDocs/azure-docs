@@ -1,10 +1,10 @@
 ---
-title: Create and modify an ExpressRoute circuit by using the classic deployment model and PowerShell| Microsoft Docs
+title: 'Create and modify an ExpressRoute circuit: PowerShell: Azure classic| Microsoft Docs'
 description: This article walks you through the steps for creating and provisioning an ExpressRoute circuit. This article also shows you how to check the status, update, or delete and deprovision your circuit.
 documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-service-management
 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
 
 ---
-# Create and modify an ExpressRoute circuit
+# Create and modify an ExpressRoute circuit using PowerShell (classic)
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
@@ -27,39 +27,47 @@ ms.author: ganesr;cherylmc
 > 
 >
 
-This article walks you through the steps to create an Azure ExpressRoute circuit by using PowerShell cmdlets and the classic deployment model. This article will also show you how to check the status, update, or delete and deprovision an ExpressRoute circuit.
+This article walks you through the steps to create an Azure ExpressRoute circuit by using PowerShell cmdlets and the classic deployment model. This article also shows you how to check the status, update, or delete and deprovision an ExpressRoute circuit.
+
+[!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
+
 
 **About Azure deployment models**
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## Before you begin
-### 1. Review the prerequisites and workflow articles
+### Step 1. Review the prerequisites and workflow articles
 Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.  
 
-### 2. Install the latest versions of the Azure PowerShell modules
-Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules.
+### Step 2. Install the latest versions of the Azure Service Management (SM) PowerShell modules
+Follow the instructions in [Getting started with Azure PowerShell cmdlets](/powershell/azure/overview) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules.
 
-### 3. Log in to your Azure account and select a subscription
-1. Run the following cmdlet using an elevated Windows PowerShell prompt:
-   
-        Add-AzureAccount
-2. In the sign-in screen that appears, sign in to your account.
-3. Get a list of your subscriptions.
-   
-        Get-AzureSubscription
-4. Select the subscription that you want to use.
-   
-        Select-AzureSubscription -SubscriptionName "mysubscriptionname"
+### Step 3. Log in to your Azure account and select a subscription
+1. Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:
+
+    	Login-AzureRmAccount
+
+2. Check the subscriptions for the account.
+
+    	Get-AzureRmSubscription
+
+3. If you have more than one subscription, select the subscription that you want to use.
+
+    	Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+
+4. Next, use the following cmdlet to add your Azure subscription to PowerShell for the classic deployment model.
+
+		Add-AzureAccount
 
 ## Create and provision an ExpressRoute circuit
-### 1. Import the PowerShell modules for ExpressRoute
+### Step 1. Import the PowerShell modules for ExpressRoute
  If you have not already done so, you must import the Azure and ExpressRoute modules into the PowerShell session in order to start using the ExpressRoute cmdlets. You import the modules from the location that they were installed to on your local computer. Depending on the method you used to install the modules, the location may be different than the following example shows. Modify the example if necessary.  
 
     Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
     Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 
-### 2. Get the list of supported providers, locations, and bandwidths
+### Step 2. Get the list of supported providers, locations, and bandwidths
 Before you create an ExpressRoute circuit, you need the list of supported connectivity providers, locations, and bandwidth options.
 
 The PowerShell cmdlet `Get-AzureDedicatedCircuitServiceProvider` returns this information, which you’ll use in later steps:
@@ -74,7 +82,7 @@ Check to see if your connectivity provider is listed there. Make a note of the f
 
 You're now ready to create an ExpressRoute circuit.         
 
-### 3. Create an ExpressRoute circuit
+### Step 3. Create an ExpressRoute circuit
 The following example shows how to create a 200-Mbps ExpressRoute circuit through Equinix in Silicon Valley. If you're using a different provider and different settings, substitute that information when you make your request.
 
 > [!IMPORTANT]
@@ -100,7 +108,7 @@ The response will contain the service key. You can get detailed descriptions of 
 
     get-help new-azurededicatedcircuit -detailed
 
-### 4. List all the ExpressRoute circuits
+### Step 4. List all the ExpressRoute circuits
 You can run the `Get-AzureDedicatedCircuit` command to get a list of all the ExpressRoute circuits that you created:
 
     Get-AzureDedicatedCircuit
@@ -133,7 +141,7 @@ You can get detailed descriptions of all the parameters by running the following
 
     get-help get-azurededicatedcircuit -detailed
 
-### 5. Send the service key to your connectivity provider for provisioning
+### Step 5. Send the service key to your connectivity provider for provisioning
 *ServiceProviderProvisioningState* provides information on the current state of provisioning on the service-provider side. *Status* provides the state on the Microsoft side. For more information about circuit provisioning states, see the [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states) article.
 
 When you create a new ExpressRoute circuit, the circuit will be in the following state:
@@ -153,7 +161,7 @@ An ExpressRoute circuit must be in the following state for you to be able to use
     Status                           : Enabled
 
 
-### 6. Periodically check the status and the state of the circuit key
+### Step 6. Periodically check the status and the state of the circuit key
 This lets you know when your provider has enabled your circuit. After the circuit has been configured, *ServiceProviderProvisioningState* will display as *Provisioned* as shown in the following example:
 
     Get-AzureDedicatedCircuit
@@ -167,7 +175,7 @@ This lets you know when your provider has enabled your circuit. After the circui
     Sku                              : Standard
     Status                           : Enabled
 
-### 7. Create your routing configuration
+### Step 7. Create your routing configuration
 Refer to the [ExpressRoute circuit routing configuration (create and modify circuit peerings)](expressroute-howto-routing-classic.md) article for step-by-step instructions.
 
 > [!IMPORTANT]
@@ -175,8 +183,8 @@ Refer to the [ExpressRoute circuit routing configuration (create and modify circ
 > 
 > 
 
-### 8. Link a virtual network to an ExpressRoute circuit
-Next, link a virtual network to your ExpressRoute circuit. Refer to [Linking ExpressRoute circuits to virtual networks](expressroute-howto-linkvnet-classic.md) for step-by-step instructions. If you need to create a virtual network by using the classic deployment model for ExpressRoute, see [Create a virtual network for ExpressRoute](expressroute-howto-vnet-portal-classic.md) for instructions.
+### Step 8. Link a virtual network to an ExpressRoute circuit
+Next, link a virtual network to your ExpressRoute circuit. Refer to [Linking ExpressRoute circuits to virtual networks](expressroute-howto-linkvnet-classic.md) for step-by-step instructions. If you need to create a virtual network using the classic deployment model for ExpressRoute, see [Create a virtual network for ExpressRoute](expressroute-howto-vnet-portal-classic.md).
 
 ## Getting the status of an ExpressRoute circuit
 You can retrieve this information at any time by using the `Get-AzureCircuit` cmdlet. Making the call without any parameters lists all the circuits.
@@ -201,7 +209,7 @@ You can retrieve this information at any time by using the `Get-AzureCircuit` cm
     Sku                              : Standard
     Status                           : Enabled
 
-You can get information on a specific ExpressRoute circuit by passing the service key as a parameter to the call:
+You can get information on a specific ExpressRoute circuit by passing the service key as a parameter to the call.
 
     Get-AzureDedicatedCircuit -ServiceKey "*********************************"
 
@@ -215,7 +223,7 @@ You can get information on a specific ExpressRoute circuit by passing the servic
     Status                           : Enabled
 
 
-You can get detailed descriptions of all the parameters by running the following:
+You can get detailed descriptions of all the parameters by running the following example:
 
     get-help get-azurededicatedcircuit -detailed
 
@@ -225,7 +233,7 @@ You can modify certain properties of an ExpressRoute circuit without impacting c
 You can do the following with no downtime:
 
 * Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
-* Increase the bandwidth of your ExpressRoute circuit. Note that downgrading the bandwidth of a circuit is not supported.
+* Increase the bandwidth of your ExpressRoute circuit provided there is capacity available on the port. Note that downgrading the bandwidth of a circuit is not supported. 
 * Change the metering plan from Metered Data to Unlimited Data. Note that changing the metering plan from Unlimited Data to Metered Data is not supported.
 * You can enable and disable *Allow Classic Operations*.
 
@@ -253,12 +261,13 @@ Your circuit will now have the ExpressRoute premium add-on features enabled. Not
 > 
 > 
 
-Note the following:
+#### Considerations
 
 * You must ensure that the number of virtual networks linked to the circuit is less than 10 before you downgrade from premium to standard. If you don't do this, your update request will fail, and you'll be billed the premium rates.
 * You must unlink all virtual networks in other geopolitical regions. If you don't do this, your update request will fail, and you'll be billed the premium rates.
 * Your route table must be less than 4,000 routes for private peering. If your route table size is greater than 4,000 routes, the BGP session will drop and won't be reenabled until the number of advertised prefixes goes below 4,000.
 
+#### Disable the premium add-on
 You can disable the ExpressRoute premium add-on for your existing circuit by using the following PowerShell cmdlet:
 
     Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
@@ -278,9 +287,13 @@ You can disable the ExpressRoute premium add-on for your existing circuit by usi
 Check the [ExpressRoute FAQ](expressroute-faqs.md) for supported bandwidth options for your provider. You can pick any size that is greater than the size of your existing circuit as long as the physical port (on which your circuit is created) allows.
 
 > [!IMPORTANT]
-> You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth will require you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
+> You may have to recreate the ExpressRoute circuit if there is inadequate capacity on the existing port. You cannot upgrade the circuit if there is no additional capacity available at that location.
+>
+> You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
 > 
 > 
+
+#### Resize a circuit
 
 After you decide what size you need, you can use the following command to resize your circuit:
 
@@ -309,11 +322,14 @@ If you see the following error when increasing the circuit bandwidth, it means t
 
 
 ## Deprovisioning and deleting an ExpressRoute circuit
-Note the following:
+
+### Considerations
 
 * You must unlink all virtual networks from the ExpressRoute circuit for this operation to succeed. Check to see if you have any virtual networks that are linked to the circuit if this operation fails.
 * If the ExpressRoute circuit service provider provisioning state is **Provisioning** or **Provisioned** you must work with your service provider to deprovision the circuit on their side. We will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
 * If the service provider has deprovisioned the circuit (the service provider provisioning state is set to **Not provisioned**) you can then delete the circuit. This will stop billing for the circuit.
+
+#### Delete a circuit
 
 You can delete your ExpressRoute circuit by running the following command:
 

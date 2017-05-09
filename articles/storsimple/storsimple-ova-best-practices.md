@@ -4,7 +4,7 @@ description: Describes the best practices for deploying and managing the StorSim
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: 57ac6eeb-c47c-442d-a5f4-b360d81a76a6
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/18/2016
+ms.date: 05/01/2017
 ms.author: alkohli
 
 ---
@@ -23,13 +23,13 @@ Microsoft Azure StorSimple Virtual Array is an integrated storage solution that 
 
 This article covers the best practices implemented during the initial setup, deployment, and management of the StorSimple Virtual Array. These best practices provide validated guidelines for the setup and management of your virtual array. This article is targeted towards the IT administrators who deploy and manage the virtual arrays in their datacenters.
 
-We recommend a periodic review of the best practices to help ensure your device is still in compliance when changes are made to the setup or operation flow. Should you encounter any issues while implementing these best practices on your virtual array, [contact Microsoft Support](storsimple-contact-microsoft-support.md) for assistance.
+We recommend a periodic review of the best practices to help ensure your device is still in compliance when changes are made to the setup or operation flow. Should you encounter any issues while implementing these best practices on your virtual array, [contact Microsoft Support](storsimple-virtual-array-log-support-ticket.md) for assistance.
 
 ## Configuration best practices
 These best practices cover the guidelines that need to be followed during the initial setup and deployment of the virtual arrays. These best practices include those related to the provisioning of the virtual machine, group policy settings, sizing, setting up the networking, configuring storage accounts, and creating shares and volumes for the virtual array. 
 
 ### Provisioning
-StorSimple Virtual Array is a virtual machine (VM) provisioned on the hypervisor (Hyper-V or VMware) of your host server. When provisioning the virtual machine, ensure that your host is able to dedicate sufficient resources. For more information, go to [minimum resource requirements](storsimple-ova-deploy2-provision-hyperv.md#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements) to provision an array. 
+StorSimple Virtual Array is a virtual machine (VM) provisioned on the hypervisor (Hyper-V or VMware) of your host server. When provisioning the virtual machine, ensure that your host is able to dedicate sufficient resources. For more information, go to [minimum resource requirements](storsimple-virtual-array-deploy2-provision-hyperv.md#step-1-ensure-that-the-host-system-meets-minimum-virtual-array-requirements) to provision an array.
 
 Implement the following best practices when provisioning the virtual array:
 
@@ -45,7 +45,7 @@ When sizing your StorSimple Virtual Array, consider the following factors:
 
 * Local reservation for volumes or shares. Approximately 12% of the space is reserved on the local tier for each provisioned tiered volume or share. Roughly 10% of the space is also reserved for a locally pinned volume for file system.
 * Snapshot overhead. Roughly 15% space on the local tier is reserved for snapshots.
-* Need for restores. If doing restore as a new operation, sizing should account for the space needed for restore. Restore is done to a share or volume of the same size or larger.
+* Need for restores. If doing restore as a new operation, sizing should account for the space needed for restore. Restore is done to a share or volume of the same size.
 * Some buffer should be allocated for any unexpected growth.
 
 Based on the preceding factors, the sizing requirements can be represented by the following equation:
@@ -57,13 +57,13 @@ Based on the preceding factors, the sizing requirements can be represented by th
 The following examples illustrate how you can size a virtual array based on your requirements.
 
 #### Example 1:
-On your virtual array, you want to be able to 
+On your virtual array, you want to be able to
 
 * provision a 2 TB tiered volume or share.
 * provision a 1 TB tiered volume or share.
 * provision a 300 GB of locally pinned volume or share.
 
-For the preceding volumes or shares, let us calculate the space requirements on the local tier. 
+For the preceding volumes or shares, let us calculate the space requirements on the local tier.
 
 First, for each tiered volume/share, local reservation would be equal to 12% of the volume/share size. For the locally pinned volume/share, local reservation is 10 % of the locally pinned volume/share size (in addition to the provisioned size). In this example, you need
 
@@ -82,11 +82,10 @@ Factoring in unexpected growth and new restores, you should provision a local di
 
 > [!NOTE]
 > We also recommend that the local disk is thinly provisioned. This recommendation is because the restore space is only needed when you want to restore data that is older than five days. Item-level recovery allows you to restore data for the last five days without requiring the extra space for restore.
-> 
-> 
+
 
 #### Example 2:
-On your virtual array, you want to be able to 
+On your virtual array, you want to be able to
 
 * provision a 2 TB tiered volume
 * provision a 300 GB locally pinned volume
@@ -98,9 +97,9 @@ Based on 12 % of local space reservation for tiered volumes/shares and 10 % for 
 
 Total space required on the local tier is: 240 GB + 330 GB = 570 GB
 
-The minimum local space needed for restore is 330 GB. 
+The minimum local space needed for restore is 330 GB.
 
-15 % of your total disk is used to store snapshots so that only 0.85 is available. So, the disk size is (900&ast;(1/0.85)) = 1.06 TB ~ 1.25 TB (rounding off to nearest quartile) 
+15 % of your total disk is used to store snapshots so that only 0.85 is available. So, the disk size is (900&ast;(1/0.85)) = 1.06 TB ~ 1.25 TB (rounding off to nearest quartile)
 
 Factoring in any unexpected growth, you can provision a 1.25 - 1.5 TB local disk.
 
@@ -111,29 +110,29 @@ If your virtual array is domain-joined, GPOs can be applied to it. These GPOs ca
 
 Therefore, we recommend that you:
 
-* Ensure that your virtual array is in its own organizational unit (OU) for Active Directory. 
+* Ensure that your virtual array is in its own organizational unit (OU) for Active Directory.
 * Make sure that no group policy objects (GPOs) are applied to your virtual array. You can block inheritance to ensure that the virtual array (child node) does not automatically inherit any GPOs from the parent. For more information, go to [block inheritance](https://technet.microsoft.com/library/cc731076.aspx).
 
 ### Networking
-The network configuration for your virtual array is done through the local web UI. A virtual network interface is enabled through the hypervisor in which the virtual array is provisioned. Use the [Network Settings](storsimple-ova-deploy3-fs-setup.md) page to configure the virtual network interface IP address, subnet, and gateway.  You can also configure the primary and secondary DNS server, time settings, and optional proxy settings for your device. Most of the network configuration is a one-time setup. Review the [StorSimple networking requirements](storsimple-ova-system-requirements.md#networking-requirements) prior to deploying the virtual array.
+The network configuration for your virtual array is done through the local web UI. A virtual network interface is enabled through the hypervisor in which the virtual array is provisioned. Use the [Network Settings](storsimple-virtual-array-deploy3-fs-setup.md) page to configure the virtual network interface IP address, subnet, and gateway.  You can also configure the primary and secondary DNS server, time settings, and optional proxy settings for your device. Most of the network configuration is a one-time setup. Review the [StorSimple networking requirements](storsimple-ova-system-requirements.md#networking-requirements) prior to deploying the virtual array.
 
 When deploying your virtual array, we recommend that you follow these best practices:
 
-* Ensure that the network in which the virtual array is deployed always has the capacity to dedicate 5 Mbps Internet bandwidth (or more). 
+* Ensure that the network in which the virtual array is deployed always has the capacity to dedicate 5 Mbps Internet bandwidth (or more).
   
   * Internet bandwidth need varies depending on your workload characteristics and the rate of data change.
-  * The data change that can be handled is directly proportional to your Internet bandwidth. As an example when taking a backup, a 5 Mbps bandwidth can accommodate a data change of around 18 GB in 8 hours. With four times more bandwidth (20 Mbps), you can handle four times more data change (72 GB). 
+  * The data change that can be handled is directly proportional to your Internet bandwidth. As an example when taking a backup, a 5 Mbps bandwidth can accommodate a data change of around 18 GB in 8 hours. With four times more bandwidth (20 Mbps), you can handle four times more data change (72 GB).
 * Ensure connectivity to the Internet is always available. Sporadic or unreliable Internet connections to the devices may result in a loss of access to data in the cloud and could result in an unsupported configuration.
-* If you plan to deploy your device as an iSCSI server: 
+* If you plan to deploy your device as an iSCSI server:
   
-  * We recommend that you disable the **Get IP address automatically** option (DHCP). 
+  * We recommend that you disable the **Get IP address automatically** option (DHCP).
   * Configure static IP addresses. You must configure a primary and a secondary DNS server.
   * If defining multiple network interfaces on your virtual array, only the first network interface (by default, this interface is **Ethernet**) can reach the cloud. To control the type of traffic, you can create multiple virtual network interfaces on your virtual array (configured as an iSCSI server) and connect those interfaces to different subnets.
-* To throttle the cloud bandwidth only (used by the virtual array), configure throttling on the router or the firewall. If you define throttling in your hypervisor, it will throttle all the protocols including iSCSI and SMB instead of just the cloud bandwidth. 
+* To throttle the cloud bandwidth only (used by the virtual array), configure throttling on the router or the firewall. If you define throttling in your hypervisor, it will throttle all the protocols including iSCSI and SMB instead of just the cloud bandwidth.
 * Ensure that time synchronization for hypervisors is enabled. If using Hyper-V, select your virtual array in the Hyper-V Manager, go to **Settings &gt; Integration Services**, and ensure that the **Time synchronization** is checked.
 
 ### Storage accounts
-StorSimple Virtual Array can be associated with a single storage account. This storage account could be an automatically generated storage account, an account in the same subscription as the service, or a storage account related to another subscription. For more information, see how to [manage storage accounts for your virtual array](storsimple-ova-manage-storage-accounts.md).
+StorSimple Virtual Array can be associated with a single storage account. This storage account could be an automatically generated storage account, an account in the same subscription as the service, or a storage account related to another subscription. For more information, see how to [manage storage accounts for your virtual array](storsimple-virtual-array-manage-storage-accounts.md).
 
 Use the following recommendations for storage accounts associated with your virtual array.
 
@@ -153,11 +152,11 @@ On your virtual array, you can provision shares when it is configured as a file 
 Keep in mind the following best practices when provisioning shares or volumes on your virtual device.
 
 * The file sizes relative to the provisioned size of a tiered share can impact the tiering performance. Working with large files could result in a slow tier out. When working with large files, we recommend that the largest file is smaller than 3% of the share size.
-* A maximum of 16 volumes/shares can be created on the virtual array. If locally pinned, the volumes/shares can be between 50 GB to 2 TB. If tiered, the volumes/shares must be between 500 GB to 20 TB. 
-* When creating a volume, factor in the expected data consumption as well as future growth. While the volume cannot be expanded later, you can always restore to a larger volume.
+* A maximum of 16 volumes/shares can be created on the virtual array. For the size limits of the locally pinned and tiered volumes/shares, always refer to the [StorSimple Virtual Array limits](storsimple-ova-limits.md).
+* When creating a volume, factor in the expected data consumption as well as future growth. The volume cannot be expanded later.
 * Once the volume has been created, you cannot shrink the size of the volume on StorSimple.
-* When writing to a tiered volume on StorSimple, when the volume data reaches a certain threshold (relative to the local space reserved for the volume), the IO is throttled. Continuing to write to this volume slows down the IO significantly. Though you can write to a tiered volume beyond its provisioned capacity (we do not actively stop the user from writing beyond the provisioned capacity), you see an alert notification to the effect that you have oversubscribed. Once you see the alert, it is imperative that you take remedial measures such as delete the volume data or restore the volume to a larger volume (volume expansion is currently not supported).
-* For disaster recovery use cases, as the number of allowable shares/volumes is 16 and the maximum number of shares/volumes that can be processed in parallel is also 16, the number of shares/volumes does not have a bearing on your RPO and RTOs. 
+* When writing to a tiered volume on StorSimple, when the volume data reaches a certain threshold (relative to the local space reserved for the volume), the IO is throttled. Continuing to write to this volume slows down the IO significantly. Though you can write to a tiered volume beyond its provisioned capacity (we do not actively stop the user from writing beyond the provisioned capacity), you see an alert notification to the effect that you have oversubscribed. Once you see the alert, it is imperative that you take remedial measures such as delete the volume data (volume expansion is currently not supported).
+* For disaster recovery use cases, as the number of allowable shares/volumes is 16 and the maximum number of shares/volumes that can be processed in parallel is also 16, the number of shares/volumes does not have a bearing on your RPO and RTOs.
 
 #### Volume/Share type
 StorSimple supports two volume/share types based on the usage: locally pinned and tiered. Locally pinned volumes/shares are thickly provisioned whereas the tiered volumes/shares are thinly provisioned. 
@@ -186,7 +185,7 @@ When configuring the iSCSI volumes on your StorSimple Virtual Array, it is impor
 Use the following best practices when configuring ACRs for StorSimple volumes:
 
 * Always associate at least one ACR with a volume.
-* Define multiple ACRs only in a clustered environment.
+
 * When assigning more than one ACR to a volume, ensure that the volume is not exposed in a way where it can be concurrently accessed by more than one non-clustered host. If you have assigned multiple ACRs to a volume, a warning message pops up for you to review your configuration.
 
 ### Data security and encryption
@@ -201,7 +200,7 @@ Your StorSimple Virtual Array has data security and encryption features that ens
 The operational best practices are guidelines that should be followed during the day-to-day management or operation of the virtual array. These practices cover specific management tasks such as taking backups, restoring from a backup set, performing a failover, deactivating and deleting the array, monitoring system usage and health, and running virus scans on your virtual array.
 
 ### Backups
-The data on your virtual array is backed up to the cloud in two ways, a default automated daily backup of the entire device starting at 22:30 or via a manual on-demand backup. By default, the device automatically creates daily cloud snapshots of all the data residing on it. For more information, go to [back up your StorSimple Virtual Array](storsimple-ova-backup.md).
+The data on your virtual array is backed up to the cloud in two ways, a default automated daily backup of the entire device starting at 22:30 or via a manual on-demand backup. By default, the device automatically creates daily cloud snapshots of all the data residing on it. For more information, go to [back up your StorSimple Virtual Array](storsimple-virtual-array-backup.md).
 
 The frequency and retention associated with the default backups cannot be changed but you can configure the time at which the daily backups are initiated every day. When configuring the start time for the automated backups, we recommend that:
 
@@ -209,7 +208,7 @@ The frequency and retention associated with the default backups cannot be change
 * Initiate a manual on-demand backup when planning to perform a device failover or prior to the maintenance window, to protect the data on your virtual array.
 
 ### Restore
-You can restore from a backup set in two ways: restore to another volume or share or perform an item-level recovery (available only on a virtual array configured as a file server). Item-level recovery allows you to do a granular recovery of files and folders from a cloud backup of all the shares on the StorSimple device. For more information, go to [restore from a backup](storsimple-ova-restore.md).
+You can restore from a backup set in two ways: restore to another volume or share or perform an item-level recovery (available only on a virtual array configured as a file server). Item-level recovery allows you to do a granular recovery of files and folders from a cloud backup of all the shares on the StorSimple device. For more information, go to [restore from a backup](storsimple-virtual-array-clone.md).
 
 When performing a restore, keep the following guidelines in mind:
 
@@ -221,7 +220,7 @@ When performing a restore, keep the following guidelines in mind:
 ### Failover and disaster recovery
 A device failover allows you to migrate your data from a *source* device in the datacenter to another *target* device located in the same or a different geographical location. The device failover is for the entire device. During failover, the cloud data for the source device changes ownership to that of the target device.
 
-For your StorSimple Virtual Array, you can only fail over to another virtual array managed by the same StorSimple Manager service. A failover to an 8000 series device or an array managed by a different StorSimple Manager service (than the one for the source device) is not allowed. To learn more about the failover considerations, go to [prerequisites for the device failover](storsimple-ova-failover-dr.md).
+For your StorSimple Virtual Array, you can only fail over to another virtual array managed by the same StorSimple Manager service. A failover to an 8000 series device or an array managed by a different StorSimple Manager service (than the one for the source device) is not allowed. To learn more about the failover considerations, go to [prerequisites for the device failover](storsimple-virtual-array-failover-dr.md).
 
 When performing a fail over for your virtual array, keep the following in mind:
 
@@ -235,7 +234,7 @@ When performing a fail over for your virtual array, keep the following in mind:
   * The failover was complete following which the source device was deleted but the target device has issues and you cannot access any data. The data is still safe in the cloud and can be easily retrieved by creating another virtual array and then using it as a target device for the DR.
 
 ### Deactivate
-When you deactivate a StorSimple Virtual Array, you sever the connection between the device and the corresponding StorSimple Manager service. Deactivation is a **permanent** operation and cannot be undone. A deactivated device cannot be registered with the StorSimple Manager service again. For more information, go to [deactivate and delete your StorSimple Virtual Array](storsimple-deactivate-and-delete-device.md).
+When you deactivate a StorSimple Virtual Array, you sever the connection between the device and the corresponding StorSimple Manager service. Deactivation is a **permanent** operation and cannot be undone. A deactivated device cannot be registered with the StorSimple Manager service again. For more information, go to [deactivate and delete your StorSimple Virtual Array](storsimple-virtual-array-deactivate-and-delete-device.md).
 
 Keep the following best practices in mind when deactivating your virtual array:
 
@@ -246,7 +245,7 @@ Keep the following best practices in mind when deactivating your virtual array:
 ### Monitoring
 To ensure that your StorSimple Virtual Array is in a continuous healthy state, you need to monitor the array and ensure that you receive information from the system including alerts. To monitor the overall health of the virtual array, implement the following best practices:
 
-* Configure monitoring to track the disk usage of your virtual array data disk as well as the OS disk. If running Hyper-V, you can use a combination of System Center Virtual Machine Manager (SCVMM) and System Center Operations Manager (SCOM) to monitor your virtualization hosts.   
+* Configure monitoring to track the disk usage of your virtual array data disk as well as the OS disk. If running Hyper-V, you can use a combination of System Center Virtual Machine Manager (SCVMM) and System Center Operations Manager (SCOM) to monitor your virtualization hosts.
 * Configure email notifications on your virtual array to send alerts at certain usage levels.                                                                                                                                                                                                
 
 ### Index search and virus scan applications
@@ -281,5 +280,5 @@ Multiple virtual arrays may need to be deployed to account for a growing working
 * Multiple virtual arrays (when configured as a file server or an iSCSI server) can be deployed in a Distributed File System Namespace. For detailed steps, go to [Distributed File System Namespace Solution with Hybrid Cloud Storage Deployment Guide](https://www.microsoft.com/download/details.aspx?id=45507). Distributed File System Replication is currently not recommended for use with the virtual array. 
 
 ## See also
-Learn how to [administer your StorSimple Virtual Array](storsimple-ova-manager-service-administration.md) via the StorSimple Manager service.
+Learn how to [administer your StorSimple Virtual Array](storsimple-virtual-array-manager-service-administration.md) via the StorSimple Manager service.
 

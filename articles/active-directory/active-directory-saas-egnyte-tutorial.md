@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 
 ---
@@ -21,23 +21,24 @@ The objective of this tutorial is to show the integration of Azure and Egnyte.
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
-* An Egnyte single sign-on enabled subscription
+* An Egnyte single sign-on (SSO) enabled subscription
 
 After completing this tutorial, the Azure AD users you have assigned to Egnyte will be able to single sign into the application at your Egnyte company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md)
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
-1. Enabling the application integration for Egnyte
-2. Configuring single sign-on
-3. Configuring user provisioning
-4. Assigning users
+* Enabling the application integration for Egnyte
+* Configuring single sign-on
+* Configuring user provisioning
+* Assigning users
 
 ![Scenario](./media/active-directory-saas-egnyte-tutorial/IC787812.png "Scenario")
 
-## Enabling the application integration for Egnyte
+## Enable the application integration for Egnyte
 The objective of this section is to outline how to enable the application integration for Egnyte.
 
-### To enable the application integration for Egnyte, perform the following steps:
+**To enable the application integration for Egnyte, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-egnyte-tutorial/IC700993.png "Active Directory")
@@ -58,13 +59,14 @@ The objective of this section is to outline how to enable the application integr
    
    ![Egnyte](./media/active-directory-saas-egnyte-tutorial/IC787814.png "Egnyte")
    
-   ## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Egnyte with their account in Azure AD using federation based on the SAML protocol.  
-As part of this procedure, you are required to create a base-64 encoded certificate file.  
-If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-### To configure single sign-on, perform the following steps:
+As part of this procedure, you are required to create a base-64 encoded certificate file. If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+
+**To configure single sign-on, perform the following steps:**
+
 1. In the Azure classic portal, on the **Egnyte** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-egnyte-tutorial/IC787815.png "Configure Single Sign-On")
@@ -89,17 +91,14 @@ If you are not familiar with this procedure, see [How to convert a binary certif
    ![Security](./media/active-directory-saas-egnyte-tutorial/IC787821.png "Security")
 9. In the **Single Sign-On Authentication** section, perform the following steps:
    
-   ![Single Sign On Authentication](./media/active-directory-saas-egnyte-tutorial/IC787822.png "Single Sign On Authentication")
-   
+   ![Single Sign On Authentication](./media/active-directory-saas-egnyte-tutorial/IC787822.png "Single Sign On Authentication")   
    1. As **Single sign-on authentication**, select **SAML 2.0**.
    2. As **Identity provider**, select **AzureAD**.
    3. In the Azure classic portal, on the **Configure single sign-on at Egnyte** dialog page, copy the **Remote Login URL** value, and then paste it into the **Identity provider login URL ** textbox.
    4. In the Azure classic portal, on the **Configure single sign-on at Egnyte** dialog page, copy the **Entity ID** value, and then paste it into the **Identity provider entity ID** textbox.
    5. Create a **base-64 encoded** file from your downloaded certificate.  
-      
-      > [!TIP]
-      > For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
-      > 
+     >[!TIP]
+     >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
       > 
    6. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Identity provider certificate** textbox.
    7. As **Default user mapping**, select **Email address**.
@@ -107,14 +106,14 @@ If you are not familiar with this procedure, see [How to convert a binary certif
    9. Click **Save**.
 10. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
     
-    ![Configure Single Sign-On](./media/active-directory-saas-egnyte-tutorial/IC787823.png "Configure Single Sign-On")
+   ![Configure Single Sign-On](./media/active-directory-saas-egnyte-tutorial/IC787823.png "Configure Single Sign-On")
     
-    ## Configuring user provisioning
+## Configure user provisioning
 
-In order to enable Azure AD users to log into Egnyte, they must be provisioned into Egnyte.  
-In the case of Egnyte, provisioning is a manual task.
+In order to enable Azure AD users to log into Egnyte, they must be provisioned into Egnyte. In the case of Egnyte, provisioning is a manual task.
 
-### To provision a user accounts, perform the following steps:
+**To provision a user accounts, perform the following steps:**
+
 1. Log in to your **Egnyte** Egnyte company site as administrator.
 2. Go to **Settings \> Users & Groups**.
 3. Click **Add New User**, and then select the type of user you want to add.
@@ -122,25 +121,22 @@ In the case of Egnyte, provisioning is a manual task.
    ![Users](./media/active-directory-saas-egnyte-tutorial/IC787824.png "Users")
 4. In the **New Standard User** section, perform the following steps:
    
-   ![New Standard User](./media/active-directory-saas-egnyte-tutorial/IC787825.png "New Standard User")
-   
+   ![New Standard User](./media/active-directory-saas-egnyte-tutorial/IC787825.png "New Standard User")   
    1. Type the **Email**, **Username** and other details of a valid Azure Active Directory account you want to provision.
    2. Click **Save**.
-   
-   > [!NOTE]
-   > The Azure Active Directory account holder will receive a notification email.
-   > 
-   > 
+    >[!NOTE]
+    >The Azure Active Directory account holder will receive a notification email.
+    >
 
-> [!NOTE]
-> You can use any other Egnyte user account creation tools or APIs provided by Egnyte to provision AAD user accounts.
-> 
+>[!NOTE]
+>You can use any other Egnyte user account creation tools or APIs provided by Egnyte to provision AAD user accounts.
 > 
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to Egnyte, perform the following steps:
+**To assign users to Egnyte, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
 2. On the **Egnyte **application integration page, click **Assign users**.
    

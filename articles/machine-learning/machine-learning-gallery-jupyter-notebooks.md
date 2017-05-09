@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 03/31/2017
 ms.author: roopalik;garye
 
 ---
@@ -38,9 +38,9 @@ Notebooks in the Gallery provide tutorials and detailed explanations of advanced
 notebooks.
  Click **See all** to view all
 notebooks.
- From this page you can browse all the
+ From this page, you can browse all the
 notebooks
- in the Gallery, or you can search by selecting filter criteria on the left of the page and entering search terms at the top.
+ in the Gallery. You also can search by selecting filter criteria on the left of the page and entering search terms at the top.
 
  Click any
 notebook
@@ -57,7 +57,7 @@ notebook
 ## Download
 You can download a copy of any notebook from the Gallery into your Machine Learning Studio workspace.
 
-### From the Gallery
+### Download from the Gallery
 To download a copy of a notebook from the Gallery:
 
 1. Open the notebook's details page in the Gallery
@@ -68,7 +68,7 @@ To download a copy of a notebook from the Gallery:
 
 When you click **Open in Studio**, the notebook is loaded into your Machine Learning Studio workspace and opened (if you're not already signed in to Studio, you will be prompted to sign in using your Microsoft account before the notebook is copied to your workspace). You can find the notebook again later by clicking **Notebooks** on the left side of the Studio home page.
 
-### In Machine Learning Studio
+### Download in Machine Learning Studio
 You can also open any of the same Gallery notebooks while you're working in Machine Learning Studio:
 
 1. In Machine Learning Studio, click **+NEW**

@@ -117,3 +117,33 @@
 #### [Oauth 2.0 On-Behalf-Of flow](active-directory-v2-protocols-oauth-on-behalf-of.md)
 #### [Token reference](active-directory-v2-tokens.md)
 ### [Scopes](active-directory-v2-scopes.md)
+### [Differences](active-directory-v2-compare.md)
+### [Types of apps](active-directory-v2-flows.md)
+### [Limitations](active-directory-v2-limitations.md)
+## Quickstarts
+### Mobile Apps
+#### [iOS](active-directory-v2-devquickstarts-ios.md)
+#### [Windows Phone](active-directory-v2-devquickstarts-wpf.md)
+#### [Android](active-directory-v2-devquickstarts-android.md)
+### Web apps and APIs
+#### [AngularJS with Node JS](active-directory-v2-devquickstarts-angular-node.md)
+#### [Angular JS with .NET](active-directory-v2-devquickstarts-angular-dotnet.md)
+#### [.NET Web App](active-directory-v2-devquickstarts-dotnet-web.md)
+#### [.NET Web API](active-directory-v2-devquickstarts-dotnet-api.md)
+#### [NodeJS API](active-directory-v2-devquickstarts-node-api.md)
+#### [NodeJS Web app](active-directory-v2-devquickstarts-node-web.md)
+#### [Web API from .NET Web App](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
+## Guides
+### [Register an app](active-directory-v2-app-registration.md)
+## Reference
+### [App registration reference](active-directory-v2-registration-portal.md)
+### [Authentication libraries](active-directory-v2-libraries.md)
+### [v2.0 Authentication Protocols](active-directory-v2-protocols.md)
+#### [Token reference](active-directory-v2-tokens.md)
+#### [OAuth2.0 authorization code flow](active-directory-v2-protocols-oauth-code.md)
+#### [OpenID connect](active-directory-v2-protocols-oidc.md)
+#### [Implicit flow](active-directory-v2-protocols-implicit.md)
+#### [Oauth 2.0 client creds](active-directory-v2-protocols-oauth-client-creds.md)
+#### [Oauth 2.0 On-Behalf-Of flow](active-directory-v2-protocols-oauth-on-behalf-of.md)
+### [Scopes](active-directory-v2-scopes.md)
+

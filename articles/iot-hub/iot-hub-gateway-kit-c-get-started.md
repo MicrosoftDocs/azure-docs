@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure IoT Gateway Starter Kit | Microsoft Docs
+title: 'SensorTag device & Azure IoT Gateway - Get started | Microsoft Docs'
 description: Get started with IoT Gateway Starter Kit, create your Azure IoT hub, and connect SensorTag and Gateway to the IoT hub
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'azure iot hub, iot gateway, getting started with the internet of things, iot toolkit'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
+
 ms.assetid: 56d05f4e-f2c1-4b22-8701-f01e14deead6
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

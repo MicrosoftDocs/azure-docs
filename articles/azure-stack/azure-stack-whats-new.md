@@ -13,54 +13,28 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 4/13/2017
 ms.author: helaw
 
 ---
-# What's new in Azure Stack Technical Preview 2
+# What's new in Azure Stack
 This release provides new features for both tenants and administrators.
 
-## Network
-* [iDNS](azure-stack-understanding-dns-in-tp2.md) provides internal network name registration and Domain Name System (DNS) resolution without additional DNS infrastructure.
-* [Virtual network gateways](azure-stack-create-vpn-connection-one-node-tp2.md) provide VPN connectivity options to Azure or on-premises resources.
-* User Defined Routes can route network traffic through firewalls, security, other appliances, and other services.
-* You can create network resources from the Marketplace.   
+## Content, services, and tools
+* [Active Directory Federation Services (AD FS)](azure-stack-key-features.md#identity) support provides identity options for scenarios where network connectivity is limited or intermittent.
+* You can use Azure Virtual Machine Scale Sets to provide managed scale-out and scale-in of IaaS VM-based workloads. 
+* Use Azure D-Series VM sizes for increased performance and consistency.
+* Deploy and create templates with Temp Disks that are consistent with Azure.
+* [Marketplace Syndication](azure-stack-download-azure-marketplace-item.md) allows you to use content from the Azure Marketplace and make available in Azure Stack.
 
-## Storage
-* [Azure Queues](https://msdn.microsoft.com/library/dd179353.aspx) enable reliable and persistent service messaging.
-* [Storage analytics](https://msdn.microsoft.com/library/azure/hh343270.aspx) capture storage performance data. You can use this data to trace requests, analyze usage trends, and diagnose issues with your storage account.
-* Blob storage supports [append block operation](https://msdn.microsoft.com/library/azure/mt427365.aspx).
-* Premium Storage API account support.
-* Tenant storage service support for common tools and SDKs, such as Azure CLI, PowerShell, .NET, Python, and Java SDK. 
-* [Storage Account Shared Access Signature](https://msdn.microsoft.com/library/azure/mt584140.aspx) enable granular delegation of access to your storage services without having to share your full account key.  
-* Storage services now use [Group Managed Service Accounts](https://technet.microsoft.com/library/hh831477.aspx) for strong security with low management overhead.
-* You can reclaim unused tenant resources on-demand.
-* Deleted storage account retention length is configurable.
-* You can recover deleted tenant storage accounts.
-
-## Compute
-* You can deallocate virtual machines.
-* You can redeploy virtual machine extensions for troubleshooting and configuration management purposes.
-* You can resize virtual machine disks.
-* Virtual machines can have multiple network interfaces.
-
-## Portal Experience
-* Azure Stack Regions are a logical unit of scale and management within Azure Stack. In this preview, you can view information on services like compute, network, and storage by region.
-* You can now preview the [updates](azure-stack-updates.md) interface.
-
-## Key Vault
-* [Key Vault in Azure Stack](azure-stack-kv-intro.md) provides secure management of your keys and passwords for cloud apps.
-* You can audit and monitor key usage by apps and VMs.
-
-## Billing and usage
-* [Billing and consumption APIs](azure-stack-billing-and-chargeback.md) expose data on how your services are consumed.  
-* Delegated Providers enable resellers to offer your Azure Stack services to their customers.
-
-## Monitoring and health
-* New monitoring capabilities available in the portal and APIs allow you to proactively view and manage alerts on your environment.  
+## Infrastructure and operations
+* Isolated administrator and user [portals](azure-stack-manage-portals.md) and APIs provide enhanced security.
+* Use enhanced infrastructure management functionality, such as improved alerting.
+* Using the [Windows Azure Pack Connector](azure-stack-manage-windows-azure-pack.md), you can view and manage IaaS virtual machines that are hosted on Windows Azure Pack. For this preview release, try this scenario only in test environments (both Windows Azure Pack and Azure Stack). Additional configuration is required.
+* Azure Stack now supports [multi-tenancy](azure-stack-enable-multitenancy.md) for scenarios where you need to provide IaaS and PaaS services to users outside of your Azure Active Directory domain.  For example, you may want to provide Azure Stack services to a partner company using their identities. You can configure Azure Stack to trust the other organization's identities, and enable users from that organization to sign up for subscriptions and consume services.  
 
 ## Next steps
-* [Understand Azure Stack POC Architecture](azure-stack-architecture.md)      
+* [Understand Azure Stack POC architecture](azure-stack-architecture.md)      
 * [Understand deployment prerequisites](azure-stack-deploy.md)
 * [Deploy Azure Stack](azure-stack-run-powershell-script.md)
 

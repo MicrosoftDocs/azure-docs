@@ -26,7 +26,7 @@ SendGrid Connection Provider lets you send email and manage recipient lists.
 > 
 > 
 
-You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+You can get started by creating a Logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Triggers and actions
 The SendGrid connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
@@ -154,5 +154,5 @@ Add recipient to list: Add an individual recipient to a recipient list
 | id |string |No |
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
 
