@@ -4,7 +4,7 @@
   items:
   - name: About Virtual Machines
     href: overview.md
-- name: Quickstart
+- name: Quickstarts
   expanded: true
   items:
   - name: Create VM - Portal
@@ -21,10 +21,23 @@
     href: tutorial-manage-data-disk.md
   - name: 3 - Automate configuration
     href: tutorial-automate-vm-deployment.md
-  - name: 4 - Load balance VMs
+  - name: 4 - Create VM images
+    href: tutorial-custom-images.md
+  - name: 5 - Highly available VMs
+    href: tutorial-availability-sets.md
+  - name: 6 - Create a VM scale set
+    href: tutorial-create-vmss.md
+  - name: 7 - Load balance VMs
     href: tutorial-load-balancer.md
-  - name: 5 - Manage networking
+  - name: 8 - Manage networking
     href: tutorial-virtual-network.md
+  - name: 9 - Backup virtual machines
+    href: tutorial-backup-vms.md
+  - name: 10 - Monitor virtual machines
+    href: tutorial-monitoring.md
+  - name: 11 - Manage VM security
+    href: tutorial-azure-security.md
+
 - name: Samples
   items:
   - name: PowerShell

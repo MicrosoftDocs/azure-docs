@@ -6,7 +6,7 @@
     href: app-service-web-overview.md
   - name: Compare hosting options
     href: choose-web-site-cloud-service-vm.md
-- name: Quickstart
+- name: Quickstarts
   expanded: true
   items:
   - name: Create .NET app
@@ -27,10 +27,22 @@
     href: app-service-web-tutorial-dotnet-sqldatabase.md
   - name: 1 - Node.js with MongoDB
     href: app-service-web-tutorial-nodejs-mongodb-app.md
+#  - name: 1- PHP with MySQL
+#    href: app-service-web-tutorial-php-mysql-app.md
+  - name: 1 - WordPress with MySQL
+    href: app-service-web-create-web-app-from-marketplace.md
+  - name: 1 - Java with MySQL
+    href: app-service-web-tutorial-java-mysql.md
+  - name: 1 - Python with PostgreSQL
+    href: app-service-web-tutorial-docker-python-postgresql-app.md
   - name: 2 - Map Custom Domain
     href: app-service-web-tutorial-custom-domain.md
   - name: 3 - Bind SSL Certificate
     href: app-service-web-tutorial-custom-ssl.md
+  - name: 4 - Add Content Delivery Network
+    href: app-service-web-tutorial-content-delivery-network.md
+  - name: 5 - Monitor your app
+    href: app-service-web-tutorial-monitoring.md
 - name: Samples
   items:
   - name: Azure CLI
