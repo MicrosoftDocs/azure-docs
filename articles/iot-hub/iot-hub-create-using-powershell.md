@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 05/04/2017
 ms.author: dobett
 
 ---
@@ -30,8 +30,7 @@ You can use Azure PowerShell cmdlets to create and manage Azure IoT hubs. This t
 To complete this tutorial, you need the following:
 
 * An active Azure account. <br/>If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
-* [Azure PowerShell 1.0][lnk-powershell-install] or later.
-* [Azure Resource Manager cmdlets][lnk-rm-install].
+* [Azure PowerShell cmdlets][lnk-powershell-install].
 
 ## Connect to your Azure subscription
 In a PowerShell command prompt, enter the following command to sign in to your Azure subscription:
@@ -111,10 +110,9 @@ To further explore the capabilities of IoT Hub, see:
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-powershell-install]: /powershell/azureps-cmdlets-docs
-[lnk-iothub-cmdlets]: /powershell/resourcemanager/azurerm.iothub/v1.3.0/azurerm.iothub
-[lnk-rm-install]: /powershell/resourcemanager/
-[lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
+[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[lnk-iothub-cmdlets]: https://docs.microsoft.com/powershell/module/azurerm.iothub/
+[lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md

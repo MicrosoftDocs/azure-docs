@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: brandwe
+ms.author: xerners
 
 ---
 # Add sign-in to an iOS app using a third-party library with Graph API using the v2.0 endpoint

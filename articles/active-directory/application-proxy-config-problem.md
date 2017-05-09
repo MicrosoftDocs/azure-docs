@@ -23,7 +23,7 @@ Below are some of the common issues people face when creating a new application 
 
 ## Recommended documents 
 
-To learn more about creating an Application Proxy application through the Admin Portal, see [Publish applications using Azure AD Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal).
+To learn more about creating an Application Proxy application through the Admin Portal, see [Publish applications using Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal).
 
 If you are following the steps in that document and are getting an error creating the application, see the error details for information and suggestions for how to fix the application. Most error messages include a suggested fix. 
 
@@ -43,7 +43,7 @@ To avoid common errors, verify:
 
 The error message should display in the top right corner when you create the application. You can also select the notification icon to see the error messages.
 
-   ![Error message](./media/application-proxy-how-to/error-message3.png)
+   ![Notification prompt](./media/application-proxy-config-problem/error-message.png)
 
 ## Next steps
 [Enable Application Proxy in the Azure portal](active-directory-application-proxy-enable.md)

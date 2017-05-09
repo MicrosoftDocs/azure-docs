@@ -26,8 +26,8 @@ ms.author: danlep
 
 In Azure Container Service, Kubernetes requires an [Azure Active Directory service principal](../active-directory/active-directory-application-objects.md) as a service account to interact with Azure APIs. The service principal is needed to dynamically manage
 resources such as
-user-defined routes
-and the Layer 4 Azure Load Balancer.
+[user-defined routes](../virtual-network/virtual-networks-udr-overview.md)
+and the [Layer 4 Azure Load Balancer](../load-balancer/load-balancer-overview.md).
 
 This article shows different options to specify a service principal for your Kubernetes cluster. For example, if you installed and set up the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), you can run the [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) command to create the Kubernetes cluster and the service principal at the same time.
 

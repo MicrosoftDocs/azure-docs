@@ -10,8 +10,8 @@ tags:
 
 ms.assetid:
 ms.service: virtual-machines-windows
-ms.devlang: na
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/23/2017

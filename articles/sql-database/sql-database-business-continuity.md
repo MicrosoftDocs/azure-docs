@@ -20,10 +20,10 @@ ms.author: sashan
 
 ---
 # Overview of business continuity with Azure SQL Database
-This overview describes the capabilities that Azure SQL Database provides for business continuity and disaster recovery. It provides options, recommendations, and tutorials for recovering from disruptive events that could cause data loss or cause your database and application to become unavailable. The discussion includes what to do when a user or application error affects data integrity, an Azure region has an outage, or your application requires maintenance. 
+This overview describes the capabilities that Azure SQL Database provides for business continuity and disaster recovery. It provides options, recommendations, and tutorials for recovering from disruptive events that could cause data loss or cause your database and application to become unavailable. The discussion includes what to do when a user or application error affects data integrity, an Azure region has an outage, or your application requires maintenance.
 
 ## SQL Database features that you can use to provide business continuity
-SQL Database provides several business continuity features, including automated backups and optional database replication. Each has different characteristics for estimated recovery time (ERT) and potential data loss for recent transactions. Once you understand these options, you can choose among them - and, in most scenarios, use them together for different scenarios. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event - this is your recovery time objective (RTO). You also need to understand the maximum amount of recent data updates (time interval) the application can tolerate losing when recovering after the disruptive event - the recovery point objective (RPO). 
+SQL Database provides several business continuity features, including automated backups and optional database replication. Each has different characteristics for estimated recovery time (ERT) and potential data loss for recent transactions. Once you understand these options, you can choose among them - and, in most scenarios, use them together for different scenarios. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event - this is your recovery time objective (RTO). You also need to understand the maximum amount of recent data updates (time interval) the application can tolerate losing when recovering after the disruptive event - the recovery point objective (RPO).
 
 The following table compares the ERT and RPO for the three most common scenarios.
 
@@ -37,23 +37,23 @@ The following table compares the ERT and RPO for the three most common scenarios
 ### Use database backups to recover a database
 SQL Database automatically performs a combination of full database backups weekly, differential database backups hourly, and transaction log backups every five minutes to protect your business from data loss. These backups are stored in geo-redundant storage for 35 days for databases in the Standard and Premium service tiers and seven days for databases in the Basic service tier - see [service tiers](sql-database-service-tiers.md) for more details on service tiers. If the retention period for your service tier does not meet your business requirements, you can increase the retention period by [changing the service tier](sql-database-service-tiers.md). The full and differential database backups are also replicated to a [paired data center](../best-practices-availability-paired-regions.md) for protection against a data center outage. See [automatic database backups](sql-database-automated-backups.md) for more details.
 
-If the built-in retention period is not sufficient for your application, you can extend it by configuring the Long-term retention policy for your database(s). For more information, see [Long-term retention](sql-database-long-term-retention.md). 
+If the built-in retention period is not sufficient for your application, you can extend it by configuring the Long-term retention policy for your database(s). For more information, see [Long-term retention](sql-database-long-term-retention.md).
 
-You can use these automatic database backups to recover a database from various disruptive events, both within your data center and to another data center. Using automatic database backups, the estimated time of recovery depends on several factors including the total number of databases recovering in the same region at the same time, the database size, the transaction log size, and network bandwidth. In most cases, the recovery time is less than 12 hours. When recovering to another data region, the potential data loss is limited to 1 hour by the geo-redundant storage of hourly differential database backups. 
+You can use these automatic database backups to recover a database from various disruptive events, both within your data center and to another data center. Using automatic database backups, the estimated time of recovery depends on several factors including the total number of databases recovering in the same region at the same time, the database size, the transaction log size, and network bandwidth. In most cases, the recovery time is less than 12 hours. When recovering to another data region, the potential data loss is limited to 1 hour by the geo-redundant storage of hourly differential database backups.
 
 > [!IMPORTANT]
 > To recover using automated backups, you must be a member of the SQL Server Contributor role or the subscription owner - see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md). You can recover using the Azure portal, PowerShell, or the REST API. You cannot use Transact-SQL.
-> 
-> 
+>
+>
 
 Use automated backups as your business continuity and recovery mechanism if your application:
 
 * Is not considered mission critical.
 * Doesn't have a binding SLA therefore the downtime of 24 hours or longer will not result in financial liability.
-* Has a low rate of data change (low transactions per hour) and losing up to an hour of change is an acceptable data loss. 
-* Is cost sensitive. 
+* Has a low rate of data change (low transactions per hour) and losing up to an hour of change is an acceptable data loss.
+* Is cost sensitive.
 
-If you need faster recovery, use [Active Geo-Replication](sql-database-geo-replication-overview.md) (discussed next). If you need to be able to recover data from a period older than 35 days, consider archiving your database regularly to a BACPAC file (a compressed file containing your database schema and associated data) stored either in Azure blob storage or in another location of your choice. For more information on how to create a transactionally consistent database archive, see [create a database copy](sql-database-copy.md) and [export the database copy](sql-database-export.md). 
+If you need faster recovery, use [Active Geo-Replication](sql-database-geo-replication-overview.md) (discussed next). If you need to be able to recover data from a period older than 35 days, consider archiving your database regularly to a BACPAC file (a compressed file containing your database schema and associated data) stored either in Azure blob storage or in another location of your choice. For more information on how to create a transactionally consistent database archive, see [create a database copy](sql-database-copy.md) and [export the database copy](sql-database-export.md).
 
 ### Use Active Geo-Replication and auto-failover groups to reduce recovery time and limit data loss associated with a recovery
 In addition to using database backups for database recovery in the event of a business disruption, you can use [Active Geo-Replication](sql-database-geo-replication-overview.md) to configure a database to have up to four readable secondary databases in the regions of your choice. These secondary databases are kept synchronized with the primary database using an asynchronous replication mechanism. This feature is used to protect against business disruption in the event of a data center outage or during an application upgrade. Active Geo-Replication can also be used to provide better query performance for read-only queries to geographically dispersed users.
@@ -64,8 +64,8 @@ If the primary database goes offline unexpectedly or you need to take it offline
 
 > [!IMPORTANT]
 > To use Active Geo-Replication and auto-failover groups, you must either be the subscription owner or have administrative permissions in SQL Server. You can configure and failover using the Azure portal, PowerShell, or the REST API using permissions on the subscription or using Transact-SQL using permissions within SQL Server.
-> 
-> 
+>
+>
 
 Use Active Geo-Replication if your application meets any of these criteria:
 
@@ -80,12 +80,12 @@ Use Active Geo-Replication if your application meets any of these criteria:
 >
 
 ## Recover a database after a user or application error
-*No one is perfect! A user might accidentally delete some data, inadvertently drop an important table, or even drop an entire database. Or, an application might accidentally overwrite good data with bad data due to an application defect. 
+*No one is perfect! A user might accidentally delete some data, inadvertently drop an important table, or even drop an entire database. Or, an application might accidentally overwrite good data with bad data due to an application defect.
 
 In this scenario, these are your recovery options.
 
 ### Perform a point-in-time restore
-You can use the automated backups to recover a copy of your database to a known good point in time, provided that time is within the database retention period. After the database is restored, you can either replace the original database with the restored database or copy the needed data from the restored data into the original database. If the database uses Active Geo-Replication, we recommend copying the required data from the restored copy into the original database. If you replace the original database with the restored database, you will need to reconfigure and resynchronize Active Geo-Replication (which can take quite some time for a large database). 
+You can use the automated backups to recover a copy of your database to a known good point in time, provided that time is within the database retention period. After the database is restored, you can either replace the original database with the restored database or copy the needed data from the restored data into the original database. If the database uses Active Geo-Replication, we recommend copying the required data from the restored copy into the original database. If you replace the original database with the restored database, you will need to reconfigure and resynchronize Active Geo-Replication (which can take quite some time for a large database).
 
 For more information and for detailed steps for restoring a database to a point in time using the Azure portal or using PowerShell, see [point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore). You cannot recover using Transact-SQL.
 
@@ -95,9 +95,9 @@ If the database is deleted but the logical server has not been deleted, you can 
 For more information and for detailed steps for restoring a deleted database using the Azure portal or using PowerShell, see [restore a deleted database](sql-database-recovery-using-backups.md#deleted-database-restore). You cannot restore using Transact-SQL.
 
 > [!IMPORTANT]
-> If the logical server is deleted, you cannot recover a deleted database. 
-> 
-> 
+> If the logical server is deleted, you cannot recover a deleted database.
+>
+>
 
 ### Restore from Azure Backup Vault
 If the data loss occurred outside the current retention period for automated backups and your database is configured for long term retention, you can restore from a weekly backup in Azure Backup Vault to a new database. At this point, you can either replace the original database with the restored database or copy the needed data from the restored database into the original database. If you need to retrieve an old version of your database prior to a major application upgrade, satisfy a request from auditors or a legal order, you can create a new database using a full backup saved in the Azure Backup Vault.  For more information, see [Long-term retention](sql-database-long-term-retention.md).
@@ -105,7 +105,7 @@ If the data loss occurred outside the current retention period for automated bac
 ## Recover a database to another region from an Azure regional data center outage
 <!-- Explain this scenario -->
 
-Although rare, an Azure data center can have an outage. When an outage occurs, it causes a business disruption that might only last a few minutes or might last for hours. 
+Although rare, an Azure data center can have an outage. When an outage occurs, it causes a business disruption that might only last a few minutes or might last for hours.
 
 * One option is to wait for your database to come back online when the data center outage is over. This works for applications that can afford to have the database offline. For example, a development project or free trial you don't need to work on constantly. When a data center has an outage, you won't know how long the outage will last, so this option only works if you don't need your database for a while.
 * Another option is to either failover to another data region if you are using Active Geo-Replication or the recover using geo-redundant database backups (Geo-Restore). Failover takes only a few seconds, while recovery from backups takes hours.
@@ -119,7 +119,7 @@ Regardless of the business continuity feature you use, you must:
 
 * Identify and prepare the target server, including server-level firewall rules, logins, and master database level permissions.
 * Determine how to redirect clients and client applications to the new server
-* Document other dependencies, such as auditing settings and alerts 
+* Document other dependencies, such as auditing settings and alerts
 
 If you do not plan and prepare properly, bringing your applications online after a failover or a recovery takes additional time and likely also require troubleshooting at a time of stress - a bad combination.
 
@@ -127,22 +127,22 @@ If you do not plan and prepare properly, bringing your applications online after
 If you are using Active Geo-Replication and auto-failover groups as your recovery mechanism, you can configure an automatic failover policy or use [manual failover](sql-database-disaster-recovery.md#failover-to-geo-replicated-secondary-database). Once initiated, the failover causes the secondary to become the new primary and ready to record new transactions and respond to queries - with minimal data loss for the data that had not yet been replicated. For information on designing the failover process, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
-> When the data center comes back online the old primaries automatically re-connect to the new primary and become secondary databases. If you need to relocate the primary back to the original region you can initiate a planned failover manually (failback). 
-> 
+> When the data center comes back online the old primaries automatically re-connect to the new primary and become secondary databases. If you need to relocate the primary back to the original region you can initiate a planned failover manually (failback).
+>
 
 ### Perform a Geo-Restore
-If you are using automated backups with geo-redundant storage replication as your recovery mechanism, [initiate a database recovery using Geo-Restore](sql-database-disaster-recovery.md#recover-using-geo-restore). Recovery usually takes place within 12 hours - with data loss of up to one hour determined by when the last hourly differential backup with taken and replicated. Until the recovery completes, the database is unable to record any transactions or respond to any queries. 
+If you are using automated backups with geo-redundant storage replication as your recovery mechanism, [initiate a database recovery using Geo-Restore](sql-database-disaster-recovery.md#recover-using-geo-restore). Recovery usually takes place within 12 hours - with data loss of up to one hour determined by when the last hourly differential backup with taken and replicated. Until the recovery completes, the database is unable to record any transactions or respond to any queries.
 
 > [!NOTE]
 > If the data center comes back online before you switch your application over to the recovered database, you can simply cancel the recovery.  
-> 
-> 
+>
+>
 
 ### Perform post failover / recovery tasks
 After recovery from either recovery mechanism, you must perform the following additional tasks before your users and applications are back up and running:
 
 * Redirect clients and client applications to the new server and restored database
-* Ensure appropriate server-level firewall rules are in place for users to connect (or use [database-level firewalls](sql-database-firewall-configure.md#creating-database-level-firewall-rules))
+* Ensure appropriate server-level firewall rules are in place for users to connect (or use [database-level firewalls](sql-database-firewall-configure.md#creating-and-managing-firewall-rules))
 * Ensure appropriate logins and master database level permissions are in place (or use [contained users](https://msdn.microsoft.com/library/ff929188.aspx))
 * Configure auditing, as appropriate
 * Configure alerts, as appropriate
@@ -152,4 +152,3 @@ Sometimes an application needs to be taken offline because of planned maintenanc
 
 ## Next steps
 For a discussion of application design considerations for stand-alone databases and for elastic pools, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md) and [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
-

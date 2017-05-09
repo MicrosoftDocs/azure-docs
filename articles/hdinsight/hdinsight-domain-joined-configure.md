@@ -10,7 +10,6 @@ tags: ''
 
 ms.assetid: 0cbb49cc-0de1-4a1a-b658-99897caf827c
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -41,7 +40,6 @@ Azure service names must be globally unique. The following names are used in thi
 | --- | --- |
 | Azure AD VNet |contosoaadvnet |
 | Azure AD Vnet resource group |contosoaadrg |
-| Azure AD Virtual Machine (VM) |contosoaadadmin. This VM is used to configure organization unit and reverse DNS zone. |
 | Azure AD directory |contosoaaddirectory |
 | Azure AD domain name |contoso (contoso.onmicrosoft.com) |
 | HDInsight VNet |contosohdivnet |
@@ -58,12 +56,9 @@ This tutorial provides the steps for configuring a domain-joined HDInsight clust
 ## Procedures
 1. Create an Azure classic VNet for your Azure AD.  
 2. Create and configure Azure AD and Azure AD DS.
-3. Add a VM to the classic VNet for creating organizational unit. 
-4. Create an organizational unit for Azure AD DS.
-5. Create an HDInsight VNet in the Azure resource management mode.
-6. Setup Reverse DNS zones for the Azure AD DS.
-7. Peer the two VNets.
-8. Create an HDInsight cluster.
+3. Create an HDInsight VNet in the Azure resource management mode.
+4. Peer the two VNets.
+5. Create an HDInsight cluster.
 
 > [!NOTE]
 > This tutorial assumes that you do not have an Azure AD. If you have one, you can skip the portion in step 2.
@@ -127,7 +122,7 @@ If you prefer to use an existing Azure AD, you can skip steps 1 and 2.
 4. Enter **User Name**, and then click **Next**. 
 5. Configure user profile; In **Role**, select **Global Admin**; and then click **Next**.  The Global Admin role is needed to create organizational units.
 6. Click **Create** to get a temporary password.
-7. Make a copy of the password, and then click **Complete**. Later in this tutorial, you will use this global admin user to sign on to the admin VM for creating an organization unit and configuring reverse DNS.
+7. Make a copy of the password, and then click **Complete**. Later in this tutorial, you will use this global admin user to create the HDInsight cluster.
 
 Follow the same procedure to create two more users with the **User** role, hiveuser1 and hiveuser2. The following users will be used in [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md).
 
@@ -168,7 +163,7 @@ If you use your own domain, you need to synchronize the password. See [Enable pa
 
 **To configure LDAPS for the Azure AD**
 
-1. Get an SSL certificate that is signed by a signing authority for your domain. Self-signed certificates can't be used. If you can't get an SSL certificate, please reach out to hdipreview@microsoft.com for an exception.
+1. Get an SSL certificate that is signed by a signing authority for your domain. If you want to use a self-signed certificate, please reach out to hdipreview@microsoft.com for an exception.
 2. From the [Azure classic portal](https://manage.windowsazure.com), click **Active Directory** > **contosoaaddirectory**. 
 3. Click **Configure** from the top menu.
 4. Scroll to **domain services**.
@@ -182,91 +177,6 @@ If you use your own domain, you need to synchronize the password. See [Enable pa
 > 
 
 For more information, see [Configure Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
-
-## Configure an organizational unit and reverse DNS
-In this section, you add a virtual machine to the Azure AD VNet, and install administrative tools on this VM so you can configure an organizational unit and reverse DNS. Reverse DNS lookup is required for Kerberos authentication.
-
-**To create a virtual machine into the virtual network**
-
-1. From the [Azure classic portal](https://manage.windowsazure.com), click **New** > **Compute** > **Virtual Machine** > **From Gallery**.
-2. Select an image, and then click **Next**.  If you don't know which one to use, select the default, **Windows Server 2012 R2 Datacenter**.
-3. Enter or select the following values:
-   
-   * Virtual Machine Name: **contosoaadadmin**
-   * Tier: **Basic**
-   * New User Name: (Enter a user name)
-   * Password: (Enter a password)
-     
-     Please note the username and the password is the local admin.
-4. Click **Next**
-5. In **Region/Virtual Network**, select the new virtual network you created in the last step (contosoaadvnet), and then click **Next**.
-6. Click **Complete**.
-
-**To RDP to the VM**
-
-1. From the [Azure classic portal](https://manage.windowsazure.com), click **Virtual Machines** > **contosoaadadmin**.
-2. Click **Dashboard** from the top menu.
-3. Click **Connect** from the bottom of the page.
-4. Follow the instruction and use the local admin username and password to connect.
-
-**To join VM to the Azure AD domain**
-
-1. From the RDP session, click **Start**, and then click **Server Manager**.
-2. Click **Local Server** from the left menu.
-3. From Workgroup, click **Workgroup**.
-4. Click **Change**.
-5. Click **Domain**, enter **contoso.onmicrosoft.com**, and then click **OK**.
-6. Enter the domain user credentials, and then click **OK**.
-7. Click **OK**.
-8. Click **OK** to agree to reboot the computer.
-9. Click **Close**.
-10. Click **Restart Now**.
-
-For more information, see [Join a Windows Server virtual machine to a managed domain](../active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm.md).
-
-**To install Active Directory administration tools and DNS tools**
-
-1. RDP into **contosoaadadmin** using the Azure AD user account.
-2. Click **Start**, and then click **Server Manager**.
-3. Click **Dashboard** from the left menu.
-4. Click **Manage**, and then click **Add roles and features**.
-5. Click **Next**.
-6. Select **Role-based or feature-based installation**, and then click **Next**.
-7. Select the current virtual machine from the server pool, and click **Next**.
-8. Click **Next** to skip roles.
-9. Expand **Remote Server Administration Tools**, expand **Role Administration Tools**, select **AD DS and AD LDS Tools** and **DNS Server Tools**, and then click **Next**. 
-10. Click **Next**
-11. Click **Install**.
-
-For more information, see [Install Active Directory administration tools on the virtual machine](../active-directory-domain-services/active-directory-ds-admin-guide-administer-domain.md#task-2---install-active-directory-administration-tools-on-the-virtual-machine).
-
-**To configure reverse DNS**
-
-1. RDP to contosoaadadmin using the Azure AD user account.
-2. Click **Start**, click **Administrative Tools**, and then click **DNS**. 
-3. Click **No** to skip adding ContosoAADAdmin.
-4. Select **The following computer**, enter the IP address of the first DNS server you configured earlier, and then click **OK**.  You shall see the DC/DNS is added to the left pane.
-5. Expand the DC/DNS server, right-click **Reverse Lookup Zones**, and then click **New Zone**. The New Zone Wizard opens.
-6. Click **Next**.
-7. Select **Primary zone**, and then click **Next**.
-8. Select **To all DNS servers running on domain controllers in this domain**, and then click **Next**.
-9. Select **IPv4 Reverse Lookup Zone**, and then click **Next**.
-10. In **Network ID**, enter the prefix for the HDInsight VNET network range, and then click **Next**. You will create the HDInsight VNet in the following section.
-11. Click **Next**.
-12. Click **Next**.
-13. Click **Finish**.
-
-The organization unit you create next will be used when creating the HDInsight cluster. The Hadoop system users and computer accounts will be placed in this OU.
-
-**Create an Organizational Unit (OU) on an Azure AD Domain Services managed domain**
-
-1. RDP into **contosoaadadmin** using the domain account that is in the **AAD DC Administrators** group.
-2. Click **Start**, click **Administrative Tools**, and then click **Active Directory Administrative Center**.
-3. Click the domain name in the left pane. For example, contoso.
-4. Click **New** under the domain name in the **Task** pane, and then click **Organizational Unit**.
-5. Enter a name, for example **HDInsightOU**, and then click **OK**. 
-
-For more information, See [Create an Organizational Unit (OU) on an Azure AD Domain Services managed domain](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
 
 ## Create a Resource Manager VNet for HDInsight cluster
 In this section, you will create an Azure Resource Manager VNet that will be used for the HDInsight cluster. For more information on creating Azure VNET using other methods, see [Create a virtual network](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
@@ -350,11 +260,11 @@ In this section, you create a Linux-based Hadoop cluster in HDInsight using eith
        * **Domain settings**: 
          
          * **Domain name**: contoso.onmicrosoft.com
-         * **Domain user name**: Enter a domain user name. This domain must have the following privileges: Join machines to the domain and place them in the organization unit you configured earlier; Create service principals within the organization unit you configured earlier; Create reverse DNS entries. This domain user will become the administrator of this domain-joined HDInsight cluster.
+         * **Domain user name**: Enter a domain user name. This domain must have the following privileges: Join machines to the domain and place them in the organization unit you specify during cluster creation; Create service principals within the organization unit you specify during cluster creation; Create reverse DNS entries. This domain user will become the administrator of this domain-joined HDInsight cluster.
          * **Domain password**: Enter the domain user password.
-         * **Organization Unit**: Enter the distinguished name of the OU that you configured earlier. For example: OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com
+         * **Organization Unit**: Enter the distinguished name of the OU that you want to use with HDInsight cluster. For example: OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com. If this OU does not exist, HDInsight cluster will attempt to create this OU. Make sure the OU is already present or the domain account has permissions to create a new one. If you use the domain account which is part of AADDC Administrators, it will have necessary permissions to create the OU.
          * **LDAPS URL**: ldaps://contoso.onmicrosoft.com:636
-         * **Access user group**: Specify the security group whose users you wan to sync to the cluster. For example, HiveUsers.
+         * **Access user group**: Specify the security group whose users you want to sync to the cluster. For example, HiveUsers.
            
            Click **Select** to save the changes.
            
@@ -389,7 +299,7 @@ Another option for creating Domain-joined HDInsight cluster is to use Azure Reso
    * **Virtual Network Subnet**: /subscriptions/&lt;SubscriptionID>/resourceGroups/&lt;ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/&lt;VNetName>/subnets/Subnet1
    * **Domain Name**: contoso.onmicrosoft.com
    * **Organization Unit DN**: OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com
-   * **Cluster Users Group D Ns**: "\"CN=HiveUsers,OU=AADDC Users,DC=<DomainName>,DC=onmicrosoft,DC=com\""
+   * **Cluster Users Group DNs**: [\"HiveUsers\"]
    * **LDAPUrls**: ["ldaps://contoso.onmicrosoft.com:636"]
    * **DomainAdminUserName**: (Enter the domain admin user name)
    * **DomainAdminPassword**: (enter the domain admin user password)
@@ -400,7 +310,6 @@ Another option for creating Domain-joined HDInsight cluster is to use Azure Reso
 After you complete the tutorial, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-management-portal.md#delete-clusters).
 
 ## Next steps
-* For configuring a Domain-joined HDInsight cluster using Azure PowerShell, see [Configure Domain-joined HDInsight clusters use Azure PowerShell](hdinsight-domain-joined-configure-use-powershell.md).
 * For configuring Hive policies and run Hive queries, see [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md).
-* For using SSH to connect to Domain-joined HDInsight clusters, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* For using SSH to connect to Domain-joined HDInsight clusters, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 

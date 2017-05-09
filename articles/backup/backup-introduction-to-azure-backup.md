@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/13/2017
+ms.date: 5/3/2017
 ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 
@@ -108,10 +108,10 @@ Premium Storage VMs can be restored to either Premium Storage or to normal stora
 Azure Backup protects managed disk VMs. Managed disks free you from managing storage accounts of virtual machines and greatly simplify VM provisioning.
 
 ### Back up managed disk VMs
-Backing up VMs on managed disks is no different than backing up Resource Manager VMs. In the Azure portal, you can configure the backup job directly from the Virtual Machine view or from the Recovery Services vault view. You can back up VMs on managed disks through RestorePoint collections built on top of managed disks. Azure Backup currently doesn't support backing up managed disk VMs encrypted using Azure Disk encryption(ADE).
+Backing up VMs on managed disks is no different than backing up Resource Manager VMs. In the Azure portal, you can configure the backup job directly from the Virtual Machine view or from the Recovery Services vault view. You can back up VMs on managed disks through RestorePoint collections built on top of managed disks. Azure Backup also supports backing up managed disk VMs encrypted using Azure Disk encryption(ADE).
 
 ### Restore managed disk VMs
-Azure Backup allows you to restore a complete VM with managed disks or restore managed disks to a Resource Manager storage account. Azure manages the managed disks during the restore process. You (the customer) manage the storage account created as part of the restore process.
+Azure Backup allows you to restore a complete VM with managed disks or restore managed disks to a Resource Manager storage account. Azure manages the managed disks during the restore process. You (the customer) manage the storage account created as part of the restore process. For restoring managed encrypted VMs, keys and secrets of the VM should already exist in the key vault prior to restore.
 
 ## What are the features of each Backup component?
 The following sections provide tables that summarize the availability or support of various features in each Azure Backup component. See the information following each table for additional support or details.

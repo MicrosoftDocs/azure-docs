@@ -14,12 +14,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 04/18/2017
 ms.author: kirillg
 
 ---
-# View, edit, create, and upload JSON documents using DocumentDB Document Explorer
-This article provides an overview of the [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) Document Explorer, an Azure portal tool that enables you to view, edit, create, upload, and filter JSON documents with DocumentDB. 
+# View, edit, create, and upload JSON documents 
+
+This article provides an overview of the two ways you can create, edit and query documents in the portal: [Document Explorer](#launch-document-explorer) and [Data Explorer (preview)](#data-explorer).
 
 > [!NOTE]
 > Document Explorer is not enabled on DocumentDB accounts with protocol support for MongoDB. This page will be updated when this feature is enabled.
@@ -143,6 +144,13 @@ Document Explorer supports bulk ingestion of one or more existing JSON documents
    
     ![Screenshot of Document Explorer bulk ingestion results](./media/documentdb-view-JSON-document-explorer/uploaddocument3.png)
 5. Once the operation is complete, you can select up to another 100 documents to upload.
+
+<a id="data-explorer"></a>
+## Create a document by using Data Explorer (preview)
+
+The other method for creating, editing and querying documents in the portal is to use the Data Explorer. To open Data Explorer, click **Data Explorer (preview)** on the navigation bar in the portal, then expand your database name, expand your collection name, click **Documents**, and then click **New Document**, as shown in the following screencap.
+
+![Screen shot showing the New Collection button in the portal](./media/documentdb-view-JSON-document-explorer/azure-documentdb-data-explorer.png)
 
 ## Work with JSON documents outside the portal
 The Document Explorer in the Azure portal is just one way to work with documents in DocumentDB. You can also work with documents using the [REST API](https://msdn.microsoft.com/library/azure/mt489082.aspx) or the [client SDKs](documentdb-sdk-dotnet.md). For example code, see the [.NET SDK document examples](documentdb-dotnet-samples.md#document-examples) and the [Node.js SDK document examples](documentdb-nodejs-samples.md#document-examples).

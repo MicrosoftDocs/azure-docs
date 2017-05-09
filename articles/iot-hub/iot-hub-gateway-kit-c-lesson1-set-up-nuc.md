@@ -19,6 +19,7 @@ ms.author: xshi
 
 ---
 # Set up Intel NUC as an IoT gateway
+[!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 ## What you will do
 
@@ -93,7 +94,7 @@ Follow these steps to install the package.
 1. Add the IoT Cloud repository by running the following commands in a terminal window:
 
    ```bash
-   rpm --import http://iotdk.intel.com/misc/iot_pub2.key
+   rpm --import https://iotdk.intel.com/misc/iot_pub2.key
    smart channel --add IoT_Cloud type=rpm-md name="IoT_Cloud" baseurl=http://iotdk.intel.com/repos/iot-cloud/wrlinux7/rcpl13/ -y
    smart channel --add WR_Repo type=rpm-md baseurl=https://distro.windriver.com/release/idp-3-xt/public_feeds/WR-IDP-3-XT-Intel-Baytrail-public-repo/RCPL13/corei7_64/
    ```

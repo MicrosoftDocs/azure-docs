@@ -18,6 +18,7 @@
 ### [Web apps - runtime](app-insights-java-live.md)
 ### [Docker apps](app-insights-docker.md)
 
+
 ## Monitor web pages
 ### [JavaScript](app-insights-javascript.md)
 
@@ -31,7 +32,7 @@
 ## Plan and design
 ### [Deep diagnostics for web apps and services](app-insights-devops.md)
 ### [Monitor performance in web applications](app-insights-web-monitor-performance.md)
-### [Usage analysis with Application Insights](app-insights-overview-usage.md)
+### [Usage analysis with Application Insights](app-insights-web-track-usage.md)
 ### [Separating Application Insights resources](app-insights-separate-resources.md)
 ### [How do I ... in Application Insights?](app-insights-how-do-i.md)
 
@@ -49,7 +50,6 @@
 #### [Dependencies](app-insights-asp-net-dependencies.md)
 #### [Release annotations](app-insights-annotations.md)
 #### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
-#### [FAQ](app-insights-troubleshoot-faq.md)
 
 
 ### J2EE
@@ -76,6 +76,7 @@
 #### [Dashboards](app-insights-dashboards.md)
 #### [Search](app-insights-diagnostic-search.md)
 #### [Metrics](app-insights-metrics-explorer.md)
+#### [Live stream](app-insights-live-stream.md)
 
 #### [Application Map](app-insights-app-map.md)
 #### [HockeyApp data](app-insights-hockeyapp-bridge-app.md)
@@ -92,6 +93,7 @@
 #### [Tour](app-insights-analytics-tour.md)
 #### [Using](app-insights-analytics-using.md)
 #### [Import](app-insights-analytics-import.md)
+#### [Diagnostics](app-insights-analytics-diagnostics.md)
 
 ## Automate
 
@@ -132,6 +134,14 @@
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 ## [REST](https://dev.applicationinsights.io/)
+## [Data model](application-insights-data-model.md)
+### [Request](application-insights-data-model-request-telemetry.md)
+### [Dependency](application-insights-data-model-dependency-telemetry.md)
+### [Exception](application-insights-data-model-exception-telemetry.md)
+### [Trace](application-insights-data-model-trace-telemetry.md)
+### [Event](application-insights-data-model-event-telemetry.md)
+### [Metric](application-insights-data-model-metric-telemetry.md)
+## [Telemetry correlation](application-insights-correlation.md)
 
 # Resources
 
@@ -146,6 +156,7 @@
 ### [SDK release notes](app-insights-release-notes.md)
 ### [Release notes for Developer Analytics Tools](app-insights-release-notes-vsix.md)
 
+## [FAQ](app-insights-troubleshoot-faq.md)
 
 ## Help
 ### [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  

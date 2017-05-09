@@ -23,7 +23,7 @@ Log Analytics is a service in [Operations Management Suite \(OMS\)](../operation
 ## Is Log Analytics for you?
 If you have no current monitoring in place for your Azure environment, you should start with [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) which collects and analyzes monitoring data for your Azure resources.  Log Analytics can collect data from Azure Monitor to correlate it with other data and provide additional analysis.
 
-If you want to monitor your on-premise environment or you have existing monitoring using services such as Azure Monitor or System Center Operations Manager, then Log Anlalytics can add significant value.  It can collect data directly from your agents and also from these other tools into a single repository.  Analysis tools in Log Analytics such as log searches, views, and solutions work against all collected data providing you with centralized analysis of your entire environment.
+If you want to monitor your on-premise environment or you have existing monitoring using services such as Azure Monitor or System Center Operations Manager, then Log Analytics can add significant value.  It can collect data directly from your agents and also from these other tools into a single repository.  Analysis tools in Log Analytics such as log searches, views, and solutions work against all collected data providing you with centralized analysis of your entire environment.
 
 
 ## Using Log Analytics

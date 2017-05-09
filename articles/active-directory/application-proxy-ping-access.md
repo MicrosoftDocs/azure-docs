@@ -1,5 +1,5 @@
 ---
-title: PingAccess for Azure AD Application Proxy | Microsoft Docs
+title: Header-based authentication with PingAccess for Azure AD Application Proxy | Microsoft Docs
 description: Publish applications with PingAccess and App Proxy to support header-based authentication.
 services: active-directory
 documentationcenter: ''
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 04/21/2017
 ms.author: kgremban
 ---
 
-# Publish applications that support header-based authentication with PingAccess for Azure AD
+# Publish applications that support header-based authentication with Azure AD Application Proxy and PingAccess
 
 Azure Active Directory Application Proxy and PingAccess have partnered together to provide Azure Active Directory customers with access to even more applications. PingAccess expands the [existing Application Proxy offerings](active-directory-application-proxy-get-started.md) to include remote access to applications that use headers for authentication. 
 

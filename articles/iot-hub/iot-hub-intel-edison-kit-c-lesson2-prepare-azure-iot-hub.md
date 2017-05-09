@@ -8,6 +8,9 @@ manager: timtl
 tags: ''
 keywords: ''
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-c-get-started
+
 ms.assetid: 80bfc3cd-a1fc-4775-8994-d8033381dd3d
 ms.service: iot-hub
 ms.devlang: c

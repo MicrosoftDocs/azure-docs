@@ -69,7 +69,7 @@ And for other Microsoft accounts, their screen looks similar to the one below:
 
 For information about password management in Azure Active Directory, see [How password management works](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-how-it-works).
 
-  >![NOTE]
+  >[!NOTE]
   >If you are an Azure AD administrator, you may want to use [Windows Hello](https://www.microsoft.com/en-us/windows/windows-hello) to avoid having your users create traditional passwords altogether.
   >
 

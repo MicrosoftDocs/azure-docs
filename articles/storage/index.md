@@ -56,24 +56,6 @@ Learn how to use Azure Storage, a cloud storage service that is durable, availab
         </a>
     </li>
     <li>
-        <a href="/azure/storage/storage-getting-started-guide">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started with Storage</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
         <a href="/azure/storage/storage-create-storage-account">
         <div class="cardSize">
             <div class="cardPadding">
@@ -137,10 +119,10 @@ Learn how to use Azure Storage, a cloud storage service that is durable, availab
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">Blobs, Queues, Tables, and Files</a></p>
+                        <p><a href="/rest/api/storageservices/azure-storage-services-rest-api-reference">Blobs, Queues, Tables, and Files</a></p>
                         <p><a href="/rest/api/storagerp">Resource provider</a></p>
                         <p><a href="/rest/api/storageimportexport">Import/export</a></p>
-                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">Storage Data REST API</a></p>
+                        <p><a href="/rest/api/storageservices">Storage Data REST API</a></p>
                    </div>
                 </div>
             </div>

@@ -129,7 +129,7 @@ And when viewing the properties of a request, you can see the telemetry events a
 [Learn more about metrics.](app-insights-metrics-explorer.md)
 
 ## Next steps
-* [Add telemetry to your web pages](app-insights-web-track-usage.md) to monitor page views and user metrics.
+* [Add telemetry to your web pages](app-insights-javascript.md) to monitor page views and user metrics.
 * [Set up web tests](app-insights-monitor-web-app-availability.md) to make sure your application stays live and responsive.
 * [Capture log traces](app-insights-java-trace-logs.md)
 * [Search events and logs](app-insights-diagnostic-search.md) to help diagnose problems.

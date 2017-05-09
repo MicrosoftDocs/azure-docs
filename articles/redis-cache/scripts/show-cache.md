@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/06/2017
+ms.date: 04/14/2017
 ms.author: sdanie
 ---
 
-# Create an Azure Redis Cache
+# Get details of an Azure Redis Cache
 
 In this scenario, you learn how to retrieve the details of an Azure Redis Cache instance, including its provisioning status.
 
@@ -28,15 +28,13 @@ In this scenario, you learn how to retrieve the details of an Azure Redis Cache 
 
 [!code-azurecli[main](../../../cli_scripts/redis-cache/show-cache/show-cache.sh "Azure Redis Cache")]
 
-[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
-
 ## Script explanation
 
 This script uses the following commands to retrieve the details of an Azure Redis Cache instance. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
-| [az redis show](https://docs.microsoft.com/cli/azure/redis#show) | Create Redis Cache instance. |
+| [az redis show](https://docs.microsoft.com/cli/azure/redis#show) | Retrieve details of an Azure Redis Cache instance. |
 
 
 ## Next steps

@@ -34,7 +34,7 @@ Helm has two components:
 
 * [Install and configure `kubectl`](container-service-connect.md) on a local computer
 
-* [Install Helm](https://github.coetes/helm/blob/master/docs/install.md) on a local computer
+* [Install Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md) on a local computer
 
 ## Helm basics 
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory FAQ | Microsoft Docs
 description: Azure Active Directory FAQ answers questions about how to access Azure and Azure Active Directory, password management, and application access.
 services: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 04/24/2017
 ms.author: markvi
 
 ---
@@ -122,7 +122,7 @@ For more answers to password-related questions, see [Password management frequen
 - - -
 **Q:  What can I do if I can't remember my existing Office 365/Azure AD password while trying to change my password?**
 
-**A:** For this type of situation, there are a couple of options.  Use self-service password reset (SSPR) if it's available.  Whether SSPR works depends on how it's configured.  For more information, see [How does the password reset portal work](active-directory-passwords-learn-more.md#how-does-the-password-reset-portal-work).
+**A:** For this type of situation, there are a couple of options.  Use self-service password reset (SSPR) if it's available.  Whether SSPR works depends on how it's configured.  For more information, see [How does the password reset portal work](active-directory-passwords-best-practices.md).
 
 For Office 365 users, your admin can reset the password by using the steps outlined in [Reset user passwords](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
 
@@ -130,7 +130,7 @@ For Azure AD accounts, admins can reset passwords by using one of the following:
 
 - [Reset accounts in the Azure portal](active-directory-users-reset-password-azure-portal.md)
 - [Reset accounts in the classic portal](active-directory-create-users-reset-password.md)
-- [Using PowerShell](https://docs.microsoft.com/en-us/powershell/msonline/v1/Set-MsolUserPassword?redirectedfrom=msdn)
+- [Using PowerShell](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
 
 
 - - -
@@ -142,7 +142,7 @@ We use a more sophisticated strategy to lock accounts.  This is based on the IP 
 This refers to passwords that are globally common, such as any variants of “Password” and “123456”.
 
 **Q: Will a sign-in request from dubious sources (botnets, tor endpoint) be blocked in a B2C tenant or does this require a Basic or Premium edition tenant?**</br>
-We do have a gateway that filters requests and provides some protection from botnets, and is applied for all B2C tenants. 
+We do have a gateway that filters requests and provides some protection from botnets, and is applied for all B2C tenants.
 
 ## Application access
 **Q: Where can I find a list of applications that are pre-integrated with Azure AD and their capabilities?**

@@ -1,4 +1,4 @@
----
+﻿---
 title: Create data pipelines by using Azure .NET SDK | Microsoft Docs
 description: Learn how to programmatically create, monitor, and manage Azure data factories by using Data Factory SDK.
 services: data-factory
@@ -95,7 +95,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 	```
 
    > [!NOTE]
-   > Replace the **resourcegroupname** with the name of your Azure resource group. You can create a resource group using the [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx) cmdlet.
+   > Replace the **resourcegroupname** with the name of your Azure resource group. You can create a resource group using the [New-AzureResourceGroup](/powershell/module/azure/new-azureresourcegroup?view=azuresmps-3.7.0) cmdlet.
 7. Add the following code that creates a **data factory** to the **Main** method.
 
 	```csharp
@@ -440,8 +440,48 @@ Here is how you can create the Active Directory application, service principal, 
 
 Note down the application ID and the password (client secret) and use it in the walkthrough.
 
+## Get a list of failed data slices 
+
+```csharp
+// Parse the resource path
+var ResourceGroupName = "ADFTutorialResourceGroup";
+var DataFactoryName = "DataFactoryAPITestApp";
+
+var parameters = new ActivityWindowsByDataFactoryListParameters(ResourceGroupName, DataFactoryName);
+parameters.WindowState = "Failed";
+var response = dataFactoryManagementClient.ActivityWindows.List(parameters);
+do
+{
+	foreach (var activityWindow in response.ActivityWindowListResponseValue.ActivityWindows)
+	{
+		var row = string.Join(
+			"\t",
+			activityWindow.WindowStart.ToString(),
+			activityWindow.WindowEnd.ToString(),
+			activityWindow.RunStart.ToString(),
+			activityWindow.RunEnd.ToString(),
+			activityWindow.DataFactoryName,
+			activityWindow.PipelineName,
+			activityWindow.ActivityName,
+			string.Join(",", activityWindow.OutputDatasets));
+		Console.WriteLine(row);
+	}
+
+	if (response.NextLink != null)
+	{
+		response = dataFactoryManagementClient.ActivityWindows.ListNext(response.NextLink, parameters);
+	}
+	else
+	{
+		response = null;
+	}
+}
+while (response != null);
+```
+
+
 ## Get Azure subscription and tenant IDs
-If you do not have latest version of PowerShell installed on your machine, follow instructions in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) article to install it.
+If you do not have latest version of PowerShell installed on your machine, follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/overview) article to install it.
 
 1. Start Azure PowerShell and run the following command
 2. Run the following command and enter the user name and password that you use to sign in to the Azure portal.

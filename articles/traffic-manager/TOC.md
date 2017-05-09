@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [What is Traffic Manager?](traffic-manager-overview.md)
 ## [Routing methods](traffic-manager-routing-methods.md)
 ### [Country/Region hierarchy used by Traffic Manager](traffic-manager-geographic-regions.md)
@@ -22,9 +22,11 @@
 ## [Measure Traffic Manager performance](traffic-manager-performance-considerations.md)
 ## [Use PowerShell to manage Traffic Manager](traffic-manager-powershell-arm.md)
 ## [Point your Internet domain to Traffic Manager](traffic-manager-point-internet-domain.md)
+## Troubleshoot
+### [Troubleshoot degraded state on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager)
+## [PowerShell](/powershell/module/azurerm.trafficmanager)
 ## [Azure CLI](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)

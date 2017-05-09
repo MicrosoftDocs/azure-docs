@@ -12,7 +12,7 @@ ms.assetid:
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: iainfou

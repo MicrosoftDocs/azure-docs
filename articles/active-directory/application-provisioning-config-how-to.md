@@ -35,6 +35,8 @@ If you would like to request support for automatic provisioning for a given app,
 
 *Automatic* means that an Azure AD provisioning connector has been developed for this application. For more information on the Azure AD provisioning service and how it works, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning).
 
+For more information on how to provision specific users and groups to an application, see [Managing user account provisioning for enterprise apps](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning).
+
 The actual steps required to enable and configure automatic provisioning vary depending on the application.
 
 >[!NOTE]
@@ -42,10 +44,10 @@ The actual steps required to enable and configure automatic provisioning vary de
 >
 >
 
-App tutorials can be found at [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-tutorial-list).
+App tutorials can be found at [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
 
 An important thing to consider when setting up provisioning be to review and configure the attribute mappings and workflows that define which user (or group) properties flow from Azure AD to the application. This includes setting the “matching property” that be used to uniquely identify and match users/groups between the two systems. For more information on this important process.
 
 ## Next steps
-[Customizing User Provisioning Attribute Mappings for SaaS Applications in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
+[Customizing User Provisioning Attribute Mappings for SaaS Applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
 

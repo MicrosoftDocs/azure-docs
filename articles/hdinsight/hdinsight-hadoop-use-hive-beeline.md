@@ -281,7 +281,7 @@ If you are using Tez with Hive, see the following documents:
 [putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 

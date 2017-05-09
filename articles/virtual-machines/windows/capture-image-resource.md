@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a managed image in Azure | Microsoft Docs
 description: Create a managed image of a generalized VM or VHD in Azure. Images can be used to create multiple VMs that use managed disks. 
 services: virtual-machines-windows
@@ -59,7 +59,7 @@ Before you begin, make sure that you have the latest version of the AzureRM.Comp
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
 
 
 1. Create some variables. 

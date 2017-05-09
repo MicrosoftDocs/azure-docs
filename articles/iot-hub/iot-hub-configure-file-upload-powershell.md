@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 05/04/2017
 ms.author: dobett
 
 ---
@@ -144,9 +144,9 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-securing]: iot-hub-security-ground-up.md
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs/
-[lnk-powershell-storage]: https://docs.microsoft.com/powershell/storage/
-[lnk-powershell-iothub]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.iothub/v1.1.0/new-azurermiothub
+[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[lnk-powershell-storage]: https://docs.microsoft.com/powershell/module/azurerm.storage/
+[lnk-powershell-iothub]: https://docs.microsoft.com/powershell/module/azurerm.iothub/new-azurermiothub
 [lnk-portal-hub]: iot-hub-create-through-portal.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal-storage]: ../storage/storage-create-storage-account.md

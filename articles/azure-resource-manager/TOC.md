@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [What is Resource Manager?](resource-group-overview.md)
 ## [Supported services, regions, and API versions](resource-manager-supported-services.md)
 ## [Understand Resource Manager and Classic deployment](resource-manager-deployment-model.md)
@@ -10,21 +10,38 @@
 ## [Create your first template](resource-manager-create-first-template.md)
 ## [Visual Studio with Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
+# Samples
+## PowerShell
+### [Deploy template](resource-manager-samples-powershell-deploy.md)
+## Azure CLI
+### [Deploy template](resource-manager-samples-cli-deploy.md)
+
 # How to
 ## Create templates
 ### [Best practices for templates](resource-manager-template-best-practices.md)
 ### [Template sections](resource-group-authoring-templates.md)
+### [Link to other templates](resource-group-linked-templates.md)
 ### [Define dependency between resources](resource-group-define-dependencies.md)
+### Copy loop to create multiple instances
+#### [Basic syntax](resource-group-create-multiple.md)
+#### [Sequential loop](resource-manager-sequential-loop.md)
+#### [Property copy](resource-manager-property-copy.md)
 ### [Set location](resource-manager-template-location.md)
 ### [Assign tags](resource-manager-template-tags.md)
 ### [Set child resource name and type](resource-manager-template-child-resource.md)
-### [Create multiple instances of resource type](resource-group-create-multiple.md)
-### [Link to other templates](resource-group-linked-templates.md)
+### [Update resource](resource-manager-update.md)
+### [Use objects for parameters](resource-manager-objects-as-parameters.md)
 ### [Share state between linked templates](best-practices-resource-manager-state.md)
 ### [Patterns for designing templates](best-practices-resource-manager-design-templates.md)
 ## Deploy
-### [PowerShell](resource-group-template-deploy.md)
-### [Azure CLI](resource-group-template-deploy-cli.md)
+### PowerShell
+#### [Deploy template](resource-group-template-deploy.md)
+#### [Deploy private template with SAS token](resource-manager-powershell-sas-token.md)
+#### [Export template and redeploy](resource-manager-export-template-powershell.md)
+### Azure CLI
+#### [Deploy template](resource-group-template-deploy-cli.md)
+#### [Deploy private template with SAS token](resource-manager-cli-sas-token.md)
+#### [Export template and redeploy](resource-manager-export-template-cli.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [Continuous integration with Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -59,7 +76,13 @@
 
 # Reference
 ## [Template functions](resource-group-template-functions.md)
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
+### [Array and object functions](resource-group-template-functions-array.md)
+### [Comparison functions](resource-group-template-functions-comparison.md)
+### [Deployment functions](resource-group-template-functions-deployment.md)
+### [Numeric functions](resource-group-template-functions-numeric.md)
+### [Resource functions](resource-group-template-functions-resource.md)
+### [String functions](resource-group-template-functions-string.md)
+## [PowerShell](/powershell/module/azurerm.resources)
 ## [Azure 2.0 CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)

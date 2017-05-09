@@ -1,4 +1,4 @@
----
+﻿---
 title: Set up staging environments for web apps in Azure App Service | Microsoft Docs 
 description: Learn how to use staged publishing for web apps in Azure App Service.
 services: app-service
@@ -190,7 +190,7 @@ and click **Delete** in the command bar.
 ## Azure PowerShell cmdlets for deployment slots
 Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell, including support for managing deployment slots in Azure App Service.
 
-* For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Azure subscription, see [How to install and configure Microsoft Azure PowerShell](/powershell/azureps-cmdlets-docs).  
+* For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Azure subscription, see [How to install and configure Microsoft Azure PowerShell](/powershell/azure/overview).  
 
 - - -
 ### Create a web app
