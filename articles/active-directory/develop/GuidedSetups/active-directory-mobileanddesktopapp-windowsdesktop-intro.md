@@ -1,3 +1,3 @@
 ---
-redirect_url: active-directory-windesktop
+redirect_url: active-directory-windesktop 
 ---

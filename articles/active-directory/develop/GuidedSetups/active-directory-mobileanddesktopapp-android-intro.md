@@ -1,3 +1,3 @@
 ---
-redirect_url: active-directory-android
+redirect_url: active-directory-android 
 ---
