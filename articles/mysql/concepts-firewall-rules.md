@@ -51,6 +51,6 @@ Consider the following points when access to the Microsoft Azure Database for My
 * Get static IP addressing instead for your client computers, and then add the IP addresses as firewall rules.
 
 ## Next steps
-- For articles on creating server-level and database-level firewall rules, see:
-* [Create and manage Azure Database for MySQL firewall rules using the Azure portal](./howto-manage-firewall-using-portal.md)
-* [Create and manage Azure Database for MySQL firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)
+
+[Create and manage Azure Database for MySQL firewall rules using the Azure portal](./howto-manage-firewall-using-portal.md)
+[Create and manage Azure Database for MySQL firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)
