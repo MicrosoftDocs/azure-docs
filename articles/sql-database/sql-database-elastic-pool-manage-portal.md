@@ -12,7 +12,7 @@ ms.assetid: 3dc9b7a3-4b10-423a-8e44-9174aca5cf3d
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 04/18/2016
+ms.date: 05/08/2017
 ms.author: ninarn
 ms.workload: data-management
 ms.topic: article
@@ -26,7 +26,7 @@ This topic shows you how to create and manage scalable [elastic pools](sql-datab
 
 There are two ways you can create an elastic pool. You can do it from scratch if you know the pool setup you want, or start with a recommendation from the service. SQL Database has built-in intelligence that recommends an elastic pool setup if it's more cost-efficient for you based on the past usage telemetry for your databases.
 
-You can create multiple pools on a server, but you can't add databases from different servers into the same pool. 
+You can create multiple pools on a server, but you can't add databases from different servers into the same pool.
 
 > [!NOTE]
 > Elastic pools are generally available (GA) in all Azure regions except West India where it is currently in preview.  GA of elastic pools in this region will occur as soon as possible.
@@ -154,7 +154,7 @@ You can edit the chart and the metric blade to display other metrics such as CPU
 
 	![Click edit](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
 
-    
+
 
 3. Then click **OK**.
 
