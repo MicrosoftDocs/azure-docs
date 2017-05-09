@@ -1,6 +1,6 @@
 ---
-title: Simulate a device with the Azure IoT Gateway SDK (Windows) | Microsoft Docs
-description: How to use the Azure IoT Gateway SDK on Windows to create a simulated device that sends telemetry through a gateway to an IoT hub.
+title: Simulate a device with Azure IoT Edge (Windows) | Microsoft Docs
+description: How to use Azure IoT Edge on Windows to create a simulated device that sends telemetry through a gateway to an IoT hub.
 services: iot-hub
 documentationcenter: ''
 author: chipalost
@@ -17,7 +17,7 @@ ms.date: 03/29/2017
 ms.author: andbuc
 
 ---
-# Use the Azure IoT Gateway SDK to send device-to-cloud messages with a simulated device (Windows)
+# Use Azure IoT Edge to send device-to-cloud messages with a simulated device (Windows)
 [!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
 ## Build and run the sample
@@ -45,7 +45,7 @@ In a text editor, open the file **samples\\simulated_device_cloud_upload\\src\\s
 * The **mapping** module maps the MAC addresses of your simulated devices to your IoT Hub device ids. Make sure that **deviceId** values match the ids of the two devices you added to your IoT hub, and that the **deviceKey** values contain the keys of your two devices.
 * The **BLE1** and **BLE2** modules are the simulated devices. Note how the module MAC addresses match the addresses in the **mapping** module.
 * The **Logger** module logs your gateway activity to a file.
-* The **module path** values shown in the following example assume that you cloned the IoT Gateway SDK repository to the root of your **C:** drive. If you downloaded it to another location, you need to adjust the **module path** values accordingly.
+* The **module path** values shown in the following example assume that you cloned the IoT Edge repository to the root of your **C:** drive. If you downloaded it to another location, you need to adjust the **module path** values accordingly.
 * The **links** array at the bottom of the JSON file connects the **BLE1** and **BLE2** modules to the **mapping** module, and the **mapping** module to the **IoTHub** module. It also ensures that all messages are logged by the **Logger** module.
 
 ```
@@ -146,10 +146,10 @@ To run the sample:
 3. You can use the [device explorer][lnk-device-explorer] or [iothub-explorer][lnk-iothub-explorer] tool to monitor the messages that IoT hub receives from the gateway.
 
 ## Next steps
-If you want to gain a more advanced understanding of the IoT Gateway SDK and experiment with some code examples, visit the following developer tutorials and resources:
+If you want to gain a more advanced understanding of IoT Edge and experiment with some code examples, visit the following developer tutorials and resources:
 
-* [Send device-to-cloud messages from a physical device with the IoT Gateway SDK][lnk-physical-device]
-* [Azure IoT Gateway SDK][lnk-gateway-sdk]
+* [Send device-to-cloud messages from a physical device with IoT Edge][lnk-physical-device]
+* [Azure IoT Edge][lnk-gateway-sdk]
 
 To further explore the capabilities of IoT Hub, see:
 
