@@ -268,7 +268,7 @@ To learn more about developing for IoT Hub, see the [Azure IoT SDKs][lnk-sdks].
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Simulating a device with the IoT Gateway SDK][lnk-gateway]
+* [Simulating a device with Azure IoT Edge][lnk-gateway]
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
