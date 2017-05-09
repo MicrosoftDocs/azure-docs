@@ -31,8 +31,7 @@ Diagnostics logs allows you to export basic usage metrics from your CDN endpoint
 - Export data to log analytics and view data in your own OMS work space
 
 
-
-	![portal - Diagnostics logs](./media/cdn-diagnostics-log/OMS-workspace.png)
+![portal - Diagnostics logs](./media/cdn-diagnostics-log/OMS-workspace.png)
 
 The walkthrough below will go through the schema of the core analytics data, steps involved in enabling the feature and delivering them to various destinations, and consuming from these destinations.
 
@@ -86,7 +85,8 @@ Before you can access the core analytics data from the Azure Storage Account, yo
 
 
 > [!NOTE]
-> **Blob path format**
+> **Blob path format - **
+> 
 > Core Analytics logs are generated every hour. All data for an hour are collected and stored inside a single Azure Blob as a JSON payload. The path to this Azure Blob appears as if there is a hierarchical structure. This is because the Storage explorer tool interprets '/' as a directory separator and shows the hierarchy for convenience. Actually, the whole path just represents the blob name. This name of the blob follows the following naming convention	
 	
 	resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json
@@ -143,7 +143,7 @@ Below is a list of metrics available in the Core Analytics logs. Not all metrics
 | RequestCountCacheUncacheable | Count of all requests to assets that are prevented from being cached by the asset's Cache-Control and Expires headers, which indicate that it should not be cached on a POP or by the HTTP client                |Yes   |No   |
 | RequestCountCacheOthers | Count of all requests with cache status not covered by above.              |Yes   | No  |
 | EgressTotal | Outbound data transfer in GB              |Yes   |Yes   |
-| EgressHttpStatus2xx | Outbound data transfer* for responses with 2xx HTTP status codes in GB**             |Yes   |No   |
+| EgressHttpStatus2xx | Outbound data transfer* for responses with 2xx HTTP status codes in GB            |Yes   |No   |
 | EgressHttpStatus3xx | Outbound data transfer for responses with 3xx HTTP status codes in GB              |Yes   |No   |
 | EgressHttpStatus4xx | Outbound data transfer for responses with 4xx HTTP status codes in GB               |Yes   | No  |
 | EgressHttpStatus5xx | Outbound data transfer for responses with 5xx HTTP status codes in GB               |Yes   |  No |
@@ -155,7 +155,7 @@ Below is a list of metrics available in the Core Analytics logs. Not all metrics
 | EgressCacheOthers |  Outbound data transfers for other cache scenarios.             |Yes   | No  |
 
 *Outbound data transfer refers to traffic delivered from CDN POP servers to the client.
-**1 GB = 1024 MB
+
 
 ### Schema of the Core Analytics Logs 
 
