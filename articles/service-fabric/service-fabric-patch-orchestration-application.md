@@ -4,9 +4,9 @@ description: Patch Orchestration Application is a new Service Fabric application
 to automate OS patching on a Service Fabric cluster. This article describes how to use the application.
 services: service-fabric
 documentationcenter: .net
-author: nachandr
+author: novino
 manager: timlt
-editor: nachandr
+editor: ''
 
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
