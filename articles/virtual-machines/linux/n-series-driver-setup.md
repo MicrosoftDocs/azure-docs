@@ -41,7 +41,7 @@ The following distributions from the Azure Marketplace are supported to run NVID
 * Red Hat Enterprise Linux 7.3 
 * CentOS-based 7.3 
 
-**Supported drivers**: NVIDIA CUDA 8.0, driver branch R375. [Installation steps](#install-CUDA-drivers-for-NC-VMs)
+**Supported drivers**: NVIDIA CUDA 8.0, driver branch R375. [Installation steps](#install-cuda-drivers-for-nc-vms)
 
 
 

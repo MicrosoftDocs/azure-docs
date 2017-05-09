@@ -33,18 +33,18 @@ https://api.cognitive.microsoft.com/bing/v5.0/search
 
 The request must use the HTTPS protocol, and all requests must be made from a server (calls may not be made from a client).  
   
-The request must specify the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md#query) query parameter, which contains the user's search term. Although it's optional, the request should also specify the [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md#mkt) query parameter, which identifies the market where you want the results to come from. For a list of optional query parameters such as `responseFilter` and `textDecorations`, see [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md#query-parameters). All query parameter values must be URL encoded.  
+The request must specify the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#query) query parameter, which contains the user's search term. Although it's optional, the request should also specify the [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#mkt) query parameter, which identifies the market where you want the results to come from. For a list of optional query parameters such as `responseFilter` and `textDecorations`, see [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#query-parameters). All query parameter values must be URL encoded.  
   
-The request must specify the [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md#subscriptionkey) header. Although optional, you are encouraged to also specify the following headers:  
+The request must specify the [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#subscriptionkey) header. Although optional, you are encouraged to also specify the following headers:  
   
--   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md#useragent)  
--   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md#clientid)  
--   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md#clientip)  
--   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md#location)  
+-   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#useragent)  
+-   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#clientid)  
+-   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#clientip)  
+-   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#location)  
 
 The client IP and location headers are important for returning location aware content. For example, if the user's query is *sailing+lessons*, they're probably interested in lessons located nearby their location. If you want the results to contain lessons that are available near the user's location, you need to include the location header and optionally, the client IP header. It's less important if the query term explicitly mentions a location (for example, sailing+lessons+florida+keys). 
 
-For a list of all request and response headers, see [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md#headers).
+For a list of all request and response headers, see [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#headers).
 
 ## The Request
 

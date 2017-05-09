@@ -7,7 +7,7 @@ manager: ehansen
 
 ms.assetid: EA388F72-FA43-493B-967C-9560B3243C62
 ms.service: cognitive-services
-ms.technology: bing-video-search
+ms.technology: bing-news-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
@@ -15,7 +15,7 @@ ms.author: scottwhi
 
 # Paging News
 
-When you call the News Search API, Bing returns a list of results. The list is a subset of the total number of results that may be relevant to the query. To get the estimated total number of available results, access the answer object's [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference.md#totalestimatedmatches) field.  
+When you call the News Search API, Bing returns a list of results. The list is a subset of the total number of results that may be relevant to the query. To get the estimated total number of available results, access the answer object's [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#news-totalmatches) field.  
   
 The following example shows the `totalEstimatedMatches` field that a News answer includes.  
   
@@ -28,7 +28,7 @@ The following example shows the `totalEstimatedMatches` field that a News answer
 }  
 ```  
   
-To page through the available articles, use the [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference.md#count) and [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference.md#offset) query parameters.  
+To page through the available articles, use the [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#count) and [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#offset) query parameters.  
   
 The `count` parameter specifies the number of results to return in the response. The maximum number of results that you may request in the response is 100. The default is 10. The actual number delivered may be less than requested.
 
