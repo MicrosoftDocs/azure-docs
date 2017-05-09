@@ -25,9 +25,9 @@ The tutorials in this section help you learn how to connect a Raspberry Pi 3 dev
 
 | Tutorial | Notes | Languages |
 | -------- | ----- | --------- |
-| Simulated telemetry (Basic)| Simulates sensor data. Uses a standalone Raspberry Pi. | [C][lnk-c-simulator] [Node.js][lnk-node-simulator] |
-| Real sensor (Intermediate) | Uses data from a BME280 sensor connected to your Raspberry Pi. | [C][lnk-c-basic] [Node.js][lnk-node-basic] |
-| Implement firmware update (Advanced)| Uses data from a BME280 sensor connected to your Raspberry Pi. Enables remote firmware updates on your Raspberry Pi. | [C][lnk-c-advanced] [Node.js][lnk-node-advanced] |
+| Simulated telemetry (Basic)| Simulates sensor data. Uses a standalone Raspberry Pi. | [C][lnk-c-simulator], [Node.js][lnk-node-simulator] |
+| Real sensor (Intermediate) | Uses data from a BME280 sensor connected to your Raspberry Pi. | [C][lnk-c-basic], [Node.js][lnk-node-basic] |
+| Implement firmware update (Advanced)| Uses data from a BME280 sensor connected to your Raspberry Pi. Enables remote firmware updates on your Raspberry Pi. | [C][lnk-c-advanced], [Node.js][lnk-node-advanced] |
 
 ## Next steps
 

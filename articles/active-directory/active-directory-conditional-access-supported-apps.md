@@ -65,7 +65,7 @@ Exchange offers two main categories of protocols. Review the following options, 
 * **Legacy protocols**. You can block legacy protocols with AD FS. This blocks access to older Office clients, such as Office 2013 without modern authentication enabled, and earlier versions of Office.
 
 ### Use AD FS to block legacy protocol
-You can use the following example rules to block legacy protocol access at the AD FS level. Choose from two common configurations.
+You can use the following example issuance authorization rules to block legacy protocol access at the AD FS level. Choose from two common configurations.
 
 #### Option 1: Allow Exchange ActiveSync, and allow legacy apps, but only on the intranet
 By applying the following three rules to the AD FS relying party trust for Microsoft Office 365 Identity Platform, Exchange ActiveSync traffic, and browser and modern authentication traffic, have access. Legacy apps are blocked from the extranet.

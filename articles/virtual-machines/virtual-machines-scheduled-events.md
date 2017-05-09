@@ -90,45 +90,25 @@ In the case where there are scheduled events, the response contains an array of 
          }
      ]
 	}
-
+	
 ### Event Properties
-#### EventId
-Globally unique identifier for event. 
+|Property  |  Description |
+| - | - |
+| EventId |Globally unique identifier for event. <br><br> Example: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
+| EventType | Impact that event causes. <br><br> Values: <br><ul><li> <i>Freeze</i>: The Virtual Machine is scheduled to pause for few seconds. There is no impact on memory, open files, or network connections. <li> <i>Reboot</i>: The Virtual Machine is scheduled for reboot (memory is wiped).<li> <i>Redeploy</i>: The Virtual Machine is scheduled to move to another node (ephemeral disks are lost). |
+| ResourceType | Type of resource that event impacts. <br><br> Values: <ul><li>VirtualMachine|
+| Resources| List of resources that event impacts. <br><br> Example: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Event Status | Status of the event. <br><br> Values: <ul><li><i>Scheduled:</i> Event is scheduled to start after the time specified in the <i>NotBefore</i> property.<li><i>Started</i>: Event has started.</i>
+| NotBefore| Time after which event may start. <br><br> Example: <br><ul><li> 2016-09-19T18:29:47Z  |
 
-Example:
-- 602d9444-d2cd-49c7-8624-8643e7171297
+### Event Scheduling
+Each event is scheduled a minimum amount of time in the future based on event type. This time is reflected in an event's <i>NotBefore</i> property. 
 
-#### EventType
-Impact that event causes. 
-
-- Freeze: The Virtual Machine is scheduled to pause for few seconds. There is no impact on memory, open files, or network connections
-- Reboot: The Virtual Machine is scheduled for reboot (memory is wiped).
-- Redeploy: The Virtual Machine is scheduled to move to another node (ephemeral disks are lost). 
-
-#### ResourceType
-Type of resource that event impacts. 
-
-Possible Values: 
-- Virtual Machine
-
-#### Resources: 
-List of resources that event impacts. 
-
-Example: 
-- ["FrontEnd_IN_0", "BackEnd_IN_0"]
-
-#### Event Status
-Status of the event. 
-
-Possible Values: 
-- Scheduled
-- Started
-
-#### NotBefore
-Timestamp after which the event may start. 
-
-Example:
-- 2016-09-19T18:29:47Z
+|EventType  | Minimum Notice |
+| - | - |
+| Freeze| 15 minutes |
+| Reboot | 15 minutes |
+| Redeploy | 10 minutes |
 
 ### Starting an event (expedite)
 
@@ -247,7 +227,7 @@ Scheduled Events could be parsed using the following data structures
         public string EventType { get; set; }
         public string ResourceType { get; set; }
         public List<string> Resources { get; set; }
-        public DateTime NoteBefore { get; set; }
+        public DateTime? NotBefore { get; set; }
     }
 
     public class ScheduledEventsApproval
