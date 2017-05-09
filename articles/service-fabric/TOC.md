@@ -20,6 +20,7 @@
 ## [Deploy apps on a local cluster](service-fabric-get-started-with-a-local-cluster.md)
 ## [Create your first cluster on Azure](service-fabric-get-started-azure-cluster.md)
 ## [Create your first standalone cluster](service-fabric-get-started-standalone-cluster.md)
+## [Create your first container app](service-fabric-get-started-containers.md)
 
 # How To
 ## Build an application

@@ -2,14 +2,14 @@
 title: What is Microsoft Cognitive Services? - Documentation | Microsoft Docs
 description: Microsoft Cognitive Services is a set of APIs, SDKs, and services that you can use with Microsoft Azure that make applications more intelligent, engaging, and discoverable.
 services: cognitive-services
-author: JuliaNik
-manager: ytkuo 
+author: irvingk
+manager: gurprep 
 
 ms.service: cognitive-services
 ms.technology: cognitive-services
 ms.topic: article
 ms.date: 01/02/2017
-ms.author: juliakuz 
+ms.author: irvingk 
 ---
 
 ## What is Cognitive Services?

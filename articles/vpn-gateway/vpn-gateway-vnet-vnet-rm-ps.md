@@ -378,7 +378,7 @@ This step must be done in the context of the new subscription. This part may be 
   ```powershell
   New-AzureRmResourceGroup -Name $RG5 -Location $Location5
   ```
-4. Create the subnet configurations for TestVNet4.
+4. Create the subnet configurations for TestVNet5.
 
   ```powershell
   $fesub5 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName5 -AddressPrefix $FESubPrefix5
