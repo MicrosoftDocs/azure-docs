@@ -27,7 +27,7 @@ LUIS offers 20 prebuilt domains. They include but are not limited to:
 | Places  | Handling queries related to places like businesses, institutions, restaurants, public spaces and addresses.|
 | Utilities  | Handling requests that are common in many domains, like "help", "repeat", "start over".|
 
-Browse the **Prebuilt domains** tab to see other prebuilt domains you can use in your app. Click **learn more** in the tile for a domain to learn about its intents and entities.
+Browse the **Prebuilt domains** tab to see other prebuilt domains you can use in your app. Click on the tile for a domain to learn about its intents and entities.
 ![Add prebuilt domain](./media/luis-how-to-prebuilt-domain-entities/add-prebuilt-domain.png)
 
 Within a domain, look for individual intents and entities that you want to use.
