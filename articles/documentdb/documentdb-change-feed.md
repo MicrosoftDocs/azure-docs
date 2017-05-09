@@ -27,7 +27,7 @@ With change feed support, Azure Cosmos DB provides a sorted list of documents wi
 * Perform real-time (stream) processing on updates
 * Synchronize data with a cache, search engine, or data warehouse
 
-Changes in Azure Cosmos DB are persisted and can be processed asynchronously, and distributed across one or more consumers for parallel processing. Let's look at the APIs for change feed and how you can use them to build scalable real-time applications.
+Changes in Azure Cosmos DB are persisted and can be processed asynchronously, and distributed across one or more consumers for parallel processing. Let's look at the APIs for change feed and how you can use them to build scalable real-time applications. This article shows how to work with spatial data with the Azure Cosmos DB DocumentDB API. 
 
 ![Using Azure Cosmos DB change feed to power real-time analytics and event-driven computing scenarios](./media/documentdb-change-feed/changefeed.png)
 
