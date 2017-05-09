@@ -29,9 +29,16 @@ This article shows you how to create a VNet with a Point-to-Site connection in t
 >
 >
 
-A Point-to-Site (P2S) configuration lets you create a secure connection from an individual client computer to a virtual network. P2S is a VPN connection over SSTP (Secure Socket Tunneling Protocol). Point-to-Site connections are useful when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network. P2S connections do not require a VPN device or a public-facing IP address. You establish the VPN connection from the client computer. For more information about Point-to-Site connections, see the [Point-to-Site FAQ](#faq) at the end of this article.
+A Point-to-Site (P2S) configuration lets you create a secure connection from an individual client computer to a virtual network. P2S is a VPN connection over SSTP (Secure Socket Tunneling Protocol). Point-to-Site connections are useful when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network. P2S connections do not require a VPN device or a public-facing IP address. You establish the VPN connection from the client computer.
 
 ![Point-to-Site-diagram](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-connection-diagram.png)
+
+P2S connections require the following:
+
+* A RouteBased VPN gateway.
+* The public key (.cer file) for a root certificate, uploaded to Azure. This is considered a trusted certificate and is used for authentication.
+* A client certificate generated from the root certificate, and installed on each client computer that will connect. This certificate is used for client authentication.
+* A VPN client configuration package must be generated and installed on every client computer that connects. The client configuration package configures the native VPN client that is already on the operating system with the necessary information to connect to the VNet.
 
 ### <a name="example"></a>Example values
 
@@ -93,7 +100,7 @@ Point-to-site connections require the following settings:
 
 ## <a name="generatecert"></a>6 - Generate certificates
 
-Certificates are used by Azure to authenticate VPN clients for Point-to-Site VPNs.
+Certificates are used by Azure to authenticate VPN clients for Point-to-Site VPNs. You upload the public key information of the root certificate to Azure. The public key is then considered 'trusted'. Client certificates must be generated from the trusted root certificate, and then installed on each client computer in the Certificates-Current User/Personal certificate store. The certificate is used to authenticate the client when it initiates a connection to the VNet. For more information about generating and installing certificates, see [Certificates for Point-to-Site](vpn-gateway-certificates-point-to-site.md).
 
 ### <a name="getcer"></a>Step 1 - Obtain the .cer file for the root certificate
 
@@ -108,13 +115,13 @@ Certificates are used by Azure to authenticate VPN clients for Point-to-Site VPN
 1. Once the virtual network gateway has been created, navigate to the **Settings** section of the virtual network gateway blade. In the **Settings** section, click **Point-to-site configuration** to open the **Configuration** blade.
 
   ![Point-to-Site blade](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration.png)
-2. **Address pool** is the pool of IP addresses from which clients that connect receive an IP address. Add the address pool, and then click **Save**.
+2. **Address pool** is the pool of IP addresses from which clients that connect receive an IP address. Use a private IP address range that does not overlap with the on-premises location that you will connect from, or with the VNet that you want to connect to. You can delete the auto-filled range, then add the private IP address range that you want to use. Click **Save** to validate and save the setting.
 
   ![Client address pool](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/ipaddresspool.png)
 
 ## <a name="uploadfile"></a>8 - Upload the root certificate .cer file
 
-After the gateway has been created, you can upload the .cer file for a trusted root certificate to Azure. You can upload files for up to 20 root certificates. You do not upload the private key for the root certificate to Azure. Once the .cer file is uploaded, Azure uses it to authenticate clients that connect to the virtual network.
+After the gateway has been created, you can upload the .cer file (which contains the public key information) for a trusted root certificate to Azure. You do not upload the private key for the root certificate to Azure. Once a.cer file is uploaded, Azure can use it to authenticate clients that have installed a client certificate generated from the trusted root certificate. You can upload additional trusted root certificate files - up to a total of 20 - later, if needed. 
 
 1. Certificates are added on the **Point-to-site configuration** blade in the **Root certificate** section.  
 2. Make sure that you exported the root certificate as a Base-64 encoded X.509 (.cer) file. You need to export the certificate in this format so you can open the certificate with text editor.
