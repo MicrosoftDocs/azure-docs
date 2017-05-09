@@ -28,7 +28,7 @@ To understand the **U-SQL design philosophy**, see the Visual Studio blog post [
 
 ## Prerequisites
 
-Before you go through the U-SQL samples in this document, please read and complete [Tutorial: Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). That tutorial will teach you the mechanics of using U-SQL with Azure Data Lake Tools for Visual Studio.
+Before you go through the U-SQL samples in this document, please read and complete [Tutorial: Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). That tutorial explains the mechanics of using U-SQL with Azure Data Lake Tools for Visual Studio.
 
 ## Your first U-SQL script
 
