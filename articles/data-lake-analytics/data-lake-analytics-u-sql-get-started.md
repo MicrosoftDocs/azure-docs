@@ -55,14 +55,13 @@ This script doesn't have any transformation steps. It reads from the source file
 
 Notice the question mark next to the data type in the **Duration** field. It means that the **Duration** field could be null.
 
-In the script, you'll find the following concepts and keywords:
-
-* Rowset variables: Each query expression that produces a rowset can be assigned to a variable. U-SQL follows the T-SQL variable naming pattern (@searchlog, for example) in the script.
+### Key concepts
+* **Rowset variables**: Each query expression that produces a rowset can be assigned to a variable. U-SQL follows the T-SQL variable naming pattern (@searchlog, for example) in the script.
+* **EXTRACT**: By using this keyword, you can define a schema on read. The schema is specified by a column name and C# type name pair per column. The schema uses a so-called extractor (Extractors.Tsv(), for example) to extract .tsv files. You can develop custom extractors.
+* **OUTPUT**: This keyword takes a rowset and serializes it. Outputters.Csv() writes a comma-separated file into the specified location. You can also develop custom outputters.
 
  >[!NOTE]
- >The assignment does not force execution. It merely names the expression so that you can build up more complex expressions.
-* EXTRACT: By using this keyword, you can define a schema on read. The schema is specified by a column name and C# type name pair per column. The schema uses a so-called extractor (Extractors.Tsv(), for example) to extract .tsv files. You can develop custom extractors.
-* OUTPUT: This keyword takes a rowset and serializes it. Outputters.Csv() writes a comma-separated file into the specified location. You can also develop custom outputters.
+ >The rowset assignment does not force execution. It merely names the expression so that you can build up more complex expressions.
 
  >[!NOTE]
  >The two paths are relative paths. You can also use absolute paths. For example:    
@@ -194,7 +193,7 @@ U-SQL rowsets do not preserve their order for the next query. Thus, to order an 
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-The U-SQL ORDER BY clause has to be combined with the FETCH clause in a SELECT expression.
+The U-SQL ORDER BY clause requires using the FETCH clause in a SELECT expression.
 
 The U-SQL HAVING clause can be used to restrict the output to groups that satisfy the HAVING condition:
 
@@ -301,22 +300,25 @@ The following script shows you how to use the TVF that was defined in the previo
         USING Outputters.Csv();
 
 ### Create views
-If you have only one query expression that you want to abstract and do not want to create a parameter from it, you can create a view instead of a table-valued function.
 
-The following script creates a view called *SearchlogView* in the default database and schema:
+If you have a single query expression, instead of a TVF you can use a U-SQL VIEW to encapsulate that expression.
 
-    DROP VIEW IF EXISTS SearchlogView;
+The following script creates a view called **SearchlogView** in the default database and schema:
 
-    CREATE VIEW SearchlogView AS  
-        EXTRACT UserId          int,
-                Start           DateTime,
-                Region          string,
-                Query           string,
-                Duration        int?,
-                Urls            string,
-                ClickedUrls     string
-        FROM "/Samples/Data/SearchLog.tsv"
-    USING Extractors.Tsv();
+```
+DROP VIEW IF EXISTS SearchlogView;
+
+CREATE VIEW SearchlogView AS  
+    EXTRACT UserId          int,
+            Start           DateTime,
+            Region          string,
+            Query           string,
+            Duration        int?,
+            Urls            string,
+            ClickedUrls     string
+    FROM "/Samples/Data/SearchLog.tsv"
+USING Extractors.Tsv();
+```
 
 The following script demonstrates the use of the defined view:
 
