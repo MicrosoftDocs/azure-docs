@@ -48,4 +48,4 @@ To get started with the Azure Functions Runtime you must have a machine with **W
 
 
 <!--Image references-->
-[13]: ./media/functions-runtime-overview/AzureFunctionsRuntime_Portal.png
+[1]: ./media/functions-runtime-overview/AzureFunctionsRuntime_Portal.png
