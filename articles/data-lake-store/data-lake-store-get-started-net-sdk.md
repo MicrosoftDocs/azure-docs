@@ -59,9 +59,8 @@ Learn how to use the [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com
    2. In the **Nuget Package Manager** tab, make sure that **Package source** is set to **nuget.org** and that **Include prerelease** check box is selected.
    3. Search for and install the following NuGet packages:
 
-      * `Microsoft.Azure.Management.DataLake.Store` - This tutorial uses v1.0.4.
-      * `Microsoft.Azure.Management.DataLake.StoreUploader` - This tutorial uses v1.0.1-preview.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - This tutorial uses v2.2.11.
+      * `Microsoft.Azure.Management.DataLake.Store` - This tutorial uses v2.1.2-preview.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - This tutorial uses v2.2.12.
 
         ![Add a Nuget source](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Create a new Azure Data Lake account")
    4. Close the **Nuget Package Manager**.
@@ -69,14 +68,12 @@ Learn how to use the [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com
 
         using System;
         using System.IO;
-	using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
         using System.Threading;
-
         using Microsoft.Azure.Management.DataLake.Store;
-	using Microsoft.Azure.Management.DataLake.Store.Models;
-	using Microsoft.Azure.Management.DataLake.StoreUploader;
-	using Microsoft.IdentityModel.Clients.ActiveDirectory;
-	using Microsoft.Rest.Azure.Authentication;
+        using Microsoft.Azure.Management.DataLake.Store.Models;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+        using Microsoft.Rest.Azure.Authentication;
 
 7. Declare the variables as shown below, and provide the values for Data Lake Store name and the resource group name that already exist. Also, make sure the local path and file name you provide here must exist on the computer. Add the following code snippet after the namespace declarations.
 
@@ -197,13 +194,10 @@ The following snippet shows an `UploadFile` method that you can use to upload fi
     // Upload a file
     public static void UploadFile(string srcFilePath, string destFilePath, bool force = true)
     {
-        var parameters = new UploadParameters(srcFilePath, destFilePath, _adlsAccountName, isOverwrite: force);
-        var frontend = new DataLakeStoreFrontEndAdapter(_adlsAccountName, _adlsFileSystemClient);
-        var uploader = new DataLakeStoreUploader(parameters, frontend);
-        uploader.Execute();
+        _adlsFileSystemClient.FileSystem.UploadFile(_adlsAccountName, srcFilePath, destFilePath, overwrite:force);
     }
 
-`DataLakeStoreUploader` supports recursive upload and download between a local file path and a Data Lake Store file path.    
+The SDK supports recursive upload and download between a local file path and a Data Lake Store file path.    
 
 ## Get file or directory info
 The following snippet shows a `GetItemInfo` method that you can use to retrieve information about a file or directory available in Data Lake Store.
@@ -248,13 +242,9 @@ The following snippet shows a `AppendToFile` method that you use append data to 
 The following snippet shows a `DownloadFile` method that you use to download a file from a Data Lake Store account.
 
     // Download file
-    public static async Task DownloadFile(string srcPath, string destPath)
+    public static void DownloadFile(string srcFilePath, string destFilePath)
     {
-        using (var stream = await _adlsFileSystemClient.FileSystem.OpenAsync(_adlsAccountName, srcPath))
-        using (var fileStream = new FileStream(destPath, FileMode.Create))
-        {
-            await stream.CopyToAsync(fileStream);
-        }
+        _adlsFileSystemClient.FileSystem.DownloadFile(_adlsAccountName, srcFilePath, destFilePath);
     }
 
 ## Next steps
