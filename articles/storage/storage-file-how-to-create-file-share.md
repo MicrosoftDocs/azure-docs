@@ -91,14 +91,13 @@ To prepare to use PowerShell, download and install the Azure PowerShell cmdlets.
 ## Next Steps if you are a first-time user of Azure File Storage
 * [Connect and Mount File Share](storage-file-how-to-connect-and-mount.md)
 
-## See Also
 See these links for more information about Azure File storage.
 
 * [FAQ](storage-files-faq.md)
 * [Troubleshooting](storage-troubleshoot-file-connection-problems.md)
 
 ### Conceptual articles and videos
-* [Azure Files Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [Azure File Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 * [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md)
 
 ### Tooling support for File storage

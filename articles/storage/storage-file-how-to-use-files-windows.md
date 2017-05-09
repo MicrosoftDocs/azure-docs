@@ -17,10 +17,10 @@ ms.date: 03/21/2017
 ms.author: renash
 ---
 
-# Use Azure Files with Windows
-[Azure Files](storage-file-storage.md) is Microsoft's easy to use cloud file system. Azure File shares can be mounted in Windows and Windows Server. This article shows three different ways to mount an Azure File share on Windows: with the File Explorer UI, via PowerShell, and via the Command Prompt. 
+# Use Azure File Storage with Windows
+[Azure File Storage](storage-file-storage.md) is Microsoft's easy to use cloud file system. Azure File shares can be mounted in Windows and Windows Server. This article shows three different ways to mount an Azure File share on Windows: with the File Explorer UI, via PowerShell, and via the Command Prompt. 
 
-In order to mount an Azure File share outside of the Azure Region it is hosted in, such as on-premises or in a different Azure Region, the OS must support SMB 3.x. The following table shows the SMB version of recent Windows releases:
+In order to mount an Azure File share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.x. The following table shows the SMB version of recent Windows releases:
 
 | Windows version | SMB version | Supports mounting from Azure VM | Supports mounting from on-premises | Minimum Recommended KB |
 |----|----|----|----|----|
@@ -57,7 +57,7 @@ In order to mount an Azure File share outside of the Azure Region it is hosted i
 
 3. **Copy the UNC path from the "Connect" pane in the Azure Portal**: A detailed description of how to find this information can be found [here](storage-file-how-to-use-files-portal.md#connect).
 
-    ![The UNC path from the Azure Files Connect pane](media/storage-file-how-to-use-files-windows/portal_netuse_connect.png)
+    ![The UNC path from the Azure File Storage Connect pane](media/storage-file-how-to-use-files-windows/portal_netuse_connect.png)
 
 4. **Select the Drive letter and enter the UNC path.** 
     
@@ -114,14 +114,14 @@ In order to mount an Azure File share outside of the Azure Region it is hosted i
 >   cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>
 >   ```
 
-## See Also
+## Next Steps
 See these links for more information about Azure File storage.
 
 * [FAQ](storage-files-faq.md)
 * [Troubleshooting](storage-troubleshoot-file-connection-problems.md)
 
 ### Conceptual articles and videos
-* [Azure Files Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [Azure File Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 * [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md)
 
 ### Tooling support for File storage

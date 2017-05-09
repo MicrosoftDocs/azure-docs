@@ -1,5 +1,5 @@
 ---
-title: Use Azure Files with macOS | Microsoft Docs
+title: Use Azure File Storage with macOS | Microsoft Docs
 description: Learn how to mount an Azure File share over SMB with macOS.
 services: storage
 documentationcenter: ''
@@ -17,8 +17,8 @@ ms.date: 03/21/2017
 ms.author: renash
 ---
 
-# Use Azure Files with macOS
-[Azure Files](storage-file-storage.md) is Microsoft's easy to use cloud file system. Azure File shares can be mounted in macOS Sierra (10.12) and El Capitan (10.11). This article shows two different ways to mount an Azure File share on macOS: with the Finder UI and via the Terminal.
+# Use Azure File Storage with macOS
+[Azure File Storage](storage-file-storage.md) is Microsoft's easy to use cloud file system. Azure File shares can be mounted in macOS Sierra (10.12) and El Capitan (10.11). This article shows two different ways to mount an Azure File share on macOS: with the Finder UI and via the Terminal.
 
 > [!Note]  
 > Before mounting an Azure File share over SMB, we recommend disabling SMB packet signing. Not doing so may yield poor performance when accessing the Azure File share from macOS. From the terminal, the following commands will disable SMB packet signing, as described by this [Apple Support article](https://support.apple.com/en-us/HT205926):  
@@ -60,7 +60,7 @@ ms.author: renash
 
     ![A snapshot of the mounted Azure File share](./media/storage-file-how-to-use-files-mac/mount-via-terminal-1.png)
 
-## See Also
+## Next Steps
 See these links for more information about Azure File storage.
 
 * [Apple Support Article - How to connect with File Sharing on your Mac](https://support.apple.com/en-us/HT204445)
@@ -68,7 +68,7 @@ See these links for more information about Azure File storage.
 * [Troubleshooting](storage-troubleshoot-file-connection-problems.md)
 
 ### Conceptual articles and videos
-* [Azure Files Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [Azure File Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 * [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md)
 
 ### Tooling support for File storage

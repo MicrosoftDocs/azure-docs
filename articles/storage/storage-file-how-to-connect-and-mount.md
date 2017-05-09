@@ -1,6 +1,6 @@
 ---
-title: How to mount and use Azure Files shares | Microsoft Docs
-description: Learn how to mount Azure Files shares over SMB on Windows, Linux, and macOS.
+title: How to mount and use Azure File shares | Microsoft Docs
+description: Learn how to mount Azure File shares over SMB on Windows, Linux, and macOS.
 services: storage
 documentationcenter: ''
 author: RenaShahMSFT
@@ -17,7 +17,7 @@ ms.date: 03/21/2017
 ms.author: renash
 ---
 
-# How to mount and use Azure Files shares
+# How to mount and use Azure File shares
 [Azure File storage](storage-file-storage.md) is a service that offers file shares in the cloud using the industry standard Server Message Block (SMB) Protocol. With SMB, an Azure File Share can be mounted and presented to the OS as a locally available share.
 
 ## <a id="prereq"></a>Prerequisites for mounting an Azure File share
@@ -40,7 +40,7 @@ ms.author: renash
 | Windows 7 | SMB 2.1 | Yes | No | 
 
 > [!Note]  
-> Windows Server 2008 R2 and Windows 7 do not support mounting from on-premises or cross-Azure Region because they do not implement SMB 3.x. More information can be found [here](#prereq).
+> Windows Server 2008 R2 and Windows 7 do not support mounting from on-premises or cross-Azure region because they do not implement SMB 3.x. More information can be found [here](#prereq).
 
 ## Linux support for mounting an Azure File Share
 | Linux distribution | Functional SMB version | Supports mounting from Azure VM | Supports mounting from on-premises |
@@ -54,7 +54,7 @@ ms.author: renash
 | SUSE Linux Enterprise Server 12 (Premium Image) | SMB 2.1 | Yes | No |
 
 > [!Note]  
-> Popular Linux distributions do not support mounting from on-premises or cross-Azure Region because the recommended package for SMB support, the `cifs-utils` package, does not yet fully implement SMB 3.x. More information can be found [here](#prereq).
+> Popular Linux distributions do not support mounting from on-premises or cross-Azure region because the recommended package for SMB support, the `cifs-utils` package, does not yet fully implement SMB 3.x. More information can be found [here](#prereq).
 
 ## macOS support for mounting an Azure File Share
 | macOS name | macOS version | SMB version | Supports mounting from on-premises |
@@ -66,18 +66,16 @@ ms.author: renash
 * [Mount the file share from a machine running Windows](storage-file-how-to-use-files-windows.md)
 * [Mount the file share from a machine running Linux](storage-how-to-use-files-linux.md)
 * [Mount the file share from a machine running macOS](storage-file-how-to-use-files-mac.md)
-
-## See Also
 See these links for more information about Azure File storage.
 
 * [FAQ](storage-files-faq.md)
 * [Troubleshooting](storage-troubleshoot-file-connection-problems.md)
 
 ### Conceptual articles and videos
-* [Azure Files Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [Azure File Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 * [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md)
 
-### Tooling support for Azure Files
+### Tooling support for Azure File Storage
 * [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md)
 * [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md)
 * [Using the Azure CLI with Azure Storage](storage-azure-cli.md#create-and-manage-file-shares)

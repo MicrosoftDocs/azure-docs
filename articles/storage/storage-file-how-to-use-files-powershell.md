@@ -1,6 +1,6 @@
 ---
 title: How to use Powershell with Azure File Storage | Microsoft Docs
-description: Learn how to use PowerShell to manage Azure Files, Microsoft's easy to use cloud file system
+description: Learn how to use PowerShell to manage Azure File Storage, Microsoft's easy to use cloud file system
 services: storage
 documentationcenter: ''
 author: RenaShahMSFT
@@ -97,7 +97,7 @@ See these links for more information about Azure File storage.
 * [Troubleshooting](storage-troubleshoot-file-connection-problems.md)
 
 ### Conceptual articles and videos
-* [Azure Files Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [Azure File Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 * [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md)
 
 ### Tooling support for File storage

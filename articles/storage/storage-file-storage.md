@@ -23,13 +23,13 @@ Azure File Storage is Microsoft's easy to use cloud file system. Azure File Stor
 Azure File shares can be used to:
 
 * **Replace on-premises file servers**:  
-    Azure Files can be used to completely replace file shares on traditional on-premises file servers or NAS devices. Popular operating systems such as Windows, macOS, and Linux can easily mount an Azure File share wherever they are in the world.
+    Azure File Storage can be used to completely replace file shares on traditional on-premises file servers or NAS devices. Popular operating systems such as Windows, macOS, and Linux can easily mount an Azure File share wherever they are in the world.
 
 * **"Lift and Shift" applications**:  
-    Azure Files makes it easy to "lift and shift" applications to the cloud that use on-premises file shares to share data between parts of the application. To make this happen, each VM connects to the file share and then it can read and write files just like it would against an on-premises file share.
+    Azure File Storage makes it easy to "lift and shift" applications to the cloud that use on-premises file shares to share data between parts of the application. To make this happen, each VM connects to the file share and then it can read and write files just like it would against an on-premises file share.
 
 * **Simplify Cloud Development**:  
-    Azure Files can be used in a number of different ways to simplify new cloud development projects:
+    Azure File Storage can be used in a number of different ways to simplify new cloud development projects:
     * **Shared Application Settings**:  
         A common pattern for distributed applications is to have configuration files in a centralized location where they can be accessed from many different virtual machines. Such configuration files can now be stored in an Azure File share, and read by all application instances. These settings can also be managed via the REST interface, which allows worldwide access to the configuration files.
 
@@ -37,7 +37,7 @@ Azure File shares can be used to:
         An Azure File share can also be used to save diagnostic files like logs, metrics, and crash dumps. Having these available through both the SMB and REST interface allows applications to build or leverage a variety of analysis tools for processing and analyzing the diagnostic data.
 
     * **Dev/Test/Debug**:  
-        When developers or administrators are working on virtual machines in the cloud, they often need a set of tools or utilities. Installing and distributing these utilities on each virtual machine where they are needed can be a time consuming exercise. With Azure Files, a developer or administrator can store their favorite tools on a file share, which can be easily connected to from any virtual machine.
+        When developers or administrators are working on virtual machines in the cloud, they often need a set of tools or utilities. Installing and distributing these utilities on each virtual machine where they are needed can be a time consuming exercise. With Azure File Storage, a developer or administrator can store their favorite tools on a file share, which can be easily connected to from any virtual machine.
 
 ## Videos
 | Introducing Azure File Storage (27m) | Azure File Storage Tutorial (5 minutes)  |
@@ -73,21 +73,14 @@ Managing Azure File shares is a lot simpler than managing file shares on-premise
 * [Connect and Mount on Windows](storage-file-how-to-use-files-windows.md)
 * [Connect and Mount on Linux](storage-how-to-use-files-linux.md)
 * [Connect and Mount on macOS](storage-file-how-to-use-files-mac.md)
-* [Tooling and Scripting - Powershell](storage-file-how-to-use-files-powershell.md)
-* [Tooling and Scripting - CLI](storage-azure-cli.md#create-and-manage-file-shares)
-* [Tooling and Scripting - Storage Explorer](../vs-azure-tools-storage-explorer-files.md)
-* [Develop with Azure Files in .NET](storage-dotnet-how-to-use-files.md)
-* [Develop with Azure Files in Java](storage-java-how-to-use-file-storage.md)
-* [Develop with Azure Files in C++](storage-c-plus-plus-how-to-use-files.md)
-* [Develop with Azure Files in Python](storage-python-how-to-use-file-storage.md)
 * [FAQ](storage-files-faq.md)
 * [Troubleshooting](storage-troubleshoot-file-connection-problems.md)
 
-## See Also
+## Next Steps
 See these links for more information about Azure File storage.
 
 ### Conceptual articles and videos
-* [Azure Files Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [Azure File Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 * [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md)
 
 ### Tooling support for File storage

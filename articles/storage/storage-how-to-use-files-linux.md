@@ -17,10 +17,10 @@ ms.date: 3/8/2017
 ms.author: renash
 ---
 # Use Azure File Storage with Linux
-[Azure Files](storage-file-storage.md) is Microsoft's easy to use cloud file system. Azure File shares can be mounted in Linux distributions using the [cifs-utils package](https://wiki.samba.org/index.php/LinuxCIFS_utils) from the [Samba project](https://www.samba.org/). This article shows two ways to mount an Azure File share: on-demand with the `mount` command and on-boot by creating an entry in `/etc/fstab`.
+[Azure File Storage](storage-file-storage.md) is Microsoft's easy to use cloud file system. Azure File shares can be mounted in Linux distributions using the [cifs-utils package](https://wiki.samba.org/index.php/LinuxCIFS_utils) from the [Samba project](https://www.samba.org/). This article shows two ways to mount an Azure File share: on-demand with the `mount` command and on-boot by creating an entry in `/etc/fstab`.
 
 > [!NOTE]  
-> In order to mount an Azure File share outside of the Azure Region it is hosted in, such as on-premises or in a different Azure Region, the OS must support the encryption functionality of SMB 3.x. As of the time of publishing, Samba support for SMB 3.x is incomplete as it does not yet support encryption. Status on SMB 3.x compatibility can be viewed on the [Samba wiki](https://wiki.samba.org/index.php/SMB3_kernel_status#Security_Features).
+> In order to mount an Azure File share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support the encryption functionality of SMB 3.x. As of the time of publishing, Samba support for SMB 3.x is incomplete as it does not yet support encryption. Status on SMB 3.x compatibility can be viewed on the [Samba wiki](https://wiki.samba.org/index.php/SMB3_kernel_status#Security_Features).
 
 ## <a id="preq"></a>Prerequisities for mounting an Azure File share with Linux and the cifs-utils package
 * **Pick a Linux distribution that can have the cifs-utils package installed**: Microsoft recommends the following Linux distributions in the Azure image gallery:
@@ -34,7 +34,7 @@ ms.author: renash
     * SUSE Linux Enterprise Server 12 (Premium Image)
 
     > [!Note]  
-    > Any Linux distribution that download and install or compile recent versions of the cifs-utils package can be used with Azure Files.
+    > Any Linux distribution that download and install or compile recent versions of the cifs-utils package can be used with Azure File Storage.
 
 * <a id="install-cifs-utils"></a>**The cifs-utils package is installed**: The cifs-utils can be installed using the package manager on the Linux distribution of your choice. 
 
@@ -108,7 +108,7 @@ Linux users, we want to hear from you!
 
 The Azure File storage for Linux users' group provides a forum for you to share feedback as you evaluate and adopt File storage on Linux. Email [Azure File Storage Linux Users](mailto:azurefileslinuxusers@microsoft.com) to join the users' group.
 
-## See Also
+## Next Steps
 See these links for more information about Azure File storage.
 
 ### Conceptual articles and videos

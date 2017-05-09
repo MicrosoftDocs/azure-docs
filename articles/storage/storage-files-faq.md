@@ -1,6 +1,6 @@
 ---
-title: Azure Files Frequently Asked Questions | Microsoft Docs
-description: Find answers to frequently asked questions about Azure Files.
+title: Azure File Storage Frequently Asked Questions | Microsoft Docs
+description: Find answers to frequently asked questions about Azure File Storage.
 services: storage
 documentationcenter: ''
 author: RenaShahMSFT
@@ -49,7 +49,7 @@ ms.author: renash
     
     You don't have this level of control over permissions if you mount the file share via SMB. However, you can achieve this by creating a shared access signature (SAS) via the REST API or client libraries.  
 
-* **Q. How can I enable Server Side encryption for Azure Files?**
+* **Q. How can I enable Server Side encryption for Azure File Storage?**
 
     [Server Side Encryption](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) is currently in Preview. During preview, the feature can only be enabled for newly created Azure Resource Manager (ARM) Storage accounts.
     You can enable this feature on Azure Resource Manager storage account using the Azure Portal. We plan to have [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx), [Azure CLI](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli-nodejs) or the [Microsoft Azure Storage Resource Provider API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) for enabling encryption for file storage by end of February. There is no additional charge for enabling this feature. When you enable Storage Service Encryption for Azure File Storage your data is automatically encrypted for you. 
@@ -97,9 +97,9 @@ ms.author: renash
     
     To transfer large numbers of files into File storage, we recommend that you use AzCopy, Azure Powershell (Windows), or the Azure CLI (Linux/Unix), as these tools have been optimized for network transfer.
 
-* **Q. Patch released to fix slow-performance issue with Azure Files**
+* **Q. Patch released to fix slow-performance issue with Azure File Storage**
     
-    The Windows team recently released a patch to fix a slow performance issue when the customer accesses Azure Files Storage from Windows 8.1 or Windows Server 2012 R2. For more information, please check out the associated KB article, [Slow performance when you access Azure Files Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/en-us/kb/3114025).
+    The Windows team recently released a patch to fix a slow performance issue when the customer accesses Azure File Storage from Windows 8.1 or Windows Server 2012 R2. For more information, please check out the associated KB article, [Slow performance when you access Azure File Storage from Windows 8.1 or Server 2012 R2](https://support.microsoft.com/en-us/kb/3114025).
 
 <a id="interop"></a>
 ## Features and Interoperability with other services
@@ -124,14 +124,14 @@ ms.author: renash
 ## Troubleshooting
 * **Q. How do I troubleshoot Azure File Storage errors?**
     
-    You can refer to [Azure Files Troubleshooting Article](storage-troubleshoot-file-connection-problems.md) for end-to-end troubleshooting guidance. 
+    You can refer to [Azure File Storage Troubleshooting Article](storage-troubleshoot-file-connection-problems.md) for end-to-end troubleshooting guidance. 
 
 
 ## Also See
 See these links for more information about Azure File storage.
 
 ### Conceptual articles and videos
-* [Azure Files Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [Azure File Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 * [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md)
 
 ### Tooling support for File storage
