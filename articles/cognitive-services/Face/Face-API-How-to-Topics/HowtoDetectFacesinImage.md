@@ -49,7 +49,6 @@ When using a client library, the subscription key is passed in through the const
 ```CSharp
 faceServiceClient = new FaceServiceClient("Your subscription key");
 ```
-See [subscription and key management](https://www.microsoft.com/cognitive-services/en-US/subscriptions).
 
 ## <a name="step2"></a> Step 2: Upload an image to the service and execute face detection
 
