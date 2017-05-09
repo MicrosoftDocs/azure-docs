@@ -96,14 +96,14 @@ If you want to submit an application to Azure Data Lake Store, you must choose *
 
 ## Create a Scala application for an HDInsight Spark cluster
 
-1. In the already open Eclipse IDE, from the **Package Explorer**, expand the project you created earlier, right-click **src**, point to **New**, and then click **Other**.
+1. In the Eclipse IDE, from **Package Explorer**, expand the project that you created earlier, right-click **src**, point to **New**, and then click **Other**.
 2. In the **Select a wizard** dialog box, expand **Scala Wizards**, click **Scala Object**, and then click **Next**.
    
     ![Create Spark Scala application](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-scala-proj-1.png)
 3. In the **Create New File** dialog box, enter a name for the object, and then click **Finish**.
    
     ![Create Spark Scala application](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-scala-proj-2.png)
-4. Paste the following code in the text editor.
+4. Paste the following code in the text editor:
    
         import org.apache.spark.SparkConf
         import org.apache.spark.SparkContext
@@ -115,7 +115,7 @@ If you want to submit an application to Azure Data Lake Store, you must choose *
    
             val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
    
-            //find the rows which have only one digit in the 7th column in the CSV
+            //find the rows that have only one digit in the seventh column in the CSV
             val rdd1 =  rdd.filter(s => s.split(",")(6).length() == 1)
    
             rdd1.saveAsTextFile("wasbs:///HVACOut")
@@ -123,35 +123,33 @@ If you want to submit an application to Azure Data Lake Store, you must choose *
         }
 5. Run the application on an HDInsight Spark cluster.
    
-   1. From the **Package Explorer**, right-click the project name, and then select **Submit Spark Application to HDInsight**.        
-   2. In the **Spark Submission** dialog box, provide the following values.
+   1. From **Package Explorer**, right-click the project name, and then select **Submit Spark Application to HDInsight**.        
+   2. In the **Spark Submission** dialog box, provide the following values:
       
       * For **Cluster Name**, select the HDInsight Spark cluster on which you want to run your application.
-      * You need to either select an Artifact from the Eclipse project, or select one from hard disk.
-      * Against the **Main class name** text box, enter the name of the object you specified in the code (see image below).
+      * Select an artifact from the Eclipse project, or select one from hard drive.
+      * In the **Main class name** text box, enter the name of the object that you specified in the code.
         
           ![Create Spark Scala application](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
-      * Because the application code in this example does not require any command line arguments or reference JARs or files, you can leave the remaining text boxes empty.
+      * Because the application code in this example does not require any command-line arguments or reference JARs or files, you can leave the remaining text boxes empty.
       * Click **Submit**.
-   3. The **Spark Submission** tab should start displaying the progress. You can stop the application by clicking the red button in the "Spark Submission" window. You can also view the logs for this specific application run by clicking the globe icon (denoted by the blue box in the image).
+   3. The **Spark Submission** tab should start displaying the progress. You can stop the application by clicking the red button in the **Spark Submission** window. You can also view the logs for this specific application run by clicking the globe icon (denoted by the blue box in the image).
       
        ![Create Spark Scala application](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)
       
-      In the next section, you learn how to access the job output using the HDInsight Tools in Azure Toolkit for Eclipse.
-
-## Access and manage HDInsight Spark clusters by using the HDInsight Tools in Azure Toolkit for Eclipse
-You can perform various operations by using the HDInsight tools.
+## Access and manage HDInsight Spark clusters by using HDInsight Tools in Azure Toolkit for Eclipse
+You can perform various operations by using HDInsight Tools, including accessing the job output.
 
 ### Access the storage container for the cluster
-1. From the Azure Explorer, expand **HDInsight** root node to see a list of HDInsight Spark clusters that are available.
+1. In Azure Explorer, expand the **HDInsight** root node to see a list of HDInsight Spark clusters that are available.
 2. Expand the cluster name to see the storage account and the default storage container for the cluster.
    
     ![Create Spark Scala application](./media/hdinsight-apache-spark-eclipse-tool-plugin/view-explorer-5.png)
-3. Click the storage container name associated with the cluster. In the right-pane, you should see a folder called **HVACOut**. Double-click to open the folder and you will see **part-*** files. Open one of those files to see the output of the application.
+3. Click the storage container name associated with the cluster. In the right pane, double-click the **HVACOut** folder. Open one of the **part-** files to see the output of the application.
 
 ### Access the Spark history server
 1. In Azure Explorer, right-click your Spark cluster name, and then select **Open Spark History UI**. When you're prompted, enter the admin credentials for the cluster. You must have specified these while provisioning the cluster.
-2. In the Spark history server dashboard, you can look for the application you just finished running by using the application name. In the preceding code, you set the application name by using `val conf = new SparkConf().setAppName("MyClusterApp")`. Hence, your Spark application name was **MyClusterApp**.
+2. In the Spark history server dashboard, you can look for the application that you just finished running by using the application name. In the preceding code, you set the application name by using `val conf = new SparkConf().setAppName("MyClusterApp")`. Hence, your Spark application name was **MyClusterApp**.
 
 ### Start the Ambari portal
 1. In Azure Explorer, right-click your Spark cluster name, and then select **Open Cluster Management Portal (Ambari)**. 
@@ -161,7 +159,7 @@ You can perform various operations by using the HDInsight tools.
 By default, HDInsight Tools in Azure Toolkit for Eclipse lists the Spark clusters from all your Azure subscriptions. If necessary, you can specify the subscriptions for which you want to access the cluster. 
 
 1. In Azure Explorer, right-click the **Azure** root node, and then click **Manage Subscriptions**. 
-2. In the dialog box, clear the check boxes against the subscription that you don't want to access, and then click **Close**. You can also click **Sign Out** if you want to sign out of your Azure subscription.
+2. In the dialog box, clear the check boxes for the subscription that you don't want to access, and then click **Close**. You can also click **Sign Out** if you want to sign out of your Azure subscription.
 
 ## Run a Spark Scala application locally
 You can use HDInsight Tools in Azure Toolkit for Eclipse to run Spark Scala applications locally on your workstation. Typically, these applications don't need access to cluster resources such as a storage container, and you can run and test them locally.
@@ -178,11 +176,11 @@ To resolve this error, you must [download the executable](http://public-repo-1.h
    
    * In the left pane, select **HDInsight**.
    * In the right pane, select **Spark on HDInsight Local Run Sample (Scala)**.    
-2. To provide the project details, follow steps 3 through 6 as shown in the earlier section [Set up a Spark Scala application project for an HDInsight Spark cluster](#set-up-a-spark-scala-application-project-for-an-hdinsight-spark cluster).
+2. To provide the project details, follow steps 3 through 6 as shown in the earlier section [Set up a Spark Scala project for an HDInsight Spark cluster](#set-up-a-spark-scala-project-for-an-hdinsight-spark cluster).
 3. The template adds a sample code (**LogQuery**) under the **src** folder that you can run locally on your computer.
    
     ![Spark Application local run result](./media/hdinsight-apache-spark-eclipse-tool-plugin/local-app.png)
-4. Right-click the **LogQuery** application, point to **Run As**, and then click **1 Scala Application**. You will see an output like this in the **Console** tab at the bottom.
+4. Right-click the **LogQuery** application, point to **Run As**, and then click **1 Scala Application**. You will see an output like this in the **Console** tab at the bottom:
    
    ![Spark Application local run result](./media/hdinsight-apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
 
