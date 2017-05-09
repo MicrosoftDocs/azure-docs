@@ -33,5 +33,5 @@ MySQL offers standard database driver connectivity for using MySQL with applicat
 
 
 ## Next steps
-- For an overview of the service, see [Azure Database for MySQL Overview](./overview.md).
-- For further details on servers, see [Azure Database for MySQL servers](./concepts-servers.md).
+[Azure Database for MySQL Overview](./overview.md)
+[Server concepts in Azure Database for MySQL](./concepts-servers.md)
