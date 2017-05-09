@@ -770,7 +770,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <a href="/azure/iot-hub/">
                                                 <img src="media/index/IoTHub.svg" alt="" />
                                                 <p>Azure IoT Hub</p>
-<<<<<<< HEAD
                                             </a>
                                         </li>
                                         <li>
@@ -798,35 +797,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-=======
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/iot-suite/">
-                                                <img src="media/index/iot-suite.svg" alt="" />
-                                                <p>Azure IoT Suite</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/event-hubs/">
-                                                <img src="media/index/EventHubs.svg" alt="" />
-                                                <p>Event Hubs</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/notification-hubs/">
-                                                <img src="media/index/NotificationHubs.svg" alt="" />
-                                                <p>Notification Hubs</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/stream-analytics/">
-                                                <img src="media/index/StreamAnalytics.svg" alt="" />
-                                                <p>Stream Analytics</p>
-                                            </a>
-                                        </li>
-                                        <li>
->>>>>>> b6d1094dc075a1cc4ec589690123e7383d4bafbe
                                             <a href="/azure/machine-learning/">
                                                 <img src="media/index/MachineLearning.svg" alt="" />
                                                 <p>Machine Learning</p>
