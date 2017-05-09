@@ -73,6 +73,9 @@ git push azure master
 
 Once deployment has completed, refresh your browser to see the changes.
 
+[!INCLUDE [manage-azure-web-app](../../includes/manage-azure-web-app.md)]
+
+
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## Next steps
