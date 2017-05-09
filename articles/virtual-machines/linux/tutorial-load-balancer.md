@@ -299,4 +299,4 @@ In this tutorial, you created a load balancer and attached VMs to it. You learne
 Advance to the next tutorial to learn more about Azure virtual network components.
 
 > [!div class="nextstepaction"]
-> [Manage VM networking](tutorial-virtual-network.md)
+> [Manage VMs and virtual networks](tutorial-virtual-network.md)
