@@ -1,5 +1,5 @@
 ---
-title: Host a Service Fabric app in a container | Microsoft Docs
+title: Deploy a .NET application in a container to Service Fabric | Microsoft Docs
 description: Teaches you how to package a .NET app in Visual Studio in a Docker Container. This new "container" app is then deployed to a Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
@@ -17,9 +17,9 @@ ms.date: 01/05/2017
 ms.author: mikhegn
 ---
 
-# Host a .NET application in a container on Service Fabric
+# Deploy a .NET application in a container to Service Fabric
 
-This tutorial shows you how to host an existing ASP.NET application in a Windows container using Visual Studio 2017 update 3 preview. Then, how to deploy the container in to Azure using Visual Studio Team Services and host the container in a Service Fabric cluster.
+This tutorial shows you how to deploy an existing ASP.NET application in a Windows container using Visual Studio 2017 update 3 preview. Then, how to deploy the container in to Azure using Visual Studio Team Services and host the container in a Service Fabric cluster.
 
 ## Prerequisites
 
@@ -203,7 +203,7 @@ Now that you have containerized and deployed the Fabrikam Call Center solution, 
 ## Next steps
 
 - [Container Tooling in Visual Studio][link-visualstudio-container-tools]
-- [Running containers in Service Fabric][link-servicefabric-containers]
+- [Get started with containers in Service Fabric][link-servicefabric-containers]
 - [Creating Service Fabric applications][link-servicefabric-createapp]
 
 [link-debug-container]: ~/dotnet/articles/core/docker/visual-studio-tools-for-docker
@@ -213,7 +213,7 @@ Now that you have containerized and deployed the Fabrikam Call Center solution, 
 [link-azure-powershell-install]: ~/powershell/azure/install-azurerm-ps
 [link-servicefabric-create-secure-clusters]: ~/azure/service-fabric/service-fabric-cluster-creation-via-arm
 [link-visualstudio-cd-extension]: http://aka.ms/cd4v
-[link-servicefabric-containers]: ~/azure/service-fabric/service-fabric-containers-overview
+[link-servicefabric-containers]: ~/azure/service-fabric/service-fabric-get-started-containers
 [link-servicefabric-createapp]: ~/azure/service-fabric/service-fabric-create-your-first-application-in-visual-studio
 [link-azure-portal]: http://portal.azure.com
 [link-sf-clustertemplate]: http://aka.ms/securepreviewonelineclustertemplate
