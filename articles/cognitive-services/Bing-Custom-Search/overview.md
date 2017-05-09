@@ -25,7 +25,7 @@ Bing Custom Search empowers businesses of any size, hobbyists, developers, and e
 
 
 ## Use cases
-The most common custom search services supported by Bing Custom Search are building site search and topical search solutions. All solutions are retrievable via Bing Web Search API. Bing Web Search API returns a JSON file with the custom results, which can be integrated into many search endpoints. For example, internal websites, public websites, blogs, or apps.
+Bing Custom Search allows you to build, for example, site search or topical search services. You can programmatically retrieve your custom results via Bing Web Search API, using a `customconfig` parameter. Bing Web Search API returns a JSON file with the customized results. You can then integrate these results into many search endpoint applications. For example, you can show them on private websites, or public websites, in a blog, or in an app.
 
 
 ## Free subscription keys
