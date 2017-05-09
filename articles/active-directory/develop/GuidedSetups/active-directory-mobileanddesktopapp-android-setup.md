@@ -18,11 +18,9 @@ ms.author: andret
 
 ---
 
-# Setting up your Android application to consume Microsoft Graph API or other APIs that require access tokens
+## Setting up your Android application to consume Microsoft Graph API or other APIs that require access tokens
 
-This section provides step-by-step instructions for how to create a new project to demonstrate how a native Android can query Web APIs that require tokens.
-
-> Prefer to download this sample's Android Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip) and skip to the [Configuration](active-directory-mobileanddesktopapp-android-configure.md) step to configure the code sample before executing    .
+> Prefer to download this sample's Android Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip) and skip to the [Configuration](#create-an-application-express) step to configure the code sample before executing    .
 
 
 ## Create a new project 
@@ -152,6 +150,3 @@ The package above installs the Microsoft Authentication Library (MSAL). MSAL han
 </LinearLayout>
 ```
 
-### What is Next
-
-[Use](active-directory-mobileanddesktopapp-android-use.md)

@@ -1,6 +1,6 @@
 ---
 title: Azure AD v2 Windows Desktop Getting Started - Config | Microsoft Docs
-description: How a Windows Desktop .NET (XAML) application can get an access token and call an API protected by Azure Active Directory v2 endpoint. | 
+description: How a Windows Desktop .NET (XAML) application can get an access token and call an API protected by Azure Active Directory v2 endpoint.
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date:
+ms.date: 05/09/2017
 ms.author: andret
 
 ---
-# Configure your Windows Desktop App with the application's registration information
+## Configure your Windows Desktop App with the application's registration information
 
 This step shows how to configure your Visual Studio project with the application's registration information.
 

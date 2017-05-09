@@ -17,9 +17,7 @@ ms.date: 05/09/2017
 ms.author: andret
 
 ---
-# Test querying Microsoft Graph API from your Android application
-
-This section shows how to test the sample created by this guide and the expected result.
+## Test querying Microsoft Graph API from your Android application
 
 1. Deploy your code to your device/emulator.
 2. When you're ready to test, use a Microsoft Azure Active Directory (organizational account) or a Microsoft Account (live.com, outlook.com) account to sign in. 

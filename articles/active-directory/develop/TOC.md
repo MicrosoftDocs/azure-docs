@@ -84,26 +84,11 @@
 ## Get Started
 ### Mobile Apps
 #### [iOS](https://github.com/Azure-Samples/active-directory-msal-ios-swift)
-#### Android
-##### [1. Introduction](guidedsetups/active-directory-mobileanddesktopapp-android-intro.md)
-##### [2. Setup](guidedsetups/active-directory-mobileanddesktopapp-android-setup.md)
-##### [3. Use](guidedsetups/active-directory-mobileanddesktopapp-android-use.md)
-##### [4. Configure](guidedsetups/active-directory-mobileanddesktopapp-android-configure.md)
-##### [5. Test and Validate](guidedsetups/active-directory-mobileanddesktopapp-android-test.md)
-#### Windows Desktop .NET
-##### [1. Introduction](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md)
-##### [2. Setup](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-setup.md)
-##### [3. Use](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-use.md)
-##### [4. Configure](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-configure.md)
-##### [5. Test and Validate](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-test.md)
+#### [Android](guidedsetups/active-directory-android.md)
+#### [Windows Desktop .NET](guidedsetups/active-directory-windesktop.md)
 ### Web apps
 #### [Javascript SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
-#### ASP.NET Web Server
-##### [1. Introduction](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-intro.md)
-##### [2. Setup](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-setup.md)
-##### [3. Use](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-use.md)
-##### [4. Configure](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-configure.md)
-##### [5. Test and Validate](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-test.md)
+#### [ASP.NET Web Server](guidedsetups/active-directory-aspnetwebapp.md)
 #### [NodeJS Web app](active-directory-v2-devquickstarts-node-web.md)
 ## Guides
 ### [Register an app](active-directory-v2-app-registration.md)

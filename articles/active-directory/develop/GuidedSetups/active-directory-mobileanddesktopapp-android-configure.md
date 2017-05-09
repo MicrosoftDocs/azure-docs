@@ -18,18 +18,14 @@ ms.author: andret
 
 ---
 
-# Configure your Android App with the application's registration information
-
-In this step, you will configure your project with the application's registration information.
-
-# Create an application (Express)
+## Create an application (Express)
 Now you need to register your application in the *Microsoft Application Registration Portal*:
 1. Register your application via the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure)
 2.	Enter a name for your application and your email
 3.	Make sure the option for Guided Setup is checked
 4.	Follow the instructions to obtain the application ID and paste it into your code
 
-# Add your application registration information to your solution (Advanced)
+### Add your application registration information to your solution (Advanced)
 Now you need to register your application in the *Microsoft Application Registration Portal*:
 1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) to register an application
 2. Enter a name for your application and your email 
@@ -71,8 +67,3 @@ Add the following activity to `manifest\application` node. This registers a `Bro
 In the `BrowserTabActivity`, replace `[Enter the application Id here]` with the application ID.
 </li>
 </ol>
-<!-- End Docs -->
-
-### What is Next
-
-[Test and Validate](active-directory-mobileanddesktopapp-android-test.md)

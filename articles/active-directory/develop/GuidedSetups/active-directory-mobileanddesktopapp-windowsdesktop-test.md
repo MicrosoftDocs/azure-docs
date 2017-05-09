@@ -17,7 +17,7 @@ ms.date: 05/09/2017
 ms.author: andret
 
 ---
-# Test querying Microsoft Graph API from your Windows Desktop application
+## Test querying Microsoft Graph API from your Windows Desktop application
 
 In order to test your application, press `F5` to run your project in Visual Studio. Your Main Window should appear:
 

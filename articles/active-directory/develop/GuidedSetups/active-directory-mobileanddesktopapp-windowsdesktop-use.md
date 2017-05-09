@@ -18,9 +18,9 @@ ms.author: andret
 
 ---
 
-# Use Microsoft Authentication Library (MSAL) to get a token for the Microsoft Graph API from your Windows application
+## Use Microsoft Authentication Library (MSAL) to get a token for the Microsoft Graph API from your Windows application
 
-This section shows how to use MSAL to get a token the Microsoft Graph API. 
+This section shows how to use MSAL to get a token the Microsoft Graph API.
 
 1.	In `MainWindow.xaml.cs`, add the reference for MSAL library to the class:
 
@@ -202,6 +202,3 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 Tokens acquired via *OpenID Connect* also contain a small subset of information pertinent to the user. `DisplayBasicTokenInfo` displays basic information contained in the token: for example, the user's display name and ID, as well as the token expiration date and the string representing the access token itself. This information is displayed for you to see. You can hit the *Call Microsoft Graph API* button multiple times and see that the same token was reused for subsequent requests. You can also see the expiration date being extended when MSAL decides it is time to renew the token.
 <!--end-collapse-->
 
-### What is Next
-
-[Configure](active-directory-mobileanddesktopapp-windowsdesktop-configure.md)

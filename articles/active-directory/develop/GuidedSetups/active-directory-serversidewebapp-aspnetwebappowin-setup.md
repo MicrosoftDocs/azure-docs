@@ -18,11 +18,11 @@ ms.author: andret
 
 ---
 
-# Setup your ASP.NET project to sign-in users using OpenID Connect
+## Setup your ASP.NET project to sign-in users using OpenID Connect
 
 This section shows the steps to install and configure the authentication pipeline via OWIN middleware on an ASP.NET project using OpenID Connect. 
 
-> Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) and skip to the [Configuration](active-directory-serversidewebapp-aspnetwebappowin-configure.md) step to configure the code sample before executing.
+> Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) and skip to the [Configuration](#create-an-application-express) step to configure the code sample before executing.
 
 <!--start-collapse-->
 > ### Creating your ASP.NET project
@@ -147,7 +147,3 @@ public class Startup
 > The parameters you provide in *OpenIDConnectAuthenticationOptions* serve as coordinates for the application to communicate with Azure AD. Because the OpenID Connect middleware uses cookies in the background, you also need to set up cookie authentication as the code above shows. The *ValidateIssuer* value tells OpenIdConnect to not restrict access to one specific organization.
 <!--end-collapse-->
 
-
-### What is Next
-
-[Use](active-directory-serversidewebapp-aspnetwebappowin-use.md)

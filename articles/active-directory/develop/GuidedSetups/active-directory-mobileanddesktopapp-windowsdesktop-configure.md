@@ -17,9 +17,6 @@ ms.date: 05/09/2017
 ms.author: andret
 
 ---
-# Configure your Windows Desktop App with the application's registration information
-
-This step shows how to configure your Visual Studio project with the application's registration information.
 
 ## Create an application (Express)
 Now you need to register your application in the *Microsoft Application Registration Portal*:
@@ -39,7 +36,3 @@ Now you need to register your application in the *Microsoft Application Registra
 ```csharp
 private static string ClientId = "your_application_id_here";
 ```
-
-### What is Next
-
-[Test and Validate](active-directory-mobileanddesktopapp-windowsdesktop-test.md)

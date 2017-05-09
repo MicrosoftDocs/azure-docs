@@ -18,7 +18,8 @@ ms.author: andret
 
 ---
 
-# Add the application’s registration information to your app
+## Add the application’s registration information to your app
+
 In this step, you need to add the Client ID to your project.
 
 1.	Open `MainActivity` (under `app` > `java` > *`{host}.{namespace}`*)

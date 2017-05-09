@@ -17,9 +17,7 @@ ms.date: 05/09/2017
 ms.author: andret
 
 ---
-# Configure your ASP.NET Web App with the application's registration information
-
-In this step, you will configure your Visual Studio project with the application's registration information.
+## Configure your ASP.NET Web App with the application's registration information
 
 In this step, you will configure your project to use SSL, and then use the SSL URL to configure your application’s registration information. After this, add the application’ registration information to your solution via *web.config*.
 
@@ -35,8 +33,3 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 <add key="Tenant" value="common" />
 <add key="Authority" value="https://login.microsoftonline.com/{0}/v2.0" /> 
 ```
-<!--
-### What is Next
-
-[Test and Validate](active-directory-serversidewebapp-aspnetwebappowin-test.md)
--->

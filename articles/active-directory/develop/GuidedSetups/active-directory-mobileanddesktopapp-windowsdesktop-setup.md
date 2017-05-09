@@ -18,13 +18,13 @@ ms.author: andret
 
 ---
 
-# Setting up your Windows Desktop application to consume Microsoft Graph API or other APIs that require access tokens
+## Setting up your Windows Desktop application to consume Microsoft Graph API or other APIs that require access tokens
 
 This section provides step-by-step instructions for how to create a new project to demonstrate how to integrate a Windows Desktop .NET application (XAML) with *Sign-In with Microsoft* so it can query Web APIs that requires a token.
 
 The application created by this guide exposes a button to graph and show results on screen and a sign-out button.
 
-> Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip) and skip to the [Configuration](active-directory-mobileanddesktopapp-windowsdesktop-configure.md) step to configure the code sample before executing.
+> Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip) and skip to the [Configuration](#create-an-application-express) step to configure the code sample before executing.
 
 
 ## Creating your application
@@ -89,7 +89,3 @@ A MainWindow.xaml file should automatically be created as a part of your project
     </StackPanel>
 </Grid>
 ```
-
-### What is next
-
-[Use](active-directory-mobileanddesktopapp-windowsdesktop-use.md)

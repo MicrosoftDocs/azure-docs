@@ -18,7 +18,7 @@ ms.author: andret
 
 ---
 
-# Add a controller to handle sign-in and sign-out requests
+## Add a controller to handle sign-in and sign-out requests
 
 This step shows how to create a new controller to expose sign-in and sign-out methods.
 
@@ -195,7 +195,3 @@ In Visual Studio, create a new view to display the user's claims in a web page:
 </body>
 </html>
 ```
-
-#### What is Next
-
-[Configure](active-directory-serversidewebapp-aspnetwebappowin-configure.md)
