@@ -43,6 +43,9 @@
     href: sql-database-security-tutorial.md
   - name: 4 - Improve SQL DB performance
     href: sql-database-performance-tutorial.md
+  - name: 5 - Implement multi-tenant app
+    href: sql-database-multi-tenant-application.md
+
 - name: Samples
   items:
   - name: Azure CLI
