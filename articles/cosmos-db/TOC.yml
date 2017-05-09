@@ -220,9 +220,9 @@
       href: ../documentdb/documentdb-regional-failovers.md
     - name: Automation
       items:
-      - name: Azure CLI 1.0: Create an account
+      - name: Azure CLI 1.0 - Create an account
         href: ../documentdb/documentdb-automation-resource-manager-cli-nodejs.md
-      - name: Azure CLI 1.0: Add or remove regions
+      - name: Azure CLI 1.0 - Add or remove regions
         href: ../documentdb/documentdb-automation-region-management.md
       - name: Azure PowerShell
         href: ../documentdb/documentdb-manage-account-with-powershell.md
