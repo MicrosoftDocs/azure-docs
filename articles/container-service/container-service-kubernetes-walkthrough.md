@@ -30,6 +30,8 @@ and run your containers. All VMs are in the same private virtual network and are
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-walkthrough/kubernetes.png)
 
+For more background, see the [Azure Container Service introduction](container-service-intro.md) and the [Kubernetes documentation](https://kubernetes.io/docs/home/).
+
 ## Prerequisites
 To create an Azure Container Service cluster using the Azure CLI 2.0, you must:
 * have an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/))
@@ -41,11 +43,11 @@ Additionally, you need (or you can use the Azure CLI to generate automatically d
 
 * **Service principal client ID and secret**: For steps to create an Azure Active Directory service principal and additional information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
 
-  The command example in this article automatically generates the SSH keys and service principal.
+ The command example in this article automatically generates the SSH keys and service principal.
 
 ## Create your Kubernetes cluster
 
-Here are brief shell commands that use the Azure CLI 2.0 to create your cluster. 
+Here are brief bash shell commands that use the Azure CLI 2.0 to create your cluster. 
 
 ### Create a resource group
 To create your cluster, you first need to create a resource group in a location where Azure Container Service is [available](https://azure.microsoft.com/regions/services/). Run commands similar to the following:
