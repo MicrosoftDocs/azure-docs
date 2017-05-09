@@ -177,20 +177,25 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 
 | Service | Schema & Docs |
 | --- | --- |
-| Load Balancer |[Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
-| Network Security Groups |[Log analytics for network security groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md) |
+| API Management | Schema not available. |
 | Application Gateways |[Diagnostics Logging for Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
-| Key Vault |[Azure Key Vault Logging](../key-vault/key-vault-logging.md) |
-| Azure Search |[Enabling and using Search Traffic Analytics](../search/search-traffic-analytics.md) |
-| Data Lake Store |[Accessing diagnostic logs for Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| Data Lake Analytics |[Accessing diagnostic logs for Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
-| Logic Apps |[Logic Apps B2B custom tracking schema](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
-| Azure Batch |[Azure Batch diagnostic logging](../batch/batch-diagnostics.md) |
 | Azure Automation |[Log analytics for Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
+| Azure Batch |[Azure Batch diagnostic logging](../batch/batch-diagnostics.md) |
+| Customer Insights | Schema not available. |
+| Content Delivery Network | Schema not available. |
+| Data Lake Analytics |[Accessing diagnostic logs for Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
+| Data Lake Store |[Accessing diagnostic logs for Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
+| Express Route | Schema not available. |
 | Event Hubs |[Azure Event Hubs diagnostic logs](../event-hubs/event-hubs-diagnostic-logs.md) |
-| Stream Analytics |[Job diagnostic logs](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| Key Vault |[Azure Key Vault Logging](../key-vault/key-vault-logging.md) |
+| Load Balancer |[Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
+| Logic Apps |[Logic Apps B2B custom tracking schema](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
+| Network Security Groups |[Log analytics for network security groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md) |
+| Recovery Services | Schema not available.|
+| Search |[Enabling and using Search Traffic Analytics](../search/search-traffic-analytics.md) |
+| Server Management | Schema not available. |
 | Service Bus |[Azure Service Bus diagnostic logs](../service-bus-messaging/service-bus-diagnostic-logs.md) |
-
+| Stream Analytics |[Job diagnostic logs](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 
 ## Supported log categories per resource type
 |Resource Type|Category|Category Display Name|
