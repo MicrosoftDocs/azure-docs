@@ -168,9 +168,7 @@ You can also validate your settings by calling your custom endpoint using differ
 
 
 ## Programmatically retrieve custom search results
-You can programmatically retrieve custom search results for users via [Bing Web Search API](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/search-the-web). 
-
-Requesting Bing Web Search API to obtain customized responses works the same way as requesting standard Bing web responses - with two differences:
+You can programmatically retrieve custom search results for users via Bing Web Search API. Requesting Bing Web Search API to obtain customized responses works the same way as requesting standard Bing web responses - with two differences:
 
 1. The request URL has an additional parameter called `customconfig`.
 2. The response contains the elementary and customizable elements of the Bing Web Search API output.
@@ -208,7 +206,7 @@ https://api.cognitive.microsoft.com/bingcustomsearch/v5.0/search[?q][&customconf
 | Ocp-Apim-Subscription-Key | string | Required | Subscription key, which provides access to this API. Found in your subscriptions. |
 
 
-### Request Body
+### Response Body
 Bing Custom Search allows customizing web results only, which maps to the response field `webPages`. For example, images or news results cannot be customized. That's why they are not retrievable when calling Bing Web Search API with the `customconfig` parameter in the search request.
 
 Below you see a JSON response of a Bing Web Search API call with a `customconfig` parameter. 
