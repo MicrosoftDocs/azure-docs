@@ -22,15 +22,16 @@ Signing up to Bing Custom Search requires you to have a Microsoft Account.
 After you have successfully completed the sign-up, you have been automatically granted a free trial Azure subscription key. 
 You can start now to configure your custom search service.
 
-[!Note]
+[!NOTE]
 It is free to sign up to Bing Custom Search. The usage is capped to certain quota. The pricing overview provides detailed information on the available quota for Bing Custom Search Free Preview. 
 
 
 ## Build your custom search in the Bing Custom Search Portal
 You can build your custom search service in the Custom Search Portal.
 
-[!Note]
+[!NOTE]
 Bing Custom Search portal supports these browsers:
+
 * Microsoft Edge - Desktop
 * Google Chrome - Desktop
 
@@ -62,7 +63,7 @@ Once you decide that your custom search instance meets your needs, you can publi
 ## Integrate your search into an endpoint application
 Finally, you want to show your customized search in your endpoint of choice. For example, you can provide your search experience in an external website, an internal web application, or in a mobile app. You can choose any endpoint as long as it is able to consume and render JSON files.
 
-[!Note]
+[!NOTE]
 Read the [Bing Web Search API Use and Display requirements](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/useanddisplayrequirements) to understand how to display the retrieved results.
 
 ## Next Steps
