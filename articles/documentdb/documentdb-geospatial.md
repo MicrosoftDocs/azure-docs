@@ -1,6 +1,6 @@
 ---
 title: Working with geospatial data in Azure Cosmos DB | Microsoft Docs
-description: Understand how to create, index and query spatial objects with Azure Cosmos DB.
+description: Understand how to create, index and query spatial objects with Azure Cosmos DB and the DocumentDB API.
 services: cosmosdb
 documentationcenter: ''
 author: arramac
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/20/2016
+ms.date: 05/08/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 
@@ -25,7 +25,7 @@ This article is an introduction to the geospatial functionality in [Azure Cosmos
 * How can I query geospatial data in Azure Cosmos DB in SQL and LINQ?
 * How do I enable or disable spatial indexing in Azure Cosmos DB?
 
-Please see this [GitHub project](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) for code samples.
+This article shows how to work with spatial data with the DocumentDB API. Please see this [GitHub project](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) for code samples.
 
 ## Introduction to spatial data
 Spatial data describes the position and shape of objects in space. In most applications, these correspond to objects on the earth, i.e. geospatial data. Spatial data can be used to represent the location of a person, a place of interest, or the boundary of a city, or a lake. Common use cases often involve proximity queries, for e.g., "find all coffee shops near my current location". 
@@ -38,10 +38,12 @@ A **Point** denotes a single position in space. In geospatial data, a Point repr
 
 **Points in Azure Cosmos DB**
 
-    {
-       "type":"Point",
-       "coordinates":[ 31.9, -4.8 ]
-    }
+```json
+{
+    "type":"Point",
+    "coordinates":[ 31.9, -4.8 ]
+}
+```
 
 > [!NOTE]
 > The GeoJSON specification specifies longitude first and latitude second. Like in other mapping applications, longitude and latitude are angles and represented in terms of degrees. Longitude values are measured from the Prime Meridian and are between -180 and 180.0 degrees, and latitude values are measured from the equator and are between -90.0 and 90.0 degrees. 
@@ -54,31 +56,35 @@ This can be embedded in an Azure Cosmos DB document as shown in this example of 
 
 **Use Profile with Location stored in Azure Cosmos DB**
 
-    {
-       "id":"documentdb-profile",
-       "screen_name":"@CosmosDB",
-       "city":"Redmond",
-       "topics":[ "NoSQL", "Javascript" ],
-       "location":{
-          "type":"Point",
-          "coordinates":[ 31.9, -4.8 ]
-       }
+```json
+{
+    "id":"documentdb-profile",
+    "screen_name":"@CosmosDB",
+    "city":"Redmond",
+    "topics":[ "global", "distributed" ],
+    "location":{
+        "type":"Point",
+        "coordinates":[ 31.9, -4.8 ]
     }
+}
+```
 
 In addition to points, GeoJSON also supports LineStrings and Polygons. **LineStrings** represent a series of two or more points in space and the line segments that connect them. In geospatial data, LineStrings are commonly used to represent highways or rivers. A **Polygon** is a boundary of connected points that forms a closed LineString. Polygons are commonly used to represent natural formations like lakes or political jurisdictions like cities and states. Here's an example of a Polygon in Azure Cosmos DB. 
 
-**Polygons in Azure Cosmos DB**
+**Polygons in GeoJSON**
 
-    {
-       "type":"Polygon",
-       "coordinates":[
-           [ 31.8, -5 ],
-           [ 31.8, -4.7 ],
-           [ 32, -4.7 ],
-           [ 32, -5 ],
-           [ 31.8, -5 ]
-       ]
-    }
+```json
+{
+    "type":"Polygon",
+    "coordinates":[
+        [ 31.8, -5 ],
+        [ 31.8, -4.7 ],
+        [ 32, -4.7 ],
+        [ 32, -5 ],
+        [ 31.8, -5 ]
+    ]
+}
+```
 
 > [!NOTE]
 > The GeoJSON specification requires that for valid Polygons, the last coordinate pair provided should be the same as the first, to create a closed shape.
@@ -99,42 +105,46 @@ When you create documents that contain GeoJSON values, they are automatically in
 
 **Create Document with Geospatial data in Node.js**
 
-    var userProfileDocument = {
-       "name":"documentdb",
-       "location":{
-          "type":"Point",
-          "coordinates":[ -122.12, 47.66 ]
-       }
-    };
+```json
+var userProfileDocument = {
+    "name":"documentdb",
+    "location":{
+        "type":"Point",
+        "coordinates":[ -122.12, 47.66 ]
+    }
+};
 
-    client.createDocument(`dbs/${databaseName}/colls/${collectionName}`, userProfileDocument, (err, created) => {
-        // additional code within the callback
-    });
+client.createDocument(`dbs/${databaseName}/colls/${collectionName}`, userProfileDocument, (err, created) => {
+    // additional code within the callback
+});
+```
 
-If you're working with the .NET (or Java) SDKs, you can use the new Point and Polygon classes within the Microsoft.Azure.Documents.Spatial namespace to embed location information within your application objects. These classes help simplify the serialization and deserialization of spatial data into GeoJSON.
+If you're working with the DocumentDB APIs, you can use the `Point` and `Polygon` classes within the `Microsoft.Azure.Documents.Spatial` namespace to embed location information within your application objects. These classes help simplify the serialization and deserialization of spatial data into GeoJSON.
 
 **Create Document with Geospatial data in .NET**
 
-    using Microsoft.Azure.Documents.Spatial;
+```json
+using Microsoft.Azure.Documents.Spatial;
 
-    public class UserProfile
-    {
-        [JsonProperty("name")]
-        public string Name { get; set; }
+public class UserProfile
+{
+    [JsonProperty("name")]
+    public string Name { get; set; }
 
-        [JsonProperty("location")]
-        public Point Location { get; set; }
+    [JsonProperty("location")]
+    public Point Location { get; set; }
 
-        // More properties
-    }
+    // More properties
+}
 
-    await client.CreateDocumentAsync(
-        UriFactory.CreateDocumentCollectionUri("db", "profiles"), 
-        new UserProfile 
-        { 
-            Name = "documentdb", 
-            Location = new Point (-122.12, 47.66) 
-        });
+await client.CreateDocumentAsync(
+    UriFactory.CreateDocumentCollectionUri("db", "profiles"), 
+    new UserProfile 
+    { 
+        Name = "documentdb", 
+        Location = new Point (-122.12, 47.66) 
+    });
+```
 
 If you don't have the latitude and longitude information, but have the physical addresses or location name like city or country, you can look up the actual coordinates by using a geocoding service like Bing Maps REST Services. Learn more about Bing Maps geocoding [here](https://msdn.microsoft.com/library/ff701713.aspx).
 

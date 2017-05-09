@@ -49,8 +49,8 @@ A [request unit](documentdb-request-units.md) is the measure of throughput in Az
 
 Each Azure Cosmos DB collection can be reserved with provisioned throughput in terms of RUs of throughput per second. For applications of any scale, you can benchmark individual requests to measure their RU values, and provision collections to handle the sum total of request units across all requests. You can also scale up or scale down your collection’s throughput as the needs of your application evolve. For more information about request units and for help determining your collection needs, read [Estimating throughput needs](documentdb-request-units.md#estimating-throughput-needs) and try the [throughput calculator](https://www.documentdb.com/capacityplanner).
 
-### Is Azure Cosmos DB HIPAA compliant?
-Yes, Azure Cosmos DB is HIPAA-compliant. HIPAA establishes requirements for the use, disclosure, and safeguarding of individually identifiable health information. For more information, see the [Microsoft Trust Center](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
+### What compliance certifications does Azure Cosmos DB have?
+Azure Cosmos DB is ISO 27001, ISO 27018, EUMC, HIPAA, and PCI compliant, with additional compliance certifications in progress. For more information, see the [Microsoft Trust Center](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
 
 ### What are the storage limits of Azure Cosmos DB?
 There is no limit to the total amount of data that a collection can store in Azure Cosmos DB.
@@ -59,7 +59,7 @@ There is no limit to the total amount of data that a collection can store in Azu
 There is no limit to the total amount of throughput that a collection can support in Azure Cosmos DB, if your workload can be distributed roughly evenly among a sufficiently large number of partition keys.
 
 ### How much does Microsoft Azure Cosmos DB cost?
-Refer to the [Azure Cosmos DB pricing details](https://azure.microsoft.com/pricing/details/documentdb/) page for details. Azure Cosmos DB usage charges are determined by the number of collections provisioned, the number of hours the collections were online, and the provisioned throughput for each collection.
+Refer to the [Azure Cosmos DB pricing details](https://azure.microsoft.com/pricing/details/documentdb/) page for details. Azure Cosmos DB usage charges are determined by the number of containers (collections/tables/graphs) provisioned, the number of hours the containers were online, and the consumed storage and provisioned throughput for each collection.
 
 ### Is there a free account available?
 If you are new to Azure, you can sign up for an [Azure free account](https://azure.microsoft.com/free/), which gives you 30 days and $200 to try all the Azure services. Or, if you have a Visual Studio subscription, you are eligible for [$150 in free Azure credits per month](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) to use on any Azure service.  
@@ -80,59 +80,59 @@ A master key is a security token to access all resources for an account. Individ
 You can create databases using the [Azure Portal]() as described in [Create an Azure Cosmos DB collection and database](documentdb-create-collection.md), one of the [Azure Cosmos DB SDKs](documentdb-sdk-dotnet.md), or through the [REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx).  
 
 ### What is a container?
-A container is a group of documents, key/value entities and graph items, and their associated JavaScript application logic. A collection is a billable entity, where the [cost](documentdb-performance-levels.md) is determined by the throughput and storage used. Collections can span one or more partitions/servers and can scale to handle practically unlimited volumes of storage or throughput.
+A container is a group of documents, key/value entities and graph items, and their associated JavaScript application logic. A collection is a billable entity, where the [cost](documentdb-request-units.md) is determined by the throughput and storage used. Collections can span one or more partitions/servers and can scale to handle practically unlimited volumes of storage or throughput.
 
 Collections are also the billing entities for Azure Cosmos DB. Each collection is billed hourly based on the provisioned throughput and the storage space used. For more information, see [Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/documentdb/).  
 
 ### How do I set up users and permissions?
 You can create users and permissions using one of the [Azure Cosmos DB SDKs](documentdb-sdk-dotnet.md) or through the [REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx).   
 
-## Database questions about developing against Microsoft Azure Cosmos DB
-### How to do I start developing against Azure Cosmos DB?
+## <a id="documentdb-api"></a>Database questions about developing with the DocumentDB API
+### How to do I start developing with the DocumentDB API?
 [SDKs](documentdb-sdk-dotnet.md) are available for .NET, Python, Node.js, JavaScript, and Java.  Developers can also use the [RESTful HTTP APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) to interact with Azure Cosmos DB resources from various platforms and languages.
 
 Samples for the Azure Cosmos DB [.NET](documentdb-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](documentdb-nodejs-samples.md), and [Python](documentdb-python-samples.md) SDKs are available on GitHub.
 
-### Does Azure Cosmos DB support SQL?
-The Azure Cosmos DB SQL query language is an enhanced subset of the query functionality supported by SQL. The Azure Cosmos DB SQL query language provides rich hierarchical and relational operators and extensibility via JavaScript based user-defined functions (UDFs). JSON grammar allows for modeling JSON documents as trees with labels as the tree nodes, which is used by both the Azure Cosmos DB automatic indexing techniques and the SQL query dialect of Azure Cosmos DB.  For details on how to use the SQL grammar, see the [QueryDocumentDB][query] article.
+### Can I query with SQL?
+Yes, DocumentDB API supports SQL (an enhanced subset of SQL). It supports hierarchical and relational operators and extensibility via JavaScript based user-defined functions (UDFs). JSON grammar allows for modeling JSON documents as trees with labels as the tree nodes, which is used by both the Azure Cosmos DB automatic indexing techniques and the SQL query dialect of Azure Cosmos DB. For details on how to use the SQL grammar, see the [QueryDocumentDB][query] article.
 
-### Does Azure Cosmos DB support SQL aggregation functions?
+### Can I perform aggregation queries?
 Azure Cosmos DB supports low latency aggregation at any scale via aggregate functions `COUNT`, `MIN`, `MAX`, `AVG`, and `SUM` via the SQL grammar. For more information, see [Aggregate functions](documentdb-sql-query.md#Aggregates).
 
-### How does Azure Cosmos DB provide concurrency?
-Azure Cosmos DB supports optimistic concurrency control (OCC) through HTTP entity tags or etags. Every Azure Cosmos DB resource has an etag, and the etag is set on the server every time a document is updated. The etag header and the current value are included in all response messages. Etags can be used with the If-Match header to allow the server to decide if a resource should be updated. The If-Match value is the etag value to be checked against. If the etag value matches the server etag value, the resource will be updated. If the etag is no longer current, the server rejects the operation with an "HTTP 412 Precondition failure" response code. The client will then have to refetch the resource to acquire the current etag value for the resource. In addition, etags can be used with If-None-Match header to determine if a re-fetch of a resource is needed.
+### How does the DocumentDB API provide concurrency?
+Azure Cosmos DB supports optimistic concurrency control (OCC) through HTTP entity tags or etags. Every Azure Cosmos DB resource has an etag, and the etag is set on the server every time a document is updated. The etag header and the current value are included in all response messages. Etags can be used with the If-Match header to allow the server to decide if a resource should be updated. The If-Match value is the etag value to be checked against. 
+
+* If the etag value matches the server etag value, the resource will be updated. 
+* If the etag is no longer current, the server rejects the operation with an "HTTP 412 Precondition failure" response code. The client will then have to refetch the resource to acquire the current etag value for the resource. 
+
+In addition, etags can be used with If-None-Match header to determine if a re-fetch of a resource is needed.
 
 To use optimistic concurrency in .NET, use the [AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx) class. For a .NET sample, see [Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) in the DocumentManagement sample on github.
 
-### How do I perform transactions in Azure Cosmos DB?
-Azure Cosmos DB supports language-integrated transactions via JavaScript stored procedures and triggers. All database operations inside scripts are executed under snapshot isolation scoped to the collection if it is a single-partition collection, or documents with the same partition key value within a collection, if the collection is partitioned. A snapshot of the document versions (ETags) is taken at the start of the transaction and committed only if the script succeeds. If the JavaScript throws an error, the transaction is rolled back. See [Azure Cosmos DB server-side programming](documentdb-programming.md) for more details.
+### How do I perform transactions?
+The DocumentDB API supports language-integrated transactions via JavaScript stored procedures and triggers. All database operations inside scripts are executed under snapshot isolation scoped to the collection if it is a single-partition collection, or documents with the same partition key value within a collection, if the collection is partitioned. A snapshot of the document versions (ETags) is taken at the start of the transaction and committed only if the script succeeds. If the JavaScript throws an error, the transaction is rolled back. See [Azure Cosmos DB server-side programming](documentdb-programming.md) for more details.
 
-### How can I bulk insert documents into Azure Cosmos DB?
-There are three ways to bulk insert documents into Azure Cosmos DB:
+### How can I bulk insert documents?
+There are three ways to bulk insert documents using the DocumentDB API:
 
 * The data migration tool, as described in [Import data to Azure Cosmos DB](documentdb-import-data.md).
 * Document Explorer in the Azure Portal, as described in [Bulk add documents with Document Explorer](documentdb-view-json-document-explorer.md#bulk-add-documents).
 * Stored procedures, as described in [Azure Cosmos DB server-side programming](documentdb-programming.md).
 
-### Does Azure Cosmos DB support resource link caching?
+### Does the REST API support resource link caching?
 Yes, because Azure Cosmos DB is a RESTful service, resource links are immutable and can be cached. Azure Cosmos DB clients can specify an "If-None-Match" header for reads against any resource like document or collection and update their local copies only when the server version has change.
 
-### Is a local instance of Azure Cosmos DB available?
-Yes. The [Azure Cosmos DB Emulator](documentdb-nosql-local-emulator.md) provides a high-fidelity emulation of the Azure Cosmos DB service. It supports identical functionality as Azure Cosmos DB, including support for creating and querying JSON documents, provisioning and scaling collections, and executing stored procedures and triggers. You can develop and test applications using the Azure Cosmos DB Emulator, and deploy them to Azure at global scale by just making a single configuration change to the connection endpoint for Azure Cosmos DB.
+## <a id="mongodb-api"></a>Database questions about developing with the MongoDB API
 
-## Database questions about developing against API for MongoDB
-### What is Azure Cosmos DB's API for MongoDB?
-Microsoft Azure Cosmos DB's API for MongoDB is a compatability layer that allows applications to easily and transparently communicate with the native Azure Cosmos DB database engine using existing, community supported Apache MongoDB APIs and drivers. Developers can now use existing MongoDB tool chains and skills to build applications that leverage Azure Cosmos DB, benefitting from Azure Cosmos DB's unique capabilities, which include auto-indexing, backup maintenance, financially backed service level agreements (SLAs), etc.
-
-### How to do I connect to my API for MongoDB database?
+### How to do run MongoDB applications with Azure Cosmos DB?
 The quickest way to connect to Azure Cosmos DB's API for MongoDB is to head over to the [Azure portal](https://portal.azure.com). Navigate your way to your account. In the account's *Left Navigation*, click on *Quick Start*. *Quick Start* is the best way to get code snippets to connect to your database. 
 
-Azure Cosmos DB enforces strict security requirements and standards. Azure Cosmos DB accounts require authentication and secure communication via *SSL*, so make sure to use TLSv1.2.
+Azure Cosmos DB enforces strict security requirements and standards. Azure Cosmos DB accounts require authentication and secure communication via SSL, so you must use SSL/TLSv1.2 within your tools/drivers.
 
 For more details, see [Connect to your API for MongoDB database](documentdb-connect-mongodb-account.md).
 
-### Are there additional error codes for an API for MongoDB database?
-API for MongoDB has its own specific error codes in addition to the common MongoDB error codes.
+### Are error codes for Azure Cosmos DB same as MongoDB?
+In addition to the common MongoDB error codes, Azure Cosmos DB returns the following error codes to help you debug certain problems.
 
 
 | Error               | Code  | Description  | Solution  |
@@ -140,18 +140,15 @@ API for MongoDB has its own specific error codes in addition to the common Mongo
 | TooManyRequests     | 16500 | The total number of request units consumed has exceeded the provisioned request unit rate for the collection and has been throttled. | Consider scaling the throughput of the collection from the Azure Portal or retrying again. |
 | ExceededMemoryLimit | 16501 | As a multi-tenant service, the operation has exceeded the client's memory allotment. | Reduce the scope of the operation through a more restrictive query criteria or contact support from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>*Ex:  &nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
-## Database questions about developing with Azure Cosmos DB: Table API (preview)
+## <a id="table-api"></a>Database questions about developing with the Table API (preview)
 
-### Terms 
-The Azure Cosmos DB: Table API (preview) refers to premium offering by Azure Cosmos DB for table support announced at Build 2017. 
-
-The standard Table SDK is the pre-existing Azure Storage Table SDK. 
+We use Azure Cosmos DB: Table API (preview) to refer to the premium offering by Azure Cosmos DB for table support announced at Build 2017, and standard Table SDK to refer to Azure Table storage accounts. 
 
 ### How can I use the new Table API offering? 
 Complete the [Table API](../cosmos-db/create-table-dotnet.md) quickstart to get started.
 
 ### Do I need a new SDK to use the Table API (preview)? 
-Yes – a new SDK in form of a Nuget package is available here [Table API](../cosmos-db/table-sdk-dotnet.md). It is called SDK for Windows Azure Storage 8.1.2 with Premium Tables API (preview).  
+Yes, during the preview, Azure Cosmos DB supports the Table API using the .NET SDK. You can download the [Azure Storage Preview SDK](https://aka.ms/premiumtablenuget) from NuGet, that has the same classes and method signatures as the [Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), but also can connect to Azure Cosmos DB accounts using the Table API.
 
 ### How do I provide the feedback about the SDK, bugs?
 Please share your feedback using one of these methods:
@@ -175,7 +172,7 @@ These settings are documented [Azure Cosmos DB capabilities](../cosmos-db/tutori
 
 
 ### Is there any change to existing customers that use the existing Standard Table SDK?
-None. There are no changes for existing or new customers using existing Standard Table SDK. 
+No, there are no changes for existing or new customers using existing Standard Table SDK. 
 
 ### How do I view table data that is stored in Azure Cosmos DB for use with the Tables API (review)? 
 You can use the Azure portal to browse the data. You can also use the Tables API (preview) code or the tools mentioned below. 
@@ -221,7 +218,6 @@ The surface area of the new Table API (preview) is compatible with existing Azur
 ### Do I need to migrate existing Azure Table based application to new SDK if I do not want to use Table API (preview) features?
 No, existing customers can create and use present Standard Table assets without interruption of any kind. However, if you do not use the new Table API (preview), you cannot benefit from the automatic index, additional consistency option, or global distribution. 
 
-## Global Replication 
 ### How do I add replication for this data in Premium Table API (Preview) across multiple regions of Azure?
 You can use the Cosmos DB portal’s [global replication settings](documentdb-portal-global-replication.md) for adding regions. 
 
@@ -234,16 +230,14 @@ When client connects, it can specify a consistency level – this can be changed
 By default, Premium Tables API(Preview) provides low latency reads with Read your own writes with session consistency as default. For more information, see [Consistency levels](documentdb-consistency-levels.md). 
 
 ### Does this mean compared to eventual & strong consistency that is possible with standard Table  – we now have more choices ?
-Yes, these choices are documented in the [Consistency levels](documentdb-consistency-levels.md) article to help application developers leverage the distributed nature of Cosmos DB. 
+Yes, you can choose between five well-defined consistency levels. These choices are documented in the [Consistency levels](documentdb-consistency-levels.md) article to help application developers leverage the distributed nature of Cosmos DB. 
 
 ### When global distribution is enabled – how long does it take to replicate the data?
 We commit the data durably in local region and push the data to other regions immediately in matter of milliseconds and this replication is only dependent on the RTT of the datacenter. Please read up on the global distribution abilities of Cosmos DB in [Azure Cosmos DB: A globally distributed database service on Azure](documentdb-distribute-data-globally.md).
 
-
 ### Can the request consistency be changed?
 Yes, by providing the value for TableConsistencyLevel key in the app.config file. Theses are the possible values - Session|Eventual|Strong|Bounded Staleness|ConsistentPrefix. This is documented in the [consistency levels](documentdb-consistency-levels.md) article. 
 
-## Indexing
 ### Does the Table API (preview) index all attributes of entities by default?
 Yes, by default all attributes of the entity are indexed. The indexing details are documented in the [Azure Cosmos DB: Indexing policies](documentdb-indexing-policies.md) article. 
 
@@ -282,7 +276,6 @@ In string json format in the app.config file.
 ]
 }
 
-## Elasticity 
 ### When should I change TableThroughput for the Table API (preview)?
 You should change the TableThroughput  when you do the ETL of data or want to upload lot of data in short amount of time. 
 
@@ -293,7 +286,6 @@ You need more throughput from the container at the backend as you see Used Throu
 ### Is there a Default TableThroughput which is set for newly provisioned Tables?
 Yes,  If you do not override the TableThroughput via app.config and do not use a pre-created container in Cosmos DB - the service creates a Table with throughput of 400.
 
-## Pricing
 ### Is there any change of pricing for existing customers of Standard Table API?
 None. There is no change in price for existing Standard Table API customers. 
 
@@ -301,32 +293,23 @@ None. There is no change in price for existing Standard Table API customers.
 It depends on the allocated TableThroughput. 
 
 ### Do you plan to provide more price options in the future?
-Yes, Cosmos DB today provides a throughput optimized model. In the near future we plans to provide Storage optimized pricing. 
+Yes, Cosmos DB supports throughput-optimized tables. We will introduce storage-optimized offers that provide the cost-effectiveness of the current Azure Table storage tables.
 
 ### Can I scale up or down the throughput of my Tables API (Preview) Table? 
-Yes, you can use the Cosmos DB portal’s scale pane to do the same. This is documented in the [Set throughput](documentdb-set-throughput.md) topic.
+Yes, you can use the Cosmos DB portal's scale pane to do the same. This is documented in the [Set throughput](documentdb-set-throughput.md) topic.
 
 ### Will I experience the throttling on the tables? 
 If request rate exceed the capacity of the provisioned throughput for the underlying container, you will get an error and the SDK will retry the call using the retry policy.
 
-## Generic Questions
 ### If I develop an application today – what should I choose -  the new Tables API (Preview) and the Azure Storage table API?
-You should always choose a platform that provides the closest match to your requirements. The new Tables API (preview) leverages the underlying platform to provide an efficient path for existing Table customers who need low latency, automatic indexing, global distribution, multiple consistency settings.  
-Our SQL API based platform remains trusted platform for customers who are comfortable with SQL language as query mechanism to retrieve schema less entities.      
+You should always choose a platform that provides the closest match to your requirements. The new Tables API (preview) leverages the Azure Cosmos DB stack to provide low latency, automatic indexing, global distribution, and well-defined consistency levels.  
 
 ### Why do I need to choose a throughput apart from PartitionKey and RowKey?
 Cosmos DB will set a default throughput for your container if you do not provide one in the app.config. 
 
 Cosmos DB provides guarantees for performance, latency with upper bounds on operation. This is possible when engine can enforce governance on tenants. Setting TableThroughput is basically ensuring you get guaranteed throughput, latency as now platform will reserve this capacity and guarantee operation success.  
+
 The specification of throughput also allows you to elastically change it to leverage the seasonality of your application and meet the throughput needs and save costs.
-
-### Azure Storage SDK has been very cheap for me as I only pay to store the data, and I rarely query. Cosmos DB’s new offering seems to be charging me even though I have not performed single transaction or stored anything. What's going on here?
-
-Cosmos DB has been designed to be a globally distributed, SLA based system with guarantees for availability, latency, and throughput. When you reserve throughput in Cosmos DB – it is guaranteed unlike other systems. Cosmos DB also provides additional capabilities which customers have been asking for long time – like secondary indices, global distribution, etc. During the preview period we provide the throughput optimized model and in the long run we plan to provide a storage optimized model to meet our customer needs.  
-
-### I never get “quota” full (indicating a partition is full) when I keep ingesting data into Azure Table storage. With the Table API, there seems to be an issue around 8-10 GB of data that I get this error. Is this offering limiting me and forcing me to change my present application?
-
-Cosmos DB is SLA based system which provides unlimited scale with guarantees for latency, throughput, availability, consistency. To ensure you get guaranteed premium performance – you need to ensure that data size, index are manageable and scalable. The 10 GB limit on the number of entities per partition key is to ensure we provide great lookup, query performance. To ensure your application scales well even for Azure Storage we request you not to create a hot partition by storing all information for one partition and querying it. The only thing Cosmos DB requests is that you keep an eye on the amount of distinct items you keep in Table for a partition key. 
 
 ### So PartitionKey and RowKey are still required with the new Table API ? 
 Yes. Because the surface area of Table API is similar to Azure Table storage SDK, the partition key provides great way to distribute the data. Row key is unique within that partition. 
