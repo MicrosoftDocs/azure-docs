@@ -1,6 +1,6 @@
 ---
-title: Implementing Microsoft Sign-in on ASP.NET Web Server - Intro
-description: How to  implement Microsoft Sign-In on a Visual Studio ASP.NET solution with a traditional web browser based application using OpenID Connect standard. | Microsoft Azure
+title: Azure AD v2 ASP.NET Web Server Getting Started - Intro | Microsoft Docs
+description: Implementing Microsoft Sign-In on an ASP.NET solution with a traditional web browser based application using OpenID Connect standard
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date:
+ms.date: 05/09/2017
 ms.author: andret
 
 ---
-## Before you get started
+# implementing sign in with Microsoft using ASP.NET MVC with a traditional web browser-based application
 
 This guide demonstrates how to implement sign in with Microsoft using an ASP.NET MVC solution with a traditional web browser-based application using OpenID Connect. 
 

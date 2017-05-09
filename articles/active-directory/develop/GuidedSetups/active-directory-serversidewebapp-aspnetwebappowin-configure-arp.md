@@ -1,6 +1,6 @@
 ---
-title: Implementing Microsoft Sign-in on ASP.NET Web Server - Configure
-description: How to  implement Microsoft Sign-In on a Visual Studio ASP.NET solution with a traditional web browser based application using OpenID Connect standard. | Microsoft Azure
+title: Azure AD v2 ASP.NET Web Server Getting Started - Config | Microsoft Docs
+description: Implementing Microsoft Sign-In on an ASP.NET solution with a traditional web browser based application using OpenID Connect standard
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date:
+ms.date: 05/09/2017
 ms.author: andret
 
 ---
-## Configure your project to use HTTPS and set this value in app registration
+# Configure your ASP.NET Web App with the application's registration information
+
+In this step, you will configure your Visual Studio project with the application's registration information.
 
 In this step, you will configure your project to use SSL, and then use the SSL URL to configure your application’s registration information. After this, add the application’ registration information to your solution via *web.config*.
 

@@ -1,6 +1,6 @@
 ---
-title: Implementing Sign-in with Microsoft on an Android application - Use
-description: How to  implement demonstrates how to implement Sign-In with Microsoft on a native Android application using the OpenID Connect standard | Microsoft Azure
+title: Azure AD v2 Android Getting Started - Use | Microsoft Docs
+description: How an Android app can get an access token and call Microsoft Graph API or APIs that require access tokens from Azure Active Directory v2 endpoint
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -13,12 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date:
+ms.date: 05/09/2017
 ms.author: andret
 
 ---
 
-## Use Microsoft Authentication Library (MSAL) to get a token for the Microsoft Graph API
+# Use Microsoft Authentication Library (MSAL) to get a token for the Microsoft Graph API from your Android application
+
+This section shows how to use MSAL to get a token the Microsoft Graph API. 
 
 1.	Open: `MainActivity` (under `app` > `java` > `{domain}.{appname}`)
 2.	Add the following imports:

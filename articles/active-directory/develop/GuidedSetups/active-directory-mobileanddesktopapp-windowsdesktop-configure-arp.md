@@ -1,6 +1,6 @@
 ---
-title: Implementing Sign-in with Microsoft on a Windows Desktop Application - Configure
-description: How a Windows Desktop .NET (XAML) application can get an access token and call an API protected by Azure Active Directory v2 endpoint. | Microsoft Azure | Microsoft Azure
+title: Azure AD v2 Windows Desktop Getting Started - Config | Microsoft Docs
+description: How a Windows Desktop .NET (XAML) application can get an access token and call an API protected by Azure Active Directory v2 endpoint. | 
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms

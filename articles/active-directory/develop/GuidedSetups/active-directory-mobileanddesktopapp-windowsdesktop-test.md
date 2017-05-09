@@ -1,6 +1,6 @@
 ---
-title: Implementing Sign-in with Microsoft on a Windows Desktop Application  - Test & Validate
-description: How a Windows Desktop .NET (XAML) application can get an access token and call an API protected by Azure Active Directory v2 endpoint. | Microsoft Azure
+title: Azure AD v2 Windows Desktop Getting Started - Test | Microsoft Docs
+description: How Windows Desktop .NET (XAML) applications can call an API that require access tokens by Azure Active Directory v2 endpoint
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date:
+ms.date: 05/09/2017
 ms.author: andret
 
 ---
-## Test your code
+# Test querying Microsoft Graph API from your Windows Desktop application
 
-Press `F5` to run your project in Visual Studio. Your Main Window should appear:
+In order to test your application, press `F5` to run your project in Visual Studio. Your Main Window should appear:
 
 ![Sample screen shot](media/active-directory-mobileanddesktopapp-windowsdesktop-test/samplescreenshot.png)
 

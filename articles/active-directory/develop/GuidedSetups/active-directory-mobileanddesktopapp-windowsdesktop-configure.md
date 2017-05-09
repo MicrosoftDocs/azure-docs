@@ -1,5 +1,5 @@
 ---
-title: Implementing Sign-in with Microsoft on a Windows Desktop Application  - Configure
+title: Azure AD v2 Windows Desktop Getting Started - Config | Microsoft Docs
 description: How a Windows Desktop .NET (XAML) application can get an access token and call an API protected by Azure Active Directory v2 endpoint. | Microsoft Azure | Microsoft Azure
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,11 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date:
+ms.date: 05/09/2017
 ms.author: andret
 
 ---
-<!-- Docs -->
+# Configure your Windows Desktop App with the application's registration information
+
+This step shows how to configure your Visual Studio project with the application's registration information.
+
 ## Create an application (Express)
 Now you need to register your application in the *Microsoft Application Registration Portal*:
 1. Register your application via the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure)

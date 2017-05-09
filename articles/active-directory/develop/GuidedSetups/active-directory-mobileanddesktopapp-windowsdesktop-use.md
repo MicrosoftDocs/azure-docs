@@ -1,6 +1,6 @@
 ---
-title: Implementing Sign-in with Microsoft on a Windows Desktop Application - Use
-description: How a Windows Desktop .NET (XAML) application can get an access token and call an API protected by Azure Active Directory v2 endpoint. | Microsoft Azure | Microsoft Azure
+title: Azure AD v2 Windows Desktop Getting Started - Use | Microsoft Docs
+description: How Windows Desktop .NET (XAML) applications can call an API that require access tokens by Azure Active Directory v2 endpoint
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -13,12 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date:
+ms.date: 05/09/2017
 ms.author: andret
 
 ---
 
-## Use Microsoft Authentication Library (MSAL) to get a token for the Microsoft Graph API
+# Use Microsoft Authentication Library (MSAL) to get a token for the Microsoft Graph API from your Windows application
+
+This section shows how to use MSAL to get a token the Microsoft Graph API. 
+
 1.	In `MainWindow.xaml.cs`, add the reference for MSAL library to the class:
 
 ```csharp

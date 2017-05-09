@@ -1,6 +1,6 @@
 ---
-title: Implementing Sign-in with Microsoft on an Android application - Configure
-description: How to  implement demonstrates how to implement Sign-In with Microsoft on a native Android application using the OpenID Connect standard | Microsoft Azure
+title: Azure AD v2 Android Getting Started - Configure | Microsoft Docs
+description: How an Android app can get an access token and call Microsoft Graph API or APIs that require access tokens from Azure Active Directory v2 endpoint
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -13,12 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date:
+ms.date: 05/09/2017
 ms.author: andret
 
 ---
-
-<div id="RedirectURLUX"/>
 
 # Add the application’s registration information to your app
 In this step, you need to add the Client ID to your project.
