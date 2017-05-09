@@ -133,13 +133,13 @@ The build script places the libsensor2remotemonitoring.so custom module in the b
 
 You can now configure the gateway to send telemetry from your SensorTag device to your remote monitoring dashboard. For more information about configuring a gateway and gateway modules, see [Azure IoT Edge concepts][lnk-gateway-concepts].
 
-> [!NOTE]
-> In this tutorial, you use the standard `vi` text editor on the Intel NUC. If you have not used `vi` before, you should complete an introductory tutorial, such as [Unix - The vi Editor Tutorial][lnk-vi-tutorial] to familiarize yourself with this editor.
+> [!TIP]
+> In this tutorial, you use the standard `vi` text editor on the Intel NUC. If you have not used `vi` before, you should complete an introductory tutorial, such as [Unix - The vi Editor Tutorial][lnk-vi-tutorial] to familiarize yourself with this editor. Alternatively, you can install the more user-friendly [nano](https://www.nano-editor.org/) editor using the command `smart install nano -y`.
 
 Open the sample configuration file in the **vi** editor using the following command:
 
 ```bash
-vi ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/basic /remote_monitoring.json
+vi ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/basic/remote_monitoring.json
 ```
 
 Locate the following lines in the configuration for the IoTHub module:
@@ -182,7 +182,7 @@ Replace the **device\_mac\_address** placeholder  with the MAC address of your S
 
 Save your changes.
 
-You can now run the gateway using the following command:
+You can now run the gateway using the following commands:
 
 ```bash
 cd ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/basic
