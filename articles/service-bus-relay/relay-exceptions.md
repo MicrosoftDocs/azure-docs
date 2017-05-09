@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
+ms.date: 05/09/2017
 ms.author: sethm;jotaub
 
 ---
@@ -76,8 +76,8 @@ There are two common causes for this error: incorrect configuration, or a transi
     Sometimes Relay can experience delays in processing requests; for example, during periods of high traffic. In such cases, you can retry your operation after a delay, until the operation is successful. If the same operation still fails after multiple attempts, please visit the [Azure service status site](https://azure.microsoft.com/status/) to see if there are any known service outages.
 
 ## Next steps:
-* [Relay FAQ](relay-faq.md)
-* [Create a namespace](relay-create-namespace-portal.md)
-* [Get started with .NET](relay-hybrid-connections-dotnet-get-started.md)
-* [Get started with Node](relay-hybrid-connections-node-get-started.md)
+* [Azure Relay FAQ](relay-faq.md)
+* [Create a relay namespace](relay-create-namespace-portal.md)
+* [Get started with Azure Relay and .NET](relay-hybrid-connections-dotnet-get-started.md)
+* [Get started with Azure Relay and Node](relay-hybrid-connections-node-get-started.md)
 
