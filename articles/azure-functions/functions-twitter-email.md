@@ -39,10 +39,10 @@ The following image shows a portion of the logic app in the designer:
 
 * An Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * A twitter account.
-
-## Create an Azure function app
-
-[!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
+* 
+ 
+ 
+[!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal2.md)]
 
 ### Create a function to categorize the tweet sentiment
 
@@ -82,9 +82,11 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 }
 ```
 
-* Save the change.
-* Select **Test** (on the right of the code box).
-* Enter 0.2 in the **Request body** text box and then select **Run**. The output shows "RED" and the HTTP status is 200 OK.
+Save the change.
+
+### Test the function
+
+Select **Test** (on the right of the code box).  Enter 0.2 in the **Request body** text box and then select **Run**. The output shows "RED" and the HTTP status is 200 OK.
 
  ![test ](media/functions-twitter-email/test.png)
 
