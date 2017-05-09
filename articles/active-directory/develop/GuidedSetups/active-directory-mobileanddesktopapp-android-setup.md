@@ -18,19 +18,19 @@ ms.author: andret
 
 ---
 
-## Setting up your Android application to consume Microsoft Graph API or other APIs that require access tokens
+## Setting up your Android application
 
 > Prefer to download this sample's Android Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip) and skip to the [Configuration](#create-an-application-express) step to configure the code sample before executing    .
 
 
-## Create a new project 
+### Create a new project 
 1.	Open Android Studio, go to: `File` > `New` > `New Project`
 2.	Name your application and click `Next`
 3.	Make sure to select *API 21 or newer (Android 5.0)* and click `Next`
 4.	Leave `Empty Activity`, click `Next`, then `Finish`
 
 
-## Install Microsoft Authentication Library (MSAL)
+### Install Microsoft Authentication Library (MSAL)
 1.	In Android Studio, go to: `Gradle Scripts` > `build.gradle (Module: app)`
 2.	Copy and paste the following code under `Dependencies`:
 
@@ -40,7 +40,7 @@ compile 'com.android.volley:volley:1.0.0'
 ```
 
 <!--start-collapse-->
-### About this package: 
+### About this package
 
 The package above installs the Microsoft Authentication Library (MSAL). MSAL handles acquiring, caching and refreshing user tokens used to access APIs protected by Azure Active Directory v2 endpoint.
 <!--end-collapse-->

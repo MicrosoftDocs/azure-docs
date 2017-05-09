@@ -1,3 +1,3 @@
 ---
-redirect_url: active-directory-aspnetwebapp.md
+redirect_url: active-directory-aspnetwebapp
 ---
