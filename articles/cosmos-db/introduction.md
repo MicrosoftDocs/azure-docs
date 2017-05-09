@@ -53,7 +53,7 @@ As a globally distributed database service, Azure Cosmos DB provides the followi
 
 * [**Elastically scale throughput and storage on demand, worldwide**](#horizontal-scale)
     * Easily scale throughput at [second](../documentdb/documentdb-request-units.md) and [minute](https://aka.ms/acdbrupm) granularities, and change it anytime you want. 
-    * Scale storage [transparently and automatically](../documentdb/documentdb-partition-data.md) to cover your size requirements now and forever.
+    * Scale storage [transparently and automatically](partition-data.md) to cover your size requirements now and forever.
 
 * [**Build highly responsive and mission-critical applications**](#low-latency) 
     * Get access to your data with single digit millisecond latencies at the 99th percentile, anywhere in the world. 
@@ -105,13 +105,13 @@ Regardless of the amount of data or the number of regions, Cosmos DB guarantees 
 
 <a id="horizontal-scale"></a>
 ## Horizontal scaling of storage and throughput
-All the data within a Cosmos DB container (for example, a document collection, table, or graph) is horizontally partitioned and transparently managed by resource partitions. A resource partition is a consistent and highly available container of data partitioned by a [customer specified partition-key](../documentdb/documentdb-partition-data.md). It provides a single system image for a set of resources it manages and is a fundamental unit of scalability and distribution. Cosmos DB is designed to let you elastically scale throughput based on the application traffic patterns across different geographical regions to support fluctuating workloads varying both by geography and time. The service manages the partitions transparently without compromising the availability, consistency, latency, or throughput of a Cosmos DB container.  
+All the data within a Cosmos DB container (for example, a document collection, table, or graph) is horizontally partitioned and transparently managed by resource partitions. A resource partition is a consistent and highly available container of data partitioned by a [customer specified partition-key](partition-data.md). It provides a single system image for a set of resources it manages and is a fundamental unit of scalability and distribution. Cosmos DB is designed to let you elastically scale throughput based on the application traffic patterns across different geographical regions to support fluctuating workloads varying both by geography and time. The service manages the partitions transparently without compromising the availability, consistency, latency, or throughput of a Cosmos DB container.  
  
 ![Azure Cosmos DB is horizontally scalable](./media/introduction/azure-cosmos-db-partitioning.png) 
 
 You can elastically scale throughput of an Azure Cosmos DB container by programmatically provisioning throughput using [request units per second (RU/s)](../documentdb/documentdb-request-units.md). Internally, the service transparently manages resource partitions to deliver the throughput on a given container. Cosmos DB ensures that the throughput is available for use across all the regions associated with the container. The new throughput is effective within five seconds of the change in the configured throughput value. 
 
-You can provision throughput on a Cosmos DB container at both, per-second and at [per-minute (RU/m)](https://aka.ms/acdbrupm) granularities. The provisioned throughput at per-minute granularity is used to manage unexpected spikes in the workload occurring at a per-second granularity. 
+You can provision throughput on a Cosmos DB container at both, per-second and at [per-minute (RU/m)](request-units-per-minute.md) granularities. The provisioned throughput at per-minute granularity is used to manage unexpected spikes in the workload occurring at a per-second granularity. 
 
 <a id="low-latency"></a>
 ## Low latency guarantees at the 99th percentile

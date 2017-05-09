@@ -48,12 +48,12 @@ You also need to install the [Gremlin Console](http://tinkerpop.apache.org/). Us
 
     Setting|Suggested value|Description
     ---|---|---
-    Hosts|***.fillin.azurewebsites.net|Your app service URI.
-    Port|443|Port number.
-    Username|*Your username*|Your username.
-    Password|*Your App Service password*|Your password.
-    ConnectionPool|{enableSsl: true}|Your connection pool setting for SSL.
-    Serializer|{ className:org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Your serializer value.
+    Hosts|***.graphs.azure.com|Your graph service URI, which you can retrieve from the Azure portal
+    Port|443|Set to 443
+    Username|*Your username*|The resource of the form `/dbs/<db>/colls/<coll>`.
+    Password|*Your primary master key*|Your primary master key for the Azure Cosmos DB
+    ConnectionPool|{enableSsl: true}|Your connection pool setting for SSL
+    Serializer|{ className:org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Set to this value
 
 3. In your terminal, run *bin/gremlin.bat* or *bin/gremlin.sh* to start the [Gremlin Console](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/).
 4. In your terminal, run *:remote connect tinkerpop.server conf/remote-secure.yaml* to connect to your app service.

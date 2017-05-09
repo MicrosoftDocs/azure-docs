@@ -33,48 +33,41 @@ In order to take advantage of [global distribution](../documentdb/documentdb-dis
 
 This preference list is specified when initializing a connection using the SDKs. The SDKs accept an optional parameter "PreferredLocations" that is an ordered list of Azure regions.
 
-The SDK will automatically send all writes to the current write region.
+* **Writes**: The SDK will automatically send all writes to the current write region.
+* **Reads**: All reads will be sent to the first available region in the PreferredLocations list. If the request fails, the client will fail down the list to the next region, and so on. The SDKs will only attempt to read from the regions specified in PreferredLocations. So, for example, if the Cosmos DB account is available in three regions, but the client only specifies two of the non-write regions for PreferredLocations, then no reads will be served out of the write region, even in the case of failover.
 
-All reads will be sent to the first available region in the PreferredLocations list. If the request fails, the client will fail down the list to the next region, and so on.
-
-The SDKs will only attempt to read from the regions specified in PreferredLocations. So, for example, if the Database Account is available in three regions, but the client only specifies two of the non-write regions for PreferredLocations, then no reads will be served out of the write region, even in the case of failover.
-
-The application can verify the current write endpoint and read endpoint chosen by the SDK by checking two properties, WriteEndpoint and ReadEndpoint, available in SDK version 1.8 and above.
-
-If the PreferredLocations property is not set, all requests will be served from the current write region.
+The application can verify the current write endpoint and read endpoint chosen by the SDK by checking two properties, WriteEndpoint and ReadEndpoint, available in SDK version 1.8 and above. If the PreferredLocations property is not set, all requests will be served from the current write region.
 
 ### Using the SDK
 
-The SDK can be used without any code changes. In this case, the SDK automatically directs both reads and writes to the current write region.
-
-The ConnectionPolicy parameter for the DocumentClient constructor has a property called Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. This property is of type Collection `<string>` and should contain a list of region names. The string values are formatted per the Region Name column on the [Azure Regions][regions] page, with no spaces before or after the first and last character respectively.
-
-The current write and read endpoints are available in DocumentClient.WriteEndpoint and DocumentClient.ReadEndpoint respectively.
+For example, in the .NET SDK, the `ConnectionPolicy` parameter for the `DocumentClient` constructor has a property called `PreferredLocations`. This property can be set to a list of region names. The display names for [Azure Regions][regions] can be specified as part of `PreferredLocations`.
 
 > [!NOTE]
 > The URLs for the endpoints should not be considered as long-lived constants. The service may update these at any point. The SDK handles this change automatically.
 >
 >
 
-    // Getting endpoints from application settings or other configuration location
-    Uri accountEndPoint = new Uri(Properties.Settings.Default.GlobalDatabaseUri);
-    string accountKey = Properties.Settings.Default.GlobalDatabaseKey;
-    
-    ConnectionPolicy connectionPolicy = new ConnectionPolicy();
+```cs
+// Getting endpoints from application settings or other configuration location
+Uri accountEndPoint = new Uri(Properties.Settings.Default.GlobalDatabaseUri);
+string accountKey = Properties.Settings.Default.GlobalDatabaseKey;
 
-    //Setting read region selection preference
-    connectionPolicy.PreferredLocations.Add(LocationNames.WestUS); // first preference
-    connectionPolicy.PreferredLocations.Add(LocationNames.EastUS); // second preference
-    connectionPolicy.PreferredLocations.Add(LocationNames.NorthEurope); // third preference
+ConnectionPolicy connectionPolicy = new ConnectionPolicy();
 
-    // initialize connection
-    DocumentClient docClient = new DocumentClient(
-        accountEndPoint,
-        accountKey,
-        connectionPolicy);
+//Setting read region selection preference
+connectionPolicy.PreferredLocations.Add(LocationNames.WestUS); // first preference
+connectionPolicy.PreferredLocations.Add(LocationNames.EastUS); // second preference
+connectionPolicy.PreferredLocations.Add(LocationNames.NorthEurope); // third preference
 
-    // connect to Azure Cosmos DB
-    await docClient.OpenAsync().ConfigureAwait(false);
+// initialize connection
+DocumentClient docClient = new DocumentClient(
+    accountEndPoint,
+    accountKey,
+    connectionPolicy);
+
+// connect to Azure Cosmos DB
+await docClient.OpenAsync().ConfigureAwait(false);
+```
 
 ## <a id="next"></a>Next steps
 Learn how to manage the consistency of your globally replicated account by reading [Consistency levels in Azure Cosmos DB](../documentdb/documentdb-consistency-levels.md).

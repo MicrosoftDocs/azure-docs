@@ -22,7 +22,7 @@ ms.author: arramac
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, database, and graph (container) using the Azure portal. You'll then build and run a console app built on the [Graph API](graph-sdk-dotnet.md).  
+This quick start demonstrates how to create an Azure Cosmos DB account, database, and graph (container) using the Azure portal. You then build and run a console app built on the [Graph API](graph-sdk-dotnet.md).  
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 
 You can now add data to your graph using Data Explorer.
 
-1. In Data Explorer, expand **sample-database**, **sample-graph**, click **Graph**, and then click **New Vertex** and **New Edge** to add items to your graph. Note that the Data Explorer is also where you can scale your throughput, and add stored procedures, user defined functions, and triggers to your collection.
+1. In Data Explorer, expand **sample-database**, **sample-graph**, click **Graph**, and then click **New Vertex** and **New Edge** to add items to your graph. The Data Explorer is also where you can scale your throughput, and add stored procedures, user-defined functions, and triggers to your collection.
 
     ![Add vertexes and edges to a graph in the Data Explorer](./media/create-graph-dotnet/azure-cosmos-db-graph-sample-data.png)
 
@@ -133,7 +133,7 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 2. In the NuGet **Browse** box, type *Microsoft.Azure.Graphs* and check the **Includes prerelease** box. 
 
-3. From the results, install the **Microsoft.Azure.Graphs** library. This installs the Azure Cosmos DB graph extension library package as well as all dependencies.
+3. From the results, install the **Microsoft.Azure.Graphs** library. This installs the Azure Cosmos DB graph extension library package and all dependencies.
 
 4. From the results, install the **Microsoft.Azure.Graphs** library. 
 
