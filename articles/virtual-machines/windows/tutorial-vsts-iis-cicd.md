@@ -133,7 +133,7 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 1. Click **Build & Release**, then select **Builds**. Select the build definition created in a previous step.
 2. Under **Recently completed**, select the most recent build, then click **Release**.
 3. Click **Yes** to create a release definition.
-4. Select the **Empty** template, thenclick **Next**.
+4. Select the **Empty** template, then click **Next**.
 5. Verify the project and source build definition are populated with your project.
 6. Select the **Continuous deployment** check box, then click **Create**.
 7. Click the drop-down box next to **+ Add tasks** and select *Add a deployment group phase*.
