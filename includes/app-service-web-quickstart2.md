@@ -43,7 +43,7 @@ Browse to the site (`http://<app_name>.azurewebsites.net`) to see your newly cre
 
 App Service supports several ways to deploy content to a web app, such as FTP, local Git, GitHub, Visual Studio Team Services, and Bitbucket. 
 
-For this quickstart, you deploy by using local Git. That means you'll deploy by using a Git command to push from a local repository to a repository in Azure. 
+For this quickstart, you deploy by using local Git. That means you deploy by using a Git command to push from a local repository to a repository in Azure. 
 
 Use the [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git) command to configure local Git access to the web app.
 
@@ -73,7 +73,7 @@ Push to the Azure remote to deploy your app. You are prompted for the password y
 git push azure master
 ```
 
-The command above displays information similar to the following example:
+The preceding command displays information similar to the following example:
 
 ```bash
 Counting objects: 13, done.

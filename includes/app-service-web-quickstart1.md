@@ -1,6 +1,6 @@
 ## Create a resource group
 
- An [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) is a logical container in which resources such as web apps and databases are managed. You deploy, update, and delete the resources in a resource group together.
+ An [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) is a logical container in which resources such as web apps and databases are managed. You deploy, update, and delete the resources in a resource group.
 
 Create a resource group with the [az group create](/cli/azure/group#create) command.
 
