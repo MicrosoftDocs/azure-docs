@@ -102,7 +102,7 @@
 ##### [1. Introduction](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-intro.md)
 ##### [2. Setup](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-setup.md)
 ##### [3. Use](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-use.md)
-##### [4. Configure](guidedsetups/activÖe-directory-serversidewebapp-aspnetwebappowin-configure.md)
+##### [4. Configure](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-configure.md)
 ##### [5. Test and Validate](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-test.md)
 #### [NodeJS Web app](active-directory-v2-devquickstarts-node-web.md)
 ## Guides
