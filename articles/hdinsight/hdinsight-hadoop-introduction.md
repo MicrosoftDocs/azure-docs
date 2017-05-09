@@ -57,12 +57,12 @@ Big data describes any large body of digital information, such as:
 Big data can be historical (meaning stored data) or real time (meaning streamed from the source). Big data is being collected in ever-escalating volumes, at increasingly higher velocities, and in an expanding variety formats.
 
 ## <a name="overview"></a>Cluster types in HDInsight
-HDInsight is a cloud distribution on Microsoft Azure of the rapidly expanding Apache Hadoop technology stack for big data analysis. It includes specific cluster types as well as customization capabilities, such as adding components, utilities, and languages.
+HDInsight is a cloud distribution on Microsoft Azure of the rapidly expanding Apache Hadoop technology stack for big data analysis. It includes specific cluster types and cluster customization capabilities, such as adding components, utilities, and languages.
 
 ### Spark, Kafka, Interactive Hive, HBase, customized, and other cluster types
 HDInsight offers the following cluster types:
 
-* **[Apache Hadoop](https://wiki.apache.org/hadoop)**: Uses [HDFS](#hdfs), [YARN](#yarn) resource manager, and a simple [MapReduce](#mapreduce) programming model to process and analyze data in parallel.
+* **[Apache Hadoop](https://wiki.apache.org/hadoop)**: Uses [HDFS](#hdfs), [YARN](#yarn) resource management, and a simple [MapReduce](#mapreduce) programming model to process and analyze data in parallel.
 * **[Apache Spark](http://spark.apache.org/)**: A parallel processing framework that supports in-memory processing to boost the performance of big-data analysis applications, Spark works for SQL, streaming data, and machine learning. See [Overview: What is Apache Spark in HDInsight?](hdinsight-apache-spark-overview.md)
 * **[Apache HBase](http://hbase.apache.org/)**: A NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semi-structured data - potentially billions of rows times millions of columns. See [Overview of HBase on HDInsight](hdinsight-hbase-overview.md).
 * **[Microsoft R Server](https://msdn.microsoft.com/en-us/microsoft-r/rserver)**: A server for hosting and managing parallel, distributed R processes. It provides data scientists, statisticians, and R programmers with on-demand access to scalable, distributed methods of analytics on HDInsight. See [Overview of R Server on HDInsight](hdinsight-hadoop-r-server-overview.md).
@@ -96,7 +96,7 @@ The following components and utilities are included on HDInsight clusters.
 * **[Pig](#pig)**: Simpler scripting for MapReduce transformations.
 * **[Sqoop](#sqoop)**: Data import and export.
 * **[Tez](#tez)**: Allows data-intensive processes to run efficiently at scale.
-* **[YARN](#yarn)**: A resource manager that is part of the Hadoop core library.
+* **[YARN](#yarn)**: Resource management that is part of the Hadoop core library.
 * **[ZooKeeper](#zookeeper)**: Coordination of processes in distributed systems.
 
 > [!NOTE]
@@ -123,7 +123,7 @@ Hadoop Distributed File System (HDFS) is a file system that, with YARN and MapRe
 <a target="_blank" href="https://cwiki.apache.org/confluence/display/Hive/HCatalog/">Apache HCatalog</a> is a table and storage management layer for Hadoop that presents you with a relational view of data. In HCatalog, you can read and write files in any format for which a Hive SerDe (serializer-deserializer) can be written.
 
 ### <a name="mahout"></a>Mahout
-<a target="_blank" href="https://mahout.apache.org/">Apache Mahout</a> is a scalable library of machine learning algorithms that run on Hadoop. Using principles of statistics, machine learning applications teach systems to learn from data and to use past outcomes to determine future behavior. See [Generate movie recommendations using Mahout on Hadoop](hdinsight-mahout.md).
+<a target="_blank" href="https://mahout.apache.org/">Apache Mahout</a> is a library of machine learning algorithms that run on Hadoop. Using principles of statistics, machine learning applications teach systems to learn from data and to use past outcomes to determine future behavior. See [Generate movie recommendations using Mahout on Hadoop](hdinsight-mahout.md).
 
 ### <a name="mapreduce"></a>MapReduce
 MapReduce is the legacy software framework for Hadoop for writing applications to batch process big data sets in parallel. A MapReduce job splits large datasets and organizes the data into key-value pairs for processing.
