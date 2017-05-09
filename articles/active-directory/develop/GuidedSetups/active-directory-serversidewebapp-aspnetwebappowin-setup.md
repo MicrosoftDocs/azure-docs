@@ -18,7 +18,7 @@ ms.author: andret
 
 ---
 
-## Setup your ASP.NET project to sign-in users using OpenID Connect
+## Setup your project
 
 This section shows the steps to install and configure the authentication pipeline via OWIN middleware on an ASP.NET project using OpenID Connect. 
 

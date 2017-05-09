@@ -18,7 +18,7 @@ ms.author: andret
 
 ---
 
-## Setting up your Windows Desktop application
+## Setup your project
 
 This section provides step-by-step instructions for how to create a new project to demonstrate how to integrate a Windows Desktop .NET application (XAML) with *Sign-In with Microsoft* so it can query Web APIs that requires a token.
 

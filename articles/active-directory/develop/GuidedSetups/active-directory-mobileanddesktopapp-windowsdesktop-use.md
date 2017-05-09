@@ -18,7 +18,7 @@ ms.author: andret
 
 ---
 
-## Use MSAL to get a token for the Microsoft Graph API
+## Use Microsoft Authentication Library (MSAL) to get a token for the Microsoft Graph API
 
 This section shows how to use MSAL to get a token the Microsoft Graph API.
 

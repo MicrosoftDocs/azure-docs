@@ -18,7 +18,7 @@ ms.author: andret
 
 ---
 
-# How Android applications can call Microsoft Graph API or other APIs that require access tokens from Azure Active Directory v2 endpoint
+# Call the Microsoft Graph API from an Android app
 
 This guide demonstrates how a native Android application can get an access token and call Microsoft Graph API or other APIs that require access tokens from Azure Active Directory v2 endpoint.
 

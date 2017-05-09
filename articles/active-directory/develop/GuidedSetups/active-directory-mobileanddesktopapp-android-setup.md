@@ -18,7 +18,7 @@ ms.author: andret
 
 ---
 
-## Setting up your Android application
+## Setup your project
 
 > Prefer to download this sample's Android Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip) and skip to the [Configuration](#create-an-application-express) step to configure the code sample before executing    .
 
