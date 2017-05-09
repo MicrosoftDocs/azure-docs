@@ -51,31 +51,36 @@ Customers can deploy their applications by using:
 
 For application scaling:
 
-* Customers can scale web apps up and down by changing the tier in their App Service plan.
-* Customers can scale out applications and run multiple app instances within the confines of their SKU.
+* Customers can scale web apps up and down by changing the tier in their App Service plan
+* Customers can scale out applications and run multiple app instances within the confines of their SKU
 
-For Kudu, some of the basic functionality works with the following:
+For Kudu, some of the basic functionality:
 
 * Environments
 * Deployments
 * Basic consoles
+* SSH
+
+For devops:
+
+* Staging environments
+* DockerHub CI/CD
 
 ## Limitations
 The Azure portal shows only features that currently work for App Service on Linux and hides the rest. As we enable more features, they will be visible on the portal.
 
-Some features, such as virtual network integration, Azure Active Directory/third-party authentication, or Kudu site extensions, are not complete. Once we complete these features, we will update our documentation and blog about the changes.
+Some features, such as virtual network integration, Azure Active Directory/third-party authentication, or Kudu site extensions, are not available yet. Once these features are available, we will update our documentation and blog about the changes.
 
 This public preview is currently only available in the following regions:
 
 * West US
 * West Europe 
 * Southeast Asia
+* Australia East
 
 Web Apps on Linux is only supported in the Dedicated app service plans and does not have a Free or Shared tier. Also, App Service plans for regular and Linux web apps are mutually exclusive, so you cannot create a Linux web app in a non-Linux app service plan.
 
 Web Apps on Linux must be created in a resource group that does not contain non-Linux web apps in the same region.
-
-Web Apps on Linux does not yet support deployment of .NET Core apps from uncompiled source. You need to publish/compile your .NET Core app locally first, and then push the published site bits to your app.
 
 ## Next steps
 See the following links to get started with App Service on Linux. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
@@ -86,4 +91,7 @@ See the following links to get started with App Service on Linux. You can post q
 * [Using .NET Core in Azure App Service Web Apps on Linux](app-service-linux-using-dotnetcore.md)
 * [Using Ruby in Azure App Service Web Apps on Linux](app-service-linux-using-ruby.md)
 * [Azure App Service Web Apps on Linux FAQ](app-service-linux-faq.md)
+* [SSH support for App Service on Linux](./app-service-linux-ssh-support.md)
+* [Set up staging environments in Azure App Service](./web-sites-staged-publishing.md)
+* [Docker Hub Continuous Deployment with App Service on Linux](./app-service-linux-ci-cd.md)
 
