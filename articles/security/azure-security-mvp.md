@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 01/09/2017
 ms.author: yurid
 
 ---
@@ -24,7 +24,6 @@ We are happy to announce that Microsoft Azure now recognizes community experts w
 
 ![Microsoft MVP](./media/azure-security-mvp/azure-security-mvp-fig1.png)
 
-While there is no benchmark for becoming an MVP, in part because it varies by technology and its life-cycle, some of the criteria we evaluate include the impact of a nominee’s contributions to online forums such as Microsoft Answers, TechNet and MSDN; wikis and online content; conferences and user groups; podcasts, Web sites, blogs and social media; and articles and books. 
+While there is no benchmark for becoming an MVP, in part because it varies by technology and its life-cycle, some of the criteria we evaluate include the impact of a nominee’s contributions to online forums such as Microsoft Answers, TechNet and MSDN; wikis and online content; conferences and user groups; podcasts, Web sites, blogs and social media; and articles and books.
 
 Are you an expert in Azure security? Do you know someone who is? Then [Nominate yourself or someone else](https://mvp.microsoft.com/Nomination/nominate-an-mvp) to become an Azure security MVP today!
-

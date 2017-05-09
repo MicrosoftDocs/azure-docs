@@ -14,12 +14,37 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 03/11/2017
 ms.author: asaxton
-
 ---
 # What's new in Power BI Embedded
+
 Updates to **Power BI Embedded** are released on a regular basis. However, not every release includes new user-facing features; some releases are focused on back-end service capabilities. We’ll highlight new user-facing capabilities here. Be sure to check back often.
+
+## March 2017
+
+<iframe width="640" height="360" src="https://www.youtube.com/embed/ibuN4DzCl5c?showinfo=0" frameborder="0" allowfullscreen></iframe>
+
+**Self-service capabilities**
+
+* [Create new report](power-bi-embedded-create-report-from-dataset.md)
+* [Report SaveAs](power-bi-embedded-save-reports.md)
+* Embed report in Read/Edit/Create new mode 
+* [Toggle report between edit/read modes](power-bi-embedded-toggle-mode.md)
+
+**Data connectivity with REST APIs**
+
+* [Create dataset](https://msdn.microsoft.com/library/azure/mt778875.aspx)
+* Push data 
+
+**Management APIs**
+
+* Clone report and dataset
+* Bind report to a different dataset
+
+**Samples**
+
+* Updated [JavaScript Report Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 ## December 2016
 

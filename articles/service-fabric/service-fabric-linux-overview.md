@@ -13,7 +13,7 @@ ms.devlang: Java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2016
+ms.date: 03/02/2017
 ms.author: SubramaR
 
 ---
@@ -22,17 +22,17 @@ The preview of Service Fabric on Linux enables you to build, deploy, and manage 
 
 Service Fabric on Linux is conceptually equivalent to Service Fabric on Windows (except for OS specifics and programming language support). Thus, most of our [existing documentation](http://aka.ms/servicefabricdocs) applies in helping you get familiar with the technology.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Service-Fabric-Linux-Preview/player]
-> 
-> 
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Service-Fabric-Linux-Preview/player]
+>
+>
 
 ## Supported operating systems and programming languages
 The limited preview supports the creation of one-box development clusters in addition to multi-machine clusters in Azure running Ubuntu Server 16.04. The preview supports the Reliable Actors and the Reliable Stateless Services frameworks in Java and C# in addition to guest executables and orchestrating Docker containers.  
 
 > [!NOTE]
 > Reliable Collections are not supported in Linux yet. Stand alone clusters aren't supported either - only one box and Azure Linux multi-machine clusters are supported in the preview.
-> 
-> 
+>
+>
 
 
 ## Supported tooling
@@ -43,4 +43,5 @@ The preview supports interaction with the cluster through Azure CLI. For Java de
 2. [Prepare your development environment on Linux](service-fabric-get-started-linux.md)
 3. [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
 4. [Create your first Service Fabric Java application on Linux](service-fabric-create-your-first-linux-application-with-java.md)
-
+5. [Setup Service Fabric continuous integration and deployment with Jenkins and GitHub](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+6. [Service Fabric Windows/Linux differences](service-fabric-linux-windows-differences.md)

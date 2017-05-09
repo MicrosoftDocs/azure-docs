@@ -4,7 +4,7 @@ description: How to Use Apache Cordova Plugin for Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: javascript
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: ''
 
 ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59
@@ -17,14 +17,14 @@ ms.date: 10/30/2016
 ms.author: adrianha
 
 ---
-# How to Use Apache Cordova Client Library for Azure Mobile Apps
+# How to use Apache Cordova client library for Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 This guide teaches you to perform common scenarios using the latest [Apache Cordova Plugin for Azure Mobile Apps]. If you are new to Azure Mobile
 Apps, first complete [Azure Mobile Apps Quick Start] to create a backend, create a table, and download a pre-built Apache Cordova project. In this
 guide, we focus on the client-side Apache Cordova Plugin.
 
-## Supported Platforms
+## Supported platforms
 This SDK supports Apache Cordova v6.0.0 and later on iOS, Android, and Windows devices.  The platform
 support is as follows:
 
@@ -33,7 +33,7 @@ support is as follows:
 * Windows Phone 8.1.
 * Universal Windows Platform.
 
-## <a name="Setup"></a>Setup and Prerequisites
+## <a name="Setup"></a>Setup and prerequisites
 This guide assumes that you have created a backend with a table. This guide assumes that the table has the same schema as the tables in those
 tutorials. This guide also assumes that you have added the Apache Cordova Plugin to your code.  If you have not done so, you may add the Apache
 Cordova plugin to your project on the command line:
@@ -44,9 +44,36 @@ cordova plugin add cordova-plugin-ms-azure-mobile-apps
 
 For more information on creating [your first Apache Cordova app], see their documentation.
 
+## <a name="ionic"></a>Setting up an Ionic v2 app
+
+To properly configure an Ionic v2 project, first create a basic app and add the Cordova plugin:
+
+```
+ionic start projectName --v2
+cd projectName
+ionic plugin add cordova-plugin-ms-azure-mobile-apps
+```
+
+Add the following lines to `app.component.ts` to create the client object:
+
+```
+declare var WindowsAzure: any;
+var client = new WindowsAzure.MobileServiceClient("https://yoursite.azurewebsites.net");
+```
+
+You can now build and run the project in the browser:
+
+```
+ionic platform add browser
+ionic run browser
+```
+
+The Azure Mobile Apps Cordova plugin supports both Ionic v1 and v2 apps.  Only the Ionic v2 apps require the
+additional declaration for the `WindowsAzure` object.
+
 [!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="auth"></a>How to: Authenticate Users
+## <a name="auth"></a>How to: Authenticate users
 Azure App Service supports authenticating and authorizing app users using various external identity
 providers: Facebook, Google, Microsoft Account, and Twitter. You can set permissions on tables to restrict
 access for specific operations to only authenticated users. You can also use the identity of authenticated
@@ -64,7 +91,7 @@ device-specific SDKs.
 
 [!INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="configure-external-redirect-urls"></a>How to: Configure your Mobile App Service for External Redirect URLs.
+### <a name="configure-external-redirect-urls"></a>How to: Configure your Mobile App Service for external redirect URLs.
 Several types of Apache Cordova applications use a loopback capability to handle OAuth UI flows.  OAuth UI
 flows on localhost cause problems since the authentication service only knows how to utilize your service
 by default.  Examples of problematic OAuth UI flows include:
@@ -109,7 +136,7 @@ Also add these loopback URLs to the CORS settings for your App Service:
 
 It takes approximately 10-15 seconds for the new settings to take effect.
 
-## <a name="register-for-push"></a>How to: Register for Push Notifications
+## <a name="register-for-push"></a>How to: Register for push notifications
 Install the [phonegap-plugin-push] to handle push notifications.  This plugin can be easily added using the
 `cordova plugin add` command on the command line, or via the Git plugin installer within Visual Studio.  The
 following code in your Apache Cordova app registers your device for push notifications:

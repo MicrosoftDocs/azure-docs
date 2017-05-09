@@ -1,5 +1,5 @@
 ---
-title: Azure Storage Samples using .NET | Microsoft Docs
+title: Azure Storage samples using .NET | Microsoft Docs
 description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the .NET storage client libraries.
 services: storage
 documentationcenter: na
@@ -13,13 +13,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 12/12/2016
+ms.date: 01/12/2017
 ms.author: seguler
 
 ---
-# Azure Storage Samples using .NET
+# Azure Storage samples using .NET
 
-The following table provides an overview of our samples repository and the scenarios covered in each sample. Click on the links to view the corresponding sample code in Github.
+## .NET sample index
+
+The following table provides an overview of our samples repository and the scenarios covered in each sample. Click on the links to view the corresponding sample code in GitHub.
+
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">Endpoint</th><th style="font-size:110%">Scenario</th><th style="font-size:110%">Sample Code</th></tr></thead><tbody> 
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
@@ -188,12 +191,15 @@ The following table provides an overview of our samples repository and the scena
 </tbody> 
 </table>
 <br/>
-###Azure Code Sample Library
-To view the complete sample library, go to [The Azure Code Sample Library](https://azure.microsoft.com/en-us/resources/samples/?service=storage), which includes samples for Azure Storage that you can download and run locally. The Code Sample Library provides sample code in .zip format. Alternatively, you can browse and clone the GitHub repository for each sample.
+
+## Azure Code Samples library
+
+To view the complete sample library, go to the [Azure Code Samples](https://azure.microsoft.com/resources/samples/?service=storage) library, which includes samples for Azure Storage that you can download and run locally. The Code Sample Library provides sample code in .zip format. Alternatively, you can browse and clone the GitHub repository for each sample.
 
 [!INCLUDE [storage-dotnet-samples-include](../../includes/storage-dotnet-samples-include.md)]
 
-### Getting started guides
+## Getting started guides
+
 Check out the following guides if you are looking for instructions on how to install and get started with the Azure Storage Client Libraries.
 
 * [Getting Started with Azure Blob Service in .NET](storage-dotnet-how-to-use-blobs.md)
@@ -201,3 +207,9 @@ Check out the following guides if you are looking for instructions on how to ins
 * [Getting Started with Azure Table Service in .NET](storage-dotnet-how-to-use-tables.md)
 * [Getting Started with Azure File Service in .NET](storage-dotnet-how-to-use-files.md)
 
+## Next steps
+
+For information on samples for other languages:
+
+* Java: [Azure Storage samples using Java](storage-samples-java.md)
+* All other languages: [Azure Storage samples](storage-samples.md)

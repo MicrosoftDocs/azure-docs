@@ -4,7 +4,7 @@ description: This article helps you troubleshoot slow web app performance issues
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 tags: top-support-issue
 keywords: web app performance, slow app, app slow

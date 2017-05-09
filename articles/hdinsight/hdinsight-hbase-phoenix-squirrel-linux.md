@@ -1,5 +1,5 @@
 ---
-title: Use Apache Phoenix and SQuirreL in HDInsight | Microsoft Docs
+title: Use Apache Phoenix and SQuirreL with Azure HDInsight (HBase) | Microsoft Docs
 description: Learn how to use Apache Phoenix in HDInsight, and how to install and configure SQuirreL on your workstation to connect to an HBase cluster in HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -9,11 +9,12 @@ editor: cgronlun
 
 ms.assetid: cda0f33b-a2e8-494c-972f-ae0bb482b818
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 
 ---
@@ -45,7 +46,8 @@ When you connect to an HBase cluster, you will need to connect to one of the Zoo
 
 **To use SQLLine**
 
-1. Connect to the cluster using SSH. For instructions, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md) or [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md) depending on your client computer OS.
+1. Connect to the cluster using SSH. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
 2. From SSH, run the following commands to run SQLLine:
 
         cd /usr/hdp/2.2.9.1-7/phoenix/bin

@@ -5,7 +5,7 @@ keywords: azure app service, linux, oss
 services: app-service
 documentationcenter: ''
 author: naziml
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: b6a85bc6-5fe2-45d7-aae6-3bf93c314548
@@ -31,4 +31,5 @@ Customers can create web apps on Linux only within a Linux enabled App Service P
 
 * [What is App Service on Linux?](../app-service-web/app-service-linux-intro.md)
 * [Creating Apps in an App Service on Linux](../app-service-web/app-service-linux-how-to-create-a-web-app.md)
+* [Azure App Service Web Apps on Linux FAQ](../app-service-web/app-service-linux-faq.md) 
 

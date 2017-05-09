@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting your Azure IoT gateway | Microsoft Docs
+title: 'Simulated device & Azure IoT Gateway - Troubleshooting | Microsoft Docs'
 description: Troubleshooting page for Intel NUC gateway
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,15 @@ manager: timtl
 tags: ''
 keywords: 'iot issues, internet of things problems'
 
+ROBOTS: NOINDEX
+
 ms.assetid: 3ee8f4b0-5799-40a3-8cf0-8d5aa44dbc2b
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---
@@ -137,7 +139,7 @@ If you've successfully provisioned your Azure IoT hub with the Azure CLI, and yo
 
 ### Device Explorer
 
-[Device Explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) runs on your Windows local machine and connects to your IoT hub in Azure. It communicates with the following [IoT Hub endpoints](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-devguide/):
+[Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) runs on your Windows local machine and connects to your IoT hub in Azure. It communicates with the following [IoT Hub endpoints](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-devguide/):
 
 - Device identity management to provision and manage devices registered with your IoT hub.
 - Receive device-to-cloud so you can monitor messages sent from your device to your IoT hub.
@@ -147,7 +149,7 @@ Configure your IoT hub connection string within this tool to use all its capabil
 
 ### iothub-explorer
 
-[iothub-explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md) is a sample multiplatform CLI tool to manage device clients. You can use the tool to manage the devices in the identity registry, monitor device-to-cloud messages, and send cloud-to-device commands.
+[iothub-explorer](https://github.com/Azure/iothub-explorer) is a sample multiplatform CLI tool to manage device clients. You can use the tool to manage the devices in the identity registry, monitor device-to-cloud messages, and send cloud-to-device commands.
 
 To install the latest (prerelease) version of the iothub-explorer tool, run the following command:
 

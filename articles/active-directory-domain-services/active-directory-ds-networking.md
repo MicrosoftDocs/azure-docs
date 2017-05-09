@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 
 ---
@@ -26,7 +26,7 @@ The following guidelines help you select a virtual network to use with Azure AD 
 * Azure AD Domain Services **cannot be enabled in virtual networks created using Azure Resource Manager**.
 * You can connect a Resource Manager-based virtual network to a classic virtual network in which Azure AD Domain Services is enabled. Thereafter, you can use Azure AD Domain Services in the Resource Manager-based virtual network. For more information, see the [Network connectivity](active-directory-ds-networking.md#network-connectivity) section.
 * **Regional Virtual Networks**: If you plan to use an existing virtual network, ensure that it is a regional virtual network.
-  
+
   * Virtual networks that use the legacy affinity groups mechanism cannot be used with Azure AD Domain Services.
   * To use Azure AD Domain Services, [migrate legacy virtual networks to regional virtual networks](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
@@ -42,8 +42,8 @@ The following guidelines help you select a virtual network to use with Azure AD 
 
 > [!WARNING]
 > You cannot move Domain Services to a different virtual network after you have enabled the service.
-> 
-> 
+>
+>
 
 ## Network Security Groups and subnet design
 A [Network Security Group (NSG)](../virtual-network/virtual-networks-nsg.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating an NSG directly to that VM.
@@ -58,8 +58,8 @@ A [Network Security Group (NSG)](../virtual-network/virtual-networks-nsg.md) con
 
 > [!WARNING]
 > When you associate an NSG with a subnet in which Azure AD Domain Services is enabled, you may disrupt Microsoft's ability to service and manage the domain. Additionally, synchronization between your Azure AD tenant and your managed domain is disrupted. **The SLA does not apply to deployments where an NSG has been applied that blocks Azure AD Domain Services from updating and managing your domain.**
-> 
-> 
+>
+>
 
 ### Ports required for Azure AD Domain Services
 The following ports are required for Azure AD Domain Services to service and maintain your managed domain. Ensure that these ports are not blocked for the subnet in which you have enabled your managed domain.
@@ -89,14 +89,14 @@ You can connect a Resource Manager-based virtual network to the Azure classic vi
 
 ### Network connection options
 * **VNet-to-VNet connections using site-to-site VPN connections**: Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a virtual network to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE.
-  
+
     ![Virtual network connectivity using VPN Gateway](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
-  
+
     [More information - connect virtual networks using VPN gateway](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * **VNet-to-VNet connections using virtual network peering**: Virtual network peering is a mechanism that connects two virtual networks in the same region through the Azure backbone network. Once peered, the two virtual networks appear as one for all connectivity purposes. They are still managed as separate resources, but virtual machines in these virtual networks can communicate with each other directly by using private IP addresses.
-  
+
     ![Virtual network connectivity using peering](./media/active-directory-domain-services-design-guide/vnet-peering.png)
-  
+
     [More information - virtual network peering](../virtual-network/virtual-network-peering-overview.md)
 
 <br>
@@ -105,4 +105,3 @@ You can connect a Resource Manager-based virtual network to the Azure classic vi
 * [Azure virtual network peering](../virtual-network/virtual-network-peering-overview.md)
 * [Configure a VNet-to-VNet connection for the classic deployment model](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Azure Network Security Groups](../virtual-network/virtual-networks-nsg.md)
-

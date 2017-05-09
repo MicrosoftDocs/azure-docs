@@ -3,7 +3,7 @@ title: How to use Hudson with Blob storage | Microsoft Docs
 description: Describes how to use Hudson with Azure Blob storage as a repository for build artifacts.
 services: storage
 documentationcenter: java
-author: dineshmurthy
+author: seguler
 manager: jahogg
 editor: tysonn
 
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: dineshm
+ms.date: 02/28/2017
+ms.author: seguler
 
 ---
 # Using Azure Storage with a Hudson Continuous Integration solution
