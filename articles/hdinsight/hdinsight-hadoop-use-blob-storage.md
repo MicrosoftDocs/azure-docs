@@ -20,13 +20,14 @@ ms.date: 02/27/2017
 ms.author: jgao
 
 ---
-# Use HDFS-compatible storage with Hadoop in HDInsight
+# Use Azure storage with Hadoop in HDInsight
 
 To analyze data in HDInsight cluster, you can store the data either in Azure Storage, Azure Data Lake Store, or both. Both storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
 
 Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage as the default file system, or with HDInsight 3.5, you can select either Azure Storage or Azure Data Lake Store as the default files system.
 
-In this article, you learn how the two storage options work with HDInsight clusters. For more information about creating an HDInsight cluster, see [Get Started with HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+In this article, you learn how Azure Storage works with HDInsight clusters. To learn how Data Lake Store works with HDInsight clusters, see [Use Azure Data Lake Store with Hadoop in Azure HDInsight](hdinsight-hadoo-use-data-lake-store.md). For more information about creating an HDInsight cluster, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+
 
 ## Using Azure storage with HDInsight clusters
 
