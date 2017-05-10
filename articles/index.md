@@ -3019,7 +3019,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="https://azure.microsoft.com/develop/net/">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/dotnet/api/overview/azure/?view=azure-dotnet">API reference</a>
+                                                    <a href="/dotnet/api/?term=Microsoft.Azure">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
