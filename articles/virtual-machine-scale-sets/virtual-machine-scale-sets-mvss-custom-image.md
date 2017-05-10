@@ -30,7 +30,7 @@ Our minimum viable scale set template can be seen [here](https://raw.githubuserc
 
 If you already have a custom managed disk image (a resource of type `Microsoft.Compute/images), then you can skip this section.
 
-First, we add a `sourceImageVhdUri` parameter. This is the URI to the generalized blob in Azure Storage that contains the custom image to deploy from.
+First, we add a `sourceImageVhdUri` parameter, which is the URI to the generalized blob in Azure Storage that contains the custom image to deploy from.
 
 
 ```diff
@@ -48,7 +48,7 @@ First, we add a `sourceImageVhdUri` parameter. This is the URI to the generalize
    "variables": {},
 ```
 
-Next, we add a resource of type `Microsoft.Compute/images`. This is the managed disk image based on the generalized blob above; it must be in the same region as the scale set that uses it. In the properties we specify the OS type, the location of the blob (from the `sourceImageVhdUri` parameter), and the storage account type:
+Next, we add a resource of type `Microsoft.Compute/images`, which is the managed disk image based on the generalized blob located at URI `sourceImageVhdUri`. This image must be in the same region as the scale set that uses it. In the properties of the image, we specify the OS type, the location of the blob (from the `sourceImageVhdUri` parameter), and the storage account type:
 
 ```diff
    "resources": [
@@ -75,7 +75,7 @@ Next, we add a resource of type `Microsoft.Compute/images`. This is the managed 
 
 ```
 
-In the scale set resource we add a `dependsOn` clause referring to the custom image to make sure the image gets created before the scale set tries to deploy from that image:
+In the scale set resource, we add a `dependsOn` clause referring to the custom image to make sure the image gets created before the scale set tries to deploy from that image:
 
 ```diff
        "location": "[resourceGroup().location]",
