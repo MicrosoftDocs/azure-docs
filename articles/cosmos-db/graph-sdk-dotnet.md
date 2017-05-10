@@ -24,7 +24,7 @@ ms.author: mimig
 |**SDK download**|[NuGet](https://aka.ms/acdbgraphnuget)|
 |**API documentation**|[.NET API reference documentation](https://aka.ms/acdbgraphapiref)|
 |**Quickstart**|[Azure Cosmos DB: Create a graph app using .NET and the Graph API](create-graph-dotnet.md)|
-|**Tutorial**|[Azure CosmosDB: Create a collection with the Graph API](tutorial-develop-graph-dotnet.md)|
+|**Tutorial**|[Azure CosmosDB: Create a container with the Graph API](tutorial-develop-graph-dotnet.md)|
 |**Current supported framework**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
 ## Release notes

@@ -182,6 +182,8 @@ For more information about other features supported by application manifests, re
 
 [Configure security policies for your application][12] describes how to run services under security policies to restrict access.
 
+[Application hosting models][13] describes relationship between replicas (or instances) of a deployed service and service-host process.
+
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
@@ -191,3 +193,4 @@ For more information about other features supported by application manifests, re
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
+[13]: service-fabric-hosting-model.md

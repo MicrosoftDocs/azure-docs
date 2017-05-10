@@ -111,15 +111,7 @@ Yes, there's a [Microsoft Virtual Academy](https://mva.microsoft.com/en-US/train
 >
 
 ## Next steps
-Already have an Azure account? Then you can get started with Azure Cosmos DB in the [Azure Portal](https://portal.azure.com) by [creating an Azure Cosmos DB database account](documentdb-create-account.md).
-
-Don't have an Azure account? You can:
-
-* Sign up for an [Azure free trial](https://azure.microsoft.com/free/), which gives you 30 days and $200 to try all the Azure services. 
-* If you have an MSDN subscription, you are eligible for [$150 in free Azure credits per month](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) to use on any Azure service. 
-* Download the the [Azure Cosmos DB Emulator](documentdb-nosql-local-emulator.md) to develop your application locally using the Azure Cosmos DB API.
-
-Then, when you're ready to learn more, visit our [learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) to navigate all the learning resources available to you. 
+Already have an Azure account? Then you can get started with Azure Cosmos DB by following our [quick starts](../cosmos-db/create-documentdb-dotnet.md), which will walk you through creating an account and getting started with Cosmos DB.
 
 [1]: ./media/documentdb-introduction/json-database-resources1.png
 

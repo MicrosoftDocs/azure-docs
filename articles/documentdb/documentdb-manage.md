@@ -18,7 +18,7 @@ As an Azure subscriber, you can provision one or more Azure Cosmos DB database a
 Azure Cosmos DB accounts can be created through the [Azure portal](documentdb-create-account.md), or by using [an ARM template or Azure CLI](documentdb-automation-resource-manager-cli.md).
 
 ## Databases
-A single Azure Cosmos DB database can contain practically an unlimited amount of document storage grouped into collections. Collections provide performance isolation - each collection can be provisioned with throughput that is not shared with other collections in the same database or account. A Azure Cosmos DB database is elastic in size, ranging from GBs to TBs of SSD backed document storage and provisioned throughput. Unlike a traditional RDBMS database, a database in Azure Cosmos DB is not scoped to a single machine and can span multiple machines or clusters.  
+A single Azure Cosmos DB database can contain practically an unlimited amount of document storage grouped into collections. Collections provide performance isolation - each collection can be provisioned with throughput that is not shared with other collections in the same database or account. An Azure Cosmos DB database is elastic in size, ranging from GBs to TBs of SSD backed document storage and provisioned throughput. Unlike a traditional RDBMS database, a database in Azure Cosmos DB is not scoped to a single machine and can span multiple machines or clusters.  
 
 With Azure Cosmos DB, as you need to scale your applications, you can create more collections or databases or both. Databases can be created through the [Azure portal](documentdb-create-database.md) or through any one of the [Azure Cosmos DB SDKs](documentdb-dotnet-samples.md).   
 
