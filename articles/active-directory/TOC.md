@@ -82,7 +82,7 @@
 ### [Users at risk](active-directory-reporting-security-user-at-risk.md)
 ### [Risky sign-ins](active-directory-reporting-security-risky-sign-ins.md)
 ### [Risk events](active-directory-reporting-risk-events.md)
-### [Named networks](active-directory-known-networks-azure-portal.md)
+### [Named locations](active-directory-named-locations.md)
 ### [Report migration](active-directory-reporting-migration.md)
 ### [Retention](active-directory-reporting-retention.md)
 ### [Latencies](active-directory-reporting-latencies-azure-portal.md)
