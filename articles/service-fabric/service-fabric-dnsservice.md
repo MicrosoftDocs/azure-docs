@@ -120,4 +120,4 @@ public class ValuesController : Controller
 Learn more about service communication within the cluster with  [connect and communicate with services](service-fabric-connect-and-communicate-with-services.md)
 
 [0]: ./media/service-fabric-connect-and-communicate-with-services/dns.png
-[1]: ./media/service-fabric-dnsservice/servicefabric-explorer-dns.png
+[1]: ./media/service-fabric-dnsservice/servicefabric-explorer-dns.PNG
