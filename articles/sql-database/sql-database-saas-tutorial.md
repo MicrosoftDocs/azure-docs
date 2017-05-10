@@ -48,7 +48,7 @@ Deploy the Wingtip tickets platform in less than five minutes:
 
 1. Click to deploy:
 
-   [![Deploy to Azure](./media/sql-database-saas-tutorial/deploy.png)](https://aka.ms/deploywtpapp)
+   <a href="http://aka.ms/deploywtpapp" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
 1. Enter required parameter values for the deployment:
 
