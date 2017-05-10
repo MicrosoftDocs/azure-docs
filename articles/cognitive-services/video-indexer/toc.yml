@@ -5,6 +5,7 @@
     - name: Concepts
       href: video-indexer-concepts.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Get started
     href: video-indexer-get-started.md

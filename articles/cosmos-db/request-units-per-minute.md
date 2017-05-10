@@ -1,6 +1,6 @@
 ---
 title: 'Azure CosmosDB: Request units per minute (RU/m) | Microsoft Docs'
-description: Learn how to reduce costs by utilizing request units per minute.
+description: Learn how to reduce cost by utilizing request units per minute.
 services: cosmosdb
 documentationcenter: ''
 author: arnomicrosoft
@@ -67,7 +67,7 @@ Enabling or disabling RU per minute simply requires a click when provisioning a 
 ### Through the SDK
 First, this is important to note that RU/m is only available for the following SDKs:
 
-* .Net 1.14.*
+* .Net 1.14.0
 * Java 1.11.0
 * Node.js 1.12.0
 * Python 2.2.0
@@ -80,11 +80,11 @@ DocumentCollection myCollection = new DocumentCollection();
 myCollection.Id = "coll";
 myCollection.PartitionKey.Paths.Add("/deviceId");
 
-// Set the throughput to 3,000 request units per second along with 30,000 request units per minute as the RU/m budget
+// Set the throughput to 3,000 request units per second which will give you 30,000 request units per minute as the RU/m budget
 await client.CreateDocumentCollectionAsync(
     UriFactory.CreateDatabaseUri("db"),
     myCollection,
-    new RequestOptions { OfferThroughput = 3000, EnableRUPerMinuteOnCollection = true });
+    new RequestOptions { OfferThroughput = 3000, OfferEnableRUPerMinuteThroughput = true });
 ```
 
 Here is a code snippet for changing the throughput of a collection to 5,000 request units per second without provisioning RU per minute using the .NET SDK:
@@ -146,22 +146,24 @@ To assist you, we want to provide an overall guidance on how to optimize your pr
 |1-10%|Healthy use|Keep the same provisioning level|
 |Above 10%|Over utilization|Increase RU/s to rely less on RU/m|
 
-<!---This methodology works by using RU (second and minute) consumption, % throttled requests through the portal metrics. Below are important metrics to monitor based on a full cycle (here the cycle is 7 days):
-
-![RU/m consumption and throttled request metrics from the Azure portal](./media/request-units-per-minute/azure-cosmos-db-request-units-per-minute-monitor.png)--->
- 
 ## Select which operations can consume the RU/m budget
 
 At request level, you can also enable/disable RU/m budget to serve the request irrespective of operation type. If regular provisioned RUs/sec budget is consumed and the request cannot consume the RU/m budget, this request will be throttled. By default, any request is served by RU/m budget if RU/m throughput budget is activated. 
 
-Here is a code snippet for disabling RU/m budget using the DocumentDB API.
+Here is a code snippet for disabling RU/m budget using the DocumentDB API for CRUD and query operations.
 
 ```csharp
+// In order to disable any CRUD request for RU/m, set DisableRUPerMinuteUsage to true in RequestOptions
+await client.CreateDocumentAsync(
+    UriFactory.CreateDocumentCollectionUri("db", "container"),
+    new Document { Id = "Cosmos DB" },
+    new RequestOptions { DisableRUPerMinuteUsage = true });
 // In order to disable any query request for RU/m, set DisableRUPerMinuteOnRequest to true in RequestOptions
+FeedOptions feedOptions = new FeedOptions();
+feedOptions.DisableRUPerMinuteUsage = true;
 var query = client.CreateDocumentQuery<Book>(
-    UriFactory.CreateDocumentCollectionUri("db", "coll"),
-    "select * from c", 
-    new FeedOptions { DisableRUPerMinuteOnRequest = true }.AsDocumentQuery();
+    UriFactory.CreateDocumentCollectionUri("db", "container"),
+    "select * from c",feedOptions).AsDocumentQuery();
 ```
 
 ## Next steps

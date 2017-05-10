@@ -201,13 +201,6 @@ You can use the [Create a web app in Azure that connects to MongoDB running on a
 
 3. Use the app!
 
-That's it, this Azure Cosmos DB tutorial is complete! In this tutorial, you've done the following:
-
-> [!div class="checklist"]
-> * Create an Azure Cosmos DB account 
-> * Update your connection string
-> * Create a MongoDB app on a virtual machine
-
 ## Clean up resources
 
 If you're not going to continue to use this app, use the following steps to delete all resources created by this tutorial in the Azure portal. 
@@ -217,8 +210,15 @@ If you're not going to continue to use this app, use the following steps to dele
 
 ## Next steps
 
-In this tutorial, you've learned how to create an Azure Cosmos DB account, create a MongoDB collection using the Data Explorer. You can proceed to the next tutorial and migrate your data to Azure Cosmos DB.  
+In this tutorial, you've done the following:
+
+> [!div class="checklist"]
+> * Create an Azure Cosmos DB account 
+> * Update your connection string
+> * Create a MongoDB app on a virtual machine
+
+You can proceed to the next tutorial and import your MongoDB data to Azure Cosmos DB.  
 
 > [!div class="nextstepaction"]
-> [Migrate data for the MongoDB API](../documentdb/documentdb-mongodb-migrate.md)
+> [Import MongoDB data into Azure Cosmos DB](../documentdb/documentdb-mongodb-migrate.md)
 
