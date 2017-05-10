@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: Build a web app with Java and the MongoDB API | Microsoft Docs'
+title: 'Azure Cosmos DB: Build a console app with Java and the MongoDB API | Microsoft Docs'
 description: Presents a Java code sample you can use to connect to and query the Azure Cosmos DB MongoDB API
 services: cosmosdb
 documentationcenter: ''
@@ -18,11 +18,11 @@ ms.date: 05/10/2017
 ms.author: mimig
 
 ---
-# Azure Cosmos DB: Build a MongoDB API web app with Java and the Azure portal
+# Azure Cosmos DB: Build a MongoDB API console app with Java and the Azure portal
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and deploy a console app built on the [MongoDB Java driver](https://docs.mongodb.com/ecosystem/drivers/java/), as shown in the following screenshot. 
+This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and deploy a console app built on the [MongoDB Java driver](https://docs.mongodb.com/ecosystem/drivers/java/). 
 
 ## Prerequisites
 
@@ -34,15 +34,17 @@ This quick start demonstrates how to create an Azure Cosmos DB account, document
 
 ## Create a database account
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [mongodb-create-dbaccount](../../includes/cosmosdb-create-dbaccount-mongodb.md)]
 
 ## Add a collection
+
+Name your new database, **db**, and your new collection, **coll**.
 
 [!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
 
 ## Clone the sample application
 
-Now let's clone a DocumentDB API app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's clone a MongoDB API app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
 1. Open a git terminal window, such as git bash, and `cd` to a working directory.  
 
@@ -102,7 +104,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 2. Run `mvn exec:java -D exec.mainClass=GetStarted.Program` in a terminal to start your Java application.
 
-You can now go back to Data Explorer and see query, modify, and work with this new data. 
+You can now use [Robomongo](../documentdb/documentdb-mongodb-robomongo.md) / [Studio 3T](../documentdb/documentdb-mongodb-mongochef.md) to query, modify, and work with this new data.
 
 ## Review SLAs in the Azure portal
 
@@ -117,9 +119,9 @@ If you're not going to continue to use this app, delete all resources created by
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a collection using the Data Explorer, and run a web app. You can now import additional data to your Cosmos DB account. 
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a collection using the Data Explorer, and run a console app. You can now import additional data to your Cosmos DB account. 
 
 > [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB for the DocumentDB API](../documentdb/documentdb-import-data.md)
+> [Import data into Azure Cosmos DB for the MongoDB API](../documentdb/documentdb-mongodb-migrate.md)
 
 
