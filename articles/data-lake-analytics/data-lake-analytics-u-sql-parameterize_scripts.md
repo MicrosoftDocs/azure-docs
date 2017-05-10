@@ -1,5 +1,5 @@
 ---
-title: 'Parameterizing U-SQL scripts | Microsoft Docs'
+title: 'Parameterize U-SQL scripts in Azure Data Lake Analytics | Microsoft Docs'
 description: Learn how to parameterize U-SQL scripts in Azure Data Lake Analytics.
 services: data-lake-analytics
 documentationcenter: ''
