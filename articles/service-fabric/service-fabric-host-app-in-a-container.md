@@ -29,6 +29,10 @@ This tutorial shows you how to deploy an existing ASP.NET application in a Windo
 4. [Azure PowerShell][link-azure-powershell-install]
 5. [Continuous Delivery Tools extension for Visual Studio 2017][link-visualstudio-cd-extension]
 
+   >[!NOTE]
+   >If this is the first time you are running Windows container images on your computer, Docker CE must pull down the base images for your containers. The images used in this tutorial are 14GB in size. Go ahead and run the following command in Powershell to pull the base images:
+   __docker pull microsoft/mssql-server-windows-developer__.
+
 ## Containerize the application
 
 To start running our application in a container, we need to add **Docker Support** to the project in Visual Studio. When you add **Docker support** to the application, two things happen. First, a _docker_ file is added to the project. This new file describes how the container image is to be built. Then second, a new _docker-compose_ project is added to the solution. This new project contains a few docker-compose file, which can be used to describe how the container is run.
@@ -96,9 +100,6 @@ To tell Docker that we want to run a SQL Server in a container, we can reference
 
 6. Press **F5** to run and debug the application in your container.
 
-   >[!NOTE]
-   >If it is the first time you have run a Windows container on your machine, Docker CE must pull down the base images for your containers first. The image is 14 GB.
-
    Edge opens your application's defined launch page using the IP address of the container on the internal NAT network (typically 172.x.x.x). To learn more about debugging applications in containers using Visual Studio 2017, see [this article][link-debug-container].
 
    ![example of fabrikam in a container][image-web-preview]
@@ -125,6 +126,7 @@ If you already have a Service Fabric cluster to deploy your application to, you 
    | adminUserName   | The local admin account on the cluster virtual machines. |
    | adminPassword   | Password of the local admin account on the cluster virtual machines. |
    | clusterLocation | The Azure region to deploy the cluster to. |
+   | vmInstanceCount | The number of nodes in your cluster (can be 1) |
 
 3. Open **PowerShell**.
 4. **Log in** to Azure.
@@ -214,11 +216,11 @@ Now that you have containerized and deployed the Fabrikam Call Center solution, 
 - [Get started with containers in Service Fabric][link-servicefabric-containers]
 - [Creating Service Fabric applications][link-servicefabric-createapp]
 
-[link-debug-container]: ~/dotnet/articles/core/docker/visual-studio-tools-for-docker
+[link-debug-container]: /dotnet/articles/core/docker/visual-studio-tools-for-docker
 [link-fabrikam-github]: http://aka.ms/fabrikamcontainer
-[link-container-quickstart]: ~/virtualization/windowscontainers/quick-start/quick-start-windows-10
-[link-visualstudio-container-tools]: ~/dotnet/articles/core/docker/visual-studio-tools-for-docker
-[link-azure-powershell-install]: ~/powershell/azure/install-azurerm-ps
+[link-container-quickstart]: /virtualization/windowscontainers/quick-start/quick-start-windows-10
+[link-visualstudio-container-tools]: /dotnet/articles/core/docker/visual-studio-tools-for-docker
+[link-azure-powershell-install]: /powershell/azure/install-azurerm-ps
 [link-servicefabric-create-secure-clusters]: service-fabric-cluster-creation-via-arm.md
 [link-visualstudio-cd-extension]: http://aka.ms/cd4v
 [link-servicefabric-containers]: service-fabric-get-started-containers.md
