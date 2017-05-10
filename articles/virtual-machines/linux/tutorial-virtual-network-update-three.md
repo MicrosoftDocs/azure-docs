@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/09/2017
+ms.date: 05/10/2017
 ms.author: nepeters
 ---
 
 # Manage Azure Virtual Networks and Linux Virtual Machines with the Azure CLI
 
-Azure virtual machines use Azure networking for internal and external network communication. When configuring Azure networking it is important to consider access and security requirements. This tutorial walks through deploying two virtual machines and securing network traffic between the internet and VMs, and between then VMs themselves. Some network configurations will be demonstrated as if the example VMs are hosting an application, however an actual application is not deployed in this tutorial. In this tutorial, you learn how to:
+Azure virtual machines use Azure networking for internal and external network communication. This tutorial walks through deploying two virtual machines and configuring Azure networking for these VMs. The examples in this tutorial assume that the VMs are hosting a web application with a database back end, however an application is not deployed in the tutorial. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Deploy a virtual network
@@ -48,7 +48,7 @@ az group create --name myRGNetwork --location eastus
 
 ### Create virtual network
 
-Us the [az network vnet create](/cli/azure/network/vnet#create) command to create a virtual network. In this example, the network is named *mvVnet* and is given a address prefix of *10.0.0.0/16*. A subnet is also created. In this example the subnet is named *mySubnetFrontEnd* and is given a prefix of *10.0.1.0/24*. Later in this tutorial a front-end VM will be connected to this subnet. 
+Us the [az network vnet create](/cli/azure/network/vnet#create) command to create a virtual network. In this example, the network is named *mvVnet* and is given a address prefix of *10.0.0.0/16*. A subnet is also created with a name of *mySubnetFrontEnd* and a prefix of *10.0.1.0/24*. Later in this tutorial a front-end VM will be connected to this subnet. 
 
 ```azurecli
 az network vnet create \
@@ -79,9 +79,9 @@ A public IP address allows Azure resources to be accessible on the internet. In 
 
 ### Allocation method
 
-A public IP address can be allocated as either dynamic or static. The default public IP address allocation method is dynamic, where the IP address is released when the VM is deallocated. This causes the IP address to change during any operation that includes a VM deallocation.
+A public IP address can be allocated as either dynamic or static. By default, public IP address dynamically allocated. Dynamic IP address are released when a VM is deallocated. This causes the IP address to change during any operation that includes a VM deallocation.
 
-The allocation method can be set to static, which ensures that the IP address will remain assigned to a VM, even during a deallocated state. When using a statically allocated IP address, the IP address cannot be specified. Instead it is allocated from a pool of available addresses.
+The allocation method can be set to static, which ensures that the IP address will remain assigned to a VM, even during a deallocated state. When using a statically allocated IP address, the IP address itself cannot be specified. Instead, it is allocated from a pool of available addresses.
 
 ### Dynamic allocation
 
@@ -101,7 +101,7 @@ az vm create \
 
 ### Static allocation
 
-When creating a virtual machine using the [az vm create](/cli/azure/vm#create) command, include the `--public-ip-address-allocation static` argument to assign a static public IP address. This is not demonstrated in this tutorial, however in the next section a dynamically allocated IP address will be changed to static allocation. 
+When creating a virtual machine using the [az vm create](/cli/azure/vm#create) command, include the `--public-ip-address-allocation static` argument to assign a static public IP address. This is not demonstrated in this tutorial, however in the next section a dynamically allocated IP address is changed to a statically allocated address. 
 
 ### Change allocation method
 
@@ -127,7 +127,7 @@ az vm start --resource-group myRGNetwork --name myFrontEndVM --no-wait
 
 ### No public IP address
 
-In many cases, a VM does not need to be accessible over the internet. To create a VM without a public IP address use the `--public-ip-address ""` argument with an empty set of double quotes. This is demonstrated later in this tutorial
+In many cases, a VM does not need to be accessible over the internet. To create a VM without a public IP address use the `--public-ip-address ""` argument with an empty set of double quotes. This configuration is demonstrated later in this tutorial
 
 ## Secure network traffic
 
@@ -145,9 +145,9 @@ All NSGs contain a set of default rules. The default rules cannot be deleted, bu
 
 ### Create network security groups
 
-A network security group can be created at the same time as a VM using the [az vm create](/cli/azure/vm#create) command. When doing so, an NSG rule is auto created to allow traffic on port *22* from any destination. Earlier in this tutorial, the front-end NSG was auto-created with the front-end. An NSG rule was also auto created for port 22. 
+A network security group can be created at the same time as a VM using the [az vm create](/cli/azure/vm#create) command. When doing so, the NSG is associated with the VMs network interface and an NSG rule is auto created to allow traffic on port *22* from any destination. Earlier in this tutorial, the front-end NSG was auto-created with the front-end VM. An NSG rule was also auto created for port 22. 
 
-In some cases it may be helpful to pre-create an NSG, such as when default SSH rules should not be created, or when the NSG should be attached to a subnet as opposed to a network interface. 
+In some cases, it may be helpful to pre-create an NSG, such as when default SSH rules should not be created, or when the NSG should be attached to a subnet as opposed to a network interface. 
 
 Use the [az network nsg create](/cli/azure/network/nsg#create) command to create a network security group.
 
