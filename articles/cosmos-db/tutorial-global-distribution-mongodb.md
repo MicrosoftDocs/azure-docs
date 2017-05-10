@@ -104,4 +104,4 @@ In this tutorial, you've done the following:
 You can now proceed to the next tutorial to learn how to develop locally using the Azure Cosmos DB local emulator.
 
 > [!div class="nextstepaction"]
-> [Develop locally with the emulator](documentdb-nosql-local-emulator.md)
+> [Develop locally with the emulator](../documentdb/documentdb-nosql-local-emulator.md)
