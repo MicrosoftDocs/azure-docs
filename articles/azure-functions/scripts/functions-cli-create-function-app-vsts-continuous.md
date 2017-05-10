@@ -21,11 +21,7 @@ In this scenario you will learn how to create a function app using the [consumpt
 
 [!code-azurecli[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-vsts/deploy-function-app-with-function-vsts.sh?highlight=3-4 "Azure Service")]
 
-<<<<<<< HEAD
-[!INCLUDE [cli-script-clean-up](../includes/cli-script-clean-up.md)]
-=======
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
->>>>>>> 8cc972728b86ad31c56878f22029a288b1f8b093
 
 ## Script explanation
 

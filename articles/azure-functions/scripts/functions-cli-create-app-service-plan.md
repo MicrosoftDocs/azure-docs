@@ -17,7 +17,6 @@ ms.workload: web
 ms.date: 04/11/2017
 ms.author: cfowler
 ---
-
 # Create a Function App in an App Service plan
 
 This sample script creates an Azure Function App, which is a container for your functions. The Function App is created using a dedicated App Service plan, which means your server resources are always on.
