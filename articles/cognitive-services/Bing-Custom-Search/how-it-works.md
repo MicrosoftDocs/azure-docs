@@ -58,7 +58,7 @@ Once you decide that your custom search instance meets your needs, you can publi
 ## Integrate your search into an endpoint application
 Finally, you want to show your customized search in your endpoint of choice. For example, you can provide your search experience in an external website, an internal web application, or in a mobile app. You can choose any endpoint as long as it is able to consume and render JSON files.
 
-Read the [Bing Web Search API Use and Display requirements](https://docs.microsoft.com/azure/cognitive-services/bing-web- search/useanddisplayrequirements) to understand how to display the retrieved results.
+Read the [Bing Web Search API Use and Display requirements](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/useanddisplayrequirements) to understand how to display the retrieved results.
 
 ## Next Steps
 1. Create a custom search instance
