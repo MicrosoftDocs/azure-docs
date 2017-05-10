@@ -23,16 +23,16 @@ The **Identity Experience Framework** (IEF) underlying Azure AD B2C enables the 
 
 At the end of this walkthrough you will be able to create Azure AD B2C user journeys which interact with RESTful services.
 
-The IEE sends data in claims and receives data back in claims.  The interaction with the API can be designed as a REST API claims exchange, as a validation profile, which happens inside an orchestrations step.
+The IEF sends data in claims and receives data back in claims.  The interaction with the API can be designed as a REST API claims exchange, as a validation profile, which happens inside an orchestrations step.
 
 - This typically validates input from the user
 - If the value from the user is rejected, then the user can try again to enter a valid value with the opportunity to return an error message to the user.
 
 The interaction can also be designed as an orchestration step. For more information, please see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journeys as an orchestration step](active-directory-b2c-rest-api-step-custom.md).
 
-For the validation profile example, we will use the Profile Edit user journey in the Starterpack file TrustFramework_Profile_Edit.
+For the validation profile example, we will use the Profile Edit user journey in the starter pack file ProfileEdit.xml.
 
-We will simply verify that the given name provided by the user in the profile edit is not part of an excluded list.
+We can verify that the given name provided by the user in the profile edit is not part of an excluded list.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ We will simply verify that the given name provided by the user in the profile ed
 > [!NOTE]
 > Set up of REST API functions is outside the scope of this article. [Azure Function Apps](https://docs.microsoft.com/azure/azure-functions/functions-reference) provides an excellent toolkit to create RESTful services in the cloud.
 
-We have created an Azure Function that receives a claim which it expects as “playerTag” and validates whether or not this claim exists. You can access the complete Azure function code in <!--TODO: Add link to function-->[GitHub]().
+We have created an Azure Function that receives a claim which it expects as “playerTag” and validates whether or not this claim exists. You can access the complete Azure function code in [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
 
 ```
 if (requestContentAsJObject.playerTag == null)
@@ -71,11 +71,11 @@ if (requestContentAsJObject.playerTag == null)
     return request.CreateResponse(HttpStatusCode.OK);
 ```
 
-The `userMessage` claim returned by the Azure Function is expected by the Identity Experience Engine and will be presented as a string to the user if the validation fails, such as when a 409 conflict status is returned in the above example.
+The `userMessage` claim returned by the Azure Function is expected by the Identity Experience Framework and will be presented as a string to the user if the validation fails, such as when a 409 conflict status is returned in the above example.
 
-## Step 2 - Configure the RESTful API claims exchange as a Technical Profile in your Trustframework extensions file
+## Step 2 - Configure the RESTful API claims exchange as a technical profile in your TrustFrameworkExtensions.xml file
 
-A Technical profile is the full configuration of the exchange desired with the RESTful service. Open the `TrustframeworkExtensions.xml` file and add the XML snippet below inside the `<ClaimsProvider>` element.
+A technical profile is the full configuration of the exchange desired with the RESTful service. Open the `TrustFrameworkExtensions.xml` file and add the XML snippet below inside the `<ClaimsProviders>` element.
 
 > [!NOTE]
 > Consider the “Restful Provider, Version 1.0.0.0”  described below as the protocol as the function that will interact with the external service.  A full definition of the schema can be found <!-- TODO: Link to RESTful Provider schema definition>-->
@@ -113,11 +113,11 @@ A Technical profile is the full configuration of the exchange desired with the R
 
 The `InputClaims` element defines the claims that will be sent from the IEE to the REST service. In the above example, the contents of the claims `givenName` will be sent to the REST service as `playerTag`. In this example, the IEE does not expect claims back, and instead waits for a response from the REST service and acts based on the status codes received.
 
-## Step 3 - Include the RESTful service claims exchange in Self-Asserted Technical Profile where you wish to validate the user input
+## Step 3 - Include the RESTful service claims exchange in self-asserted technical profile where you wish to validate the user input
 
 The most common use of the validation step is in the interaction with a user.  All interactions where the user is expected to provide input, are **Self-Asserted Technical Profiles**. For this example we will add this validation to  the **Self-Asserted-ProfileUpdate** technical profile (TP).  This is the TP used by the RP policy file `Profile Edit`.
 
-To add the claimss exchange to the Self-Asserted Technical Profile:
+To add the claims exchange to the Self-Asserted Technical Profile:
 
 1. Open the TrustFrameworkBase file and search for `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`.
 2. Review the configuration of this TP and observe how the exchange with the user is defined as claims that will be asked of the user (input claims) and claims that will be expected back from the self asserted provider (output claims)

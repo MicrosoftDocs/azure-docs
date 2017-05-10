@@ -4,7 +4,7 @@ description: Learn about techniques and features to secure your Azure SQL databa
 services: sql-database
 documentationcenter: ''
 author: DRediske
-manager: johammer
+manager: jhubbard
 editor: ''
 tags: ''
 
@@ -15,18 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 05/03/2017
+ms.date: 05/07/2017
 ms.author: daredis
 
 ---
 # Secure your Azure SQL Database
 
-In this tutorial, you walk through the basics of securing your SQL Database. With just a few simple steps, you can take any database and greatly improve its protection against malicious users or unauthorized access.
+SQL Database secures your data by limiting access to your database using firewall rules, authentication mechanisms requiring users to prove their identity, and authorization to data through role-based memberships and permissions, as well as through row-level security and dynamic data masking.
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+You can improve the protection of your database against malicious users or unauthorized access with just a few simple steps. In this tutorial you learn to: 
+
+> [!div class="checklist"]
+> * Set up firewall rules for your sever and or database
+> * Connect to your database using a secure connection string
+> * Manage user access
+> * Protect your data with encryption
+> * Enable SQL Database auditing
+> * Enable SQL Database threat detection
 
 To complete this tutorial, make sure you have installed Excel, and the newest version of [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS).
-
 
 
 ## Set up firewall rules for your database
@@ -208,7 +215,16 @@ For example, Threat Detection detects certain anomalous database activities indi
 
 
 ## Next steps
+You can improve the protection of your database against malicious users or unauthorized access with just a few simple steps. In this tutorial you learn to: 
 
-* For an overview of all SQL Database security features, see [SQL Database Security Overview](sql-database-security-overview.md).
-* For additional encryption of sensitive columns in your database, consider using client-side encryption with [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
-* For additional access control capabilities, [Row Level Security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) enables you to restrict access to rows in a database based on the user’s group membership or execution context, and [Dynamic Data Masking](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limits sensitive data exposure by masking it to non-privileged users on the application layer. 
+> [!div class="checklist"]
+> * Set up firewall rules for your sever and or database
+> * Connect to your database using a secure connection string
+> * Manage user access
+> * Protect your data with encryption
+> * Enable SQL Database auditing
+> * Enable SQL Database threat detection
+
+> [!div class="nextstepaction"]
+>[Improve SQL Database performance](sql-database-performance-tutorial.md)
+
