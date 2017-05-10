@@ -18,7 +18,7 @@ ms.date: 05/09/2017
 ms.author: iainfou
 ---
 
-# Create a continuous integration pipeline with VSTS and IIS on a Windows virtual machine in Azure
+# Create a continuous integration pipeline with Visual Studio Team Services and IIS
 To automate the build and test phase of application development, you can use a continuous integration and deployment (CI/CD) pipeline. In this tutorial, you create a CI/CD pipeline using Visual Studio Team Services (VSTS) and a Windows virtual machine (VM) in Azure that runs IIS. You learn how to:
 
 > [!div class="checklist"]
@@ -67,7 +67,7 @@ In the previous step, you created a project in VSTS. The final step opens your n
 
 
 ## Create build definition
-In VSTS, you use a build definition to outline how you application should be built. In this tutorial, we create a basic definition that takes our source code, builds the solution, then creates web deploy package we can use to run the web app on an IIS server.
+In VSTS, you use a build definition to outline how your application should be built. In this tutorial, we create a basic definition that takes our source code, builds the solution, then creates web deploy package we can use to run the web app on an IIS server.
 
 1. Within your VSTS project, click **Build & Release** across the top, then select **Builds**.
 3. Click **+ New definition**.
@@ -197,9 +197,13 @@ With your web application running on IIS, now try the whole CI/CD pipeline. Afte
 4. Save the file.
 5. Open the **Team Explorer** window, select the *myWebApp* project, then click **Changes**.
 6. Enter a commit message, such as *Testing CI/CD pipeline*, then select **Commit All and Sync** from the drop-down menu.
-7. In VSTS workspace, a new build is triggered from the code commit. Click **Build & Release**, then **Builds**. Select your build definition, then click the **Queued & running** build to watch as the build progresses.
-8. Once the build is successful, a new release is triggered. Click **Build & Release**, then **Releases** to see the web deploy package pushed to your IIS VM. Click the **Refresh** icon to update the status. When the *Environments* column shows a green check mark, the release has successfully deployed to IIS.
-9. To see your changes applied, refresh your IIS website in a browser.
+7. In VSTS workspace, a new build is triggered from the code commit. 
+    - Click **Build & Release**, then **Builds**. 
+    - Select your build definition, then click the **Queued & running** build to watch as the build progresses.
+9. Once the build is successful, a new release is triggered.
+    - Click **Build & Release**, then **Releases** to see the web deploy package pushed to your IIS VM. 
+    - Click the **Refresh** icon to update the status. When the *Environments* column shows a green check mark, the release has successfully deployed to IIS.
+11. To see your changes applied, refresh your IIS website in a browser.
 
     ![ASP.NET web app running on IIS VM from CI/CD pipeline](media/tutorial-vsts-iis-cicd/running_web_app_cicd.png)
 
@@ -215,3 +219,8 @@ In this tutorial, you created an ASP.NET web application in VSTS and configured 
 > * Add the IIS instance to a deployment group in VSTS
 > * Create a release defintion to publish new web deploy packages to IIS
 > * Test the CI/CD pipeline
+
+Follow this link to see pre-built virtual machine script samples.
+
+> [!div class="nextstepaction"]
+> [Windows virtual machine script samples](./powershell-samples.md)
