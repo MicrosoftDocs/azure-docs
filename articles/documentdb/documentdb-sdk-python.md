@@ -47,6 +47,11 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
+### <a name="2.2.0"/>2.2.0
+* Added support for Request Unit per Minute (RU/m) feature.
+* Added support for a new consistency level called ConsistentPrefix.
+
+
 ### <a name="2.1.0"/>2.1.0
 * Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG).
 * Added an option for disabling SSL verification when running against DocumentDB Emulator.
