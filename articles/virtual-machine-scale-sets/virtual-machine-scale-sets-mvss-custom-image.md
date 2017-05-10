@@ -28,7 +28,7 @@ Our minimum viable scale set template can be seen [here](https://raw.githubuserc
 
 ### Creating a managed disk image
 
-If you already have a custom managed disk image (a resource of type `Microsoft.Compute/images), then you can skip this section.
+If you already have a custom managed disk image (a resource of type `Microsoft.Compute/images`), then you can skip this section.
 
 First, we add a `sourceImageVhdUri` parameter, which is the URI to the generalized blob in Azure Storage that contains the custom image to deploy from.
 
