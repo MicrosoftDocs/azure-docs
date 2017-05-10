@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 05/10/2017
 ms.author: cynthn
 
 ---
@@ -72,6 +72,7 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 
 
 ## Log in to Azure
+
 If you don't already have PowerShell version installed, read [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 1. Open Azure PowerShell and sign in to your Azure account. A pop-up window opens for you to enter your Azure account credentials.
