@@ -1,5 +1,5 @@
 ---
-redirect_url: /azure/cognitive-services/bing-spell-check/quick-start
+redirect_url: /azure/cognitive-services/Bing-Spell-Check/proof-text
 title: Azure Cognitive Services, Bing Spell Check Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to make API calls to Bing Spell Check.
 services: 
