@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2017
+ms.date: 05/10/2017
 ms.author: kumud
 ---
 
@@ -25,7 +25,7 @@ Traffic Manager profiles use traffic-routing methods to control the distribution
 
 You can create a Traffic Manager profile by using the Azure portal. After creating your profile, you can configure endpoints, monitoring and other settings in the Azure portal. Traffic Manager supports up to 200 endpoints per profile. However, most usage scenarios require only a few of endpoints.
 
-### To Create a Traffic Manager profile
+### To create a Traffic Manager profile
 
 1. From a browser, sign in to the [Azure portal](http://portal.azure.com). If you don’t already have an account, you can sign-up for a [free one-month trial](https://azure.microsoft.com/free/). 
 2. On the **Hub** menu, click **New** > **Networking** > **See all**, click **Traffic Manager** profile to open the **Create Traffic Manager profile** blade, then click **Create**.
