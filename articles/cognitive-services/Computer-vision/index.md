@@ -71,39 +71,15 @@ ms.author: carolz
     <li><a href="/azure/cognitive-services/Computer-vision/Tutorials/PythonTutorial">Python Tutorial</a></li>
 </ol>
 
-<h2 style="margin-top: 36px">Free PluralSight Video Training</h2>
-<ul class="panelContent cardsW">
-    <li style="flex: 0 1 25%">
-        <a href="https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02"> 
-            <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card">
-                       <div class="cardImageOuter">
-                            <div class="cardImage">
-                                <img style="max-width: 100%" alt="" src="../../sql-database/media/index/video-training-dotnet.png" data-linktype="external">
-                            </div>
-                        </div>
-                        <div class="cardText">
-                            <p>Developing with .NET</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </li>
-</ul>
-
-<h2 style="margin-top: 36px">Resources</h2>
+<h2 style="margin-top: 36px">Reference</h2>
 <ul class="panelContent cardsD">
     <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Top Topics</h3>
-                        <p><a href="/azure/cognitive-services/Computer-vision/Home">Overview</a></p>
-                        <p><a href="/azure/cognitive-services/Computer-vision/FAQ">Frequently Asked Questions</a></p>
-                        <p><a href="/azure/cognitive-services/Computer-vision/Research">The Research Behind Computer Vision API</a></p>
+                        <h3>APIs</h3>
+                        <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739">API Reference</a></p>
                     </div>
                 </div>
             </div>
@@ -114,10 +90,10 @@ ms.author: carolz
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>How-to Topics</h3>
-                        <p><a href="/azure/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToCallVisionAPI">Call Computer Vision API</a></p>
-                        <p><a href="/azure/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowtoAnalyzeVideo-Vision">Analyze Videos in Real-time</a></p>
-                        <p><a href="/azure/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToSubscribe">Obtain Subscription Keys</a></p>
+                        <h3>SDKs</h3>
+                        <p><a href="https://github.com/Microsoft/Cognitive-vision-android">Android</a></p>
+                        <p><a href="https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK">Swift</a></p>
+                        <p><a href="https://github.com/Microsoft/Cognitive-vision-windows">Windows</a></p>
                     </div>
                 </div>
             </div>

@@ -72,41 +72,30 @@ ms.author: carolz
     <li><a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinPythonTutorial">Python Tutorial</a></li>
 </ol>
 
-<h2 style="margin-top: 36px">Free PluralSight Video Training</h2>
-<ul class="panelContent cardsW">
-    <li style="flex: 0 1 25%">
-        <a href="https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02"> 
-            <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card">
-                       <div class="cardImageOuter">
-                            <div class="cardImage">
-                                <img style="max-width: 100%" alt="" src="../../sql-database/media/index/video-training-dotnet.png" data-linktype="external">
-                            </div>
-                        </div>
-                        <div class="cardText">
-                            <p>Developing with .NET</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </li>
-</ul>
-
-<h2 style="margin-top: 36px">Resources</h2>
+<h2 style="margin-top: 36px">Reference</h2>
 <ul class="panelContent cardsD">
     <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Top Topics</h3>
-                        <p><a href="/azure/cognitive-services/Face/Overview">Overview</a></p>
-                        <p><a href="/azure/cognitive-services/Face/FAQ">Frequently Asked Questions</a></p>
-                        <p><a href="/azure/cognitive-services/Face/Glossary">Glossary</a></p>
-                        <p><a href="/azure/cognitive-services/Face/APIReference">API Reference</a></p>
-                        <p><a href="/azure/cognitive-services/Face/ReleaseNotes">Release Notes</a></p>
+                        <h3>APIs</h3>
+                        <p><a href="/azure/cognitive-services/face/apireference">API Reference</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>SDKs</h3>
+                        <p><a href="https://github.com/Microsoft/Cognitive-Face-Android">Android</a></p>
+                        <p><a href="https://github.com/Microsoft/Cognitive-Face-iOS">iOS</a></p>
+                        <p><a href="https://github.com/Microsoft/Cognitive-Face-iOS">Python</a></p>
+                        <p><a href="https://github.com/Microsoft/Cognitive-Face-Windows">Windows</a></p>
                     </div>
                 </div>
             </div>
