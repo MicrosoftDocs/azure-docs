@@ -53,7 +53,7 @@ Your proxy now exists as a new endpoint on your function app. From a client pers
 
 ## <a name="modify-requests-responses"></a>Modify requests and responses
 
-With Azure Functions Proxies, you can modify requests to and responses from the back end. These transformations can use variables as defined in [Using variables].
+With Azure Functions Proxies, you can modify requests to and responses from the back end. These transformations can use variables as defined in [Use variables].
 
 ### <a name="modify-backend-request"></a>Modify the back-end request
 
