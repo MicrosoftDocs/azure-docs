@@ -18,7 +18,7 @@ ms.date: 05/2/2017
 ms.author: v-shiuma
 ---
 
-# Set up Oracle ASM on an Oracle Linux virtual machine in Azure 
+# Set up Oracle ASM on an Azue Linux virtual machine 
 
 In this article, learn how to install and set up Oracle Automatic Storage Management (Oracle ASM) on an Oracle Linux virtual machine (VM) in Azure.
 
@@ -36,7 +36,7 @@ az login
 
 To create a resource group, use the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
-The following example creates a resource group named `myResourceGroup` in the `westus` location.
+The following example creates a resource group named myResourceGroup in the westus location.
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -46,7 +46,7 @@ az group create --name myResourceGroup --location westus
 
 To create a virtual machine (VM), use the [az vm create](/cli/azure/vm#create) command. 
 
-The following example creates a VM named `myVM`. It also creates SSH keys, if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
+The following example creates a VM named myVM. It also creates SSH keys, if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
 
 ```azurecli
 az vm create --resource-group myResourceGroup --name myVM --image Oracle:Oracle-Database-Ee:12.1.0.2:latest --size Standard_DS2_v2 --generate-ssh-keys
@@ -84,9 +84,9 @@ To create an SSH session with the VM, use the following command. Replace the IP 
 ssh <publicIpAddress>
 ```
 
-## Install ASM
+## Install Oracle ASM
 
-To install Oracle ASM, run the following sets of commands. 
+To install Oracle ASM, complete the following steps. 
 
 For more information about installing Oracle ASM, see [Oracle ASMLib Downloads for Oracle Linux 6](http://www.oracle.com/technetwork/server-storage/linux/asmlib/ol6-1709075.html).  
 
@@ -142,9 +142,9 @@ For more information about installing Oracle ASM, see [Oracle ASMLib Downloads f
   # chown grid:oinstall /u01/app/grid
   ```
 
-## Set up Oracle ASM
+## Set up your Oracle ASM installation
 
-For this tutorial, the default user is *grid* and the default group is *asmadmin*. Ensure that the *oracle* user is part of the asmadmin group.
+For this tutorial, the default user is *grid* and the default group is *asmadmin*. Ensure that the *oracle* user is part of the asmadmin group. To set up your Oracle ASM installation, complete the following steps:
 
 1.  Set the Oracle ASM library driver:
 
@@ -208,9 +208,9 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
   Syncing disks.
   ```
 
-4.  Repeat the preceding step for /dev/sdd /dev/sde and /dev/sdf.
+4.  Repeat the preceding step for /dev/sdd, /dev/sde, and /dev/sdf.
 
-5.  Check disk configuration:
+5.  Check the disk configuration:
 
   ```bash
   # cat /proc/partitions
@@ -274,7 +274,7 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
   FRA
   ```
 
-10. Change the passwords for root, oracle, and grid (you use the passwords later, during installation):
+10. Change the passwords for the root, oracle, and grid users (you use the passwords later, during installation):
 
   ```bash
   # passwd oracle
@@ -297,11 +297,11 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
   # chmod 600 /dev/sdf1
   ```
 
-## Download and prepare the grid software
+## Download and prepare Oracle Grid Infrastructure
 
-1.  Download the Oracle Grid Infrastructure software on the [Oracle ASM download page](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html). 
+1.  Download the Oracle Grid Infrastructure software from the [Oracle ASM download page](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html). 
 
-  There should be two .zip files to download under the title **Oracle Database 12c Release 1 Grid Infrastructure (12.1.0.2.0) for Linux x86-64**.
+  Under the download title **Oracle Database 12c Release 1 Grid Infrastructure (12.1.0.2.0) for Linux x86-64**, there should be two .zip files to download.
 
 2.  After you download the .zip files to your client computer, you can use Secure Copy Protocol (SCP) to copy the files to your VM.
 
@@ -318,7 +318,7 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
     # chown grid:oinstall linuxamd64_12102_grid_2of2.zip
     ```
 
-4.  Unzip the files (install the unzip utility if it's not already installed):
+4.  Unzip the files (install the Linux unzip utility if it's not already installed):
 
     ```bash
     # yum install unzip
@@ -364,9 +364,9 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
 
 ## Prepare the client and VM to run X11 (for Windows clients only)
 
-Sign in as root and edit the /etc/ssh/ssh_config file. 
+To prepare the client and VM to run X11, sign in as root, and then edit the /etc/ssh/ssh_config file: 
 
-1.  Change the setting of Forwardx11 to `yes`:
+1.  Change the setting for Forwardx11 to `yes`:
 
   ```
   #   ForwardX11 no
@@ -376,12 +376,17 @@ Sign in as root and edit the /etc/ssh/ssh_config file.
 
 2.  Download PuTTY and Xming to your Windows computer:
 
-  http://www.putty.org/
-  https://xming.en.softonic.com/
+  * [Download PuTTY](http://www.putty.org/)
+  * [Download Xming](https://xming.en.softonic.com/)
 
-3.  After you install PuTTY, in the PuTTY folder (for example, C:\Program Files\PuTTY), run puttygen.exe.
+3.  After you install PuTTY, in the PuTTY folder (for example, C:\Program Files\PuTTY), run puttygen.exe (PuTTY Key Generator).
 
-4.  To generate a key, select the **Generate** button. Copy the contents of the key (Ctrl+C), and then select the **Save private key** button. Ignore the warning that appears, and then select **OK**.
+4.  In PuTTY Key Generator:
+
+  1.  To generate a key, select the **Generate** button. 
+  2.  Copy the contents of the key (Ctrl+C).
+  3.  Select the **Save private key** button. 
+  4.  Ignore the warning that appears, and then select **OK**.
 
   ![Screenshot of the PuTTY key generator page](./media/asm-configuration/puttykeygen.png)
 
@@ -393,13 +398,13 @@ Sign in as root and edit the /etc/ssh/ssh_config file.
   $ cd .ssh
   ```
 
-6.  Create a file named Authorized_keys. Paste the contents of the key in this file, and then save the file.
+6.  Create a file named authorized_keys. Paste the contents of the key in this file, and then save the file.
 
   > [!NOTE]
-  > The key must contain the string `ssh-rsa ....`. Also, the contents of the key must be a single line of text.
+  > The key must contain the string `ssh-rsa`. Also, the contents of the key must be a single line of text.
   >  
 
-7.  Start PuTTY. In the **Category** pane, go to **Connection** > **SSH** > **Auth**. In the **Private key file for authentication** box, go to the key you generated earlier.
+7.  Start PuTTY. In the **Category** pane, go to **Connection** > **SSH** > **Auth**. In the **Private key file for authentication** box, browse to the key you generated earlier.
 
   ![Screenshot of the Set Private Key page](./media/asm-configuration/setprivatekey.png)
 
@@ -411,115 +416,127 @@ Sign in as root and edit the /etc/ssh/ssh_config file.
 
   ![Screenshot of the Session page](./media/asm-configuration/puttysession.png)
 
-11. Sign in as grid. (You should be able to sign in without being prompted for a password.) 
+## Install Oracle Grid Infrastructure
 
-> [!NOTE]
-> Make sure that Xming is running before you begin the installation.
+To install Oracle Grid Infrastructure, complete the following steps:
 
-  ```bash
-  $ cd /opt/grid
-  $ ./runInstaller
-  ```
+1. Sign in as grid. (You should be able to sign in without being prompted for a password.) 
 
-  It might take a few minutes for the Oracle installer to start.
+  > [!NOTE]
+  > Make sure that Xming is running before you begin the installation.
 
-12. On the **Select Installation Option** page, select **Install and Configure Oracle Grid Infrastructure for a Standalone Server**.
+    ```bash
+    $ cd /opt/grid
+    $ ./runInstaller
+    ```
+
+  Oracle Grid Infrastructure 12c Release 1 Installer opens. (It might take a few minutes for the  installer to start.)
+
+2. On the **Select Installation Option** page, select **Install and Configure Oracle Grid Infrastructure for a Standalone Server**.
 
   ![Screenshot of the installer Select Installation Option page](./media/asm-configuration/install01.png)
 
-13. On the **Select Product Language** page, select **English** or the language that you want.
+3. On the **Select Product Languages** page, select **English** or the language that you want.
 
-  ![Screenshot of the installer Select Product Language page](./media/asm-configuration/install02.png)
+  ![Screenshot of the installer Select Product Languages page](./media/asm-configuration/install02.png)
 
-14. On the **Create ASM Disk Group** page, enter a name for the disk group, and select the **ORCLASMSP** box.
+4. On the **Create ASM Disk Group** page:
+  1.  Enter a name for the disk group.
+  2.  Under **Redundancy**, select **External**.
+  3.  Under **Allocation Unit Size**, select **4**.
+  4.  Under **Add Disks**, select **ORCLASMSP**.
 
   ![Screenshot of the installer Create ASM Disk Group page](./media/asm-configuration/install03.png)
 
-15. On the **Specify ASM Password** page, select the **Use same passwords for these accounts** option, and enter passwords.
+5. On the **Specify ASM Password** page, select the **Use same passwords for these accounts** option, and enter a password.
 
   ![Screenshot of the installer Specify ASM Password page](./media/asm-configuration/install04.png)
 
-16. (Optional) On the **Specify Management Options** page, select the **Register the Enterprise Manager (EM) Cloud Control** box.
+6. (Optional) On the **Specify Management Options** page, select the **Register with Enterprise Manager (EM) Cloud Control** box.
 
   ![Screenshot of the installer Specify Management Options page](./media/asm-configuration/install05.png)
 
-17. On the **Privileged Operating System Groups** page, use the default setting.
+7. On the **Privileged Operating System Groups** page, use the default settings.
 
   ![Screenshot of the installer Privileged Operating System Groups page](./media/asm-configuration/install06.png)
 
-18. On the **Specify Installation Location** page, use the default setting.
+8. On the **Specify Installation Location** page, use the default settings.
 
   ![Screenshot of the installer Specify Installation Location page](./media/asm-configuration/install07.png)
 
-19. On the **Create Inventory** page, enter the folder location.
+9. On the **Create Inventory** page, enter or browse to the folder location.
 
   ![Screenshot of the installer Create Inventory page](./media/asm-configuration/install08.png)
 
-20. On the **Root script execution configuration** page, select the **Automatically run configuration scripts** box. Then, select the **Use "root" user credential** option, and enter the root user password.
+10. On the **Root script execution configuration** page, select the **Automatically run configuration scripts** box. Then, select the **Use "root" user credential** option, and enter the root user password.
 
   ![Screenshot of the installer Root script execution configuration page](./media/asm-configuration/install09.png)
 
-21. On the **Perform Prerequisite Checks** page, select **Fix & Check Again**.
+11. On the **Perform Prerequisite Checks** page, select **Fix & Check Again**.
 
   ![Screenshot of the installer Perform Prerequisite Checks page](./media/asm-configuration/install10.png)
 
-22. On the **Fixup Script** page, select **OK**.
+12. On the **Fixup Script** page, select **OK**.
 
   ![Screenshot of the installer Fixup Script page](./media/asm-configuration/install11.png)
 
-23. On the **Summary** page, review your settings selections, and then select **Install**.
+13. On the **Summary** page, review your settings selections, and then select **Install**.
 
   ![Screenshot of the installer Summary page](./media/asm-configuration/install12.png)
 
-24. A warning dialog box appears. Select **Yes** to continue.
+14. A warning dialog box appears. Select **Yes** to continue.
 
   ![Screenshot of warning dialog box](./media/asm-configuration/install14.png)
 
-25. On the **Finish** page, select **Close** to finish the installation.
+15. On the **Finish** page, select **Close** to finish the installation.
 
   ![Screenshot of the installer Finish page](./media/asm-configuration/install16.png)
 
 ## Set up Oracle ASM
 
-1. Start Oracle ASM Configuration Assistant.
+To set up Oracle ASM, complete the following steps:
 
-2.  Sign in as grid, from your X11 session:
+1.  Sign in as grid, from your X11 session:
 
   ```bash
   $ cd /u01/app/grid/product/12.1.0/grid/bin
   $ ./asmca
   ```
 
-3.  On the **Configure ASM: Disk Groups** page, select the **Create** button, and then select **Show advanced option**.
+  Oracle ASM Configuration Assistant opens.
+
+2.  On the **Configure ASM: Disk Groups** page, select the **Create** button, and then select **Show advanced option**.
 
   ![Screenshot of the Configure ASM: Disk Groups page](./media/asm-configuration/asm01.png)
 
-4.  On the **Create Disk Group** page:
-  a.  Enter the disk group name.
-  b.  Under **Select Member Disks**, select **ORCL_DATA** and **ORCL_DATA1**.
-  c.  Under **Allocation Unit Size**, select **4**. 
+3.  On the **Create Disk Group** page:
+
+  1.  Enter the disk group name.
+  2.  Under **Select Member Disks**, select **ORCL_DATA** and **ORCL_DATA1**.
+  3.  Under **Allocation Unit Size**, select **4**. 
 
   ![Screenshot of the Create Disk Group page](./media/asm-configuration/asm02.png)
 
-5.  On the **Configure ASM: Disk Groups** page, select the **Create** button, and then select **Show advanced option**.
+4.  On the **Configure ASM: Disk Groups** page, select the **Create** button, and then select **Show advanced option**.
 
   ![Screenshot of the Configure ASM: Disk Groups page](./media/asm-configuration/asm03.png)
 
-6.  On the **Create Disk Group** page:
-  a.  Enter the disk group name.
-  b.  Under **Redundancy**, select **External**.
-  c.  Under **Select Member Disks**, select **ORCL_FRA**.
-  d.  Under **Allocation Unit Size**, select **4**.
+5.  On the **Create Disk Group** page:
+
+  1.  Enter the disk group name.
+  2.  Under **Redundancy**, select **External**.
+  3.  Under **Select Member Disks**, select **ORCL_FRA**.
+  4.  Under **Allocation Unit Size**, select **4**.
 
   ![Screenshot of the Create Disk Group page](./media/asm-configuration/asm04.png)
 
-7.  Select the **Exit** button to close Configuration Assistant.
+6.  Select **Exit** to close ASM Configuration Assistant.
 
   ![Screenshot of the Configure ASM: Disk Groups page with Exit button](./media/asm-configuration/asm05.png)
 
 ## Create the database
 
-The Oracle software is already installed on the Marketplace image. The next step is to install the database.
+The Oracle software is already installed on the Azure Marketplace image. To install the database, complete the following steps:
 
 1.  Switch users to the oracle superuser, and then initialize the listener for logging:
 
@@ -529,20 +546,22 @@ The Oracle software is already installed on the Marketplace image. The next step
   $ cd /u01/app/oracle/product/12.1.0/dbhome_1/bin
   $ ./dbca
    ```
+   Database Configuration Assistant opens.
 
-2.  In Database Configuration Assistant, on the **Database Operation** page, select **Create Database**.
+2.  On the **Database Operation** page, select **Create Database**.
 
   ![Screenshot of the Database Operation page](./media/asm-configuration/createdb01.png)
   
 3. On the **Creation Mode** page:
 
-    1.  Enter the database name. For **Storage Type**, select **Automatic Storage Management (ASM)**.
-    2.  Browse to the folder for **Database Files Location**.
-    3.  Browse to the folder for **Fast Recovery Area**.
+    1.  Enter a name for the database. 
+    2.  For **Storage Type**, select **Automatic Storage Management (ASM)**.
+    3.  For **Database Files Location**, browse to the folder you want to use.
+    4.  For **Fast Recovery Area**, browse to the folder you want to use.
 
   ![Screenshot of the Creation Mode page](./media/asm-configuration/createdb02.png)
 
-4.  On the **Summary** page, review your settings selections, and then select **Finish** to begin the installation.
+4.  On the **Summary** page, review your settings selections, and then select **Finish** to create the database.
 
   ![Screenshot of the Summary page](./media/asm-configuration/createdb03.png)
 
