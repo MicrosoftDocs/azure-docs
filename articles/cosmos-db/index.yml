@@ -39,14 +39,14 @@ sections:
         - href: /azure/cosmos-db/create-documentdb-dotnet
         - href: /azure/cosmos-db/create-documentdb-java
         - href: /azure/cosmos-db/create-documentdb-nodejs
-        - href:
+        - href: /azure/cosmos-db/create-documentdb-python
         - href:
       - title: MongoDB API
         values:
           - href: 
           - href: /azure/cosmos-db/create-mongodb-java
           - href: /azure/cosmos-db/create-mongodb-nodejs
-          - href: /azure/cosmos-db/create-mongodb-python
+          - href: 
           - href: 
       - title: Graph API
         values:
