@@ -32,7 +32,7 @@ To build a database with Microsoft Azure Cosmos DB, you must:
 * Have an Azure account. You can get a [free Azure account](https://azure.microsoft.com/free) if you don't have one already.
 * Create an Azure Cosmos DB account.  
 
-You can create a Azure Cosmos DB account using either the Azure portal, Azure Resource Manager templates, or Azure command-line interface (CLI). This article shows how to create a Azure Cosmos DB account using the Azure portal. To create an account using Azure Resource Manager or Azure CLI, see [Automate Azure Cosmos DB database account creation](documentdb-automation-resource-manager-cli.md).
+You can create an Azure Cosmos DB account using either the Azure portal, Azure Resource Manager templates, or Azure command-line interface (CLI). This article shows how to create an Azure Cosmos DB account using the Azure portal. To create an account using Azure Resource Manager or Azure CLI, see [Automate Azure Cosmos DB database account creation](documentdb-automation-resource-manager-cli.md).
 
 Are you new to Azure Cosmos DB? Watch [this](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) four-minute video by Scott Hanselman to see how to complete the most common tasks in the online portal.
 
@@ -72,7 +72,7 @@ Now that you have an Azure Cosmos DB account, the next step is to create an Azur
 
 You can create a new collection and database by using one of the following:
 
-* The Azure portal, as described in [Create a Azure Cosmos DB collection using the Azure portal](documentdb-create-collection.md).
+* The Azure portal, as described in [Create an Azure Cosmos DB collection using the Azure portal](documentdb-create-collection.md).
 * The all-inclusive tutorials, which include sample data: [.NET](documentdb-get-started.md), [.NET MVC](documentdb-dotnet-application.md), [Java](documentdb-java-application.md), [Node.js](documentdb-nodejs-application.md), or [Python](documentdb-python-application.md).
 * The [.NET](documentdb-dotnet-samples.md#database-examples), [Node.js](documentdb-nodejs-samples.md#database-examples), or [Python](documentdb-python-samples.md#database-examples) sample code available in GitHub.
 * The [.NET](documentdb-sdk-dotnet.md), [.NET Core](documentdb-sdk-dotnet-core.md), [Node.js](documentdb-sdk-node.md), [Java](documentdb-sdk-java.md), [Python](documentdb-sdk-python.md), and [REST](https://msdn.microsoft.com/library/azure/mt489072.aspx) SDKs.
@@ -84,5 +84,4 @@ After you have documents in a collection, you can use [DocumentDB SQL](documentd
 ### Learn more
 To learn more about Azure Cosmos DB, explore these resources:
 
-* [Learning path for Azure Cosmos DB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
-* [Azure Cosmos DB hierarchical resource model and concepts](documentdb-resources.md)
+* [Azure Cosmos DB Introduction](../cosmos-db/introduction.md)

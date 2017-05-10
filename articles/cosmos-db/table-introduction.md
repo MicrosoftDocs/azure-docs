@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/03/2017
+ms.date: 05/10/2017
 ms.author: arramac
 
 ---

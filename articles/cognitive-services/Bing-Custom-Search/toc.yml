@@ -6,7 +6,8 @@
       href: overview.md
     - name: How it works
       href: how-it-works.md
-- name: Quickstart
+- name: Quickstarts
+  expanded: true
   items:
     - name: Build a custom search service
       href: quickstart.md

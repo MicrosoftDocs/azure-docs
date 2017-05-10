@@ -105,5 +105,4 @@ The Script Explorer in the Azure portal is just one way to work with stored proc
 ## Next steps
 Learn more about DocumentDB server-side programming in the [Stored procedures, database triggers, and UDFs](documentdb-programming.md) article.
 
-The [Learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) is also a useful resource to guide you as you learn more about DocumentDB.  
 

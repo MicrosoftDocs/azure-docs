@@ -18,7 +18,7 @@ ms.author: mimig
 
 ---
 # How to create an Azure Cosmos DB collection and database using the Azure portal
-To use Microsoft Azure Cosmos DB, you must have a [Azure Cosmos DB account](documentdb-create-account.md), a database, a collection, and documents. This topic describes how to create a Azure Cosmos DB collection in the Azure portal.
+To use Microsoft Azure Cosmos DB, you must have a [Azure Cosmos DB account](documentdb-create-account.md), a database, a collection, and documents. This topic describes how to create an Azure Cosmos DB collection in the Azure portal.
 
 Not sure what a collection is? See [What is an Azure Cosmos DB collection?](#what-is-a-documentdb-collection).
 
