@@ -3073,7 +3073,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="http://azure.github.io/azure-sdk-for-node/">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://azure.github.io/azure-storage-node/index.html">API reference</a>
+                                                    <a href="http://azure.github.io/azure-sdk-for-node/">API reference</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/documentation/samples/?platform=nodejs">Get samples</a>
