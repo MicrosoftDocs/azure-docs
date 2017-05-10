@@ -43,7 +43,7 @@ sections:
         - href:
       - title: MongoDB API
         values:
-          - href: 
+          - href: /azure/cosmos-db/create-mongodb-dotnet
           - href: /azure/cosmos-db/create-mongodb-java
           - href: /azure/cosmos-db/create-mongodb-nodejs
           - href: 
