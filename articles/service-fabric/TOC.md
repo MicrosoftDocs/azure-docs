@@ -47,6 +47,8 @@
 #### [Overview](service-fabric-containers-overview.md)
 #### [Deploy Windows container](service-fabric-deploy-container.md)
 #### [Deploy Linux container](service-fabric-deploy-container-linux.md)
+#### [Docker compose (preview)](service-fabric-docker-compose.md)
+#### [Resource Governance for Containers and Services](service-fabric-resource-governance.md)
 
 ### Build a Reliable Service service
 #### [Overview](service-fabric-reliable-services-introduction.md)
