@@ -20,7 +20,7 @@ ms.author: edmaca
 # Parameterizing U-SQL Scripts
 
 ## Summary
-When working with U-SQL scripts, it is convenient to parameterize the scripts. This allow the main body to remain the same, and still control the script's execution by passing in separate parameter values. A typical scenario involves a script processes data over some time range and a developer may want to parameterize the script on 
+When working with U-SQL scripts, it is convenient to parameterize the scripts. Parameterization allow the main body to remain the same, and still control the script's execution by passing in separate parameter values. A typical scenario involves a script processes data over some time range and a developer may want to parameterize the script on 
 a beginning date and an ending date. 
 
 There are two ways in which scripts are parameterized:
