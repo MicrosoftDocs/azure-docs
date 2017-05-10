@@ -1,5 +1,5 @@
 ---
-redirect_url: /azure/cognitive-services/bing-web-search/search-the-web
+redirect_url: /azure/cognitive-services/Bing-Web-Search/search-the-web
 title: Azure Cognitive Services, Bing Web Search Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to create and configure API calls.
 services: 
