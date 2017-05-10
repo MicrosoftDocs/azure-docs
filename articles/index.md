@@ -504,24 +504,24 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <p>Bing Image</p>
                                             </a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <a href="/azure/cognitive-services/">
                                                 <img src="media/index/cs-bing-knowledge-graph.svg" alt="" />
                                                 <p>Bing Knowledge Graph</p>
                                             </a>
-                                        </li>
+                                        </li> -->
                                         <li>
                                             <a href="/azure/cognitive-services/bing-news-search/search-the-web">
                                                 <img src="media/index/API_Sear_BingNewsSearch.svg" alt="" />
                                                 <p>Bing News</p>
                                             </a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <a href="/azure/cognitive-services/">
                                                 <img src="media/index/API_Spc_BingSpeech.svg" alt="" />
                                                 <p>Bing Speech Service</p>
                                             </a>
-                                        </li>
+                                        </li> -->
                                         <li>
                                             <a href="/azure/cognitive-services/bing-spell-check/proof-text">
                                                 <img src="media/index/API_Lang_BingSpellCheck.svg" alt="" />
@@ -547,7 +547,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/academic-knowledge/home">
+                                            <a href="/azure/cognitive-services/content-moderator/overview">
                                                 <img src="media/index/cs-content-moderator.svg" alt="" />
                                                 <p>Content Moderator</p>
                                             </a>
@@ -559,7 +559,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/custom-speech-service/home">
+                                            <a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home">
                                                 <img src="media/index/API_Spc_CustomSpeechService.svg" alt="" />
                                                 <p>Custom Speech Service</p>
                                             </a>
@@ -577,7 +577,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/academic-knowledge/home">
+                                            <a href="/azure/cognitive-services/kes/overview">
                                                 <img src="media/index/API_Know_Exploration.svg" alt="" />
                                                 <p>Knowledge Exploration Service (KES)</p>
                                             </a>
@@ -631,13 +631,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/video-indexer/overview">
+                                            <a href="/azure/cognitive-services/video-indexer/video-indexer-overview">
                                                 <img src="media/index/cs-video-indexer.svg" alt="" />
                                                 <p>Video Indexer</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/">
+                                            <a href="/azure/cognitive-services/web-language-model/home">
                                                 <img src="media/index/API_Lang_WebLM.svg" alt="" />
                                                 <p>Web Language Model</p>
                                             </a>
@@ -1908,7 +1908,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cognitive-services/custom-speech-service/home">
+                                <a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1927,7 +1927,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cognitive-services/custom-speech-service/home">
+                                <a href="/azure/cognitive-services/custom-vision-service/home">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1984,7 +1984,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cognitive-services/">
+                                <a href="/azure/cognitive-services/bing-custom-search/overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
