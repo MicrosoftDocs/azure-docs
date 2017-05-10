@@ -1667,8 +1667,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                         </ul>
                     </li>
                     <li>
-                        <a href="#mgmt">Containers</a>
-                        <ul id="mgmt" class="cardsA">
+                        <a href="#containers">Containers</a>
+                        <ul id="containers" class="cardsA">
                             <li>
                                 <a href="/azure/container-service/">
                                     <div class="cardSize">
