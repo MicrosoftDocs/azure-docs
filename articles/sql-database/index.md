@@ -9,7 +9,7 @@ ms.service: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 05/03/2017
 ms.author: carolz
 ---
 <div class="content">
@@ -57,6 +57,9 @@ ms.author: carolz
 <ol>
     <li><a href="/azure/sql-database/sql-database-design-first-database">Create and design the schema for a new SQL Database</a></li>
     <li><a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Migrate an existing SQL Server Database to use Azure SQL Database</a></li>
+    <li><a href="/azure/sql-database/sql-database-security-tutorial">Secure your SQL Database</a></li> 
+    <li><a href="/azure/sql-database/sql-database-performance-tutorial">Improve SQL Database performance</a></li> 
+    <li><a href="/azure/sql-database/sql-database-multi-tenant-application">Implement a multi-tenant SaaS application using SQL DB</a></li> 
 </ol>
 
 <h2 style="margin-top: 36px">Free PluralSight Video Training</h2>
@@ -139,7 +142,8 @@ ms.author: carolz
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3><a href="https://msdn.microsoft.com/library/mt238365.aspx">SQL Server Tools</a></h3>
+                        <h3>SQL Server Tools</h3>
+                        <p><a href="https://msdn.microsoft.com/library/mt238365.aspx">SQL Server Tools</a></p>
                         <p><a href="https://msdn.microsoft.com/library/mt238290.aspx">SQL Server Management Studio (SSMS)</a></p>
                         <p><a href="https://msdn.microsoft.com/library/mt204009.aspx">SQL Server Data Tools (SSDT)</a></p>
                         <p><a href="https://msdn.microsoft.com/library/ms162802.aspx">BCP</a></p>
@@ -156,7 +160,8 @@ ms.author: carolz
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3><a href="https://msdn.microsoft.com/library/mt654049.aspx">SQL Server Drivers</a></h3>
+                        <h3>SQL Server Drivers</h3>
+                        <p><a href="https://msdn.microsoft.com/library/mt654049.aspx">SQL Server Drivers</a></p>
                         <p><a href="https://msdn.microsoft.com/library/mt657768.aspx">ADO.NET</a></p>
                         <p><a href="https://msdn.microsoft.com/library/mt484311.aspx">JDBC</a></p>
                         <p><a href="https://msdn.microsoft.com/library/mt654048.aspx">ODBC</a></p>

@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [Hadoop](hdinsight-hadoop-introduction.md)
 ## [Hadoop components on HDInsight](hdinsight-component-versioning.md)
 ## [R Server](hdinsight-hadoop-r-server-overview.md)
@@ -132,8 +132,9 @@
 ## Extend clusters
 ### [Customize clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Customize clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md)
-### [Add Hive libraries](hdinsight-hadoop-add-hive-libraries.md)
 ### [Develop script actions](hdinsight-hadoop-script-actions-linux.md)
+### [Install or update Mono](hdinsight-hadoop-install-mono.md)
+### [Add Hive libraries](hdinsight-hadoop-add-hive-libraries.md)
 ### [Use Giraph](hdinsight-hadoop-giraph-install-linux.md)
 ### [Use Hue](hdinsight-hadoop-hue-linux.md)
 ### [Use R](hdinsight-hadoop-r-scripts-linux.md)
@@ -165,6 +166,7 @@
 #### [Use Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
 ### [Add storage accounts](hdinsight-hadoop-add-storage.md)
 ### [Upload data for Hadoop jobs](hdinsight-upload-data.md)
+### [Multiple HDInsight clusters with Data Lake Store](hdinsight-multiple-clusters-data-lake-store.md)
 ### [Import and export data with Sqoop](hdinsight-use-sqoop.md)
 #### [Connect with SSH](hdinsight-use-sqoop-mac-linux.md)
 #### [Run using cURL](hdinsight-hadoop-use-sqoop-curl.md)

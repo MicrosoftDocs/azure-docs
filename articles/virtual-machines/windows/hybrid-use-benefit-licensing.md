@@ -3,7 +3,7 @@ title: Azure Hybrid Use Benefit for Window Server and Windows Client| Microsoft 
 description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure
 services: virtual-machines-windows
 documentationcenter: ''
-author: george-moore
+author: kmouss
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 4/10/2017
-ms.author: georgem
+ms.date: 5/1/2017
+ms.author: kmouss
 
 ---
 # Azure Hybrid Use Benefit for Windows Server and Windows Client
@@ -40,13 +40,13 @@ For Windows Server:
 ```powershell
 Get-AzureRmVMImagesku -Location westus -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
-2016-Datacenter version 2016.127.20170406 or above
+- 2016-Datacenter version 2016.127.20170406 or above
 
-2012-R2-Datacenter version 4.127.20170406 or above
+- 2012-R2-Datacenter version 4.127.20170406 or above
 
-2012-Datacenter version 3.127.20170406 or above
+- 2012-Datacenter version 3.127.20170406 or above
 
-2008-R2-SP1 version 2.127.20170406 or above
+- 2008-R2-SP1 version 2.127.20170406 or above
 
 For Windows Client:
 ```powershell
@@ -212,6 +212,35 @@ For Windows Client:
 ```powershell
 New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm -LicenseType "Windows_Client"
 ```
+
+## Deploy a virtual machine scale set via Resource Manager template
+Within your VMSS Resource Manager templates, an additional parameter for `licenseType` must be specified. You can read more about [authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md). Edit your Resource Manager template to include the licenseType property as part of the scale set’s virtualMachineProfile and deploy your template as normal - see example below using 2016 Windows Server image:
+
+
+```json
+"virtualMachineProfile": {
+    "storageProfile": {
+        "osDisk": {
+            "createOption": "FromImage"
+        },
+        "imageReference": {
+            "publisher": "MicrosoftWindowsServer",
+            "offer": "WindowsServer",
+            "sku": "2016-Datacenter",
+            "version": "latest"
+        }
+    },
+    "licenseType": "Windows_Server",
+    "osProfile": {
+            "computerNamePrefix": "[parameters('vmssName')]",
+            "adminUsername": "[parameters('adminUsername')]",
+            "adminPassword": "[parameters('adminPassword')]"
+    }
+```
+
+> [!NOTE]
+> Support for deploying a virtual machine scale set with AHUB benefits through PowerShell and other SDK tools is coming soon.
+>
 
 ## Next steps
 Read more about [Azure Hybrid Use Benefit licensing](https://azure.microsoft.com/pricing/hybrid-use-benefit/).

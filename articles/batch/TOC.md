@@ -7,15 +7,19 @@
 ## [Create a Batch account](batch-account-create-portal.md)
 ## [Batch .NET tutorial](batch-dotnet-get-started.md)
 ## [Batch Python tutorial](batch-python-tutorial.md)
+## [Batch Node.js tutorial](batch-nodejs-get-started.md)
 # How To
 ## Develop
 ### [Application packages](batch-application-packages.md)
 ### [Autoscale compute nodes](batch-automatic-scaling.md)
-### [Azure AD authentication](batch-aad-auth.md)
+### Azure AD authentication
+#### [Azure AD with Batch service](batch-aad-auth.md)
+#### [Azure AD with Batch Management](batch-aad-auth-management.md)
 ### [Concurrent node tasks](batch-parallel-node-tasks.md)
 ### [Efficient list queries](batch-efficient-list-queries.md)
 ### [Job preparation and completion tasks](batch-job-prep-release.md)
 ### [Linux compute nodes](batch-linux-nodes.md)
+### [Low-priority VMs](batch-low-pri-vms.md)
 ### [Manage Batch accounts with Batch Management .NET](batch-management-dotnet.md)
 ### [Persist job and task output](batch-task-output.md)
 ### [Run MPI jobs in Batch](batch-mpi.md)

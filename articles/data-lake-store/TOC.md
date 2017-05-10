@@ -30,6 +30,7 @@
 ### [Secure data in Data Lake Store](data-lake-store-secure-data.md)
 ### [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md)
 ### [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md)
+### [Encryption](data-lake-store-encryption.md)
 
 ## Performance
 ### [Performance tuning guidance for Azure Data Lake Store](data-lake-store-performance-tuning-guidance.md)

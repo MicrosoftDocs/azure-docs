@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 05/08/2017
 ms.author: yurid
 
 ---
@@ -62,7 +62,7 @@ You can configure security policies for each subscription or resource group. To 
    >
 9. In the **Security Policy** blade, click **On** to enable the security recommendations that you want to use on this subscription. Click **Prevention policy** to see options like those in the following screenshot:
 
-    ![Selecting the security policies](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
+    ![Selecting the security policies](./media/security-center-policies/security-center-policies-fig4-newUI.png)
 
 Use the following table as a reference to understand each option:
 
@@ -78,6 +78,7 @@ Use the following table as a reference to understand each option:
 | SQL auditing & Threat detection |Recommends that auditing of access to Azure Database be enabled for compliance and also advanced threat detection, for investigation purposes. |
 | SQL transparent data encryption |Recommends that encryption at rest be enabled for your Azure SQL Database, associated backups, and transaction log files. Even if your data is breached, it will not be readable. |
 | Vulnerability assessment |Recommends that you install a vulnerability assessment solution on your VM. |
+| Storage Encryption |Currently, this feature is available for Azure Blobs and Files. Note that after enabling Storage Service Encryption, only new data will be encrypted, and any existing files in this storage account will remain unencrypted. |
 
 After you configure all options, click **OK** in the **Security Policy** blade that has the recommendations, and then click **Save** in the **Security Policy** blade that  has the initial settings.
 

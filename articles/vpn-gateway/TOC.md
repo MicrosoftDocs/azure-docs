@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [About VPN Gateway](vpn-gateway-about-vpngateways.md)
 ## [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)
 ## [Subscription and service limits](../azure-subscription-service-limits.md)
@@ -37,14 +37,18 @@
 ### [PowerShell (classic)](vpn-gateway-multi-site.md)
 ## [Configure BGP for a VPN gateway](vpn-gateway-bgp-resource-manager-ps.md)
 ## [Configure highly available active-active connections](vpn-gateway-activeactive-rm-powershell.md)
-## [Modify local network gateway settings using PowerShell](vpn-gateway-modify-local-network-gateway.md)
+## Modify local network gateway settings
+### [PowerShell](vpn-gateway-modify-local-network-gateway.md)
+### [CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Verify a VPN gateway connection](vpn-gateway-verify-connection-resource-manager.md)
 ## [Reset a VPN gateway](vpn-gateway-resetgw-classic.md)
 ## Delete a VPN gateway
 ### [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## [Create self-signed root certificates for P2S connections](vpn-gateway-certificates-point-to-site.md)
+## Create self-signed certificates for Point-to-Site
+### [PowerShell](vpn-gateway-certificates-point-to-site.md)
+### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## [Configure a VPN gateway (classic)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Troubleshoot
 ### [Validate VPN throughput to a VNet](vpn-gateway-validate-throughput-to-vnet.md)

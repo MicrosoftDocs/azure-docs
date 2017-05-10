@@ -72,6 +72,7 @@ For now, the services that enable moving to both a new resource group and subscr
 
 * API Management
 * App Service apps (web apps) - see [App Service limitations](#app-service-limitations)
+* Application Insights
 * Automation
 * Batch
 * Bing Maps
@@ -84,7 +85,7 @@ For now, the services that enable moving to both a new resource group and subscr
 * Data Lake Analytics
 * Data Lake Store
 * DNS
-* DocumentDB
+* Azure Cosmos DB
 * Event Hubs
 * HDInsight clusters - see [HDInsight limitations](#hdinsight-limitations)
 * IoT Hubs
@@ -121,7 +122,6 @@ The services that currently do not enable moving a resource are:
 
 * AD Hybrid Health Service
 * Application Gateway
-* Application Insights
 * BizTalk Services
 * Container Service
 * Express Route
@@ -144,12 +144,12 @@ When working with App Service apps, you cannot move only an App Service plan. To
 * Move the App Service plan and all other App Service resources in that resource group to a new resource group that does not already have App Service resources. This requirement means you must move even the App Service resources that are not associated with the App Service plan. 
 * Move the apps to a different resource group, but keep all App Service plans in the original resource group.
 
-If your original resource group also includes an Application Insights resource, you cannot move that resource because Application Insights does not currently enable the move operation. If you include the Application Insights resource when moving App Service apps, the entire move operation fails. However, the Application Insights and App Service plan do not need to reside in the same resource group as the app for the app to function correctly.
+App Service plan do not need to reside in the same resource group as the app for the app to function correctly.
 
 For example, if your resource group contains:
 
-* **web-a** which is associated with **plan-a** and **app-insights-a**
-* **web-b** which is associated with **plan-b** and **app-insights-b**
+* **web-a** which is associated with **plan-a**
+* **web-b** which is associated with **plan-b**
 
 Your options are:
 
@@ -158,7 +158,7 @@ Your options are:
 * Move **web-a**
 * Move **web-b**
 
-All other combinations involve either moving a resource type that can't move (Application Insights) or leaving behind a resource type that can't be left behind when moving an App Service plan (any type of App Service resource).
+All other combinations involve leaving behind a resource type that can't be left behind when moving an App Service plan (any type of App Service resource).
 
 If your web app resides in a different resource group than its App Service plan but you want to move both to a new resource group, you must perform the move in two steps. For example:
 

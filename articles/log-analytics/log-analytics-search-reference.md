@@ -615,7 +615,7 @@ Joins the results of two queries to form a single result set.  Supports multiple
 | left  | Return all records from left query and matching records from right query. |
 
 
-- Joins do not currently support queries that include the **IN** keyword or the **Measure** command.
+- Joins do not currently support queries that include the **IN** keyword, the **Measure** command or the **Extend** command if it targets a field from the right query.
 - You can currently include only a single field in a join.
 - A single search may not include more than one join.
 
