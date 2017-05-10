@@ -61,18 +61,20 @@ Let's make a quick review of what's happening in the app. Open the `Program.cs` 
 * The DocumentClient is initialized.
 
     ```java
-    MongoClientURI uri = new MongoClientURI("mongodb://<username>:<password>@<CosmosDBEndpoint>:<port>/<dbname>?ssl=true&replicaSet=globaldb");`
+    MongoClientURI uri = new MongoClientURI("FILLME");`
+
+    MongoClient mongoClient = new MongoClient(uri);            
     ```
 
-* A new database is created.
+* A new database and collection are created.
 
     ```java
-    MongoDatabase database = mongoClient.getDatabase("<dbname>");
+    MongoDatabase database = mongoClient.getDatabase("db");
 
-    MongoCollection<Document> collection = database.getCollection("<collname>");
+    MongoCollection<Document> collection = database.getCollection("coll");
     ```
 
-* Some documents are inserted using `MongoCollection.insertMany`
+* Some documents are inserted using `MongoCollection.insertOne`
 
     ```java
     Document document = new Document("fruit", "apple")
@@ -82,23 +84,17 @@ Let's make a quick review of what's happening in the app. Open the `Program.cs` 
 * Some queries are performed using `MongoCollection.find`
 
     ```java
-    myDoc = collection.find(eq("fruit", "apple")).first();
-    System.out.println(myDoc.toJson());
+    Document queryResult = collection.find(Filters.eq("fruit", "apple")).first();
+    System.out.println(queryResult.toJson());    	
     ```
 
 ## Update your connection string
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the web.config file in the next step.
+1. From the Account, select **Quick Start**, select Java, then copy the connection string to your clipboard
 
-    ![View and copy an access key in the Azure portal, Keys blade](./media/create-documentdb-dotnet/keys.png)
-
-2. Open the `Program.java` file. 
-
-3. Copy your URI value from the portal (using the copy button) and make it the value of the `CosmosDBEndpoint` in web.config. 
-
-4. Then copy your PRIMARY KEY value from the portal and make it the value of the `password` in web.config. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
+2. Open the `Program.java` file, replace the argument to the MongoClientURI constructor with the connection string. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
     
 ## Run the console app
 
