@@ -166,7 +166,7 @@ The standard Table SDK is the pre-existing Azure storage Table SDK.
 
 ### How can I use the new Table API (preview) offering? 
 Microsoft Table API is available in the [Azure Portal][azure-portal].  First you must sign up for a Microsoft Azure subscription.  Once you sign up for a Microsoft Azure subscription, you can add Table API container to your Azure subscription.  
-In the preview period [SDKs](../cosmod-db/table-sdk-dotnet.md) are available for .NET,
+In the preview period [SDKs](../cosmos-db/table-sdk-dotnet.md) are available for .NET,
 You can complete the [Table API](../cosmos-db/create-table-dotnet.md) quickstart to get started.
 
 ### Do I need a new SDK to use the Table API (preview)? 
