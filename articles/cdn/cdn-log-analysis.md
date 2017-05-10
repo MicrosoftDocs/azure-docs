@@ -75,17 +75,17 @@ This section describes the schema of the CDN core analytics, how these are organ
 ### Using Microsoft Azure Storage Explorer
 Before you can access the core analytics data from the Azure Storage Account, you first need a tool to access the contents in a storage account. While there are several tools available in the market, the one that we recommend is the Microsoft Azure Storage Explorer. You can download the tool from [here](http://storageexplorer.com/). After downloading and installing the software, please configure to use the same Azure Storage Account that was configured as a destination to the CDN Diagnostics Logs.
 
-1.	Open Microsoft Azure Storage Explorer
+1.	Open **Microsoft Azure Storage Explorer**
 2.	Locate the storage account
-3.	Go to the “Blob Containers” node under this storage account and expand the node
-4.	Select the container named “insights-logs-coreanalytics” and double click on it
-5.	Results show up on the right-hand pane starting with the first level which looks like “resourceId=”. Continue clicking all the way until you see the file PT1H.json. See note below for explanation of the path.
-6.	Each blob PT1H.json represents the analytics logs for one hour for a specific CDN endpoint or its custom domain.
+3.	Go to the **“Blob Containers”** node under this storage account and expand the node
+4.	Select the container named **“insights-logs-coreanalytics”** and double click on it
+5.	Results show up on the right-hand pane starting with the first level which looks like **“resourceId=”**. Continue clicking all the way until you see the file **PT1H.json**. See note below for explanation of the path.
+6.	Each blob **PT1H.json** represents the analytics logs for one hour for a specific CDN endpoint or its custom domain.
 7.	The schema of the contents of this JSON file is described in the section Schema of the Core Analytics Logs
 
 
 > [!NOTE]
-> **Blob path format - **
+> **Blob path format**
 > 
 > Core Analytics logs are generated every hour. All data for an hour are collected and stored inside a single Azure Blob as a JSON payload. The path to this Azure Blob appears as if there is a hierarchical structure. This is because the Storage explorer tool interprets '/' as a directory separator and shows the hierarchy for convenience. Actually, the whole path just represents the blob name. This name of the blob follows the following naming convention	
 	
