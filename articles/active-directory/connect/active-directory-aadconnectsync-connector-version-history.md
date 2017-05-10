@@ -49,7 +49,7 @@ Related links:
   * Can’t import Server configuration if WebService Connector is present
   * WebService Connector is not working with multiple  Web Services
 
-Generic SQL:
+* Generic SQL:
   * No object types are listed for single value referenced attribute
   * Delta import on Change Tracking strategy deletes object when value is removed from multi-value table
   * OverflowException in GSQL connector with DB2 on AS/400
