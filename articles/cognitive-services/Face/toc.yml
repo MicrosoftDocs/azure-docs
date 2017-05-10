@@ -1,5 +1,5 @@
 - name: Face API Documentation
-  href: ../index.md
+  href: index.md
 - name: Overview
   href: Overview.md
 - name: How to
@@ -13,6 +13,7 @@
   - name: Analyze videos in real time
     href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: cURL
     href: QuickStarts/curl.md

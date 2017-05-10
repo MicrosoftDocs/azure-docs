@@ -23,8 +23,7 @@ Azure Cloud Shell is an interactive, browser-accessible shell for managing Azure
 
 ## Features
 ### Browser-based shell experience
-Cloud Shell enables access to a command-line experience built with Azure management tasks in mind. Leverage Cloud Shell to work untethered 
-from a local machine in a way only the cloud can provide.
+Cloud Shell enables access to a browser-based command-line experience built with Azure management tasks in mind. Leverage Cloud Shell to work untethered from a local machine in a way only the cloud can provide.
 
 ### Pre-configured Azure workstation
 Cloud Shell comes pre-installed with popular command-line tools and language support so you can work faster.

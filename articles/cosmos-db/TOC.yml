@@ -13,10 +13,18 @@
       href: create-documentdb-dotnet.md
     - name: .NET Core
       href: create-documentdb-dotnet-core.md
+    - name: Java
+      href: create-documentdb-java.md
+    - name: Node.js
+      href: create-documentdb-nodejs.md
+    - name: Python
+      href: create-documentdb-python.md
     - name: Xamarin
       href: create-documentdb-xamarin-dotnet.md
   - name: MongoDB
     items:
+    - name: Java
+      href: create-mongodb-java.md
     - name: Node.js
       href: create-mongodb-nodejs.md
   - name: Graph
@@ -25,6 +33,10 @@
       href: create-graph-dotnet.md
     - name: Gremlin console
       href: create-graph-gremlin-console.md
+    - name: Java
+      href: create-graph-java.md
+    - name: Node.js
+      href: create-graph-nodejs.md
   - name: Table
     items:
     - name: .NET
