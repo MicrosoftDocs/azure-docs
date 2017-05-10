@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Virtual Networks and Windows Virtual Machines | Microsoft Docs
 description: Tutorial - Manage Azure Virtual Networks and Windows Virtual Machines with Azure PowerShell 
 services: virtual-machines-windows
@@ -22,13 +22,13 @@ ms.author: davidmu
 
 In this tutorial, you learn about creating multiple virtual machines (VMs) in an virtual network (VNet) and configure network connectivity between them. When completed, a 'front-end' VM will be accessible from the internet on port 80 for HTTP connections. A 'back-end' VM with a SQL Server database will be isolated and only accessible from the front-end VM on port 1433.
 
-The steps in this tutorial can be completed using the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) module.
+The steps in this tutorial can be completed using the latest [Azure PowerShell](/powershell/azure/overview) module.
 
 ## Create VNet
 
 A VNet is a representation of your own network in the cloud. A VNet is a logical isolation of the Azure cloud dedicated to your subscription. Within a VNet, you find subnets, rules for connectivity to those subnets, and connections from the VMs to the subnets.
 
-Before you can create any other Azure resources, you need to create a resource group with [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-3.8.0). The following example creates a resource group named `myRGNetwork` in the `westus` location:
+Before you can create any other Azure resources, you need to create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resource group named `myRGNetwork` in the `westus` location:
 
 ```powershell
 New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location westus
@@ -36,7 +36,7 @@ New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location westus
 
 A subnet is a child resource of a VNet, and helps define segments of address spaces within a CIDR block, using IP address prefixes. NICs can be added to subnets, and connected to VMs, providing connectivity for various workloads.
 
-Create a subnet with [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?view=azurermps-3.8.0):
+Create a subnet with [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig):
 
 ```powershell
 $frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
@@ -44,7 +44,7 @@ $frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
   -AddressPrefix 10.0.0.0/24
 ```
 
-Create a VNET named `myVNet` using `myFrontendSubnet` with [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork?view=azurermps-3.8.0):
+Create a VNET named `myVNet` using `myFrontendSubnet` with [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork):
 
 ```powershell
 $vnet = New-AzureRmVirtualNetwork `
@@ -59,7 +59,7 @@ $vnet = New-AzureRmVirtualNetwork `
 
 For a VM to communicate in a VNet, it needs a virtual network interface (NIC). The `myFrontendVM` is accessed from the internet, so it also needs a public IP address. 
 
-Create a public IP address with [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermpublicipaddress?view=azurermps-3.8.0):
+Create a public IP address with [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress):
 
 ```powershell
 $pip = New-AzureRmPublicIpAddress `
@@ -69,7 +69,7 @@ $pip = New-AzureRmPublicIpAddress `
   -Name myPublicIPAddress
 ```
 
-Create a NIC with [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkinterface?view=azurermps-3.8.0):
+Create a NIC with [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface):
 
 
 ```powershell
@@ -87,7 +87,7 @@ Set the username and password needed for the administrator account on the VM wit
 $cred = Get-Credential
 ```
 
-Create the VMs with [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-3.8.0), [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmoperatingsystem?view=azurermps-3.8.0), [Set-AzureRmVMSourceImage](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage?view=azurermps-3.8.0), [Set-AzureRmVMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-3.8.0), [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmnetworkinterface?view=azurermps-3.8.0), and [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm?view=azurermps-3.8.0). 
+Create the VMs with [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-3.8.0), [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmoperatingsystem?view=azurermps-3.8.0), [Set-AzureRmVMSourceImage](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage?view=azurermps-3.8.0), [Set-AzureRmVMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-3.8.0), [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmnetworkinterface?view=azurermps-3.8.0), and [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). 
 
 ```powershell
 $frontendVM = New-AzureRmVMConfig -VMName myFrontendVM -VMSize Standard_D1
@@ -102,7 +102,7 @@ New-AzureRmVM -ResourceGroupName myRGNetwork -Location westus -VM $frontendVM
 
 You can install IIS on `myFrontendVM` by using a remote desktop session. You need to get the public IP address of the VM to access it.
 
-You can get the public IP address of `myFrontendVM` with [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-3.8.0). The following example obtains the IP address for `myPublicIPAddress` created earlier:
+You can get the public IP address of `myFrontendVM` with [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address for `myPublicIPAddress` created earlier:
 
 ```powershell
 Get-AzureRmPublicIPAddress -ResourceGroupName myRGNetwork -Name myPublicIPAddress | select IpAddress
@@ -130,11 +130,11 @@ Now you can use the public IP address to browse to the VM to see the IIS site.
 
 ## Manage internal traffic
 
-A network security group (NSG) contains a list of security rules that allow or deny network traffic to resources connected to a VNet. NSGs can be associated to subnets or individual NICs attached to VMs. Opening or closing access to VMs through ports is done using NSG rules. When you created `myFrontendVM`, inbound port 22 was automatically opened for SSH connectivity.
+A network security group (NSG) contains a list of security rules that allow or deny network traffic to resources connected to a VNet. NSGs can be associated to subnets or individual NICs attached to VMs. Opening or closing access to VMs through ports is done using NSG rules. When you created `myFrontendVM`, inbound port 3389 was automatically opened for RDP connectivity.
 
 Internal communication of VMs can be configured using an NSG. In this section, you learn how to create an additional subnet in the network and assign an NSG to it to allow a connection from `myFrontendVM` to `myBackendVM` on port 1433. The subnet is then assigned to the VM when it is created.
 
-You can limit internal traffic to `myBackendVM` from only `myFrontendVM` by creating an NSG for the back-end subnet. The following example creates an NSG rule named `myBackendNSGRule` with [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig?view=azurermps-3.8.0):
+You can limit internal traffic to `myBackendVM` from only `myFrontendVM` by creating an NSG for the back-end subnet. The following example creates an NSG rule named `myBackendNSGRule` with [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig):
 
 ```powershell
 $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
@@ -149,7 +149,7 @@ $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 ```
 
-Add a new network security group named `myBackendNSG` with [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecuritygroup?view=azurermps-3.8.0):
+Add a new network security group named `myBackendNSG` with [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup):
 
 ```powershell
 $nsgBackend = New-AzureRmNetworkSecurityGroup `
@@ -160,7 +160,7 @@ $nsgBackend = New-AzureRmNetworkSecurityGroup `
 ```
 ## Add back-end subnet
 
-Add `myBackEndSubnet` to `myVNet` with [Add-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig?view=azurermps-3.8.0):
+Add `myBackEndSubnet` to `myVNet` with [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig):
 
 ```powershell
 Add-AzureRmVirtualNetworkSubnetConfig -Name myBackendSubnet `

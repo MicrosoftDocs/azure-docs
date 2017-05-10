@@ -45,7 +45,7 @@ az vm availability-set create \
 
 ## Create VMs inside an availability set
 
-VMs need to be created within the availability set to make sure they are correclty distributed across the hardware. You can't add an existing VM to an availability set after it is created. 
+VMs need to be created within the availability set to make sure they are correctly distributed across the hardware. You can't add an existing VM to an availability set after it is created. 
 
 The hardware in a location is divided in to multiple update domains and fault domains. An **update domain** is a group of VMs and underlying physical hardware that can be rebooted at the same time. VMs in the same **fault domain** share common storage as well as a common power source and network switch. 
 

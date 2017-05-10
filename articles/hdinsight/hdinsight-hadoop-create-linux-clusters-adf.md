@@ -411,7 +411,7 @@ The folderPath specifies the path to the folder that holds the output data:
 "folderPath": "adfgetstarted/partitioneddata",
 ```
 
-The [dataset availability](../data-factory/data-factory-create-datasets.md#Availability) setting is as follows:
+The [dataset availability](../data-factory/data-factory-create-datasets.md#dataset-availability) setting is as follows:
 
 ```json
 "availability": {

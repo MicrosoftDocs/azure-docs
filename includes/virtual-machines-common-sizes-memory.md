@@ -44,7 +44,7 @@ ACU: 180 - 240
 
 ## DSv2-series*
 
-ACU: 210-250
+ACU: 210 - 250
 
 | Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -68,7 +68,7 @@ Bps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 
 ## Dv2-series
 
-ACU: 21--250
+ACU: 210 - 250
 
 | Size              | CPU cores | Memory: GiB | Local SSD: GiB | Max local disk throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Network bandwidth |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

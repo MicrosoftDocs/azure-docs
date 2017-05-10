@@ -1,4 +1,4 @@
----
+﻿---
 title: "PowerShell: Azure HDInsight cluster with Data Lake Store as add-on storage | Microsoft Docs"
 services: data-lake-store,hdinsight
 documentationcenter: ''
@@ -49,7 +49,7 @@ Configuring HDInsight to work with Data Lake Store using PowerShell involves the
 Before you begin this tutorial, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure PowerShell 1.0 or greater**. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* **Azure PowerShell 1.0 or greater**. See [How to install and configure Azure PowerShell](/powershell/azure/overview).
 * **Windows SDK**. You can install it from [here](https://dev.windows.com/en-us/downloads). You use this to create a security certificate.
 * **Azure Active Directory Service Principal**. Steps in this tutorial provide instructions on how to create a service principal in Azure AD. However, you must be an Azure AD administrator to be able to create a service principal. If you are an Azure AD administrator, you can skip this prerequisite and proceed with the tutorial.
 

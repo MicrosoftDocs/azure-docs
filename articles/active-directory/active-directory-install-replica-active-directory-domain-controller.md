@@ -1,4 +1,4 @@
----
+﻿---
 title: Install a replica Active Directory domain controller in Azure  | Microsoft Docs
 description: A tutorial that explains how to install a domain controller from an on-premises Active Directory forest on an Azure virtual machine.
 services: virtual-network
@@ -66,7 +66,7 @@ To create the VMs by using Windows PowerShell instead of the UI, see [Use Azure 
    |  **Virtual Machine Configuration** |<p>Select <b>Install the VM Agent</b> and any other extensions you need.</p> |
 2. Attach a disk to each VM that will run the DC server role. The additional disk is needed to store the AD database, logs, and SYSVOL. Specify a size for the disk (such as 10 GB) and leave the **Host Cache Preference** set to **None**. For the steps, see [How to Attach a Data Disk to a Windows Virtual Machine](../virtual-machines/windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 3. After you first sign in to the VM, open **Server Manager** > **File and Storage Services** to create a volume on this disk using NTFS.
-4. Reserve a static IP address for VMs that will run the DC role. To reserve a static IP address, download the Microsoft Web Platform Installer and [install Azure PowerShell](/powershell/azureps-cmdlets-docs) and run the Set-AzureStaticVNetIP cmdlet. For example:
+4. Reserve a static IP address for VMs that will run the DC role. To reserve a static IP address, download the Microsoft Web Platform Installer and [install Azure PowerShell](/powershell/azure/overview) and run the Set-AzureStaticVNetIP cmdlet. For example:
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
@@ -92,7 +92,7 @@ Sign in to a VM and verify that you have connectivity across the site-to-site VP
 
 To create the VMs by using Windows PowerShell instead of the UI, see [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-For more information about using Windows PowerShell, see [Get Started with Azure Cmdlets](https://msdn.microsoft.com/library/azure/jj554332.aspx) and [Azure Cmdlet Reference](https://msdn.microsoft.com/library/azure/jj554330.aspx).
+For more information about using Windows PowerShell, see [Get Started with Azure Cmdlets](/powershell/azure/overview) and [Azure Cmdlet Reference](/powershell/azure/get-started-azureps).
 
 ## Additional resources
 * [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
@@ -101,8 +101,8 @@ For more information about using Windows PowerShell, see [Get Started with Azure
 * [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
 * [Microsoft Azure IT Pro IaaS: (01) Virtual Machine Fundamentals](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 * [Microsoft Azure IT Pro IaaS: (05) Creating Virtual Networks and Cross-Premises Connectivity](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
-* [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
-* [Azure Management Cmdlets](https://msdn.microsoft.com/library/azure/jj152841)
+* [Azure PowerShell](/powershell/azure/overview)
+* [Azure Management Cmdlets](/powershell/module/azurerm.compute/#virtual_machines)
 
 <!--Image references-->
 [1]: ./media/active-directory-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png

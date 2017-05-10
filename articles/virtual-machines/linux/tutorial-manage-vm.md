@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/21/2017
+ms.date: 04/25/2017
 ms.author: nepeters
 ---
 
@@ -77,7 +77,7 @@ exit
 
 ## Understand VM images
 
-The Azure marketplace includes many virtual machine images that can be used to create a new virtual machine. In the previous steps, a virtual machine was created using an Ubuntu image. In this step, the Azure CLI is used to search the marketplace for a CentOS image, which is then used to deploy a second virtual machine.  
+The Azure marketplace includes many images that can be used to create new VMs. In the previous steps, a virtual machine was created using an Ubuntu image. In this step, the Azure CLI is used to search the marketplace for a CentOS image, which is then used to deploy a second virtual machine.  
 
 To see a list of the most commonly used images, use the [az vm image list](/cli/azure/vm/image#list) command.
 
@@ -85,7 +85,7 @@ To see a list of the most commonly used images, use the [az vm image list](/cli/
 az vm image list --output table
 ```
 
-Output:
+The command output returns the most popular VM images on Azure.
 
 ```bash
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
@@ -103,32 +103,26 @@ Debian         credativ                8                   credativ:Debian:8:lat
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 ```
 
-When searching for an image, the list can be filtered by different values such as image publisher. To see a list of image publishers, use the [az vm image list-publishers](/cli/azure/vm/image#list-publishers) command.
+A full list can be seen by adding the `--all` argument. The image list can also be filtered by `--publisher` or `–offer`. In this example, the list is filtered for all images with an offer that matches `CentOS`. 
 
 ```azurecli
-az vm image list-publishers -l westus --query [].name --output table
+az vm image list --offer CentOS --all --output table
 ```
 
-To return a list of all standard images for a publisher, use the [az vm image list](/cli/azure/vm/image#list) command. In this example, the publisher filter is OpenLogic. 
+Partial output:
 
 ```azurecli
-az vm image list --publisher OpenLogic --all --output table
+Offer             Publisher         Sku   Urn                                     Version
+----------------  ----------------  ----  --------------------------------------  -----------
+CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.201501         6.5.201501
+CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.201503         6.5.201503
+CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.201506         6.5.201506
+CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20150904       6.5.20150904
+CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309       6.5.20160309
+CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-Output:
-
-```azurecli
-Offer       Publisher    Sku    Urn                                    Version
-----------  -----------  -----  -------------------------------------  ------------
-CentOS      OpenLogic    6.5    OpenLogic:CentOS:6.5:6.5.201501        6.5.201501
-CentOS      OpenLogic    6.5    OpenLogic:CentOS:6.5:6.5.201503        6.5.201503
-CentOS      OpenLogic    6.5    OpenLogic:CentOS:6.5:6.5.201506        6.5.201506
-CentOS      OpenLogic    6.5    OpenLogic:CentOS:6.5:6.5.20150904      6.5.20150904
-CentOS      OpenLogic    6.5    OpenLogic:CentOS:6.5:6.5.20160309      6.5.20160309
-CentOS      OpenLogic    6.5    OpenLogic:CentOS:6.5:6.5.20170207      6.5.20170207
-```
-
-Finally, to deploy a virtual machine using a particular image, take note of the image found in the `Urn` column, and run the [az vm create](https://docs.microsoft.com/cli/azure/vm#create) command. When doing so, the version number can be replaced with `latest`, which selects the latest version of the distribution. In this example the `--image` argument is used to specify a CentOS image.  
+To deploy a VM using a specific image, take note of the value in the `Urn` column. When specifying the image, the image version number can be replaced with “latest”, which selects the latest version of the distribution. In this example, the `--image` argument is used to specify the latest version of a CentOS 6.5 image.  
 
 ```azurecli
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
@@ -144,25 +138,48 @@ The following table categorizes sizes into use cases.
 
 | Type                     | Sizes           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| General purpose         |DSv2, Dv2, DS, D, Av2, A0-7| Balanced CPU-to-memory. Ideal for dev / test and small to medium applications and data solutions.  |
-| Compute optimized      | Fs, F             | High CPU-to-memory. Good for medium traffic applications, network appliances, and batch processes.        |
-| Memory optimized       | GS, G, DSv2, DS, Dv2, D   | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics.                 |
-| Storage optimized       | Ls                | High disk throughput and IO. Ideal for Big Data, SQL, and NoSQL databases.                                                         |
-| GPU           | NV, NC            | Specialized VMs targeted for heavy graphic rendering and video editing.       |
-| High performance | H, A8-11          | Our most powerful CPU VMs with optional high-throughput network interfaces (RDMA). 
+| [General purpose](sizes-general.md)         |DSv2, Dv2, DS, D, Av2, A0-7| Balanced CPU-to-memory. Ideal for dev / test and small to medium applications and data solutions.  |
+| [Compute optimized](sizes-compute.md)   | Fs, F             | High CPU-to-memory. Good for medium traffic applications, network appliances, and batch processes.        |
+| [Memory optimized](../virtual-machines-windows-sizes-memory.md)    | GS, G, DSv2, DS, Dv2, D   | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics.                 |
+| [Storage optimized](../virtual-machines-windows-sizes-storage.md)      | Ls                | High disk throughput and IO. Ideal for Big Data, SQL, and NoSQL databases.                                                         |
+| [GPU](sizes-gpu.md)          | NV, NC            | Specialized VMs targeted for heavy graphic rendering and video editing.       |
+| [High performance](sizes-hpc.md) | H, A8-11          | Our most powerful CPU VMs with optional high-throughput network interfaces (RDMA). 
 
 
 ### Find available VM sizes
 
-To see a list of VM sizes available in a particular region, use the [az vm list-sizes]( /cli/azure/vm#list-sizes) command. 
+To see a list of VM sizes available in a particular region, use the [az vm list-sizes](/cli/azure/vm#list-sizes) command. 
 
 ```azurecli
 az vm list-sizes --location westus --output table
 ```
 
+Partial output:
+
+```azurecli
+  MaxDataDiskCount    MemoryInMb  Name                      NumberOfCores    OsDiskSizeInMb    ResourceDiskSizeInMb
+------------------  ------------  ----------------------  ---------------  ----------------  ----------------------
+                 2          3584  Standard_DS1                          1           1047552                    7168
+                 4          7168  Standard_DS2                          2           1047552                   14336
+                 8         14336  Standard_DS3                          4           1047552                   28672
+                16         28672  Standard_DS4                          8           1047552                   57344
+                 4         14336  Standard_DS11                         2           1047552                   28672
+                 8         28672  Standard_DS12                         4           1047552                   57344
+                16         57344  Standard_DS13                         8           1047552                  114688
+                32        114688  Standard_DS14                        16           1047552                  229376
+                 1           768  Standard_A0                           1           1047552                   20480
+                 2          1792  Standard_A1                           1           1047552                   71680
+                 4          3584  Standard_A2                           2           1047552                  138240
+                 8          7168  Standard_A3                           4           1047552                  291840
+                 4         14336  Standard_A5                           2           1047552                  138240
+                16         14336  Standard_A4                           8           1047552                  619520
+                 8         28672  Standard_A6                           4           1047552                  291840
+                16         57344  Standard_A7                           8           1047552                  619520
+```
+
 ### Create VM with specific size
 
-In the previous VM creation example, a size was not provided, which results in a default size. A VM size can be selected at creation time using [az vm create](/cli/azure/vm#create) and the `size` argument. 
+In the previous VM creation example, a size was not provided, which results in a default size. A VM size can be selected at creation time using [az vm create](/cli/azure/vm#create) and the `--size` argument. 
 
 ```azurecli
 az vm create --resource-group myResourceGroupVM --name myVM3 --image UbuntuLTS --size Standard_F4s --generate-ssh-keys
@@ -172,7 +189,7 @@ az vm create --resource-group myResourceGroupVM --name myVM3 --image UbuntuLTS -
 
 After a VM has been deployed, it can be resized to increase or decrease resource allocation.
 
-Before resizing a VM, check if the desired size is available on the current VM cluster. The [az vm list-vm-resize-options](/cli/azure/vm#list-vm-resize-options) command returns the list of sizes. 
+Before resizing a VM, check if the desired size is available on the current Azure cluster. The [az vm list-vm-resize-options](/cli/azure/vm#list-vm-resize-options) command returns the list of sizes. 
 
 ```azurecli
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
@@ -180,7 +197,7 @@ az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --qu
 If the desired size is available, the VM can be resized from a powered-on state, however it is rebooted during the operation. Use the [az vm resize]( /cli/azure/vm#resize) command to perform the resize.
 
 ```azurecli
-az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4
+az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
 If the desired size is not on the current cluster, the VM needs to be deallocated before the resize operation can occur. Use the [az vm deallocate]( /cli/azure/vm#deallocate) command to stop and deallocate the VM. Note, when the VM is powered back on, any data on the temp disk may be removed. The public IP address also changes unless a static IP address is being used. 
@@ -192,7 +209,7 @@ az vm deallocate --resource-group myResourceGroupVM --name myVM
 Once deallocated, the resize can occur. 
 
 ```azurecli
-az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_A7
+az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_GS1
 ```
 
 After the resize, the VM can be started.
@@ -212,9 +229,9 @@ An Azure VM can have one of many power states. This state represents the current
 | Starting | Indicates the virtual machine is being started. |
 | Running | Indicates that the virtual machine is running. |
 | Stopping | Indicates that the virtual machine is being stopped. | 
-| Stopped | Indicates that the virtual machine is stopped. Note that virtual machines in the stopped state still incur compute charges.  |
+| Stopped | Indicates that the virtual machine is stopped. Virtual machines in the stopped state still incur compute charges.  |
 | Deallocating | Indicates that the virtual machine is being deallocated. |
-| Deallocated | Indicates that the virtual machine is completely removed from the hypervisor but still available in the control plane. Virtual machines in the Deallocated state do not incur compute charges. |
+| Deallocated | Indicates that the virtual machine is removed from the hypervisor but still available in the control plane. Virtual machines in the Deallocated state do not incur compute charges. |
 | - | Indicates that the power state of the virtual machine is unknown. |
 
 ### Find power state
@@ -228,9 +245,9 @@ az vm get-instance-view --name myVM --resource-group myResourceGroupVM --query i
 Output:
 
 ```azurecli
-Code                    DisplayStatus    Level
-----------------------  ---------------  -------
-PowerState/deallocated  VM deallocated   Info
+ode                DisplayStatus    Level
+------------------  ---------------  -------
+PowerState/running  VM running       Info
 ```
 
 ## Management tasks

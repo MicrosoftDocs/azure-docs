@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Connect a virtual network to multiple sites using VPN Gateway and PowerShell : Classic | Microsoft Docs'
 description: This article will walk you through connecting multiple local on-premises sites to a virtual network using a VPN Gateway for the classic deployment model.
 services: vpn-gateway
@@ -56,7 +56,7 @@ Before you begin configuration, verify that you have the following:
 
 * Compatible VPN hardware for each on-premises location. Check [About VPN Devices for Virtual Network Connectivity](vpn-gateway-about-vpn-devices.md) to verify if the device that you want to use is something that is known to be compatible.
 * An externally facing public IPv4 IP address for each VPN device. The IP address cannot be located behind a NAT. This is requirement.
-* You'll need to install the latest version of the Azure PowerShell cmdlets. Make sure you install the Service Management (SM) version in addition to the Resource Manager version. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information.
+* You'll need to install the latest version of the Azure PowerShell cmdlets. Make sure you install the Service Management (SM) version in addition to the Resource Manager version. See [How to install and configure Azure PowerShell](/powershell/azure/overview) for more information.
 * Someone who is proficient at configuring your VPN hardware. You'll have to have a strong understanding of how to configure your VPN device, or work with someone who does.
 * The IP address ranges that you want to use for your virtual network (if you haven't already created one).
 * The IP address ranges for each of the local network sites that you'll be connecting to. You'll need to make sure that the IP address ranges for each of the local network sites that you want to connect to do not overlap. Otherwise, the portal or the REST API will reject the configuration being uploaded.<br>For example, if you have two local network sites that both contain the IP address range 10.2.3.0/24 and you have a package with a destination address 10.2.3.3, Azure wouldn't know which site you want to send the package to because the address ranges are overlapping. To prevent routing issues, Azure doesn't allow you to upload a configuration file that has overlapping ranges.

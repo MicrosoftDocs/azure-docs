@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a Windows VM with multiple NICs | Microsoft Docs
 description: Learn how to create a Windows VM with multiple NICs attached to it using Azure PowerShell or Resource Manager templates.
 services: virtual-machines-windows
@@ -21,7 +21,7 @@ ms.author: iainfou
 You can create a virtual machine (VM) in Azure that has multiple virtual network interfaces (NICs) attached to it. A common scenario would be to have different subnets for front-end and back-end connectivity, or a network dedicated to a monitoring or backup solution. This article provides quick commands to create a VM with multiple NICs attached to it. For detailed information, including how to create multiple NICs within your own PowerShell scripts, read more about [deploying multi-NIC VMs](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md). Different [VM sizes](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) support a varying number of NICs, so size your VM accordingly.
 
 ## Create core resources
-Make sure that you have the [latest Azure PowerShell installed and configured](/powershell/azureps-cmdlets-docs). Log in to your Azure account:
+Make sure that you have the [latest Azure PowerShell installed and configured](/powershell/azure/overview). Log in to your Azure account:
 
 ```powershell
 Login-AzureRmAccount

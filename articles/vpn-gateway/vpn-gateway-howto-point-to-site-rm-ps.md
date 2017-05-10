@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Connect a computer to an Azure virtual network using Point-to-Site: PowerShell | Microsoft Docs'
 description: Securely connect a computer to your Azure Virtual Network by creating a Point-to-Site VPN gateway connection.
 services: vpn-gateway
@@ -64,7 +64,7 @@ We use the following values for this configuration. We set the variables in sect
 
 ## Before beginning
 * Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
-* Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information about installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). 
+* Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information about installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview). 
 
 ## <a name="declare"></a>Part 1 - Log in and set variables
 In this section, you log in and declare the values used for this configuration. The declared values are used in the sample scripts. Change the values to reflect your own environment. Or, you can use the declared values and go through the steps as an exercise.
@@ -280,7 +280,7 @@ If you are having trouble connecting, check the following things:
 
 ## <a name="connectVM"></a>Connect to a virtual machine
 
-1. After connecting to your VNet, you can connect to a VM over your P2S connection. To connect to the VM, you need the private IP address of the virtual machine. The following example helps you get the private IP address with [Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkinterface?view=azurermps-3.7.0). The results return a list of VMs and corresponding private IP addresses in all your Resource Groups. 
+1. After connecting to your VNet, you can connect to a VM over your P2S connection. To connect to the VM, you need the private IP address of the virtual machine. The following example helps you get the private IP address with [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface). The results return a list of VMs and corresponding private IP addresses in all your Resource Groups. 
 
   ```powershell   
   $vms = get-azurermvm

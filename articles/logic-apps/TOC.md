@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [What are logic apps?](logic-apps-what-are-logic-apps.md)
 ## [B2B with Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
 ## [Connectors](../connectors/apis-list.md)
@@ -74,6 +74,7 @@
 ### [Call logic apps with Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Add error and exception handling](logic-apps-scenario-error-and-exception-handling.md)
 ### [B2B processing](logic-apps-enterprise-integration-b2b.md)
+### [How to handle EDIFACT documents having UNH2.5 segment](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
 
 ## Pricing & billing
 ### [Pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
@@ -83,7 +84,7 @@
 ## [Workflow definition language](logic-apps-workflow-definition-language.md)
 ## [Workflow actions and triggers](logic-apps-workflow-actions-triggers.md)
 ## [REST API](/rest/api/logic/)
-## [PowerShell](/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp)
+## [PowerShell](/powershell/module/azurerm.logicapp)
 ## Schema History
 ### [GA](logic-apps-schema-2016-04-01.md)
 ### [Preview](logic-apps-schema-2015-08-01.md)

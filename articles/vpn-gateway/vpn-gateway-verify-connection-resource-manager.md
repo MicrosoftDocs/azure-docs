@@ -1,4 +1,4 @@
----
+﻿---
 title: Verify a VPN Gateway connection | Microsoft Docs
 description: This article shows you how to verify a virtual network VPN Gateway connection.
 services: vpn-gateway
@@ -28,7 +28,7 @@ This article shows you how to verify your VPN gateway connection for both the Re
 
 ## Verify using PowerShell
 
-To verify by using PowerShell, install the latest version of the Azure Resource Manager PowerShell cmdlets. For information on installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). For more information about using Resource Manager cmdlets, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
+To verify by using PowerShell, install the latest version of the Azure Resource Manager PowerShell cmdlets. For information on installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview). For more information about using Resource Manager cmdlets, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
 
 ### Log in to your Azure account
 1. Open your PowerShell console with elevated privileges and connect to your account.
@@ -83,7 +83,7 @@ To verify by using the Azure CLI, install the latest version of the CLI commands
 
 
 ## Verify using PowerShell (classic)
-To verify by using PowerShell, install the latest versions of the Azure PowerShell cmdlets. Be sure to download and install both the Resource Manager and Service Management (SM) versions. For information on installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). 
+To verify by using PowerShell, install the latest versions of the Azure PowerShell cmdlets. Be sure to download and install both the Resource Manager and Service Management (SM) versions. For information on installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview). 
 
 ### Log in to your Azure account
 1. Open your PowerShell console with elevated privileges and connect to your account.

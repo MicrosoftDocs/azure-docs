@@ -1,4 +1,4 @@
----
+﻿---
 title: Planning the Service Fabric cluster capacity | Microsoft Docs
 description: Service Fabric cluster capacity planning considerations. Nodetypes, Durability and Reliability tiers
 services: service-fabric
@@ -87,7 +87,7 @@ The reliability tier can take the following values.
 > 
 > 
 
- You can choose to update the reliability of your cluster from one tier to another. Doing this will trigger the cluster upgrades needed to change the system services replica set count. Wait for the upgrade in progress to complete before making any other changes to the cluster, like adding nodes etc.  You can monitor the progress of the upgrade on Service Fabric Explorer or by running [Get-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt126012.aspx)
+ You can choose to update the reliability of your cluster from one tier to another. Doing this will trigger the cluster upgrades needed to change the system services replica set count. Wait for the upgrade in progress to complete before making any other changes to the cluster, like adding nodes etc.  You can monitor the progress of the upgrade on Service Fabric Explorer or by running [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
 
 ## Primary node type - Capacity Guidance

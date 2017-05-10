@@ -1,4 +1,4 @@
----
+﻿---
 title: Extend HDInsight with Virtual Network | Microsoft Docs
 description: Learn how to use Azure Virtual Network to connect HDInsight to other cloud resources, or resources in your datacenter
 services: hdinsight
@@ -34,7 +34,7 @@ Learn how to use Azure Virtual Networks with HDInsight to enable the following s
 
 * Azure CLI 2.0: For more information, see [Install and Configure Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
-* Azure PowerShell: For more information, see [Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+* Azure PowerShell: For more information, see [Install and Configure Azure PowerShell](/powershell/azure/overview).
 
 > [!NOTE]
 > The steps in this document require the latest version of the Azure CLI and Azure PowerShell. If you are using an older version, the commands may be different. For best results, use the previous links to install the latest versions.

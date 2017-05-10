@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Quick Start - Create Windows VM PowerShell | Microsoft Docs
 description: Quickly learn to create a Windows virtual machines with PowerShell
 services: virtual-machines-windows
@@ -25,7 +25,7 @@ The Azure PowerShell module is used to create and manage Azure resources from th
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) before you begin.
 
-Also, make sure that the latest version of the Azure PowerShell module has been installed. For more information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Also, make sure that the latest version of the Azure PowerShell module has been installed. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 ## Log in to Azure
 

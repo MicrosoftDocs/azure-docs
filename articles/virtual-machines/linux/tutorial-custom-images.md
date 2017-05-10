@@ -26,7 +26,7 @@ The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cl
 
 To complete the example in this tutorial, you must have an existing virtual machine. If needed, this [script sample](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) can create one for you. When working through the tutorial, replace the resource group and VM names where needed.
 
-## Create an image
+## Prepare VM
 
 To create an image of a virtual machine, you need to prepare the VM by deprovisioning, deallocating, and then marking the source VM as generalized.
 
@@ -36,18 +36,11 @@ Deprovisioning generalizes the VM by removing machine-specific information. This
 
 To deprovision the VM, use the Azure VM agent (waagent). The Azure VM agent is installed on the VM and manages provisioning and interacting with the Azure Fabric Controller. For more information, see the [Azure Linux Agent user guide](agent-user-guide.md).
 
-Connect to your VM using SSH. Replace the example IP address with the public IP address of your VM.
+Connect to your VM using SSH and run the command to deprovision the VM. With the `+user` argument, the last provisioned user account and any associated data are also deleted. Replace the example IP address with the public IP address of your VM.
 
 ```bash
-ssh 52.174.34.95
+ssh azureuser@52.174.34.95 sudo waagent -deprovision+user -force
 ```
-
-Run the following command to deprovision the VM. With the `+user` argument, the last provisioned user account and any associated data are also deleted.
-   
-```bash
-sudo waagent -deprovision+user -force
-```
-
 Close the SSH session.
 
 ```bash
@@ -68,7 +61,7 @@ Finally, set the state of the VM as generalized with [az vm generalize](/cli//az
 az vm generalize --resource-group myResourceGroupImages --name myVM
 ```
 
-### Capture the image
+## Create VM from image
 
 Now you can create an image of the VM by using [az image create](/cli//azure/image#create). The following example creates an image named `myImage` from a VM named `myVM`.
    

@@ -29,7 +29,7 @@ Managed Disks is a feature that simplifies disk management for Azure IaaS VMs by
 
 **If I create a standard managed disk from an existing VHD that was 80 GB in size, how much will that cost me?**
 
-A standard managed disk created from an 80 GB VHD will be treated as the next available premium disk size, which is an S10 disk. You will be charged as per the S10 disk pricing. Please check the [pricing page](https://azure.microsoft.com/pricing/details/storage) for details.
+A standard managed disk created from an 80 GB VHD will be treated as the next available standard disk size, which is an S10 disk. You will be charged as per the S10 disk pricing. Please check the [pricing page](https://azure.microsoft.com/pricing/details/storage) for details.
 
 **Are there any transaction costs for standard managed disks?**
 

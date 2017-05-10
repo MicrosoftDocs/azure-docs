@@ -18,7 +18,7 @@ This article provides information and code samples to help you quickly get start
 * [Create a Person Group](#Create)
 
 ## Prerequisites
-* Get the Microsoft Face API Windows SDK [here](https://github.com/Microsoft/Cognitive-face-windows)
+* Get the Microsoft Face API Windows SDK [here](https://www.nuget.org/packages/Microsoft.ProjectOxford.Face/)
 * Learn more about obtaining free Subscription Keys [here](../../Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md)
 
 ## Detect Faces in Images With Face API Using C# <a name="Detect"> </a>

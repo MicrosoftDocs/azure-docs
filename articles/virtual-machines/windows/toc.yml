@@ -4,7 +4,7 @@
   items:
   - name: About Virtual Machines
     href: overview.md
-- name: Quickstart
+- name: Quickstarts
   expanded: true
   items:
   - name: Create VM - Portal
@@ -21,9 +21,13 @@
     href: tutorial-manage-data-disk.md
   - name: 3 - Automate configuration
     href: tutorial-automate-vm-deployment.md
-  - name: 4 - Load balance VMs
+  - name: 4 - Create VM images
+    href: tutorial-custom-images.md
+  - name: 5 - Highly available VMs
+    href: tutorial-availability-sets.md
+  - name: 6 - Load balance VMs
     href: tutorial-load-balancer.md
-  - name: 5 - Manage networking
+  - name: 7 - Manage networking
     href: tutorial-virtual-network.md
 - name: Samples
   items:

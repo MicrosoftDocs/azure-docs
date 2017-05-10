@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Service Fabric application deployment | Microsoft Docs
 description: Use the FabricClient APIs to deploy and remove applications in Service Fabric.
 services: service-fabric
@@ -53,7 +53,7 @@ FabricClient fabricClient = new FabricClient();
 Suppose you build and package an app named *MyApplication* in Visual Studio. By default, the application type name listed in the ApplicationManifest.xml is "MyApplicationType".  The application package, which contains the necessary application manifest, service manifests, and code/config/data packages, is located in *C:\Users\username\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug*.
 
 Uploading the application package puts it in a location that's accessible by internal Service Fabric components.
-If you want to verify the application package locally, use the [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet.
+If you want to verify the application package locally, use the [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) cmdlet.
 
 The [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) method uploads the application package to the cluster image store. 
 

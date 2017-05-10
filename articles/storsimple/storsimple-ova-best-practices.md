@@ -186,7 +186,7 @@ When configuring the iSCSI volumes on your StorSimple Virtual Array, it is impor
 Use the following best practices when configuring ACRs for StorSimple volumes:
 
 * Always associate at least one ACR with a volume.
-* Define multiple ACRs only in a clustered environment.
+
 * When assigning more than one ACR to a volume, ensure that the volume is not exposed in a way where it can be concurrently accessed by more than one non-clustered host. If you have assigned multiple ACRs to a volume, a warning message pops up for you to review your configuration.
 
 ### Data security and encryption

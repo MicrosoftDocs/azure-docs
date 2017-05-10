@@ -70,7 +70,7 @@ ACU: 100
 | Standard_A2_v2  | 2         | 4           | 20             | 2000 / 40 / 20                                           | 4 / 4x500                         | 2 / moderate                 |
 | Standard_A4_v2  | 4         | 8           | 40             | 4000 / 80 / 40                                           | 8 / 8x500                         | 4 / high                     |
 | Standard_A8_v2  | 8         | 16          | 80             | 8000 / 160 / 80                                          | 16 / 16x500                       | 8 / high                     |
-| Standard_A2m_v2 | 2         | 16          | 20             | 2000 / 40 / 20                                           | 4 / 4X500                         | 2 / moderate                 |
+| Standard_A2m_v2 | 2         | 16          | 20             | 2000 / 40 / 20                                           | 4 / 4x500                         | 2 / moderate                 |
 | Standard_A4m_v2 | 4         | 32          | 40             | 4000 / 80 / 40                                           | 8 / 8x500                         | 4 / high                     |
 | Standard_A8m_v2 | 8         | 64          | 80             | 8000 / 160 / 80                                          | 16 / 16x500                       | 8 / high                     |
 
@@ -87,7 +87,7 @@ ACU: 50-100
 | Standard_A2 |2 |3.5 |135 |4 |4x500 |2 / moderate |
 | Standard_A3 |4 |7 |285 |8 |8x500 |2 / high |
 | Standard_A4 |8 |14 |605 |16 |16x500 |4 / high |
-| Standard_A5 |2 |14 |135 |4 |4X500 |2 / moderate |
+| Standard_A5 |2 |14 |135 |4 |4x500 |2 / moderate |
 | Standard_A6 |4 |28 |285 |8 |8x500 |2 / high |
 | Standard_A7 |8 |56 |605 |16 |16x500 |4 / high |
 <br>

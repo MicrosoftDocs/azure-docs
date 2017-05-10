@@ -1,4 +1,4 @@
----
+﻿---
 title: Create and Manage Windows VMs with the Azure PowerShell module | Microsoft Docs
 description: Tutorial - Create and Manage Windows VMs with the Azure PowerShell module
 services: virtual-machines-windows
@@ -22,7 +22,7 @@ ms.author: nepeters
 
 This tutorial covers basic Azure Virtual Machine creation items such as selecting a VM size, selecting a VM image, and deploying a VM. This tutorial also covers basic management operations such as managing state, deleting, and resizing a VM.
 
-The steps in this tutorial can be completed using the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) module.
+The steps in this tutorial can be completed using the latest [Azure PowerShell](/powershell/azure/overview) module.
 
 ## Create resource group
 

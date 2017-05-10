@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure group settings using Azure Active Directory cmdlets | Microsoft Docs
 description: How manage the settings for groups using Azure Active Directory cmdlets.
 services: active-directory
@@ -199,7 +199,7 @@ This step removes settings at directory level, which apply to all Office groups 
   ```
 
 ## Cmdlet syntax reference
-You can find more Azure Active Directory PowerShell documentation at [Azure Active Directory Cmdlets](https://docs.microsoft.com/powershell/azuread/).
+You can find more Azure Active Directory PowerShell documentation at [Azure Active Directory Cmdlets](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 ## Additional reading
 

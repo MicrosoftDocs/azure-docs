@@ -41,7 +41,7 @@ This document guides you through the step by step process of creating an OpenAPI
 
 ## <a name="enable"></a>Enabling API Definition Support
 1. Navigate to `your function name` > `API Definition (preview)`
-1. Set `API Definition Source` to `Internal`
+1. Set `API Definition Source` to `Function`
   1. This step enables a suite of OpenAPI options for your Function App, including an endpoint to host an OpenAPI file from your Function App's domain, an inline copy of the [OpenAPI Editor](http://editor.swagger.io), and a quickstart definition generator.
 ![Enabled Definition](./media/functions-api-definition-getting-started/enabledefinition.png)
 
@@ -116,5 +116,5 @@ There are testing tools built in to the UI view of the imbedded API definition e
   * Read the full documentation for more info on OpenAPI support.
 * [Azure Functions developer reference](functions-reference.md)  
   * Programmer reference for coding functions and defining triggers and bindings.
-* [Azure Functions Github repository](https://github.com/Azure/Azure-Functions/)
-  * Check out the Functions Github to give us feedback on the API definition support preview! Make a github issue for anything you'd like to see updated.
+* [Azure Functions GitHub repository](https://github.com/Azure/Azure-Functions/)
+  * Check out the Functions GitHub to give us feedback on the API definition support preview! Make a GitHub issue for anything you'd like to see updated.

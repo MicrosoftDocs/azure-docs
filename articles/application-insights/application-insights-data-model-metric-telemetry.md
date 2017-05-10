@@ -4,20 +4,20 @@ description: Application Insights data model for metric telemetry
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov-ms
+manager: carmonm
 
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 04/25/2017
 ms.author: sergkanz
 
 ---
 # Metric telemetry: Application Insights data model
 
-There are two types of metric telemetry supported by Application Insights - single measurement and pre-aggregated metric. Single measurement is just a name and value. Pre-aggregated metric specifies minimum and maximum value of the metric in the aggregation interval and standard deviation of it.
+There are two types of metric telemetry supported by [Application Insights](app-insights-overview.md): single measurement and pre-aggregated metric. Single measurement is just a name and value. Pre-aggregated metric specifies minimum and maximum value of the metric in the aggregation interval and standard deviation of it.
 
 Pre-aggregated metric telemetry assumes that aggregation period was one minute.
 
@@ -67,6 +67,6 @@ Standard deviation of the aggregated metric. Should not be set for a measurement
 
 ## Next steps
 
-- See [data model](/application-insights-data-model.md) for Application Insights types and data model.
-- Learn how to use [Application Insights API for custom events and metrics](/app-insights-asp-net-dependencies.md).
-- Check out [platforms](/app-insights-platforms.md) supported by Application Insights.
+- Learn how to use [Application Insights API for custom events and metrics](app-insights-api-custom-events-metrics.md#send-metrics).
+- See [data model](application-insights-data-model.md) for Application Insights types and data model.
+- Check out [platforms](app-insights-platforms.md) supported by Application Insights.
