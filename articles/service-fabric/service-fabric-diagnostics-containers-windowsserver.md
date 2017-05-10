@@ -42,7 +42,7 @@ Create a cluster using the ARM template found [here](https://github.com/dkkapur/
 
 Once the cluster is set up, confirm that you have installed the appropriate certificate, and make sure you are able to connect to the cluster.
 
-Confirm that your Resource Group is set up correctly by heading to [Azure portal](https://portal.azure.com/) and finding the deployment. The resource group should contain all the Service Fabric resources, and also have a Log Analytics solution as well as a Service Fabric solution.
+Confirm that your Resource Group is set up correctly by heading to the [Azure portal](https://portal.azure.com/) and finding the deployment. The resource group should contain all the Service Fabric resources, and also have a Log Analytics solution as well as a Service Fabric solution.
 
 For modifying an existing Service Fabric cluster:
 * Confirm that Diagnostics is enabled (if not, enable it via [updating the VMSS](/rest/api/virtualmachinescalesets/create-or-update-a-set))
@@ -56,7 +56,7 @@ Once the cluster is ready and you have confirmed that you can access it, deploy 
 
 ## 3. Add the Containers solution
 
-In Azure portal, create a Containers resource (under the Monitoring + Management category) through Azure Marketplace. 
+In the Azure portal, create a Containers resource (under the Monitoring + Management category) through Azure Marketplace. 
 
 ![Adding Containers solution](./media/service-fabric-diagnostics-containers-windowsserver/containers-solution.png)
 
