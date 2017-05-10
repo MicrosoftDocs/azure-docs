@@ -56,7 +56,6 @@
 ##### [Reliable Collection guidelines & recommendations](service-fabric-reliable-services-reliable-collections-guidelines.md)
 ##### [Working with Reliable Collections](service-fabric-work-with-reliable-collections.md)
 ##### [Transactions and locks](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-##### [Reliable Collection serialization](service-fabric-reliable-services-reliable-collections-serialization.md)
 ##### [Reliable State Manager and Reliable Collection internals](service-fabric-reliable-services-reliable-collections-internals.md)
 
 #### Get started
