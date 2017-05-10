@@ -37,31 +37,31 @@ sections:
       - title: DocumentDB API
         values:
         - href: /azure/cosmos-db/create-documentdb-dotnet
-        - href: http://microsoft.com
-        - href: http://microsoft.com
-        - href: http://microsoft.com
+        - href: /azure/cosmos-db/create-documentdb-java
+        - href: /azure/cosmos-db/create-documentdb-nodejs
+        - href:
         - href:
       - title: MongoDB API
         values:
-          - href: http://microsoft.com
-          - href: http://microsoft.com
+          - href: 
+          - href: /azure/cosmos-db/create-mongodb-java
           - href: /azure/cosmos-db/create-mongodb-nodejs
           - href: 
           - href: 
       - title: Graph API
         values:
-          - href:/azure/cosmos-db/create-graph-dotnet
-          - href: http://microsoft.com
-          - href: http://microsoft.com
+          - href: /azure/cosmos-db/create-graph-dotnet
+          - href: /azure/cosmos-db/create-graph-java
+          - href: /azure/cosmos-db/create-graph-nodejs
           - href: 
-          - href: 
+          - href: /azure/cosmos-db/create-graph-gremlin-console
       - title: Table API
         values:
-          - href: http://microsoft.com
+          - href:
           - href: /azure/cosmos-db/create-table-dotnet
-          - href: 
-          - href: 
-          - href: 
+          - href:
+          - href:
+          - href:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
