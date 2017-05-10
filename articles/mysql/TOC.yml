@@ -98,7 +98,7 @@
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/home?forum=AzureDatabaseforMySQL
   - name: Stack Overflow
-    href: https://stackoverflow.com/tags/Azure-Database-for-MySQL
+    href: http://stackoverflow.com/questions/tagged/azure-database-mysql
   - name: Request a feature
     href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
   - name: Region availability
