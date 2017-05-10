@@ -52,7 +52,7 @@ Azure AD and Microsoft Accounts safeguard password protection by dynamically ban
 
 When creating passwords, it is important for administrators to encourage users to choose password phrases that include a unique combination of letters, numbers, characters, or words. This approach helps to make user passwords nearly impossible to be compromised but easier for users to remember.
 
-#### Password breeches
+#### Password breaches
 
 Microsoft is always working to stay one step ahead of cyber-criminals.
 
