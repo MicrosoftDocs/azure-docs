@@ -26,7 +26,7 @@ To automate the build and test phase of application development, you can use a c
 > * Create a build definition that is triggered by code commits
 > * Install and configure IIS on a virtual machine in Azure
 > * Add the IIS instance to a deployment group in VSTS
-> * Create a release defintion to publish new web deploy packages to IIS
+> * Create a release definition to publish new web deploy packages to IIS
 > * Test the CI/CD pipeline
 
 This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
@@ -217,7 +217,7 @@ In this tutorial, you created an ASP.NET web application in VSTS and configured 
 > * Create a build definition that is triggered by code commits
 > * Install and configure IIS on a virtual machine in Azure
 > * Add the IIS instance to a deployment group in VSTS
-> * Create a release defintion to publish new web deploy packages to IIS
+> * Create a release definition to publish new web deploy packages to IIS
 > * Test the CI/CD pipeline
 
 Follow this link to see pre-built virtual machine script samples.
