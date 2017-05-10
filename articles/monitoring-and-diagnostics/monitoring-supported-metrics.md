@@ -480,13 +480,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |---|---|---|---|---|
 |Throughput|Throughput|BytesPerSecond|Average||
 
-## Microsoft.Network/expressRouteCircuits
-
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|
-|---|---|---|---|---|
-|BytesIn|BytesIn|Count|Total||
-|BytesOut|BytesOut|Count|Total||
-
 ## Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
