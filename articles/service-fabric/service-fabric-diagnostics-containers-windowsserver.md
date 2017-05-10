@@ -1,3 +1,23 @@
+---
+title: Azure Service Fabric Containers Monitoring and Diagnostics  | Microsoft Docs
+description: Learn how to monitor and diagnose containers orchestrated on Microsoft Azure Service Fabric with OMS's Containers solution.
+services: service-fabric
+documentationcenter: .net
+author: dkkapur
+manager: timlt
+editor: ''
+
+ms.assetid:
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 05/10/2017
+ms.author: dekapur
+
+---
+
 # Monitoring Windows Server containers with OMS
 
 ## OMS Containers Solution
@@ -6,48 +26,45 @@ The Operations Management Suite (OMS) team has published a Containers solution f
 
 ![Basic OMS Dashboard](./media/service-fabric-diagnostics-containers-windowsserver/oms-containers-dashboard.PNG)
 
-It also collects 4 different kinds of logs that can be queried in the OMS Log Analytics tool, and can be used to visualize any metrics or events being generated. The log types that are present in the solution are:
+It also collects different kinds of logs that can be queried in the OMS Log Analytics tool, and can be used to visualize any metrics or events being generated. The log types that are collected are:
 
 1. ContainerInventory: shows information about container location, name, and images
 2. ContainerImageInventory: information about deployed images, including IDs or sizes
 3. ContainerLog: specific error logs, docker logs (stdout, etc.), and other entries
 4. ContainerServiceLog: docker daemon commands that have been run
+5. Perf: performance counters including container cpu, memory, network traffic, disk i/o, as well as custom metrics from the host machines
 
-This article will cover the steps required to set this up for your cluster. To learn more about OMS's solution, check out their [github repo](https://github.com/Microsoft/OMS-docker#supported-linux-operating-systems-and-docker) and their [documentation](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-containers).
+This article covers the steps required to set up container monitoring for your cluster. To learn more about OMS's Containers solution, check out their [documentation](../log-analytics/log-analytics-containers.md).
 
-## 1. Set up a Service Fabric cluster
+## 1. Set up a new Service Fabric cluster
 
-Create a new cluster using the ARM template found [here](https://github.com/dkkapur/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Sample). To learn how to deploy a cluster using an ARM template, go to [this document](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-arm).
-
-Make sure to add a unique OMS workspace name. This template also defaults to deploying a cluster in the Preview build of Service Fabric (v255.255) which means that it cannot be used in production as is, and once the cluster is deployed, it cannot be upgraded to a different Service Fabric version. If you decide to use these steps in a production environment, make sure to change the version to the appropriate number. 
+Create a cluster using the ARM template found [here](https://github.com/dkkapur/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Sample). Make sure to add a unique OMS workspace name. This template also defaults to deploying a cluster in the preview build of Service Fabric (v255.255). This means that it cannot be used in production, and once the cluster is deployed, it cannot be upgraded to a different Service Fabric version. If you decide to use this template for a more permanent cluster or one that might be in a production environment, make sure to change the version to a stable version number.
 
 Once the cluster is set up, confirm that you have installed the appropriate certificate, and make sure you are able to connect to the cluster.
 
 Confirm that your Resource Group is set up correctly by heading to [Azure Portal](https://portal.azure.com/) and finding the deployment. The resource group should contain all the Service Fabric resources, and also have a Log Analytics solution as well as a Service Fabric solution.
 
+For modifying an existing Service Fabric cluster:
+* Confirm that Diagnostics is enabled (if not, enable it via [updating the VMSS](/rest/api/virtualmachinescalesets/create-or-update-a-set))
+* Add an OMS Workspace by creating a "Service Fabric Insights" solution via the Azure Marketplace
+* Edit the data sources of the Service Fabric solution to pick up data from the appropriate Azure Storage tables (set up by WAD) in the Resource Group that the cluster is in
+* Add the agent as an [extension to the VMSS](/powershell/module/azurerm.compute/add-azurermvmssextension) via PowerShell or through updating the VMSS (same link as above, to modify the ARM template)
+
 ## 2. Deploy a Container
 
-Once the cluster is ready and you have confirmed that you can access it, deploy a container to it. If you chose to use the Preview version as set by the template, you can also explore Service Fabric's new docker compose functionality. Bear in mind that the first time a container image is deployed to a cluster, it will take several minutes to download the image depending on its size.
+Once the cluster is ready and you have confirmed that you can access it, deploy a container to it. If you chose to use the preview version as set by the template, you can also explore Service Fabric's new docker compose functionality. Bear in mind that the first time a container image is deployed to a cluster, it takes several minutes to download the image depending on its size.
 
 ## 3. Add the Containers solution
 
-In Portal, create a new Containers resource (under the Monitoring + Management category) through Azure Marketplace. In the creation step, it will request an OMS workspace; add the one you just created with the ARM template. This creates a new Containers solution within your OMS workspace. This is automatically detected by the OMS agent deployed by the template and will start gathering data on the containers processes in the cluster. In about 10-15minutes, you should see the solution light up with as in the image above.
+In Azure Portal, create a Containers resource (under the Monitoring + Management category) through Azure Marketplace. 
+
+![Adding Containers solution](./media/service-fabric-diagnostics-containers-windowsserver/containers-solution.PNG)
+
+In the creation step, it requests an OMS workspace. Select the one that was created with the ARM template above. This step adds a new Containers solution within your OMS workspace, and is automatically detected by the OMS agent deployed by the template. The agent will start gathering data on the containers processes in the cluster, and in about 10-15 minutes, you should see the solution light up with data as in the image of the dashboard above.
 
 ## 4. Next steps
 
-To make the most of the solution, use the [log search](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-searches) features offered by the OMS workspace.
-
-Additionally, through the settings in the workspace, you can configure the agent to pick up custom performance counters from the host machines in the cluster (Workspace Home > Settings > Data > Windows Performance Counters).
-
-You can also configure OMS to set up [automated alerting](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-alerts) rules to aid in diagnostics.
-
-
-
-
-
-
-
-
-
-
-
+OMS offers various tools in the workspace to make if more useful for you. Explore the following options to customize the solution to your needs:
+- Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches) features offered as part of Log Analytics
+- Configure the OMS agent to pick up specific performance counters (go to the workspace Home > Settings > Data > Windows Performance Counters)
+- Configure OMS to set up [automated alerting](../log-analytics/log-analytics-alerts) rules to aid in detecting and diagnostics
