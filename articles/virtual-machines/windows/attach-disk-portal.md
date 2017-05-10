@@ -41,8 +41,10 @@ Continue by following instructions for attaching either a [new disk](#option-1-a
 ## Option 1: Attach and initialize a new disk
 1. On the **Disks** blade, click **+ Add data disk**.
 2. In the **Attach managed disk** blade, type a name for the disk in **Name** and then select **New (empty disk)** in **Source type**.
-3. Under **Storage container**, click the **Browse** button and browse to the storage account and container where you would like the new VHD to be stored and then click **Select**.   
+3. Under **Storage container**, click the **Browse** button and browse to the storage account and container where you would like the new VHD to be stored and then click **Select**. 
+  
    ![Review disk settings](./media/attach-disk-portal/attach-empty-unmanaged.png)
+   
 3. When you are done with the settings for the data disk, click **OK**.
 4. Back in the **Disks** blade, click **Save** to add the disk to the VM configuration.
 
@@ -65,8 +67,10 @@ Continue by following instructions for attaching either a [new disk](#option-1-a
 ## Option 2: Attach an existing disk
 1. On the **Disks** blade, click **+ Add data disk**.
 2. On the **Attach unmanaged disk** blade, in **Source type** select **Existing blob**.
+
     ![Review disk settings](./media/attach-disk-portal/attach-existing-unmanaged.png)
-3. Click **Browse** to navigate to the storage account and container where the existing VHD is located. Click and the VHD and then click **Select**.
+
+	3. Click **Browse** to navigate to the storage account and container where the existing VHD is located. Click and the VHD and then click **Select**.
 4. Click **OK** in the **Attach unmanaged disk** blade.
 5. In the **Disks** blade, click **Save** to add the disk to the configuration for the VM.
    
