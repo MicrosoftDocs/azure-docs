@@ -1,6 +1,6 @@
 ---
-title: 'Parameterizing U-SQL Scripts | Microsoft Docs'
-description: Learn how to parameterize U-SQL scripts.
+title: 'Parameterizing U-SQL scripts | Microsoft Docs'
+description: Learn how to parameterize U-SQL scripts in Azure Data Lake Analytics.
 services: data-lake-analytics
 documentationcenter: ''
 author: saveenr
@@ -17,7 +17,7 @@ ms.date: 05/10/2017
 ms.author: edmaca
 
 ---
-# Parameterizing U-SQL Scripts
+# Parameterizing U-SQL scripts
 
 ## Summary
 When working with U-SQL scripts, it is convenient to parameterize the scripts. Parameters allow the main body to remain the same, and still control the script's execution by passing in separate parameter values. A typical scenario involves a script processes data over some time range and a developer may want to parameterize the script on 
@@ -96,7 +96,7 @@ OUTPUT @searchlog
 ```    
 
 
-## Next Steps
+## Next steps
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
