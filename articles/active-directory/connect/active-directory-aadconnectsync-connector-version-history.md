@@ -39,8 +39,8 @@ Related links:
 ### Enhancements:
 
 * Generic SQL:
-  **Scenario: Reimplemeted:** "*" feature
-  **Solution description:** Changed approach for multi-valued reference attributes handling. Separate document with feature description created.
+  * **Scenario: Reimplemeted:** "*" feature
+  * **Solution description:** Changed approach for multi-valued reference attributes handling. Separate document with feature description created.
 
 
 ### Fixed issues:
