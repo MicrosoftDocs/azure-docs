@@ -31,7 +31,7 @@ First you need to enable the DNS service in your cluster. Get the template for t
 
 1. First check that the `apiversion` is set to `2017-07-01-preview` for the `Microsoft.ServiceFabric/clusters` resource as shown in the following snippet. If it is different then you need to update the `apiVersion` to the value `2017-07-01-preview`
 
-    ```
+    ```json
     {
         "apiVersion": "2017-07-01-preview",
         "type": "Microsoft.ServiceFabric/clusters",
@@ -43,7 +43,7 @@ First you need to enable the DNS service in your cluster. Get the template for t
 
 2. Now enable the DNS service by adding following `addonFeatures` section after the `fabricSettings` section as shown below
 
-    ```
+    ```json
         "fabricSettings": [
         ...      
         ],
@@ -60,7 +60,7 @@ Now that the DNS service is running in your cluster, you can set a DNS name for 
 ### Setting the DNS name for a default service in the ApplicationManifest.xml
 Open your project in Visual Studio, or your favorite editor, and open the `ApplicationManifest.xml` file. Go to the default services section, and for each service add the `ServiceDnsName` attribute. The following example shows how to set the DNS name of the service to `service1.application1`
 
-```
+```xml
     <Service Name="Stateless1" ServiceDnsName="service1.application1">
     <StatelessService ServiceTypeName="Stateless1Type" InstanceCount="[Stateless1_InstanceCount]">
         <SingletonPartition />
@@ -74,7 +74,7 @@ Now deploy your application. Once the application is deployed, navigate to the s
 ### Setting the DNS name for a service using Powershell
 You can set the DNS name for a service when creating it using the `New-ServiceFabricService` Powershell. The following example creates a new stateless service with the DNS name `service1.application1`
 
-```
+```powershell
     New-ServiceFabricService `
     -Stateless `
     -PartitionSchemeSingleton `
@@ -90,7 +90,7 @@ If you deploy more than one service you can find the endpoints of other services
 
 The following code shows how to call another service, which is simply a regular http call. Note that you will have to provide the port and any optional path as part of the URL.
 
-```json
+```csharp
 public class ValuesController : Controller
 {
     // GET api
