@@ -55,6 +55,7 @@
 ### [Use tags to organize resources](resource-group-using-tags.md)
 ### [Move resources to new group or subscription](resource-group-move-resources.md)
 ### [Governance examples](resource-manager-subscription-examples.md)
+### [Create UI definitions](managed-application-createuidefinition-overview.md)
 
 ## Control Access
 ### Create service principal
@@ -91,6 +92,7 @@
 ### [Numeric functions](resource-group-template-functions-numeric.md)
 ### [Resource functions](resource-group-template-functions-resource.md)
 ### [String functions](resource-group-template-functions-string.md)
+## [UI definition functions](managed-application-createuidefinition-functions.md)
 ## [PowerShell](/powershell/module/azurerm.resources)
 ## [Azure CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)

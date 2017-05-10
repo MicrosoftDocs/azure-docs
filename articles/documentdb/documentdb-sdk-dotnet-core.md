@@ -1,14 +1,14 @@
 ---
 title: Azure DocumentDB .NET Core API, SDK & Resources | Microsoft Docs
 description: Learn all about the .NET Core API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET Core SDK.
-services: documentdb
+services: cosmosdb
 documentationcenter: .net
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 
 ms.assetid: f899b314-26ac-4ddb-86b2-bfdf05c2abf2
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -25,7 +25,7 @@ ms.custom: H1Hack27Feb2017
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
 > * [Python](documentdb-sdk-python.md)
-> * [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
+> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
@@ -113,5 +113,5 @@ If you have questions related to this SDK, post to [StackOverflow](http://stacko
 | [0.1.0-preview](#0.1.0-preview) |November 15, 2016 |December 31, 2016 |
 
 ## See Also
-To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) service page. 
+To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) service page. 
 
