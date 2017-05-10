@@ -46,6 +46,8 @@ Since Cloud Shell is built for interactive sessions, shells automatically termin
 |Node.js    |6.9.4      |
 |Python     |2.7 and 3.5|
 
+Java is a registered trademark of Oracle and/or its affiliates.
+
 ## Secure automatic authentication
 Cloud Shell securely and automatically authenticates account access for the Azure CLI 2.0.
 
