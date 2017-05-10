@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 5/1/2017
+ms.date: 5/9/2017
 ms.author: vturecek
 
 ---
@@ -58,14 +58,14 @@ As shown in the following diagram, the DNS service, running in the Service Fabri
 
 ![service endpoints][9]
 
-For more details on how to use the DNS service see [DNS service in Azure Service Fabric](service-fabric-communicate-usings-dns-service.md) article.
+For more details on how to use the DNS service see [DNS service in Azure Service Fabric](service-fabric-dnsservice.md) article.
 
 ### Reverse proxy service
 The reverse proxy addresses services in the cluster that exposes HTTP endpoints including HTTPS. The reverse proxy greatly simplifies calling other services and their methods by having a specific URI format and handles the resolve, connect, retry steps required for one service to communicate with another using the Naming Serivce. In other words, it hides the Naming Service from you when calling other services by making this as simple as calling a URL.
 
 ![service endpoints][10]
 
-For more details on how to use the reverse proxy service see [Reverse proxy in Azure Service Fabric](service-fabric-reliable-services-reverseproxy.md) article.
+For more details on how to use the reverse proxy service see [Reverse proxy in Azure Service Fabric](service-fabric-reverseproxy.md) article.
 
 ## Connections from external clients
 Services connecting to each other inside a cluster generally can directly access the endpoints of other services because the nodes in a cluster are on the same local network. In some environments, however, a cluster may be behind a load balancer that routes external ingress traffic through a limited set of ports. In these cases, services can still communicate with each other and resolve addresses using the Naming Service, but extra steps must be taken to allow external clients to connect to services.
