@@ -32,7 +32,7 @@ sections:
       - image:
           src: media/logos/logo_python.svg
       - image:
-          src: media/logos/logo_gremlin.png
+          src: media/logos/logo_gremlin.svg
     rows:
       - title: DocumentDB API
         values:
