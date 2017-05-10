@@ -86,6 +86,9 @@
     - name: Configure SSL
       href: howto-configure-ssl.md
 - name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/mysql
 - name: Resources
   items:
   - name: Pricing
