@@ -33,6 +33,7 @@
 ## [Create a custom rule in the remote monitoring solution](iot-suite-custom-rule.md)
 ## [Device information in the remote monitoring solution](iot-suite-remote-monitoring-device-info.md)
 ## [Deploy a gateway for connected factory](iot-suite-connected-factory-gateway-deployment.md)
+## [Customize connected factory](iot-suite-connected-factory-customize.md)
 
 # Reference
 ## [Security architecture](iot-security-architecture.md)

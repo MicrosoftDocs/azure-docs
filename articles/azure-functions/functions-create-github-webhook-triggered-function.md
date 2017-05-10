@@ -89,5 +89,5 @@ You have created a function that runs when a request is received from a GitHub w
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 For more information about webhook triggers, see [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md). 
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+
 

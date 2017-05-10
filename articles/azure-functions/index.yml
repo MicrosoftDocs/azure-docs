@@ -11,43 +11,56 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/23/2017
+  ms.date: 01-23-2017
   ms.author: carolz
 abstract:
-  description: Learn how to use Functions to develop and deploy small pieces of code in the language of your choice and in the cloud without setting up infrastructure. Tutorials, templates, and other documentation show you how to create functions for tasks you want to run in a background thread or on a schedule.
+  description: Azure Functions is a serverless compute service that enables you to run code on-demand without having to explicitly provision or manage infrastructure. Use Azure Functions to run a script or piece of code in response to a variety of events. Learn how to use Azure Functions with our quickstarts, tutorials, and samples.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/get-started-with-azure-functions.png
+      width: 250  
+    title: Get started with Azure Functions. (2:39)
+    href: https://azure.microsoft.com/en-us/resources/videos/get-started-with-azure-functions/
+    width: 250
 sections:
 - title: 5-Minute Quickstarts
   items:
+  - type: paragraph
+    text: 'Learn how to create a Hello World function using:'
   - type: list
     style: icon48
     items: 
     - image: 
         src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
-      text: Create function - portal
+      text: Azure portal
       href: /azure/azure-functions/functions-create-first-azure-function
-- title: Resources
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/azure-functions/functions-create-first-azure-function-azure-cli
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to build and manage Azure Functions'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/azure-functions/functions-twitter-email">Build a serverless social media dashboard</a>
+    - html: <a href="/azure/azure-functions/functions-create-serverless-api">Create a serverless API using Azure Functions</a>
+- title: Samples
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/azure-functions/functions-cli-samples">Azure CLI</a>
+- title: Reference
   items:
   - type: list
     style: cards
-    className: cardsFTitle
-    items: 
-    - title: Learn about Azure Functions
-      image: 
-        src: https://docs.microsoft.com/en-us/azure/azure-functions/media/index/azure-functions.svg
-      href: /azure/azure-functions/functions-overview
-    - title: Get started with Azure Functions
-      image: 
-        src: https://docs.microsoft.com/en-us/media/common/i_get-started.svg
-      href: /azure/azure-functions/functions-create-first-azure-function
-    - title: Get started with a webhook function
-      image: 
-        src: https://docs.microsoft.com/en-us/media/common/i_get-started.svg
-      href: /azure/azure-functions/functions-create-a-web-hook-or-api-function
-    - title: Get started with an Azure connected function
-      image: 
-        src: https://docs.microsoft.com/en-us/media/common/i_get-started.svg
-      href: /azure/azure-functions/functions-create-an-azure-connected-function
-    - title: Get started with an event processing function
-      image: 
-        src: https://docs.microsoft.com/en-us/media/common/i_get-started.svg
-      href: /azure/azure-functions/functions-create-an-event-processing-function
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/cli/azure">Azure CLI</a></p>
