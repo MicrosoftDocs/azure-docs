@@ -1908,7 +1908,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cognitive-services/custom-speech-service/home">
+                                <a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1927,7 +1927,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cognitive-services/custom-speech-service/home">
+                                <a href="/azure/cognitive-services/custom-vision-service/home">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1984,7 +1984,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cognitive-services/">
+                                <a href="/azure/cognitive-services/bing-custom-search/overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
