@@ -42,7 +42,6 @@ Since Cloud Shell is built for interactive sessions, shells automatically termin
 |---|---|
 |.NET       |1.01       |
 |Go         |1.7        |
-|Java       |JRE/JDK 1.8|
 |Node.js    |6.9.4      |
 |Python     |2.7 and 3.5|
 

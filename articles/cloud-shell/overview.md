@@ -23,8 +23,7 @@ Azure Cloud Shell is an interactive, browser-accessible shell for managing Azure
 
 ## Features
 ### Browser-based shell experience
-Cloud Shell enables access to a command-line experience built with Azure management tasks in mind. Leverage Cloud Shell to work untethered 
-from a local machine in a way only the cloud can provide.
+Cloud Shell enables access to a browser-based command-line experience built with Azure management tasks in mind. Leverage Cloud Shell to work untethered from a local machine in a way only the cloud can provide.
 
 ### Pre-configured Azure workstation
 Cloud Shell comes pre-installed with popular command-line tools and language support so you can work faster.
@@ -73,3 +72,6 @@ Regular storage costs apply.
 Cloud Shell is recommended for Chrome, Edge, and Safari. 
 While Cloud Shell is supported for Chrome, Firefox, Safari, IE, and Edge, Cloud Shell is subject to specific browser settings.
 For specific known limitations, visit [limitations of Cloud Shell](limitations.md).
+
+## Open-source tooling
+Cloud Shell was built with open-source tools like [xterm.js](https://github.com/sourcelair/xterm.js/), [Kubernetes](https://github.com/kubernetes/kubernetes), and [Docker](https://github.com/moby/moby). Learn more about [how Azure supports open source technologies.](https://azure.microsoft.com/en-us/overview/choose-azure-opensource/)
