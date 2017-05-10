@@ -19,6 +19,9 @@ ms.author: Ning
 
 ---
 # Use the Linux Diagnostic Extension to monitor the performance and diagnostic data of a Linux VM
+
+This document describes version 2.3 of the Linux Diagnostic Extension. This version is deprecated; please see the [documentation for version 3.0 of the Linux Diagnostic Extension](../../virtual-machines-linux-diagnostic-extension.md).
+
 ## Introduction
 (**Note**: The Linux Diagnostic Extension is open-sourced on [GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic) where the most current information on the extension is first published. You might want to check the [GitHub page](https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic) first.)
 
