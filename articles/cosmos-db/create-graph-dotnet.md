@@ -135,9 +135,7 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 3. From the results, install the **Microsoft.Azure.Graphs** library. This installs the Azure Cosmos DB graph extension library package and all dependencies.
 
-4. From the results, install the **Microsoft.Azure.Graphs** library. 
-
-5. Click CTRL + F5 to run the application.
+4. Click CTRL + F5 to run the application.
 
    The console window displays the vertexes and edges being added to the graph. When the script completes, press ENTER twice to close the console window. 
 
