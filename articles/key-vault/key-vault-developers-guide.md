@@ -27,7 +27,7 @@ For more general information on Azure Key Vault, see [What is Key Vault](key-vau
 ## Public Preview - May 10, 2017
 
 >[!NOTE]
->For this preview version of Azure Key Vault only the **soft-delete** feature is in preview. Azure Key Vault is a production service.
+>For this preview version of Azure Key Vault only the **soft-delete** feature is in preview. Azure Key Vault, as a whole, is a full production service.
 
 This preview includes our new soft-delete feature, recoverable deletion of Key Vaults and Key Vault objects,  and updated interfaces for developers; [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) and [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/). 
 
