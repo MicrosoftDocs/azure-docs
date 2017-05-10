@@ -95,11 +95,13 @@ Now go back to the Azure portal to get your connection string information and co
 
 2. Open the **Dal.cs** file in the **DAL** directory. 
 
-3. Copy your **USERNAME** value from the portal (using the copy button) and make it the value of the **userName** in your **Dal.cs** file. 
+3. Copy your **username** value from the portal (using the copy button) and make it the value of the **username** in your **Dal.cs** file. 
 
-4. Then copy your **HOST** value from the portal and make it the value of the **host** in your **Dal.cs** file. 
+4. Then copy your **host** value from the portal and make it the value of the **host** in your **Dal.cs** file. 
 
-5. Finally copy your **PASSWORD** value from the portal and make it the value of the **password** in your **Dal.cs** file. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
+5. Finally copy your **password** value from the portal and make it the value of the **password** in your **Dal.cs** file. 
+
+You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
     
 ## Run the web app
 
@@ -112,6 +114,7 @@ Now go back to the Azure portal to get your connection string information and co
 4. Click CTRL + F5 to run the application. Your app displays in your browser. 
 
 5. Click **Create** in the browser and create a few new tasks in your task list app.
+
 ## Review SLAs in the Azure portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
