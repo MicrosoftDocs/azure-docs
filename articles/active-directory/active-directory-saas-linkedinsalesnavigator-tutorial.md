@@ -138,11 +138,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| --- | --- |    
 	| department| user.department |
 
-   	![Creating an Azure AD test user](./media/active-directory-saas-linkedinsalesnavigator-tutorial/userattribute.png)
+   ![Creating an Azure AD test user](./media/active-directory-saas-linkedinsalesnavigator-tutorial/userattribute.png)
 
 	a. Click on **Add Attribute** to open the attribute dialog
 
-   	![Creating an Azure AD test user](./media/active-directory-saas-linkedinsalesnavigator-tutorial/adduserattribute.png)
+   ![Creating an Azure AD test user](./media/active-directory-saas-linkedinsalesnavigator-tutorial/adduserattribute.png)
    
 	b. In the **Name** textbox, type the attribute name shown for that row.
 	
