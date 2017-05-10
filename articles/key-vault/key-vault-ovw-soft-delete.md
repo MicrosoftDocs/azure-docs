@@ -9,6 +9,9 @@ ms.date: 05/09/2017
 ---
 # Soft delete feature overview
 
+>[!NOTE]
+>For this preview version of Azure Key Vault only the **soft-delete** feature is in preview. Azure Key Vault, as a whole, is a full production service.
+
 For this preview version of Azure Key Vault we describe recoverable deletion of Key Vaults and Key Vault objects, known as soft-delete. Specifically, we addresses the following scenarios:
 
 - Support for recoverable deletion of a key vaults
