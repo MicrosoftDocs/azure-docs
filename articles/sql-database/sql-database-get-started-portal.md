@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 05/03/2017
 ms.author: carlrab
 
 ---
@@ -139,11 +139,8 @@ Now that you have created a sample database in Azure, let’s use the built-in q
 
 ## Clean up resources
 
-Other quick starts in this collection build upon this quick start. 
+If you don't need these resources for another quickstart/tutorial (see [Next steps](#next-steps)), you can delete them by doing the following:
 
-> [!TIP]
-> If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. If you do not plan to continue, use the following steps to delete all resources created by this quick start in the Azure portal.
->
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**. 
 2. On your resource group page, click **Delete**, type **myResourceGroup** in the text box, and then click **Delete**.

@@ -93,6 +93,9 @@ Try exploring other functionalities that the connector offers, for example:
 - List files in root folder
 - Update file
 
+## View the swagger
+See the [swagger details](/connectors/fileconnector/). 
+
 ## Get help
 
 To ask questions, answer questions, and learn what other Azure Logic Apps users 

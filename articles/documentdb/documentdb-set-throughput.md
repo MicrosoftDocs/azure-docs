@@ -1,14 +1,14 @@
 ---
-title: Provision throughput for Azure DocumentDB | Microsoft Docs
-description: Learn  how to set provisioned throughput for your DocumentDB collection.
-services: documentdb
+title: Provision throughput for Azure Cosmos DB | Microsoft Docs
+description: Learn  how to set provisioned throughput for your Azure Cosmos DB collection.
+services: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: ''
 documentationcenter: ''
 
 ms.assetid: f98def7f-f012-4592-be03-f6fa185e1b1e
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,9 +18,9 @@ ms.author: mimig
 
 ---
 
-# Set throughput for Azure DocumentDB collections
+# Set throughput for Azure Cosmos DB collections
 
-You can set throughput for your DocumentDB collections in the Azure portal or by using the client SDKs. 
+You can set throughput for your Azure Cosmos DB collections in the Azure portal or by using the client SDKs. 
 
 The following table lists the throughput available for collections:
 
@@ -50,8 +50,8 @@ The following table lists the throughput available for collections:
 ## To set the throughput by using the Azure portal
 
 1. In a new window, open the [Azure portal](https://portal.azure.com).
-2. On the left bar, click **NoSQL (DocumentDB)**, or click **More Services** at the bottom, then scroll to **Databases**, and then click **NoSQL (DocumentDB)**.
-3. Select your DocumentDB account.
+2. On the left bar, click **Azure Cosmos DB**, or click **More Services** at the bottom, then scroll to **Databases**, and then click **Azure Cosmos DB**.
+3. Select your Cosmos DB account.
 4. In the new window, under **Collections**, click **Scale** as shown in the following screenshot.
 5. In the new window, select your collection from the drop-down, change the **Throughput** value, and then click **Save**.
 
@@ -79,8 +79,8 @@ await client.ReplaceOfferAsync(offer);
 
 **Can I set my throughput to less than 400 RU/s?**
 
-400 RU/s is the minimum throughput available on DocumentDB single partition collections (2500 RU/s is the minimum for partitioned collections). Request units are set in 100 RU/s intervals, but throughput cannot be set to 100 RU/s or any value smaller than 400 RU/s. If you're looking for a cost effective method to develop and test DocumentDB, you can use the free [DocumentDB Emulator](documentdb-nosql-local-emulator.md), which you can deploy locally at no cost. 
+400 RU/s is the minimum throughput available on Cosmos DB single partition collections (2500 RU/s is the minimum for partitioned collections). Request units are set in 100 RU/s intervals, but throughput cannot be set to 100 RU/s or any value smaller than 400 RU/s. If you're looking for a cost effective method to develop and test Cosmos DB, you can use the free [Azure Cosmos DB Emulator](documentdb-nosql-local-emulator.md), which you can deploy locally at no cost. 
 
 ## Next steps
 
-To learn more about provisioning and going planet-scale with DocumentDB, see [Partitioning and scaling with DocumentDB](documentdb-partition-data.md).
+To learn more about provisioning and going planet-scale with Cosmos DB, see [Partitioning and scaling with Cosmos DB](documentdb-partition-data.md).

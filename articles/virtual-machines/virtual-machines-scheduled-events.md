@@ -90,13 +90,25 @@ In the case where there are scheduled events, the response contains an array of 
          }
      ]
 	}
+	
+### Event Properties
+|Property  |  Description |
+| - | - |
+| EventId |Globally unique identifier for event. <br><br> Example: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
+| EventType | Impact that event causes. <br><br> Values: <br><ul><li> <i>Freeze</i>: The Virtual Machine is scheduled to pause for few seconds. There is no impact on memory, open files, or network connections. <li> <i>Reboot</i>: The Virtual Machine is scheduled for reboot (memory is wiped).<li> <i>Redeploy</i>: The Virtual Machine is scheduled to move to another node (ephemeral disks are lost). |
+| ResourceType | Type of resource that event impacts. <br><br> Values: <ul><li>VirtualMachine|
+| Resources| List of resources that event impacts. <br><br> Example: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Event Status | Status of the event. <br><br> Values: <ul><li><i>Scheduled:</i> Event is scheduled to start after the time specified in the <i>NotBefore</i> property.<li><i>Started</i>: Event has started.</i>
+| NotBefore| Time after which event may start. <br><br> Example: <br><ul><li> 2016-09-19T18:29:47Z  |
 
-EventType Captures the expected impact on the Virtual Machine where:
-- Freeze: The Virtual Machine is scheduled to pause for few seconds. There is no impact on memory, open files, or network connections
-- Reboot: The Virtual Machine is scheduled for reboot (memory is wiped).
-- Redeploy: The Virtual Machine is scheduled to move to another node (ephemeral disk are lost). 
+### Event Scheduling
+Each event is scheduled a minimum amount of time in the future based on event type. This time is reflected in an event's <i>NotBefore</i> property. 
 
-When an event is scheduled (Status = Scheduled), Azure shares the time after which the event can start (specified in the NotBefore field).
+|EventType  | Minimum Notice |
+| - | - |
+| Freeze| 15 minutes |
+| Reboot | 15 minutes |
+| Redeploy | 10 minutes |
 
 ### Starting an event (expedite)
 
@@ -118,11 +130,13 @@ function GetScheduledEvents($uri)
 }
 
 # How to approve a scheduled event
-function ApproveScheduledEvent($eventId, $uri)
+function ApproveScheduledEvent($eventId, $docIncarnation, $uri)
 {    
-    # Create the Scheduled Events Approval Json
+    # Create the Scheduled Events Approval Document
     $startRequests = [array]@{"EventId" = $eventId}
-    $scheduledEventsApproval = @{"StartRequests" = $startRequests} 
+    $scheduledEventsApproval = @{"StartRequests" = $startRequests; "DocumentIncarnation" = $docIncarnation} 
+    
+    # Convert to JSON string
     $approvalString = ConvertTo-Json $scheduledEventsApproval
 
     Write-Host "Approving with the following: `n" $approvalString
@@ -159,7 +173,7 @@ foreach($event in $scheduledEvents.Events)
     $entry = Read-Host "`nApprove event? Y/N"
     if($entry -eq "Y" -or $entry -eq "y")
     {
-	ApproveScheduledEvent $event.EventId $scheduledEventURI 
+	ApproveScheduledEvent $event.EventId $scheduledEvents.DocumentIncarnation $scheduledEventURI 
     }
 }
 ``` 
@@ -205,6 +219,7 @@ Scheduled Events could be parsed using the following data structures
 ```csharp
     public class ScheduledEventsDocument
     {
+        public string DocumentIncarnation;
         public List<CloudControlEvent> Events { get; set; }
     }
 
@@ -215,11 +230,12 @@ Scheduled Events could be parsed using the following data structures
         public string EventType { get; set; }
         public string ResourceType { get; set; }
         public List<string> Resources { get; set; }
-        public DateTime NoteBefore { get; set; }
+        public DateTime? NotBefore { get; set; }
     }
 
     public class ScheduledEventsApproval
     {
+        public string DocumentIncarnation;
         public List<StartRequest> StartRequests = new List<StartRequest>();
     }
 
@@ -257,7 +273,11 @@ public class Program
             Console.ReadLine();
 
             // Approve events
-            ScheduledEventsApproval scheduledEventsApprovalDocument = new ScheduledEventsApproval();
+            ScheduledEventsApproval scheduledEventsApprovalDocument = new ScheduledEventsApproval()
+	    {
+	    	DocumentIncarnation = scheduledEventsDocument.DocumentIncarnation
+	    };
+	    
             foreach (CloudControlEvent ccevent in scheduledEventsDocument.Events)
             {
                 scheduledEventsApprovalDocument.StartRequests.Add(new StartRequest(ccevent.EventId));
