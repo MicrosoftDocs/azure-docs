@@ -21,7 +21,7 @@ ms.author: cynthn
 
 # Migrate from Amazon Web Services (AWS) to Azure Managed Disks
 
-You can migrate an Amazon Web Services (AWS) EC2 instance to Azure by uploading the virtual hard disk (VHD). If you want to create multiple virtual machines (VMs) in Azure from the same image, you must first generalize the VM and then export the generalized VHD to a local directory. Once the VHD is uploaded, you can create a new Azure VM that uses [Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for storage. Azure Managed Disks removes the need to manage storage accounts for Azure IaaS VMs. You have to only specify the type (Premium or Standard) and size of disk you need, and Azure will create and manage the disk for you. 
+You can migrate an Amazon Web Services (AWS) EC2 instance to Azure by uploading the virtual hard disk (VHD). If you want to create multiple virtual machines (VMs) in Azure from the same image, you must first generalize the VM and then export the generalized VHD to a local directory. Once the VHD is uploaded, you can create a new Azure VM that uses [Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for storage. Azure Managed Disks removes the need to manage storage accounts for Azure IaaS VMs. You have to only specify the type (Premium or Standard) and size of disk you need, and Azure creates and manages the disk for you. 
 
 Before starting this process,  make sure that you review [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
 
@@ -94,7 +94,7 @@ If you don't already have PowerShell version installed, read [How to install and
 ## Get the storage account
 You need a storage account in Azure to store the uploaded VM image. You can either use an existing storage account or create a new one. 
 
-If you will be using the VHD to create a managed disk for a VM, the storage account location must be same the location where you will be creating the VM.
+If you are using the VHD to create a managed disk for a VM, the storage account location must be same the location where you create the VM.
 
 To show the available storage accounts, type:
 
@@ -135,7 +135,7 @@ If you need to create a storage account, follow these steps:
 
 ## Upload the VHD 
 
-Use the [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) cmdlet to upload the VHD to a container in your storage account. This example uploads the file **myVHD.vhd** from `"C:\Users\Public\Documents\Virtual hard disks\"` to a storage account named **mystorageaccount** in the **myResourceGroup** resource group. The file will be placed into the container named **mycontainer** and the new file name will be **myUploadedVHD.vhd**.
+Use the [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) cmdlet to upload the VHD to a container in your storage account. This example uploads the file **myVHD.vhd** from `"C:\Users\Public\Documents\Virtual hard disks\"` to a storage account named **mystorageaccount** in the **myResourceGroup** resource group. The file is placed into the container named **mycontainer** and the new file name is **myUploadedVHD.vhd**.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -175,7 +175,7 @@ You can also upload a VHD to your storage account using one of the following:
 
 	We recommend using Import/Export Service if estimated uploading time is longer than 7 days. You can use [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) to estimate the time from data size and transfer unit. 
 
-	Import/Export can be used to copy to a standard storage account. You will need to copy from standard storage to premium storage account using a tool like AzCopy.
+	Import/Export can be used to copy to a standard storage account. To use Premium storage, you need to copy from the standard storage to a premium storage account using a tool like AzCopy.
 
 ## Create an image 
 
@@ -277,7 +277,7 @@ $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 
 ## Get the credentials 
 
-The following cmdlet will open a window where you will enter a new user name and password to use as the local administrator account for remotely accessing the VM. 
+The following cmdlet opens a window where you enter a new user name and password to use as the local administrator account for remotely accessing the VM. 
 
 ```powershell
 $cred = Get-Credential
