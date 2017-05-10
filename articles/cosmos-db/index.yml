@@ -24,13 +24,15 @@ sections:
     style: dataMatrix
     columns:
       - image:
-          src: media/index/logo_net.svg
+          src: media/logos/logo_net.svg
       - image:
-          src: media/index/logo_java.svg
+          src: media/logos/logo_java.svg
       - image:
-          src: media/index/logo_nodejs.svg
+          src: media/logos/logo_nodejs.svg
       - image:
-          src: media/index/logo_gremlin.svg
+          src: media/logos/logo_python.svg
+      - image:
+        src: media/logos/logo_gremlin.svg
     rows:
       - title: DocumentDB API
         values:
@@ -38,21 +40,25 @@ sections:
         - href: /azure/cosmos-db/create-documentdb-java
         - href: /azure/cosmos-db/create-documentdb-nodejs
         - href:
+        - href:
       - title: MongoDB API
         values:
           - href: 
           - href: /azure/cosmos-db/create-mongodb-java
           - href: /azure/cosmos-db/create-mongodb-nodejs
+          - href: /azure/cosmos-db/create-mongodb-python
           - href: 
       - title: Graph API
         values:
           - href: /azure/cosmos-db/create-graph-dotnet
           - href: /azure/cosmos-db/create-graph-java
           - href: /azure/cosmos-db/create-graph-nodejs
+          - href:
           - href: /azure/cosmos-db/create-graph-gremlin-console
       - title: Table API
         values:
           - href: /azure/cosmos-db/create-table-dotnet
+          - href:
           - href:
           - href:
           - href:
