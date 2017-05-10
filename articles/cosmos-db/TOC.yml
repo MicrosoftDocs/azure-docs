@@ -23,8 +23,6 @@
       href: create-documentdb-xamarin-dotnet.md
   - name: MongoDB
     items:
-    - name: .NET
-      href: create-mongodb-dotnet.md
     - name: Java
       href: create-mongodb-java.md
     - name: Node.js
