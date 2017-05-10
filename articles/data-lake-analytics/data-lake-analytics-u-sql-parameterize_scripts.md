@@ -19,13 +19,14 @@ ms.author: edmaca
 ---
 # Parameterizing U-SQL scripts
 
-## Summary
 When working with U-SQL scripts, it is convenient to parameterize the scripts. Parameters allow the main body to remain the same, and still control the script's execution by passing in separate parameter values. A typical scenario involves a script processes data over some time range and a developer may want to parameterize the script on 
 a beginning date and an ending date. 
 
 There are two ways in which scripts are parameterized:
 * The script allows the safe addition of parameters at the top of the script. U-SQL supports this method.
 * A Job submission API allows callers to send parameters. U-SQL does not support this method.
+
+## Example scripts
 
 Here is a simple initial script:
 
