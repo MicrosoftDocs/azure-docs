@@ -92,7 +92,7 @@ In the scale set resource, we add a `dependsOn` clause referring to the custom i
 
 ### Changing scale set properties to use the managed disk image
 
-In the `imageReference` of the scale set `storageProfile`, instead of specifying a Publisher/Offer/Sku/version for a platform image, we specify the `id` of the `Microsoft.Compute/images` resource:
+In the `imageReference` of the scale set `storageProfile`, instead of specifying the publisher, offer, sku, and version of a platform image, we specify the `id` of the `Microsoft.Compute/images` resource:
 
 ```diff
          "virtualMachineProfile": {
