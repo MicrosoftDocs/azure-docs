@@ -14,7 +14,7 @@ ms.tgt_pltfrm: portal
 ms.date: 05/10/2017
 ---
 
-## Migrate your MySQL database using import and export
+# Migrate your MySQL database using import and export
 This tutorial will show you the most common way to import and export the data in your Azure MySQL database using MySQL Workbench. 
 
 ## Before you begin

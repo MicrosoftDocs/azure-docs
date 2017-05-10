@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 
 # How to partition and scale in Azure Cosmos DB
 
-[Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is a global distributed, multi-model database service designed to help you achieve fast, predictable performance and scale seamlessly along with your application as it grows. This article provides an overview of how partitioning works for all the data models in Azure Cosmos DB, and describes how you can configure Azure Cosmos DB collections to effectively scale your applications.
+[Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is a global distributed, multi-model database service designed to help you achieve fast, predictable performance and scale seamlessly along with your application as it grows. This article provides an overview of how partitioning works for all the data models in Azure Cosmos DB, and describes how you can configure Azure Cosmos DB containers to effectively scale your applications.
 
 Partitioning and partition keys are also covered in this Azure Friday video with Scott Hanselman and Azure Cosmos DB Principal Engineering Manager, Shireesh Thota.
 
@@ -70,7 +70,7 @@ Cosmos DB is designed for predictable performance. When you create a container, 
 
 <a name="designing-for-partitioning"></a>
 ## Working with the Azure Cosmos DB APIs
-You can use the Azure portal or Azure CLI to create collections and scale them at any time. This section shows how to create containers and specify the throughput and partition key definition in each of the supported APIs.
+You can use the Azure portal or Azure CLI to create containers and scale them at any time. This section shows how to create containers and specify the throughput and partition key definition in each of the supported APIs.
 
 ### DocumentDB API
 The following sample shows how to create a container (collection) using the DocumentDB API. You can find more details in [Partitioning with DocumentDB API](../documentdb/documentdb-partition-data.md).
@@ -189,7 +189,7 @@ One of the common use cases of Cosmos DB is for logging and telemetry. It is imp
 
 * If your use case involves a small rate of writes accumulating over a long period of time, and need to query by ranges of timestamps and other filters, then using a rollup of the timestamp, for example,  date as a partition key is a good approach. This allows you to query over all the data for a date from a single partition. 
 * If your workload is written heavy, which is more common, you should use a partition key that’s not based on timestamp so that Cosmos DB can distribute writes evenly across various partitions. Here a hostname, process ID, activity ID, or another property with high cardinality is a good choice. 
-* A third approach is a hybrid one where you have multiple collections, one for each day/month and the partition key is a granular property like hostname. This has the benefit that you can set different throughput based on the time window, for example, the container for the current month is provisioned with higher throughput since it serves reads and writes, whereas previous months with lower throughput since they only serve reads.
+* A third approach is a hybrid one where you have multiple containers, one for each day/month and the partition key is a granular property like hostname. This has the benefit that you can set different throughput based on the time window, for example, the container for the current month is provisioned with higher throughput since it serves reads and writes, whereas previous months with lower throughput since they only serve reads.
 
 ### Partitioning and multi-tenancy
 If you are implementing a multi-tenant application using Cosmos DB, there are two popular patterns – one partition key per tenant, and one container per tenant. Here are the pros and cons for each:

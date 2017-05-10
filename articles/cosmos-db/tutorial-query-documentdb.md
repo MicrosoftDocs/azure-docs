@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 05/01/2017
+ms.date: 05/10/2017
 ms.author: mimig
 
 ---
@@ -23,6 +23,11 @@ ms.author: mimig
 # Azure Cosmos DB: How to query using SQL?
 
 The Azure Cosmos DB [DocumentDB API](../documentdb/documentdb-introduction.md) supports querying documents using SQL. This article provides a sample document and two sample SQL queries and results.
+
+This article covers the following tasks: 
+
+> [!div class="checklist"]
+> * Querying data with SQL
 
 ## Sample document
 
@@ -119,9 +124,13 @@ The next query returns all the given names of children in the family whose id ma
 
 ## Next steps
 
-In this tutorial, you've learned how to query DocumentDB documents using SQL. You can now distribute data globally using the portal or install the Local emulator for local development.  
+In this tutorial, you've done the following:
 
-[Distribute your data globally](tutorial-global-distribution-documentdb.md)
+> [!div class="checklist"]
+> * Learned how to query using SQL  
 
-[Develop locally](../documentdb/documentdb-nosql-local-emulator.md)
+You can now proceed to the next tutorial to learn how to distribute your data globally.
+
+> [!div class="nextstepaction"]
+> [Distribute your data globally](tutorial-global-distribution-documentdb.md)
 

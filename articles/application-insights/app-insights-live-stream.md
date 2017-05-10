@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2017
+ms.date: 05/10/2017
 ms.author: sdash
 
 ---
@@ -41,7 +41,7 @@ You can monitor custom KPI live by applying arbitrary filters on any Application
 
 ![Custom Request KPI](./media/app-insights-live-stream/live-stream-filteredMetric.png)
 
-You can monitor a value different from Count. The options depend on the type of stream, which could be any Application Insights telemetry: requests, dependencies, exceptions, traces, events, or metrics. It can be your own [custom properties](app-insights-api-custom-events-metrics.md#properties):
+You can monitor a value different from Count. The options depend on the type of stream, which could be any Application Insights telemetry: requests, dependencies, exceptions, traces, events, or metrics. It can be your own [custom measurement](app-insights-api-custom-events-metrics.md#properties):
 
 ![Value Options](./media/app-insights-live-stream/live-stream-valueoptions.png)
 
