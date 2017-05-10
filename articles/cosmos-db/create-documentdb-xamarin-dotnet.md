@@ -44,15 +44,13 @@ Now let's clone a DocumentDB API app from github, set the connection string, and
 
 1. Open a git terminal window, such as git bash, and `cd` to a working directory.  
 
-2. In your browser, go to [Github](https://aka.ms/acdbxamarinsample) and click the **Clone or download** button and then copy the Clone with HTTPS URL.
-
-3. Run the following command to clone the sample repository, using your copied URL. 
+2. Run the following command to clone the sample repository. 
 
     ```bash
-    git clone https://github.com/Azure/COPIED-URL
+    git clone https://github.com/Azure/azure-documentdb-dotnet.git
     ```
 
-3. Then open the DocumentDBTodo.sln file in Visual Studio. 
+3. Then open the DocumentDBTodo.sln file from the samples/xamarin/UserItems/xamarin.forms folder in Visual Studio. 
 
 ## Review the code
 
