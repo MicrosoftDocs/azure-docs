@@ -1,0 +1,25 @@
+- name: Custom Vision Documentation
+  href: ../index.md
+- name: Overview
+  href: home.md
+- name: Quickstarts
+  expanded: true
+  items: 
+  - name: Build a classifier
+    href: getting-started-build-a-classifier.md
+  - name: Improve your classifier
+    href: getting-started-improving-your-classifier.md
+  - name: Test your model
+    href: test-your-model.md
+  - name: Use the prediction API
+    href: use-prediction-api.md
+- name: Tutorials
+  items:
+  - name: C# Tutorial
+    href: csharp-tutorial.md
+- name: Reference
+  items:
+  - name: Glossary
+    href: glossary-of-terms.md
+  - name: SDK
+    href: http://github.com/Microsoft/Cognitive-CustomVision-Windows/

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Archived release notes for Hadoop components on Azure HDInsight | Microsoft Docs
 description: Archived release notes and versions of Hadoop components for Azure HDInsight.
 services: hdinsight
@@ -881,8 +881,8 @@ This release contains the following updates.
 <td>Hadoop</td>
 <td>N/A</td>
 </tr>
-<td>Hadoop Connector for DocumentDB</td>
-<td>With Hadoop Connector for DocumentDB, you can perform complex aggregations, analysis, and manipulations over your schema-less JSON documents stored across DocumentDB collections or across database accounts. For more information and a tutorial, see Run Hadoop jobs using DocumentDB and HDInsight.</td>
+<td>Hadoop Connector for Azure Cosmos DB</td>
+<td>With Hadoop Connector for Azure Cosmos DB, you can perform complex aggregations, analysis, and manipulations over your schema-less JSON documents stored across Azure Cosmos DB collections or across database accounts. For more information and a tutorial, see Run Hadoop jobs using Azure Cosmos DB and HDInsight.</td>
 <td>Service</td>
 <td>Hadoop</td>
 <td>N/A</td>

@@ -1,14 +1,14 @@
 ---
 title: Azure DocumentDB Java API, SDK & Resources | Microsoft Docs
 description: Learn all about the Java API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Java SDK.
-services: documentdb
+services: cosmosdb
 documentationcenter: java
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 7861cadf-2a05-471a-9925-0fec0599351b
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
@@ -25,7 +25,7 @@ ms.custom: H1Hack27Feb2017
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
 > * [Python](documentdb-sdk-python.md)
-> * [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
+> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
@@ -146,7 +146,7 @@ Microsoft will provide notification at least **12 months** in advance of retirin
 
 New features and functionality and optimizations are only added to the current SDK, as such it is  recommend that you always upgrade to the latest SDK version as early as possible.
 
-Any request to DocumentDB using a retired SDK will be rejected by the service.
+Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 > [!WARNING]
 > All versions of the Azure DocumentDB SDK for Java prior to version **1.0.0** will be retired on **February 29, 2016**.
@@ -189,5 +189,5 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
 ## See Also
-To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) service page.
+To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) service page.
 

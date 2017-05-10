@@ -1,6 +1,7 @@
 ---
 title: 'Hadoop tutorial: Get started with Hadoop and Hive in HDInsight | Microsoft Docs'
 description: Follow this tutorial to get started using Hadoop in HDInsight. Learn how to create Linux clusters, and query data with Hive.
+keywords: hadoop getting started, hadoop linux, hadoop quick start
 services: hdinsight
 documentationcenter: ''
 author: mumian
