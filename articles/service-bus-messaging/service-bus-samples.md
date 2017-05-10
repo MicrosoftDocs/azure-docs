@@ -13,42 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2016
+ms.date: 05/10/2017
 ms.author: sethm
 
 ---
 # Service Bus messaging samples
-The Service Bus messaging samples demonstrate key features in [Service Bus messaging](https://azure.microsoft.com/services/service-bus/) (cloud service) and [Service Bus for Windows Server](https://msdn.microsoft.com/library/dn282144.aspx). This article categorizes and describes the samples available, with links to each.
 
-> [!NOTE]
-> Service Bus samples are not installed with the SDK. To obtain the samples, visit the [Azure SDK samples page](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
-> 
-> Additionally, there is an updated set of Service Bus messaging samples [here](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) (as of this writing, they are not described in this article).  
-> 
-> 
+The Service Bus messaging samples demonstrate key features in [Service Bus messaging](https://azure.microsoft.com/services/service-bus/) (cloud service) and [Service Bus for Windows Server](https://msdn.microsoft.com/library/dn282144.aspx). This article categorizes and describes the samples available.
 
-For relay samples, see [Service Bus relay samples](../service-bus-relay/service-bus-relay-samples.md).
+At this time, you can find Service Bus messaging samples in two places:
+
+- [MSDN samples page](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5): these are older samples that live on MSDN, many of which are described in this article.  
+- [Service Bus messaging samples on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet): a newer set of samples, hosted on GitHub. See the [readme file](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.ServiceBus.Messaging/README.md) in the repo for descriptions of the .NET samples. The samples are continuously updated, so check back often for those updates.
 
 ## Service Bus messaging
-The following samples illustrate how to write applications that use Service Bus messaging.
 
-Note that the messaging samples require a connection string to access your Service Bus namespace.
-
-### To obtain a connection string for Azure Service Bus
-1. Log on to the [Azure portal](http://portal.azure.com).
-2. In the left-hand column, click **Service Bus**.
-3. Click the name of your namespace in the list.
-4. In the namespace blade, click **Shared access policies**.
-5. In the **Shared access policies** blade, click **RootManageSharedAccessKey**.
-6. Copy the connection string to the clipboard.
-
-### To obtain a connection string for Service Bus for Windows Server
-1. Run the following PowerShell cmdlet:
-   
-    ```
-    get-sbClientConfiguration
-    ```
-2. Paste the connection string into the App.config file for the sample.
+The following samples demonstrate how to write applications that use Service Bus messaging.
 
 ### Getting started samples
 These samples describe basic messaging functionality.
@@ -91,6 +71,12 @@ The following samples demonstrate various other features of the service.
 | [Authorization: SBAzTool](http://code.msdn.microsoft.com/Authorization-SBAzTool-6fd76d93) |This sample demonstrates how to create and manage service identities in Microsoft Azure Active Directory Access Control (also known as Access Control Service or ACS) for use with Service Bus. |N/A |Microsoft Azure Service Bus |
 
 ## Next steps
+
+Sample locations are here:
+
+- [MSDN samples](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5)
+- [GitHub samples](https://github.com/Azure/azure-service-bus/tree/master/samples)
+
 See the following topics for conceptual overviews of Service Bus.
 
 * [Service Bus messaging overview](service-bus-messaging-overview.md)
