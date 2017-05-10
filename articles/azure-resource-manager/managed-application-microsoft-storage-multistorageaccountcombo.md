@@ -17,8 +17,7 @@ ms.author: tabrezm;tomfitz
 
 ---
 # Microsoft.Storage.MultiStorageAccountCombo UI element
-A group of controls for creating multiple storage accounts, with names that
-start with a common prefix.
+A group of controls for creating multiple storage accounts, with names that start with a common prefix.
 
 ## UI sample
 ![Microsoft.Storage.MultiStorageAccountCombo](./media/managed-application-elements/microsoft.storage.multistorageaccountcombo.png)
@@ -52,24 +51,24 @@ start with a common prefix.
 ## Remarks
 - The value for `defaultValue.prefix` is concatenated with one or more integers
 to generate the sequence of storage account names. For example, if
-`defaultValue.prefix` is `foobar` and `count` is `2`, then storage account names
-`foobar1` and `foobar2` are generated. Generated storage account names are
+`defaultValue.prefix` is **foobar** and `count` is **2**, then storage account names
+**foobar1** and **foobar2** are generated. Generated storage account names are
 validated for uniqueness automatically.
 - The storage account names are generated lexicographically based on
 `count`. For example, if `count` is 10, then the storage account names end
 with 2-digit integers (01, 02, 03, etc.).
-- The default value for `defaultValue.prefix` is `null`, and for
-`defaultValue.type` is `Premium_LRS`.
+- The default value for `defaultValue.prefix` is **null**, and for
+`defaultValue.type` is **Premium_LRS**.
 - Any type not specified in `constraints.allowedTypes` is hidden, and any
 type not specified in `constraints.excludedTypes` is shown.
 `constraints.allowedTypes` and `constraints.excludedTypes` are both optional,
 but cannot be used simultaneously.
 - In addition to generating storage account names, `count` is used to set the
-appropriate multiplier for the element. It supports a static value, like `2`, or
+appropriate multiplier for the element. It supports a static value, like **2**, or
 a dynamic value from another element, like
-`[steps('step1').storageAccountCount]`. The default value is `1`.
+`[steps('step1').storageAccountCount]`. The default value is **1**.
 
-## Output
+## Sample output
 ```json
 {
   "prefix": "sa",
@@ -80,4 +79,5 @@ a dynamic value from another element, like
 ```
 
 ## Next Steps
-* For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](resource-group-overview.md).
+* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* For a description of common properties in UI elements, see [CreateUiDefinition elements](managed-application-createuidefinition-elements.md).

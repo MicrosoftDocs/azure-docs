@@ -41,22 +41,23 @@ A control that can be used to edit unformatted text.
 ```
 
 ## Remarks
-- If `constraints.required` is set to `true`, then the text box must contain a
-value to validate successfully. The default value is `false`.
+- If `constraints.required` is set to **true**, then the text box must contain a
+value to validate successfully. The default value is **false**.
 - `constraints.regex` is a JavaScript regular expression pattern. If specified,
 then the text box's value must match the pattern to validate successfully. The
-default value is `null`.
+default value is **null**.
 - `constraints.validationMessage` is a string to display when the text box's
 value fails validation. If not specified, then the text box's built-in
-validation messages are used. The default value is `null`.
+validation messages are used. The default value is **null**.
 - It's possible to specify a value for `constraints.regex` when
-`constraints.required` is set to `false`. In this scenario, a value is not required for the text box to validate successfully. If one is specified, it must match the regular expression pattern.
+`constraints.required` is set to **false**. In this scenario, a value is not required for the text box to validate successfully. If one is specified, it must match the regular expression pattern.
 
-## Output
+## Sample output
 
 ```json
 "foobar"
 ```
 
 ## Next Steps
-* For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](resource-group-overview.md).
+* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* For a description of common properties in UI elements, see [CreateUiDefinition elements](managed-application-createuidefinition-elements.md).

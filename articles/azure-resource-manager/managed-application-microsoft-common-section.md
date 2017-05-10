@@ -49,13 +49,16 @@ A control that groups one or more elements under a heading.
 types except `Microsoft.Common.Section`.
 - This element doesn't support the `toolTip` property.
 
-## Output
-To access the output values of elements in `elements`, use the `basics()` or
-`steps()` functions and dot notation:
-```
+## Sample output
+To access the output values of elements in `elements`, use the [basics()](managed-application-createuidefinition-functions.md#basics) or
+[steps()](managed-application-createuidefinition-functions.md#steps) functions and dot notation:
+
+```json
 basics('section1').element1
 ```
+
 Elements of type `Microsoft.Common.Section` have no output values themselves.
 
 ## Next Steps
-* For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](resource-group-overview.md).
+* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* For a description of common properties in UI elements, see [CreateUiDefinition elements](managed-application-createuidefinition-elements.md).

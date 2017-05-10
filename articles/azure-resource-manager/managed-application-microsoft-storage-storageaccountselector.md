@@ -46,16 +46,16 @@ A control for selecting a new or existing storage account.
 
 ## Remarks
 - If specified, `defaultValue.name` is automatically validated for uniqueness. If the storage account name is not unique, the user must specify a different name or choose an existing storage account.
-- The default value for `defaultValue.type` is `Premium_LRS`.
+- The default value for `defaultValue.type` is **Premium_LRS**.
 - Any type not specified in `constraints.allowedTypes` is hidden, and any
 type not specified in `constraints.excludedTypes` is shown.
 `constraints.allowedTypes` and `constraints.excludedTypes` are both optional,
 but cannot be used simultaneously.
-- If `options.hideExisting` is `true`, the user can't choose an
-existing storage account. The default value is `false`.
+- If `options.hideExisting` is **true**, the user can't choose an
+existing storage account. The default value is **false**.
 
 
-## Output
+## Sample output
 ```json
 {
   "name": "storageaccount01",
@@ -66,4 +66,5 @@ existing storage account. The default value is `false`.
 ```
 
 ## Next Steps
-* For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](resource-group-overview.md).
+* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* For a description of common properties in UI elements, see [CreateUiDefinition elements](managed-application-createuidefinition-elements.md).

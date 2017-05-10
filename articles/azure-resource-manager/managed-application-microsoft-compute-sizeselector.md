@@ -55,18 +55,19 @@ A control for selecting a size for one or more virtual machine instances.
 - Any size not specified in the `constraints.allowedSizes` is hidden, and any size not specified in `constraints.excludedSizes` is shown.
 `constraints.allowedSizes` and `constraints.excludedSizes` are both optional,
 but cannot be used simultaneously. The list of available sizes can be determined
-by calling [this API](https://msdn.microsoft.com/library/azure/mt269440.aspx).
-- `osPlatform` must be specified, and can be either `Windows` or `Linux`. It's
+by calling [List available virtual machine sizes for a subscription](/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region).
+- `osPlatform` must be specified, and can be either **Windows** or **Linux**. It's
 used to determine the hardware costs of the virtual machines.
 - `imageReference` is omitted for first-party images, but provided for third-party images. It's used to determine the software costs of the virtual machines.
 - `count` is used to set the appropriate multiplier for the element. It supports
-a static value, like `2`, or a dynamic value from another element, like
-`[steps('step1').vmCount]`. The default value is `1`.
+a static value, like **2**, or a dynamic value from another element, like
+`[steps('step1').vmCount]`. The default value is **1**.
 
-## Output
+## Sample output
 ```json
 "Standard_D1"
 ```
 
 ## Next Steps
-* For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](resource-group-overview.md).
+* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* For a description of common properties in UI elements, see [CreateUiDefinition elements](managed-application-createuidefinition-elements.md).

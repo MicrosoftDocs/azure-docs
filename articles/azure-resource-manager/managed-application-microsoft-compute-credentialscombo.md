@@ -17,14 +17,13 @@ ms.author: tabrezm;tomfitz
 
 ---
 # Microsoft.Compute.CredentialsCombo UI element
-A group of controls with built-in validation for Windows and Linux passwords
-and SSH public keys.
+A group of controls with built-in validation for Windows and Linux passwords and SSH public keys.
 
 ## UI sample
 ![Microsoft.Compute.CredentialsCombo](./media/managed-application-elements/microsoft.compute.credentialscombo.png)
 
 ## Schema
-If `osPlatform` is `Windows`, then the following schema is expected:
+If `osPlatform` is **Windows**, then the following schema is used:
 ```json
 {
   "name": "element1",
@@ -49,7 +48,7 @@ If `osPlatform` is `Windows`, then the following schema is expected:
 }
 ```
 
-If `osPlatform` is `Linux`, then the following schema is expected:
+If `osPlatform` is **Linux**, then the following schema is used:
 ```json
 {
   "name": "element1",
@@ -80,23 +79,24 @@ If `osPlatform` is `Linux`, then the following schema is expected:
 ```
 
 ## Remarks
-- `osPlatform` must be specified, and can be either `Windows` or `Linux`.
-- If `constraints.required` is set to `true`, then the password or SSH public
-key text boxes must contain  values to validate successfully. The default value
-is `true`.
-- If `options.hideConfirmation` is set to `true`, then the second text box for
-confirming the user's password is hidden. The default value is `false`.
-- If `options.hidePassword` is set to `true`, then the option to use password
-authentication is hidden. It can be used only when `osPlatform` is `Linux`. The
-default value is `false`.
+- `osPlatform` must be specified, and can be either **Windows** or **Linux**.
+- If `constraints.required` is set to **true**, then the password or SSH public
+key text boxes must contain values to validate successfully. The default value
+is **true**.
+- If `options.hideConfirmation` is set to **true**, then the second text box for
+confirming the user's password is hidden. The default value is **false**.
+- If `options.hidePassword` is set to **true**, then the option to use password
+authentication is hidden. It can be used only when `osPlatform` is **Linux**. The
+default value is **false**.
 - Additional constraints on the allowed passwords can be implemented by using
 the `customPasswordRegex` property. The string in `customValidationMessage`
 is displayed when a password fails custom validation. The default value
-for both properties is `null`.
+for both properties is **null**.
 
-## Output
-If `osPlatform` is `Windows`, or the user provided a password instead of an SSH
+## Sample output
+If `osPlatform` is **Windows**, or the user provided a password instead of an SSH
 public key, then the following output is expected:
+
 ```json
 {
   "authenticationType": "password",
@@ -113,4 +113,5 @@ If the user provided an SSH public key, then the following output is expected:
 ```
 
 ## Next Steps
-* For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](resource-group-overview.md).
+* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* For a description of common properties in UI elements, see [CreateUiDefinition elements](managed-application-createuidefinition-elements.md).

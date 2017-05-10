@@ -86,10 +86,9 @@ existing subnet. Configuring subnets in this case is required.
 `defaultValue.addressPrefixSize` is determined automatically based on the
 existing virtual networks in the user's subscription.
 - The default value for `defaultValue.name` and `defaultValue.addressPrefixSize`
-is `null`.
+is **null**.
 - `constraints.minAddressPrefixSize` must be specified. Any existing virtual
-networks with an address space smaller than `constraints.minAddressPrefixSize`
-are unavailable for selection.
+networks with an address space smaller than the specified value are unavailable for selection.
 - `subnets` must be specified, and `constraints.minAddressPrefixSize` must be
 specified for each subnet.
 - When creating a new virtual network, each subnet's address prefix is
@@ -99,13 +98,13 @@ respective `addressPrefixSize`.
 respective `constraints.minAddressPrefixSize` are unavailable for
 selection. Additionally, if specified, subnets that do not contain at least
 `minAddressCount` available addresses are unavailable for selection.
-The default value is `0`. To ensure that the available addresses are contiguous,
-specify `true` for `requireContiguousAddresses`. The default value is `true`.
+The default value is **0**. To ensure that the available addresses are contiguous,
+specify **true** for `requireContiguousAddresses`. The default value is **true**.
 - Creating subnets in an existing virtual network is not supported.
-- If `options.hideExisting` is true, then the user can't choose an
-existing virtual network. The default value is `false`.
+- If `options.hideExisting` is **true**, the user can't choose an
+existing virtual network. The default value is **false**.
 
-## Output
+## Sample output
 ```json
 {
   "name": "vnet01",
@@ -128,4 +127,5 @@ existing virtual network. The default value is `false`.
 ```
 
 ## Next Steps
-* For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](resource-group-overview.md).
+* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* For a description of common properties in UI elements, see [CreateUiDefinition elements](managed-application-createuidefinition-elements.md).

@@ -48,20 +48,16 @@ A selection control with a dropdown list.
 ```
 
 ## Remarks
-- The `label` for `constraints.allowedValues` is the display text for an item,
-and its `value` is the output value of the element when selected.
-- If specified, the value for `defaultValue` must be a `label` present in
-`constraints.allowedValues`. If not specified, the first item in
-`constraints.allowedValues` is selected by default. The default value is `null`.
+- The label for `constraints.allowedValues` is the display text for an item, and its value is the output value of the element when selected.
+- If specified, the default value must be a label present in `constraints.allowedValues`. If not specified, the first item in `constraints.allowedValues` is selected. The default value is **null**.
 - `constraints.allowedValues` must contain at least one item.
-- This element doesn't support the `constraints.required` property. To emulate
-this behavior, add an item with a `label` and `value` of `""` (empty string) to
-`constraints.allowedValues`.
+- This element doesn't support the `constraints.required` property. To emulate this behavior, add an item with a label and value of `""` (empty string) to `constraints.allowedValues`.
 
-## Output
+## Sample output
 ```json
 "Bar"
 ```
 
 ## Next Steps
-* For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](resource-group-overview.md).
+* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* For a description of common properties in UI elements, see [CreateUiDefinition elements](managed-application-createuidefinition-elements.md).

@@ -41,24 +41,25 @@ A text box control with built-in validation for Windows and Linux user names.
 ```
 
 ## Remarks
-- If `constraints.required` is set to `true`, then the text box must contain a
-value to validate successfully. The default value is `true`.
-- `osPlatform` must be specified, and can be either `Windows` or `Linux`.
+- If `constraints.required` is set to **true**, then the text box must contain a
+value to validate successfully. The default value is **true**.
+- `osPlatform` must be specified, and can be either **Windows** or **Linux**.
 - `constraints.regex` is a JavaScript regular expression pattern. If specified,
 then the text box's value must match the pattern to validate successfully. The
-default value is `null`.
+default value is **null**.
 - `constraints.validationMessage` is a string to display when the text box's
 value fails the validation specified by `constraints.regex`. If not specified,
 then the text box's built-in validation messages are used. The default value is
-`null`.
+**null**.
 - This element has built-in validation that is based on the value specified for `osPlatform`. The built-in validation can be used along with a custom regular expression.
 If a value for `constraints.regex` is specified, then both the built-in and
 custom validations are triggered.
 
-## Output
+## Sample output
 ```json
 "tabrezm"
 ```
 
 ## Next Steps
-* For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](resource-group-overview.md).
+* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* For a description of common properties in UI elements, see [CreateUiDefinition elements](managed-application-createuidefinition-elements.md).

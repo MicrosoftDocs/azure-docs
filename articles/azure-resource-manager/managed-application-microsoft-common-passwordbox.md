@@ -47,13 +47,14 @@ A control that can be used to provide and confirm a password.
 ## Remarks
 - This element doesn't support the `defaultValue` property.
 - For implementation details of `constraints`, see [Microsoft.Common.TextBox](managed-application-microsoft-common-textbox.md).
-- If `options.hideConfirmation` is set to `true`, then the second text box for
-confirming the user's password is hidden. The default value is `false`.
+- If `options.hideConfirmation` is set to **true**, the second text box for
+confirming the user's password is hidden. The default value is **false**.
 
-## Output
+## Sample output
 ```json
 "p4ssw0rd"
 ```
 
 ## Next Steps
-* For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](resource-group-overview.md).
+* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* For a description of common properties in UI elements, see [CreateUiDefinition elements](managed-application-createuidefinition-elements.md).
