@@ -3,6 +3,7 @@
 ## [Supported services](resource-manager-supported-services.md)
 ## [Resource Manager and Classic deployment](resource-manager-deployment-model.md)
 ## [Subscription governance](resource-manager-subscription-governance.md)
+## [Managed Applications](managed-application-overview.md)
 
 # Get started
 ## [Export template](resource-manager-export-template.md)
@@ -75,6 +76,10 @@
 ### [Storage policies](resource-manager-policy-storage.md)
 ### [Linux VM policies](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Windows VM policies](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+
+## Use managed applications
+### [Publish managed application](managed-application-publishing.md)
+### [Consume managed application](managed-application-consumption.md)
 
 ## Audit
 ### [View activity logs](resource-group-audit.md)

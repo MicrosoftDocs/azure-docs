@@ -14,7 +14,7 @@ ms.date: 05/08/2017
 ms.author: gauravbh; tomfitz
 
 ---
-# How to create a Managed Application 
+# Create and publish an Azure Managed Application 
 
 As described in the Managed Application overview article, there are two scenarios in the end to end experience. One is the publisher or ISV who wants to create a managed application for use by customers. The second is the customer or the consumer of the managed application. This article focuses on the first scenario and explains how an ISV can create and publish a managed application. 
 
@@ -202,4 +202,5 @@ The parameters used in the preceding example are:
 
 ## Next steps
 
-* For an introduction to Resource Manager, see [Azure Resource Manager overview](resource-group-overview.md).
+* For an introduction to managed applications, see [Azure Managed Application overview](managed-application-overview.md).
+* To understand the consumer experience, see [Consume an Azure Managed Application](managed-application-consumption.md).
