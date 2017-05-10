@@ -185,9 +185,11 @@ The metastore contains Hive metadata, such as Hive tables, partitions, schemas, 
 Metastore configuration is not available for all cluster types. For example, it is not available for HBase or Kafka clusters.
 
 > [!IMPORTANT]
-> When you create a custom metastore, do not use a database name that contains dashes or hyphens. This can cause the cluster creation process to fail.
->
->
+> When you create a custom metastore, do not use a database name that contains dashes, hyphens, or spaces. This can cause the cluster creation process to fail.
+
+> [!WARNING]
+> Azure SQL Warehouse is not supported for the Hive metastore.
+
 
 #### Oozie metastore
 
@@ -197,6 +199,9 @@ To increase performance when using Oozie, use a custom metastore. A custom metas
 > You cannot reuse a custom Oozie metastore. To use a custom Oozie metastore, you must provide an empty Azure SQL Database when creating the HDInsight cluster.
 
 Metastore configuration is not available for all cluster types. For example, it is not available for HBase or Kafka clusters.
+
+> [!WARNING]
+> Azure SQL Warehouse is not supported for the Oozie metastore.
 
 ## Install HDInsight applications
 
