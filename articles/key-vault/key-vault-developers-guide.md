@@ -9,7 +9,7 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 045/09/2017
+ms.date: 05/10/2017
 ms.author: bruceper
 
 ---

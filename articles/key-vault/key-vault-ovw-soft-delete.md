@@ -1,13 +1,13 @@
 ---
 ms.assetid: 
-title: Key Vault soft delte | Microsoft Docs
+title: Azure Key Vault soft delete | Microsoft Docs
 ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 05/09/2017
+ms.date: 05/10/2017
 ---
-# Soft delete feature overview
+# Azure Key Vault soft-delete feature overview
 
 >[!NOTE]
 >For this preview version of Azure Key Vault only the **soft-delete** feature is in preview. Azure Key Vault, as a whole, is a full production service.
