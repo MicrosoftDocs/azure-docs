@@ -504,24 +504,24 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <p>Bing Image</p>
                                             </a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <a href="/azure/cognitive-services/">
                                                 <img src="media/index/cs-bing-knowledge-graph.svg" alt="" />
                                                 <p>Bing Knowledge Graph</p>
                                             </a>
-                                        </li>
+                                        </li> -->
                                         <li>
                                             <a href="/azure/cognitive-services/bing-news-search/search-the-web">
                                                 <img src="media/index/API_Sear_BingNewsSearch.svg" alt="" />
                                                 <p>Bing News</p>
                                             </a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <a href="/azure/cognitive-services/">
                                                 <img src="media/index/API_Spc_BingSpeech.svg" alt="" />
                                                 <p>Bing Speech Service</p>
                                             </a>
-                                        </li>
+                                        </li> -->
                                         <li>
                                             <a href="/azure/cognitive-services/bing-spell-check/proof-text">
                                                 <img src="media/index/API_Lang_BingSpellCheck.svg" alt="" />
