@@ -363,8 +363,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |MISCERR|Other Errors|Count|Total|Total failed requests for a namespace|
 |INMSGS|Incoming Messages|Count|Total|Total incoming messages for a namespace|
 |OUTMSGS|Outgoing Messages|Count|Total|Total outgoing messages for a namespace|
-|EHINMBS|Incoming bytes|BytesPerSecond|Total|Event Hub incoming message throughput for a namespace|
-|EHOUTMBS|Outgoing bytes|BytesPerSecond|Total|Total outgoing messages for a namespace|
+|EHINMBS|Incoming bytes|BytesPerMinute|Total|Event Hub incoming message throughput for a namespace|
+|EHOUTMBS|Outgoing bytes|BytesPerMinute|Total|Total outgoing messages for a namespace|
 |EHABL|Archive backlog messages|Count|Total|Event Hub archive messages in backlog for a namespace|
 |EHAMSGS|Archive messages|Count|Total|Event Hub archived messages in a namespace|
 |EHAMBS|Archive message throughput|BytesPerSecond|Total|Event Hub archived message throughput in a namespace|

@@ -36,7 +36,7 @@ This section discusses some key sections of the code in the hello\_world sample.
 
 ### Gateway creation
 
-The developer must write the *gateway process*. This program creates the internal infrastructure (the broker), loads the modules, and sets everything up to function correctly. The SDK provides the **Gateway\_Create\_From\_JSON** function to enable you to bootstrap a gateway from a JSON file. To use the **Gateway\_Create\_From\_JSON** function, you must pass it the path to a JSON file that specifies the modules to load.
+The developer must write the *gateway process*. This program creates the internal infrastructure (the broker), loads the modules, and sets everything up to function correctly. IoT Edge provides the **Gateway\_Create\_From\_JSON** function to enable you to bootstrap a gateway from a JSON file. To use the **Gateway\_Create\_From\_JSON** function, you must pass it the path to a JSON file that specifies the modules to load.
 
 You can find the code for the gateway process in the Hello World sample in the [main.c][lnk-main-c] file. For legibility, the following snippet shows an abbreviated version of the gateway process code. This example program creates a gateway and then waits for the user to press the **ENTER** key before it tears down the gateway.
 
@@ -223,10 +223,10 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 
 ## Next steps
 
-To learn about how to use the IoT Gateway SDK, see the following articles:
+To learn about how to use the Azure IoT Edge, see the following articles:
 
-* [IoT Gateway SDK – send device-to-cloud messages with a simulated device using Linux][lnk-gateway-simulated].
-* [Azure IoT Gateway SDK][lnk-gateway-sdk] on GitHub.
+* [IoT Edge – send device-to-cloud messages with a simulated device using Linux][lnk-gateway-simulated].
+* [Azure IoT Edge][lnk-gateway-sdk] on GitHub.
 
 <!-- Links -->
 [lnk-main-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/hello_world/src/main.c
