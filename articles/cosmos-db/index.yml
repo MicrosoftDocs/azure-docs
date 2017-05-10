@@ -30,8 +30,6 @@ sections:
       - image:
           src: media/logos/logo_nodejs.svg
       - image:
-          src: media/logos/logo_python.svg
-      - image:
           src: media/logos/logo_gremlin.svg
     rows:
       - title: DocumentDB API
