@@ -20,8 +20,7 @@ ms.author: edmaca
 # Parameterizing U-SQL Scripts
 
 ## Summary
-When creating U-SQL scripts, it is convenient to parameterize them so that the script body doesn't change, but what the 
-script does can controlled by passing in parameter values. A typical scenario involves a script processes data over some time range and a developer may want to parameterize the script on 
+When working with U-SQL scripts, it is convenient to parameterize the scripts. This allow the main body to remain the same, and still control the script's execution by passing in separate parameter values. A typical scenario involves a script processes data over some time range and a developer may want to parameterize the script on 
 a beginning date and an ending date. 
 
 There are two ways in which scripts are parameterized:
@@ -47,7 +46,7 @@ OUTPUT @searchlog
     USING Outputters.Csv();
 ```    
    
-In this scenario, we want to parameterize the ``Region``. We do this by using the `DECLARE EXTERNAL` statement.
+In this scenario, we parameterize the ``Region`` by adding a `DECLARE EXTERNAL` statement.
 
 ```
 DECLARE EXTERNAL @TargetRegion = "en-us";
