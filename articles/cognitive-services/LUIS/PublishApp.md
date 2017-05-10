@@ -47,8 +47,13 @@ You can either publish your app directly to the **Production Slot** where end us
     >If the **Publish** button is disabled, then either your app does not have an assigned an endpoint key, or you have not trained your app yet.
 
 
-To test how your published app works, you can access the test console by clicking **Train & Test** in the left panel. For instructions on how to test your app using the test console, see [Train and test your app](Train-Test.md).
+
 
 If you want to test your published endpoint in a browser using the generated URL, you can click the URL to open it in your browser, then set the URL parameter "&q" to your test query (for example: "&q=Book me a flight to Boston on May 4"), and then press Enter. You will get the JSON response of your HTTP endpoint. 
 
 ![JSON response of published HTTP endpoint](./Images/PublishApp-JSONresponse.JPG)
+
+
+## Next steps
+
+To test how your published app works, you can access the test console by clicking **Train & Test** in the left panel. For instructions on how to test your app using the test console, see [Train and test your app](Train-Test.md).

@@ -43,6 +43,24 @@
     href: sql-database-security-tutorial.md
   - name: 4 - Improve SQL DB performance
     href: sql-database-performance-tutorial.md
+  - name: 5 - Implement multi-tenant app
+    href: sql-database-multi-tenant-application.md
+  - name: 6 - Deploy a multi-tenant app
+    href: sql-database-saas-tutorial.md
+  - name: 7 - Provision/catalog new tenants
+    href: sql-database-saas-tutorial-provision-and-catalog.md
+  - name: 8 - Monitor performance
+    href: sql-database-saas-tutorial-performance-monitoring.md
+  - name: 9 - Restore a single tenant
+    href: sql-database-saas-tutorial-restore-single-tenant.md
+  - name: 10 - Manage tenant schemas
+    href: sql-database-saas-tutorial-schema-management.md
+  - name: 11 - Run ad-hoc analytics
+    href: sql-database-saas-tutorial-adhoc-analytics.md
+  - name: 12 - Monitor with Log Analytics
+    href: sql-database-saas-tutorial-log-analytics.md
+  - name: 13 - Manage tenant analytics
+
 - name: Samples
   items:
   - name: Azure CLI
@@ -144,7 +162,7 @@
       href: sql-database-long-term-retention.md
     - name: Database recovery
       href: sql-database-recovery-using-backups.md
-    - name: Geo-replication
+    - name: Auto failover and geo-replication
       href: sql-database-geo-replication-overview.md
     - name: Logins
       href: sql-database-geo-replication-security-config.md
