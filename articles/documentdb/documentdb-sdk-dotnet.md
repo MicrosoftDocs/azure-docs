@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/07/2017
+ms.date: 05/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -47,6 +47,14 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
+
+### <a name="1.14.0"/>1.14.0
+*	Added the support for Request Unit per Minute(RU/m) feature.
+*	Added the support for a new consistency level called ConsistentPrefix,
+*	Added the support for query metrics for individual partitions.
+*	Added the support for limiting the size of the continuation token for queries.
+*	Added the support for more detailed tracing for failed requests
+*	Made some performance improvements in the SDK.
 
 ### <a name="1.13.3"/>1.13.3
 * Functionally same as 1.13.2. Made some internal changes.
@@ -225,6 +233,7 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.14.0](#1.14.0) |May 10, 2017 |--- |
 | [1.13.3](#1.13.3) |May 06, 2017 |--- |
 | [1.13.2](#1.13.2) |April 19, 2017 |--- |
 | [1.13.1](#1.13.1) |March 29, 2017 |--- |
