@@ -27,7 +27,7 @@ The out-of-the-box dependency monitor currently reports calls to these  types of
   * SQL databases
   * ASP.NET web and WCF services that use HTTP-based bindings
   * Local or remote HTTP calls
-  * Azure DocumentDb, table, blob storage, and queue
+  * Azure Cosmos DB, table, blob storage, and queue
 * Web pages
   * AJAX calls
 
