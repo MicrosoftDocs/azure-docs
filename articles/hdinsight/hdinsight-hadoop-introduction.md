@@ -1,5 +1,5 @@
 ---
-title: What is the Hadoop technology stack & cluster on Azure HDInsight? | Microsoft Docs
+title: What is Azure HDInsight, the Hadoop technology stack, & clusters? | Microsoft Docs
 description: An introduction to HDInsight and the Hadoop technology stack and components, including Spark, Kafka, Hive, HBase for big data analysis.
 keywords: azure hadoop, hadoop azure, hadoop intro, hadoop introduction, hadoop technology stack, intro to hadoop, introduction to hadoop, what is a hadoop cluster, what is hadoop cluster, what is hadoop used for
 services: hdinsight
@@ -19,10 +19,10 @@ ms.date: 05/11/2017
 ms.author: cgronlun
 
 ---
-# Introduction to the Hadoop technology stack and Hadoop clusters in Azure HDInsight
+# Introduction to Azure HDInsight, the Hadoop technology stack, and Hadoop clusters
  This article provides an introduction to Azure HDInsight, a cloud distribution of the Hadoop technology stack. It also covers what a Hadoop cluster is and when you would use it. 
 
-## What is the Hadoop technology stack in HDInsight? 
+## What is HDInsight and the Hadoop technology stack? 
 Azure HDInsight is a cloud distribution of the Hadoop components from the **Hortonworks Data Platform (HDP)**. [Apache Hadoop](http://hadoop.apache.org/) was the original open-source framework for distributed processing and analysis of big data sets on clusters of computers. 
 
 HDInsight makes Hadoop technologies easier to use, with:
@@ -31,17 +31,15 @@ HDInsight makes Hadoop technologies easier to use, with:
 *	High availability and reliability. See [HDInsight availability and reliability](hdinsight-high-availability-linux.md).
 *	Security and governance through integration with Active Directory. See [Domain-joined clusters](hdinsight-domain-joined-introduction.md).
 *	Dynamic scaling without interrupting jobs
-* Component updates and current versions. See [Hadoop components and versions on HDInsight][component-versioning].
-* Integration with other Azure services, including [Web apps](https://docs.microsoft.com/en-us/azure/app-service-web/) and [SQL Database](https://docs.microsoft.com/azure/sql-database/)
+*   Component updates and current versions. See [Hadoop components and versions on HDInsight][component-versioning].
+*   Integration with other Azure services, including [Web apps](https://docs.microsoft.com/en-us/azure/app-service-web/) and [SQL Database](https://docs.microsoft.com/azure/sql-database/)
 
-The Hadoop technology stack includes related software and utilities, including Apache Hive, HBase, Spark, Kafka, and many others. Read further for details.
-
-To read more about Hadoop in HDInsight, see the [Azure features page for HDInsight][marketing-page].
+The Hadoop technology stack includes related software and utilities, including Apache Hive, HBase, Spark, Kafka, and many others. To read more about Hadoop in HDInsight, see the [Azure features page for HDInsight](https://azure.microsoft.com/en-us/services/hdinsight/).
 
 ## What is a Hadoop cluster, and when do you use it?
 The term *Hadoop* also refers to a type of cluster that has:
 
-* Hadoop distributed file system (HDFS)
+* The Hadoop distributed file system (HDFS)
 * YARN for job scheduling and resource management
 * MapReduce for parallel processing
   
@@ -52,7 +50,7 @@ Big data describes any large body of digital information, such as:
 
 * A Twitter newsfeed
 * Sensor data from industrial equipment
-* Information about customer behavior on a website
+* Customer activity collected from a website
 
 Big data can be historical (meaning stored data) or real time (meaning streamed from the source). Big data is being collected in ever-escalating volumes, at increasingly higher velocities, and in an expanding variety formats.
 
@@ -83,11 +81,11 @@ The following example scripts are provided by the HDInsight team:
 
 For information on developing your own Script Actions, see [Script Action development with HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
-## Components and utilities on HDInsight cluster
-The following components and utilities are included on HDInsight clusters.
+## Components and utilities on HDInsight clusters
+The following components and utilities are included on HDInsight clusters:
 
 * **[Ambari](#ambari)**: Cluster provisioning, management, monitoring, and utilities.
-* **[Avro](#avro)** (Microsoft .NET Library for Avro): Data serialization for the Microsoft .NET environment.
+* **[Avro](#avro)** (Microsoft .NET Library for Avro): Data serialization for the Microsoft .NET environment. 
 * **[Hive & HCatalog](#hive)**: SQL-like querying, and a table and storage management layer.
 * **[Mahout](#mahout)**: For scalable machine learning applications.
 * **[MapReduce](#mapreduce)**: Legacy framework for Hadoop distributed processing and resource management. See [YARN](#yarn).
@@ -109,12 +107,10 @@ Apache Ambari is for provisioning, managing, and monitoring Apache Hadoop cluste
 See [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md) and <a target="_blank" href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md">Apache Ambari API reference</a>.
 
 ### <a name="avro"></a>Avro (Microsoft .NET Library for Avro)
-The Microsoft .NET Library for Avro implements the Apache Avro compact binary data interchange format for serialization for the Microsoft .NET environment. It uses <a target="_blank" href="http://www.json.org/">JSON</a> to define a language-agnostic schema so that data serialized in one language can be read in another. Detailed information on the format can be found in the <a target=_"blank" href="http://avro.apache.org/docs/current/spec.html">Apache Avro Specification</a>.
-
-The format of Avro files supports the distributed MapReduce programming model. Files are “splittable”, meaning you can seek any point in a file and start reading from a particular block. To find out how, see [Serialize data with the Microsoft .NET Library for Avro](hdinsight-dotnet-avro-serialization.md).
+The Microsoft .NET Library for Avro implements the Apache Avro compact binary data interchange format for serialization for the Microsoft .NET environment. It uses defines a language-agnostic schema so that data serialized in one language can be read in another. Detailed information on the format can be found in the <a target=_"blank" href="http://avro.apache.org/docs/current/spec.html">Apache Avro Specification</a>. The format of Avro files supports the distributed MapReduce programming model: Files are “splittable”, meaning you can seek any point in a file and start reading from a particular block. To find out how, see [Serialize data with the Microsoft .NET Library for Avro](hdinsight-dotnet-avro-serialization.md). Linux-based cluster support to come.
 
 ### <a name="hdfs"></a>HDFS
-Hadoop Distributed File System (HDFS) is a file system that, with YARN and MapReduce, is the core of Hadoop technology. HDFS is the standard file system for Hadoop clusters on HDInsight.
+Hadoop Distributed File System (HDFS) is a file system that, with YARN and MapReduce, is the core of Hadoop technology. It's the standard file system for Hadoop clusters on HDInsight. See [Query data from HDFS-compatible storage](hdinsight-hadoop-use-blob-storage.md).
 
 ### <a name="hive"></a>Hive & HCatalog
 <a target="_blank" href="http://hive.apache.org/">Apache Hive</a> is data warehouse software built on Hadoop that allows you to query and manage large datasets in distributed storage by using a SQL-like language called HiveQL. Hive, like Pig, is an abstraction on top of MapReduce, and it translates queries into a series of MapReduce jobs. Hive is closer to a relational database management system than Pig, and is used with more structured data. For unstructured data, Pig is the better choice. See [Use Hive with Hadoop in HDInsight](hdinsight-use-hive.md).
@@ -128,7 +124,7 @@ Hadoop Distributed File System (HDFS) is a file system that, with YARN and MapRe
 MapReduce is the legacy software framework for Hadoop for writing applications to batch process big data sets in parallel. A MapReduce job splits large datasets and organizes the data into key-value pairs for processing. MapReduce jobs run on [YARN](#yarn). See <a target="_blank" href="http://wiki.apache.org/hadoop/MapReduce">MapReduce</a> in the Hadoop Wiki.
 
 ### <a name="oozie"></a>Oozie
-<a target="_blank" href="http://oozie.apache.org/">Apache Oozie</a> is a workflow coordination system that manages Hadoop jobs. It is integrated with the Hadoop stack and supports Hadoop jobs for MapReduce, Pig, Hive, and Sqoop. It can also be used to schedule jobs specific to a system, like Java programs or shell scripts. See [Use Oozie with Hadoop](hdinsight-use-oozie.md).
+<a target="_blank" href="http://oozie.apache.org/">Apache Oozie</a> is a workflow coordination system that manages Hadoop jobs. It is integrated with the Hadoop stack and supports Hadoop jobs for MapReduce, Pig, Hive, and Sqoop. It can also be used to schedule jobs specific to a system, like Java programs or shell scripts. See [Use Oozie with Hadoop](hdinsight-use-oozie-linux-mac.md).
 
 ### <a name="phoenix"></a>Phoenix
 <a  target="_blank" href="http://phoenix.apache.org/">Apache Phoenix</a> is a relational database layer over HBase. Phoenix includes a JDBC driver that allows you to query and manage SQL tables directly. Phoenix translates queries and other statements into native NoSQL API calls - instead of using MapReduce - thus enabling faster applications on top of NoSQL stores. See [Use Apache Phoenix and SQuirreL with HBase clusters](hdinsight-hbase-phoenix-squirrel.md).
@@ -146,7 +142,7 @@ MapReduce is the legacy software framework for Hadoop for writing applications t
 Apache YARN is the next generation of MapReduce (MapReduce 2.0, or MRv2) and supports data processing scenarios beyond MapReduce batch processing with greater scalability and real-time processing. YARN provides resource management and a distributed application framework. MapReduce jobs run on YARN. See <a target="_blank" href="http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html">Apache Hadoop NextGen MapReduce (YARN)</a>.
 
 ### <a name="zookeeper"></a>ZooKeeper
-<a  target="_blank" href="http://zookeeper.apache.org/">Apache ZooKeeper</a> coordinates processes in large distributed systems using a shared hierarchical namespace of data registers (znodes). Znodes contain small amounts of meta information needed to coordinate processes: status, location, configuration, and so on.
+<a  target="_blank" href="http://zookeeper.apache.org/">Apache ZooKeeper</a> coordinates processes in large distributed systems using a shared hierarchical namespace of data registers (znodes). Znodes contain small amounts of meta information needed to coordinate processes: status, location, configuration, and so on. See an example of [ZooKeeper with an HBase cluster and Apache Phoenix](hdinsight-hbase-phoenix-squirrel-linux.md). 
 
 ## Programming languages on HDInsight
 HDInsight clusters - Spark, HBase, Kafka, Hadoop, and other clusters - support many programming languages, but some aren't installed by default. For libraries, modules, or packages not installed by default, use a script action to install the component. See [Script action development with HDInsight](hdinsight-hadoop-script-actions-linux.md).
