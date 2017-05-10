@@ -62,9 +62,11 @@ ms.author: carolz
     <li><a href="/azure/virtual-machines/linux/tutorial-availability-sets">Create highly available VMs</a></li>
     <li><a href="/azure/virtual-machines/linux/tutorial-create-vmss">Create a VM scale set</a></li>
     <li><a href="/azure/virtual-machines/linux/tutorial-load-balancer">Load balance VMs</a></li>
-    <li><a href="/azure/virtual-machines/linux/tutorial-virtual-network">Manage VM networking</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-virtual-network">Manage VMs and virtual networks</a></li>
     <li><a href="/azure/virtual-machines/linux/tutorial-backup-vms">Backup VMs</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-monitoring">Monitor VMs</a></li>
     <li><a href="/azure/virtual-machines/linux/tutorial-azure-security">Manage security on VMs</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Create a CI/CD infrastructure with Jenkins, Docker, and GitHub</a></li>
     
 </ol>
 
@@ -156,8 +158,8 @@ ms.author: carolz
                         <h3>Languages</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
                         <p><a href="/java/api">Java</a></p>
-                        <p><a href="https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk">Node​.js</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
+                        <p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node​.js</a></p>
+                        <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
                     </div>
                 </div>
             </div>

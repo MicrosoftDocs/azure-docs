@@ -19,7 +19,11 @@ This sample script creates a function app using the [consumption plan](../functi
 
 This sample creates an Azure Function app and deploys function code from GitHub.
 
+<<<<<<< HEAD
 [!code-azurecli[main](../../../cli_scripts/azure-function/deploy-function-app-with-function-github/deploy-function-app-with-function-github.sh?highlight=3 "Create a function app with deployment from GitHub")]
+=======
+[!code-azurecli[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-github/deploy-function-app-with-function-github.sh?highlight=3 "Create a function app with deployment from GitHub")]
+>>>>>>> 8cc972728b86ad31c56878f22029a288b1f8b093
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
