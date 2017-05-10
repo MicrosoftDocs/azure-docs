@@ -9,6 +9,7 @@
   - name: Analyze videos in real time
     href: emotion-api-how-to-topics/HowtoAnalyzeVideo_Emotion.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: cURL
     href: QuickStarts/curl.md

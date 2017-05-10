@@ -62,15 +62,15 @@ The client access point is the network name that applications use to connect to 
 
 1. In Failover Cluster Manager, click **Roles** and click your Availability Group.
 
-1. On the **Resources** tab, right-click the availability resource group under **Server Name** and click **Properties**. 
+1. On the **Resources** tab, right-click the availability resource group under **Other Resources** and click **Properties**. 
 
-1. On the dependencies tab, add the name resource. This resource is the client access point. 
+1. On the dependencies tab, add the name of the client access point (the listener) resource.
 
    ![IP Resource](./media/virtual-machines-ag-listener-configure/97-propertiesdependencies.png) 
 
 1. Click **OK**.
 
-#### <a name="listname"></a>Make the client access point resource dependent on the IP address
+#### <a name="listname"></a>Verify that the client access point resource is dependent on the IP address
 
 1. In Failover Cluster Manager, click **Roles** and click your Availability Group. 
 
@@ -78,11 +78,15 @@ The client access point is the network name that applications use to connect to 
 
    ![IP Resource](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
 
-1. Click the **Dependencies** tab. Set a dependency on the listener resource name. If there are multiple resources listed, verify that the IP addresses have OR, not AND, dependencies. Click **OK**. 
+1. Click the **Dependencies** tab. Verify that the IP address is a dependency. If it is not, set a dependency on the IP address. If there are multiple resources listed, verify that the IP addresses have OR, not AND, dependencies. Click **OK**. 
 
    ![IP Resource](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
 
 1. Right-click the listener name and click **Bring Online**. 
+
+>[!TIP]
+>You can validate that the dependencies are correctly configured. In Failover Cluster Manager, go to Roles, right-click the availability group, click **More Actions**, and click  **Show Dependency Report**. Correctly configured, the availability group is dependent on the network name, and the network name is dependent on the IP address. 
+
 
 #### <a name="setparam"></a>Set the cluster parameters in PowerShell
 
