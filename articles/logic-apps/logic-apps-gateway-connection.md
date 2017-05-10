@@ -105,10 +105,16 @@ provide these details to create your data gateway resource:
 
    * **Location**: Azure restricts this location to the same region that 
    was selected for the gateway cloud service during 
-   [gateway installation](logic-apps-gateway-install.md). Make sure that 
-   you select the same location that matches the gateway cloud service. 
-   Otherwise, your gateway installation might not appear in the installed 
-   gateways list for you to select later.
+   [gateway installation](logic-apps-gateway-install.md). 
+
+      > [!NOTE]
+      > Make sure that the gateway resource location matches the gateway 
+      > cloud service location. Otherwise, your gateway installation 
+      > might not appear in the installed gateways list for you to select 
+      > in the next step.
+      > 
+      > You can use different regions for your gateway 
+      > resource and for your logic app.
 
    * **Installation Name**: If your gateway installation isn't already selected, 
    select the gateway that you previously installed. 

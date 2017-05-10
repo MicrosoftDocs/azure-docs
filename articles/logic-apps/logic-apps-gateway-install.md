@@ -59,9 +59,8 @@ For more information about supported connectors, see
 > a new gateway with the location that you want instead.
 >
 > If you have a gateway installer that's earlier than 
-> version 14.16.6317.4, but you haven't used that installer 
-> to set up your gateway, you can download and use the latest 
-> installer.
+> version 14.16.6317.4, but you haven't installed 
+> your gateway yet, you can download and use the latest installer.
 
 <a name="requirements"></a>
 ## Requirements
@@ -137,13 +136,14 @@ not a Microsoft account.
 
         For example, you might select the same region as your logic app, 
         or select the region closest to your on-premises data source 
-        so you can reduce latency.
+        so you can reduce latency. Your gateway resource and logic app 
+        can have different locations.
 
         > [!IMPORTANT]
         > You can't change this region after installation. 
         > This region also determines and restricts the location where 
-        > you can create the Azure resource for your gateway connection. 
-        > So when you create the connection gateway resource in Azure, 
+        > you can create the Azure resource for your gateway. 
+        > So when you create your gateway resource in Azure, 
         > make sure that the resource location matches the region 
         > that you selected during gateway installation.
         > 
