@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 05/10/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
 
@@ -47,6 +47,11 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release Notes
+
+### <a name="1.11.0"/>1.11.0
+* Added support for Request Unit per Minute (RU/m) feature.
+* Added support for a new consistency level called ConsistentPrefix.
+* Fixed a bug in reading collection in session mode.
 
 ### <a name="1.10.0"/>1.10.0
 * Enabled support for partitioned collection with as low as 2,500 RU/sec and scale in increments of 100 RU/sec.
@@ -157,6 +162,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.11.0](#1.11.0) |May 10, 2017 |--- |
 | [1.10.0](#1.10.0) |March 11, 2017 |--- |
 | [1.9.6](#1.9.6) |February 21, 2017 |--- |
 | [1.9.5](#1.9.5) |January 31, 2017 |--- |
