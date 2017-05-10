@@ -86,4 +86,4 @@ In this tutorial, you've done the following:
 You can now proceed to the next tutorial and learn how to query MongoDB data using Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
->[Azure Cosmos DB: How to query MongoDB data?](../cosmos-db/tutorial-query-mongodb.md)
+>[How to query MongoDB data?](../cosmos-db/tutorial-query-mongodb.md)

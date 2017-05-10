@@ -102,5 +102,5 @@ In this tutorial, you've done the following:
 
 You can now proceed to the Concepts section for more information about Cosmos DB.
 
-> [!div class="checklist"]
+> [!div class="nextstepaction"]
 > [Global distribution](../documentdb/documentdb-distribute-data-globally.md) 

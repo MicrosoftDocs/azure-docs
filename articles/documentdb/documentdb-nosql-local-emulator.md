@@ -342,5 +342,5 @@ In this tutorial, you've done the following:
 
 In this tutorial, you've learned how to use the local Emulator for free local development. You can now proceed to the next tutorial and learn how to export Emulator SSL certificates. 
 
-> [!div class="checklist"]
+> [!div class="nextstepaction"]
 > [Export the Azure Cosmos DB Emulator certificates](documentdb-nosql-local-emulator-export-ssl-certificates.md)

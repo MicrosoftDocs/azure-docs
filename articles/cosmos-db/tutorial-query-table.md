@@ -46,7 +46,7 @@ For more information on the premium capabilities offered by Azure Cosmos DB, see
 
 ## Prerequisites
 
-For these queries to work, you must have an Azure Cosmos DB account and have entity data in the collection. Don't have any of those? Complete the [5-minute quickstart](https://aka.ms/acdbtnetqs) or the [developer tutorial](https://aka.ms/acdbtabletut) to create an account and populate your database.
+For these queries to work, you must have an Azure Cosmos DB account and have entity data in the container. Don't have any of those? Complete the [5-minute quickstart](https://aka.ms/acdbtnetqs) or the [developer tutorial](https://aka.ms/acdbtabletut) to create an account and populate your database.
 
 ## Querying on partition key and row key
 Because the PartitionKey and RowKey properties form an entity's primary key, you can use a special syntax to identify the entity, as follows: 

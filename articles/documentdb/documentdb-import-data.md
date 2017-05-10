@@ -583,4 +583,4 @@ In this tutorial, you've done the following:
 You can now proceed to the next tutorial and learn how to query data using Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
->[Azure Cosmos DB: How to query data?](../cosmos-db/tutorial-query-documentdb.md)
+>[How to query data?](../cosmos-db/tutorial-query-documentdb.md)

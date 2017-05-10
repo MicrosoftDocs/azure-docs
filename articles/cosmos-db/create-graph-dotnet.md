@@ -42,7 +42,7 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 
 You can now add data to your graph using Data Explorer.
 
-1. In Data Explorer, expand **sample-database**, **sample-graph**, click **Graph**, and then click **New Vertex** and **New Edge** to add items to your graph. The Data Explorer is also where you can scale your throughput, and add stored procedures, user-defined functions, and triggers to your collection.
+1. In Data Explorer, expand **sample-database**, **sample-graph**, click **Graph**, and then click **New Vertex** and **New Edge** to add items to your graph. The Data Explorer is also where you can scale your throughput, and add stored procedures, user-defined functions, and triggers to your container.
 
     ![Add vertexes and edges to a graph in the Data Explorer](./media/create-graph-dotnet/azure-cosmos-db-graph-sample-data.png)
 

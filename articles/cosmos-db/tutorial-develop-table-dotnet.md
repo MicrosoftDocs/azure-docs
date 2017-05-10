@@ -124,7 +124,7 @@ Now go back to the Azure portal to get your connection string information and co
 You can now go back to Data Explorer and see query, modify, and work with this table data. 
 
 > [!NOTE]
-> To use this app with a Azure Cosmos DB Emulator, you just need to change the connection string in `app.config file`. Use the below value for emulator. <br>
+> To use this app with an Azure Cosmos DB Emulator, you just need to change the connection string in `app.config file`. Use the below value for emulator. <br>
 >`<add key="StorageConnectionString" value=DefaultEndpointsProtocol=https;AccountName=localhost;AccountKey=<insertkey>==;TableEndpoint=https://localhost -->`
 > 
 >

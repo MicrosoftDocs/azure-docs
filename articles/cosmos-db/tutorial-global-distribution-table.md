@@ -28,8 +28,6 @@ This article covers the following tasks:
 > * Configure global distribution using the Azure portal
 > * Configure global distribution using the [Table API](table-introduction.md)
 
-We recommend getting started by watching the following video, where Karthik Raman talks about the global distribution with Scott Hanselman on Azure Friday.
-
 [!INCLUDE [cosmosdb-tutorial-global-distribution-portal](../../includes/cosmosdb-tutorial-global-distribution-portal.md)]
 
 

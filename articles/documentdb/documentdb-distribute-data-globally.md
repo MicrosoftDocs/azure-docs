@@ -189,7 +189,7 @@ Azure Cosmos DB allows you to scale throughput (as well as, storage), elasticall
 
 ![Azure Cosmos DB distributed and partitioned collections](../cosmos-db/media/introduction/azure-cosmos-db-global-distribution.png)
 
-A Azure Cosmos DB collection gets distributed using two dimensions – within a region and then across regions. Here's how: 
+An Azure Cosmos DB collection gets distributed using two dimensions – within a region and then across regions. Here's how: 
 
 * Within a single region, an Azure Cosmos DB collection is scaled out in terms of resource partitions. Each resource partition manages a set of keys and is strongly consistent and highly available by virtue of state machine replication among a set of replicas. Azure Cosmos DB is a fully resource governed system where a resource partition is responsible for delivering its share of throughput for the budget of system resources allocated to it. The scaling of an Azure Cosmos DB collection is completely transparent – Azure Cosmos DB manages the resource partitions and splits and merges it as needed. 
 * Each of the resource partitions is then distributed across multiple regions. Resource partitions owning the same set of keys across various regions form partition set (see [preceding figure](#ThroughputGuarantees)).  Resource partitions within a partition set are coordinated using state machine replication across the multiple regions. Depending on the consistency level configured, the resource partitions within a partition set are configured dynamically using different topologies (for example, star, daisy-chain, tree etc.). 

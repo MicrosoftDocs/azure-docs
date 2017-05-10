@@ -90,7 +90,7 @@ The following comparison chart maps out the key differentiators for each service
 
 If one or more of these services might meet the needs of your application, learn more with the following resources: 
 
-* [Azure Cosmos DB learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) and [Azure Cosmos DB use cases](documentdb-use-cases.md)
+* [Azure Cosmos DB use cases](documentdb-use-cases.md)
 * [Get started with Azure table storage](../storage/storage-dotnet-how-to-use-tables.md)
 * [What is HBase in HDInsight](../hdinsight/hdinsight-hbase-overview.md)
 * [Redis Cache learning path](https://azure.microsoft.com/documentation/learning-paths/redis-cache/)
