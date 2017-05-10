@@ -24,7 +24,7 @@ This article shows how to modify the [minimum viable scale set template](./virtu
 
 ## Change the template definition
 
-Our minimum viable scale set template can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), and our template for deploying the scale set into an existing virtual network can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Let's examine the diff used to create this template (`git diff minimum-viable-scale-set custom-image`) piece by piece:
+Our minimum viable scale set template can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), and our template for deploying the scale set from a custom image can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Let's examine the diff used to create this template (`git diff minimum-viable-scale-set custom-image`) piece by piece:
 
 ### Creating a managed disk image
 
