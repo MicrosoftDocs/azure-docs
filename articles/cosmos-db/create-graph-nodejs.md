@@ -22,7 +22,7 @@ ms.author: arramac
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, database, and graph using the Azure portal. You then build and run a console app using the OSS [Gremlin Node.js](https://aka.ms/gremlin-node) driver.  
+This quick start demonstrates how to create an Azure Cosmos DB account, database, and graph using the Azure portal. You then build and run a console app using the OSS [Gremlin Node.js](https://github.com/CosmosDB/gremlin-javascript) driver.  
 
 ## Prerequisites
 
@@ -39,18 +39,6 @@ This quick start demonstrates how to create an Azure Cosmos DB account, database
 ## Add a graph
 
 [!INCLUDE [cosmosdb-create-graph](../../includes/cosmosdb-create-graph.md)]
-
-## Add sample data
-
-You can now add data to your graph using Data Explorer.
-
-1. In Data Explorer, expand **sample-database**, **sample-graph**, click **Graph**, and then click **New Vertex** and **New Edge** to add items to your graph. Note that the Data Explorer is also where you can scale your throughput, and add stored procedures, user defined functions, and triggers to your collection.
-
-    ![Add vertexes and edges to a graph in the Data Explorer](./media/create-graph-dotnet/azure-cosmos-db-graph-sample-data.png)
-
-2. Once you've added some items, click the **Apply Filter** button, or right-click **Graph** and click **New Graph Query** to see the visual graph of your data. You can change how data is labeled and styled by clicking the **Style** button and changing your settings. Here's an example graph in Data Explorer, the labels, colors, and data shown can all be modified.
-
-    ![Visual graph explorer in Data Explorer in the Azure portal](./media/create-graph-dotnet/azure-cosmos-db-graph-explorer.png)
 
 ## Clone the sample application
 
@@ -70,9 +58,9 @@ Now let's clone a Graph API app from github, set the connection string, and run 
 
 Let's make a quick review of what's happening in the app. Open the `app.js` file and you'll find that these lines of code.
 
-* The Gremlin client is initialized.
+* The Gremlin client is created.
 
-    ```java
+    ```nodejs
     const client = Gremlin.createClient(
         443, 
         "https://<fillme>.graphs.azure.com", 
@@ -86,11 +74,12 @@ Let's make a quick review of what's happening in the app. Open the `app.js` file
 
 * A series of Gremlin steps are executed using the `client.execute` method.
 
-    ```java
-    client.execute('g.V()', (err, results) => {
-        if (!err) {
-            console.log(results);
-        }
+    ```nodejs
+    console.log('Running Count'); 
+    client.execute("g.V().count()", { }, (err, results) => {
+        if (err) return console.error(err);
+        console.log(JSON.stringify(results));
+        console.log();
     });
     ```
 
@@ -102,23 +91,25 @@ Now go back to the Azure portal to get your connection string information and co
 
     ![View and copy an access key in the Azure portal, Keys blade](./media/create-documentdb-dotnet/keys.png)
 
-2. Fill in your *endpoint*, *db*, *coll*, and *authKey* configurations in the `Program.java` file:
+2. Fill in your *endpoint*, *db*, *coll*, and *authKey* configurations in the `app.js` file:
 
     ```nodejs
     const client = Gremlin.createClient(
         443, 
-        "<endpoint>.graphs.azure.com", 
+        config.endpoint, 
         { 
             "session": false, 
             "ssl": true, 
-            "user": "/dbs/<db>/colls/<coll>",
-            "password": "<authKey>"
+            "user": `/dbs/${config.database}/colls/${config.collection}`,
+            "password": config.primaryKey
         });
     ```
 
 ## Run the console app
 
 1. Run `npm install` in a terminal to install required npm modules
+
+2. Replace the contents of `node_modules\gremlin` with the source code from [the Cosmos DB Gremlin fork](https://github.com/CosmosDB/gremlin-javascript), which has support for SSL and SASL, which are required for Azure Cosmos DB, but not currently supported by the driver (temporarily until the changes are accepted in the driver).
 
 2. Run `node app.js` in a terminal to start your node application.
 
