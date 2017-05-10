@@ -56,7 +56,7 @@ Service Fabric can help keep an application running during infrastructure failur
 
 It is highly recommended that on cluster creation, "Diagnostics" are enabled. This can be done in the portal as seen below or via using an ARM template the includes diagnostics. 
 
-![Azure portal cluster creation with diagnostics enabled](./media/service-fabric-diagnostics-overview/azure-enable-diagnostics.PNG)
+![Azure portal cluster creation with diagnostics enabled](./media/service-fabric-diagnostics-overview/azure-enable-diagnostics.png)
 
 As seen above, there is also an optional field to add an Application Insights (AppInsights) instrumentation key. If you choose to use AppInsights for any event analysis (AppInsights is one of the recommended solutions), include the AppInsights resource instrumentationKey (GUID) here.
 
@@ -384,7 +384,7 @@ To use EventFlow:
 
 To view the events in Azure Application Insights, in the Azure portal, go to your Application Insights resource. To see the events, select the **Search** box.
 
-![Application Insights Search view of events](./media/service-fabric-diagnostics-overview/ai-search-events.PNG)
+![Application Insights Search view of events](./media/service-fabric-diagnostics-overview/ai-search-events.png)
 
 You can see the traces at the bottom of the preceding screenshot. It shows only two events, and that the debug-level event was dropped by EventFlow. The request entry preceding the trace is the third `_logger` instrumentation line. The line shows that the event was translated into a request metric in Application Insights.
 
@@ -418,7 +418,7 @@ OMS is also currently the recommended path to take for data visualization and an
 
 You can use [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) to monitor many of the Azure resources on which a Service Fabric cluster is built. A set of metrics for the [virtual machine scale set](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets) and individual [virtual machines](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesetsvirtualmachines) is automatically collected and displayed in the Azure portal. To view the collected information, in the Azure portal, select the resource group that contains the Service Fabric cluster. Then, select the virtual machine scale set that you want to view. In the **Monitoring** section, select **Metrics** to view a graph of the values.
 
-![Azure portal view of collected metric information](./media/service-fabric-diagnostics-overview/azure-monitoring-metrics.PNG)
+![Azure portal view of collected metric information](./media/service-fabric-diagnostics-overview/azure-monitoring-metrics.png)
 
 To customize the charts, follow the instructions in [Metrics in Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md). You also can create alerts based on these metrics, as described in [Create alerts in Azure Monitor for Azure services](../monitoring-and-diagnostics/insights-alerts-portal.md). You can send alerts to a notification service by using web hooks, as described in [Configure a web hook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Azure Monitor supports only one subscription. If you need to monitor multiple subscriptions, or if you need additional features, [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/), part of Microsoft Operations Management Suite, provides a holistic IT management solution both for on-premises and cloud-based infrastructures. You can route data from Azure Monitor directly to Log Analytics, so you can see metrics and logs for your entire environment in a single place.
 

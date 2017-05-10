@@ -24,7 +24,7 @@ ms.author: dekapur
 
 The Operations Management Suite (OMS) team has published a Containers solution for diagnostics and monitoring for containers. Alongside their Service Fabric solution, this solution is a great tool to monitor container deployments orchestrated on Service Fabric. Here's a simple example of what the dashboard in the solution looks like:
 
-![Basic OMS Dashboard](./media/service-fabric-diagnostics-containers-windowsserver/oms-containers-dashboard.PNG)
+![Basic OMS Dashboard](./media/service-fabric-diagnostics-containers-windowsserver/oms-containers-dashboard.png)
 
 It also collects different kinds of logs that can be queried in the OMS Log Analytics tool, and can be used to visualize any metrics or events being generated. The log types that are collected are:
 
@@ -58,7 +58,7 @@ Once the cluster is ready and you have confirmed that you can access it, deploy 
 
 In Azure portal, create a Containers resource (under the Monitoring + Management category) through Azure Marketplace. 
 
-![Adding Containers solution](./media/service-fabric-diagnostics-containers-windowsserver/containers-solution.PNG)
+![Adding Containers solution](./media/service-fabric-diagnostics-containers-windowsserver/containers-solution.png)
 
 In the creation step, it requests an OMS workspace. Select the one that was created with the ARM template above. This step adds a Containers solution within your OMS workspace, and is automatically detected by the OMS agent deployed by the template. The agent will start gathering data on the containers processes in the cluster, and in about 10-15 minutes, you should see the solution light up with data as in the image of the dashboard above.
 
