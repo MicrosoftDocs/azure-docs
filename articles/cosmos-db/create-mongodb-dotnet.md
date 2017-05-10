@@ -31,12 +31,7 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 
 ## Create a database account
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
-
-## Add a collection
-
-Create a new database named *Tasks* and a new collection named *TasksList*.
-[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
+[!INCLUDE [documentdb-create-dbaccount](../../includes/cosmosdb-create-dbaccount-mongodb.md)]
 
 ## Clone the sample application
 
@@ -54,9 +49,9 @@ Now let's clone a MongoDB API app from github, set the connection string, and ru
 
 ## Review the code
 
-Let's make a quick review of what's happening in the app. Open the `Dal.cs` file under the `DAL` directory and you'll find that these lines of code create the Azure Cosmos DB resources. 
+Let's make a quick review of what's happening in the app. Open the **Dal.cs** file under the **DAL** directory and you'll find that these lines of code create the Azure Cosmos DB resources. 
 
-* The Mongo Client is initialized.
+* Initialize the Mongo Client.
 
     ```cs
         MongoClientSettings settings = new MongoClientSettings();
@@ -96,17 +91,15 @@ Let's make a quick review of what's happening in the app. Open the `Dal.cs` file
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Connection String**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the web.config file in the next step.
+1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Connection String**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the Username, Password, and Host into the Dal.cs file in the next step.
 
-    ![View and copy an access key in the Azure portal, Keys blade](./media/create-documentdb-dotnet/keys.png)
+2. Open the **Dal.cs** file in the **DAL** directory. 
 
-2. Open the `Dal.cs` file in the `DAL` directory. 
+3. Copy your **USERNAME** value from the portal (using the copy button) and make it the value of the **userName** in your **Dal.cs** file. 
 
-3. Copy your USERNAME value from the portal (using the copy button) and make it the value of the `userName` in your `Dal.cs` file. 
+4. Then copy your **HOST** value from the portal and make it the value of the **host** in your **Dal.cs** file. 
 
-4. Then copy your HOST value from the portal and make it the value of the `host` in your `Dal.cs` file. 
-
-5. Finally copy your PASSWORD value from the portal and make it the value of the `password` in your `Dal.cs` file. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
+5. Finally copy your **PASSWORD** value from the portal and make it the value of the **password** in your **Dal.cs** file. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
     
 ## Run the web app
 
@@ -132,7 +125,7 @@ If you're not going to continue to use this app, delete all resources created by
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a collection using the Data Explorer, and run a web app. You can now import additional data to your Cosmos DB account. 
+In this quickstart, you've learned how to create an Azure Cosmos DB account and run a web app using the API for MongoDB. You can now import additional data to your Cosmos DB account. 
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB for the MongoDB API](../documentdb/documentdb-mongodb-migrate.md)
