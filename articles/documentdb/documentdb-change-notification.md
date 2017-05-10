@@ -1110,6 +1110,3 @@ The key is to plan ahead and model your workflow.
 
 ## Next steps
 Please download and use the Logic App code provided on [GitHub](https://github.com/HEDIDIN/DocDbNotifications). I invite you to build on the application and submit changes to the repo. 
-
-To learn more about Azure Cosmos DB, visit the [Learning Path](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
-

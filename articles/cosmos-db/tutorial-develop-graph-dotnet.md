@@ -258,14 +258,7 @@ IDocumentQuery<Vertex> friendsOfFriendsOfThomas = client.CreateGremlinQuery<Vert
 
 You can build more complex queries and implement powerful graph traversal logic using Gremlin, including mixing filter expressions, performing looping using the `loop` step, and implementing conditional navigation using the `choose` step. Learn more about what you can do with [Gremlin support](gremlin-support.md)!
 
-That's it, this Azure Cosmos DB tutorial is complete! In this tutorial, you've done the following:
-
-> [!div class="checklist"]
-> * Created an Azure Cosmos DB account 
-> * Created a graph database and container
-> * Serialized vertices and edges to .NET objects
-> * Added vertices and edges
-> * Queried the graph using Gremlin
+That's it, this Azure Cosmos DB tutorial is complete! 
 
 ## Clean up resources
 
@@ -276,7 +269,16 @@ If you're not going to continue to use this app, use the following steps to dele
 
 ## Next Steps
 
-In this tutorial, you've learned how to create an Azure Cosmos DB account, create a graph container using the Data Explorer, and run an app. You can now build more complex queries and implement powerful graph traversal logic using Gremlin. 
+In this tutorial, you've done the following:
+
+> [!div class="checklist"]
+> * Created an Azure Cosmos DB account 
+> * Created a graph database and container
+> * Serialized vertices and edges to .NET objects
+> * Added vertices and edges
+> * Queried the graph using Gremlin
+
+You can now build more complex queries and implement powerful graph traversal logic using Gremlin. 
 
 > [!div class="nextstepaction"]
 > [Query using Gremlin](tutorial-query-graph.md)

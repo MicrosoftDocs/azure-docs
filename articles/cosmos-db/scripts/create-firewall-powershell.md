@@ -15,7 +15,7 @@ ms.devlang: PowerShell
 ms.topic: article
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
-ms.date: 04/20/2017
+ms.date: 05/10/2017
 ms.author: mimig
 ---
 

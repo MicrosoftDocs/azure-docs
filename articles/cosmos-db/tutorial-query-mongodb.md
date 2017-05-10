@@ -21,13 +21,16 @@ ms.author: mimig
 
 # Azure Cosmos DB: How to query with API for MongoDB?
 
-The Azure Cosmos DB [API for MongoDB](../documentdb/documentdb-protocol-mongodb.md) supports MongoDB shell queries. This article provides sample documents and queries to get you started.
+The Azure Cosmos DB [API for MongoDB](../documentdb/documentdb-protocol-mongodb.md) supports [MongoDB shell queries](https://docs.mongodb.com/manual/tutorial/query-documents/). 
 
-For more information about MongoDB queries, see the [MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/) query documents.
+This article covers the following tasks: 
 
-The queries in this article use the following sample document.
+> [!div class="checklist"]
+> * Querying data with MongoDB
 
 ## Sample document
+
+The queries in this article use the following sample document.
 
 ```json
 {
@@ -299,8 +302,13 @@ No results will be returned as we do not have more than 2 children. Only when pa
 
 ## Next steps
 
-In this tutorial, you've learned how to query graph data using MongoDB. You can now distribute data globally using the portal or install the Local emulator for local development.  
+In this tutorial, you've done the following:
 
-[Distribute your data globally](tutorial-global-distribution-mongodb.md)
+> [!div class="checklist"]
+> * Learned how to query using MongoDB 
 
-[Develop locally](../documentdb/documentdb-nosql-local-emulator.md)
+You can now proceed to the next tutorial to learn how to distribute your data globally.
+
+> [!div class="nextstepaction"]
+> [Distribute your data globally](tutorial-global-distribution-documentdb.md)
+
