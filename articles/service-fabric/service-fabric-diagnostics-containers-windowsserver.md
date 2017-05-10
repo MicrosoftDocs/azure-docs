@@ -46,7 +46,7 @@ Confirm that your Resource Group is set up correctly by heading to [Azure [porta
 
 For modifying an existing Service Fabric cluster:
 * Confirm that Diagnostics is enabled (if not, enable it via [updating the VMSS](/rest/api/virtualmachinescalesets/create-or-update-a-set))
-* Add an OMS Workspace by creating a "Service Fabric Insights" solution via the Azure Marketplace
+* Add an OMS Workspace by creating a "Service Fabric Analytics" solution via the Azure Marketplace
 * Edit the data sources of the Service Fabric solution to pick up data from the appropriate Azure Storage tables (set up by WAD) in the Resource Group that the cluster is in
 * Add the agent as an [extension to the VMSS](/powershell/module/azurerm.compute/add-azurermvmssextension) via PowerShell or through updating the VMSS (same link as above, to modify the ARM template)
 

@@ -60,16 +60,6 @@ It is highly recommended that on cluster creation, "Diagnostics" are enabled. Th
 
 As seen above, there is also an optional field to add an Application Insights (AppInsights) instrumentation key. If you choose to use AppInsights for any event analysis (AppInsights is one of the recommended solutions), include the AppInsights resource instrumentationKey (GUID) here.
 
-#### Azure Monitor
-
-You can use [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) to monitor many of the Azure resources on which a Service Fabric cluster is built. A set of metrics for the [virtual machine scale set](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets) and individual [virtual machines](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesetsvirtualmachines) is automatically collected and displayed in the Azure portal. To view the collected information, in the Azure portal, select the resource group that contains the Service Fabric cluster. Then, select the virtual machine scale set that you want to view. In the **Monitoring** section, select **Metrics** to view a graph of the values.
-
-![Azure portal view of collected metric information](./media/service-fabric-diagnostics-overview/azure-monitoring-metrics.PNG)
-
-To customize the charts, follow the instructions in [Metrics in Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md). You also can create alerts based on these metrics, as described in [Create alerts in Azure Monitor for Azure services](../monitoring-and-diagnostics/insights-alerts-portal.md). You can send alerts to a notification service by using web hooks, as described in [Configure a web hook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Azure Monitor supports only one subscription. If you need to monitor multiple subscriptions, or if you need additional features, [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/), part of Microsoft Operations Management Suite, provides a holistic IT management solution both for on-premises and cloud-based infrastructures. You can route data from Azure Monitor directly to Log Analytics, so you can see metrics and logs for your entire environment in a single place.
-
-We recommend using Operations Management Suite to monitor your on-premises infrastructure, but you can use any existing solution that your organization uses for infrastructure monitoring.
-
 #### Service Fabric support logs
 
 If you need to contact Microsoft support for help with your Azure Service Fabric cluster, support logs are almost always required. If your cluster is hosted in Azure, support logs are automatically configured and collected as part of creating a cluster. The logs are stored in a dedicated storage account in your cluster's resource group. The storage account doesn't have a fixed name, but in the account, you see blob containers and tables with names that start with *fabric*. For information about setting up log collections for a standalone cluster, see [Create and manage a standalone Azure Service Fabric cluster](service-fabric-cluster-creation-for-windows-server.md) and [Configuration settings for a standalone Windows cluster](service-fabric-cluster-manifest.md). For standalone Service Fabric instances, the logs should be sent to a local file share. You are **required** to have these logs for support, but they are not intended to be usable by anyone outside of the Microsoft customer support team.
@@ -405,6 +395,34 @@ If you have a standalone cluster that cannot be connected to a cloud-based solut
 ## Visualization, analysis, and alerts
 
 The final part of monitoring is visualizing the event stream, reporting on service performance, and alerting when an issue is detected. You can use different solutions for this aspect of monitoring. AppInsights and Operations Management Suite (OMS) to alert based on the stream of events. You can use Microsoft Power BI or a third-party solution like [Kibana](https://www.elastic.co/products/kibana) or [Splunk](https://www.splunk.com/) to visualize the data.
+
+### AppInsights
+
+AppInsights is one of the recommended tools for monitoring applications and services. The updated AI.SDK does a great job with Service Fabric events, and in addition to providing good data visualizations and a querying tool (through AppInsights Analytics), it also is able to create an accurate AppMap that can help you trace dependencies between processes in an application or a cluster.
+
+Set up an AppInsights resource by searching for "Application Insights" in the Azure Marketplace. After you create one, go to *Properties* to find the AI Instrumentaton Key (in the form of a GUID). This is used for:
+* Integrating AppInsights to receive infrastructure level events from a Service Fabric cluster directly via an ARM template or through Azure portal when creating a cluster, assuming Diagnostics has been enabled
+* Configuring EventFlow (eventFlowConfig.json) to output data to Application Insights, as shown in the section above
+
+### OMS
+
+OMS is another recommended tool for diagnostics and monitoring of Service Fabric clusters. The Service Fabric solution can be added to any workspace and has a dashboard to show the different types of Service Fabric events. OMS workspaces also have a powerful log querying tool in Log Analytics.
+
+To configure an OMS workspace, confirm that Diagnostics was enabled for your cluster. Add "Service Fabric Analytics" from Azure Marketplace to an existing OMS workspace or create a new one. Configure the workspace's data sources to connect to the Azure Storage tables that your cluster is writing events to. 
+
+In order for OMS to pick up custom events, you also have to make sure that the instrumentation you add to your applications should also write to the same Storage tables, or any other ones that are also configured to be sources for the workspace. 
+
+OMS is also currently the recommended path to take for data visualization and analysis if you need monitoring and diagnostics for containers, since you can add a Containers solution to your workspace that works well with Service Fabric orchestrated containers. To view a short guide on setting this up, go [here](service-fabric-diagnostics-containers-windowsserver.md).
+
+### Azure Monitor
+
+You can use [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) to monitor many of the Azure resources on which a Service Fabric cluster is built. A set of metrics for the [virtual machine scale set](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets) and individual [virtual machines](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesetsvirtualmachines) is automatically collected and displayed in the Azure portal. To view the collected information, in the Azure portal, select the resource group that contains the Service Fabric cluster. Then, select the virtual machine scale set that you want to view. In the **Monitoring** section, select **Metrics** to view a graph of the values.
+
+![Azure portal view of collected metric information](./media/service-fabric-diagnostics-overview/azure-monitoring-metrics.PNG)
+
+To customize the charts, follow the instructions in [Metrics in Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md). You also can create alerts based on these metrics, as described in [Create alerts in Azure Monitor for Azure services](../monitoring-and-diagnostics/insights-alerts-portal.md). You can send alerts to a notification service by using web hooks, as described in [Configure a web hook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Azure Monitor supports only one subscription. If you need to monitor multiple subscriptions, or if you need additional features, [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/), part of Microsoft Operations Management Suite, provides a holistic IT management solution both for on-premises and cloud-based infrastructures. You can route data from Azure Monitor directly to Log Analytics, so you can see metrics and logs for your entire environment in a single place.
+
+We recommend using Operations Management Suite to monitor your on-premises infrastructure, but you can use any existing solution that your organization uses for infrastructure monitoring.
 
 ## Additional steps
 
