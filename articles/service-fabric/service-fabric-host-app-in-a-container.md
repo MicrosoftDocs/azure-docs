@@ -29,9 +29,10 @@ This tutorial shows you how to deploy an existing ASP.NET application in a Windo
 4. [Azure PowerShell][link-azure-powershell-install]
 5. [Continuous Delivery Tools extension for Visual Studio 2017][link-visualstudio-cd-extension]
 
-   >[!NOTE]
-   >If this is the first time you are running Windows container images on your computer, Docker CE must pull down the base images for your containers. The images used in this tutorial are 14GB in size. Go ahead and run the following command in Powershell to pull the base images:
-   __docker pull microsoft/mssql-server-windows-developer__.
+>[!NOTE]
+>If this is the first time you are running Windows container images on your computer, Docker CE must pull down the base images for your containers. The images used in this tutorial are 14GB in size. Go ahead and run the following command in Powershell to pull the base images:
+>1. docker pull microsoft/mssql-server-windows-developer
+>2. docker pull microsoft/aspnet:4.6.2
 
 ## Containerize the application
 
@@ -217,17 +218,17 @@ Now that you have containerized and deployed the Fabrikam Call Center solution, 
 - [Creating Service Fabric applications][link-servicefabric-createapp]
 
 [link-debug-container]: /dotnet/articles/core/docker/visual-studio-tools-for-docker
-[link-fabrikam-github]: http://aka.ms/fabrikamcontainer
+[link-fabrikam-github]: https://aka.ms/fabrikamcontainer
 [link-container-quickstart]: /virtualization/windowscontainers/quick-start/quick-start-windows-10
 [link-visualstudio-container-tools]: /dotnet/articles/core/docker/visual-studio-tools-for-docker
 [link-azure-powershell-install]: /powershell/azure/install-azurerm-ps
 [link-servicefabric-create-secure-clusters]: service-fabric-cluster-creation-via-arm.md
-[link-visualstudio-cd-extension]: http://aka.ms/cd4v
+[link-visualstudio-cd-extension]: https://aka.ms/cd4vs
 [link-servicefabric-containers]: service-fabric-get-started-containers.md
 [link-servicefabric-createapp]: service-fabric-create-your-first-application-in-visual-studio.md
-[link-azure-portal]: http://portal.azure.com
-[link-sf-clustertemplate]: http://aka.ms/securepreviewonelineclustertemplate
-[link-sf-clustertemplate-parameters]: http://aka.ms/securepreviewonelineclusterparameters
+[link-azure-portal]: https://portal.azure.com
+[link-sf-clustertemplate]: https://aka.ms/securepreviewonelineclustertemplate
+[link-sf-clustertemplate-parameters]: https://aka.ms/securepreviewonelineclusterparameters
 
 [image-web-preview]: media/service-fabric-host-app-in-a-container/fabrikam-web-sample.png
 [image-source-control]: media/service-fabric-host-app-in-a-container/add-to-source-control.png
