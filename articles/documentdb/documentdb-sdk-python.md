@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 05/01/2017
+ms.date: 05/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -123,6 +123,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.2.0](#2.2.0) |May 10, 2017 |--- |
 | [2.1.0](#2.1.0) |May 01, 2017 |--- |
 | [2.0.1](#2.0.1) |October 30, 2016 |--- |
 | [2.0.0](#2.0.0) |September 29, 2016 |--- |
