@@ -1,6 +1,6 @@
 ---
 title: 'Combine data with U-SQL Joins | Microsoft Docs'
-description: Learn the how U-SQL uses Join operators to combine rowsets.
+description: Learn the how U-SQL uses Join operators to combine rowsets in Azure Data Lake Analytics.
 services: data-lake-analytics
 documentationcenter: ''
 author: saveenr
