@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 05/08/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 
@@ -38,6 +38,7 @@ The following diagram shows the relationship between your Windows computers and 
 
 ![oms-direct-agent-diagram](./media/log-analytics-windows-agents/oms-direct-agent-diagram.png)
 
+If your IT security policies do not allow computers on your network to connect to the Internet, you can configure your computers to connect to the OMS Gateway. For more information and steps on how to configure your servers to communicate through an OMS Gateway to the OMS service, see [Connect computers to OMS using the OMS Gateway](log-analytics-oms-gateway.md).
 
 ## System requirements and required configuration
 Before you install or deploy agents, review the following details to ensure you meet necessary requirements.
@@ -46,7 +47,28 @@ Before you install or deploy agents, review the following details to ensure you 
 - You'll need an OMS subscription.  For additional information, see [Get started with Log Analytics](log-analytics-get-started.md).
 - Each Windows computer must be able to connect to the Internet using HTTPS or to the OMS Gateway. This connection can be direct, via a proxy, or through the OMS Gateway.
 - You can install the OMS MMA on stand-alone computers, servers, and virtual machines. If you want to connect Azure-hosted virtual machines to OMS, see [Connect Azure virtual machines to Log Analytics](log-analytics-azure-vm-extension.md).
-- The agent needs to use TCP port 443 for various resources. For more information, see [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md).
+- The agent needs to use TCP port 443 for various resources.
+
+### Network
+
+For Windows agents to connect to and register with the OMS service, they must have access to network resources, including the port numbers and domain URLs.
+
+- For proxy servers, you need to ensure that the appropriate proxy server resources are configured in agent settings.
+- For firewalls that restrict access to the Internet, you or your networking engineers need to configure your firewall to permit access to OMS. No action is needed in agent settings.
+
+The following table shows resources needed for communication.
+
+>[!NOTE]
+>Some of the following resources mention Operational Insights, which was a previous version of OMS. However, the listed resources will change in the future.
+
+| Agent Resource | Ports | Bypass HTTPS inspection |
+|---|---|---|
+| *.ods.opinsights.azure.com | 443 | Yes |
+| *.oms.opinsights.azure.com | 443 | Yes |
+| *.blob.core.windows.net | 443 | Yes |
+| *.azure-automation.net | 443 | Yes |
+
+
 
 ## Download the agent setup file from OMS
 1. In the OMS portal, on the **Overview** page, click the **Settings** tile.  Click the **Connected Sources** tab at the top.  
@@ -69,6 +91,57 @@ Before you install or deploy agents, review the following details to ensure you 
 6. On the Ready to Install page, review your choices and then click **Install**.
 7. On the Configuration completed successfully page, click **Finish**.
 8. When complete, the **Microsoft Monitoring Agent** appears in **Control Panel**. You can review your configuration there and verify that the agent is connected to Operational Insights (OMS). When connected to OMS, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service.**
+
+## Configure proxy settings
+
+You can use the following procedure to configure proxy settings for the Microsoft Monitoring Agent using Control Panel. You'll need to use the procedure for each server. If you have many servers that you need to configure, you might find it easier to use a script to automate this process. If so, see the next procedure [To configure proxy settings for the Microsoft Monitoring Agent using a script](#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
+
+### To configure proxy settings for the Microsoft Monitoring Agent using Control Panel
+1. Open **Control Panel**.
+2. Open **Microsoft Monitoring Agent**.
+3. Click the **Proxy Settings** tab.  
+    ![proxy settings tab](./media/log-analytics-windows-agents/proxy-direct-agent-proxy.png)
+4. Select **Use a proxy server** and type the URL and port number, if one is needed, similar to the example shown. If your proxy server requires authentication, type the username and password to access the proxy server.
+
+
+### Verify agent connectivity to OMS
+
+You can easily verify whether your agents are communicating with OMS using the following procedure.
+
+1.	On the computer with the Windows agent, open Control Panel.
+2.	Open Microsoft Monitoring Agent.
+3.	Click the Azure Log Analytics (OMS) tab.
+4.	In the Status column, you should see that the agent connected successfully to the Operations Management Suite service.
+
+![agent connected](./media/log-analytics-windows-agents/mma-connected.png)
+
+
+### To configure proxy settings for the Microsoft Monitoring Agent using a script
+Copy the following sample, update it with information specific to your environment, save it with a PS1 file name extension, and then run the script on each computer that connects directly to the OMS service.
+
+    param($ProxyDomainName="http://proxy.contoso.com:80", $cred=(Get-Credential))
+
+    # First we get the Health Service configuration object.  We need to determine if we
+    #have the right update rollup with the API we need.  If not, no need to run the rest of the script.
+    $healthServiceSettings = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
+
+    $proxyMethod = $healthServiceSettings | Get-Member -Name 'SetProxyInfo'
+
+    if (!$proxyMethod)
+    {
+         Write-Output 'Health Service proxy API not present, will not update settings.'
+         return
+    }
+
+    Write-Output "Clearing proxy settings."
+    $healthServiceSettings.SetProxyInfo('', '', '')
+
+    $ProxyUserName = $cred.username
+
+    Write-Output "Setting proxy to $ProxyDomainName with proxy username $ProxyUserName."
+    $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetNetworkCredential().password)
+
+
 
 ## Install the agent using the command line
 - Modify and then use the following example to install the agent using the command line. The example performs a fully silent installation.
@@ -210,18 +283,7 @@ If you use Operations Manager in your IT infrastructure, you can also use the MM
 8.	Under **Agent Action Account**, choose either the Local System account or a local domain account.
 9.	Click **OK** to close the **Add a Management Group** dialog box and then click **OK** to close the **Microsoft Monitoring Agent Properties** dialog box.
 
-## Optionally, configure agents to use the OMS Gateway
-
-If you have servers or clients that do not have a connection to the Internet, you can still have them send data to OMS by using the OMS Gateway.  When you use the Gateway, all data from agents is sent through a single server that has access to the Internet. The Gateway transfers data from the agents to OMS directly without analyzing any of the data that is transferred.
-
-See [OMS Gateway](log-analytics-oms-gateway.md) to learn more about the Gateway, including setup, and configuration.
-
-For information about how to configure your agents to use a proxy server, which in this case is the OMS Gateway, see [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md).
-
-## Optionally, configure proxy and firewall settings
-If you have proxy servers or firewalls in your environment that restrict access to the Internet, see [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md) to enable your agents to communicate to the OMS service.
 
 ## Next steps
 
 - [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) to add functionality and gather data.
-- [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md) if your organization uses a proxy server or firewall so that agents can communicate with the Log Analytics service.

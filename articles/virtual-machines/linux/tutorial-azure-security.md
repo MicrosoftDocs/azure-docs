@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/01/2017
+ms.date: 05/07/2017
 ms.author: nepeters
 ---
 # Monitor VM security with the Azure Security Center
@@ -120,3 +120,9 @@ In this tutorial, you configured and reviewed VMs with Azure Security Center. Yo
 > * Configure security policies
 > * View and fix configuration health issues
 > * Review detected threats
+
+Advance to the next tutorial to learn more about creating a CI/CD pipeline with Jenkins, GitHub, and Docker.
+
+> [!div class="nextstepaction"]
+> [Create CI/CD infrastructure with Jenkins, GitHub, and Docker](tutorial-jenkins-github-docker-cicd.md)
+
