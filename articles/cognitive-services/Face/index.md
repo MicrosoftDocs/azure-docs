@@ -14,23 +14,11 @@ ms.author: carolz
 ---
 <div class="content">
     <h1>Face API Documentation</h1>
-    <div class="introHolder" style="justify-content: space-between;">
-        <div class="intro" style="min-width: 200px">
-            <p>Learn about the Microsoft Face API, a cloud-based service that provides the most advanced face algorithms.</p>
-        </div>
-        <a href="https://azure.microsoft.com/en-us/resources/videos/create-sql-database-on-azure/">
-            <div class="calloutHolder" style="max-width: 250px">
-                <div>
-                    <img src="../../sql-database/media/index/create-sql-database-on-azure.png" style="width: 250px;" />
-                </div>
-                <div>
-                    <p style="margin-top: 0; color: #6e6e6e">Create a SQL database on Azure. (3:12)</p>
-                </div>
-            </div>
-        </a>
+    <div class="intro" style="min-width: 200px">
+        <p>The cloud-based Face API provides developers with access to advanced face algorithms. MIcrosoft Face algorithms enable face attribute detection and face recognition. Learn how to analyze content in different ways with our quickstarts, tutorials, and samples.</p>
     </div>
 <h2 style="margin-top: 18px; margin-bottom: 0px;">5-Minute Quickstarts</h2>
-<p style="margin-top: 6px; margin-bottom: 6px;">Learn to detect faces in image data</p>
+<p style="margin-top: 6px; margin-bottom: 6px;">Detect and identify faces using:</p>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/cognitive-services/Face/QuickStarts/CSharp">
@@ -40,7 +28,7 @@ ms.author: carolz
     </div>
     <div class="ico48Link">
         <a href="/azure/cognitive-services/Face/QuickStarts/curl">
-            <img src="/media/index/logo_curl.svg" alt="">
+            <img src="media/index/logo_curl.svg" alt="">
             <span>cURL</span>
         </a>
     </div>
@@ -77,7 +65,7 @@ ms.author: carolz
 </div>
 
 <h2 style="margin-top: 36px">Step-by-Step Tutorials</h2>
-<p>Learn how to create and develop apps invoking the Face API</p>
+<p>Develop applications using the Face API:</p>
 <ol>
     <li><a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial">C&#35; Tutorial</a></li>
     <li><a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinJavaForAndroidTutorial">Java for Android Tutorial</a></li>
@@ -89,19 +77,19 @@ ms.author: carolz
     <li style="flex: 0 1 25%">
         <a href="https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02"> 
             <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card">
+                <div class="cardPadding">
+                    <div class="card">
                        <div class="cardImageOuter">
                             <div class="cardImage">
                                 <img style="max-width: 100%" alt="" src="../../sql-database/media/index/video-training-dotnet.png" data-linktype="external">
                             </div>
                         </div>
-                        <div class="cardText">
-                            <p>Developing with .NET</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        <div class="cardText">
+                            <p>Developing with .NET</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </a>
     </li>
 </ul>
