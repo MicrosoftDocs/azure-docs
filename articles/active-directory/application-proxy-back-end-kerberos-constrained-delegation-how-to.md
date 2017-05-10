@@ -43,7 +43,7 @@ For this reason, our advice is always to start by making sure you have met all t
 
 Particularly the section on configuring KCD on 2012R2, as this employs a fundamentally different approach to configuring KCD on previous versions of Windows, but also while being mindful of several other considerations:
 
--   It is not uncommon for a domain member server to change open a secure channel dialog with a specific domain controller. Later change to another at any given time, so connector hosts should generally not be restricted to being able to communicate with only specific local site DCs.
+-   It is not uncommon for a domain member server to open a secure channel dialog with a specific domain controller. Then move to another dialog at any given time, so connector hosts should generally not be restricted to being able to communicate with only specific local site DCs.
 
 -   Similar to the above point, cross domain scenarios rely on referrals that direct a connector host to DCs that may reside outside of the local network perimeter. In this scenario it is equally important to make sure you are also allowing traffic onwards to DCs that represent other respective domains, or else delegation fail.
 
