@@ -219,10 +219,10 @@ Now that you have containerized and deployed the Fabrikam Call Center solution, 
 [link-container-quickstart]: ~/virtualization/windowscontainers/quick-start/quick-start-windows-10
 [link-visualstudio-container-tools]: ~/dotnet/articles/core/docker/visual-studio-tools-for-docker
 [link-azure-powershell-install]: ~/powershell/azure/install-azurerm-ps
-[link-servicefabric-create-secure-clusters]: service-fabric-cluster-creation-via-arm
+[link-servicefabric-create-secure-clusters]: service-fabric-cluster-creation-via-arm.md
 [link-visualstudio-cd-extension]: http://aka.ms/cd4v
-[link-servicefabric-containers]: service-fabric-get-started-containers
-[link-servicefabric-createapp]: service-fabric-create-your-first-application-in-visual-studio
+[link-servicefabric-containers]: service-fabric-get-started-containers.md
+[link-servicefabric-createapp]: service-fabric-create-your-first-application-in-visual-studio.md
 [link-azure-portal]: http://portal.azure.com
 [link-sf-clustertemplate]: http://aka.ms/securepreviewonelineclustertemplate
 [link-sf-clustertemplate-parameters]: http://aka.ms/securepreviewonelineclusterparameters
