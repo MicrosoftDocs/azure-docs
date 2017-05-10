@@ -72,6 +72,3 @@ Regular storage costs apply.
 Cloud Shell is recommended for Chrome, Edge, and Safari. 
 While Cloud Shell is supported for Chrome, Firefox, Safari, IE, and Edge, Cloud Shell is subject to specific browser settings.
 For specific known limitations, visit [limitations of Cloud Shell](limitations.md).
-
-## Open-source tooling
-Cloud Shell was built with open-source tools like [xterm.js](https://github.com/sourcelair/xterm.js/), [Kubernetes](https://github.com/kubernetes/kubernetes), and [Docker](https://github.com/moby/moby). Learn more about [how Azure supports open source technologies.](https://azure.microsoft.com/en-us/overview/choose-azure-opensource/)
