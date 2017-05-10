@@ -21,7 +21,7 @@ ms.author: edmaca
 
 U-SQL provides common join operators such as INNER JOIN, LEFT/RIGHT/FULL OUTER JOIN, SEMI JOIN, to join not only tables but any rowsets (even those produced from files).
 
-The following script joins the searchlog with an advertisement impression log and gives us the advertisements for the query string for a given date.
+The following script joins the ``@searchlog`` with an advertisement impression log and gives us the advertisements for the query string for a given date.
 
 ```
 @adlog =
