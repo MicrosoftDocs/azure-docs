@@ -84,7 +84,7 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure
+    href: /cli/azure/postgres
 - name: Resources
   items:
   - name: Pricing
