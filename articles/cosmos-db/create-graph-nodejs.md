@@ -107,7 +107,7 @@ Now go back to the Azure portal to get your connection string information and co
     ```nodejs
     const client = Gremlin.createClient(
         443, 
-        "https://<endpoint>.graphs.azure.com", 
+        "<endpoint>.graphs.azure.com", 
         { 
             "session": false, 
             "ssl": true, 
