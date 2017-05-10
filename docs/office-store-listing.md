@@ -14,11 +14,11 @@ Both the short description and long description appear in the Office Store listi
 
 **Guidelines for title and description length**
 
-|**Item**|**Maximum length**|**Recommended length**|**Include key message in the...**|
-|:-------|:-----------------|:---------------------|:--------------------------------|
-|Title|50 characters|30 characters|First 30 characters|
-|Short description|100 characters|70 characters|First 30 characters|
-|Long description|4,000 characters|300-500 characters|First 300 characters|
+| Item              | Maximum length    | Recommended length    | Include key message in the... |
+|:------------------|:------------------|:----------------------|:------------------------------|
+| Title             | 50 characters     | 30 characters         |First 30 characters            |
+| Short description | 100 characters    | 70 characters         |First 30 characters            |
+| Long description  | 4,000 characters  | 300-500 characters    |First 300 characters           |
 
 For additional guidance for descriptions, see [Write compelling descriptions](create-effective-office-store-listings#write-compelling-descriptions).
 
@@ -26,7 +26,7 @@ For additional guidance for descriptions, see [Write compelling descriptions](cr
 
 Your screenshots appear on the Store details page and can help draw in potential customers.
 
-Choose **Primary** to upload at least one screenshot. You can upload up to five images. Each screenshot must have the file extension .png, .jpg, .jpeg, or .gif, must be exactly 512 pixels wide and 384 pixels high, and be no larger than 300 KB.
+At a minimum, you must supply a **Primary** screenshot. You can optionally provide an additional four images. Screenshot images must have a file extention of .png, .jpg, .jpeg, or .gif. Each screen shot must be exactly 1366 pixels wide and 768 pixels high (1366 x 768) and no larger than 1024 KB.
 
 For guidance for creating compelling screenshots, see [Use screenshots effectively](create-effective-office-store-listings#use-screenshots-effectively).
  
