@@ -30,4 +30,4 @@ Custom Vision Service is designed to make it easy to start building your classif
 
 ## Next steps
 
-[getting-started-build-a-classifier.md](Getting Started: Build a Classifier)
+[Getting Started: Build a Classifier](getting-started-build-a-classifier.md)
