@@ -399,7 +399,7 @@ Add the routes and views that show information to the user. The routes and views
 
 7.  Sign in with either a personal Microsoft account or a work or school account. Note that the user's identity is reflected in the /account list. 
 
-You now have a web app that is secured by using industry standard protocols. You can authenticate users in your app by using user personal and work or school accounts.
+You now have a web app that is secured by using industry standard protocols. You can authenticate users in your app by using their personal and work or school accounts.
 
 ## Next steps
 For reference, the completed sample (without your configuration values) is provided as [a .zip file](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/complete.zip). You also can clone it from GitHub:
