@@ -20,13 +20,13 @@ ms.author: mimig
 ---
 # How to setup Azure Cosmos DB global distribution using the Graph API
 
-In this article, we show how to use the Azure portal to setup Azure Cosmos DB global distribution and then connect using the Graph API.
+In this article, we show how to use the Azure portal to setup Azure Cosmos DB global distribution and then connect using the Graph API (preview).
 
 This article covers the following tasks: 
 
 > [!div class="checklist"]
 > * Configure global distribution using the Azure portal
-> * Configure global distribution using the [Graph APIs](graph-introduction.md)
+> * Configure global distribution using the [Graph APIs](graph-introduction.md) (preview)
 
 We recommend getting started by watching the following video, where Karthik Raman talks about the global distribution with Scott Hanselman on Azure Friday.
 

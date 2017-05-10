@@ -20,7 +20,7 @@ ms.author: mimig
 ---
 # How to setup Azure Cosmos DB global distribution using the Table API
 
-In this article, we show how to use the Azure portal to setup Azure Cosmos DB global distribution and then connect using the Table API.
+In this article, we show how to use the Azure portal to setup Azure Cosmos DB global distribution and then connect using the Table API (preview).
 
 This article covers the following tasks: 
 

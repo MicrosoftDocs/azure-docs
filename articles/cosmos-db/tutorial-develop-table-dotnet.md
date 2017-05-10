@@ -26,7 +26,7 @@ This tutorial covers the following tasks:
 > [!div class="checklist"] 
 > * Create an Azure Cosmos DB account 
 > * Enable functionality in the app.config file 
-> * Create a table using the [Table API](table-introduction.md) 
+> * Create a table using the [Table API](table-introduction.md) (preview)
 > * Add an entity to a table 
 > * Insert a batch of entities 
 > * Retrieve a single entity 

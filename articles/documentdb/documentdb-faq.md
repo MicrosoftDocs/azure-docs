@@ -28,7 +28,7 @@ Azure Cosmos DB started in late 2010 to address developer pain-points that are f
 For more database questions, answers, and instructions on deploying and using this service, see the [Azure Cosmos DB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).
 
 ### What happened to DocumentDB?
-The DocumentDB API is one of the supported APIs and data models for Azure Cosmos DB. In addition, Azure Cosmos DB supports you with Graph API(preview), Table API(preview)  and MongoDB API. 
+The DocumentDB API is one of the supported APIs and data models for Azure Cosmos DB. In addition, Azure Cosmos DB supports you with Graph API (preview), Table API (preview)  and MongoDB API. 
 
 ### How do I get to my DocumentDB account in the Azure portal?
 Just click the Azure Cosmos DB icon in the menu on the left side of the Azure portal. If you had a DocumentDB account before, you now have an Azure Cosmos DB account, with no change to your billing.
@@ -64,7 +64,7 @@ If you need any help, reach out to us on [Stack Overflow](http://stackoverflow.c
 
 ## Set up Microsoft Azure Cosmos DB
 ### How do I sign up for Microsoft Azure Cosmos DB?
-Microsoft Azure Cosmos DB is available in the Azure Portal. First you must sign up for a Microsoft Azure subscription. Once you sign up for a Microsoft Azure subscription, you can add a DocumentDB API, Graph API(preview), Table API(preview) or MongoDB API account to your Azure subscription.
+Microsoft Azure Cosmos DB is available in the Azure Portal. First you must sign up for a Microsoft Azure subscription. Once you sign up for a Microsoft Azure subscription, you can add a DocumentDB API, Graph API (preview), Table API (preview) or MongoDB API account to your Azure subscription.
 
 ### What is a master key?
 A master key is a security token to access all resources for an account. Individuals with the key have read and write access to the all resources in the database account. Use caution when distributing master keys. The primary master key and secondary master key are available in the **Keys **blade of the [Azure Portal][azure-portal]. For more information about keys, see [View, copy, and regenerate access keys](documentdb-manage-account.md#keys).
@@ -309,7 +309,7 @@ In string json format in the app.config file.
 ]
 }
 
-## Cosmos DB as a platform seems to have lot of capabilities like sorting, aggregates, hierarchy and other functionality - is this planned to be added to the Table API ? 
+### Cosmos DB as a platform seems to have lot of capabilities like sorting, aggregates, hierarchy and other functionality - is this planned to be added to the Table API ? 
 In preview, Azure Cosmos DB supports the same query functionality as Azure Table storage for the Table API. Azure Cosmos DB also supports sorting, aggregates, geospatial query, hierarchy, and a wide range of built-in functions. The additional functionality will be provided in the Table API in a future service update. See [Azure Cosmos DB query](../documentdb/documentdb-sql-query.md) for an overview of these capabilities.
  
 ### When should I change TableThroughput for the Table API (preview)?
@@ -319,7 +319,7 @@ OR
 
 You need more throughput from the container at the backend as you see Used Throughput is more than Provisioned throughput on the metrics and you are getting throttled. This is documented in the [Set throughput](documentdb-set-throughput.md) article.
 
-### Can I scale up or down the throughput of my Table API (Preview) Table? 
+### Can I scale up or down the throughput of my Table API (preview) Table? 
 Yes, you can use the Cosmos DB portal’s scale pane to do the same. This is documented in the [Set throughput](documentdb-set-throughput.md) topic.
 
 ### Can Premium Table API (preview) leverage RU per minute offering? 
