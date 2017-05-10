@@ -14,13 +14,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2017
+ms.date: 05/10/2017
 ms.author: mimig
 
 ---
 # How to setup Azure Cosmos DB global distribution using the Table API
 
-In this article, we show how to use the Azure portal to setup Azure Cosmos DB global distribution and then connect using the Table API.
+In this article, we show how to use the Azure portal to setup Azure Cosmos DB global distribution and then connect using the Table API (preview).
+
+This article covers the following tasks: 
+
+> [!div class="checklist"]
+> * Configure global distribution using the Azure portal
+> * Configure global distribution using the [Table API](table-introduction.md)
 
 [!INCLUDE [cosmosdb-tutorial-global-distribution-portal](../../includes/cosmosdb-tutorial-global-distribution-portal.md)]
 
@@ -45,7 +51,17 @@ If the `TablePreferredLocations` property is not set, all requests will be serve
     </appSettings>
 ```
 
-## <a id="next"></a>Next steps
-Learn how to manage the consistency of your globally replicated account by reading [Consistency levels in Azure Cosmos DB](../documentdb/documentdb-consistency-levels.md).
+That's it, that completes this tutorial. You can learn how to manage the consistency of your globally replicated account by reading [Consistency levels in Azure Cosmos DB](../documentdb/documentdb-consistency-levels.md). And for more information about how global database replication works in Azure Cosmos DB, see [Distribute data globally with Azure Cosmos DB](../documentdb/documentdb-distribute-data-globally.md).
 
-For more information about how global database replication works in Azure Cosmos DB, see [Distribute data globally with Azure Cosmos DB](../documentdb/documentdb-distribute-data-globally.md).
+## Next steps
+
+In this tutorial, you've done the following:
+
+> [!div class="checklist"]
+> * Configure global distribution using the Azure portal
+> * Configure global distribution using the DocumentDB APIs
+
+You can now proceed to the next tutorial to learn how to develop locally using the Azure Cosmos DB local emulator.
+
+> [!div class="nextstepaction"]
+> [Develop locally with the emulator](../documentdb/documentdb-nosql-local-emulator.md)

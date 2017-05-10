@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2017
+ms.date: 05/09/2017
 ms.author: jgao
 
 ---
@@ -148,7 +148,7 @@ You can query data in HBase tables by using Hive. In this section, you create a 
         TBLPROPERTIES ('hbase.table.name' = 'Contacts');
 4. Run the following HiveQL script to query the data in the HBase table:
    
-         SELECT * FROM hbasecontacts;
+         SELECT count(rowkey) FROM hbasecontacts;
 
 ## Use HBase REST APIs using Curl
 
@@ -177,7 +177,7 @@ The REST API is secured via [basic authentication](http://en.wikipedia.org/wiki/
         -d "{\"Row\":[{\"key\":\"MTAwMA==\",\"Cell\": [{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}]}]}" \
         -v
    
-    You must base64 encode the values specified in the -d switch.  In the exmaple:
+    You must base64 encode the values specified in the -d switch.  In the example:
    
    * MTAwMA==: 1000
    * UGVyc29uYWw6TmFtZQ==: Personal:Name
