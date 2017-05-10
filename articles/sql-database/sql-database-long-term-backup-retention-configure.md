@@ -30,10 +30,6 @@ The following sections show you how to use the Azure portal to configure the Azu
 
 You [configure an Azure Recovery Services vault to retain automated backups](sql-database-long-term-retention.md) for a period longer than the retention period for your service tier. 
 
-> [!TIP]
-> To delete backups in long-term backup retention, see [Configure and use long-term backup retention](sql-database-long-term-backup-retention-configure.md).
->
-
 1. Open the **SQL Server** page for your server.
 
    ![sql server page](./media/sql-database-get-started-portal/sql-server-blade.png)

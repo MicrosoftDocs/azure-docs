@@ -1,4 +1,5 @@
 ---
+redirect_url: /azure/cognitive-services/Bing-News-Search/search-the-web
 title: Azure Cognitive Services, Bing News Search API Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to create and configure API calls
 services: sql-database

@@ -90,5 +90,5 @@ In this tutorial you learned how to:
 
 ## Additional resources
 
-* [Additonal tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Additional tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
 * [Elastic Query](sql-database-elastic-query-overview.md)
