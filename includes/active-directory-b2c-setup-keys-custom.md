@@ -1,64 +1,36 @@
-> [!NOTE]
-> We are working to improve this experience. The following steps will soon be deprecated.
 
-### Create an administrator credential in the Azure AD B2C tenant.
+### Add Signing and Encryption keys to your B2C Tenant for use by Custom Policies
 
-For the next section, you will need to use a credential that uses the domain of your Azure AD B2C tenant. To do so, you need to create an administrator account with such credential. To do so:
-
-1. In the [Azure portal](https://portal.azure.com), switch into the context of your Azure AD B2C tenant and open the Azure AD B2C blade. [Show me how.](..\articles\active-directory-b2c\active-directory-b2c-navigate-to-b2c-context.md)
-1. Select **Users and groups**.
-1. Select **All users**.
-1. Click **+ New user**.
-    * Set **Name** = `Admin`.
-    * Set **Username** = `admin@{tenantName}.onmicrosoft.com` where `{tenantName}` is the name of your Azure AD B2C tenant.
-1. Under **Directory role** choose **Global administrator** and hit **Ok**.
-1. Click **Create** to create the admin user.
-1. Check **Show password** and copy the password.
-
-### Set up the key container
-
-The key container is what you will use to store keys. To set one up:
-
-1. Open a new powershell command prompt.  One method is **Windows Logo Key + R**, type `powershell`, and hit enter.
-1. Download this repro to get the powershell ExploreAdmin tool.
-
-    ```powershell
-    git clone https://github.com/Azure-Samples/active-directory-b2c-advanced-policies
-    ```
-
-1. Switch into the folder with the ExploreAdmin tool.
-
-    ```powershell
-    cd active-directory-b2c-advanced-policies\ExploreAdmin
-    ```
-
-1. Import the ExploreAdmin tool into powershell.
-
-    ```powershell
-    Import-Module .\ExploreAdmin.dll
-    ```
-
-1. Confirm the TokenSigningKeyContainer does not yet exist.  Replace `{tenantName}` with the name of your tenant.
-
-    ```powershell
-    Get-CpimKeyContainer -TenantId {tenantName}.onmicrosoft.com -StorageReferenceId TokenSigningKeyContainer -ForceAuthenticationPrompt
-    ```
-
-    a. You will be prompted to log in.  Use the admin account you created in the previous section.
-
-    b. You will be prompted to set up your phone number as a second factor and to change your password.
-
-    c. You should receive an error that 'TokenSigningKeyContainer' cannot be found.  If you have already completed these steps previously you scan skip the rest of this section.
+1. Navigate to the Identity Experience Framework blade in you Azure AD B2C tenant settings.
+1. Select `Policy Keys` to view the keys available in your tenant. If `B2C_1A_TokenSigningKeyContainer` exists, skip this key.
+1. Create `TokenSigningKeyContainer`  
+ * Click on `+Add`
+ * Options > `Generate`
+ * Name >`TokenSigningKeyContainer` The prefix B2C_1A_ may be added automatically.
+ * Key type > `RSA`
+ * Dates - use defaults
+ * Key usage > `Signature`
+1. Click `Create`
+1. If a key named `B2C_1A_TokenEncryptionKeyContainer` exists, skip this key.
+1. Create `TokenEncryptionKeyContainer`.
+ * Options > `Generate`
+ * Name >`TokenSigningKeyContainer` The prefix B2C_1A_ may be added automatically.
+ * Key type > `RSA`
+ * Dates - use defaults
+ * Key usage > `Encryption`
+1. Click `Create`
 
 
-1. Create the TokenSigningKeyContainer.  Replace `{tenantName}` with the name of your tenant.
+[!TIP]
+The next steps are OPTIONAL if you wish to offer social identity providers or federated identity providers to your end users.  Facebook provides a good starting point to learn about external identity providers with Azure AD B2C using custom policies.
 
-    ```powershell
-    New-CpimKeyContainer {tenantName}.onmicrosoft.com TokenSigningKeyContainer TokenSigningKeyContainer rsa 2048 0 0
-    ```
+1. Create `FacebookSecret`.  While optional, this step is recommended to readily test your ability to federate externally.  This creates a solid starting point to further develop your policies with other Id Providers
+ * Click on `+Add`
+ * Options > `Manual`
+ * Name > `FacebookSecret` The prefix B2C_1A_ may be added automatically.
+ * Secret > Enter your FacebookSecret from developers.facebook.com.  *This is not your Facebook App ID*
+ * Key usage > Signature
+1. Click `Create` and confirm creation, note name
 
-1. Create the TokenEncryptionKeyContainer.  Replace `{tenantName}` with the name of your tenant.
-
-    ```powershell
-    New-CpimKeyContainer {tenantName}.onmicrosoft.com TokenEncryptionKeyContainer TokenEncryptionKeyContainer rsa 2048 0 0
-    ```
+[!NOTE]
+If you are using Azure AD B2C built-in policies, you will typically use the same secret for both built-in and custom policies. 

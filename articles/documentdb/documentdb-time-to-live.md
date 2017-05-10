@@ -1,7 +1,7 @@
 ---
-title: Expire data in DocumentDB with time to live | Microsoft Docs
-description: With TTL, Microsoft Azure DocumentDB provides the ability to have documents automatically purged from the system after a period of time.
-services: documentdb
+title: Expire data in Azure Cosmos DB with time to live | Microsoft Docs
+description: With TTL, Microsoft Azure Cosmos DB provides the ability to have documents automatically purged from the system after a period of time.
+services: cosmosdb
 documentationcenter: ''
 keywords: time to live
 author: arramac
@@ -9,7 +9,7 @@ manager: jhubbard
 editor: ''
 
 ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
-ms.service: documentdb
+ms.service: cosmosdb
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,12 +18,12 @@ ms.date: 01/13/2017
 ms.author: arramac
 
 ---
-# Expire data in DocumentDB collections automatically with time to live
+# Expire data in Azure Cosmos DB collections automatically with time to live
 Applications can produce and store vast amounts of data. Some of this data, like machine generated event data, logs, and user session information is only useful for a finite period of time. Once the data becomes surplus to the needs of the application it is safe to purge this data and reduce the storage needs of an application.
 
-With "time to live" or TTL, Microsoft Azure DocumentDB provides the ability to have documents automatically purged from the database after a period of time. The default time to live can be set at the collection level, and overridden on a per-document basis. Once TTL is set, either as a collection default or at a document level, DocumentDB will automatically remove documents that exist after that period of time, in seconds, since they were last modified.
+With "time to live" or TTL, Microsoft Azure Cosmos DB provides the ability to have documents automatically purged from the database after a period of time. The default time to live can be set at the collection level, and overridden on a per-document basis. Once TTL is set, either as a collection default or at a document level, Cosmos DB will automatically remove documents that exist after that period of time, in seconds, since they were last modified.
 
-Time to live in DocumentDB uses an offset against when the document was last modified. To do this it uses the `_ts` field which exists on every document. The _ts field is a unix-style epoch timestamp representing the date and time. The `_ts` field is updated every time a document is modified. 
+Time to live in Cosmos DB uses an offset against when the document was last modified. To do this it uses the `_ts` field which exists on every document. The _ts field is a unix-style epoch timestamp representing the date and time. The `_ts` field is updated every time a document is modified. 
 
 ## TTL behavior
 The TTL feature is controlled by TTL properties at two levels - the collection level and the document level. The values are set in seconds and are treated as a delta from the `_ts` that the document was last modified at.
@@ -49,10 +49,10 @@ The above logic can be shown in the following matrix:
 | TTL = n on document |Nothing to override at the document level. TTL on a document in un-interpreted by the system. |The document with TTL = n will expire after interval n, in seconds. Other documents will inherit interval of -1 and never expire. |The document with TTL = n will expire after interval n, in seconds. Other documents will inherit "n" interval from the collection. |
 
 ## Configuring TTL
-By default, time to live is disabled by default in all DocumentDB collections and on all documents.
+By default, time to live is disabled by default in all Cosmos DB collections and on all documents.
 
 ## Enabling TTL
-To enable TTL on a collection, or the documents within a collection, you need to set the DefaultTTL property of a collection to either -1 or a non-zero positive number. Setting the DefaultTTL to -1 means that by default all documents in the collection will live forever but the DocumentDB service should monitor this collection for documents that have overridden this default.
+To enable TTL on a collection, or the documents within a collection, you need to set the DefaultTTL property of a collection to either -1 or a non-zero positive number. Setting the DefaultTTL to -1 means that by default all documents in the collection will live forever but the Cosmos DB service should monitor this collection for documents that have overridden this default.
 
     DocumentCollection collectionDefinition = new DocumentCollection();
     collectionDefinition.Id = "orders";
@@ -158,7 +158,7 @@ The documents are expired immediately once the TTL is up, and will not be access
 
 **Will TTL on a document have any impact on RU charges?**
 
-No, there will be no impact on RU charges for deletions of expired documents via TTL in DocumentDB.
+No, there will be no impact on RU charges for deletions of expired documents via TTL in Cosmos DB.
 
 **Does the TTL feature only apply to entire documents, or can I expire individual document property values?**
 
@@ -169,5 +169,5 @@ TTL applies to the entire document. If you would like to expire just a portion o
 Yes. The collection must have [indexing policy set](documentdb-indexing-policies.md) to either Consistent or Lazy. Trying to set DefaultTTL on a collection with indexing set to None will result in an error, as will trying to turn off indexing on a collection that has a DefaultTTL already set.
 
 ## Next steps
-To learn more about Azure DocumentDB, refer to the service [*documentation*](https://azure.microsoft.com/documentation/services/documentdb/) page.
+To learn more about Azure Cosmos DB, refer to the service [*documentation*](https://azure.microsoft.com/documentation/services/documentdb/) page.
 
