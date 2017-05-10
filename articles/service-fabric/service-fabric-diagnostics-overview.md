@@ -17,7 +17,7 @@ ms.date: 05/10/2017
 ms.author: dekapur
 
 ---
-# Monitor and diagnose Azure Service Fabric applications
+# Monitoring and Diagnostics in Azure Service Fabric
 
 Monitoring and diagnostics are critical to developing, testing, and successfully deploying production evironments. Service Fabric solutions work best when you implement monitoring and diagnostics from the ground up, helping to ensure that services work seamlessly both in local development environments and in the real-world production cluster setup.
 
