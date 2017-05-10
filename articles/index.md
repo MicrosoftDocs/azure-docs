@@ -3406,8 +3406,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img data-scaleimage="media/index/azure-arch-1.svg" src="media/index/azure-arch-1.svg" alt="" />
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_fundamentals.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -3425,8 +3425,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img data-scaleimage="media/index/azure-arch-2.svg" src="media/index/azure-arch-2.svg" alt="" />
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_reference-archictectures.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -3444,8 +3444,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img data-scaleimage="media/index/azure-arch-3.svg" src="media/index/azure-arch-3.svg" alt="" />
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_patterns.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -3463,8 +3463,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img data-scaleimage="media/index/azure-arch-4.svg" src="media/index/azure-arch-4.svg" alt="" />
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_best-practices.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -3483,8 +3483,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img data-scaleimage="media/index/azure-arch-5.svg" src="media/index/azure-arch-5.svg" alt="" />
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/index/azure_scenarios.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
