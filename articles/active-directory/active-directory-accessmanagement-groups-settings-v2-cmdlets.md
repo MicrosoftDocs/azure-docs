@@ -14,11 +14,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/04/2017
 ms.author: curtand;rodejo
 
 ---
-# Azure Active Directory preview cmdlets for group management
+# Azure Active Directory version 2 cmdlets for group management
 > [!div class="op_single_selector"]
 > * [Azure portal](active-directory-groups-create-azure-portal.md)
 > * [Azure classic portal](active-directory-accessmanagement-manage-groups.md)
@@ -26,20 +26,20 @@ ms.author: curtand;rodejo
 >
 >
 
-The following document will provide you with examples of how to use PowerShell to manage your groups in Azure Active Directory (Azure AD).  It also provides information on how to get set up with the Azure AD PowerShell preview module. First, you must [download the Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/).
+The following document will provide you with examples of how to use PowerShell to manage your groups in Azure Active Directory (Azure AD).  It also provides information on how to get set up with the Azure AD PowerShell  module. First, you must [download the Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## Installing the Azure AD PowerShell module
 To install the AzureAD PowerShell module, use the following commands:
 
     PS C:\Windows\system32> install-module azuread
 
-To verify that the preview module was installed, use the following command:
+To verify that the module was installed, use the following command:
 
-    PS C:\Windows\system32> get-module azureadpreview
+    PS C:\Windows\system32> get-module azuread
 
-    ModuleType Version    Name                                ExportedCommands
-    ---------- -------    ----                                ----------------
-    Binary     1.1.146.0  azureadpreview                      {Add-AzureADAdministrati...}
+    ModuleType Version      Name                                ExportedCommands
+    ---------- ---------    ----                                ----------------
+    Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
 
 Now you can start using the cmdlets in the module. For a full description of the cmdlets in the Azure AD module, please refer to the [online reference documentation](/powershell/azure/install-adv2?view=azureadps-2.0).
 
