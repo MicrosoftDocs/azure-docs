@@ -38,24 +38,24 @@ Related links:
 
 ### Enhancements:
 
+* Generic SQL:
+  **Scenario: Reimplemeted:** "*" feature
+  **Solution description:** Changed approach for multi-valued reference attributes handling. Separate document with feature description created.
+
+
+### Fixed issues:
+
+* Generic Web Services:
+  * Can’t import Server configuration if WebService Connector is present
+  * WebService Connector is not working with multiple  Web Services
+
 Generic SQL:
-Scenario: Reimplemeted "*" feature
-Solution description: Changed approach for multi-valued reference attributes handling. Separate document with feature description created.
-
-
-Fixed issues:
-
-Generic Web Services:
-* Can’t import Server configuration if WebService Connector is present
-* WebService Connector is not working with multiple  Web Services
-
-Generic SQL:
-* No object types are listed for single value referenced attribute
-* Delta import on Change Tracking strategy deletes object when value is removed from multi-value table
-* OverflowException in GSQL connector with DB2 on AS/400
+  * No object types are listed for single value referenced attribute
+  * Delta import on Change Tracking strategy deletes object when value is removed from multi-value table
+  * OverflowException in GSQL connector with DB2 on AS/400
 
 Lotus:
-* Added option to enable\disable searching OUs before opening GlobalParameters page
+  * Added option to enable\disable searching OUs before opening GlobalParameters page
 
 ## 1.1.443.0
 
