@@ -1,5 +1,5 @@
 ---
-title: Create a PHP application in Web App | Microsoft Docs
+title: Create a PHP application on Azure Web App | Microsoft Docs
 description: Deploy your first PHP Hello World in App Service Web App in minutes.
 services: app-service\web
 documentationcenter: ''
@@ -13,25 +13,25 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/31/2017
+ms.date: 05/04/2017
 ms.author: cfowler
 
 ---
 # Create a PHP application on Web App
 
-This quickstart tutorial walks through how to develop and deploy a PHP app to Azure. We’ll run the app using a Linux-based Azure App Service, and create and configure a new Web App within it using the Azure CLI. We’ll then use git to deploy our PHP app to Azure.
+This quickstart tutorial walks through how to develop and deploy a PHP app to Azure. We’ll run the app using an [Azure App Service plan](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview), and create and configure a new Web App within it using the Azure CLI. We’ll then use git to deploy our PHP app to Azure.
 
 ![hello-world-in-browser](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
-You can follow the steps below using a Mac, Windows or Linux machine. It should take you only about 5 minutes to complete all of the steps below.
+You can follow the steps below using a Mac, Windows, or Linux machine. It should take you only about 5 minutes to complete all of the steps below.
 
-## Before you begin
+## Prerequisites
 
-Before running this sample, install the following prerequisites locally:
+Before creating this sample, download and install the following:
 
-1. [Download and install git](https://git-scm.com/)
-1. [Download and install PHP](https://php.net)
-1. Download and install the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* [Git](https://git-scm.com/)
+* [PHP](https://php.net)
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -42,9 +42,6 @@ Clone the Hello World sample app repository to your local machine.
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
 ```
-
-> [!TIP]
-> Alternatively, you can [download the sample](https://github.com/Azure-Samples/php-docs-hello-world/archive/master.zip) as a zip file and extract it.
 
 Change to the directory that contains the sample code.
 
@@ -80,20 +77,8 @@ We are now going to use the Azure CLI 2.0 in a terminal window to create the res
 az login
 ```
 
-## Configure a Deployment User
-
-For FTP and local Git it is necessary to have a deployment user configured on the server to authenicate your deployment. Creating a deployment user is a one time configuration, take a note of the username and password as they will be used in a step below.
-
-> [!NOTE]
-> A deployment user is required for FTP and Local Git deployment to a Web App.
-> The `username` and `password` are account-level, as such, are different from your Azure Subscription credentials. **These credentials are only required to be created once**.
->
-
-Use the [az appservice web deployment user set](/cli/azure/appservice/web/deployment/user#set) command to create your account-level credentials.
-
-```azurecli
-az appservice web deployment user set --user-name <username> --password <password>
-```
+<!-- ## Configure a Deployment User -->
+[!INCLUDE [login-to-azure](../../includes/configure-deployment-user.md)]
 
 ## Create a resource group
 
@@ -103,24 +88,19 @@ Create a resource group with the [az group create](/cli/azure/group#create). An 
 az group create --name myResourceGroup --location westeurope
 ```
 
-## Create an Azure App Service
+## Create an Azure App Service plan
 
-Create a Linux-based App Service Plan with the [az appservice plan create](/cli/azure/appservice/plan#create) command.
+Create a "FREE" [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) with the [az appservice plan create](/cli/azure/appservice/plan#create) command.
 
-> [!NOTE]
-> An App Service plan represents the collection of physical resources used to host your apps. All applications assigned to an App Service plan share the resources defined by it allowing you to save cost when hosting multiple apps.
->
-> App Service plans define:
-> * Region (North Europe, East US, Southeast Asia)
-> * Instance Size (Small, Medium, Large)
-> * Scale Count (one, two or three instances, etc.)
-> * SKU (Free, Shared, Basic, Standard, Premium)
->
+<!--
+ An App Service plan represents the collection of physical resources used to ..
+-->
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-The following example creates an App Service Plan on Linux Workers named `quickStartPlan` using the **Standard** pricing tier.
+The following example creates an App Service plan named `quickStartPlan` using the **Free** pricing tier.
 
 ```azurecli
-az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku S1 --is-linux
+az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
 ```
 
 When the App Service Plan has been created, the Azure CLI shows information similar to the following example.
@@ -128,7 +108,6 @@ When the App Service Plan has been created, the Azure CLI shows information simi
 ```json
 {
     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
-    "kind": "linux",
     "location": "West Europe",
     "sku": {
     "capacity": 1,
@@ -143,9 +122,13 @@ When the App Service Plan has been created, the Azure CLI shows information simi
 
 ## Create a web app
 
-Now that an App Service plan has been created, create a Web App within the `quickStartPlan` App Service plan. The web app gives us a hosting space to deploy our code as well as provides a URL for us to view the deployed application. Use the [az appservice web create](/cli/azure/appservice/web#create) command to create the Web App.
+Now that an App Service plan has been created, create a [Web App](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) within the `quickStartPlan` App Service plan. The web app gives us a hosting space to deploy our code as well as provides a URL for us to view the deployed application. Use the [az appservice web create](/cli/azure/appservice/web#create) command to create the Web App.
 
-In the command below please substitute your own unique app name where you see the <app_name> placeholder. The <app_name> will be used as the default DNS site for the web app, and so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the web app before you expose it to your users.
+In the command below substitute your own unique app name where you see the `<app_name>` placeholder. The `<app_name>` is used in the default DNS site for the web app. If `<app_name>` is not unique, you get the friendly error message "Website with given name <app_name> already exists."
+
+<!-- removed per https://github.com/Microsoft/azure-docs-pr/issues/11878
+You can later map any custom DNS entry to the web app before you expose it to your users.
+-->
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
@@ -179,22 +162,11 @@ http://<app_name>.azurewebsites.net
 
 ![app-service-web-service-created](media/app-service-web-get-started-php/app-service-web-service-created.png)
 
-We’ve now created an empty new Web App in Azure. Let’s now configure our Web App to use PHP and deploy our app to it.
-
-## Configure to use PHP
-
-Use the [az appservice web config update](/cli/azure/app-service/web/config#update) command to configure the Web App to use PHP version `7.0.x`.
-
-> [!TIP]
-> Setting the PHP version this way uses a default container provided by the platform, if you would like to use your own container refer to the CLI reference for the  [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update) command.
-
-```azurecli
-az appservice web config update --linux-fx-version "PHP|7.0" --name <app_name> --resource-group myResourceGroup
-```
+We’ve now created an empty new Web App in Azure.
 
 ## Configure local git deployment
 
-You can deploy to your Web App in a variety of ways including FTP, local Git as well as GitHub, Visual Studio Team Services and Bitbucket.
+You can deploy to your Web App in a variety of ways including FTP, local Git as well as GitHub, Visual Studio Team Services, and Bitbucket.
 
 Use the [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git) command to configure local git access to the Web App.
 
@@ -216,13 +188,13 @@ Add an Azure remote to your local Git repository.
 git remote add azure <paste-previous-command-output-here>
 ```
 
-Push to the Azure remote to deploy your application. You will be prompted for the password you supplied earlier as part of the creation of the deployment user.
+Push to the Azure remote to deploy your app. You are prompted for the password you supplied earlier when you created the deployment user. Make sure that you enter the password you created in [Configure a deployment user](#configure-a-deployment-user), not the password you use to log in to the Azure portal.
 
-```azurecli
+```bash
 git push azure master
 ```
 
-During deployment, Azure App Service will communicate it's progress with Git.
+During deployment, Azure App Service will communicate its progress with Git.
 
 ```bash
 Counting objects: 2, done.
@@ -276,7 +248,7 @@ git commit -am "updated output"
 git push azure master
 ```
 
-Once deployment has completed, switch back to the browser window that opened in the Browse to the app step, and hit refresh.
+Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and hit refresh.
 
 ![hello-world-in-browser](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
@@ -308,6 +280,6 @@ These tabs in the blade show the many great features you can add to your web app
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## Next steps
+> [!div class="nextstepaction"]
+> [Explore sample Web Apps CLI scripts](app-service-cli-samples.md)
 
-Explore pre-created [Web Apps CLI scripts](app-service-cli-samples.md).
