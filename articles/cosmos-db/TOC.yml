@@ -27,8 +27,6 @@
       href: create-mongodb-java.md
     - name: Node.js
       href: create-mongodb-nodejs.md
-    - name: Python
-      href: create-mongodb-python.md
   - name: Graph
     items:
     - name: .NET
