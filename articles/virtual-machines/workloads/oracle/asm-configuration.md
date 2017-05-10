@@ -44,37 +44,37 @@ az group create --name myResourceGroup --location westus
 
 ## Create a VM
 
-To create a virtual machine (VM), use the [az vm create](/cli/azure/vm#create) command. 
+1.  To create a virtual machine (VM), use the [az vm create](/cli/azure/vm#create) command. 
 
-The following example creates a VM named myVM. It also creates SSH keys, if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
+  The following example creates a VM named myVM. It also creates SSH keys, if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
 
-```azurecli
-az vm create --resource-group myResourceGroup --name myVM --image Oracle:Oracle-Database-Ee:12.1.0.2:latest --size Standard_DS2_v2 --generate-ssh-keys
-```
+  ```azurecli
+  az vm create --resource-group myResourceGroup --name myVM --image Oracle:Oracle-Database-Ee:12.1.0.2:latest --size Standard_DS2_v2 --generate-ssh-keys
+  ```
 
-After you create the VM, Azure CLI displays information similar to the following example. Note the value for `publicIpAddress`. You use this address to access the VM.
+  After you create the VM, Azure CLI displays information similar to the following example. Note the value for `publicIpAddress`. You use this address to access the VM.
 
-```azurecli
-{
-  "fqdns": "",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
-  "location": "westus",
-  "macAddress": "00-0D-3A-36-2F-56",
-  "powerState": "VM running",
-  "privateIpAddress": "10.0.0.4",
-  "publicIpAddress": "13.64.104.241",
-  "resourceGroup": "myResourceGroup"
-}
-```
+  ```azurecli
+  {
+    "fqdns": "",
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+    "location": "westus",
+    "macAddress": "00-0D-3A-36-2F-56",
+    "powerState": "VM running",
+    "privateIpAddress": "10.0.0.4",
+    "publicIpAddress": "13.64.104.241",
+    "resourceGroup": "myResourceGroup"
+  }
+  ```
 
-Next, add disks to use for your Oracle ASM configuration:
+2.  Add disks to use for your Oracle ASM configuration:
 
-```azurecli
-az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk --new --size-gb 50
-az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk2 --new --size-gb 50
-az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk3 --new --size-gb 50
-az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk4 --new --size-gb 50
-```
+  ```azurecli
+  az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk --new --size-gb 50
+  az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk2 --new --size-gb 50
+  az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk3 --new --size-gb 50
+  az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk4 --new --size-gb 50
+  ```
 
 ## Connect to the VM
 
@@ -98,7 +98,7 @@ For more information about installing Oracle ASM, see [Oracle ASMLib Downloads f
   ```
   It might take several minutes for `yum list` to load the first time you run it.
 
-  Then, run these commands:
+2.  Run these additional commands:
 
   ```bash
   # yum list | grep oracleasm
@@ -109,7 +109,7 @@ For more information about installing Oracle ASM, see [Oracle ASMLib Downloads f
   # rm -f oracleasmlib-2.0.12-1.el6.x86_64.rpm
   ```
 
-2.  Verify Oracle ASM is installed:
+3.  Verify that Oracle ASM is installed:
 
   ```bash
   # rpm -qa |grep oracleasm
@@ -118,7 +118,7 @@ For more information about installing Oracle ASM, see [Oracle ASMLib Downloads f
   oracleasmlib-2.0.12-1.el6.x86_64
   ```
 
-3.  Add users and groups:
+4.  Add users and groups:
 
   ```bash
   # groupadd -g 54345 asmadmin
@@ -128,21 +128,21 @@ For more information about installing Oracle ASM, see [Oracle ASMLib Downloads f
   # usermod -g oinstall -G dba,asmdba,asmadmin oracle
   ```
 
-4.  Verify users and groups:
+5.  Verify users and groups:
 
   ```bash
   # id grid
   uid=3000(grid) gid=54321(oinstall) groups=54321(oinstall),54322(dba),54345(asmadmin),54346(asmdba),54347(asmoper)
   ```
 
-5.  Create a folder and change owner:
+6.  Create a folder and change owner:
 
   ```bash
   # mkdir /u01/app/grid
   # chown grid:oinstall /u01/app/grid
   ```
 
-## Set up your Oracle ASM installation
+## Set up Oracle ASM
 
 For this tutorial, the default user is *grid* and the default group is *asmadmin*. Ensure that the *oracle* user is part of the asmadmin group. To set up your Oracle ASM installation, complete the following steps:
 
@@ -299,7 +299,9 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
 
 ## Download and prepare Oracle Grid Infrastructure
 
-1.  Download the Oracle Grid Infrastructure software from the [Oracle ASM download page](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html). 
+To download and prepare the Oracle Grid Infrastructure software, complete the following steps:
+
+1.  Download Oracle Grid Infrastructure from the [Oracle ASM download page](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html). 
 
   Under the download title **Oracle Database 12c Release 1 Grid Infrastructure (12.1.0.2.0) for Linux x86-64**, there should be two .zip files to download.
 
@@ -364,9 +366,9 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
 
 ## Prepare the client and VM to run X11 (for Windows clients only)
 
-To prepare the client and VM to run X11, sign in as root, and then edit the /etc/ssh/ssh_config file: 
+To prepare the client and VM to run X11, complete the following steps: 
 
-1.  Change the setting for Forwardx11 to `yes`:
+1.  Sign in as root, and then edit the /etc/ssh/ssh_config file. Change the setting for Forwardx11 to `yes`:
 
   ```
   #   ForwardX11 no
@@ -404,7 +406,7 @@ To prepare the client and VM to run X11, sign in as root, and then edit the /etc
   > The key must contain the string `ssh-rsa`. Also, the contents of the key must be a single line of text.
   >  
 
-7.  Start PuTTY. In the **Category** pane, go to **Connection** > **SSH** > **Auth**. In the **Private key file for authentication** box, browse to the key you generated earlier.
+7.  Start PuTTY. In the **Category** pane, go to **Connection** > **SSH** > **Auth**. In the **Private key file for authentication** box, browse to the key that you generated earlier.
 
   ![Screenshot of the Set Private Key page](./media/asm-configuration/setprivatekey.png)
 
@@ -492,9 +494,9 @@ To install Oracle Grid Infrastructure, complete the following steps:
 
   ![Screenshot of the installer Finish page](./media/asm-configuration/install16.png)
 
-## Set up Oracle ASM
+## Set up your Oracle ASM installation
 
-To set up Oracle ASM, complete the following steps:
+To set up your Oracle ASM installation, complete the following steps:
 
 1.  Sign in as grid, from your X11 session:
 
@@ -505,7 +507,7 @@ To set up Oracle ASM, complete the following steps:
 
   Oracle ASM Configuration Assistant opens.
 
-2.  On the **Configure ASM: Disk Groups** page, select the **Create** button, and then select **Show advanced option**.
+2.  On the **Configure ASM: Disk Groups** page, select the **Create** button, and then select **Show Advanced Options**.
 
   ![Screenshot of the Configure ASM: Disk Groups page](./media/asm-configuration/asm01.png)
 
@@ -517,7 +519,7 @@ To set up Oracle ASM, complete the following steps:
 
   ![Screenshot of the Create Disk Group page](./media/asm-configuration/asm02.png)
 
-4.  On the **Configure ASM: Disk Groups** page, select the **Create** button, and then select **Show advanced option**.
+4.  On the **Configure ASM: Disk Groups** page, select the **Create** button, and then select **Show Advanced Options**.
 
   ![Screenshot of the Configure ASM: Disk Groups page](./media/asm-configuration/asm03.png)
 
