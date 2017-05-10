@@ -1,4 +1,4 @@
-### <a name="gwipnoconnection"></a> To modify the local network gateway GatewayIpAddress - no gateway connection
+### <a name="gwipnoconnection"></a> To modify the local network gateway 'GatewayIpAddress' - no gateway connection
 
 If the VPN device that you want to connect to has changed its public IP address, you need to modify the local network gateway to reflect that change. Use the example to modify a local network gateway that does not have a gateway connection.
 
@@ -10,11 +10,9 @@ New-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName `
 -GatewayIpAddress "5.4.3.2" -ResourceGroupName MyRGName
 ```
 
-### <a name="gwipwithconnection"></a>To modify the gateway IP address - existing gateway connection
+### <a name="gwipwithconnection"></a>To modify the local network gateway 'GatewayIpAddress' - existing gateway connection
 
-If the VPN device that you want to connect to has changed its public IP address, you need to modify the local network gateway to reflect that change.
-
-If a gateway connection already exists, you first need to remove the connection. After the connection is removed, you can modify the gateway IP address and recreate a new connection. You can also modify the address prefixes at the same time. This results in some downtime for your VPN connection. When modifying the gateway IP address, you don't need to delete the VPN gateway. You only need to remove the connection.
+If the VPN device that you want to connect to has changed its public IP address, you need to modify the local network gateway to reflect that change. If a gateway connection already exists, you first need to remove the connection. After the connection is removed, you can modify the gateway IP address and recreate a new connection. You can also modify the address prefixes at the same time. This results in some downtime for your VPN connection. When modifying the gateway IP address, you don't need to delete the VPN gateway. You only need to remove the connection.
  
 
 1. Remove the connection. You can find the name of your connection by using the 'Get-AzureRmVirtualNetworkGatewayConnection' cmdlet.

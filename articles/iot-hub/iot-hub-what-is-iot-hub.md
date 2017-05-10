@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 05/02/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 
@@ -62,7 +62,7 @@ In addition to a rich set of [device-to-cloud][lnk-d2c-guidance] and [cloud-to-d
 * **An extensive set of device libraries**. [Azure IoT device SDKs][lnk-device-sdks] are available and supported for various languages and platforms--C for many Linux distributions, Windows, and real-time operating systems. Azure IoT device SDKs also support managed languages, such as C#, Java, and JavaScript.
 * **IoT protocols and extensibility**. If your solution cannot use the device libraries, IoT Hub exposes a public protocol that enables devices to natively use the MQTT v3.1.1, HTTP 1.1, or AMQP 1.0 protocols. You can also extend IoT Hub to provide support for custom protocols by:
   
-  * Creating a field gateway with the [Azure IoT Gateway SDK][lnk-gateway-sdk] that converts your custom protocol to one of the three protocols understood by IoT Hub. 
+  * Creating a field gateway with the [Azure IoT Edge][lnk-gateway-sdk] that converts your custom protocol to one of the three protocols understood by IoT Hub. 
   * Customizing the [Azure IoT protocol gateway][protocol-gateway], an open source component that runs in the cloud.
 * **Scale**. Azure IoT Hub scales to millions of simultaneously connected devices and millions of events per second.
 

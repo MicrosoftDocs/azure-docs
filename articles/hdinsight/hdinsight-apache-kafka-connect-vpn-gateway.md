@@ -225,7 +225,7 @@ By default, Zookeeper returns the domain name of the Kafka brokers to clients. T
 
     When prompted, use the HTTPS user name and password for the cluster. The Ambari Web UI for the cluster is displayed.
 
-2. To view information on Kafka, select __Kafka__ from the list on the left. 
+2. To view information on Kafka, select __Kafka__ from the list on the left.
 
     ![Service list with Kafka highlighted](./media/hdinsight-apache-kafka-connect-vpn-gateway/select-kafka-service.png)
 
@@ -267,7 +267,7 @@ By default, Zookeeper returns the domain name of the Kafka brokers to clients. T
 
 ## Connect to the VPN gateway
 
-To connect to the VPN gateway from a __Windows client__, use the __Connect to Azure__ section of the [Configure a Point-to-Site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#a-nameconnectapart-7---connect-to-azure) document.
+To connect to the VPN gateway from a __Windows client__, use the __Connect to Azure__ section of the [Configure a Point-to-Site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#a-nameclientcertificatea7---install-an-exported-client-certificate) document.
 
 ## Remote Kafka client
 
@@ -315,7 +315,7 @@ To connect to Kafka from the client machine, you must use the IP address of the 
   ```
 
     Replace the `'ip_address'` entries with the addresses returned from step 1 in this section.
-    
+
     > [!NOTE]
     > This code sends the string `test message` to the topic `testtopic`. The default configuration of Kafka on HDInsight is to create the topic if it does not exist.
 

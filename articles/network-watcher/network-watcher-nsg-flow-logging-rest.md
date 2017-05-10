@@ -56,6 +56,15 @@ Log in to armclient with your Azure credentials.
 armclient login
 ```
 
+## Register Insights provider
+
+In order for flow logging to work successfully, the **Microsoft.Insights** provider must be registered. If you are not sure if the **Microsoft.Insights** provider is registered, run the following script.
+
+```powershell
+$subscriptionId = "00000000-0000-0000-0000-000000000000"
+armclient post "https://management.azure.com//subscriptions/${subscriptionId}/providers/Microsoft.Insights/register?api-version=2016-09-01"
+```
+
 ## Enable Network Security Group flow logs
 
 The command to enable flow logs is shown in the following example:

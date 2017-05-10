@@ -39,7 +39,6 @@ requests an IDOC over HTTP and sends the response back.
 		- SAP ECC 6.0 with EHP 7.0 and all EHP previous versions
  
 	- SAP Client
-		- SAP RFC SDK 7.20 UNICODE
 		- SAP .NET Connector (NCo) 3.0
 
 ## Add triggers and actions for connecting to your SAP system
