@@ -82,13 +82,13 @@
 ### [Limitations](active-directory-v2-limitations.md)
 ### [v1-v2 comparison](active-directory-v2-compare.md)
 ## Get Started
-### Mobile Apps
+### Mobile & Desktop apps
 #### [iOS](https://github.com/Azure-Samples/active-directory-msal-ios-swift)
-#### [Android](guidedsetups/active-directory-mobileanddesktopapp-android-intro.md)
-#### [.NET Desktop](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md)
+#### [Android](guidedsetups/active-directory-android.md)
+#### [Windows Desktop .NET](guidedsetups/active-directory-windesktop.md)
 ### Web apps
 #### [Javascript SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
-#### [.NET Web App](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-intro.md)
+#### [ASP.NET Web Server](guidedsetups/active-directory-aspnetwebapp.md)
 #### [NodeJS Web app](active-directory-v2-devquickstarts-node-web.md)
 ## Guides
 ### [Register an app](active-directory-v2-app-registration.md)
