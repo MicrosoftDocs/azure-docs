@@ -33,7 +33,7 @@ Proxies are not enabled by default. You can create proxies while the feature is 
 
 1. Open the [Azure portal], and then go to your function app.
 2. Select **Function app settings**.
-3. Toggle **Enable Azure Functions Proxies (preview)** to **On**.
+3. Switch **Enable Azure Functions Proxies (preview)** to **On**.
 
 You can also return here to update the proxy runtime as new features become available.
 
@@ -57,7 +57,7 @@ With Azure Functions Proxies, you can modify requests to and responses from the 
 
 ### <a name="modify-backend-request"></a>Modify the back-end request
 
-By default, the back-end request is initialized as a copy of the original request. In addition to setting the back-end URL, you can also make changes to the HTTP method, headers, and query string parameters. The modified values can reference [application settings] and [parameters from the original client request].
+By default, the back-end request is initialized as a copy of the original request. In addition to setting the back-end URL, you can make changes to the HTTP method, headers, and query string parameters. The modified values can reference [application settings] and [parameters from the original client request].
 
 Currently, there is no portal experience for modifying back-end requests. To learn how to apply this capability from proxies.json, see [Define a requestOverrides object].
 
@@ -91,7 +91,7 @@ In addition to the route template parameters, the following values can be used i
 
 Response parameters can be used as part of modifying the response to the client. The following values can be used in config values:
 
-* **{backend.response.statusCode}**: The HTTP status code that's returned on the backend response.
+* **{backend.response.statusCode}**: The HTTP status code that's returned on the back-end response.
 * **{backend.response.statusReason}**: The HTTP reason phrase that's returned on the back-end response.
 * **{backend.response.headers.\<HeaderName\>}**: A header that can be read from the back-end response. Replace *\<HeaderName\>* with the name of the header you want to read. If the header is not included on the request, the value will be the empty string.
 
@@ -130,9 +130,9 @@ Proxies.json is defined by a proxies object, which is composed of named proxies 
 
 Each proxy has a friendly name, such as *proxy1* in the preceding example. The corresponding proxy definition object is defined by the following properties:
 
-* **matchCondition**: Required - an object defining the requests that trigger the execution of this proxy. It contains two properties that are shared with [HTTP triggers]:
+* **matchCondition**: Required--an object defining the requests that trigger the execution of this proxy. It contains two properties that are shared with [HTTP triggers]:
     * _methods_: An array of the HTTP methods that the proxy responds to. If it is not specified, the proxy responds to all HTTP methods on the route.
-    * _route_: Required - Defines the route template, controlling which request URLs your proxy responds to. Unlike in HTTP triggers, there is no default value.
+    * _route_: Required--defines the route template, controlling which request URLs your proxy responds to. Unlike in HTTP triggers, there is no default value.
 * **backendUri**: The URL of the back-end resource to which the request should be proxied. This value can reference application settings and parameters from the original client request. If this property is not included, Azure Functions responds with an HTTP 200 OK.
 * **requestOverrides**: An object that defines transformations to the back-end request. See [Define a requestOverrides object].
 * **responseOverrides**: An object that defines transformations to the client response. See [Define a responseOverrides object].
