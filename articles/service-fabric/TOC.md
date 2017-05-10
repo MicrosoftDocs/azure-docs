@@ -29,6 +29,7 @@
 ### Concepts
 #### [Supported programming models](service-fabric-choose-framework.md)
 #### [Application model](service-fabric-application-model.md)
+#### [Hosting model](service-fabric-hosting-model.md)
 #### [Service manifest resources](service-fabric-service-manifest-resources.md)
 #### [Service state](service-fabric-concepts-state.md)
 #### [Service partitioning](service-fabric-concepts-partitioning.md)
