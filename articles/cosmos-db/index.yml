@@ -22,7 +22,7 @@ sections:
     text: 'Learn how to use Azure Cosmos DB to create a globally distributed database using one of the multi-model APIs:'
   - type: table
     style: dataMatrix
-    columns: 
+    columns:
       - image:
           src: media/logos/logo_net.svg
       - image:
