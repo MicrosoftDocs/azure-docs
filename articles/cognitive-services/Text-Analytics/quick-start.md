@@ -1,23 +1,17 @@
 ---
-title: 'Quick start guide: Machine Learning Text Analytics APIs | Microsoft Docs'
-description: Azure Machine Learning Text Analytics - Quick Start Guide
+title: 'Text Analytics Quick Start | Microsoft Docs'
+description: Get information to help you quickly get started using the Text Analytics API in Cognitive Services.
 services: cognitive-services
 documentationcenter: ''
 author: onewth
 manager: jhubbard
 editor: cgronlun
 
-ms.assetid: e8b9e98c-40e7-4425-ae16-d1eaa7d2f837
 ms.service: cognitive-services
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.technology: text-analytics
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 05/09/2017
 ms.author: onewth
-
-ROBOTS: NOINDEX, NOFOLLOW
-redirect_url: text-analytics/quick-start
 
 ---
 # Getting started with the Text Analytics APIs to detect sentiment, key phrases, topics, and language
@@ -65,7 +59,8 @@ The supported languages are as follows:
 | Feature | Supported language codes |
 |:--- |:--- |
 | Sentiment |`en` (English), `es` (Spanish), `fr` (French), `pt` (Portuguese) |
-| Key Phrases |`en` (English), `es` (Spanish), `de` (German), `ja` (Japanese) |
+| Sentiment (additional preview languages) |`da` (Danish), `de` (German), `el` (Greek), `fi` (Finnish), `it` (Italian), `nl` (Dutch), `no` (Norwegian), `pl` (Polish), `ru` (Russian), `sv` (Swedish), `tr` (Turkish) |
+| Key Phrases |`de` (German), `en` (English), `es` (Spanish), `ja` (Japanese) |
 | Topics |`en` (English) |
 
 1. Set the headers as shown below. JSON is currently the only accepted input format for the APIs. XML is not supported.
@@ -73,6 +68,7 @@ The supported languages are as follows:
         Ocp-Apim-Subscription-Key: <your API key>
         Content-Type: application/json
         Accept: application/json
+
 2. Next, format your input rows in JSON. For sentiment, key phrases and language, the format is the same. Each ID should be unique and is the ID returned by the system. The maximum size of a single document that can be submitted is 10 KB, and the total maximum size of submitted input is 1 MB. No more than 1,000 documents may be submitted in one call. Rate limiting exists at a rate of 100 calls per minute - we therefore recommend that you submit large quantities of documents in a single call. Language is an optional parameter that should be specified if analyzing non-English text. An example of input is shown below, where the optional parameter `language` for sentiment analysis or key phrase extraction is included:
    
         {
