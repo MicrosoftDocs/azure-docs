@@ -11,6 +11,7 @@
   - name: Analyze videos in real time
     href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: cURL
     href: QuickStarts/curl.md

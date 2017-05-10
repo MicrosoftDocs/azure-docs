@@ -3,6 +3,7 @@
 - name: Overview
 - href: home.md
 - name: Quickstarts
+  expanded: true
   items: 
   - name: Build a classifier
     href: getting-started-build-a-classifier.md
