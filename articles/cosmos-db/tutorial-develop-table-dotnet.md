@@ -21,14 +21,12 @@ ms.author: arramac
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
-This tutorial demonstrates how to create an Azure Cosmos DB account using the Azure portal, and how to create a database and collection to store data using the [Table API](table-introduction.md).  
-
 This tutorial covers the following tasks: 
 
 > [!div class="checklist"] 
 > * Create an Azure Cosmos DB account 
 > * Enable functionality in the app.config file 
-> * Create a table 
+> * Create a table using the [Table API](table-introduction.md) 
 > * Add an entity to a table 
 > * Insert a batch of entities 
 > * Retrieve a single entity 
@@ -54,6 +52,11 @@ If you currently use Azure Table storage, you gain the following benefits with t
 - Work with the existing Azure storage .NET SDK, and no code changes to your application
 
 During the preview, Azure Cosmos DB supports the Table API using the .NET SDK. You can download the [Azure Storage Preview SDK](https://aka.ms/premiumtablenuget) from NuGet, that has the same classes and method signatures as the [Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), but also can connect to Azure Cosmos DB accounts using the Table API.
+
+To learn more about complex Azure Table storage tasks, see:
+
+* [Introduction to Azure Cosmos DB: Table API](table-introduction.md)
+* The Table service reference documentation for complete details about available APIs [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 
 ### About this tutorial
 This tutorial is for developers who are familiar with the Azure Table storage SDK, and would like to use the premium features available using Azure Cosmos DB. It is based on [Get Started with Azure Table storage using .NET](../storage/storage-dotnet-how-to-use-tables.md) and shows how to take advantage of additional capabilities like secondary indexes, provisioned throughput, and multi-homing. We cover how to use the Azure portal to create an Azure Cosmos DB account, and then build and deploy a Table application. We also walk through .NET examples for creating and deleting a table, and inserting, updating, deleting, and querying table data. 
@@ -349,11 +352,6 @@ In this tutorial, we covered how to get started using Azure Cosmos DB with the T
 > * Replaced an entity 
 > * Deleted an entity 
 > * Deleted a table  
-
-To learn more about Azure Table storage, follow these links to learn about more complex storage tasks:
-
-* Read about [Azure Cosmos DB: Table API](table-introduction.md)
-* View the Table service reference documentation for complete details about available APIs: [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 
 You can now proceed to the next tutorial and learn more about querying table data. 
 

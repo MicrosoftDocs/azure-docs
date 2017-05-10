@@ -14,13 +14,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2017
+ms.date: 05/10/2017
 ms.author: mimig
 
 ---
 # How to setup Azure Cosmos DB global distribution using the DocumentDB API
 
 In this article, we show how to use the Azure portal to setup Azure Cosmos DB global distribution and then connect using the DocumentDB API.
+
+This article covers the following tasks: 
+
+> [!div class="checklist"]
+> * Configure global distribution using the Azure portal
+> * Configure global distribution using the [DocumentDB APIs](../documentdb/documentdb-introduction.md)
+
+We recommend getting started by watching the following video, where Karthik Raman talks about the global distribution with Scott Hanselman on Azure Friday.
 
 [!INCLUDE [cosmosdb-tutorial-global-distribution-portal](../../includes/cosmosdb-tutorial-global-distribution-portal.md)]
 
@@ -53,26 +61,27 @@ The current write and read endpoints are available in DocumentClient.WriteEndpoi
 >
 >
 
-    // Getting endpoints from application settings or other configuration location
-    Uri accountEndPoint = new Uri(Properties.Settings.Default.GlobalDatabaseUri);
-    string accountKey = Properties.Settings.Default.GlobalDatabaseKey;
-    
-    ConnectionPolicy connectionPolicy = new ConnectionPolicy();
+```csharp
+// Getting endpoints from application settings or other configuration location
+Uri accountEndPoint = new Uri(Properties.Settings.Default.GlobalDatabaseUri);
+string accountKey = Properties.Settings.Default.GlobalDatabaseKey;
+  
+ConnectionPolicy connectionPolicy = new ConnectionPolicy();
 
-    //Setting read region selection preference
-    connectionPolicy.PreferredLocations.Add(LocationNames.WestUS); // first preference
-    connectionPolicy.PreferredLocations.Add(LocationNames.EastUS); // second preference
-    connectionPolicy.PreferredLocations.Add(LocationNames.NorthEurope); // third preference
+//Setting read region selection preference
+connectionPolicy.PreferredLocations.Add(LocationNames.WestUS); // first preference
+connectionPolicy.PreferredLocations.Add(LocationNames.EastUS); // second preference
+connectionPolicy.PreferredLocations.Add(LocationNames.NorthEurope); // third preference
 
-    // initialize connection
-    DocumentClient docClient = new DocumentClient(
-        accountEndPoint,
-        accountKey,
-        connectionPolicy);
+// initialize connection
+DocumentClient docClient = new DocumentClient(
+    accountEndPoint,
+    accountKey,
+    connectionPolicy);
 
-    // connect to DocDB
-    await docClient.OpenAsync().ConfigureAwait(false);
-
+// connect to DocDB
+await docClient.OpenAsync().ConfigureAwait(false);
+```
 
 ## NodeJS, JavaScript, and Python SDKs
 The SDK can be used without any code changes. In this case, the SDK will automatically direct both reads and writes to the current write region.
@@ -88,17 +97,19 @@ The current write and read endpoints are available in DocumentClient.getWriteEnd
 
 Below is a code example for NodeJS/Javascript. Python and Java will follow the same pattern.
 
-    // Creating a ConnectionPolicy object
-    var connectionPolicy = new DocumentBase.ConnectionPolicy();
+```java
+// Creating a ConnectionPolicy object
+var connectionPolicy = new DocumentBase.ConnectionPolicy();
 
-    // Setting read region selection preference, in the following order -
-    // 1 - West US
-    // 2 - East US
-    // 3 - North Europe
-    connectionPolicy.PreferredLocations = ['West US', 'East US', 'North Europe'];
+// Setting read region selection preference, in the following order -
+// 1 - West US
+// 2 - East US
+// 3 - North Europe
+connectionPolicy.PreferredLocations = ['West US', 'East US', 'North Europe'];
 
-    // initialize the connection
-    var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPolicy);
+// initialize the connection
+var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPolicy);
+```
 
 ## REST
 Once a database account has been made available in multiple regions, clients can query its availability by performing a GET request on the following URI.
@@ -147,10 +158,20 @@ Write requests to read-only regions will fail with HTTP error code 403 (“Forbi
 
 If the write region changes after the client’s initial discovery phase, subsequent writes to the previous write region will fail with HTTP error code 403 (“Forbidden”). The client should then GET the list of regions again to get the updated write region.
 
-## <a id="next"></a>Next steps
-Learn how to manage the consistency of your globally replicated account by reading [Consistency levels in Azure Cosmos DB](../documentdb/documentdb-consistency-levels.md).
+That's it, that completes this tutorial. You can learn how to manage the consistency of your globally replicated account by reading [Consistency levels in Azure Cosmos DB](../documentdb/documentdb-consistency-levels.md). And for more information about how global database replication works in Azure Cosmos DB, see [Distribute data globally with Azure Cosmos DB](../documentdb/documentdb-distribute-data-globally.md).
 
-For more information about how global database replication works in Azure Cosmos DB, see [Distribute data globally with Azure Cosmos DB](../documentdb/documentdb-distribute-data-globally.md).
+## Next steps
+
+In this tutorial, you've done the following:
+
+> [!div class="checklist"]
+> * Configure global distribution using the Azure portal
+> * Configure global distribution using the DocumentDB APIs
+
+You can now proceed to the next tutorial to learn how to develop locally using the Azure Cosmos DB local emulator.
+
+> [!div class="nextstepaction"]
+> [Develop locally with the emulator](documentdb-nosql-local-emulator.md)
 
 [regions]: https://azure.microsoft.com/regions/
 

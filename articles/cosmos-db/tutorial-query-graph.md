@@ -19,9 +19,14 @@ ms.author: mimig
 
 ---
 
-# Azure Cosmos DB: How to query with the Graph API?
+# Azure Cosmos DB: How to query with the Graph API (preview)?
 
-The Azure Cosmos DB [Graph API](graph-introduction.md) supports [Gremlin](https://docs.mongodb.com/manual/tutorial/query-documents/) queries. This article provides sample documents and queries to get you started. A detailed Gremlin reference is provided in the [Gremlin support](gremlin-support.md) article.
+The Azure Cosmos DB [Graph API](graph-introduction.md) (preview) supports [Gremlin](https://docs.mongodb.com/manual/tutorial/query-documents/) queries. This article provides sample documents and queries to get you started. A detailed Gremlin reference is provided in the [Gremlin support](gremlin-support.md) article.
+
+This article covers the following tasks: 
+
+> [!div class="checklist"]
+> * Querying data with Gremlin
 
 ## Prerequisites
 
@@ -69,8 +74,12 @@ You can build more complex queries and implement powerful graph traversal logic 
 
 ## Next steps
 
-In this tutorial, you've learned how to query graph data using Gremlin. You can now distribute data globally using the portal or install the Local emulator for local development.  
+In this tutorial, you've done the following:
 
-[Distribute your data globally](tutorial-global-distribution-graph.md)
+> [!div class="checklist"]
+> * Learned how to query using Graph 
 
-[Develop locally](../documentdb/documentdb-nosql-local-emulator.md)
+You can now proceed to the next tutorial to learn how to distribute your data globally.
+
+> [!div class="nextstepaction"]
+> [Distribute your data globally](tutorial-global-distribution-documentdb

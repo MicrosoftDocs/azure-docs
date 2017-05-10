@@ -22,11 +22,11 @@ ms.author: anhoh
 
 This tutorial provides instructions on using the Azure Cosmos DB Data Migration tool, which can import data from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB and DocumentDB collections into Azure Cosmos DB. The Data Migration tool can also be used when migrating from a single partition collection to a multi-partition collection for the DocumentDB API.
 
-    The Data Migration tool only works when importing data into Azure Cosmos DB for use with the DocumentDB API. Importing data for use with the Table API or Graph API is not supported at this time. 
+The Data Migration tool only works when importing data into Azure Cosmos DB for use with the DocumentDB API. Importing data for use with the Table API or Graph API is not supported at this time. 
 
-    To import data for use with the MongoDB API, see [Azure Cosmos DB: How to migrate data for the MongoDB API?](documentdb-mongodb-migrate.md).
+To import data for use with the MongoDB API, see [Azure Cosmos DB: How to migrate data for the MongoDB API?](documentdb-mongodb-migrate.md).
 
-    This tutorial covers the following tasks:
+This tutorial covers the following tasks:
 
 > [!div class="checklist"]
 > * Installing the Data Migration tool
@@ -571,6 +571,8 @@ Then, choose whether to log all, critical, or no error messages. Finally, decide
    
     ![Screenshot of Azure Cosmos DB JSON export option](./media/documentdb-import-data/newimport.png)
 
+## Next steps
+
 In this tutorial, you've done the following:
 
 > [!div class="checklist"]
@@ -578,8 +580,7 @@ In this tutorial, you've done the following:
 > * Imported data from different data sources
 > * Exported from Azure Cosmos DB to JSON
 
-## Next steps
+You can now proceed to the next tutorial and learn how to query data using Azure Cosmos DB. 
 
-In this tutorial, you've learned how to import and export data using the Data Migration tool. You can now proceed to the next tutorial and learn how to query data using Azure Cosmos DB. 
-
-[Azure Cosmos DB: How to query data?](../cosmos-db/tutorial-query-documentdb.md)
+> [!div class="nextstepaction"]
+>[Azure Cosmos DB: How to query data?](../cosmos-db/tutorial-query-documentdb.md)

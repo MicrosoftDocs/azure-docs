@@ -285,6 +285,15 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 
 And that's it! those are the main components of an Azure Cosmos DB application that uses a partition key to efficiently scale data distribution across partitions.  
 
+## Clean up resources
+
+If you're not going to continue to use this app, delete all resources created by this tutorial in the Azure portal with the following steps:
+
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the unique name of the resource you created. 
+2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
+
+## Next steps
+
 In this tutorial, you've done the following: 
 
 > [!div class="checklist"]
@@ -297,16 +306,7 @@ In this tutorial, you've done the following:
 > * Deleted a document
 > * Deleted a database
 
-## Clean up resources
-
-If you're not going to continue to use this app, delete all resources created by this tutorial in the Azure portal with the following steps:
-
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the unique name of the resource you created. 
-2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
-
-## Next steps
-
-In this tutorial, you've learned how to create an Azure Cosmos DB account, create a collection, and sample documents. You can now proceed to the next tutorial and import additional data to your Cosmos DB account. 
+You can now proceed to the next tutorial and import additional data to your Cosmos DB account. 
 
 > [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB for the DocumentDB API](../documentdb/documentdb-import-data.md)
+> [Import data into Azure Cosmos DB](../documentdb/documentdb-import-data.md)

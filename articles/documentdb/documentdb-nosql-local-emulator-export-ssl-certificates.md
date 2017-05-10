@@ -91,6 +91,8 @@ By default the [Python SDK(version 2.0.0 or higher)](https://docs.microsoft.com/
 
 By default the [Node.js SDK(version 1.10.1 or higher)](https://docs.microsoft.com/azure/documentdb/documentdb-sdk-node) for DocumentDB will not try and use the SSL certificate when connecting to the local emulator. If however you want to use SSL validation you can follow the examples in the [Node.js documentation](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
+## Next steps
+
 In this tutorial, you've done the following:
 
 > [!div class="checklist"]
@@ -98,8 +100,7 @@ In this tutorial, you've done the following:
 > * Exported the SSL certificate
 > * Learned how to use the certificate in Java, Python and Node.js
 
-## Next steps
+You can now proceed to the Concepts section for more information about Cosmos DB.
 
-In this tutorial, you've learned how to export Azure Cosmos DB certificates. You can now proceed to the Concepts section for more information about Cosmos DB. 
-
-[Global distribution](../documentdb/documentdb-distribute-data-globally.md) 
+> [!div class="checklist"]
+> [Global distribution](../documentdb/documentdb-distribute-data-globally.md) 
