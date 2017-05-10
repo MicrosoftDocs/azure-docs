@@ -53,7 +53,7 @@ For more information about partitioning, see [Partitioned queues and topics](ser
 
 Because Premium messaging runs in a completely isolated run-time environment, express entities are not supported in Premium namespaces. For more information about the express feature, see the [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) property.
 
-If you have code running under Standard messaging and want to port it to the Premium tier, disable the **EnableExpress** property on the portal, or set it to **false** (the default value).
+If you have code running under Standard messaging and want to port it to the Premium tier, make sure the [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) property is set to **false** (the default value).
 
 ## Get started with Premium Messaging
 
