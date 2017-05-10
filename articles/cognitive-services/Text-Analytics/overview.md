@@ -1,5 +1,5 @@
 ---
-title: Text Analytics API | Microsoft Docs
+title: Azure Text Analytics API | Microsoft Docs
 description: Use the Text Analytics API for sentiment analysis, key phrase extraction, topic detection for English text, and much more.
 services: cognitive-services
 author: LuisCabrer
