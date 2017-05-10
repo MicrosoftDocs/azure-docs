@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/14/2017
+ms.date: 05/10/2017
 ms.author: glenga
 
 ---
@@ -38,7 +38,7 @@ You must have a function app to host the execution of your functions. A function
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-v![Function app successfully created.](./media/functions-create-first-azure-function/function-app-create-success.png) 
+![Function app successfully created.](./media/functions-create-first-azure-function/function-app-create-success.png) 
 
 Next, you create a function in the new function app.
 
@@ -56,7 +56,7 @@ A function is created in your chosen language using the template for an HTTP tri
 
 1. In your new function, click **</> Get function URL** and copy the **Function URL**. 
 
-    ![](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
+    ![Copy the function URL from the Azure portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
 2. Paste the URL for the HTTP request into your browser's address bar. Append the query string `&name=<yourname>` to this URL and execute the request. The following shows the response in the browser to the GET request returned by the function:
 
