@@ -45,11 +45,11 @@ First decide if you want to run a single database with a defined amount of dedic
 | **Service tier features** | **Basic** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
 | Maximum single database size | 2 GB | 250 GB | 4 TB*  | 500 GB  |
-| Maximum elastic pool size | 156 GB | 2.9 TB | 4 TB* | 500 GB |
+| Maximum elastic pool size | 156 GB | 2.9 TB | 4 TB* | 750 GB |
 | Maximum database size in an elastic pool | 2 GB | 250 GB | 500 GB | 500 GB |
 | Maximum number of databases per pool | 500  | 500 | 100 | 100 |
-| Maximum single database DTUs | 5 | 100 | 4000 | 4000 |
-| Maximum DTUs per database in an elastic pool | 5 | 100 | 4000 | 4000 |
+| Maximum single database DTUs | 5 | 100 | 4000 | 1000 |
+| Maximum DTUs per database in an elastic pool | 5 | 100 | 4000 | 1000 |
 | Database backup retention period | 7 days | 35 days | 35 days | 35 days |
 ||||||
 
