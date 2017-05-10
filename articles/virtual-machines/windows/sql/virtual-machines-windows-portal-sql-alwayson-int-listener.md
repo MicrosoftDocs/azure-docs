@@ -50,9 +50,13 @@ In this portion of the task, do the following:
 First, create the load balancer. 
 
 1. In the Azure portal, open the resource group that contains the SQL Server virtual machines. 
+
 2. In the resource group, click **Add**.
+
 3. Search for **load balancer** and then, in the search results, select **Load Balancer**, which is published by **Microsoft**.
+
 4. On the **Load Balancer** blade, click **Create**.
+
 5. In the **Create load balancer** dialog box, configure the load balancer as follows:
 
    | Setting | Value |
@@ -75,12 +79,19 @@ Azure creates the load balancer. The load balancer belongs to a specific network
 Azure calls the back-end address pool *backend pool*. In this case, the back-end pool is the addresses of the two SQL Servers in your availability group. 
 
 1. In your resource group, click the load balancer that you created. 
+
 2. On **Settings**, click **Backend pools**.
+
 3. On **Backend pools**, click **Add** to create a back-end address pool. 
+
 4. On **Add backend pool**, under **Name**, type a name for the back-end pool.
+
 5. Under **Virtual machines**, click **Add a virtual machine**. 
+
 6. Under **Choose virtual machines**, click **Choose an availability set**, and then specify the availability set that the SQL Server virtual machines belong to.
+
 7. After you have chosen the availability set, click **Choose the virtual machines**, select the two virtual machines that host the SQL Server instances in the availability group, and then click **Select**. 
+
 8. Click **OK** to close the blades for **Choose virtual machines**, and **Add backend pool**. 
 
 Azure updates the settings for the back-end address pool. Now your availability set has a pool of two SQL Servers.
@@ -89,7 +100,9 @@ Azure updates the settings for the back-end address pool. Now your availability 
 The probe defines how Azure verifies which of the SQL Servers currently owns the availability group listener. Azure probes the service based on the IP address on a port that you define when you create the probe.
 
 1. On the load balancer **Settings** blade, click **Health probes**. 
+
 2. On the **Health probes** blade, click **Add**.
+
 3. Configure the probe on the **Add probe** blade. Use the following values to configure the probe:
 
    | Setting | Value |
@@ -113,7 +126,9 @@ Azure creates the probe. Azure uses the probe to test which SQL Server has the l
 The load balancing rules configure how the load balancer routes traffic to the SQL Servers. For this load balancer, you enable direct server return because only one of the two SQL Servers owns the availability group listener resource at a time.
 
 1. On the load balancer **Settings** blade, click **Load balancing rules**. 
+
 2. On the **Load balancing rules** blade, click **Add**.
+
 3. On the **Add load balancing rules** blade, configure the load balancing rule. Use the following settings: 
 
    | Setting | Value |
@@ -145,6 +160,7 @@ At this point, the resource group has a load balancer that connects to both SQL 
 The next step is to configure the listener on the cluster, and bring the listener online. Do the following: 
 
 1. Create the availability group listener on the failover cluster. 
+
 2. Bring the listener online.
 
 ### Step 5: Create the availability group listener on the failover cluster
@@ -157,9 +173,12 @@ In this step, you manually create the availability group listener in Failover Cl
 If the cluster resources and dependencies are correctly configured, you should be able to view the listener in SQL Server management studios. To set the listener port, do the following:
 
 1. Start SQL Server Management Studio, and then connect to the primary replica.
+
 2. Go to **AlwaysOn High Availability** > **Availability Groups** > **Availability Group Listeners**.  
     You should now see the listener name that you created in Failover Cluster Manager. 
+
 3. Right-click the listener name, and then click **Properties**.
+
 4. In the **Port** box, specify the port number for the availability group listener by using the $EndpointPort you used earlier (1433 was the default), and then click **OK**.
 
 You now have an availability group in Azure virtual machines running in Resource Manager mode. 
@@ -168,6 +187,7 @@ You now have an availability group in Azure virtual machines running in Resource
 Test the connection by doing the following:
 
 1. RDP to a SQL Server that is in the same virtual network, but does not own the replica. This server can be the other SQL Server in the cluster.
+
 2. Use **sqlcmd** utility to test the connection. For example, the following script establishes a **sqlcmd** connection to the primary replica through the listener with Windows authentication:
    
         sqlcmd -S <listenerName> -E
@@ -181,9 +201,13 @@ Each availability group uses a separate listener. Each listener has its own IP a
 To add an IP address to a load balancer with the Azure portal, do the following:
 
 1. In the Azure portal, open the resource group that contains the load balancer, and then click the load balancer. 
+
 2. Under **SETTINGS**, click **Frontend IP pool**, and then click **Add**. 
+
 3. Under **Add frontend IP address**, assign a name for the front end. 
+
 4. Verify that the **Virtual network** and the **Subnet** are the same as the SQL Server instances.
+
 5. Set the IP address for the listener. 
    
    >[!TIP]
@@ -204,6 +228,7 @@ To add an IP address to a load balancer with the Azure portal, do the following:
 8. Click **OK** to save the probe. 
 
 9. Create a load balancing rule. Click **Load balancing rules**, and then click **Add**.
+
 10. Configure the new load balancing rule by using the following settings:
 
    |Setting |Value
