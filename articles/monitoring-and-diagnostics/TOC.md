@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [Azure Monitor Overview](monitoring-overview.md)
 ## [Metrics](monitoring-overview-metrics.md)
 ## [Alerts](monitoring-overview-alerts.md)
@@ -12,7 +12,9 @@
 
 # Get Started
 ## [Get Started with Azure Monitor](monitoring-get-started.md)
+## [Get Started with Autoscale](monitoring-autoscale-get-started.md)
 ## [Roles Permissions and Security](monitoring-roles-permissions-security.md)
+
 
 # How to
 ## Use alerts
@@ -24,6 +26,8 @@
 ## Use autoscale
 ### [Best Practices for autoscale](insights-autoscale-best-practices.md)
 ### [Common metrics for autoscale](insights-autoscale-common-metrics.md)
+### [Common autoscale patterns](monitoring-autoscale-common-scale-patterns.md)
+### [Autoscale using a custom metric](monitoring-autoscale-scale-by-custom-metric.md)
 ### [Autoscale VM Scale Sets using Resource Manager templates](insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Automatically scale machines in a virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Configure webhooks and email notifications on autoscale](insights-autoscale-to-webhook-email.md)
@@ -56,15 +60,16 @@
 # Reference
 ## [List of supported metrics](monitoring-supported-metrics.md)
 ## [Sources of monitoring data](monitoring-data-sources.md)
-## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
+## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
-## [Azure Diagnostics Version History](azure-diagnostics-versioning-history.md)
-## [Azure Diagnostics Schema](azure-diagnostics-schema.md)
-### [Diagnostics Schema 1.0](azure-diagnostics-schema-1dot0.md)
-### [Diagnostics Schema 1.2](azure-diagnostics-schema-1dot2.md)
-### [Diagnostics Schema 1.3 to 1.7](azure-diagnostics-schema-1dot3-and-later.md)
+## [Azure Diagnostics extension version history](azure-diagnostics-versioning-history.md)
+## [Azure Diagnostics extension schema](azure-diagnostics-schema.md)
+### [1.0](azure-diagnostics-schema-1dot0.md)
+### [1.2](azure-diagnostics-schema-1dot2.md)
+### [1.3 to 1.7](azure-diagnostics-schema-1dot3-and-later.md)
 
 # Resources
-## [PowerShell Samples](insights-powershell-samples.md)
-## [Azure CLI 1.0 Samples](insights-cli-samples.md)
+## [PowerShell samples](insights-powershell-samples.md)
+## [Azure CLI 1.0 samples](insights-cli-samples.md)
+## [Videos](https://azure.microsoft.com/resources/videos/index/?services=monitor)

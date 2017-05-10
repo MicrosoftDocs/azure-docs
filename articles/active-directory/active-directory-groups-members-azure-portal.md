@@ -1,5 +1,6 @@
 ---
-title: Manage the members for a group in Azure Active Directory preview | Microsoft Docs
+
+title: Manage the members for a group in Azure Active Directory | Microsoft Docs
 description: How to add or remove users and devices from a group in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -13,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/04/2017
 ms.author: curtand
 
 ms.custom: H1Hack27Feb2017
 
 ---
 # Manage group membership for users in your Azure Active Directory tenant
-This article explains how to manage the members for a group in Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md)
+This article explains how to manage the members for a group in Azure Active Directory (Azure AD).
 
 ## How do I find the members and manage them?
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.

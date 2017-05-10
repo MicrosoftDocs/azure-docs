@@ -18,6 +18,7 @@
 		"type_mapping": {
 			"Conceptual": "Content",
 			"ManagedReference": "Content",
+      "LandingData": "Content",
 			"RestApi": "Content"
 		},
 		"build_entry_point": "docs",
@@ -50,13 +51,25 @@
 	},
 	{
 		"path_to_root": "cli_scripts",
-		"url": "https://github.com/Azure/azure-docs-cli-python-samples.git",
-		"branch": "master"
+		"url": "https://github.com/Azure/azure-docs-cli-python-samples",
+		"branch": "master",
+		"branch_mapping":
+		{
+			"release-build-mysql": "release-build",
+			"release-build-postgresql": "release-build",
+			"release-build-stellar": "release-build" 
+		}
 	},
 	{
 		"path_to_root": "powershell_scripts",
-		"url": "https://github.com/Azure/azure-docs-powershell-samples.git",
-		"branch": "master"
+		"url": "https://github.com/Azure/azure-docs-powershell-samples",
+		"branch": "master",
+		"branch_mapping":
+		{
+			"release-build-mysql": "release-build",
+			"release-build-postgresql": "release-build",
+			"release-build-stellar": "release-build" 
+		}
 	}
 	]
 }

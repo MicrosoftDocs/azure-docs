@@ -1,6 +1,6 @@
 ---
-title: Updates in Azure Stack | Microsoft Docs
-description: Learn about updates in Azure Stack
+title: Manage updates in Azure Stack | Microsoft Docs
+description: Learn how to manage updates in Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: twooley
@@ -13,27 +13,44 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
+ms.date: 04/06/2017
 ms.author: twooley
 
 ---
-# Update management in Azure Stack
-In this Technical Preview 3 release, you can preview the experience for managing Azure Stack updates. No updates are yet available for installation.    
+# Manage updates in Azure Stack
 
-## View update information
-In the administrator portal, there is an **Updates** tile on the default dashboard. This tile indicates the current update version of Azure Stack, when the last check for system updates occurred, and the update state. You can click the **Updates** tile to check for available updates, and to view the update history.
+In this Technical Preview 3 release, you can preview the experience for managing Azure Stack updates. No updates are yet available for installation.
 
- ![Updates tile on default dashboard](./media/azure-stack-updates/image2.png)
+In the Azure Stack administrator portal, you can view the following update-related information:
 
-You can access this same update information in other locations. For example, to view update information for a particular region, you can:
- 
-* Click **Browse**, click **Updates**, and then click the region name.
+* the current version of Azure Stack
+* when the last check for system updates occurred
+* the update status
+* available updates
+* update history 
 
-* On the default dashboard, click the region name on the **Region Management** tile.
+## Determine the current version
+
+To determine the current version of Azure Stack:
+
+1. On the **Region Management** tile, click the region name (such as **local**).
+2. View the current version in the **Updates** tile. 
+
+   ![Updates tile on default dashboard](./media/azure-stack-updates/image2.png)
+
+## View available updates
+
+You can also check for available updates, and view the update history.
+
+1. On the **Region Management** tile, click the region name (such as **local**).
+2. Click the **Updates** tile.
+   
+   The **Updates** pane shows available updates and the update history.
+
+   ![Updates pane with available updates and history](./media/azure-stack-updates/image3.png)
 
 ## Next steps
-* [Region management in Azure Stack](azure-stack-region-management.md)
 
-* [Understand Azure Stack POC Architecture](azure-stack-architecture.md)      
+* [Region management in Azure Stack](azure-stack-region-management.md)     
 
 

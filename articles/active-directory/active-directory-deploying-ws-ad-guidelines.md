@@ -1,4 +1,4 @@
----
+﻿---
 title: Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines | Microsoft Docs
 description: If you know how to deploy AD Domain Services and AD Federation Services on premises, learn how they work on Azure virtual machines.
 services: active-directory
@@ -33,7 +33,7 @@ This article assumes that the reader is familiar with the following concepts:
 * Deploying, configuring, and managing relying party applications (websites and web services) that can consume Windows Server AD FS tokens
 * General virtual machine concepts, such as how to configure a virtual machine, virtual disks, and virtual networks
 
-This article highlights the requirements for a hybrid deployment scenario in which Windows Server AD DS or AD FS are partly deployed on-premises and partly deployed on Azure virtual machines. The document first covers the critical differences between running Windows Server AD DS and AD FS on Azure virtual machines versus on-premises, and important decisions that affect design and deployment. The rest of the paper explains guidelines for each of the decision points in more detail, and how to apply the guidelines to various deployment scenarios.
+This article highlights the requirements for a hybrid deployment scenario in which Windows Server AD DS or AD FS are partly deployed on-premises and partly deployed on Azure virtual machines. The document first covers the critical differences between running Windows Server AD DS and AD FS on Azure virtual machines versus on-premises, and important decision points that affect design and deployment. The rest of the paper explains guidelines for each of the decision points in more detail, and how to apply the guidelines to various deployment scenarios.
 
 This article does not discuss the configuration of [Azure Active Directory](http://azure.microsoft.com/services/active-directory/), which is a REST-based service that provides identity management and access control capabilities for cloud applications. Azure Active Directory (Azure AD) and Windows Server AD DS are, however, designed to work together to provide an identity and access management solution for today’s hybrid IT environments and modern applications. To help understand the differences and relationships between Windows Server AD DS and Azure AD, consider the following:
 
@@ -390,7 +390,7 @@ For fault tolerance and performance reasons, it is optimal to install the Window
 
 VMs register their DNS name automatically on startup or when there is a name change.
 
-For more information about this example and another example that shows how to provision the first VM and install AD DS on it, see [Install a new Active Directory forest on Microsoft Azure](active-directory-new-forest-virtual-machine.md). For more information about using Windows PowerShell, see [Install Azure PowerShell](/powershell/azureps-cmdlets-docs) and [Azure Management Cmdlets](https://msdn.microsoft.com/library/azure/jj152841).
+For more information about this example and another example that shows how to provision the first VM and install AD DS on it, see [Install a new Active Directory forest on Microsoft Azure](active-directory-new-forest-virtual-machine.md). For more information about using Windows PowerShell, see [Install Azure PowerShell](/powershell/azureps-cmdlets-docs) and [Azure Management Cmdlets](/powershell/module/azurerm.compute/#virtual_machines).
 
 ### <a name="BKMK_DistributedDCs"></a>Geo-distributed DCs
 Azure offers advantages when hosting multiple DCs on different virtual networks:

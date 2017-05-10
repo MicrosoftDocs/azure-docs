@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/27/2017
 ms.author: kgremban
 
 ms.custom: H1Hack27Feb2017
@@ -27,7 +27,7 @@ If errors occur in accessing a published application or in publishing applicatio
 * Open the Windows Services console and verify that the **Microsoft AAD Application Proxy Connector** service is enabled and running. You may also want to look at the Application Proxy service properties page, as shown in the following image:  
   ![Microsoft AAD Application Proxy Connector Properties window screenshot](./media/active-directory-application-proxy-troubleshoot/connectorproperties.png)
 * Open Event Viewer and look for Application Proxy connector events in **Applications and Services Logs** > **Microsoft** > **AadApplicationProxy** > **Connector** > **Admin**.
-* If needed, more detailed logs are available by turning on analytics and debugging logs, and turning on the Application Proxy connector session log.
+* If needed, more detailed logs are available by [turning on the Application Proxy connector session logs](application-proxy-understand-connectors.md#under-the-hood).
 
 For more information about the Azure AD Troubleshooting tool, see [Troubleshooting tool to validate connector networking prerequisites](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites).
 
