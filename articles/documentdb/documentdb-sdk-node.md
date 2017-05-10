@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 05/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -51,6 +51,12 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
+
+### <a name="1.12.0"/>1.12.0</a>
+* Added support for Request Unit per Minute (RU/m) feature.
+* Added support for a new consistency level called ConsistentPrefix.
+* Added support for UriFactory.
+* Fixed the unicode support bug (github #171)
 
 ### <a name="1.11.0"/>1.11.0</a>
 * Added the support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG).
@@ -154,6 +160,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.12.0](#1.12.0) |May 10, 2017 |--- |
 | [1.11.0](#1.11.0) |March 16, 2017 |--- |
 | [1.10.2](#1.10.2) |January 27, 2017 |--- |
 | [1.10.1](#1.10.1) |December 22, 2016 |--- |
