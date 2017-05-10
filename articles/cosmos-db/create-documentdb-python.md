@@ -12,7 +12,7 @@ ms.service: cosmosdb
 ms.custom: quick start connect
 ms.workload: 
 ms.tgt_pltfrm: na
-ms.devlang: nodejs
+ms.devlang: python
 ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
@@ -27,11 +27,9 @@ This quick start demonstrates how to create an Azure Cosmos DB account, document
 ## Prerequisites
 
 * Before you can run this sample, you must have the following prerequisites:
-    * [Visual Studio 2013](http://www.visualstudio.com/) or higher, or [Visual Studio Express](), which is the free version. The instructions in this tutorial are written specifically for Visual Studio 2015. 
-    * Python Tools for Visual Studio from [GitHub](http://microsoft.github.io/PTVS/). This tutorial uses Python Tools for VS 2015. 
-    * Azure Python SDK for Visual Studio, version 2.4 or higher available from [azure.com](https://azure.microsoft.com/downloads/). We used Microsoft Azure SDK for Python 2.7.
-    * Python 2.7 from [python.org][2]. We used Python 2.7.11. 
-
+    * [Visual Studio 2015](http://www.visualstudio.com/) or higher.
+    * Python Tools for Visual Studio from [GitHub](http://microsoft.github.io/PTVS/). This tutorial uses Python Tools for VS 2015.
+    * Python 2.7 from [python.org](https://www.python.org/downloads/release/python-2712/)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -54,6 +52,68 @@ Now let's clone a DocumentDB API app from github, set the connection string, and
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-python-getting-started.git
     ```  
+## Review the code
+
+Let's make a quick review of what's happening in the app. Open the DocumentDBRepository.cs file and you'll find that these lines of code create the Azure Cosmos DB resources. 
+
+
+* The DocumentClient is initialized.
+
+    ```python
+    # Initialize the Python DocumentDB client
+    client = document_client.DocumentClient(config['ENDPOINT'], {'masterKey': config['MASTERKEY']})
+    ```
+
+* A new database is created.
+
+    ```python
+    # Create a database
+    db = client.CreateDatabase({ 'id': config['DOCUMENTDB_DATABASE'] })
+    ```
+
+* A new collection is created.
+
+    ```python
+    # Create collection options
+    options = {
+        'offerEnableRUPerMinuteThroughput': True,
+        'offerVersion': "V2",
+        'offerThroughput': 400
+    }
+
+    # Create a collection
+    collection = client.CreateCollection(db['_self'], { 'id': config['DOCUMENTDB_COLLECTION'] }, options)
+    ```
+
+* Some documents are created.
+
+    ```python
+    # Create some documents
+    document1 = client.CreateDocument(collection['_self'],
+        { 
+            'id': 'server1',
+            'Web Site': 0,
+            'Cloud Service': 0,
+            'Virtual Machine': 0,
+            'name': 'some' 
+        })
+    ```
+
+* A query is performed using SQL
+
+    ```python
+    # Query them in SQL
+    query = { 'query': 'SELECT * FROM server s' }    
+            
+    options = {} 
+    options['enableCrossPartitionQuery'] = True
+    options['maxItemCount'] = 2
+
+    result_iterable = client.QueryDocuments(collection['_self'], query, options)
+    results = list(result_iterable);
+
+    print(results)
+    ```
 
 ## Update your connection string
 
@@ -78,9 +138,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 2. Select Install Python Package, then type in **pydocumentdb**
 
-3. From the results, install the **Microsoft.Azure.DocumentDB** library. This installs the Microsoft.Azure.DocumentDB package as well as all dependencies.
-
-4. Click CTRL + F5 to run the application. Your app displays in your browser. 
+3. Run F5 to run the application. Your app displays in your browser. 
 
 You can now go back to Data Explorer and see query, modify, and work with this new data. 
 
