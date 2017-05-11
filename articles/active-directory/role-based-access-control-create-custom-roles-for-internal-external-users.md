@@ -41,13 +41,13 @@ RBAC can be applied at three different scopes in Azure. From the highest scope t
 * Resource group
 * Resource scope (the lowest access level offering targeted permissions to an individual Azure resource scope)
 
-## Assigning RBAC roles at the subscription scope
+## Assign RBAC roles at the subscription scope
 There are two common examples when RBAC is used (but not limited to):
 
 * Having external users from the organizations (not part of the admin user's Azure Active Directory tenant) invited to manage certain resources or the whole subscription
 * Working with users inside the organization (they are part of the user's Azure Active Directory tenant) but part of different teams or groups which need granular access either to the whole subscription or to certain resource groups or resource scopes in the environment
 
-## Granting access at a subscription level for a user outside of the Azure Active Directory tenant
+## Grant access at a subscription level for a user outside of Azure Active Directory
 RBAC roles can be granted only by **Owners** of the subscription therefore the admin user must be logged with a username which has this role pre-assigned or has created the Azure subscription.
 
 From the Azure portal, after you sign-in as admin, select “Subscriptions” and chose the desired one.
@@ -162,13 +162,13 @@ The normal behavior for this external user with this built-in role is to see and
 
 ![virtual machine contributor role overview in azure portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/12.png)
 
-## Granting access at a subscription level for a user in the same Directory
+## Grant access at a subscription level for a user in the same directory
 The process flow is identical to adding an external user, both from the admin perspective granting the RBAC role as well as the user being granted access to the role. The difference here is that the invited user will not receive any email invitations as all the resource scopes within the subscription will be available in the dashboard after signing in.
 
-## Assigning RBAC roles at the resource group scope
+## Assign RBAC roles at the resource group scope
 Assigning an RBAC role at a **Resource Group** scope has an identical process for assigning the role at the subscription level, for both types of users - either external or internal (part of the same directory). The users which are assigned the RBAC role is to see in their environment only the resource group they have been assigned access from the **Resource Groups** icon in the Azure portal.
 
-## Assigning RBAC roles at the resource scope
+## Assign RBAC roles at the resource scope
 Assigning an RBAC role at a resource scope in Azure has an identical process for assigning the role at the subscription level or at the resource group level, following the same workflow for both scenarios. Again, the users which are assigned the RBAC role can see only the items that they have been assigned access to, either in the **All Resources** tab or directly in their dashboard.
 
 An important aspect for RBAC both at resource group scope or resource scope is for the users to make sure to sign-in to the correct directory.
@@ -179,7 +179,7 @@ An important aspect for RBAC both at resource group scope or resource scope is f
 
 ![directory login in Azure portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/13.png)
 
-## Assigning RBAC roles for an Azure Active Directory group
+## Assign RBAC roles for an Azure Active Directory group
 All the scenarios using RBAC at the three different scopes in Azure offer the privilege of managing, deploying and administering various resources as an assigned user without the need of managing a personal subscription. Regardless the RBAC role is assigned for a subscription, resource group or resource scope, all the resources created further on by the assigned users are billed under the one Azure subscription where the users have access to. This way, the users who have billing administrator permissions for that entire Azure subscription has a complete overview on the consumption, regardless who is managing the resources.
 
 For larger organizations, RBAC roles can be applied in the same way for Azure Active Directory groups considering the perspective that the admin user wants to grant the granular access for teams or entire departments, not individually for each user, thus considering it as an extremely time and management efficient option. To illustrate this example, the **Contributor** role has been added to one of the groups in the tenant at the subscription level.
@@ -192,7 +192,7 @@ For larger organizations, RBAC roles can be applied in the same way for Azure Ac
 
 These groups are security groups which are provisioned and managed only within Azure Active Directory.
 
-## Creating a custom RBAC role to open support requests using PowerShell
+## Create a custom RBAC role to open support requests using PowerShell
 The built-in RBAC roles which are available in Azure ensure certain permission levels based on the available resources in the environment. However, if none of these roles suit the admin user's needs, there is the option to limit access even more by creating custom RBAC roles.
 
 Creating custom RBAC roles requires to take one built-in role, edit it and then import it back in the environment. The download and upload of the role are managed using either PowerShell or CLI.
@@ -296,7 +296,7 @@ The example has been further detailed to emphasize the limits of this custom RBA
 
 ![screenshot of custom RBAC role not able to create new RGs](./media/role-based-access-control-create-custom-roles-for-internal-external-users/23.png)
 
-## Creating a custom RBAC role to open support requests using Azure CLI 1.0
+## Create a custom RBAC role to open support requests using Azure CLI
 Running on a Mac and without having access to PowerShell, Azure CLI is the way to go.
 
 The steps to create a custom role are the same, with the sole exception that using CLI the role can't be downloaded in a JSON template, but it can be viewed in the CLI.
