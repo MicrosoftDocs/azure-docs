@@ -21,7 +21,7 @@ ms.author: seguler
 ## Overview
 AzCopy is a command-line utility designed for copying data to and from Microsoft Azure Blob, File, and Table storage using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts.
 
-There are two versions of AzCopy that you can download. AzCopy built with .NET Framework supports Windows, and offers Windows style command-line options. AzCopy built with .NET Core Framework targets Linux platforms offering POSIX style command-line options.
+There are two versions of AzCopy that you can download. AzCopy on Windows is built with .NET Framework, and offers Windows style command-line options. AzCopy on Linux is built with .NET Core Framework which targets Linux platforms offering POSIX style command-line options.
 
 > [!NOTE]
 > This guide assumes that you are already familiar with [Azure Storage](https://azure.microsoft.com/services/storage/). If not, reading the [Introduction to Azure Storage](storage-introduction.md) documentation will be helpful. Most importantly, you will need to [create a Storage account](storage-create-storage-account.md#create-a-storage-account) in order to start using AzCopy.
@@ -29,16 +29,19 @@ There are two versions of AzCopy that you can download. AzCopy built with .NET F
 > 
 
 ## Download and install AzCopy
-### Windows
+### AzCopy on Windows
 Download the [latest version of AzCopy on Windows](http://aka.ms/downloadazcopy).
 
 #### Installation on Windows
 After installing AzCopy on Windows using the installer, open a command window and navigate to the AzCopy installation directory on your computer - where the `AzCopy.exe` executable is located. If desired, you can add the AzCopy installation location to your system path. By default, AzCopy is installed to `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` or `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
 
-### Linux
+### AzCopy on Linux
 Download the [latest version of AzCopy on Linux](http://aka.ms/downloadazcopyprlinux) 
 
 #### Installation on Linux
+
+AzCopy on Linux requires .NET Core framework on the platform. See the installation instructions on the [.NET Core] (https://www.microsoft.com/net/core#linuxredhat) page.
+
 ```bash
 wget -O azcopy.tar.gz https://aka.ms/downloadazcopyprlinux
 tar -xf azcopy.tar.gz
@@ -50,11 +53,11 @@ You can remove the extracted files once AzCopy on Linux is installed. Alternativ
 ## Writing your first AzCopy command
 The basic syntax for AzCopy commands is:
 
-```azcopywindows
+```AzCopy on Windows
 AzCopy /Source:<source> /Dest:<destination> [Options]
 ```
 
-```azcopylinux
+```AzCopy on Linux
 azcopy --source <source> --destination <destination> [Options]
 ```
 
@@ -63,11 +66,11 @@ The following examples demonstrate a variety of scenarios for copying data to an
 ## Blob: Download
 ### Download single blob
 
-```azcopywindows
+```AzCopy on Windows
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
-```azcopylinux
+```AzCopy on Linux
 azcopy --source https://myaccount.blob.core.windows.net/mycontainer --destination /mnt --source-key <key> --include "abc.txt"
 ```
 
