@@ -1,6 +1,6 @@
 ### Does Azure charge for traffic between VNets?
 
-VNet-to-VNet traffic within the same region is free for both directions when using a VPN gateway connection. Cross region VNet-to-VNet egress traffic is charged with the outbound inter-VNet data transfer rates based on the source regions. Refer to the [pricing page](https://azure.microsoft.com/pricing/details/vpn-gateway/) for details. If you are connecting your VNets using VNet Peering, rather than VPN gateway, see the [VNet peering pricing page](https://azure.microsoft.com/pricing/details/virtual-network/).
+VNet-to-VNet traffic within the same region is free for both directions when using a VPN gateway connection. Cross region VNet-to-VNet egress traffic is charged with the outbound inter-VNet data transfer rates based on the source regions. Refer to the [VPN Gateway pricing page](https://azure.microsoft.com/pricing/details/vpn-gateway/) for details. If you are connecting your VNets using VNet Peering, rather than VPN Gateway, see the [Virtual Network pricing page](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ### Does VNet-to-VNet traffic travel across the Internet?
 
