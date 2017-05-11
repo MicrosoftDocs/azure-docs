@@ -148,4 +148,7 @@ In case you face any failures during upgrade, please note the OperationId listed
 
 
 ## Next steps
-.
+Use the following article to:</br>
+[Back up an IaaS VM](backup-azure-arm-vms-prepare.md)</br>
+[Back up an Azure Backup Server](backup-azure-microsoft-azure-backup.md)</br>
+[Back up a Windows Server](backup-configure-vault.md).

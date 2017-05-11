@@ -16,23 +16,15 @@ ms.date: 05/09/2017
 ms.author: markgal;arunak
 
 ---
-# Recovery Service vaults
+# Recovery Services vaults overview
 
-This article describes the features of a Recovery Services vault. A Recovery Services vault is a storage entity in Azure that houses data. The data is typically copies of data or configuration information for your virtual machines (VMs), workloads, servers or workstations. A Recovery Services vault is the Resource Manager version, or updated version, of a Backup vault. Microsoft encourages you to use Recovery Services vaults, and to convert any Backup vaults to Recovery Services vaults.
+This article describes the features of a Recovery Services vault. A Recovery Services vault is a storage entity in Azure that houses data. The data is typically copies of data or configuration information for your virtual machines (VMs), workloads, servers or workstations. A Recovery Services vault is the Resource Manager version, or upgraded version, of a Backup vault. Microsoft encourages you to use Recovery Services vaults, and to convert any Backup vaults to Recovery Services vaults.
 
 ## What is a Recovery Services vault?
 
-A Recovery Services vault is an entity that stores all the backups and recovery points you create over time. The Recovery Services vault also contains the backup policy applied to the protected files and folders.
+A Recovery Services vault is an online storage entity in Azure used to hold data such as backup copies, recovery points, and backup policies. You can use Recovery Services vaults to hold backup data for various Azure services such as Linux VMs, Windows VMs, and Azure SQL databases. Recovery Services vaults also support System Center DPM, Windows Server, Windows workstations, Azure Backup Server, and more. Recovery Services vaults make it easy to organize your backup data, while minimizing management overhead.
 
-## Managing your backup and restores using Recovery Services vaults
-Point to articles explaining how to backup:
-- files and folders
-- VMs
-- other
-
-[Managing articles](backup-azure-manage-windows-server.md)
-
-Securing cloud backup data in Recovery Services vaults
+Within an Azure subscription, you can create as many Recovery Services vaults as you like.
 
 ## Comparing Recovery Services vaults and Backup vaults
 
@@ -48,8 +40,35 @@ Recovery Services vaults are based on the Azure Resource Manager model of Azure,
 
 - **Instant restore for IaaS VMs**: Using Recovery Services vaults, you can restore files and folders from an IaaS VM without restoring the entire VM, which enables faster restore times. Instant restore for IaaS VMs is available for both Windows and Linux VMs. [Learn more](http://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
 
+## Managing your Recovery Services vaults in the portal
+Creation and management of a Recovery Services vault in the Azure portal is easy because the Backup service is integrated into the Azure Settings blade. This means you can create or manage a Recovery Services vault *in the context of the target service*. For example, if you have several Windows VMs backed up to a Recovery Services vault, you can select a VM, click **Backup** in the Settings blade, and view the backup information specific to that VM. In the following example, **ContosoVM** is the name of the virtual machine. **ContosoVM-demovault** is the name of the Recovery Services vault. You don't need to remember the name of the Recovery Services vault that stores the recovery points, you can access this information from the virtual machine.  
+
+![details of the recovery services vault for selected VM](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context.png)
+
+If multiple servers are protected using the same Recovery Services vault, it may be more logical to look at the Recovery Services vault. You can search for all Recovery Services vaults in the subscription, and choose one from the list.
+
+### Articles describing Recovery Services vaults in use
+The following articles explain how to use a Recovery Services vault in each type of activity.
+
+**Backing up**
+- [Backing up an Azure VM](backup-azure-vms-first-look-arm.md)
+- [Backing up Windows Server or Windows workstation](backup-try-azure-backup-in-10-minutes.md)
+- [Backing up DPM workloads to Azure](backup-azure-dpm-introduction.md)
+- [Preparing to back up workloads using Azure Backup Server](backup-azure-microsoft-azure-backup.md)
+
+**Managing the vault**
+- [Manage Azure VM backups](backup-azure-manage-vms.md)
+- [Managing files and folders](backup-azure-manage-windows-server.md)
+
+**Recovering data from the vault**
+- [Recover individual files from an Azure VM](backup-azure-restore-files-from-vm.md)
+- [Restore an Azure VM](backup-azure-arm-restore-vms.md)
+- [Securing cloud backup data in Recovery Services vaults](backup-azure-security-feature.md)
+
+
+
 ## Next Steps
-See the article for:
-[Back up an IaaS VM](backup-azure-arm-vms-prepare.md)
-[Back up an Azure Backup Server](backup-azure-microsoft-azure-backup.md)
+Use the following article for:</br>
+[Back up an IaaS VM](backup-azure-arm-vms-prepare.md)</br>
+[Back up an Azure Backup Server](backup-azure-microsoft-azure-backup.md)</br>
 [Back up a Windows Server](backup-configure-vault.md)
