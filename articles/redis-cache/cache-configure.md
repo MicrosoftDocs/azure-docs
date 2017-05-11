@@ -479,7 +479,7 @@ For more information about Redis commands, see [http://redis.io/commands](http:/
 You can securely issue commands to your Azure Redis Cache instances using the **Redis Console**, which is available for Standard and Premium caches.
 
 > [!IMPORTANT]
-> The Redis Console does not work with VNET, clustering, and databases other than 0. 
+> The Redis Console does not work with VNET. 
 > 
 > * [VNET](cache-how-to-premium-vnet.md) - When your cache is part of a VNET, only clients in the VNET can access the cache. Because the Redis Console uses the redis-cli.exe client hosted on VMs that are not part of your VNET, it can't connect to your cache.
 > 
