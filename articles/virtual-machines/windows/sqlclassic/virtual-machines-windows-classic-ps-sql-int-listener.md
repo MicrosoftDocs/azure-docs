@@ -1,6 +1,6 @@
 ---
 title: Configure an ILB listener for Always On availability groups in Azure | Microsoft Docs
-description: This tutorial uses resources created with  the classic deployment model, and creates an Always On availability group Listener in Azure by using an internal load balancer (ILB).
+description: This tutorial uses resources created with  the classic deployment model, and creates an Always On availability group listener in Azure by using an internal load balancer (ILB).
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
@@ -20,8 +20,8 @@ ms.author: mikeray
 ---
 # Configure an ILB listener for Always On availability groups in Azure
 > [!div class="op_single_selector"]
-> * [Internal Listener](../classic/ps-sql-int-listener.md)
-> * [External Listener](../classic/ps-sql-ext-listener.md)
+> * [Internal listener](../classic/ps-sql-int-listener.md)
+> * [External listener](../classic/ps-sql-ext-listener.md)
 > 
 > 
 
@@ -95,7 +95,7 @@ Create a load-balanced endpoint for each virtual machine (VM) that hosts an Azur
         # Create the ILB
         Add-AzureInternalLoadBalancer -InternalLoadBalancerName $ILBName -SubnetName $SubnetName -ServiceName $ServiceName -StaticVNetIPAddress $ILBStaticIP
    
-        # Configure a load balanced endpoint for each node in $AGNodes using ILB
+        # Configure a load-balanced endpoint for each node in $AGNodes using ILB
         ForEach ($node in $AGNodes)
         {
             Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM

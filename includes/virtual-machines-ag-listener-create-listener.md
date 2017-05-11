@@ -24,7 +24,7 @@ In this step, you manually create the availability group listener in Failover Cl
    
         b. Select **Static IP Address**, assign an unused IP address, and then click **OK**.
  
-    * To configure an Azure-only solution:
+   * To configure an Azure-only solution:
 
         a. Right-click the IP address resource that corresponds to your Azure subnet, and then select **Properties**.
        
