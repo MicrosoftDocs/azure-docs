@@ -415,5 +415,5 @@ You can now proceed with [reprotection](site-recovery-how-to-reprotect.md), foll
 * Make sure you do not turn on Storage vMotion on any management components such as a master target. If the master target moves after a successful reprotect, the virtual machine disks (VMDKs) cannot be detached, and failback will fail.
 * The master target should not have any snapshots on the virtual machine. If there are snapshots, failback will fail.
 * Due to some custom NIC configurations at some customers, the network interface is disabled during startup, and the master target agent cannot initialize. Make sure that the following properties are correctly set. Check these properties in the Ethernet card file's /etc/sysconfig/network-scripts/ifcfg-eth*.
-		* BOOTPROTO=dhcp
-		* ONBOOT=yes
+	* BOOTPROTO=dhcp
+	* ONBOOT=yes

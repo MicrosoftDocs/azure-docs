@@ -19,13 +19,13 @@ ms.author: joflore
 ---
 # Password writeback overview
 
-Password writeback allows you to configure Azure AD to write passwords back to you on-premises Active Directory. It removes the need to set up and manage a complicated on-premises self-service password reset solution, and it provides a convenient cloud-based way for your users to reset their on-premises passwords wherever they are. Password writeback is a component of [Azure Active Directory Connect](connect/active-directory-aadconnect.md) that can be enabled and used by current subscribers of Premium [Azure Active Directory Editions](active-directory-editions.md).
+Password writeback allows you to configure Azure AD to write passwords back to you on-premises Active Directory. It removes the need to set up and manage a complicated on-premises self-service password reset solution, and it provides a convenient cloud-based way for your users to reset their on-premises passwords wherever they are. Password writeback is a component of [Azure Active Directory Connect](./connect/active-directory-aadconnect.md) that can be enabled and used by current subscribers of Premium [Azure Active Directory Editions](active-directory-editions.md).
 
 Password writeback provides the following features
 
 * **Zero delay feedback** - Password writeback is a synchronous operation. Your users are notified immediately if their password did not meet policy or was not able to be reset or changed for any reason.
 * **Supports resetting passwords for users using AD FS or other federation technologies** - With password writeback, as long as the federated user accounts are synchronized into your Azure AD tenant, they are able to manage their on-premises AD passwords from the cloud.
-* **Supports resetting passwords for users using [password hash sync](/connect/active-directory-aadconnectsync-implement-password-synchronization.md)** - When the password reset service detects that a synchronized user account is enabled for password hash sync, we reset both this account’s on-premises and cloud password simultaneously.
+* **Supports resetting passwords for users using [password hash sync](./connect/active-directory-aadconnectsync-implement-password-synchronization.md)** - When the password reset service detects that a synchronized user account is enabled for password hash sync, we reset both this account’s on-premises and cloud password simultaneously.
 * **Supports changing passwords from the access panel and Office 365** - When federated or password synchronized users come to change their expired or non-expired passwords, we write those passwords back to your local AD environment.
 * **Supports writing back passwords when an admin reset them from the Azure portal** - Whenever an admin resets a user’s password in the [Azure portal](https://portal.azure.com), if that user is federated or password synchronized, we’ll set the password the admin selects on your local AD, as well. This is currently not supported in the Office Admin Portal.
 * **Enforces your on-premises AD password policies** - When a user resets their password, we make sure that it meets your on-premises AD policy before committing it to that directory. This includes history, complexity, age, password filters, and any other password restrictions you have defined in your local AD.
@@ -71,7 +71,7 @@ When a federated or password hash synchronized user comes to reset or change the
 
 ## Scenarios supported for password writeback
 
-We recommend that you use the auto-update feature of [Azure AD Connect](/connect/active-directory-aadconnect-get-started-express.md) if you want to use password writeback.
+We recommend that you use the auto-update feature of [Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md) if you want to use password writeback.
 
 Additional information about [DirSync and Azure AD Sync support lifecycle](connect/active-directory-aadconnect-dirsync-deprecated.md)
 

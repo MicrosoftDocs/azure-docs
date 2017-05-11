@@ -1,6 +1,7 @@
 ---
-title: Audit activity reports in the Azure Active Directory portal - preview | Microsoft Docs
-description: Introduction to the audit activity reports in the Azure Active Directory portal preview
+
+title: Audit activity reports in the Azure Active Directory portal | Microsoft Docs
+description: Introduction to the audit activity reports in the Azure Active Directory portal
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,15 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/07/2017
+ms.date: 05/04/2017
 ms.author: markvi
 
 ---
-# Audit activity reports in the Azure Active Directory portal - preview
+# Audit activity reports in the Azure Active Directory portal 
 
-With reporting in the Azure Active Directory [preview](active-directory-preview-explainer.md), you get all the information you need to determine how your environment is doing.
+With reporting in Azure Active Directory (Azure AD), you can get the information you need to determine how your environment is doing.
 
-The reporting architecture in Azure Active Directory consists of the following components:
+The reporting architecture in Azure AD consists of the following components:
 
 - **Activity** 
     - **Sign-in activities** – Information about the usage of managed applications and user sign-in activities
