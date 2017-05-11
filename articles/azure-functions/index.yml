@@ -39,7 +39,11 @@ sections:
     - image: 
         src: media/index/quickstart-timer.svg
       text: Timer Trigger
-      href: /azure/azure-functions/functions-bindings-timer
+      href: /azure/azure-functions/ffunctions-create-scheduled-function
+    - image: 
+        src: media/index/quickstart-github.svg
+      text: GitHub Webhook
+      href: /azure/azure-functions/functions-create-github-webhook-triggered-function
     - image: 
         src: media/index/quickstart-blob.svg
       text: Blob Trigger
@@ -48,10 +52,6 @@ sections:
         src: media/index/quickstart-queue.svg
       text: Queue Trigger
       href: /azure/azure-functions/functions-create-storage-queue-triggered-function
-    - image: 
-        src: media/index/quickstart-github.svg
-      text: GitHub Webhook
-      href: /azure/azure-functions/functions-create-github-webhook-triggered-function
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
