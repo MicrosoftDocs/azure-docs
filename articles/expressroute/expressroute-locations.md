@@ -192,11 +192,11 @@ If your connectivity provider is not listed in previous sections, you can still 
 | **Provider** | **Exchange** | **Location**|
 | --- | --- | --- |
 | **[Cyrus One](https://cyrusone.com/enterprise-data-center-services/connectivity-and-interconnection/)** | Megaport | Dallas |
-| **[Digital Realty](https://www.digitalrealty.com/services/interconnection/service-exchange/)** | Megaport | |
-| **[EdgeConnex](http://www.edgeconnex.com/services/edge-data-centers-proximity-matters/)** | Megaport |  |
+| **[Digital Realty](https://www.digitalrealty.com/services/interconnection/service-exchange/)** | Megaport | - |
+| **[EdgeConnex](http://www.edgeconnex.com/services/edge-data-centers-proximity-matters/)** | Megaport | - |
 
+## Connectivity Through National Research and Education Networks (NREN)
 
-## Connectivity Through National Research and Education Networks
 | **Provider**|
 | --- |
 | **AARNET**| 
