@@ -1,5 +1,5 @@
 ---
-title: connected factory preconfigured solution walkthrough | Microsoft Docs
+title: Connected factory Azure IoT Suite solution walkthrough | Microsoft Docs
 description: A description of the Azure IoT preconfigured solution connected factory and its architecture.
 services: ''
 suite: iot-suite
@@ -126,3 +126,4 @@ You can continue getting started with IoT Suite by reading the following article
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/azure-iot-gateway-sdk
+[lnk-permissions]: iot-suite-permissions.md
