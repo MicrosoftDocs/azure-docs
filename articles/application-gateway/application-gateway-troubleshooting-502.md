@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Application Gateway Bad Gateway (502) errors | Microsoft Docs
+title: Troubleshoot Azure Application Gateway Bad Gateway (502) errors | Microsoft Docs
 description: Learn how to troubleshoot Application Gateway 502 errors
 services: application-gateway
 documentationcenter: na
@@ -14,22 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 05/09/2017
 ms.author: amsriva
 
 ---
 
 # Troubleshooting bad gateway errors in Application Gateway
 
+Learn how to troubleshoot bad gateway (502) errors received when using application gateway.
+
 ## Overview
 
-After configuring an Azure Application Gateway, one of the errors which users may encounter is "Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server". This error may happen due to the following main reasons:
+After configuring an application gateway, one of the errors that users may encounter is "Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server". This error may happen due to the following main reasons:
 
-* Azure Application Gateway's back-end pool is not configured or empty.
-* None of the VMs or instances in VM Scale Set are healthy.
-* Back-end VMs or instances of VM Scale Set are not responding to the default health probe.
-* Invalid or improper configuration of custom health probes.
-* Request time out or connectivity issues with user requests.
+* Azure Application Gateway's [back-end pool is not configured or empty](#empty-backendaddresspool).
+* None of the VMs or instances in [VM Scale Set are healthy](#unhealthy-instances-in-backendaddresspool).
+* Back-end VMs or instances of VM Scale Set are [not responding to the default health probe](#problems-with-default-health-probe.md).
+* Invalid or improper [configuration of custom health probes](#problems-with-custom-health-probe.md).
+* [Request time out or connectivity issues](#request-time-out) with user requests.
 
 ## Empty BackendAddressPool
 

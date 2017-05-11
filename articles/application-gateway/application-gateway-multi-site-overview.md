@@ -1,11 +1,11 @@
 ---
-title: Hosting multiple sites on Application Gateway | Microsoft Docs
+title: Hosting multiple sites on Azure Application Gateway | Microsoft Docs
 description: This page provides an overview of the Application Gateway multi-site support.
 documentationcenter: na
 services: application-gateway
 author: amsriva
 manager: rossort
-editor: amsriva
+editor: 
 
 ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
 ms.service: application-gateway
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 05/09/2017
 ms.author: amsriva
 
 ---
