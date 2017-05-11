@@ -57,7 +57,7 @@ To add an entity, you first create an object that represents your entity, then p
 This example creates a dictionary object representing an entity, then passes it to the [insert_entity][py_insert_entity] method to add it to the table:
 
 ```python
-task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the trash', 'priority' : 200}
+task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001', 'description' : 'Take out the trash', 'priority' : 200}
 table_service.insert_entity('tasktable', task)
 ```
 
@@ -66,7 +66,7 @@ This example creates an [Entity][py_Entity] object, then passes it to the [inser
 ```python
 task = Entity()
 task.PartitionKey = 'tasksSeattle'
-task.RowKey = '2'
+task.RowKey = '002'
 task.description = 'Wash the car'
 task.priority = 100
 table_service.insert_entity('tasktable', task)
@@ -83,20 +83,20 @@ The Table service uses **PartitionKey** to intelligently distribute table entiti
 To update all of an entity's property values, call the [update_entity][py_update_entity] method. This example shows how to replace an existing entity with an updated version.
 
 ```python
-task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the garbage', 'priority' : 250}
-table_service.update_entity('tasktable', 'tasksSeattle', '1', task, content_type='application/atom+xml')
+task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001', 'description' : 'Take out the garbage', 'priority' : 250}
+table_service.update_entity('tasktable', task)
 ```
 
-If the entity that is being updated doesn't exist, then the update operation will fail. If you want to store an entity whether it exists or not, use [insert_or_replace_entity][py_insert_or_replace_entity]. In the following example, the first call will replace the existing entity. The second call will insert a new entity, since no entity with the specified **PartitionKey** and **RowKey** exists in the table.
+If the entity that is being updated doesn't already exist, then the update operation will fail. If you want to store an entity whether it exists or not, use [insert_or_replace_entity][py_insert_or_replace_entity]. In the following example, the first call will replace the existing entity. The second call will insert a new entity, since no entity with the specified **PartitionKey** and **RowKey** exists in the table.
 
 ```python
-# Replaces the entity created earlier (PartitionKey tasksSeattle, RowKey 1)
-task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the garbage again', 'priority' : 250}
-table_service.insert_or_replace_entity('tasktable', 'tasksSeattle', '1', task, content_type='application/atom+xml')
+# Replace the entity created earlier (PartitionKey tasksSeattle, RowKey 001)
+task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001', 'description' : 'Take out the garbage again', 'priority' : 250}
+table_service.insert_or_replace_entity('tasktable', task)
 
-# Inserts a new entity
-task = {'PartitionKey': 'tasksSeattle', 'RowKey': '3', 'description' : 'Buy detergent', 'priority' : 300}
-table_service.insert_or_replace_entity('tasktable', 'tasksSeattle', '1', task, content_type='application/atom+xml')
+# Insert a new entity
+task = {'PartitionKey': 'tasksSeattle', 'RowKey': '003', 'description' : 'Buy detergent', 'priority' : 300}
+table_service.insert_or_replace_entity('tasktable', task)
 ```
 
 > [!TIP]
