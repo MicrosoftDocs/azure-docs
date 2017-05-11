@@ -36,7 +36,7 @@ In this walkthrough, we set up Vamp on Azure Container Service with a DC/OS clus
 
 1. [Deploy a DC/OS cluster](container-service-deployment.md) with one master and two agents of default size. 
 
-2. [Create an SSH tunnel](container-service-connect) to connect to the DC/OS cluster. This article assumes that you tunnel to the cluster on local port 80.
+2. [Create an SSH tunnel](container-service-connect.md) to connect to the DC/OS cluster. This article assumes that you tunnel to the cluster on local port 80.
 
 
 ## Set up Vamp
@@ -109,13 +109,15 @@ Once Elasticsearch reports as **Running**, you can add the Vamp DC/OS Universe p
 
   ![Enter Elasticsearch URL](./media/container-service-dcos-vamp-canary-release/05_universe_elasticsearch_url.png)
 
-4. Click **Review and install**, then click **Install** to start the deployment.  
+4. Click **Review and Install**, then click **Install** to start the deployment.  
 
+  DC/OS deploys all required Vamp components. You can track progress on the **Services** page.
+  
   ![Deploy Vamp as universe package](./media/container-service-dcos-vamp-canary-release/06_deploy_vamp.png)
+  
+5. Once deployment has completed, you can access the Vamp UI:
 
-  DC/OS deploys all required Vamp components. You can track progress on the **Services** page. Once deployment has completed, you can access the Vamp UI:
-
-  ![Vamp service on DC/OS](./media/container-service-dcos-vamp-canary-release/07_deploy_vamp_complete.png)  
+  ![Vamp service on DC/OS](./media/container-service-dcos-vamp-canary-release/07_deploy_vamp_complete.png)
   
   ![Vamp UI](./media/container-service-dcos-vamp-canary-release/08_vamp_ui.png)
 
@@ -128,9 +130,9 @@ In its simplest form, a [Vamp blueprint](http://vamp.io/documentation/using-vamp
 
 This scenario uses a sample monolithic application called [**sava**](https://github.com/magneticio/sava), which is at version 1.0. The monolith is packaged in a Docker container, which is in Docker Hub under magneticio/sava:1.0.0. The app normally runs on port 8080, but you want to expose it under port 9050 in this case. Deploy the app through Vamp using a simple blueprint.
 
-1. Go to **Deployments**
+1. Go to **Deployments**.
 
-2. Click **Add**
+2. Click **Add**.
 
 3. Paste in the following blueprint YAML. This blueprint contains one cluster with only one service variant, which we change in a later step:
 
@@ -238,14 +240,14 @@ With both versions of sava deployed in the same cluster, adjust the distribution
 
   ![Vamp UI - gateway weight slider](./media/container-service-dcos-vamp-canary-release/24_sava_cluster_webport_weight.png)
 
-Go back to your browser and refresh the sava page a few more times. The sava application now switches between a sava:1.0 page and a sava:1.1 page.
+3. Go back to your browser and refresh the sava page a few more times. The sava application now switches between a sava:1.0 page and a sava:1.1 page.
 
-![alternating sava1.0 and sava1.1 services](./media/container-service-dcos-vamp-canary-release/25_sava_100_101.png)
+  ![alternating sava1.0 and sava1.1 services](./media/container-service-dcos-vamp-canary-release/25_sava_100_101.png)
 
 
-> [!NOTE]
-> This alternation of the page works best with the "Incognito" or “Anonymous” mode of your browser because of the caching of static assets.
->
+  > [!NOTE]
+  > This alternation of the page works best with the "Incognito" or “Anonymous” mode of your browser because of the caching of static assets.
+  >
 
 ### Filter traffic
 
@@ -273,13 +275,13 @@ You can create a condition to filter all Firefox users and direct them to the ol
 
   All traffic not filtered by the condition is now directed to the new sava:1.1.0.
 
-To see the filter in action, open two different browsers (one Firefox and one other browser) and access the sava service from both. All Firefox requests are sent to sava:1.0.0, while all other browsers are directed to sava:1.1.0.
+6. To see the filter in action, open two different browsers (one Firefox and one other browser) and access the sava service from both. All Firefox requests are sent to sava:1.0.0, while all other browsers are directed to sava:1.1.0.
 
-![Vamp UI - filter traffic](./media/container-service-dcos-vamp-canary-release/27_filter_traffic.png)
+  ![Vamp UI - filter traffic](./media/container-service-dcos-vamp-canary-release/27_filter_traffic.png)
 
 ## Summing up
 
-This article was a quick introduction to Vamp on a DC/OS cluster. For starters, you got Vamp up and running on your Azure Container Service DC/OS cluster, deployed a service with a Vamp blueprint and accessed it at the exposed endpoint (gateway).
+This article was a quick introduction to Vamp on a DC/OS cluster. For starters, you got Vamp up and running on your Azure Container Service DC/OS cluster, deployed a service with a Vamp blueprint, and accessed it at the exposed endpoint (gateway).
 
 We also touched on some powerful features of Vamp:  merging a new service variant to the running deployment and introducing it incrementally, then filtering traffic to resolve a known incompatibility.
 
