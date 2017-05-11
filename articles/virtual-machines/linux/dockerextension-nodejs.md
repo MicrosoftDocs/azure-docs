@@ -46,12 +46,12 @@ You need the [latest Azure CLI](../../cli-install-nodejs.md) installed and logge
 azure config mode arm
 ```
 
-Deploy the template using the Azure CLI, specifying the template URI. The following example creates a resource group named *myResourceGroup* in the *eastus* location. Use your own resource group name and location as follows:
+Deploy the template using the Azure CLI, specifying the template URI. The following example creates a resource group named *myResourceGroup* in the *westus* location. Use your own resource group name and location as follows:
 
 ```azurecli
 azure group create \
     --name myResourceGroup \
-    --location eastus \
+    --location westus \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
@@ -66,13 +66,13 @@ info:    Supply values for the following parameters
 newStorageAccountName: mystorageaccount
 adminUsername: azureuser
 adminPassword: P@ssword!
-dnsNameForPublicIP: mypublicip
+dnsNameForPublicIP: mypublicidns
 + Initializing template configurations and parameters
 + Creating a deployment
 info:    Created template deployment "azuredeploy"
 data:    Id:                  /subscriptions/guid/resourceGroups/myResourceGroup
 data:    Name:                myResourceGroup
-data:    Location:            eastus
+data:    Location:            westus
 data:    Provisioning State:  Succeeded
 data:    Tags: null
 data:
@@ -97,7 +97,7 @@ info:    Executing command vm show
 data:    Id                              :/subscriptions/guid/resourceGroups/myresourcegroup/providers/Microsoft.Compute/virtualMachines/MyDockerVM
 data:    ProvisioningState               :Succeeded
 data:    Name                            :MyDockerVM
-data:    Location                        :eastus
+data:    Location                        :westus
 data:    Type                            :Microsoft.Compute/virtualMachines
 [...]
 data:
@@ -108,9 +108,9 @@ data:          Primary                   :true
 data:          MAC Address               :00-0D-3A-33-D3-95
 data:          Provisioning State        :Succeeded
 data:          Name                      :myVMNicD
-data:          Location                  :eastus
+data:          Location                  :westus
 data:            Public IP address       :13.91.107.235
-data:            FQDN                    :mypublicip.eastus.cloudapp.azure.com
+data:            FQDN                    :mypublicdns.westus.cloudapp.azure.com
 data:
 data:    Diagnostics Instance View:
 info:    vm show command OK
@@ -124,7 +124,7 @@ Towards the end of the output, *FQDN* displays the fully qualified domain name o
 Once the deployment has finished, SSH to your new Docker host from your local computer. Enter your own username and FQDN as follows:
 
 ```bash
-ssh ops@mypublicip.eastus.cloudapp.azure.com
+ssh ops@mypublicdns.westus.cloudapp.azure.com
 ```
 
 Once logged in to the Docker host, let's run an nginx container:

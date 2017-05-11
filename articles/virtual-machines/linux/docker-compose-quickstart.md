@@ -31,10 +31,10 @@ When you use the Docker VM extension, your VM is automatically set up as a Docke
 ### Create Docker host with Azure CLI 2.0
 Install the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login).
 
-First, create a resource group for your Docker environment with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+First, create a resource group for your Docker environment with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroup* in the *westus* location:
 
 ```azurecli
-az group create --name myResourceGroup --location eastus
+az group create --name myResourceGroup --location westus
 ```
 
 Next, deploy a VM with [az group deployment create](/cli/azure/group/deployment#create) that includes the Azure Docker VM extension from [this Azure Resource Manager template on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Provide your own values for *newStorageAccountName*, *adminUsername*, *adminPassword*, and *dnsNameForPublicIP*:
@@ -67,7 +67,7 @@ When this command returns *Succeeded*, the deployment has finished and you can S
 Once the deployment is finished, SSH to your new Docker host using the DNS name you provided during deployment. You can use  `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv` to view details of your VM, including the DNS name.
 
 ```bash
-ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
+ssh azureuser@mypublicdns.westus.cloudapp.azure.com
 ```
 
 To check that Compose is installed on the VM, run the following command:
@@ -141,7 +141,7 @@ azureuser_db_1          docker-entrypoint.sh mysqld      Up      3306/tcp
 azureuser_wordpress_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:80->80/tcp
 ```
 
-You can now connect to WordPress directly on the VM on port 80. Open a web browser and enter the DNS name of your VM (such as `http://myresourcegroup.eastus.cloudapp.azure.com`). You should now see the WordPress start screen, where you can complete the installation and get started with the application.
+You can now connect to WordPress directly on the VM on port 80. Open a web browser and enter the DNS name of your VM (such as `http://mypublicdns.westus.cloudapp.azure.com`). You should now see the WordPress start screen, where you can complete the installation and get started with the application.
 
 ![WordPress start screen][wordpress_start]
 
