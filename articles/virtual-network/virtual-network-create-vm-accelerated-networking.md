@@ -143,7 +143,7 @@ You can use the Azure portal or Azure [PowerShell](#windows-powershell) to creat
 6. To install the accelerated networking driver for Windows, complete the steps in the [Configure Windows](#configure-windows) section of this article.
 
 ### <a name="configure-windows"></a>Configure Windows
-Once you create the VM in Azure, you must install the accelerated networking driver for Windows. Before completing the following steps, you must have created a Windows VM with accelerated networking using either the [portal](#windows-portal) or [PowerShell](windows-powershell) steps in this article. 
+Once you create the VM in Azure, you must install the accelerated networking driver for Windows. Before completing the following steps, you must have created a Windows VM with accelerated networking using either the [portal](#windows-portal) or [PowerShell](#windows-powershell) steps in this article. 
 
 1. From an Internet browser, open the Azure [portal](https://portal.azure.com) and sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *MyVm*. When **MyVm** appears in the search results, click it.
@@ -263,7 +263,7 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
 
 ### <a name="configure-linux"></a>Configure Linux
 
-Once you create the VM in Azure, you must install the accelerated networking driver for Linux. Before completing the following steps, you must have created a Linux VM with accelerated networking using either the [portal](#linux-portal) or [PowerShell](linux-powershell) steps in this article. 
+Once you create the VM in Azure, you must install the accelerated networking driver for Linux. Before completing the following steps, you must have created a Linux VM with accelerated networking using either the [portal](#linux-portal) or [PowerShell](#linux-powershell) steps in this article. 
 
 1. From an Internet browser, open the Azure [portal](https://portal.azure.com) and sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 2. At the top of the portal, to the right of the *Search resources* bar, click the **>_** icon to start a Bash cloud shell (Preview). The Bash cloud shell pane appears at the bottom of the portal and after a few seconds, presents a **username@Azure:~$** prompt. Though you can SSH to the VM from your computer, rather than the cloud shell, the instructions in this tutorial assume you're using the cloud shell.
