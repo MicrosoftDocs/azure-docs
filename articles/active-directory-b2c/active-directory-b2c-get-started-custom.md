@@ -115,7 +115,7 @@ Let's get started:
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
 2. Open the `SocialAndLocalAccounts` folder.  The base file (`TrustFrameworkBase.xml`) in this folder contains content needed for both local and social/corporate accounts. The social content does not interfere with the steps for getting local accounts up and running.
-3. Open `TrustFrameworkBase.xml`.  If you need an XML editor, try [try Visual Studio Code](https://code.visualstudio.com/download), a lightweight cross platform editor.
+3. Open `TrustFrameworkBase.xml`.  If you need an XML editor, [try Visual Studio Code](https://code.visualstudio.com/download), a lightweight cross platform editor.
 4. In the root `TrustFrameworkPolicy` element, update the `TenantId` and `PublicPolicyUri` attributes, replacing `yourtenant.onmicrosoft.com` with your the domain name of your Azure AD B2C tenant:
 
     ```xml
@@ -134,7 +134,7 @@ Let's get started:
 5. Save the file.
 6. Open `TrustFrameworkExtensions.xml` and make the same two changes by replacing `yourtenant.onmicrosoft.com` with your Azure AD B2C tenant. Make the same replacement in the element `<TenantId>` for a total of 3 changes.  Save the file.
 7. Open `SignUpOrSignIn.xml`and make the same changes by replacing `yourtenant.onmicrosoft.com` with your Azure AD B2C tenant in three places. Save the file.
-8. Open the password secret, and profile edit files and make the same changes by replacing `yourtenant.onmicrosoft.com` with your Azure AD B2C tenant in three places in each file. Save the files.
+8. Open the password reset and profile edit files, and make the same changes by replacing `yourtenant.onmicrosoft.com` with your Azure AD B2C tenant in three places in each file. Save the files.
 
 ### Add the application IDs to your custom policy
 Add the application IDs to the extensions file (`TrustFrameworkExtensions.xml`).

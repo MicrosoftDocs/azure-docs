@@ -50,7 +50,7 @@
 ## [Use the reporting API](active-directory-b2c-refererence-usage-reporting-api.md)
 ## [Set up self-service password reset](active-directory-b2c-reference-sspr.md)
 
-# Identity Experience Engine
+# Identity Experience Framework
 ## [Custom Policies](active-directory-b2c-overview-custom.md)
 ## Guides
 ### [Get Started](active-directory-b2c-get-started-custom.md)
