@@ -46,7 +46,7 @@ az vm create \
     --name myVM \
     --image Debian \
     --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
+    --generate-ssh-keys \
     --nics myNic
 ```
 
@@ -146,7 +146,7 @@ az vm create \
     --name myVM \
     --image Debian \
     --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
+    --generate-ssh-keys \
     --nics myNic
 ```
 

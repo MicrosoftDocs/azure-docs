@@ -51,7 +51,7 @@ az vm create \
     --name myVM \
     --image UbuntuLTS \
     --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
+    --generate-ssh-keys \
     --custom-data cloud-init.txt
 ```
 
@@ -103,7 +103,7 @@ az vm create \
     --name myVM \
     --image UbuntuLTS \
     --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
+    --generate-ssh-keys \
     --custom-data cloud-init.txt
 ```
 
@@ -124,7 +124,7 @@ az vm create \
     --name myVM \
     --image UbuntuLTS \
     --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
+    --generate-ssh-keys \
     --custom-data cloud-init.txt
 ```
 
@@ -153,7 +153,7 @@ az vm create \
     --name myVM \
     --image UbuntuLTS \
     --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
+    --generate-ssh-keys \
     --custom-data cloud_config_apt_upgrade.txt
 ```
 
@@ -194,7 +194,7 @@ az vm create \
     --name myVM \
     --image UbuntuLTS \
     --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
+    --generate-ssh-keys \
     --custom-data cloud_config_add_users.txt
 ```
 
