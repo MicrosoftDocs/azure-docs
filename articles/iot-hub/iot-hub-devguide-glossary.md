@@ -186,7 +186,7 @@ Your solution back end can use [jobs](iot-hub-devguide-jobs.md) to schedule and 
 The [Jobs REST API](https://docs.microsoft.com/rest/api/iothub/jobapi) enables you manage [jobs](#job) running in your IoT hub.
 
 ## Module
-In [Azure IoT Edge](iot-hub-linux-gateway-sdk-get-started.md), a [module](iot-hub-linux-gateway-sdk-get-started.md#azure-iot-gateway-sdk-concepts) is a component that performs a specific task. Tasks might include ingesting a message from a device, transforming a message, or sending a message to an IoT hub. A broker is responsible for forwarding messages between modules. Azure IoT Edge includes a set of sample modules. You can also create your own custom modules.
+In [Azure IoT Edge](iot-hub-linux-gateway-sdk-get-started.md), a [module](iot-hub-linux-gateway-sdk-get-started.md) is a component that performs a specific task. Tasks might include ingesting a message from a device, transforming a message, or sending a message to an IoT hub. A broker is responsible for forwarding messages between modules. Azure IoT Edge includes a set of sample modules. You can also create your own custom modules.
 
 ## MQTT
 [MQTT](http://mqtt.org/) is one of the messaging protocols that [IoT Hub](#iot-hub) supports for communicating with devices. For more information about the messaging protocols that IoT Hub supports, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).

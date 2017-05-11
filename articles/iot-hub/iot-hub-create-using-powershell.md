@@ -39,6 +39,19 @@ In a PowerShell command prompt, enter the following command to sign in to your A
 Login-AzureRmAccount
 ```
 
+If you have multiple Azure subscriptions, signing in to Azure grants you access to all the Azure subscriptions associated with your credentials. Use the following command to list the Azure subscriptions available for you to use:
+
+```powershell
+Get-AzureRMSubscription
+```
+
+Use the following command to select subscription that you want to use to run the commands to create your IoT hub. You can use either the subscription name or ID from the output of the previous command:
+
+```powershell
+Select-AzureRMSubscription `
+    -SubscriptionName "{your subscription name}"
+```
+
 ## Create resource group
 
 You need a resource group to deploy an IoT hub. You can use an existing resource group or create a new one.

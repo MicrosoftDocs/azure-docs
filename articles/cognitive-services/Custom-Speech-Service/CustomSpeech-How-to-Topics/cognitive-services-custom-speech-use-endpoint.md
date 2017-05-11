@@ -36,7 +36,7 @@ All four types of clients can be instantiated in two ways. The first will utiliz
 
 For example, a DataRecognitionClient that will send requests to a custom endpoint can be created using the following method.
 
-```
+```csharp
 public static DataRecognitionClient CreateDataClient(SpeeechRecognitionMode speechRecognitionMode, string language, string primaryOrSecondaryKey, **string url**);
 ```
 
@@ -46,7 +46,7 @@ The authenticationUri is used to receive a token from the authentication service
 
 Here is some sample code showing how to use the client SDK:
 
-```
+```csharp
 var dataClient = SpeechRecognitionServiceFactory.CreateDataClient(
   SpeechRecognitionMode.LongDictation,
   "en-us",
@@ -75,20 +75,20 @@ To create a POST request, the same process used for the Microsoft Cognitive Serv
 
 1.  Obtain an access token using your subscription id. This is required to access the recognition endpoint and can be reused for ten minutes.
 
-```
-curl -X POST --header "Ocp-Apim-Subscription-Key:<subscriptionId>" --data "" "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken"
-```
-  where **subscriptionId** should be set to the Subscription Id you use for this deployment. The response is the plain token you need for the next request.
+    ```
+    curl -X POST --header "Ocp-Apim-Subscription-Key:<subscriptionId>" --data "" "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken"
+    ```
+      where **subscriptionId** should be set to the Subscription Id you use for this deployment. The response is the plain token you need for the next request.
 
 2.  Post audio to the endpoint using POST again:
 
-```
-curl -X POST --data-binary @@example.wav -H "Authorization: Bearer <token>" -H "Content-Type: application/octet-stream" "<https_endpoint>"
-```
+    ```
+    curl -X POST --data-binary @@example.wav -H "Authorization: Bearer <token>" -H "Content-Type: application/octet-stream" "<https_endpoint>"
+    ```
 
   where **token** is your access token you have received with the previous call and **https_endpoint** is the full address of your custom speech-to-text endpoint shown in the Deployment Information page.
 
-  Please refer to documentation on the [Microsoft Cognitive Services Bing Speech HTTP API](https://www.microsoft.com/cognitive-services/en-us/speech-api/documentation/API-Reference-REST/BingVoiceRecognition#SampleImplementation) for more information about HTTP post parameters and the response format.
+Please refer to documentation on the [Microsoft Cognitive Services Bing Speech HTTP API](https://www.microsoft.com/cognitive-services/en-us/speech-api/documentation/API-Reference-REST/BingVoiceRecognition#SampleImplementation) for more information about HTTP post parameters and the response format.
 
 ## Next steps
 * Improve accuracy with your [custom acoustic model](cognitive-services-custom-speech-create-acoustic-model.md)
