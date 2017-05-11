@@ -46,10 +46,11 @@ The Reliable Collections APIs are an evolution of concurrent collections APIs
 * No out parameters: Uses `ConditionalValue<T>` to return a bool and a value instead of out parameters. `ConditionalValue<T>` is like `Nullable<T>` but does not require T to be a struct.
 * Transactions: Uses a transaction object to enable the user to group actions on multiple Reliable Collections in a transaction.
 
-Today, **Microsoft.ServiceFabric.Data.Collections** contains two collections:
+Today, **Microsoft.ServiceFabric.Data.Collections** contains three collections:
 
 * [Reliable Dictionary](https://msdn.microsoft.com/library/azure/dn971511.aspx): Represents a replicated, transactional, and asynchronous collection of key/value pairs. Similar to **ConcurrentDictionary**, both the key and the value can be of any type.
 * [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx): Represents a replicated, transactional, and asynchronous strict first-in, first-out (FIFO) queue. Similar to **ConcurrentQueue**, the value can be of any type.
+* [Reliable Concurrent Queue](service-fabric-reliable-services-reliable-concurrent-queue.md): Represents a replicated, transactional, and asynchronous best effort ordering queue for high throughput. Similar to the **ConcurrentQueue**, the value can be of any type.
 
 ## Next steps
 * [Reliable Collection Guidelines & Recommendations](service-fabric-reliable-services-reliable-collections-guidelines.md)
@@ -59,6 +60,7 @@ Today, **Microsoft.ServiceFabric.Data.Collections** contains two collections:
 * Managing Data
   * [Back-up and Restore](service-fabric-reliable-services-backup-restore.md)
   * [Notifications](service-fabric-reliable-services-notifications.md)
+  * [Reliable Collection serialization](service-fabric-reliable-services-reliable-collections-serialization.md)
   * [Serialization and Upgrade](service-fabric-application-upgrade-data-serialization.md)
   * [Reliable State Manager configuration](service-fabric-reliable-services-configuration.md)
 (service-fabric-reliable-services-backup-restore.md)

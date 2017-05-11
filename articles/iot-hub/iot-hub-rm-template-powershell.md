@@ -139,7 +139,7 @@ To learn more about developing for IoT Hub, see the following articles:
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Simulating a device with the IoT Gateway SDK][lnk-gateway]
+* [Simulating a device with Azure IoT Edge][lnk-gateway]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
