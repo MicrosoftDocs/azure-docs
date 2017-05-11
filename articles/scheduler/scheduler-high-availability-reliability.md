@@ -1,4 +1,4 @@
-﻿---
+---
 title: Scheduler High-Availability and Reliability
 description: Scheduler High-Availability and Reliability
 services: scheduler

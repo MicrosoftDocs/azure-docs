@@ -1,5 +1,5 @@
 ---
-title: Logs, exceptions and custom diagnostics for ASP.NET in Application Insights
+title: Logs & diagnostics for ASP.NET in Azure Application Insights | Microsoft Docs
 description: Diagnose issues in ASP.NET web apps by searching requests, exceptions and logs generated with Trace, NLog, or Log4Net.
 services: application-insights
 documentationcenter: ''
@@ -275,6 +275,6 @@ If your application sends a lot of data and you are using the Application Insigh
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 [track]: app-insights-api-custom-events-metrics.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md
 
 

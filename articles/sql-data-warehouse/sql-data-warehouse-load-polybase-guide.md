@@ -14,7 +14,9 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
+ms.custom: loading
 ms.author: cakarst;barbkess
+
 
 ---
 # Guide for using PolyBase in SQL Data Warehouse
@@ -186,7 +188,7 @@ To learn more about moving data to SQL Data Warehouse, see the [data migration o
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 [CREATE EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935022.aspx
-[CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026).aspx
+[CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026.aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021.aspx
 
 [DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/mt146367.aspx

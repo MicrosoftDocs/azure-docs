@@ -1,213 +1,180 @@
 ---
+title: Azure Windows Virtual Machines Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.
+services: virtual-machines\windows
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.service: virtual-machines\windows
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
-#Windows Virtual Machines Documentation
+<div class="content">
+    <h1>Windows Virtual Machines Documentation</h1>
+    <div class="introHolder" style="justify-content: space-between;">
+        <div class="intro" style="min-width: 200px">
+            <p>Azure Windows Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure using Windows Server. Learn how to create, configure, manage, and scale Windows VMs with our quickstarts, tutorials, and samples.</p>
+        </div>
+        <a href="https://azure.microsoft.com/en-us/resources/videos/create-windows-server-virtual-machine/">
+            <div class="calloutHolder" style="max-width: 250px">
+                <div>
+                    <img src="media/index/create-windows-server-virtual-machine.png" style="width: 250px" />
+                </div>
+                <div>
+                    <p style="margin-top: 0; color: #6e6e6e">Create a Windows Server Virtual Machine. (3:58)</p>
+                </div>
+            </div>
+        </a>
+    </div>
+<h2 style="margin-top: 0px; margin-bottom: 0px;">5-Minute Quickstarts</h2>
+<p style="margin-top: 6px; margin-bottom: 6px;">Learn how to deploy an IIS web-server within a Virtual Machine running Windows Server 2016:</p>
+<div class="ico48Case">
+    <div class="ico48Link">
+        <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
+        <img src="media/index/portal.svg" alt="">
+            <span>Azure Portal</span>
+        </a>
+    </div>
+    <div class="ico48Link">
+        <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
+            <img src="media/index/logo_powershell.svg" alt="">
+            <span>Azure PowerShell</span>
+        </a>
+    </div>
+    <div class="ico48Link">
+        <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
+            <img src="media/index/cli.svg" alt="">
+            <span>Azure CLI</span>
+        </a>
+    </div>
+</div>
 
-Azure Virtual Machines (VM) is one of several types of on-demand scalable computing resources that Azure offers. Typically, you choose a VM when you need more control over the computing environment than the other choices offer. An Azure VM gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. And, you keep control of configuration, patching, and installing the software that runs on the VM.
+<h2 style="margin-top: 36px">Step-by-Step Tutorials</h2>
+<p>Learn how to deploy, manage, and monitor Windows VMs on Azure</p>
+<ol>
+   <li><a href="/azure/virtual-machines/windows/tutorial-manage-vm">Create and manage Windows VMs</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-manage-data-disk">Create and manage VM disks</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-automate-vm-deployment">Automate VM configuration</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-custom-images">Create custom VM images</a></li> 
+    <li><a href="/azure/virtual-machines/windows/tutorial-availability-sets">Create highly available VMs</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-create-vmss">Create a VM scale set</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-load-balancer">Load balance VMs</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-virtual-network">Manage VMs with virtual networks</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-backup-vms">Backup VMs</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-monitoring">Monitor VMs</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-azure-security">Manage security on VMs</a></li>
+    
+</ol>
 
-<ul class="panelContent cardsFTitle">
-    <li>
-        <a href="/azure/virtual-machines/virtual-machines-windows-overview?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/virtual-machine.svg" alt="" />
+<h2 style="margin-top: 36px">Free PluralSight Video Training</h2>
+<ul class="panelContent cardsW">
+    <li style="flex: 0 1 25%">
+        <a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02"> 
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                       <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img style="max-width: 100%" alt="" src="media/index/video-training-infrastructure.png" data-linktype="external">
+                            </div>
                         </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Learn about Windows Virtual Machines</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <div class="cardText">
+                            <p>Managing Infrastructure</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </a>
     </li>
-    <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=virtual-machines">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
+    <li style="flex: 0 1 25%">
+        <a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02"> 
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                       <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img style="max-width: 100%" alt="" src="media/index/video-training-vms.png" data-linktype="external">
+                            </div>
                         </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Virtual Machines Video Library</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <div class="cardText">
+                            <p>Getting Started with Virtual Machines</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </a>
     </li>
-    <li>
-        <a href="/azure/virtual-machines/virtual-machines-windows-hero-tutorial?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../media/index/get-started.svg" alt="" />
+    <li style="flex: 0 1 25%">
+        <a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02"> 
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                       <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img style="max-width: 100%" alt="" src="media/index/video-training-iaas-monitoring.png" data-linktype="external">
+                            </div>
                         </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get Started with Windows VMs using the Azure portal</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/virtual-machines/virtual-machines-windows-ps-create?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get Started with Windows VMs using PowerShell</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/resource-manager-template-walkthrough?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get Started with Windows VMs using a Resource Manager Template</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <div class="cardText">
+                            <p>Getting Started with IaaS Monitoring</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </a>
     </li>
 </ul>
 
----
+<h2>Samples</h2>
+<p>Deploy your first application to Azure.</p>
+<ul class="spaced">
+    <li><a href="/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Azure CLI</a></li>
+    <li><a href="/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Azure PowerShell</a></li>
+</ul>
 
-##Reference
-
+<h2 style="margin-top: 36px">Reference</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>PowerShell Cmdlets</p>
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
+                        <p><a href="/cli/azure/vm">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/install-az-cli2">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Install the Azure CLI</p>
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
+                        <p><a href="/java/api">Java</a></p>
+                        <p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node​.js</a></p>
+                        <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET Managed Reference API</p>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/compute">Compute REST API Reference</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-    <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java SDK</h3>
-                        <p>Java API Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/compute">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (Compute)</h3>
-                        <p>Compute REST API Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/mt163658">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (Network)</h3>
-                        <p>Network REST API Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/storage">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (Storage)</h3>
-                        <p>Storage REST API Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
 </ul>
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/windows.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Windows Virtual Machine Documentation
-        </div>
-    </a>
 </div>

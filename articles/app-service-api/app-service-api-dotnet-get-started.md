@@ -1,10 +1,10 @@
-﻿---
+---
 title: Get started with API Apps and ASP.NET in App Service | Microsoft Docs
 description: Learn how to create, deploy, and consume an ASP.NET API app in Azure App Service, by using Visual Studio 2015.
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
-manager: wpickett
+author: alexkarcher-msft
+manager: erikre
 editor: ''
 
 ms.assetid: ddc028b2-cde0-4567-a6ee-32cb264a830a
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/20/2016
-ms.author: rachelap
+ms.author: alkarche
 
 ---
 # Get started with API Apps, ASP.NET, and Swagger in Azure App Service
@@ -53,9 +53,9 @@ The next tutorial in the series deploys the SPA front end to the cloud.
 
 ## Prerequisites
 * ASP.NET Web API - The tutorial instructions assume you have a basic knowledge of how to work with ASP.NET [Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) in Visual Studio.
-* Azure account - You can [Open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F) or [Activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+* Azure account - You can [Open an Azure account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) or [Activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
   
-    If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751). There, you can immediately create a short-lived starter app in App Service — **no credit card required**, and no commitments.
+    If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/). There, you can immediately create a short-lived starter app in App Service — **no credit card required**, and no commitments.
 * Visual Studio 2015 with the [Azure SDK for .NET](https://azure.microsoft.com/downloads/archive-net-downloads/) - The SDK installs Visual Studio 2015 automatically if you don't already have it.
   
   * In Visual Studio, click Help -> About Microsoft Visual Studio and ensure that you have "Azure App Service Tools v2.9.1" or higher installed.

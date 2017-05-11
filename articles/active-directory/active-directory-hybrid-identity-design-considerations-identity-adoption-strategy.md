@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Active Directory hybrid identity design considerations - define a hybrid identity adoption strategy | Microsoft Docs
 description: With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application.
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/08/2016
+ms.date: 02/14/2017
 ms.author: billmath
 
 ---
@@ -39,7 +39,7 @@ The scenarios defined in the above figure are:
 * **Federated**: these identities exist both on-premises and in the cloud.  Using Azure AD Connect, these users are either created or joined with existing Azure AD accounts.  
 
 > [!NOTE]
-> For more information about the Synchronization options read [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+> For more information about the Synchronization options read [Integrating your on-premises identities with Azure Active Directory](connect/active-directory-aadconnect.md).
 > 
 > 
 
@@ -110,7 +110,7 @@ Single Forest Scenario
 It is very common for large and even small organizations to have multiple forests, as shown in Figure 5.
 
 > [!NOTE]
-> For more information about the different on-premises and Azure AD topologies with Azure AD Connect sync read the article [Topologies for Azure AD Connect](active-directory-aadconnect-topologies.md).
+> For more information about the different on-premises and Azure AD topologies with Azure AD Connect sync read the article [Topologies for Azure AD Connect](connect/active-directory-aadconnect-topologies.md).
 > 
 > 
 
@@ -130,7 +130,7 @@ If this the case then the multi-forest-single Azure AD topology should be consid
 * If you have a linked mailbox, then there is also another account in a different forest used to sign in.
 
 > [!NOTE]
-> Objects that exist in both on-premises and in the cloud are “connected” via a unique identifier. In the context of Directory Synchronization, this unique identifier is referred to as the SourceAnchor. In the context of Single Sign-On, this is referred to as the ImmutableId. [Design concepts for Azure AD Connect](active-directory-aadconnect-design-concepts.md#sourceanchor) for more considerations regarding the use of SourceAnchor.
+> Objects that exist in both on-premises and in the cloud are “connected” via a unique identifier. In the context of Directory Synchronization, this unique identifier is referred to as the SourceAnchor. In the context of Single Sign-On, this is referred to as the ImmutableId. [Design concepts for Azure AD Connect](connect/active-directory-aadconnect-design-concepts.md#sourceanchor) for more considerations regarding the use of SourceAnchor.
 > 
 > 
 

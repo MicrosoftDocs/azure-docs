@@ -1,4 +1,3 @@
-
 ---
 title: Manage resources with the Azure CLI | Microsoft Docs
 description: Use the Azure Command-Line Interface (CLI) to manage Azure resources and groups
@@ -30,7 +29,7 @@ ms.author: tomfitz
 The Azure Command-Line Interface (Azure CLI) is one of several tools you can use to deploy and manage resources with Resource Manager. This article introduces common ways to manage Azure resources and resource groups by using the Azure CLI in Resource Manager mode. For information about using the CLI to deploy resources, see [Deploy resources with Resource Manager templates and Azure CLI](resource-group-template-deploy-cli.md). For background about Azure resources and Resource Manager, visit the [Azure Resource Manager Overview](resource-group-overview.md).
 
 > [!NOTE]
-> To manage Azure resources with the Azure CLI, you need to [install the Azure CLI](../xplat-cli-install.md), and [log in to Azure](../xplat-cli-connect.md) by using the `azure login` command. Make sure the CLI is in Resource Manager mode (run `azure config mode arm`). If you've done these things, you're ready to go.
+> To manage Azure resources with the Azure CLI, you need to [install the Azure CLI](../cli-install-nodejs.md), and [log in to Azure](../xplat-cli-connect.md) by using the `azure login` command. Make sure the CLI is in Resource Manager mode (run `azure config mode arm`). If you've done these things, you're ready to go.
 > 
 > 
 
@@ -151,7 +150,7 @@ Using the Azure CLI, you can either export a template that represents the curren
 > 
 
 ## Next steps
-* To get details of deployment operations and troubleshoot deployment errors with the Azure CLI, see [View deployment operations with Azure CLI](resource-manager-troubleshoot-deployments-cli.md).
+* To get details of deployment operations and troubleshoot deployment errors with the Azure CLI, see [View deployment operations](resource-manager-deployment-operations.md).
 * If you want to use the CLI to set up an application or script to access resources, see [Use Azure CLI to create a service principal to access resources](resource-group-authenticate-service-principal-cli.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 

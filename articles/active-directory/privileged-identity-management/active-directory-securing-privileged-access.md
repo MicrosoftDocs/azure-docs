@@ -1,4 +1,4 @@
-﻿---
+---
 title: Securing Privileged Access in Azure AD | Microsoft Docs
 description: A topic that explains the approaches for securing privileged access across Azure, Azure Active Directory and Microsoft Online Services.
 services: active-directory
@@ -33,7 +33,7 @@ Azure Multi-Factor Authentication helps safeguard access to data and application
 
 For an overview of how Azure Multi-Factor Authentication works see the following video.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Windows-Azure-Multi-Factor-Authentication/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Windows-Azure-Multi-Factor-Authentication/player]
 > 
 > 
 

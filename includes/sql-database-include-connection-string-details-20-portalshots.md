@@ -15,7 +15,7 @@ Use the [Azure portal](https://portal.azure.com/) to obtain the connection strin
     ![Select SQL][1-select-sql]
 2. Enter the name of your database into the filter text box near the upper-left of the **SQL databases** blade.
    
-    ![Select Database][2-select-database]]
+    ![Select Database][2-select-database]
 3. Click the row for your database.
 4. After the blade appears for your database, for visual convenience you can click the standard minimize controls to collapse the blades  you used for browsing and database filtering.
 5. Make note of the **SQL database** name and the **Server name**.  The username will be yourusername@yourserver.

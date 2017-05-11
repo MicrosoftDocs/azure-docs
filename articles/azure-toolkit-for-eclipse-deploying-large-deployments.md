@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 04/14/2017
 ms.author: robmcm
 
 ---
@@ -22,10 +22,14 @@ If your deployment is too large to be contained in the default approot folder, y
 
 ## To use a local storage resource as the deployment root folder for large deployments
 1. Create a new local storage resource. The name of the resource does not matter. Storage resources are defined at the role level. The quickest way to access the local storage configuration dialog, from which you could create a new local storage resource, is by using the following steps: Right-click the role in the **Project Explorer** view (expand your Azure project node if you don't see the role), click **Azure**, and then click **Local Storage**. Within the **Local Storage** dialog, click **Add** to create a new local storage resource.
+
 2. Set the desired size to at least 2048 MB (anything less may cause the same file size problems as you would encounter in the approot).
+
 3. Ensure that **Clean the contents when the role instance is recycled** is checked; this will help prevent the deployment's startup logic from running into conflicts with pre-existing files in the resource when the role instance is recycled.
+
 4. Ensure that the **Environment variable storing the resource's directory path after deployment** value is set to the string **DEPLOYROOT**. Your local storage resource dialog will look similar to the following.
-    ![][ic667943]
+
+   ![][ic667943]
 
 Alternatively, if you use **DEPLOYROOT** as the *name* of your local resource and you do not change the automatically-generated environment variable name (which will be set to **DEPLOYROOT_PATH** in that case), that would work for your application as well.
 

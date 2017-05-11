@@ -1,5 +1,5 @@
----
-title: Control routing and virtual appliances using a template | Microsoft Docs
+﻿---
+title: Control routing and virtual appliances in Azure - template | Microsoft Docs
 description: Learn how to control routing and virtual appliances using an Azure Resource Manager template.
 services: virtual-network
 documentationcenter: na
@@ -21,14 +21,14 @@ ms.author: jdial
 # Create User-Defined Routes (UDR) using a template
 
 > [!div class="op_single_selector"]
-- [PowerShell](virtual-network-create-udr-arm-ps.md)
-- [Azure CLI](virtual-network-create-udr-arm-cli.md)
-- [Template](virtual-network-create-udr-arm-template.md)
-- [PowerShell (Classic)](virtual-network-create-udr-classic-ps.md)
-- [CLI (Classic)](virtual-network-create-udr-classic-cli.md)
+> * [PowerShell](virtual-network-create-udr-arm-ps.md)
+> * [Azure CLI](virtual-network-create-udr-arm-cli.md)
+> * [Template](virtual-network-create-udr-arm-template.md)
+> * [PowerShell (Classic)](virtual-network-create-udr-classic-ps.md)
+> * [CLI (Classic)](virtual-network-create-udr-classic-cli.md)
 
 > [!IMPORTANT]
-> Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Azure Resource Manager and classic. Make sure you understand [deployment models and tools](../resource-manager-deployment-model.md) before you work with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article. This article covers the Resource Manager deployment model. 
+> Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Azure Resource Manager and classic. Make sure you understand [deployment models and tools](../azure-resource-manager/resource-manager-deployment-model.md) before you work with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article. This article covers the Resource Manager deployment model. 
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -111,7 +111,7 @@ You also need to ensure that the **FW1** VM has the IP forwarding property enabl
 ## Deploy the template by using click to deploy
 The sample template available in the public repository uses a parameter file containing the default values used to generate the scenario described above. To deploy this template using click to deploy, follow [this link](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](../powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
+1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](/powershell/azure/overview) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 2. Run the following command to create a resource group:
 
 	```powershell
@@ -172,7 +172,7 @@ The sample template available in the public repository uses a parameter file con
 
 To deploy the ARM template by using the Azure CLI, complete the following steps:
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the following command to switch to Resource Manager mode:
 
 	```azurecli

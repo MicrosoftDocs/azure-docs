@@ -1,4 +1,4 @@
-﻿---
+---
 title: Analyzing Customer Churn using Machine Learning | Microsoft Docs
 description: Case study of developing an integrated model for analyzing and scoring customer churn
 services: machine-learning
@@ -13,19 +13,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 03/31/2017
 ms.author: jeannt
 
 ---
 # Analyzing Customer Churn by using Azure Machine Learning
 ## Overview
-This topic presents a reference implementation of a customer churn analysis project that is built by using Azure Machine Learning Studio. It discusses associated generic models for holistically solving the problem of industrial customer churn. We also measure the accuracy of models that are built by using Machine Learning, and we assess directions for further development.  
+This article presents a reference implementation of a customer churn analysis project that is built by using Azure Machine Learning. In this article, we discuss associated generic models for holistically solving the problem of industrial customer churn. We also measure the accuracy of models that are built by using Machine Learning, and we assess directions for further development.  
 
 ### Acknowledgements
 This experiment was developed and tested by Serge Berger, Principal Data Scientist at Microsoft, and Roger Barga, formerly Product Manager for Microsoft Azure Machine Learning. The Azure documentation team gratefully acknowledges their expertise and thanks them for sharing this white paper.
 
 > [!NOTE]
-> The data used for this experiment is not publicly available. For an example of how to build a machine learning model for churn analysis, see: [Telco churn model template](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)
+> The data used for this experiment is not publicly available. For an example of how to build a machine learning model for churn analysis, see: [Retail churn model template](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)
 > 
 > 
 

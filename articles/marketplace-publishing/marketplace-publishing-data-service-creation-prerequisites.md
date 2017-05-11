@@ -1,4 +1,4 @@
-﻿---
+---
 title: Technical Pre-requisites for creating a Data Service for the Marketplace | Microsoft Docs
 description: Understand the requirements for creating a Data Service to deploy and sell on the Azure Marketplace
 services: marketplace-publishing

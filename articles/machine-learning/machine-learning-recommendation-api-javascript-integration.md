@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Machine Learning Recommendations: JavaScript Integration | Microsoft Docs'
 description: Azure Machine Learning Recommendations - JavaScript Integration - documentation
 services: machine-learning
@@ -13,8 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 03/31/2017
 ms.author: luisca
+
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: machine-learning-datamarket-deprecation
 
 ---
 # Azure Machine Learning Recommendations - JavaScript Integration

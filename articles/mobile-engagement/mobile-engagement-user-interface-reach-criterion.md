@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure Mobile Engagement User Interface - Reach Criterion
 description: Learn how to use targeting criteria to send push campaigns to a select subset of your users using Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: ''
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: a4ed03a0-55b1-4dd8-b0bd-c475005afb66

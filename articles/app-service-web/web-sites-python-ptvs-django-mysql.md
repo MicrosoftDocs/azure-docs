@@ -4,7 +4,7 @@ description: Learn how to use the Python Tools for Visual Studio to create a Dja
 services: app-service\web
 documentationcenter: python
 author: huguesv
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: c60a50b5-8b5e-4818-a442-16362273dabb
@@ -44,7 +44,7 @@ See the [Python Developer Center] for more articles that cover development of Az
 <!-- This note should not render as part of the the previous include. -->
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit card is required, and no commitments are necessary.
+> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit card is required, and no commitments are necessary.
 > 
 > 
 

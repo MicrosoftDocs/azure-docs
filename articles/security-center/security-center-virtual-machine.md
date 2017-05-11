@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Security Center and Azure Virtual Machines | Microsoft Docs
 description: This document helps you to understand how Azure Security Center can safeguard you Azure Virtual Machines.
 services: security-center
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2016
+ms.date: 02/24/2017
 ms.author: yurid
 
 ---

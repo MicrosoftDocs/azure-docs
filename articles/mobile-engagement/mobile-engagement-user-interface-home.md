@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure Mobile Engagement User Interface - Home
 description: Learn how to manage your existing application and projects using Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: ''
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: aff578d2-40f6-43e4-b0ea-7d2674cb28a1

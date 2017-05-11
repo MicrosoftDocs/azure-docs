@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 20.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 80 80" style="enable-background:new 0 0 80 80;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#444444;}
+	.st1{display:none;}
+	.st2{display:inline;fill:#FFFFFF;stroke:#00AEEF;stroke-width:2;stroke-miterlimit:10;}
+	.st3{display:inline;fill:#00AEEF;}
+	.st4{display:inline;}
+	.st5{fill:#00AEEF;}
+	.st6{display:inline;fill:#FFFFFF;}
+	.st7{display:inline;fill:#FFF200;stroke:#231F20;stroke-width:0.5;stroke-miterlimit:10;}
+	.st8{display:inline;fill:#FFFFFF;stroke:#E6E7E8;stroke-width:0.25;stroke-miterlimit:10;}
+	.st9{display:none;fill:#FFF200;stroke:#231F20;stroke-width:0.5;stroke-miterlimit:10;}
+	.st10{display:none;fill:#FFF200;stroke:#231F20;stroke-width:0.2;stroke-miterlimit:10;}
+	.st11{display:inline;fill:#B5BABE;}
+	.st12{fill:#FFFFFF;}
+	.st13{fill:#6E6E6E;}
+	.st14{fill:#FFFFFF;stroke:#6E6E6E;stroke-width:3;stroke-miterlimit:10;}
+	.st15{fill:none;stroke:#6E6E6E;stroke-width:3;stroke-miterlimit:10;}
+	.st16{fill:none;}
+	.st17{fill:#231F20;}
+	.st18{fill:#E6E6E6;}
+	.st19{fill:#2E2E2E;}
+	.st20{fill:#CCCCCC;}
+</style>
+<g id="Layer_1">
+	<g class="st1">
+		<rect x="9.764" y="54.125" class="st11" width="54" height="8.875"/>
+		<polygon class="st11" points="63.764,53 9.764,53 13.764,33.125 59.764,33.125 		"/>
+		<rect x="13.722" y="25.735" class="st11" width="46.083" height="8.385"/>
+		<rect x="44.44" y="17.551" class="st11" width="16.5" height="5.824"/>
+		<polygon class="st6" points="29.755,50.75 23.089,50.75 24.089,47.833 30.439,47.833 		"/>
+		<polygon class="st6" points="53.773,50.75 60.439,50.75 59.439,47.833 53.089,47.833 		"/>
+		<polygon class="st6" points="43.773,50.75 50.439,50.75 49.439,47.833 43.089,47.833 		"/>
+		<polygon class="st6" points="40.097,50.75 33.431,50.75 33.688,47.833 39.813,47.833 		"/>
+		<polygon class="st6" points="30.399,45.75 24.345,45.75 25.253,42.833 31.02,42.833 		"/>
+		<polygon class="st6" points="52.21,45.75 58.264,45.75 57.356,42.833 51.589,42.833 		"/>
+		<polygon class="st6" points="43.129,45.75 49.183,45.75 48.275,42.833 42.507,42.833 		"/>
+		<polygon class="st6" points="39.791,45.75 33.737,45.75 33.97,42.833 39.532,42.833 		"/>
+		<polygon class="st6" points="22.755,40.75 17.264,40.75 18.088,37.833 23.318,37.833 		"/>
+		<polygon class="st6" points="30.991,40.75 25.5,40.75 26.324,37.833 31.555,37.833 		"/>
+		<polygon class="st6" points="50.773,40.75 56.264,40.75 55.44,37.833 50.21,37.833 		"/>
+		<polygon class="st6" points="42.537,40.75 48.027,40.75 47.204,37.833 41.973,37.833 		"/>
+		<polygon class="st6" points="39.509,40.75 34.018,40.75 34.23,37.833 39.275,37.833 		"/>
+	</g>
+</g>
+<g id="Layer_3" class="st1">
+</g>
+<g id="titles">
+	<path class="st13" d="M74.125,76H6c-1.1,0-2-0.9-2-2V23.864c0-1.1,0.9-2,2-2h68.125c1.1,0,2,0.9,2,2V74
+		C76.125,75.1,75.225,76,74.125,76z"/>
+	<rect x="8.125" y="25.864" class="st12" width="63.875" height="42.136"/>
+	<ellipse class="st13" cx="39.875" cy="21.864" rx="8" ry="4"/>
+	<circle class="st13" cx="53" cy="8" r="4"/>
+	<circle class="st13" cx="27" cy="8" r="4"/>
+	<circle class="st12" cx="66" cy="72" r="2"/>
+	<circle class="st12" cx="60" cy="72" r="2"/>
+	<circle class="st12" cx="54" cy="72" r="2"/>
+	<rect x="31.218" y="5.718" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -0.117 27.1525)" class="st13" width="3" height="16"/>
+	
+		<rect x="45.782" y="5.718" transform="matrix(0.7071 0.7071 -0.7071 0.7071 23.5485 -29.416)" class="st13" width="3" height="16"/>
+	<circle class="st20" cx="41.25" cy="46.72" r="18"/>
+	<polygon class="st0" points="54,46.738 33,58.16 33,35.28 	"/>
+</g>
+</svg>

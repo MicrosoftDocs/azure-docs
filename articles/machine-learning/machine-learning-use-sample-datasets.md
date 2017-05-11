@@ -1,6 +1,6 @@
-﻿---
-title: Use the sample data sets in Machine Learning Studio | Microsoft Docs
-description: Descriptions of the data sets used in sample models included in ML Studio. You can use these sample data sets for your experiments.
+---
+title: Use the sample datasets in Machine Learning Studio | Microsoft Docs
+description: Descriptions of the datasets used in sample models included in Machine Learning Studio. You can use these sample datasets for your experiments.
 services: machine-learning
 documentationcenter: ''
 author: garyericson
@@ -13,25 +13,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 03/20/2017
 ms.author: garye
 
 ---
-# Use the sample data sets in Azure Machine Learning Studio
+# Use the sample datasets in Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
 
-When you create a new workspace in Azure Machine Learning, a number of sample data sets and experiments are included by default. Many of these sample data sets are used by the sample models in the [Azure Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/), and others are included as examples of various types of data typically used in machine learning.
+When you create a new workspace in Azure Machine Learning, a number of sample datasets and experiments are included by default. Many of these sample datasets are used by the sample models in the [Azure Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/). Others are included as examples of various types of data typically used in machine learning.
 
-Some of these data sets are available in Azure Blob storage. For these data sets the table below provides a direct link. You can use these data sets in your experiments by using the [Import Data][import-data] module.
+Some of these datasets are available in Azure Blob storage. For these datasets, the following table provides a direct link. You can use these datasets in your experiments by using the [Import Data][import-data] module.
 
-The rest of these sample data sets are listed under **Saved Datasets** in the module palette to the left of the experiment canvas when you open or create a new experiment in ML Studio.
-You can use any of these data sets in your own experiment by dragging it to your experiment canvas.
+The rest of these sample datasets are available in your workspace under **Saved Datasets** in the module palette to the left of the experiment canvas when you open or create a new experiment in Machine Learning Studio.
+You can use any of these datasets in your own experiment by dragging it to your experiment canvas.
 
-<!--
-For a list of sample experiments available in ML Studio, see [Machine Learning Sample Experiments][sample-experiments].
-
-[sample-experiments]: machine-learning-sample-experiments.md
--->
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -59,7 +54,7 @@ U.S. airport codes.<p> </p>This dataset contains one row for each U.S. airport, 
 <tr>
   <td valign=top>Automobile price data (Raw)</td>
   <td valign=top>
-Information about automobiles by make and model, including the price, features such as the number of cylinders and MPG, as well as an insurance risk score.<p> </p>The risk score is initially associated with auto price and then adjusted for actual risk in a process known to actuaries as symboling. A value of +3 indicates that the auto is risky, and a value of -3 that it is probably pretty safe.<p> </p><b>Usage:</b> Predict the risk score by features, using regression or multivariate classification. <p> </p><b>Related Research:</b> Schlimmer, J.C. (1987). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
+Information about automobiles by make and model, including the price, features such as the number of cylinders and MPG, as well as an insurance risk score.<p> </p>The risk score is initially associated with auto price and then adjusted for actual risk in a process known to actuaries as symboling. A value of +3 indicates that the auto is risky, and a value of -3 that it is probably safe.<p> </p><b>Usage:</b> Predict the risk score by features, using regression or multivariate classification. <p> </p><b>Related Research:</b> Schlimmer, J.C. (1987). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
   </td>
 </tr>
 
@@ -74,7 +69,7 @@ UCI Bike Rental dataset that is based on real data from Capital Bikeshare compan
 <tr ID=bill-gates-rgb-image>
   <td valign=top>Bill Gates RGB Image</td>
   <td valign=top>
-Publicly-available image file converted to CSV data.<p> </p>The code for converting the image is provided in the <strong>Color quantization using K-Means clustering</strong> model detail page.
+Publicly available image file converted to CSV data.<p> </p>The code for converting the image is provided in the <strong>Color quantization using K-Means clustering</strong> model detail page.
   </td>
 </tr>
 
@@ -144,14 +139,14 @@ Labels from the KDD Cup 2009 customer relationship prediction challenge (<a href
 <tr>
   <td valign=top>Energy Efficiency Regression data</td>
   <td valign=top>
-A collection of simulated energy profiles, based on 12 different building shapes. The buildings differ with respect to differentiated by 8 features, such as glazing area, the glazing area distribution, and orientation.<p> </p><b>Usage:</b> Use either regression or classification to predict the energy efficiency rating based as one of two real valued responses. For multi-class classification, is round the response variable to the nearest integer. <p> </p><b>Related Research:</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
+A collection of simulated energy profiles, based on 12 different building shapes. The buildings are differentiated by 8 features, such as glazing area, the glazing area distribution, and orientation.<p> </p><b>Usage:</b> Use either regression or classification to predict the energy-efficiency rating based as one of two real valued responses. For multi-class classification, is round the response variable to the nearest integer. <p> </p><b>Related Research:</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
   </td>
 </tr>
 
 <tr ID=flight-delays-data>
   <td valign=top>Flight Delays Data</td>
   <td valign=top>
-Passenger flight on-time performance data taken from the TranStats data collection of the U.S. Department of Transportation (<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">On-Time</a>).<p> </p>The dataset covers the time period April-October 2013. Before uploading to Azure ML Studio, the dataset was processed as follows:<ul><li>The dataset was filtered to cover only the 70 busiest airports in the continental US</li><li>Cancelled flights were labeled as delayed by more than 15 minutes</li><li>Diverted flights were filtered out</li><li>The following columns were selected: Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Cancelled</li></ul>
+Passenger flight on-time performance data taken from the TranStats data collection of the U.S. Department of Transportation (<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">On-Time</a>).<p> </p>The dataset covers the time period April-October 2013. Before uploading to Azure Machine Learning Studio, the dataset was processed as follows:<ul><li>The dataset was filtered to cover only the 70 busiest airports in the continental US</li><li>Canceled flights were labeled as delayed by more than 15 minutes</li><li>Diverted flights were filtered out</li><li>The following columns were selected: Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Canceled</li></ul>
 </td>
 </tr>
 
@@ -179,14 +174,14 @@ The UCI Statlog (German Credit Card) dataset (<a href="http://archive.ics.uci.ed
 <tr ID=imdb-movie-titles>
   <td valign=top>IMDB Movie Titles</td>
   <td valign=top>
-The dataset contains information about movies that were rated in Twitter tweets: IMDB movie ID, movie name and genre, production year. There are 17K movies in the dataset. The dataset was introduced in the paper "S. Dooms, T. De Pessemier and L. Martens. MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013."
+The dataset contains information about movies that were rated in Twitter tweets: IMDB movie ID, movie name, genre, and production year. There are 17K movies in the dataset. The dataset was introduced in the paper "S. Dooms, T. De Pessemier and L. Martens. MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013."
   </td>
 </tr>
 
 <tr>
   <td valign=top>Iris two class data</td>
   <td valign=top>
-This is perhaps the best known database to be found in the pattern recognition literature. The data set is relatively small, containing 50 examples each of petal measurements from three iris varieties.<p> </p><b>Usage:</b> Predict the iris type from the measurements.  <p> </p><b>Related Research:</b> Fisher, R.A. (1988). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
+This is perhaps the best known database to be found in the pattern recognition literature. The dataset is relatively small, containing 50 examples each of petal measurements from three iris varieties.<p> </p><b>Usage:</b> Predict the iris type from the measurements.  <p> </p><b>Related Research:</b> Fisher, R.A. (1988). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
   </td>
 </tr>
 
@@ -214,49 +209,49 @@ A subset of data from the National Institute of Diabetes and Digestive and Kidne
 <tr>
   <td valign=top>Restaurant customer data</td>
   <td valign=top>
-A set of metadata about customers, including demographics and preferences.<p> </p><b>Usage:</b> Use this dataset, in combination with the other two restaurant data sets, to train and test a recommender system. <p> </p><b>Related Research:</b> Bache, K. and Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+A set of metadata about customers, including demographics and preferences.<p> </p><b>Usage:</b> Use this dataset, in combination with the other two restaurant datasets, to train and test a recommender system. <p> </p><b>Related Research:</b> Bache, K. and Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Restaurant feature data</td>
   <td valign=top>
-A set of metadata about restaurants and their features, such as food type, dining style, and location.<p> </p><b>Usage:</b> Use this dataset, in combination with the other two restaurant data sets, to train and test a recommender system. <p> </p><b>Related Research:</b> Bache, K. and Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+A set of metadata about restaurants and their features, such as food type, dining style, and location.<p> </p><b>Usage:</b> Use this dataset, in combination with the other two restaurant datasets, to train and test a recommender system. <p> </p><b>Related Research:</b> Bache, K. and Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Restaurant ratings</td>
   <td valign=top>
-Contains ratings given by users to restaurants on a scale from 0 to 2.<p> </p><b>Usage:</b> Use this dataset, in combination with the other two restaurant data sets, to train and test a recommender system. <p> </p><b>Related Research:</b> Bache, K. and Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+Contains ratings given by users to restaurants on a scale from 0 to 2.<p> </p><b>Usage:</b> Use this dataset, in combination with the other two restaurant datasets, to train and test a recommender system. <p> </p><b>Related Research:</b> Bache, K. and Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Steel Annealing multi-class dataset</td>
   <td valign=top>
-This dataset contains a series of records from steel annealing trials with the physical attributes (width, thickness, type (coil, sheet, etc.) of the resulting steel types.<p> </p><b>Usage:</b> Predict any of two numeric class attributes; hardness or strength. You might also analyze correlations among attributes.<p> </p>Steel grades follow a set standard, defined by SAE and other organizations. You are looking for a specific 'grade' (the class variable) and want to understand the values needed. <p> </p><b>Related Research:</b> Sterling, D. & Buntine, W., (NA). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science <p> </p>A useful guide to steel grades can be found here: <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
+This dataset contains a series of records from steel annealing trials with the physical attributes (width, thickness, type (coil, sheet, etc.) of the resulting steel types.<p> </p><b>Usage:</b> Predict any of two numeric class attributes; hardness or strength. You might also analyze correlations among attributes.<p> </p>Steel grades follow a set standard, defined by SAE and other organizations. You are looking for a specific 'grade' (the class variable) and want to understand the values needed. <p> </p><b>Related Research:</b> Sterling, D. & Buntine, W. (NA). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science <p> </p>A useful guide to steel grades can be found here: <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
 </tr>
 
 <tr>
   <td valign=top>Telescope data</td>
   <td valign=top>
-Records of high energy gamma particle bursts along with background noise, both simulated using a Monte Carlo process.<p> </p>The intent of the simulation was to improve the accuracy of ground-based atmospheric Cherenkov gamma telescopes, using statistical methods to differentiate between the desired signal (Cherenkov radiation showers) and background noise (hadronic showers initiated by cosmic rays in the upper atmosphere).<p> </p>The data has been pre-processed to create an elongated cluster with the long axis is oriented towards the camera center. The characteristics of this ellipse, (often called Hillas parameters) are among the image parameters that can be used for discrimination.<p> </p><b>Usage:</b> Predict whether image of a shower represents signal or background noise.<p> </p><b>Notes:</b> Simple classification accuracy is not meaningful for this data, since classifying a background event as signal is worse than classifying a signal event as background. For comparison of different classifiers the ROC graph should be used. The probability of accepting a background event as signal must be below one of the following thresholds: 0.01 , 0.02 , 0.05 , 0.1 , or 0.2.<p> </p>Also, note that the number of background events (h, for hadronic showers) is underestimated, whereas in real measurements, the h or noise class represents the majority of events. <p> </p><b>Related Research:</b> Bock, R.K. (1995). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information
+Records of high energy gamma particle bursts along with background noise, both simulated using a Monte Carlo process.<p> </p>The intent of the simulation was to improve the accuracy of ground-based atmospheric Cherenkov gamma telescopes, using statistical methods to differentiate between the desired signal (Cherenkov radiation showers) and background noise (hadronic showers initiated by cosmic rays in the upper atmosphere).<p> </p>The data has been pre-processed to create an elongated cluster with the long axis is oriented towards the camera center. The characteristics of this ellipse (often called Hillas parameters) are among the image parameters that can be used for discrimination.<p> </p><b>Usage:</b> Predict whether image of a shower represents signal or background noise.<p> </p><b>Notes:</b> Simple classification accuracy is not meaningful for this data, since classifying a background event as signal is worse than classifying a signal event as background. For comparison of different classifiers the ROC graph should be used. The probability of accepting a background event as signal must be below one of the following thresholds: 0.01 , 0.02 , 0.05 , 0.1 , or 0.2.<p> </p>Also, note that the number of background events (h, for hadronic showers) is underestimated, whereas in real measurements, the h or noise class represents the majority of events. <p> </p><b>Related Research:</b> Bock, R.K. (1995). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information
   </td>
 </tr>
 
 <tr ID=weather-dataset>
   <td valign=top>Weather Dataset</td>
   <td valign=top>
-Hourly land-based weather observations from NOAA (<a href="http://cdo.ncdc.noaa.gov/qclcd_ascii/, merged data from 201304 to 201310">merged data from 201304 to 201310</a>).<p> </p>The weather data covers observations made from airport weather stations, covering the time period April-October 2013. Before uploading to Azure ML Studio, the dataset was processed as follows:<ul><li>Weather station IDs were mapped to corresponding airport IDs</li><li>Weather stations not associated with the 70 busiest airports were filtered out</li><li>The Date column was split into separate Year, Month, and Day columns</li><li>The following columns were selected: AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li></ul>
+Hourly land-based weather observations from NOAA (<a href="http://cdo.ncdc.noaa.gov/qclcd_ascii/, merged data from 201304 to 201310">merged data from 201304 to 201310</a>).<p> </p>The weather data covers observations made from airport weather stations, covering the time period April-October 2013. Before uploading to Azure Machine Learning Studio, the dataset was processed as follows:<ul><li>Weather station IDs were mapped to corresponding airport IDs</li><li>Weather stations not associated with the 70 busiest airports were filtered out</li><li>The Date column was split into separate Year, Month, and Day columns</li><li>The following columns were selected: AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li></ul>
   </td>
 </tr>
 
 <tr ID=wikipedia-sp-500-dataset>
   <td valign=top>Wikipedia SP 500 Dataset</td>
   <td valign=top>
-Data is derived from Wikipedia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>) based on articles of each S&P 500 company, stored as XML data.<p> </p>Before uploading to Azure ML Studio, the dataset was processed as follows:<ul><li>Extract text content for each specific company</li><li>Remove wiki formatting</li><li>Remove non-alphanumeric characters</li><li>Convert all text to lowercase</li><li>Known company categories were added</li></ul><p> </p>Note that for some companies an article could not be found, so the number of records is less than 500.
+Data is derived from Wikipedia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>) based on articles of each S&P 500 company, stored as XML data.<p> </p>Before uploading to Azure Machine Learning Studio, the dataset was processed as follows:<ul><li>Extract text content for each specific company</li><li>Remove wiki formatting</li><li>Remove non-alphanumeric characters</li><li>Convert all text to lowercase</li><li>Known company categories were added</li></ul><p> </p>Note that for some companies an article could not be found, so the number of records is less than 500.
   </td>
 </tr>
 
@@ -288,7 +283,7 @@ Features of training examples in the RCV1-V2 Reuters news dataset. The dataset h
 <tr ID=intrusion-detection>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a><br></td>
   <td valign=top>
-Dataset from the KDD Cup 1999 Knowledge Discovery and Data Mining Tools Competition (<a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).<p> </p>The dataset was downloaded and stored in Azure Blob storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a>) and includes both training and testing datasets. The training dataset has approximately 126K rows and 43 columns, including the labels; 3 columns are part of the label information, and 40 columns, consisting of numeric and string/categorical features, are available for training the model. The test data has approximately 22.5K test examples with the same 43 columns as in the training data.
+Dataset from the KDD Cup 1999 Knowledge Discovery and Data Mining Tools Competition (<a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).<p> </p>The dataset was downloaded and stored in Azure Blob storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a>) and includes both training and testing datasets. The training dataset has approximately 126K rows and 43 columns, including the labels. Three columns are part of the label information, and 40 columns, consisting of numeric and string/categorical features, are available for training the model. The test data has approximately 22.5K test examples with the same 43 columns as in the training data.
 
   </td>
 </tr>
@@ -296,14 +291,14 @@ Dataset from the KDD Cup 1999 Knowledge Discovery and Data Mining Tools Competit
 <tr ID=rcv1-v2-topics-qrels>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
   <td valign=top>
-Topic assignments for news articles in the RCV1-V2 Reuters news dataset. A news article can be assigned to several topics. The format of each row is "<topic name> <document id> 1". The dataset contains 2.6M topic assignments. The dataset was made available by David. D. Lewis.
+Topic assignments for news articles in the RCV1-V2 Reuters news dataset. A news article can be assigned to several topics. The format of each row is "&lt;topic name&gt; &lt;document id&gt; 1". The dataset contains 2.6M topic assignments. The dataset was made available by David. D. Lewis.
   </td>
 </tr>
 
 <tr ID=student-performance>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td valign=top>
-This data comes from the KDD Cup 2010 Student performance evaluation challenge (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">student performance evaluation</a>). The data used is the Algebra_2008_2009 training set (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Algebra I 2008-2009. Challenge data set from KDD Cup 2010 Educational Data Mining Challenge. Find it at <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> or <a href="http://www.kdd.org/sites/default/files/kddcup/site/2010/files/algebra_2008_2009.zip">algebra_2008_2009.zip</a>.<p> </p>The dataset was downloaded and stored in Azure Blob storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) and contains log files from a student tutoring system. The supplied features include problem ID and its brief description, student ID, timestamp, and how many attempts the student made before solving the problem in the right way. The original dataset has 8.9M records, this dataset has been down-sampled to the first 100K rows. The dataset has 23 tab-separated columns of various types: numeric, categorical, and timestamp.
+This data comes from the KDD Cup 2010 Student performance evaluation challenge (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">student performance evaluation</a>). The data used is the Algebra_2008_2009 training set (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Algebra I 2008-2009. Challenge dataset from KDD Cup 2010 Educational Data Mining Challenge. Find it at <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> or <a href="http://www.kdd.org/sites/default/files/kddcup/site/2010/files/algebra_2008_2009.zip">algebra_2008_2009.zip</a>.<p> </p>The dataset was downloaded and stored in Azure Blob storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) and contains log files from a student tutoring system. The supplied features include problem ID and its brief description, student ID, timestamp, and how many attempts the student made before solving the problem in the right way. The original dataset has 8.9M records; this dataset has been down-sampled to the first 100K rows. The dataset has 23 tab-separated columns of various types: numeric, categorical, and timestamp.
 
   </td>
 </tr>

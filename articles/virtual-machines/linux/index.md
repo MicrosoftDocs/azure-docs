@@ -1,196 +1,181 @@
 ---
+title: Azure Linux Virtual Machine Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to create a virtual machine using the Linux distribution of your choice. Documentation shows different ways to create VM templates.
+services: virtual-machines\linux
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.service: virtual-machines\linux
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
-#Linux Virtual Machine Documentation
-
-Use Azure Virtual Machines to create and run Linux virtual machines on Azure's compute, networking, and storage infrastructure.  Scale to thousands of machines for internet-wide deployments, or run one for a few minutes to crunch some serious numbers:  you'll get both speed and consistency.
-
-<ul class="panelContent cardsFTitle">
-    <li>
+<div class="content">
+    <h1>Linux Virtual Machines</h1>
+    <div class="introHolder" style="justify-content: space-between;">
+        <div class="intro" style="min-width: 200px">
+            <p>Azure Linux Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure using Red Hat, Ubuntu, or the Linux distribution of your choice. Learn how to create, configure, manage, and scale Linux VMs with our quickstarts, tutorials, and samples.</p>
+        </div>
+        <a href="https://azure.microsoft.com/en-us/resources/videos/create-linux-virtual-machine/">
+            <div class="calloutHolder" style="max-width: 250px">
+                <div>
+                    <img src="media/index/create-linux-virtual-machine.png" style="width: 250px" />
+                </div>
+                <div>
+                    <p style="margin-top: 0; color: #6e6e6e">Create a Linux Virtual Machine. (4:11)</p>
+                </div>
+            </div>
+        </a>
+    </div>
+<h2 style="margin-top: 0px; margin-bottom: 0px;">5-Minute Quickstarts</h2>
+<p style="margin-top: 6px; margin-bottom: 6px;">Learn how to deploy an NGINX web-server within a Virtual Machine running Ubuntu:</p>
+<div class="ico48Case">
+    <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/cli.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Create a Linux VM using the Azure CLI 2.0 (Preview)</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <img src="media/index/cli.svg" alt="">
+            <span>Azure CLI</span>
         </a>
-    </li>
-    <li>
+    </div>
+    <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/portal.svg" alt="" />
+        <img src="media/index/portal.svg" alt="">
+            <span>Azure Portal</span>
+        </a>
+    </div>
+    <div class="ico48Link">
+        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
+            <img src="media/index/logo_powershell.svg" alt="">
+            <span>Azure PowerShell</span>
+        </a>
+    </div>
+<div>
+
+<h2 style="margin-top: 36px">Step-by-Step Tutorials</h2>
+<p>Learn how to deploy, manage, and scale Linux VMs on Azure</p>
+<ol>
+    <li><a href="/azure/virtual-machines/linux/tutorial-manage-vm">Create and manage Linux VMs</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-manage-disks">Create and manage VM disks</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-automate-vm-deployment">Automate VM configuration</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-custom-images">Create custom VM images</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-availability-sets">Create highly available VMs</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-create-vmss">Create a VM scale set</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-load-balancer">Load balance VMs</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-virtual-network">Manage VMs and virtual networks</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-backup-vms">Backup VMs</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-monitoring">Monitor VMs</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-azure-security">Manage security on VMs</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Create a CI/CD infrastructure with Jenkins, Docker, and GitHub</a></li>
+    
+</ol>
+
+<h2 style="margin-top: 36px">Free PluralSight Video Training</h2>
+<ul class="panelContent cardsW">
+    <li style="flex: 0 1 25%">
+        <a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02"> 
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                       <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img style="max-width: 100%" alt="" src="media/index/video-training-infrastructure.png" data-linktype="external">
+                            </div>
                         </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Create a VM using the Portal</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <div class="cardText">
+                            <p>Managing Infrastructure</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </a>
     </li>
-    <li>
-        <a href="/azure/virtual-machines/virtual-machines-linux-azure-overview?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/virtual-machine.svg" alt="" />
+    <li style="flex: 0 1 25%">
+        <a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02"> 
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                       <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img style="max-width: 100%" alt="" src="media/index/video-training-vms.png" data-linktype="external">
+                            </div>
                         </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Learn about Linux Virtual Machines</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <div class="cardText">
+                            <p>Getting Started with Virtual Machines</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </a>
     </li>
-    <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=virtual-machines">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
+    <li style="flex: 0 1 25%">
+        <a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02"> 
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                       <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img style="max-width: 100%" alt="" src="media/index/video-training-iaas-monitoring.png" data-linktype="external">
+                            </div>
                         </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Virtual Machines Video Library</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <div class="cardText">
+                            <p>Getting Started with IaaS Monitoring</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </a>
     </li>
 </ul>
 
----
+<h2>Samples</h2>
+<p>Deploy your first application to Azure.</p>
+<ul class="spaced">
+    <li><a href="/azure/virtual-machines/virtual-machines-linux-cli-samples">Azure CLI</a></li>
+    <li><a href="/azure/virtual-machines/virtual-machines-linux-powershell-samples">Azure PowerShell</a></li>
+</ul>
 
-##Reference
-
+<h2 style="margin-top: 36px">Reference</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>PowerShell Cmdlets</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/cli/azure/vm">Azure CLI</a></p>
+                        <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <a href="/cli/azure/install-az-cli2">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Install the Azure CLI</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
+                        <p><a href="/java/api">Java</a></p>
+                        <p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node​.js</a></p>
+                        <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET Managed Reference API</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java SDK</h3>
-                        <p>Java API Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/compute">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (Compute)</h3>
-                        <p>Compute REST API Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/mt163658">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (Network)</h3>
-                        <p>Network REST API Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/storage">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (Storage)</h3>
-                        <p>Storage REST API Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/compute">REST API Reference</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
-	
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/linux.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Linux Virtual Machine Documentation
-        </div>
-    </a>
 </div>

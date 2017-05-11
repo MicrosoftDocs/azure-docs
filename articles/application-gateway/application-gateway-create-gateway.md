@@ -4,7 +4,7 @@ description: This page provides instructions to create, configure, start, and de
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: 577054ca-8368-4fbf-8d53-a813f29dc3bc
@@ -12,21 +12,20 @@ ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/12/2016
 ms.author: gwallace
 
 ---
-# Create, start, or delete an application gateway
+# Create, start, or delete an application gateway with PowerShell 
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-gateway-portal.md)
+> * [Azure portal](application-gateway-create-gateway-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
-> 
-> 
 
 Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. 
 Application Gateway provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. 
@@ -42,6 +41,7 @@ This article walks you through the steps to create, configure, start, and delete
 4. The servers that you configure to use the application gateway must exist or have their endpoints created either in the virtual network or with a public IP/VIP assigned.
 
 ## What is required to create an application gateway?
+
 When you use the `New-AzureApplicationGateway` command to create the application gateway, no configuration is set at this point and the newly created resource are configured either by using XML or a configuration object.
 
 The values are:
@@ -62,8 +62,6 @@ To create an application gateway:
 
 > [!NOTE]
 > If you need to configure a custom probe for your application gateway, see [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-classic-ps.md). Check out [custom probes and health monitoring](application-gateway-probe-overview.md) for more information.
-> 
-> 
 
 ![Scenario example][scenario]
 
@@ -71,7 +69,7 @@ To create an application gateway:
 
 To create the gateway, use the `New-AzureApplicationGateway` cmdlet, replacing the values with your own. Billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
 
-The following example creates an application gateway by using a virtual network called "testvnet1" and a subnet called "subnet-1".
+The following example creates an application gateway by using a virtual network called "testvnet1" and a subnet called "subnet-1":
 
 ```powershell
 New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
@@ -99,8 +97,6 @@ DnsName       :
 
 > [!NOTE]
 > The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. You can choose between Small, Medium and Large.
-> 
-> 
 
 *VirtualIPs* and *DnsName* are shown as blank because the gateway has not started yet. These are created once the gateway is in the running state.
 
@@ -108,11 +104,11 @@ DnsName       :
 
 You can configure the application gateway by using XML or a configuration object.
 
-## Configure the application gateway by using XML
+### Configure the application gateway by using XML
 
 In the following example, you use an XML file to configure all application gateway settings and commit them to the application gateway resource.  
 
-### Step 1
+#### Step 1
 
 Copy the following text to Notepad.
 
@@ -165,8 +161,6 @@ Edit the values between the parentheses for the configuration items. Save the fi
 
 > [!IMPORTANT]
 > The protocol item Http or Https is case-sensitive.
-> 
-> 
 
 The following example shows how to use a configuration file to set up the application gateway. The example load balances HTTP traffic on public port 80 and sends network traffic to back-end port 80 between two IP addresses.
 
@@ -215,7 +209,7 @@ The following example shows how to use a configuration file to set up the applic
 </ApplicationGatewayConfiguration>
 ```
 
-### Step 2
+#### Step 2
 
 Next, set the application gateway. Use the `Set-AzureApplicationGatewayConfig` cmdlet with a configuration XML file.
 
@@ -223,16 +217,14 @@ Next, set the application gateway. Use the `Set-AzureApplicationGatewayConfig` c
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 ```
 
-## Configure the application gateway by using a configuration object
+### Configure the application gateway by using a configuration object
 
 The following example shows how to configure the application gateway by using configuration objects. All configuration items must be configured individually and then added to an application gateway configuration object. After creating the configuration object, you use the `Set-AzureApplicationGateway` command to commit the configuration to the previously created application gateway resource.
 
 > [!NOTE]
-> Before assigning a value to each configuration object, you need to declare what kind of object PowerShell uses for storage. The first line to create the individual items defines what **Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)** are used.
-> 
-> 
+> Before assigning a value to each configuration object, you need to declare what kind of object PowerShell uses for storage. The first line to create the individual items defines what `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)` are used.
 
-### Step 1
+#### Step 1
 
 Create all individual configuration items.
 
@@ -303,7 +295,7 @@ $rule.Listener = "listener1"
 $rule.BackendAddressPool = "pool1"
 ```
 
-### Step 2
+#### Step 2
 
 Assign all individual configuration items to an application gateway configuration object ($appgwconfig).
 
@@ -362,8 +354,6 @@ Once the gateway has been configured, use the `Start-AzureApplicationGateway` cm
 
 > [!NOTE]
 > The `Start-AzureApplicationGateway` cmdlet might take up to 15-20 minutes to finish.
-> 
-> 
 
 ```powershell
 Start-AzureApplicationGateway AppGwTest
@@ -393,9 +383,9 @@ Vip           : 138.91.170.26
 DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 ```
 
-## Delete an application gateway
+## Delete the application gateway
 
-To delete an application gateway:
+To delete the application gateway:
 
 1. Use the `Stop-AzureApplicationGateway` cmdlet to stop the gateway.
 2. Use the `Remove-AzureApplicationGateway` cmdlet to remove the gateway.

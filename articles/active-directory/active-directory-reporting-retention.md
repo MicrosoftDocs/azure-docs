@@ -3,7 +3,7 @@ title: Azure Active Directory report retention policies | Microsoft Docs
 description: Retention policies on report data in your Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: ''
 
@@ -13,36 +13,55 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2016
-ms.author: dhanyahk
+ms.date: 04/06/2017
+ms.author: dhanyahk;markvi
 
 ---
 # Azure Active Directory report retention policies
-*This documentation is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
 
+This topic provides you with answers to the most common questions in conjunction with the data retention for the different activity reports in Azure Active Directory. 
 
-This article provides an overview of data retention for the different Activity reports present in Azure Active Directory. 
+**Q: How can you get the collection of activity data started?**
 
-For Activity reports, for Premium and Premium 2 customers, we start collecting your activity data as soon as you sign-up for a Premium license. For free customers, we start collecting activity data as soon as you login into the portal or use our reporting APIs for the first time. 
+**A:**
 
-If you had already seeing reports in the Azure Classic portal, you will see your data immediately in the Azure Portal (new). If you haven’t turned on reporting through the old portal and logging into Azure Active Directory in Azure Portal and want to see these activity reports, it may take up 2 hours for you to see the data. We start collecting the data as soon as you log into the Azure Active Directory blade.
+| Azure AD Edition | Collection Start |
+| :--              | :--   |
+| Azure AD Premium P1 <br /> Azure AD Premium P2 | When you sign-up for a subscription |
+| Azure AD Free | The first time you open the [Azure Active Directory blade](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) or use the [reporting APIs](https://aka.ms/aadreports)  |
 
-For Security signals, we start collecting data as soon as you opt-in to use Identity Protection Center. 
+---
+**Q: When is your activity data available in the Azure portal?**
+
+**A:**
+
+- **Immediately** - If you have already been working with reports in the Azure classic portal
+- **Within 2 hours** - If you haven’t turned reporting on  in the Azure classic portal
+
+---
+**Q: How can you get the collection of security signals started?**  
+
+**A:** For security signals, the collection process starts when you opt-in to use the Identity Protection Center. 
 
 
+---
+**Q: For how long is the collected data stored?**
+
+**A:**
 
 **Activity reports**	
 
-| Report | Azure AD Free | Azure AD Premium 1 | Azure AD Premium 2 |
-| :--    | :--           | :--                | :--                |
-| Directory Audit | 7 days | 30 days | 30 days |
-| Sign-in Activity |	7 days | 30 days | 30 days |
+| Report                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--                    | :--           | :--                 | :--                 |
+| Directory Audit        | 7 days        | 30 days             | 30 days             |
+| Sign-in Activity       | 7 days        | 30 days             | 30 days             |
 
 **Security Signals**
 
-| Report | Azure AD Free | Azure AD Premium 1 | Azure AD Premium 2 |
-| :--    | :--           | :--                | :--                |
-| Risky sign-ins | 7 days | 30 days | 90 days |
+| Report         | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--            | :--           | :--                 | :--                 |
+| Users at risk  | 7 days        | 30 days             | 90 days             |
+| Risky sign-ins | 7 days        | 30 days             | 90 days             |
 
-
+---

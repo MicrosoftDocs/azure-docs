@@ -1,20 +1,19 @@
-﻿---
+---
 title: Azure Government Subscriptions | Microsoft Docs
 description: Information on managing your subscription in Azure Government
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: ''
 author: zakramer
 manager: liki
-editor: ''
 
 ms.assetid: d3375e84-a37d-4e44-9040-70dbe08eabfc
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/21/2016
+ms.date: 01/12/2017
 ms.author: zakramer
 
 ---
@@ -26,102 +25,7 @@ The portal is the primary way that most people connect to Azure Government.  To 
 
 Subscriptions can be created for your account by connecting to [https://account.windowsazure.us](https://account.windowsazure.us).
 
-## Connecting via PowerShell
-Whether you are using Azure PowerShell to manage a large subscription through script or access features that are not currently available in the Azure portal you need to connect to Azure Government instead of Azure Public.  If you have used PowerShell in Azure Public, it is mostly the same.  The differences in Azure Government are:
 
-* Connecting your account
-* Region names
-
-> [!NOTE]
-> If you have not used PowerShell yet, check out the [Introduction to Azure PowerShell](../powershell-install-configure.md).
-> 
-> 
-
-When you start PowerShell, you have to tell Azure PowerShell to connect to Azure Government by specifying an environment parameter.  The parameter ensures that PowerShell is connecting to the correct endpoints.  The collection of endpoints is determined when you connect log in to your account.  Different APIs require different versions of the environment switch:
-
-| Connection type | Command |
-| --- | --- |
-| [Service Management](https://msdn.microsoft.com/library/dn708504.aspx) commands |`Add-AzureAccount -Environment AzureUSGovernment` |
-| [Resource Management](https://msdn.microsoft.com/library/mt125356.aspx) commands |`Login-AzureRmAccount -EnvironmentName AzureUSGovernment` |
-| [Azure Active Directory](https://msdn.microsoft.com/library/azure/jj151815.aspx) commands |`Connect-MsolService -AzureEnvironment UsGovernment` |
-| [Azure Active Directory command v2](https://msdn.microsoft.com/library/azure/mt757189.aspx) |`Connect-AzureAD -AzureEnvironmentName AzureUSGovernment` |
-| [Azure CLI Command Line](../xplat-cli-install.md) |`azure login –environment "AzureUSGovernment"` |
-
-You may also use the Environment switch when connecting to a storage account using New-AzureStorageContext and specify AzureUSGovernment.
-
-### Determining region
-Once you are connected, there is one additional difference – The regions used to target a service.  Every Azure cloud has different regions.  You can see them listed on the service availability page.  You normally use the region in the Location parameter for a command.
-
-There is one catch.  The Azure Government regions need to be formatted differently than their common names:
-
-| Common name | Command |
-| --- | --- |
-| US Gov Virginia |USGov Virginia |
-| US Gov Iowa |USGov Iowa |
-
-> [!NOTE]
-> There is no space between US and Gov when using the Location Parameter.
-> 
-> 
-
-If you ever want to validate the available regions in Azure Government, you can run the following commands and print the current list:
-
-    Get-AzureLocation
-
-If you are curious about the available environments across Azure, you can run:
-
-    Get-AzureEnvironment
-
-## Connecting via Visual Studio
-Visual Studio is used by developers to easily manage their Azure subscriptions while building solutions.  Visual Studio does not currently allow you to configure a connection to Azure Government in the user interface.  
-
-### Updating Visual Studio for Azure Government
-To enable Visual Studio to connect to Azure Government, you need to update the registry.
-
-1. Close Visual Studio
-2. Create a text file named **VisualStudioForAzureGov.reg**
-3. Copy and paste the following text into **VisualStudioForAzureGov.reg**:
-   
-        Windows Registry Editor Version 5.00
-   
-        [HKEY_CURRENT_USER\Software\Microsoft\VSCommon\ConnectedUser]
-        "AadInstance"="https://login-us.microsoftonline.com/"
-        "adaluri"="https://management.core.usgovcloudapi.net"
-        "AzureRMEndpoint"="https://management.usgovcloudapi.net"
-        "AzureRMAudienceEndpoint"="https://management.core.usgovcloudapi.net"
-        "EnableAzureRMIdentity"="true"
-        "GraphUrl"="graph.windows.net"
-4. Save and then run the file by double-clicking it.  You are prompted to merge the file into your registry.
-5. Launch Visual Studio and begin using [Cloud Explorer](../vs-azure-tools-resources-managing-with-cloud-explorer.md)
-
-> [!NOTE]
-> Once this registry key is set only Azure Government subscriptions are accessible.  You still see subscriptions that you configured previously but they do not work because Visual Studio is now connected to Azure Government instead of Azure Public.  See the following section for steps to revert the changes.
-> 
-> 
-
-### Reverting Visual Studio Connection to Azure Government
-To enable Visual Studio to connect to Azure Public, you need to remove the registry settings that enable connection to Azure Government.
-
-1. Close Visual Studio
-2. Create a text file named **VisualStudioForAzureGov_Remove.reg**
-3. Copy and paste the following text into **VisualStudioForAzureGov_Remove.reg**:
-   
-        Windows Registry Editor Version 5.00
-   
-        [HKEY_CURRENT_USER\Software\Microsoft\VSCommon\ConnectedUser]
-        "AadInstance"=-
-        "adaluri"=-
-        "AzureRMEndpoint"=-
-        "AzureRMAudienceEndpoint"=-
-        "EnableAzureRMIdentity"=-
-        "GraphUrl"=-
-4. Save and then run the file by double-clicking it.  You are prompted to merge the file into your registry.
-5. Launch Visual Studio
-
-> [!NOTE]
-> Once this registry key has been reverted your Azure Government subscriptions show but are not accessible.  They can safely be removed.
-> 
-> 
 
 ## Next steps
 If you are looking for more information, you can check out:
@@ -130,5 +34,5 @@ If you are looking for more information, you can check out:
 * [Step-by-step instruction on connecting to Resource Management](https://blogs.msdn.microsoft.com/azuregov/2015/10/08/configuring-arm-on-azure-gc/)
 * [Azure PowerShell docs on MSDN](https://msdn.microsoft.com/library/mt619274.aspx)
 
-For supplemental information and updates subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/)
+For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/)
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Data Catalog  | Microsoft Docs
+title: Keyboard shortcuts for Azure Data Catalog  | Microsoft Docs
 description: This article shows the Keyboard shortcuts for Azure Data Catalog.
 services: data-catalog
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/13/2016
+ms.date: 05/03/2017
 ms.author: spelluru
 
 ---

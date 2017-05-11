@@ -1,4 +1,3 @@
-﻿
 ---
 title: Never store sensitive data on custom images for Azure RemoteApp | Microsoft Docs
 description: Learn about the guidelines for storing data in custom images in Azure RemoteApp
@@ -19,7 +18,7 @@ ms.author: mbaldwin
 ---
 # Never store sensitive data on custom images
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> Azure RemoteApp is being discontinued on August 31, 2017. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 > 
 > 
 

@@ -1,5 +1,5 @@
-﻿---
-title: Get started with Azure Stream Analytics to process data from IoT devices. | Microsoft Docs
+---
+title: IoT real-time data streams and Azure Stream Analytics | Microsoft Docs
 description: IoT sensor tags and data streams with stream analytics and real-time data processing
 keywords: iot solution, get started with iot
 services: stream-analytics
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 10/19/2016
+ms.date: 03/28/2017
 ms.author: jeffstok
 
 ---

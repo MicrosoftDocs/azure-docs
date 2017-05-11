@@ -1,9 +1,21 @@
 ---
+title: Azure Scheduler Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to use Scheduler to schedule and invoke jobs such as recurring application actions and routine maintenance. Tutorials, API references, and more.
+services: scheduler
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: scheduler
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Scheduler Documentation
 
-Azure Scheduler allows you to declaratively describe actions to run in the cloud.  It then schedules and runs those actions automatically.  Scheduler then maintains a history of job execution results that one can review.
+Learn how to use Scheduler to schedule and automatically invoke recurring jobs in the cloud. Tutorials, API references, and other documentation show you how to schedule and monitor jobs such as recurring application actions and routine maintenance.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -25,7 +37,7 @@ Azure Scheduler allows you to declaratively describe actions to run in the cloud
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=scheduler">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=scheduler">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -64,58 +76,32 @@ Azure Scheduler allows you to declaratively describe actions to run in the cloud
 
 ---
 
-## Reference
-
+<h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="https://msdn.microsoft.com/en-us/library/mt490138(v=azure.200).aspx">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure Scheduler PowerShell Cmdlets</p>
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-	<li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Scheduler Managed Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-	<li>
-        <a href="/rest/api/scheduler/">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Scheduler REST API Reference</p>
+                        <p><a href="/rest/api/scheduler">REST API Reference</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>
+</ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/scheduler.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Scheduler Documentation
-        </div>
-    </a>
-</div>
+

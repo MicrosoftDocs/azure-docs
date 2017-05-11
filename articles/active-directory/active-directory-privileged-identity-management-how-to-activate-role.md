@@ -3,7 +3,7 @@ title: How to activate or deactivate a role | Microsoft Docs
 description: Learn how to activate roles for privileged identities with the Azure Privileged Identity Management application.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: billmath
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2016
-ms.author: kgremban
+ms.date: 02/14/2017
+ms.author: billmath
 
 ---
 # How to activate or deactivate roles in Azure AD Privileged Identity Management
@@ -50,7 +50,6 @@ Once a role has been activated, it automatically deactivates when its time limit
 
 If you are done early, you can also deactivate a role manually in the Azure AD Privileged Identity Management application.  Select **Activate my roles**, choose the role you're done using, and select **Deactivate**.  
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 If you're interested in learning more about Azure AD Privileged Identity Management, the following links have more information.
 

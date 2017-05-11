@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Active Directory Identity Protection Glossary | Microsoft Docs
 description: Azure Active Directory Identity Protection Glossary
 services: active-directory
@@ -6,7 +6,6 @@ keywords: azure active directory identity protection, cloud app discovery, manag
 documentationcenter: ''
 author: MarkusVi
 manager: femila
-editor: ''
 
 ms.assetid: 833119a5-33d6-4482-adda-fa35218c72c3
 ms.service: active-directory
@@ -14,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 04/24/2017
 ms.author: markvi
 
 ---

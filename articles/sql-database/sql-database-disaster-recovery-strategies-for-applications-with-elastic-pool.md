@@ -1,4 +1,4 @@
-﻿---
+---
 title: Designing Cloud Solutions for Disaster Recovery Using SQL Database Geo-Replication | Microsoft Docs
 description: Learn how to design your cloud solution for disaster recovery by choosing the right failover pattern.
 services: sql-database
@@ -9,16 +9,17 @@ editor: monicar
 
 ms.assetid: 2db99057-0c79-4fb0-a7f1-d1c057ec787f
 ms.service: sql-database
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/16/2016
-ms.author: sashan
+ms.date: 04/07/2017
+ms.author: sashan;carlrab
 
 ---
-# Disaster recovery strategies for applications using SQL Database Elastic Pool
-Over the years we have learned that cloud services are not foolproof and catastrophic incidents can and will happen. SQL Database provides a number of capabilities to provide for the business continuity of your application when these incidents occur. [Elastic pools](sql-database-elastic-pool.md) and standalone databases support the same kind of disaster recovery capabilities. This article describes several DR strategies for elastic pools that leverage these SQL Database business continuity features.
+# Disaster recovery strategies for applications using SQL Database elastic pools
+Over the years we have learned that cloud services are not foolproof and catastrophic incidents can and will happen. SQL Database provides a number of capabilities to provide for the business continuity of your application when these incidents occur. [Elastic pools](sql-database-elastic-pool.md) and single databases support the same kind of disaster recovery capabilities. This article describes several DR strategies for elastic pools that leverage these SQL Database business continuity features.
 
 For the purposes of this article we will use the canonical SaaS ISV application pattern:
 
@@ -29,16 +30,16 @@ In the rest of the paper we will discuss the DR strategies covering a range of s
 ## Scenario 1. Cost sensitive startup
 <i>I am a startup business and am extremely cost sensitive.  I want to simplify deployment and management of the application and I am willing to have a limited SLA for individual customers. But I want to ensure the application as a whole is never offline.</i>
 
-To satisfy the simplicity requirement, you should deploy all tenant databases into one elastic pool in the Azure region of your choice and deploy the management database(s) as geo-replicated standalone database(s). For the disaster recovery of tenants, use geo-restore, which comes at no additional cost. To ensure the availability of the management databases, they should be geo-replicated to another region (step 1). The ongoing cost of the disaster recovery configuration in this scenario is equal to the total cost of the secondary database(s). This configuration is illustrated on the next diagram.
+To satisfy the simplicity requirement, you should deploy all tenant databases into one elastic pool in the Azure region of your choice and deploy the management database(s) as geo-replicated single database(s). For the disaster recovery of tenants, use geo-restore, which comes at no additional cost. To ensure the availability of the management databases, they should be geo-replicated to another region using an auto-failover group (step 1). The ongoing cost of the disaster recovery configuration in this scenario is equal to the total cost of the secondary database(s). This configuration is illustrated on the next diagram.
 
 ![Figure 1](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-1.png)
 
 In case of an outage in the primary region, the recovery steps to bring your application online are illustrated by the next diagram.
 
-* Immediately failover the management databases (2) to the DR region. 
-* Change the the application's connection string to point to the DR region. All new accounts and tenant databases will be created in the DR region. The existing customers will see their data temporarily unavailable.
-* Create the elastic pool with the same configuration as the original pool (3). 
-* Use geo-restore to create copies of the tenant databases (4). You can consider triggering the individual restores by the end-user connections or use some other application specific priority scheme.
+* The failover group initiates automatic failover of the management database to the DR region. The application will be automatically reconnected to the new primary and all new accounts and tenant databases will be created in the DR region. The existing customers will see their data temporarily unavailable.
+* Create the elastic pool with the same configuration as the original pool (2).
+* Use geo-restore to create copies of the tenant databases (3). You can consider triggering the individual restores by the end-user connections or use some other application specific priority scheme.
+
 
 At this point your application is back online in the DR region, but some customers will experience delay when accessing their data.
 
@@ -48,7 +49,7 @@ If the outage was temporary, it is possible that the primary region will be reco
 
 * Cancel all outstanding geo-restore requests.   
 * Failover the management database(s) to the primary region (5). Note: After the region’s recovery the old primaries have automatically become secondaries. Now they will switch roles again. 
-* Change the the application's connection string to point back to the primary region. Now all new accounts and tenant databases will be created in the primary region. Some existing customers will see their data temporarily unavailable.   
+* Change the application's connection string to point back to the primary region. Now all new accounts and tenant databases will be created in the primary region. Some existing customers will see their data temporarily unavailable.   
 * Set all databases in the DR pool to read-only to ensure they cannot be modified in the DR region (6). 
 * For each database in the DR pool that has changed since the recovery, rename or delete the corresponding databases in the primary pool (7). 
 * Copy the updated databases from the DR pool to the primary pool (8). 
@@ -67,7 +68,7 @@ To support this scenario, you should separate the trial tenants from paid tenant
 
 ![Figure 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
 
-As in the first scenario, the management database(s) will be quite active so you use a standalone geo-replicated database for it (1). This will ensure the predictable performance for new customer subscriptions, profile updates and other management operations. The region in which the primaries of the management database(s) reside will be the primary region and the region in which the secondaries of the management database(s) reside will be the DR region.
+As in the first scenario, the management database(s) will be quite active so you use a single geo-replicated database for it (1). This will ensure the predictable performance for new customer subscriptions, profile updates and other management operations. The region in which the primaries of the management database(s) reside will be the primary region and the region in which the secondaries of the management database(s) reside will be the DR region.
 
 The paying customers’ tenant databases will have active databases in the “paid” pool provisioned in the primary region. You should provision a secondary pool with the same name in the DR region. Each tenant would be geo-replicated to the secondary pool (2). This will enable a quick recovery of all tenant databases using failover. 
 
@@ -112,7 +113,7 @@ To guarantee the lowest recovery time during outages the paying customers' tenan
 
 ![Figure 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
 
-As in the previous scenarios, the management database(s) will be quite active so you should configure them as standalone geo-replicated database(s) (1). This will ensure the predictable performance of the new customer subscriptions, profile updates and other management operations. Region A would be the primary region for the management database(s) and the region B will be used for recovery of the management database(s).
+As in the previous scenarios, the management database(s) will be quite active so you should configure them as single geo-replicated database(s) (1). This will ensure the predictable performance of the new customer subscriptions, profile updates and other management operations. Region A would be the primary region for the management database(s) and the region B will be used for recovery of the management database(s).
 
 The paying customers’ tenant databases will be also geo-replicated but with primaries and secondaries split between region A and region B (2). This way the tenant primary databases impacted by the outage can failover to the other region and become available. The other half of the tenant databases will not be impacted at all. 
 

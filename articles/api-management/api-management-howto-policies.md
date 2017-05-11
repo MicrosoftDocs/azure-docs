@@ -13,8 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 
 ---
 # Policies in Azure API Management
@@ -64,16 +64,20 @@ For example, to add a new statement to restrict incoming requests to specified I
 
 This will add an XML snippet to the `inbound` element that provides guidance on how to configure the statement.
 
-    <ip-filter action="allow | forbid">
-        <address>address</address>
-        <address-range from="address" to="address"/>
-    </ip-filter>
+```xml
+<ip-filter action="allow | forbid">
+    <address>address</address>
+    <address-range from="address" to="address"/>
+</ip-filter>
+```
 
 To limit inbound requests and accept only those from an IP address of 1.2.3.4 modify the XML as follows:
 
-    <ip-filter action="allow">
-        <address>1.2.3.4</address>
-    </ip-filter>
+```xml
+<ip-filter action="allow">
+    <address>1.2.3.4</address>
+</ip-filter>
+```
 
 ![Save][policies-save]
 
@@ -82,21 +86,23 @@ When complete configuring the statements for the policy, click **Save** and the 
 ## <a name="sections"> </a>Understanding policy configuration
 A policy is a series of statements that execute in order for a request and a response. The configuration is divided appropriately into `inbound`, `backend`, `outbound`, and `on-error` sections as shown in the following configuration.
 
-    <policies>
-      <inbound>
-        <!-- statements to be applied to the request go here -->
-      </inbound>
-      <backend>
-        <!-- statements to be applied before the request is forwarded to 
-             the backend service go here -->
-      </backend>
-      <outbound>
-        <!-- statements to be applied to the response go here -->
-      </outbound>
-      <on-error>
-        <!-- statements to be applied if there is an error condition go here -->
-      </on-error>
-    </policies> 
+```xml
+<policies>
+  <inbound>
+    <!-- statements to be applied to the request go here -->
+  </inbound>
+  <backend>
+    <!-- statements to be applied before the request is forwarded to 
+         the backend service go here -->
+  </backend>
+  <outbound>
+    <!-- statements to be applied to the response go here -->
+  </outbound>
+  <on-error>
+    <!-- statements to be applied if there is an error condition go here -->
+  </on-error>
+</policies> 
+```
 
 If there is an error during the processing of a request, any remaining steps in the `inbound`, `backend`, or `outbound` sections are skipped and execution jumps to the statements in the `on-error` section. By placing policy statements in the `on-error` section you can review the error by using the `context.LastError` property, inspect and customize the error response using the `set-body` policy, and configure what happens if an error occurs. There are error codes for built-in steps and for errors that may occur during the processing of policy statements. For more information, see [Error handling in API Management policies](https://msdn.microsoft.com/library/azure/mt629506.aspx).
 
@@ -109,23 +115,23 @@ Policy scopes are evaluated in the following order.
 3. API scope
 4. Operation scope
 
-The statements within them are evaluated according to the placement of the `base` element, if it is present.
+The statements within them are evaluated according to the placement of the `base` element, if it is present. Global policy has no parent policy and using the `<base>` element in it has no effect.
 
 For example, if you have a policy at the global level and a policy configured for an API, then whenever that particular API is used both policies will be applied. API Management allows for deterministic ordering of combined policy statements via the base element. 
 
-    <policies>
-        <inbound>
-            <cross-domain />
-            <base />
-            <find-and-replace from="xyz" to="abc" />
-        </inbound>
-    </policies>
+```xml
+<policies>
+    <inbound>
+        <cross-domain />
+        <base />
+        <find-and-replace from="xyz" to="abc" />
+    </inbound>
+</policies>
+```
 
-In the example policy definition above, the `cross-domain` statement would execute before any higher policies which would in turn, be followed by the `find-and-replace` policy.
+In the example policy definition above, the `cross-domain` statement would execute before any higher policies which would in turn, be followed by the `find-and-replace` policy. 
 
-If the same policy appears twice in the policy statement, the most recently evaluated policy is applied. You can use this to override policies that are defined at a higher scope. To see the policies in the current scope in the policy editor, click **Recalculate effective policy for selected scope**.
-
-Note that global policy has no parent policy and using the `<base>` element in it has no effect. 
+To see the policies in the current scope in the policy editor, click **Recalculate effective policy for selected scope**.
 
 ## Next steps
 Check out following video on policy expressions.

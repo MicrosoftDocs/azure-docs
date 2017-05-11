@@ -1,4 +1,3 @@
-﻿
 ---
 title: Migrate to Azure Cognitive Services Recommendations API from the DataMarket Recommendations API| Microsoft Docs
 description: Azure machine learning recommendations-- migrating to recommendations cognitive service

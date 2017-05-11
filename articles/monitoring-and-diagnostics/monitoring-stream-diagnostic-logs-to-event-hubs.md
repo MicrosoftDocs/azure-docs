@@ -1,4 +1,4 @@
-﻿---
+---
 title: Stream Azure Diagnostic Logs to Event Hubs | Microsoft Docs
 description: Learn how to stream Azure Diagnostic Logs to Event Hubs.
 author: johnkemnetz
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 12/09/2016
 ms.author: johnkem
 
 ---
@@ -50,6 +50,8 @@ You can enable streaming of Diagnostic Logs programmatically, via the portal, or
 > Enabling and streaming diagnostic logs from Compute resources (for example, VMs or Service Fabric) [requires a different set of steps](../event-hubs/event-hubs-streaming-azure-diags-data.md).
 > 
 > 
+
+The service bus or event hub namespace does not have to be in the same subscription as the resource emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
 ### Via PowerShell Cmdlets
 To enable streaming via the [Azure PowerShell Cmdlets](insights-powershell-samples.md), you can use the `Set-AzureRmDiagnosticSetting` cmdlet with these parameters:
@@ -151,6 +153,9 @@ Here is sample output data from the Event Hubs:
 | properties |Properties of the event. |
 
 You can view a list of all resource providers that support streaming to Event Hub [here](monitoring-overview-of-diagnostic-logs.md).
+
+## Stream data from Compute resources
+You can also stream diagnostic logs from Compute resources using the Windows Azure Diagnositcs agent. [See this article](../event-hubs/event-hubs-streaming-azure-diags-data.md) for how to set that up.
 
 ## Next Steps
 * [Read more about Azure Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md)

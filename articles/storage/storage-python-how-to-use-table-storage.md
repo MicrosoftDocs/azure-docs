@@ -3,8 +3,8 @@ title: How to use Table storage from Python | Microsoft Docs
 description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
 services: storage
 documentationcenter: python
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 
 ms.assetid: 7ddb9f3e-4e6d-4103-96e6-f0351d69a17b
@@ -13,17 +13,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 
 ---
 # How to use Table storage from Python
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-
-[!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
+[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## Overview
-This guide shows you how to perform common scenarios by using the Azure Table storage service. The samples are written in Python and use the [Microsoft Azure Storage SDK for Python]. The covered scenarios include creating and deleting a table, in addition to inserting and querying entities in a table.
+This guide shows you how to perform common scenarios by using the Azure Table storage service. The samples are written in Python and use the [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python). The covered scenarios include creating and deleting a table, in addition to inserting and querying entities in a table.
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -111,7 +110,7 @@ batch.insert_entity(task11)
 table_service.commit_batch('tasktable', batch)
 ```
 
-Batches can also be used with the contex manager syntax:
+Batches can also be used with the context manager syntax:
 
 ```python
 task12 = {'PartitionKey': 'tasksSeattle', 'RowKey': '12', 'description' : 'Go grocery shopping', 'priority' : 400}
@@ -178,13 +177,8 @@ table_service.delete_table('tasktable')
 ```
 
 ## Next steps
-Now that you've learned the basics of Table storage, follow these links
-to learn more.
 
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [Python Developer Center](/develop/python/)
 * [Azure Storage Services REST API](http://msdn.microsoft.com/library/azure/dd179355)
-* [Azure Storage Team Blog]
-* [Microsoft Azure Storage SDK for Python]
-
-[Azure Storage Team blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
+* [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)

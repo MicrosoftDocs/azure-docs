@@ -4,7 +4,7 @@ description: Latest updates and procedures for Android SDK for Azure Mobile Enga
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: a5487793-1a12-4f6c-a1cf-587c5a671e6b

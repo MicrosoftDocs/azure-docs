@@ -4,7 +4,7 @@ description: Follow this tutorial to get started with using Azure mobile app bac
 services: app-service\mobile
 documentationcenter: javascript
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: ''
 tags: ''
 keywords: cordova,javascript,mobile,client

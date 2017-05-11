@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Mobile Engagement Troubleshooting Guide - APIs
 description: Troubleshooting Guides for Azure Mobile Engagement - APIs
 services: mobile-engagement

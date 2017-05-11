@@ -1,9 +1,21 @@
 ---
+title: Azure Devtest Labs Documentation - Tutorials | Microsoft Docs
+description: Learn how to quickly create application test environments using reusable artifacts. Tutorials, videos, and more show you how to create, manage, and secure labs.
+services: devtest-lab
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: devtest-lab
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 #Devtest Labs Documentation
 
-Azure Devtest Labs is a service that helps developers and testers quickly create environments in Azure while minimizing waste and controlling cost.  You can test the latest version of your application by quickly provisioning Windows and Linux environments using reusable templates and artifacts.
+Learn how to use Devtest Labs to quickly create application test environments using reusable artifacts. Tutorials, videos, and other documentation show you how to create, manage, and secure labs, and add and manage artifacts.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -25,7 +37,7 @@ Azure Devtest Labs is a service that helps developers and testers quickly create
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=devtest-lab">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -100,11 +112,44 @@ Azure Devtest Labs is a service that helps developers and testers quickly create
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/devtest-lab.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Devtest Lab Documentation
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/cli/azure/lab">CLI 2.0</a></p>
+                        <p><a href="/powershell/module/azurerm.devtestlabs/#devtest_labs">PowerShell</a></p>
+                        <p><a href="/azure/devtest-lab/devtest-lab-use-arm-and-powershell-for-lab-resources">PowerShell: Create or modify labs automatically</a></p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </a>
-</div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="https://docs.microsoft.com/rest/api/dtl/">REST API</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Other</h3>
+                        <p><a href="https://github.com/Azure/azure-devtestlab/tree/master/Samples">Resource Manager templates</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>

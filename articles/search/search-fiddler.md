@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to use Fiddler to evaluate and test Azure Search REST APIs | Microsoft Docs
 description: Use Fiddler for a code-free approach to verifying Azure Search availability and trying out the REST APIs.
 services: search

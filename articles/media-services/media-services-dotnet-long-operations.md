@@ -1,4 +1,4 @@
-﻿---
+---
 title: Polling Long-Running Operations | Microsoft Docs
 description: This topic shows how to poll long-running operations.
 services: media-services

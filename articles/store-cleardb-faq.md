@@ -27,7 +27,7 @@ You have several options:
 * [ClearDB Shared MySQL database](/marketplace/partners/cleardb/databases/)
 * [ClearDB MySQL Premium clusters](/marketplace/partners/cleardb-clusters/cluster/)
 * [MySQL cluster running on an Azure VM](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
-* [Single instance of MySQL running on an Azure VM](virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Single instance of MySQL running on an Azure VM](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ClearDB is a MySQL hosting service and manages the MySQL infrastructure for you. When you run your own MySQL cluster or database on an Azure Virtual Machine, you have to set up the MySQL server and keep it updated with patches.
 
@@ -36,15 +36,15 @@ This depends on the type of subscription you are using. Here are some commonly u
 
 * [Pay as you Go](/offers/ms-azr-0003p/): Requires a credit card, and when you purchase a paid MySQL database your credit card is charged.
 * [Free trial](https://azure.microsoft.com/pricing/free-trial/): Includes credits for use with Microsoft Azure services but doesn't allow purchase of third-party resources. To purchase third-party services or a paid MySQL database you need to use a credit card enabled subscription. For Web Apps, you can create a FREE ClearDB MySQL database.
-* [MSDN subscription](/pricing/member-offers/msdn-benefits/) and **MSDN Dev Test Pay as you go**: Similar to Free trial, an MSDN subscription requires you to have a credit card to purchase a paid MySQL solution from ClearDB.
-* [Enterprise Agreement (EA)](/pricing/enterprise-agreement/): EA customers are billed against their EA each quarter for all of their Azure Marketplace (third-party) purchases on a separate, consolidated invoice. You are billed outside the monetary commitment for any marketplace purchases. Please note that, at this time, Azure Store is not available to customers enrolled in Azerbaijan, Croatia, Norway and Puerto Rico. 
+* [MSDN subscription](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) and **MSDN Dev Test Pay as you go**: Similar to Free trial, an MSDN subscription requires you to have a credit card to purchase a paid MySQL solution from ClearDB.
+* [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/): EA customers are billed against their EA each quarter for all of their Azure Marketplace (third-party) purchases on a separate, consolidated invoice. You are billed outside the monetary commitment for any marketplace purchases. Please note that, at this time, Azure Store is not available to customers enrolled in Azerbaijan, Croatia, Norway and Puerto Rico. 
 * [DreamSpark](https://www.dreamspark.com/Product/Product.aspx?productid=99): You can create only FREE ClearDB databases for Web Apps. There is no limit on the number of Free ClearDB MySQL databases you can create. Note that Free databases are not to be used for production web apps, as this service is intended only for trial.
 
 ## Why was I charged $3.50 for a Web app + MySQL from the Azure Marketplace?
 The default database option is Titan, which is $3.50. We don’t show the cost during database creation, and you may mistakenly purchase a database you didn’t intend to. We are trying to find a way to improve the experience but until then you must check all your selected pricing tiers for web app and database before clicking **Create** and starting the deployment of the resources.
 
 ## I am running MySQL on my own Azure virtual machine. Can I connect my Azure web app to my database?
-Yes. You can connect your web app to your database as long as your Azure VM has given remote access to your web app. For more information, see [Install MySQL on a virtual machine](virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Yes. You can connect your web app to your database as long as your Azure VM has given remote access to your web app. For more information, see [Install MySQL on a virtual machine](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## In which countries are ClearDB Premium MySQL clusters supported?
 [ClearDB Premium MySQL clusters](/marketplace/partners/cleardb-clusters/cluster/) are available in all Azure regions worldwide with the exception of India, Australia, Brazil South, and China.
@@ -59,7 +59,7 @@ No, Azure will not warn you if you delete a marketplace purchase that your appli
 Azure Marketplace is not available to customers enrolled in Azerbaijan, Croatia, Norway or Puerto Rico. ClearDB is not available in these regions.
 
 ## What pricing tier should I choose for a production web app and database?
-Use Basic or a higher pricing tier for Web Apps. For ClearDB, we recommend either a Saturn or Jupiter plan. Review the features & limitations of each pricing tier for both [Web Apps](/pricing/details/app-service/) and [ClearDB MySQL databases](/marketplace/partners/cleardb/databases/) to choose the one that fits your needs.
+Use Basic or a higher pricing tier for Web Apps. For ClearDB, we recommend either a Saturn or Jupiter plan. Review the features & limitations of each pricing tier for both [Web Apps](https://azure.microsoft.com/pricing/details/app-service/) and [ClearDB MySQL databases](/marketplace/partners/cleardb/databases/) to choose the one that fits your needs.
 
 ## How do I upgrade my ClearDB database from one plan to another?
 In the [Azure portal](https://portal.azure.com), you can scale up a ClearDB shared hosting database. Read this [article](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/) to learn more. We currently don't support upgrade for ClearDB Premium clusters in the Azure portal.
@@ -78,6 +78,9 @@ Yes, Basic series databases can be upgraded in-place (Basic 60 through Basic 500
 
 ## When I migrate my resources from one subscription to another, does my ClearDB MySQL database get migrated as well?
 When you perform resource migration across subscriptions, some [limitations](app-service-web/app-service-move-resources.md) apply. A ClearDB MySQL database is a third-party service and hence does not get migrated during Azure subscription migration. If you do not manage the migration of your MySQL database prior to migrating Azure resources, your ClearDB MySQL databases can be disabled. Manually migrate your databases first and then perform Azure subscription migration for your web app. 
+
+## I hit the spending limit on my subscription. I removed the limit and my App Service is online, however the database is not accessible. How do I re-enable the ClearDB database?
+Contact [ClearDB support](https://www.cleardb.com/developers/help/support) to re-enable the database. Provide them with your Azure subscription information and database name.
 
 ## Can I transfer a ClearDB database from a credit card subscription to an EA subscription?
 Existing ClearDB databases use the credit card associated with the existing subscriptions. To use an EA subscription you need to migrate your data to a new database:

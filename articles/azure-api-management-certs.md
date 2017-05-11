@@ -50,4 +50,4 @@ Once you have a management certficate created, (.cer file with only the public k
     ![Settings](./media/azure-api-management-certs/upload-dialog.png)
 
 ## Next steps
-Now that you have a management certficate associated with a subscription, you can (after you have installed the matching certificate locally) programatically connect to the [Service Management REST API](https://msdn.microsoft.com/library/azure/mt420159.aspx) and automate the various Azure resources that are also associated with that subscription.
+Now that you have a management certificate associated with a subscription, you can (after you have installed the matching certificate locally) programmatically connect to the [Service Management REST API](https://msdn.microsoft.com/library/azure/mt420159.aspx) and automate the various Azure resources that are also associated with that subscription.

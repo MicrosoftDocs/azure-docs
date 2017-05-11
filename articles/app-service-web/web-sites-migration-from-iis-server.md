@@ -1,11 +1,11 @@
-﻿---
+---
 title: Migrate an enterprise web app to Azure App Service
 description: Shows how to use Web Apps Migration Assistant to quickly migrate existing IIS websites to Azure App Service Web Apps
 services: app-service
 documentationcenter: ''
 author: cephalin
 writer: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 2e846fc0-37cc-42e6-ac57-ff442ef16e85
@@ -39,21 +39,13 @@ The Migration Assistant creates a readiness report to identify any potential cau
 * IIS5 Compatibility Mode – This is not supported in Web Apps. 
 * Application Pools – In Web Apps, each site and its child applications run in the same application pool. If your site has multiple child applications utilizing multiple application pools, consolidate them to a single application pool with common settings or migrate each application to a separate web app.
 * COM Components – Web Apps does not allow the registration of COM Components on the platform. If your websites or applications make use of any COM Components, you must rewrite them in managed code and deploy them with the website or application.
-* ISAPI Filters – Web Apps can support the use of ISAPI Filters. You need to do the following:
+* ISAPI Extensions – Web Apps can support the use of ISAPI Extensions. You need to do the following:
   
   * deploy the DLLs with your web app 
   * register the DLLs using [Web.config](http://www.iis.net/configreference/system.webserver/isapifilters)
-  * place an applicationHost.xdt file in the site root with the content below:
+  * place an applicationHost.xdt file in the site root with the content outlined in "Allowing arbitrart ISAPI extensions to be loaded" [section of this article](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples) 
     
-      <?xml version="1.0"?>
-    
-      <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-      <configSections>
-          <sectionGroup name="system.webServer">
-            <section name="isapiFilters" xdt:Transform="SetAttributes(overrideModeDefault)" overrideModeDefault="Allow" />
-          </sectionGroup>
-        </configSections>
-      </configuration>
+  
     
     For more examples of how to use XML Document Transformations with your website, see [Transform your Microsoft Azure Web Site](http://blogs.msdn.com/b/waws/archive/2014/06/17/transform-your-microsoft-azure-web-site.aspx).
 * Other components like SharePoint, front page server extensions (FPSE), FTP, SSL certificates will not be migrated.
@@ -128,7 +120,7 @@ This section steps through an example to to migrate a few websites that use a SQ
     ![](./media/web-sites-migration-from-iis-server/TimeTrackerMigrated.png)
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 > 
 > 
 

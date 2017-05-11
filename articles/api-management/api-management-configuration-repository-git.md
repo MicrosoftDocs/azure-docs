@@ -1,11 +1,11 @@
 ---
-title: How to save and configure your API Management service configuration using Git
+title: Configure your API Management service using Git - Azure | Microsoft Docs
 description: Learn how to save and configure your API Management service configuration using Git.
 services: api-management
 documentationcenter: ''
 author: steved0x
 manager: erikre
-editor: ''
+editor: mattfarm
 
 ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
@@ -13,13 +13,10 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
-
+ms.date: 01/23/2017
+ms.author: apimpm
 ---
 # How to save and configure your API Management service configuration using Git
-> [!IMPORTANT]
-> Git configuration for API Management is currently in preview. It is functionally complete, but is in preview because we are actively seeking feedback on this feature. It is possible that we may make a breaking change in response to customer feedback, so we recommend not depending on the feature for use in production environments. If you have any feedback or questions, please let us know at `apimgmt@microsoft.com`.
 > 
 > 
 
@@ -37,7 +34,7 @@ When you make changes to your service using the publisher portal, PowerShell cmd
 
 The following steps provide an overview of managing your API Management service instance using Git.
 
-1. Enable Git access in your service
+1. Access Git configuration in your service
 2. Save your service configuration database to your Git repository
 3. Clone the Git repo to your local machine
 4. Pull the latest repo down to your local machine, and commit and push changes back to your repo
@@ -45,20 +42,14 @@ The following steps provide an overview of managing your API Management service 
 
 This article describes how to enable and use Git to manage your service configuration and provides a reference for the files and folders in the Git repository.
 
-## To enable Git access
-You can quickly view the status of your Git configuration by viewing the Git icon in the upper-right corner of the publisher portal. In this example, Git access has not yet been enabled.
+## Access Git configuration in your service
+You can quickly view the status of your Git configuration by viewing the Git icon in the upper-right corner of the publisher portal. In this example, the status message indicates that there are unsaved changes to the repository. This is because the API Management service configuration database has not yet been saved to the repository.
 
 ![Git status][api-management-git-icon-enable]
 
 To view and configure your Git configuration settings, you can either click the Git icon, or click the **Security** menu and navigate to the **Configuration repository** tab.
 
 ![Enable GIT][api-management-enable-git]
-
-To enable Git access, check the **Enable Git access** checkbox.
-
-After a moment the change is saved and a confirmation message is displayed. Note that Git icon has changed to color to indicate that Git access is enabled and the status message now indicates that there are unsaved changes to the repository. This is because the API Management service configuration database has not yet been saved to the repository.
-
-![Git enabled][api-management-git-enabled]
 
 > [!IMPORTANT]
 > Any secrets that are not defined as properties will be stored in the repository and will remain in its history until you disable and re-enable Git access. Properties provide a secure place to manage constant string values, including secrets, across all API configuration and policies, so you don't have to store them directly in your policy statements. For more information, see [How to use properties in Azure API Management policies](api-management-howto-properties.md).
@@ -106,49 +97,65 @@ The following examples use the Git Bash tool from [Git for Windows](http://www.g
 
 Open your Git tool in the desired folder and run the following command to clone the git repository to your local machine, using the command provided by the publisher portal.
 
-    git clone https://bugbashdev4.scm.azure-api.net/ 
+```
+git clone https://bugbashdev4.scm.azure-api.net/
+```
 
 Provide the user name and password when prompted.
 
 If you receive any errors, try modifying your `git clone` command to include the user name and password, as shown in the following example.
 
-    git clone https://username:password@bugbashdev4.scm.azure-api.net/
+```
+git clone https://username:password@bugbashdev4.scm.azure-api.net/
+```
 
 If this provides an error, try URL encoding the password portion of the command. One quick way to do this is to open Visual Studio, and issue the following command in the **Immediate Window**. To open the **Immediate Window**, open any solution or project in Visual Studio (or create a new empty console application), and choose **Windows**, **Immediate** from the **Debug** menu.
 
-    ?System.NetWebUtility.UrlEncode("password from publisher portal")
+```
+?System.NetWebUtility.UrlEncode("password from publisher portal")
+```
 
 Use the encoded password along with your user name and repository location to construct the git command.
 
-    git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
+```
+git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
+```
 
 Once the repository is cloned you can view and work with it in your local file system. For more information, see [File and folder structure reference of local Git repository](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## To update your local repository with the most current service instance configuration
 If you make changes to your API Management service instance in the publisher portal or using the REST API, you must save these changes to the repository before you can update your local repository with the latest changes. To do this, click **Save configuration to repository** on the **Configuration repository** tab in the publisher portal, and then issue the following command in your local repository.
 
-    git pull
+```
+git pull
+```
 
 Before running `git pull` ensure that you are in the folder for your local repository. If you have just completed the `git clone` command, then you must change the directory to your repo by running a command like the following.
 
-    cd bugbashdev4.scm.azure-api.net/
+```
+cd bugbashdev4.scm.azure-api.net/
+```
 
 ## To push changes from your local repo to the server repo
 To push changes from your local repository to the server repository, you must commit your changes and then push them to the server repository. To commit your changes, open your Git command tool, switch to the directory of your local repository, and issue the following commands.
 
-    git add --all
-    git commit -m "Description of your changes"
+```
+git add --all
+git commit -m "Description of your changes"
+```
 
 To push all of the commits to the server, run the following command.
 
-    git push
+```
+git push
+```
 
 ## To deploy any service configuration changes to the API Management service instance
 Once your local changes are committed and pushed to the server repository, you can deploy them to your API Management service instance.
 
 ![Deploy][api-management-configuration-deploy]
 
-For information on performing this operation using the REST API, see [Deploy Git changes to configuration database using the REST API](https://msdn.microsoft.com/library/dn781420.aspx#DeployChanges).
+For information on performing this operation using the REST API, see [Deploy Git changes to configuration database using the REST API](https://docs.microsoft.com/en-us/rest/api/apimanagement/tenantconfiguration).
 
 ## File and folder structure reference of local Git repository
 The files and folders in the local git repository contain the configuration information about the service instance.
@@ -187,19 +194,21 @@ These files can be created, deleted, edited, and managed on your local file syst
 ### Root api-management folder
 The root `api-management` folder contains a `configuration.json` file that contains top-level information about the service instance in the following format.
 
-    {
-      "settings": {
-        "RegistrationEnabled": "True",
-        "UserRegistrationTerms": null,
-        "UserRegistrationTermsEnabled": "False",
-        "UserRegistrationTermsConsentRequired": "False",
-        "DelegationEnabled": "False",
-        "DelegationUrl": "",
-        "DelegatedSubscriptionEnabled": "False",
-        "DelegationValidationKey": ""
-      },
-      "$ref-policy": "api-management/policies/global.xml"
-    }
+```json
+{
+  "settings": {
+    "RegistrationEnabled": "True",
+    "UserRegistrationTerms": null,
+    "UserRegistrationTermsEnabled": "False",
+    "UserRegistrationTermsConsentRequired": "False",
+    "DelegationEnabled": "False",
+    "DelegationUrl": "",
+    "DelegatedSubscriptionEnabled": "False",
+    "DelegationValidationKey": ""
+  },
+  "$ref-policy": "api-management/policies/global.xml"
+}
+```
 
 The first four settings (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsEnabled`, and `UserRegistrationTermsConsentRequired`) map to the following settings on the **Identities** tab in the **Security** section.
 

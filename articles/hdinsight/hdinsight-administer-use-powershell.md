@@ -10,11 +10,12 @@ documentationcenter: ''
 
 ms.assetid: bfdfa754-18e5-4ef9-b0d6-2dbdcebc0283
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/22/2017
 ms.author: jgao
 
 ---
@@ -208,8 +209,8 @@ See [Upload data to HDInsight][hdinsight-upload-data].
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-provision-custom-options]: hdinsight-provision-clusters.md#configuration
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
+[hdinsight-provision-custom-options]: hdinsight-hadoop-provision-linux-clusters.md#configuration
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
@@ -222,6 +223,6 @@ See [Upload data to HDInsight][hdinsight-upload-data].
 
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
-[powershell-install-configure]: powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png

@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 03/24/2017
 ms.author: bradsev;garye
 
 ---
@@ -31,7 +31,7 @@ This article describes the support for importing online data from various source
 [!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 ## Introduction
-You can access data from within the Azure Machine Learning Studio from one of several online data sources while your experiment is running by using the [Import Data][import-data] module:
+By using the [Import Data][import-data] module, you can access data from one of several online data sources while your experiment is running in [Azure Machine Learning Studio](https://studio.azureml.net/Home):
 
 * A Web URL using HTTP
 * Hadoop using HiveQL
@@ -41,15 +41,15 @@ You can access data from within the Azure Machine Learning Studio from one of se
 * On-premises SQL Server database
 * A data feed provider, OData currently
 
-The workflow for conducting experiments in Azure Machine Learning Studio consists of dragging-and-dropping components onto the canvas. To access online data sources, add the [Import Data][import-data] module to your experiment, select the **Data source**, and then provide the parameters needed to access the data. The online data sources that are supported are itemized in the table below. This table also summarizes the file formats that are supported and parameters that are used to access the data.
+To access online data sources in your Studio experiment, add the [Import Data][import-data] module to your, select the **Data source**, and then provide the parameters needed to access the data. The online data sources that are supported are itemized in the table below. This table also summarizes the file formats that are supported and parameters that are used to access the data.
 
-Note that because this training data is accessed while your experiment is running, it is only available in that experiment. By comparison, data that has been stored in a dataset module are available to any experiment in your workspace.
+Note that because this training data is accessed while your experiment is running, it's only available in that experiment. By comparison, data that has been stored in a dataset module are available to any experiment in your workspace.
 
 > [!IMPORTANT]
 > Currently, the [Import Data][import-data] and [Export Data][export-data] modules can read and write data only from Azure storage created using the Classic deployment model. In other words, the new Azure Blob Storage account type that offers a hot storage access tier or cool storage access tier is not yet supported. 
 > 
 > Generally, any Azure storage accounts that you might have created before this service option became available should not be affected. 
-> If you need to create a new account, select **Classic** for the Deployment model, or use Resource manager and for **Account kind**, select **General purpose** rather than **Blob storage**. 
+> If you need to create a new account, select **Classic** for the Deployment model, or use Resource manager and select **General purpose** rather than **Blob storage** for **Account kind**. 
 > 
 > For more information, see [Azure Blob Storage: Hot and Cool Storage Tiers](../storage/storage-blob-storage-tiers.md).
 > 
@@ -68,7 +68,7 @@ Azure Machine Learning **Import Data** module supports the following data source
 | Azure Blob Storage |Reads data stored in the Blob service in Azure Storage, including images, unstructured text, or binary data.<br/><br/>You can use the Blob service to publicly expose data, or to privately store application data. You can access your data from anywhere by using HTTP or HTTPS connections. |The options in the **Import Data** module change depending on whether you are accessing public information or a private storage account that requires login credentials. This is determined by the <b>Authentication Type</b> which can have a value either of "PublicOrSAS" or of "Account".<br/><br/><b>Public or Shared Access Signature (SAS) URI</b>: The parameters are:<br/><br/><ul><b>URI</b>: Specifies the Public or SAS URL for the storage blob.<br/><br/><b>File Format</b>: Specifies the format of the data in the Blob service. The supported formats are CSV, TSV, and ARFF.<br/><br/></ul><b>Private Storage Account</b>: The parameters are: <br/><br/><ul><b>Account name</b>: Specifies the name of the account that contains the blob you want to read.<br/><br/><b>Account key</b>: Specifies the storage key associated with the account.<br/><br/><b>Path to container, directory, or blob </b> : Specifies the name of the blob that contains the data to read.<br/><br/><b>Blob file format</b>: Specifies the format of the data in the blob service. The supported data formats are CSV, TSV, ARFF, CSV with a specified encoding, and Excel. <br/><br/><ul>If the format is CSV or TSV, be sure to indicate whether the file contains a header row.<br/><br/>You can use the Excel option to read data from Excel workbooks. In the <i>Excel data format</i> option, indicate whether the data is in an Excel worksheet range, or in an Excel table. In the <i>Excel sheet or embedded table </i>option, specify the name of the sheet or table that you want to read from.</ul><br/> |
 | Data Feed Provider |Reads data from a supported feed provider. Currently only the Open Data Protocol (OData) format is supported. |<b>Data content type</b>: Specifies the OData format.<br/><br/><b>Source URL</b>: Specifies the full URL for the data feed. <br/>For example, the following URL reads from the Northwind sample database: http://services.odata.org/northwind/northwind.svc/ |
 
-## Next Steps
+## Next steps
 
 [Deploying Azure ML web services that use Data Import and Data Export modules](machine-learning-web-services-that-use-import-export-modules.md)
 

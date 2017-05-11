@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
-ms.author: darrmi
+ms.date: 12/15/2016
+ms.author: apimpm
 
 ---
 # Advanced request throttling with Azure API Management
@@ -29,23 +29,27 @@ The new [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.as
 ## IP Address throttling
 The following policies restrict a single client IP address to only 10 calls every minute, with a total of 1,000,000 calls and 10,000 kilobytes of bandwidth per month. 
 
-    <rate-limit-by-key  calls="10"
-              renewal-period="60"
-              counter-key="@(context.Request.IpAddress)" />
+```xml
+<rate-limit-by-key  calls="10"
+          renewal-period="60"
+          counter-key="@(context.Request.IpAddress)" />
 
-    <quota-by-key calls="1000000"
-              bandwidth="10000"
-              renewal-period="2629800"
-              counter-key="@(context.Request.IpAddress)" />
+<quota-by-key calls="1000000"
+          bandwidth="10000"
+          renewal-period="2629800"
+          counter-key="@(context.Request.IpAddress)" />
+```
 
 If all clients on the Internet used a unique IP address, this might be an effective way of limiting usage by user. However, it is quite likely that multiple users will sharing a single public IP address due to them accessing the Internet via a NAT device. Despite this, for APIs that allow unauthenticated access the `IpAddress` might be the best option.
 
 ## User identity throttling
 If an end user is authenticated then a throttling key can be generated based on information that uniquely identifies an that user.
 
-    <rate-limit-by-key calls="10"
-        renewal-period="60"
-        counter-key="@(context.Request.Headers.GetValueOrDefault("Authorization","").AsJwt()?.Subject)" />
+```xml
+<rate-limit-by-key calls="10"
+    renewal-period="60"
+    counter-key="@(context.Request.Headers.GetValueOrDefault("Authorization","").AsJwt()?.Subject)" />
+```
 
 In this example we extract the Authorization header, convert it to `JWT` object and use the subject of the token to identify the user and use that as the rate limiting key. If the user identity is stored in the `JWT` as one of the other claims then that value could be used in its place.
 
@@ -55,9 +59,11 @@ Although the new throttling policies provide more control than the existing thro
 ## Client driven throttling
 When the throttling key is defined using a [policy expression](https://msdn.microsoft.com/library/azure/dn910913.aspx), then it is the API provider that is choosing how the throttling is scoped. However, a developer might want to control how they rate limit their own customers. This could be enabled by the API provider by introducing a custom header to allow the developer's client application to communicate the key to the API.
 
-    <rate-limit-by-key calls="100"
-              renewal-period="60"
-              counter-key="@(request.Headers.GetValueOrDefault("Rate-Key",""))"/>
+```xml
+<rate-limit-by-key calls="100"
+          renewal-period="60"
+          counter-key="@(request.Headers.GetValueOrDefault("Rate-Key",""))"/>
+```
 
 This enables the developer's client application to choose how they want to create the rate limiting key. With a little bit of ingenuity a client developer could create their own rate tiers by allocating sets of keys to users and rotating the key usage.
 

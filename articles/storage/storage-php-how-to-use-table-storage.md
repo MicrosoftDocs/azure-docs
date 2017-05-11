@@ -1,10 +1,10 @@
-﻿---
+---
 title: How to use table storage from PHP | Microsoft Docs
 description: Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table.
 services: storage
 documentationcenter: php
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 
 ms.assetid: 1e57f371-6208-4753-b2a0-05db4aede8e3
@@ -13,14 +13,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 
 ---
 # How to use table storage from PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
+[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## Overview
 This guide shows you how to perform common scenarios using the Azure Table service. The samples are written in PHP and use the [Azure SDK for PHP][download]. The scenarios covered include **creating and deleting a table, and inserting, deleting, and querying entities in a table**. For more information on the Azure Table service, see the [Next steps](#next-steps) section.
@@ -46,9 +45,9 @@ To use the Azure Table service APIs, you need to:
 The following example shows how to include the autoloader file and reference the **ServicesBuilder** class.
 
 > [!NOTE]
-> This example (and other examples in this article) assume you have installed the PHP Client Libraries for Azure via Composer. If you installed the libraries manually, you need to reference the <code>WindowsAzure.php</code> autoloader file.
-> 
-> 
+> The examples in this article assume you have installed the PHP Client Libraries for Azure via Composer. If you installed the libraries manually, you need to reference the <code>WindowsAzure.php</code> autoloader file.
+>
+>
 
 ```php
 require_once 'vendor/autoload.php';
@@ -117,7 +116,7 @@ catch(ServiceException $e){
 For information about restrictions on table names, see [Understanding the Table Service Data Model][table-data-model].
 
 ## Add an entity to a table
-To add an entity to a table, create a new **Entity** object and pass it to **TableRestProxy->insertEntity**. Note that when you create an entity, you must specify a `PartitionKey` and `RowKey`. These are the unique identifiers for an entity and are values that can be queried much faster than other entity properties. The system uses `PartitionKey` to automatically distribute the table’s entities over many storage nodes. Entities with the same `PartitionKey` are stored on the same node. (Operations on multiple entities stored on the same node perform better than on entities stored across different nodes.) The `RowKey` is the unique ID of an entity within a partition.
+To add an entity to a table, create a new **Entity** object and pass it to **TableRestProxy->insertEntity**. Note that when you create an entity, you must specify a `PartitionKey` and `RowKey`. These are the unique identifiers for an entity and are values that can be queried much faster than other entity properties. The system uses `PartitionKey` to automatically distribute the table's entities over many storage nodes. Entities with the same `PartitionKey` are stored on the same node. (Operations on multiple entities stored on the same node perform better than on entities stored across different nodes.) The `RowKey` is the unique ID of an entity within a partition.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -478,11 +477,11 @@ catch(ServiceException $e){
 ```
 
 ## Next steps
-Now that you’ve learned the basics of the Azure Table service, follow these links to learn about more complex storage tasks.
+Now that you've learned the basics of the Azure Table service, follow these links to learn about more complex storage tasks.
 
-* Visit the [Azure Storage team blog](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 
-For more information, see also the [PHP Developer Center](/develop/php/).
+* [PHP Developer Center](/develop/php/).
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require_once]: http://php.net/require_once

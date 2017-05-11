@@ -3,19 +3,19 @@ title: Connecting your on-premises network to Azure | Microsoft Docs
 description: Explains and compares the different methods available for connecting to Microsoft cloud services such as Azure, Office 365, and Dynamics CRM Online.
 services: ''
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: cherylmc
+manager: timlt
 editor: ''
 tags: ''
 
 ms.assetid: 294d39ad-40e0-476a-a362-57911b1172b7
-ms.service: guidance
+ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2016
-ms.author: jdial
+ms.author: cherylmc
 
 ---
 # Connecting your on-premises network to Azure

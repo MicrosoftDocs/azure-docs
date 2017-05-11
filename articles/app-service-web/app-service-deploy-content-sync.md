@@ -4,7 +4,7 @@ description: Learn how to deploy your app to Azure App Service via content sync 
 services: app-service
 documentationcenter: ''
 author: dariagrigoriu
-manager: wpickett
+manager: erikre
 editor: mollybos
 
 ms.assetid: 88d3a670-303a-4fa2-9de9-715cc904acec

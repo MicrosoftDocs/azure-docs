@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use Interactive Hive in HDInsight | Microsoft Docs
 description: Learn how to use Interactive Hive (Hive on LLAP) in HDInsight.
 keywords: ''
@@ -11,11 +11,12 @@ editor: cgronlun
 
 ms.assetid: 0957643c-4936-48a3-84a3-5dc83db4ab1a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 02/06/2017
 ms.author: jgao
 
 ---

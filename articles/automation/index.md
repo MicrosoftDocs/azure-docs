@@ -1,9 +1,21 @@
 ---
+title: Azure Automation Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to use Automation to automate processes and configuration management in order to save time and increase reliability of regular administrative tasks.
+services: automation
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid:
+ms.service: automation
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Automation Documentation
 
-Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud environment. It saves time and increases the reliability of regular administrative tasks and even schedules them to be automatically performed at regular intervals.
+Learn how to use Automation to save time and increase the reliability of regular administrative tasks performed in a cloud environment. Tutorials, API references, and other documentation show you how to automate processes using runbooks or automate configuration management using Desired State Configuration.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -25,7 +37,7 @@ Azure Automation provides a way for users to automate the manual, long-running, 
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=automation">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=automation">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -119,59 +131,46 @@ Azure Automation provides a way for users to automate the manual, long-running, 
 
 ---
 
-## Reference
-
+<h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell</a></p>
+                        <p><a href="/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">Classic PowerShell</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
-	 <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Azure Managed Reference API</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.automation">.NET</a></p>
+                     </div>
+                </div>
+            </div>
+        </div>
     </li>
-	 <li>
-        <a href="https://msdn.microsoft.com/en-us/library/azure/mt662285">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Automation REST API Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/automation/">REST API</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt163781">Classic REST API</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
-	</ul>
+</ul>
 
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/automation.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Automation Documentation
-        </div>
-    </a>
-</div>

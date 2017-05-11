@@ -4,7 +4,7 @@ description: Windows Phone Silverlight SDK Upgrade Procedures for Azure Mobile E
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 87130026-9759-4659-9184-788a3627a165

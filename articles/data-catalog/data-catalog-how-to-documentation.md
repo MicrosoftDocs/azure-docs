@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to document data sources | Microsoft Docs
 description: How-to article highlighting how to document data assets in Azure Data Catalog.
 services: data-catalog
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/13/2016
+ms.date: 05/03/2017
 ms.author: spelluru
 
 ---
@@ -28,17 +28,17 @@ In [How to annotate data sources](data-catalog-how-to-annotate.md), you learn th
 
 Tags and descriptions are great for simple annotations. However, to help data consumers better understand the use of a data source, and business scenarios for a data source, an expert can provide complete, detailed documentation. It's easy to document a data source. Select a data asset or container, and choose **Documentation**.
 
-![](media\\data-catalog-documentation\\data-catalog-documentation.png)
+![](media/data-catalog-documentation/data-catalog-documentation.png)
 
 ## Documenting data assets
 The benefit of **Azure Data Catalog** documentation allows you to use your Data Catalog as a content repository to create a complete narrative of your data assets. You can explore detailed content that describes containers and tables. If you already have content in another content repository, such as SharePoint or a file share, you can add to the asset documentation links to reference this existing content. This feature makes your existing documents more discoverable.
 
 > [!NOTE]
 > Documentation is not included in search index.
-> 
-> 
+>
+>
 
-![](media\\data-catalog-documentation\\data-catalog-documentation2.png)
+![](media/data-catalog-documentation/data-catalog-documentation2.png)
 
 The level of documentation can range from describing the characteristics and value of a data asset container to a detailed description of table schema within a container. The level of documentation provided should be driven by your business needs. But in general, here are a few pros and cons of documenting data assets:
 
@@ -48,4 +48,3 @@ The level of documentation can range from describing the characteristics and val
 
 ## Summary
 Documenting data sources with **Azure Data Catalog** can create a narrative about your data assets in as much detail as you need.  By using links, you can link to content stored in an existing content repository, which brings your existing docs and data assets together. Once your users discover appropriate data assets, they can have a complete set of documentation.
-

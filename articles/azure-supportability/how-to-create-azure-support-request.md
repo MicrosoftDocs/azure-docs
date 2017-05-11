@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to create an Azure support request | Microsoft Docs
 description: How to create an Azure support request.
 services: Azure Supportability

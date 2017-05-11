@@ -1,5 +1,5 @@
 ---
-title: How to use Service Bus queues with Python | Microsoft Docs
+title: How to use Azure Service Bus queues with Python | Microsoft Docs
 description: Learn how to use Azure Service Bus queues from Python.
 services: service-bus-messaging
 documentationcenter: python
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 04/30/2017
 ms.author: sethm;lmazuel
 
 ---
@@ -24,6 +24,8 @@ This article describes how to use Service Bus queues. The samples are written in
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
 > [!NOTE]
 > To install Python or the [Python Azure Service Bus package][Python Azure Service Bus package], see the [Python Installation Guide](../python-how-to-install.md).
 > 
@@ -32,28 +34,28 @@ This article describes how to use Service Bus queues. The samples are written in
 ## Create a queue
 The **ServiceBusService** object enables you to work with queues. Add the following code near the top of any Python file in which you wish to programmatically access Service Bus:
 
-```
+```python
 from azure.servicebus import ServiceBusService, Message, Queue
 ```
 
 The following code creates a **ServiceBusService** object. Replace `mynamespace`, `sharedaccesskeyname`, and `sharedaccesskey` with your namespace, shared access signature (SAS) key name, and value.
 
-```
+```python
 bus_service = ServiceBusService(
     service_namespace='mynamespace',
     shared_access_key_name='sharedaccesskeyname',
     shared_access_key_value='sharedaccesskey')
 ```
 
-The values for the SAS key name and value can be found in the [Azure classic portal][Azure classic portal] connection information, or in the Visual Studio **Properties** pane when selecting the Service Bus namespace in Server Explorer (as shown in the previous section).
+The values for the SAS key name and value can be found in the [Azure portal][Azure portal] connection information, or in the Visual Studio **Properties** pane when selecting the Service Bus namespace in Server Explorer (as shown in the previous section).
 
-```
+```python
 bus_service.create_queue('taskqueue')
 ```
 
-**create_queue** also supports additional options, which enable you to override default queue settings such as message time to live (TTL) or maximum queue size. The following example sets the maximum queue size to 5GB, and the TTL value to 1 minute:
+**create_queue** also supports additional options, which enable you to override default queue settings such as message time to live (TTL) or maximum queue size. The following example sets the maximum queue size to 5 GB, and the TTL value to 1 minute:
 
-```
+```python
 queue_options = Queue()
 queue_options.max_size_in_megabytes = '5120'
 queue_options.default_message_time_to_live = 'PT1M'
@@ -66,7 +68,7 @@ To send a message to a Service Bus queue, your application calls the **send\_que
 
 The following example demonstrates how to send a test message to the queue named *taskqueue using* **send\_queue\_message**:
 
-```
+```python
 msg = Message(b'Test Message')
 bus_service.send_queue_message('taskqueue', msg)
 ```
@@ -77,7 +79,7 @@ a maximum size of 64 KB. There is no limit on the number of messages held in a q
 ## Receive messages from a queue
 Messages are received from a queue using the **receive\_queue\_message** method on the **ServiceBusService** object:
 
-```
+```python
 msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
 print(msg.body)
 ```
@@ -88,7 +90,7 @@ The behavior of reading and deleting the message as part of the receive operatio
 
 If the **peek\_lock** parameter is set to **True**, the receive becomes a two stage operation, which makes it possible to support applications that cannot tolerate missing messages. When Service Bus receives a request, it finds the next message to be consumed, locks it to prevent other consumers receiving it, and then returns it to the application. After the application finishes processing the message (or stores it reliably for future processing), it completes the second stage of the receive process by calling the **delete** method on the **Message** object. The **delete** method will mark the message as being consumed and remove it from the queue.
 
-```
+```python
 msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)
 print(msg.body)
 
@@ -103,11 +105,11 @@ There is also a timeout associated with a message locked within the queue, and i
 In the event that the application crashes after processing the message but before the **delete** method is called, then the message will be redelivered to the application when it restarts. This is often called **At Least Once Processing**, that is, each message will be processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. This is often achieved using the **MessageId** property of the message, which will remain constant across delivery attempts.
 
 ## Next steps
-Now that you have learned the basics of Service Bus queues, follow these links to learn more.
+Now that you have learned the basics of Service Bus queues, see these articles to learn more.
 
-* See [Queues, topics, and subscriptions][Queues, topics, and subscriptions].
+* [Queues, topics, and subscriptions][Queues, topics, and subscriptions]
 
-[Azure classic portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [Python Azure Service Bus package]: https://pypi.python.org/pypi/azure-servicebus  
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Service Bus quotas]: service-bus-quotas.md

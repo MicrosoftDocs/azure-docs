@@ -1,4 +1,4 @@
-﻿---
+---
 title: Media Encoder Standard formats and codecs
 description: This topic gives an overview of Media Encoder Standard formats and codecs.
 services: media-services

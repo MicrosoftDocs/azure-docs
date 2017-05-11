@@ -1,4 +1,4 @@
-﻿---
+---
 title: Get started with Azure Cloud Services and ASP.NET | Microsoft Docs
 description: Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker role. It uses Entity Framework, SQL Database, and Azure Storage queues and blobs.
 services: cloud-services, storage
@@ -45,14 +45,15 @@ This tutorial shows how to run both front-end and back-end in an Azure cloud ser
 ## Prerequisites
 The tutorial assumes that you understand [basic concepts about Azure cloud services](cloud-services-choose-me.md) such as *web role* and *worker role* terminology.  It also assumes that you know how to work with [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) or [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) projects in Visual Studio. The sample application uses MVC, but most of the tutorial also applies to Web Forms.
 
-You can run the app locally without an Azure subscription, but you'll need one in order to deploy the application to the cloud. If you don't have an account, you can [activate your MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) or [sign up for a free trial](/pricing/free-trial/?WT.mc_id=A55E3C668).
+You can run the app locally without an Azure subscription, but you'll need one in order to deploy the application to the cloud. If you don't have an account, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) or [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
 
 The tutorial instructions work with either of the following products:
 
 * Visual Studio 2013
 * Visual Studio 2015
+* Visual Studio 2017
 
-If you don't have one of these, Visual Studio 2015 will be installed automatically when you install the Azure SDK.
+If you don't have one of these, Visual Studio may be installed automatically when you install the Azure SDK.
 
 ## Application architecture
 The app stores ads in a SQL database, using Entity Framework Code First to create the tables and access the data. For each ad the database stores two URLs, one for the full-size image and one for the thumbnail.
@@ -73,7 +74,7 @@ When a user uploads an image, the front-end running in a web role stores the ima
 
     By default, Visual Studio automatically restores the NuGet package content, which was not included in the *.zip* file. If the packages don't restore, install them manually by going to the **Manage NuGet Packages for Solution** dialog box and clicking the **Restore** button at the top right.
 5. In **Solution Explorer**, make sure that **ContosoAdsCloudService** is selected as the startup project.
-6. If you're using Visual Studio 2015, change the SQL Server connection string in the application *Web.config* file of the ContosoAdsWeb project and in the *ServiceConfiguration.Local.cscfg* file of the ContosoAdsCloudService project. In each case, change "(localdb)\v11.0" to "(localdb)\MSSQLLocalDB".
+6. If you're using Visual Studio 2015 or higher, change the SQL Server connection string in the application *Web.config* file of the ContosoAdsWeb project and in the *ServiceConfiguration.Local.cscfg* file of the ContosoAdsCloudService project. In each case, change "(localdb)\v11.0" to "(localdb)\MSSQLLocalDB".
 7. Press CTRL+F5 to run the application.
 
     When you run a cloud service project locally, Visual Studio automatically invokes the Azure *compute emulator* and Azure *storage emulator*. The compute emulator uses your computer's resources to simulate the web role and worker role environments. The storage emulator uses a [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx) database to simulate Azure cloud storage.
@@ -362,7 +363,7 @@ In this section you configure Azure Storage and SQL connection strings for testi
     </connectionStrings>
     ```
 
-    If you're using Visual Studio 2015, replace "v11.0" with "MSSQLLocalDB".
+    If you're using Visual Studio 2015 or higher, replace "v11.0" with "MSSQLLocalDB".
 2. Save your changes.
 3. In the ContosoAdsCloudService project, right-click ContosoAdsWeb under **Roles**, and then click **Properties**.
 
@@ -379,7 +380,7 @@ In this section you configure Azure Storage and SQL connection strings for testi
 
    * Name: ContosoAdsDbConnectionString
    * Type: String
-   * Value: Paste the same connection string you used for the web role project. (The following example is for Visual Studio 2013; don't forget to change the Data Source if you copy this example and you're using Visual Studio 2015.)
+   * Value: Paste the same connection string you used for the web role project. (The following example is for Visual Studio 2013; don't forget to change the Data Source if you copy this example and you're using Visual Studio 2015 or higher.)
 
        ```
        Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;

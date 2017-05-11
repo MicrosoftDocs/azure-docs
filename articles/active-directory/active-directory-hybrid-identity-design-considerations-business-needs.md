@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Active Directory hybrid identity design considerations - determine identity requirements | Microsoft Docs
 description: Identify the company’s business needs that will lead you to define the requirements for the hybrid identity design.
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/08/2016
+ms.date: 03/21/2017
 ms.author: billmath
 
 ---
@@ -53,7 +53,7 @@ You also need to be aware of the cloud services that your company might have. Pe
 * Is this integration currently in production or is it a pilot?
 
 > [!NOTE]
-> If you don’t have an accurate mapping of all your apps and cloud services, you can use the Cloud App Discovery tool. This tool can provide your IT department with visibility into all your organization’s business and consumer cloud apps. That makes it easier than ever to discover shadow IT in your organization, including details on usage patterns and any users accessing your cloud applications. To access this tool go to [https://appdiscovery.azure.com](https://appdiscovery.azure.com/)
+> If you don’t have an accurate mapping of all your apps and cloud services, you can use the Cloud App Discovery tool. This tool can provide your IT department with visibility into all your organization’s business and consumer cloud apps. That makes it easier than ever to discover shadow IT in your organization, including details on usage patterns and any users accessing your cloud applications. To get started see [Cloud app discovery](active-directory-cloudappdiscovery-whatis.md).
 > 
 > 
 

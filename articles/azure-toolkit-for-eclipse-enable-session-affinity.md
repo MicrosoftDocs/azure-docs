@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 04/14/2017
 ms.author: robmcm
 
 ---
@@ -24,10 +24,14 @@ Within the Azure Toolkit for Eclipse, you can enable HTTP session affinity, or "
 
 ## To enable session affinity for your role
 1. Right-click the role in Eclipse's Project Explorer, click **Azure**, and then click **Load Balancing**.
+
 2. In the **Properties for WorkerRole1 Load Balancing** dialog:
-   1. Check **Enable HTTP session affinity (sticky sessions) for this role.**
-   2. For **Input endpoint to use**, select an input endpoint to use, for example, **http (public:80, private:8080)**. Your application must use this endpoint as its HTTP endpoint. You can enable multiple endpoints for your role, but you can select only one of them to support sticky sessions.
-   3. Rebuild your application.
+
+   a. Check **Enable HTTP session affinity (sticky sessions) for this role.**
+
+   b. For **Input endpoint to use**, select an input endpoint to use, for example, **http (public:80, private:8080)**. Your application must use this endpoint as its HTTP endpoint. You can enable multiple endpoints for your role, but you can select only one of them to support sticky sessions.
+
+   c. Rebuild your application.
 
 Once enabled, if you have more than one role instance, HTTP requests coming from a particular client will continue being handled by the same role instance.
 
@@ -35,11 +39,13 @@ The Eclipse Toolkit enables this by installing a special IIS module called Appli
 
 ## Notes about session affinity
 * Session affinity does not work in the compute emulator. The settings can be applied in the compute emulator without interfering with your build process or compute emulator execution, but the feature itself does not function within the compute emulator.
+
 * Enabling session affinity will result in an increase in the amount of disk space taken up by your deployment in Azure, as additional software will be downloaded and installed into your role instances when your service is started in the Azure cloud.
+
 * The time to initialize each role will take longer.
+
 * An internal endpoint, to function as a traffic rerouter as mentioned above, will be added.
 
-For an example of how to maintain session data when session affinity is enabled, see [How to Maintain Session Data with Session Affinity][How to Maintain Session Data with Session Affinity].
 
 ## See Also
 [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse]
@@ -47,8 +53,6 @@ For an example of how to maintain session data when session affinity is enabled,
 [Creating a Hello World Application for Azure in Eclipse][Creating a Hello World Application for Azure in Eclipse]
 
 [Installing the Azure Toolkit for Eclipse][Installing the Azure Toolkit for Eclipse] 
-
-[How to Maintain Session Data with Session Affinity][How to Maintain Session Data with Session Affinity]
 
 For more information about using Azure with Java, see the [Azure Java Developer Center][Azure Java Developer Center].
 

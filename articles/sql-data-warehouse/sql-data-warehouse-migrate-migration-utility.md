@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Migrate: Data Warehouse Migration Utility | Microsoft Docs'
 description: Migrate to SQL Data Warehouse.
 services: sql-data-warehouse
@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: migrate
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 

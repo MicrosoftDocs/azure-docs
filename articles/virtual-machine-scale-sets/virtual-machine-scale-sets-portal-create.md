@@ -15,11 +15,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2016
-ms.author: gatneil
+ms.date: 05/01/2017
+ms.author: negat
+ms.custom: H1Hack27Feb2017
 
 ---
-# Create a Virtual Machine Scale Set using the Azure portal
+# How to create a Virtual Machine Scale Set with the Azure portal
 This tutorial shows you how easy it is to create a Virtual Machine Scale Set in just a few minutes, by using the Azure portal. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Choose the VM image from the marketplace
@@ -29,26 +30,28 @@ First, navigate to the [Azure portal](https://portal.azure.com) in a web browser
 
 ![ScaleSetPortalOverview](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalOverview.PNG)
 
-## Create the Linux virtual machine
-Now you can use the default settings and quickly create the virtual machine.
+## Create the scale set
+Now you can use the default settings and quickly create the scale set.
 
-* On the `Basics` blade, enter a name for the scale set. This name becomes the base of the FQDN of the load balancer in front of the scale set, so make sure the name is unique across all of Azure.
-* Select your desired OS type, enter your desired username, and select which authentication type you prefer. If you choose a password, it must be at least 12 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. See more about [username and password requirements](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm). If you choose `SSH public key`, be sure to only paste in your public key, NOT your private key:
+* On the `Basics` blade, enter a name for the scale set. This name becomes the base of the FQDN of the load balancer in front of the scale set, so make sure the name is unique across all Azure.
+* Select your desired OS type, enter your desired username, and select which authentication type you prefer. If you choose a password, it must be at least 12 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. See more about [username and password requirements](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm). If you choose `SSH public key`, be sure to only paste in your public key, NOT your private key:
 
 ![ScaleSetPortalBasics](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalBasics.PNG)
 
+* Choose whether you would like to limit the scale set to a single placement group or whether it should span multiple placement groups. Allowing the scale set to span placement groups allows for scale sets over 100 VMs in capacity (up to 1,000) with certain limitations. For more information, see [this documentation](./virtual-machine-scale-sets-placement-groups.md).
 * Enter your desired resource group name and location, and then click `OK`.
-* On the `Virtual machine scale set service settings` blade: enter your desired domain name label (the base of the FQDN for the load balancer in front of the scale set). This label must be unique across all of Azure.
+* On the `Virtual machine scale set service settings` blade: enter your desired domain name label (the base of the FQDN for the load balancer in front of the scale set). This label must be unique across all Azure.
 * Choose your desired operating system disk image, instance count, and machine size.
+* Choose your desired disk type: managed or unmanaged. For more information, see [this documentation](./virtual-machine-scale-sets-managed-disks.md). If you chose to have the scale set span multiple placement groups, this option will not be available because managed disk is required for scale sets to span placement groups.
 * Enable or disable autoscale and configure if enabled:
 
 ![ScaleSetPortalService](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalService.PNG)
 
-* On the `Summary` blade, when validation is done, click `OK`.
-* Finally, on the `Purchase` blade, click `Purchase` to start the scale set deployment.
+* On the `Summary` blade, when validation is done, click `OK` to start the scale set deployment.
+
 
 ## Connect to a VM in the scale set
-Once your scale set is deployed, navigate to the `Inbound NAT Rules` tab of the load balancer for the scale set:
+If you chose to limit your scale set to a single placement group, then the scale set is deployed with NAT rules configured to let you connect to the scale set easily (if not, to connect to the virtual machines in the scale set, you likely need to create a jumpbox in the same virtual network as the scale set). To see them, navigate to the `Inbound NAT Rules` tab of the load balancer for the scale set:
 
 ![ScaleSetPortalNatRules](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalNatRules.PNG)
 

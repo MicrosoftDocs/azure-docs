@@ -1,10 +1,10 @@
 ---
 title: Use the SharePoint Online Connector in your Logic Apps | Microsoft Docs
-description: Get started using the Azure App Service SharePoint Online Connector  in your Logic apps.
+description: Get started using the the SharePoint Online Connector  in your Logic apps
 services: ''
 documentationcenter: ''
 author: msftman
-manager: erikre
+manager: anneta
 editor: ''
 tags: connectors
 
@@ -26,7 +26,7 @@ The SharePoint Connector provides an way to work with Lists on SharePoint.
 > 
 > 
 
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To add an operation in logic apps, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Let's talk about triggers and actions
 The SharePoint Connector  can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
@@ -529,7 +529,7 @@ None of the properties are required.
 | value |array |
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)  
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)  
 
 [1]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig1.png  
 [2]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig2.png 

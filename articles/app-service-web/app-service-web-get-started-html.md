@@ -1,9 +1,9 @@
 ---
-title: Deploy your first web app to Azure in five minutes | Microsoft Docs
-description: Learn how easy it is to run web apps in App Service by deploying a sample app. Start doing real development quickly and see results immediately.
+title: Create a static HTML web app in Azure in five minutes | Microsoft Docs
+description: Learn how easy it is to run web apps in App Service by deploying a sample app.
 services: app-service\web
 documentationcenter: ''
-author: cephalin
+author: rick-anderson
 manager: wpickett
 editor: ''
 
@@ -13,111 +13,72 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/13/2016
-ms.author: cephalin
+ms.date: 05/08/2017
+ms.author: riande
 
 ---
-# Deploy your first web app to Azure in five minutes
-This tutorial helps you deploy a simple HTML+CSS web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md).
-You can use App Service to create web apps, [mobile app back ends](/documentation/learning-paths/appservice-mobileapps/),
-and [API apps](../app-service-api/app-service-api-apps-why-best-platform.md).
+# Create a static HTML web app in Azure in five minutes
 
-You will: 
+This quickstart walks through how to and deploy a basic HTML+CSS site to Azure. You’ll run the app using an [Azure App Service plan](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview), and create a web app in it using the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli). You use Git to deploy the app to Azure. It takes about five minutes to complete the tutorial once the prerequisites are installed.
 
-* Create a web app in Azure App Service.
-* Deploy HTML and CSS to it.
-* See your pages running live in production.
-* Update your content the same way you would [push Git commits](https://git-scm.com/docs/git-push).
+![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
 ## Prerequisites
-* [Git](http://www.git-scm.com/downloads).
-* [Azure CLI](../xplat-cli-install.md).
-* A Microsoft Azure account. If you don't have an account, you can 
-  [sign up for a free trial](/pricing/free-trial/?WT.mc_id=A261C142F) or 
-  [activate your Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
-> [!NOTE]
-> You can [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) without an Azure account. Create a starter app and play with
-> it for up to an hour--no credit card required, no commitments.
-> 
-> 
+Before creating this sample, download and install the following components:
 
-## Deploy a simple HTML site
-1. Open a new Windows command prompt, PowerShell window, Linux shell, or OS X terminal. Run `git --version` and `azure --version` to verify that Git and Azure CLI
-   are installed on your machine.
-   
-    ![Test installation of CLI tools for your first web app in Azure](./media/app-service-web-get-started/1-test-tools.png)
-   
-    If you haven't installed the tools, see [Prerequisites](#Prerequisites) for download links.
-2. Log in to Azure like this:
-   
-        azure login
-   
-    Follow the help message to continue the login process.
-   
-    ![Log in to Azure to create your first web app](./media/app-service-web-get-started/3-azure-login.png)
-3. Change Azure CLI into ASM mode, then set the deployment user for App Service. You will deploy code using the credentials later.
-   
-        azure config mode asm
-        azure site deployment user set --username <username> --pass <password>
-4. Change to a working directory (`CD`) and clone the sample app like this:
-   
-        git clone https://github.com/Azure-Samples/app-service-web-html-get-started.git
-5. Change to the repository of your sample app. 
-   
-        cd app-service-web-html-get-started
-6. Create the App Service app resource in Azure with a unique app name and the deployment user you configured earlier. When you're prompted, specify the number of the desired region.
-   
-        azure site create <app_name> --git --gitusername <username>
-   
-    ![Create the Azure resource for your first web app in Azure](./media/app-service-web-get-started/4-create-site.png)
-   
-    Your app is created in Azure now. Also, your current directory is Git-initialized and connected to the new App Service app as a Git remote.
-    You can browse to the app URL (http://&lt;app_name>.azurewebsites.net) to see the beautiful default HTML page, but let's actually get your code there now.
-7. Deploy your sample code to your Azure app like you would push any code with Git. When prompted, use the password you configured earlier.
-   
-        git push azure master
-   
-    ![Push code to your first web app in Azure](./media/app-service-web-get-started/5-push-code.png)
-   
-    If you used one of the language frameworks, you'll see different output. This is because `git push` not only puts code in Azure, but also triggers deployment tasks
-    in the deployment engine. If you have any package.json
-    (Node.js) or requirements.txt (Python) files in your project (repository) root, or if you have a packages.config file in your ASP.NET project, the deployment
-    script restores the required packages for you. You can also [enable the Composer extension](web-sites-php-mysql-deploy-use-git.md#composer) to automatically process composer.json files
-    in your PHP app.
+- [Git](https://git-scm.com/)
+- [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
-Congratulations, you have deployed your app to Azure App Service.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## See your app running live
-To see your app running live in Azure, run this command from any directory in your repository:
+## Download the sample
 
-    azure site browse
+In a terminal window, clone the sample app repository to your local machine:
 
-## Make updates to your app
-You can now use Git to push from your project (repository) root anytime to make an update to the live site. You do it the same way as when you deployed your code
-the first time. For example, every time you want to push a new change that you've tested locally, just run the following commands from your project 
-(repository) root:
+```bash
+git clone https://github.com/Azure-Samples/html-docs-hello-world.git
+```
 
-    git add .
-    git commit -m "<your_message>"
-    git push azure master
+## View the HTML
+
+Navigate to the directory that contains the sample HTML. Open the *index.html* file in your browser.
+
+![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser.png)
+
+[!INCLUDE [login-to-azure](../../includes/login-to-azure.md)] 
+[!INCLUDE [configure-deployment-user](../../includes/configure-deployment-user.md)] 
+
+[!INCLUDE [app-service-web-quickstart1](../../includes/app-service-web-quickstart1.md)] 
+
+Create a [Web App](app-service-web-overview.md) in the `quickStartPlan` App Service plan. 
+The web app provides a hosting space for your code and provides a URL for to view the deployed app.
+
+[!INCLUDE [app-service-web-quickstart2](../../includes/app-service-web-quickstart2.md)] 
+
+The page is running as an Azure App Service web app:
+
+![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
+
+## Update and redeploy the app
+
+Open the *index.html* file. Make a change to the markup. For example, change `Hello world!` to `Hello Azure!`
+
+Commit your changes in Git, and then push the code changes to Azure.
+
+```bash
+git commit -am "updated HTML"
+git push azure master
+```
+
+Once deployment has completed, refresh your browser to see the changes.
+
+[!INCLUDE [manage-azure-web-app](../../includes/manage-azure-web-app.md)]
+
+
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## Next steps
-Find the preferred development and deployment steps for your language framework:
 
-> [!div class="op_single_selector"]
-> * [.NET](web-sites-dotnet-get-started.md)
-> * [PHP](app-service-web-php-get-started.md)
-> * [Node.js](app-service-web-nodejs-get-started.md)
-> * [Python](web-sites-python-ptvs-django-mysql.md)
-> * [Java](web-sites-java-get-started.md)
-> 
-> 
-
-Or, do more with your first web app. For example:
-
-* Try out [other ways to deploy your code to Azure](web-sites-deploy.md). For example, to deploy from one of your GitHub repositories, simply select
-  **GitHub** instead of **Local Git Repository** in **Deployment options**.
-* Take your Azure app to the next level. Authenticate your users. Scale it based on demand. Set up some performance alerts. All with a few clicks. See 
-  [Add functionality to your first web app](app-service-web-get-started-2.md).
-
+- Explore sample [Web Apps CLI scripts](app-service-cli-samples.md).
+- Learn how to [Map a custom domain name](app-service-web-tutorial-custom-domain.md), such as contoso.com, to an [App Service app](app-service-web-tutorial-custom-domain.md).

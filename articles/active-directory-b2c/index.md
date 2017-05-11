@@ -1,10 +1,22 @@
 ---
+title: Azure Active Directory B2C Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to deploy comprehensive consumer identity management in the cloud. Documentation shows how to protect consumer-facing web and mobile apps.
+services: active-directory-b2c
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: active-directory-b2c
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 
 #Active Directory B2C Documentation
 
-Azure Active Directory B2C is a comprehensive cloud identity management solution for your consumer-facing web and mobile applications. It is a highly available global service that scales to hundreds of millions of consumer identities. Built on an enterprise-grade secure platform, Azure Active Directory B2C keeps your applications, your business, and your consumers protected.
+Learn how to set up and manage comprehensive consumer identity management in the cloud with Active Directory B2C. Tutorials, references, and other documentation show you how to protect consumer-facing web and mobile applications with secure sign-in.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -72,7 +84,7 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an iOS app using a third-party libraryC</h3>
+                        <h3>Create an iOS app using a third-party library</h3>
                     </div>
                 </div>
             </div>
@@ -171,13 +183,3 @@ Azure Active Directory B2C is a comprehensive cloud identity management solution
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory-b2c.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Active Directory B2C Documentation
-        </div>
-    </a>
-</div>

@@ -31,6 +31,11 @@ Azure Functions provides the following bindings:
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
+> [!TIP]
+>
+> We suggest reading this best practices document on [HTTPClient](https://github.com/mspnp/performance-optimization/blob/master/ImproperInstantiation/docs/ImproperInstantiation.md).
+>
+
 <a name="httptrigger"></a>
 
 ## HTTP trigger
@@ -111,7 +116,7 @@ An HTTP trigger with the _webHookType_ property will be configured to respond to
 
 The trigger can additionally be tailored to a specific webhook provider (e.g., [GitHub](https://developer.github.com/webhooks/) and [Slack](https://api.slack.com/outgoing-webhooks)). If a provider is specified, the Functions runtime can take care of the provider's validation logic for you.  
 
-### Configuring Github as a webhook provider
+### Configuring GitHub as a webhook provider
 To respond to GitHub webhooks, first create your function with an HTTP Trigger, and set the _webHookType_ property to "github". Then copy its [URL](#url) and [API key](#keys)
 into your GitHub repository's **Add webhook** page. See GitHub's [Creating Webhooks](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409) documentation for more.
 
@@ -212,10 +217,10 @@ HttpTriggers can leverage keys for added security. A standard HttpTrigger can us
 Keys are stored as part of your function app in Azure and are encrypted at rest. To view your keys, create new ones, or roll keys to new values, navigate to one of your functions within the portal and select "Manage." 
 
 There are two types of keys:
-- **Admin keys**: These keys are shared by all functions within the function app. When used as an API key, these allow access to any function within the function app.
+- **Host keys**: These keys are shared by all functions within the function app. When used as an API key, these allow access to any function within the function app.
 - **Function keys**: These keys apply only to the specific functions under which they are defined. When used as an API key, these only allow access to that function.
 
-Each key is named for reference, and there is a default key (named "default") at the function and admin level. The **master key** is a default admin key named "_master" that is defined for each function app and cannot be revoked. It provides administrative access to the runtime APIs. Using `"authLevel": "admin"` in the binding JSON will require this key to be presented on the request; any other key will result in a authorization failure.
+Each key is named for reference, and there is a default key (named "default") at the function and host level. The **master key** is a default host key named "_master" that is defined for each function app and cannot be revoked. It provides administrative access to the runtime APIs. Using `"authLevel": "admin"` in the binding JSON will require this key to be presented on the request; any other key will result in a authorization failure.
 
 > [!NOTE]
 > Due to the elevated permissions granted by the master key, you should not share this key with third parties or distribute it in native client applications. Exercise caution when choosing the admin authorization level.
@@ -227,7 +232,7 @@ By default, an HttpTrigger requires an API key in the HTTP request. So your HTTP
 
     https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>
 
-The key can be included in a query string variable named `code`, as above, or it can be included in an `x-functions-key` HTTP header. The value of the key can be any function key defined for the function, or any admin key.
+The key can be included in a query string variable named `code`, as above, or it can be included in an `x-functions-key` HTTP header. The value of the key can be any function key defined for the function, or any host key.
 
 You can choose to allow requests without keys or specify that the master key must be used by changing the `authLevel` property in the binding JSON
 (see [HTTP trigger](#httptrigger)).
@@ -239,7 +244,7 @@ Webhook authorization is handled by the webhook reciever component, part of the 
 - **Request header**: The provider passes the key name in the `x-functions-clientid` header.
 
 > [!NOTE]
-> Function keys take precedence over admin keys. If two keys are defined with the same name, the function key will be used.
+> Function keys take precedence over host keys. If two keys are defined with the same name, the function key will be used.
 > 
 > 
 

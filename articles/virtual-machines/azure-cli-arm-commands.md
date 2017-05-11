@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure CLI commands in Resource Manager mode | Microsoft Docs
 description: Azure command line interface (CLI) commands to manage resources in the Resource Manager deployment model
 services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
@@ -14,14 +14,20 @@ ms.workload: multiple
 ms.tgt_pltfrm: command-line-interface
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2016
+ms.date: 04/18/2017
 ms.author: danlep
 
 ---
 # Azure CLI commands in Resource Manager mode
 This article provides syntax and options for Azure command-line interface (CLI) commands you'd commonly use to create and manage Azure resources in the Azure Resource Manager deployment model. You access these commands by running the CLI in Resource Manager (arm) mode. This is not a complete reference, and your CLI version may show slightly different commands or parameters. For a general overview of Azure resources and resource groups, see [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md).  
 
-To get started, first [install the Azure CLI](../xplat-cli-install.md) and [connect to your Azure subscription](../xplat-cli-connect.md) by using a work or school account or a Microsoft account identity.
+> [!NOTE]
+> This article shows Resource Manager mode commands in the Azure CLI, sometimes called Azure CLI 1.0. 
+>To work in the Resource Manager model, you can also try the [Azure CLI 2.0](/cli/azure/install-az-cli2), our next generation multi-platform CLI.
+> Find out more about the [old and new Azure CLIs](/cli/azure/old-and-new-clis).
+>
+
+To get started, first [install the Azure CLI](../cli-install-nodejs.md) and [connect to your Azure subscription](../xplat-cli-connect.md).
 
 For current command syntax and options at the command line in Resource Manager mode, type `azure help` or, to display help for a specific command, `azure help [command]`. Also find CLI examples in the documentation for creating and managing specific Azure services.
 
@@ -935,86 +941,6 @@ Parameter options:
     -n, --name <name>                      the name of the backend address pool
     -s, --subscription <subscription>      the subscription identifier
 
-<BR>
-
-    network lb address-pool add [options] <resource-group> <lb-name> <name>
-
-A backend address pool range is how a load balancer knows what resources to route incoming network traffic from its endpoint using Azure Resource Manager. After you create and name the backend address pool range (See command "azure network lb address-pool create"), you need to add the endpoints, which are now defined by a resource called "network interfaces".
-
-To configure the backend address range, you need at least one "network interface" (See "azure network lb nic" command line for more details).
-
-In the following example, a previously created "nic1" network interface was used to create the backend address pool range.
-
-    azure network lb address-pool add -g myresourcegroup -l mylb -n mybackendpool -a nic1
-
-    info:    Executing command network lb address-pool add
-    + Looking up the load balancer "mylb"
-    + Getting network interfaces
-    + Updating network interface "nic1"
-    + Looking up the load balancer "mylb"
-    data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/backendAddressPools/mybackendpool
-    data:    Name:                      mybackendpool
-    data:    Type:                      Microsoft.Network/loadBalancers/backendAddressPools
-    data:    Provisioning state:        Succeeded
-    data:    Backend IP configurations:
-    data:     id=/subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/networkInterfaces/nic1/ipConfigurations/NIC-config
-    data:    Load balancing rules:
-    data:
-    info:    network lb address-pool add command OK
-
-Parameter options:
-
-    -h, --help                             output usage information
-    -v, --verbose                          use verbose output
-    --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -l, --lb-name <lb-name>                the name of the load balancer
-    -n, --name <name>                      the name of the backend address pool
-    -i, --vm-id <vm-id>                    the virtual machine identifier.
-    e.g. "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines/<vm-name>,/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines/<vm-name>"
-    -m, --vm-name <vm-name>                the name of the virtual machine
-    -d, --nic-id <nic-id>                  the network interface identifier.
-    e.g. ""/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/networkInterfaces/<nic-name>"
-    -a, --nic-name <nic-name>              the name of the network interface
-    -s, --subscription <subscription>      the subscription identifier
-
-<BR>
-
-    network lb address-pool remove [options] <resource-group> <lb-name> <name>
-
-Removes a network interface from backend IP address pool range.
-
-    azure network lb address-pool remove -g myresourcegroup -l mylb -n mybackendpool -a nic1
-
-    info:    Executing command network lb address-pool remove
-    + Looking up the load balancer "mylb"
-    + Getting network interfaces
-    + Updating network interface "nic1"
-    + Looking up the load balancer "mylb"
-    data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/backendAddressPools/mybackendpool
-    data:    Name:                      mybackendpool
-    data:    Type:                      Microsoft.Network/loadBalancers/backendAddressPools
-    data:    Provisioning state:        Succeeded
-    data:    Backend IP configurations:
-    data:    Load balancing rules:
-    data:
-    info:    network lb address-pool remove command OK
-
-Parameter options:
-
-    -h, --help                             output usage information
-    -v, --verbose                          use verbose output
-    --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -l, --lb-name <lb-name>                the name of the load balancer
-    -n, --name <name>                      the name of the backend address pool
-    -i, --vm-id <vm-id>                    the virtual machine identifier.
-    e.g. "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines/<vm-name>,/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines/<vm-name>"
-    -m, --vm-name <vm-name>                the name of the virtual machine
-    -d, --nic-id <nic-id>                  the network interface identifier.
-    e.g. ""/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/networkInterfaces/<nic-name>"
-    -a, --nic-name <nic-name>              the name of the network interface
-    -s, --subscription <subscription>      the subscription identifier
 <BR>
 
     network lb address-pool list [options] <resource-group> <lb-name>

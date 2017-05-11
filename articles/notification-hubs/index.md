@@ -1,11 +1,22 @@
 ---
+title: Azure Notification Hubs Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to send push notifications from any backend to any mobile device with Notification Hubs. Tutorials, API references, and other documentation.
+services: notification-hubs
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid:	
+ms.service: notification-hubs
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
+
 #Notification Hubs Documentation
 
-Azure Notification Hubs provide an easy-to-use, multi-platform, scaled-out push infrastructure that enables you to send mobile push notifications from any backend (in the cloud or on-premises) to any mobile platform.
-
-With Notification Hubs, you can easily send cross-platform, personalized push notifications, abstracting the details of the different platform notification systems (PNS). With a single API call, you can target individual users or entire audience segments containing millions of users, across all their devices.
+Learn how to use Notification Hubs, a multi-platform, scalable push-notification engine for quickly sending millions of messages. Tutorials, API references, and other documentation show you how to set up and send push notifications from any backend to any mobile device. 
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -27,7 +38,7 @@ With Notification Hubs, you can easily send cross-platform, personalized push no
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=notification-hubs">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -55,7 +66,7 @@ With Notification Hubs, you can easily send cross-platform, personalized push no
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started sending push notifications to Android (FCM) with Azure Notification Hubs</h3>
+                        <h3>Get started sending push notifications to Android (FCM) with Azure Notification Hubs</h3>
                     </div>
                 </div>
             </div>
@@ -91,7 +102,7 @@ With Notification Hubs, you can easily send cross-platform, personalized push no
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started sending push notifications to Chrome apps with Azure Notification Hubs</h3>
+                        <h3>Get started sending push notifications to Chrome apps with Azure Notification Hubs</h3>
                     </div>
                 </div>
             </div>
@@ -109,7 +120,7 @@ With Notification Hubs, you can easily send cross-platform, personalized push no
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started sending push notifications to iOS with Azure Notification Hubs</h3>
+                        <h3>Get started sending push notifications to iOS with Azure Notification Hubs</h3>
                     </div>
                 </div>
             </div>
@@ -127,7 +138,7 @@ With Notification Hubs, you can easily send cross-platform, personalized push no
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Notification Hubs for Kindle apps</h3>
+                        <h3>Get started with Notification Hubs for Kindle apps</h3>
                     </div>
                 </div>
             </div>
@@ -156,60 +167,43 @@ With Notification Hubs, you can easily send cross-platform, personalized push no
 
 ---
 
-## Reference
-
+<h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Notification Hubs PowerShell Cmdlets</p>
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.notificationhubs/v2.3.0/azurerm.notificationhubs">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-	<li>
-        <a href="/dotnet/api/">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Notification Hubs .NET API Reference</p>
-                    </div>
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.notificationhubs">.NET</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-	<li>
-        <a href="/rest/api/notificationhubs/">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Notification Hubs REST API Reference</p>
+                        <p><a href="/rest/api/notificationhubs">REST API Reference</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>
+</ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/notification-hubs.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Notification Hubs Documentation
-        </div>
-    </a>
-</div>

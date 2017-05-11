@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/azure-resource-manager/resource-manager-template-storage
+redirect_url: /azure/templates/microsoft.storage/storageaccounts
 ---

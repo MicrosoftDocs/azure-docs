@@ -1,5 +1,5 @@
 ---
-title: Create applications that use Service Bus topics and subscriptions | Microsoft Docs
+title: Create applications that use Azure Service Bus topics and subscriptions | Microsoft Docs
 description: Introduction to the publish-subscribe capabilities offered by Service Bus topics and subscriptions.
 services: service-bus-messaging
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2016
+ms.date: 04/12/2017
 ms.author: sethm
 
 ---
@@ -46,14 +46,14 @@ In order to support the management dashboard, we create a second subscription on
 With this configuration, each message from the POS terminals is made available to both the **Dashboard** and **Inventory** subscriptions.
 
 ## Show me the code
-The article [Create applications that use Service Bus queues](service-bus-create-queues.md) describes how to sign up for an Azure account and create a service namespace. To use a Service Bus namespace, an application must reference the Service Bus assembly, specifically Microsoft.ServiceBus.dll. The easiest way to reference Service Bus dependencies is to install the Service Bus [Nuget package](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). You can also find the assembly as part of the Azure SDK. The download is available at the [Azure SDK download page](https://azure.microsoft.com/downloads/).
+The article [Create applications that use Service Bus queues](service-bus-create-queues.md) describes how to sign up for an Azure account and create a service namespace. The easiest way to reference Service Bus dependencies is to install the Service Bus [Nuget package](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). You can also find the Service Bus libraries as part of the Azure SDK. The download is available at the [Azure SDK download page](https://azure.microsoft.com/downloads/).
 
 ### Create the topic and subscriptions
-Management operations for Service Bus messaging entities (queues and publish/subscribe topics) are performed via the [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) class. Appropriate credentials are required in order to create a [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) instance for a particular namespace. Service Bus uses a [Shared Access Signature (SAS)](service-bus-sas-overview.md) based security model. The [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) class represents a security token provider with built-in factory methods returning some well-known token providers. We’ll use a [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) method to hold the SAS credentials. The [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) instance is then constructed with the base address of the Service Bus namespace and the token provider.
+Management operations for Service Bus messaging entities (queues and publish/subscribe topics) are performed via the [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) class. Appropriate credentials are required in order to create a **NamespaceManager** instance for a particular namespace. Service Bus uses a [Shared Access Signature (SAS)](service-bus-sas.md) based security model. The [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#microsoft_servicebus_tokenprovider) class represents a security token provider with built-in factory methods returning some well-known token providers. We’ll use a [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#Microsoft_ServiceBus_TokenProvider_CreateSharedAccessSignatureTokenProvider_System_String_) method to hold the SAS credentials. The [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) instance is then constructed with the base address of the Service Bus namespace and the token provider.
 
-The [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) class provides methods to create, enumerate and delete messaging entities. The code that is shown here shows how the [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) instance is created and used to create the **DataCollectionTopic** topic.
+The [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) class provides methods to create, enumerate and delete messaging entities. The code that is shown here shows how the **NamespaceManager** instance is created and used to create the **DataCollectionTopic** topic.
 
-```
+```csharp
 Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", "test-blog", string.Empty);
 string name = "RootManageSharedAccessKey";
 string key = "abcdefghijklmopqrstuvwxyz";
@@ -64,42 +64,42 @@ NamespaceManager namespaceManager = new NamespaceManager(uri, tokenProvider);
 namespaceManager.CreateTopic("DataCollectionTopic");
 ```
 
-Note that there are overloads of the [CreateTopic](https://msdn.microsoft.com/library/azure/hh293080.aspx) method that enable you to set properties of the topic. For example, you can set the default time-to-live (TTL) value for messages sent to the topic. Next, add the **Inventory** and **Dashboard** subscriptions.
+Note that there are overloads of the [CreateTopic](/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateTopic_System_String_) method that enable you to set properties of the topic. For example, you can set the default time-to-live (TTL) value for messages sent to the topic. Next, add the **Inventory** and **Dashboard** subscriptions.
 
-```
+```csharp
 namespaceManager.CreateSubscription("DataCollectionTopic", "Inventory");
 namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard");
 ```
 
 ### Send messages to the topic
-For run-time operations on Service Bus entities; for example, sending and receiving messages, an application must first create a [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) object. Similar to the [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) class, the [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) instance is created from the base address of the service namespace and the token provider.
+For run-time operations on Service Bus entities; for example, sending and receiving messages, an application must first create a [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#microsoft_servicebus_messaging_messagingfactory) object. Similar to the [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) class, the **MessagingFactory** instance is created from the base address of the service namespace and the token provider.
 
 ```
 MessagingFactory factory = MessagingFactory.Create(uri, tokenProvider);
 ```
 
-Messages sent to and received from Service Bus topics, are instances of the [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) class. This class consists of a set of standard properties (such as [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) and [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), a dictionary that is used to hold application properties, and a body of arbitrary application data. An application can set the body by passing in any serializable object (the following example passes in a **SalesData** object that represents the sales data from the POS terminal), which will use the [DataContractSerializer](https://msdn.microsoft.com/library/azure/system.runtime.serialization.datacontractserializer.aspx) to serialize the object. Alternatively, a [Stream](https://msdn.microsoft.com/library/azure/system.io.stream.aspx) object can be provided.
+Messages sent to and received from Service Bus topics, are instances of the [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) class. This class consists of a set of standard properties (such as [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) and [TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.timetolive?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), a dictionary that is used to hold application properties, and a body of arbitrary application data. An application can set the body by passing in any serializable object (the following example passes in a **SalesData** object that represents the sales data from the POS terminal), which will use the [DataContractSerializer](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer.aspx) to serialize the object. Alternatively, a [Stream](https://msdn.microsoft.com/library/system.io.stream.aspx) object can be provided.
 
-```
+```csharp
 BrokeredMessage bm = new BrokeredMessage(salesData);
 bm.Label = "SalesReport";
 bm.Properties["StoreName"] = "Redmond";
 bm.Properties["MachineID"] = "POS_1";
 ```
 
-The easiest way to send messages to the topic is to use [CreateMessageSender](https://msdn.microsoft.com/library/azure/hh322659.aspx) to create a [MessageSender](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx) object directly from the [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) instance.
+The easiest way to send messages to the topic is to use [CreateMessageSender](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_CreateMessageSender_System_String_) to create a [MessageSender](/dotnet/api/microsoft.servicebus.messaging.messagesender) object directly from the [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) instance:
 
-```
+```csharp
 MessageSender sender = factory.CreateMessageSender("DataCollectionTopic");
 sender.Send(bm);
 ```
 
 ### Receive messages from a subscription
-Similar to using queues, to receive messages from a subscription you can use a [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) object which you create directly from the [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) using [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx). You can use one of the two different receive modes (**ReceiveAndDelete** and **PeekLock**), as discussed in [Create applications that use Service Bus queues](service-bus-create-queues.md).
+Similar to using queues, to receive messages from a subscription you can use a [MessageReceiver](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) object which you create directly from the [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) using [CreateMessageReceiver](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_CreateMessageReceiver_System_String_). You can use one of the two different receive modes (**ReceiveAndDelete** and **PeekLock**), as discussed in [Create applications that use Service Bus queues](service-bus-create-queues.md).
 
-Note that when you create a [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) for subscriptions, the *entityPath* parameter is of the form `topicPath/subscriptions/subscriptionName`. Therefore, to create a [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) for the **Inventory** subscription of the **DataCollectionTopic** topic, *entityPath* must be set to `DataCollectionTopic/subscriptions/Inventory`. The code appears as follows:
+Note that when you create a **MessageReceiver** for subscriptions, the *entityPath* parameter is of the form `topicPath/subscriptions/subscriptionName`. Therefore, to create a **MessageReceiver** for the **Inventory** subscription of the **DataCollectionTopic** topic, *entityPath* must be set to `DataCollectionTopic/subscriptions/Inventory`. The code appears as follows:
 
-```
+```csharp
 MessageReceiver receiver = factory.CreateMessageReceiver("DataCollectionTopic/subscriptions/Inventory");
 BrokeredMessage receivedMessage = receiver.Receive();
 try
@@ -114,7 +114,7 @@ catch (Exception e)
 ```
 
 ## Subscription filters
-So far, in this scenario all messages sent to the topic are made available to all registered subscriptions. The key phrase here is "made available." While Service Bus subscriptions see all messages sent to the topic, you can copy only a subset of those messages to the virtual subscription queue. This is performed using subscription *filters*. When you create a subscription, you can supply a filter expression in the form of a SQL92 style predicate that operates over the properties of the message, both the system properties (for example, [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx)) and the application properties, such as **StoreName** in the previous example.
+So far, in this scenario all messages sent to the topic are made available to all registered subscriptions. The key phrase here is "made available." While Service Bus subscriptions see all messages sent to the topic, you can copy only a subset of those messages to the virtual subscription queue. This is performed using subscription *filters*. When you create a subscription, you can supply a filter expression in the form of a SQL92 style predicate that operates over the properties of the message, both the system properties (for example, [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label)) and the application properties, such as **StoreName** in the previous example.
 
 Evolving the scenario to illustrate this, a second store is to be added to our retail scenario. Sales data from all of the POS terminals from both stores still have to be routed to the centralized inventory management system, but a store manager using the dashboard tool is only interested in the performance of that store. You can use subscription filtering to achieve this. Note that when the POS terminals publish messages, they set the **StoreName** application property on the message. Given two stores, for example **Redmond** and **Seattle**, the POS terminals in the Redmond store stamp their sales data messages with a **StoreName** equal to **Redmond**, whereas the Seattle store POS terminals use a **StoreName** equal to **Seattle**. The store manager of the Redmond store only wants to see data from its POS terminals. The system appears as follows:
 
@@ -122,12 +122,12 @@ Evolving the scenario to illustrate this, a second store is to be added to our r
 
 To set up this routing, you create the **Dashboard** subscription as follows:
 
-```
+```csharp
 SqlFilter dashboardFilter = new SqlFilter("StoreName = 'Redmond'");
 namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard", dashboardFilter);
 ```
 
-With this subscription filter, only messages that have the **StoreName** property set to **Redmond** will be copied to the virtual queue for the **Dashboard** subscription. There is much more to subscription filtering, however. Applications can have multiple filter rules per subscription in addition to the ability to modify the properties of a message as it passes to a subscription's virtual queue.
+With this [subscription filter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter), only messages that have the **StoreName** property set to **Redmond** will be copied to the virtual queue for the **Dashboard** subscription. There is much more to subscription filtering, however. Applications can have multiple filter rules per subscription in addition to the ability to modify the properties of a message as it passes to a subscription's virtual queue.
 
 ## Summary
 All of the reasons to use queuing described in [Create applications that use Service Bus queues](service-bus-create-queues.md) also apply to topics, specifically:
@@ -138,5 +138,6 @@ All of the reasons to use queuing described in [Create applications that use Ser
 * Loose coupling – you can evolve the messaging network without affecting existing endpoints; for example, adding subscriptions or changing filters to a topic to allow for new consumers.
 
 ## Next steps
+
 See [Create applications that use Service Bus queues](service-bus-create-queues.md) for information about how to use queues in the POS retail scenario.
 

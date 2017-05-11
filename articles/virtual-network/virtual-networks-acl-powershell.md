@@ -1,5 +1,5 @@
 ---
-title: How to manage Access Control Lists (ACLs) for Endpoints by using PowerShell
+title: Manage Azure endpoint access control lists | PowerShell | Classic | Microsoft Docs
 description: Learn how to manage ACLs with PowerShell
 services: virtual-network
 documentationcenter: na
@@ -17,8 +17,8 @@ ms.date: 03/15/2016
 ms.author: jdial
 
 ---
-# How to manage Access Control Lists (ACLs) for Endpoints by using PowerShell
-You can create and manage Network Access Control Lists (ACLs) for endpoints by using Azure PowerShell or in the Management Portal. In this topic, you'll find procedures for ACL common tasks that you can complete using PowerShell. For the list of Azure PowerShell cmdlets see [Azure Management Cmdlets](http://go.microsoft.com/fwlink/?LinkId=317721). For more information about ACLs, see [What is a Network Access Control List (ACL)?](virtual-networks-acl.md). If you want to manage your ACLs by using the Management Portal, see [How to Set Up Endpoints to a Virtual Machine](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+# Manage endpoint access control lists using PowerShell in the classic deployment model
+You can create and manage Network Access Control Lists (ACLs) for endpoints by using Azure PowerShell or in the Management Portal. In this topic, you'll find procedures for ACL common tasks that you can complete using PowerShell. For the list of Azure PowerShell cmdlets see [Azure Management Cmdlets](http://go.microsoft.com/fwlink/?LinkId=317721). For more information about ACLs, see [What is a Network Access Control List (ACL)?](virtual-networks-acl.md). If you want to manage your ACLs by using the Management Portal, see [How to Set Up Endpoints to a Virtual Machine](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## Manage Network ACLs by using Azure PowerShell
 You can use Azure PowerShell cmdlets to create, remove, and configure (set) Network Access Control Lists (ACLs). We've included a few examples of some of the ways you can configure an ACL using PowerShell.

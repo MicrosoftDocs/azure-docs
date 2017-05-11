@@ -1,4 +1,4 @@
-﻿---
+---
 title: Partitioning tables in SQL Data Warehouse | Microsoft Docs
 description: Getting started with table partitioning in Azure SQL Data Warehouse.
 services: sql-data-warehouse
@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: tables
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 

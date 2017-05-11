@@ -1,5 +1,5 @@
----
-title: Manage reserved IP addresses (Classic) using PowerShell | Microsoft Docs
+﻿---
+title: Manage Azure reserved IP addresses (Classic) - PowerShell | Microsoft Docs
 description: Understand reserved IP addresses (Classic) and how to manage them using PowerShell.
 services: virtual-network
 documentationcenter: na
@@ -20,41 +20,41 @@ ms.author: jdial
 # Reserved IP addresses (Classic)
 
 > [!div class="op_single_selector"]
-- [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
-- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-- [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
-- [Template](virtual-network-deploy-static-pip-arm-template.md)
-- [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
+> * [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
+> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+> * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
+> * [Template](virtual-network-deploy-static-pip-arm-template.md)
+> * [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
 
-IP addresses in Azure fall into two categories: dynamic and reserved. Public IP addresses managed by Azure are dynamic by default. That means that the IP address used for a given cloud service (VIP) or to access a VM or role instance directly (ILPIP) can change from time to time, when resources are shutdown or deallocated.
+IP addresses in Azure fall into two categories: dynamic and reserved. Public IP addresses managed by Azure are dynamic by default. That means that the IP address used for a given cloud service (VIP) or to access a VM or role instance directly (ILPIP) can change from time to time, when resources are shut down or stopped (deallocated).
 
-To prevent IP addresses from changing, you can reserve an IP address. Reserved IPs can be used only as a VIP, ensuring that the IP address for the cloud service will be the same even as resources are shutdown or deallocated. Furthermore, you can convert existing dynamic IPs used as a VIP to a reserved IP address.
+To prevent IP addresses from changing, you can reserve an IP address. Reserved IPs can be used only as a VIP, ensuring that the IP address for the cloud service remains the same, even as resources are shut down or stopped (deallocated). Furthermore, you can convert existing dynamic IPs used as a VIP to a reserved IP address.
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. Learn how to reserve a static public IP address using the [Resource Manager deployment model](virtual-network-ip-addresses-overview-arm.md).
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. Learn how to reserve a static public IP address using the [Resource Manager deployment model](virtual-network-ip-addresses-overview-arm.md).
 
 To learn more about IP addresses in Azure, read the [IP addresses](virtual-network-ip-addresses-overview-classic.md) article.
 
 ## When do I need a reserved IP?
-* **You want to ensure that the IP is reserved in your subscription**. If you want to reserve an IP address that will not be released from your subscription under any circumstance, you should use a reserved public IP.  
-* **You want your IP to stay with your cloud service even across stopped or deallocated state (VMs)**. If you want your service to be accessed by using an IP address that will not change even when VMs in the cloud service are stop or deallocated.
-* **You want to ensure that outbound traffic from Azure uses a predictable IP address**. You may have your on-premises firewall configured to allow only traffic from specific IP addresses. By reserving an IP, you will know the source IP address and won’t have to update your firewall rules due to an IP change.
+* **You want to ensure that the IP is reserved in your subscription**. If you want to reserve an IP address that is not released from your subscription under any circumstance, you should use a reserved public IP.  
+* **You want your IP to stay with your cloud service even across stopped or deallocated state (VMs)**. If you want your service to be accessed by using an IP address that doesn't change, even when VMs in the cloud service are shut down or stop (deallocated).
+* **You want to ensure that outbound traffic from Azure uses a predictable IP address**. You may have your on-premises firewall configured to allow only traffic from specific IP addresses. By reserving an IP, you know the source IP address, and don't need to update your firewall rules due to an IP change.
 
 ## FAQ
-1. Can I use a reserved IP for all Azure services?  
-   * Reserved IPs can only be used for VMs and cloud service instance roles exposed through a VIP.
-2. How many reserved IPs can I have?  
-   * See the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
-3. Is there a charge for reserved IPs?
-   * See [Reserved IP Address Pricing Details](http://go.microsoft.com/fwlink/?LinkID=398482) for pricing information.
-4. How do I reserve an IP address?
-   * You can use PowerShell, the [Azure Management REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx), or the [Azure portal](https://portal.azure.com) to reserve an IP address in a particular region. This reserved IP address is associated to your subscription.
-5. Can I use this with affinity group based VNets?
-   * Reserved IPs are only supported in regional VNets. It is not supported for VNets that are associated with affinity groups. For more information about associating a VNet with a region or an affinity group, see [About Regional VNets and Affinity Groups](virtual-networks-migrate-to-regional-vnet.md).
+1. Can I use a reserved IP for all Azure services? <br>
+    No. Reserved IPs can only be used for VMs and cloud service instance roles exposed through a VIP.
+2. How many reserved IPs can I have? <br>
+    For details, see the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
+3. Is there a charge for reserved IPs? <br>
+    Sometimes. For pricing details, see the [Reserved IP Address Pricing Details](http://go.microsoft.com/fwlink/?LinkID=398482) page.
+4. How do I reserve an IP address? <br>
+    You can use PowerShell, the [Azure Management REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx), or the [Azure portal](https://portal.azure.com) to reserve an IP address in an Azure region. A reserved IP address is associated to your subscription.
+5. Can I use a reserved IP with affinity group-based VNets? <br>
+    No. Reserved IPs are only supported in regional VNets. Reserved IPs are not supported for VNets that are associated with affinity groups. For more information about associating a VNet with a region or affinity group, see the [About Regional VNets and Affinity Groups](virtual-networks-migrate-to-regional-vnet.md) article.
 
 ## Manage reserved VIPs
 
-Ensure you have installed and configured PowerShell by completing the steps in the [Install and configure PowerShell](../powershell-install-configure.md) article. 
+Ensure you have installed and configured PowerShell by completing the steps in the [Install and configure PowerShell](/powershell/azure/overview) article. 
 
 Before you can use reserved IPs, you must add it to your subscription. To create a reserved IP from the pool of public IP addresses available in the *Central US* location, run the following command:
 
@@ -83,7 +83,10 @@ Expected output:
     OperationId          : 55e4f245-82e4-9c66-9bd8-273e815ce30a
     OperationStatus      : Succeeded
 
-Once an IP is reserved, it remains associated to your subscription until you delete it. To delete the reserved IP shown above, run the following PowerShell command:
+>[!NOTE]
+>When you create a reserved IP address with PowerShell, you cannot specify a resource group to create the reserved IP in. Azure places it into a resource group named *Default-Networking* automatically. If you create the reserved IP using the [Azure portal](http://portal.azure.com), you can specify any resource group you choose. If you create the reserved IP in a resource group other than *Default-Networking* however, whenever you reference the reserved IP with commands such as `Get-AzureReservedIP` and `Remove-AzureReservedIP`, you must reference the name *Group resource-group-name reserved-ip-name*.  For example, if you create a reserved IP named *myReservedIP* in a resource group named *myResourceGroup*, you must reference the name of the reserved IP as *Group myResourceGroup myReservedIP*.   
+
+Once an IP is reserved, it remains associated to your subscription until you delete it. To delete a reserved IP, run the following PowerShell command:
 
 ```powershell
 Remove-AzureReservedIP -ReservedIPName "MyReservedIP"
@@ -97,7 +100,7 @@ New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US" -Ser
 ```
 
 ## Associate a reserved IP to a new cloud service
-The script below creates a new reserved IP, then associates it to a new cloud service named *TestService*.
+The following script creates a new reserved IP, then associates it to a new cloud service named *TestService*.
 
 ```powershell
 New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US"
@@ -110,11 +113,11 @@ New-AzureVMConfig -Name TestVM -InstanceSize Small -ImageName $image.ImageName `
 ```
 
 > [!NOTE]
-> When you create a reserved IP to use with a cloud service, you’ll still need to refer to the VM by using *VIP:&lt;port number>* for inbound communication. Reserving an IP does not mean you can connect to the VM directly. The reserved IP is assigned to the cloud service that the VM has been deployed to. If you want to connect to a VM by IP directly, you have to configure an instance-level public IP. An instance-level public IP is a type of public IP (called a ILPIP) that is assigned directly to your VM. It cannot be reserved. See [Instance-level Public IP (ILPIP)](virtual-networks-instance-level-public-ip.md) for more information.
+> When you create a reserved IP to use with a cloud service, you still refer to the VM by using *VIP:&lt;port number>* for inbound communication. Reserving an IP does not mean you can connect to the VM directly. The reserved IP is assigned to the cloud service that the VM has been deployed to. If you want to connect to a VM by IP directly, you have to configure an instance-level public IP. An instance-level public IP is a type of public IP (called an ILPIP) that is assigned directly to your VM. It cannot be reserved. For more information, read the [Instance-level Public IP (ILPIP)](virtual-networks-instance-level-public-ip.md) article.
 > 
 
 ## Remove a reserved IP from a running deployment
-To remove the reserved IP added to the new service created in the script above, run the following PowerShell command:
+To remove a reserved IP added to a new cloud service, run the following PowerShell command:
 
 ```powershell
 Remove-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestService
@@ -125,7 +128,7 @@ Remove-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName Test
 > 
 
 ## Associate a reserved IP to a running deployment
-The following commands create a new cloud service named *TestService2* with a new VM named *TestVM2*, and then associates the existing reserved IP named *MyReservedIP* to the cloud service:
+The following commands create a cloud service named *TestService2* with a new VM named *TestVM2*. The existing reserved IP named *MyReservedIP* is then associated to the cloud service.
 
 ```powershell
 $image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
@@ -138,7 +141,7 @@ Set-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestSer
 ```
 
 ## Associate a reserved IP to a cloud service by using a service configuration file
-You can also associate a reserved IP to a cloud service by using a service configuration (CSCFG) file. The sample xml below shows how to configure a cloud service to use a reserved VIP named *MyReservedIP*:
+You can also associate a reserved IP to a cloud service by using a service configuration (CSCFG) file. The following sample xml shows how to configure a cloud service to use a reserved VIP named *MyReservedIP*:
 
     <?xml version="1.0" encoding="utf-8"?>
     <ServiceConfiguration serviceName="ReservedIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">

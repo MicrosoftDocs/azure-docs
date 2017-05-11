@@ -1,4 +1,3 @@
-﻿
 ---
 title: Next steps for access management using groups | Microsoft Docs
 description: Advanced How-to's for managing security groups and how to use these groups to manage access to a resource.
@@ -14,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
+ms.date: 04/26/2017
 ms.author: curtand
 
 ---
@@ -44,4 +43,3 @@ These articles provide additional information on Azure Active Directory.
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 * [What is Azure Active Directory?](active-directory-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-

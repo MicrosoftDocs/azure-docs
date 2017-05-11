@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy StorSimple device in Government Portal | Microsoft Docs
 description: Describes the steps and best practices for deploying the StorSimple Update 2 device and service in the Azure Government portal.
 services: storsimple

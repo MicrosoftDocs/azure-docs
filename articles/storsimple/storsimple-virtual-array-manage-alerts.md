@@ -4,7 +4,7 @@ description: Describes StorSimple Virtual Array alert conditions and severity, a
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: 97ee25a1-0ec3-4883-9a0a-54b722598462
@@ -13,10 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 ---
-# Use the StorSimple Device Manager service to view and manage alerts for the StorSimple Virtual Array
+# Use StorSimple Device Manager to manage alerts for the StorSimple Virtual Array
 
 ## Overview
 

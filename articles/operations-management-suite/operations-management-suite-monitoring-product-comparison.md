@@ -1,4 +1,4 @@
-﻿---
+---
 title: Microsoft monitoring product comparison | Microsoft Docs
 description: Microsoft Operations Management Suite (OMS) is Microsoft's cloud based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.  This article identifies the different services included in OMS and provides links to their detailed content.
 services: operations-management-suite

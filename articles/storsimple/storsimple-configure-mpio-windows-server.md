@@ -1,10 +1,10 @@
-﻿---
+---
 title: Configure MPIO for your StorSimple device | Microsoft Docs
 description: Describes how to configure Multipath I/O (MPIO) for your StorSimple device connected to a host running Windows Server 2012 R2.
 services: storsimple
 documentationcenter: ''
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: 879fd0f9-c763-4fa0-a5ba-f589a825b2df
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/17/2016
+ms.date: 04/03/2017
 ms.author: alkohli
 
 ---
@@ -123,18 +123,17 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
 
 > [!NOTE]
 > **Do not modify the default parameters.**
-> 
-> 
+
 
 ## Step 4: Configure MPIO for high availability and load balancing
 For multi-path based high availability and load balancing, multiple sessions must be manually added to declare the different paths available. For example, if the host has two interfaces connected to SAN and the device has two interfaces connected to SAN, then you need four sessions configured with proper path permutations (only two sessions will be required if each DATA interface and host interface is on a different IP subnet and is not routable).
 
+**We recommend that you have at least 8 active parallel sessions between the device and your application host.** This can be achieved by enabling 4 network interfaces on your Windows Server system. Use physical network interfaces or virtual interfaces via network virtualization technologies on the hardware or operating system level on your Windows Server host. With the two network interfaces on the device, this configuration would result in 8 active sessions. This configuration helps optimize the device and cloud throughput.
+
 > [!IMPORTANT]
 > **We recommend that you do not mix 1 GbE and 10 GbE network interfaces. If you use two network interfaces, both interfaces should be the identical type.**
-> 
-> 
 
-The following procedure describes how to add sessions when a StorSimple device with two network interfaces is connected to a host with two network interfaces.
+The following procedure describes how to add sessions when a StorSimple device with two network interfaces is connected to a host with two network interfaces. This gives you only 2 active sessions. Use this same procedure with a StorSimple device with two network interfaces connected to a host with four network interfaces. You will need to configure 8 instead of the 4 sessions described here.
 
 ### To configure MPIO for high availability and load balancing
 1. Perform a discovery of the target: in the **iSCSI Initiator Properties** dialog box, on the **Discovery** tab, click **Discover Portal**.

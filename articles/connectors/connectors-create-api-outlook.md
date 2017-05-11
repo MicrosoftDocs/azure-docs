@@ -26,7 +26,7 @@ Outlook.com connector allows you to manage your mail, calendars, and contacts. Y
 >
 >
 
-You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+You can get started by creating a Logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Triggers and actions
 The Outlook.com connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats.
@@ -743,4 +743,4 @@ Update contact: Partially updates a contact
 | DisplayName |string |No |
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)

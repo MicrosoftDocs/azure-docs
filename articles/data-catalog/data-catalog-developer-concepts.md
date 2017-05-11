@@ -1,4 +1,4 @@
-﻿---
+---
 title: Data Catalog developer concepts | Microsoft Docs
 description: Introduction to the key concepts in Azure Data Catalog conceptual model, as exposed through the Catalog REST API.
 services: data-catalog
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/11/2016
+ms.date: 05/03/2017
 ms.author: spelluru
 
 ---

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2016
+ms.date: 01/11/2017
 ms.author: v-donglo
 
 ---
@@ -22,6 +22,9 @@ This document describes the retraining process for the following scenario:
 
 * You have a training experiment and a predictive experiment that you have deployed as an operationalized web service.
 * You have new data that you want your predictive web service to use to perform its scoring.
+
+> [!NOTE] 
+> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md). 
 
 Starting with your existing web service and experiments, you need to follow these steps:
 
@@ -181,7 +184,7 @@ You must use the [Import-AzureRmMlWebService](https://msdn.microsoft.com/library
 ## Update the web service
 Finally, use the [Update-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767922.aspx) cmdlet to update the predictive experiment.
 
-    Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -
+    Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
 [1]: ./media/machine-learning-retrain-existing-arm-web-service/machine-learning-retrain-models-consume-page.png
 [4]: ./media/machine-learning-retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE04.png

@@ -1,6 +1,6 @@
-﻿---
-title: Create an index for documents in multiple languages in Azure Search | Microsoft Docs
-description: " Azure Search supports 56 languages, leveraging language analyzers from Lucene and Natural Language Processing technology from Microsoft."
+---
+title: Azure Search multi language | Microsoft Docs
+description: "Azure Search supports 56 languages, leveraging language analyzers from Lucene and Natural Language Processing technology from Microsoft."
 services: search
 documentationcenter: ''
 author: yahnoosh
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 01/23/2017
 ms.author: jlembicz
 ---
 
@@ -36,10 +36,10 @@ Below are screenshots of the Azure Portal blades for Azure Search that allow use
 >
 
 ## Define a new field definition
-1. Sign in to the [Azure Portal](https://portal.azure.com) and open the service blade of your search service.
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the service blade of your search service.
 2. Click **Add index** in the command bar at the top of the service dashboard to start a new index, or open an existing index to set an analyzer on new fields you're adding to an existing index.
 3. The Fields blade appears, giving you options for defining the schema of the index, including the Analyzer tab used for choosing a language analyzer.
-4. In Fields, start a field definition by providing a name, choosing the data type, and setting  attributes to mark the field as full text searchable, retrievable in search results, usable in facet navigation structures, sortable, and so forth.
+4. In Fields, start a field definition by providing a name, choosing the data type, and setting attributes to mark the field as full text searchable, retrievable in search results, usable in facet navigation structures, sortable, and so forth.
 5. Before moving on to the next field, open the **Analyzer** tab.
 
 ![][1]

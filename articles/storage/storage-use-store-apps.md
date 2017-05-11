@@ -3,8 +3,8 @@ title: Use Azure storage in Windows Store apps | Microsoft Docs
 description: Learn how to create a Windows Store app that uses Azure Blob, Queue, Table, or File storage.
 services: storage
 documentationcenter: ''
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 
 ms.assetid: 63c4b29d-b2f2-4d7c-b164-a0d38f4d14f6
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 
 ---
 # How to use Azure Storage in Windows Store apps

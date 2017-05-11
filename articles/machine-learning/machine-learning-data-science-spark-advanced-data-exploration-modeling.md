@@ -1,4 +1,4 @@
-﻿---
+---
 title: Advanced data exploration and modeling with Spark | Microsoft Docs
 description: Use HDInsight Spark to do data exploration and train binary classification and regression models using cross-validation and hyperparameter optimization.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 02/15/2017
 ms.author: deguhath;bradsev;gokuma
 
 ---
@@ -25,9 +25,9 @@ This walkthrough uses HDInsight Spark to do data exploration and train binary cl
 * The **binary classification** task is to predict whether or not a tip is paid for the trip. 
 * The **regression** task is to predict the amount of the tip based on other tip features. 
 
-The modeling steps also contain code showing how to train, evaluate, and save each type of model. The topic covers some of the same ground as the [Data exploration and modeling with Spark](machine-learning-data-science-spark-data-exploration-modeling.md) topic. But it is more "advanced" in that it also uses cross-validation in conjunction with hyperparameter sweeping to train optimally accurate classification and regression models. 
+The modeling steps also contain code showing how to train, evaluate, and save each type of model. The topic covers some of the same ground as the [Data exploration and modeling with Spark](machine-learning-data-science-spark-data-exploration-modeling.md) topic. But it is more "advanced" in that it also uses cross-validation with hyperparameter sweeping to train optimally accurate classification and regression models. 
 
-**Cross-validation (CV)** is a technique that assesses how well a model trained on a known set of data generalizes to predicting the features of datasets on which it has not been trained. The general idea behind this technique is that a model is trained on a dataset of known data on and then the accuracy of its predictions is tested against an independent dataset. A common implementation used here is to divide a dataset into K folds and then train the model in a round-robin fashion on all but one of the folds. 
+**Cross-validation (CV)** is a technique that assesses how well a model trained on a known set of data generalizes to predicting the features of datasets on which it has not been trained.  A common implementation used here is to divide a dataset into K folds and then train the model in a round-robin fashion on all but one of the folds. The ability of the model to prediction accurately when tested against the independent dataset in this fold not used to train the model is assessed.
 
 **Hyperparameter optimization** is the problem of choosing a set of hyperparameters for a learning algorithm, usually with the goal of optimizing a measure of the algorithm's performance on an independent data set. **Hyperparameters** are values that must be specified outside of the model training procedure. Assumptions about these values can impact the flexibility and accuracy of the models. Decision trees have hyperparameters, for example, such as the desired depth and number of leaves in the tree. Support Vector Machines (SVMs) require setting a misclassification penalty term. 
 
@@ -47,8 +47,16 @@ Modeling examples using CV and Hyperparameter sweep are shown for the binary cla
 > 
 > 
 
-## Prerequisites
-You need an Azure account and an HDInsight Spark You need an HDInsight 3.4 Spark 1.6 cluster to complete this walkthrough. See the [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) for instructions on how to satisfy these requirements. That topic also contains a description of the NYC 2013 Taxi data used here and instructions on how to execute code from a Jupyter notebook on the Spark cluster. The **pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb** notebook that contains the code samples in this topic is available in [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
+## Setup: Spark clusters and notebooks
+Setup steps and code are provided in this walkthrough for using an HDInsight Spark 1.6. But Jupyter notebooks are provided for both HDInsight Spark 1.6 and Spark 2.0 clusters. A description of the notebooks and links to them are provided in the [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) for the GitHub repository containing them. Moreover, the code here and in the linked notebooks is generic and should work on any Spark cluster. If you are not using HDInsight Spark, the cluster setup and management steps may be slightly different from what is shown here. For convenience, here are the links to the Jupyter notebooks for Spark 1.6 and 2.0 to be run in the pyspark kernel of the Jupyter Notebook server:
+
+### Spark 1.6 notebooks
+
+[pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Includes topics in notebook #1, and model development using hyperparameter tuning and cross-validation.
+
+### Spark 2.0 notebooks
+
+[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)​: This file provides information on how to perform data exploration, modeling, and scoring in Spark 2.0 clusters.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -188,9 +196,7 @@ Once the data has been brought into Spark, the next step in the data science pro
 This code and subsequent snippets use SQL magic to query the sample and local magic to plot the data.
 
 * **SQL magic (`%%sql`)** The HDInsight PySpark kernel supports easy inline HiveQL queries against the sqlContext. The (-o VARIABLE_NAME) argument persists the output of the SQL query as a Pandas DataFrame on the Jupyter server. This means it is available in the local mode.
-* The **`%%local` magic** is used to run code locally on the Jupyter server, which is the headnode of the HDInsight cluster. Typically, you use `%%local` magic in conjunction with the `%%sql` magic with -o parameter. The -o parameter would persist the output of the SQL query locally and then %%local magic would trigger the next set of code snippet to run locally against the output of the SQL queries that is persisted locally
-
-The output is automatically visualized after you run the code.
+* The **`%%local` magic** is used to run code locally on the Jupyter server, which is the headnode of the HDInsight cluster. Typically, you use `%%local` magic after the `%%sql -o` magic is used to run a query. The -o parameter would persist the output of the SQL query locally. Then the `%%local` magic triggers the next set of code snippets to run locally against the output of the SQL queries that has been persisted locally. The output is automatically visualized after you run the code.
 
 This query retrieves the trips by passenger count. 
 
@@ -292,18 +298,18 @@ This code cell uses the SQL query to create three plots the data.
 
 ![Tip amount by fare Amount](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/tip-amount-by-fare-amount.png)
 
-## Feature engineering, transformation and data preparation for modeling
+## Feature engineering, transformation, and data preparation for modeling
 This section describes and provides the code for procedures used to prepare data for use in ML modeling. It shows how to do the following tasks:
 
-* Create a new feature by binning hours into traffic time buckets
+* Create a new feature by partitioning hours into traffic time bins
 * Index and on-hot encode categorical features
 * Create labeled point objects for input into ML functions
 * Create a random sub-sampling of the data and split it into training and testing sets
 * Feature scaling
 * Cache objects in memory
 
-### Create a new feature by binning hours into traffic time buckets
-This code shows how to create a new feature by binning hours into traffic time buckets and then how to cache the resulting data frame in memory. Where Resilient Distributed Datasets (RDDs) and data-frames are used repeatedly, caching leads to improved execution times. Accordingly, we cache RDDs and data-frames at several stages in the walkthrough.
+### Create a new feature by partitioning traffic times into bins
+This code shows how to create a new feature by partitioning traffic times into bins and then how to cache the resulting data frame in memory. Caching leads to improved execution time where Resilient Distributed Datasets (RDDs) and data-frames are used repeatedly. So, we cache RDDs and data-frames at several stages in this walkthrough.
 
     # CREATE FOUR BUCKETS FOR TRAFFIC TIMES
     sqlStatement = """
@@ -329,7 +335,7 @@ This code shows how to create a new feature by binning hours into traffic time b
 126050
 
 ### Index and one-hot encode categorical features
-This section shows how to index or encode categorical features for input into the modeling functions. The modeling and predict functions of MLlib require features with categorical input data to be indexed or encoded prior to use. 
+This section shows how to index or encode categorical features for input into the modeling functions. The modeling and predict functions of MLlib require that features with categorical input data be indexed or encoded prior to use. 
 
 Depending on the model, you need to index or encode them in different ways. For example, Logistic and Linear Regression models require one-hot encoding, where, for example, a feature with three categories can be expanded into three feature columns, with each containing 0 or 1 depending on the category of an observation. MLlib provides [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) function to do one-hot encoding. This encoder maps a column of label indices to a column of binary vectors, with at most a single one-value. This encoding allows algorithms that expect numerical valued features, such as logistic regression, to be applied to categorical features.
 
@@ -380,7 +386,7 @@ Here is the code to index and encode categorical features:
 Time taken to execute above cell: 3.14 seconds
 
 ### Create labeled point objects for input into ML functions
-This section contains code that shows how to index categorical text data as a labeled point data type and encode it so that it can be used to train and test MLlib logistic regression and other classification models. Labeled point objects are Resilient Distributed Datasets (RDD) formatted in a way that is needed as input data by most of ML algorithms in MLlib. A [labeled point](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) is a local vector, either dense or sparse, associated with a label/response.
+This section contains code that shows how to index categorical text data as a labeled point data type and how to encode it. This prepares it to be used to train and test MLlib logistic regression and other classification models. Labeled point objects are Resilient Distributed Datasets (RDD) formatted in a way that is needed as input data by most of ML algorithms in MLlib. A [labeled point](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) is a local vector, either dense or sparse, associated with a label/response.
 
 Here is the code to index and encode text features for binary classification.
 
@@ -429,7 +435,7 @@ Here is the code to encode and index categorical text features for linear regres
 
 
 ### Create a random sub-sampling of the data and split it into training and testing sets
-This code creates a random sampling of the data (25% is used here). Although it is not required for this example due to the size of the dataset, we demonstrate how you can sample here so you know how to use it for your own problem when needed. When samples are large, this can save significant time while training models. Next we split the sample into a training part (75% here) and a testing part (25% here) to use in classification and regression modeling.
+This code creates a random sampling of the data (25% is used here). Although it is not required for this example due to the size of the dataset, we demonstrate how you can sample the data here. Then you know how to use it for your own problem if needed. When samples are large, this can save significant time while training models. Next we split the sample into a training part (75% here) and a testing part (25% here) to use in classification and regression modeling.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -473,7 +479,7 @@ This code creates a random sampling of the data (25% is used here). Although it 
 Time taken to execute above cell: 0.31 seconds
 
 ### Feature scaling
-Feature scaling, also known as data normalization, insures that features with widely disbursed values are not given excessive weigh in the objective function. The code for feature scaling uses the [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) to scale the features to unit variance. It is provided by MLlib for use in linear regression with Stochastic Gradient Descent (SGD), a popular algorithm for training a wide range of other machine learning models such as regularized regressions or support vector machines (SVM).   
+Feature scaling, also known as data normalization, insures that features with widely disbursed values are not given excessive weigh in the objective function. The code for feature scaling uses the [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) to scale the features to unit variance. It is provided by MLlib for use in linear regression with Stochastic Gradient Descent (SGD). SGD is a popular algorithm for training a wide range of other machine learning models such as regularized regressions or support vector machines (SVM).   
 
 > [!TIP]
 > We have found the LinearRegressionWithSGD algorithm to be sensitive to feature scaling.   
@@ -560,7 +566,7 @@ Each model building code section is split into steps:
 We show how to do cross-validation (CV) with parameter sweeping in two ways:
 
 1. Using **generic** custom code which can be applied to any algorithm in MLlib and to any parameter sets in an algorithm. 
-2. Using the **pySpark CrossValidator pipeline function**. Note that although convenient, based on our experience, CrossValidator has a few limitations for Spark 1.5.0: 
+2. Using the **pySpark CrossValidator pipeline function**. Note that CrossValidator has a few limitations for Spark 1.5.0: 
    
    * Pipeline models cannot be saved/persisted for future consumption.
    * Cannot be used for every parameter in a model.
@@ -980,7 +986,7 @@ Area under ROC = 0.985336538462
 Time taken to execute above cell: 28.13 seconds
 
 ## Predict tip amount with regression models (not using CV)
-This section shows how use three models for the regression task of predicting the amount of the tip paid for a taxi trip based on other tip features. The models presented are:
+This section shows how use three models for the regression task: predict the tip amount paid for a taxi trip based on other tip features. The models presented are:
 
 * Regularized linear regression
 * Random forest

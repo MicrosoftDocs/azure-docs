@@ -1,5 +1,5 @@
 ---
-title: Service Bus transactions | Microsoft Docs
+title: Overview of transaction processing in Azure Service Bus | Microsoft Docs
 description: Overview of Azure Service Bus atomic transactions and send via
 services: service-bus-messaging
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2016
+ms.date: 02/02/2017
 ms.author: clemensv;sethm
 
 ---
@@ -30,10 +30,10 @@ Service Bus supports grouping operations against a single messaging entity (queu
 ## Operations within a transaction scope
 The operations that can be performed within a transaction scope are as follows:
 
-* **[QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx), [MessageSender](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx), [TopicClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx)**: Send, SendAsync, SendBatch, SendBatchAsync 
-* **[BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx)**: Complete, CompleteAsync, Abandon, AbandonAsync, Deadletter, DeadletterAsync, Defer, DeferAsync, RenewLock, RenewLockAsync 
+* **[QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient), [MessageSender](/dotnet/api/microsoft.servicebus.messaging.messagesender), [TopicClient](/dotnet/api/microsoft.servicebus.messaging.topicclient)**: Send, SendAsync, SendBatch, SendBatchAsync 
+* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: Complete, CompleteAsync, Abandon, AbandonAsync, Deadletter, DeadletterAsync, Defer, DeferAsync, RenewLock, RenewLockAsync 
 
-Receive operations are not included, because it is assumed that the application acquires messages using the [ReceiveMode.PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) mode, inside some receive loop or with an [OnMessage](https://msdn.microsoft.com/library/azure/dn369601.aspx) callback, and only then opens a transaction scope for processing the message.
+Receive operations are not included, because it is assumed that the application acquires messages using the [ReceiveMode.PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode) mode, inside some receive loop or with an [OnMessage](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__Microsoft_ServiceBus_Messaging_OnMessageOptions_) callback, and only then opens a transaction scope for processing the message.
 
 The disposition of the message (complete, abandon, dead-letter, defer) then occurs within the scope of, and dependent on, the overall outcome of the transaction.
 
@@ -45,14 +45,14 @@ The power of this transactional capability becomes apparent when the transfer qu
 ### See it in code
 To set up such transfers, you create a message sender that targets the destination queue via the transfer queue. You will also have a receiver that pulls messages from that same queue. For example:
 
-```
+```csharp
 var sender = this.messagingFactory.CreateMessageSender(destinationQueue, myQueueName);
 var receiver = this.messagingFactory.CreateMessageReceiver(myQueueName);
 ```
 
 A simple transaction then uses these elements, as in the following example:
 
-```
+```csharp
 var msg = receiver.Receive();
 
 using (scope = new TransactionScope())
@@ -69,6 +69,7 @@ using (scope = new TransactionScope())
 ```
 
 ## Next steps
+
 See the following articles for more information about Service Bus queues:
 
 * [Chaining Service Bus entities with auto-forwarding](service-bus-auto-forwarding.md)

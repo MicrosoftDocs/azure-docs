@@ -1,23 +1,16 @@
-﻿---
-title: Forecasting - ETS + STL  | Microsoft Docs
-description: Forecasting - ETS + STL
-services: machine-learning
-documentationcenter: ''
-author: xueshanz
-manager: jhubbard
-editor: cgronlun
+---
 
-ms.assetid: 153eab4d-6293-45e1-9871-ec339e810dd9
-ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/31/2016
-ms.author: yijichen
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: https://gallery.cortanaintelligence.com/
 
 ---
-# Forecasting - ETS + STL
+# (deprecated) Forecasting - ETS + STL
+
+> [!NOTE]
+> The Microsoft DataMarket is being retired and this API has been deprecated. 
+> 
+> You can find many useful example experiments and APIs in the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). For more information about the Gallery, see [Share and discover resources in the Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 This [web service](https://datamarket.azure.com/dataset/aml_labs/demand_forecast) implements Seasonal Trend Decomposition (STL) and Exponential Smoothing (ETS) models to produce predictions based on the historical data provided by the user. Will the demand for a specific product increase this year? Can I predict my product sales for the Christmas season, so that I can effectively plan my inventory? Forecasting models are apt to address such questions. Given the past data, these models examine hidden trends and seasonality to predict future trends. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]

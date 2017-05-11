@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configuring your Azure project using multiple service configurations | Microsoft Docs
 description: Learn how to configure an Azure cloud service project by changing the ServiceDefinition.csdef and ServiceConfiguration.cscfg files.
 services: visual-studio-online
@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2016
+ms.date: 11/11/2016
 ms.author: tarcher
 
 ---
