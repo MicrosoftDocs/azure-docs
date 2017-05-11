@@ -86,7 +86,10 @@ The following list contains answers to commonly asked questions about the Azure 
 * [Do all cache features work when hosting a cache in a VNET?](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
 ## What are some common misconfiguration issues with Azure Redis Cache and VNets?
-When Azure Redis Cache is hosted in a VNet, the ports in the following table are used. If these ports are blocked, the cache may not function correctly. Having one or more of these ports blocked is the most common misconfiguration issue when using Azure Redis Cache in a VNet.
+When Azure Redis Cache is hosted in a VNet, the ports in the following tables are used. If these ports are blocked, the cache may not function correctly. Having one or more of these ports blocked is the most common misconfiguration issue when using Azure Redis Cache in a VNet.
+
+- [Outbound port requirements](#outbound-port-requirements)
+- [Inbound port requirements](#inbound-port-requirements)
 
 ### Outbound port requirements
 
