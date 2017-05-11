@@ -47,7 +47,7 @@ In the following samples, replace example parameter names with your own values. 
     > [!NOTE]
     > `azure vm stop` does not release the compute resources. To release compute resources, use `azure vm deallocate`. The VM must be deallocated to expand the virtual hard disk.
 
-2. Update the size of the OS unmanaged disk using the `azure vm set` command. The following example updates the VM named *myVM* in the resource group named *myResourceGroup* to be *50* GB:
+2. Update the size of the unmanaged OS disk using the `azure vm set` command. The following example updates the VM named *myVM* in the resource group named *myResourceGroup* to be *50* GB:
 
     ```azurecli
     azure vm set \

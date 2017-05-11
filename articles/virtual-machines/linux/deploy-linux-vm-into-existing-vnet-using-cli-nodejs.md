@@ -92,7 +92,7 @@ azure network nsg create myNetworkSecurityGroup \
 
 ## Add an inbound SSH allow rule
 
-The Linux VM needs access from the internet so a rule allowing inbound port 22 traffic to be passed through the network to port 22 on the Linux VM is needed.
+The VM needs access from the internet so a rule allowing inbound port 22 traffic to be passed through the network to port 22 on the VM is needed.
 
 ```azurecli
 azure network nsg rule create inboundSSH \
@@ -110,7 +110,7 @@ azure network nsg rule create inboundSSH \
 
 ## Add a subnet to the VNet
 
-VMs within the VNet must be located in a subnet. Each VNet can have multiple subnets. Create the subnet and associate the subnet with the network security group to add a firewall to the subnet.
+VMs within the VNet must be located in a subnet. Each VNet can have multiple subnets. Create the subnet and associate with the network security group.
 
 ```azurecli
 azure network vnet subnet create mySubNet \
@@ -125,7 +125,7 @@ The Subnet is now added inside the VNet and associated with the network security
 
 ## Add a VNic to the subnet
 
-Virtual network cards (VNics) are important as you can reuse them by connecting them to different VMs, which keeps the VNic as a static resource while the VMs can be temporary. Create a VNic and associate it with the subnet created in the previous step.
+Virtual network cards (VNics) are important as you can reuse them by connecting them to different VMs. This approach keeps the VNic as a static resource while the VMs can be temporary. Create a VNic and associate it with the subnet created in the previous step.
 
 ```azurecli
 azure network nic create myVNic \
