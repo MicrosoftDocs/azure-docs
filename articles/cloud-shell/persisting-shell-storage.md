@@ -107,7 +107,7 @@ justin@Azure:~$
 ```
 
 ## Transfer local files to Cloud Shell
-Use the Azure portal to manage transferring local files to or from the file share. Updating files from within Cloud Shell reflects in the File Storage GUI on blade refresh. Files within your file share map to the `clouddrive` directory.
+The `clouddrive` directory syncs to the Azure portal storage blade. Use this to transfer local files to or from your file share. Updating files from within Cloud Shell reflects in the File Storage GUI on blade refresh.
 
 ### Download files
 ![](media/download.gif)
@@ -123,15 +123,6 @@ Use the Azure portal to manage transferring local files to or from the file shar
 4. Confirm upload
 
 You should now see the file accessible in your clouddrive directory in Cloud Shell.
-
-## Cloud Shell tagging
-Cloud Shell adds a "tag" to mounted storage accounts using the format: <br>
-
-| Key | Value |
-|:-------------:|:-------------:|
-|cloud-console-files-for-user@domain.com|fileshareName|
-
-Use these tags to see which users map to certain file shares and where certain $Home images can be found.
 
 ## Next steps
 [Cloud Shell Quickstart](quickstart.md) 
