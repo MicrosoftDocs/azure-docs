@@ -18,7 +18,7 @@ ms.author: iainfou
 
 ---
 # How to create a Linux virtual machine in Azure with multiple network interface cards
-You can create a virtual machine (VM) in Azure that has multiple virtual network interfaces (NICs) attached to it. A common scenario is to have different subnets for front-end and back-end connectivity, or a network dedicated to a monitoring or backup solution. This article provides quick commands to create a VM with multiple NICs attached to it. For detailed information, including how to create multiple NICs within your own Bash scripts, read more about [deploying multi-NIC VMs](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Different [VM sizes](sizes.md) support a varying number of NICs, so size your VM accordingly.
+You can create a virtual machine (VM) in Azure that has multiple virtual network interfaces (NICs) attached to it. A common scenario is to have different subnets for front-end and back-end connectivity, or a network dedicated to a monitoring or backup solution. This article provides quick commands to create a VM with multiple NICs attached to it, as well as how to add or remove NICs from an existing VM. For detailed information, including how to create multiple NICs within your own Bash scripts, read more about [deploying multi-NIC VMs](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Different [VM sizes](sizes.md) support a varying number of NICs, so size your VM accordingly.
 
 This article details how to create a VM with multiple NICs with the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](multiple-nics-nodejs.md).
 
@@ -55,7 +55,6 @@ az network vnet subnet create \
     --address-prefix 192.168.2.0/24
 ```
 
-## Create and configure multiple NICs
 Typically you create a [network security group](../../virtual-network/virtual-networks-nsg.md) or [load balancer](../../load-balancer/load-balancer-overview.md) to help manage and distribute traffic across your VMs. Create a network security group with [az network nsg create](/cli/azure/network/nsg#create). The following example creates a network security group named *myNetworkSecurityGroup*:
 
 ```azurecli
@@ -64,6 +63,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
+## Create and configure multiple NICs
 Create two NICs with [az network nic create](/cli/azure/network/nic#create). The following example creates two NICs, named *myNic1* and *myNic2*, connected the network security group, with one NIC connecting to each subnet:
 
 ```azurecli
@@ -91,11 +91,67 @@ az vm create \
     --resource-group myResourceGroup \
     --name myVM \
     --image UbuntuLTS \
-    --size Standard_DS2_v2 \
+    --size Standard_DS3_v2 \
     --admin-username azureuser \
     --ssh-key-value ~/.ssh/id_rsa.pub \
     --nics myNic1 myNic2
 ```
+
+## Add a NIC to a VM
+The previous steps created a VM with multiple NICs. You can also add NICs to an existing VM with the Azure CLI 2.0. Create another NIC with [az network nic create](/cli/azure/network/nic#create). The following example creates a NIC named *myNic3* connected to the back-end subnet and network security group created in the previous steps:
+
+```azurecli
+az network nic create \
+    --resource-group myResourceGroup \
+    --name myNic3 \
+    --vnet-name myVnet \
+    --subnet mySubnetBackEnd \
+    --network-security-group myNetworkSecurityGroup
+```
+
+To add a NIC to an existing VM, first deallocate the VM with [az vm deallocate](/cli/azure/vm#deallocate). The following example deallocates the VM named *myVM*:
+
+```azurecli
+az vm deallocate --resource-group myResourceGroup --name myVM
+```
+
+Add the NIC with [az vm nic add](/cli/azure/vm/nic#add). The following example adds *myNic3* to *myVM*:
+
+```azurecli
+az vm nic add \
+    --resource-group myResourceGroup \
+    --vm-name myVM \
+    --nics myNic3
+```
+
+Start the VM with [az vm start](/cli/azure/vm#start):
+
+```azurecli
+az vm start --resource-group myResourceGroup --name myVM
+```
+
+## Remove a NIC from a VM
+To remove a NIC from an existing VM, first deallocate the VM with [az vm deallocate](/cli/azure/vm#deallocate). The following example deallocates the VM named *myVM*:
+
+```azurecli
+az vm deallocate --resource-group myResourceGroup --name myVM
+```
+
+Remove the NIC with [az vm nic remove](/cli/azure/vm/nic#remove). The following example removes *myNic3* from *myVM*:
+
+```azurecli
+az vm nic remove \
+    --resource-group myResourceGroup \
+    --vm-name myVM 
+    --nics myNic3
+```
+
+Start the VM with [az vm start](/cli/azure/vm#start):
+
+```azurecli
+az vm start --resource-group myResourceGroup --name myVM
+```
+
 
 ## Create multiple NICs using Resource Manager templates
 Azure Resource Manager templates use declarative JSON files to define your environment. You can read an [overview of Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Resource Manager templates provide a way to create multiple instances of a resource during deployment, such as creating multiple NICs. You use *copy* to specify the number of instances to create:
