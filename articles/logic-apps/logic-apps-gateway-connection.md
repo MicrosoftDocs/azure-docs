@@ -197,7 +197,7 @@ affecting the gateway installation.
 
 1. From the main Azure left menu, go to **All resources**. 
 2. Find and select your data gateway resource.
-3. Choose **Overview**, and on the resource toolbar, choose **Delete**.
+3. Choose **On-premises Data Gateway**, and on the resource toolbar, choose **Delete**.
 
 <a name="faq"></a>
 ## Frequently asked questions
