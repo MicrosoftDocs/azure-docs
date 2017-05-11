@@ -19,7 +19,9 @@ ms.author: seguler
 ---
 # Transfer data with the AzCopy Command-Line Utility
 ## Overview
-AzCopy is a Windows command-line utility designed for copying data to and from Microsoft Azure Blob, File, and Table storage using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts.
+AzCopy is a command-line utility designed for copying data to and from Microsoft Azure Blob, File, and Table storage using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts.
+
+There are two versions of AzCopy that you can download. AzCopy built with .NET Framework supports Windows, and offers Windows style command-line options. AzCopy built with .NET Core Framework targets Linux platforms offering POSIX style command-line options.
 
 > [!NOTE]
 > This guide assumes that you are already familiar with [Azure Storage](https://azure.microsoft.com/services/storage/). If not, reading the [Introduction to Azure Storage](storage-introduction.md) documentation will be helpful. Most importantly, you will need to [create a Storage account](storage-create-storage-account.md#create-a-storage-account) in order to start using AzCopy.
@@ -28,30 +30,48 @@ AzCopy is a Windows command-line utility designed for copying data to and from M
 
 ## Download and install AzCopy
 ### Windows
-Download the [latest version of AzCopy](http://aka.ms/downloadazcopy).
+Download the [latest version of AzCopy on Windows](http://aka.ms/downloadazcopy).
 
-### Mac/Linux
-AzCopy is not available for Mac/Linux OSs. However, Azure CLI is a suitable alternative for copying data to and from Azure Storage. Read [Using the Azure CLI with Azure Storage](storage-azure-cli.md) to learn more.
+#### Installation on Windows
+After installing AzCopy on Windows using the installer, open a command window and navigate to the AzCopy installation directory on your computer - where the `AzCopy.exe` executable is located. If desired, you can add the AzCopy installation location to your system path. By default, AzCopy is installed to `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` or `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
+
+### Linux
+Download the [latest version of AzCopy on Linux](http://aka.ms/downloadazcopyprlinux) 
+
+#### Installation on Linux
+```bash
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopyprlinux
+tar -xf azcopy.tar.gz
+sudo ./install.sh
+```
+
+You can remove the extracted files once AzCopy on Linux is installed. Alternatively, you can also run AzCopy using the shell script 'azcopy' in the extracted folder if you do not have superuser priviliges. 
 
 ## Writing your first AzCopy command
 The basic syntax for AzCopy commands is:
 
-```azcopy
+```azcopywindows
 AzCopy /Source:<source> /Dest:<destination> [Options]
 ```
 
-Open a command window and navigate to the AzCopy installation directory on your computer - where the `AzCopy.exe` executable is located. If desired, you can add the AzCopy installation location to your system path. By default, AzCopy is installed to `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` or `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
+```azcopylinux
+azcopy --source <source> --destination <destination> [Options]
+```
 
 The following examples demonstrate a variety of scenarios for copying data to and from Microsoft Azure Blobs, Files, and Tables. Refer to the [AzCopy Parameters](#azcopy-parameters) section for a detailed explanation of the parameters used in each sample.
 
 ## Blob: Download
 ### Download single blob
 
-```azcopy
+```azcopywindows
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
-Note that if the folder `C:\myfolder` does not exist, AzCopy will create it and download `abc.txt ` into the new folder.
+```azcopylinux
+azcopy --source https://myaccount.blob.core.windows.net/mycontainer --destination /mnt --source-key <key> --include "abc.txt"
+```
+
+Note that if the folder `C:\myfolder`|`/mnt` does not exist, AzCopy will create it and download `abc.txt ` into the new folder.
 
 ### Download single blob from secondary region
 
