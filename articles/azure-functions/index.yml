@@ -39,7 +39,7 @@ sections:
     - image: 
         src: media/index/quickstart-timer.svg
       text: Timer Trigger
-      href: /azure/azure-functions/ffunctions-create-scheduled-function
+      href: /azure/azure-functions/functions-create-scheduled-function
     - image: 
         src: media/index/quickstart-github.svg
       text: GitHub Webhook
