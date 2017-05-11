@@ -116,13 +116,13 @@ There are eight inbound port range requirements. Inbound requests in these range
 
 | Port(s) | Direction | Transport Protocol | Purpose | Remote IP |
 | --- | --- | --- | --- | --- |
-| 6379, 6380 |Inbound |TCP |Client communication to Redis, Azure load balancing |Virtual network, Azure Load Balancer |
+| 6379, 6380 |Inbound |TCP |Client communication to Redis, Azure load balancing |Virtual Network, Azure Load Balancer |
 | 8443 |Inbound |TCP |Internal communications for Redis |(Redis subnet) |
 | 8500 |Inbound |TCP/UDP |Azure load balancing |Azure Load Balancer |
 | 10221-10231 |Inbound |TCP |Internal communications for Redis |(Redis subnet), Azure Load Balancer |
-| 13000-13999 |Inbound |TCP |Client communication to Redis Clusters, Azure load balancing |Virtual Network, Azure load Balancer |
-| 15000-15999 |Inbound |TCP |Client communication to Redis Clusters, Azure Load Balancing |Virtual Network, Azure load Balancer |
-| 16001 |Inbound |TCP/UDP |Azure load balancing |Azure load Balancer |
+| 13000-13999 |Inbound |TCP |Client communication to Redis Clusters, Azure load balancing |Virtual Network, Azure Load Balancer |
+| 15000-15999 |Inbound |TCP |Client communication to Redis Clusters, Azure load Balancing |Virtual Network, Azure Load Balancer |
+| 16001 |Inbound |TCP/UDP |Azure load balancing |Azure Load Balancer |
 | 20226 |Inbound |TCP |Internal communications for Redis |(Redis subnet) |
 
 ### Additional VNET network connectivity requirements
