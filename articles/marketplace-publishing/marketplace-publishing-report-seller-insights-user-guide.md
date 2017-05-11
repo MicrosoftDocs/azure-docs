@@ -26,7 +26,7 @@ ms.author: v-dabosl
 
 ### Overview of roles
 
-This section will show you how to access the Seller Insights portal for the first time.
+This section shows you how to access the Seller Insights portal for the first time.
 
 
 ![Type of account][5]
@@ -44,10 +44,10 @@ Before signing in to the Seller Insights portal, the administrator should identi
 To activate your service, the administrator should go to the URL that is listed in the invitation email: [https://reports.azure.com](https://reports.azure.com).
 
 >[!NOTE]
->If the administrator email is listed as a Microsoft account and you have not created a Microsoft account that is associated with the email address from which you received the invitation, you'll need to create the account before you sign in. To create the account, go to [https://signup.live.com](https://signup.live.com).
+>If the administrator email is listed as a Microsoft account, and you have not created a Microsoft account that's associated with the email address from which you received the invitation, you need to create the account before you sign in. To create the account, go to [https://signup.live.com](https://signup.live.com).
 
 
-### Administrator sign in to the Seller Insights portal
+### Sign in to the Seller Insights portal
 
 1. Sign in to the Seller Insights portal by clicking the URL in the email sent to you.
 2. Enter the administrator email address and password.
@@ -57,20 +57,20 @@ To activate your service, the administrator should go to the URL that is listed 
 
   ![Sign in page][6]
 
-## Co-administrator sign in
+## Sign in to the portal
 
 Your administrator should advise you through email that your account is created, and share the URL for the Seller Insights portal with you: [https://reports.azure.com](https://reports.azure.com).
 
 >[!NOTE]
->The administrator is the owner of the account that publishes solutions to the Azure Marketplace. The owner of this account can provide access to others.  If you have access to the publisher portal as a co-administrator, you can find the administrator address by following these steps:
->1. Sign in to publisher portal.
+>The administrator is the owner of the account that publishes solutions to the Azure Marketplace. The owner of this account can provide access to others.  If you have access to the publishing portal as a co-administrator, you can find the administrator address by following these steps:
+>1. Sign in to the publishing portal.
 >2. Click the **Publishers** tab.
 >3. Open the publisher in question (usually there is just one).
 >4. Click **Administrators** on the lower left.
 >5. The administrator email address that you're looking for is labeled, *Owner*.
 
 
-You can sign in to the Seller Insights portal by using a personal Microsoft account, or by using a work or school account. The kind of account depends on what your administrator sets up in your profile. Your administrator should advise you about the account you'll use.
+You can sign in to the Seller Insights portal by using a personal Microsoft account, or by using a work or school account. The kind of account depends on what your administrator sets up in your profile. Your administrator should advise you about the account you use.
 
 ![Type of account][1]
 
@@ -78,12 +78,12 @@ You can sign in to the Seller Insights portal by using a personal Microsoft acco
 
 **Welcome to the Seller Insights portal!**
 
-1. After you've signed in you will land on the **Summary** page.
-2. Please take a few minutes to read the Privacy Policy.
+1. After you've signed in, you land on the **Summary** page.
+2. Take a few minutes to read the Privacy Policy.
 3. You can **Contact Us** at any time, via email, with questions you may have that are related to the Seller Insights portal.
 4. You can move around in the Seller Insights portal by using the tabs at the top of the page.  Look out for the tabs at the top of the pages in this guide to help orient you in the Seller Insights portal.
 5. Click the smile icon at any time to send feedback that is related to the Seller Insights portal.
-6. Click your name in the upper-right corner to sign out of the Seller Insights portal at any time.
+6. To sign out of the Seller Insights portal, click your name in the upper-right corner.
 
   ![Default landing page][2]
 
@@ -91,9 +91,9 @@ You can sign in to the Seller Insights portal by using a personal Microsoft acco
 ## Summary view
 
 1. Select the **Summary** tab.
-2. Enter the **Start Date** of the time period you're interested in here, and then click **Apply**. 3 months of data is shown.
-3. New order trend data for the 3-month time period you've selected is shown here.
-4. New orders for the selected time period is shown here by channel and offer type.
+2. Enter the **Start Date** of the time period you're interested in here, and then click **Apply**. Three months of data are shown.
+3. New order trend data for the three-month time period you've selected is shown here.
+4. New orders for the selected time period are shown here by channel and offer type.
 5. Select a view from this panel. **Top 5 Market**, **Top 5 Performing Offers**, or **Top 5 Customers**.
 6. Payout trend for the selected time period is shown here for paid offers. If you only have BYOL or 1st-Party offers, this panel is not shown.
 
@@ -106,7 +106,7 @@ In *Panel A*, you can select the **Orders and Usage** tab.  From here you can se
 
 In *Panel B*, you can select your monthly data. Select **Orders** or **Usage** depending on your selection in **Report Type** in Panel A.  The data that appears reflects the dates you enter and the filters that you applied by using the sliders in Panel A.
 
-In *Panel C*, you can select your 3-month trend data. Select **Orders** or **Usage** depending on your selection in **Report Type** in Panel A.  The data that appears reflects the dates you enter and the filters you applied by using the sliders in Panel A.
+In *Panel C*, you can select your three-month trend data. Select **Orders** or **Usage** depending on your selection in **Report Type** in Panel A.  The data that appears reflects the dates you enter and the filters you applied by using the sliders in Panel A.
 
 In *Panel D*, the subscription data for each individual is listed.  Data is downloadable from this panel in Excel or CSV format.
 
@@ -150,7 +150,7 @@ In *Panel D*, the subscription data for each individual is listed.  Data is down
 
   ![Orders monthly view Panel C Subject Area list][17]
 
-  3. Use the filter symbol to select **All** data or **Top 10** for all of your selections. The default is **Top 10**.
+  3. Use the filter symbol to select **All** data or **Top 10** for all your selections. The default is **Top 10**.
 
   ![Orders monthly view Panel C filter symbol][18]
 
@@ -179,7 +179,7 @@ In *Panel D*, the subscription data for each individual is listed.  Data is down
 
   ![Panel Map A][10]
 
-  1. Select the **Orders and Usage** tab to access your orders and usage data.
+  1. To access your orders and usage data, select the **Orders and Usage** tab.
   2. Select **Usage** from **Report Type**.
   3. Use the filter symbol to show or hide the slicer options.  Use these slicers to filter the data that you want to view by **Azure License Type**, **Marketplace License Type**, **Market**, **Offer Type**, **Preview** status, and **Usage Type**.  See the **Help** tab for definitions of these terms.
   4. Select the start date you are interested in, and then click **Go**.
@@ -214,7 +214,7 @@ In *Panel D*, the subscription data for each individual is listed.  Data is down
 
   ![Usage monthly view Panel C Subject Area list][17]
 
-  3. Use the filter symbol to select **All** data or **Top 10** for all of your selections. The default is **Top 10**.
+  3. Use the filter symbol to select **All** data or **Top 10** for all your selections. The default is **Top 10**.
 
   ![Usage monthly view Panel C filter symbol][18]
 
@@ -229,7 +229,7 @@ In *Panel D*, the subscription data for each individual is listed.  Data is down
   ![Panel Map D][13]
 
   1. The **Usage Detail** panel shows detailed order data.
-  2. Use the filters at the top of each column to filter the data by using a variety of commands and values.
+  2. Use the filters at the top of each column to filter the data by using various commands and values.
 
   ![Usage monthly view Panel D filters][20]
 
@@ -248,16 +248,15 @@ In *Panel D*, the subscription data for each individual is listed.  Data is down
   2. You are redirected to the **Customers Detailed Data** panel. The data for the customer is retrieved.
   3. You can download the data in Excel or CSV format.
 
-
   ![Orders and usage customer data panel][27]
 
 ### Customer data
 
   1. Select the **Customer** tab.
-  2. Use the slicers to filter the data that you want to view by **Azure Licence Type** or **Marketplace License Type**.
+  2. Use the slicers to filter the data that you want to view by **Azure License Type** or **Marketplace License Type**.
   3. Select the **Start Date** and **End Date** for the time period of interest.
   4. Customer summary details by **Marketplace License Type** are shown.
-  5. Use the filters at the top of each column to filter the data by using a variety of commands and values.
+  5. Use the filters at the top of each column to filter the data by using various commands and values.
   6. Download the data in Excel or CSV format.
 
   ![Customer data panel][28]
@@ -271,7 +270,7 @@ In *Panel D*, the subscription data for each individual is listed.  Data is down
 
 ### Add user
 
-This section will show you how to add new users or change their permissions in the Seller Insights portal.
+This section shows you how to add new users or change their permissions in the Seller Insights portal.
 
 
 1. Select the **User Management** tab.
@@ -303,7 +302,7 @@ This section will show you how to add new users or change their permissions in t
 
 1. Select the **Help** tab.
 2. Select **Support & Documentation**, and then select **Start Request**.
-3. You can also submit a support request from the **Contact Us** link at the bottom of each screen in the application.
+3. You can also submit a support request from the **Contact Us** link. This link appears at the bottom of each page in the application.
 4. A new tab opens where you can submit a support request.
 
   ![Access the support form][31]
@@ -312,7 +311,7 @@ This section will show you how to add new users or change their permissions in t
 
 1. To submit a support request that is related to your reports, select **Reports and Insights** from **Problem type**.
 2. Select a category.  The options are **Questions related to reports** and **Other**.
-3. Some helpful links are displayed, which may provide an answer to your query.  Check these before you submit your support request.
+3. Some helpful links are displayed, which may provide an answer to your query.  Check these links before you submit your support request.
 4. If you still need to submit a support request, select **Start Request**.
 
   ![Edit a user panel][32]
@@ -322,7 +321,7 @@ This section will show you how to add new users or change their permissions in t
 
 1. Enter your contact information, time zone, region, and language preferences, and then select **Continue**.
 2. Give your incident a title and provide as much information as possible.  You can also upload supporting files like a screenshot, and then select **Submit**.
-3. You'll receive a confirmation that your support request is successful.
+3. You receive a confirmation that your support request is successful.
 4. You can check the status of your support request at any time.
 
   ![Access the support form][33]
@@ -332,9 +331,9 @@ This section will show you how to add new users or change their permissions in t
 
 **Account and password validation**
 
-1. *Validate that the account you're using is registered and the password doesn't work.* If you enter an account that is registered in Azure Active Directory, it automatically prompts you to choose how to sign in with the account. You'll use a work or school account, or a Microsoft account that serves as your personal account.
+1. *Validate that the account you're using is registered and the password doesn't work.* If you enter an account that is registered in Azure Active Directory, it automatically prompts you to choose how to sign in with the account. You use a work or school account, or a Microsoft account that serves as your personal account.
 2. Go to [https://reports.azure.com](https://reports.azure.com) and sign out of any account that you may be signed in with. You can also open it within a private window to ensure no other accounts are signed in.
-3. Enter the publisher's email address, but don't enter a password. It will redirect to *Step 4* if it's registered in Azure Active Directory.
+3. Enter the publisher's email address, but don't enter a password. If it's registered in Azure Active Directory, it will redirect to *Step 4*.
 
   >[!NOTE]
   >Administrator accounts are registered. Work or school accounts that are set up by the administrator account are also registered.
@@ -342,7 +341,7 @@ This section will show you how to add new users or change their permissions in t
 4. Choose **Work or school account**. Work or school accounts are set up by companies that are registered with Azure. 
 
   >[!NOTE]
-  >It's possible that a user set up a Microsoft account by using their organization's email address. In this scenario, the organization later onboards to Azure, and the same email address is registered as a work or school account. This means this user can have a Microsoft account with the same password that they used to create the work or school account. The user can also have a work or school account with a separate password that is used by their organization.
+  >It's possible that a user set up a Microsoft account by using their organization's email address. In this scenario, the organization later onboards to Azure, and the same email address is registered as a work or school account. This user can have a Microsoft account with the same password that they used to create the work or school account. This user can also have a work or school account with a separate password that is used by their organization.
 
 5. For the Seller Insights portal, when you select **Work or school account**, ensure that you use your work or school account password, and not a Microsoft account password.
 6. A work or school account redirects you to the publisher's page to sign in.
@@ -355,7 +354,7 @@ This section will show you how to add new users or change their permissions in t
 Try to reset your password by using the following links.
 
 >[!NOTE]
->For work or school accounts that are set up by the administrator account, if the administrator turned on the capability to let you reset your own password, you will be able to reset your own password. Otherwise, the password reset form gives you the option to contact your administrator.
+>For work or school accounts that are set up by the administrator account, if the administrator turned on the capability to let you reset your own password, you are able to reset your own password. Otherwise, the password reset form gives you the option to contact your administrator.
 
 * Microsoft account: [https://account.live.com/ResetPassword.aspx](https://account.live.com/ResetPassword.aspx)
 ![Password reset Microsoft account][3]
