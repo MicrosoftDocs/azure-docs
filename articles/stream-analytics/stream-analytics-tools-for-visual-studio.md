@@ -18,7 +18,7 @@ ms.date:
 ms.author: 
 
 ---
-# Use the Azure Stream Analytics Tool for Visual Studio
+# Use the Azure Stream Analytics Tools for Visual Studio
 ## Introduction
 In this tutorial, you learn how to use Azure Stream Analytics Tools for Visual Studio to create, author, test locally, manage, and debug your Azure Stream Analytics jobs. 
 
@@ -30,14 +30,14 @@ After completing this tutorial, you will be able to:
 * Export existing jobs to projects.
 
 ## Prerequisites
-To complete this tutorial, you need to meet the following prerequisites:
-* Finish the steps before **Create a Stream Analytics job** in the [Build an IoT solution by using Stream Analytics tutorial](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 
+To complete this tutorial, you need the following prerequisites:
+* Finish the steps that precede **Create a Stream Analytics job** in the [Build an IoT solution by using Stream Analytics tutorial](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 
 * Use Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012. Enterprise (Ultimate/Premium), Professional, and Community editions are supported. Express edition is not supported. Visual Studio 2017 is not supported. 
 * Use the Azure SDK for .NET version 2.7.1 or above. Install it by using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
 * Install the [Azure Stream Analytics Tools for Visual Studio](http://aka.ms/asatoolsvs).
 
 ## Create a Stream Analytics project
-In Visual Studio, click the **File** menu, and choose **New Project**. In the templates list on the left, choose **Stream Analytics** and then click **Azure Stream Analytics Application**.
+In Visual Studio, click the **File** menu and choose **New Project**. In the templates list on the left, choose **Stream Analytics** and then click **Azure Stream Analytics Application**.
 Enter the project **Name**, **Location**, and **Solution name** as you do for other projects.
 
 ![Create an Azure Stream Analytics project](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-create-project-01.png)
@@ -47,32 +47,34 @@ A **Toll** project is generated in **Solution Explorer**.
 ![Create an Azure Stream Analytics project](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-create-project-02.png)
 
 ## Choose the correct subscription
-1. Open **Server Explorer** in Visual Studio from **View** menu.
+1. In Visual Studio, click the **View** menu and open **Server Explorer**.
+
 2. Sign in with your Azure Account. 
 
 ## Define the input sources
 1.	In **Solution Explorer**, expand the **Inputs** node and rename **Input.json** to **EntryStream.json**. Double-click **EntryStream.json**.
-2.	Your **Input Alias** is now **EntryStream**. Note that the input alias is used in the query script. 
-3.	The **Source Type** is **Data Stream**.
-4.	The **Source** is **Event Hub**.
-5.	The **Service Bus Namescape** should be the **tollData** one in the drop-down.
-6.	The Event hub name should be set to **entry**.
-7.	The Event hub policy name is **RootManageSharedAccessKey** (the default value).
-8.	Select **Json** for **Event Serialization Format**, and select **UTF8** for **Eemcoding**.
+2.	The **Input Alias** is now **EntryStream**. Note that the input alias is used in the query script. 
+3.	In **Source Type**, select **Data Stream**.
+4.	In **Source**, select **Event Hub**.
+5.	In **Service Bus Namescape**, select the **TollData** option.
+6.	In **Event Hub Name**, select **entry**.
+7.	In **Event Hub Policy Name**, select **RootManageSharedAccessKey** (the default value).
+8.	In **Event Serialization Format**, select **Json**. 
+9.  In **Encoding**, select **UTF8**.
 
-    Your settings look like this:
+    Your settings should look like this:
 
     ![Define input sources](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-01.png)
  
-9.	To finish the wizard, click **Save**. Now you can add another input source to create the exit stream. Right-click the inputs node, and click **New Item**.
+10.	To finish the wizard, click **Save**. Now you can add another input source to create the exit stream. Right-click the **Inputs** node, and click **New Item**.
 
     ![Define input sources](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-02.png)
  
-10.	In the window, choose **Azure Stream Analytics Input** and change the **Name** to **ExitStream.json**. Click **Add**.
+11.	In the window, choose **Azure Stream Analytics Input**, and change the **Name** to **ExitStream.json**. Click **Add**.
 
     ![Define input sources](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-03.png)
  
-11.	Double-click **ExitStream.json** in the project, and follow the same steps to fill in the text boxes as you did for the entry stream. Be sure to enter values for the **Event Hub Name** as shown in the following screenshot:
+12.	Double-click **ExitStream.json** in the project, and follow the same steps as you did for the entry stream. Be sure to enter **exit** for the **Event Hub Name** as shown in the following screenshot:
 
     ![Define input sources](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-04.png)
 
@@ -82,21 +84,25 @@ Now you have defined two input streams.
  
 Next, add reference data input for the blob file that contains car registration data.
 
-12.	Right-click the **Inputs** node in the project, and then follow the same steps to fill in the text boxes as you did for the stream inputs. Select **Registration** for the **Input Alias**. Select **Reference data** for the **Source Type**.
+13.	Right-click the **Inputs** node in the project, and then follow the same steps as you did for the stream inputs. In **Input Alias**, enter **Registration**, and in **Source Type**, select **Reference data**.
 
     ![Define input sources](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-06.png)
 
-13.	Select the Storage account that contains **tolldata**. The container name should be **tolldata**, and the **PATH PATTERN** should be **registration.json**. This file name is case sensitive and should be lowercase.
-14.	Click **Save** to finish the wizard.
+14.	In **Storage Account**, select the **tolldata** option. In **Container**, select **tolldata**, and in **Path Pattern**, enter**registration.json**. This file name is case sensitive and should be lowercase.
+15.	Click **Save** to finish the wizard.
 
-Now all inputs are defined.
+Now all the inputs are defined.
 
 ## Define the output
 1.	In **Solution Explorer**, expand the **Inputs** node and double-click **Output.json**.
-2.	Set the Output alias to **output**, and then Sink to SQL database.
-2.	Enter the database name **TollDataDB**.
-3.	Enter **tolladmin** in the **USERNAME** text box, enter **123toll!** in the **PASSWORD** text box, and enter **TollDataRefJoin** in the **TABLE** text box.
-4.	Click **Save**.
+
+2.	In **Output Alias**, enter **output**. 
+3.  In **Sink**, select **SQL Database**.
+4.	In **Database**, select **TollDataDB**.
+5.	In  **User Name**, enter **tolladmin**.  
+6.  In **Password**, enter **123toll!**.
+7.  In **Table**, enter **TollDataRefJoin**.
+8.	Click **Save**.
 
 ![Define output](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-output-01.png)
  
@@ -238,8 +244,8 @@ There are two ways you can export an existing job to a project.
 
 ## Known issues and limitations
  
-- No support for Power BI output and ADLS output
-- No editor support for adding or changing JavaScript UDF
+- There is no support for Power BI output and ADLS output.
+- There is no editor support for adding or changing JavaScript UDF.
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
