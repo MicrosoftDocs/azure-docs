@@ -124,7 +124,7 @@ In order to allow users to log in using Azure AD, you need to define Azure AD as
     </ClaimsProvider>
     ```
 
-1. Under the `<ClaimsProvider>` node, update the value for `<Domain>` to an unique value that can be used to distinguish from other identity providers.
+1. Under the `<ClaimsProvider>` node, update the value for `<Domain>` to a unique value that can be used to distinguish from other identity providers.
 1. Under the `<ClaimsProvider>` node, update the value for `<DisplayName>` to a friendly name for the claims provider. This value is not currently used.
 
 ### Update the technical profile
