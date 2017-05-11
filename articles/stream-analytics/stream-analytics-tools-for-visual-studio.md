@@ -102,7 +102,7 @@ Now all the inputs are defined.
 7.  In **Table**, enter **TollDataRefJoin**.
 8.	Click **Save**.
 
-![Define output](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-output-01.png)
+    ![Define output](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-output-01.png)
  
 ## Create a Stream Analytics query
 This tutorial attempts to answer several business questions that are related to toll data. It also constructs Stream Analytics queries that can be used in Stream Analytics to provide relevant answers.
