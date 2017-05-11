@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 05/11/2017
 ms.author: billmath
 
 ---
@@ -159,7 +159,9 @@ The Global Parameters page is used to configure Delta Import, Date/Time format, 
 ![globalparameters1](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters1.png)
 
 >[!IMPORTANT]
- “*” aka **any option** cannot be used during export/delete operations.
+ As of May 2017 the “*” aka **any option** has been changed to support import and export flow. If you want to use this option your multi-valued table/view should have an attribute that contains the object type. 
+  ![](./media/active-directory-aadconnectsync-connector-genericsql/any-02.png)
+ </br> If "*" is selected then the name of the column with the object type must also be specified.</br> ![](./media/active-directory-aadconnectsync-connector-genericsql/any-03.png)
 
 The Generic SQL Connector supports the following methods for Delta Import:
 

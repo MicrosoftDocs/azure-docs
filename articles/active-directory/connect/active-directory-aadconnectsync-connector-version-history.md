@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/10/2017
+ms.date: 05/11/2017
 ms.author: billmath
 
 ---
@@ -40,7 +40,7 @@ Related links:
 
 * Generic SQL:
   * **Scenario: Reimplemeted:** "*" feature
-  * **Solution description:** Changed approach for multi-valued reference attributes handling. Separate document with feature description created.
+  * **Solution description:** Changed approach for [multi-valued reference attributes handling](active-directory-aadconnectsync-connector-genericsql.md).
 
 
 ### Fixed issues:
