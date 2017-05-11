@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/15/2017
+ms.date: 5/10/2017
 ms.author: chackdan;maburlik
 
 ---
 
-# Package contents of Service Fabric Standalone package for Windows Server
+# Contents of Service Fabric Standalone package for Windows Server
 In the [downloaded](http://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric Standalone package, you will find the following files:
 
 | **File name** | **Short description** |
@@ -47,7 +47,7 @@ In the [downloaded](http://go.microsoft.com/fwlink/?LinkId=730690) Service Fabri
 | ClusterConfig.x509.MultiMachine.json |A cluster configuration sample file that contains all the settings for the secure, multi-machine (or virtual machine) cluster, including the information for each node in the secure cluster. The cluster is secured using x509 certificates. |
 | ClusterConfig.gMSA.Windows.MultiMachine.json |A cluster configuration sample file that contains all the settings for the secure, multi-machine (or virtual machine) cluster, including the information for each node in the secure cluster. The cluster is secured using [Group Managed Service Accounts](https://technet.microsoft.com/en-us/library/jj128431(v=ws.11).aspx). |
 
-# Cluster Configuration Samples
+## Cluster Configuration Samples
 Latest versions of cluster configuration templates can be found at the GitHub page: [Standalone Cluster Configuration Samples](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
 
 ## Related
