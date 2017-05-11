@@ -18,7 +18,7 @@ ms.author: anoopkv
 ---
 # Automate Mobility Service installation by using software deployment tools
 
->[!IMPORTANT ]
+>[!IMPORTANT]
 This document assumes you are using version **9.9.4510.1** or higher.
 
 This article provides you an example of how you can use System Center Configuration Manager to deploy the Azure Site Recovery Mobility Service in your datacenter. Using a software deployment tool like Configuration Manager has the following advantages:
@@ -58,7 +58,7 @@ This article provides you an example of how you can use System Center Configurat
    > [!NOTE]
    > Replace the [CSIP] placeholders in this script with the actual values of the IP address of your configuration server.
 
-```dos
+```DOS
 Time /t >> C:\Temp\logfile.log
 REM ==================================================
 REM ==== Clean up the folders ========================
@@ -243,7 +243,7 @@ You can monitor the deployment progress by using the Configuration Manager conso
    > [!NOTE]
    > Replace the [CSIP] placeholders in this script with the actual values of the IP address of your configuration server.
 
-```bash
+```Bash
 #!/usr/bin/env bash
 
 rm -rf /tmp/MobSvc
