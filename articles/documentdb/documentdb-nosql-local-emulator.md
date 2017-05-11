@@ -18,7 +18,7 @@ ms.date: 05/10/2017
 ms.author: arramac
 
 ---
-# Use the Azure Cosmos DB Emulator for development and testing
+# Use the Azure Cosmos DB Emulator for local development and testing
 
 <table>
 <tr>

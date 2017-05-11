@@ -10,7 +10,7 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/08/2017
+ms.date: 05/11/2017
 ms.author: gauravbh; tomfitz
 
 ---
