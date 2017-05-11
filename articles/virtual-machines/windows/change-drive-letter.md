@@ -25,8 +25,6 @@ If you resize or **Stop (Deallocate)** a virtual machine, this may trigger place
 
 For more information about how Azure uses the temporary disk, see [Understanding the temporary drive on Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
-
 ## Attach the data disk
 First, you'll need to attach the data disk to the virtual machine. 
 
