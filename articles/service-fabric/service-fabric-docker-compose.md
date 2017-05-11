@@ -59,7 +59,7 @@ az sf compose remove  --application-id TestContainerApp [ --timeout ]
 To get the status of the compose application, use the following command in PS:
 
 ```powershell
-Get-ServiceFabricComposeApplicationStatus -ApplicationName fabric:/TestContainerApp
+Get-ServiceFabricComposeApplicationStatus -ApplicationName fabric:/TestContainerApp -GetAllPages
 ```
 
 For Azure CLI 2.0, use the following command:
