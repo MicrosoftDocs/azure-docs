@@ -120,15 +120,13 @@ Next, create the App Service resource in Azure and deploy your Sails.js app to i
    
         az appservice web deployment user set --user-name <username> --password <password>
 
-3. Create a [resource group](../azure-resource-manager/resource-group-overview.md) with a name. For this PHP tutorial, you don't really need to know
-what it is.
+3. Create a [resource group](../azure-resource-manager/resource-group-overview.md) with a name. For this Node.js tutorial, you don't really need to know what it is.
 
         az group create --location "<location>" --name my-sailsjs-app-group
 
     To see what possible values you can use for `<location>`, use the `az appservice list-locations` CLI command.
 
-3. Create a "FREE" [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) with a name. For this PHP tutorial, just 
-know that you won't be charged for web apps in this plan.
+3. Create a "FREE" [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) with a name. For this Node.js tutorial, just know that you won't be charged for web apps in this plan.
 
         az appservice plan create --name my-sailsjs-appservice-plan --resource-group my-sailsjs-app-group --sku FREE
 
