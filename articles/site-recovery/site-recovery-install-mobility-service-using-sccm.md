@@ -13,13 +13,13 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/10/2017
+ms.date: 5/11/2017
 ms.author: anoopkv
 ---
 # Automate Mobility Service installation by using software deployment tools
 
 >[!IMPORTANT ]
-This document assumes you are using version **9.9.4510.1** or higher. 
+This document assumes you are using version **9.9.4510.1** or higher.
 
 This article provides you an example of how you can use System Center Configuration Manager to deploy the Azure Site Recovery Mobility Service in your datacenter. Using a software deployment tool like Configuration Manager has the following advantages:
 * Scheduling deployment of fresh installations and upgrades, during your planned maintenance window for software updates
