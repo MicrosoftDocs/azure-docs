@@ -92,7 +92,7 @@
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/home?forum=AzureDatabaseforPostgreSQL
   - name: Stack Overflow
-    href: https://stackoverflow.com/tags/Azure-Database-for-PostgreSQL
+    href: http://stackoverflow.com/questions/tagged/azure-database-postgresql
   - name: Feedback forum
     href: https://feedback.azure.com/forums/597976-azure-database-for-postgresql
   - name: Region availability

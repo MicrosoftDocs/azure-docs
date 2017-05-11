@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
+ms.date: 05/10/2017
 ms.author: mikhegn
 ---
 
@@ -31,8 +31,11 @@ This tutorial shows you how to deploy an existing ASP.NET application in a Windo
 
 >[!NOTE]
 >If this is the first time you are running Windows container images on your computer, Docker CE must pull down the base images for your containers. The images used in this tutorial are 14GB in size. Go ahead and run the following command in Powershell to pull the base images:
->1. docker pull microsoft/mssql-server-windows-developer
->2. docker pull microsoft/aspnet:4.6.2
+>
+>```cmd
+>docker pull microsoft/mssql-server-windows-developer
+>docker pull microsoft/aspnet:4.6.2
+>```
 
 ## Containerize the application
 
@@ -91,9 +94,9 @@ To tell Docker that we want to run a SQL Server in a container, we can reference
 5. In the **FabrikamFiber.Web** project, update the connection string in the **web.config** file, to point to the SQL Server in the container.
 
    ```xml
-   <add name="FabrikamFiber-Express" connectionString="Data Source=db,1433;Database=MusicStore;User Id=sa;Password=Password1;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
+   <add name="FabrikamFiber-Express" connectionString="Data Source=db,1433;Database=FabrikamFiber;User Id=sa;Password=Password1;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
    
-   <add name="FabrikamFiber-DataWarehouse" connectionString="Data Source=db,1433;Database=MusicStore;User Id=sa;Password=Password1;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
+   <add name="FabrikamFiber-DataWarehouse" connectionString="Data Source=db,1433;Database=FabrikamFiber;User Id=sa;Password=Password1;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
    ```
 
    >[!NOTE]

@@ -76,7 +76,7 @@
     href: functions-best-practices.md
   - name: Bindings
     items:
-    - name: DocumentDB bindings
+    - name: Cosmos DB bindings
       href: functions-bindings-documentdb.md
     - name: Event Hub bindings
       href: functions-bindings-event-hubs.md
