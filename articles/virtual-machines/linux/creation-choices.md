@@ -25,13 +25,13 @@ The [Azure CLI 2.0](/cli/azure/install-az-cli2) is available across platforms vi
 
 * [Create a Linux VM with the Azure CLI 2.0](quick-create-cli.md)
   
-  * This example uses [az group create](/cli/azure/group#create) to create a resource group named *myResourceGroup*: 
--    
+  * Create a resource group with [az group create](/cli/azure/group#create) named *myResourceGroup*: 
+   
     ```azurecli
     az group create --name myResourceGroup --location eastus
     ```
     
-  * This example uses [az vm create](/cli/azure/vm#create) to create a VM named *myVM* using the latest *UbuntuLTS* image and generates SSH keys if they do already exist in *~/.ssh*:
+  * Create a VM with [az vm create](/cli/azure/vm#create) named *myVM* using the latest *UbuntuLTS* image and generate SSH keys if they do already exist in *~/.ssh*:
 
     ```azurecli
     az vm create \
@@ -53,8 +53,6 @@ The [Azure CLI 2.0](/cli/azure/install-az-cli2) is available across platforms vi
 * [Create a Linux VM and customize with cloud-init](tutorial-automate-vm-deployment.md)
 
 * [Create a load balanced and highly available application on multiple Linux VMs](tutorial-load-balancer.md)
-  
-  * Includes creating a load balancer and multiple VMs in an availability set.
 
 
 ## Azure portal
