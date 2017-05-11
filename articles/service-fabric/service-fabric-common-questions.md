@@ -78,9 +78,9 @@ If you would like to create clusters for testing your application before it is d
 
 This issue has been reported on clusters that are on 5.6.204.9494 version 
 
-**Mitigation : ** Follow [this document](service-fabric-dnsservice.md) to enable the DNS service fabric service in your cluster.
+**Mitigation** :  Follow [this document](service-fabric-dnsservice.md) to enable the DNS service fabric service in your cluster.
 
-**Fix : ** Upgrade to the a supported cluster version that is higher than 5.6.204.9494, when it is available. If your cluster is set to automatic upgrades, then the cluster will automatically upgrade to the version that has this issue fixed.
+**Fix** :  Upgrade to the a supported cluster version that is higher than 5.6.204.9494, when it is available. If your cluster is set to automatic upgrades, then the cluster will automatically upgrade to the version that has this issue fixed.
 
   
 ## Application Design
