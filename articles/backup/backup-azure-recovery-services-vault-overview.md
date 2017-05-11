@@ -52,7 +52,7 @@ The following articles explain how to use a Recovery Services vault in each type
 
 **Backing up**
 - [Backing up an Azure VM](backup-azure-vms-first-look-arm.md)
-- [Backing up Windows Server or Windows workstation](backup-try-azure-backup-in-10-minutes.md)
+- [Backing up Windows Server or Windows workstation](backup-try-azure-backup-in-10-mins.md)
 - [Backing up DPM workloads to Azure](backup-azure-dpm-introduction.md)
 - [Preparing to back up workloads using Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 
