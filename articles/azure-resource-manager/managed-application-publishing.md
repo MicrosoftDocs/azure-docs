@@ -32,7 +32,7 @@ The first step is to create the managed application package that contains the ma
 The second file that the publisher needs to create is the mainTemplate.json. The template file contains only the appliance resource (Microsoft.Solutions/appliances). It also contains all the parameters that are needed for the resources in the applianceMainTemplate.json. In addition, the two other key properties that are needed as input during the creation of the managed application are as follows:
 
 * managedResourceGroupId - The id of the resource group where the resources defined in the applianceMainTemplate.json are created. The id is of the form `/subscriptions/{subscriptionId}/resourceGroups/{resoureGroupName}`
-* applianceDefinitionId - The id of the managed application definition resource.
+* applianceDefinitionId - The id of the managed application definition resource. The ID is in the format: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Solutions/applianceDefinitions/{applianceDefinitionName}`
 
 The values of the above two properties are needed when a consumer creates a managed application. So these properties should be added as parameters in the template. In the example below, the two parameters that correspond to these properties are managedByResourceGroup and applianceDefinitonId.
 
@@ -114,19 +114,19 @@ Sample mainTemplate.json:
 Next create a user group or application that you want to use to manage the resources on behalf of the customer. This user group or application has permissions on the managed resource group as described by the role. The role could be any built-in RBAC role like **Owner** or **Contributor**. An individual user can also be given permissions to manage the resources, but typically you assign this permission to use a user group. To create a new active directory user group, use:
 
 ```azurecli
-az ad group create -n 
+az ad group create –display-name "name" –mail-nickname "nickname"
 ```
 
 You can also use an existing group. You need the object Id of the newly created or an existing user group. The following example shows how to get the object ID from the display name that was used for creating the group.
 
 ```azurecli
-az ad group show --display-name <name>
+az ad group show –group "groupName"
 ```
 
 Example:
 
 ```azurecli
-az ad group show --display-name ravAppliancetestADgroup
+az ad group show --group ravAppliancetestADgroup
 ```
 
 Which returns the following output:
@@ -185,19 +185,19 @@ You need the value of the "name" property from preceding example.
 The final step is to create the managed application definition resource. Once you have created the appliance package and the authorizations, create the appliance definition using the following command: 
 
 ```azurecli
-az managedapp definition create -n ravtestAppDef4 -l "Brazil" 
-	--resource-group ravApplianceDefRG3 --lock-level None 
+az managedapp definition create -n ravtestAppDef4 -l "westcentralus" 
+	--resource-group ravApplianceDefRG3 --lock-level ReadOnly 
 	--display-name ravtestappdef --description ravtestdescription  
 	--authorizations "9aabd3ad-3716-4242-9d8e-a85df479d5d9:8e3af657-a8ff-443c-a75c-2fe8c4bcb635" 
-	--package-file-uri "https://wud.blob.core.windows.net/appliance/SingleStorageAccount.zip" --debug 
+	--package-file-uri "{path to package}" --debug 
 ```
 
 The parameters used in the preceding example are:
 
 - resource-group - The name of the resource group where the appliance definition is created.
-- lock-level - The type of lock placed on the `managedBy` resource group. It prevents the customer from performing undesirable operations on this resource group. For example, if readOnly is specified, the customer can only read the resources present in the `managedBy` resource group.
+- lock-level - The type of lock placed on the `managedBy` resource group. It prevents the customer from performing undesirable operations on this resource group. ReadOnly is the only currently supported lock level. When ReadOnly is specified, the customer can only read the resources present in the `managedBy` resource group.
 - authorizations - Describes the principalID and the role definition ID, which is used for granting permission to the managed resource group. It is specified in the format of `<principalId>:<roleDefinitionId>`. Multiple values can also be specified for this property. If multiple values are needed, it should be specified in this form `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Multiple values are separated by a space.
-- package-file-uri - The location of the appliance package that contains the template files. 
+- package-file-uri - The location of the appliance package that contains the template files, which can be an Azure Storage blob. 
 
 
 ## Next steps

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2017
+ms.date: 05/11/2017
 ms.author: tomfitz
 
 ---
 # Deploy multiple instances of a resource or property in Azure Resource Manager templates
-This topic shows you how to iterate in your Azure Resource Manager template to create multiple instances of a resource, or multiple values for a property on the resource.
+This topic shows you how to iterate in your Azure Resource Manager template to create multiple instances of a resource.
 
 ## Resource iteration
 To create multiple instances of a resource type, add a `copy` element to the resource type. In the copy element, you specify the number of iterations and a name for this loop. The count value must be a positive integer and cannot exceed 800. Resource Manager creates the resources in parallel. Therefore, the order in which they are created is not guaranteed. To create iterated resources in sequence, see [Sequential looping for Azure Resource Manager templates](resource-manager-sequential-loop.md). 
@@ -104,116 +104,6 @@ Creates these names:
 * storagecontoso
 * storagefabrikam
 * storagecoho
-
-## Property iteration
-
-To create multiple values for a property on a resource, add a `copies` array in the properties element. This array contains objects, and each object has the following properties:
-
-* name - the name of the property to create multiple values for
-* count - the number of values to create
-* input - an object that contains the values to assign to the property  
-
-The following example shows how to apply `copies` to the dataDisks property on a virtual machine:
-
-```json
-{
-  "name": "examplevm",
-  "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2016-04-30-preview",
-  "properties": {
-    "storageProfile": {
-      "copies": [{
-          "name": "dataDisks",
-          "count": 3,
-          "input": {
-              "lun": "[copyIndex('dataDisks')]",
-              "name": "[concat('myDataDisk', copyIndex('dataDisks',1))]",
-              "vhd": {
-                  "uri": "[concat('http://mystorage.blob.core.windows.net/vhds/mydatadisk',copyIndex('dataDisks', 1), '.vhd')]"
-              },
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 1
-          }
-      }],
-      ...
-```
-
-Resource Manager expands the `copies` array during deployment. The name of the array becomes the name of the property. The input values become the object properties. The deployed template becomes:
-
-```json
-{
-  "name": "examplevm",
-  "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2016-04-30-preview",
-  "properties": {
-    "storageProfile": {
-      "dataDisks": [
-          {
-              "lun": 0,
-              "name": "myDataDisk1",
-              "vhd": {
-                  "uri": "http://mystorage.blob.core.windows.net/vhds/mydatadisk1.vhd"
-              },
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 1
-          },
-          {
-              "lun": 1,
-              "name": "myDataDisk2",
-              "vhd": {
-                  "uri": "http://mystorage.blob.core.windows.net/vhds/mydatadisk2.vhd"
-              },
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 1
-          },
-          {
-              "lun": 2,
-              "name": "myDataDisk3",
-              "vhd": {
-                  "uri": "http://mystorage.blob.core.windows.net/vhds/mydatadisk3.vhd"
-              },
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 1
-          }
-      }],
-      ...
-```
-
-Notice that when using `copyIndex` inside a property iteration, you must provide the name of the iteration. You do not have to provide the name when used with resource iteration.
-
-You can use resource and property iteration together. You reference either iteration by name.
-
-```json
-{
-  "name": "examplevm",
-  "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2016-04-30-preview",
-  "copy": {
-      "name": "vmcopy",
-      "count": 5
-  },
-  "properties": {
-    "storageProfile": {
-      "copies": [{
-          "name": "dataDisks",
-          "count": 3,
-          "input": {
-              "lun": "[copyIndex('dataDisks')]",
-              "name": "[concat('vm', copyIndex('vmcopy',1),'myDataDisk', copyIndex('dataDisks',1))]",
-              "vhd": {
-                  "uri": "[concat('http://mystorage.blob.core.windows.net/vhds/vm', copyIndex('vmcopy',1), 'mydatadisk',copyIndex('dataDisks', 1), '.vhd')]"
-              },
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 1
-          }
-      }],
-      ...
-```
 
 ## Depend on resources in a loop
 You specify that a resource is deployed after another resource by using the `dependsOn` element. To deploy a resource that depends on the collection of resources in a loop, provide the name of the copy loop in the dependsOn element. The following example shows how to deploy three storage accounts before deploying the Virtual Machine. The full Virtual Machine definition is not shown. Notice that the copy element has name set to `storagecopy` and the dependsOn element for the Virtual Machines is also set to `storagecopy`.

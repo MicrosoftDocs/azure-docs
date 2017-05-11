@@ -66,8 +66,8 @@ You can use the `az managedapp create` command to create a managed application f
 ```azurecli
 az managedapp create --name ravtestappliance401 --location "eastus2euap" 
 	--kind "Servicecatalog" --resource-group "ravApplianceCustRG401" 
-   	--managedapp-definition-id "/subscriptions/78814224-3c2d-4932-9fe3-913da0f278ee/resourceGroups/ravApplianceDefRG401/providers/Microsoft.Solutions/applianceDefinitions/ravtestAppDef401" 
-   	--managed-rg-id "/subscriptions/78814224-3c2d-4932-9fe3-913da0f278ee/resourceGroups/ravApplianceCustManagedRG401" 
+   	--managedapp-definition-id "/subscriptions/{guid}/resourceGroups/ravApplianceDefRG401/providers/Microsoft.Solutions/applianceDefinitions/ravtestAppDef401" 
+   	--managed-rg-id "/subscriptions/{guid}/resourceGroups/ravApplianceCustManagedRG401" 
    	--parameters "{\"storageAccountName\": {\"value\": \"ravappliancedemostore1\"}}" 
    	--debug
 ```
@@ -82,7 +82,7 @@ This command returns the appliance definition. You need the value of **Id** prop
 
 **managed-rg-id** - The name of the resource group where all the resources defined in the applianceMainTemplate.json are created. This resource group is the managedBy resource group, and is managed by the publisher. If it does not exist, it is created for you.
 
-**rg-name** - The resource group where the appliance resource is created. The Microsoft.Solutions/appliance resource lives in this resource group. 
+**resource-group** - The resource group where the appliance resource is created. The Microsoft.Solutions/appliance resource lives in this resource group. 
 
 **parameters** - The parameters that are needed for the resources defined in the applianceMainTemplate.json.
 

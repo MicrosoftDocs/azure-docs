@@ -56,7 +56,6 @@
 ### [Use tags to organize resources](resource-group-using-tags.md)
 ### [Move resources to new group or subscription](resource-group-move-resources.md)
 ### [Governance examples](resource-manager-subscription-examples.md)
-### [Create UI definitions](managed-application-createuidefinition-overview.md)
 
 ## Control Access
 ### Create service principal
@@ -80,6 +79,7 @@
 ## Use managed applications
 ### [Publish managed application](managed-application-publishing.md)
 ### [Consume managed application](managed-application-consumption.md)
+### [Create UI definitions](managed-application-createuidefinition-overview.md)
 
 ## Audit
 ### [View activity logs](resource-group-audit.md)
