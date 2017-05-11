@@ -196,6 +196,10 @@ affecting the gateway installation.
 2. Find and select your data gateway resource.
 3. Choose **Overview**, and on the resource toolbar, choose **Delete**.
 
+## Frequently asked questions
+
+[!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
+
 ## Next steps
 
 * [Secure your logic apps](./logic-apps-securing-a-logic-app.md)
