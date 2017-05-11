@@ -7,10 +7,10 @@
 ### [Overview](active-directory-b2c-reference-oauth-code.md)
 ### iOS
 #### [iOS Swift using MSAL](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal)
-#### [iOS ObjC using AppAuth](https://github.com/Azure-Samples/active-directory-b2c-ios-native-appauth)
+#### [iOS ObjC using AppAuth](active-directory-b2c-devquickstarts-ios.md)
 ### Android
 #### [Android using MSAL](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal)
-#### [Android using AppAuth](https://github.com/Azure-Samples/active-directory-b2c-android-native-appauth)
+#### [Android using AppAuth](active-directory-b2c-devquickstarts-android.md)
 ### [.NET](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)
 ### [Xamarin](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native)
 ## Web Apps
@@ -47,9 +47,10 @@
 ## [Customizing the UI](active-directory-b2c-reference-ui-customization.md)
 ### [Helper tool for customization](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Language customization](active-directory-b2c-reference-language-customization.md)
+## [Use the reporting API](active-directory-b2c-refererence-usage-reporting-api.md)
 ## [Set up self-service password reset](active-directory-b2c-reference-sspr.md)
 
-# Identity Experience Engine
+# Identity Experience Framework
 ## [Custom Policies](active-directory-b2c-overview-custom.md)
 ## Guides
 ### [Get Started](active-directory-b2c-get-started-custom.md)
@@ -77,6 +78,7 @@
 ### [Built-In Policies](active-directory-b2c-reference-policies.md)
 ### [Tokens](active-directory-b2c-reference-tokens.md)
 ## [Region availability & data residency](active-directory-b2c-reference-tenant-type.md)
+## [Enable Billing](active-directory-b2c-how-to-enable-billing.md)
 ## [Threat Management](active-directory-b2c-reference-threat-management.md)
 ## [Limitations & Restrictions](active-directory-b2c-limitations.md)
 ## [Issues when creating a directory](active-directory-b2c-support-create-directory.md)
