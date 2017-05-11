@@ -77,7 +77,7 @@ Before you can enable Azure AD pass-through authentication, you need to have the
     >[!NOTE]
     >Multi-forest environments are supported if there are forest trusts between the AD forests and if name suffix routing is correctly configured.
 
-- If you want high availability, you will need additional servers running Windows Server 2012 R2 or later to install standalone connectors. (The connector version needs to be 1.5.58.0 or later).
+- If you want high availability, you will need additional servers running Windows Server 2012 R2 or later to install standalone connectors. (The connector version needs to be 1.5.58.0 or later.)
 - If there is a firewall between any of the connectors and Azure AD:
 	- If URL filtering is enabled, ensure that the connectors can communicate with the following URLs:
 		-  \*.msappproxy.net
