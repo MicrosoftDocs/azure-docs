@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2017
+ms.date: 05/10/2017
 ms.author: seanmck
 ---
 
@@ -72,6 +72,17 @@ In general, no. Service Fabric stores state on local, ephemeral disks, meaning t
 
 If you would like to create clusters for testing your application before it is deployed, we recommend that you dynamically create those clusters as part of your [continuous integration/continuous deployment pipeline](service-fabric-set-up-continuous-integration.md).
 
+## Container Support
+
+### Why are my containers that are deployed to SF are unable to resolve DNS addresses?
+
+This issue has been reported on clusters that are on 5.6.204.9494 version 
+
+**Mitigation : ** Follow [this document](service-fabric-dnsservice.md) to enable the DNS service fabric service in your cluster.
+
+**Fix : ** Upgrade to the a supported cluster version that is higher than 5.6.204.9494, when it is available. If your cluster is set to automatic upgrades, then the cluster will automatically upgrade to the version that has this issue fixed.
+
+  
 ## Application Design
 
 ### What's the best way to query data across partitions of a Reliable Collection?
