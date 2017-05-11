@@ -145,7 +145,7 @@ Apache YARN is the next generation of MapReduce (MapReduce 2.0, or MRv2) and sup
 <a  target="_blank" href="http://zookeeper.apache.org/">Apache ZooKeeper</a> coordinates processes in large distributed systems using a shared hierarchical namespace of data registers (znodes). Znodes contain small amounts of meta information needed to coordinate processes: status, location, configuration, and so on. See an example of [ZooKeeper with an HBase cluster and Apache Phoenix](hdinsight-hbase-phoenix-squirrel-linux.md). 
 
 ## Programming languages on HDInsight
-HDInsight clusters - Spark, HBase, Kafka, Hadoop, and other clusters - support many programming languages, but some aren't installed by default. For libraries, modules, or packages not installed by default, use a script action to install the component. See [Script action development with HDInsight](hdinsight-hadoop-script-actions-linux.md).
+HDInsight clusters - Spark, HBase, Kafka, Hadoop, and other clusters - support many programming languages, but some aren't installed by default. For libraries, modules, or packages not installed by default, [use a script action to install the component](hdinsight-hadoop-script-actions-linux.md). 
 
 ### Default programming language support
 By default, HDInsight clusters support:
@@ -153,7 +153,7 @@ By default, HDInsight clusters support:
 * Java
 * Python
 
-Additional languages can be installed using script actions: [Script action development with HDInsight](hdinsight-hadoop-script-actions-linux.md).
+Additional languages can be installed using [script actions](hdinsight-hadoop-script-actions-linux.md).
 
 ### Java virtual machine (JVM) languages
 Many languages other than Java can be run using a Java virtual machine (JVM); however, running some of these languages may require additional components installed on the cluster.
