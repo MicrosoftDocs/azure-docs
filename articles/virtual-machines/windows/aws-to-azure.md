@@ -95,7 +95,7 @@ If you don't already have PowerShell version installed, read [How to install and
     Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
     ```
 
-## Get the storage account
+### Get the storage account
 You need a storage account in Azure to store the uploaded VM image. You can either use an existing storage account or create a new one. 
 
 If you are using the VHD to create a managed disk for a VM, the storage account location must be same the location where you create the VM.
@@ -137,7 +137,7 @@ If you need to create a storage account, follow these steps:
    * **Standard_RAGRS** - Read access geo redundant storage. 
    * **Premium_LRS** - Premium locally redundant storage. 
 
-## Upload the VHD 
+### Upload the VHD 
 
 Use the [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) cmdlet to upload the VHD to a container in your storage account. This example uploads the file **myVHD.vhd** from `"C:\Users\Public\Documents\Virtual hard disks\"` to a storage account named **mystorageaccount** in the **myResourceGroup** resource group. The file is placed into the container named **mycontainer** and the new file name is **myUploadedVHD.vhd**.
 
