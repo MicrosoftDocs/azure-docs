@@ -23,11 +23,6 @@ AzCopy is a command-line utility designed for copying data to and from Microsoft
 
 There are two versions of AzCopy that you can download. AzCopy on Windows is built with .NET Framework, and offers Windows style command-line options. AzCopy on Linux is built with .NET Core Framework which targets Linux platforms offering POSIX style command-line options.
 
-> [!NOTE]
-> This guide assumes that you are already familiar with [Azure Storage](https://azure.microsoft.com/services/storage/). If not, reading the [Introduction to Azure Storage](storage-introduction.md) documentation will be helpful. Most importantly, you will need to [create a Storage account](storage-create-storage-account.md#create-a-storage-account) in order to start using AzCopy.
-> 
-> 
-
 ## Download and install AzCopy
 ### AzCopy on Windows
 Download the [latest version of AzCopy on Windows](http://aka.ms/downloadazcopy).
