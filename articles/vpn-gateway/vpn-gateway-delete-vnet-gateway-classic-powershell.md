@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Delete a virtual network gateway: PowerShell: Azure classic | Microsoft Docs'
 description: Delete a virtual network gateway using PowerShell in the classic deployment model. 
 services: vpn-gateway
@@ -26,7 +26,7 @@ ms.author: cherylmc
 >
 >
 
-You can delete a VPN gateway in the classic deployment model by using PowerShell. After the virtual network gateway has been deleted, modify the network configuration file to remove elements that you are no longer using.
+This article helps you delete a VPN gateway in the classic deployment model by using PowerShell. After the virtual network gateway has been deleted, modify the network configuration file to remove elements that you are no longer using.
 
 ##Step 1: Connect to Azure
 
@@ -52,7 +52,7 @@ In this example, the network configuration file is exported to C:\AzureNet.
 Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ```
 
-Open the file with a text editor and view the name for your classic VNet. When you create a VNet in the Azure portal, the full name that Azure uses is not visible in the portal. For example, a VNet that appears to be named 'ClassicVNet1' in the Azure portal, may have a much longer name in the network configuration file. The name might look something like: 'Group ClassicRG1 ClassicVNet1'. Virtual network names are listed as **VirtualNetworkSite name =**. Use the names in the network configuration file when running your PowerShell cmdlets.
+Open the file with a text editor and view the name for your classic VNet. When you create a VNet in the Azure portal, the full name that Azure uses is not visible in the portal. For example, a VNet that appears to be named 'ClassicVNet1' in the Azure portal, may have a much longer name in the network configuration file. The name might look something like: 'Group ClassicRG1 ClassicVNet1'. Virtual network names are listed as **'VirtualNetworkSite name ='**. Use the names in the network configuration file when running your PowerShell cmdlets.
 
 ## Step 3: Delete the virtual network gateway
 
@@ -182,7 +182,7 @@ Example:
 Save your changes and upload the network configuration file to Azure. Make sure you change the file path as necessary for your environment.
 
 ```powershell
-  Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
+Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
 ```
 
 If successful, the return shows something similar to this example:
