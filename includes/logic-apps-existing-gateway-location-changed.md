@@ -1,4 +1,4 @@
-**Q**: Why did location for my existing gateway change? <br/>
+**Q**: Why did the location for my existing gateway change? <br/>
 **A**: Gateway resources created before May 3, 2017 were 
 moved to the original locations of the Azure AD tenant for 
 the work or school account that created those gateways. 
