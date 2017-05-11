@@ -202,7 +202,7 @@ If your connectivity provider is not listed in previous sections, you can still 
 | **AARNET**| 
 | **GARR, through GÉANT**|
 | **GÉANT**|
-| ** HEAnet, through GÉANT**|
+| **HEAnet, through GÉANT**|
 | **JISC**|
 | **RedIRIS, through GÉANT**|
 | **Surfnet, through GÉANT**|
