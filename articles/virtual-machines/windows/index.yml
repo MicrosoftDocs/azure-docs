@@ -3,7 +3,7 @@ documentType: LandingData
 title: Windows Virtual Machines Documentation
 metadata:
   title: Azure Windows Virtual Machines Documentation - Tutorials, API Reference
-  description: Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.
+  meta.description: Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.
   services: virtual-machines\windows
   author: apexprodleads
   manager: carolz

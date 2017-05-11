@@ -3,7 +3,7 @@ documentType: LandingData
 title: Linux Virtual Machines
 metadata:
   title: Azure Linux Virtual Machine Documentation - Tutorials, API Reference
-  description: Learn how to create a virtual machine using the Linux distribution of your choice. Documentation shows different ways to create VM templates.
+  meta.description: Learn how to create a virtual machine using the Linux distribution of your choice. Documentation shows different ways to create VM templates.
   services: virtual-machines\linux
   author: apexprodleads
   manager: carolz

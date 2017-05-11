@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure SQL Database Documentation
 metadata:
   title: Azure SQL Database Documentation - Tutorials, API Reference
-  description: Learn how to use Azure SQL databases.
+  meta.description: Learn how to use Azure SQL databases.
   services: sql-database
   author: carolz
   manager: carolz
