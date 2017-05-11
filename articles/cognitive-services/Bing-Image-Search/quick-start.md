@@ -13,7 +13,7 @@ ms.date: 04/15/2017
 ms.author: scottwhi
 ---
 
-# Your First Images Search Query
+# Your first images search query
 
 Before you can make your first call, you need to get a Bing Search Cognitive Services subscription key. To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).
 
@@ -24,7 +24,7 @@ https://api.cognitive.microsoft.com/bing/v5.0/images/search
 ```
 
 > [!NOTE]
-> Version 7 Preview endpoint:
+> V7 Preview endpoint:
 > 
 > ```
 > https://api.cognitive.microsoft.com/bing/v7.0/images/search
@@ -45,7 +45,7 @@ The client IP and location headers are important for returning location aware co
 
 For a list of all request and response headers, see [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#headers).
 
-## The Request
+## The request
 
 The following shows a search request that includes all the suggested query parameters and headers. If it's is your first time calling any of the Bing APIs, don't include the client ID header. Only include the client ID if you've previously called a Bing API and Bing returned a client ID for the user and device combination. 
   
@@ -60,7 +60,7 @@ Host: api.cognitive.microsoft.com
 ```  
 
 > [!NOTE]
-> Version 7 Preview request:
+> V7 Preview request:
 >
 > ```  
 > GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies&mkt=en-us HTTP/1.1  
@@ -149,14 +149,14 @@ BingAPIs-Market: en-US
 ```
 
 > [!NOTE]
-> Version 7 Preview response change:
+> V7 Preview response change:
 >
 > Renamed the `nextOffsetAddCount` to `nextOffset`. You use the field to page images. In v7, you set the [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#offset) query parameter to the value of `nextOffset`. For more information, see [Paging Images](./paging-images.md).
 
 
   
 
-## Next Steps
+## Next steps
 
 Try out the API. Go to [Image Search API Testing Console](https://dev.cognitive.microsoft.com/docs/services/56b43f0ccf5ff8098cef3808/operations/571fab09dbe2d933e891028f). 
 

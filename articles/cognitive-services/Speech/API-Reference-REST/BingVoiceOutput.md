@@ -55,24 +55,14 @@ Content-Type     |    application/ssml+xml     |      The input content type
 X-Microsoft-OutputFormat     |  **1)** ssml-16khz-16bit-mono-tts, **2)** raw-16khz-16bit-mono-pcm, **3)** audio-16khz-16kbps-mono-siren, **4)** riff-16khz-16kbps-mono-siren **5)** riff-16khz-16bit-mono-pcm **6)** audio-16khz-128kbitrate-mono-mp3, **7)** audio-16khz-64kbitrate-mono-mp3, **8)** audio-16khz-32kbitrate-mono-mp3 |       The output audio format  
 X-Search-AppId     |    A GUID (hex only, no dashes)     |     An ID that uniquely identifies the client application. This can be Store ID for Apps. If one is not available, the ID may be user generated per-application.     
 X-Search-ClientID     |     A GUID (hex only, no dashes)    |    An ID that uniquely identifies application instance per-installation.     
-User-Agent     |     Application name    |     Application name is required and must be less than 255 characters.    
+User-Agent     |     Application name    |     Application name is required and must be less than 255 characters.
+Authorization | Authorization token |  As explained in <a href="#Subscription">Authorization Token</a> section above
 
 ### <a name="InputParam">Input Parameters</a>
-Inputs to the Bing Text to Speech API are expressed as HTTP query parameters. Parameters in the POST body are treated as Speech Synthesis Markup Language (SSML) content. Refer to the [SSML W3C Specification](http://www.w3.org/TR/speech-synthesis/) for a description of the markup used to control aspects of speech such as the language and gender of the speaker.
-The following is a complete list of recognized input parameters:  
-
-Parameter   |Description | Values 
----------|---------|----------
-VoiceType | Indicates the preferred gender of the voice to speak the synthesized text. | Female, Male 
-VoiceName | Indicates the processor-specific voice name used to speak the synthesized text. | See [Supported Locales and Voice Fonts](#SupLocales)
-Locale | Indicates the language used to speak the synthesized text. | See [Supported Locales and Voice Fonts](#SupLocales)  
-OutputFormat | Indicates the audio format the text will be synthesized into | SSML16Khz16BitMonoTTS, Raw16khz16bitMonoPCM, Audio16khz16kbpsMonoSiren, Riff16khz16kbpsMonoSiren, Riff16khz16bitMonoPcm, Audio16khz128kbitrateMonoMp3, Audio16khz64kbitrateMonoMp3, Audio16khz32kbitrateMonoMp3 
-RequestUri | Indicates the URI of the Internet resource associated with the request | 
-AuthorizationToken | Token used to validate the transaction | 
-Text | The text to be synthesized. | **Note**: Unsafe characters should be escaped following the W3C URL specifications ([http://www.w3.org/Addressing/URL/url-spec.txt](http://www.w3.org/Addressing/URL/url-spec.txt)).
+Requests to the Bing Text to Speech API are made using HTTP POST calls. The headers are specified above and the body contains Speech Synthesis Markup Language (SSML) representing the text to be synthesized. Refer to the [SSML W3C Specification](http://www.w3.org/TR/speech-synthesis/) for a description of the markup used to control aspects of speech such as the language and gender of the speaker.  
 
 >[!NOTE]
->Requests with more than one instance of any parameter will result in an HTTP 400 error response.
+>The maximum size of the SSML supported is 1024 characters including all markup tags.
 
 ###  <a name="SampleVoiceOR">Example Voice Output Request</a>
 The following is an example of a voice output request:  
@@ -81,12 +71,12 @@ The following is an example of a voice output request:
 POST /synthesize
 HTTP/1.1
 Host: speech.platform.bing.com
-Content-Type: audio/wav; samplerate=8000
 
 X-Microsoft-OutputFormat: riff-8khz-8bit-mono-mulaw
-Content-Type: text/plain; charset=utf-8
+Content-Type: application/ssml+xml
 Host: speech.platform.bing.com
 Content-Length: 197
+Authorization: Bearer [Base64 access_token]
 
 <speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>Microsoft Bing Voice Output API</voice></speak>
 ```
@@ -95,7 +85,7 @@ Content-Length: 197
 The Bing Text to Speech API uses HTTP POST to send audio back to the client. The API response contains the audio stream and the codec and will match the requested output format. The maximum amount of audio returned for a given request must not exceed 15 seconds. 
  
 #### <a name="SuccessfulRecResponse"> Successful Synthesis Response</a>
-Example JSON response for a successful voice search. The comments and formatting of the JSON below is for example reasons only. Indentation spaces, smart quotes, comments, etc. are omitted from the actual response. 
+Example JSON response for a successful voice synthesis request. The comments and formatting of the JSON below is for example reasons only. Indentation spaces, smart quotes, comments, etc. are omitted from the actual response. 
 ```
 HTTP/1.1 200 OK
 Content-Length: XXX
@@ -106,7 +96,7 @@ Response audio payload
  
 #### <a name="RecFailure"> Synthesis Failure</a>
 
-Example JSON response for a voice synthesis query failure.
+Example JSON response for a voice synthesis request failure.
 
 ```
 HTTP/1.1 400 XML parser error
