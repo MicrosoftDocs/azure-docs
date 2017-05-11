@@ -31,28 +31,18 @@ Examples of tasks you can do with PowerShell:
 
 Follow steps to [install and configure Azure Powershell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps) to get the latest version. If you have scripts that need to be modified to use the new cmdlets that work with Azure Resource Manager, see [Migrate to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
-## Use Visual Studio and tools for Data Lake and Hadoop
-You can use Data Lake Tools for Visual Studio with HDInsight. Manage clusters and develop apps powered by big data insights.
+## Use Visual Studio and Data Lake Tools for Visual Studio
+You can use Visual Studio for HDInsight cluster management and app development, or Data Lake Tools for Visual Studio to connect to and query clusters. 
 
-[Install and try Data Lake Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+Before you try the following examples, [install and try Data Lake Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md). Examples of tasks you can do with Data Lake tools for Visual Studio:
+* [Deploy and manage Storm topologies from Visual Studio](hdinsight-storm-deploy-monitor-topology-linux.md)
+* [Run Hive queries from Visual Studio](hdinsight-hadoop-use-hive-visual-studio.md)
+
+## Use the .NET SDK to manage clusters and develop apps
 
 Examples of tasks you can do with Visual Studio:
 * [Create clusters and work in HDInsight from a .NET Framework application](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
-
-
-Examples of tasks you can do with Data Lake tools for Visual Studio:
-* [Run Hive queries from Data Lake tools for Visual Studio](hdinsight-hadoop-use-hive-visual-studio.md)
-* [Deploy and manage Storm topologies with Data Lake tools for Visual Studio](hdinsight-storm-deploy-monitor-topology-linux.md)
-
- 
-
-https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started
-https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-deploy-monitor-topology-linux
-
-
-[Discussion about VS tools. Links to Hive, Storm, etc. documents]
-
-## Use .NET
+* [Run Hive queries using the .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md)
 
 [Brief discussion about .NET on HDInsight. Links to the main .NET on Linux-based HDInsight document, links to example for Hive/Pig C# UDF, links to example C# MapReduce, links to migrate .NET from Windows to Linux]
 
