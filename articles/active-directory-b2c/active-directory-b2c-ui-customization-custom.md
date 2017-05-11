@@ -142,7 +142,7 @@ Let's validate that we are ready.
 
 1. Open the **Azure AD B2C Blade** and navigate to **All polices**.
 1. Select the custom policy that you uploaded, and click the **Run now** button.
-1. You should be able to sign up using an email address.
+1. You should be able to sign-up using an email address.
 
 ## Reference
 
@@ -152,12 +152,12 @@ You can find sample templates for UI customization here:
 git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 ```
 
-Inside the `sample_templates/wingtip` folder, you will find a number of html files:
+The `sample_templates/wingtip` folder contains the following html files:
 
 | HTML5 template | Description |
 |----------------|-------------|
 | *phonefactor.html* | This page can be used as a template for a multi-factor authentication page. |
-| *resetpassword.html* | This page can be used as a template for a forgot password page page. |
+| *resetpassword.html* | This page can be used as a template for a forgot password page. |
 | *selfasserted.html* | This page can be used as a template for a social account sign-up page, a local account sign-up page, or a local account sign-in page. |
 | *unified.html* | This page can be used as a template for a unified sign-up or sign-in page. |
 | *updateprofile.html* | This page can be used as a template for a profile update page. |
@@ -167,14 +167,14 @@ In the [Modify your sign-up or sign-in custom policy section](#modify-your-sign-
 | Content definition id | Description | 
 |-----------------------|-------------|
 | *api.error* | **Error page**. This page is displayed when an exception or an error is encountered. |
-| *api.idpselections* | **Identity provider selection page**. This page contains a list of identity providers that the user can choose from during sign-in. These are either enterprise identity providers, social identity providers such as Facebook and Google+, or local accounts (based on email address or user name). |
-| *api.idpselections.signup* | **Identity provider selection for sign-up**. This page contains a list of identity providers that the user can choose from during sign-up. These are either enterprise identity providers, social identity providers such as Facebook and Google+, or local accounts (based on email address or user name). |
+| *api.idpselections* | **Identity provider selection page**. This page contains a list of identity providers that the user can choose from during sign-in. These options are either enterprise identity providers, social identity providers such as Facebook and Google+, or local accounts. |
+| *api.idpselections.signup* | **Identity provider selection for sign-up**. This page contains a list of identity providers that the user can choose from during sign-up. These options are either enterprise identity providers, social identity providers such as Facebook and Google+, or local accounts. |
 | *api.localaccountpasswordreset* | **Forgot password page**. This page contains a form that the user has to fill to initiate their password reset.  |
-| *api.localaccountsignin* | **Local account sign-in page**. This page contains a sign-in form that the user has to fill in when signing in with a local account that is based on an email address or a user name. The form can contain a text input box and password entry box. |
-| *api.localaccountsignup* | **Local account sign-up page**. This page contains a sign-up form that the user has to fill in when signing up for a local account that is based on an email address or a user name. The form can contain different input controls such as text input box, password entry box, radio button, single-select drop-down boxes, and multi-select check boxes. |
+| *api.localaccountsignin* | **Local account sign-in page**. This page contains a sign-in form for signing in with a local account that is based on an email address or a user name. The form can contain a text input box and password entry box. |
+| *api.localaccountsignup* | **Local account sign-up page**. This page contains a sign-up form for signing up for a local account that is based on an email address or a user name. The form can contain different input controls such as text input box, password entry box, radio button, single-select drop-down boxes, and multi-select check boxes. |
 | *api.phonefactor* | **Multi-factor authentication page**. On this page, users can verify their phone numbers (using text or voice) during sign-up or sign-in. |
-| *api.selfasserted* | **Social account sign-up page**. This page contains a sign-up form that the user has to fill in when signing up using an existing account from a social identity provider such as Facebook or Google+. This page is similar to the above social account sign-up page with the exception of the password entry fields. |
-| *api.selfasserted.profileupdate* | **Profile update page**. This page contains a form that the user can use to update their profile. This page is similar to the above social account sign-up page with the exception of the password entry fields. |
+| *api.selfasserted* | **Social account sign-up page**. This page contains a sign-up form that the user has to fill in when signing up using an existing account from a social identity provider such as Facebook or Google+. This page is similar to the above social account sign-up page except for the password entry fields. |
+| *api.selfasserted.profileupdate* | **Profile update page**. This page contains a form that the user can use to update their profile. This page is similar to the social account sign-up page except for the password entry fields. |
 | *api.signuporsignin* | **Unified sign-up or sign-in page**.  This page handles both sign-up & sign-in of users, who can use enterprise identity providers, social identity providers such as Facebook or Google+, or local accounts.  |
 
 ## Next steps
