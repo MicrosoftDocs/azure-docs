@@ -22,7 +22,7 @@ ms.author: marsma
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
-This guide shows you how to perform common Azure Table storage scenarios in Python using the [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python). The scenarios covered include creating and deleting a table, and inserting and querying entities in a table.
+This guide shows you how to perform common Azure Table storage scenarios in Python using the [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python). The scenarios covered include creating and deleting a table, and inserting and querying entities.
 
 While working through the scenarios in this tutorial, you may wish to refer to the [Azure Storage SDK for Python API reference](https://azure-storage.readthedocs.io/en/latest/index.html).
 
@@ -32,7 +32,7 @@ While working through the scenarios in this tutorial, you may wish to refer to t
 
 ## Install the Azure Storage SDK for Python
 
-Once you've created a storage account, your next step is to install the [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python). To install the SDK, refer to the [README.rst](https://github.com/Azure/azure-storage-python/blob/master/README.rst) file in the Storage SDK for Python repository on GitHub.
+Once you've created a storage account, your next step is to install the [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python). For details on installing the SDK, refer to the [README.rst](https://github.com/Azure/azure-storage-python/blob/master/README.rst) file in the Storage SDK for Python repository on GitHub.
 
 ## Create a table
 
@@ -42,7 +42,7 @@ To work with the Azure Table service in Python, you must import the [TableServic
 from azure.storage.table import TableService, Entity
 ```
 
-Create a [TableService][py_TableService] object, passing in your storage account name and account key. Replace `myaccount` and `mykey` with your account name and key.
+Create a [TableService][py_TableService] object, passing in your storage account name and account key. Replace `myaccount` and `mykey` with your account name and key, and call [create_table][py_create_table] to create the table in Azure Storage.
 
 ```python
 table_service = TableService(account_name='myaccount', account_key='mykey')
@@ -52,7 +52,7 @@ table_service.create_table('tasktable')
 
 ## Add an entity to a table
 
-To add an entity, you first create an object that represents your entity, then pass the object to the [TableService][py_TableService].[insert_entity][py_insert_entity] method. The entity object can be a dictionary or an [Entity][py_Entity] object, and defines your entity's property names and values. Every entity must include the required [PartitionKey and RowKey](#partitionkey-and-rowkey) properties, in addition to any other properties you define for the entity.
+To add an entity, you first create an object that represents your entity, then pass the object to the [TableService][py_TableService].[insert_entity][py_insert_entity] method. The entity object can be a dictionary or an object of type [Entity][py_Entity], and defines your entity's property names and values. Every entity must include the required [PartitionKey and RowKey](#partitionkey-and-rowkey) properties, in addition to any other properties you define for the entity.
 
 This example creates a dictionary object representing an entity, then passes it to the [insert_entity][py_insert_entity] method to add it to the table:
 
@@ -61,7 +61,7 @@ task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001', 'description' : 'Take o
 table_service.insert_entity('tasktable', task)
 ```
 
-This example creates an [Entity][py_Entity] object, then passes it to the [insert_entity][py_insert_entity] method:
+This example creates an [Entity][py_Entity] object, then passes it to the [insert_entity][py_insert_entity] method to add it to the table:
 
 ```python
 task = Entity()
@@ -80,17 +80,17 @@ The Table service uses **PartitionKey** to intelligently distribute table entiti
 
 ## Update an entity
 
-To update all of an entity's property values, call the [update_entity][py_update_entity] method. This example shows how to replace an existing entity with an updated version.
+To update all of an entity's property values, call the [update_entity][py_update_entity] method. This example shows how to replace an existing entity with an updated version:
 
 ```python
 task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001', 'description' : 'Take out the garbage', 'priority' : 250}
 table_service.update_entity('tasktable', task)
 ```
 
-If the entity that is being updated doesn't already exist, then the update operation will fail. If you want to store an entity whether it exists or not, use [insert_or_replace_entity][py_insert_or_replace_entity]. In the following example, the first call will replace the existing entity. The second call will insert a new entity, since no entity with the specified **PartitionKey** and **RowKey** exists in the table.
+If the entity that is being updated doesn't already exist, then the update operation will fail. If you want to store an entity whether it exists or not, use [insert_or_replace_entity][py_insert_or_replace_entity]. In the following example, the first call will replace the existing entity. The second call will insert a new entity, since no entity with the specified PartitionKey and RowKey exists in the table.
 
 ```python
-# Replace the entity created earlier (PartitionKey tasksSeattle, RowKey 001)
+# Replace the entity created earlier
 task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001', 'description' : 'Take out the garbage again', 'priority' : 250}
 table_service.insert_or_replace_entity('tasktable', task)
 
@@ -104,7 +104,7 @@ table_service.insert_or_replace_entity('tasktable', task)
 
 ## Modify multiple entities
 
-To ensure the atomic processing of a request by the Table service, you can submit multiple operations together in a batch. First, use the [TableBatch][py_TableBatch] class to add multiple operations to a single batch. Next, call [TableService][py_TableService].[commit_batch][py_commit_batch] to submit the operations in an atomic operation. All entities to be modified in a batch must be in the same partition.
+To ensure the atomic processing of a request by the Table service, you can submit multiple operations together in a batch. First, use the [TableBatch][py_TableBatch] class to add multiple operations to a single batch. Next, call [TableService][py_TableService].[commit_batch][py_commit_batch] to submit the operations in an atomic operation. All entities to be modified in batch must be in the same partition.
 
 This example adds two entities together in a batch:
 
@@ -131,7 +131,7 @@ with table_service.batch('tasktable') as batch:
 
 ## Query for an entity
 
-To query for an entity in a table, pass its **PartitionKey** and **RowKey** to the [TableService][py_TableService].[get_entity][py_get_entity] method.
+To query for an entity in a table, pass its PartitionKey and RowKey to the [TableService][py_TableService].[get_entity][py_get_entity] method.
 
 ```python
 task = table_service.get_entity('tasktable', 'tasksSeattle', '001')
@@ -141,7 +141,7 @@ print(task.priority)
 
 ## Query a set of entities
 
-You can query for a set of entities by supplying a filter string with the **filter** parameter. This example finds all tasks in Seattle by applying a filter on **PartitionKey**:
+You can query for a set of entities by supplying a filter string with the **filter** parameter. This example finds all tasks in Seattle by applying a filter on PartitionKey:
 
 ```python
 tasks = table_service.query_entities('tasktable', filter="PartitionKey eq 'tasksSeattle'")
@@ -152,7 +152,7 @@ for task in tasks:
 
 ## Query a subset of entity properties
 
-You can also restrict which properties are returned for each entity in a query. This technique, called *projection*, reduces bandwidth and can improve query performance, especially for large entities or result sets. Use the **select** parameter and pass the names of the properties that you want returned to the client.
+You can also restrict which properties are returned for each entity in a query. This technique, called *projection*, reduces bandwidth and can improve query performance, especially for large entities or result sets. Use the **select** parameter and pass the names of the properties you want returned to the client.
 
 The query in the following code returns only the descriptions of entities in the table.
 
@@ -183,12 +183,13 @@ table_service.delete_table('tasktable')
 
 ## Next steps
 
-* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
+* [Azure Storage SDK for Python API reference](https://azure-storage.readthedocs.io/en/latest/index.html)
+* [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)
 * [Python Developer Center](/develop/python/)
-* [Azure Storage Services REST API](http://msdn.microsoft.com/library/azure/dd179355)
-* [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md): A free, cross-platform application for working visually with Azure Storage data on Windows, macOS, and Linux.
 
 [py_commit_batch]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.commit_batch
+[py_create_table]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.create_table
 [py_delete_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.delete_entity
 [py_delete_table]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.delete_table
 [py_Entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.models.html#azure.storage.table.models.Entity
