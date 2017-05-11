@@ -199,7 +199,7 @@ Open ports 80 (http) and 443 (https) for incoming traffic from these addresses:
 | --- | --- | --- | --- |
 | Agent | agent.azureserviceprofiler.net | dynamic | 443
 | Portal | gateway.azureserviceprofiler.net | dynamic | 443
-| Storage | core.windows.net | dynamic | 443
+| Storage | *.core.windows.net | dynamic | 443
 
 ## Snapshot Debugger
 
@@ -207,4 +207,4 @@ Open ports 80 (http) and 443 (https) for incoming traffic from these addresses:
 | --- | --- | --- | --- |
 | Agent | ppe.azureserviceprofiler.net | dynamic | 443
 | Portal | ppe.gateway.azureserviceprofiler.net | dynamic | 443
-| Storage | core.windows.net | dyanmic | 443
+| Storage | *.core.windows.net | dyanmic | 443
