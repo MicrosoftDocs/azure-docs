@@ -28,6 +28,8 @@ It should take you less than five minutes to complete all the steps in this topi
 
 ## Prerequisites
 
+Before running this sample, you must have the following:
+
 - A GitHub account with at least one project.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.

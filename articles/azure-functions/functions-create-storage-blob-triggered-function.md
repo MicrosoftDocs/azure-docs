@@ -26,6 +26,8 @@ Learn how to create a function triggered when files are uploaded to or updated i
 
 ## Prerequisites
 
+Before running this sample, you must have performed the following:
+
 - Download and install the [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
