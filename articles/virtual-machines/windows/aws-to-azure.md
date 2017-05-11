@@ -204,7 +204,7 @@ Create a managed image using your generalized OS VHD.
 	$image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ```
 
-## Create a VM from the image
+## Create VM from image
 
 First we need to gather basic information about the image and create a variable for the image. This example uses a managed VM image named **myImage** that is in the **myResourceGroup** resource group in the **West Central US** location. 
 
@@ -307,7 +307,7 @@ $cred = Get-Credential
 $vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
 ```
 
-## Set the VM image 
+### Set the VM image 
 
 Set the source image using the ID of the managed VM image.
 
