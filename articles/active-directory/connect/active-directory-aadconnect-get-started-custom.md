@@ -113,11 +113,12 @@ It is also possible that some domains are not reachable due to firewall restrict
 If you see this warning, make sure that these domains are indeed unreachable and the warning is expected.
 
 ### Uniquely identifying your users
+
+#### Select how users should be identified in your on-premises directories
 The Matching across forests feature allows you to define how users from your AD DS forests are represented in Azure AD. A user might either be represented only once across all forests or have a combination of enabled and disabled accounts. The user might also be represented as a contact in some forests.
 
 ![Unique](./media/active-directory-aadconnect-get-started-custom/unique.png)
 
-#### Select how users should be identified in your on-premises directories
 | Setting | Description |
 | --- | --- |
 | [Users are only represented once across all forests](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |All users are created as individual objects in Azure AD. The objects are not joined in the metaverse. |
