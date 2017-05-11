@@ -45,7 +45,7 @@ The following limitations exist when using this capability:
 * **VM creation:** A NIC with accelerated networking enabled can only be attached to a VM when the VM is created. The NIC cannot be attached to an existing VM.
 * **Regions:** Windows VMs with accelerated networking are offered in most Azure regions. Linux VMs with accelerated networking are only offered in two regions: South Central US and West US 2. The regions this capability is available in will expand in the future.
 * **Supported operating systems:** Windows: Microsoft Windows Server 2012 R2 Datacenter and Windows Server 2016. Linux: Ubuntu Server 16.04 LTS with kernel 4.4.0-77 or higher. Additional distributions will be added soon.
-* **VM Size:** General purpose and compute-optimized instance sizes with 8 or more cores. For more information, see the [Windows]((../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json.json) and [Linux]((../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes articles. The set of supported VM instance sizes will expand in the future.
+* **VM Size:** General purpose and compute-optimized instance sizes with eight or more cores. For more information, see the [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json.json) and [Linux]((../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes articles. The set of supported VM instance sizes will expand in the future.
 
 Changes to these limitations are announced through the [Azure Virtual Networking updates](https://azure.microsoft.com/updates/accelerated-networking-in-preview) page.
 
@@ -157,7 +157,7 @@ Once you create the VM in Azure, you must install the accelerated networking dri
 10. In the Internet Explorer address bar, enter https://gallery.technet.microsoft.com/Azure-Accelerated-471b5d84, then the Enter key.
 11. In the **Security Alert** box that appears, click **OK**.
 12. In the **Internet Explorer** box that appears, click **Add**, click the **Add** button in the **Trusted sites** box, then click the **Close** button. Complete these steps for any subsequent boxes that appear.
-13. Click the file to download it.
+13. To download the file, click it.
 14. When the **License, Terms of Use** box appears, click **I agree**.
 15. Allow Internet Explorer to save the file by clicking the **Save** button in the box that appears at the bottom of the screen, then click the **Open folder** button.
 16. To install the accelerated networking driver, double-click the file. During the installation wizard, accept all defaults and click the **Yes** button at the end of the wizard to restart the VM.
@@ -278,7 +278,7 @@ Once you create the VM in Azure, you must install the accelerated networking dri
     -	`chmod +x ./bondvf.sh`
     -	`sudo ./bondvf.sh` 
     - `sudo nano /etc/network/interfaces.d/50-cloud-init.cfg`
-    - In the editor, comment out the *auto etho0* and *iface eth0 inet dhcp* lines by adding “#” to the beginning of each line. After adding the # to each line, they'll look like the following:
+    - In the editor, comment out the *auto etho0* and *iface eth0 inet dhcp* lines by adding *#* to the beginning of each line. After adding *#* to each line, the lines look like the following example:
         - #auto eth0
         - #iface eth0 inet dhcp
 10. Hold down the **Ctrl+X** keys, enter **Y**, then press the **Enter** key to save the file.
