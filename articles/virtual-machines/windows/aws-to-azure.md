@@ -71,7 +71,11 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 
 
 
-## Log in to Azure
+## Upload the VHD
+
+You need to log in to Azure, create a storage account and upload the VHD to the storage account before you can create the image. 
+
+### Log in to Azure
 
 If you don't already have PowerShell version installed, read [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
@@ -200,7 +204,7 @@ Create a managed image using your generalized OS VHD.
 	$image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ```
 
-## Create variables
+## Create a VM from the image
 
 First we need to gather basic information about the image and create a variable for the image. This example uses a managed VM image named **myImage** that is in the **myResourceGroup** resource group in the **West Central US** location. 
 
@@ -211,7 +215,7 @@ $imageName = "myImage"
 $image = Get-AzureRMImage -ImageName $imageName -ResourceGroupName $rgName
 ```
 
-## Create a virtual network
+### Create a virtual network
 Create the vNet and subnet of the [virtual network](../../virtual-network/virtual-networks-overview.md).
 
 1. Create the subnet. This example creates a subnet named **mySubnet** with the address prefix of **10.0.0.0/24**.  
@@ -228,7 +232,7 @@ Create the vNet and subnet of the [virtual network](../../virtual-network/virtua
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
 
-## Create a public IP and NIC
+### Create a public IP and NIC
 
 To enable communication with the virtual machine in the virtual network, you need a [public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
 
@@ -247,7 +251,7 @@ To enable communication with the virtual machine in the virtual network, you nee
         -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
     ```
 
-## Create NSG
+### Create NSG
 
 To be able to log in to your VM using RDP, you need to have a network security rule (NSG) that allows RDP access on port 3389. 
 
@@ -266,7 +270,7 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $loc
 ```
 
 
-## Create network variables
+### Create network variables
 
 Create a variable for the completed virtual network. 
 
@@ -275,7 +279,7 @@ $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 
 ```
 
-## Get the credentials 
+### Get the credentials 
 
 The following cmdlet opens a window where you enter a new user name and password to use as the local administrator account for remotely accessing the VM. 
 
@@ -283,7 +287,7 @@ The following cmdlet opens a window where you enter a new user name and password
 $cred = Get-Credential
 ```
 
-## Set VM variables 
+### Set VM variables 
 
 1. Create variables for the VM name and computer name. This example sets the VM name as **myVM** and the computer name as **myComputer**.
 
@@ -311,7 +315,7 @@ Set the source image using the ID of the managed VM image.
 $vm = Set-AzureRmVMSourceImage -VM $vm -Id $image.Id
 ```
 
-## Set the OS configuration 
+### Set the OS configuration 
 
 Enter the storage type (PremiumLRS or StandardLRS) and the size of the OS disk. This example sets the account type to **PremiumLRS**, the disk size to **128 GB** and disk caching to **ReadWrite**.
 
@@ -325,7 +329,7 @@ $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName $computerName 
 $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 ```
 
-## Create the VM
+### Create the VM
 
 Create the new VM using the configuration that we have built and stored in the **$vm** variable.
 
