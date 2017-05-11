@@ -9,7 +9,7 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 04/21/2017
+ms.date: 05/10/2017
 ms.author: bruceper
 
 ---
@@ -23,6 +23,15 @@ Key Vault allows you to securely access sensitive information from within your a
 - As of the September 2016 release of Key Vault, your applications can now use Key Vault [certificates](https://docs.microsoft.com/rest/api/keyvault/certificate-operations). For more information, see [About keys, secrets, and certificates](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates).
 
 For more general information on Azure Key Vault, see [What is Key Vault](key-vault-whatis.md).
+
+## Public Preview - May 10, 2017
+
+>[!NOTE]
+>For this preview version of Azure Key Vault only the **soft-delete** feature is in preview. Azure Key Vault, as a whole, is a full production service.
+
+This preview includes our new soft-delete feature, recoverable deletion of Key Vaults and Key Vault objects,  and updated interfaces for developers; [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) and [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/). 
+
+For more information on the new soft-delete feature, see [Azure Key Vault soft delete overview](key-vault-ovw-soft-delete.md).
 
 ## Videos
 
@@ -103,6 +112,11 @@ These articles are about other scenarios and services that use or integrate with
 - [Azure Disk Encryption](../security/azure-security-disk-encryption.md) leverages the industry standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) feature of Windows and the [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide volume encryption for the OS and the data disks. The solution is integrated with Azure Key Vault to help you control and manage the disk encryption keys and secrets in your key vault subscription, while ensuring that all data in the virtual machine disks are encrypted at rest in your Azure storage.
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md) provides option for encryption of data that is stored in the account. For key management, Data Lake Store provides two modes for managing your master encryption keys (MEKs), which are required for decrypting any data that is stored in the Data Lake Store. You can either let Data Lake Store manage the MEKs for you, or choose to retain ownership of the MEKs using your Azure Key Vault account. You specify the mode of key management while creating a Data Lake Store account. 
 - [Azure Information Protection](/information-protection/plan-design/plan-implement-tenant-key) allows you to manager your own tenant key. For example, instead of Microsoft managing your tenant key (the default), you can manage your own tenant key to comply with specific regulations that apply to your organization. Managing your own tenant key is also referred to as bring your own key, or BYOK.
+
+## Key Vault overviews and concepts
+
+- [Key Vault security worlds](key-vault-ovw-security-worlds.md)
+- [Key Vault soft-delete](key-vault-ovw-soft-delete.md)
 
 ## Social
 

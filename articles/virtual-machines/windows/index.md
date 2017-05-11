@@ -158,7 +158,7 @@ ms.author: carolz
                         <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
                         <p><a href="/java/api">Java</a></p>
                         <p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node​.js</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
+                        <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
                     </div>
                 </div>
             </div>
