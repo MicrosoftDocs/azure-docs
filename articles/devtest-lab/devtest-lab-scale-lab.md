@@ -27,7 +27,7 @@ For example, each subscription has a default quota of 20 cores. So, if you are c
 [Azure Subscription and Service Limits](https://docs.microsoft.com/azure/azure-subscription-service-limits) lists some of the most common quotas for Azure resources.
 
 ## View your usage and quotas
-These steps show you how to view the current quotas in your DevTest Labs subscription for specific Azure resources, and to see what percentage of each quota you have used.
+These steps show you how to view the current quotas in your subscription for specific Azure resources, and to see what percentage of each quota you have used.
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Select **More Services**, and then select **Billing** from the list.
