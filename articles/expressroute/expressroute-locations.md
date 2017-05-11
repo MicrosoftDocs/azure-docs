@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2017
-ms.author: cherylmc
+ms.date: 05/10/2017
+ms.author: pareshmu
 
 ---
 # ExpressRoute partners and peering locations
@@ -191,20 +191,21 @@ If your connectivity provider is not listed in previous sections, you can still 
 ## Connectivity Through Datacenter Providers
 | **Provider** | **Exchange** | **Location**|
 | --- | --- | --- |
-| **[Cyrus One] (https://cyrusone.com/enterprise-data-center-services/connectivity-and-interconnection/)** | Megaport | Dallas |
+| **[Cyrus One](https://cyrusone.com/enterprise-data-center-services/connectivity-and-interconnection/)** | Megaport | Dallas |
 | **[Digital Realty](https://www.digitalrealty.com/services/interconnection/service-exchange/)** | Megaport | |
-| **[EdgeConnex](http://www.edgeconnex.com/services/edge-data-centers-proximity-matters/) ** | Megaport |  |
+| **[EdgeConnex](http://www.edgeconnex.com/services/edge-data-centers-proximity-matters/)** | Megaport |  |
 
 
 ## Connectivity Through National Research and Education Networks
-| --- | --- | --- |
-| **AARNET**| | | 
-| **GARR, through GÉANT**| | |
-| **GÉANT**| | | 
-| ** HEAnet, through GÉANT**| | |
-| **JISC**| | |
-| **RedIRIS, through GÉANT**| | |
-| **Surfnet, through GÉANT**| | |
+| **Provider**|
+| --- |
+| **AARNET**| 
+| **GARR, through GÉANT**|
+| **GÉANT**|
+| ** HEAnet, through GÉANT**|
+| **JISC**|
+| **RedIRIS, through GÉANT**|
+| **Surfnet, through GÉANT**|
 
 * If your connectivity provider is not listed here, please check to see if they are connected to any of the ExpressRoute Exchange Partners listed above.
 
