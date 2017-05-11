@@ -79,7 +79,7 @@ To create a virtual machine by using the Azure Explorer, do the following:
 
       ![The Create New Storage Account dialog box][CR05]
 
-   * **Storage account**: Specifies the storage account to use for storing your virtual machine. You can use an existing storage account or create a new account. If you select **Create new**, the following dialog box is displayed:
+   * **Storage account**: Specifies the storage account to use for storing your virtual machine. You can use an existing storage account or create a new account.
 
    * **Virtual Network** and **Subnet**: Specifies the virtual network and subnet that your virtual machine will connect to. You can use an existing network and subnet, or you can create a new network and subnet. If you select **Create new**, the following dialog box is displayed:
 
@@ -142,7 +142,7 @@ For more information about Azure virtual-machine sizes and pricing, see the foll
 * Azure virtual-machine sizes
   * [Sizes for Windows virtual machines in Azure]
   * [Sizes for Linux virtual machines in Azure]
-* Azure virtual machine pricing
+* Azure virtual-machine pricing
   * [Windows virtual-machine pricing]
   * [Linux virtual-machine pricing]
 
