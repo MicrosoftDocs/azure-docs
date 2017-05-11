@@ -21,8 +21,8 @@ ms.author: rachelap
 ---
 # Store unstructured data using Azure Functions and Cosmos DB
 
-Azure Cosmos DB is a great way to store unstructured and JSON data. Combined with Azure Functions, Cosmos DB makes storing data quick and easy with much less code than required for storing data in a relational database. 
- 
+Azure Cosmos DB is a great way to store unstructured and JSON data. Combined with Azure Functions, Cosmos DB makes storing data quick and easy with much less code than required for storing data in a relational database.
+
 This tutorial walks through how to use the Azure Portal to create an Azure Function that stores unstructured data in a Cosmos DB document. 
 
 ## Prerequisites
@@ -31,7 +31,7 @@ This tutorial walks through how to use the Azure Portal to create an Azure Funct
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-## Create a GenericWebHook-CSharp Function App
+## Create a function
 
 Create a new C# generic WebHook named `MyTaskList`.
 
@@ -42,7 +42,7 @@ Create a new C# generic WebHook named `MyTaskList`.
 
 ## Add an output binding
 
-An Azure function can have one trigger and any number of  input or output bindings. For this example, we'll use an HTTP Request trigger and the Cosmos DB document as the output binding.
+An Azure function can have one trigger and any number of input or output bindings. For this example, we'll use an HTTP Request trigger and the Cosmos DB document as the output binding.
 
 1. Click on the function's *Integrate* tab to view or modify the function's trigger and bindings.
 1. Choose the *New Output* link located at the top right of the page.
