@@ -53,11 +53,11 @@ You can remove the extracted files once AzCopy on Linux is installed. Alternativ
 ## Writing your first AzCopy command
 The basic syntax for AzCopy commands is:
 
-```AzCopy on Windows
+```AzCopyWindows
 AzCopy /Source:<source> /Dest:<destination> [Options]
 ```
 
-```AzCopy on Linux
+```AzCopyLinux
 azcopy --source <source> --destination <destination> [Options]
 ```
 
@@ -66,11 +66,11 @@ The following examples demonstrate a variety of scenarios for copying data to an
 ## Blob: Download
 ### Download single blob
 
-```AzCopy on Windows
+```AzCopyWindows
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
-```AzCopy on Linux
+```AzCopyLinux
 azcopy --source https://myaccount.blob.core.windows.net/mycontainer --destination /mnt --source-key <key> --include "abc.txt"
 ```
 
