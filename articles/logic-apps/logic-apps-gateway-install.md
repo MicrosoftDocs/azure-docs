@@ -103,6 +103,7 @@ the on-premises data gateway with an Azure subscription for an Azure AD-based ac
   > Or, if you signed up for an Office 365 offering and didn't supply your actual work email, 
   > your sign-in address might look like jeff@contoso.onmicrosoft.com. 
 
+<a name="install-gateway"></a>
 ## Install the data gateway
 
 1.	[Download and run the gateway installer on a local computer](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
@@ -289,6 +290,7 @@ and sends the query to the queue for the gateway to process.
 6. The results are sent from the data source, back to the gateway, and then to the gateway cloud service. 
 The gateway cloud service then uses the results.
 
+<a name="faq"></a>
 ## Frequently asked questions
 
 ### General
