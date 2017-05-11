@@ -102,42 +102,42 @@ table_service.insert_or_replace_entity('tasktable', task)
 > [!TIP]
 > The [update_entity][py_update_entity] method replaces all properties and values of an existing entity, which you can also use to remove properties from an existing entity. You can use the [merge_entity][py_merge_entity] method to update an existing entity with new or modified property values without completely replacing the entity.
 
-## Change a group of entities
+## Modify multiple entities
 
-Sometimes it makes sense to submit multiple operations together in a
-batch to ensure atomic processing by the server. To accomplish that, you
-use the **TableBatch** class. When you do want to submit the
-batch, you call **commit\_batch**. Note that all entities must be in the same partition in order to be changed as a batch. The example below adds two entities together in a batch.
+To ensure the atomic processing of a request by the Table service, you can submit multiple operations together in a batch. First, use the [TableBatch][py_TableBatch] class to add multiple operations to a single batch. Next, call [TableService][py_TableService].[commit_batch][py_commit_batch] to submit the operations in an atomic operation. All entities to be modified in a batch must be in the same partition.
+
+This example adds two entities together in a batch:
 
 ```python
 from azure.storage.table import TableBatch
 batch = TableBatch()
-task10 = {'PartitionKey': 'tasksSeattle', 'RowKey': '10', 'description' : 'Go grocery shopping', 'priority' : 400}
-task11 = {'PartitionKey': 'tasksSeattle', 'RowKey': '11', 'description' : 'Clean the bathroom', 'priority' : 100}
-batch.insert_entity(task10)
-batch.insert_entity(task11)
+task004 = {'PartitionKey': 'tasksSeattle', 'RowKey': '004', 'description' : 'Go grocery shopping', 'priority' : 400}
+task005 = {'PartitionKey': 'tasksSeattle', 'RowKey': '005', 'description' : 'Clean the bathroom', 'priority' : 100}
+batch.insert_entity(task004)
+batch.insert_entity(task005)
 table_service.commit_batch('tasktable', batch)
 ```
 
 Batches can also be used with the context manager syntax:
 
 ```python
-task12 = {'PartitionKey': 'tasksSeattle', 'RowKey': '12', 'description' : 'Go grocery shopping', 'priority' : 400}
-task13 = {'PartitionKey': 'tasksSeattle', 'RowKey': '13', 'description' : 'Clean the bathroom', 'priority' : 100}
+task006 = {'PartitionKey': 'tasksSeattle', 'RowKey': '006', 'description' : 'Go grocery shopping', 'priority' : 400}
+task007 = {'PartitionKey': 'tasksSeattle', 'RowKey': '007', 'description' : 'Clean the bathroom', 'priority' : 100}
 
 with table_service.batch('tasktable') as batch:
-    batch.insert_entity(task12)
-    batch.insert_entity(task13)
+    batch.insert_entity(task006)
+    batch.insert_entity(task007)
 ```
 
 ## Query for an entity
-To query an entity in a table, use the **get\_entity** method by
-passing **PartitionKey** and **RowKey**.
+
+To query for an entity in a table, pass its **PartitionKey** and **RowKey** to the [TableService][py_TableService].[get_entity][py_get_entity] method.
 
 ```python
-task = table_service.get_entity('tasktable', 'tasksSeattle', '1')
-print(task.description)
-print(task.priority)
+task = table_service.get_entity('tasktable', 'tasksSeattle', '001')
+print('Task:        ' + task.RowKey)        # built-in property
+print('Description: ' + task.description)   # user-defined property
+print('Priority:    ' + str(task.priority)) # user-defined property
 ```
 
 ## Query a set of entities
@@ -151,19 +151,12 @@ for task in tasks:
 ```
 
 ## Query a subset of entity properties
-A query to a table can retrieve just a few properties from an entity.
-This technique, called *projection*, reduces bandwidth and can improve
-query performance, especially for large entities. Use the **select**
-parameter and pass the names of the properties that you want to bring over
-to the client.
+A query to a table can retrieve just a few properties from an entity. This technique, called *projection*, reduces bandwidth and can improve query performance, especially for large entities. Use the **select** parameter and pass the names of the properties that you want to bring over to the client.
 
-The query in the following code returns only the descriptions of
-entities in the table.
+The query in the following code returns only the descriptions of entities in the table.
 
 > [!NOTE]
 > The following snippet works only against the Azure Storage. It is not supported by the storage emulator.
->
->
 
 ```python
 tasks = table_service.query_entities('tasktable', filter="PartitionKey eq 'tasksSeattle'", select='description')
@@ -192,9 +185,12 @@ table_service.delete_table('tasktable')
 * [Azure Storage Services REST API](http://msdn.microsoft.com/library/azure/dd179355)
 * [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)
 
+[py_commit_batch]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.commit_batch
 [py_Entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.models.html#azure.storage.table.models.Entity
+[py_get_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.get_entity
 [py_insert_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.insert_entity
 [py_insert_or_replace_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.insert_or_replace_entity
 [py_merge_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.merge_entity
 [py_update_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.update_entity
 [py_TableService]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html
+[py_TableBatch]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tablebatch.html#azure.storage.table.tablebatch.TableBatch
