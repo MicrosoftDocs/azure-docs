@@ -185,7 +185,7 @@ table_service.delete_table('tasktable')
 
 * [Azure Storage SDK for Python API reference](https://azure-storage.readthedocs.io/en/latest/index.html)
 * [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)
-* [Python Developer Center](/develop/python/)
+* [Python Developer Center](https://azure.microsoft.com/develop/python/)
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md): A free, cross-platform application for working visually with Azure Storage data on Windows, macOS, and Linux.
 
 [py_commit_batch]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.commit_batch
