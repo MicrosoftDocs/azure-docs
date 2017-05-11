@@ -102,13 +102,13 @@ After clicking create, provide the parameters required to provision the resource
 
 ![](./media/managed-application-consumption/input-parameters.png)
 
-Once all these have been provided, click OK. The template is validated against the inputs you provided. If validation succeeds, the template deployment starts. After the deployment has completed, the appropriate resources defined in the template are provisioned in the managed resource group you provided.
+After providing the values, click OK. The template is validated against the inputs you provided. If validation succeeds, the template deployment starts. After the deployment has completed, the appropriate resources defined in the template are provisioned in the managed resource group you provided.
 
 ## Known issues
 
 This preview release includes the following issues:
 
-* If you get a 500 Internal Server Error during the creation of the appliance, its likely an intermittent issue. Please retry the operation if you run into this issue.
+* If you get a 500 Internal Server Error during the creation of the appliance, it's likely an intermittent issue. Retry the operation if you run into this issue.
 * A new resource group is needed for the managed resource group. Using an existing resource group causes the deployment to fail.
 * The resource group that contains the Microsoft.Solutions/appliances resource should be created in **westcentralus** location.
 
