@@ -155,24 +155,21 @@ In this XAML file, some event handlers are associated with the controls.  You mu
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "application/vnd.ms-sstr+xml");
 5. At the end of the **MainPage** class, paste the following code:
    
-      # region UI Button Click Events
-
-      private void btnPlay_Click(object sender, RoutedEventArgs e)
-      {
+         # region UI Button Click Events
+         private void btnPlay_Click(object sender, RoutedEventArgs e)
+         {
 
          mediaElement.Play();
          txtStatus.Text = "MediaElement is playing ...";
-      }
-
-      private void btnPause_Click(object sender, RoutedEventArgs e)
-      {
+         }
+         private void btnPause_Click(object sender, RoutedEventArgs e)
+         {
 
          mediaElement.Pause();
          txtStatus.Text = "MediaElement is paused";
-      }
-
-      private void btnSetSource_Click(object sender, RoutedEventArgs e)
-      {
+         }
+         private void btnSetSource_Click(object sender, RoutedEventArgs e)
+         {
 
          sliderProgress.Value = 0;
          mediaElement.Source = new Uri(txtMediaSource.Text);
@@ -185,23 +182,20 @@ In this XAML file, some event handlers are associated with the controls.  You mu
          {
              txtStatus.Text = "Click the Play button to play the media source.";
          }
-      }
-
-      private void btnStop_Click(object sender, RoutedEventArgs e)
-      {
+         }
+         private void btnStop_Click(object sender, RoutedEventArgs e)
+         {
 
          mediaElement.Stop();
          txtStatus.Text = "MediaElement is stopped";
-      }
-
-      private void sliderProgress_PointerPressed(object sender, PointerRoutedEventArgs e)
-      {
+         }
+         private void sliderProgress_PointerPressed(object sender, PointerRoutedEventArgs e)
+         {
 
          txtStatus.Text = "Seek to position " + sliderProgress.Value;
          mediaElement.Position = new TimeSpan(0, 0, (int)(sliderProgress.Value));
-      }
-
-      # endregion
+         }
+         # endregion
 
 The sliderProgress_PointerPressed event handler is defined here.  There are more works to do to get it working, which will be covered in the next lesson of this tutorial.
 6. Press **CTRL+S** to save the file.
