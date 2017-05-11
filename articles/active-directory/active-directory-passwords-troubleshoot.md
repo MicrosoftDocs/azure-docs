@@ -206,10 +206,11 @@ To properly assist, we ask that you provide as much detail as possible when open
 
 * **General description of the error** - What is the error? What was the behavior that was noticed? How can we reproduce the error? Please provide as much detail as possible.
 * **Page** - What page were you on when you noticed the error? Please include the URL if you are able to and a screenshot.
-* **Date, time, and timezone** - Please include the precise date and time **with the timezone** that the error occurred.
 * **Support code** - What was the support code generated when the user saw the error? 
     * To find this, reproduce the error, then click the Support Code link at the bottom of the screen and send the support engineer the GUID that results.
+    ![Find the support code at the bottom of the screen][Support Code]
     * If you are on a page without a support code at the bottom, press F12 and search for SID and CID and send those two results to the support engineer.
+* **Date, time, and timezone** - Please include the precise date and time **with the timezone** that the error occurred.
 * **User ID** - Who was the user who saw the error? (user@contoso.com)
     * Is this a federated user?
     * Is this a password hash synchronized user?
@@ -217,7 +218,10 @@ To properly assist, we ask that you provide as much detail as possible when open
 * **Licensing** - Does the user have an Azure AD Premium or Azure AD Basic license assigned?
 * **Application event log** - If you are using password writeback and the error is in you on-premises infrastructure, include a zipped copy of your application event log from the Azure AD Connect server when contacting support.
 
+    
+
 [Service Restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Restart the Azure AD Sync service"
+[Support Code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "Support Code is located at the bottom right of the window"
 
 ## Next steps
 
