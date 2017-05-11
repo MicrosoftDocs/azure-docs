@@ -33,14 +33,14 @@ To enable replication for a new virtual machine, a user must have:
 * Permission to create a virtual machine in the selected virtual network
 * Permission to write to the selected Storage account
 
-Below are the permissions that a user will need to complete replication of a new virtual machine.
+A user needs the following permissions to complete replication of a new virtual machine.
 
 > [!IMPORTANT]
->Please ensure that relevant permissions are added per the deployment model (Resource manager/ Classic) used for resource deployment.
+>Ensure that relevant permissions are added per the deployment model (Resource Manager/ Classic) used for resource deployment.
 
 | **Resource Type** | **Deployment Model** | **Permission** |
 | --- | --- | --- |
-| Compute | Resource manager | Microsoft.Compute/availabilitySets/read |
+| Compute | Resource Manager | Microsoft.Compute/availabilitySets/read |
 |  |  | Microsoft.Compute/virtualMachines/read |
 |  |  | Microsoft.Compute/virtualMachines/write |
 |  |  | Microsoft.Compute/virtualMachines/delete |
@@ -50,7 +50,7 @@ Below are the permissions that a user will need to complete replication of a new
 |  |  | Microsoft.ClassicCompute/virtualMachines/read |
 |  |  | Microsoft.ClassicCompute/virtualMachines/write |
 |  |  | Microsoft.ClassicCompute/virtualMachines/delete |
-| Network | Resource manager | Microsoft.Network/networkInterfaces/read |
+| Network | Resource Manager | Microsoft.Network/networkInterfaces/read |
 |  |  | Microsoft.Network/networkInterfaces/write |
 |  |  | Microsoft.Network/networkInterfaces/delete |
 |  |  | Microsoft.Network/networkInterfaces/join/action |
@@ -59,14 +59,14 @@ Below are the permissions that a user will need to complete replication of a new
 |  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
 |  | Classic | Microsoft.ClassicNetwork/virtualNetworks/read |
 |  |  | Microsoft.ClassicNetwork/virtualNetworks/join/action |
-| Storage | Resource manager | Microsoft.Storage/storageAccounts/read |
+| Storage | Resource Manager | Microsoft.Storage/storageAccounts/read |
 |  |  | Microsoft.Storage/storageAccounts/listkeys/action |
 |  | Classic | Microsoft.ClassicStorage/storageAccounts/read |
 |  |  | Microsoft.ClassicStorage/storageAccounts/listKeys/action |
-| Resource Group | Resource manager | Microsoft.Resources/deployments/* |
+| Resource Group | Resource Manager | Microsoft.Resources/deployments/* |
 |  |  | Microsoft.Resources/subscriptions/resourceGroups/read |
 
-Consider using the 'Virtual Machine Contributor' and 'Classic Virtual Machine Contributor' [built-in roles](../active-directory/role-based-access-built-in-roles.md) for Resource manager and Classic deployment models respectively.
+Consider using the 'Virtual Machine Contributor' and 'Classic Virtual Machine Contributor' [built-in roles](../active-directory/role-based-access-built-in-roles.md) for Resource Manager and Classic deployment models respectively.
 
 ## Next steps
 * [Role-Based Access Control](../active-directory/role-based-access-control-configure.md): Get started with RBAC in the Azure portal.
