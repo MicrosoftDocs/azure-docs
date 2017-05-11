@@ -36,13 +36,13 @@ Once you've created a storage account, your next step is to install the [Microso
 
 ## Create a table
 
-To work with the Azure Table service in Python, you must import the **TableService** module. Since you'll be working with Table entities, you also need the **Entity** module. Add this code near the top your Python file to import both modules:
+To work with the Azure Table service in Python, you must import the [TableService][py_TableService] module. Since you'll be working with Table entities, you also need the [Entity][py_Entity] class. Add this code near the top your Python file to import both:
 
 ```python
 from azure.storage.table import TableService, Entity
 ```
 
-Create a **TableService** object, passing in your storage account name and account key. Replace `myaccount` and `mykey` with your account name and key.
+Create a [TableService][py_TableService] object, passing in your storage account name and account key. Replace `myaccount` and `mykey` with your account name and key.
 
 ```python
 table_service = TableService(account_name='myaccount', account_key='mykey')
@@ -52,16 +52,16 @@ table_service.create_table('tasktable')
 
 ## Add an entity to a table
 
-To add an entity, you first create an object that represents your entity, then pass the object to the **insert_entity** method. The entity object can be a dictionary or an **Entity** object, and defines your entity's property names and values. Every entity must include the required [PartitionKey and RowKey](#partitionkey-and-rowkey) properties, in addition to any other properties you define for the entity.
+To add an entity, you first create an object that represents your entity, then pass the object to the [TableService][py_TableService].[insert_entity][py_insert_entity] method. The entity object can be a dictionary or an [Entity][py_Entity] object, and defines your entity's property names and values. Every entity must include the required [PartitionKey and RowKey](#partitionkey-and-rowkey) properties, in addition to any other properties you define for the entity.
 
-This example creates a dictionary object representing an entity, then passes it to the **insert_entity** method to add it to the table:
+This example creates a dictionary object representing an entity, then passes it to the [insert_entity][py_insert_entity] method to add it to the table:
 
 ```python
 task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the trash', 'priority' : 200}
 table_service.insert_entity('tasktable', task)
 ```
 
-This example creates an **Entity** object, then passes it to the **insert_entity** method:
+This example creates an [Entity][py_Entity] object, then passes it to the [insert_entity][py_insert_entity] method:
 
 ```python
 task = Entity()
@@ -74,26 +74,33 @@ table_service.insert_entity('tasktable', task)
 
 ### PartitionKey and RowKey
 
-You must specify both a **PartitionKey** and a **RowKey** property for every entity. These are the unique identifiers of your entities, as together they form the primary key of an entity. You can query using these values much faster than you can query any other entity properties because only these properties are indexed. The Table service uses **PartitionKey** to intelligently distribute table entities across storage nodes. Entities that have the same  **PartitionKey** are stored on the same node. **RowKey** is the unique ID of the entity within the partition it belongs to.
+You must specify both a **PartitionKey** and a **RowKey** property for every entity. These are the unique identifiers of your entities, as together they form the primary key of an entity. You can query using these values much faster than you can query any other entity properties because only these properties are indexed.
+
+The Table service uses **PartitionKey** to intelligently distribute table entities across storage nodes. Entities that have the same  **PartitionKey** are stored on the same node. **RowKey** is the unique ID of the entity within the partition it belongs to.
 
 ## Update an entity
 
-To update an entity's property values, call the **update_entity** method. This example shows how to replace an existing entity with an updated version.
+To update all of an entity's property values, call the [update_entity][py_update_entity] method. This example shows how to replace an existing entity with an updated version.
 
 ```python
 task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the garbage', 'priority' : 250}
 table_service.update_entity('tasktable', 'tasksSeattle', '1', task, content_type='application/atom+xml')
 ```
 
-If the entity that is being updated does not exist, then the update operation will fail. If you want to store an entity regardless of whether it existed before, use **insert\_or\_replace_entity**. In the following example, the first call will replace the existing entity. The second call will insert a new entity, since no entity with the specified **PartitionKey** and **RowKey** exists in the table.
+If the entity that is being updated doesn't exist, then the update operation will fail. If you want to store an entity whether it exists or not, use [insert_or_replace_entity][py_insert_or_replace_entity]. In the following example, the first call will replace the existing entity. The second call will insert a new entity, since no entity with the specified **PartitionKey** and **RowKey** exists in the table.
 
 ```python
+# Replaces the entity created earlier (PartitionKey tasksSeattle, RowKey 1)
 task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the garbage again', 'priority' : 250}
 table_service.insert_or_replace_entity('tasktable', 'tasksSeattle', '1', task, content_type='application/atom+xml')
 
+# Inserts a new entity
 task = {'PartitionKey': 'tasksSeattle', 'RowKey': '3', 'description' : 'Buy detergent', 'priority' : 300}
 table_service.insert_or_replace_entity('tasktable', 'tasksSeattle', '1', task, content_type='application/atom+xml')
 ```
+
+> [!TIP]
+> The [update_entity][py_update_entity] method replaces all properties and values of an existing entity, which you can also use to remove properties from an existing entity. You can use the [merge_entity][py_merge_entity] method to update an existing entity with new or modified property values without completely replacing the entity.
 
 ## Change a group of entities
 
@@ -184,3 +191,10 @@ table_service.delete_table('tasktable')
 * [Python Developer Center](/develop/python/)
 * [Azure Storage Services REST API](http://msdn.microsoft.com/library/azure/dd179355)
 * [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)
+
+[py_Entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.models.html#azure.storage.table.models.Entity
+[py_insert_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.insert_entity
+[py_insert_or_replace_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.insert_or_replace_entity
+[py_merge_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.merge_entity
+[py_update_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.update_entity
+[py_TableService]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html
