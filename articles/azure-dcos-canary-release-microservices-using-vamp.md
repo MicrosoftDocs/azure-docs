@@ -1,4 +1,4 @@
-—
+—--
 title: Canary release microservices with Vamp | Microsoft Docs
 description: How to use Vamp to canary release services and apply smart traffic filtering on an Azure Container Service DC/OS cluster 
 services: <service slug assigned to your service by ACOM>
@@ -342,3 +342,4 @@ Finally, Vamp’s event monitoring capability allows for automation of deploymen
 
 * [More about Vamp workflows](http://vamp.io/documentation/using-vamp/workflows/) 
 
+This article was based on a technet blog post from December 2016: [Enabling Vamp on Azure Container Service (DC/OS)](https://blogs.technet.microsoft.com/livedevopsinjapan/2016/12/08/enable-vamp-on-azure-container-service-dcos/)
