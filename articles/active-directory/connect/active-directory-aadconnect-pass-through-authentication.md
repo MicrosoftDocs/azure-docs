@@ -100,7 +100,7 @@ If you are performing a new installation of Azure AD Connect, choose the [custom
 
 ![Azure AD Connect - user sign-in](./media/active-directory-aadconnect-sso/sso3.png)
 
-If you have already installed Azure AD Connect, set up by using the [express installation](active-directory-aadconnect-get-started-express.md) or the [custom installation](active-directory-aadconnect-get-started-custom.md) path, select **Change user sign-in page** on Azure AD Connect, and click **Next**. Then select **Pass-through authentication** to install a pass-through authentication connector on the same server as Azure AD Connect and enable the feature on your tenant.
+If you have already installed Azure AD Connect, set it up by using the [express installation](active-directory-aadconnect-get-started-express.md) or the [custom installation](active-directory-aadconnect-get-started-custom.md) path, select **Change user sign-in page** on Azure AD Connect, and click **Next**. Then select **Pass-through authentication** to install a pass-through authentication connector on the same server as Azure AD Connect and enable the feature on your tenant.
 
 ![Azure AD Connect - Change user sign-in](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
