@@ -5,6 +5,7 @@
   - name: Learn about Language Understanding Intelligent Service
     href: Home.md
 - name: Quickstarts
+  expanded: true
   items: 
   - name: Create a new app
     href: luis-get-started-create-app.md

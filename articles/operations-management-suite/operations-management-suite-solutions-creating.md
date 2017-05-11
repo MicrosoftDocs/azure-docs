@@ -48,7 +48,7 @@ If you require data that's not accessible through any of the available data sour
 ### Log searches
 [Log searches](../log-analytics/log-analytics-log-searches.md) are used to extract and analyze data in the Log Analytics repository.  They are used by views and alerts in addition to allowing the user to perform ad hoc analysis of data in the repository.  
 
-You should define any queries that you think will be helpful to the user even if they aren't used by any views or alerts.  These will be available to them as Saved Searches in the portal, and you can also include then in a [List of Queries visualization part](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) in your custom view.
+You should define any queries that you think will be helpful to the user even if they aren't used by any views or alerts.  These will be available to them as Saved Searches in the portal, and you can also include them in a [List of Queries visualization part](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) in your custom view.
 
 ### Alerts
 [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md) identify issues through [log searches](#log-searches) against the data in the repository.  They either notify the user or automatically run an action in response. You should identify different alert conditions for your application and include corresponding alert rules in your solution file.

@@ -44,15 +44,13 @@ Now let's clone a DocumentDB API app from github, set the connection string, and
 
 1. Open a git terminal window, such as git bash, and `cd` to a working directory.  
 
-2. In your browser, go to [Github](https://aka.ms/acdbxamarinsample) and click the **Clone or download** button and then copy the Clone with HTTPS URL.
-
-3. Run the following command to clone the sample repository, using your copied URL. 
+2. Run the following command to clone the sample repository. 
 
     ```bash
-    git clone https://github.com/Azure/COPIED-URL
+    git clone https://github.com/Azure/azure-documentdb-dotnet.git
     ```
 
-3. Then open the DocumentDBTodo.sln file in Visual Studio. 
+3. Then open the DocumentDBTodo.sln file from the samples/xamarin/UserItems/xamarin.forms folder in Visual Studio. 
 
 ## Review the code
 
@@ -125,4 +123,4 @@ If you're not going to continue to use this app, delete all resources created by
 In this quickstart, you've learned how to create an Azure Cosmos DB account, create a collection using the Data Explorer, and build and deploy a Xamarin app. You can now import additional data to your Cosmos DB account. 
 
 > [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB for the DocumentDB API](../documentdb/documentdb-import-data.md)
+> [Import data into Azure Cosmos DB](../documentdb/documentdb-import-data.md)

@@ -45,8 +45,11 @@ First decide if you want to run a single database with a defined amount of dedic
 | **Service tier features** | **Basic** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
 | Maximum single database size | 2 GB | 250 GB | 4 TB*  | 500 GB  |
-| Maximum database size in an elastic pool | 156 GB | 2.9 TB | 500 GB | 500 GB |
+| Maximum elastic pool size | 156 GB | 2.9 TB | 4 TB* | 750 GB |
+| Maximum database size in an elastic pool | 2 GB | 250 GB | 500 GB | 500 GB |
 | Maximum number of databases per pool | 500  | 500 | 100 | 100 |
+| Maximum single database DTUs | 5 | 100 | 4000 | 1000 |
+| Maximum DTUs per database in an elastic pool | 5 | 100 | 4000 | 1000 |
 | Database backup retention period | 7 days | 35 days | 35 days | 35 days |
 ||||||
 
@@ -88,11 +91,9 @@ The duration of the entire scale-up process depends on both the size and service
 
 Pools allow databases to share and consume eDTU resources without needing to assign a specific performance level to each database in the pool. For example, a single database in a Standard pool can go from using 0 eDTUs to the maximum database eDTU you set up when you configure the pool. Pools allow multiple databases with varying workloads to efficiently use eDTU resources available to the entire pool. See [Price and performance considerations for an elastic pool](sql-database-elastic-pool.md) for details.
 
-The following table describes the characteristics of pool service tiers.
+The following tables describe the resource limits of elastic pools.  Note that the resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools based on DTUs and the service tier.  For example, the max concurrent workers for an S2 database is 120 workers.  So, the max concurrent workers for a database in a Standard pool is also 120 workers if the max DTU per database in the pool is 50 DTUs (which is equivalent to S2).
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
-
-Each database within a pool also adheres to the single database characteristics for that tier. For example, the Basic pool has a limit for max sessions per pool of 4800 - 28800, but an individual database within a Basic pool has a database limit of 300 sessions.
 
 ## Scaling up or scaling down an elastic pool
 

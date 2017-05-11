@@ -67,8 +67,7 @@ After you install the PowerShell module, open PowerShell and connect to your B2C
 > You need to use a B2C tenant administrator account that is **local** to the B2C tenant. These accounts look like this: myusername@myb2ctenant.onmicrosoft.com.
 
 ```powershell
-$msolcred = Get-Credential
-Connect-MsolService -credential $msolcred
+Connect-MsolService
 ```
 
 Now we'll use the **Application ID** in the script below to assign the application the user account administrator role which will allow it to delete users. These roles have well-known identifiers, so all you need to do is input your **Application ID** in the script below.

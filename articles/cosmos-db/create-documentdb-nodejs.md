@@ -49,7 +49,7 @@ Now let's clone a DocumentDB API app from github, set the connection string, and
 2. Run the following command to clone the sample repository. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-nodejs-getting-started.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-nodejs-getting-started.git
     ```
 
 ## Review the code
@@ -149,6 +149,6 @@ If you're not going to continue to use this app, delete all resources created by
 In this quickstart, you've learned how to create an Azure Cosmos DB account, create a collection using the Data Explorer, and run an app. You can now import additional data to your Cosmos DB account. 
 
 > [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB for the DocumentDB API](../documentdb/documentdb-import-data.md)
+> [Import data into Azure Cosmos DB](../documentdb/documentdb-import-data.md)
 
 

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/21/2017
+ms.date: 05/10/2017
 ms.author: arramac
 
 ---
-# Use the Azure Cosmos DB Emulator for development and testing
+# Use the Azure Cosmos DB Emulator for local development and testing
 
 <table>
 <tr>
@@ -37,22 +37,22 @@ ms.author: arramac
   
 The Azure Cosmos DB Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Using the Azure Cosmos DB Emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos DB Emulator, you can switch to using an Azure Cosmos DB account in the cloud.
 
+This article covers the following tasks: 
+
+> [!div class="checklist"]
+> * Installing the Emulator
+> * Running the Emulator on Docker for Windows
+> * Authenticating requests
+> * Using the Data Explorer in the Emulator
+> * Exporting SSL certificates
+> * Calling the Emulator from the command line
+> * Collecting trace files
+
 We recommend getting started by watching the following video, where Kirill Gavrylyuk shows how to get started with the Azure Cosmos DB Emulator.
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2016/192/player]
 > 
 > 
-
-This tutorial covers the following tasks:
-
-> [!div class="checklist"]
-> * Installing the local emulator
-> * Running the emulator on Docker for Windows
-> * Using the emulator
-> * Authenticating requests
-> * Developing with the emulator
-> * Exporting the SSL ceritficate
-> * Using the command-line reference
 
 ## System requirements
 The Azure Cosmos DB Emulator has the following hardware and software requirements:
@@ -327,19 +327,20 @@ To collect debugging traces, run the following commands from an administrative c
 6. Navigate to `%ProgramFiles%\DocumentDB Emulator` and find the docdbemulator_000001.etl file.
 7. Send the .etl file along with repro steps to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com) for debugging.
 
+## Next steps
+
 In this tutorial, you've done the following:
 
 > [!div class="checklist"]
-> * Installed the local emulator
-> * Ran the emulator on Docker for Windows
-> * Used the emulator
+> * Installed the local Emulator
+> * Rand the Emulator on Docker for Windows
 > * Authenticated requests
-> * Developed with the emulator
-> * Exported the SSL certificate
-> * Used the command-line reference
+> * Used the Data Explorer in the Emulator
+> * Exported SSL certificates
+> * Called the Emulator from the command line
+> * Collected trace files
 
-## Next steps
+In this tutorial, you've learned how to use the local Emulator for free local development. You can now proceed to the next tutorial and learn how to export Emulator SSL certificates. 
 
-In this tutorial, you've learned how to use the local emulator for free local development. You can now proceed to the next tutorial and learn how to export emulator SSL certificates. 
-
-[Export the Azure Cosmos DB Emulator certificates](documentdb-nosql-local-emulator-export-ssl-certificates.md)
+> [!div class="nextstepaction"]
+> [Export the Azure Cosmos DB Emulator certificates](documentdb-nosql-local-emulator-export-ssl-certificates.md)

@@ -19,7 +19,7 @@ ms.author: anhoh
 
 ---
 
-# Azure Cosmos DB: How to migrate MongoDB data to Cosmos DB? 
+# Azure Cosmos DB: How to import MongoDB data? 
 
 To migrate data from MongoDB to an Azure Cosmos DB account for use with the MongoDB API, you must:
 
@@ -74,6 +74,8 @@ Example:
 
     mongorestore.exe --host anhoh-host.documents.azure.com:10250 -u anhoh-host -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
 
+## Next steps
+
 In this tutorial, you've done the following:
 
 > [!div class="checklist"]
@@ -81,8 +83,7 @@ In this tutorial, you've done the following:
 > * Imported MongoDB data using mongoimport
 > * Imported MongoDB data using mongorestore
 
-## Next steps
+You can now proceed to the next tutorial and learn how to query MongoDB data using Azure Cosmos DB. 
 
-In this tutorial, you've learned how to import MongoDB data using mongoimport and mongorestore. You can now proceed to the next tutorial and learn how to query MongoDB data using Azure Cosmos DB. 
-
-[Azure Cosmos DB: How to query MongoDB data?](../cosmos-db/tutorial-query-mongodb.md)
+> [!div class="nextstepaction"]
+>[How to query MongoDB data?](../cosmos-db/tutorial-query-mongodb.md)

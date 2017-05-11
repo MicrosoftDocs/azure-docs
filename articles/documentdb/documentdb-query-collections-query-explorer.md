@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cosmos DB portal tool: Query Explorer | Microsoft Docs'
-description: Learn about the Azure Cosmos DB Query Explorer, a SQL query editor in the Azure portal for writing SQL queries and running them against a Azure Cosmos DB collection.
+description: Learn about the Azure Cosmos DB Query Explorer, a SQL query editor in the Azure portal for writing SQL queries and running them against an Azure Cosmos DB collection.
 keywords: writing sql queries, sql query editor
 services: cosmosdb
 author: kirillg

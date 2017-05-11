@@ -247,7 +247,4 @@ This article tries to shed some light into the alternatives of creating social n
 The truth is that there is no silver bullet for this kind of scenarios, it’s the synergy created by the combination of great services that allow us to build great experiences: the speed and freedom of Azure Cosmos DB to provide a great social application, the intelligence behind a first-class search solution like Azure Search, the flexibility of Azure App Services to host not even language-agnostic applications but powerful background processes and the expandable Azure Storage and Azure SQL Database for storing massive amounts of data and the analytic power of Azure Machine Learning to create knowledge and intelligence that can provide feedback to our processes and help us deliver the right content to the right users.
 
 ## Next steps
-Learn more about data modeling by reading the [Modeling data in Cosmos DB](documentdb-modeling-data.md) article. If you're interested in other use cases for Cosmos DB, see [Common Cosmos DB use cases](documentdb-use-cases.md).
-
-Or learn more about Cosmos DB by following the [Azure Cosmos DB Learning Path](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
-
+To learn more about use cases for Cosmos DB, see [Common Cosmos DB use cases](documentdb-use-cases.md).

@@ -25,8 +25,6 @@
       href: ../app-service-web/app-service-web-create-web-app-from-marketplace.md?toc=%2fazure%2fmysql%2ftoc.json
     - name: PHP - Azure CLI
       href: ../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json
-    - name: Java - Azure CLI
-      href: ../app-service-web/app-service-web-tutorial-java-mysql.md?toc=%2fazure%2fmysql%2ftoc.json
 - name: Samples
   items:
   - name: Azure CLI
@@ -88,6 +86,9 @@
     - name: Configure SSL
       href: howto-configure-ssl.md
 - name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/mysql
 - name: Resources
   items:
   - name: Pricing
@@ -95,7 +96,7 @@
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/home?forum=AzureDatabaseforMySQL
   - name: Stack Overflow
-    href: https://stackoverflow.com/tags/Azure-Database-for-MySQL
+    href: http://stackoverflow.com/questions/tagged/azure-database-mysql
   - name: Request a feature
     href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
   - name: Region availability
