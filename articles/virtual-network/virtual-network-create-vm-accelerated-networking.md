@@ -176,7 +176,7 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
     - You are not yet registered for the preview. Confirm that your registration state is **Registered**, as explained in step 4 of the [Create a Linux VM - Powershell](#linux-powershell) section of this article.
     - You have not selected a VM size, operating system, or location listed in the [Limitations](#simitations) section of this article.
     
-    > [!NOTE]
+> [!NOTE]
 > If you participated in the Accelerated networking for Windows VMs preview (it's no longer necessary to register to use Accelerated networking for Windows VMs), you are not automatically registered for the Accelerated networking for Linux VMs preview. You must register for the Accelerated networking for Linux VMs preview to participate in it.
 3. To install the accelerated networking driver for Linux, complete the steps in the [Configure Linux](#configure-linux) section of this article.
 
@@ -270,7 +270,7 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
       -VM $VmConfig
     #
     ```
-    If the script fails, confirm you are registered for the preview as explained in step 4, and that you have not changed values for VM size, operating system type, or location to values other than those listed in the [Limitations](#Limitations)section of this article.
+    If the script fails, confirm you are registered for the preview as explained in step 4, and that you have not changed values for VM size, operating system type, or location to values other than the values listed in the [Limitations](#Limitations) section of this article.
 6. In your PowerShell window, right-click to paste the script and start executing it. You are prompted for a username and password. Use these credentials to log in to the VM when connecting to it in the next step. 
 7. To install the accelerated networking driver for Linux, complete the steps in the [Configure Linux](#configure-linux) section of this article.
 
