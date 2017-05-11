@@ -25,12 +25,12 @@ This article explains how to upgrade a Backup vault to a Recovery Services vault
 
 ## Impact to operations during upgrade
 
-When upgrading a Backup vault to a Recovery Services vault, there is no impact to your data plane operations. All backup jobs continue as normal, and any active restore jobs continue without interruption. During the course of the upgrade, management operations incur a short downtime, and you won't be able to protect new items or create adhoc backups jobs. Restore jobs for IaaS VMs won't run during the upgrade. <MG>: WHat's the difference between the active restore jobs that will go off an normal, and the IaaS VM restore jobs?
-The vault upgrade takes under an hour to complete, and once finished you'll have a Recovery Services vault with the Backup features as well as the new Recovery Services features.
+When upgrading a Backup vault to a Recovery Services vault, there is no impact to your data plane operations. All backup jobs continue as normal, and any active restore jobs continue without interruption. During the upgrade, management operations incur a short downtime, and you can't protect new items or create adhoc backups jobs. Restore jobs for IaaS VMs don't run during the upgrade. <MG>: What's the difference between the active restore jobs that will go off as normal, and the IaaS VM restore jobs?
+The vault upgrade takes under an hour to complete. Once finished, a Recovery Services vault replaces the Backup vault.
 
 ## Changes to your automation and tool after upgrading
 
-While preparing your infrastructure to upgrade the contents of your Backup vaults to Recovery Services vaults, you must update your existing automation or tooling to ensure that it continues to work after the upgrade.
+While preparing your infrastructure for the vault upgrade, you must update your existing automation or tooling to ensure that it continues to work after the upgrade.
 Consult the PowerShell cmdlets references for the [Service Manager deployment model](backup-client-automation-classic.md) and the [Resource Manager deployment model](backup-client-automation.md)
 
 
@@ -70,7 +70,7 @@ SubscriptionID - The subscription ID number of the vault that is being upgraded.
 VaultName - The name of the Backup vault that is being upgraded.
 Location - Location of the vault being upgraded.
 ResourceType - Use BackupVault.
-TargetResourceGroupName - Since you are upgrading the vault to a Resource Manager-based deployment, specify a Resource Group. You can use an existing Resource Group, or create a new one by providing a new name. If you misspell the name of a Resource Group, you may end up creating a new Resource Group. To learn more about Resource Groups, read this [overview about Resource Groups](../azure-resource-manager/resource-group-overview.md#resource-groups).
+TargetResourceGroupName - Since you are upgrading the vault to a Resource Manager-based deployment, specify a Resource Group. You can use an existing Resource Group, or create one by providing a new name. If you misspell the name of a Resource Group, you may create a new Resource Group. To learn more about Resource Groups, read this [overview about Resource Groups](../azure-resource-manager/resource-group-overview.md#resource-groups).
 
 >[!NOTE]
 > Resource Group names have constraints. Be sure to follow the guidance; failure to do so could cause vault upgrades to fail.
@@ -83,19 +83,19 @@ The following code snippet is an example of what your PowerShell command should 
 RecoveryServicesVaultUpgrade.ps1 -SubscriptionID 53a3c692-5283-4f0a-baf6-49412f5ebefe -VaultName "TestVault" -Location "Australia East" -ResourceType BackupVault -TargetResourceGroupName "ContosoRG"
 ```
 
-You can also run the script without any parameters and you'll be asked to provide inputs for all required parameters.
+You can also run the script without any parameters and you are asked to provide inputs for all required parameters.
 
-The PowerShell script prompts you to enter your credentials. You need to enter your credentials twice: once for the Service Manager account, and a second time for the Resource Manager account.
+The PowerShell script prompts you to enter your credentials. Enter your credentials twice: once for the Service Manager account, and a second time for the Resource Manager account.
 
 ### Pre-requisites checking
 Once you have entered your Azure credentials, Azure checks that your environment meets the following prerequisites:
 
-- **Minimum agent version** - Upgrading Backup vaults to Recovery Services vaults requires the MARS agent to be at least version 2.0.9070. If you have items registered to a Backup vault with an agent earlier than 2.0.9070, the prerequisites check will fail. If the prerequisites check fails, update the agent and try to upgrade the vault again. You can download the latest version of the agent from [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
-- **On-going configuration jobs**: If someone is configuring a backup job for a Backup vault set to be upgraded, or registering an item, the preprequisites check will fail. Complete the configuration, or finish registering the item, and then start the vault upgrade process.
+- **Minimum agent version** - Upgrading Backup vaults to Recovery Services vaults requires the MARS agent to be at least version 2.0.9070. If you have items registered to a Backup vault with an agent earlier than 2.0.9070, the prerequisite check fails. If the prerequisite check fails, update the agent and try to upgrade the vault again. You can download the latest version of the agent from [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
+- **On-going configuration jobs**: If someone is configuring job for a Backup vault set to be upgraded, or registering an item, the prerequisite check fails. Complete the configuration, or finish registering the item, and then start the vault upgrade process.
 - **Storage-based billing model**: Recovery Services vaults support the Instance-based billing model. If you run the vault upgrade on a Backup vault that uses the Storage-based billing model, you'll be prompted to upgrade you billing model along with the vault. Otherwise, you can update your billing model first, and then run the vault upgrade.
 - Identify a Resource Group for the Recovery Services vault. To take advantage of the Resource Manager deployment features, you must put a Recovery Services vault in a Resource Group. If you don't know which Resource Group to use, provide a name and the upgrade process creates the Resource Group for you. The upgrade process also associates the vault with the new Resource Group.
 
-Once the upgrade process finishes checking the pre-requisites, the process prompts you to start the vault upgrade. After you confirm, the upgrade process typically takes around 15-20 minutes to complete, depending on the size of your vault. If you have a very large vault, upgrading can take up to 90 minutes.
+Once the upgrade process finishes checking the pre-requisites, the process prompts you to start the vault upgrade. After you confirm, the upgrade process typically takes around 15-20 minutes to complete, depending on the size of your vault. If you have a large vault, upgrading can take up to 90 minutes.
 
 ## Managing your Recovery Services vaults
 
@@ -112,8 +112,8 @@ The second screen shows the help links available to help you get started using t
 **Does the upgrade plan affect my ongoing backups?**</br>
 No. Your ongoing backups continue uninterrupted during and after upgrade.
 
-**What happens to my vaults if I don’t plan on upgrading in the near future?**</br>
-Since all new features are planned for Recovery Services Vault and usage of the classic of the Azure portal will be deprecated, we will be deprecating the existing classic backup vault and resource model. At some point in the future we will be triggering an auto-upgrade of all vaults to Recovery Services Vault. Until that point of time, we want to let customers control when they will upgrade their vaults.
+**What happens to my vaults if I don’t plan on upgrading soon?**</br>
+Since all new features are planned for Recovery Services vault and usage of the classic portal will be deprecated, Microsoft will deprecate the Backup vaults and service manager model. In the future Microsoft will trigger an auto-upgrade of all vaults to Recovery Services Vault. Until then, customers control when to upgrade their vaults.
 
 **What does this upgrade plan mean for my existing tooling?**</br>  
 Updating your tooling to the Resource Manager deployment model that Recovery Services Vaults are based on is one of the most important changes that you have to account for in your upgrade plans.
@@ -128,16 +128,16 @@ No. Rollback is not supported after the resources have been successfully upgrade
 Yes. The first step in upgrade validates that the resources are capable of upgrade. In case the validation of pre-requisites fails, you receive messages for all the reasons the upgrade cannot be completed.
 
 **What permissions should I have to trigger vault upgrade?**</br>
-To perform vault upgrade, you must be added as co-administrator for the subscription in the Azure Classic portal. This is required even if you are already added as owner in the Azure portal. Try to add a co-administrator for the subscription in Azure Classic portal to find out if you are co-administrator for the subscription. If you are not able to add a co-administrator, then please contact a service administrator or co-administrator for the subscription to get yourself added.
+To perform vault upgrade, you must be added as co-administrator for the subscription in the Azure classic portal. This is required even if you are already added as owner in the Azure portal. Try to add a co-administrator for the subscription in Azure classic portal to find out if you are co-administrator for the subscription. If you are not able to add a co-administrator, then please contact a service administrator or co-administrator for the subscription to get yourself added.
 
 **Can I upgrade my CSP-based Backup vault?**</br>
-No. You cannot upgrade CSP based backup vaults currently. We will be adding support for this in the next releases.
+No. You cannot upgrade CSP-based backup vaults currently. We will be adding support for this in the next releases.
 
 **Can I view my classic vault post upgrade?**</br>
 No. You cannot view or manage your classic vault post upgrade. You will only be able to use the new Azure portal for all management actions on the vault.
 
 **My upgrade failed that I need to update the agent on a machine which doesn’t exist anymore. What do I do in such a case?**</br>
-If you need to use the store the backups of this machine for long term retention, then you will not be able to upgrade the vault. We will be adding support to enable for upgrading such a vault in future releases.
+If you need to use the store the backups of this machine for long-term retention, then you will not be able to upgrade the vault. We will be adding support to enable for upgrading such a vault in future releases.
 If you do not need to store the backups of this machine anymore, then please unregister this machine from the vault and retry upgrade.
 
 **Why can I not see the jobs information for my on-premises resources after upgrade**</br>
