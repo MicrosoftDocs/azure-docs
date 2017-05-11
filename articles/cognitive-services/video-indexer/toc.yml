@@ -1,0 +1,29 @@
+- name: Overview
+  items:
+    - name: Video Indexer overview
+      href: video-indexer-overview.md
+    - name: Concepts
+      href: video-indexer-concepts.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Get started
+    href: video-indexer-get-started.md
+- name: How to
+  items:
+  - name: Use Video Indexer API
+    href: video-indexer-use-apis.md   
+  - name: Examine Video Indexer output
+    href: video-indexer-output-json.md
+  - name: Find exact moments within videos
+    href: video-indexer-search.md
+  - name: View and edit Video Indexer insights
+    href: video-indexer-view-edit.md
+  - name: Create video insights from existing videos
+    href: video-indexer-create-new.md
+  - name: Embed widgets into your application
+    href: video-indexer-embed-widgets.md
+- name: Reference
+  items:
+  - name: REST
+    href: https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5857caeb0dc5610f9ce979e4

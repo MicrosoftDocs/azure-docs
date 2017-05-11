@@ -85,7 +85,7 @@ In the following tables, services specified as Azure Resource Manager enabled ha
 | SQL Data Warehouse | Yes | Yes |
 | SQL Server Stretch Database | Yes | Yes |
 | [Azure Redis Cache](./germany-services-database.md#azure-redis-cache) | Yes | Yes |
-| DocumentDB | Yes | Yes |
+| Azure Cosmos DB | Yes | Yes |
 
 
 ## Intelligence and analytics

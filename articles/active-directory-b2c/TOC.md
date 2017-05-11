@@ -16,12 +16,12 @@
 ## Web Apps
 ### [Overview](active-directory-b2c-reference-oidc.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
-### [.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
+### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
 ### [Node.js](active-directory-b2c-devquickstarts-web-node.md)
 ## Single Page Apps
 ### [Overview](active-directory-b2c-reference-spa.md)
-### [JavaScript - MSAL](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
-### [JavaScript - HelloJS](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
+### [JavaScript using MSAL](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
+### [JavaScript using Hello](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## Web APIs
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
 ### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
