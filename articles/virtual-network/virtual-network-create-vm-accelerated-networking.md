@@ -173,11 +173,8 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
 ### <a name="linux-portal"></a>Portal
 1. Register for the accelerated networking for Linux preview by completing steps 1-4 of the [Create a Linux VM - PowerShell](#linux-powershell) section of this article.  You cannot register for the preview in the portal.
 2. Complete steps 1-8 in the [Create a Windows VM - portal](#windows-portal) section of this article. In step 2, click **Ubuntu Server 16.04 LTS** instead of **Windows Server 2016 Datacenter**. For this tutorial, choose to use a password, rather than an SSH key, though for production deployments, you can use either. If **Accelerated networking** does not appear when you complete step 7 of the [Create a Windows VM - portal](#windows-portal) section of this article, it's likely for one of the following reasons:
-    - You are not yet registered for the preview. Confirm that your registration state is **Registered**, as explained in step 4 of the [Create a Linux VM - Powershell](#linux-powershell) section of this article.
+    - You are not yet registered for the preview. Confirm that your registration state is **Registered**, as explained in step 4 of the [Create a Linux VM - Powershell](#linux-powershell) section of this article. **Note:** If you participated in the Accelerated networking for Windows VMs preview (it's no longer necessary to register to use Accelerated networking for Windows VMs), you are not automatically registered for the Accelerated networking for Linux VMs preview. You must register for the Accelerated networking for Linux VMs preview to participate in it.
     - You have not selected a VM size, operating system, or location listed in the [Limitations](#simitations) section of this article.
-    
-> [!NOTE]
-> If you participated in the Accelerated networking for Windows VMs preview (it's no longer necessary to register to use Accelerated networking for Windows VMs), you are not automatically registered for the Accelerated networking for Linux VMs preview. You must register for the Accelerated networking for Linux VMs preview to participate in it.
 3. To install the accelerated networking driver for Linux, complete the steps in the [Configure Linux](#configure-linux) section of this article.
 
 ### <a name="linux-powershell"></a>PowerShell
@@ -186,7 +183,7 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
 2. Start a PowerShell session by clicking the Windows Start button, typing **powershell**, then clicking **PowerShell** from the search results.
 3. In your PowerShell window, enter the `login-azurermaccount` command to sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 4. Register for the accelerated networking for Azure preview by completing the following steps:
-    - Entering the following commands:
+    - Enter the following commands:
 
         ```powershell
         Register-AzureRmProviderFeature -FeatureName AllowAcceleratedNetworkingFeature -ProviderNamespace Microsoft.Network
@@ -204,9 +201,9 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
         -----------                       ------------      -----------------
         AllowAcceleratedNetworkingFeature Microsoft.Network Registered
         ```
-    >[!NOTE]
-    >If you participated in the Accelerated networking for Windows VMs preview (it's no longer necessary to register to use Accelerated networking for Windows VMs), you are not automatically registered for the Accelerated networking for Linux VMs preview. You must register for the Accelerated networking for Linux VMs preview to participate in it.
-    >
+      >[!NOTE]
+      >If you participated in the Accelerated networking for Windows VMs preview (it's no longer necessary to register to use Accelerated networking for Windows VMs), you are not automatically registered for the Accelerated networking for Linux VMs preview. You must register for the Accelerated networking for Linux VMs preview to participate in it.
+      >
 5. In your browser, copy the following script:
     ```powershell
     $RgName="MyResourceGroup"
