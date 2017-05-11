@@ -20,13 +20,13 @@ ms.author: rclaus
 
 # Implement Oracle Data Guard on Azure VM
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy an Oracle 12c Database from the Marketplace gallery image. Once the Oracle database is created, this document shows you step-by-step how to install and configuare Data Guard on Azure VM.
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy an Oracle 12c Database from the Marketplace gallery image. Once the Oracle database is created, this document shows you step-by-step how to install and configure Data Guard on Azure VM.
 
 Before you start, make sure that the Azure CLI has been installed. For more information, see [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## Assumptions
 
-To perform the Oracle Data Guard install, you will need to create 2 Azure VMs on the same availability set. The Marketplace image you use to create the VMs is image Oracle:Oracle-Database-Ee:12.1.0.2:latest.
+To perform the Oracle Data Guard install, you need to create two Azure VMs on the same availability set. The Marketplace image you use to create the VMs is image "Oracle:Oracle-Database-Ee:12.1.0.2:latest".
 
 The primary VM (myVM1) has a running Oracle instance.
 
@@ -111,7 +111,7 @@ Take note of the `publicIpAddress` as well once it created.
 
 ## Opening the TCP port for connectivity
 
-The step is to configure external endpoints which allows accessing the Oracle DB remotely, you will execute the following command.
+The step is to configure external endpoints, which allows accessing the Oracle DB remotely, you execute the following command.
 
 Open port for myVM1
 
@@ -252,7 +252,7 @@ SQL> STARTUP MOUNT;
 SQL> ALTER DATABASE ARCHIVELOG;
 SQL> ALTER DATABASE OPEN;
 ```
-Enable force logging, and make sure at least one logifle is present.
+Enable force logging, and make sure at least one logfile is present.
 
 ```bash
 SQL> ALTER DATABASE FORCE LOGGING;
@@ -268,7 +268,7 @@ SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_r
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 50M;
 ```
 
-Turn Flashback on (which made the recovery a lot earlier) and set STANDBY_FILE_MANAGEMENT to auto
+Turn on Flashback (which made the recovery a lot earlier) and set STANDBY_FILE_MANAGEMENT to auto
 
 ```bash
 SQL> ALTER DATABASE FLASHBACK ON;
@@ -277,7 +277,7 @@ SQL> ALTER SYSTEM SET STANDBY_FILE_MANAGEMENT=AUTO;
 
 ## Service setup on myVM1 (primary)
 
-Edit or create the tnsnames.ora file which is located at $ORACLE_HOME\network\admin folder
+Edit or create the tnsnames.ora file, which is located at $ORACLE_HOME\network\admin folder
 
 Add the following entries
 
@@ -303,7 +303,7 @@ cdb1_stby =
   )
 ```
 
-Edit or create the listener.ora file which is located at $ORACLE_HOME\network\admin folder
+Edit or create the listener.ora file, which is located at $ORACLE_HOME\network\admin folder
 
 Add the following entries
 
@@ -328,7 +328,7 @@ SID_LIST_LISTENER =
 ADR_BASE_LISTENER = /u01/app/oracle
 ```
 
-Start the listner
+Start the listener
 
 ```bash
 $ lsnrctl stop
@@ -337,7 +337,7 @@ $ lsnrctl start
 
 ## Service setup on myVM2 (Standby)
 
-Edit or create the tnsnames.ora file which is located at $ORACLE_HOME\network\admin folder
+Edit or create the tnsnames.ora file, which is located at $ORACLE_HOME\network\admin folder
 
 Add the following entries
 
@@ -363,7 +363,7 @@ cdb1_stby =
   )
 ```
 
-Edit or create the listener.ora file which is located at $ORACLE_HOME\network\admin folder
+Edit or create the listener.ora file, which is located at $ORACLE_HOME\network\admin folder
 
 Add the following entries
 
@@ -388,7 +388,7 @@ SID_LIST_LISTENER =
 ADR_BASE_LISTENER = /u01/app/oracle
 ```
 
-Start the listner
+Start the listener
 
 ```bash
 $ lsnrctl stop
@@ -494,7 +494,7 @@ Configuration Status:
 SUCCESS   (status updated 26 seconds ago)
 ```
 
-This completed the Oracle Data Guard setup. The next section show you how to test the connectivity and switching over
+This completed the Oracle Data Guard setup. The next section shows you how to test the connectivity and switching over
 
 ## Connecting database from client machine
 
@@ -632,7 +632,7 @@ With the Partitioning, OLAP, Advanced Analytics and Real Application Testing opt
 SQL>
 ```
 
-This completes the installation and configuration of Data Guard on Oracle linux.
+This completed the installation and configuration of Data Guard on Oracle linux.
 
 
 ## Delete virtual machine
