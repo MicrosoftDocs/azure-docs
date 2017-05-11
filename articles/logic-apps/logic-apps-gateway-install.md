@@ -14,7 +14,7 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 05/3/2017
+ms.date: 05/5/2017
 ms.author: LADocs; dimazaid; estfan
 
 ---
@@ -50,6 +50,18 @@ These steps show how to first install the on-premises data gateway before you
 For more information about supported connectors, see 
 [Connectors for Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list). 
 
+> [!NOTE]
+> If you have an existing gateway that you set up with 
+> an installer that's earlier than version 14.16.6317.4, 
+> you can't change your gateway's location by 
+> running the latest installer. 
+> However, you can use the latest installer to set up 
+> a new gateway with the location that you want instead.
+>
+> If you have a gateway installer that's earlier than 
+> version 14.16.6317.4, but you haven't installed 
+> your gateway yet, you can download and use the latest installer.
+
 <a name="requirements"></a>
 ## Requirements
 
@@ -72,7 +84,7 @@ You can't install the gateway on a domain controller.
    > [!TIP]
    > You don't have to install the gateway on the same computer as your data source. 
    > To minimize latency, you can install the gateway as close as possible to your data source, 
-   > or on the same computer, if you have permissions.
+   > or on the same computer, assuming that you have permissions.
 
 * Don't install the gateway on a computer that turns off, goes to sleep, 
 or doesn't connect to the Internet because the gateway can't run under those circumstances. 
@@ -95,7 +107,7 @@ the on-premises data gateway with an Azure subscription for an Azure AD-based ac
 
 2. Review and accept the terms of use and privacy statement.
 
-3.	Specify the path on your local computer where you want to install the gateway.
+3. Specify the path on your local computer where you want to install the gateway.
 
 4. When prompted, sign in with your Azure work or school account, 
 not a Microsoft account.
@@ -109,7 +121,7 @@ not a Microsoft account.
      between users in the cloud, like your logic app, 
      the on-premises data gateway, and your data source on premises.
 
-     1. Create a name for your gateway installation and a recovery key. 
+     1. Provide a name for your gateway installation and create a recovery key. 
      Confirm your recovery key.
 
         > [!IMPORTANT] 
@@ -118,30 +130,41 @@ not a Microsoft account.
         > You also need this key when you want to migrate, restore, 
         > or take over an existing gateway, you also need this key.
 
-     2. To confirm or change the region for the gateway cloud service where you 
-     register and deploy your gateway, choose **Change Region**. 
-
-        > [!IMPORTANT]
-        > You can't change this region after installation 
-        > unless you uninstall the gateway and reinstall. 
-        > This region also determines and restricts the location where 
-        > you can create the Azure resource for your gateway connection.
+     2. To change the default region for the gateway cloud service 
+     and Azure Service Bus used by your gateway installation, 
+     choose **Change Region**.
 
         For example, you might select the same region as your logic app, 
         or select the region closest to your on-premises data source 
-        so you can reduce latency.
+        so you can reduce latency. Your gateway resource and logic app 
+        can have different locations.
+
+        > [!IMPORTANT]
+        > You can't change this region after installation. 
+        > This region also determines and restricts the location where 
+        > you can create the Azure resource for your gateway. 
+        > So when you create your gateway resource in Azure, 
+        > make sure that the resource location matches the region 
+        > that you selected during gateway installation.
+        > 
+        > If you want to use a different region for your gateway later, 
+        > you must set up a new gateway.
 
      3. When you're done, choose **Configure**.
 
-6. Now follow these steps in the Azure portal to 
+6. Now follow these steps in the Azure portal so you can 
 [create an Azure resource for your gateway](../logic-apps/logic-apps-gateway-connection.md). 
 
 Learn more about [how the data gateway works](#gateway-cloud-service).
 
 ## Migrate, restore, or take over an existing gateway
 
+To perform these tasks, you must have the recovery key 
+that was specified when the gateway was installed.
+
 1. From your computer's Start menu, choose **On-premises data gateway**.
-2. After the installer opens, provide the recovery key that was specified when the gateway was created.
+2. After the installer opens, provide the recovery key for the 
+gateway that you want to migrate, restore, or take over.
 
 <a name="restart-gateway"></a>
 ## Restart the gateway

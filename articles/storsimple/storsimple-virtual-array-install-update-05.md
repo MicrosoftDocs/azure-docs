@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/08/2017
+ms.date: 05/10/2017
 ms.author: alkohli
 ---
 # Install Update 0.5 on your StorSimple Virtual Array
@@ -62,22 +62,20 @@ Perform the following steps to download the software update from the Microsoft U
    
     ![Search catalog](./media/storsimple-virtual-array-install-update-05/download1.png)
 
-4. Click **Add**. The update is added to the basket.
+4. Click **Download**. 
 
-5. Click **View Basket**.
+5. You should see two files to download, a *.msu* and a *.cab* file. Download each of those files to a folder. The folder can also be copied to a network share that is reachable from the device.
 
-6. Click **Download**. Specify or **Browse** to a local location where you want the downloads to appear. The updates are downloaded to the specified location and placed in a subfolder with the same name as the update. The folder can also be copied to a network share that is reachable from the device.
-
-7. Open the copied folder.
-
+6. Open the folder where the files are located.
     ![Files in the package](./media/storsimple-virtual-array-install-update-05/update05folder.png)
-    
-    You should see two files:
-    
+
+    You see:
     -  A Microsoft Update Standalone Package file `WindowsTH-KB3011067-x64`. This file is used to update the device software.
     - A Geneva Monitoring Agent Package file `GenevaMonitoringAgentPackageInstaller`. This file is used to update the Monitoring and Diagnostics service (MDS) agent. Double-click the cab file. A .msi is displayed. Select the file, right-click, and then **Extract** the file. You will use the _.msi_ file to update the agent.
 
         ![Extract MDS Agent Update file](./media/storsimple-virtual-array-install-update-05/extract-geneva-monitoring-agent-installer.png)
+        
+    
 
 ### Install the update or the hotfix
 

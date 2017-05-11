@@ -13,139 +13,206 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/17/2017
+ms.date: 05/03/2017
 ms.author: tomfitz
 
 ---
-# Deploy multiple instances of resources in Azure Resource Manager templates
-This topic shows you how to iterate in your Azure Resource Manager template to create multiple instances of a resource.
+# Deploy multiple instances of a resource or property in Azure Resource Manager templates
+This topic shows you how to iterate in your Azure Resource Manager template to create multiple instances of a resource, or multiple values for a property on the resource.
 
-## copy and copyIndex
+## Resource iteration
+To create multiple instances of a resource type, add a `copy` element to the resource type. In the copy element, you specify the number of iterations and a name for this loop. The count value must be a positive integer and cannot exceed 800. Resource Manager creates the resources in parallel. Therefore, the order in which they are created is not guaranteed. To create iterated resources in sequence, see [Sequential looping for Azure Resource Manager templates](resource-manager-sequential-loop.md). 
+
 The resource to create multiple times takes the following format:
 
 ```json
-"resources": [ 
-  { 
-      "name": "[concat('examplecopy-', copyIndex())", 
-      "type": "Microsoft.Web/sites", 
-      "location": "East US", 
-      "apiVersion": "2015-08-01",
-      "copy": { 
-         "name": "websitescopy", 
-         "count": "[parameters('count')]" 
-      }, 
-      "properties": {
-          "serverFarmId": "hostingPlanName"
-      } 
-  } 
-]
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"resources": [
+		{
+			"apiVersion": "2016-01-01",
+			"type": "Microsoft.Storage/storageAccounts",
+			"name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+			"location": "[resourceGroup().location]",
+			"sku": {
+				"name": "Standard_LRS"
+			},
+			"kind": "Storage",
+			"properties": {},
+			"copy": {
+				"name": "storagecopy",
+				"count": 3
+			}
+		}
+	],
+	"outputs": {}
+}
 ```
 
-Notice that the number of times to iterate is specified in the copy object:
+Notice that the name of each resource includes the `copyIndex()` function, which returns the current iteration in the loop. `copyIndex()` is zero-based. So, the following example:
 
 ```json
-"copy": { 
-    "name": "websitescopy", 
-    "count": "[parameters('count')]" 
-} 
+"name": "[concat('storage', copyIndex())]",
 ```
 
-The count value must be a positive integer and cannot exceed 800.
+Creates these names:
 
-Notice that the name of each resource includes the `copyIndex()` function, which returns the current iteration in the loop.
+* storage0
+* storage1
+* storage2.
+
+To offset the index value, you can pass a value in the copyIndex() function. The number of iterations to perform is still specified in the copy element, but the value of copyIndex is offset by the specified value. So, the following example:
 
 ```json
-"name": "[concat('examplecopy-', copyIndex())]",
+"name": "[concat('storage', copyIndex(1))]",
 ```
 
-If you deploy three web sites, they are named:
+Creates these names:
 
-* examplecopy-0
-* examplecopy-1
-* examplecopy-2.
+* storage1
+* storage2
+* storage3
 
-To offset the index value, you can pass a value in the copyIndex() function, such as `copyIndex(1)`. The number of iterations to perform is still specified in the copy element, but the value of copyIndex is offset by the specified value. So, using the same template as the previous example, but specifying copyIndex(1) would deploy three web sites named:
-
-* examplecopy-1
-* examplecopy-2
-* examplecopy-3
-
-Resource Manager creates the resources in parallel. Therefore, the order in which they are created is not guaranteed. To create iterated resources in sequence, see [Sequential looping for Azure Resource Manager templates](resource-manager-sequential-loop.md). 
-
-You can only apply the copy object to a top-level resource. You cannot apply it to a property on a resource type, or to a child resource. The following pseudo-code example shows where copy can be applied:
-
-```json
-"resources": [
-  {
-    "type": "{provider-namespace-and-type}",
-    "name": "parentResource",
-    "copy": {  
-      /* Yes, copy can be applied here */
-    },
-    "properties": {
-      "exampleProperty": {
-        /* No, copy cannot be applied here */
-      }
-    },
-    "resources": [
-      {
-        "type": "{provider-type}",
-        "name": "childResource",
-        /* No, copy cannot be applied here. The resource must be promoted to top-level. */ 
-      }
-    ]
-  }
-] 
-```
-
-To iterate a child resource, see [Create multiple instances of a child resource](#create-multiple-instances-of-a-child-resource).
-
-Although you cannot apply copy to a property, that property is still part of the iterations of the resource that contains the property. Therefore, you can use copyIndex() within the property to specify values. To create multiple values for a property, see [Create multiple instances of property on resource type](resource-manager-property-copy.md).
-
-## Use copy with array
-The copy operation is helpful when working with arrays because you can iterate through each element in the array. To deploy three web sites named:
-
-* examplecopy-Contoso
-* examplecopy-Fabrikam
-* examplecopy-Coho
-
-Use the following template:
+The copy operation is helpful when working with arrays because you can iterate through each element in the array. TUse the `length` function on the array to specify the count for iterations, and `copyIndex` to retrieve the current index in the array. So, the following example:
 
 ```json
 "parameters": { 
   "org": { 
      "type": "array", 
      "defaultValue": [ 
-         "Contoso", 
-         "Fabrikam", 
-         "Coho" 
+         "contoso", 
+         "fabrikam", 
+         "coho" 
       ] 
   }
 }, 
 "resources": [ 
   { 
-      "name": "[concat('examplecopy-', parameters('org')[copyIndex()])]", 
-      "type": "Microsoft.Web/sites", 
-      "location": "East US", 
-      "apiVersion": "2015-08-01",
+      "name": "[concat('storage', parameters('org')[copyIndex()])]", 
       "copy": { 
-         "name": "websitescopy", 
+         "name": "storagecopy", 
          "count": "[length(parameters('org'))]" 
       }, 
-      "properties": {
-          "serverFarmId": "hostingPlanName"
-      } 
+      ...
   } 
 ]
 ```
 
-Notice that the `length` function is used to specify the count. You provide the array as the parameter to the length function.
+Creates these names:
+
+* storagecontoso
+* storagefabrikam
+* storagecoho
+
+## Property iteration
+
+To create multiple values for a property on a resource, add a `copies` array in the properties element. This array contains objects, and each object has the following properties:
+
+* name - the name of the property to create multiple values for
+* count - the number of values to create
+* input - an object that contains the values to assign to the property  
+
+The following example shows how to apply `copies` to the dataDisks property on a virtual machine:
 
 ```json
-"copy": {
-    "name": "websitescopy",
-    "count": "[length(parameters('siteNames'))]"
-}
+{
+  "name": "examplevm",
+  "type": "Microsoft.Compute/virtualMachines",
+  "apiVersion": "2016-04-30-preview",
+  "properties": {
+    "storageProfile": {
+      "copies": [{
+          "name": "dataDisks",
+          "count": 3,
+          "input": {
+              "lun": "[copyIndex('dataDisks')]",
+              "name": "[concat('myDataDisk', copyIndex('dataDisks',1))]",
+              "vhd": {
+                  "uri": "[concat('http://mystorage.blob.core.windows.net/vhds/mydatadisk',copyIndex('dataDisks', 1), '.vhd')]"
+              },
+              "caching": "ReadOnly",
+              "createOption": "Empty",
+              "diskSizeGB": 1
+          }
+      }],
+      ...
+```
+
+Resource Manager expands the `copies` array during deployment. The name of the array becomes the name of the property. The input values become the object properties. The deployed template becomes:
+
+```json
+{
+  "name": "examplevm",
+  "type": "Microsoft.Compute/virtualMachines",
+  "apiVersion": "2016-04-30-preview",
+  "properties": {
+    "storageProfile": {
+      "dataDisks": [
+          {
+              "lun": 0,
+              "name": "myDataDisk1",
+              "vhd": {
+                  "uri": "http://mystorage.blob.core.windows.net/vhds/mydatadisk1.vhd"
+              },
+              "caching": "ReadOnly",
+              "createOption": "Empty",
+              "diskSizeGB": 1
+          },
+          {
+              "lun": 1,
+              "name": "myDataDisk2",
+              "vhd": {
+                  "uri": "http://mystorage.blob.core.windows.net/vhds/mydatadisk2.vhd"
+              },
+              "caching": "ReadOnly",
+              "createOption": "Empty",
+              "diskSizeGB": 1
+          },
+          {
+              "lun": 2,
+              "name": "myDataDisk3",
+              "vhd": {
+                  "uri": "http://mystorage.blob.core.windows.net/vhds/mydatadisk3.vhd"
+              },
+              "caching": "ReadOnly",
+              "createOption": "Empty",
+              "diskSizeGB": 1
+          }
+      }],
+      ...
+```
+
+Notice that when using `copyIndex` inside a property iteration, you must provide the name of the iteration. You do not have to provide the name when used with resource iteration.
+
+You can use resource and property iteration together. You reference either iteration by name.
+
+```json
+{
+  "name": "examplevm",
+  "type": "Microsoft.Compute/virtualMachines",
+  "apiVersion": "2016-04-30-preview",
+  "copy": {
+      "name": "vmcopy",
+      "count": 5
+  },
+  "properties": {
+    "storageProfile": {
+      "copies": [{
+          "name": "dataDisks",
+          "count": 3,
+          "input": {
+              "lun": "[copyIndex('dataDisks')]",
+              "name": "[concat('vm', copyIndex('vmcopy',1),'myDataDisk', copyIndex('dataDisks',1))]",
+              "vhd": {
+                  "uri": "[concat('http://mystorage.blob.core.windows.net/vhds/vm', copyIndex('vmcopy',1), 'mydatadisk',copyIndex('dataDisks', 1), '.vhd')]"
+              },
+              "caching": "ReadOnly",
+              "createOption": "Empty",
+              "diskSizeGB": 1
+          }
+      }],
+      ...
 ```
 
 ## Depend on resources in a loop
@@ -158,18 +225,20 @@ You specify that a resource is deployed after another resource by using the `dep
     "parameters": {},
     "resources": [
         {
-            "apiVersion": "2015-06-15",
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[concat('storage', uniqueString(resourceGroup().id), copyIndex())]",
-            "location": "[resourceGroup().location]",
-            "properties": {
-                "accountType": "Standard_LRS"
-            },
-            "copy": { 
-                "name": "storagecopy", 
-                "count": 3 
-            }
-        },
+			"apiVersion": "2016-01-01",
+			"type": "Microsoft.Storage/storageAccounts",
+			"name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+			"location": "[resourceGroup().location]",
+			"sku": {
+				"name": "Standard_LRS"
+			},
+			"kind": "Storage",
+			"properties": {},
+			"copy": {
+				"name": "storagecopy",
+				"count": 3
+			}
+		},
         {
             "apiVersion": "2015-06-15", 
             "type": "Microsoft.Compute/virtualMachines", 
