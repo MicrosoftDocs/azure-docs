@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 05/02/2017
+ms.date: 05/11/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 
@@ -24,48 +24,16 @@ The Azure CLI 2.0 is Azure's new command-line experience for managing Azure reso
 
 This article provides an overview of using [Azure CLI version 2.0](https://docs.microsoft.com/cli/azure/overview) with Batch. See [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli.md) for an overview of using the CLI with Azure.
 
-> [!NOTE]
-> Microsoft recommends using the latest version of the Azure CLI, version 2.0. For more information about version 2.0, see [Azure Command Line 2.0 now generally available](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/).
->
->
+Microsoft recommends using the latest version of the Azure CLI, version 2.0. For more information about version 2.0, see [Azure Command Line 2.0 now generally available](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/).
 
 ## Set up the Azure CLI
 
 To install the Azure CLI, follow the steps outlined in [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli.md).
 
-To manage Batch resources from the Azure CLI, you'll need to log in. How you log in depends on whether you are accessing resources in the Batch Management API, or the Batch service API.
-
 > [!TIP]
 > We recommend that you update your Azure CLI installation frequently to take advantage of service updates and enhancements.
 > 
 > 
-
-### Log in to use Batch Management service commands
-
-The Batch Management service includes your Batch accounts, keys, and application packages. The Batch Management service is an Azure Resource Manager API, so you log in to it using the Azure Resource Manager command, [az login](https://docs.microsoft.com/cli/azure/#login):  
-
-```azurecli
-# Authenticate CLI session to use the Batch Management service.
-az login
-```
-
-See [Log in to Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli#log-in-to-azure) for more information.
-
-### Log in to use Batch service commands
-
-The Batch service includes the resources for your Batch workloads, such as pools, jobs, and tasks. To log in to the Batch service, use the [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) command. You can log in using either Shared Key or Azure Active Directory (Azure AD) authentication.
-
-To log in using Shared Key authentication, include the `--shared-key-auth` option on the command line:
-
-```azurecli
-az batch account login -g myresourcegroup -n mybatchaccount --shared-key-auth
-```
-
-To log in using Azure AD, omit the `--shared-key-auth` option: 
-
-```azurecli
-az batch account login -g myresource group -n mybatchaccount
-```
 
 ## Command help
 
@@ -83,6 +51,69 @@ When in doubt, use the `-h` command-line option to get help on any Azure CLI com
 >  
 
 Additionally, refer to the Azure CLI reference documentation for details about [Azure CLI commands for Batch](https://docs.microsoft.com/cli/azure/batch). 
+
+## Log in and authenticate
+
+To use the Azure CLI with Batch, you need to log in and authenticate. There are two simple steps to follow:
+
+1. **Log into Azure.** Logging into Azure gives you access to Azure Resource Manager commands, including [Batch Management service](batch-management-dotnet.md) commands. This step is required to use the Azure CLI. 
+2. **Log into your Batch account.** Logging into your Batch account gives you access to Batch service commands. In most scenarios, you will want to log into your Batch account. If you are using the Azure CLI only for Batch Management commands, then you don't need to log in to your Batch account.   
+
+### Log in to Azure
+
+There are a few different ways to log into Azure, described in detail in [Log in with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli):
+
+1. [Log in interactively](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#interactive-log-in). Log in interactively when you are running Azure CLI commands yourself from the command line.
+2. [Log in with a service principal](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#logging-in-with-a-service-principal). Log in with a service principal when you are running Azure CLI commands from a script or an application.
+
+For the purposes of this article, we show how to log into Azure interactively. Type [az login](https://docs.microsoft.com/cli/azure/#login) on the command line:
+
+```azurecli
+# Log in to Azure and authenticate interactively.
+az login
+```
+
+The `az login` command returns a token that you'll use to authenticate, as shown here. Follow the instructions provided to open a web page and submit the token to Azure:
+
+![Log in to Azure](./media/batch-cli-get-started/az-login.png)
+
+The examples listed in the [Sample shell scripts](#sample-shell-scripts) section also show how to start your Azure CLI session by logging into Azure interactively. Once you have logged in, you can call commands to work with Batch Management resources, including Batch accounts, keys, application packages, and quotas.  
+
+### Log in to your Batch account
+
+To use the Azure CLI to manage Batch resources, such as pools, jobs, and tasks, you need to log into your Batch account and authenticate. To log in to the Batch service, use the [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) command. 
+
+You have two options for authenticating against your Batch account:
+
+- **By using Azure Active Directory (Azure AD) authentication.** 
+
+    Authenticating with Azure AD is the default when you use the Azure CLI with Batch, and recommended for most scenarios. 
+    
+    When you log in to Azure interactively, as described in the previous section, your credentials are cached, so the Azure CLI can log you in to your Batch account using those same credentials. If you log in to Azure using a service principal, those credentials are also used to log in to your Batch account.
+
+    An advantage of Azure AD is that it offers role-based access control (RBAC). With RBAC, a user's access depends on their assigned role, rather than whether or not they possess the account keys. Instead of managing account keys, you can manage RBAC roles, and let Azure AD handle access and authentication.  
+
+    Authenticating with Azure AD is required if you created your Azure Batch account with its pool allocation mode set to 'User Subscription'. 
+
+    To log in to your Batch account using Azure AD, call the [az batch account keys list](https://docs.microsoft.com/cli/azure/batch/account/keys#list) command: 
+
+    ```azurecli
+    az batch account login -g myresource group -n mybatchaccount
+    ```
+
+- **By using Shared Key authentication.**
+
+    [Shared Key authentication](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key) uses your account access keys to authenticate Azure CLI commands for the Batch service.
+
+    If you are creating Azure CLI scripts to automate calling Batch commands, you can use either Shared Key authentication, or an Azure AD service principal. In some scenarios, using Shared Key authentication may be simpler than creating a service principal.  
+
+    To log in using Shared Key authentication, include the `--shared-key-auth` option on the command line:
+
+    ```azurecli
+    az batch account login -g myresourcegroup -n mybatchaccount --shared-key-auth
+    ```
+
+The examples listed in the [Sample shell scripts](#sample-shell-scripts) section show how to log into your Batch account with the Azure CLI using both Azure AD and Shared Key.
 
 ## Sample shell scripts
 
