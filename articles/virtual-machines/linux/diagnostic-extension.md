@@ -25,10 +25,10 @@ This document describes version 3.0 and newer of the Linux Diagnostic Extension.
 
 The Linux Diagnostic Extension helps a user monitor the health of a Linux VM running on Microsoft Azure. It has the following capabilities:
 
-* Collects system performance metrics from the VM and stores them in a specific table in a designated storage account (usually the account in which the VM's boot vhd is stored).
+* Collects system performance metrics from the VM and stores them in a specific table in a designated storage account.
 * Retrieves log events from syslog and stores them in a specific table in the designated storage account.
-* Enables users to customize the data metrics that will be collected and uploaded.
-* Enables users to customize the syslog facilities and severity levels of events that will be collected and uploaded.
+* Enables users to customize the data metrics that are collected and uploaded.
+* Enables users to customize the syslog facilities and severity levels of events that are collected and uploaded.
 * Enables users to upload specified log files to a designated storage table.
 * Supports sending metrics and log events to arbitrary EventHub endpoints and JSON-formatted blobs in the designated storage account.
 
@@ -59,16 +59,12 @@ Use the Azure portal to view performance data or set alerts:
 
 ![image](./media/diagnostic-extension/graph_metrics.png)
 
-This article focuses on how to enable and configure the extension by using Azure CLI commands. A future update to the Azure portal will configure a subset of the features of the extension, ignoring the parts of the configuration it does not address.
+The Azure portal cannot be used to enable or configure LAD 3.0. Instead, it installs and configures version 2.3. Azure portal graphs and alerts work with data from both versions of the extension.
 
 ## Prerequisites
 
-* **Azure Linux Agent version 2.2.0 or later**.
-  Most Azure VM Linux gallery images include version 2.2.7 or later. You can run **/usr/sbin/waagent -version** to confirm the version installed on the VM. If the VM is running an older version of the guest agent, you can follow [these instructions on GitHub](https://github.com/Azure/WALinuxAgent "instructions") to update it.
-* **Azure CLI**. Follow [this guidance for installing CLI](../../xplat-cli-install.md) to set up the Azure CLI environment on your machine. After Azure CLI is installed, you can use the **azure** command from your command-line interface (Bash, Terminal, or command prompt) to access the Azure CLI commands. For example:
-  * Run **azure vm extension set --help** for detailed help information.
-  * Run **azure login** to sign in to Azure.
-  * Run **azure vm list** to list all the virtual machines that you have on Azure.
+* **Azure Linux Agent version 2.2.0 or later**. Most Azure VM Linux gallery images include version 2.2.7 or later. Run `/usr/sbin/waagent -version` to confirm the version installed on the VM. If the VM is running an older version of the guest agent, follow [these instructions](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent) to update it.
+* **Azure CLI**. [Set up the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) environment on your machine.
 * An existing storage account to store the data and an associated SAS token that grants the needed access rights.
 
 ## Protected Settings
@@ -87,7 +83,7 @@ This set of configuration information contains sensitive information that should
 
 Name | Value
 ---- | -----
-storageAccountName | The name of the storage account in which data will be written by the extension.
+storageAccountName | The name of the storage account in which data is written by the extension.
 storageAccountEndPoint | (optional) The endpoint identifying the cloud in which the storage account exists. If this setting is absent, LAD defaults to the Azure public cloud, `https://core.windows.net`. To use a storage account in Azure Germany, Azure Government, or Azure China, set this value accordingly.
 storageAccountSasToken | An [Account SAS token](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/) for Blob and Table services (ss='bt'), applicable to containers and objects (srt='co'), which grants add, create, list, update, and write permissions (sp='acluw'). Do *not* include the leading question-mark (?).
 mdsdHttpProxy | (optional) HTTP proxy information needed to enable the extension to connect to the specified storage account and endpoint.
@@ -119,7 +115,7 @@ Copy the generated SAS into the storageAccountSasToken field; remove the leading
 },
 ```
 
-This section defines additional destinations to which the extension will deliver the information it collects. The "sink" array contains an object for each additional data sink. The object will contain additional attributes as determined by the "type" attribute.
+This section defines additional destinations to which the extension sends the information it collects. The "sink" array contains an object for each additional data sink. The "type" attribute determines the other attributes in the object.
 
 Element | Value
 ------- | -----
@@ -173,8 +169,8 @@ This structure contains various blocks of settings that control the information 
 
 Element | Value
 ------- | -----
-StorageAccount | The name of the storage account in which data will be written by the extension. Must be the same name as is specified in the Protected settings.
-mdsdHttpProxy | (optional) Same as in the [Protected Settings](#Protected-Settings). The public value is overridden by the private value, if set. Proxy settings that contain a secret, like a password, should be specified in the Protected settings.
+StorageAccount | The name of the storage account in which data is written by the extension. Must be the same name as is specified in the Protected settings.
+mdsdHttpProxy | (optional) Same as in the [Protected Settings](#Protected-Settings). The public value is overridden by the private value, if set. Place proxy settings that contain a secret, such as a password, in the [Protected settings](#Protected-settings).
 
 The remaining elements are described in detail in the following sections.
 
@@ -194,7 +190,7 @@ The remaining elements are described in detail in the following sections.
 
 This structure controls the gathering of metrics and logs for delivery to the Azure Metrics service and to other data sinks.
 
-The Azure Metrics service requires metrics to be stored in a precisely named Azure storage table. Similarly, log events must be stored in a different, but also precisely named, table. All instances of the diagnostic extension configured to use the same storage account name and endpoint will add their metrics and logs to the same table. If too many VMs are writing to the same table partition, Azure can throttle writes to that partition. The eventVolume setting causes entries to be spread across 1 (Small), 10 (Medium), or 100 (Large) different partitions. Usually, "Medium" is sufficient to ensure traffic is not throttled.
+The Azure Metrics service requires metrics to be stored in a precisely named Azure storage table. Similarly, log events must be stored in a different, but also precisely named, table. All instances of the diagnostic extension configured to use the same storage account name and endpoint add their metrics and logs to the same table. If too many VMs are writing to the same table partition, Azure can throttle writes to that partition. The eventVolume setting causes entries to be spread across 1 (Small), 10 (Medium), or 100 (Large) different partitions. Usually, "Medium" is sufficient to ensure traffic is not throttled.
 
 Element | Value
 ------- | -----
@@ -259,7 +255,7 @@ sampleRate | IS 8601 interval that sets the rate at which raw samples for this m
 unit | Should be one of these strings: "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond". Defines the unit for the metric. Consumers of the collected data expect the collected data values to match this unit. LAD ignores this field.
 displayName | The label (in the language specified by the associated locale setting) to be attached to this data in Azure Metrics. LAD ignores this field.
 
-The counterSpecifier is an arbitrary identifier. Producers of metrics, like LAD, and consumers of metrics, like the Azure portal charting and alerting feature, use counterSpecifier as the "key" that identifies a metric or an instance of a metric. For builtin metrics, we recommend you use counterSpecifier values that begin with `/builtin/`. If you are collecting a specific instance of a metric, we recommend you attach the identifier of the instance to the counterSpecifier value. Some examples:
+The counterSpecifier is an arbitrary identifier. Consumers of metrics, like the Azure portal charting and alerting feature, use counterSpecifier as the "key" that identifies a metric or an instance of a metric. For builtin metrics, we recommend you use counterSpecifier values that begin with `/builtin/`. If you are collecting a specific instance of a metric, we recommend you attach the identifier of the instance to the counterSpecifier value. Some examples:
 
 * `/builtin/Processor/PercentIdleTime` - Idle time averaged across all cores
 * `/builtin/Disk/FreeSpace(/mnt)` - Free space for the /mnt filesystem
@@ -284,9 +280,9 @@ The syslogEventConfiguration collection has one entry for each syslog facility o
 
 Element | Value
 ------- | -----
-sinks | A comma-separated list of names of sinks to which individual log events should be published. All log events matching the restrictions in syslogEventConfiguration will be published to each listed sink. Example: "EHforsyslog"
+sinks | A comma-separated list of names of sinks to which individual log events are published. All log events matching the restrictions in syslogEventConfiguration are published to each listed sink. Example: "EHforsyslog"
 facilityName | A syslog facility name (such as "LOG\_USER" or "LOG\_LOCAL0"). See the "facility" section of the [syslog man page](http://man7.org/linux/man-pages/man3/syslog.3.html) for the full list.
-minSeverity | A syslog severity level (such as "LOG\_ERR" or "LOG\_INFO"). See the "level" section of the [syslog man page](http://man7.org/linux/man-pages/man3/syslog.3.html) for the full list. The extension will capture events sent to the facility at or above the specified level.
+minSeverity | A syslog severity level (such as "LOG\_ERR" or "LOG\_INFO"). See the "level" section of the [syslog man page](http://man7.org/linux/man-pages/man3/syslog.3.html) for the full list. The extension captures events sent to the facility at or above the specified level.
 
 ### perfCfg
 
@@ -333,8 +329,8 @@ Controls the capture of log files. LAD configures fluentd to capture new text li
 Element | Value
 ------- | -----
 file | The full pathname of the log file to be watched and captured. The pathname must name a single file; it cannot name a directory or contain wildcards.
-table | (optional) The Azure storage table, in the designated storage account (as specified in the protected configuration), into which new lines from the "tail" of the file will be placed.
-sinks | (optional) A comma-separated list of names of additional sinks to which log lines should be published.
+table | (optional) The Azure storage table, in the designated storage account (as specified in the protected configuration), into which new lines from the "tail" of the file are written.
+sinks | (optional) A comma-separated list of names of additional sinks to which log lines sent.
 
 Either "table" or "sinks", or both, must be specified.
 
@@ -388,7 +384,7 @@ This class of metrics has only a single instance. The "condition" attribute has 
 
 ### Builtin metrics for the Network class
 
-The Network class of metrics provides information about network activity on an individual network interfaces since boot. LAD does not expose bandwidth metrics are not directly available, which can be retrieved from host metrics.
+The Network class of metrics provides information about network activity on an individual network interfaces since boot. LAD does not expose bandwidth metrics, which can be retrieved from host metrics.
 
 counter | Meaning
 ------- | -------
@@ -484,7 +480,7 @@ These private settings configure:
         "type": "JsonBlob"
       },
       {
-        "name": "WADMetricJsonBlob",
+        "name": "MyJsonMetricsBlob",
         "type": "JsonBlob"
       },
       {
@@ -493,7 +489,7 @@ These private settings configure:
         "sasURL": "https://youreventhubnamespace.servicebus.windows.net/youreventhubpublisher?sr=https%3a%2f%2fyoureventhubnamespace.servicebus.windows.net%2fyoureventhubpublisher%2f&sig=fake_signature&se=1808096361&skn=yourehpolicy"
       },
       {
-        "name": "WADMetricEventHub",
+        "name": "MyMetricEventHub",
         "type": "EventHub",
         "sasURL": "https://youreventhubnamespace.servicebus.windows.net/youreventhubpublisher?sr=https%3a%2f%2fyoureventhubnamespace.servicebus.windows.net%2fyoureventhubpublisher%2f&sig=yourehpolicy&skn=yourehpolicy"
       },
@@ -528,7 +524,7 @@ In each case, data is also uploaded to:
   "ladCfg": {
     "diagnosticMonitorConfiguration": {
       "performanceCounters": {
-        "sinks": "WADMetricEventHub,WADMetricJsonBlob",
+        "sinks": "MyMetricEventHub,MyJsonMetricsBlob",
         "performanceCounterConfiguration": [
           {
             "unit": "Percent",
