@@ -18,7 +18,7 @@ ms.author: andret
 
 ---
 
-## Setting up your Android application
+## Set up your project
 
 > Prefer to download this sample's Android Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip) and skip to the [Configuration](#create-an-application-express) step to configure the code sample before executing    .
 
@@ -30,12 +30,14 @@ ms.author: andret
 4.	Leave `Empty Activity`, click `Next`, then `Finish`
 
 
-### Install Microsoft Authentication Library (MSAL)
+### Add the Microsoft Authentication Library (MSAL) to your project
 1.	In Android Studio, go to: `Gradle Scripts` > `build.gradle (Module: app)`
 2.	Copy and paste the following code under `Dependencies`:
 
 ```ruby  
-compile 'com.microsoft.identity.client:msal:0.1.0'
+compile ('com.microsoft.identity.client:msal:0.1.+') {
+    exclude group: 'com.android.support', module: 'appcompat-v7'
+}
 compile 'com.android.volley:volley:1.0.0'
 ```
 

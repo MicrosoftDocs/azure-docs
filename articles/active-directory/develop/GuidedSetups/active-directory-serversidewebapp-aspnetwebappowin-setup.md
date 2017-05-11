@@ -18,14 +18,14 @@ ms.author: andret
 
 ---
 
-## Setup your ASP.NET project to sign-in users using OpenID Connect
+## Set up your project
 
 This section shows the steps to install and configure the authentication pipeline via OWIN middleware on an ASP.NET project using OpenID Connect. 
 
 > Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) and skip to the [Configuration](#create-an-application-express) step to configure the code sample before executing.
 
 <!--start-collapse-->
-> ### Creating your ASP.NET project
+> ### Create your ASP.NET project
 
 > 1. In Visual Studio: `File` > `New` > `Project`<br/>
 > 2. Under *Visual C#\Web*, select `ASP.NET Web Application (.NET Framework)`.
@@ -57,7 +57,7 @@ The steps below are used to create an OWIN middleware Startup Class to configure
 > 1. Right click on the project's root folder: >	`Add` > `New Item...` > `OWIN Startup class`<br/>
 > 2. Name it `Startup.cs`
 
-> Make sure the class selected is an OWIN Startup Class and not a standard C# class. Confirm this by checking if you see `[assembly: OwinStartup(typeof({NameSpace}.App_Start.Startup))]` above the namespace.
+> Make sure the class selected is an OWIN Startup Class and not a standard C# class. Confirm this by checking if you see `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` above the namespace.
 
 
 1. Add *OWIN* and *Microsoft.IdentityModel* references to `Startup.cs`:

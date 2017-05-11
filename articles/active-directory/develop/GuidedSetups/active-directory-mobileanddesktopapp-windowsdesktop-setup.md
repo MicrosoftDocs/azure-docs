@@ -18,7 +18,7 @@ ms.author: andret
 
 ---
 
-## Setting up your Windows Desktop application
+## Set up your project
 
 This section provides step-by-step instructions for how to create a new project to demonstrate how to integrate a Windows Desktop .NET application (XAML) with *Sign-In with Microsoft* so it can query Web APIs that requires a token.
 
@@ -27,12 +27,12 @@ The application created by this guide exposes a button to graph and show results
 > Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip) and skip to the [Configuration](#create-an-application-express) step to configure the code sample before executing.
 
 
-### Creating your application
+### Create your application
 1. In Visual Studio: `File` > `New` > `Project`<br/>
 2. Under *Templates*, select `Visual C#`
 3. Select `WPF App` (or *WPF Application* depending on the version of your Visual Studio)
 
-## Adding Microsoft Authentication Library (MSAL) library to your project
+## Add the Microsoft Authentication Library (MSAL) to your project
 1. In Visual Studio: `Tools` > `Nuget Package Manager` > `Package Manager Console`
 2. Copy/paste the following in the Package Manager Console window:
 
@@ -69,7 +69,7 @@ public partial class App : Application
 }
 ```
 
-## Creating your application’s UI
+## Create your application’s UI
 The section below shows how an application can query a protected backend server like Microsoft Graph. 
 A MainWindow.xaml file should automatically be created as a part of your project template. Open this file this file and then follow the instructions below:
 

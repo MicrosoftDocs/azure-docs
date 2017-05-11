@@ -18,7 +18,7 @@ ms.author: andret
 
 ---
 
-## Use MSAL to get a token for the Microsoft Graph API
+## Use the Microsoft Authentication Library (MSAL) to get a token for the Microsoft Graph API
 
 This section shows how to use MSAL to get a token the Microsoft Graph API.
 
@@ -30,7 +30,7 @@ using Microsoft.Identity.Client;
 <!-- Workaround for Docs conversion bug -->
 <ol start="2">
 <li>
-Replace *MainWindow* class code with:
+Replace <code>MainWindow</code> class code with:
 </li>
 </ol>
 
@@ -138,12 +138,12 @@ public async Task<string> GetHttpContentWithToken(string url, string token)
 }
 ```
 <!--start-collapse-->
-### Making a REST call against a protected API
+### More information on making a REST call against a protected API
 
 In this sample application, the `GetHttpContentWithToken` method is used to make an HTTP `GET` request against a protected resource that requires a token and then return the content to the caller. This method adds the acquired token in the *HTTP Authorization header*. For this sample, the resource is the Microsoft Graph API *me* endpoint – which displays the user's profile information.
 <!--end-collapse-->
 
-## Setup Sign-out
+## Add a method to sign out the user
 
 1. Add the following method to your `MainWindow.xaml.cs` to sign out the user:
 

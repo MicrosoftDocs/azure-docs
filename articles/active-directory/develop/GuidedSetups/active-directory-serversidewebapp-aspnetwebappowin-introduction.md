@@ -17,9 +17,9 @@ ms.date: 05/09/2017
 ms.author: andret
 
 ---
-# Implementing sign in with Microsoft using an ASP.NET MVC solution with a traditional web browser-based application
+# Add sign-in with Microsoft to an ASP.NET web app
 
-This guide demonstrates how to implement sign in with Microsoft using an ASP.NET MVC solution with a traditional web browser-based application using OpenID Connect. 
+This guide demonstrates how to implement sign-in with Microsoft using an ASP.NET MVC solution with a traditional web browser-based application using OpenID Connect. 
 
 At the end of this guide, your application will be able to accept sign ins of personal accounts (including outlook.com, live.com, and others) as well as work and school accounts from any company or organization that has integrated with Azure Active Directory. 
 
