@@ -274,7 +274,7 @@ you can monitor the logs and metrics, or publish them into any monitoring tool y
 One potential option is to stream all the events through Azure Event Hub into 
 [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
 In Stream Analytics, you can write live queries off any anomalies, averages, or failures from the diagnostic logs. 
-Stream Analytics can easily output to other data sources like queues, topics, SQL, DocumentDB, and Power BI.
+Stream Analytics can easily output to other data sources like queues, topics, SQL, Azure Cosmos DB, and Power BI.
 
 ## Next Steps
 
