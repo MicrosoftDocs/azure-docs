@@ -35,7 +35,7 @@ sections:
     - image: 
         src: media/index/quickstart-http.svg
       text: HTTP Trigger
-      href: /azure/azure-functions/functions-bindings-http-webhook
+      href: /azure/azure-functions/functions-create-an-azure-connected-function
     - image: 
         src: media/index/quickstart-timer.svg
       text: Timer Trigger
