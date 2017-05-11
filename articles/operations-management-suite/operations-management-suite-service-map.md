@@ -139,6 +139,17 @@ Service Map integrates with Log Search to show a count of all available log even
 
 ![Log events](media/oms-service-map/log-events.png)
 
+## OMS Service Desk integration
+Service Map's integration with the IT Service Management Connector is automatic when both solutions are enabled and configured in your OMS workspace.  The integration in Service Map is labeled "Service Desk".  [For more information about how to enable and configure the ITSM Connector.](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview)
+
+The Service Desk Panel shows a list of all IT Service Management events for the selected server in the selected time range.  The server will show an icon if there are current items and the Service Desk Panel will list the items.
+![Service Desk Panel](media/oms-service-map/service-desk.png)
+
+Click "View Work Item" to open the item in your connected ITSM solution.
+
+Click "Show in Log Search" to view the details of the item in Log Search.
+
+
 ## OMS Change Tracking integration
 Service Map's integration with Change Tracking is automatic when both solutions are enabled and configured in your OMS workspace.
 
