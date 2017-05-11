@@ -21,7 +21,7 @@ ms.author: gwallace
 
 Network Watcher packet capture creates capture sessions to track traffic in and out of virtual machines. The capture file can have a filter that is defined to track only the traffic that you want to monitor. This data is then stored in a storage blob or locally on the guest machine.
 
-This capability can be started remotely from other automation scenarios such as Azure Functions. Packet capture provides the capability to running proactive captures based on defined network anomalies. Other uses include gathering network statistics, gaining information about network intrusions, debugging client-server communications, and more.
+This capability can be started remotely from other automation scenarios such as Azure Functions. Packet capture gives you the capability to run proactive captures based on defined network anomalies. Other uses include gathering network statistics, gaining information about network intrusions, debugging client-server communications, and more.
 
 Resources that are deployed in Azure run 24/7. You or your staff cannot actively monitor the status of all resources 24/7. For example, what happens if an issue occurs at 2 AM?
 
