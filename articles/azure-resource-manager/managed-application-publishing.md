@@ -106,7 +106,7 @@ The first step is to create the managed application package that contains the ma
   }
   ```
 
-* The third file needed in the package is the **createUiDefinition.json**. The Azure portal uses this file to generate the user interface for consumers creating the managed application. You define the parameters for the managed application, and how consumers can get the input for each parameter. You can use options like a drop down selector, text box, password box, and other input tools. To learn about creating a UI defintion file for a managed application, see [Getting started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* The third file needed in the package is the **createUiDefinition.json**. The Azure portal uses this file to generate the user interface for consumers creating the managed application. You define the parameters for the managed application, and how consumers can get the input for each parameter. You can use options like a drop-down selector, text box, password box, and other input tools. To learn about creating a UI definition file for a managed application, see [Getting started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
 
 Once all the needed files are ready, you upload the package to an accessible location from where it can be consumed.
 
@@ -205,4 +205,4 @@ The parameters used in the preceding example are:
 
 * For an introduction to managed applications, see [Azure Managed Application overview](managed-application-overview.md).
 * To understand the consumer experience, see [Consume an Azure Managed Application](managed-application-consumption.md).
-* To learn about creating a UI defintion file for a managed application, see [Getting started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* To learn about creating a UI definition file for a managed application, see [Getting started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
