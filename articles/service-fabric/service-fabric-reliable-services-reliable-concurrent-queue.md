@@ -17,7 +17,7 @@ ms.date: 5/1/2017
 ms.author: sangarg
 
 ---
-# Introduction to ReliableConcurrentQueue
+# Introduction to ReliableConcurrentQueue in Azure Service Fabric
 Reliable Concurrent Queue is an asynchronous queue which is transactional and replicated. The queue allows concurrent enqueues and dequeues to process the queue. The data structure is aimed to deliver high throughput by relaxing the strict FIFO constraint and offers a best-effort ordering for the items.
 
 ## Apis offered
@@ -44,7 +44,6 @@ A good use case for the ReliableConcurrentQueue would be a [Messaging Queue](htt
 * *TryPeekAsync* behavior can be implemented by using a *TryDequeueAsync* and then aborting the transaction. A code snippet for the same can be found in the Programming Patterns section.
 * Count is non-transactional. It should be used to get an idea of the number of elements in the queue. It does not guarantee the queue count.
 * Expensive processing on the dequeued items must be delayed for later to avoid long running transactions.
-* Currently we do not guarantee any ordering but would be providing Enqueue ordering within a transaction. Users must not reply their business logic on the order of items in the queue.
 
 ## Code Snippets
 Let us look at a few code snippets and the expected outputs for the same. Exception handling is ignored in this section.
@@ -93,7 +92,7 @@ using (var txn = this.StateManager.CreateTransaction())
 }
 ```
 
-Assume that there are no other parallel tasks processing the queue, and that Task 1 and Task 2 are running in parallel. No inference can be made about the order of items in the queue. For this code snippet, the items may appear in any of the 4! order currently.
+Assume that there are no other parallel tasks processing the queue, and that Task 1 and Task 2 are running in parallel. No inference can be made about the order of items in the queue. For this code snippet, the items may appear in any of the 4! order.
 
 
 ### - DequeueAsync
@@ -153,7 +152,7 @@ Assume that there are no other parallel tasks processing the queue, and that Tas
 
 > 30, 40
 
-The same element would *not* appear in both the lists. Hence, if the first list has 10, 30, the second list would have 20, 40.
+The same element would *not* appear in both the lists. Hence, if dequeue1 has 10, 30, then dequeue2 would have 20, 40.
 
 - *Case 3: Dequeue ordering with Transaction abort*
 
@@ -183,7 +182,7 @@ The same is true for all case where the transaction was not successfully *Commit
 In this section, let us look at a few programming patterns that might be helpful in using the ReliableConcurrentQueue.
 
 ### Batch Dequeues
-A recommended programming pattern is for the consumer task to batch its deueues instead of doing one dequeue at a time. The user can choose to throttle between every batch. The following code snippet shows this programming model.
+A recommended programming pattern is for the consumer task to batch its deueues instead of doing one dequeue at a time. The user can choose to throttle delays between every batch or the batch size. The following code snippet shows this programming model.
 
 ```
 int batchSize = 5;
@@ -288,7 +287,6 @@ ConditionalValue ret;
 do
 {
     List<int> processItems = new List<int>();
-    numItemsDequeued = 0;
 
     using (var txn = this.StateManager.CreateTransaction())
     {
@@ -300,9 +298,8 @@ do
             {
                 // Buffer the dequeues
                 processItems.Add(ret.Value);
-                ++numItemsDequeued;
             }
-        } while (ret.HasValue && numItemsDequeued < batchSize);
+        } while (ret.HasValue && processItems.Count < batchSize);
 
         await txn.CommitAsync().ConfigureAwait(false);
     }
@@ -319,11 +316,10 @@ do
 ReliableConcurrentQueue does not support the *TryPeekAsync* api. The users can get the same behavior by using a *TryDequeueAsync* and then aborting the transaction. Let us look at a code snippet for the same. In this example, we would process dequeues only if the item's value is greater than 10;
 
 ```
-bool valueProcessed = false;
-
 using (var txn = this.StateManager.CreateTransaction())
 {
-    ret = await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false);
+    ConditionalValue ret = await this.Queue.TryDequeueAsync(txn, cancellationToken).ConfigureAwait(false);
+    bool valueProcessed = false;
 
     if (ret.HasValue)
     {
