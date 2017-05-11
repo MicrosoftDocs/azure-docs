@@ -1,25 +1,24 @@
 ---
 title: Use a Windows PC with Hadoop on HDInsight - Azure | Microsoft Docs 
-description: Learn how to use HDInsight from a Windows PC. Use PowerShell and Visual Studio to run applications on Hadoop. Learn how to develop big data solutions for HDInsight using .NET.
+description: Work in HDInsight from a Windows PC. Run applications on Hadoop with PowerShell and Visual Studio. Develop big data solutions with .NET.
+keywords: 
 services: hdinsight 
 keywords: hadoop on windows, hadoop for windows 
 author: cjgronlund
+manager: jhubbard
 
 ms.author: cgronlun
 ms.date: 05/12/2017
 ms.topic: article
 ms.service: hdinsight
-manager: jhubbard
+ms.custom: hdiseo17may2017
 ---
 
 # Work in Hadoop on HDInsight from a Windows PC
 
-Learn about tools available for a Windows PC for the Hadoop ecosystem on HDInsight. 
+Learn about tools available for a Windows PC for working in and devethe Hadoop ecosystem on HDInsight. 
 
 HDInsight is based on Apache Hadoop and Hadoop components, open-source technologies developed on Linux. HDInsight version 3.4 and higher uses the Ubuntu Linux distribution as the underlying OS for the cluster. However, you can work with HDInsight from a Windows client or Windows development environment.
-
-Use PowerShell and Visual Studio to run applications on Hadoop. Learn how to develop big data solutions for HDInsight using .NET.
-
 
 ## Use PowerShell on Windows
 Azure PowerShell is a scripting environment that you can use to control and automate deployment and management tasks in HDInsight from Windows.
