@@ -50,7 +50,8 @@ Let's create HTML content with your product's brand name in the title.
    </html>
    ```
 
-   >[!NOTE] For security reasons, the use of JavaScript is currently blocked for customization.
+   >[!NOTE]
+   >For security reasons, the use of JavaScript is currently blocked for customization.
 
 1. Paste in a text editor and save the file as `customize-ui.html`
 
