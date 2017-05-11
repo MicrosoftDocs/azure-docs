@@ -533,8 +533,7 @@ cdb1_stby=
 Start sqlplus
 
 ```bash
-
-sqlplus sys/OraPasswd1@cdb1
+$ sqlplus sys/OraPasswd1@cdb1
 SQL*Plus: Release 12.2.0.1.0 Production on Wed May 10 14:18:31 2017
 
 Copyright (c) 1982, 2016, Oracle.  All rights reserved.
@@ -578,7 +577,7 @@ Start sqlplus
 
 ```bash
 
-sqlplus sys/OraPasswd1@cdb1_stby
+$ sqlplus sys/OraPasswd1@cdb1_stby
 SQL*Plus: Release 12.2.0.1.0 Production on Wed May 10 14:18:31 2017
 
 Copyright (c) 1982, 2016, Oracle.  All rights reserved.
@@ -620,7 +619,7 @@ Start sqlplus
 
 ```bash
 
-sqlplus sys/OraPasswd1@cdb1
+$ sqlplus sys/OraPasswd1@cdb1
 SQL*Plus: Release 12.2.0.1.0 Production on Wed May 10 14:18:31 2017
 
 Copyright (c) 1982, 2016, Oracle.  All rights reserved.
