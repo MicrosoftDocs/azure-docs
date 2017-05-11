@@ -7,7 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create DB - Portam
+  - name: Create DB - Portal
     href: quickstart-create-mysql-server-database-using-azure-portal.md
   - name: Create DB - Azure CLI
     href: quickstart-create-mysql-server-database-using-azure-cli.md
@@ -86,6 +86,9 @@
     - name: Configure SSL
       href: howto-configure-ssl.md
 - name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/mysql
 - name: Resources
   items:
   - name: Pricing
@@ -93,7 +96,7 @@
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/home?forum=AzureDatabaseforMySQL
   - name: Stack Overflow
-    href: https://stackoverflow.com/tags/Azure-Database-for-MySQL
+    href: http://stackoverflow.com/questions/tagged/azure-database-mysql
   - name: Request a feature
     href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
   - name: Region availability
