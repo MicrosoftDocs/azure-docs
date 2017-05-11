@@ -135,6 +135,7 @@ Open ports 80 (http) and 443 (https) for incoming traffic from these addresses:
 52.187.179.17
 52.187.76.248
 52.187.43.24
+
 52.163.57.91
 52.187.30.120
 65.54.66.56
@@ -199,3 +200,12 @@ Open ports 80 (http) and 443 (https) for incoming traffic from these addresses:
 | --- | --- | --- | --- |
 | Agent | agent.azureserviceprofiler.net | dynamic | 443
 | Portal | gateway.azureserviceprofiler.net | dynamic | 443
+| Storage | core.windows.net | dynamic | 443
+
+## Snapshot Debugger
+
+| Purpose | URI | IP | Ports |
+| --- | --- | --- | --- |
+| Agent | ppe.azureserviceprofiler.net | dynamic | 443
+| Portal | ppe.gateway.azureserviceprofiler.net | dynamic | 443
+| Storage | core.windows.net | dyanmic | 443
