@@ -76,9 +76,6 @@ The following JSON shows the schema for the Custom Script Extension. The extensi
 
 ### Property values
 
-**Note** - these property names are case sensitive. Use the names as seen below to avoid deployment issues.
-  
-
 | Name | Value / Example |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
@@ -89,6 +86,8 @@ The following JSON shows the schema for the Custom Script Extension. The extensi
 | commandToExecute (e.g) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 |
 | storageAccountName (e.g) | examplestorageacct |
 | storageAccountKey (e.g) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== |
+
+**Note** - these property names are case sensitive. Use the names as seen above to avoid deployment issues.
 
 ## Template deployment
 
