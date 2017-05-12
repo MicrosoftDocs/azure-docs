@@ -25,9 +25,9 @@ how to monitor a job and its tasks. Finally, it shows how to query the Batch ser
 ## Prerequisites
 
 - Install the Azure CLI using the instructions provided in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), if you have not already done so.
-- Create a Batch account if you don't already have one. See [Create a Batch account with the Azure CLI](./batch-cli-sample-create-account.md) for a sample script that creates an account.
-- Configure an application to run from a start task if you haven't yet done so. See [Adding applications to Azure Batch with Azure CLI](./batch-cli-sample-add-application.md) for a sample script that creates an application and uploads an application package to Azure.
-- Configure a pool on which the job will run. See [Managing Azure Batch pools with Azure CLI](./batch-cli-sample-manage-pool.md) for a sample script that creates a pool with either a Cloud Service Configuration or a Virtual Machine Configuration.
+- Create a Batch account if you don't already have one. See [Create a Batch account with the Azure CLI](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-create-account) for a sample script that creates an account.
+- Configure an application to run from a start task if you haven't yet done so. See [Adding applications to Azure Batch with Azure CLI](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-add-application) for a sample script that creates an application and uploads an application package to Azure.
+- Configure a pool on which the job will run. See [Managing Azure Batch pools with Azure CLI](https://docs.microsoft.com/azure/batch/batch-cli-sample-manage-pool) for a sample script that creates a pool with either a Cloud Service Configuration or a Virtual Machine Configuration.
 
 ## Sample script
 

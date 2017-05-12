@@ -26,7 +26,7 @@ into a .zip file. In this example the executable zip file is called 'my-applicat
 ## Prerequisites
 
 - Install the Azure CLI using the instructions provided in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), if you have not already done so.
-- Create a Batch account if you don't already have one. See [Create a Batch account with the Azure CLI](./batch-cli-sample-create-account.md) for a sample script that creates an account.
+- Create a Batch account if you don't already have one. See [Create a Batch account with the Azure CLI](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-create-account) for a sample script that creates an account.
 
 ## Sample script
 
