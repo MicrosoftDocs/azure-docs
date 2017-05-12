@@ -51,7 +51,7 @@ az lab vm list --lab-name sampleLabName  --resource-group sampleResourceGroup
     "computeId": "/subscriptions/..../resourceGroups/lisalab123669080926004/providers/Microsoft.Compute/virtualMachines/lisalabvm",
     "computeVm": null,
     "createdByUser": "liwong@microsoft.com",
-    "createdByUserId": "10033FFF9FE3E98C",
+    "createdByUserId": "123456",
     "createdDate": "2017-05-12T18:13:10.112089+00:00",
     "customImageId": null,
     "disallowPublicIpAddress": true,
@@ -84,7 +84,7 @@ az lab vm list --lab-name sampleLabName  --resource-group sampleResourceGroup
     },
     "notes": null,
     "osType": "Linux",
-    "ownerObjectId": "83dbd007-23a2-4afe",
+    "ownerObjectId": "83dbd007-3333-4444",
     "password": null,
     "provisioningState": "Succeeded",
     "size": "Standard_DS1_v2",
@@ -92,7 +92,7 @@ az lab vm list --lab-name sampleLabName  --resource-group sampleResourceGroup
     "storageType": "Premium",
     "tags": null,
     "type": "Microsoft.DevTestLab/labs/virtualMachines",
-    "uniqueIdentifier": "7e7b402e-8626-484c-8eb8",
+    "uniqueIdentifier": "7e7b402e-3333-4444-5555",
     "userName": "liwong",
     "virtualMachineCreationSource": "FromGalleryImage"
   }
@@ -109,7 +109,7 @@ Connect to a VM: SSH or [Remote Desktop](https://docs.microsoft.com/en-us/azure/
 ```bash
 ssh userName@ipAddress -p portNumber
 ```
-** NOTE: port number is found in the *Essentials* section of the VM
+** NOTE: port number is found in the **Essentials** section of the VM
 
 ## Update the virtual machine
 Apply artifacts to a VM
