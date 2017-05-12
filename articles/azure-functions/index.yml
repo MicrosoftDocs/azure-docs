@@ -28,7 +28,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to create functions that react to real-world events using:'
+    text: 'Learn how to create functions as a response to events created via:'
   - type: list
     style: icon48
     items: 
