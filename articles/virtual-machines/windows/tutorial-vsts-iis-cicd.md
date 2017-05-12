@@ -177,7 +177,7 @@ To publish your builds, you create a release definition in Team Services. This d
 
 
 ## Create a release and publish
-You can now push your web deploy package as a new release. This step reaches out to the agent on each instance that is part of the deployment group, pushes the web deploy package, then configures IIS to run the updated web application.
+You can now push your web deploy package as a new release. This step communicates with the agent on each instance that is part of the deployment group, pushes the web deploy package, then configures IIS to run the updated web application.
 
 1. In your release definition, select **+ Release**, then choose **Create Release**.
 2. Verify that the latest build is selected in the drop-down list, along with **Automated deployment: After release creation**. Select **Create**.
