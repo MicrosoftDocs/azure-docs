@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/10/2017
+ms.date: 05/12/2017
 ms.author: pareshmu
 
 ---
@@ -63,7 +63,7 @@ The following table shows locations by service provider. If you want to view ava
 
 
 ### Production Azure
-| **Service provider** | **Microsoft Azure** | **Office 365 and CRM Online** | **Locations** |
+| **Service provider** | **Microsoft Azure** | **Office 365 and Dynamics 365** | **Locations** |
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/cloud-services-applications/azure-expressroute/)** |Supported |Supported |Melbourne, Sydney |
 | **Airtel** | Coming Soon | Coming Soon | Chennai, Mumbai |
