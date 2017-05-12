@@ -48,7 +48,8 @@ First, create a resource group with [New-​Azure​Rm​Resource​Group](/powe
 
 ```powershell
 New-AzureRmResourceGroup -Name "myResourceGroup" -Location "EastUS"
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -TemplateUri "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/{template-name}/azuredeploy.json"
+New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" `
+     -TemplateUri "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/{template-name}/azuredeploy.json"
 ```
 
 When you run the [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) command, you may be prompted to enter values for the parameters in the template. Depending on the template, it can take some time for Azure to deploy the resources.
