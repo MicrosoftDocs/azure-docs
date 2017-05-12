@@ -14,7 +14,7 @@ ms.author: v-ducvo
 
 # Get Started with Speech Recognition using REST API
 
-With Bing Speech API you can develop applications using REST API to convert spoken audio to text. This article will help you get started in using Speech API via REST end point. 
+With Bing Speech API you can develop applications using REST API to convert spoken audio to text. This article will help you to do speech recognition via REST end point. 
 
 ## Prerequisites
 
@@ -38,7 +38,8 @@ To use Speech API REST end point, the process is as follows:
 The sections following will provide more details.
 
 ## Authentication
-To access the REST endpoint, you need a valid OAuth token. To get this token, you must have a subscription key from the Speech API. When you request for a token, the token service will send the access token back as a JSON Web Token (JWT). The JWT access token is passed through in the Speech request header. The token has an expiry of 10 minutes. It is advised that your code renew this token every 9 minutes.
+To access the REST endpoint, you need a valid OAuth token. To get this token, you must have a subscription key from the Speech API. When you request for a token, the token service will send the access token back as a JSON Web Token (JWT). The JWT access token is passed through in the Speech request header. The token has an expiry of 10 minutes. The recommendation is to look into the JWT token and check
+the expiry time instead of hard-coding it to 10 minutes using the Expiration JwtSecurityToken property.
 
 The token service URI is located here:
 
@@ -124,7 +125,7 @@ The code below is an example implementation in C# for how to handle authenticati
     }
 ```
 
-The `FetchToken` method sends the request and the athentication payload is as follows:
+The `FetchToken` method sends the request and the authentication payload is as follows:
 
 ```
 POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken HTTP/1.1
@@ -151,7 +152,7 @@ You specify the *recognition mode* as part of the URL path for the Microsoft Spe
 
 
 ## Request headers
-To sent the request to the REST end point, create a **HttpWebRequest** object and set the request headers. For example, set `Method="POST"`, set `Host=@"speech.platform.bing.com"`, and set the access token as follows `Headers["Authorization"] = "Bearer " + token;`. The code snippet below shows a sample of a request header.
+To send the request to the REST end point, create a **HttpWebRequest** object and set the request headers. For example, set `Method="POST"`, set `Host=@"speech.platform.bing.com"`, and set the access token as follows `Headers["Authorization"] = "Bearer " + token;`. The code snippet below shows a sample of a request header.
 
 ```cs
 HttpWebRequest request = null;
