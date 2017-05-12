@@ -330,6 +330,10 @@ Currently, output dataset is what drives the schedule. In this tutorial, output 
 
 **Congratulations!** You have successfully created an Azure data factory with a pipeline to copy data from an Azure blob storage to an Azure SQL database. 
 
+
+## Monitor pipeline
+In this step, you use the Azure portal to monitor what’s going on in an Azure data factory.   
+
 ### Monitor pipeline using Monitor & Manage App
 You can use Monitor & Manage application to monitor your pipelines. 
 
@@ -354,10 +358,6 @@ You can use Monitor & Manage application to monitor your pipelines.
     ![sql query results](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png)
 
 For detailed information about using this application, see [Monitor and manage Azure Data Factory pipelines using Monitoring and Management App](data-factory-monitor-manage-app.md).
-
-
-## Monitor pipeline
-In this step, you use the Azure portal to monitor what’s going on in an Azure data factory. 
 
 ### Monitor pipeline using Diagram View
 You can also monitor data pipelines by using the diagram view.  
