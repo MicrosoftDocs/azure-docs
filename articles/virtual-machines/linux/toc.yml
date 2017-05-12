@@ -31,6 +31,14 @@
     href: tutorial-load-balancer.md
   - name: 8 - Manage networking
     href: tutorial-virtual-network.md
+  - name: 9 - Backup virtual machines
+    href: tutorial-backup-vms.md
+  - name: 10 - Monitor virtual machines
+    href: tutorial-monitoring.md
+  - name: 11 - Manage VM security
+    href: tutorial-azure-security.md
+  - name: 12 - Jenkins CI/CD
+    href: tutorial-jenkins-github-docker-cicd.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -375,9 +383,9 @@
   - name: Java
     href: /java/api
   - name: Node.js
-    href: https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
   - name: Python
-    href: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html
+    href: https://azure.microsoft.com/develop/python/
   - name: REST
     href: /rest/api/compute
 - name: Resources

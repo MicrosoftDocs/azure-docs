@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 05/08/2017
 ms.author: tomfitz
 
 ---
@@ -86,7 +86,7 @@ An integer that contains the sum of the parameters.
 <a id="copyindex" />
 
 ## copyIndex
-`copyIndex(offset)`
+`copyIndex(loopName, offset)`
 
 Returns the index of an iteration loop. 
 
@@ -94,11 +94,16 @@ Returns the index of an iteration loop.
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
+| loopName | No | string | The name of the loop for getting the iteration. |
 | offset |No |int |The number to add to the zero-based iteration value. |
 
 ### Remarks
 
-This function is always used with a **copy** object. If no value is provided for **offset**, the current iteration value is returned. The iteration value starts at zero. For a complete description of how you use **copyIndex**, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+This function is always used with a **copy** object. If no value is provided for **offset**, the current iteration value is returned. The iteration value starts at zero.
+
+The **loopName** property enables you to specify whether copyIndex is referring to a resource iteration or property iteration. If no value is provided for **loopName**, the current resource type iteration is used. Provide a value for **loopName** when iterating on a property. 
+ 
+For a complete description of how you use **copyIndex**, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 
 ### Examples
 

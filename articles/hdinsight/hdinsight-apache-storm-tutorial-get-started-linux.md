@@ -34,10 +34,6 @@ Apache Storm is a scalable, fault-tolerant, distributed, real-time computation s
 
 * **Familiarity with SSH and SCP**. For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-### Access control requirements
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
-
 ## Create a Storm cluster
 
 Use the following steps to create a Storm on HDInsight cluster:
@@ -187,6 +183,8 @@ Return to the **Topology summary** page for the word-count topology, and then se
 ## Delete the cluster
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+If you run into an issue with creating HDInsight cluster, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a id="next"></a>Next steps
 
