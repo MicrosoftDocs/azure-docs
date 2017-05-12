@@ -23,7 +23,7 @@ ms.custom:
 
 In this tutorial, you learn how to create a basic Azure Virtual Network (VNet) with separate public and private subnets. You can connect Azure resources such as Virtual Machines (VM), App Service Environments, Virtual Machine Scale Sets, HDInsight, and Cloud Services to subnets. Resources connected to VNets are able to communicate with each other over the private Azure network.
 
-The sections that follow include steps for deploying a VNet using the Azure [portal](#portal), Azure [command-line interface](#cli) (CLI), Azure [PowerShell](#powershell), and Azure Resource Manager [template](#template). The result is the same, regardless of which tool you choose to deploy the VNet with. Clicking the link for any tool takes you directly to that section of the article. To learn more about all VNet settings, to create custom VNets, or change settings for existing VNets, read the [Create, change, or delete VNets](virtual-network-manage-network.md) and [Create, change, or delete subnets](virtual-network-manage-subnet.md) articles.
+The sections that follow include steps for deploying a VNet using the Azure [portal](#portal), Azure [command-line interface](#cli) (CLI), Azure [PowerShell](#powershell), and Azure Resource Manager [template](#template). The result is the same, regardless of which tool you choose to deploy the VNet with. Clicking the link for any tool takes you directly to that section of the article. To learn more about all VNet and subnet settings, read the [Manage VNets](virtual-network-manage-network.md) and [Manage subnets](virtual-network-manage-subnet.md) articles.
 
 ## <a name="portal"></a>Azure portal
 
@@ -47,14 +47,13 @@ The sections that follow include steps for deploying a VNet using the Azure [por
 8. In the **MyVnet - Subnets** blade, click **+Subnet**.
 9. Enter *Private* for **Name**, *10.0.1.0/24* for **Address range** in the **Add subnet** blade, then click **OK**.
 10. Review the subnets in the **MyVnet - Subnets** blade. You see the **Public** and **Private** subnets you created.
-11. Before using a VNet for production purposes, we recommend that you apply a network security group (NSG) to each subnet to filter the network traffic that can flow in or out of each subnet. To learn more about NSGs and how to create them, read the [NSG overview](virtual-networks-nsg.md) and [Create an NSG](virtual-networks-create-nsg-arm-pportal.md) articles.
-12. **Optional:** To delete the resources created in this tutorial, complete the steps in the [Delete resources](#delete-portal) section of this article.
+11. **Optional:** To delete the resources created in this tutorial, complete the steps in the [Delete resources](#delete-portal) section of this article.
 
 ## CLI
 Though CLI commands are the same whether you execute the commands from Windows, Linux, or macOS, there are scripting differences across operating system shells. The following instructions are for executing a Bash script that contains CLI commands.
 
-1.  From an Internet browser, open the Azure [portal](https://portal.azure.com) and sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
-2. At the top of the portal, to the right of the *Search resources* bar, click the **>_** icon to start a Bash Azure Cloud Shell (Preview). The cloud shell pane appears at the bottom of the portal and, after a few seconds, presents a **username@Azure:~$** prompt. The cloud shell automatically logs you into Azure using the credentials you authenticated to the portal with.
+1. From an Internet browser, open the Azure [portal](https://portal.azure.com) and sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
+2. At the top of the portal, to the right of the *Search resources* bar, click the **>_** icon to start a Bash Azure Cloud Shell (Preview). The cloud shell pane appears at the bottom of the portal and, after a few seconds, presents a **username@Azure:~$** prompt. The cloud shell automatically logs you in to Azure using the credentials you authenticated to the portal with.
 3. In your browser, copy the following script:
     ```azurecli
     #!/bin/bash
@@ -77,7 +76,7 @@ Though CLI commands are the same whether you execute the commands from Windows, 
       --vnet-name MyVnet \
       --resource-group MyResourceGroup
     ```
-4. Create a file and save the script to the temporary cloud shell storage. Cloud shell storage does not persist across sessions. If you prefer to persist the script across cloud shell sessions, complete the steps in the [Persisting files in Azure Cloud Shell](../cloud-shell/persisting-shell-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article to configure persistent storage for cloud shell (one-time setup). 
+4. Create a file and save the script to the temporary cloud shell storage. Cloud shell storage does not persist across sessions. If you prefer to persist the script across cloud shell sessions, setup [persistent storage](../cloud-shell/persisting-shell-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for cloud shell. 
 
 From the cloud shell prompt, type `nano myscript.sh --nonewlines`. The command starts the GNU nano editor with an empty myscript.sh file. Place your mouse inside the editor window, right-click, then click **Paste**.
 5. On your keyboard, hold down the **Ctrl+X** keys, then enter **Y**, then press the **Enter** key to save the file as myscript.sh.
@@ -87,8 +86,7 @@ From the cloud shell prompt, type `nano myscript.sh --nonewlines`. The command s
     ```azurecli
     az network vnet subnet list --resource-group MyResourceGroup --vnet-name MyVnet --output table
     ```
-9. Before using a VNet for production purposes, we recommend that you apply a network security group (NSG) to each subnet to filter the network traffic that can flow in or out of each subnet. To learn more about NSGs and how to create them, read the [NSG overview](virtual-networks-nsg.md) and [Create an NSG](virtual-networks-create-nsg-arm-cli.md) articles.
-10. **Optional:** To delete the resources created in this tutorial, complete the steps in the [Delete resources](#delete-cli) section of this article.
+9. **Optional:** To delete the resources created in this tutorial, complete the steps in the [Delete resources](#delete-cli) section of this article.
 
 ## PowerShell
 1. Install the latest version of the Azure PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, read the [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) article.
@@ -123,14 +121,12 @@ From the cloud shell prompt, type `nano myscript.sh --nonewlines`. The command s
     ```powershell
     $Vnet = $Vnet.subnets | Format-Table Name, AddressPrefix
     ```
-7. Before using a VNet for production purposes, we recommend that you apply a network security group (NSG) to each subnet to filter the network traffic that can flow in or out of each subnet. To learn more about NSGs and how to create them, read the [NSG overview](virtual-networks-nsg.md) and [Create an NSG](virtual-networks-create-nsg-arm-ps.md) articles.
-8. **Optional:** To delete the resources created in this tutorial, complete the steps in the [Delete resources](#delete-powershell) section of this article.
+7. **Optional:** To delete the resources created in this tutorial, complete the steps in the [Delete resources](#delete-powershell) section of this article.
 
 ## Template
 
 You can deploy a VNet with an Azure Resource Manager template. To learn more about templates, read the [What is Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#template-deployment) article. To access the template and learn about its parameters, view the [Create a VNet with two subnets template](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) web page. You can deploy the template using the portal, CLI, or PowerShell.
 
-Before using a VNet for production purposes, we recommend that you apply a network security group (NSG) to each subnet to filter the network traffic that can flow in or out of each subnet. To learn more about NSGs and how to create them, read the [NSG overview](virtual-networks-nsg.md) and [Create an NSG](virtual-networks-create-nsg-arm-ps.md) articles.
 **Optional:** To delete the resources created in this tutorial, complete the steps in any subsections of the [Delete resources](#delete) section of this article.
 
 ### Portal
@@ -154,13 +150,14 @@ Before using a VNet for production purposes, we recommend that you apply a netwo
 
 ### CLI
 
-1. Install the Azure CLI and pre-requisites, and sign in with your Azure account, or sign in to the Azure portal and open a cloud shell by following the instructions in the [CLI](#CLI) section of this article. If you don't already have an account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
-2. Create a resource group for the VNet by entering the following command:
+1. From an Internet browser, open the Azure [portal](https://portal.azure.com) and sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
+2. At the top of the portal, to the right of the *Search resources* bar, click the **>_** icon to start a Bash Azure Cloud Shell (Preview). The cloud shell pane appears at the bottom of the portal and, after a few seconds, presents a **username@Azure:~$** prompt. The cloud shell automatically logs you in to Azure using the credentials you authenticated to the portal with.
+3. Create a resource group for the VNet by entering the following command:
     `az group create --name MyResourceGroup --location eastus`
-3. You can deploy the template with:
+4. You can deploy the template with:
     - **Default parameter values:** To do so, enter the following command: 
         `az group deployment create --resource-group MyResourceGroup --name VnetTutorial --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json`.
-    - **Custom parameter values:** To do so, you can download and modify the template before deploying it, deploy the template with parameters from the command line, or deploy the template using a separate parameters file. You can download the template and parameter files by clicking the **Browse on GitHub** button on the [Create a VNet with two subnets template](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) web page. In GitHub, click the **azuredeploy.parameters.json**  or **azuredeploy.json** file, then click the **Raw** button for the file. In your browser, copy the contents and save it to a file on your computer. Modify the parameter values in the template, or deploy the template with the separate parameter file.  
+    - **Custom parameter values:** Download and modify the template before deploying it, deploy the template with parameters from the command line, or deploy the template using a separate parameters file. You can download the template and parameter files by clicking the **Browse on GitHub** button on the [Create a VNet with two subnets template](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) web page. In GitHub, click the **azuredeploy.parameters.json**  or **azuredeploy.json** file, then click the **Raw** button for the file. In your browser, copy the contents and save it to a file on your computer. Modify the parameter values in the template, or deploy the template with the separate parameter file.  
 
     To learn more about how to deploy templates using these methods, type `az group deployment create --help`.
 
@@ -197,7 +194,7 @@ From the PowerShell prompt, enter the following command: `Remove-AzureRmResource
 
 ## Next steps
 
-- To understand all VNet and subnet settings, read the [Manage VNet](virtual-network-manage-network#view-vnet.md) and [Manage subnet](virtual-network-manage-subnet.md#create-subnet) articles. A variety of options exist that enable you to create production VNets and subnets to meet varying requirements.
+- To understand all VNet and subnet settings, read the [Manage VNet](virtual-network-manage-network.md#view-vnet) and [Manage subnet](virtual-network-manage-subnet.md#create-subnet) articles. Various options exist that enable you to create production VNets and subnets to meet different requirements.
 - Filter inbound and outbound subnet traffic by creating and applying [network security groups](virtual-networks-nsg.md) (NSGs) to subnets.
 - Create a [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM and connect it to the VNet.
 - Connect the VNet to another VNet in the same location with [VNet peering](virtual-network-peering-overview.md).
