@@ -88,8 +88,6 @@ The top section of the file shows the services that you used during the previous
 
 | Term | Description |
 | --- | --- |
-
-
 |Billing Period |The billing period when the resource or service was used. |
 |Meter Category |Identifies the top-level service for which this usage belongs. |
 |Meter Sub-Category |Defines the type of Azure service and can affect the rate. |
