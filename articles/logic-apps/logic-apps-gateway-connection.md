@@ -172,15 +172,19 @@ you might want to later update the settings for that specific connection.
 
    * On the logic app blade, under **Development Tools**, select **API Connections**. 
    
-     The **API Connections** pane shows all the gateway connections 
-     associated with your logic app.
+     The **API Connections** pane shows all API connections 
+     associated with your logic app, including gateway connections.
 
      ![Go to your logic app, select "API Connections"](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
 
    * Or, from the main Azure left menu, go to 
-    **More Services** > **Web & Mobile Services** > **API Connections**. 
+    **More Services** > **Web & Mobile Services** > **API Connections** 
+    for all API connections, including gateway connections, 
+    that are associated with your Azure subscription. 
 
-   * Or, on the main Azure left menu, go to **All resources**.
+   * Or, on the main Azure left menu, go to **All resources** 
+   for all API connections, including gateway connections, 
+   that are associated with your Azure subscription.
 
 2. Select the gateway connection that you want to view or edit, 
 and choose **Edit API connection**.
