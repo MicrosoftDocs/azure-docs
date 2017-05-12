@@ -294,6 +294,7 @@ We recommend that you verify the VM properties, and make any changes you need to
      - For example, if a source machine has two network adapters and the target machine size supports four, the target machine will have two adapters. If the source machine has two adapters but the supported target size only supports one then the target machine will have only one adapter.     
    - If the virtual machine has multiple network adapters they will all connect to the same network.
    - If the virtual machine has multiple network adapters then the first one shown in the list becomes the *Default* network adapter in the Azure virtual machine.
+4. In **Disks**, you can see the VM operating system, and the data disks that will be replicated.
 
 #### Managed disks
 
@@ -307,10 +308,10 @@ In **Compute and Network** > **Compute properties**, you can set "Use managed di
   > If the storage account used for replication was encrypted with Storage Service Encryption at any 
   > point in time, creation of managed disks during failover will fail. You can either set "Use 
   > managed disks" to "No" and retry failover or disable protection for the virtual machine and
-  > protect it to a storage account which did not have Storage service encryption enabled at any point > in time. 
+  > protect it to a storage account which did not have Storage service encryption enabled at any point
+  > in time. 
   > [Learn more about Storage service encryption and managed disks](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption)
 
-6. In **Disks**, you can see the VM operating system, and the data disks that will be replicated.
    
 ## Run a test failover
 
@@ -333,8 +334,7 @@ After you've set everything up, run a test failover to make sure everything's wo
 
 1. If you [prepared for connections after failover](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover), you should be able to connect to the Azure VM.
 
-1. Once you're done, click on **Cleanup test failover** on the recovery plan. In **
-2. s**, record and save any observations associated with the test failover. This will delete the VMs that were created during test failover.
+1. Once you're done, click on **Cleanup test failover** on the recovery plan. In **Notes**, record and save any observations associated with the test failover. This will delete the VMs that were created during test failover.
 
 [Learn more](site-recovery-test-failover-to-azure.md) about test failovers.
 
@@ -343,8 +343,7 @@ After you've set everything up, run a test failover to make sure everything's wo
 
 Site Recovery needs access to VMware for the process server to automatically discover VMs, and for failover and failback of VMs.
 
-- **Migrate**: If you only want to migrate VMware VMs to Azure, without ever failing them back, you can use a VMware account with a re
-- ad-only role. Such a role can run failover, but can't shut down protected source machines. This isn't necessary for migration.
+- **Migrate**: If you only want to migrate VMware VMs to Azure, without ever failing them back, you can use a VMware account with a read-only role. Such a role can run failover, but can't shut down protected source machines. This isn't necessary for migration.
 - **Replicate/Recover**: If you want to deploy full replication (replicate, failover, failback) the account must be able to run operations such as creating and removing disks, powering on VMs etc.
 - **Automatic discovery**: At least a read-only account is required.
 

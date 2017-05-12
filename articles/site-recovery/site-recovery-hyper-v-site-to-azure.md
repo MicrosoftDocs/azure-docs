@@ -295,9 +295,11 @@ We recommend that you verify the properties of the source machine.
 
      ![Enable replication](./media/site-recovery-hyper-v-site-to-azure/test-failover4.png)
 
+4. In **Disks**, you can see the operating system and data disks on the VM that will be replicated.
+
 #### Managed disks
 
-In **Compute and Network** > **Compute properties**, you can set "Use managed disks" setting to "Yes" for the VM if you want to attach managed disks to your machine on migration to Azure. Managed disks simplifies disk management for Azure IaaS VMs by managing the storage accounts associated with the VM disks. [Learn More about managed disks.](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview). 
+In **Compute and Network** > **Compute properties**, you can set "Use managed disks" setting to "Yes" for the VM if you want to attach managed disks to your machine on migration to Azure. Managed disks simplifies disk management for Azure IaaS VMs by managing the storage accounts associated with the VM disks. [Learn More about managed disks](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview). 
 
    - Managed disks are created and attached to the virtual machine only on a failover to Azure. On enabling protection, data from on-premises machines will continue to replicate to storage accounts.
    Managed disks can be created only for virtual machines deployed using the Resource manager deployment model. 
@@ -312,13 +314,9 @@ In **Compute and Network** > **Compute properties**, you can set "Use managed di
   > If the storage account used for replication was encrypted with Storage Service Encryption at any 
   > point in time, creation of managed disks during failover will fail. You can either set "Use 
   > managed disks" to "No" and retry failover or disable protection for the virtual machine and
-  > protect it to a storage account which did not have Storage service encryption enabled at any point > in time.
+  > protect it to a storage account which did not have Storage service encryption enabled at any point
+  > in time.
   > [Learn more about Storage service encryption and managed disks](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption)
-
-
-4. In **Disks**, you can see the operating system and data disks on the VM that will be replicated.
-
-
 
 
 ## Test the deployment
