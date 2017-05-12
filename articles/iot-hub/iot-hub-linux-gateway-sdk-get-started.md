@@ -27,15 +27,15 @@ ms.custom: H1Hack27Feb2017
 Before you get started, you must [set up your development environment][lnk-setupdevbox] for working with the SDK on Linux.
 
 1. Open a shell.
-1. Navigate to the root folder in your local copy of the **azure-iot-gateway-sdk** repository.
-1. Run the **tools/build.sh** script. This script uses the **cmake** utility to create a folder called **build** in the root folder of your local copy of the **azure-iot-gateway-sdk** repository and generate a makefile. The script then builds the solution, skipping unit tests and end to end tests. Add the **--run-unittests** parameter if you want to build and run the unit tests. Add the **--run-e2e-tests** if you want to build and run the end to end tests.
+1. Navigate to the root folder in your local copy of the **iot-edge** repository.
+1. Run the **tools/build.sh** script. This script uses the **cmake** utility to create a folder called **build** in the root folder of your local copy of the **iot-edge** repository and generate a makefile. The script then builds the solution, skipping unit tests and end to end tests. Add the **--run-unittests** parameter if you want to build and run the unit tests. Add the **--run-e2e-tests** if you want to build and run the end to end tests.
 
 > [!NOTE]
-> Every time you run the **build.sh** script, it deletes and then recreates the **build** folder in the root folder of your local copy of the **azure-iot-gateway-sdk** repository.
+> Every time you run the **build.sh** script, it deletes and then recreates the **build** folder in the root folder of your local copy of the **iot-edge** repository.
 
 ## How to run the sample
 
-1. The **build.sh** script generates its output in the **build** folder in your local copy of the **azure-iot-gateway-sdk** repository. This output includes the two modules used in this sample.
+1. The **build.sh** script generates its output in the **build** folder in your local copy of the **iot-edge** repository. This output includes the two modules used in this sample.
 
     The build script places **liblogger.so** in the **build/modules/logger/** folder and **libhello\_world.so** in the **build/modules/hello_world/** folder. Use these paths for the **module path** value as shown in the following example JSON settings file.
 1. The hello\_world\_sample process takes the path to a JSON configuration file a command-line argument. The following example JSON file is provided in the SDK repository at **samples/hello\_world/src/hello\_world\_lin.json**. This configuration file works as is unless you modify the build script to place modules or sample executables in non-default locations.
@@ -85,4 +85,4 @@ Before you get started, you must [set up your development environment][lnk-setup
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-code](../../includes/iot-hub-gateway-sdk-getstarted-code.md)]
 
 <!-- Links -->
-[lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
+[lnk-setupdevbox]: https://github.com/Azure/iot-edge/blob/master/doc/devbox_setup.md

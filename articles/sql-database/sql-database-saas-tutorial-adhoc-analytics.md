@@ -1,6 +1,6 @@
 ---
-title: Run ad-hoc analytics queries across all tenants (sample SaaS application using Azure SQL Database) | Microsoft Docs 
-description: "Run ad-hoc analytics queries across all tenants"
+title: Run ad-hoc analytics queries across multiple Azure SQL databases | Microsoft Docs 
+description: "Run ad-hoc analytics queries across multiple databases in a multi-tenant application"
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''
