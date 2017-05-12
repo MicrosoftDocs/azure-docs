@@ -20,7 +20,7 @@ ms.author: sashan
 
 ---
 # Store Azure SQL Database backups for up to 10 years
-Many applications have regulatory, compliance, or other business purposes that require you to retain automatic full database backups beyond the 7-35 days provided by SQL Database [automatic backups](sql-database-automated-backups.md). By using the Long-term backup retention feature, you can store your SQL database backups in an Azure Recovery Services vault for up to 10 years. You can store up to 1000 databases per vault. You can select any backup in the vault to restore it as a new database.
+Many applications have regulatory, compliance, or other business purposes that require you to retain automatic full database backups beyond the 7-35 days provided by SQL Database [automatic backups](sql-database-automated-backups.md). By using the long-term backup retention feature, you can store your SQL database backups in an Azure Recovery Services vault for up to 10 years. You can store up to 1000 databases per vault. You can select any backup in the vault to restore it as a new database.
 
 > [!IMPORTANT]
 > Long-term backup retention is currently in preview and available in the following regions: Australia East, Australia Southeast, Brazil South, Central US, East Asia, East US, East US 2, India Central, India South, Japan East, Japan West, North Central US, North Europe, South Central US, Southeast Asia, West Europe, and West US.
@@ -36,7 +36,7 @@ With long-term backup retention, you can associate a SQL database server with an
 
 * You must create the vault in the same Azure subscription that created the SQL server instance and in the same geographic region and resource group. 
 * You then configure a retention policy for any database. The policy causes the weekly full database backups to be copied to the Recovery Services vault and retained for the specified retention period (up to 10 years). 
-* You can then restore from any of these backups to a new database in any server in the subscription. Azure storage creates a copy from existing backups, and the copy has no performance impact on the existing database.
+* You can then restore the database from any of these backups to a new database in any server in the subscription. Azure storage creates a copy from existing backups, and the copy has no performance impact on the existing database.
 
 > [!TIP]
 > For a how-to guide, see [Configure and restore from Azure SQL Database long-term backup retention](sql-database-long-term-backup-retention-configure.md)
@@ -50,11 +50,13 @@ To configure long-term backup retention for a database:
 3. Create an Azure Recovery Services Protection Policy.
 4. Apply the protection policy to the databases that require long-term backup retention.
 
-* Using the Azure portal: To configure, manage, and restore from long-term backup retention of automated backups in an Azure Recovery Services vault by using the Azure portal, click **Long-term backup retention**, select a database, and then click **Configure**. 
+To configure, manage, and restore a database from long-term backup retention of automated backups in an Azure Recovery Services vault, do either of the following:
+
+* Using the Azure portal: Click **Long-term backup retention**, select a database, and then click **Configure**. 
 
    ![Select a database for long-term backup retention](./media/sql-database-get-started-backup-recovery/select-database-for-long-term-backup-retention.png)
 
-* Using PowerShell: To configure, manage, and restore from long-term backup retention of automated backups in an Azure Recovery Services vault by using PowerShell, see [Configure and restore from Azure SQL database long-term backup retention](sql-database-long-term-backup-retention-configure.md).
+* Using PowerShell: Go to [Configure and restore from Azure SQL database long-term backup retention](sql-database-long-term-backup-retention-configure.md).
 
 ## Restore a database that's stored with the long-term backup retention feature
 
@@ -66,9 +68,11 @@ To recover from a long-term backup retention backup:
 4. List the recovery points that are available to restore.
 5. Restore the database from the recovery point to the target server within your subscription.
 
-* Using the Azure portal: To configure, manage, and restore from long-term backup retention of automated backups in an Azure Recovery Services vault by using the Azure portal, see [Manage long-term backup retention using the Azure portal](sql-database-long-term-backup-retention-configure.md). 
+To configure, manage, and restore a database from long-term backup retention of automated backups in an Azure Recovery Services vault, do either of the following:
 
-* Using PowerShell: To configure, manage, and restore from long-term backup retention of automated backups in an Azure Recovery Services vault by using PowerShell, see [Manage long-term backup retention using PowerShell](sql-database-long-term-backup-retention-configure.md).
+* Using the Azure portal: Go to [Manage long-term backup retention using the Azure portal](sql-database-long-term-backup-retention-configure.md). 
+
+* Using PowerShell: Go to [Manage long-term backup retention using PowerShell](sql-database-long-term-backup-retention-configure.md).
 
 ## Get pricing for long-term backup retention
 
@@ -78,9 +82,11 @@ After the SQL database server is registered to the vault, you are charged for th
 
 ## View available backups that are stored in long-term backup retention
 
-* Using the Azure portal: To configure, manage, and restore from long-term backup retention of automated backups in an Azure Recovery Services vault by using the Azure portal, see [Manage long-term backup retention using the Azure portal](sql-database-long-term-backup-retention-configure.md). 
+To configure, manage, and restore a database from long-term backup retention of automated backups in an Azure Recovery Services vault by using the Azure portal, do either of the following:
 
-* Using PowerShell: To configure, manage, and restore from long-term backup retention of automated backups in an Azure Recovery Services vault by using PowerShell, see [Manage long-term backup retention using PowerShell](sql-database-long-term-backup-retention-configure.md).
+* Using the Azure portal: Go to [Manage long-term backup retention using the Azure portal](sql-database-long-term-backup-retention-configure.md). 
+
+* Using PowerShell: Go to [Manage long-term backup retention using PowerShell](sql-database-long-term-backup-retention-configure.md).
 
 ## Disable long-term retention
 
