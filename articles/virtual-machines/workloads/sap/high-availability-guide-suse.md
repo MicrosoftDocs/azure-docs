@@ -25,6 +25,7 @@ ms.author: sedusch
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
+[1410736]:https://launchpad.support.sap.com/#/notes/1410736
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
 [suse-drbd-guide]:https://www.suse.com/documentation/sle-ha-12/singlehtml/book_sleha_techguides/book_sleha_techguides.html
 [template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs%2Fazuredeploy.json
@@ -531,7 +532,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
     Restart the Agent to activate the change
 
-    </code></pre>
+    <pre><code>
     sudo service waagent restart
     </code></pre>
 
@@ -577,20 +578,39 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
     Install SAP NetWeaver ASCS as root using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ASCS for example <b>nws-ascs</b>, <b>10.0.0.7</b> and the instance number that you used for the probe of the load balancer for example <b>00</b>.
 
+    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
+
+    <pre><code>
+    sudo sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
+    </code></pre>
+
 1. **[1]** Install SAP NetWeaver ERS  
 
     Install SAP NetWeaver ERS as root using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ERS for example <b>nws-ers</b>, <b>10.0.0.8</b> and the instance number that you used for the probe of the load balancer for example <b>02</b>.
 
+    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
+
+    <pre><code>
+    sudo sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
+    </code></pre>
+
 1. **[1]** Adapt the ASCS/SCS and ERS instance profiles
  
-    * ASCS profile
+    * ASCS/SCS profile
 
     <pre><code> 
-    sudo vi /sapmnt/<b>NWS</b>/profile/<b>NWS</b>_ASCS<b>00</b>_<b>nws-ascs</b>
+    sudo vi /sapmnt/<b>NWS</b>/profile/<b>NWS</b>_<b>ASCS00</b>_<b>nws-ascs</b>
+
+    # Change the restart command to a start command
+    #Restart_Program_01 = local $(_EN) pf=$(_PF)
+	Start_Program_01 = local $(_EN) pf=$(_PF)
 
     # Add the following lines
     service/halib = $(DIR_CT_RUN)/saphascriptco.so
     service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
+
+    # Add the keep alive parameter
+    enque/encni/set_so_keepalive = true
     </code></pre>
 
     * ERS profile
@@ -601,6 +621,18 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     # Add the following lines
     service/halib = $(DIR_CT_RUN)/saphascriptco.so
     service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
+    </code></pre>
+
+
+1. **[A]** Configure Keep Alive
+
+    The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timout. To prevent this you need to set a parameter in the SAP NetWeaver ASCS/SCS profile and change the Linux system settings. Please read [SAP Note 1410736][1410736] for more information.
+    
+    The ASCS/SCS profile was parameter enque/encni/set_so_keepalive was already added in the last step.
+
+    <pre><code> 
+    # Change the Linux system configuration
+    sudo sysctl net.ipv4.tcp_keepalive_time=120
     </code></pre>
 
 1. **[1]** Create the SAP users and groups
@@ -666,11 +698,15 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 	  params InstanceName=<b>NWS</b>_ERS<b>02</b>_<b>nws-ers</b> START_PROFILE="/sapmnt/<b>NWS</b>/profile/<b>NWS</b>_ERS<b>02</b>_<b>nws-ers</b>" IS_ERS=yes \
 	  meta target-role=Started priority=1000
 
-    crm(live)configure# colocation col_ASCS<b>00</b> 3000: g-<b>NWS</b>_ASCS rsc_sap_<b>NWS</b>_ASCS<b>00</b>
-    crm(live)configure# colocation col_ERS<b>02</b> 3000: g-<b>NWS</b>_ERS rsc_sap_<b>NWS</b>_ERS<b>02</b>
-    crm(live)configure# colocation col_NOT_BOTH -5000: rsc_sap_<b>NWS</b>_ERS<b>02</b> rsc_sap_<b>NWS</b>_ASCS<b>00</b>
+    crm(live)configure# modgroup g-<b>NWS</b>_ASCS add rsc_sap_<b>NWS</b>_ASCS<b>00</b>
+    crm(live)configure# modgroup g-<b>NWS</b>_ERS add rsc_sap_<b>NWS</b>_ERS<b>02</b>
+
+    crm(live)configure# colocation col_NOT_BOTH -5000: g-<b>NWS</b>_ERS g-<b>NWS</b>_ASCS
     crm(live)configure# location lala2 rsc_sap_<b>NWS</b>_ASCS<b>00</b> rule 2000: runs_ers_<b>NWS</b> eq 1
     crm(live)configure# order ord_TAKEOVER Optional: rsc_sap_<b>NWS</b>_ASCS<b>00</b>:start rsc_sap_<b>NWS</b>_ERS<b>02</b>:stop symmetrical=false
+
+    crm(live)configure# order o-<b>NWS</b>_nfs_before_ASCS inf: g-<b>NWS</b>_nfs:start g-<b>NWS</b>_ASCS
+    crm(live)configure# order o-<b>NWS</b>_nfs_before_ERS inf: g-<b>NWS</b>_nfs:start g-<b>NWS</b>_ERS
 
     crm(live)configure# commit
     crm(live)configure# exit
@@ -951,6 +987,12 @@ In this example an SAP HANA System Replication is installed and configured. SAP 
 
     Install the SAP NetWeaver database instance as root using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the database for example <b>nws-db</b> and <b>10.0.0.9</b>.
 
+    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
+
+    <pre><code>
+    sudo sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
+    </code></pre>
+
 ## SAP NetWeaver application server installation
 
 1. Setup host name resolution    
@@ -978,8 +1020,10 @@ In this example an SAP HANA System Replication is installed and configured. SAP 
 
     <pre><code>
     sudo mkdir -p /sapmnt/<b>NWS</b>
+    sudo mkdir -p /usr/sap/trans
 
     sudo chattr +i /sapmnt/<b>NWS</b>
+    sudo chattr +i /usr/sap/trans
     </code></pre>
 
 1. Configure autofs
@@ -999,6 +1043,7 @@ In this example an SAP HANA System Replication is installed and configured. SAP 
 
     # Add the following lines to the file, save and exit
     /sapmnt/<b>NWS</b> -nfsvers=4,nosymlink,sync <b>nws-nfs</b>:/sapmntsid
+    /usr/sap/trans -nfsvers=4,nosymlink,sync <b>nws-nfs</b>:/trans
     </code></pre>
 
     Restart autofs to mount the new shares
@@ -1025,13 +1070,19 @@ In this example an SAP HANA System Replication is installed and configured. SAP 
 
     Restart the Agent to activate the change
 
-    </code></pre>
+    <pre><code>
     sudo service waagent restart
     </code></pre>
 
 1. Install SAP NetWeaver application server
 
     Install a primary or additional SAP NetWeaver applications server.
+
+    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
+
+    <pre><code>
+    sudo sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
+    </code></pre>
 
 1. Update SAP HANA secure store
 
