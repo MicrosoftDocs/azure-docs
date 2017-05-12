@@ -135,6 +135,7 @@ You can deploy a VNet with an Azure Resource Manager template. To learn more abo
 2. Click the **Deploy to Azure** button, which opens the Azure portal sign-in page.
 3. Sign in to the portal with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 4. Enter the following values for the parameters:
+
     |Parameter|Value|
     |---|---|
     |Subscription|Select your subscription.|
@@ -146,6 +147,7 @@ You can deploy a VNet with an Azure Resource Manager template. To learn more abo
     |Subnet1Name|Public|
     |Subnet2Prefix|10.0.1.0/24|
     |Subnet2Name|Private|
+
 5. Agree to the terms and conditions, then click **Purchase** to deploy the VNet.
 
 ### CLI
@@ -155,8 +157,8 @@ You can deploy a VNet with an Azure Resource Manager template. To learn more abo
 3. Create a resource group for the VNet by entering the following command:
     `az group create --name MyResourceGroup --location eastus`
 4. You can deploy the template with:
-    - **Default parameter values:** To do so, enter the following command: 
-        `az group deployment create --resource-group MyResourceGroup --name VnetTutorial --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json`.
+    - **Default parameter values:** Enter the following command: 
+        `az group deployment create --resource-group MyResourceGroup --name VnetTutorial --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json`
     - **Custom parameter values:** Download and modify the template before deploying it, deploy the template with parameters from the command line, or deploy the template using a separate parameters file. You can download the template and parameter files by clicking the **Browse on GitHub** button on the [Create a VNet with two subnets template](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) web page. In GitHub, click the **azuredeploy.parameters.json**  or **azuredeploy.json** file, then click the **Raw** button for the file. In your browser, copy the contents and save it to a file on your computer. Modify the parameter values in the template, or deploy the template with the separate parameter file.  
 
     To learn more about how to deploy templates using these methods, type `az group deployment create --help`.
