@@ -123,11 +123,11 @@ Though CLI commands are the same whether you execute the commands from Windows, 
 
 ## Template
 
-You can deploy a VNet with an Azure Resource Manager template. To learn more about templates, read the [What is Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#template-deployment) article. To access the template and learn about its parameters, view the [Create a VNet with two subnets template](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) web page. You can deploy the template using the portal, CLI, or PowerShell.
+You can deploy a VNet with an Azure Resource Manager template. To learn more about templates, read the [What is Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#template-deployment) article. To access the template and learn about its parameters, view the [Create a VNet with two subnets template](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) web page. You can deploy the template using the [portal](#template-portal), [CLI](#template-cli), or [PowerShell](#template-powershell).
 
 **Optional:** To delete the resources created in this tutorial, complete the steps in any subsections of the [Delete resources](#delete) section of this article.
 
-### Portal
+### <a name="template-portal"></a>Portal
 
 1. In your browser, open the template [web page](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets).
 2. Click the **Deploy to Azure** button, which opens the Azure portal sign-in page.
@@ -148,7 +148,7 @@ You can deploy a VNet with an Azure Resource Manager template. To learn more abo
 
 5. Agree to the terms and conditions, then click **Purchase** to deploy the VNet.
 
-### CLI
+### <a name="template-cli"></a>CLI
 
 1. From an Internet browser, open the Azure [portal](https://portal.azure.com) and sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 2. At the top of the portal, to the right of the *Search resources* bar, click the **>_** icon to start a Bash Azure Cloud Shell (Preview). The cloud shell pane appears at the bottom of the portal and, after a few seconds, presents a **username@Azure:~$** prompt. The cloud shell automatically logs you in to Azure using the credentials you authenticated to the portal with.
@@ -161,7 +161,7 @@ You can deploy a VNet with an Azure Resource Manager template. To learn more abo
 
     To learn more about how to deploy templates using these methods, type `az group deployment create --help`.
 
-### PowerShell
+### <a name="template-powershell"></a>PowerShell
 
 1. Install the latest version of the Azure PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, read the [Azure PowerShell overview](/azure/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article.
 2. Start a PowerShell session by clicking the Windows Start button, typing **powershell**, then clicking **PowerShell** from the search results.
