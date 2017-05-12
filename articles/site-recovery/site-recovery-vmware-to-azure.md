@@ -310,7 +310,7 @@ In **Compute and Network** > **Compute properties**, you can set "Use managed di
   > managed disks" to "No" and retry failover or disable protection for the virtual machine and
   > protect it to a storage account which did not have Storage service encryption enabled at any point
   > in time. 
-  > [Learn more about Storage service encryption and managed disks](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption)
+  > [Learn more about Storage service encryption and managed disks](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
 
    
 ## Run a test failover

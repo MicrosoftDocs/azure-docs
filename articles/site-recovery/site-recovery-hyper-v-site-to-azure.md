@@ -306,9 +306,10 @@ In **Compute and Network** > **Compute properties**, you can set "Use managed di
   
   > [!NOTE]
   > Failback from Azure to on-premises Hyper-V environment is not currently supported for machines 
-  > with managed disks. Set "Use managed disks" to "Yes" only if you intend to migrate this machine to > Azure.
+  > with managed disks. Set "Use managed disks" to "Yes" only if you intend to migrate this machine 
+  > to Azure.
   
-   - When you set "Use managed disks" to "Yes", only availability sets in the resource group with "Use managed disks" set to "Yes" would be available for selection. This is because virtual machines with managed disks can only be part of availability sets with "Use managed disks" property set to "Yes". Make sure that you create availability sets with "Use managed disks" property set based on your intent to use managed disks on failover.  Likewise, when you set "Use managed disks" to "No", only availability sets in the resource group with "Use managed disks" property set to "No" would be available for selection. [Learn more about managed disks and availability sets](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set).
+   - When you set "Use managed disks" to "Yes", only availability sets in the resource group with "Use managed disks" set to "Yes" would be available for selection. This is because virtual machines with managed disks can only be part of availability sets with "Use managed disks" property set to "Yes". Make sure that you create availability sets with "Use managed disks" property set based on your intent to use managed disks on failover. Likewise, when you set "Use managed disks" to "No", only availability sets in the resource group with "Use managed disks" property set to "No" would be available for selection. [Learn more about managed disks and availability sets](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set).
   
   > [!NOTE]
   > If the storage account used for replication was encrypted with Storage Service Encryption at any 
@@ -316,7 +317,7 @@ In **Compute and Network** > **Compute properties**, you can set "Use managed di
   > managed disks" to "No" and retry failover or disable protection for the virtual machine and
   > protect it to a storage account which did not have Storage service encryption enabled at any point
   > in time.
-  > [Learn more about Storage service encryption and managed disks](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption)
+  > [Learn more about Storage service encryption and managed disks](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
 
 
 ## Test the deployment
