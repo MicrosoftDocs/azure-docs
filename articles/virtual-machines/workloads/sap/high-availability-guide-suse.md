@@ -924,6 +924,8 @@ In this example an SAP HANA System Replication is installed and configured. SAP 
 
     1. **[1]** Create SAP HANA cluster resources
 
+    First, create the topology.
+
     <pre><code>
     sudo vi crm-saphanatop.txt
     # enter the following to crm-saphana.txt
@@ -938,17 +940,18 @@ In this example an SAP HANA System Replication is installed and configured. SAP 
 
     clone cln_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> \
         meta is-managed="true" clone-node-max="1" target-role="Started" interleave="true"
-    
 
     # now we load the file to the cluster
     sudo crm configure load update crm-saphanatop.txt
     </code></pre>
 
-    <pre>
+    Next, create the HANA resources
+
+    <pre><code>
     sudo vi crm-saphana.txt
     # enter the following to crm-saphana.txt
     # replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
-    <code>
+    
     primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
         operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \
         op start interval="0" timeout="3600" \
@@ -977,11 +980,11 @@ In this example an SAP HANA System Replication is installed and configured. SAP 
         msl_SAPHana_<b>HDB</b>_HDB<b>03</b>:Master  
     order ord_SAPHana_<b>HDB</b>_HDB<b>03</b> 2000: cln_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> \ 
         msl_SAPHana_<b>HDB</b>_HDB<b>03</b>
-    </code>
+    
 
     # now we load the file to the cluster
     sudo crm configure load update crm-saphana.txt
-    </pre>
+    </code></pre>
 
 1. **[1]** Install the SAP NetWeaver database instance
 
