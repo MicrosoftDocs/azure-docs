@@ -330,66 +330,8 @@ Currently, output dataset is what drives the schedule. In this tutorial, output 
 
 **Congratulations!** You have successfully created an Azure data factory with a pipeline to copy data from an Azure blob storage to an Azure SQL database. 
 
-### View the data factory in a Diagram View
-1. In the **Data Factory** blade, click **Diagram**.
-   
-    ![Data Factory Blade - Diagram Tile](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datafactoryblade-diagramtile.png)
-2. You should see the diagram similar to the following image: 
-   
-    ![Diagram view](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-diagram-blade.png)
-   
-    You can zoom in, zoom out, zoom to 100%, zoom to fit, automatically position pipelines and tables, and show lineage information (highlights upstream and downstream items of selected items).  You can double-click an object (input/output table or pipeline) to see properties for it. 
-3. Right-click **ADFTutorialPipeline** in the Diagram View and click **Open pipeline**. 
-   
-    ![Open Pipeline](./media/data-factory-copy-activity-tutorial-using-azure-portal/DiagramView-OpenPipeline.png)
-4. You should see the activities in the pipeline along with input and output datasets for the activities. In this tutorial, you have only one activity in the pipeline (Copy Activity) with InputDataset as input dataset and OutputDataset as output dataset.   
-   
-    ![Opened pipeline view](./media/data-factory-copy-activity-tutorial-using-azure-portal/DiagramView-OpenedPipeline.png)
-5. Click **Data factory** in the breadcrumb in the top-left corner to get back to the data factory view. The diagram view displays all the pipelines. In this example, you have only created one pipeline.   
-
-	Keep the Diagram View open for the next step. 
-
-## Monitor pipeline
-In this step, you use the Azure portal to monitor what’s going on in an Azure data factory. 
-
-### Monitor pipeline using Diagram View
-4. In the diagram view, double-click **InputDataset** to see all the slices for the dataset. You see 24 hourly slices between pipeline start and end times. The slices are in ready state because the emp.txt file exists in the root folder of the adftutorial container. In this example, all the slices use the same file in the same folder. 
-   
-    ![Datasets with InputDataset selected](./media/data-factory-copy-activity-tutorial-using-azure-portal/DataSetsWithInputDatasetFromBlobSelected.png)   
-5. Click **See more** link to see all the data slices.
-   
-    ![All input data slices](./media/data-factory-copy-activity-tutorial-using-azure-portal/all-input-slices.png)  
-   
-    Notice that all the data slices up to the current UTC time are **Ready** because the **emp.txt** file exists all the time in the blob container: **adftutorial\input**. The slices for the future times are not in ready state yet. Confirm that no slices show up in the **Recently failed slices** section at the bottom.
-   
-    Both **Recently updated slices** and **Recently failed slices** lists are sorted by the **LAST UPDATE TIME**. 
-   
-    Click **Filter** on the toolbar to filter the slices.  
-   
-    ![Filter input slices](./media/data-factory-copy-activity-tutorial-using-azure-portal/filter-input-slices.png)
-6. Close the blades until you see the diagram view (or) scroll left to see the diagram view. Then, double-click **OutputDataset**. 
-8. Click **See more** link on the **Table** blade for **OutputDataset** to see all the slices.
-
-    ![data slices blade](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-dataslices-blade.png) 
-9. Notice that all the slices up to the current UTC time move from **pending execution** state => **In progress** ==> **Ready** state. The slices from the past (before current time) are processed from latest to oldest by default. For example, if the current time is 8:12 PM UTC, the slice for 7 AM - 8 AM is processed ahead of the 6 AM - 7 AM slice. The 8 AM - 9 AM slice is processed at the end of the time interval by default, that is after 9 AM.  
-10. Click any data slice from the list and you should see the **Data slice** blade.
-    
-     ![data slice blade](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-dataslice-blade.png)
-    
-     If the slice is not in the **Ready** state, you can see the upstream slices that are not Ready and are blocking the current slice from executing in the **Upstream slices that are not ready** list.
-11. In the **DATA SLICE** blade, you should see all activity runs in the list at the bottom. Click an **activity run** to see the **Activity run details** blade. 
-    
-    ![Activity Run Details](./media/data-factory-copy-activity-tutorial-using-azure-portal/ActivityRunDetails.png)
-
-	In this blade, you see how long the copy operation took, what throughput is, how many bytes of data was read and written, run start time, run end time etc.  
-12. Click **X** to close all the blades until you get back to the home blade for the **ADFTutorialDataFactory**.
-13. (optional) click the Datasets tile or Pipelines tile to get the blades you have seen the preceding steps. 
-14. Launch **SQL Server Management Studio**, connect to the Azure SQL Database, and verify that the rows are inserted in to the **emp** table in the database.
-    
-    ![sql query results](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png)
-
 ### Monitor pipeline using Monitor & Manage App
-You can also use Monitor & Manage application to monitor your pipelines. For detailed information about using this application, see [Monitor and manage Azure Data Factory pipelines using Monitoring and Management App](data-factory-monitor-manage-app.md).
+You can use Monitor & Manage application to monitor your pipelines. 
 
 1. Click **Monitor & Manage** tile on the home page for your data factory.
    
@@ -407,6 +349,60 @@ You can also use Monitor & Manage application to monitor your pipelines. For det
 	The Attempts section provides information about the activity run for the data slice. If there was an error, it provides details about the error. For example, if the input folder or container does not exist and the slice processing fails, you see an error message stating that the container or folder does not exist.
 
 	![Activity run attempts](./media/data-factory-copy-activity-tutorial-using-azure-portal/activity-run-attempts.png) 
+4. Launch **SQL Server Management Studio**, connect to the Azure SQL Database, and verify that the rows are inserted in to the **emp** table in the database.
+    
+    ![sql query results](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png)
+
+For detailed information about using this application, see [Monitor and manage Azure Data Factory pipelines using Monitoring and Management App](data-factory-monitor-manage-app.md).
+
+
+## Monitor pipeline
+In this step, you use the Azure portal to monitor what’s going on in an Azure data factory. 
+
+### Monitor pipeline using Diagram View
+You can also monitor data pipelines by using the diagram view.  
+
+1. In the **Data Factory** blade, click **Diagram**.
+   
+    ![Data Factory Blade - Diagram Tile](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datafactoryblade-diagramtile.png)
+2. You should see the diagram similar to the following image: 
+   
+    ![Diagram view](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-diagram-blade.png)  
+5. In the diagram view, double-click **InputDataset** to see all the slices for the dataset. You see 24 hourly slices between pipeline start and end times. The slices are in ready state because the emp.txt file exists in the root folder of the adftutorial container. In this example, all the slices use the same file in the same folder. 
+   
+    ![Datasets with InputDataset selected](./media/data-factory-copy-activity-tutorial-using-azure-portal/DataSetsWithInputDatasetFromBlobSelected.png)   
+5. Click **See more** link to see all the data slices.
+   
+    ![All input data slices](./media/data-factory-copy-activity-tutorial-using-azure-portal/all-input-slices.png)  
+   
+    Notice that all the data slices up to the current UTC time are **Ready** because the **emp.txt** file exists all the time in the blob container: **adftutorial\input**. The slices for the future times are not in ready state yet. Confirm that no slices show up in the **Recently failed slices** section at the bottom.
+   
+    Both **Recently updated slices** and **Recently failed slices** lists are sorted by the **LAST UPDATE TIME**. 
+   
+    Click **Filter** on the toolbar to filter the slices.  
+   
+    ![Filter input slices](./media/data-factory-copy-activity-tutorial-using-azure-portal/filter-input-slices.png)
+6. Close the blades until you see the diagram view (or) scroll left to see the diagram view. Then, double-click **OutputDataset**. 
+8. Click **See more** link on the **Table** blade for **OutputDataset** to see all the slices.
+
+    ![data slices blade](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-dataslices-blade.png) 
+9. Notice that all the slices up to the current UTC time move from **pending execution** state => **In progress** ==> **Ready** state. The slices from the past (before current time) are processed from latest to oldest by default. For example, if the current time is 8:12 PM UTC, the slice for 7 PM - 8 PM is processed ahead of the 6 PM - 7 PM slice. The 8 PM - 9 PM slice is processed at the end of the time interval by default, that is after 9 PM.  
+10. Click any data slice from the list and you should see the **Data slice** blade.
+    
+     ![data slice blade](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-dataslice-blade.png)
+    
+     If the slice is not in the **Ready** state, you can see the upstream slices that are not Ready and are blocking the current slice from executing in the **Upstream slices that are not ready** list.
+11. In the **DATA SLICE** blade, you should see all activity runs in the list at the bottom. Click an **activity run** to see the **Activity run details** blade. 
+    
+    ![Activity Run Details](./media/data-factory-copy-activity-tutorial-using-azure-portal/ActivityRunDetails.png)
+
+	In this blade, you see how long the copy operation took, what throughput is, how many bytes of data was read and written, run start time, run end time etc.  
+12. Click **X** to close all the blades until you get back to the home blade for the **ADFTutorialDataFactory**.
+13. (optional) click the **Datasets** tile or **Pipelines** tile to get the blades you have seen the preceding steps. 
+14. Launch **SQL Server Management Studio**, connect to the Azure SQL Database, and verify that the rows are inserted in to the **emp** table in the database.
+    
+    ![sql query results](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png)
+
 
 ## Summary
 In this tutorial, you created an Azure data factory to copy data from an Azure blob to an Azure SQL database. You used the Azure portal to create the data factory, linked services, datasets, and a pipeline. Here are the high-level steps you performed in this tutorial:  
