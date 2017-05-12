@@ -45,11 +45,11 @@ sections:
       text: GitHub Webhook
       href: /azure/azure-functions/functions-create-github-webhook-triggered-function
     - image: 
-        src: media/index/quickstart-blob.svg
+        src: media/index/blob.svg
       text: Blob Trigger
       href: /azure/azure-functions/functions-create-storage-blob-triggered-function
     - image: 
-        src: media/index/quickstart-queue.svg
+        src: media/index/storage.svg
       text: Queue Trigger
       href: /azure/azure-functions/functions-create-storage-queue-triggered-function
 - title: Step-by-Step Tutorials
