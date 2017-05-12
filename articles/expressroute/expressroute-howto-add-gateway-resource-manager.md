@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Add a virtual network gateway to a VNet for ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: This article walks you through adding a VNet gateway to an already created Resource Manager VNet for ExpressRoute.
 documentationcenter: na
@@ -31,7 +31,7 @@ This article walks you through the steps to add, resize, and remove a virtual ne
 
 
 ## Before beginning
-Verify that you have installed the latest Azure PowerShell cmdlets. If you haven't installed the latest cmdlets, you need to do so before beginning the configuration steps. For more information, see [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Verify that you have installed the latest Azure PowerShell cmdlets. If you haven't installed the latest cmdlets, you need to do so before beginning the configuration steps. For more information, see [Install and configure Azure PowerShell](/powershell/azure/overview).
 
 [!INCLUDE [expressroute-gateway-rm-ps](../../includes/expressroute-gateway-rm-ps-include.md)]
 

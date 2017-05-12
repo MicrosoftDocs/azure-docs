@@ -1,4 +1,4 @@
----
+﻿---
 title: Collect Azure service logs and metrics for Log Analytics | Microsoft Docs
 description: Configure diagnostics on Azure resources to write logs and metrics to Log Analytics.
 services: log-analytics
@@ -69,9 +69,9 @@ Azure resources that support [Azure monitor](../monitoring-and-diagnostics/monit
 * For the details of the available logs, refer to [supported services and schema for diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#supported-services-and-schema-for-diagnostic-logs).
 
 ### Enable diagnostics with PowerShell
-You need the November 2016 (v2.3.0) or later release of [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
+You need the November 2016 (v2.3.0) or later release of [Azure PowerShell](/powershell/azure/overview).
 
-The following PowerShell example shows how to use [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/resourcemanager/azurerm.insights/v2.3.0/set-azurermdiagnosticsetting) to enable diagnostics on a network security group. The same approach works for all supported resources - set `$resourceId` to the resource id of the resource you want to enable diagnostics for.
+The following PowerShell example shows how to use [Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting) to enable diagnostics on a network security group. The same approach works for all supported resources - set `$resourceId` to the resource id of the resource you want to enable diagnostics for.
 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"

@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 04/27/2017
 ms.author: sdanie
 
 ---

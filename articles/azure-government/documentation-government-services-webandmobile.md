@@ -28,6 +28,10 @@ those created in the public cloud:
 | --- | --- | --- |
 | App Service |*.azurewebsites.net |*.azurewebsites.us|
 
+Some App Service features available in Azure Government have variations:
+
+* Virtual Network integration and Hybrid connections *IS* available. However, it cannot be setup with the Portal - it must be configured with PowerShell. A walk-through of this can be seen [here](https://blogs.msdn.microsoft.com/azuregov/2017/03/23/setting-up-vnet-integration-in-app-services-using-powershell/).
+
 Some App Service features available in the public cloud are not yet available 
 in Azure Government:
 
@@ -35,7 +39,6 @@ in Azure Government:
 - App deployment
     - Continuous Delivery(preview)
 - Settings
-    - vNet integration and Hybrid connections
     - Security scanning
 - Development Tools
     - Performance test

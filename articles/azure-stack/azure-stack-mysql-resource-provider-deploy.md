@@ -31,12 +31,16 @@ To deploy the MySQL provider on a system that does not have internet access, you
 > The deployment script performs retries, if necessary, to accommodate less reliable network connections or if an operation exceeds a timeout.
 >
 
-## Steps to deploy the resource provider
+## Deploy the resource provider
 
 1. If you have not already done so, create a [Windows Server 2016 image with the .NET 3.5 runtime](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image) installed.
 
-> Although the .NET 3.5 runtime is not required for this RP, it is used for the SQL Resource Provider, so you can save space by using the same image.
+  > [!NOTE]
+  > Although the .NET 3.5 runtime is not required for this RP, it is used for the SQL Resource Provider, so you can save space by using the same image.
+  >
+  >
 
+  
 2. If you have installed any version of the AzureRm PowerShell module other than 1.2.9, you need to remove it or the install will block.
 
 3. [Download the MySQL resource provider binaries file](https://aka.ms/azurestackmysqlrptp3) and extract it on the Console VM in your Azure Stack.
@@ -45,7 +49,7 @@ To deploy the MySQL provider on a system that does not have internet access, you
 
 5. Run DeployMySqlProvider.ps1.
 
-This script does all these steps:
+This script performs these steps:
 
 * If necessary, download a compatible version of Azure PowerShell (only AzureRm version 1.2.9 is supported).
 * Create a wildcard certificate to secure communication between the resource provider and Azure Resource Manager.
@@ -61,17 +65,41 @@ Either specify at least the required parameters on the command line, or, if you 
 Here's an example you can run from the PowerShell prompt (but change the account information and portal endpoints as needed):
 
 ```
+# Install the AzureRM.Bootstrapper module
+Install-Module -Name AzureRm.BootStrapper -Force
+
+# Installs and imports the API Version Profile required by Azure Stack into the current PowerShell session.
+Use-AzureRmProfile -Profile 2017-03-09-profile
+
+Install-Module -Name AzureStack -RequiredVersion 1.2.9 -Force
+
+# Download the Azure Stack Tools from GitHub and set the environment
+cd c:\
+Invoke-Webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip -OutFile master.zip
+Expand-Archive master.zip -DestinationPath . -Force
+
+Import-Module C:\AzureStack-Tools-master\Connect\AzureStack.Connect.psm1
+Add-AzureStackAzureRmEnvironment -Name AzureStackAdmin -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
+
+# For AAD, use the following
+$tenantID = Get-DirectoryTenantID -AADTenantName "<your directory name>" -EnvironmentName AzureStackAdmin
+
+# For ADFS, replace the previous line with
+# $tenantID = Get-DirectoryTenantID -ADFS -EnvironmentName AzureStackAdmin
+
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass)
 
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ("admin@mydomain.onmicrosoft.com", $AdminPass)
 
-.\DeployMySQLProvider.ps1 -DirectoryTenantID "51377b64-4a17-46b1-83ff-902d97c50b22" -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -ResourceGroupName "System.MySql" -VmName "SystemMySqlRP" -ArmEndpoint "https://adminmanagement.local.azurestack.external" -TenantArmEndpoint "https://management.local.azurestack.external"
+# Change directory to the folder where you extracted the installation files
+<extracted file directory>\DeployMySQLProvider.ps1 -DirectoryTenantID $tenantID -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -ResourceGroupName "MySqlRG" -VmName "MySQLRP" -ArmEndpoint "https://adminmanagement.local.azurestack.external" -TenantArmEndpoint "https://management.local.azurestack.external" -AcceptLicense
  ```
 
-### Parameters
+### DeployMySqlProvider.ps1 Parameters
 
+You can specify these parameters in the command line. If you do not, or any parameter validation fails, you are prompted to provide the required ones.
 
 | Parameter Name | Description | Comment or Default Value |
 | --- | --- | --- |
@@ -80,23 +108,27 @@ $AdminCreds = New-Object System.Management.Automation.PSCredential ("admin@mydom
 | **TenantArmEndpoint** | The Azure Stack Tenant Azure Resource Manager Endpoint | _required_ |
 | **AzCredential** | Azure Stack Service Admin account credential (use the same account as you used for deploying Azure Stack) | _required_ |
 | **VMLocalCredential** | The local administrator account of the MySQL resource provider VM | _required_ |
-| **ResourceGroupName** | Resource Group for the items created by this script | Default: Microsoft-MySQL-RP1 |
-| **VmName** | Name of the VM holding the resource provider | mysqlvm |
-| **AcceptLicense** | Prompts to accept the GPL License Accept the terms of the GPL License (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | Yes |
+| **ResourceGroupName** | Resource Group for the items created by this script |  _required_ |
+| **VmName** | Name of the VM holding the resource provider |  _required_ |
+| **AcceptLicense** | Skips the prompt to accept the GPL License  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 | **DependencyFilesLocalPath** | Path to a local share containing the MySQL files [mysql-5.7.17-winx64.zip](https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.17-winx64.zip) and [mysql-connector-net-6.9.9.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.9.9.msi) | _leave blank to download from the internet_ |
 | **MaxRetryCount** | Each operation is retried if there is a failure | 2 |
 | **RetryDuration** | Timeout between retries, in seconds | 120 |
-| **Uninstall** | Clean up the resource provider | No |
+| **Uninstall** | Remove the resource provider | No |
 | **DebugMode** | Prevents automatic cleanup on failure | No |
 
 
-Depending on the system performance and download speeds, installation may take as little as 20 minutes or as long as several hours. You may need to refresh the admin portal if the MySQLAdapter blade is not available.
+Depending on the system performance and download speeds, installation may take as little as 20 minutes or as long as several hours. You will need to refresh the admin portal if the MySQLAdapter blade is not available.
 
 > [!NOTE]
-> If the installation takes more than 90 minutes, it may fail and you will see a failure message on the screen and in the log file. The deployment is retried from the failing step. Systems that do not meet the minimum required memory and core specifications may not be able to deploy the MySQL RP.
+> If the installation takes more than 90 minutes, it may fail and you will see a failure message on the screen and in the log file. The deployment is retried from the failing step. Systems that do not meet the recommended memory and core specifications may not be able to deploy the MySQL RP.
 
 
 ## Provide capacity by connecting to a MySQL hosting server
+
+> [!NOTE]
+>  After the installation script completes, you will need to refresh the portal to see the admin blade.
+
 
 1. Sign in to the Azure Stack POC portal as a service admin
 
@@ -106,7 +138,7 @@ Depending on the system performance and download speeds, installation may take a
 
 	![Hosting Servers](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 
-3. Fill the form with the connection details of your MySQL Server instance. Provide the fully qualified domain name (FQDN) or a valid IPv4 address, and not the short VM name. By default, a preconfigured MySQL 5.7 Server called “mysqlvm.local.cloudapp.azurestack.external” with the administrator user name and the password you provided in the "LocalCredential" parameter is running on the VM.
+3. Fill the form with the connection details of your MySQL Server instance. Provide the fully qualified domain name (FQDN) or a valid IPv4 address, and not the short VM name. By default, a preconfigured MySQL 5.7 Server called <VM Name - see above>.local.cloudapp.azurestack.external” with the administrator user name and the password you provided in the "LocalCredential" parameter is running on the VM.
 
 
 The size provided helps the resource provider manage the database capacity. It should be close to the physical capacity of the database server.
@@ -114,8 +146,7 @@ The size provided helps the resource provider manage the database capacity. It s
 
 ## Create your first MySQL database to test your deployment
 
-> After the installation script completes, it can take up to 60 minutes for the virtual machine to finish configuration. If you attempt the next steps before this completes, you will see failures.
->
+
 1. Sign in to the Azure Stack POC portal as service admin.
 
 2. Click the **+ New** button &gt; **Data + Storage** &gt; **MySQL Database (preview)**.
@@ -125,12 +156,12 @@ The size provided helps the resource provider manage the database capacity. It s
 ![Create a test MySQL database](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)
 
 
-**New.** The connections string includes the real database server name. Copy it from the portal.
+The connections string includes the real database server name. Copy it from the portal.
 
 ![Get the connection string for the MySQL database](./media/azure-stack-mysql-rp-deploy/mysql-db-created.png)
 
 > [!NOTE]
-> The combined length of the user and server names cannot exceed 31 characters with MySQL 5.7 or 15 characters in earlier editions, in addition to the '@' sign. This is a limitation of the MySQL implementations.
+> The combined length of the user and server names cannot exceed 32 characters with MySQL 5.7 or 16 characters in earlier editions, including the '@' sign. This is a limitation of the MySQL implementations.
 
 
 ## Add Capacity

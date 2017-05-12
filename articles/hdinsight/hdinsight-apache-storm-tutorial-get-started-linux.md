@@ -34,10 +34,6 @@ Apache Storm is a scalable, fault-tolerant, distributed, real-time computation s
 
 * **Familiarity with SSH and SCP**. For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-### Access control requirements
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
-
 ## Create a Storm cluster
 
 Use the following steps to create a Storm on HDInsight cluster:
@@ -188,6 +184,8 @@ Return to the **Topology summary** page for the word-count topology, and then se
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
+If you run into an issue with creating HDInsight cluster, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
+
 ## <a id="next"></a>Next steps
 
 In this Apache Storm tutorial, you learned the basics of working with Storm on HDInsight. Next, learn how to [Develop Java-based topologies using Maven](hdinsight-storm-develop-java-topology.md).
@@ -205,5 +203,5 @@ For example topologies that can be used with Storm on HDInsight, see the followi
 [stormstarter]: https://github.com/apache/storm/tree/master/examples/storm-starter
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [azureportal]: https://manage.windowsazure.com/
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [preview-portal]: https://portal.azure.com/

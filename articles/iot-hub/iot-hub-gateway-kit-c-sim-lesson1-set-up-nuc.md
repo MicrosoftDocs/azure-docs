@@ -26,7 +26,7 @@ ms.author: xshi
 ## What you will do
 
 - Set up Intel NUC as an IoT gateway.
-- Install the Azure IoT Gateway SDK package on Intel NUC.
+- Install the Azure IoT Edge package on Intel NUC.
 - Run a "hello_world" sample application on Intel NUC to verify the gateway functionality.
 If you have any problems, look for solutions on the [troubleshooting page](iot-hub-gateway-kit-c-sim-troubleshooting.md).
 
@@ -83,9 +83,9 @@ Here you need keyboard and monitor to get the IP address of your NUC device. If 
    It is more efficient and productive to operate on Intel NUC from a host computer. You need the the IP address, user name and password to connect the NUC via SSH client. Here is the example use SSH client on macOS.
    ![SSH client running on macOS](media/iot-hub-gateway-kit-lessons/lesson1/ssh.png)
 
-## Install the Azure IoT Gateway SDK package
+## Install the Azure IoT Edge package
 
-The Azure IoT Gateway SDK package contains the pre-compiled binaries of the SDK and its dependencies. These binaries are the Azure IoT Gateway SDK, the Azure IoT SDK and the corresponding tools. The package also contains a "hello_world" sample application that is used to validate the gateway functionality. The SDK is the core part of the gateway. To install the package, follow these steps:
+The Azure IoT Edge package contains the pre-compiled binaries of the SDK and its dependencies. These binaries are Azure IoT Edge, the Azure IoT SDK and the corresponding tools. The package also contains a "hello_world" sample application that is used to validate the gateway functionality. IoT Edge is the core part of the gateway. To install the package, follow these steps:
 
 1. Add the IoT cloud repository by running the following commands in a terminal window:
 
@@ -112,9 +112,9 @@ The Azure IoT Gateway SDK package contains the pre-compiled binaries of the SDK 
 
    After the package is installed, Intel NUC is expected to work as a gateway.
 
-## Run the Azure IoT Gateway SDK "hello_world" sample application
+## Run the Azure IoT Edge "hello_world" sample application
 
-Go to `azureiotgatewaysdk/samples` and run the sample "hello_world" sample application. This sample application creates a gateway from the `hello_world.json` file and uses the fundamental components of the Azure IoT Gateway SDK architecture to log a hello world message to a file every 5 seconds.
+Go to `azureiotgatewaysdk/samples` and run the sample "hello_world" sample application. This sample application creates a gateway from the `hello_world.json` file and uses the fundamental components of the Azure IoT Edge architecture to log a hello world message to a file every 5 seconds.
 
 You can run the sample "hello_world" sample application by running the following command:
 

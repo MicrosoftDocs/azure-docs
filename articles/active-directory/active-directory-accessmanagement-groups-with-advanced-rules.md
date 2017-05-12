@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/08/2017
 ms.author: curtand
 
 ---
@@ -23,13 +23,14 @@ The Azure classic portal provides you with the ability to create advanced rules 
 When any attributes of a user change, the system evaluates all dynamic group rules in a directory to see if the attribute change of the user would trigger any group adds or removes. If a user satisfies a rule on a group, they are added as a member to that group. If they no longer satisfy the rule of a group they are a member of, they are removed as a members from that group.
 
 > [!NOTE]
-> You can set up a rule for dynamic membership on security groups or Office 365 groups. Nested group memberships aren't currently supported for group-based assignment to applications.
+> You can set up a rule for dynamic membership on security groups or Office 365 groups. 
 >
 > Dynamic memberships for groups require an Azure AD Premium license to be assigned to
 >
 > * The administrator who manages the rule on a group
 > * All members of the group
 >
+> Please also not that although you can create a dynamic group for devices or users, you cannot create a rule that selects both user and device objects. 
 
 ## To create the advanced rule
 1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory**, and then open your organization’s directory.

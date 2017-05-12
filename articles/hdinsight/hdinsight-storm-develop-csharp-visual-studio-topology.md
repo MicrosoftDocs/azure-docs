@@ -67,8 +67,8 @@ The HDInsight Tools for Visual Studio provide the following templates:
 | --- | --- |
 | Storm Application |An empty Storm topology project |
 | Storm Azure SQL Writer Sample |How to write to Azure SQL Database |
-| Storm DocumentDB Reader Sample |How to read from Azure DocumentDB |
-| Storm DocumentDB Writer Sample |How to write to Azure DocumentDB |
+| Storm Azure Cosmos DB Reader Sample |How to read from Azure Cosmos DB |
+| Storm Azure Cosmos DB Writer Sample |How to write to Azure Cosmos DB |
 | Storm EventHub Reader Sample |How to read from Azure Event Hubs |
 | Storm EventHub Writer Sample |How to write to Azure Event Hubs |
 | Storm HBase Reader Sample |How to read from HBase on HDInsight clusters |
