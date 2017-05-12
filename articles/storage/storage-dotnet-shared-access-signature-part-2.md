@@ -35,9 +35,9 @@ In this tutorial, we work with shared access signatures for containers and blobs
 ## Part 1: Create a console application to generate shared access signatures
 First, ensure that you have the Azure Storage Client Library for .NET installed. You can install the [NuGet package](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package") containing the most up-to-date assemblies for the client library. This is the recommended method for ensuring that you have the most recent fixes. You can also download the client library as part of the most recent version of the [Azure SDK for .NET](https://azure.microsoft.com/downloads/).
 
-In Visual Studio, create a new Windows console application and name it **GenerateSharedAccessSignatures**. Add references to [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) and [Microsoft.WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) by using one of the following approaches:
+In Visual Studio, create a new Windows console application and name it **GenerateSharedAccessSignatures**. Add references to [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) and [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) by using one of the following approaches:
 
-* Use the [NuGet package manager](https://docs.nuget.org/consume/installing-nuget) in Visual Studio. Select **Project** > **Manage NuGet Packages**, search online for each package (Microsoft.WindowsAzure.ConfigurationManager and Microsoft.WindowsAzure.Storage) and install them.
+* Use the [NuGet package manager](https://docs.nuget.org/consume/installing-nuget) in Visual Studio. Select **Project** > **Manage NuGet Packages**, search online for each package (Microsoft.WindowsAzure.ConfigurationManager and WindowsAzure.Storage) and install them.
 * Alternatively, locate these assemblies in your installation of the Azure SDK and add references to them:
   * Microsoft.WindowsAzure.Configuration.dll
   * Microsoft.WindowsAzure.Storage.dll
@@ -46,7 +46,7 @@ At the top of the Program.cs file, add the following **using** directives:
 
 ```csharp
 using System.IO;
-using Microsoft.WindowsAzure;
+using Microsoft.Azure;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 ```
@@ -89,7 +89,7 @@ static void Main(string[] args)
 }
 ```
 
-Next, add a new method that generates the shared access signature for the container and returns the signature URI:
+Next, add a method that generates the shared access signature for the container and returns the signature URI:
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
@@ -118,7 +118,9 @@ Console.WriteLine();
 
 Compile and run to output the shared access signature URI for the new container. The URI will be similar to the following:
 
-`https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D`
+```
+https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D
+```
 
 Once you have run the code, the shared access signature you created for the container will be valid for the next 24 hours. The signature grants a client permission to list blobs in the container and to write new blobs to the container.
 
@@ -136,12 +138,7 @@ static string GetBlobSasUri(CloudBlobContainer container)
     //Upload text to the blob. If the blob does not yet exist, it will be created.
     //If the blob does exist, its existing content will be overwritten.
     string blobContent = "This blob will be accessible to clients via a shared access signature (SAS).";
-    MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(blobContent));
-    ms.Position = 0;
-    using (ms)
-    {
-        blob.UploadFromStream(ms);
-    }
+    blob.UploadText(blobContent);
 
     //Set the expiry time and permissions for the blob.
     //In this case, the start time is specified as a few minutes in the past, to mitigate clock skew.
@@ -169,7 +166,9 @@ Console.WriteLine();
 
 Compile and run to output the shared access signature URI for the new blob. The URI will be similar to the following:
 
-`https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D`
+```
+https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D
+```
 
 ### Create a stored access policy on the container
 Now let's create a stored access policy on the container, which will define the constraints for any shared access signatures that are associated with it.
