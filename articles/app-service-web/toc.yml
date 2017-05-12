@@ -1,5 +1,5 @@
 - name: Web Apps Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: About Web Apps
