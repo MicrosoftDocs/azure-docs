@@ -37,7 +37,7 @@ Reliable Concurrent Queue provides higher throughput and lower latency than [Rel
 A sample use case for the ReliableConcurrentQueue is the [Message Queue](https://en.wikipedia.org/wiki/Message_queue) scenario. In this scenario, one or more message producers create and add items to the queue, and one or more message consumers pull messages from the queue and process them. Multiple producers and consumers can work independently, using concurrent transactions in order to process the queue.
 
 ## Usage Guidelines
-* The queue expects that the items in the queue have a low retention period; that is, the items would not stay in the queue for a long time.
+* The queue expects that the items in the queue have a low retention period. That is, the items would not stay in the queue for a long time.
 * The queue does not guarantee strict FIFO ordering.
 * The queue does not read its own writes. If an item is enqueued within a transaction, it will not be visible to a dequeuer within the same transaction.
 * Dequeues are not isolated from each other. If item *A* is dequeued in transaction *txnA*, even though *txnA* is not committed, item *A* would not be visible to a concurrent transaction *txnB*.  If *txnA* aborts, *A* will become visible to *txnB* immediately.
@@ -266,7 +266,7 @@ while(!cancellationToken.IsCancellationRequested)
 ### Best-Effort DrainQueueAsync
 We cannot guarantee draining of the queue due to the concurrent nature of the data structure.  It is possible that, even if no user operations on the queue are in-flight, a particular call to TryDequeueAsync may not return an item which was previously enqueued and committed.  The enqueued item is guaranteed to *eventually* become visible to dequeue, however without an out-of-band communication mechanism, an independent consumer cannot know that the queue has reached a steady-state even if all producers have been stopped and no new enqueue operations are allowed. Thus, the drain operation is best-effort.
 
-The user should should stop all further producer and consumer tasks, and wait for any in-flight transactions to commit or abort, before attempting to drain the queue. If the number of items is the queue is large, the user should choose to batch the dequeues.
+The user should stop all further producer and consumer tasks, and wait for any in-flight transactions to commit or abort, before attempting to drain the queue. If the number of items is the queue is large, the user should choose to batch the dequeues.
 
 ```
 int numItemsDequeued;
