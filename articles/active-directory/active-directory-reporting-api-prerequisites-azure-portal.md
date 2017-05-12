@@ -18,29 +18,32 @@ ms.author: dhanyahk;markvi
 
 ---
 # Prerequisites to access the Azure AD reporting API
+
 The [Azure AD reporting APIs](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) provide you with programmatic access to the data through a set of REST-based APIs. You can call these APIs from a variety of programming languages and tools.
 
 The reporting API uses [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) to authorize access to the web APIs. 
 
-No. You can either be a Security Reader, a Security Admin or a Global Admin to see reporting data in Azure Portal or by accessing it through the API.
-
 
 To prepare your access to the reporting API, you must:
 
-1. Create an application in your Azure AD tenant 
-2. Grant the application appropriate permissions to access the Azure AD data
-3. Gather configuration settings from your directory
+1. Register an application 
+2. Grant permissions 
+3. Gather configuration settings 
 
 For questions, issues or feedback, please contact [AAD Reporting Help](mailto:aadreportinghelp@microsoft.com).
 
-## Create an Azure Active Directory application
-To configure your directory to access the Azure AD reporting API, you must sign in to the Azure portal with an Azure subscription administrator account that is also a member of the Global Administrator directory role in your Azure AD tenant.
+## Register an Azure Active Directory application
+
+You need to register an app even if you are accessing the reporting API using a script. This gives you an **Application ID**, which is required for an authorization call and it enables your code to receive tokens.
+
+To configure your directory to access the Azure AD reporting API, you must sign in to the Azure portal with an Azure administrator account that is also a member of the **Global Administrator** directory role in your Azure AD tenant.
 
 > [!IMPORTANT]
 > Applications running under credentials with "admin" privileges like this can be very powerful, so please be sure to keep the application's ID/secret credentials secure.
 > 
 
-**To create an Azure Active Directory application:**
+
+**To register an Azure Active Directory application:**
 
 1. In the [Azure portal](https://portal.azure.com), on the left navigation pane, click **Active Directory**.
    
@@ -67,7 +70,12 @@ To configure your directory to access the Azure AD reporting API, you must sign 
     d. Click **Create**. 
 
 
-## Grant your application permission to use the API
+## Grant permissions 
+
+The objective of this step is to grant your application **Read directory data** permissions to the **Windows Azure Active Directory** API.
+
+![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/16.png)
+ 
 
 **To grant your application permission to use the API:**
 
@@ -93,7 +101,7 @@ To configure your directory to access the Azure AD reporting API, you must sign 
 
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/15.png)
 
-## Gather configuration settings from your directory
+## Gather configuration settings 
 This section shows you how to get the following settings from your directory:
 
 * Domain name
