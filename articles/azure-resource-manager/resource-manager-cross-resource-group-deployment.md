@@ -25,7 +25,7 @@ The resource group is the lifecycle container for the application and its collec
 
 ## Example template
 
-To target a different resource, you must use a nested or linked template during deployment. The `Microsoft.Resources/deployments` resource type provides a `resourceGroup` parameter that enables you to specify a different resource group for the nested deployment. All the resource groups must exist before running the deployment. The following example deploys two storage accounts - one in the resource group specified during deployment, and one in a resource group named `differentResourceGroup`:
+To target a different resource, you must use a nested or linked template during deployment. The `Microsoft.Resources/deployments` resource type provides a `resourceGroup` parameter that enables you to specify a different resource group for the nested deployment. All the resource groups must exist before running the deployment. The following example deploys two storage accounts - one in the resource group specified during deployment, and one in a resource group named `crossResourceGroupDeployment`:
 
 ```json
 {
