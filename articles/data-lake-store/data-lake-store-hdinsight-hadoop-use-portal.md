@@ -28,9 +28,6 @@ ms.author: nitinme
 
 Learn how to use the Azure portal to create a HDInsight cluster with Azure Data Lake Stores as the default storage or an additional storage. Even though additional storage is optional for a HDInsight cluster, it is recommended to store your business data in the additional storage accounts.
 
-
- 
-
 ## Prerequisites
 Before you begin this tutorial, ensure that you've met the following requirements:
 

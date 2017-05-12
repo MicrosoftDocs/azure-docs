@@ -21,11 +21,9 @@ ms.author: jgao
 ---
 # Use Data Lake Store with Hadoop in Azure HDInsight
 
-To analyze data in HDInsight cluster, you can store the data either in [Azure Storage](hdinsight-hadoop-use-blob-storage.md), Azure Data Lake Store, or both. Both storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
+To analyze data in HDInsight cluster, you can store the data either in [Azure Storage](../storage/storage-introduction.md), [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md), or both. Both storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
 
-Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage as the default file system, or with HDInsight 3.5, you can select either Azure Storage or Azure Data Lake Store as the default files system.
-
-In this article, you learn how Data Lake Store works with HDInsight clusters. To learn how Azure Storage works with HDInsight clusters, see [Use Azure Storage with Hadoop in Azure HDInsight](hdinsight-hadoo-use-blob-storage.md). For more information about creating an HDInsight cluster, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+In this article, you learn how Data Lake Store works with HDInsight clusters. To learn how Azure Storage works with HDInsight clusters, see [Use Azure Storage with Hadoop in Azure HDInsight](hdinsight-hadoop-use-blob-storage.md). For more information about creating an HDInsight cluster, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 
 > [!NOTE]
@@ -35,7 +33,7 @@ In this article, you learn how Data Lake Store works with HDInsight clusters. To
 
 ## Availabilities for HDInsight clusters
 
-HDInsight clusters can use Azure Data Lake Store in two ways:
+Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. HDInsight clusters can use Azure Data Lake Store in two ways:
 
 * Azure Data Lake Store as the default storage
 * Azure Data Lake Store as additional storage, with Azure Storage Blob as default storage.
@@ -52,10 +50,9 @@ As of now, only some of the HDInsight cluster types/versions support using Data 
 | HBase (all HDInsight versions) | No | No| |
 | Storm | | |You can use Data Lake Store to write data from a Storm topology. You can also use Data Lake Store for reference data that can then be read by a Storm topology.|
 
-Adding a Data Lake Store account as additional and adding more than one Data Lake Store accounts are accomplished by giving the HDInsight cluster permission on data in one ore more Data Lake Store accounts. See [Configure Data Lake Store access](#configure-data-lake-store-access).
+
 
 Using Data Lake Store as an additional storage account does not affect performance or the ability to read or write to Azure storage from the cluster.
-
 
 
 ## Use Azure Data Lake Store as default storage
@@ -71,6 +68,9 @@ where `<cluster_root_path>` is the name of a folder you create in Azure Data Lak
 
 Notice that both the clusters use the same Data Lake Store account **mydatalakestore**. Each cluster has access to its own root filesystem in Data Lake Store. The Azure portal deployment experience in particular prompts you to use a folder name such as **/clusters/\<clustername>** for the root path.
 
+### Configure Data Lake store access
+
+To configure Data Lake store access from your HDInsight cluster, you must have an Azure Active directory (Azure AD) service principal. Only an Azure AD administrator can create a service principal. The service principal must be created with a certificate, as described at Create a service principal with certificate.
 
 
 ## Use Azure Data Lake Store as additional storage
@@ -82,6 +82,9 @@ You can use Data Lake Store as additional storage for the cluster as well. In su
 Note that there's no **cluster_root_path** in the URL now. That's because Data Lake Store is not a default storage in this case so all you need to do is provide the path to the files.
 
 ## Use more than one Data Lake Store accounts
+
+Adding a Data Lake Store account as additional and adding more than one Data Lake Store accounts are accomplished by giving the HDInsight cluster permission on data in one ore more Data Lake Store accounts. See [Configure Data Lake Store access](#configure-data-lake-store-access).
+
 
 
 ## Access files from the cluster
