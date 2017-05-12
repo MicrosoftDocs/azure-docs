@@ -42,7 +42,7 @@ sections:
       href: /azure/azure-functions/functions-create-scheduled-function
     - image: 
         src: media/index/octokitty.svg
-      text: GitHub Webhook
+      text: GitHub webhook
       href: /azure/azure-functions/functions-create-github-webhook-triggered-function
     - image: 
         src: media/index/blob.svg
