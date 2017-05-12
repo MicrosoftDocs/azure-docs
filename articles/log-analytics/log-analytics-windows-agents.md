@@ -172,7 +172,7 @@ setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1
 ## Add a workspace using a script
 Add a workspace using the Log Analytics agent scripting API with the following example:
 
-```
+```PowerShell
 $mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
 $mma.AddCloudWorkspace($workspaceId, $workspaceKey)
 $mma.ReloadConfiguration()
@@ -246,7 +246,7 @@ Configuration MMAgent
 
 The `ProductId value` in the MMAgent.ps1 script is unique to each agent version. When an updated version of each agent is published, the ProductId value changes. So, when the ProductId changes in the future, you can find the agent version using a simple script. After you have the latest agent version installed on a test server, you can use the following script to get the installed ProductId value. Using the latest ProductId value, you can update the value in the MMAgent.ps1 script.
 
-```
+```PowerShell
 $InstalledApplications  = Get-ChildItem hklm:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
 
 
