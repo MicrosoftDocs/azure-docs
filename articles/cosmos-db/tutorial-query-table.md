@@ -38,7 +38,7 @@ The queries in this article use the following sample `People` table:
 
 Because Azure Cosmos DB is compatible with the Azure Table storage APIs, see [Querying Tables and Entities] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) for details on how to query by using the Table API. 
 
-For more information on the premium capabilities offered by Azure Cosmos DB, see [Azure Cosmos DB: Table API](table-introduction.md) and [Develop with the Table API using .NET](tutorial-develop-table-dotnet.md). 
+For more information on the premium capabilities that Azure Cosmos DB offers, see [Azure Cosmos DB: Table API](table-introduction.md) and [Develop with the Table API in .NET](tutorial-develop-table-dotnet.md). 
 
 ## Prerequisites
 
@@ -68,7 +68,7 @@ When you're constructing a filter string, keep these rules in mind:
 * All parts of the filter string are case-sensitive. 
 * The constant value must be of the same data type as the property in order for the filter to return valid results. For more information about supported property types, see [Understanding the Table Service Data Model](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model). 
 
-Here's an example query that shows how to filter by the PartitionKey and Email properties by using an ODATA `$filter`.
+Here's an example query that shows how to filter by the PartitionKey and Email properties by using an OData `$filter`.
 
 **Query**
 
@@ -76,7 +76,7 @@ Here's an example query that shows how to filter by the PartitionKey and Email p
 https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and%20Email%20eq%20'Ben@contoso.com'
 ```
 
-For more details on how to construct filter expressions for various data types, see [Querying Tables and Entities](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities).
+For more information on how to construct filter expressions for various data types, see [Querying Tables and Entities](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities).
 
 **Results**
 
