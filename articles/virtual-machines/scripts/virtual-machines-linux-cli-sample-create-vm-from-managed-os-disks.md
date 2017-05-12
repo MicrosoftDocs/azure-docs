@@ -20,10 +20,10 @@ ms.author: ramankum
 
 # Create a virtual machine using an existing managed OS disk. 
 
-This script creates a virtual machine by attaching an existing managed disk as OS disk. Use this script in preceeding scenarios:
-* Create a new VM from an existing managed OS disk copied from a managed disk in different subscription
-* Create a new VM from an existing managed disk which was created from an specialized VHD file 
-* Create a new VM from an existing managed OS disk which was created from a snapshot 
+This script creates a virtual machine by attaching an existing managed disk as OS disk. Use this script in preceding scenarios:
+* Create a VM from an existing managed OS disk that was copied from a managed disk in different subscription
+* Create a VM from an existing managed disk that was created from a specialized VHD file 
+* Create a VM from an existing managed OS disk that was created from a snapshot 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
