@@ -33,15 +33,15 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: media/index/azure-functions.svg
+        src: media/index/http.svg
       text: HTTP Trigger
       href: /azure/azure-functions/functions-create-an-azure-connected-function
     - image: 
-        src: media/index/azure-functions.svg
+        src: media/index/stopwatch.svg
       text: Timer Trigger
       href: /azure/azure-functions/functions-create-scheduled-function
     - image: 
-        src: media/index/azure-functions.svg
+        src: media/index/octokitty.svg
       text: GitHub Webhook
       href: /azure/azure-functions/functions-create-github-webhook-triggered-function
     - image: 
