@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Virtual Network | Microsoft Docs
-description: Learn how to create a virtual network with subnets.
+description: Learn how to create a virtual network with multiple subnets.
 services: virtual-network
 documentationcenter: ''
 author: jimdial
@@ -19,7 +19,7 @@ ms.author: jdial
 ms.custom: 
 
 ---
-# Create a virtual network with subnets
+# Create a virtual network with multiple subnets
 
 In this tutorial, you learn how to create a basic Azure Virtual Network (VNet) with separate public and private subnets. You can connect Azure resources such as Virtual Machines (VM), App Service Environments, Virtual Machine Scale Sets, HDInsight, and Cloud Services to subnets. Resources connected to VNets are able to communicate with each other over the private Azure network.
 
