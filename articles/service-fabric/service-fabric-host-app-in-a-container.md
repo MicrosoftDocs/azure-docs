@@ -94,9 +94,9 @@ To tell Docker that we want to run a SQL Server in a container, we can reference
 5. In the **FabrikamFiber.Web** project, update the connection string in the **web.config** file, to point to the SQL Server in the container.
 
    ```xml
-   <add name="FabrikamFiber-Express" connectionString="Data Source=db,1433;Database=MusicStore;User Id=sa;Password=Password1;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
+   <add name="FabrikamFiber-Express" connectionString="Data Source=db,1433;Database=FabrikamFiber;User Id=sa;Password=Password1;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
    
-   <add name="FabrikamFiber-DataWarehouse" connectionString="Data Source=db,1433;Database=MusicStore;User Id=sa;Password=Password1;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
+   <add name="FabrikamFiber-DataWarehouse" connectionString="Data Source=db,1433;Database=FabrikamFiber;User Id=sa;Password=Password1;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
    ```
 
    >[!NOTE]
