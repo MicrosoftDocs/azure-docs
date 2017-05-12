@@ -21,9 +21,9 @@ ms.custom:
 ---
 # Create a virtual network with subnets
 
-In this tutorial, you learn how to create a basic Azure Virtual Network (VNet) with separate public and private subnets. You can connect Azure resources such as Virtual Machines (VM), App Service Environments, Virtual Machine Scale Sets, HDInsight, and Cloud Services to subnets. Resources connected to VNets are able to communicate with each other over the private Azure network. 
+In this tutorial, you learn how to create a basic Azure Virtual Network (VNet) with separate public and private subnets. You can connect Azure resources such as Virtual Machines (VM), App Service Environments, Virtual Machine Scale Sets, HDInsight, and Cloud Services to subnets. Resources connected to VNets are able to communicate with each other over the private Azure network.
 
-The sections that follow include steps for deploying a VNet using the Azure [portal](#portal), Azure [command-line interface](#cli) (CLI), Azure [PowerShell](#powershell), and Azure Resource Manager [template](#template). The result is the same, regardless of which tool you choose to deploy the VNet with. Clicking the link for any tool takes you directly to that section of the article. To learn more about all VNet settings, to create custom VNets, or change settings for existing VNets, read the [Create, change, or delete VNets](virtual-network-network.md) and [Create, change, or delete subnets](virtual-network-subnet.md) articles.
+The sections that follow include steps for deploying a VNet using the Azure [portal](#portal), Azure [command-line interface](#cli) (CLI), Azure [PowerShell](#powershell), and Azure Resource Manager [template](#template). The result is the same, regardless of which tool you choose to deploy the VNet with. Clicking the link for any tool takes you directly to that section of the article. To learn more about all VNet settings, to create custom VNets, or change settings for existing VNets, read the [Create, change, or delete VNets](virtual-network-manage-network.md) and [Create, change, or delete subnets](virtual-network-manage-subnet.md) articles.
 
 ## <a name="portal"></a>Azure portal
 
@@ -51,7 +51,7 @@ The sections that follow include steps for deploying a VNet using the Azure [por
 12. **Optional:** To delete the resources created in this tutorial, complete the steps in the [Delete resources](#delete-portal) section of this article.
 
 ## CLI
-Though CLI commands are the same whether you execute the commands from Windows, Linux, or macOS, there are scripting differences across operating system shells. The instructios below are for executing a Bash script that contains CLI commands.
+Though CLI commands are the same whether you execute the commands from Windows, Linux, or macOS, there are scripting differences across operating system shells. The following instructions are for executing a Bash script that contains CLI commands.
 
 1.  From an Internet browser, open the Azure [portal](https://portal.azure.com) and sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 2. At the top of the portal, to the right of the *Search resources* bar, click the **>_** icon to start a Bash Azure Cloud Shell (Preview). The cloud shell pane appears at the bottom of the portal and, after a few seconds, presents a **username@Azure:~$** prompt. The cloud shell automatically logs you into Azure using the credentials you authenticated to the portal with.
@@ -79,11 +79,11 @@ Though CLI commands are the same whether you execute the commands from Windows, 
     ```
 4. Create a file and save the script to the temporary cloud shell storage. Cloud shell storage does not persist across sessions. If you prefer to persist the script across cloud shell sessions, complete the steps in the [Persisting files in Azure Cloud Shell](../cloud-shell/persisting-shell-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article to configure persistent storage for cloud shell (one-time setup). 
 
-From the clould shell prompt, type `nano myscript.sh --nonewlines`. The command starts the GNU nano editor with an empty myscript.sh file. Place your mouse inside the editor window, right-click, then click **Paste**.
+From the cloud shell prompt, type `nano myscript.sh --nonewlines`. The command starts the GNU nano editor with an empty myscript.sh file. Place your mouse inside the editor window, right-click, then click **Paste**.
 5. On your keyboard, hold down the **Ctrl+X** keys, then enter **Y**, then press the **Enter** key to save the file as myscript.sh.
 6. From the cloud shell prompt, mark the file as executable with the `chmod +x myscript.sh` command.
 7. Execute the script by entering `./myscript.sh`.
-8. Once the script is complete, review the subnets for the VNet by copying and pasting the following command into your Bash cloud shell:
+8. Once the script is complete, review the subnets for the VNet by copying and pasting the following command in to your Bash cloud shell:
     ```azurecli
     az network vnet subnet list --resource-group MyResourceGroup --vnet-name MyVnet --output table
     ```
@@ -118,8 +118,8 @@ From the clould shell prompt, type `nano myscript.sh --nonewlines`. The command 
       -Subnet $Subnet1,$Subnet2
     #
     ```
-5. Right-click in your PowerShell window to execute the script.
-6. Review the subnets for the VNet by copying the following command and pasting the command into your PowerShell window:
+5. To execute the script, right-click in your PowerShell window.
+6. Review the subnets for the VNet by copying the following command and pasting the command in to your PowerShell window:
     ```powershell
     $Vnet = $Vnet.subnets | Format-Table Name, AddressPrefix
     ```
@@ -197,11 +197,8 @@ From the PowerShell prompt, enter the following command: `Remove-AzureRmResource
 
 ## Next steps
 
-This tutorial explained how to create a basic VNet with two subnets. Before creating a VNet for production use, you may want to understand all VNet settings and options to deploy VNets that meet your specific requirements. To learn about all VNet and subnet settings, read the [Create, change, and delete VNets](virtual-network-network.md) and [Create, change, and delete subnets](virtual-network-subnet.md) articles.
-
-After deploying a VNet, you may want to connect the following resources to it:
-
-- **A virtual machine (VM):** To learn how, read the [Create a Windows VM](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Create a Linux VM](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) articles. Instead of creating a VNet and subnet in the steps of the articles, you can select an existing VNet and subnet to connect a VM to.
-- **A different VNet in the same location:** To learn how, read the [VNet peering overview](virtual-network-peering-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article.
-- **A different VNet in a different location:** To learn how, read the [Connect a VNet to another VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article.
-- **An on-premises network with a site-to-site virtual private network (VPN) or ExpressRoute circuit:** To learn how, read the  [Connect a VNet to an on-premises network using a site-to-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Link a VNet to an ExpressRoute circuit](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) articles.
+- To understand all VNet and subnet settings, read the [Manage VNet](virtual-network-manage-network#view-vnet.md) and [Manage subnet](virtual-network-manage-subnet.md#create-subnet) articles. A variety of options exist that enable you to create production VNets and subnets to meet varying requirements.
+- Filter inbound and outbound subnet traffic by creating and applying [network security groups](virtual-networks-nsg.md) (NSGs) to subnets.
+- Create a [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM and connect it to the VNet.
+- Connect the VNet to another VNet in the same location with [VNet peering](virtual-network-peering-overview.md).
+- Connect the VNet to an on-premises network with a [site-to-site virtual private network](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (VPN) or [ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) circuit.

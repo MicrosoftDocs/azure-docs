@@ -18,8 +18,8 @@
 
 ## Deploy
 ### Virtual networks (VNet)
-#### [Create, change, or delete VNets](virtual-networks-manage-network.md)
-#### [Create, change, or delete subnets](virtual-networks-manage-subnet.md)
+#### [Create, change, or delete VNets](virtual-network-manage-network.md)
+#### [Create, change, or delete subnets](virtual-network-manage-subnet.md)
 #### [Create a VNet with subnets](virtual-networks-create-vnet-arm-pportal.md) 
 ##### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 ##### [CLI](virtual-networks-create-vnet-arm-cli.md)
