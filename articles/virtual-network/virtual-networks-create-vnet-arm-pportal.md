@@ -50,7 +50,7 @@ The sections that follow include steps for deploying a VNet using the Azure [por
 11. **Optional:** To delete the resources created in this tutorial, complete the steps in the [Delete resources](#delete-portal) section of this article.
 
 ## CLI
-Though CLI commands are the same whether you execute the commands from Windows, Linux, or macOS, there are scripting differences across operating system shells. The following instructions are for executing a Bash script that contains CLI commands.
+Though CLI commands are the same whether you execute the commands from Windows, Linux, or macOS, there are scripting differences across operating system shells. The following instructions are for executing a Bash script that contains CLI commands:
 
 1. From an Internet browser, open the Azure [portal](https://portal.azure.com) and sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 2. At the top of the portal, to the right of the *Search resources* bar, click the **>_** icon to start a Bash Azure Cloud Shell (Preview). The cloud shell pane appears at the bottom of the portal and, after a few seconds, presents a **username@Azure:~$** prompt. The cloud shell automatically logs you in to Azure using the credentials you authenticated to the portal with.
@@ -63,7 +63,7 @@ Though CLI commands are the same whether you execute the commands from Windows, 
       --name MyResourceGroup \
       --location eastus
     
-    # Create a virtual network with one subnet using default address ranges for the VNet (10.0.0.0/16) and subnet (10.0.0.0/24).
+    # Create a virtual network with one subnet.
     az network vnet create \
       --name MyVnet \
       --resource-group MyResourceGroup \
@@ -76,9 +76,7 @@ Though CLI commands are the same whether you execute the commands from Windows, 
       --vnet-name MyVnet \
       --resource-group MyResourceGroup
     ```
-4. Create a file and save the script to the temporary cloud shell storage. Cloud shell storage does not persist across sessions. If you prefer to persist the script across cloud shell sessions, setup [persistent storage](../cloud-shell/persisting-shell-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for cloud shell. 
-
-From the cloud shell prompt, type `nano myscript.sh --nonewlines`. The command starts the GNU nano editor with an empty myscript.sh file. Place your mouse inside the editor window, right-click, then click **Paste**.
+4. Create a script file and save it. From the cloud shell prompt, type `nano myscript.sh --nonewlines`. The command starts the GNU nano editor with an empty myscript.sh file. Place your mouse inside the editor window, right-click, then click **Paste**. **Note:** Cloud shell storage does not persist across sessions. If you prefer to persist the script across cloud shell sessions, setup [persistent storage](../cloud-shell/persisting-shell-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for cloud shell. 
 5. On your keyboard, hold down the **Ctrl+X** keys, then enter **Y**, then press the **Enter** key to save the file as myscript.sh.
 6. From the cloud shell prompt, mark the file as executable with the `chmod +x myscript.sh` command.
 7. Execute the script by entering `./myscript.sh`.
