@@ -201,12 +201,6 @@
 #### [View all my apps](active-directory-coreapps-view-azure-portal.md)
 #### [Manage user account provisioning](active-directory-enterprise-apps-manage-provisioning.md)
 
-### Develop
-#### [Assign users](active-directory-applications-guiding-developers-assigning-users.md)
-#### [Assign groups](active-directory-applications-guiding-developers-assigning-groups.md)
-#### [Require assignment](active-directory-applications-guiding-developers-requiring-user-assignment.md)
-#### [Develop LoB apps](active-directory-applications-guiding-developers-for-lob-applications.md)
-
 ### [Manage access to apps](active-directory-managing-access-to-apps.md)
 #### [Self-service access](active-directory-self-service-application-access.md)
 #### [Certificates for SSO](active-directory-sso-certs.md)
@@ -225,7 +219,7 @@
 ##### [Access Panel](active-directory-application-access-panel-content-map.md)
 ##### [Application Proxy](active-directory-application-proxy-content-map.md)
 ##### [Conditional Access](active-directory-application-conditional-access-content-map.md)
-
+### [Develop apps](active-directory-applications-guiding-developers-for-lob-applications.md)
 ### [Document library](active-directory-apps-index.md)
 
 ## Manage your directory
