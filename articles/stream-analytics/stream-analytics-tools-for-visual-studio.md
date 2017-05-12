@@ -53,10 +53,10 @@ A **Toll** project is generated in **Solution Explorer**.
 
 ## Define the input sources
 1.	In **Solution Explorer**, expand the **Inputs** node and rename **Input.json** to **EntryStream.json**. Double-click **EntryStream.json**.
-2.	The **Input Alias** is now **EntryStream**. Note that the input alias is used in the query script. 
+2.	The **Input Alias** is now **EntryStream**. The input alias is used in the query script. 
 3.	In **Source Type**, select **Data Stream**.
 4.	In **Source**, select **Event Hub**.
-5.	In **Service Bus Namescape**, select the **TollData** option.
+5.	In **Service Bus Namespace**, select the **TollData** option.
 6.	In **Event Hub Name**, select **entry**.
 7.	In **Event Hub Policy Name**, select **RootManageSharedAccessKey** (the default value).
 8.	In **Event Serialization Format**, select **Json**. 
@@ -121,7 +121,7 @@ Stream Analytics uses a query language that's like SQL and adds a few extensions
 
 For more information, see [Time Management](https://msdn.microsoft.com/library/azure/mt582045.aspx) and [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) constructs used in the query from MSDN.
 
-Now that you have written your first Stream Analytics query, it's time to test it by using sample data files located in your TollApp folder in the following path:
+Now that you have written your first Stream Analytics query, it's time to test it. Use the sample data files located in your TollApp folder in the following path:
 
 ..\TollApp\TollApp\Data
 
@@ -193,7 +193,7 @@ You can also sample input data from input sources to a local file.
  
 ### Start a job
 Now that your job is created, the job view is automatically opened. 
-1. Click the **green arrow** button to start the job.
+1. To start the job, click the **green arrow** button.
 
     ![Start job](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-start-job-01.png)
  
