@@ -1,5 +1,5 @@
 # Overview
-## [Hadoop](hdinsight-hadoop-introduction.md)
+## [About HDInsight and Hadoop](hdinsight-hadoop-introduction.md)
 ## [Hadoop components on HDInsight](hdinsight-component-versioning.md)
 ## [R Server](hdinsight-hadoop-r-server-overview.md)
 ## [Apache Spark](hdinsight-apache-spark-overview.md)

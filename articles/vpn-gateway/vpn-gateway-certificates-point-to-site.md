@@ -1,5 +1,5 @@
 ---
-title: 'Create a self-signed certificates for Point-to-Site: PowerShell: Azure | Microsoft Docs'
+title: 'Create and export certificates for Point-to-Site: PowerShell: Azure | Microsoft Docs'
 description: This article contains steps to create a self-signed root certificate, export the public key, and generate client certificates using PowerShell on Windows 10.
 services: vpn-gateway
 documentationcenter: na
@@ -18,7 +18,7 @@ ms.date: 05/04/2017
 ms.author: cherylmc
 
 ---
-# Create a self-signed root certificate for Point-to-Site connections using PowerShell
+# Generate and export certificates for Point-to-Site connections using PowerShell
 
 This article shows you how to create a self-signed root certificate and generate client certificates. This article does not contain Point-to-Site configuration instructions or the Point-to-Site FAQ. You can find that information by selecting one of the 'Configure Point-to-Site' articles from the following list:
 
@@ -44,7 +44,7 @@ Point-to-Site connections use certificates to authenticate. When you configure a
 The following steps show you how to create a self-signed root certificate using PowerShell on Windows 10. The cmdlets and parameters that are used in these steps are part of the Windows 10 operating system, not a part of a PowerShell version. This does not mean that the certificates that you create can only be installed on Windows 10. They can be installed on any supported client. For information about supported clients, see [Point-to-Site FAQ](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq).
 
 1. From a computer running Windows 10, open a Windows PowerShell console with elevated privileges.
-2. Use the following example to create the self-signed root certificate. The following example creates a self-signed root certificate named 'P2SRootCert' that is automatically installed in 'Certificates-Current User\Personal\Certificates'. You can view the certificate by opening *certmgr.msc*.
+2. Use the following example to create the self-signed root certificate. The following example creates a self-signed root certificate named 'P2SRootCert' that is automatically installed in 'Certificates-Current User\Personal\Certificates'. You can view the certificate by opening *certmgr.msc*, or *Manage User Certificates*.
 
   ```powershell
   $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
@@ -57,7 +57,9 @@ The following steps show you how to create a self-signed root certificate using 
 
 [!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
 
-### To export a self-signed root certificate (optional)
+The exported.cer file must be uploaded to Azure. For instructions, see [Configure a Point-to-Site connection](vpn-gateway-howto-point-to-site-rm-ps.md#upload).
+
+### Export the self-signed root certificate and public key to store it (optional)
 
 You may want to export the self-signed root certificate and store it safely. If need be, you can later install it on another computer and generate more client certificates, or export another .cer file. To export the self-signed root certificate as a .pfx, select the root certificate and use the same steps as described in [Export a client certificate](#clientexport).
 

@@ -1,40 +1,40 @@
 ---
-title: Use MongoChef for MongoDB with Azure DocumentDB | Microsoft Docs
-description: 'Learn how to use MongoChef with a DocumentDB: API for MongoDB account'
+title: Use MongoChef for Azure Cosmos DB | Microsoft Docs
+description: 'Learn how to use MongoChef with an Azure Cosmos DB: API for MongoDB account'
 keywords: mongochef
-services: documentdb
+services: cosmosdb
 author: AndrewHoh
 manager: jhubbard
 editor: ''
 documentationcenter: ''
 
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 04/27/2017
 ms.author: anhoh
 
 ---
-# Use MongoChef with a DocumentDB: API for MongoDB account
+# Use MongoChef with an Azure Cosmos DB: API for MongoDB account
 
-To connect to an Azure DocumentDB: API for MongoDB account, you must:
+To connect to an Azure Cosmos DB: API for MongoDB account, you must:
 
 * Download and install [MongoChef](http://3t.io/mongochef)
-* Have your DocumentDB: API for MongoDB account [connection string](documentdb-connect-mongodb-account.md) information
+* Have your Azure Cosmos DB: API for MongoDB account [connection string](documentdb-connect-mongodb-account.md) information
 
 ## Create the connection in MongoChef
-To add your DocumentDB: API for MongoDB account to the MongoChef connection manager, perform the following steps.
+To add your Azure Cosmos DB: API for MongoDB account to the MongoChef connection manager, perform the following steps.
 
-1. Retrieve your DocumentDB: API for MongoDB connection information using the instructions [here](documentdb-connect-mongodb-account.md).
+1. Retrieve your Azure Cosmos DB: API for MongoDB connection information using the instructions [here](documentdb-connect-mongodb-account.md).
 
     ![Screen shot of the connection string blade](./media/documentdb-mongodb-mongochef/ConnectionStringBlade.png)
 2. Click **Connect** to open the Connection Manager, then click **New Connection**
 
     ![Screen shot of the MongoChef connection manager](./media/documentdb-mongodb-mongochef/ConnectionManager.png)
-3. In the **New Connection** window, on the **Server** tab, enter the HOST (FQDN) of the DocumentDB: API for MongoDB account and the PORT.
+3. In the **New Connection** window, on the **Server** tab, enter the HOST (FQDN) of the Azure Cosmos DB: API for MongoDB account and the PORT.
 
     ![Screen shot of the MongoChef connection manager server tab](./media/documentdb-mongodb-mongochef/ConnectionManagerServerTab.png)
 4. In the **New Connection** window, on the **Authentication** tab, choose Authentication Mode **Standard (MONGODB-CR or SCARM-SHA-1)** and enter the USERNAME and PASSWORD.  Accept the default authentication db (admin) or provide your own value.
@@ -112,4 +112,4 @@ To create a database, collection, and documents using MongoChef, perform the fol
     ![Screen shot of Mongo Chef query results](./media/documentdb-mongodb-mongochef/QueryDocument1.png)
 
 ## Next steps
-* Explore DocumentDB: API for MongoDB [samples](documentdb-mongodb-samples.md).
+* Explore Azure Cosmos DB: API for MongoDB [samples](documentdb-mongodb-samples.md).
