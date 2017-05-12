@@ -117,13 +117,13 @@ echo "Creating the container..."
 az storage container create --name $container_name
 
 echo "Uploading the file..."
-az storage blob upload --file $file_to_upload --container-name $container_name --name $blob_name
+az storage blob upload --container-name $container_name --file $file_to_upload --name $blob_name
 
 echo "Listing the blobs..."
-az storage blob list --container-name $container_name
+az storage blob list --container-name $container_name --output table
 
 echo "Downloading the file..."
-az storage blob download --container-name $container_name --name $blob_name --file $destination_file
+az storage blob download --container-name $container_name --name $blob_name --file $destination_file --output table
 
 echo "Done"
 ```
@@ -151,18 +151,19 @@ You should see output similar to the following, and the **\<destination_file\>**
 
 ```
 Creating the container...
-Success
----------
-True
-Uploading the file...                                           Percent complete: %100.0
+{
+  "created": true
+}
+Uploading the file...
+Percent complete: %100.0
 Listing the blobs...
-Name           Blob Type      Length  Content Type              Last Modified
--------------  -----------  --------  ------------------------  -------------------------
-test_blob.txt  BlockBlob         771  application/octet-stream  2016-12-21T15:35:30+00:00
+Name       Blob Type      Length  Content Type              Last Modified
+---------  -----------  --------  ------------------------  -------------------------
+README.md  BlockBlob        6700  application/octet-stream  2017-05-12T20:54:59+00:00
 Downloading the file...
 Name
--------------
-test_blob.txt
+---------
+README.md
 Done
 ```
 
