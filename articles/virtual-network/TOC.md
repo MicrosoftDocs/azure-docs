@@ -17,14 +17,17 @@
 ### [Network security groups](virtual-networks-nsg.md)
 
 ## Deploy
-### Virtual networks
-#### [Portal](virtual-networks-create-vnet-arm-pportal.md)
-#### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [CLI](virtual-networks-create-vnet-arm-cli.md)
-#### [Template](virtual-networks-create-vnet-arm-template-click.md)
-#### [Portal (Classic)](virtual-networks-create-vnet-classic-pportal.md)
-#### [PowerShell (Classic)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-#### [CLI (Classic)](virtual-networks-create-vnet-classic-cli.md)
+### Virtual networks (VNet)
+#### [Create, change, or delete VNets](virtual-networks-manage-network.md)
+#### [Create, change, or delete subnets](virtual-networks-manage-subnet.md)
+#### [Create a VNet with subnets](virtual-networks-create-vnet-arm-pportal.md) 
+##### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+##### [CLI](virtual-networks-create-vnet-arm-cli.md)
+##### [Template](virtual-networks-create-vnet-arm-template-click.md)
+#### Create a VNet with subnets [Classic]
+##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
+##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [CLI](virtual-networks-create-vnet-classic-cli.md)
 
 ### Network security groups
 #### [Portal](virtual-networks-create-nsg-arm-pportal.md)
@@ -47,7 +50,7 @@
 #### [Template](virtual-networks-create-vnetpeering-arm-template-click.md)
 
 ### Network interfaces
-#### [Add, change, or delete](virtual-network-network-interface.md)
+#### [Create, change, or delete](virtual-network-network-interface.md)
 #### [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md)
 
 ### [Public IP addresses](virtual-network-public-ip-address.md)
