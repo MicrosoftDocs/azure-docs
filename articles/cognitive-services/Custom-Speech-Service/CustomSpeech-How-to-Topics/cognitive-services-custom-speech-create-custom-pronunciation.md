@@ -1,5 +1,5 @@
 ---
-title: Use custom pronunciation with Custom Speech Service on Azure| Microsoft Docs
+title: Use custom pronunciation with Custom Speech Service on Azure | Microsoft Docs
 description: Learn how to create a language model with the Custom Speech Service in Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
