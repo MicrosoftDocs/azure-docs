@@ -205,7 +205,7 @@ This procedure and script example will not upgrade an existing agent.
 4.	Modify and then use the following example to install the agent using DSC in Azure Automation. Import MMAgent.ps1 into Azure Automation by using the Azure Automation interface or cmdlet.
 5.	Assign a node to the configuration. Within 15 minutes, the node checks its configuration and the MMA is pushed to the node.
 
-```json
+```PowerShell
 Configuration MMAgent
 {
     $OIPackageLocalPath = "C:\MMASetup-AMD64.exe"
