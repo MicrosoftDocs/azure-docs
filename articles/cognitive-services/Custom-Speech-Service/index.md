@@ -34,7 +34,7 @@ ms.author: carolz
 <p style="margin-top: 6px; margin-bottom: 6px;">Create customized language models</p>
 <div class="ico48Case">
     <div class="ico48Link">
-        <a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-get-started">
+        <a href="/azure/cognitive-services/custom-speech-service/getstarted">
             <img src="https://docs.microsoft.com/media/common/quickstart.svg" alt="">
             <span>Get started</span>
         </a>
@@ -44,10 +44,7 @@ ms.author: carolz
 <h2 style="margin-top: 36px">Step-by-Step Tutorials</h2>
 <p>Learn how to build, deploy and use acoustic and language models for your apps</p>
 <ol>
-    <li><a href="/azure/cognitive-services/custom-speech-service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-acoustic-model">Tutorial on how to create an acoustic model</a></li>
-    <li><a href="/azure/cognitive-services/custom-speech-service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-language-model">Tutorial on how to create a language model</a></li>
-    <li><a href="/azure/cognitive-services/custom-speech-service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint">Tutorial on how to create a custom speech endpoint</a></li>
-    <li><a href="/azure/cognitive-services/custom-speech-service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-use-endpoint">Tutorial on how to use a custom speech endpoint</a></li>
+    <li><a href="#">Tutorial</a></li>
 </ol>
 
 <h2 style="margin-top: 36px">Free PluralSight Video Training</h2>
@@ -80,9 +77,9 @@ ms.author: carolz
                 <div class="card">
                     <div class="cardText">
                         <h3>Top topics</h3>
-                        <p><a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home">Overview</a></p>
-                        <p><a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-faq">FAQ</a></p>
-                        <p><a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-glossary">Glossary</a></p>
+                        <p><a href="/azure/cognitive-services/custom-speech-service/home">Overview</a></p>
+                        <p><a href="/azure/cognitive-services/custom-speech-service/faq">FAQ</a></p>
+                        <p><a href="/azure/cognitive-services/custom-speech-service/glossary">Glossary</a></p>
                     </div>
                 </div>
             </div>
