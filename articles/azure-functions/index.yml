@@ -33,15 +33,15 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: media/index/quickstart-http.svg
+        src: media/index/azure-functions.svg
       text: HTTP Trigger
       href: /azure/azure-functions/functions-create-an-azure-connected-function
     - image: 
-        src: media/index/quickstart-timer.svg
+        src: media/index/azure-functions.svg
       text: Timer Trigger
       href: /azure/azure-functions/functions-create-scheduled-function
     - image: 
-        src: media/index/quickstart-github.svg
+        src: media/index/azure-functions.svg
       text: GitHub Webhook
       href: /azure/azure-functions/functions-create-github-webhook-triggered-function
     - image: 
