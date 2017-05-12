@@ -25,13 +25,13 @@ For detailed information about the transition from Forefront TMG and UAG to Appl
 
 |**TMG/UAG functionality**|**Modern solution**|
 |:-----|:-----|
-|Selective HTTP publishing for browser apps|- Web Application Proxy in Windows Server 2012 R2<br>- Azure AD Application Proxy|
-|Active Directory Federation Services (AD FS) integration|- Web Application Proxy in Windows Server 2012 R2<br>- Azure AD Application Proxy|
-|Rich protocols publishing (for example, Citrix, Lync, RDG)|- Web Application Proxy in Windows Server 2012 R2<br>- Azure AD Application Proxy|
-|Portal|- Intune or System Center for Web Application Proxy<br>- Azure AD Access Panel or Office 365 App Launcher for Azure AD Application Proxy|
-|Endpoint health detection|- Intune or System Center|
-|SSL tunneling|- Windows SSL or VPN|
-|Layer 2/3 firewall|- Windows Server|
+|Selective HTTP publishing for browser apps|Azure AD Application Proxy|
+|Active Directory Federation Services (AD FS) integration|Azure AD Application Proxy|
+|Rich protocols publishing (for example, Citrix, Lync, RDG)|Azure AD Application Proxy|
+|Portal|Azure AD Access Panel or Office 365 App Launcher for Azure AD Application Proxy|
+|Endpoint health detection|Intune or System Center|
+|SSL tunneling|Windows SSL or VPN|
+|Layer 2/3 firewall|Windows Server|
 |Preauthentication for ActiveSync (HTTP Basic) and RDG|No current solution from Microsoft|
 |Web application firewall|No current solution from Microsoft.|
 |Secure web gateway (forward proxy)|No current solution from Microsoft.|
