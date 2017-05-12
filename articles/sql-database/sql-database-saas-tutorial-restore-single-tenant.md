@@ -1,5 +1,5 @@
 ---
-title: Restore a single tenant database (sample SaaS application using Azure SQL Database) | Microsoft Docs 
+title: Restore an Azure SQL database in a multi-tenant app  | Microsoft Docs 
 description: "Learn how to restore a single tenants SQL database after accidentally deleting data"
 keywords: sql database tutorial
 services: sql-database
@@ -143,6 +143,6 @@ In this tutorial, you learned how to:
 
 ## Additional resources
 
-* [Additonal tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Additional tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
 * [Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md)
 * [Learn about SQL Database backups](sql-database-automated-backups.md)

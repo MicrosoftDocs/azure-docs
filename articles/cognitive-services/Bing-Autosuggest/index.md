@@ -1,4 +1,5 @@
 ---
+redirect_url: /azure/cognitive-services/Bing-Autosuggest/get-suggested-search-terms
 title: Azure Cognitive Services, Bing Autosuggest API Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to create and configure API calls
 services: sql-database

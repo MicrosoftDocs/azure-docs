@@ -239,9 +239,28 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/app-service/">
+                                                <img src="media/index/AppService.svg" alt="" />
+                                                <p>App Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/azure-functions/">
                                                 <img src="media/index/AzureFunctions.svg" alt="" />
                                                 <p>Functions</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/batch/">
+                                                <img src="media/index/Batch.svg" alt="" />
+                                                <p>Batch</p>
+                                            </a>
+                                        </li>
+                                        
+                                        <li>
+                                            <a href="/azure/service-fabric/">
+                                                <img src="media/index/Fabric.svg" alt="" />
+                                                <p>Service Fabric</p>
                                             </a>
                                         </li>
                                         <li>
@@ -820,6 +839,12 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <p>Machine Learning</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/time-series-insights/">
+                                                <img src="media/index/time-series-insights.svg" alt="" />
+                                                <p>Time Series Insights</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="group">
@@ -1078,6 +1103,25 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/app-service/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/AppService.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>App Service</h3>
+                                                    <p>Deploy web apps on Linux using containers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/azure-functions/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1090,6 +1134,44 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <div class="cardText">
                                                     <h3>Functions</h3>
                                                     <p>Process events with serverless code</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/batch/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Batch.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Batch</h3>
+                                                    <p>Run compute jobs using containers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/service-fabric/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Fabric.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Service Fabric</h3>
+                                                    <p>Develop microservices and orchestrate containers on Windows or Linux</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1591,8 +1673,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                         </ul>
                     </li>
                     <li>
-                        <a href="#mgmt">Containers</a>
-                        <ul id="mgmt" class="cardsA">
+                        <a href="#containers">Containers</a>
+                        <ul id="containers" class="cardsA">
                             <li>
                                 <a href="/azure/container-service/">
                                     <div class="cardSize">
@@ -2335,6 +2417,25 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/time-series-insights/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/time-series-insights.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Time Series Insights</h3>
+                                                    <p>Instantly explore and analyze time-series data</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -3019,7 +3120,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="https://azure.microsoft.com/develop/net/">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/dotnet/api/?term=Microsoft.Azure">API reference</a>
+                                                    <a href="/dotnet/azure/?view=azure-dotnet">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3073,7 +3174,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="http://azure.github.io/azure-sdk-for-node/">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://azure.github.io/azure-storage-node/index.html">API reference</a>
+                                                    <a href="http://azure.github.io/azure-sdk-for-node/">API reference</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/documentation/samples/?platform=nodejs">Get samples</a>

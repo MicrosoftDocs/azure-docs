@@ -1,6 +1,6 @@
 ---
-title: Manage Schema for multiple tenants (a sample SaaS application using Azure SQL Database) | Microsoft Docs 
-description: "Manage Schema for multiple tenants in a SaaS application that uses Azure SQL Database"
+title: Manage Azure SQL Database schema in a multi-tenant app | Microsoft Docs 
+description: "Manage Schema for multiple tenants in a multi-tenant application that uses Azure SQL Database"
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''
@@ -128,6 +128,6 @@ In this tutorial you learned how to:
 
 ## Additional resources
 
-* [Additonal tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Additional tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
 * [Managing scaled-out cloud databases](sql-database-elastic-jobs-overview.md)
 * [Create and manage scaled-out cloud databases](sql-database-elastic-jobs-create-and-manage.md)

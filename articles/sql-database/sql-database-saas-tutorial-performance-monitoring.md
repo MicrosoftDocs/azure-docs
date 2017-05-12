@@ -1,6 +1,6 @@
 ---
-title: Performance Monitoring the WTP application  (a sample SaaS application using Azure SQL Database) | Microsoft Docs 
-description: "Monitor performance of a sample SaaS application that uses Azure SQL Database"
+title: Monitor performance of a SQL Database SaaS app  | Microsoft Docs 
+description: "Monitor and manage performance for the Azure SQL Database sample Wingtip Tickets (WTP) app"
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''
@@ -244,7 +244,7 @@ In this tutorial you learn how to:
 
 ## Additional resources
 
-* [Additonal tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Additional tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
 * [SQL Elastic pools](sql-database-elastic-pool.md)
 * [Azure automation](../automation/automation-intro.md)
 * [Log Analytics](sql-database-saas-tutorial-log-analytics.md) - Setting up and using Log Analytics tutorial

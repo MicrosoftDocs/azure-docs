@@ -1,6 +1,6 @@
 ---
-title: SaaS in a box (sample SaaS application using Azure SQL Database) | Microsoft Docs 
-description: "Build SaaS applications using SQL Database"
+title: Azure SQL Database sample multi-tenant app | Microsoft Docs 
+description: "Introduction to the Azure SQL Database sample Wingtip Tickets (WTP) app"
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''
@@ -110,7 +110,7 @@ The WTP sample app initially has two SQL Database servers to connect to - the *t
 
 1. Demo credentials are: Login = *developer*, Password = *P@ssword1*
 
-   ![](media\sql-database-wtp-overview\tenants1-connect.png)
+   ![connection](media\sql-database-wtp-overview\tenants1-connect.png)
 
 1. Repeat steps 2-3 and connect to the *catalog-&lt;User&gt;.database.windows.net* server.
 
@@ -118,9 +118,6 @@ After successfully connecting you should see both servers. You might see more or
 
 ![object explorer](media/sql-database-wtp-overview/object-explorer.png)
 
-## Learn more about SaaS applications
-
-A series of tutorials is provided that accompany the WTP app which each explores a different set of SaaS patterns through hand-on exercises that lead you through sample scripts and templates. Each exercise is quick to do and the tutorials can be followed in any order. To locate the tutorials look in the [Learning Module folder](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules).
 
 
 ## Next steps

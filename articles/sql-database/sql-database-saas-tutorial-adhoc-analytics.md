@@ -1,6 +1,6 @@
 ---
-title: Run ad-hoc analytics queries across all tenants (sample SaaS application using Azure SQL Database) | Microsoft Docs 
-description: "Run ad-hoc analytics queries across all tenants"
+title: Run ad-hoc analytics queries across multiple Azure SQL databases | Microsoft Docs 
+description: "Run ad-hoc analytics queries across multiple databases in a multi-tenant application"
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''
@@ -90,5 +90,5 @@ In this tutorial you learned how to:
 
 ## Additional resources
 
-* [Additonal tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Additional tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
 * [Elastic Query](sql-database-elastic-query-overview.md)
