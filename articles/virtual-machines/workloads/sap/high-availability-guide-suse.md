@@ -1009,7 +1009,6 @@ In this example an SAP HANA System Replication is installed and configured. SAP 
       msl_SAPHana_<b>HDB</b>_HDB<b>03</b>:Master  
     order ord_SAPHana_<b>HDB</b>_HDB<b>03</b> 2000: cln_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> \ 
       msl_SAPHana_<b>HDB</b>_HDB<b>03</b>
-    
 
     # now we load the file to the cluster
     sudo crm configure load update crm-saphana.txt
