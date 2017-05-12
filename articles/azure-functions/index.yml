@@ -41,6 +41,10 @@ sections:
       text: Timer
       href: /azure/azure-functions/functions-create-scheduled-function
     - image: 
+        src: media/index/octokitty.svg
+      text: GitHub Webhook
+      href: /azure/azure-functions/functions-create-github-webhook-triggered-function
+    - image: 
         src: media/index/blob.svg
       text: Blob
       href: /azure/azure-functions/functions-create-storage-blob-triggered-function
@@ -48,10 +52,6 @@ sections:
         src: media/index/storage.svg
       text: Queue
       href: /azure/azure-functions/functions-create-storage-queue-triggered-function
-    - image: 
-        src: media/index/octokitty.svg
-      text: GitHub Webhook
-      href: /azure/azure-functions/functions-create-github-webhook-triggered-function
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
