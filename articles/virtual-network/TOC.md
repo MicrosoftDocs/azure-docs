@@ -100,9 +100,6 @@
 ##### [Sample application](virtual-networks-sample-app.md)
 
 ## Configure
-### Accelerated networking for VMs
-#### [Azure portal](virtual-network-accelerated-networking-portal.md)
-#### [PowerShell](virtual-network-accelerated-networking-powershell.md)
 ### [Optimize VM network throughput](virtual-network-optimize-network-bandwidth.md)
 ### Access control lists
 #### [Classic portal](virtual-networks-acl.md)
