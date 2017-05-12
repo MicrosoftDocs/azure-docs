@@ -20,7 +20,7 @@ ms.author: ramankum
 
 # Create a virtual machine from a snapshot 
 
-This script creates a virtual machine from a snapshot of a OS disk. 
+This script creates a virtual machine from a snapshot of an OS disk. 
 * 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
@@ -41,7 +41,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## Script explanation
 
-This script uses the following commands to snapshot properties, create a managed disk from snapshot and create a VM. Each item in the table links to command specific documentation.
+This script uses the following commands to get snapshot properties, create a managed disk from snapshot and create a VM. Each item in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
