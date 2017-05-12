@@ -961,14 +961,14 @@ In this example an SAP HANA System Replication is installed and configured. SAP 
     # replace the bold string with your instance number and HANA system id
     
     primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHanaTopology \
-        operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
-        op monitor interval="10" timeout="600" \
-        op start interval="0" timeout="600" \
-        op stop interval="0" timeout="300" \
-        params SID="<b>HDB</b>" InstanceNumber="<b>03</b>"
+      operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
+      op monitor interval="10" timeout="600" \
+      op start interval="0" timeout="600" \
+      op stop interval="0" timeout="300" \
+      params SID="<b>HDB</b>" InstanceNumber="<b>03</b>"
 
     clone cln_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> \
-        meta is-managed="true" clone-node-max="1" target-role="Started" interleave="true"
+      meta is-managed="true" clone-node-max="1" target-role="Started" interleave="true"
 
     # now we load the file to the cluster
     sudo crm configure load update crm-saphanatop.txt
@@ -982,33 +982,33 @@ In this example an SAP HANA System Replication is installed and configured. SAP 
     # replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
     
     primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
-        operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \
-        op start interval="0" timeout="3600" \
-        op stop interval="0" timeout="3600" \
-        op promote interval="0" timeout="3600" \
-        op monitor interval="60" role="Master" timeout="700" \
-        op monitor interval="61" role="Slave" timeout="700" \
-        params SID="<b>HDB</b>" InstanceNumber="<b>03</b>" PREFER_SITE_TAKEOVER="true" \
-        DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
+      operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \
+      op start interval="0" timeout="3600" \
+      op stop interval="0" timeout="3600" \
+      op promote interval="0" timeout="3600" \
+      op monitor interval="60" role="Master" timeout="700" \
+      op monitor interval="61" role="Slave" timeout="700" \
+      params SID="<b>HDB</b>" InstanceNumber="<b>03</b>" PREFER_SITE_TAKEOVER="true" \
+      DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
 
     ms msl_SAPHana_<b>HDB</b>_HDB<b>03</b> rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> \
-        meta is-managed="true" notify="true" clone-max="2" clone-node-max="1" \
-        target-role="Started" interleave="true"
+      meta is-managed="true" notify="true" clone-max="2" clone-node-max="1" \
+      target-role="Started" interleave="true"
 
     primitive rsc_ip_<b>HDB</b>_HDB<b>03</b> ocf:heartbeat:IPaddr2 \ 
-        meta target-role="Started" is-managed="true" \ 
-        operations $id="rsc_ip_<b>HDB</b>_HDB<b>03</b>-operations" \ 
-        op monitor interval="10s" timeout="20s" \ 
-        params ip="<b>10.0.0.9</b>" 
+      meta target-role="Started" is-managed="true" \ 
+      operations $id="rsc_ip_<b>HDB</b>_HDB<b>03</b>-operations" \ 
+      op monitor interval="10s" timeout="20s" \ 
+      params ip="<b>10.0.0.9</b>" 
     primitive rsc_nc_<b>HDB</b>_HDB<b>03</b> anything \ 
-        params binfile="/usr/bin/nc" cmdline_options="-l -k 625<b>03</b>" \ 
-        op monitor timeout=20s interval=10 depth=0 
+      params binfile="/usr/bin/nc" cmdline_options="-l -k 625<b>03</b>" \ 
+      op monitor timeout=20s interval=10 depth=0 
     group g_ip_<b>HDB</b>_HDB<b>03</b> rsc_ip_<b>HDB</b>_HDB<b>03</b> rsc_nc_<b>HDB</b>_HDB<b>03</b>
  
     colocation col_saphana_ip_<b>HDB</b>_HDB<b>03</b> 2000: g_ip_<b>HDB</b>_HDB<b>03</b>:Started \ 
-        msl_SAPHana_<b>HDB</b>_HDB<b>03</b>:Master  
+      msl_SAPHana_<b>HDB</b>_HDB<b>03</b>:Master  
     order ord_SAPHana_<b>HDB</b>_HDB<b>03</b> 2000: cln_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> \ 
-        msl_SAPHana_<b>HDB</b>_HDB<b>03</b>
+      msl_SAPHana_<b>HDB</b>_HDB<b>03</b>
     
 
     # now we load the file to the cluster
