@@ -26,6 +26,9 @@ Each IoT hub is provisioned with a certain number of units in a specific SKU (fo
 
 The SKU also determines the throttling limits that IoT Hub enforces on all operations.
 
+> [!IMPORTANT]
+> IoT Hub strives to provide low latency for all operation; however, it does not guarantee a maximum latency, due to unpredictable network conditions between devices and Azure. When designing your solution, avoid making assumptions on maximum latency of any IoT Hub operation.
+
 ## Operation throttles
 Operation throttles are rate limitations that are applied in the minute ranges, and are intended to avoid abuse. IoT Hub tries to avoid returning errors whenever possible, but it starts returning exceptions if the throttle is violated for too long.
 
