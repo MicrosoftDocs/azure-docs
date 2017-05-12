@@ -42,6 +42,8 @@ Depending on the template, it can take some time for Azure to deploy the resourc
 
 
 ## Azure PowerShell
+These steps require the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+
 First, create a resource group with [New-​Azure​Rm​Resource​Group](/powershell/module/azurerm.resources/new-azurermresourcegroup). Then create your deployment from a template with [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). Provide the full URI to your template with the `-TemplateURI` parameter as follows:
 
 ```powershell
