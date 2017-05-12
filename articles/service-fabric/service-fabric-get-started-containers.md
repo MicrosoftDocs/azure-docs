@@ -27,7 +27,7 @@ A development computer running:
 * [Service Fabric SDK and tools](service-fabric-get-started.md).
 *  Docker for Windows.  [Get Docker CE for Windows (stable)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). After installing and starting Docker, right-click on the tray icon and select **Switch to Windows containers**. This is required to run Docker images based on Windows.
 
-A Windows cluster with three or more nodes running on Windows Server 2016 with Containers- [Create a cluster](service-fabric-get-started-azure-cluster.md) or [try Service Fabric for free](http://tryazureservicefabrictest.westus.cloudapp.azure.com/). 
+A Windows cluster with three or more nodes running on Windows Server 2016 with Containers- [Create a cluster](service-fabric-get-started-azure-cluster.md) or [try Service Fabric for free](http://tryazureservicefabric.westus.cloudapp.azure.com/). 
 
 A registry in Azure Container Registry - [Create a container registry](../container-registry/container-registry-get-started-portal.md) in your Azure subscription. 
 
@@ -190,7 +190,7 @@ The Service Fabric SDK and tools provide a service template to help you deploy a
 4. Open a browser and navigate to http://containercluster.westus2.cloudapp.azure.com. You should see the heading "Hello World!" display in the browser.
 
 ## Clean up
-You continue to incur charges while the cluster is running, consider [deleting your cluster](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  [Party clusters](http://tryazureservicefabrictest.westus.cloudapp.azure.com/) are automatically deleted after a few hours.
+You continue to incur charges while the cluster is running, consider [deleting your cluster](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  [Party clusters](http://tryazureservicefabric.westus.cloudapp.azure.com/) are automatically deleted after a few hours.
 
 After you push the image to the container registry you can delete the local image from your development computer:
 

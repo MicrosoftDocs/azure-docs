@@ -160,7 +160,7 @@ We are planning to provide an extension of this feature that allows you to uploa
 
 | Language              | Language code |
 |-----------------------|---------------|
-| Bengali               | bn            |
+| Bangla                | bn            |
 | Czech                 | cs            |
 | Danish                | da            |
 | German                | de            |

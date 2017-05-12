@@ -1,7 +1,7 @@
 ---
-title: DocumentDB Automation - Managing Regions | Microsoft Docs
-description: Use Azure CLI 1.0 and Azure Resource Manager to manage regions in a DocumentDB database account. DocumentDB is a cloud-based NoSQL database for JSON data.
-services: documentdb
+title: Azure Cosmos DB Automation - Managing Regions | Microsoft Docs
+description: Use Azure CLI 1.0 and Azure Resource Manager to manage regions in an Azure Cosmos DB database account. 
+services: cosmosdb
 author: dmakwana
 manager: jhubbard
 editor: ''
@@ -9,7 +9,7 @@ tags: azure-resource-manager
 documentationcenter: ''
 
 ms.assetid: 7f765c17-8549-4108-9475-46394fc3a218
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,11 +18,13 @@ ms.date: 02/17/2017
 ms.author: dimakwan
 
 ---
-# Automate DocumentDB account region management using Azure CLI 1.0 and Azure Resource Manager templates
+# Automate Azure Cosmos DB account region management using Azure CLI 1.0 and Azure Resource Manager templates
 
-This article shows you how to add/remove a region in your Azure DocumentDB account by using Azure CLI 1.0 commands and Azure Resource Manager templates. Region management can also be accomplished through the [Azure Portal](documentdb-portal-global-replication.md). Note that the commands in the following tutorial do not allow you to change failover priorities of the various regions. Only read regions can  be added or removed. The write region of a database account (failover priority of 0) cannot be added/removed.
+This article shows you how to add/remove a region in your Azure Cosmos DB DocumentDB API account by using Azure CLI 1.0 commands and Azure Resource Manager templates. Region management can also be accomplished through the [Azure Portal](../cosmos-db/tutorial-global-distribution-documentdb.md). Note that the commands in the following tutorial do not allow you to change failover priorities of the various regions. Only read regions can  be added or removed. The write region of a database account (failover priority of 0) cannot be added/removed.
 
-DocumentDB database accounts are currently the only DocumentDB resource that can be created/modified using [Azure Resource Manager templates and Azure CLI 1.0](documentdb-automation-resource-manager-cli.md).
+Azure Cosmos DB database accounts are currently the only Azure Cosmos DB resource that can be created/modified using [Azure Resource Manager templates and Azure CLI 1.0](documentdb-automation-resource-manager-cli.md). 
+
+To create Azure Cosmos DB DocumentDB API, Table API, Graph API, or Mongo DB account using CLI 2.0, see [Create an Azure DocumentDB account using the Azure CLI](documentdb-automation-resource-manager-cli.md).
 
 ## Getting ready
 
@@ -91,7 +93,7 @@ If needed, you can switch back to the default set of commands by typing `azure c
 
 ### Create or retrieve your resource group
 
-In order to create a DocumentDB account, you first need a resource group. If you already know the name of the resource group that you'd like to use, then skip to [Step 2](#create-documentdb-account-cli). 
+In order to create an Azure Cosmos DB account, you first need a resource group. If you already know the name of the resource group that you'd like to use, then skip to [Step 2](#create-documentdb-account-cli). 
 
 To review a list of all of your current resource groups, run the following command and take note of the resource group name you'd like to use: 
 
@@ -102,7 +104,7 @@ To create a new resource group, run the following command, specify the name of t
     azure group create <resourcegroupname> <resourcegrouplocation>
 
  - `<resourcegroupname>` can only use alphanumeric characters, periods, underscores, the '-' character, and parenthesis and cannot end in a period. 
- - `<resourcegrouplocation>` must be one of the regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
+ - `<resourcegrouplocation>` must be one of the regions in which Azure Cosmos DB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
 
 Example input:
 
@@ -126,22 +128,22 @@ If you encounter errors, see [Troubleshooting](#troubleshooting).
 
 ## Understanding Azure Resource Manager templates and resource groups
 
-Most applications are built from a combination of different resource types (such as one or more DocumentDB account, storage accounts, a virtual network, or a content delivery network). The default Azure service management API and the Azure portal represented these items by using a service-by-service approach. This approach requires you to deploy and manage the individual services individually (or find other tools that do so), and not as a single logical unit of deployment.
+Most applications are built from a combination of different resource types (such as one or more Azure Cosmos DB accounts, storage accounts, a virtual network, or a content delivery network). The default Azure service management API and the Azure portal represented these items by using a service-by-service approach. This approach requires you to deploy and manage the individual services individually (or find other tools that do so), and not as a single logical unit of deployment.
 
 *Azure Resource Manager templates* make it possible for you to deploy and manage these different resources as one logical deployment unit in a declarative fashion. Instead of imperatively telling Azure what to deploy one command after another, you describe your entire deployment in a JSON file -- all of the resources and associated configuration and deployment parameters -- and tell Azure to deploy those resources as one group.
 
 You can learn lots more about Azure resource groups and what they can do for you in the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md). If you're interested in authoring templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
 
-## <a id="add-region-documentdb-account"></a>Task: Add Region to a DocumentDB account
+## <a id="add-region-documentdb-account"></a>Task: Add Region to an Azure Cosmos DB DocumentDB API account
 
-DocumentDB has the capability to [distribute your data globally][distribute-globally] across various [Azure regions](https://azure.microsoft.com/regions/#services). The instructions in this section describe how to add a read region to an existing DocumentDB account with Azure CLI 1.0 and Resource Manager templates. This can be accomplished using Azure CLI 1.0 with or without Resource Manager templates.
+Azure Cosmos DB has the capability to [distribute your data globally][distribute-globally] across various [Azure regions](https://azure.microsoft.com/regions/#services). The instructions in this section describe how to add a read region to an existing Azure Cosmos DB account with Azure CLI 1.0 and Resource Manager templates. This can be accomplished using Azure CLI 1.0 with or without Resource Manager templates.
 
-### <a id="add-region-documentdb-account-cli"></a> Add Region to a DocumentDB account using Azure CLI 1.0 without Resource Manager templates
+### <a id="add-region-documentdb-account-cli"></a> Add a region to an Azure Cosmos DB account using Azure CLI 1.0 without Resource Manager templates
 
-Add a region to an existing DocumentDB account in the new or existing resource group by entering the command below at the command prompt. Note that the "locations" array should reflect the current region configuration within the DocumentDB account with the exception of the new region to be added. The example below shows a command to add a second region to the account.
+Add a region to an existing Azure Cosmos DB account in the new or existing resource group by entering the command below at the command prompt. Note that the "locations" array should reflect the current region configuration within the Azure Cosmos DB account with the exception of the new region to be added. The example below shows a command to add a second region to the account.
 
-Match the failover priority values to the existing configuration. One of the regions must have a failoverPriority value of 0 to indicate that this region be kept as the [write region for the DocumentDB account][scaling-globally]. The failover priority values must be unique amongst the locations and the highest failover priority value must be less than the total number of regions. The new region will be a "Read" region and must have a failover priority value greater than 0.
+Match the failover priority values to the existing configuration. One of the regions must have a failoverPriority value of 0 to indicate that this region be kept as the [write region for the Azure Cosmos DB account][scaling-globally]. The failover priority values must be unique amongst the locations and the highest failover priority value must be less than the total number of regions. The new region will be a "Read" region and must have a failover priority value greater than 0.
 
 > [!TIP]
 > If you run this command in Azure PowerShell or Windows PowerShell you will receive an error about an unexpected token. Instead, run this command at the Windows Command Prompt.
@@ -150,13 +152,13 @@ Match the failover priority values to the existing configuration. One of the reg
 
  - `<resourcegroupname>` can only use alphanumeric characters, periods, underscores, the '-' character, and parenthesis and cannot end in a period.
  - `<resourcegrouplocation>` is the region of the current resource group.
- - `<ip-range-filter>` Specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces. For more information, see [DocumentDB Firewall Support](documentdb-firewall-support.md)
+ - `<ip-range-filter>` Specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces. For more information, see [Azure Cosmos DB Firewall Support](documentdb-firewall-support.md)
  - `<databaseaccountname>` can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters.
- - `<databaseaccountlocation>` must be one of the regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
- - `<newdatabaseaccountlocation>` is the new region to be added and must be one of the regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
+ - `<databaseaccountlocation>` must be one of the regions in which Azure Cosmos DB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
+ - `<newdatabaseaccountlocation>` is the new region to be added and must be one of the regions in which Azure Cosmos DB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
 
 
-Example input for adding the "East US" region as a read region in the DocumentDB account: 
+Example input for adding the "East US" region as a read region in the Azure Cosmos DB account: 
 
     azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l westus -p "{\"databaseAccountOfferType\":\"Standard\",\"ipRangeFilter\":\"\",\"locations\":["{\"locationName\":\"westus\",\"failoverPriority\":\"0\"},{\"locationName\":\"eastus\",\"failoverPriority\":\"1\"}"]}"
 
@@ -178,15 +180,15 @@ Which produces the following output as your new account is provisioned:
 
 If you encounter errors, see [Troubleshooting](#troubleshooting). 
 
-After the command returns, the account will be in the **Creating** state for a few minutes, before it changes to the **Online** state in which it is ready for use. You can check on the status of the account in the [Azure portal](https://portal.azure.com), on the **DocumentDB Accounts** blade.
+After the command returns, the account will be in the **Creating** state for a few minutes, before it changes to the **Online** state in which it is ready for use. You can check on the status of the account in the [Azure portal](https://portal.azure.com), on the **Azure Cosmos DB Accounts** blade.
 
-### <a id="add-region-documentdb-account-cli-arm"></a> Add Region to a DocumentDB account using Azure CLI 1.0 with Resource Manager templates
+### <a id="add-region-documentdb-account-cli-arm"></a> Add a region to an Azure Cosmos DB account using Azure CLI 1.0 with Resource Manager templates
 
-The instructions in this section describe how to add a region to an existing DocumentDB account with an Azure Resource Manager template and an optional parameters file, both of which are JSON files. Using a template enables you to describe exactly what you want and repeat it without errors.
+The instructions in this section describe how to add a region to an existing Azure Cosmos DB account with an Azure Resource Manager template and an optional parameters file, both of which are JSON files. Using a template enables you to describe exactly what you want and repeat it without errors.
 
-Match the failover priority values to the existing configuration. One of the regions must have a failoverPriority value of 0 to indicate that this region be kept as the [write region for the DocumentDB account][scaling-globally]. The failover priority values must be unique amongst the locations and the highest failover priority value must be less than the total number of regions. The new region will be a "Read" region and must have a failover priority value greater than 0.
+Match the failover priority values to the existing configuration. One of the regions must have a failoverPriority value of 0 to indicate that this region be kept as the [write region for the Azure Cosmos DB account][scaling-globally]. The failover priority values must be unique amongst the locations and the highest failover priority value must be less than the total number of regions. The new region will be a "Read" region and must have a failover priority value greater than 0.
 
-Create a local template file similar to the one below that matches your current DocumentDB region configuration. The "locations" array should contain all of the existing regions in the database account alongside the new region to be added. Name the file azuredeploy.json.
+Create a local template file similar to the one below that matches your current Azure Cosmos DB region configuration. The "locations" array should contain all of the existing regions in the database account alongside the new region to be added. Name the file azuredeploy.json.
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -234,7 +236,7 @@ Create a local template file similar to the one below that matches your current 
         ]
     }
 
-The above template file demonstrates an example where a new region is being added to a DocumentDB account which already has 2 regions.
+The above template file demonstrates an example where a new region is being added to an Azure Cosmos DB account which already has 2 regions.
 
 You can either enter the parameter values at the command line, or create a parameter file to specify the value.
 
@@ -259,9 +261,9 @@ To create a parameters file, copy the following content into a new file and name
         }
     }
 
-In the azuredeploy.parameters.json file, update the value field of  `"databaseAccountName"` to the database name you'd like to use, then save the file. `"databaseAccountName"` can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters. Update the value fields of `"locationName1"` and `"locationName2"` to the regions where your DocumentDB account exists. Update the value field of `"newLocationName"` to the region that you would like to add.
+In the azuredeploy.parameters.json file, update the value field of  `"databaseAccountName"` to the database name you'd like to use, then save the file. `"databaseAccountName"` can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters. Update the value fields of `"locationName1"` and `"locationName2"` to the regions where your Azure Cosmos DB account exists. Update the value field of `"newLocationName"` to the region that you would like to add.
 
-To create a DocumentDB account in your resource group, run the following command and provide the path to the template file, the path to the parameter file or the parameter value, the name of the resource group in which to deploy, and a deployment name (-n is optional). 
+To create an Azure Cosmos DB account in your resource group, run the following command and provide the path to the template file, the path to the parameter file or the parameter value, the name of the resource group in which to deploy, and a deployment name (-n is optional). 
 
 To use a parameter file:
 
@@ -269,7 +271,7 @@ To use a parameter file:
 
  - `<PathToTemplate>` is the path to the azuredeploy.json file created in step 1. If your path name has spaces in it, put double quotes around this parameter.
  - `<PathToParameterFile>` is the path to the azuredeploy.parameters.json file created in step 1. If your path name has spaces in it, put double quotes around this parameter.
- - `<resourcegroupname>` is the name of the existing resource group in which to add a DocumentDB database account. 
+ - `<resourcegroupname>` is the name of the existing resource group in which to add an Azure Cosmos DB database account. 
  - `<deploymentname>` is the optional name of the deployment.
 
 Example input: 
@@ -296,7 +298,7 @@ As the account is provisioned, you will receive the following information:
     + Waiting for deployment to complete
     + 
     + 
-    info:    Resource 'new_res_group' of type 'Microsoft.DocumentDb/databaseAccounts' provisioning status is Running
+    info:    Resource 'new_res_group' of type 'Microsoft.Azure Cosmos DB/databaseAccounts' provisioning status is Running
     + 
     info:    Resource 'new_res_group' of type 'Microsoft.DocumentDb/databaseAccounts' provisioning status is Succeeded
     data:    DeploymentName     : azuredeploy
@@ -316,17 +318,17 @@ As the account is provisioned, you will receive the following information:
 
 If you encounter errors, see [Troubleshooting](#troubleshooting).  
 
-After the command returns, the account will be in the **Creating** state for a few minutes, before it changes to the **Online** state in which it is ready for use. You can check on the status of the account in the [Azure portal](https://portal.azure.com), on the **DocumentDB Accounts** blade.
+After the command returns, the account will be in the **Creating** state for a few minutes, before it changes to the **Online** state in which it is ready for use. You can check on the status of the account in the [Azure portal](https://portal.azure.com), on the **Azure Cosmos DB Accounts** blade.
 
-## <a id="remove-region-documentdb-account"></a>Task: Remove Region from a DocumentDB account
+## <a id="remove-region-documentdb-account"></a>Task: Remove Region from an Azure Cosmos DB account
 
-DocumentDB has the capability to [distribute your data globally][distribute-globally] across various [Azure regions](https://azure.microsoft.com/regions/#services). The instructions in this section describe how to remove a region from an existing DocumentDB account with Azure CLI 1.0 and Resource Manager Templates. This can be accomplished using Azure CLI 1.0 with or without Resource Manager templates.
+Azure Cosmos DB has the capability to [distribute your data globally][distribute-globally] across various [Azure regions](https://azure.microsoft.com/regions/#services). The instructions in this section describe how to remove a region from an existing Azure Cosmos DB account with Azure CLI 1.0 and Resource Manager Templates. This can be accomplished using Azure CLI 1.0 with or without Resource Manager templates.
 
-### <a id="remove-region-documentdb-account-cli"></a> Remove Region to a DocumentDB account using Azure CLI 1.0 without Resource Manager templates
+### <a id="remove-region-documentdb-account-cli"></a> Remove Region to an Azure Cosmos DB account using Azure CLI 1.0 without Resource Manager templates
 
-To remove a region from an existing DocumentDB account, the command below can be executed with Azure CLI 1.0. The "locations" array should contain only the regions that are to remain after the removal of the region. **The omitted location will be removed from the DocumentDB account**. Enter the following command in the command prompt.
+To remove a region from an existing Azure Cosmos DB account, the command below can be executed with Azure CLI 1.0. The "locations" array should contain only the regions that are to remain after the removal of the region. **The omitted location will be removed from the Azure Cosmos DB account**. Enter the following command in the command prompt.
 
-One of the regions must have a failoverPriority value of 0 to indicate that this region be kept as the [write region for the DocumentDB account][scaling-globally]. The failover priority values must be unique amongst the locations and the highest failover priority value must be less than the total number of regions. 
+One of the regions must have a failoverPriority value of 0 to indicate that this region be kept as the [write region for the Azure Cosmos DB account][scaling-globally]. The failover priority values must be unique amongst the locations and the highest failover priority value must be less than the total number of regions. 
 
 > [!TIP]
 > If you run this command in Azure PowerShell or Windows PowerShell you will receive an error about an unexpected token. Instead, run this command at the Windows Command Prompt.
@@ -335,9 +337,9 @@ One of the regions must have a failoverPriority value of 0 to indicate that this
 
  - `<resourcegroupname>` can only use alphanumeric characters, periods, underscores, the '-' character, and parenthesis and cannot end in a period.
  - `<resourcegrouplocation>` is the region of the current resource group.
- - `<ip-range-filter>` Specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces. For more information, see [DocumentDB Firewall Support](documentdb-firewall-support.md)
+ - `<ip-range-filter>` Specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces. For more information, see [Azure Cosmos DB Firewall Support](documentdb-firewall-support.md)
  - `<databaseaccountname>` can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters.
- - `<databaseaccountlocation>` must be one of the regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
+ - `<databaseaccountlocation>` must be one of the regions in which Azure Cosmos DB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
 
 Example input: 
 
@@ -361,15 +363,15 @@ Which produces the following output as your new account is provisioned:
 
 If you encounter errors, see [Troubleshooting](#troubleshooting). 
 
-After the command returns, the account will be in the **Updating** state for a few minutes, before it changes to the **Online** state in which it is ready for use. You can check on the status of the account in the [Azure portal](https://portal.azure.com), on the **DocumentDB Accounts** blade.
+After the command returns, the account will be in the **Updating** state for a few minutes, before it changes to the **Online** state in which it is ready for use. You can check on the status of the account in the [Azure portal](https://portal.azure.com), on the **Azure Cosmos DB Accounts** blade.
 
-### <a id="remove-region-documentdb-account-cli-arm"></a> Remove Region from a DocumentDB account using Azure CLI 1.0 with Resource Manager templates
+### <a id="remove-region-documentdb-account-cli-arm"></a> Remove Region from an Azure Cosmos DB account using Azure CLI 1.0 with Resource Manager templates
 
-The instructions in this section describe how to remove a region from an existing DocumentDB account with an Azure Resource Manager template and an optional parameters file, both of which are JSON files. Using a template enables you to describe exactly what you want and repeat it without errors.
+The instructions in this section describe how to remove a region from an existing Azure Cosmos DB account with an Azure Resource Manager template and an optional parameters file, both of which are JSON files. Using a template enables you to describe exactly what you want and repeat it without errors.
 
-One of the regions must have a failoverPriority value of 0 to indicate that this region be kept as the [write region for the DocumentDB account][scaling-globally]. The failover priority values must be unique amongst the locations and the highest failover priority value must be less than the total number of regions. 
+One of the regions must have a failoverPriority value of 0 to indicate that this region be kept as the [write region for the Azure Cosmos DB account][scaling-globally]. The failover priority values must be unique amongst the locations and the highest failover priority value must be less than the total number of regions. 
 
-Create a local template file similar to the one below that matches your current DocumentDB region configuration. The "locations" array should contain only the regions that are to remain after the removal of the region. **The omitted location will be removed from the DocumentDB account**. Name the file azuredeploy.json.
+Create a local template file similar to the one below that matches your current Azure Cosmos DB region configuration. The "locations" array should contain only the regions that are to remain after the removal of the region. **The omitted location will be removed from the Azure Cosmos DB account**. Name the file azuredeploy.json.
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -420,9 +422,9 @@ To create a parameters file, copy the following content into a new file and name
         }
     }
 
-In the azuredeploy.parameters.json file, update the value field of  `"databaseAccountName"` to the database name you'd like to use, then save the file. `"databaseAccountName"` can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters. Update the value field of `"locationName1"` to the regions where you want the DocumentDB account to exist after the removal of the region.
+In the azuredeploy.parameters.json file, update the value field of  `"databaseAccountName"` to the database name you'd like to use, then save the file. `"databaseAccountName"` can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters. Update the value field of `"locationName1"` to the regions where you want the Azure Cosmos DB account to exist after the removal of the region.
 
-To create a DocumentDB account in your resource group, run the following command and provide the path to the template file, the path to the parameter file or the parameter value, the name of the resource group in which to deploy, and a deployment name (-n is optional). 
+To create an Azure Cosmos DB account in your resource group, run the following command and provide the path to the template file, the path to the parameter file or the parameter value, the name of the resource group in which to deploy, and a deployment name (-n is optional). 
 
 To use a parameter file:
 
@@ -430,7 +432,7 @@ To use a parameter file:
 
  - `<PathToTemplate>` is the path to the azuredeploy.json file created in step 1. If your path name has spaces in it, put double quotes around this parameter.
  - `<PathToParameterFile>` is the path to the azuredeploy.parameters.json file created in step 1. If your path name has spaces in it, put double quotes around this parameter.
- - `<resourcegroupname>` is the name of the existing resource group in which to add a DocumentDB database account. 
+ - `<resourcegroupname>` is the name of the existing resource group in which to add an Azure Cosmos DB database account. 
  - `<deploymentname>` is the optional name of the deployment.
 
 Example input: 
@@ -475,14 +477,14 @@ As the account is provisioned, you will receive the following information:
 
 If you encounter errors, see [Troubleshooting](#troubleshooting).  
 
-After the command returns, the account will be in the **Updating** state for a few minutes, before it changes to the **Online** state in which it is ready for use. You can check on the status of the account in the [Azure portal](https://portal.azure.com), on the **DocumentDB Accounts** blade.
+After the command returns, the account will be in the **Updating** state for a few minutes, before it changes to the **Online** state in which it is ready for use. You can check on the status of the account in the [Azure portal](https://portal.azure.com), on the **Azure Cosmos DB Accounts** blade.
 
 ## Troubleshooting
 
 If you receive errors like `Deployment provisioning state was not successful` while creating your resource group or database account, you have a few troubleshooting options. 
 
 > [!NOTE]
-> Providing incorrect characters in the database account name or providing a location in which DocumentDB is not available will cause deployment errors. Database account names can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters. All valid database account locations are listed on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
+> Providing incorrect characters in the database account name or providing a location in which Azure Cosmos DB is not available will cause deployment errors. Database account names can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters. All valid database account locations are listed on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
 
 - If your output contains the following `Error information has been recorded to C:\Users\wendy\.azure\azure.err`, then review the error info in the azure.err file.
 
@@ -501,23 +503,22 @@ If you receive errors like `Deployment provisioning state was not successful` wh
 
 ## Next steps
 
-Now that you have a DocumentDB account, the next step is to create a DocumentDB database. You can create a database by using one of the following:
+Now that you have an Azure Cosmos DB account, the next step is to create an Azure Cosmos DB database. You can create a database by using one of the following:
 
-- The Azure portal, as described in [Create a DocumentDB collection and database using the Azure portal](documentdb-create-collection.md).
+- The Azure portal, as described in [Create an Azure Cosmos DB collection and database using the Azure portal](documentdb-create-collection.md).
 - The C# .NET samples in the [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) project of the [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) repository on GitHub.
-- The [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB has .NET, Java, Python, Node.js, and JavaScript API SDKs. 
+- The [Azure Cosmos DB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). The Azure Cosmos DB DocumentDB API has .NET, Java, Python, Node.js, and JavaScript API SDKs. 
 
 After creating your database, you need to [add one or more collections](documentdb-create-collection.md) to the database, then [add documents](documentdb-view-json-document-explorer.md) to the collections. 
 
-After you have documents in a collection, you can use [DocumentDB SQL](documentdb-sql-query.md) to [execute queries](documentdb-sql-query.md#ExecutingSqlQueries) against your documents by using the [Query Explorer](documentdb-query-collections-query-explorer.md) in the portal, the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), or one of the [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+After you have documents in a collection, you can use [SQL](documentdb-sql-query.md) to [execute queries](documentdb-sql-query.md#ExecutingSqlQueries) against your documents by using the [Query Explorer](documentdb-query-collections-query-explorer.md) in the portal, the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), or one of the [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-To learn more about DocumentDB, explore these resources:
+To learn more about Azure Cosmos DB, explore these resources:
 
--	[Learning path for DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
--	[DocumentDB resource model and concepts](documentdb-resources.md)
+-	[Introduction to Azure Cosmos DB](../cosmos-db/introduction.md)
 
 For more templates you can use, see [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[distribute-globally]: https://azure.microsoft.com/en-us/documentation/articles/documentdb-distribute-data-globally
-[scaling-globally]: https://azure.microsoft.com/en-us/documentation/articles/documentdb-distribute-data-globally/#scaling-across-the-planet
+[distribute-globally]: https://azure.microsoft.com/documentation/articles/documentdb-distribute-data-globally
+[scaling-globally]: https://azure.microsoft.com/documentation/articles/documentdb-distribute-data-globally/#scaling-across-the-planet
