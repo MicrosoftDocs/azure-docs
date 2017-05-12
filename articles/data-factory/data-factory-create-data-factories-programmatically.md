@@ -113,10 +113,8 @@ The Copy Activity performs the data movement in Azure Data Factory. The activity
 3. In the **Package Manager Console**, do the following steps:
    1. Run the following command to install Data Factory package: `Install-Package Microsoft.Azure.Management.DataFactories`
    2. Run the following command to install Azure Active Directory package (you use Active Directory API in the code): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
-4. Add the following **appSetttings** section to the **App.config** file. These settings are used by the helper method: **GetAuthorizationHeader**.
-
-    Replace values for **&lt;Application ID&gt;**, **&lt;Password&gt;**, **&lt;Subscription ID&gt;**, and **&lt;tenant ID&gt;** with your own values.
-
+4. Replace the contents of **App.config** file in the project with the following content: 
+    
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>
     <configuration>
@@ -132,7 +130,8 @@ The Copy Activity performs the data movement in Azure Data Factory. The activity
         </appSettings>
     </configuration>
     ```
-5. Add the following **using** statements to the source file (Program.cs) in the project.
+5. In the App.Config file, update values for **&lt;Application ID&gt;**, **&lt;Password&gt;**, **&lt;Subscription ID&gt;**, and **&lt;tenant ID&gt;** with your own values.
+6. Add the following **using** statements to the **Program.cs** file in the project.
 
 	```csharp
     using System.Configuration;
@@ -449,7 +448,7 @@ The Copy Activity performs the data movement in Azure Data Factory. The activity
 	```
 17. Run the sample by clicking **Debug** -> **Start Debugging** on the menu. When you see the **Getting run details of a data slice**, wait for a few minutes, and press **ENTER**.
 18. Use the Azure portal to verify that the data factory **APITutorialFactory** is created with the following artifacts:
-    * Linked service: **LinkedService_AzureStorage**
+    * Linked service: **AzureStorageLinkedService**
     * Dataset: **DatasetBlobSource** and **DatasetBlobDestination**.
     * Pipeline: **PipelineBlobSample**
 19. Verify that an output file is created in the **apifactoryoutput** folder in the **adftutorial** container.
