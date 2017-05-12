@@ -28,7 +28,7 @@ It should take you less than five minutes to complete all the steps in this topi
 
 ## Prerequisites 
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-previous-topics.md)]
+[!INCLUDE [Previous topics](../../includes/functions-quickstart-previous-topics.md)]
 
 You also need to download and install the [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
 
