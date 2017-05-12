@@ -959,7 +959,7 @@ In this example an SAP HANA System Replication is installed and configured. SAP 
     sudo vi crm-saphanatop.txt
     # enter the following to crm-saphana.txt
     # replace the bold string with your instance number and HANA system id
-    
+
     primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHanaTopology \
       operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
       op monitor interval="10" timeout="600" \
