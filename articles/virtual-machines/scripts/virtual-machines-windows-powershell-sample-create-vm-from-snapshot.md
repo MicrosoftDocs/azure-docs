@@ -45,14 +45,14 @@ This script uses the following commands to get snapshot properties, create a man
 
 | Command | Notes |
 |---|---|
-| [Get-AzureRmSnapshot](/powershell/module/azurerm.compute/get-azurermsnapshot) | Get a snapshot using snapshot name. |
+| [Get-AzureRmSnapshot](/powershell/module/azurerm.compute/get-azurermsnapshot) | Gets a snapshot using snapshot name. |
 | [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig) | Creates a disk configuration. This configuration is used with the disk creation process. |
 | [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk) | Creates a managed disk. |
 | [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) | Creates a VM configuration. This configuration includes information such as VM name, operating system, and administrative credentials. The configuration is used during VM creation. |
 | [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk) | Attaches the managed disk as OS disk to the virtual machine |
 | [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) | Creates a public IP address. |
 | [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) | Creates a network interface. |
-| [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Create a virtual machine. |
+| [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Creates a virtual machine. |
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Removes a resource group and all resources contained within. |
 
 ## Next steps
