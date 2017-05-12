@@ -1,6 +1,6 @@
 ---
 title: Using Role-Based Access Control to manage Azure Site Recovery | Microsoft Docs
-description:This article describes how to apply and use Role-Based Access Control (RBAC) to manage your Azure Site Recovery deployments
+description: This article describes how to apply and use Role-Based Access Control (RBAC) to manage your Azure Site Recovery deployments
 services: site-recovery
 documentationcenter: ''
 author: mayanknayar
@@ -26,7 +26,7 @@ Azure provides various built-in roles to control resource management operations.
 If you're looking to define your own roles for even more control, see how to [build Custom roles](../active-directory/role-based-access-control-custom-roles.md) in Azure.
 
 ## Permissions required to Enable Replication for new Virtual Machines
-When a new Virtual Machine is replicated using Azure Site Recovery, the associated user's access levels are validated to ensure that the user has the required permissions to use the Azure resources provided to Site Recovery.
+When a new Virtual Machine is replicated to Azure using Azure Site Recovery, the associated user's access levels are validated to ensure that the user has the required permissions to use the Azure resources provided to Site Recovery.
 
 To enable replication for a new virtual machine, a user must have:
 * Permission to create a virtual machine in the selected resource group
