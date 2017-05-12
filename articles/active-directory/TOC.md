@@ -171,11 +171,11 @@
 ##### [SSO with KCD](active-directory-application-proxy-sso-using-kcd.md)
 ##### [SSO with headers](application-proxy-ping-access.md)
 ##### [SSO with password vaulting](application-proxy-sso-azure-portal.md)
-#### Understand best practices
+#### Concepts
 ##### [Connectors](application-proxy-understand-connectors.md)
 ##### [Security](application-proxy-security-considerations.md)
 ##### [Networks](application-proxy-network-topology-considerations.md)
-#### 
+##### [Upgrade from TMG or UAG](application-proxy-transition-from-uag-tmg.md)
 #### Advanced configurations
 ##### [Publish on separate networks](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Proxy servers](application-proxy-working-with-proxy-servers.md)
@@ -186,7 +186,6 @@
 #### Publishing walkthroughs
 ##### [Remote Desktop](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
-##### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
 #### Use the classic portal
 ##### [Download connectors](application-proxy-enable-classic-portal.md)
