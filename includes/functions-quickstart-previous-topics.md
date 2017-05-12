@@ -1,1 +1,1 @@
-This topic uses as its starting point the resources created in [Create your first function from the Azure portal](../articles/azure-functions/functions-create-first-azure-function.md). If you haven't completed the steps in this topic, please complete them now to create your function app.
+This topic uses as its starting point the resources created in [Create your first function from the Azure portal](../articles/azure-functions/functions-create-first-azure-function.md). If you haven't already done so, please complete these steps now to create your function app.
