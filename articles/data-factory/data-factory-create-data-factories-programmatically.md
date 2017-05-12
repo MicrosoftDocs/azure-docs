@@ -64,7 +64,7 @@ Create an Azure Active Directory application, create a service principal for the
 6. Create an Azure Active Directory application.
 
 	```PowerShell
-	$azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
+	$azureAdApplication = New-AzureRmADApplication -DisplayName "ADFDotNetWalkthroughApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfdotnetwalkthroughapp.org/example" -Password "Pass@word1"
 	```
 
     If you get the following error, specify a different URL and run the command again.
@@ -152,7 +152,12 @@ The Copy Activity performs the data movement in Azure Data Factory. The activity
 
     ```csharp
     // create data factory management client
+
+	//IMPORTANT: specify the name of Azure resource group here
     string resourceGroupName = "ADFTutorialResourceGroup";
+
+	//IMPORTANT: the name of the data factory must be globally unique.
+	// Therefore, update this value. For example:APITutorialFactory05122017
     string dataFactoryName = "APITutorialFactory";
 
     TokenCloudCredentials aadTokenCredentials = new TokenCloudCredentials(
@@ -227,7 +232,7 @@ The Copy Activity performs the data movement in Azure Data Factory. The activity
 	        Name = Dataset_Source,
 	        Properties = new DatasetProperties()
 	        {
-	            LinkedServiceName = "LinkedService-AzureStorage",
+	            LinkedServiceName = "AzureStorageLinkedService",
 	            TypeProperties = new AzureBlobDataset()
 	            {
 	                FolderPath = "adftutorial/",
@@ -260,7 +265,7 @@ The Copy Activity performs the data movement in Azure Data Factory. The activity
 	        Properties = new DatasetProperties()
 	        {
 	
-	            LinkedServiceName = "LinkedService-AzureStorage",
+	            LinkedServiceName = "AzureStorageLinkedService",
 	            TypeProperties = new AzureBlobDataset()
 	            {
 	                FolderPath = "adftutorial/apifactoryoutput/{Slice}",
