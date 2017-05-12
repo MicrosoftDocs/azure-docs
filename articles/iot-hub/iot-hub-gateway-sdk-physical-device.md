@@ -234,9 +234,9 @@ Use the following commands to clone IoT Edge and all its submodules to your home
 
 `cd ~`
 
-`git clone --recursive https://github.com/Azure/azure-iot-gateway-sdk.git`
+`git clone --recursive https://github.com/Azure/iot-edge.git`
 
-`cd azure-iot-gateway-sdk`
+`cd iot-edge`
 
 `git submodule update --init --recursive`
 
@@ -248,11 +248,11 @@ When you have a complete copy of the IoT Edge repository on your Raspberry Pi 3,
 
 To bootstrap and run the sample, you must configure each module that participates in the gateway. This configuration is provided in a JSON file and you must configure all five participating modules. There is a sample JSON file in the repository called **gateway\_sample.json** that you can use as the starting point for building your own configuration file. This file is in the **samples/ble_gateway/src** folder in local copy of the IoT Edge repository.
 
-The following sections describe how to edit this configuration file for the BLE sample and assume that the IoT Edge repository is in the **/home/pi/azure-iot-gateway-sdk/** folder on your Raspberry Pi 3. If the repository is elsewhere, adjust the paths accordingly.
+The following sections describe how to edit this configuration file for the BLE sample and assume that the IoT Edge repository is in the **/home/pi/iot-edge/** folder on your Raspberry Pi 3. If the repository is elsewhere, adjust the paths accordingly.
 
 #### Logger configuration
 
-Assuming the gateway repository is located in the **/home/pi/azure-iot-gateway-sdk/** folder, configure the logger module as follows:
+Assuming the gateway repository is located in the **/home/pi/iot-edge/** folder, configure the logger module as follows:
 
 ```json
 {
@@ -428,7 +428,7 @@ The following configuration ensures the following routing between modules:
  ]
 ```
 
-To run the sample, pass the path to the JSON configuration file as a parameter to the **ble\_gateway** binary. The following command assumes you are using the **gateway_sample.json** configuration file. Execute this command from the **azure-iot-gateway-sdk** folder on the Raspberry Pi:
+To run the sample, pass the path to the JSON configuration file as a parameter to the **ble\_gateway** binary. The following command assumes you are using the **gateway_sample.json** configuration file. Execute this command from the **iot-edge** folder on the Raspberry Pi:
 
 ```
 ./build/samples/ble_gateway/ble_gateway ./samples/ble_gateway/src/gateway_sample.json
@@ -507,10 +507,10 @@ To further explore the capabilities of IoT Hub, see:
 * [IoT Hub developer guide][lnk-devguide]
 
 <!-- Links -->
-[lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/ble_gateway
+[lnk-ble-samplecode]: https://github.com/Azure/iot-edge/tree/master/samples/ble_gateway
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-explorer-tools]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md
-[lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
+[lnk-sdk]: https://github.com/Azure/iot-edge/
 [lnk-noobs]: https://www.raspberrypi.org/documentation/installation/noobs.md
 [lnk-raspbian]: https://www.raspberrypi.org/downloads/raspbian/
 
