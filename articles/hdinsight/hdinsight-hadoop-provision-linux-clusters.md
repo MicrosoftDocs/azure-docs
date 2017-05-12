@@ -1,7 +1,7 @@
 ---
-title: Create Hadoop, HBase, Kafka, Storm or Spark cluster in Azure HDInsight | Microsoft Docs
-description: Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight by using a browser, the Azure CLI, Azure PowerShell, REST, or an SDK.
-keywords: hadoop cluster setup, kafka cluster setup, spark cluster setup, hbase cluster setup, storm cluster setup, what is cluster in hadoop
+title: Cluster setup for Hadoop, Kafka, Spark, HBase, or R Server - Azure HDInsight | Microsoft Docs
+description: Set up Hadoop, Kafka, Spark, HBase, R Server, or Storm clusters for HDInsight from a browser, the Azure CLI, Azure PowerShell, REST, or SDK.
+keywords: hadoop cluster setup, kafka cluster setup, spark cluster setup, what is cluster in hadoop
 services: hdinsight
 documentationcenter: ''
 author: mumian
@@ -11,7 +11,7 @@ tags: azure-portal
 
 ms.assetid: 23a01938-3fe5-4e2e-8e8b-3368e1bbe2ca
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -20,21 +20,33 @@ ms.date: 05/01/2017
 ms.author: jgao
 
 ---
-# Create Hadoop clusters in HDInsight
+# Set up clusters in HDInsight with Hadoop, Kafka, Spark and more
+
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks on the cluster. Azure HDInsight abstracts the implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information. In this article,  you learn about these configuration settings.
+Learn how to set up and configure clusters in HDInsight using Hadoop, Spark, Kafka, HBase, R Server, or Storm.
 
-## Basic configurations
+A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks on the cluster. Azure HDInsight abstracts the implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information. 
 
-From the [Azure portal](https://portal.azure.com), you can create an HDInsight cluster using *Quick create* or *Custom*. This section covers the basic configuration settings used in the Quick create option. The Custom option includes the following additional configurations:
+## Cluster setup methods
+The following table shows the different methods you can use to set up an HDInsight cluster.
 
-- [Applications](#hdinsight-applications)
-- [Cluster size](#cluster-size)
-- Advanced settings
+> [!IMPORTANT]
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
-  - [Script actions](#customize-clusters-using-script-action)
-  - [Virtual network](#use-virtual-network)
+| Clusters created with | Web browser | Command line | REST API | SDK | 
+| --- |:---:|:---:|:---:|:---:|
+| [Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
+| [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
+| [Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
+| [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
+| [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
+| [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |&nbsp; |&nbsp; |&nbsp; |✔ |
+| [Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
+
+## Basic cluster configurations
+
+From the [Azure portal](https://portal.azure.com), you can create an HDInsight cluster using *Quick create* or *Custom*. This section covers the basic configuration settings used in the **Quick create** option. 
 
 ### Subscription 
 Each HDInsight cluster is tied to one Azure subscription.
@@ -65,10 +77,10 @@ Each cluster type has its own number of nodes within the cluster, terminology fo
 
 | Type | Nodes | Diagram |
 | --- | --- | --- |
-| Hadoop |Head node (2), data node (1+) |![HDInsight Hadoop cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/HDInsight-Hadoop-roles.png) |
-| HBase |Head server (2), region server (1+), master/ZooKeeper node (3) |![HDInsight HBase cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/HDInsight-HBase-roles.png) |
-| Storm |Nimbus node (2), supervisor server (1+), ZooKeeper node (3) |![HDInsight Storm cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/HDInsight-Storm-roles.png) |
-| Spark |Head node (2), worker node (1+), ZooKeeper node (3) (free for A1 ZooKeeper VM size) |![HDInsight Spark cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/HDInsight-Spark-roles.png) |
+| Hadoop |Head node (2), data node (1+) |![HDInsight Hadoop cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
+| HBase |Head server (2), region server (1+), master/ZooKeeper node (3) |![HDInsight HBase cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
+| Storm |Nimbus node (2), supervisor server (1+), ZooKeeper node (3) |![HDInsight Storm cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
+| Spark |Head node (2), worker node (1+), ZooKeeper node (3) (free for A1 ZooKeeper VM size) |![HDInsight Spark cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
 
 The following tables list the default VM sizes for HDInsight:
 
@@ -119,7 +131,7 @@ For more information on using an Azure virtual network with HDInsight, see [Exte
 For an example of using two cluster types within an Azure virtual network, see [Analyze sensor data with Storm and HBase](hdinsight-storm-sensor-data-analysis.md).
 
 ### Operating system
-You can create HDInsight clusters on either Linux or Windows.  For more information on the OS versions, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions). HDInsight 3.4 and higher uses the Ubuntu Linux distribution as the underlying OS for the cluster. 
+Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ### Version
 This option is used to determine the version of HDInsight needed for this cluster. For more information, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
@@ -203,13 +215,8 @@ Metastore configuration is not available for all cluster types. For example, it 
 > [!WARNING]
 > Azure SQL Warehouse is not supported for the Oozie metastore.
 
-## Install HDInsight applications
 
-An HDInsight application is an application that users can install on a Linux-based HDInsight cluster. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. For more information, see [Install third-party Hadoop applications on Azure HDInsight](hdinsight-apps-install-applications.md).
-
-Most of the HDInsight applications are installed on an empty edge node.  An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the head node. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. For more information, see [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md).
-
-## Configure Cluster size
+## Configure cluster size
 
 Customers are billed for the usage of those nodes for the duration of the cluster’s life. Billing starts when a cluster is created and stops when the cluster is deleted. Clusters can’t be de-allocated or put on hold.
 
@@ -272,13 +279,28 @@ Billing starts when a cluster is created, and stops when the cluster is deleted.
 > [!WARNING]
 > Using an additional storage account in a different location than the HDInsight cluster is not supported.
 
+## Custom cluster set up and configuration
+
+Custom cluster set up and configuration includes the following additional options:
+
+- [HDInsight applications](#hdinsight-applications)
+- [Cluster size](#cluster-size)
+- Advanced settings
+  - [Script actions](#customize-clusters-using-script-action)
+  - [Virtual network](#use-virtual-network)
 
 
-## Use virtual network
+## Install HDInsight applications on clusters
+
+An HDInsight application is an application that users can install on a Linux-based HDInsight cluster. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. For more information, see [Install third-party Hadoop applications on Azure HDInsight](hdinsight-apps-install-applications.md).
+
+Most of the HDInsight applications are installed on an empty edge node.  An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the head node. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. For more information, see [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md).
+
+## Extend cluster capabilities with a virtual network
 With [Azure Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/), you can create a secure, persistent network that contains the resources that you need for your solution. For more information about using HDInsight with a virtual network, including specific configuration requirements for the virtual network, see [Extend HDInsight capabilities by using Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
 
-## Customize clusters using Script Action
+## Customize clusters using script actions
 
 You can install additional components or customize cluster configuration by using scripts during creation. Such scripts are invoked via **Script Action**, which is a configuration option that can be used from the Azure portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK. For more information, see [Customize HDInsight cluster using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -311,18 +333,7 @@ Sometimes, you want to configure the following configuration files during the cr
 
 For more information, see [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
-## Cluster creation methods
-In this article, you have learned basic information about creating a Linux-based HDInsight cluster. Use the following table to find specific information about how to create a cluster by using a method that best suits your needs.
 
-| Clusters created with | Web browser | Command line | REST API | SDK | Linux, Mac OS X, or Unix | Windows |
-| --- |:---:|:---:|:---:|:---:|:---:|:---:|
-| [The Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |✔ |✔ |
-| [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |✔ |✔ |
-| [Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |✔ |✔ |
-| [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |✔ |✔ |
-| [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |✔ |✔ |
-| [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |&nbsp; |&nbsp; |&nbsp; |✔ |✔ |✔ |
-| [Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |✔ |✔ |
 
 ## Troubleshoot
 
