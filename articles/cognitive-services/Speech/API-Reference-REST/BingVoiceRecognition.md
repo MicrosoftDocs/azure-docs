@@ -19,17 +19,17 @@ The API reference for converting speech to text using http based REST protocol o
 Microsoft's Cognitive Services REST Speech Recognition API is an HTTP 1.1 protocol definition for building simple speech applications that perform speech recognition. The REST Speech Recognition API is most suitable for applications where real-time user feedback is not required or for platforms that do not support the IETF web socket standard.
 
 * Continuous recognition is not supported. 
-* Utterances are limited to a maximum of 12 seconds
+* Utterances are limited to a maximum of 15 seconds
 * Partial results are not returned. Only the final phrase result is returned.
 * Service endpointing is not supported; clients must determine the end of speech. 
 * The single recognition phrase result is returned to the client only after the client stops writing to the request stream.
 
 If these features are important to your app's functionality, use the web socket API instead.
 
-## Websocket
-Microsoft's Cognitive Services Web Socket Speech Recognition API is a WebSocket-based service protocol definition that enables subscribers to build full-featured speech applications that provide a rich user experience. This protocol extends the Microsoft Speech SDK protocol, which powers a wide variety of speech applications throughout the industry.
+## WebSocket
+Microsoft's Cognitive Services WebSocket Speech Recognition API is a WebSocket-based service protocol definition that enables subscribers to build full-featured speech applications that provide a rich user experience. This protocol extends the Microsoft Speech SDK protocol, which powers a wide variety of speech applications throughout the industry.
 
-An SDK is available based on the Javascript protocol. SDKs for additional languages and platforms are in development. If your language or platform does not yet have an SDK, create your own implementation based on the documented [protocol](websocketprotocol.md).
+[Javascript SDK](../GetStarted/GettingStartedJSWebsockets.md) is available based on this version of websocket protocol. SDKs for additional languages and platforms are in development. If your language or platform does not yet have an SDK, create your can create your own implementation based on the [documented protocol](websocketprotocol.md).
 
 ## Endpoints
 The API endpoints based on user scenario are highlighted here:
@@ -49,7 +49,7 @@ The recognition mode adjusts speech recognition based on how the users are likel
 > in the web socket protocol. For example, the REST API does not support continuous 
 > recognition, even in conversational or dictation mode.
 
-The Microsoft Speech Service returns only one recognition phrase result for all recognition modes. There is a maximum limit of 12 seconds for any single utterance.
+The Microsoft Speech Service returns only one recognition phrase result for all recognition modes. There is a maximum limit of 15 seconds for any single utterance.
 
 ### Interactive Mode
 In **interactive** mode, a user makes short requests and expects the application to perform an action in response. 
@@ -57,7 +57,7 @@ In **interactive** mode, a user makes short requests and expects the application
 The following characteristics are typical of interactive mode applications:
 * Users know they are speaking to a machine instead of another human.
 * The application user knows ahead of time what they want to say based on what they want the application to do.
-* Utterances last about 2-3 seconds.
+* Utterances typically last about 2-3 seconds.
 
 ### Conversational Mode
 In **conversational** mode, users are engaged in a human-to-human conversation.
@@ -82,7 +82,7 @@ The following characteristics are typical of dictation mode applications:
 The following locales are supported by the Speech Recognition API.
 
 ### Interactive and dictation mode
-These `language:country` codes are supported in **interactive** and **dictation** mode.
+These `locale` codes are supported in **interactive** and **dictation** mode.
 
 |Code |  | Code |  |
 |-----|-----|-----|-----|
@@ -103,7 +103,7 @@ These `language:country` codes are supported in **interactive** and **dictation*
 | fr-FR | French (France) | ||
 
 ### Conversational mode
-These `language:country` codes are supported in **conversational** mode.
+These `locale` codes are supported in **conversational** mode.
 
 |Code||Code||
 |-----|-----|-----|-----|

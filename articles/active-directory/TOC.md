@@ -3,7 +3,6 @@
 ## [Choose edition](active-directory-editions.md)
 
 ## [About Azure identity management](identity-fundamentals.md)
-## [Preview the Azure portal experience](active-directory-preview-explainer.md)
 
 # Get started
 ## [Get an Azure AD tenant](active-directory-howto-tenant.md)
@@ -82,7 +81,7 @@
 ### [Users at risk](active-directory-reporting-security-user-at-risk.md)
 ### [Risky sign-ins](active-directory-reporting-security-risky-sign-ins.md)
 ### [Risk events](active-directory-reporting-risk-events.md)
-### [Named networks](active-directory-known-networks-azure-portal.md)
+### [Named locations](active-directory-named-locations.md)
 ### [Report migration](active-directory-reporting-migration.md)
 ### [Retention](active-directory-reporting-retention.md)
 ### [Latencies](active-directory-reporting-latencies-azure-portal.md)
@@ -307,12 +306,13 @@
 ## Secure your identities
 ### [Conditional access](active-directory-conditional-access-azure-portal.md)
 #### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Best practices](active-directory-conditional-access-best-practices.md)
+#### [Technical reference](active-directory-conditional-access-technical-reference.md)
 #### [Supported apps](active-directory-conditional-access-supported-apps.md)
 #### [Understand device policies](active-directory-conditional-access-device-policies.md)
 #### [Set up access to connected apps](active-directory-conditional-access-policy-connected-applications.md)
-#### [Technical reference](active-directory-conditional-access-technical-reference.md)
-#### [FAQs](active-directory-conditional-faqs.md)
 #### [Remediation](active-directory-conditional-access-device-remediation.md)
+#### [FAQs](active-directory-conditional-faqs.md)
 #### [Classic portal](active-directory-conditional-access.md)
 ##### [Get started](active-directory-conditional-access-azuread-connected-apps.md)
 

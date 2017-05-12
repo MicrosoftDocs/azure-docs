@@ -84,15 +84,15 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure
+    href: /cli/azure/postgres
 - name: Resources
   items:
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/postgresql/
   - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureDatabaseforPostgreSQL
+    href: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL
   - name: Stack Overflow
-    href: https://stackoverflow.com/tags/Azure-Database-for-PostgreSQL
+    href: http://stackoverflow.com/questions/tagged/azure-database-postgresql
   - name: Feedback forum
     href: https://feedback.azure.com/forums/597976-azure-database-for-postgresql
   - name: Region availability

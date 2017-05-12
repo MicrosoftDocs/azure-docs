@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2017
+ms.date: 05/10/2017
 ms.author: sdash
 
 ---
@@ -37,11 +37,11 @@ Access live metrics & events by clicking either the option in the left, or the b
 ![In the Overview blade, click Live Stream](./media/app-insights-live-stream/live-stream-2.png)
 
 ## Custom Live KPI
-You can monitor custom KPI live by applying arbitrary filters on any Application Insights telemetry from the portal. You can also choose any custom metric you may be sending directly (by using TrackMetric), or as a measurement property. Click the filter control that shows when you mouse-over any of the charts. The following chart is plotting a custom Request count KPI with filters on URL and Duration attributes. Validate your filters with the Stream Preview section that shows a live feed of telemetry that matches the criteria you have specified at any point in time. 
+You can monitor custom KPI live by applying arbitrary filters on any Application Insights telemetry from the portal. Click the filter control that shows when you mouse-over any of the charts. The following chart is plotting a custom Request count KPI with filters on URL and Duration attributes. Validate your filters with the Stream Preview section that shows a live feed of telemetry that matches the criteria you have specified at any point in time. 
 
 ![Custom Request KPI](./media/app-insights-live-stream/live-stream-filteredMetric.png)
 
-You can monitor a value different from Count. The options depend on the type of stream, which could be any Application Insights telemetry: requests, dependencies, exceptions, traces, events, or metrics. It can be your own [custom properties](app-insights-api-custom-events-metrics.md#properties):
+You can monitor a value different from Count. The options depend on the type of stream, which could be any Application Insights telemetry: requests, dependencies, exceptions, traces, events, or metrics. It can be your own [custom measurement](app-insights-api-custom-events-metrics.md#properties):
 
 ![Value Options](./media/app-insights-live-stream/live-stream-valueoptions.png)
 
@@ -71,7 +71,7 @@ If you want to monitor a particular server role instance, you can filter by serv
 ![Sampled live failures](./media/app-insights-live-stream/live-stream-filter.png)
 
 ## SDK Requirements
-Custom Live Metrics Stream is available with version 2.4.0-beta3 or newer of [Application Insights SDK for web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/). Remember to select "Include Prerelease" option from NuGet package manager.
+Custom Live Metrics Stream is available with version 2.4.0-beta2 or newer of [Application Insights SDK for web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/). Remember to select "Include Prerelease" option from NuGet package manager.
 
 ## Authenticated Channel
 The custom filters criteria you specify are sent back to the Live Metrics component in the Application Insights SDK. The filters could potentially contain sensitive information such as customerIDs. You can make the channel secure with a secret API key in addition to the instrumentation key.
