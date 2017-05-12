@@ -60,10 +60,10 @@ Here are the steps you perform as part of this tutorial:
 	The copy activity copies data from a blob in the Azure blob storage to a table in the Azure SQL database. You can use a copy activity in a pipeline to copy data from a supported source to a supported destination. For a list of supported data stores, see [Data Movement Activities](data-factory-data-movement-activities.md#supported-data-stores-and-formats) article. 
 5. Monitor the pipeline. In this step, you **monitor** the slices of input and output datasets by using Azure portal. 
 
+## Create data factory
 > [!IMPORTANT]
 > Complete the [prerequisites for the tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) if you haven't already done so.   
 
-## Create data factory
 A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run Hive script to transform input data to product output data. Let's start with creating the data factory in this step.
 
 1. After logging in to the [Azure portal](https://portal.azure.com/), click **New** on the left menu, click **data + Analytics**, and click **Data Factory**. 
@@ -132,8 +132,8 @@ In this step, you link your Azure storage account to your data factory.
    
     ![Editor Blob Storage Deploy](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-deploy.png)
 
-> [!NOTE]
-> For more information about these JSON properties, see [Azure Blob Storage connector](data-factory-azure-blob-connector.md#linked-service-properties) article.
+	> [!NOTE]
+	> For more information about these JSON properties, see [Azure Blob Storage connector](data-factory-azure-blob-connector.md#linked-service-properties) article.
 
 ### Create a linked service for the Azure SQL Database
 1. In the **Data Factory Editor**, click **New data store** button on the toolbar and select **Azure SQL Database** from the drop-down menu. You should see the JSON template for creating the Azure SQL linked service in the right pane.
@@ -141,8 +141,8 @@ In this step, you link your Azure storage account to your data factory.
 3. Click **Deploy** on the toolbar to create and deploy the **AzureSqlLinkedService**.
 4. Confirm that you see **AzureSqlLinkedService** in the tree view under **Linked services**.  
 
-> [!NOTE]
-> For more information about these JSON properties, see [Azure SQL Database connector](data-factory-azure-sql-connector.md#linked-service-properties).
+	> [!NOTE]
+	> For more information about these JSON properties, see [Azure SQL Database connector](data-factory-azure-sql-connector.md#linked-service-properties).
 
 
 ## Create datasets
@@ -210,8 +210,8 @@ In this step, you create a dataset named **InputDataset** that points to a blob 
 	
 3. Click **Deploy** on the toolbar to create and deploy the **InputDataset** dataset. Confirm that you see the **InputDataset** in the tree view.
 
-> [!NOTE]
-> For more information about these JSON properties, see [Azure Blob Storage connector](data-factory-azure-blob-connector.md#dataset-properties) article.
+	> [!NOTE]
+	> For more information about these JSON properties, see [Azure Blob Storage connector](data-factory-azure-blob-connector.md#dataset-properties) article.
 
 ### Create output dataset
 In this part of the step, you create an output dataset named **OutputDataset**. This dataset points to a SQL table in the Azure SQL database represented by **AzureSqlLinkedService**. 
@@ -258,8 +258,8 @@ In this part of the step, you create an output dataset named **OutputDataset**. 
 	There are three columns – **ID**, **FirstName**, and **LastName** – in the emp table in the database. ID is an identity column, so you need to specify only **FirstName** and **LastName** here.
 3. Click **Deploy** on the toolbar to create and deploy the **OutputDataset** dataset. Confirm that you see the **OutputDataset** in the tree view under **Datasets**. 
 
-> [!NOTE]
-> For more information about these JSON properties, see [Azure SQL connector article](data-factory-azure-sql-connector.md#dataset-properties).
+	> [!NOTE]
+	> For more information about these JSON properties, see [Azure SQL connector article](data-factory-azure-sql-connector.md#dataset-properties).
 
 ## Create pipeline
 In this step, you create a pipeline with a **Copy Activity** that uses **InputDataset** as an input and **OutputDataset** as an output.
