@@ -76,6 +76,8 @@ The following JSON shows the schema for the Custom Script Extension. The extensi
 
 ### Property values
 
+**Note** - these property names are case sensitive. Use the names as seen below to avoid deployment issues.  
+
 | Name | Value / Example |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
