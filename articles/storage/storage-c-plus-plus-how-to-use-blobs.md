@@ -3,8 +3,8 @@ title: How to use blob storage (object storage) from C++ | Microsoft Docs
 description: Store unstructured data in the cloud with Azure Blob storage (object storage).
 services: storage
 documentationcenter: .net
-author: seguler
-manager: jahogg
+author: michaelhauss
+manager: vamshik
 editor: tysonn
 
 ms.assetid: 53844120-1c48-4e2f-8f77-5359ed0147a4
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
-ms.author: seguler
+ms.date: 05/11/2017
+ms.author: michaelhauss
 
 ---
 # How to use Blob Storage from C++

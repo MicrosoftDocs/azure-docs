@@ -14,15 +14,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 04/18/2017
+ms.date: 05/02/2017
 ms.author: iainfou
 ---
 
 # Create a Virtual Machine Scale Set and deploy a highly available app on Linux
-In this tutorial, you learn how virtual machine scale sets in Azure allow you to quickly scale the number of virtual machines (VMs) running your app. A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on CPU usage, memory demand, or network traffic. To see a virtual machine scale set in action, you build a Node.js app that runs across multiple Linux VMs.
+A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on CPU usage, memory demand, or network traffic. In this tutorial, you deploy a virtual machine scale set in Azure. You learn how to:
 
-The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
+> [!div class="checklist"]
+> * Use cloud-init to create an app to scale
+> * Create a virtual machine scale set
+> * Increase or decrease the number of instances in a scale set
+> * View connection info for scale set instances
+> * Use data disks in a scale set
 
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Scale Set overview
 A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. Scale sets use the same components as you learned about in the previous tutorial to [Create highly available VMs](tutorial-availability-sets.md). VMs in a scale set are created in an availability set and distributed across logic fault and update domains.
@@ -236,6 +242,16 @@ az vmss disk detach `
 
 
 ## Next steps
-In this tutorial, you learned how to create a virtual machine scale set. Advance to the next tutorial to learn more about load balancing concepts for virtual machines.
+In this tutorial, you created a virtual machine scale set. You learned how to:
 
-[Load balance virtual machines](tutorial-load-balancer.md)
+> [!div class="checklist"]
+> * Use cloud-init to create an app to scale
+> * Create a virtual machine scale set
+> * Increase or decrease the number of instances in a scale set
+> * View connection info for scale set instances
+> * Use data disks in a scale set
+
+Advance to the next tutorial to learn more about load balancing concepts for virtual machines.
+
+> [!div class="nextstepaction"]
+> [Load balance virtual machines](tutorial-load-balancer.md)

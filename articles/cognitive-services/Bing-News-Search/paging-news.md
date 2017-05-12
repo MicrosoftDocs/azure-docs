@@ -7,15 +7,15 @@ manager: ehansen
 
 ms.assetid: EA388F72-FA43-493B-967C-9560B3243C62
 ms.service: cognitive-services
-ms.technology: bing-video-search
+ms.technology: bing-news-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
 ---
 
-# Paging News
+# Paging news
 
-When you call the News Search API, Bing returns a list of results. The list is a subset of the total number of results that may be relevant to the query. To get the estimated total number of available results, access the answer object's [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#totalestimatedmatches) field.  
+When you call the News Search API, Bing returns a list of results. The list is a subset of the total number of results that may be relevant to the query. To get the estimated total number of available results, access the answer object's [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#news-totalmatches) field.  
   
 The following example shows the `totalEstimatedMatches` field that a News answer includes.  
   
@@ -45,7 +45,7 @@ Host: api.cognitive.microsoft.com
 ```  
 
 > [!NOTE]
-> Version 7 Preview request:
+> V7 Preview request:
 
 > ```  
 > GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies&count=20&offset=40&mkt=en-us HTTP/1.1  
@@ -62,7 +62,7 @@ Host: api.cognitive.microsoft.com
 ```  
 
 > [!NOTE]
-> Version 7 Preview request:
+> V7 Preview request:
 
 > ```  
 > GET https://api.cognitive.microsoft.com/bing/v7.0/news/search??q=sailing+dinghies&offset=40&mkt=en-us HTTP/1.1  

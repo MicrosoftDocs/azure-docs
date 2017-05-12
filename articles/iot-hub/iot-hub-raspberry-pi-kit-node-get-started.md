@@ -102,7 +102,7 @@ Prepare the microSD card for installation of the Raspbian image.
    ![Enable I2C and SSH on Raspberry Pi](media/iot-hub-raspberry-pi-kit-node-get-started/2_enable-i2c-ssh-on-raspberry-pi.png)
 
 > [!NOTE] 
-To enable SSH and I2C, you can find more reference documents on [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) and [Adafruit.com](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2).
+To enable SSH and I2C, you can find more reference documents on [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) and [Adafruit.com](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c).
 
 ### Connect the sensor to Pi
 
@@ -128,18 +128,40 @@ After you've successfully connected BME280 to your Raspberry Pi, it should be li
 
 ![Connected Pi and BME280](media/iot-hub-raspberry-pi-kit-node-get-started/4_connected-pi.jpg)
 
-Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet cable to connect Pi to your wired network or follow the [instructions from the Raspberry Pi Foundation](https://www.raspberrypi.org/learning/software-guide/wifi/) to connect Pi to your wireless network.
+### Connect Pi to the network
+
+Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet cable to connect Pi to your wired network or follow the [instructions from the Raspberry Pi Foundation](https://www.raspberrypi.org/learning/software-guide/wifi/) to connect Pi to your wireless network. After your Pi has been successfully connected to the network, you need to take a note of the [IP address of your Pi](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address).
 
 ![Connected to wired network](media/iot-hub-raspberry-pi-kit-node-get-started/5_power-on-pi.jpg)
 
+> [!NOTE]
+> Make sure that Pi is connected to the same network as your computer. For example, if your computer is connected to a wireless network while Pi is connected to a wired network, you might not see the IP address in the devdisco output.
 
 ## Run a sample application on Pi
 
 ### Clone sample application and install the prerequisite packages
 
 1. Use one of the following SSH clients from your host computer to connect to your Raspberry Pi.
-    - [PuTTY](http://www.putty.org/) for Windows.
-    - The built-in SSH client on Ubuntu or macOS.
+    - [PuTTY](http://www.putty.org/) for Windows. You need the IP address of your Pi to connect it via SSH.
+    - The built-in SSH client on Ubuntu or macOS. You might need run `ssh pi@<ip address of pi>` to connect Pi via SSH.
+
+   > [!NOTE] 
+   The default username is `pi` , and the password is `raspberry`.
+
+1. Install Node.js and NPM to your Pi.
+   
+   First you should check your Node.js version with the following command. 
+   
+   ```bash
+   node -v
+   ```
+
+   If the version is lower than 4.x or there is no Node.js on your Pi, then run the following command to install or update Node.js.
+
+   ```bash
+   curl -sL http://deb.nodesource.com/setup_4.x | sudo -E bash
+   sudo apt-get -y install nodejs
+   ```
 
 1. Clone the sample application by running the following command:
 
@@ -150,8 +172,8 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 1. Install all packages by the following command. It includes Azure IoT device SDK, BME280 Sensor library and Wiring Pi library.
 
    ```bash
-   cd iot-hub-node-raspberry-pi-clientapp
-   npm install
+   cd iot-hub-node-raspberrypi-client-app
+   sudo npm install
    ```
    > [!NOTE] 
    It might take several minutes to finish this installation process denpening on your network connection.
