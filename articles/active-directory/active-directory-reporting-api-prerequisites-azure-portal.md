@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/10/2017
+ms.date: 05/12/2017
 ms.author: dhanyahk;markvi
 
 ---
@@ -21,6 +21,9 @@ ms.author: dhanyahk;markvi
 The [Azure AD reporting APIs](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) provide you with programmatic access to the data through a set of REST-based APIs. You can call these APIs from a variety of programming languages and tools.
 
 The reporting API uses [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) to authorize access to the web APIs. 
+
+No. You can either be a Security Reader, a Security Admin or a Global Admin to see reporting data in Azure Portal or by accessing it through the API.
+
 
 To prepare your access to the reporting API, you must:
 
@@ -66,9 +69,6 @@ To configure your directory to access the Azure AD reporting API, you must sign 
 
 ## Grant your application permission to use the API
 
-The objective of this step is to grant the **Read directory data permission to the **Windows Azure Active Directory API**. For newly created app registrations, you can skip this step because the permission has already been granted.   
-
-
 **To grant your application permission to use the API:**
 
 1. On the **App registrations** blade, in the apps list, click **Reporting API application**.
@@ -89,6 +89,9 @@ The objective of this step is to grant the **Read directory data permission to t
 
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/08.png)
 
+6. In the toolbar on the top, click **Save**.
+
+    ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/15.png)
 
 ## Gather configuration settings from your directory
 This section shows you how to get the following settings from your directory:
