@@ -107,9 +107,9 @@ Creates these names:
 
 ## Serial copy
 
-When you use the copy element to create multiple instances of a resource type, Resource Manager, by default, deploys those instances in parallel. However, you may want to specify that the resources are deployed in sequence. For example, when updating a production environment, you may want to stagger the updates so only a certain number are being updated at any one time.
+When you use the copy element to create multiple instances of a resource type, Resource Manager, by default, deploys those instances in parallel. However, you may want to specify that the resources are deployed in sequence. For example, when updating a production environment, you may want to stagger the updates so only a certain number are updated at any one time.
 
-Resource Manager provides properties on the copy element that enable you to serially deploy multiple instances. In the copy element, set `mode` to `serial` and `batchSize` to the number of instances to deploy at a time. With serial mode, Resource Manager creates a dependency on earlier instances in the loop, so one batch is not started until the previous batch completes.
+Resource Manager provides properties on the copy element that enable you to serially deploy multiple instances. In the copy element, set `mode` to **serial** and `batchSize` to the number of instances to deploy at a time. With serial mode, Resource Manager creates a dependency on earlier instances in the loop, so it does not start one batch until the previous batch completes.
 
 ```json
 "copy": {
@@ -165,7 +165,7 @@ To test serial copy without creating actual resources, use the following templat
 }
 ```
 
-In the deployment history, notice that the nested deployments are process in sequence.
+In the deployment history, notice that the nested deployments are processed in sequence.
 
 ![serial deployment](./media/resource-group-create-multiple/serial-copy.png)
 
