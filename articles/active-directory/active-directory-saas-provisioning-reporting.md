@@ -1,5 +1,5 @@
 ---
-title: 'Reporting on automatic user account provisioning | Microsoft Docs'
+title: 'Reporting on Azure Active Directory automatic user account provisioning to SaaS applications | Microsoft Docs'
 description: 'Learn how to check the status of automatic user account provisioning jobs, and how to troubleshoot the provisioning of individual users.'
 services: active-directory
 documentationcenter: ''
@@ -79,13 +79,13 @@ All activities performed by the provisioning service are recorded in the Azure A
 
 When looking at provisioning events for an individual user, the events normally occur in this order:
 
-1) Import event: User is retrieved from the source system.
+1. Import event: User is retrieved from the source system.
 
-2) Import event: Target system is queried to check for the existence of the retrieved user.
+2. Import event: Target system is queried to check for the existence of the retrieved user.
 
-3) Synchronization rule event: User data from source and target systems are evaluated against the configured attribute mapping rules and scoping filters to determine what action, if any, should be performed.
+3. Synchronization rule event: User data from source and target systems are evaluated against the configured attribute mapping rules and scoping filters to determine what action, if any, should be performed.
 
-4) Export event: If the synchronization rule event dictated that an action should be performed (e.g. Add, Update, Delete), then the results of the action are recorded in an Export event.
+4. Export event: If the synchronization rule event dictated that an action should be performed (e.g. Add, Update, Delete), then the results of the action are recorded in an Export event.
 
 ![Creating an Azure AD test user](./media/active-directory-saas-provisioning-reporting/audit_logs.PNG)
 
@@ -94,16 +94,19 @@ When looking at provisioning events for an individual user, the events normally 
 
 The most common use case for the provisioning audit logs is to check the provisioning status of an individual user account. To look up the last provisioning events for a specific user:
 
-1) Go to the **Audit logs** section.
+1. Go to the **Audit logs** section.
 
-2) From the **Category** menu, select **Account Provisioning**.
+2. From the **Category** menu, select **Account Provisioning**.
 
-3) In the **Date Range** menu, select the date range you want to search,
+3. In the **Date Range** menu, select the date range you want to search,
 
-3) In the Search bar, enter the user ID of the user you wish to search for. The format of ID value should match whatever you selected as the primary matching ID in the attribute mapping configuration (e.g. userPrincipalName or employee ID number). The ID value required will be visible in the Target(s) column,
-4) Press Enter to search. The most recent provisioning events will be returned first.
-5) If events are returned, note the activity types and whether they succeeded or failed. If no results are returned, then it means the user either does not exist, or has not yet been detected by the provisioning process if a full sync has not yet completed.
-6) Click on individual events to view extended details, including all user properties that were retrieved, evaluated, or written as part of the event.
+4. In the **Search** bar, enter the user ID of the user you wish to search for. The format of ID value should match whatever you selected as the primary matching ID in the attribute mapping configuration (e.g. userPrincipalName or employee ID number). The ID value required will be visible in the Target(s) column.
+
+5. Press Enter to search. The most recent provisioning events will be returned first.
+
+6. If events are returned, note the activity types and whether they succeeded or failed. If no results are returned, then it means the user either does not exist, or has not yet been detected by the provisioning process if a full sync has not yet completed.
+
+7. Click on individual events to view extended details, including all user properties that were retrieved, evaluated, or written as part of the event.
 
 
 ### Tips for viewing the provisioning audit logs
