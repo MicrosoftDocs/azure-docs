@@ -1,6 +1,6 @@
 ---
 title: Release notes for Hadoop components on Azure HDInsight | Microsoft Docs
-description: Latest release notes and versions of Hadoop components for Azure HDInsight. Get development tips and details for Hadoop, Apache Storm, and HBase.
+description: Latest release notes and versions of Hadoop components for Azure HDInsight. Get development tips and details for Spark, R Server, Hive and more.
 services: hdinsight
 documentationcenter: ''
 editor: cgronlun

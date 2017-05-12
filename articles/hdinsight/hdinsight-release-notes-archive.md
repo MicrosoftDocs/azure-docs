@@ -1,6 +1,6 @@
 ---
-title: Archived release notes for Hadoop components on Azure HDInsight | Microsoft Docs
-description: Archived release notes and versions of Hadoop components for Azure HDInsight.
+title: Archived release notes - Hadoop components on Azure HDInsight | Microsoft Docs
+description: Archived release notes for older versions of Hadoop components for Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
 editor: cgronlun
