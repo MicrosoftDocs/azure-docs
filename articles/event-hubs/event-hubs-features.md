@@ -18,9 +18,9 @@ ms.author: sethm
 
 ---
 
-# Event Hubs feature overview
+# Event Hubs features overview
 
-Azure Event Hubs is a scalable event processing service that processes large volumes of events and data, with low latency and high reliability. See [What is Event Hubs](event-hubs-what-is-event-hubs.md) for a high level overview of the service.
+Azure Event Hubs is a scalable event processing service that processes large volumes of events and data, with low latency and high reliability. See [What is Event Hubs](event-hubs-what-is-event-hubs.md) for a high-level overview of the service.
 
 This article builds on the information in the overview, and provides technical and implementation details about Event Hubs components and features.
 
@@ -56,7 +56,7 @@ A partition is an ordered sequence of events that is held in an event hub. As ne
 
 ![Event Hubs](./media/event-hubs-features/partition.png)
 
-Event Hubs retain data for a configured retention time that applies across all partitions in the event hub. Events expire on a time basis; you cannot explicitly delete them. Because partitions are independent and contain their own sequence of data, they often grow at different rates.
+Event Hubs retains data for a configured retention time that applies across all partitions in the event hub. Events expire on a time basis; you cannot explicitly delete them. Because partitions are independent and contain their own sequence of data, they often grow at different rates.
 
 ![Event Hubs](./media/event-hubs-features/multiple_partitions.png)
 

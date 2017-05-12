@@ -37,7 +37,7 @@ The common role that Event Hubs plays in solution architectures is the "front do
 
 ![Event Hubs](./media/event-hubs-what-is-event-hubs/event_hubs_full_pipeline.png)
 
-Event Hubs provides message stream handling capability but has characteristics that are different from traditional enterprise messaging. Event Hubs capabilities are built around high throughput and event processing scenarios. As such, Event Hubs is different from [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) messaging, and does not implement some of the capabilities that are available for [Service Bus messaging](/azure/service-bus-messaging/) messaging entities, such as topics.
+Event Hubs provides message stream handling capability but has characteristics that are different from traditional enterprise messaging. Event Hubs capabilities are built around high throughput and event processing scenarios. As such, Event Hubs is different from [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) messaging, and does not implement some of the capabilities that are available for [Service Bus messaging](/azure/service-bus-messaging/) entities, such as topics.
 
 ## Event Hubs features
 
@@ -50,7 +50,7 @@ Event Hubs contains the following key elements:
 - [**Consumer groups**](event-hubs-features.md#consumer-groups): Provides each multiple consuming application with a separate view of the event stream, enabling those consumers to act independently.
 - [**Throughput units**](event-hubs-features.md#capacity): Pre-purchased units of capacity. A single partition has a maximum scale of one throughput unit.
 
-For technical details about these and other Event Hubs features, see the [Event Hubs feature overview](event-hubs-features.md). 
+For technical details about these and other Event Hubs features, see the [Event Hubs features overview](event-hubs-features.md). 
 
 ## Next steps
 
