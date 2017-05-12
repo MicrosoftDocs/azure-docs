@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc; LADocs
+ms.author: padmavc; ladocs
 
 ---
 
@@ -113,6 +113,9 @@ The Decode EDIFACT connector performs these tasks:
 * Generates a Technical (control) and/or Functional acknowledgment (if configured).
   * A Technical Acknowledgment or the CONTRL ACK reports the results of a syntactical check of the complete received interchange.
   * A functional acknowledgment acknowledges accept or reject a received interchange or a group
+
+## View the swagger
+See the [swagger details](/connectors/edifact/). 
 
 ## Next steps
 [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack") 

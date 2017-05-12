@@ -78,32 +78,27 @@
 ## [Service Limits](../active-directory-service-limits-restrictions.md)
 # v2.0 endpoint
 ## [Overview](active-directory-appmodel-v2-overview.md)
-### [Differences](active-directory-v2-compare.md)
 ### [Types of apps](active-directory-v2-flows.md)
 ### [Limitations](active-directory-v2-limitations.md)
-## Quickstarts
-### Mobile Apps
-#### [iOS](active-directory-v2-devquickstarts-ios.md)
-#### [Windows Phone](active-directory-v2-devquickstarts-wpf.md)
-#### [Android](active-directory-v2-devquickstarts-android.md)
-### Web apps and APIs
-#### [AngularJS with Node JS](active-directory-v2-devquickstarts-angular-node.md)
-#### [Angular JS with .NET](active-directory-v2-devquickstarts-angular-dotnet.md)
-#### [.NET Web App](active-directory-v2-devquickstarts-dotnet-web.md)
-#### [.NET Web API](active-directory-v2-devquickstarts-dotnet-api.md)
-#### [NodeJS API](active-directory-v2-devquickstarts-node-api.md)
+### [v1-v2 comparison](active-directory-v2-compare.md)
+## Get Started
+### Mobile & Desktop apps
+#### [iOS](https://github.com/Azure-Samples/active-directory-msal-ios-swift)
+#### [Android](guidedsetups/active-directory-android.md)
+#### [Windows Desktop .NET](guidedsetups/active-directory-windesktop.md)
+### Web apps
+#### [Javascript SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
+#### [ASP.NET Web Server](guidedsetups/active-directory-aspnetwebapp.md)
 #### [NodeJS Web app](active-directory-v2-devquickstarts-node-web.md)
-#### [Web API from .NET Web App](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 ## Guides
 ### [Register an app](active-directory-v2-app-registration.md)
 ## Reference
-### [App registration reference](active-directory-v2-registration-portal.md)
 ### [Authentication libraries](active-directory-v2-libraries.md)
 ### [v2.0 Authentication Protocols](active-directory-v2-protocols.md)
-#### [Token reference](active-directory-v2-tokens.md)
-#### [OAuth2.0 authorization code flow](active-directory-v2-protocols-oauth-code.md)
-#### [OpenID connect](active-directory-v2-protocols-oidc.md)
-#### [Implicit flow](active-directory-v2-protocols-implicit.md)
-#### [Oauth 2.0 client creds](active-directory-v2-protocols-oauth-client-creds.md)
+#### [OpenID Connect](active-directory-v2-protocols-oidc.md)
+#### [OAuth 2.0 authorization code grant](active-directory-v2-protocols-oauth-code.md)
+#### [OAuth 2.0 implicit grant](active-directory-v2-protocols-implicit.md)
+#### [Oauth 2.0 client credentials grant](active-directory-v2-protocols-oauth-client-creds.md)
 #### [Oauth 2.0 On-Behalf-Of flow](active-directory-v2-protocols-oauth-on-behalf-of.md)
+#### [Token reference](active-directory-v2-tokens.md)
 ### [Scopes](active-directory-v2-scopes.md)
