@@ -73,7 +73,7 @@ The availability group listener is an IP address and network name that the SQL S
 
 6. <a name="setparam"></a>Set the cluster parameters in PowerShell.
     
-    a. Copy the following PowerShell script to one of your SQL Servers. Update the variables for your environment.     
+    a. Copy the following PowerShell script to one of your SQL Server instances. Update the variables for your environment.     
     
     ```PowerShell
     $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
@@ -89,4 +89,4 @@ The availability group listener is an IP address and network name that the SQL S
     b. Set the cluster parameters by running the PowerShell script on one of the cluster nodes.  
 
     > [!NOTE]
-    > If your SQL Servers are in separate regions, you need to run the PowerShell script twice. The first time, use the `$ILBIP` and `$ProbePort` from the first region. The second time, use the `$ILBIP` and `$ProbePort` from the second region. The cluster network name and the cluster IP resource name are the same. 
+    > If your SQL Server instances are in separate regions, you need to run the PowerShell script twice. The first time, use the `$ILBIP` and `$ProbePort` from the first region. The second time, use the `$ILBIP` and `$ProbePort` from the second region. The cluster network name and the cluster IP resource name are the same. 
