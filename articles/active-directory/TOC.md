@@ -306,12 +306,13 @@
 ## Secure your identities
 ### [Conditional access](active-directory-conditional-access-azure-portal.md)
 #### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Best practices](active-directory-conditional-access-best-practices.md)
+#### [Technical reference](active-directory-conditional-access-technical-reference.md)
 #### [Supported apps](active-directory-conditional-access-supported-apps.md)
 #### [Understand device policies](active-directory-conditional-access-device-policies.md)
 #### [Set up access to connected apps](active-directory-conditional-access-policy-connected-applications.md)
-#### [Technical reference](active-directory-conditional-access-technical-reference.md)
-#### [FAQs](active-directory-conditional-faqs.md)
 #### [Remediation](active-directory-conditional-access-device-remediation.md)
+#### [FAQs](active-directory-conditional-faqs.md)
 #### [Classic portal](active-directory-conditional-access.md)
 ##### [Get started](active-directory-conditional-access-azuread-connected-apps.md)
 
