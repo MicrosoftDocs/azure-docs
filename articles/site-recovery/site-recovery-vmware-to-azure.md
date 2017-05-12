@@ -298,7 +298,7 @@ We recommend that you verify the VM properties, and make any changes you need to
 
 #### Managed disks
 
-In **Compute and Network** > **Compute properties**, you can set "Use managed disks" setting to "Yes" for the VM if you want to attach managed disks to your machine on failover to Azure. Managed disks simplifies disk management for Azure IaaS VMs by managing the storage accounts associated with the VM disks. [Learn More about managed disks.](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview). 
+In **Compute and Network** > **Compute properties**, you can set "Use managed disks" setting to "Yes" for the VM if you want to attach managed disks to your machine on failover to Azure. Managed disks simplifies disk management for Azure IaaS VMs by managing the storage accounts associated with the VM disks. [Learn More about managed disks.](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview)
 
    - Managed disks are created and attached to the virtual machine only on a failover to Azure. On enabling protection, data from on-premises machines will continue to replicate to storage accounts.  Managed disks can be created only for virtual machines deployed using the Resource manager deployment model.  
   
