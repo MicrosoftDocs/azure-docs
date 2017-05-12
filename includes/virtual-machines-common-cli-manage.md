@@ -42,5 +42,5 @@ For more detailed help with specific command line switches and options, you can 
 
 
 ## Next steps
-For additional examples of the CLI commands, see the [Create and Manage Linux VMs with the Azure CLI](tutorial-manage-vm.md) tutorial.
+For additional examples of the CLI commands, see the [Create and Manage Linux VMs with the Azure CLI](../articles/virtual-machines/linux/tutorial-manage-vm.md) tutorial.
 
