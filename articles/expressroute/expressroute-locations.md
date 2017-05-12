@@ -1,4 +1,4 @@
----
+2---
 title: 'Connectivity providers and locations: Azure ExpressRoute | Microsoft Docs'
 description: This article provides a detailed overview of locations where services are offered and how to connect to Azure regions. Sorted by connectivity provider.
 services: expressroute
@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
-ms.author: pareshmu
+ms.author: cherylmc
 
 ---
 # ExpressRoute partners and peering locations
@@ -108,6 +108,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Telehouse - KDDI](http://www.telehouse.net/solutions/cloud-services/cloud-link)** |Supported |Supported |London |
 | **Telenor** |Supported |Supported |Amsterdam, London |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Supported |Supported |Melbourne, Sydney |
+| **[Telus](http://www.telus.com)** |Supported |Supported |Toronto |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** |Supported |Supported |Amsterdam, Chicago, Dallas, Hong Kong, London, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **[Vodafone](http://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Supported |Not Supported |London |
 | **[Zayo Group](http://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Supported |Supported |Chicago, Dallas+, London+, Los Angeles, New York, Silicon Valley, Toronto, Washington DC |

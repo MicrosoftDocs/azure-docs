@@ -46,18 +46,18 @@ If you followed the previous tutorial to [create a virtual machine scale set](tu
 
 
 ## Create Azure load balancer
-This section details how you can create and configure each component of the load balancer. Before you can create your load balancer, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myRGLoadBalancer* in the *eastus* location:
+This section details how you can create and configure each component of the load balancer. Before you can create your load balancer, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroupLoadBalancer* in the *eastus* location:
 
 ```azurecli
-az group create --name myRGLoadBalancer --location eastus
+az group create --name myResourceGroupLoadBalancer --location eastus
 ```
 
 ### Create a public IP address
-To access your app on the Internet, you need a public IP address for the load balancer. Create a public IP address with [az network public-ip create](/cli/azure/public-ip#create). The following example creates a public IP address named *myPublicIP* in the *myRGLoadBalancer* resource group:
+To access your app on the Internet, you need a public IP address for the load balancer. Create a public IP address with [az network public-ip create](/cli/azure/public-ip#create). The following example creates a public IP address named *myPublicIP* in the *myResourceGroupLoadBalancer* resource group:
 
 ```azurecli
 az network public-ip create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --name myPublicIP
 ```
 
@@ -66,7 +66,7 @@ Create a load balancer with [az network lb create](/cli/azure/network/lb#create)
 
 ```azurecli
 az network lb create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --name myLoadBalancer \
     --frontend-ip-name myFrontEndPool \
     --backend-pool-name myBackEndPool \
@@ -82,7 +82,7 @@ To create a TCP health probe, you use [az network lb probe create](/cli/azure/ne
 
 ```azurecli
 az network lb probe create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
@@ -96,7 +96,7 @@ Create a load balancer rule with [az network lb rule create](/cli/azure/network/
 
 ```azurecli
 az network lb rule create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --lb-name myLoadBalancer \
     --name myLoadBalancerRule \
     --protocol tcp \
@@ -116,7 +116,7 @@ Create a virtual network with [az network vnet create](/cli/azure/vnet#create). 
 
 ```azurecli
 az network vnet create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --name myVnet \
     --subnet-name mySubnet
 ```
@@ -125,7 +125,7 @@ To add a network security group, you use [az network nsg create](/cli/azure/netw
 
 ```azurecli
 az network nsg create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --name myNetworkSecurityGroup
 ```
 
@@ -133,7 +133,7 @@ Create a network security group rule with [az network nsg rule create](/cli/azur
 
 ```azurecli
 az network nsg rule create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --nsg-name myNetworkSecurityGroup \
     --name myNetworkSecurityGroupRule \
     --priority 1001 \
@@ -146,7 +146,7 @@ Virtual NICs are created with [az network nic create](/cli/azure/network/nic#cre
 ```bash
 for i in `seq 1 3`; do
     az network nic create \
-        --resource-group myRGLoadBalancer \
+        --resource-group myResourceGroupLoadBalancer \
         --name myNic$i \
         --vnet-name myVnet \
         --subnet mySubnet \
@@ -210,7 +210,7 @@ Create an availability set with [az vm availability-set create](/cli/azure/vm/av
 
 ```azurecli
 az vm availability-set create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --name myAvailabilitySet \
     --platform-fault-domain-count 3 \
     --platform-update-domain-count 2
@@ -221,7 +221,7 @@ Now you can create the VMs with [az vm create](/cli/azure/vm#create). The follow
 ```bash
 for i in `seq 1 3`; do
     az vm create \
-        --resource-group myRGLoadBalancer \
+        --resource-group myResourceGroupLoadBalancer \
         --name myVM$i \
         --availability-set myAvailabilitySet \
         --nics myNic$i \
@@ -241,7 +241,7 @@ Obtain the public IP address of your load balancer with [az network public-ip sh
 
 ```azurecli
 az network public-ip show \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --name myPublicIP \
     --query [ipAddress] \
     --output tsv
@@ -262,7 +262,7 @@ You can remove a VM from the backend address pool with [az network nic ip-config
 
 ```azurecli
 az network nic ip-config address-pool remove \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --nic-name myNic2 \
     --ip-config-name ipConfig1 \
     --lb-name myLoadBalancer \
@@ -276,7 +276,7 @@ After performing VM maintenance, or if you need to expand capacity, you can add 
 
 ```azurecli
 az network nic ip-config address-pool add \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --nic-name myNic2 \
     --ip-config-name ipConfig1 \
     --lb-name myLoadBalancer \
