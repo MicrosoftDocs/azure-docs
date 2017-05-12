@@ -1,7 +1,7 @@
 ---
-title: 'Hadoop tutorial: Get started with Hadoop and Hive in HDInsight | Microsoft Docs'
-description: Follow this tutorial to get started using Hadoop in HDInsight. Learn how to create Linux clusters, and query data with Hive.
-keywords: hadoop getting started, hadoop linux, hadoop quick start
+title: Get started with Hadoop and Hive in Azure HDInsight | Microsoft Docs
+description: Learn how to create HDInsight clusters, and query data with Hive.
+keywords: hadoop getting started,hadoop linux,hadoop quickstart,hive getting started,hive quickstart
 services: hdinsight
 documentationcenter: ''
 author: mumian
@@ -11,12 +11,12 @@ tags: azure-portal
 
 ms.assetid: 6a12ed4c-9d49-4990-abf5-0a79fdfca459
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2017
+ms.date: 05/12/2017
 ms.author: jgao
 
 ---
@@ -42,7 +42,7 @@ The Resource Manager template used in this tutorial is located in [GitHub](https
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Enter or select the following values:
    
-    ![HDInsight Linux get started Resource Manager template on portal](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png).
+    ![HDInsight Linux get started Resource Manager template on portal](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "Deploy Hadoop cluster in HDInsigut using the Azure portal and a resource group manager template").
    
     * **Subscription**: Select your Azure subscription.
     * **Resource group**: Create a new resource group or select an existing resource group.  A resource group is a container of Azure components.  In this case, the resource group contains the HDInsight cluster and the dependent Azure Storage account. 
@@ -65,11 +65,11 @@ The Resource Manager template used in this tutorial is located in [GitHub](https
 
 3. Select **I agree to the terms and conditions stated above** and **Pin to dashboard**, and then click **Purchase**. You shall see a new tile titled **Deploying Template deployment** on the portal dashboard. It takes about around 20 minutes to create a cluster. Once the cluster is created, the caption of the tile is changed to the resource group name you specified. And the portal automatically opens the resource group in a new blade. You can see both the cluster and the default storage listed.
    
-    ![HDInsight Linux get started resource group](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png).
+    ![HDInsight Linux get started resource group](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png "Azure HDInsight cluster resource group").
 
 4. Click the cluster name to open the cluster in a new blade.
 
-   ![HDInsight Linux get started cluster settings](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png)
+   ![HDInsight Linux get started cluster settings](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png "HDInsight cluster properties")
 
 
 ## Run Hive queries
@@ -79,7 +79,7 @@ The Resource Manager template used in this tutorial is located in [GitHub](https
 2. Enter the Hadoop username and password that you specified in the previous section. The default username is **admin**.
 3. Open **Hive View** as shown in the following screenshot:
    
-    ![Selecting Ambari views](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png).
+    ![Selecting Ambari views](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png "HDInsight Hive Viwer menu").
 4. In the **Query Editor** section of the page, paste the following HiveQL statements into the worksheet:
    
         SHOW TABLES;
@@ -92,7 +92,7 @@ The Resource Manager template used in this tutorial is located in [GitHub](https
    
     Once the query has finished, The **Query Process Results** section displays the results of the operation. You shall see one table called **hivesampletable**. This sample Hive table comes with all the HDInsight clusters.
    
-    ![HDInsight Hive views](./media/hdinsight-hadoop-linux-tutorial-get-started/hiveview.png).
+    ![HDInsight Hive views](./media/hdinsight-hadoop-linux-tutorial-get-started/hiveview.png "HDInsight Hive View Query Editor").
 6. Repeat step 4 and step 5 to run the following query:
    
         SELECT * FROM hivesampletable;
