@@ -44,11 +44,11 @@ The following table shows the different methods you can use to set up an HDInsig
 | [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |&nbsp; |&nbsp; |&nbsp; |✔ |
 | [Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 
-## Basic cluster configurations
+## Basic cluster set up and configuration
 
 From the [Azure portal](https://portal.azure.com), you can create an HDInsight cluster using *Quick create* or *Custom*. This section covers the basic configuration settings used in the **Quick create** option. 
 
-### Subscription 
+### Subscription  
 Each HDInsight cluster is tied to one Azure subscription.
 
 ### Resource group name
@@ -123,6 +123,8 @@ You can add other components such as Hue to these basic types by using [script a
 > HDInsight clusters come in a variety of types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster.
 >
 >
+
+## Extend clusters with a virtual network
 
 If your solution requires technologies that are spread across multiple HDInsight cluster types, you should create an Azure virtual network and create the required cluster types within the virtual network. This configuration allows the clusters, and any code you deploy to them, to directly communicate with each other.
 
