@@ -64,6 +64,8 @@ The provisioning summary report is visible in the **Provisioning** tab for given
 
 The provisioning summary report should be the first place admins look to check on the operational health of the provisioning job.
 
+ ![Summary report](./media/active-directory-saas-provisioning-reporting/summary_report.PNG)
+
 ### Provisioning audit logs
 All activities performed by the provisioning service are recorded in the Azure AD audit logs, which can be viewed in the **Audit logs** tab under the **Account Provisioning** category. Logged activity event types include:
 
@@ -85,7 +87,7 @@ When looking at provisioning events for an individual user, the events normally 
 
 4) Export event: If the synchronization rule event dictated that an action should be performed (e.g. Add, Update, Delete), then the results of the action are recorded in an Export event.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-provisioning-reporting/audit_logs.png)
+![Creating an Azure AD test user](./media/active-directory-saas-provisioning-reporting/audit_logs.PNG)
 
 
 ### Looking up provisioning events for a specific user
