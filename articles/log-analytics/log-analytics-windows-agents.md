@@ -44,7 +44,7 @@ If your IT security policies do not allow computers on your network to connect t
 Before you install or deploy agents, review the following details to ensure you meet the requirements.
 
 - You can only install the OMS MMA on computers running Windows Server 2008 SP 1 or later or Windows 7 SP1 or later.
-- You'll need an Azure subscription.  For more information, see [Get started with Log Analytics](log-analytics-get-started.md).
+- You need an Azure subscription.  For more information, see [Get started with Log Analytics](log-analytics-get-started.md).
 - Each Windows computer must be able to connect to the Internet using HTTPS or to the OMS Gateway. This connection can be direct, via a proxy, or through the OMS Gateway.
 - You can install the OMS MMA on stand-alone computers, servers, and virtual machines. If you want to connect Azure-hosted virtual machines to OMS, see [Connect Azure virtual machines to Log Analytics](log-analytics-azure-vm-extension.md).
 - The agent needs to use TCP port 443 for various resources.
@@ -94,7 +94,7 @@ The following table shows resources needed for communication.
 
 ## Configure proxy settings
 
-You can use the following procedure to configure proxy settings for the Microsoft Monitoring Agent using Control Panel. You'll need to use the procedure for each server. If you have many servers that you need to configure, you might find it easier to use a script to automate this process. If so, see the next procedure [To configure proxy settings for the Microsoft Monitoring Agent using a script](#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
+You can use the following procedure to configure proxy settings for the Microsoft Monitoring Agent using Control Panel. You need to use this procedure for each server. If you have many servers that you need to configure, you might find it easier to use a script to automate this process. If so, see the next procedure [To configure proxy settings for the Microsoft Monitoring Agent using a script](#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
 
 ### To configure proxy settings for the Microsoft Monitoring Agent using Control Panel
 1. Open **Control Panel**.
@@ -106,7 +106,7 @@ You can use the following procedure to configure proxy settings for the Microsof
 
 ### Verify agent connectivity to OMS
 
-You can easily verify whether your agents are communicating with OMS using the following procedure.
+You can easily verify whether your agents are communicating with OMS using the following procedure:
 
 1.	On the computer with the Windows agent, open Control Panel.
 2.	Open Microsoft Monitoring Agent.
@@ -155,7 +155,7 @@ Copy the following sample, update it with information specific to your environme
 
 The agent uses IExpress as its self-extractor using the `/c` command. You can see the command-line switches at [Command-line switches for IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) and then update the example to suit your needs.
 
-|MMA specific options                   |Notes         |
+|MMA-specific options                   |Notes         |
 |---------------------------------------|--------------|
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = Configure the agent to report to a workspace                |
 |OPINSIGHTS_WORKSPACE_ID                | Workspace Id (guid) for the workspace to add                    |
@@ -169,8 +169,8 @@ MMASetup-AMD64.exe /C /T:.\MMAExtract
 cd .\MMAExtract
 setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1 
 
-## Upgrade the agent and add a workspace using a script
-You can upgrade an agent and add a workspace using the Log Analytics scripting API with the following PowerShell example.
+## Add a workspace using a script
+Add a workspace using the Log Analytics agent scripting API with the following example:
 
 ```
 $mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
@@ -178,7 +178,7 @@ $mma.AddCloudWorkspace($workspaceId, $workspaceKey)
 $mma.ReloadConfiguration()
 ```
 
-To add a workspace in Azure for US Goverment, use the following:
+To add a workspace in Azure for US Government, use the following script sample:
 ```PowerShell
 $mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
 $mma.AddCloudWorkspace($workspaceId, $workspaceKey, 1)
@@ -201,11 +201,11 @@ This procedure and script example will not upgrade an existing agent.
 
 1. Import the xPSDesiredStateConfiguration DSC Module from [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) into Azure Automation.  
 2.	Create Azure Automation variable assets for *OPSINSIGHTS_WS_ID* and *OPSINSIGHTS_WS_KEY*. Set *OPSINSIGHTS_WS_ID* to your OMS Log Analytics workspace ID and set *OPSINSIGHTS_WS_KEY* to the primary key of your workspace.
-3.	Use the script below and save it as MMAgent.ps1
+3.	Use the following script and save it as MMAgent.ps1
 4.	Modify and then use the following example to install the agent using DSC in Azure Automation. Import MMAgent.ps1 into Azure Automation by using the Azure Automation interface or cmdlet.
-5.	Assign a node to the configuration. Within 15 minutes the node will check its configuration and the MMA will be pushed to the node.
+5.	Assign a node to the configuration. Within 15 minutes, the node checks its configuration and the MMA is pushed to the node.
 
-```
+```json
 Configuration MMAgent
 {
     $OIPackageLocalPath = "C:\MMASetup-AMD64.exe"
