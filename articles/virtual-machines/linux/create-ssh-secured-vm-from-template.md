@@ -36,7 +36,7 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## Create virtual machine
-The following example creates a VM from [this Azure Resource Manager template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) with [az group deployment create](/cli/azure/group/deployment#create). Provide the value of your own SSH public key, such as the contents of *~/.ssh/id_rsa.pub*. If you
+The following example creates a VM from [this Azure Resource Manager template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) with [az group deployment create](/cli/azure/group/deployment#create). Provide the value of your own SSH public key, such as the contents of *~/.ssh/id_rsa.pub*. If you need to create an SSH key pair, see [How to create and use an SSH key pair for Linux VMs in Azure](mac-create-ssh-keys.md).
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -44,7 +44,7 @@ az group deployment create --resource-group myResourceGroup \
   --parameters '{"sshKeyData": {"value": "ssh-rsa AAAAB3N{snip}B9eIgoZ"}}'
 ```
 
-In this example, you specified a template stored in GitHub. You can also download or create a template locally and use the `--template-file` parameter with the local path.
+In this example, you specified a template stored in GitHub. You can also download or create a template and specify the local path with the same `--template-file` parameter.
 
 To SSH to your VM, obtain the public IP address with [az network public-ip show](/cli/azure/network/public-ip#show):
 
@@ -54,6 +54,12 @@ az network public-ip show \
     --name sshPublicIP \
     --query [ipAddress] \
     --output tsv
+```
+
+You can then SSH to your VM as normal:
+
+```bash
+ssh azureuser@<ipAddress>
 ```
 
 ## Next steps
