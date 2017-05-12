@@ -64,7 +64,7 @@ To enable on-premises identity synchronization to Azure AD, you need to install 
 
 * [Upgrade from DirSync or Azure AD Sync to Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 * [Getting started with Azure AD Connect using express settings](./connect/active-directory-aadconnect-get-started-express.md)
-* [Configure password writeback](active-directory-passwords-writeback.md#Configuring-password-writeback) to write passwords from Azure back to your on-premises directory.
+* [Configure password writeback](active-directory-passwords-writeback.md#configuring-password-writeback) to write passwords from Azure AD back to your on-premises directory.
 
 ## Disabling self-service password reset
 
