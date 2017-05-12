@@ -17,7 +17,6 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: glenga
 ---
-
 # Bind a custom SSL certificate to a function app
 
 This sample script creates a function app in App Service with its related resources, then binds the SSL certificate of a custom domain name to it. For this sample, you will need:

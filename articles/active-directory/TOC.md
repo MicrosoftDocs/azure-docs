@@ -171,11 +171,11 @@
 ##### [SSO with KCD](active-directory-application-proxy-sso-using-kcd.md)
 ##### [SSO with headers](application-proxy-ping-access.md)
 ##### [SSO with password vaulting](application-proxy-sso-azure-portal.md)
-#### Understand best practices
+#### Concepts
 ##### [Connectors](application-proxy-understand-connectors.md)
 ##### [Security](application-proxy-security-considerations.md)
 ##### [Networks](application-proxy-network-topology-considerations.md)
-#### 
+##### [Upgrade from TMG or UAG](application-proxy-transition-from-uag-tmg.md)
 #### Advanced configurations
 ##### [Publish on separate networks](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Proxy servers](application-proxy-working-with-proxy-servers.md)
@@ -186,7 +186,6 @@
 #### Publishing walkthroughs
 ##### [Remote Desktop](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
-##### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
 #### Use the classic portal
 ##### [Download connectors](application-proxy-enable-classic-portal.md)
@@ -306,12 +305,13 @@
 ## Secure your identities
 ### [Conditional access](active-directory-conditional-access-azure-portal.md)
 #### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Best practices](active-directory-conditional-access-best-practices.md)
+#### [Technical reference](active-directory-conditional-access-technical-reference.md)
 #### [Supported apps](active-directory-conditional-access-supported-apps.md)
 #### [Understand device policies](active-directory-conditional-access-device-policies.md)
 #### [Set up access to connected apps](active-directory-conditional-access-policy-connected-applications.md)
-#### [Technical reference](active-directory-conditional-access-technical-reference.md)
-#### [FAQs](active-directory-conditional-faqs.md)
 #### [Remediation](active-directory-conditional-access-device-remediation.md)
+#### [FAQs](active-directory-conditional-faqs.md)
 #### [Classic portal](active-directory-conditional-access.md)
 ##### [Get started](active-directory-conditional-access-azuread-connected-apps.md)
 
