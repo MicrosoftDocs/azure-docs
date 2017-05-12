@@ -170,7 +170,7 @@ The same is true for all cases where the transaction was not successfully *Commi
 In this section, let us look at a few programming patterns that might be helpful in using ReliableConcurrentQueue.
 
 ### Batch Dequeues
-A recommended programming pattern is for the consumer task to batch its deueues instead of performing one dequeue at a time. The user can choose to throttle delays between every batch or the batch size. The following code snippet shows this programming model.  Note that in this example, the processing is done after the transaction is committed, so if a fault were to occur while processing, the unprocessed items will be lost without having been processed.  Alternatively, the processing can be done within the transaction's scope, however this may have a negative impact on performance and requires handling of the items already processed.
+A recommended programming pattern is for the consumer task to batch its dequeues instead of performing one dequeue at a time. The user can choose to throttle delays between every batch or the batch size. The following code snippet shows this programming model.  Note that in this example, the processing is done after the transaction is committed, so if a fault were to occur while processing, the unprocessed items will be lost without having been processed.  Alternatively, the processing can be done within the transaction's scope, however this may have a negative impact on performance and requires handling of the items already processed.
 
 ```
 int batchSize = 5;
