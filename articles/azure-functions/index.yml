@@ -34,24 +34,24 @@ sections:
     items: 
     - image: 
         src: media/index/http.svg
-      text: HTTP Trigger
+      text: HTTP
       href: /azure/azure-functions/functions-create-an-azure-connected-function
     - image: 
         src: media/index/stopwatch.svg
-      text: Timer Trigger
+      text: Timer
       href: /azure/azure-functions/functions-create-scheduled-function
+    - image: 
+        src: media/index/blob.svg
+      text: Blob
+      href: /azure/azure-functions/functions-create-storage-blob-triggered-function
+    - image: 
+        src: media/index/storage.svg
+      text: Queue
+      href: /azure/azure-functions/functions-create-storage-queue-triggered-function
     - image: 
         src: media/index/octokitty.svg
       text: GitHub Webhook
       href: /azure/azure-functions/functions-create-github-webhook-triggered-function
-    - image: 
-        src: media/index/blob.svg
-      text: Blob Trigger
-      href: /azure/azure-functions/functions-create-storage-blob-triggered-function
-    - image: 
-        src: media/index/storage.svg
-      text: Queue Trigger
-      href: /azure/azure-functions/functions-create-storage-queue-triggered-function
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
