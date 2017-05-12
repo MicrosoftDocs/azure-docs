@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # How to create a Linux VM using the Azure CLI 1.0 an Azure Resource Manager template
-This article shows you how to quickly deploy a Linux Virtual Machine on Azure using the Azure CLI 1.0 and a Azure Template. The article requires:
+This article shows you how to quickly deploy a Linux Virtual Machine using the Azure CLI 1.0 and an Azure Resource Manager template. The article requires:
 
 * an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)).
 * the [Azure CLI 1.0](../../cli-install-nodejs.md) logged in with `azure login`.

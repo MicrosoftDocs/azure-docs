@@ -57,4 +57,4 @@ az network public-ip show \
 ```
 
 ## Next steps
-In this example, you created a basic Linux VM. For more resource manager templates that include application frameworks or create more complex environments, browse the [Azure quickstart templates gallery](https://azure.microsoft.com/documentation/templates/).
+In this example, you created a basic Linux VM. For more Resource Manager templates that include application frameworks or create more complex environments, browse the [Azure quickstart templates gallery](https://azure.microsoft.com/documentation/templates/).
