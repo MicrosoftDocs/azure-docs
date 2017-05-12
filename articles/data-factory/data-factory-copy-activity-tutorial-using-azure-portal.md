@@ -49,7 +49,7 @@ Here are the steps you perform as part of this tutorial:
 	
 	The AzureStorageLinkedService links your Azure storage account to the data factory. This is the storage account in which you created a container and uploaded the data as part of the [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
-	AzureSqlLinkedService links your Azure SQL database to the data factory. The data that is copied from the blob storage is stored in this database. This is sthe database you created as part of the [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)   
+	AzureSqlLinkedService links your Azure SQL database to the data factory. The data that is copied from the blob storage is stored in this database. This is the database you created as part of the [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)   
 3. Create input and output **datasets** in the data factory. In the previous step, you created linked services to link your Azure storage and Azure SQL database data stores to your data factory. In this step, you define two datasets named InputDataset and OutputDataset that represent the input and output data that is stored in these data stores. 
 	
 	The Azure storage linked service specifies the connection string that Data Factory service uses at run time to connect to your Azure storage account. And, the input blob dataset specifies the container and the folder that contains the input data.  
@@ -57,7 +57,7 @@ Here are the steps you perform as part of this tutorial:
 	Similarly, the Azure SQL Database linked service specifies the connection string that Data Factory service uses at run time to connect to your Azure SQL database. And, the output SQL table dataset specifies the table in the database to which the data from the blob storage is copied.
 4. Create a **pipeline** in the data factory. In this step, you create a pipeline named ADFTutorialPipeline that contains one activity of type: **Copy**.   
 	
-	The copy activity copies data from the a blob in the Azure blob storage to a table in the Azure SQL database. You can use a copy activity in a pipeline to copy data from a supported source to a supported destination. For a list of supported data stores, see [Data Movement Activities](data-factory-data-movement-activities.md#supported-data-stores-and-formats) article. 
+	The copy activity copies data from a blob in the Azure blob storage to a table in the Azure SQL database. You can use a copy activity in a pipeline to copy data from a supported source to a supported destination. For a list of supported data stores, see [Data Movement Activities](data-factory-data-movement-activities.md#supported-data-stores-and-formats) article. 
 5. Monitor the pipeline. In this step, you **monitor** the slices of input and output datasets by using Azure portal. 
 
 > [!IMPORTANT]
@@ -109,9 +109,9 @@ You create linked services in a data factory to link your data stores and comput
 
 Therefore, you create two linked services: **AzureStorageLinkedService** and **AzureSqlLinkedService**. 
 
-The AzureStorageLinkedService links your Azure storage account to the data factory. This is the storage account in which you created a container and uploaded the data as part of the [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
+The AzureStorageLinkedService links your Azure storage account to the data factory. This storage account is the one in which you created a container and uploaded the data as part of the [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
-AzureSqlLinkedService links your Azure SQL database to the data factory. The data that is copied from the blob storage is stored in this database. This is sthe database you created as part of the [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)   
+AzureSqlLinkedService links your Azure SQL database to the data factory. The data that is copied from the blob storage is stored in this database. You created the emp table in this database as part of the [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)   
 
 ### Create Azure Storage linked service
 In this step, you link your Azure storage account to your data factory. 
@@ -202,8 +202,8 @@ In this step, you create a dataset named **InputDataset** that points to a blob 
 	| folderPath | Specifies the blob **container** and the **folder** that contains input blobs. In this tutorial, adftutorial is the blob container and folder is the root folder. | 
 	| fileName | This property is optional. If you omit this property, all the files from the folderPath are picked. In this tutorial, **emp.txt** is specified for the fileName, so only that file is picked up for processing. |
 	| format -> type |The input file is in the text format, so we use **TextFormat**. |
-	| columnDelimiter | The columns in the intput file are delimited by **comma character (`,`)**. |
-	| frequency/interval | The frequency is set to **Hour** and interval is **1**, which means that the input slices are available **hourly**. In other words, the Data Factory service looks for input data every hour in the root folder of blob container (**adftutorial**) you specified. This occurs between the pipeline start and end times, not before or after these times.  |
+	| columnDelimiter | The columns in the input file are delimited by **comma character (`,`)**. |
+	| frequency/interval | The frequency is set to **Hour** and interval is **1**, which means that the input slices are available **hourly**. In other words, the Data Factory service looks for input data every hour in the root folder of blob container (**adftutorial**) you specified. It looks for the data between the pipeline start and end times, not before or after these times.  |
 	| external | This property is set to **true** if the data is not generated by this pipeline. The input data in this tutorial is in the emp.txt file, which is not generated by this pipeline, so we set the property to true. |
 
     For more information about these JSON properties, see [Azure Blob connector article](data-factory-azure-blob-connector.md).	
@@ -253,7 +253,7 @@ In this part of the step, you create an output dataset named **OutputDataset**. 
 	| type | The type property is set to **AzureSqlTable** because data is copied to a table in an Azure SQL database. |
 	| linkedServiceName | Refers to the **AzureSqlLinkedService** you created earlier. |
 	| tableName | Specified the **table** to which the data is copied. | 
-	| frequency/interval | The frequency is set to **Hour** and interval is **1**, which means that the output slices are produced **hourly**. This occurs between the pipeline start and end times, not before or after these times.  |
+	| frequency/interval | The frequency is set to **Hour** and interval is **1**, which means that the output slices are produced **hourly** between the pipeline start and end times, not before or after these times.  |
 
 	There are three columns – **ID**, **FirstName**, and **LastName** – in the emp table in the database. ID is an identity column, so you need to specify only **FirstName** and **LastName** here.
 3. Click **Deploy** on the toolbar to create and deploy the **OutputDataset** dataset. Confirm that you see the **OutputDataset** in the tree view under **Datasets**. 
@@ -405,7 +405,7 @@ You can also use Monitor & Manage application to monitor your pipelines. For det
 2. You should see **Monitor & Manage application**. Change the **Start time** and **End time** to include start (2016-07-12) and end times (2016-07-13) of your pipeline, and click **Apply**. 
    
     ![Monitor & Manage App](./media/data-factory-copy-activity-tutorial-using-azure-portal/monitor-and-manage-app.png) 
-3. Select an activity window in the **Activity Windows** list to see details about it. 
+3. To see details about an activity windows, select an activity window in the **Activity Windows** list. 
     ![Activity window details](./media/data-factory-copy-activity-tutorial-using-azure-portal/activity-window-details.png)
 
 ## Summary
