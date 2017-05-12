@@ -23,6 +23,12 @@ The [Azure AD reporting APIs](https://msdn.microsoft.com/library/azure/ad/graph/
 
 The reporting API uses [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) to authorize access to the web APIs. 
 
+To get access to the reporting data through the API, you need to have one of the following roles assigned:
+
+- Security Reader
+- Security Admin
+- Global Admin
+
 
 To prepare your access to the reporting API, you must:
 
