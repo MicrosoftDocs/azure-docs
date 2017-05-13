@@ -54,6 +54,8 @@ Functions provides templates to get you started with key scenarios, including th
 
 Azure Functions supports *triggers*, which are ways to start execution of your code, and *bindings*, which are ways to simplify coding for input and output data. For a detailed description of the triggers and bindings that Azure Functions provides, see [Azure Functions triggers and bindings developer reference](functions-triggers-bindings.md).
 
+<i>Note: Azure Functions are built on top of Azure App Services, so they have a limitation of only being able to listen on ports 80 and 443 for requests. See [Azure Web App sandbox network endpoint listening](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#network-endpoint-listening).</i>
+
 ## <a name="integrations"></a>Integrations
 Azure Functions integrates with various Azure and 3rd-party services. These services can trigger your function and start execution, or they can serve as input and output for your code. The following service integrations are supported by Azure Functions. 
 
