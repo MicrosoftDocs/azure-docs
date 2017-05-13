@@ -45,8 +45,8 @@ You can also choose to provide configuration settings manually. This is the pref
 
 ### <a name="register"> </a>Register your application with Azure Active Directory
 1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**. You will use this to configure your Azure Active Directory app.
-2. Sign in to the [Azure classic portal] and navigate to **Active Directory**.
-   
+2. Sign in to the [Azure portal] and navigate to **Azure Active Directory**
+  
     ![][2]
 3. Select your directory, and then select the **Applications** tab at the top. Click **ADD** at the bottom to create a new app registration.
 4. Click **Add an application my organization is developing**.
