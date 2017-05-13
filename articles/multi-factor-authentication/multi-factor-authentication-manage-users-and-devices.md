@@ -38,7 +38,7 @@ This setting will forces the user to complete the registration process again whe
 8. Place a check in **Require selected users to provide contact methods again**.
    ![Provide contact methods](./media/multi-factor-authentication-manage-users-and-devices/reproofup.png)
 9. Click save.
-10. Click close
+ 10. Click close
 
 ## Delete users existing app passwords
 This deletes all of the app passwords that a user has created. Non-browser apps that were associated with these app passwords will cease to work until a new app password is created.
