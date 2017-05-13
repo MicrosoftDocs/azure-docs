@@ -84,6 +84,11 @@ Filesystem  Size  Used Avail Use% Mounted on
 //myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
 ```
 
+> [!NOTE]
+> When using Ubuntu 16 only `vers=2.1` is supported. Trying `3.0` will result in `Resource temporarily unavailable`.
+>
+>
+
 If you use CentOS 7.1, you can mount the file as below:
 
 ```
