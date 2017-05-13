@@ -151,7 +151,7 @@ A few things to note:
 * For more details, you can refer to the customer configuration file. Investigate the `<Logs>` tags for the different roles.
 
 > [!NOTE]
-> We are enforcing size and age limits to the logs collected as it is essential to ensure efficient utilization of your storage space to make sure it doesn't get flooded with logs. Having said that, when diagnosing a problem you will often need logs that might not exist anymore due to these limits being enforced. Hence, it is **highly recommended** that you offload your logs to an external storage space (a storage account in public Azure, an additional on-prem storage device etc.) every 8 to 12 hours and keep them there for 1 - 3 months depending on your requirements.
+> We enforce size and age limits to the logs collected as it is essential to ensure efficient utilization of your storage space to make sure it doesn't get flooded with logs. Having said that, when diagnosing a problem you will often need logs that might not exist anymore due to these limits being enforced. Hence, it is **highly recommended** that you offload your logs to an external storage space (a storage account in public Azure, an additional on-prem storage device etc.) every 8 to 12 hours and keep them there for 1 - 3 months depending on your requirements.
 
 
 ## Next steps
