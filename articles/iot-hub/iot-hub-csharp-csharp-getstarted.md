@@ -164,6 +164,7 @@ In this section, you create a .NET console app that simulates a device that send
 3. In the **NuGet Package Manager** window, select **Browse**, search for **Microsoft.Azure.Devices.Client**, select **Install** to install the **Microsoft.Azure.Devices.Client** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT device SDK NuGet package][lnk-device-nuget] and its dependencies.
 4. Add the following `using` statement at the top of the **Program.cs** file:
    
+        using System.Threading.Tasks;
         using Microsoft.Azure.Devices.Client;
         using Newtonsoft.Json;
 5. Add the following fields to the **Program** class. Substitute the placeholder values with the IoT hub host name you retrieved in the "Create an IoT hub" section, and the device key retrieved in the "Create a device identity" section.
