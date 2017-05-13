@@ -174,7 +174,7 @@ This tutorial will show you how to connect your Netsuite environment to your Azu
    * If you haven't enable automated user provisioning, then you'll see the following prompt to confirm:
      
         ![Confirm the assignment.][32]
-   * If you have enabled automated user provisioning, then you'll see a prompt to define what type of role the user should have in Netsuite. Newly provisioned users should appear in your Netsuite environment after a few minutes.
+   * Newly provisioned users should appear in your Netsuite environment after approximately 10 minutes.
 4. To test your single sign-on settings, open the Access Panel at [https://myapps.microsoft.com](https://myapps.microsoft.com/), sign into the test account, and click on **Netsuite**.
 
 ## Related Articles
