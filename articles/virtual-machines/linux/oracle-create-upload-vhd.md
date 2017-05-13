@@ -98,7 +98,7 @@ You must complete specific configuration steps in the operating system for the v
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 13. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
     
-        # sudo waagent -force -deprovision
+        # sudo waagent -force -deprovision+user
         # export HISTSIZE=0
         # logout
 14. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
@@ -174,7 +174,7 @@ Preparing an Oracle Linux 7 virtual machine for Azure is very similar to Oracle 
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 14. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
     
-        # sudo waagent -force -deprovision
+        # sudo waagent -force -deprovision+user
         # export HISTSIZE=0
         # logout
 15. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
