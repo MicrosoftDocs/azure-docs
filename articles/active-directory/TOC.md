@@ -357,7 +357,7 @@
 
 
 # Reference
-## [PowerShell cmdlets](/powershell/azure/overview)
+## [PowerShell cmdlets](/powershell/azure/overview?view=azureadps-2.0)
 ## [Java API Reference](/java/api)
 ## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Service limits and restrictions](active-directory-service-limits-restrictions.md)
