@@ -31,7 +31,7 @@ This article summarizes supported configurations and components for Azure Site R
 
 ## User interface options
 
-|  | **Supported / Not supported** |
+|  | **Supported / Not supported** 
 --- | ---
 **Azure portal** | Supported 
 **Classic portal** | Not supported 
@@ -42,7 +42,7 @@ This article summarizes supported configurations and components for Azure Site R
 
 ## Resource move support
 
-**Resource move type** | **Supported / Not supported** | ** Remarks**  |
+**Resource move type** | **Supported / Not supported** | ** Remarks**  
 --- | --- | ---
 **Move vault across resource groups** | Not supported |You cannot move the Recovery services vault across resource groups. 
 **Move Compute, Storage and Network across resource groups** | Not supported |If you move a virtual machine (or its associated components such as storage and network after enabling replication, you need to disable replication and enable it again. 
@@ -50,7 +50,7 @@ This article summarizes supported configurations and components for Azure Site R
 
 ## Support for deployment models
 
-**Deployment model** | **Supported / Not supported** | ** Remarks**  |
+**Deployment model** | **Supported / Not supported** | ** Remarks**  
 --- | --- | ---
 **Classic** | Supported | You can only replicate a classic virtual machine and recover it as a classic virtual machine. You cannot recover it as a Resource Manager virtual machine.|
 **Resource Manager** | Supported | |
