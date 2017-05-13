@@ -1,5 +1,5 @@
 ---
-title: DocumentDB customers, wecome to Azure Cosmos DB | Microsoft Docs
+title: DocumentDB customers, welcome to Azure Cosmos DB | Microsoft Docs
 description: Learn more about the annoucement made at //build 2017, in which DocumentDB customers are now Azure Cosmos DB customers. 
 services: cosmosdb
 author: mimig1
@@ -20,7 +20,7 @@ ms.author: mimig
 
 DocumentDB customers, we are excited to let you know that you now part of the Azure Cosmos DB family! 
 
-Azure Cosmos DB, [annouced at //build 2017](https://azure.microsoft.com/blog/azure-cosmos-db-microsofts-globally-distributed-multi-model-database-service/), is the first globally-distributed data service that lets you elastically scale throughput and storage across any number of geographical regions while guaranteeing low latency, high availability, and consistency – backed by the most comprehensive SLAs in the industry, and supporting a multitude of data models and APIs. 
+Azure Cosmos DB, [announced at //build 2017](https://azure.microsoft.com/blog/azure-cosmos-db-microsofts-globally-distributed-multi-model-database-service/), is the first globally-distributed data service that lets you elastically scale throughput and storage across any number of geographical regions while guaranteeing low latency, high availability, and consistency – backed by the most comprehensive SLAs in the industry, and supporting a multitude of data models and APIs. 
 
 One of the APIs Azure Cosmos DB supports is the DocumentDB API and the document data-model. You're already familiar with the DocumentDB APIs, they're the APIs you already use to run your current DocumentDB apps. These APIs are not changing - the Nuget package, namespaces, and dependencies will all remain the same. You don't need to change anything to continue running your apps built on the DocumentDB APIs, Azure Cosmos DB is simply the name of the service they are now a part of. 
 
@@ -32,7 +32,7 @@ Nothing, there are no changes you need to make. Your DocumentDB resources are no
 
 ## What changes do I need to make for my app to work with Azure Cosmos DB?
 
-There are no changes to make. Classes, namespaces, and Nuget package names have not changed. As always, we recommend that you keep your SDKs up to date to take advantage of the latest features and improvments. 
+There are no changes to make. Classes, namespaces, and Nuget package names have not changed. As always, we recommend that you keep your SDKs up to date to take advantage of the latest features and improvements. 
 
 ## What's changed in the Azure portal?
 
@@ -63,7 +63,7 @@ What's new?
 <a id="graph-api"></a>
 ### Support for Graph API
 
-The Graph API enables you to expand your data modeling techniques to capture not only the complexities of the entities your modeling, but the rich relationship between entities. Graph databases are common for social networking apps, when you not only want to know about a user, but you want to know who knows who, and find similarities and connections between those people, the places they live, and their interests. The following diagram dipicts a simple graph you could create using the Graph API. Learn more about graph support in [Introduction to Azure Cosmos DB: Graph API](graph-introduction.md).
+The Graph API enables you to expand your data modeling techniques to capture not only the complexities of the entities your modeling, but the rich relationship between entities. Graph databases are common for social networking apps, when you not only want to know about a user, but you want to know who knows who, and find similarities and connections between those people, the places they live, and their interests. The following diagram depicts a simple graph you could create using the Graph API. Learn more about graph support in [Introduction to Azure Cosmos DB: Graph API](graph-introduction.md).
 
 ![Sample database showing persons, devices, and interests](./media/graph-introduction/sample-graph.png) 
 
