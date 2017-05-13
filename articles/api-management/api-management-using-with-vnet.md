@@ -80,6 +80,9 @@ You can also enable VNET connectivity using the PowerShell cmdlets
 
 * **Deploy an existing API Management service inside a VNET**: Use the cmdlet [Update-AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) to move an existing Azure API Management service inside a Virtual Network.
 
+## <a name="connect-portal"> </a>Connect to API Management Portal within a virtual Network
+After your API Management service is connected to the VNET, accessing the portal is possible by using API Management DNS name (by either configuring your DNS servers with the proper API Management Address or use hosts file). 
+
 ## <a name="connect-vnet"> </a>Connect to a web service hosted within a virtual Network
 After your API Management service is connected to the VNET, accessing backend services within it is no different than accessing public services. Just type in the local IP address or the host name (if a DNS server is configured for the VNET) of your web service into the **Web service URL** field when creating a new API or editing an existing one.
 
