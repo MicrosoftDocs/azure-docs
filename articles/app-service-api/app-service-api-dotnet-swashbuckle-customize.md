@@ -60,12 +60,12 @@ The following steps show how to customize Swashbuckle by using the *SwaggerConfi
                     SchemaRegistry schemaRegistry,
                     ApiDescription apiDescription)
                 {
-                    if (operation.parameters != null)
+                    if (operation.Parameters != null)
                     {
-                        operation.operationId += "By";
-                        foreach (var parm in operation.parameters)
+                        operation.OperationId += "By";
+                        foreach (var parm in operation.Parameters)
                         {
-                            operation.operationId += string.Format("{0}",parm.name);
+                            operation.OperationId += string.Format("{0}",parm.name);
                         }
                     }
                 }
