@@ -79,13 +79,22 @@ We can use `sqlContext` to perform transformations on structured data. The first
 
 1. Because the raw data is in a CSV format, we need to use the Spark context to pull every line of the file into memory as unstructured text; then, you use Python's CSV library to parse each line individually.
 
-        def csvParse(s):
-            import csv
-            from StringIO import StringIO
-            sio = StringIO(s)
-            value = csv.reader(sio).next()
-            sio.close()
-            return value
+        import csv
+        import io
+
+        def csvParse(s, dialect='excel', use_unicode=True):
+            """Parse a single line from a CSV file.
+            
+            You can use functools.partial() if you need to change one of the keyword arguments when passing
+            in the function itself,
+            e.g. ``sc.textFile(...).map(functools.partial(csvParse, dialect='excel-tab'))``.
+            """
+            if use_unicode:
+                FileLikeIO = io.StringIO
+            else:
+                FileLikeIO = io.BytesIO
+            with FileLikeIO(s): as fileLike:
+                return next(csv.reader(fileLike, dialect=dialect))
 
         inspections = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
                         .map(csvParse)
