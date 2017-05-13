@@ -96,7 +96,7 @@ Customizations are required for this example and are explained in the following 
 
 ### Add modules
 
-To use Network Watcher PowerShell cmdlets,  upload the latest PowerShell module to the Function app.
+To use Network Watcher PowerShell cmdlets, upload the latest PowerShell module to the Function app.
 
 1. On your local machine with the latest Azure PowerShell modules installed, run the following PowerShell command:
 
@@ -154,16 +154,16 @@ To use the PowerShell cmdlets, you must authenticate. You configure authenticati
 The following PowerShell script creates a key file called **PassEncryptKey.key**. It also provides an encrypted version of the password that's supplied. This password is the same password that is defined for the Azure Active Directory application that's used for authentication.
 
 ```powershell
-#variables
+#Variables
 $keypath = "C:\temp\PassEncryptKey.key"
 $AESKey = New-Object Byte[] 32
 $Password = "<insert a password here>"
 
-#keys
+#Keys
 [Security.Cryptography.RNGCryptoServiceProvider]::Create().GetBytes($AESKey) 
 Set-Content $keypath $AESKey
 
-#get encrypted password
+#Get encrypted password
 $secPw = ConvertTo-SecureString -AsPlainText $Password -Force
 $AESKey = Get-content $KeyPath
 $Encryptedpassword = $secPw | ConvertFrom-SecureString -Key $AESKey
@@ -222,16 +222,16 @@ Obtain the tenant ID  by running the following PowerShell sample:
 The value of the AzureCredPassword environment variable is the value that you get from running the following PowerShell sample. This example is the same one that's shown in the preceding **Encrypted credentials** section. The value that's needed is the output of the `$Encryptedpassword` variable.  This is the service principal password that you encrypted by using the PowerShell script.
 
 ```powershell
-#variables
+#Variables
 $keypath = "C:\temp\PassEncryptKey.key"
 $AESKey = New-Object Byte[] 32
 $Password = "<insert a password here>"
 
-#keys
+#Keys
 [Security.Cryptography.RNGCryptoServiceProvider]::Create().GetBytes($AESKey) 
 Set-Content $keypath $AESKey
 
-#get encrypted password
+#Get encrypted password
 $secPw = ConvertTo-SecureString -AsPlainText $Password -Force
 $AESKey = Get-content $KeyPath
 $Encryptedpassword = $secPw | ConvertFrom-SecureString -Key $AESKey
@@ -260,64 +260,64 @@ It's now time to make calls into Network Watcher from within the Azure function.
 
 The following example is PowerShell that can be used in the function. There are values that need to be replaced for **subscriptionId**, **resourceGroupName**, and **storageAccountName**.
 
-        ```powershell
-        #Import Azure PowerShell modules required to make calls to Network Watcher
-        Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Profile\AzureRM.Profile.psd1" -Global
-        Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Network\AzureRM.Network.psd1" -Global
-        Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Resources\AzureRM.Resources.psd1" -Global
+            ```powershell
+            #Import Azure PowerShell modules required to make calls to Network Watcher
+            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Profile\AzureRM.Profile.psd1" -Global
+            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Network\AzureRM.Network.psd1" -Global
+            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Resources\AzureRM.Resources.psd1" -Global
 
-        #Process alert request body
-        $requestBody = Get-Content $req -Raw | ConvertFrom-Json
+            #Process alert request body
+            $requestBody = Get-Content $req -Raw | ConvertFrom-Json
 
-        #Storage account Id to save captures in
-        $storageaccountid = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}"
+            #Storage account ID to save captures in
+            $storageaccountid = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}"
 
-        #Packet capture vars
-        $packetcapturename = "PSAzureFunction"
-        $packetCaptureLimit = 10
-        $packetCaptureDuration = 10
+            #Packet capture vars
+            $packetcapturename = "PSAzureFunction"
+            $packetCaptureLimit = 10
+            $packetCaptureDuration = 10
 
-        #Credentials
-        $tenant = $env:AzureTenant
-        $pw = $env:AzureCredPassword
-        $clientid = $env:AzureClientId
-        $keypath = "D:\home\site\wwwroot\AlertPacketCapturePowerShell\keys\PassEncryptKey.key"
+            #Credentials
+            $tenant = $env:AzureTenant
+            $pw = $env:AzureCredPassword
+            $clientid = $env:AzureClientId
+            $keypath = "D:\home\site\wwwroot\AlertPacketCapturePowerShell\keys\PassEncryptKey.key"
 
-        #Authentication
-        $secpassword = $pw | ConvertTo-SecureString -Key (Get-Content $keypath)
-        $credential = New-Object System.Management.Automation.PSCredential ($clientid, $secpassword)
-        Add-AzureRMAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
+            #Authentication
+            $secpassword = $pw | ConvertTo-SecureString -Key (Get-Content $keypath)
+            $credential = New-Object System.Management.Automation.PSCredential ($clientid, $secpassword)
+            Add-AzureRMAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
 
 
-        #Get the VM that fired the alert
-        if($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines")
-        {
-            Write-Output ("Subscription ID: {0}" -f $requestBody.context.subscriptionId)
-            Write-Output ("Resource Group:  {0}" -f $requestBody.context.resourceGroupName)
-            Write-Output ("Resource Name:  {0}" -f $requestBody.context.resourceName)
-            Write-Output ("Resource Type:  {0}" -f $requestBody.context.resourceType)
+            #Get the VM that fired the alert
+            if($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines")
+            {
+                Write-Output ("Subscription ID: {0}" -f $requestBody.context.subscriptionId)
+                Write-Output ("Resource Group:  {0}" -f $requestBody.context.resourceGroupName)
+                Write-Output ("Resource Name:  {0}" -f $requestBody.context.resourceName)
+                Write-Output ("Resource Type:  {0}" -f $requestBody.context.resourceType)
 
-            #Get the Network Watcher in the VM's region
-            $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $requestBody.context.resourceRegion}
-            $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+                #Get the Network Watcher in the VM's region
+                $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $requestBody.context.resourceRegion}
+                $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
-            #Get existing packetCaptures
-            $packetCaptures = Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher
+                #Get existing packetCaptures
+                $packetCaptures = Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher
 
-            #Remove existing packet capture created by the function (if it exists)
-            $packetCaptures | %{if($_.Name -eq $packetCaptureName)
-            { 
-                Remove-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName $packetCaptureName
-            }}
+                #Remove existing packet capture created by the function (if it exists)
+                $packetCaptures | %{if($_.Name -eq $packetCaptureName)
+                { 
+                    Remove-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName $packetCaptureName
+                }}
 
-            #Initiate packet capture on the VM that fired the alert
-            if ((Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher).Count -lt $packetCaptureLimit){
-                echo "Initiating Packet Capture"
-                New-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $requestBody.context.resourceId -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration
-                Out-File -Encoding Ascii -FilePath $res -inputObject "Packet Capture created on ${requestBody.context.resourceID}"
-            }
-        } 
-        ``` 
+                #Initiate packet capture on the VM that fired the alert
+                if ((Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher).Count -lt $packetCaptureLimit){
+                    echo "Initiating Packet Capture"
+                    New-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $requestBody.context.resourceId -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration
+                    Out-File -Encoding Ascii -FilePath $res -inputObject "Packet Capture created on ${requestBody.context.resourceID}"
+                }
+            } 
+            ``` 
 
 6. After you've created your function, configure your alert to call the URL that's associated with the function. To get this value, copy the function URL from your function app.
 
@@ -345,20 +345,20 @@ Go to an existing virtual machine, and then add an alert rule. More detailed doc
   |**Condition**|Greater than| The condition to use when evaluating the metric.|
   |**Threshold**|100| The  value of the metric that triggers the alert. This value should be set to a valid value for your environment.|
   |**Period**|Over the last five minutes| Determines the period in which to look for the threshold on the metric.|
-  |**Webhook**|[webhook url from function app]| This is the webhook url from the function app that was created in the previous steps.|
+  |**Webhook**|[webhook url from function app]| The webhook url from the function app that was created in the previous steps.|
 
 > [!NOTE]
 > The TCP segments metric is not enabled by default. Learn more about how to enable additional metrics by visiting [Enable monitoring and diagnostics](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).
 
 ## Review the results
 
-After the criteria for the alert triggers, a packet capture is created. Go to your Network Watcher, and then select **Packet Capture**. On this page, you can select the packet capture file link to download the packet capture.
+After the criteria for the alert triggers, a packet capture is created. Go to your Network Watcher, and then select **Packet capture**. On this page, you can select the packet capture file link to download the packet capture.
 
 ![View packet capture][functions14]
 
 If the capture file is stored locally, you can retrieve it by signing in to the virtual machine.
 
-For instructions about downloading files from Azure storage accounts, see to [Get started with Azure Blob storage using .NET](../storage/storage-dotnet-how-to-use-blobs.md). Another tool you can use is Storage Explorer. More information about Storage Explorer can be found at [Storage Explorer](http://storageexplorer.com/).
+For instructions about downloading files from Azure storage accounts, see [Get started with Azure Blob storage using .NET](../storage/storage-dotnet-how-to-use-blobs.md). Another tool you can use is Storage Explorer. More information about Storage Explorer can be found at [Storage Explorer](http://storageexplorer.com/).
 
 After your capture has been downloaded, you can view it by using any tool that can read a **.cap** file. Following are links to two of these tools:
 
