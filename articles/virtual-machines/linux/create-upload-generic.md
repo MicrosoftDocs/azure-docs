@@ -173,7 +173,7 @@ The [Azure Linux Agent](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-ma
 
 * As a final step, run the following commands to deprovision the virtual machine:
   
-        # sudo waagent -force -deprovision
+        # sudo waagent -force -deprovision+user
         # export HISTSIZE=0
         # logout
   
