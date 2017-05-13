@@ -17,7 +17,7 @@ ms.date: 02/07/2017
 ms.author: rodsan
 
 ---
-
+Thanks!
 # Security Frame: Authentication | Mitigations 
 | Product/Service | Article |
 | --------------- | ------- |
