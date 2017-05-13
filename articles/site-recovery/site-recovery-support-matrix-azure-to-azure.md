@@ -3,7 +3,7 @@ title: Azure Site Recovery support matrix for replicating from Azure to Azure | 
 description: Summarizes the supported operating systems and components for Azure Site Recovery
 services: site-recovery
 documentationcenter: ''
-author: Sujay-Talasils
+author: sujayt
 manager: rochakm
 editor: ''
 
@@ -31,55 +31,73 @@ This article summarizes supported configurations and components for Azure Site R
 
 ## User interface options
 
-**Interface** | **** | **** |
+**Interface** |  |
 --- | --- | ---
-**Azure portal** | Supported | |
-**Classic portal** | Not supported | |
-**PowerShell** | Not currently supported | |
-**REST API** | Not currently supported | |
-**CLI** | Not currently supported | |
+**Azure portal** | Supported |
+**Classic portal** | Not supported |
+**PowerShell** | Not currently supported |
+**REST API** | Not currently supported |
+**CLI** | Not currently supported |
 
 
 ## Resource move support
 
+**Ressource move type** |  | Remarks|
+--- | --- | ---
 
 **Move vault across resource groups** | Not supported |You cannot move the Recovery services vault across resource groups. |
 
 **Move Compute, Storage and Network across resource groups** | Not supported |If you move a virtual machine (or its associated components such as storage and network after enabling replication, you need to disable replication and enable it again. |
 
 
+## Support for deployment models
+
+**Classic** | Supported | You can only replicate a classic virtual machine and recover it as a classic virtual machine. You cannot recover it as a Resource manager virtual machine.|
+**Resource Manager** | Supported | |
+
 ## Support for replicated machine OS versions
 
-Virtual machines that are protected must meet [Azure requirements](#failed-over-azure-vm-requirements) when replicating to Azure.
-The following table summarizes replicated operating system support in various deployment scenarios while using Azure Site Recovery. This support is applicable for any workload running on the mentioned OS.
+The following table summarizes replicated operating system support for Azure virtual machines. This support is applicable for any workload running on the mentioned OS.
 
- **VMware/physical server** | **Hyper-V (with/without Virtual Machine Manager)** |
+ **Operating system version** |
 --- | --- |
-64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2 <br/><br/> CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>(Upgrade of replicating machines from SLES 11 SP3 to SLES 11 SP4 is not supported. If a replicated machine has been upgraded from SLES 11SP3 to SLES 11 SP4, you'll need to disable replication and protect the machine again post the upgrade.) | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx)
+64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2 <br/><br/> CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>(Upgrade of replicating machines from SLES 11 SP3 to SLES 11 SP4 is not supported. If a replicated machine has been upgraded from SLES 11SP3 to SLES 11 SP4, you'll need to disable replication and protect the machine again post the upgrade.) 
 
 
 >[!IMPORTANT]
->(Applicable to VMware/Physical servers replicating to Azure)
 >
 > On Red Hat Enterprise Linux Server 7+ and CentOS 7+ servers, kernel version 3.10.0-514 is supported starting from version 9.8 of the Azure Site Recovery mobility service.<br/><br/>
 > Customers on the 3.10.0-514 kernel with a version of the mobility service lower than version 9.8 are required to disable replication, update the version of the mobility service to version 9.8 and then enable replication again.  
 
-## Supported file systems and guest storage configurations on Linux (VMware/Physical servers)
+## Supported file systems and guest storage configurations on Azure virtual machines running Linux operating system 
 
-The following file systems and storage configuration software is supported on Linux servers running on VMware or Physical servers:
 * File systems: ext3, ext4, ReiserFS (Suse Linux Enterprise Server only), XFS (upto v4 only)
 * Volume manger : LVM2
 * Multipath software : Device Mapper
 
-Physical servers with the HP CCISS storage controller aren't supported.
 
 >[!Note]
 > On Linux servers the following directories (if set up as separate partitions/file-systems) must all be on the same disk (the OS disk) on the source server:   / (root), /boot, /usr, /usr/local, /var, /etc<br/><br/>
 > XFS v5 features such as metadata checksum are currently not supported by ASR on XFS filesystems. Ensure that your XFS filesystems aren't using any v5 features. You can use the xfs_info utility to check the XFS superblock for the partition. If ftype is set to 1, then XFSv5 features are being used. 
 >
 
+## Support for Compute configuration
 
-## Support for network configuration
+**Configuration** | **Supported/Not supported** | **Remarks**
+--- | --- | ---
+Size | Any Azure VM size with atleast 2 CPU cores and 1 GB RAM | Refer to [Azure virtual machine sizes](./virtual-machines/windows/sizes.md)
+Network interface (NIC) | Upto maximum number of NICs supported by a specific Azure VM size | NICs are created when the VM is created as part of Test failover or Failover operation. The number of NICs on the failover VM depends on the number of NICs the source VM has at the time of enabling replication. If you add/remove NIC after enabling replication, it does not impact NIC count on the failover VM. 
+Availability sets | Supported | If you use the default option during 'enable replication' sgtep in portal, the availability set is auto created based on source site configuration. You can always change the target availability set in 'Replicated item > Settings > Compute and Network > Availability set'
+Hybrid Use Benefit (HUB) VMs | Supported | If the source VM has HUB license enabled, the Test failvoer or Failover VM also will use the HUB license.
+Virtual machine scale sets | Not supported |
+Azure Gallery Images - Microsoft published | Supported | Supported as long as the VM runs on a supported operating system by Site Recovery
+Azure Gallery images - Third party  published | Supported | Supported as long as the VM runs on a supported operating system by Site Recovery
+Azure Gallery images - Microsoft published | Supported | Supported as long as the VM runs on a supported operating system by Site Recovery
+Custom images - Third party  published | Supported | Supported as long as the VM runs on a supported operating system by Site Recovery
+VMs migrated using Site Recovery | Supported | If it is a VMware/Physical machine migrated to Azure using Site Recovery, you need to uninstall the older version of mobility service before replicating it to another Azure region. 
+Standard VM extensions | |
+
+## Support for Network configuration
 The following tables summarize network configuration support in various deployment scenarios that use Azure Site Recovery to replicate to Azure.
 
 ### Host network configuration
