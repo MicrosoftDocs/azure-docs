@@ -50,7 +50,7 @@ Ensure that you use a cloud-only Global Administrator account for all Azure AD C
 
 If you have Pass-through Authentication enabled on your tenant and you try to uninstall Azure AD Connect, it will show you the following warning message: "Users will not be able to sign-in to Azure AD unless you have other Pass-through Authentication agents installed on other servers.".
 
-You need to have a [high availability](active-directory-aadconnect-pass-through-authentication.md#ensuring-high-availability) setup in place before you uninstall Azure AD Connect to avoid breaking user sign-in.
+You need to have a [high availability](active-directory-aadconnect-pass-through-authentication.md) setup in place before you uninstall Azure AD Connect to avoid breaking user sign-in.
 
 ## Issues with enabling the Pass-through Authentication feature
 

@@ -139,8 +139,7 @@ You can use the Azure portal or Azure [PowerShell](#windows-powershell) to creat
       -VM $VmConfig
     #
     ```
-    If the script fails and you changed any values in the script, confirm the values you used for  VM size, operating system, and location are within the values listed in the [Limitations](#Limitations) section of this article.
-5. In your PowerShell window, right-click to paste the script and start executing it. You are prompted for a username and password. Use these credentials to log in to the VM when connecting to it in the next step. 
+5. In your PowerShell window, right-click to paste the script and start executing it. You are prompted for a username and password. Use these credentials to log in to the VM when connecting to it in the next step. If the script fails, and you changed values in the script before executing it, confirm the values you used for VM size, operating system, and location are listed in the [Limitations](#Limitations) section of this article.
 6. To install the accelerated networking driver for Windows, complete the steps in the [Configure Windows](#configure-windows) section of this article.
 
 ### <a name="configure-windows"></a>Configure Windows
@@ -267,8 +266,9 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
       -VM $VmConfig
     #
     ```
-    If the script fails, confirm you are registered for the preview as explained in step 4, and that you have not changed values for VM size, operating system type, or location to values other than the values listed in the [Limitations](#Limitations) section of this article.
-6. In your PowerShell window, right-click to paste the script and start executing it. You are prompted for a username and password. Use these credentials to log in to the VM when connecting to it in the next step. 
+6. In your PowerShell window, right-click to paste the script and start executing it. You are prompted for a username and password. Use these credentials to log in to the VM when connecting to it in the next step. If the script fails, confirm that:
+    - You are registered for the preview, as explained in step 4
+    - If you changed VM size, operating system type, or location values in the script before executing it, that the values are listed in the [Limitations](#Limitations) section of this article.
 7. To install the accelerated networking driver for Linux, complete the steps in the [Configure Linux](#configure-linux) section of this article.
 
 ### <a name="configure-linux"></a>Configure Linux
