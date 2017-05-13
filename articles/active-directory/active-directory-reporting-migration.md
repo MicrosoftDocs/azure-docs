@@ -137,8 +137,8 @@ To view all auditing data, on the **Azure Active Directory** blade, under **ACTI
 | Azure classic portal                 | To find in the Azure portal                                                         |
 | ---                                  | ---                                                                        |
 | Audit logs                           | For **Activity Category**, select **Core Directory**.                       |
-| Password reset activity              | For **Activity Category**, select **Self-service Password Management**. |
-| Password reset registration activity | For **Activity Category**, select **Self-service Password Management**.     |
+| Password reset activity              | For **Activity Category**, select **Self-service Password Management**. [Learn more](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#how-to-view-password-management-reports) |
+| Password reset registration activity | For **Activity Category**, select **Self-service Password Management**. [Learn more](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#how-to-view-password-management-reports)      |
 | Self-service groups activity         | For **Activity Category**, select **Self-service Group Management**.        |
 | Account provisioning activity        | For **Activity Category**, select **Account User Provisioning**.         |
 | Password rollover status             | For **Activity Category**, select **Automatic App Password Rollover**.      |
