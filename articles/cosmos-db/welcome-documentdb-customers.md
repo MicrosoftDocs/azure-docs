@@ -85,7 +85,7 @@ If you're an existing Azure Table storage customer, you have two options.
 <a id="consistent-prefix"></a>
 ### New consistency level: Consistent prefix
 
-Consistent prefix is a new consistency level available to all Azure Cosmos DB accounts. Consistent prefix falls between Eventual consistency and Session level consistency on the consistency continuum. Learn more about the consistent prefix level in the [Tunable data consistency levels](documentdb-consistency-levels.md#consistent-prefix) article. 
+Consistent prefix is a new consistency level available to all Azure Cosmos DB accounts. Consistent prefix falls between Eventual consistency and Session level consistency on the consistency continuum. Learn more about the consistent prefix level in the [Tunable data consistency levels](../documentdb/documentdb-consistency-levels.md#consistent-prefix) article. 
 
 ![Azure Cosmos DB offers multiple, well defined (relaxed) consistency models to choose from](media/introduction/azure-cosmos-db-consistency-levels.png)
 
