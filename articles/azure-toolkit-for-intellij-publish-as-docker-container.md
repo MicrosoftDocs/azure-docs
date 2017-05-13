@@ -76,16 +76,16 @@ Docker containers are a widely used method for deploying web applications. By us
           * **Size**: Enter the virtual-machine size for your host.
     
       e. On the **Resource Group** tab, select either of the following:
-          * **New resource group**: Allows you to create a resource group for your host.
-          * **Existing resource group**: Allows you to specify an existing resource group from your Azure account.
+          * **New resource group**: Create a resource group for your host.
+          * **Existing resource group**: Specify an existing resource group from your Azure account.
     
       f. On the **Network** tab, select either of the following:
-          * **New virtual network**: Allows you to create a virtual network for your host.
-          * **Existing virtual network**: Allows you to specify an existing virtual network from your Azure account.
+          * **New virtual network**: Create a virtual network for your host.
+          * **Existing virtual network**: Specify an existing virtual network from your Azure account.
     
       g. On the **Storage** tab, select either of the following:
-          * **New storage account**: Allows you to create a storage account for your host.
-          * **Existing storage account**: Allows you to specify an existing storage account from your Azure account.
+          * **New storage account**: Create a storage account for your host.
+          * **Existing storage account**: Specify an existing storage account from your Azure account.
 
 5. Click **Next**.  
      The **Configure log in credentials and port settings** window opens.
@@ -94,12 +94,12 @@ Docker containers are a widely used method for deploying web applications. By us
 
 6. Select one of the following options:
 
-      * **Import credentials from Azure Key Vault**: Allows you to specify a previously saved set of credentials that are stored in your Azure subscription.
+      * **Import credentials from Azure Key Vault**: Specify a previously saved set of credentials that are stored in your Azure subscription.
 
           > [!NOTE]
           > An Azure key vault that's created with a specific account or service principal is not automatically accessible by another account or service principal that shares the subscription. To allow another account or service principal to use the key vault, you must use the Azure portal to add the account or service principal.
 
-      * **New log in credentials**: Allows you to create a new set of login credentials. If you select this option, do the following:
+      * **New log in credentials**: Create a new set of login credentials. If you select this option, do the following:
 
         a. On the **VM Credentials** tab, provide the following information for the virtual-machine login credentials of your Docker host:
              * **Username**: Enter the username for your virtual-machine login credentials.
@@ -140,12 +140,12 @@ Docker containers are a widely used method for deploying web applications. By us
 
    b. Choose one of the following Docker images: 
 
-      * **Predefined Docker image**: Allows you to specify a pre-existing Docker image from Azure. 
+      * **Predefined Docker image**: Specify a pre-existing Docker image from Azure. 
 
         > [!NOTE]
         > The list of Docker images in this box consists of several images that the Azure Toolkit has been configured to patch so that your artifact is deployed automatically. 
 
-      * **Custom Dockerfile**: Allows you to specify a previously saved Dockerfile from your local computer.
+      * **Custom Dockerfile**: Specify a previously saved Dockerfile from your local computer.
 
         > [!NOTE]
         > This is a more advanced feature for developers who want to deploy their own Dockerfile. However, it is up to developers who use this option to ensure that their Dockerfile is built correctly. Because the Azure Toolkit does not validate the content in a custom Dockerfile, the deployment might fail if the Dockerfile has issues. In addition, because the Azure Toolkit expects the custom Dockerfile to contain a web app artifact, it attempts to open an HTTP connection. If developers publish a different type of artifact, they might receive innocuous errors after deployment.
