@@ -210,7 +210,7 @@ This project is a Visual Studio console application, and uses the [Azure Service
         }
     }
     ```
-12. In Solution Explorer, double-click the **App.config** file to open it in the Visual Studio editor. At the bottom of the `<system.ServiceModel>` element (but still within `<system.ServiceModel>`), add the following XML code. Be sure to replace *yourServiceNamespace* with the name of your namespace, and *yourKey* with the SAS key you retrieved earlier from the portal:
+12. In Solution Explorer, double-click the **App.config** file to open it in the Visual Studio editor. At the bottom of the `<system.ServiceModel>` element (but still within `<system.ServiceModel>`), add the following XML code. Be sure to replace *yourServiceNamespace* with the name of your namespace, and *yourKey* with the primary SAS key you retrieved earlier from the portal:
 
     ```xml
     <system.serviceModel>
@@ -373,7 +373,7 @@ The next step is to hook up the on-premises products server with the ASP.NET app
 5. Navigate to the **ProductsContract.cs** file from the **ProductsServer** console project. Click to highlight ProductsContract.cs. Click the down arrow next to **Add**, then click **Add as Link**.
 
    ![][24]
-6. Now open the **HomeController.cs** file in the Visual Studio editor and replace the namespace definition with the following code. Be sure to replace *yourServiceNamespace* with the name of your service namespace, and *yourKey* with your SAS key. This will enable the client to call the on-premises service, returning the result of the call.
+6. Now open the **HomeController.cs** file in the Visual Studio editor and replace the namespace definition with the following code. Be sure to replace *yourServiceNamespace* with the name of your service namespace, and *yourKey* with your secondary SAS key. This will enable the client to call the on-premises service, returning the result of the call.
 
    ```csharp
    namespace ProductsWeb.Controllers
