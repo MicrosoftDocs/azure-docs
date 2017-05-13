@@ -22,7 +22,7 @@ This article will walk you through how to import and export DNS zone files for A
 
 ## Introduction to DNS zone migration
 
-A DNS zone file is a text file that contains details of every Domain Name System (DNS) record in the zone. It follows a standard format, making it suitable for transferring DNS records between DNS systems. Using a zone file is a quick, reliable, and convenient way to transfer a DNS zone into or out of Azure DNS.
+A DNS zone file is a text file that contains details of every Domain Name System (DNS) record in the zone. It follows a standard format, making it suitable for transferring DNS records between DNS systems. Using a zone file is a quick, reliable, and convenient way to transfer a DNS zone into or out of Azure DNS. Therefore the only way for you to do a mass import is to use the format of a .txt file. You cannot import DNS files in any other format but txt.
 
 Azure DNS supports importing and exporting zone files by using the Azure command-line interface (CLI). Zone file import is **not** currently supported via Azure PowerShell or the Azure portal.
 
@@ -39,7 +39,7 @@ Before you import a DNS zone file into Azure DNS, you will need to obtain a copy
 
 * If your DNS zone is hosted by a partner service (such as a domain registrar, dedicated DNS hosting provider, or alternative cloud provider), that service should provide the ability to download the DNS zone file.
 * If your DNS zone is hosted on Windows DNS, the default folder for the zone files is **%systemroot%\system32\dns**. The full path to each zone file also shows on the **General** tab of the DNS service management console.
-* If your DNS zone is hosted by using BIND, the location of the zone file for each zone is specified in the BIND configuration file **named.conf**.
+* If your DNS zone is hosted by using BIND, the location of the zone txt file(s) for each zone is specified in the BIND configuration file **named.conf**.
 
 > [!NOTE]
 > Zone files downloaded from GoDaddy have a slightly nonstandard format. You need to correct this before you import
