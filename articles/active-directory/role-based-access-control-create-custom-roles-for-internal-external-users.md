@@ -21,7 +21,7 @@ ms.author: a-crradu
 
 Role-based access control is an Azure portal only feature allowing the owners of a subscription to assign granular roles to other users who can manage specific resource scopes in their environment.
 
-RBAC allows better security management for large organizations and for SMBs working with external collaborators, vendors or freelancers which need access to specific resources in your environment but not necessarily to the entire infrastructure or any billing-related scopes. RBAC allows the flexibility of owning one Azure subscription managed by the administrator account (service administrator at a subscription level role) and have multiple users invited to work under the same subscription but without any administrative rights for it. From a management and billing perspective, the RBAC feature proves to be a time and management efficient option for using Azure in various scenarios.
+RBAC allows better security management for large organizations and for SMBs working with external collaborators, vendors or freelancers which need access to specific resources in your environment but not necessarily to the entire infrastructure or any billing-related scopes. RBAC allows the flexibility of owning one Azure subscription managed by the administrator account (service administrator role at a subscription level) and have multiple users invited to work under the same subscription but without any administrative rights for it. From a management and billing perspective, the RBAC feature proves to be a time and management efficient option for using Azure in various scenarios.
 
 ## Prerequisites
 Using RBAC in the Azure environment requires:

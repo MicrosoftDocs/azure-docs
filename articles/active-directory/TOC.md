@@ -295,6 +295,7 @@
 ##### [By resource](role-based-access-control-configure.md)
 #### [Built-in roles](role-based-access-built-in-roles.md)
 #### [Custom roles](role-based-access-control-custom-roles.md)
+#### [Assign custom roles for internal and external users](role-based-access-control-create-custom-roles-for-internal-external-users.md)
 #### [Reporting](role-based-access-control-access-change-history-report.md)
 #### More ways to manage roles
 ##### [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
