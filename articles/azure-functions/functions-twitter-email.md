@@ -244,5 +244,10 @@ In this tutorial, you learned how to:
 > * Connect the logic app to the function.
 > * Send an email based on the response from the function.
 
+Advance to the next tutorial to learn how to create a serverless API for your function.
+
+> [!div class="nextstepaction"] 
+> [Create a serverless API using Azure Functions](functions-create-serverless-api.md)
+
 To learn more about Logic Apps, see [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md).
 
