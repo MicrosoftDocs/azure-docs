@@ -1,6 +1,6 @@
 ---
-title: Create a function that categories tweet sentiment in Azure | Microsoft Docs
-description: Building a serverless social media dashboard in Azure
+title: Create a function that integrates with Azure Logic Apps | Microsoft Docs
+description: Create a function that categories tweet sentiment using Azure services.
 services: functions, logic-apps, cognitive-services
 keywords: workflow, cloud apps, cloud services, business processes, system integration, enterprise application integration, EAI
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 05/11/2017
 ms.author: glenga, riande
 ---
 
-# Create a function that categories tweet sentiment using Azure services
+# Create a function that integrates with Azure Logic Apps
 
 Azure Functions integrates with Azure Logic Apps in the Logic Apps Designer. This integration lets you use the computing power of Functions in orchestrations with other Azure and third-party services. This tutorial shows you how to use Functions with Logic Apps and Azure Cognitive Services to analyze sentiment from Twitter posts. An HTTP triggered function categorizes tweets as green, yellow, or red based on the sentiment score. An email is sent when poor sentiment is detected. 
 
