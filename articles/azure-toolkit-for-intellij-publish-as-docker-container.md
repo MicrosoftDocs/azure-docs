@@ -71,22 +71,22 @@ Docker containers are a widely used method for deploying web applications. By us
       
    c. In the **Region** box, enter the geographical region where your host is located.
       
-   d. On the **OS and Size** tab, do the following:
-      
-       * **Host OS**: Enter the operating system for the virtual machine that contains your host. 
-       * **Size**: Enter the virtual-machine size for your host.    
-   e. On the **Resource Group** tab, select either of the following:
-      
-       * **New resource group**: Create a resource group for your host.
-       * **Existing resource group**: Specify an existing resource group from your Azure account.    
-   f. On the **Network** tab, select either of the following:
-      
-       * **New virtual network**: Create a virtual network for your host.
-       * **Existing virtual network**: Specify an existing virtual network from your Azure account.    
-   g. On the **Storage** tab, select either of the following:
-      
-       * **New storage account**: Create a storage account for your host.
-       * **Existing storage account**: Specify an existing storage account from your Azure account.
+   d. On the **OS and Size** tab, do the following:      
+      * **Host OS**: Enter the operating system for the virtual machine that contains your host. 
+      * **Size**: Enter the virtual-machine size for your host.   
+       
+   e. On the **Resource Group** tab, select either of the following:      
+      * **New resource group**: Create a resource group for your host.
+      * **Existing resource group**: Specify an existing resource group from your Azure account. 
+       
+   f. On the **Network** tab, select either of the following:      
+      * **New virtual network**: Create a virtual network for your host.
+      * **Existing virtual network**: Specify an existing virtual network from your Azure account. 
+       
+   g. On the **Storage** tab, select either of the following:      
+      * **New storage account**: Create a storage account for your host.
+      * **Existing storage account**: Specify an existing storage account from your Azure account.
+       
 5. Click **Next**.  
      The **Configure log in credentials and port settings** window opens.
 
