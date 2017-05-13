@@ -233,7 +233,7 @@ To share a direct link to your lab users, you can perform the following procedur
 2. Copy the lab URL from your browser and share it with your lab users.
 
 > [!NOTE]
-> If your lab users are external users with a [Microsoft account](#what-is-a-microsoft-account) and they don’t belong to your company’s Active directory, they may receive an error when navigating to the provided link. If they receive an error, instruct them to click their name in the upper-right corner of the Azure portal and select the directory where the lab exists from the **Directory** section of the menu.
+> If your lab users are external users with an [Microsoft account](#what-is-a-microsoft-account) and they don’t belong to your company’s Active directory, they may receive an error when navigating to the provided link. If they receive an error, instruct them to click their name in the upper-right corner of the Azure portal and select the directory where the lab exists from the **Directory** section of the menu.
 >
 >
 
