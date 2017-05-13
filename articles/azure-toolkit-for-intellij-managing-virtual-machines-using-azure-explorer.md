@@ -30,7 +30,7 @@ The Azure Explorer, which is part of the Azure Toolkit for IntelliJ, provides Ja
 
 To create a virtual machine by using the Azure Explorer, do the following: 
 
-1. Sign in to your Azure account using the steps in the [Sign-in instructions for the Azure Toolkit for IntelliJ] article.
+1. Sign in to your Azure account by using the steps in the [Sign-in instructions for the Azure Toolkit for IntelliJ] article.
 
 2. In the **Azure Explorer** view, expand the **Azure** node, right-click **Virtual Machines**, and then click **Create VM**. 
 
@@ -83,11 +83,11 @@ To create a virtual machine by using the Azure Explorer, do the following:
 
        ![The Associated Resources window][CR07]
 
-   * **Storage account**: Specifies the storage account to use for storing your virtual machine; you can choose an existing storage account or create a new account. If you choose **Create New**, the following dialog box is displayed:
+   * **Storage account**: Specifies the storage account to use for storing your virtual machine. You can choose an existing storage account or create a new account. If you choose **Create New**, the following dialog box appears:
 
       ![The Create Storage Account dialog box][CR05]
 
-   * **Virtual Network** and **Subnet**: Specifies the virtual network and subnet that your virtual machine will connect to. You can use an existing network and subnet, or you can create a new network and subnet. If you select **Create new**, the following dialog box is displayed:
+   * **Virtual Network** and **Subnet**: Specifies the virtual network and subnet that your virtual machine will connect to. You can use an existing network and subnet, or you can create a new network and subnet. If you select **Create new**, the following dialog box appears:
 
       ![The Create Virtual Network dialog box][CR06]
 
@@ -98,7 +98,7 @@ To create a virtual machine by using the Azure Explorer, do the following:
    * **Availability set**: Specifies an optional availability set that your virtual machine can belong to. You can select an existing availability set, create a new availability set or, if your virtual machine will not belong to an availability set, select **(None)**.
 
 9. Click **Finish**.  
-    Your new virtual machine is displayed in the Azure Explorer tool window. 
+    Your new virtual machine appears in the Azure Explorer tool window. 
 
    ![New virtual machine in the Azure Explorer view][CR08]
 
@@ -144,7 +144,7 @@ For more information about Azure virtual-machine sizes and pricing, see the foll
 * Azure virtual-machine sizes
   * [Sizes for Windows virtual machines in Azure]
   * [Sizes for Linux virtual machines in Azure]
-* Azure virtual machine pricing
+* Azure virtual-machine pricing
   * [Windows virtual-machine pricing]
   * [Linux virtual-machine pricing]
 
