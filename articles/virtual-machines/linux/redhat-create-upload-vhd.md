@@ -123,7 +123,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 15. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-        # sudo waagent -force -deprovision
+        # sudo waagent -force -deprovision+user
 
         # export HISTSIZE=0
 
@@ -206,7 +206,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 14. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-        # sudo waagent -force -deprovision
+        # sudo waagent -force -deprovision+user
 
         # export HISTSIZE=0
 
@@ -330,7 +330,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 17. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-        # waagent -force -deprovision
+        # waagent -force -deprovision+user
 
         # export HISTSIZE=0
 
@@ -470,7 +470,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 17. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-        # sudo waagent -force -deprovision
+        # sudo waagent -force -deprovision+user
 
         # export HISTSIZE=0
 
@@ -589,7 +589,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 14. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-        # sudo waagent -force -deprovision
+        # sudo waagent -force -deprovision+user
 
         # export HISTSIZE=0
 
@@ -693,7 +693,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 13. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-        # sudo waagent -force -deprovision
+        # sudo waagent -force -deprovision+user
 
         # export HISTSIZE=0
 
@@ -838,7 +838,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
         EOF
 
         # Deprovision and prepare for Azure
-        waagent -force -deprovision
+        waagent -force -deprovision+user
 
         %end
 
