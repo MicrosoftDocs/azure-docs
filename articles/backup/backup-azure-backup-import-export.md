@@ -92,7 +92,7 @@ The Azure Disk Preparation tool is available in installation directory of the Re
 
    *\Microsoft* *Azure* *Recovery* *Services* *Agent\Utils\*
 
-1. Go to the directory, and copy the **AzureOfflineBackupDiskPrep** directory to a copy computer on which the drives to be prepared are mounted. Ensure the following with regard to the copy computer:
+1. Go to the directory, and copy the **AzureOfflineBackupDiskPrep** directory to a copy computer on which the drives to be prepared are mounted. Ensure the following regarding the copy computer:
 
     * The copy computer can access the staging location for the offline-seeding workflow by using the same network path that was provided in the **Initiate offline backup** workflow.
     * BitLocker is enabled on the computer.
