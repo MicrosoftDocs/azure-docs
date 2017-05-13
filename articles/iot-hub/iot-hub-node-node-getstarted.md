@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 # Connect your simulated device to your IoT hub using Node
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
-At the end of this tutorial, you have three Node.js console apps:
+At the end of this tutorial, you should have three Node.js console apps:
 
 * **CreateDeviceIdentity.js**, which creates a device identity and associated security key to connect your simulated device app.
 * **ReadDeviceToCloudMessages.js**, which displays the telemetry sent by your simulated device app.

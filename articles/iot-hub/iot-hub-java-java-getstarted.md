@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 # Connect your simulated device to your IoT hub using Java
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
-At the end of this tutorial, you have three Java console apps:
+At the end of this tutorial, you should have three Java console apps:
 
 * **create-device-identity**, which creates a device identity and associated security key to connect your simulated device app.
 * **read-d2c-messages**, which displays the telemetry sent by your simulated device app.
