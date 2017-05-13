@@ -1,9 +1,9 @@
 ---
-title: Azure Site Recovery support matrix for replicating to Azure | Microsoft Docs
+title: Azure Site Recovery support matrix for replicating from Azure to Azure | Microsoft Docs
 description: Summarizes the supported operating systems and components for Azure Site Recovery
 services: site-recovery
 documentationcenter: ''
-author: Rajani-Janaki-Ram
+author: Sujay-Talasils
 manager: rochakm
 editor: ''
 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 01/25/2017
-ms.author: rajanaki
+ms.date: 05/13/2017
+ms.author: sujayt
 
 ---
-# Azure Site Recovery support matrix for replicating from on-premises to Azure
+# Azure Site Recovery support matrix for replicating from Azure to Azure
 
 > [!div class="op_single_selector"]
 > * [Replicate from Azure to Azure](site-recovery-support-matrix-azure-to-azure.md)
@@ -25,40 +25,28 @@ ms.author: rajanaki
 > * [Replicate to customer-owned secondary site](site-recovery-support-matrix-to-sec-site.md)
 
 
-This article summarizes supported configurations and components for Azure Site Recovery when replicating and recovering to Azure. For more about Azure Site Recovery requirements, see the [prerequisites](site-recovery-prereq.md).
+
+This article summarizes supported configurations and components for Azure Site Recovery when replicating and recovering Azure virtual machines from one region to another region. For more about Azure Site Recovery requirements, see the [prerequisites](site-recovery-prereq.md).
 
 
-## Support for deployment options
+## User interface options
 
-**Deployment** | **VMware/physical server** | **Hyper-V (with/without  Virtual Machine Manager)** |
+**Interface** | **** | **** |
 --- | --- | ---
-**Azure portal** | On-premises VMware VMs to Azure storage, with Azure Resource Manager or classic storage and networks.<br/><br/> Failover to Resource Manager-based or classic VMs. | On-premises Hyper-V VMs  to Azure storage, with Resource Manager or classic storage and networks.<br/><br/> Failover to Resource Manager-based or classic VMs.
-**Classic portal** | Maintenance mode only. New vaults can't be created. | Maintenance mode only.
-**PowerShell** | Not currently supported. | Supported
+**Azure portal** | Supported | |
+**Classic portal** | Not supported | |
+**PowerShell** | Not currently supported | |
+**REST API** | Not currently supported | |
+**CLI** | Not currently supported | |
 
 
-## Support for datacenter management servers
-
-### Virtualization management entities
-
-**Deployment** | **Support**
---- | ---
-**VMware VM/physical server** | vSphere 6.0, 5.5, or 5.1 with latest update
-**Hyper-V (with Virtual Machine Manager)** | System Center Virtual Machine Manager 2016 and System Center Virtual Machine Manager 2012 R2
-
-  >[!Note]
-  > A System Center Virtual Machine Manager 2016 cloud with a mixture of Windows Server 2016 and 2012 R2 hosts isn't currently supported.
-
-### Host servers
-
-**Deployment** | **Support**
---- | ---
-**VMware VM/physical server** | vCenter 5.5 or 6.0 (support for 5.5 features only)
-**Hyper-V (with/without Virtual Machine Manager)** | Windows Server 2016, Windows Server 2012 R2 with latest updates.<br></br>If SCVMM is used, Windows Server 2016 hosts should be managed by SCVMM 2016.
+## Resource move support
 
 
-  >[!Note]
-  >A Hyper-V site that mixes hosts running Windows Server 2016 and 2012 R2 isn't currently supported. Recovery to an alternate location for VMs on a Windows Server 2016 host isn't currently supported.
+**Move vault across resource groups** | Not supported |You cannot move the Recovery services vault across resource groups. |
+
+**Move Compute, Storage and Network across resource groups** | Not supported |If you move a virtual machine (or its associated components such as storage and network after enabling replication, you need to disable replication and enable it again. |
+
 
 ## Support for replicated machine OS versions
 
