@@ -66,6 +66,7 @@ You need to configure first a back-end address pool and a probe before configuri
 2. In the **Settings** blade, click **Backend pools**.
 3. In the **Backend address pools** blade, click **Add**.
 4. In the **Add backend pool** blade, enter a **Name** for the backend pool, and then click **OK**.
+5.  Need details on how to add VM or AVSet to the backend pool....
 
 ### Step 2: Configure a probe
 
