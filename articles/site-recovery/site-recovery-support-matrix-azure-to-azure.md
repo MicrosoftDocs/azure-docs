@@ -31,8 +31,8 @@ This article summarizes supported configurations and components for Azure Site R
 
 ## User interface options
 
-|  |
---- | --- | ---
+|  | **Supported / Not supported** |
+--- | ---
 **Azure portal** | Supported 
 **Classic portal** | Not supported 
 **PowerShell** | Not currently supported 
@@ -42,16 +42,15 @@ This article summarizes supported configurations and components for Azure Site R
 
 ## Resource move support
 
-**Resource move type** |  | Remarks |
+**Resource move type** | **Supported / Not supported** | ** Remarks**  |
 --- | --- | ---
 **Move vault across resource groups** | Not supported |You cannot move the Recovery services vault across resource groups. 
-
 **Move Compute, Storage and Network across resource groups** | Not supported |If you move a virtual machine (or its associated components such as storage and network after enabling replication, you need to disable replication and enable it again. 
 
 
 ## Support for deployment models
 
-**Deployment model** |  | Remarks |
+**Deployment model** | **Supported / Not supported** | ** Remarks**  |
 --- | --- | ---
 **Classic** | Supported | You can only replicate a classic virtual machine and recover it as a classic virtual machine. You cannot recover it as a Resource Manager virtual machine.|
 **Resource Manager** | Supported | |
@@ -81,7 +80,7 @@ The below support is applicable for any workload running on the mentioned OS.
 > On Red Hat Enterprise Linux Server 7+ and CentOS 7+ servers, kernel version 3.10.0-514 is supported starting from version 9.8 of the Azure Site Recovery mobility service.<br/><br/>
 > Customers on the 3.10.0-514 kernel with a version of the mobility service lower than version 9.8 are required to disable replication, update the version of the mobility service to version 9.8 and then enable replication again.  
 
-## Supported file systems and guest storage configurations on Azure virtual machines running Linux operating system 
+## Supported file systems and guest storage configurations on Azure virtual machines running Linux OS
 
 * File systems: ext3, ext4, ReiserFS (Suse Linux Enterprise Server only), XFS (upto v4 only)
 * Volume manager : LVM2
@@ -140,18 +139,15 @@ Public IP| Supported | You need to associate an already existing public IP to th
 NSG on NIC (Resource Manager)| Supported | You need to associate the NSG to the NIC using an azure automation script in a recovery plan.  
 NSG on subnet (ARM and Classic)| Supported | You need to associate the NSG to the NIC using an azure automation script in a recovery plan.
 NSG on VM (Classic)| Supported | You need to associate the NSG to the NIC using an azure automation script in a recovery plan.
-Reserved IP (Static IP) | Supported | If the source VM has static IP configuration and the target subnet has the same IP available, it is assigned to the failover VM. If the target subnet does not have the same IP available, the IP mode is set to 'Dynamic'. You can specify a fixed IP of your choice in 'Replicated item > Settings > Compute and Network > Network interfaces'. You can select the NIC and  
+Reserved IP (Static IP) / Retain source IP | Supported | If the source VM has static IP configuration and the target subnet has the same IP available, it is assigned to the failover VM. If the target subnet does not have the same IP available, the IP mode is set to 'Dynamic'. You can specify a fixed IP of your choice in 'Replicated item > Settings > Compute and Network > Network interfaces'. You can select the NIC and specify the subnet and IP of your choice.
 Dynamic IP| Supported | 
-Traffic Manager integration	Yes	 
-Azure managed DNS	Yes	 
-Custom DNS	Yes	 
-Unauthenticated Proxy 	Yes	 
-Authenticated Proxy
-No	 
-Retain source IP
-Yes	 
-Site to Site VPN with on-premises (with or without ExpressRoute)	Yes	
-VNET to VNET pairing	Yes	
+Traffic Manager integration	| Supported | You can pre-configure your traffic manager in such a way that the traffic is routed to endpoint in source region usually and endpoint in target region in case of failover. 
+Azure managed DNS | Supported | 
+Custom DNS	| Supported | 	 
+Unauthenticated Proxy | Supported | 	 
+Authenticated Proxy | Supported | If the VM is using an authenticated proxy for outbound connectivity, it cannot be replicated using Azure Site Recovery.	 
+Site to Site VPN with on-premises (with or without ExpressRoute)| Supported | Ensure that the UDRs and NSGs are configured in such a way that the Site recovery traffic is not routed to on-premises.
+VNET to VNET connection	| Supported | 
 
 
 ## Next steps
