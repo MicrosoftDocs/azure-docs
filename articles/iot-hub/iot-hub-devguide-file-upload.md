@@ -40,6 +40,11 @@ Refer to [Device-to-cloud communication guidance][lnk-d2c-guidance] if in doubt 
 To use the file upload functionality, you must first link an Azure Storage account to the IoT Hub. You can complete this task either through the [Azure portal][lnk-management-portal], or programmatically through the [IoT Hub resource provider REST APIs][lnk-resource-provider-apis]. Once you have associated an Azure Storage account with your IoT Hub, the service returns a SAS URI to a device when the device initiates a file upload request.
 
 > [!NOTE]
+> The Storage Account you associate with the Azure IoT Hub must be of the Standard Tier. Premium Tier Storage accounts are only for Azure Virtual Machine Disks at this time. Also, the Container associated with the Azure IoT Hub must be "container" access type.
+> 
+> 
+
+> [!NOTE]
 > The [Azure IoT SDKs][lnk-sdks] automatically handle retrieving the SAS URI, uploading the file, and notifying IoT Hub of a completed upload.
 
 
