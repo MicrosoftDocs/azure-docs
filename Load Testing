@@ -1,0 +1,11 @@
+Loading testing for non-standard protocols 
+Load testing is necessary when deploying any new system or redistributing data streams among existing systems. I think everybody knows this or at least would guess this is the case. 
+Everything seems simple: grab your load testing tool, record some traffic, get some scripts, run your tests, and enjoy the process. At least that's the theory...
+Approaches to loading
+Actually, in most cases engineers are faced with testing information systems that have a classic three-tiered architecture: 
+
+
+The standard approach to performance testing is to emulate user traffic from clients to the back end. This works, but only if the end client applications use standard protocols such as HTTP/HTTPS, SOAP, ODBC/JDBC, SAP GUI, and a few others.
+
+
+But what do you do if the exchange between client and server uses a closed protocol or, even worse, a proprietary protocol, and the traffic cannot be recorded using standard tools?
