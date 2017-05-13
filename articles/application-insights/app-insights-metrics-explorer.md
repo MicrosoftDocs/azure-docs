@@ -172,6 +172,12 @@ To be notified by email of unusual values of any metric, add an alert. You can c
 [Learn more about alerts][alerts].
 
 
+> [!NOTE]
+> The Metric Explorer to an Excel file is currently disabled. Export is now available in the Analytics Dashboard.
+>
+>
+
+
 ## Continuous Export
 If you want data continuously exported so that you can process it externally, consider using [Continuous export](app-insights-export-telemetry.md).
 
