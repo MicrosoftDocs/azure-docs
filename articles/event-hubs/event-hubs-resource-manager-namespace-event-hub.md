@@ -85,8 +85,7 @@ Creates a namespace of type **EventHubs**, with an event hub and a consumer grou
 ```json
 "resources":[  
       {  
-         "apiVersion":"[variables('ehVersion')]",
-         "name":"[parameters('namespaceName')]",
+         "apiVersion":"[variables('ehVersion')]",         "name":"[parameters('namespaceName')]",
          "type":"Microsoft.EventHub/namespaces",
          "location":"[variables('location')]",
          "sku":{  
@@ -95,8 +94,8 @@ Creates a namespace of type **EventHubs**, with an event hub and a consumer grou
          },
          "resources":[  
             {  
-               "apiVersion":"[variables('ehVersion')]",
-               "name":"[parameters('eventHubName')]",
+
+"apiVersion":"[variables('ehVersion')]",               "name":"[parameters('eventHubName')]",
                "type":"EventHubs",
                "dependsOn":[  
                   "[concat('Microsoft.EventHub/namespaces/', parameters('namespaceName'))]"
@@ -106,8 +105,7 @@ Creates a namespace of type **EventHubs**, with an event hub and a consumer grou
                },
                "resources":[  
                   {  
-                     "apiVersion":"[variables('ehVersion')]",
-                     "name":"[parameters('consumerGroupName')]",
+                     "apiVersion":"[variables('ehVersion')]",                     "name":"[parameters('consumerGroupName')]",
                      "type":"ConsumerGroups",
                      "dependsOn":[  
                         "[parameters('eventHubName')]"
@@ -136,6 +134,216 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -T
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json][]
+```
+# More complex template
+Following example shows a more complex ARM template, which deploys event hub namespace with root manage access key, event hub inside of the namespace, default and custom consumer group and two authorization rules for reading and sending of events.  
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+
+    "LocationName": {
+      "defaultValue": "GermanyCentral",
+      "type": "String"
+    },
+
+
+    "Endpoint": {
+     // Note that SB endpoint for Azure Environment is different.
+      "defaultValue": ".servicebus.cloudapi.de:443/ OR '.servicebus.windows.net:443/'",
+      "type": "String"
+    },
+
+    
+    "PartitionCount": {
+      "defaultValue": 4,
+      "type": "int"
+    },
+
+
+    "ProductName": {
+      "type": "string",
+      "defaultValue": "EHNameSpanceName/EHName/yourproductname"
+    },
+
+    "InstanceId": {
+      "type": "string"
+    }
+  },
+  "variables": {
+    // SHows how to build namespace from argument (i.e.: 'InstanceId')
+    "EventHubNamespaceName": "[concat('iotservice-', concat(parameters('InstanceId'), '-EventHubs'))]",
+    "EventHubName": "[concat(parameters('ProductName'), '-EventHub')]"
+
+  },
+  "resources": [
+    {
+      "comments": "Any comment here",
+      "type": "Microsoft.EventHub/namespaces",
+      "sku": {
+        "name": "Standard",
+        "tier": "Standard",
+        "capacity": 1
+      },
+      "kind": "EventHub",
+      "name": "[variables('EventHubNamespaceName')]",
+      "apiVersion": "2015-08-01",
+      "location": "[parameters('LocationName')]",
+      "tags": {
+        "InstanceId": "[parameters('InstanceId')]",
+        "Product": "[parameters('ProductName')]"
+      },
+      "properties": {
+        "serviceBusEndpoint": "[concat('https://', variables('EventHubNamespaceName'), parameters('Endpoint'))]",
+        "enabled": true
+      },
+      "dependsOn": []
+    },
+
+    {
+      "comments": "RootManageSharedAccessKey on namespace level.",
+      "type": "Microsoft.EventHub/namespaces/AuthorizationRules",
+m      "name": "[concat(variables('EventHubNamespaceName'), '/RootManageSharedAccessKey')]",
+      "apiVersion": "2015-08-01",
+      "tags": {
+        "InstanceId": "[parameters('InstanceId')]",
+        "Product": "[parameters('ProductName')]"
+      },
+      "properties": {
+        "rights": [
+          "Listen",
+          "Manage",
+o          "Send"
+        ]
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.EventHub/namespaces', variables('EventHubNamespaceName'))]"
+      ]
+    },
+    {
+      "comments": "...",
+      "type": "Microsoft.EventHub/namespaces/eventhubs",
+t      "name": "[concat(variables('EventHubNamespaceName'), '/', variables('EventHubName'))]",
+      "apiVersion": "2015-08-01",
+      "location": "[parameters('LocationName')]",
+      "tags": {
+        "InstanceId": "[parameters('InstanceId')]",
+        "Product": "[parameters('ProductName')]"
+      },
+      "properties": {
+        "messageRetentionInDays": 7,
+        "status": "Active",
+s        "partitionCount": "[parameters('PartitionCount')]"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.EventHub/namespaces', variables('EventHubNamespaceName'))]"
+      ]
+    },
+    {
+      "comments": "SharedAccessKey on EventHub level.",
+      "type": "Microsoft.EventHub/namespaces/eventhubs/authorizationRules",
+      "name": "[concat(variables('EventHubNamespaceName'), '/', variables('EventHubName'), '/RootManageSharedAccessKey')]",
+u      "apiVersion": "2015-08-01",
+      "location": "[parameters('LocationName')]",
+      "tags": {
+        "InstanceId": "[parameters('InstanceId')]",
+        "Product": "[parameters('ProductName')]"
+      },
+      "properties": {
+        "rights": [
+          "Manage",
+          "Send",
+          "Listen"
+        ]
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.EventHub/namespaces', variables('EventHubNamespaceName'))]",
+        "[concat('Microsoft.EventHub/namespaces/', concat(variables('EventHubNamespaceName'), '/eventhubs/', variables('EventHubName')))]"
+      ]
+    },
+
+    {
+      "comments": "$Default consumer group",
+      "type": "Microsoft.EventHub/namespaces/eventhubs/consumergroups",
+      "name": "[concat(variables('EventHubNamespaceName'), '/', variables('EventHubName'), '/$Default')]",
+      "apiVersion": "2015-08-01",
+      "location": "[parameters('LocationName')]",
+      "tags": {
+        "InstanceId": "[parameters('InstanceId')]",
+        "Product": "[parameters('ProductName')]"
+      },
+      "properties": {
+
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.EventHub/namespaces', variables('EventHubNamespaceName'))]",
+        "[concat('Microsoft.EventHub/namespaces/', concat(variables('EventHubNamespaceName'), '/eventhubs/', variables('EventHubName')))]"
+      ]
+    },
+
+    {
+      "comments": "Custom Consumer Group.",
+      "type": "Microsoft.EventHub/namespaces/eventhubs/consumergroups",
+      "name": "[concat(variables('EventHubNamespaceName'), '/', variables('EventHubName'), '/', parameters('ProductName'))]",
+      "apiVersion": "2015-08-01",
+      "location": "[parameters('LocationName')]",
+      "tags": {
+        "InstanceId": "[parameters('InstanceId')]",
+        "Product": "[parameters('ProductName')]"
+      },
+      "properties": {
+
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.EventHub/namespaces', variables('EventHubNamespaceName'))]",
+        "[concat('Microsoft.EventHub/namespaces/', concat(variables('EventHubNamespaceName'), '/eventhubs/', variables('EventHubName')))]"
+      ]
+    },
+    {
+      "comments": "Send-Rule",
+      "type": "Microsoft.EventHub/namespaces/eventhubs/authorizationRules",
+      "name": "[concat(variables('EventHubNamespaceName'), '/', variables('EventHubName'), '/send')]",
+      "apiVersion": "2015-08-01",
+      "location": "[parameters('LocationName')]",
+      "tags": {
+        "InstanceId": "[parameters('InstanceId')]",
+        "Product": "[parameters('ProductName')]"
+      },
+      "properties": {
+        "rights": [
+          "Send"
+        ]
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.EventHub/namespaces', variables('EventHubNamespaceName'))]",
+        "[concat('Microsoft.EventHub/namespaces/', concat(variables('EventHubNamespaceName'), '/eventhubs/', variables('EventHubName')))]"
+      ]
+    },
+    {
+      "comments": "Listen Rule",
+      "type": "Microsoft.EventHub/namespaces/eventhubs/authorizationRules",
+      "name": "[concat(variables('EventHubNamespaceName'), '/', variables('EventHubName'), '/listen')]",
+      "apiVersion": "2015-08-01",
+      "tags": {
+        "InstanceId": "[parameters('InstanceId')]",
+        "Product": "[parameters('ProductName')]"
+      },
+
+      "properties": {
+        "rights": [
+          "Listen"
+        ]
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.EventHub/namespaces', variables('EventHubNamespaceName'))]",
+        "[concat('Microsoft.EventHub/namespaces/', concat(variables('EventHubNamespaceName'), '/eventhubs/', variables('EventHubName')))]"
+
+      ]
+    }
+  ]
+}
 ```
 
 ## Next steps
