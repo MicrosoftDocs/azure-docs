@@ -62,3 +62,19 @@ To create a VM with a static public IP address in the Azure portal, complete the
     
     ![Azure portal - Create public IP address](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 
+## Steps to assign static Public IP to existing VM with no public IP 
+Steps to assign static Public IP to existing VM with no public IP
+1.	Create new Dynamic IP on VM
+      a.	Click on VM, then Network Interface and select the assigned NIC.
+      b.	Under the NIC, choose IP configurations, click the name of the IP config to change.
+               i.	Enable Public IP, click on IP Address
+                      1.	Create New
+                               a.	Name the IP and choose Dynamic. Make note of the name to use in 2.b below.
+                               b.	If you choose Static, you will get an error indicating that you cannot do this for a NIC already assigned to a VM. 
+               ii.	Optional - assign a static internal IP as well
+2.	Modify the Public IP to be static
+      a.	Click on the icon for All Resources
+      b.	Click the name of the public IP created previously.
+      c.	Click on Configuration, then choose Static under Assignment and click Save on top of the blade.
+3.	Verify the VM now has a Public IP
+      a.	Go back to the VM and on the Overview blade, you should now see a public IP.
