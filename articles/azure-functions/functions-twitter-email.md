@@ -20,7 +20,7 @@ ms.author: glenga, riande
 
 # Create a function that  Azure
 
-Azure Functions integrates with Azure Logic Apps to enable you to let you use the computing power of Functions in orchestrations with other Azure and third-party services. This tutorial shows you how to use Functions with Logic Apps and Azure Cognitive Services to analyze sentiment from Twitter posts. An HTTP triggered function categorizes tweets as green, yellow, or red based on the sentiment score. An email is sent when poor sentiment is detected. 
+Azure Functions integrates with Azure Logic Apps in the Logic Apps Designer. This integration lets you use the computing power of Functions in orchestrations with other Azure and third-party services. This tutorial shows you how to use Functions with Logic Apps and Azure Cognitive Services to analyze sentiment from Twitter posts. An HTTP triggered function categorizes tweets as green, yellow, or red based on the sentiment score. An email is sent when poor sentiment is detected. 
 
 ![image first two steps of app in Logic App Designer](media/functions-twitter-email/designer1.png)
 
@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [Previous topic](../../includes/functions-quickstart-previous-topics.md)]
 
-You also need an active [Twitter](https://twitter.com/) account.
+You also need an active [Twitter](https://twitter.com/) account and an Outlook.com email address (for sending notifications).
 
 ## Create a Cognitive Services account
 
@@ -130,7 +130,7 @@ You can now use the Logic Apps Designer to add services and triggers to your app
 
 ## Connect to Twitter
 
-1. In the designer, click the **Twitter** service, click the **When a new tweet is posted** trigger, sign in to your Twitter account, and authorize Logic Apps to use your account.
+1. In the designer, click the **Twitter** service, and click the **When a new tweet is posted** trigger. Sign in to your Twitter account and authorize Logic Apps to use your account.
 
 2. Use the Twitter trigger settings as specified in the table and click **Save**. 
 
@@ -150,7 +150,7 @@ Now your app is connected to Twitter. Next, you connect to text analytics to det
 
     ![New Step, and then Add an action](media/functions-twitter-email/new_step.png)
 
-2. In **Choose an action**, click **Text Analytics** and then click the **Detect sentiment** action.
+2. In **Choose an action**, click **Text Analytics**, and then click the **Detect sentiment** action.
 
     ![Detect Sentiment](media/functions-twitter-email/detect_sent.png)
 
@@ -168,83 +168,81 @@ Now that sentiment detection is configured, you can add a connection to your fun
 
 2. Click **Choose an Azure function**, select the **CategorizeSentiment** function you created earlier.  
 
-![Azure Function box showing Choose an Azure function](media/functions-twitter-email/choose_fun.png)
+    ![Azure Function box showing Choose an Azure function](media/functions-twitter-email/choose_fun.png)
 
 3. In **Request Body**, click **Score** and then **Save**.
 
-![Score](media/functions-twitter-email/trigger_score.png)
+    ![Score](media/functions-twitter-email/trigger_score.png)
 
+Now, your function is triggered when a sentiment score is sent from the logic app. A color-coded category is returned to the logic app by the function. Next, you add an email notification that is sent when a sentiment value of **RED** is returned from the function. 
 
-## Add email notification
+## Add email notifications
 
-In this section, we add a conditional check for negative sentiment tweets (condition RED).
+1. In the Logic Apps Designer, click **New step** > **Add a condition**. 
 
-* Select **New step**.
-* Select **Add a condition**.
-* Select **Body** in the first **Choose a value** text box.
-* Enter "RED" in the second  **Choose a value** text box.
-* Save the app.
+2. Click **Choose a value**, then click **Body**. Select **is equal to**, click **Choose a value** and type `RED`, and click **Save**. 
 
-![condition box](media/functions-twitter-email/condition.png)
+    ![Add a condition to the logic app.](media/functions-twitter-email/condition.png)
 
-* In the **IF YES, DO NOTHING** box select **Add an action**.
-* Enter Outlook or Gmail in the **Search all services and actions** box. Outlook is used in this tutorial. See [Add a Gmail action] (../logic-apps/logic-apps-create-a-logic-app.md#add-an-action-that-responds-to-your-trigger) for Gmail instructions. Note: If you have a personal [Microsoft account](https://account.microsoft.com/account), you can use that for the Outlook.com account.
+3. In **IF YES, DO NOTHING**, click **Add an action**, search for `outlook.com`, click **Send an email**, and sign in to your Outlook.com account.
+    
+    ![Choose an action for the condition.](media/functions-twitter-email/outlook.png)
 
-![Choose an action box](media/functions-twitter-email/outlook.png)
+    > [!NOTE]
+    > If you don't have an Outlook.com account, you can choose another connector, such as Gmail or Office 365 Outlook
 
-Select **Outlook.com Send an email**.
+4. In the **Send an email** action, use the email settings as specified in the table and click **Save**. 
 
-![Outlook.com  box](media/functions-twitter-email/sendEmail.png)
+    ![Configure the email for the send an email action.](media/functions-twitter-email/sendemail.png)
 
-Sign into Outlook.com.
+    | Setting      |  Suggested value   | Description  |
+    | ----------------- | ------------ | ------------- |
+    | **To** | Type your email address | The email address that receives the notification. |
+    | **Subject** | Negative tweet sentiment detected  | The subject line of the email notification.  |
+    | **Body** | Tweet text \| Location | Click the **Tweet text** and **Location** parameters. |
 
-![sig in box](media/functions-twitter-email/signin_outlook.png)
+## Test the orchestration
 
-Enter the following items:
+1. In the Logic App Designer, click **Run** to start the app.
 
-   * **To**: The email the message should be sent to.
-   * **Subject**: Score.
-   * **Body**: The location and the Tweet text.
+2. In the left column, click **Overview** to see the status of the logic app. 
+ 
+    ![Logic app execution status](media/functions-twitter-email/over1.png)
 
-![Send an email box](media/functions-twitter-email/sendEmail2.png)
+3. (Optional) Click one of the runs to see details of the execution.
 
-Save the app.
-Select **Run** to start the app.
+4. Go to your function, view the logs, and verify that sentiment values were received and processed.
+ 
+    ![View function logs](media/functions-twitter-email/sent.png)
 
-### Check the status
+5. When a potentially negative sentiment is detected, you receive an email. If you haven't received an email, you can change the function code to return RED every time:
 
-In the Logic app blade, select **Overview**, and then select a row in the **Runs history** column:
+        return req.CreateResponse(HttpStatusCode.OK, "RED");
 
-![Overview blade](media/functions-twitter-email/over1.png)
+    After you have verified email notifications, change back to the original code:
 
-The following image shows the run details when the condition was not true, email was not sent.
+        return req.CreateResponse(HttpStatusCode.OK, category);
 
-![Overview blade](media/functions-twitter-email/skipped.png)
+    > [!IMPORTANT]
+    > After you have completed this tutorial, you should disable the logic app. By disabling the app, you avoid being charged for executions and using up the transactions in your Cognitive Services account.
 
-If want to immediately test the **Send an email** function:
+6. To disable the logic app, click **Overview** and then click **Disable** at the top of the screen. This stops the logic app from running and incurring charges without deleting the app. 
 
-* Change the **INPUTS**  in the first step (**When a new tweet is posted**) to a popular term, such as #football, #soccer, or #futbol.
+    ![Function logs](media/functions-twitter-email/disable-logic-app.png)
 
-Processing popular terms consumes more resources than less popular terms. You might want to change your search term after you've verified email is working.
-
-The following image shows the run details when the condition was true, and email was sent.
-
-![Overview blade](media/functions-twitter-email/sent.png)
-
-You can select any of the service boxes to show more information on the data used for the run. Select the **When a new tweet is posted**, it shows the search text and all the outputs, even those outputs we're not using.
+Now you have seen how easy it is to integrate Azure Functions into a Logic Apps orchestration.
 
 ## Next steps
 
-*  [Introduction to Azure Functions](functions-overview.md)
-*  [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)
-*  [Add conditions and run workflows](../logic-apps/logic-apps-use-logic-app-features.md)
-*  [Logic app templates](../logic-apps/logic-apps-use-logic-app-templates.md)
-*  [Create logic apps from Azure Resource Manager templates](../logic-apps/logic-apps-arm-provision.md)
+In this tutorial, you learned how to:
 
-## Get help
+> [!div class="checklist"]
+> * Create a Cognitive Services account.
+> * Create a function that categorizes tweet sentiment.
+> * Create a logic app that connects to Twitter.
+> * Add sentiment detection to the logic app. 
+> * Connect the logic app to the function.
+> * Send an email based on the response from the function.
 
-To ask questions, answer questions, and learn what other Azure Logic Apps users are doing,
-visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+To learn more about Logic Apps, see [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md).
 
-To help improve Azure Logic Apps and connectors, vote on or submit ideas at the
-[Azure Logic Apps user feedback site](http://aka.ms/logicapps-wish).
