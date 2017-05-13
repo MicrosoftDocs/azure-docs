@@ -81,7 +81,7 @@ For companies that need only a small footprint in the cloud, **do-it-yourself (D
 Rather than choose between on-premises or cloud-based identity solutions, many forward-thinking CIOs and businesses, that have begun anticipating their company’s long-term direction, are extending their on-premises directories to the cloud through **hybrid identity** solutions. With hybrid identity, you get a truly global identity and access management solution that provides secure and productive access to the applications users need to do their jobs, both now and in the future.
 
 > [!TIP]
-> To learn more about how CIOs have made Azure Active Directory a central part of their IT strategies, see the [CIO’s Guide to Azure Active Directory](https://aka.ms/AzureADCIOGuide).
+> To learn more about how CIOs have made Azure Active Directory a central part of their IT strategies, download the [CIO’s Guide to Azure Active Directory](https://aka.ms/AzureADCIOGuide).
 
 Finally, **Azure AD Domain Services** provides a cloud-based option to leverage AD DS for very lightweight Azure VM configuration control as well as a way to meet on-premises identity requirements for network application development and testing. Azure AD Domain Services is not meant to lift and shift your on-premises AD DS infrastructure to Azure VMs managed by Azure AD Domain Services. Instead, the Azure VMs in managed domains should be used to support the development, testing, and movement of on-premises applications, that require AD DS authentication methods, to the cloud.
 
@@ -102,6 +102,6 @@ Now that you understand Azure identity concepts and the options available to you
 
 [Test your understanding of Azure identity solutions](https://aka.ms/aad-understand-quiz)
 
-[Learn more in an Azure Proof of Concept environment](https://gallery.technet.microsoft.com/aAzure-Active-Directory-acb19182)
+[Learn more in an Azure Proof of Concept environment](https://aka.ms/aad-poc)
 
-[Deploy Azure AD in production](https://portal.office.com/onboarding/azureadpremium#/homepage)
+[Deploy Azure AD in production](https://aka.ms/aad-onboard)
