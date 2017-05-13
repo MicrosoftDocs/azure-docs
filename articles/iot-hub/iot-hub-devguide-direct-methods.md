@@ -45,6 +45,7 @@ Direct method are HTTP-only from the cloud side, and MQTT-only from the device s
 
 The payload for method requests and responses is a JSON document up to 8KB.
 
+
 ## Reference topics:
 The following reference topics provide you with more information about using direct methods.
 
@@ -52,9 +53,10 @@ The following reference topics provide you with more information about using dir
 ### Method invocation
 Direct method invocations on a device are HTTP calls which comprise:
 
-* The *URI* specific to the device (`{iot hub}/twins/{device id}/methods/`)
+* The *URI* specific to the device (`{iot hub}/twins/{device id}/methods/?api-version=2016-11-14`).
+  If the request *URI* does not contain API version as suffix, IotHub endpoint will return response with header: "iothub-errorcode": "InvalidProtocolVersion",
 * The POST *method*
-* *Headers* which contain the authorization, request ID, content type, and content encoding
+* *Headers* which contain the Authorization, Content-Type, and optionally requestId  and Content-Encoding
 * A transparent JSON *body* in the following format:
 
 ```
@@ -65,6 +67,25 @@ Direct method invocations on a device are HTTP calls which comprise:
         "input1": "someInput",
         "input2": "anotherInput"
     }
+}
+```
+Following shows an example of a valid request:
+ 
+ ```
+POST /twins/D001/methods?api-version=2016-11-14 HTTP/1.1
+Host: myhub.azure-devices.net
+Authorization: SharedAccessSignature sr=myhub.azure-devices.net&sig=Zg**SbzCyAKrc%2BDc%3D&se=1515923812&skn=iothubowner
+Content-Type: application/json
+Cache-Control: no-cache
+Postman-Token: 9bccb14d-f291-527d-f6c3-8c79476e193d
+
+{
+  "methodName": "YourMethodName",
+  "responseTimeoutInSeconds": 120,
+  "payload": {
+    "input1": "someInput",
+    "input2": "anotherInput"
+  }
 }
 ```
 
