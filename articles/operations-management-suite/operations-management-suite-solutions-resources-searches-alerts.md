@@ -291,12 +291,6 @@ The sample uses [standard solution parameters](operations-management-suite-solut
 	          "Description": "Region of Log Analytics workspace"
 	        }
 	      },
-	      "regionId": {
-	        "type": "string",
-	        "metadata": {
-	          "Description": "Region of Automation account"
-	        }
-	      },
 	      "pricingTier": {
 	        "type": "string",
 	        "metadata": {
@@ -488,9 +482,6 @@ The following parameter file provides samples values for this solution.
 			},
 			"workspaceregionId": {
 				"value": "East US"
-			},
-			"regionId": {
-				"value": "East US 2"
 			},
 			"pricingTier": {
 				"value": "Free"
