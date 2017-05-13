@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/05/2017
+ms.date: 03/06/2017
 ms.author: juliako;anilmur
 
 ---
@@ -105,14 +105,9 @@ This section describes common scenarios and provides links to relevant topics. T
 Media Analytics is a collection of speech and vision components that make it easier for organizations and enterprises to derive actionable insights from their video files. For more information, see [Azure Media Services Analytics Overview](media-services-analytics-overview.md).
 
 1. Upload a high-quality mezzanine file into an asset.
-2. Use one of the following Media Analytics services to process your videos:
+2. Use one of the  Media Analytics services described in [this](media-services-analytics-overview.md) section.
 
-   * **Indexer** – [Process videos with Azure Media Indexer 2](media-services-process-content-with-indexer2.md)
-   * **Hyperlapse** – [Hyperlapse Media Files with Azure Media Hyperlapse](media-services-hyperlapse-content.md)
-   * **Motion detection** – [Motion Detection for Azure Media Analytics](media-services-motion-detection.md).
-   * **Face detection and Face emotions** – [Face and Emotion Detection for Azure Media Analytics](media-services-face-and-emotion-detection.md).
-   * **Video summarization** – [Use Azure Media Video Thumbnails to Create a Video Summarization](media-services-video-summarization.md)
-3. Media Analytics media processors produce MP4 files or JSON files. If a media processor produced an MP4 file, you can progressively download the file. If a media processor produced a JSON file, you can download the file from the Azure blob storage.
+Media Analytics media processors produce MP4 files or JSON files. If a media processor produced an MP4 file, you can progressively download the file. If a media processor produced a JSON file, you can download the file from the Azure blob storage.
 
 ### Deliver progressive download
 1. Upload a high-quality mezzanine file into an asset.
@@ -128,7 +123,7 @@ When working with Live Streaming the following components are commonly involved:
 * A camera that is used to broadcast an event.
 * A live video encoder that converts signals from the camera to streams that are sent to a live streaming service.
 
-Optionally, multiple live time synchronized encoders. For certain critical live events that demand very high availability and quality of experience, it is recommended to employ active-active redundant encoders with time synchronizationto achieve seamless failover with no data loss.
+	Optionally, multiple live time synchronized encoders. For certain critical live events that demand very high availability and quality of experience, it is recommended to employ active-active redundant encoders with time synchronizationto achieve seamless failover with no data loss.
 
 * A live streaming service that enables you to do the following:
 * ingest live content using various live streaming protocols (for example RTMP or Smooth Streaming),
@@ -178,13 +173,19 @@ Media Services supports integration with Azure CDN. For information on how to en
 
 ## Scaling a Media Services account
 
-You can scale **Media Services** by specifying the number of **Streaming Reserved Units** and **Encoding Reserved Units** that you would like your account to be provisioned with.
+### Media processing 
 
-You can also scale your Media Services account by adding storage accounts to it. Each storage account is limited to 500 TB. To expand your storage beyond the default limitations, you can choose to attach multiple storage accounts to a single Media Services account.
-Media Services customers choose either a **Standard** streaming endpoint or one or more **Premium** streaming endpoints, according to their needs. Standard Streaming Endpoint is suitable for most streaming workloads. It includes the same features as Premium Streaming Units.
-Standard Streaming Endpoint is suitable for most streaming workloads. If you have an advanced workload or your streaming capacity requirements doesn't fit to standard streaming endpoint throughput targets or you want to control the capacity of the StreamingEndpoint service to handle growing bandwidth needs by adjusting scale units (also known as premium streaming units), then it is recommended to allocate scale units.
+A Media Services account is associated with a Reserved Unit Type, which determines the speed with which your media processing tasks are processed. In addition to specifying the reserved unit type, you can specify to provision your account with reserved units. The number of provisioned reserved units determines the number of media tasks that can be processed concurrently in a given account. For more information, see [this](media-services-scale-media-processing-overview.md) topic.
 
-[This](media-services-portal-scale-streaming-endpoints.md) topic links to relevant topics.
+### Streaming endpoints
+
+Media Services customers can choose either a **Standard** streaming endpoint or one or more **Premium** streaming endpoints, according to their needs. Standard Streaming Endpoint is suitable for most streaming workloads. If you have an advanced workload or your streaming capacity requirements doesn't fit to standard streaming endpoint throughput targets or you want to control the capacity of the StreamingEndpoint service to handle growing bandwidth needs by adjusting scale units (also known as premium streaming units), then it is recommended to allocate scale units. For more informations see [Streaming endpoints overview](media-services-streaming-endpoints-overview.md) and 
+[Scaling streaming endpoints with the Azure portal](media-services-portal-scale-streaming-endpoints.md).
+
+### Stroage accounts
+
+You can also scale your Media Services account by adding storage accounts to it. Each storage account is limited to 500 TB. To expand your storage beyond the default limitations, you can choose to attach multiple storage accounts to a single Media Services account. To attach storage accounts, use the Management REST API descirbed [here](https://docs.microsoft.com/rest/api/media/mediaservice).
+ 
 
 ## Support
 [Azure Support](https://azure.microsoft.com/support/options/) provides support options for Azure, including Media Services.
