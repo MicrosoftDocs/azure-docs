@@ -179,7 +179,7 @@ Azure AD Connect supports synchronization of the **PreferredDataLocation** attri
 By default, the PreferredDataLocation attribute is not enabled for synchronization because there is no corresponding PreferredDataLocation attribute in on-premises Active Directory. You must manually enable synchronization.
 
 > [!IMPORTANT]
-> Currently, Azure AD allows the PreferredDataLocation attribute on both synchronized User objects and cloud User objects to be directly configured using Azure AD PowerShell. On September 1st 2017, Azure AD will no longer let you do so for "synchronized User objects" using Azure AD PowerShell. To configure PreferredLocation attribute on synchronized User objects, you must use Azure AD Connect.
+> Currently, Azure AD allows the PreferredDataLocation attribute on both synchronized User objects and cloud User objects to be directly configured using Azure AD PowerShell. Once you have enabled synchronization of the PreferredDataLocation attribute, you must stop using Azure AD PowerShell to configure the attribute on **synchronized User objects** as Azure AD Connect will update the attribute values based on the source attribute values in on-premises Active Directory. On September 1st 2017, Azure AD will no longer let you do so for **synchronized User objects** using Azure AD PowerShell. To configure PreferredLocation attribute on synchronized User objects, you must use Azure AD Connect only.
 
 Before enabling synchronization of the PreferredDataLocation attribute, you must:
 
