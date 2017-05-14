@@ -95,9 +95,9 @@ Now go back to the Azure portal to get your connection string information and co
 
     `config.endpoint = "GRAPHENDPOINT";`
 
-3. Replace documentdb.azure.com portion of the URI with graphs.azure.com.
+3. Replace the documents.azure.com portion of the URI with graphs.azure.com.
 
-3. Then copy your PRIMARY KEY value from the portal and make it the value of config.primaryKey in config.js. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
+4. Then copy your PRIMARY KEY value from the portal and make it the value of config.primaryKey in config.js. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
     `config.primaryKey = "PRIMARYKEY";`
 
