@@ -9,6 +9,7 @@ editor: cgronlun
 
 ms.assetid: a9a1ac8e-5708-4833-b965-e453815e671f
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -26,7 +27,7 @@ The Azure Resource Manager template used in this document demonstrates how to cr
 > [!NOTE]
 > The information in this document and example in this document require HDInsight version 3.5.
 >
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## Prerequisites
 
@@ -44,10 +45,7 @@ The Azure Resource Manager template used in this document demonstrates how to cr
 * [Java and the JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html): Used to develop the Storm topology.
 * [Maven](http://maven.apache.org/what-is-maven.html): Used to build and compile the project.
 * [Git](http://git-scm.com/): Used to download the project from GitHub.
-* An **SSH** client: Used to connect to the Linux-based HDInsight clusters. For more information on using SSH with HDInsight, see the following documents:
-  
-  * [Use SSH (PuTTY) with HDInsight from a Windows client](hdinsight-hadoop-linux-use-ssh-windows.md)
-  * [Use SSH with HDInsight from a Linux, Unix, OS X, or Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
+* An **SSH** client: Used to connect to the Linux-based HDInsight clusters. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
     
     > [!NOTE]
     > You must also have access to the `scp` command, which is used to copy files between your local development environment and the HDInsight cluster using SSH.

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/12/2016
+ms.date: 04/03/2017
 ms.author: mikeray
 
 ---
@@ -34,6 +34,9 @@ This tutorial assumes you have the following:
 
 ## Add Azure Replica Wizard
 This section shows you how to use the **Add Azure Replica Wizard** to extend your Always On Availability Group solution to include Azure replicas.
+
+> [!IMPORTANT]
+> The **Add Azure Replica Wizard** only supports virtual machines created with the Classic deployment model. New VM deployments should use the newer Resource Manager model. If you are using VMs with Resource Manager, then you must manually add the secondary Azure replica using Transact-SQL commmands (not shown here). This wizard will not work in the Resource Manager scenario.
 
 1. From within SQL Server Management Studio, expand **Always On High Availability** > **Availability Groups** > **[Name of your Availability Group]**.
 2. Right-click **Availability Replicas**, then click **Add Replica**.
@@ -81,7 +84,7 @@ This section shows you how to use the **Add Azure Replica Wizard** to extend you
 > 
 
 ## Create an availability group listener
-After the availability group has been created, you should create a listener for clients to connect to the replicas. Listeners direct incoming connections to either the primary or a read-only secondary replica. For more information on listeners, see [Configure an ILB listener for Always On Availability Groups in Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+After the availability group has been created, you should create a listener for clients to connect to the replicas. Listeners direct incoming connections to either the primary or a read-only secondary replica. For more information on listeners, see [Configure an ILB listener for Always On Availability Groups in Azure](../classic/ps-sql-int-listener.md).
 
 ## Next steps
 In addition to using the **Add Azure Replica Wizard** to extend your Always On Availability Group to Azure, you might also move some SQL Server workloads completely to Azure. To get started, see [Provisioning a SQL Server Virtual Machine on Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md).

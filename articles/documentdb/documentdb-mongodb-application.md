@@ -1,41 +1,33 @@
 ---
-title: Use MongoDB APIs to build a DocumentDB web app | Microsoft Docs
-description: A NoSQL tutorial that creates an online database web app using the DocumentDB APIs for MongoDB.
+title: Use Azure Cosmos DB's API for MongoDB to build a web app | Microsoft Docs
+description: An Azure Cosmos DB tutorial that creates an online database web app using the API for MongoDB.
 keywords: mongodb examples
-services: documentdb
+services: cosmosdb
 author: AndrewHoh
 manager: jhubbard
 editor: ''
 documentationcenter: ''
 
 ms.assetid: 61a2ab3a-2fc3-4d49-a263-ed87c66628f6
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 04/28/2017
 ms.author: anhoh
 
 ---
-# Web application development with DocumentDB: API for MongoDB
-> [!div class="op_single_selector"]
-> * [.NET](documentdb-dotnet-application.md)
-> * [.NET for MongoDB](documentdb-mongodb-application.md)
-> * [Node.js](documentdb-nodejs-application.md)
-> * [Java](documentdb-java-application.md)
-> * [Python](documentdb-python-application.md)
-> 
-> 
+# Azure Cosmos DB: Connect to a MongoDB app using .NET
 
-This example shows you how to build a DocumentDB: API for MongoDB web app using .NET.
+This example shows you how to build an API for MongoDB web app using .NET.
 
 To use this example, you must:
 
-* [Create](documentdb-create-mongodb-account.md) an Azure DocumentDB: API for MongoDB account.
+* [Create](documentdb-create-mongodb-account.md) an Azure Cosmos DB database.
 * Retrieve your MongoDB [connection string](documentdb-connect-mongodb-account.md) information.
 
-You can use the [Create a web app in Azure that connects to MongoDB running on a virtual machine](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md) tutorial, with minimal modification, to quickly setup a MongoDB application (either locally or published to an Azure web app) that connects to a DocumentDB: API for MongoDB account.  
+You can use the [Create a web app in Azure that connects to MongoDB running on a virtual machine](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md) tutorial, with minimal modification, to quickly setup a MongoDB application (either locally or published to an Azure web app) that connects to an API for MongoDB account.  
 
 1. Follow the tutorial, with one modification.  Replace the Dal.cs code with this:
 
@@ -183,4 +175,4 @@ You can use the [Create a web app in Azure that connects to MongoDB running on a
 3. Use the app!
 
 ## Next steps
-* Learn how to [use MongoChef](documentdb-mongodb-mongochef.md) and [use RoboMongo](documentdb-mongodb-robomongo.md) with your DocumentDB: API for MongoDB account.
+* Learn how to [use MongoChef](documentdb-mongodb-mongochef.md) and [use RoboMongo](documentdb-mongodb-robomongo.md) with your Azure Cosmos DB's API for MongoDB account.

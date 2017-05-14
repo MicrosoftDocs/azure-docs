@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2017
+ms.date: 04/04/2017
 ms.author: billmath
 ---
 # Azure AD Connect Health frequently asked questions
@@ -133,22 +133,6 @@ No, auditing does not need to be enabled on the web application proxy servers.
 **Q: How do Azure AD Connect Health Alerts get resolved?**
 
 Azure AD Connect Health alerts get resolved on a success condition. Azure AD Connect Health Agents detect and report the success conditions to the service periodically. For a few alerts, the suppression is time-based. In other words, if the same error condition is not observed within 72 hours from alert generation, the alert is automatically resolved.
-
-## Migration questions
-
-This section applies only to customers who were notified about an upcoming migration of their Azure AD Connect Health data.
-
-**Q: Will I have to register my agents or configure my notification settings again after the migration happens?**
-
-No, agent registration information and notification settings are moved as part of the migration.
-
-**Q: How long after the migration will I start seeing data in the portal?**
-
-Data will start to appear in the portal within one hour after the migration.
-
-**Q: What happens to my existing active alerts?**
-
-Any applicable alerts will be reactivated within one hour after the migration.
 
 ## Related links
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

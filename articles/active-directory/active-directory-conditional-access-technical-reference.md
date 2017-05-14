@@ -1,7 +1,7 @@
 ---
 title: Azure Active Directory Conditional Access technical reference | Microsoft Docs
 description: With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application.
-services: active-directory
+services: active-directory.
 documentationcenter: ''
 author: MarkusVi
 manager: femila
@@ -12,12 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/01/2017
+ms.date: 03/28/2017
 ms.author: markvi
 
 ---
 # Azure Active Directory Conditional Access technical reference
+
 ## Services enabled with conditional access
+
 Conditional Access rules are supported across various Azure AD application types. This list includes:
 
 
@@ -32,6 +34,13 @@ Conditional Access rules are supported across various Azure AD application types
 * Microsoft Power BI 
 * Password SSO applications from the Azure AD application gallery
 * Visual Studio Online
+
+
+
+
+
+
+
 
 
 ## Enable access rules

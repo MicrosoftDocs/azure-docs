@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/sql-database/sql-database-setup-geodr-and-failover-database-powershell
+redirect_url: /azure/sql-database/scripts/sql-database-setup-geodr-and-failover-database-powershell
 --- 

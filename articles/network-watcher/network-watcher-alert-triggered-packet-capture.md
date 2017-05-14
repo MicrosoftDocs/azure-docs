@@ -1,5 +1,5 @@
----
-title: Use packet capture to do proactive network monitoring with Azure Functions | Microsoft Docs
+﻿---
+title: Use packet capture to do proactive network monitoring with Alerts and Azure Functions | Microsoft Docs
 description: This article describes how to create an alert triggered packet capture with Azure Network Watcher
 services: network-watcher
 documentationcenter: na
@@ -17,53 +17,86 @@ ms.date: 02/22/2017
 ms.author: gwallace
 
 ---
-# Use packet capture to do proactive network monitoring with Azure Functions
+# Use packet capture to do proactive network monitoring with alerts and Azure Functions
 
-Network Watcher packet capture creates capture sessions to track traffic in and out of a virtual machine. The capture file can have a filter that is defined to track only the traffic you want to monitor. This data is then stored in a storage blob or locally on the guest machine. This capability can be started remotely from other automation scenarios like Azure Functions. Packet capture provides the capability of running proactive captures based on defined network anomalies. Other uses include gathering network statistics, gaining information on network intrusions, to debug client-server communications and much more.
+Network Watcher packet capture creates capture sessions to track traffic in and out of a virtual machine. The capture file can have a filter that is defined to track only the traffic you want to monitor. This data is then stored in a storage blob or locally on the guest machine.
+
+This capability can be started remotely from other automation scenarios like Azure Functions. Packet capture provides the capability of running proactive captures based on defined network anomalies. Other uses include gathering network statistics, gaining information on network intrusions, to debug client-server communications and much more.
 
 Resources deployed in Azure are running 24/7. You or your staff cannot actively monitor the status of all resources 24/7. What happens if an issue occurs at 2am?
 
 By using Network Watcher, Alerting, and Functions from within the Azure ecosystem, you can proactively respond to issues in your network with the data and tools to solve the problem.
 
-## Before you begin
+![scenario][scenario]
 
-In this example, your VM is sending more TCP segments than usual, and you would like to be alerted. TCP Segments are used as an example, you could use any alert condition. When you are alerted, you want to have packet level data to understand why communication has increased so you can take steps to return the machine to regular communication.
-This scenario assumes you have an existing instance of Network Watcher, and a resource group with a valid virtual machine to be used.
+## Prerequisites
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+* Install the latest version of [Azure PowerShell](/powershell/azure/install-azurerm-ps)
+* Have an existing instance of Network Watcher, or [Create an instance of Network Watcher](network-watcher-create.md)
+* Have an existing virtual machine in the same region as the preceding Network Watcher with the [Windows extension](../virtual-machines/windows/extensions-nwa.md) or [Linux virtual machine extension](../virtual-machines/linux/extensions-nwa.md).
 
 ## Scenario
 
-To automate this process, we create and connect an Alert on our VM to trigger when the incident occurs, and an Azure Function to call into Network Watcher.
+In this example, your VM is sending more TCP segments than usual, and you would like to be alerted. TCP segments are used as an example here, but you can use any alert condition.
 
-This scenario:
+When you are alerted, you want to have packet level data to understand why communication has increased. That way, you can take steps to return the machine to regular communication.
 
-* Creates an Azure function that starts a packet capture.
-* Creates an alert rule on a virtual machine
-* Configures the alert rule to call the Azure function
+This scenario assumes that you have an existing instance of Network Watcher, and a resource group with a valid virtual machine that you can use.
 
-## Creating an Azure Function and overview
+In this example, your VM is sending more TCP segments than usual, and you would like to be alerted. TCP Segments are used as an example, you could use any alert condition. When you are alerted, you want to have packet level data to understand why communication has increased so you can take steps to return the machine to regular communication.
 
-The first step is to create an Azure function to process the alert and create a packet capture. 
-
-The following list is an overview of the workflow that takes place.
+The following list is an overview of the workflow that takes place:
 
 1. An alert is triggered on your VM.
-1. The alert calls your Azure Function via a webhook.
-1. Your Azure Function processes the alert and starts a Network Watcher packet capture session.
-1. Packet capture runs on the VM and collects traffic. 
-1. The capture file is uploaded to a storage account for review and diagnosis 
+1. The alert calls your Azure function via a webhook.
+1. Your Azure function processes the alert and starts a Network Watcher packet capture session.
+1. Packet capture runs on the VM and collects traffic.
+1. The packet capture file is uploaded to a storage account for review and diagnosis.
 
-Creating an Azure Function can be accomplished in the portal by following [Create your first Azure Function](../azure-functions/functions-create-first-azure-function.md). For this example, we chose an HttpTrigger-PowerShell type function. Customizations are required for this example and are explained in the following steps:
+To automate this process, we create and connect an alert on our VM to trigger when the incident occurs, and a function to call into Network Watcher.
+
+This scenario does the following:
+
+* Creates an Azure function that starts a packet capture.
+* Creates an alert rule on a virtual machine and configure the alert rule to call the Azure function.
+
+## Creating an Azure function
+
+The first step is to create an Azure function to process the alert and create a packet capture.
+
+1. In the [Azure portal](https://portal.azure.com), click **New** > **Compute** > **Function App**
+
+    ![creating a function app][1-1]
+
+2. On the **Function App** enter the following values and click **OK** to create the Function App:
+
+    |**Setting** | **Value** | **Details** |
+    |---|---|---|
+    |**App name**|PacketCaptureExample|Name of the function app|
+    |**Subscription**|[Your subscription]|Select a subscription to create the function app in.||
+    |**Resource Group**|PacketCaptureRG|Name the resource group to contain the function app.|
+    |**Hosting Plan**|Consumption Plan| The type of plan your function app will use. Options are Consumption or App Service plan. |
+    |**Location**|Central US| The region to create the function app in.|
+    |**Storage Account**|{autogenerated}| This is the storage account needed by Azure Functions for general purpose storage.|
+
+3. On the **PacketCaptureExample** Function Apps blade, click **+** under **Functions** > **Custom function**. Select **HttpTrigger-Powershell**, then fill out the remaining information and click **Create** to create the function.
+
+    |**Setting** | **Value** | **Details** |
+    |---|---|---|
+    |**Scenario**|Experimental|Type of scenario|
+    |**Name your function**|AlertPacketCapturePowerShell|Name of the function|
+    |**Authorization level**|Function|Authorization level for the function.|
 
 ![functions example][functions1]
 
 > [!NOTE]
 > The PowerShell template is experimental and does not have full support.
 
-## Adding modules
+Customizations are required for this example and are explained in the following steps:
 
-In order to use Network Watcher PowerShell cmdlets, the latest PowerShell module needs to be uploaded to the Function app.
+### Adding modules
+
+To use Network Watcher PowerShell cmdlets, the latest PowerShell module needs to be uploaded to the Function app.
 
 1. On your local machine with the latest Azure PowerShell modules installed, run the following PowerShell command:
 
@@ -71,7 +104,7 @@ In order to use Network Watcher PowerShell cmdlets, the latest PowerShell module
     (Get-Module AzureRM.Network).Path
     ```
 
-    This gives you the local path of your Azure PowerShell modules. These folders are used in a later step. The modules used in this scenario are:
+    This example gives you the local path of your Azure PowerShell modules. These folders are used in a later step. The modules used in this scenario are:
 
     * AzureRM.Network
 
@@ -85,7 +118,7 @@ In order to use Network Watcher PowerShell cmdlets, the latest PowerShell module
 
     ![functions kudu][functions2]
 
-1. Right click the AlertPacketCapturePowershell folder and create a folder called **azuremodules**. Continue creating sub folders for each module needed.
+1. Right-click the AlertPacketCapturePowershell folder and create a folder called **azuremodules**. Continue creating sub folders for each module needed.
 
     ![functions kudu][functions3]
 
@@ -95,7 +128,7 @@ In order to use Network Watcher PowerShell cmdlets, the latest PowerShell module
 
     * AzureRM.Resources
 
-1. Right click the **AzureRM.Network** sub folder and click **Upload Files**. Navigate to where your Azure modules are installed, and in the local AzureRM.Network folder select all the files in the folder and click **Ok**.  Repeat these steps for AzureRM.Profile and AzureRM.Resources.
+1. Right-click the **AzureRM.Network** sub folder and click **Upload Files**. Navigate to where your Azure modules are installed, and in the local AzureRM.Network folder select all the files in the folder and click **Ok**.  Repeat these steps for AzureRM.Profile and AzureRM.Resources.
 
     ![upload files][functions6]
 
@@ -103,16 +136,16 @@ In order to use Network Watcher PowerShell cmdlets, the latest PowerShell module
 
     ![powershell files][functions7]
 
-## Authentication
+### Authentication
 
-To to use the PowerShell cmdlets you must authenticate. Authentication needs to be configured in the Function app. To do this, environment variables are configured and a encrypted key file needs to be uploaded to the Function app.
+To use the PowerShell cmdlets, you must authenticate. Authentication needs to be configured in the Function app. To configure authencation, environment variables are configured and an encrypted key file needs to be uploaded to the Function app.
 
-> [!note]
+> [!NOTE]
 > This scenario provides just one example of how to implement authentication with Azure Functions, there are other ways to do this.
 
-### Encrypted Credentials
+#### Encrypted Credentials
 
-The following PowerShell script creates a key file called **PassEncryptKey.key** and provide an encrypted version of the password supplied.  This password is the same password that is defined for the Azure AD Application that is used for authentication.
+The following PowerShell script creates a key file called **PassEncryptKey.key** and provides an encrypted version of the password supplied.  This password is the same password that is defined for the Azure AD Application that is used for authentication.
 
 ```powershell
 #variables
@@ -135,9 +168,9 @@ In the App Service Editor of the Function app, create a folder called **keys** u
 
 ![functions key][functions8]
 
-### Retrieving values for Environment variables
+### Retrieve values for Environment variables
 
-The final configuration required is to set up the environment variables needed to access the values for authentication. The following is a list of the environment variables that are created.
+The final configuration required is to set up the environment variables needed to access the values for authentication. The following list lists the environment variables that are created:
 
 * AzureClientID
 
@@ -199,7 +232,7 @@ $Encryptedpassword = $secPw | ConvertFrom-SecureString -Key $AESKey
 $Encryptedpassword
 ```
 
-### Storing the Environment variables
+### Store the Environment variables
 
 1. Navigate to the function app, click **Function app settings** > **Configure app settings**
 
@@ -209,7 +242,7 @@ $Encryptedpassword
 
     ![app settings][functions12]
 
-## Processing the alert and starting a packet capture session
+### Add PowerShell to the function
 
 It is now time to make calls into Network Watcher from within the Azure Function. Depending on the requirements, the implementation of this function is different. However, the general flow of the code is as such:
 
@@ -280,7 +313,7 @@ if($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines")
 } 
 ``` 
 
-Once you have created your function, you need to configure your alert to call the URL associated with the function. To get this value, click **</> Get function URL** 
+Once you have created your function, configure your alert to call the URL that's associated with the function. To get this value, copy the function URL from your function app.
 
 ![finding the function url 1][functions13]
 
@@ -292,37 +325,46 @@ If you require custom properties in the payload of the webhook POST request, ref
 
 ## Configure an alert on a VM
 
-Alerts can be configured to notify individuals when a specific metric crosses a threshold assigned to it. In this example, the alert is on the TCP segments sent, but the alert can be triggered for many other metrics. In this example, an alert is configured to call a webhook to call the function.
+Alerts can be configured to notify individuals when a specific metric crosses a threshold that's assigned to it. In this example, the alert is on the TCP segments that are sent, but the alert can be triggered for many other metrics. In this example, an alert is configured to call a webhook to call the function.
 
 ### Create the alert rule
 
-Navigate to an existing virtual machine and add an alert rule. More detailed documentation about configuring alerts can be found at [User Azure portal to create alerts for Azure services](../monitoring-and-diagnostics/insights-alerts-portal.md). 
+Navigate to an existing virtual machine, and then add an alert rule. More detailed documentation about configuring alerts can be found at [Create alerts in Azure Monitor for Azure services - Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md). Enter the following values in the blade and click **OK**
 
-![add vm alert rule to a virtual machine][1]
+  |**Setting** | **Value** | **Details** |
+  |---|---|---|
+  |**Name**|TCP_Segments_Sent_Exceeded|Name of the alert rule.|
+  |**Description**|TCP segments sent exceeded threshold|The description for the alert rule.||
+  |**Metric**|TCP segments sent| The metric to use to trigger the alert. |
+  |**Condition**|Greater than| The condition to use when evaluating the metric.|
+  |**Threshold**|100| The is the value of the metric that will trigger the alert, this value should be set to a valid value for your environment.|
+  |**Period**|Over the last 5 minutes| Determines the period in which to look for the threshold on the metric.|
+  |**Webhook**|[webhook url from function app]| This is the webhook url from the function app created in the previous steps.|
 
 > [!NOTE]
-> Some Metrics are not enabled by default. Learn more about how to enable addition metrics by visiting [Enable monitoring and diagnostics](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
+> The TCP segments metric is not enabled by default. Learn more about how to enable additional metrics by visiting [Enable monitoring and diagnostics](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
 
-Finally paste the URL from the preceding step into the webhook textbox on your alert. Click **OK** to save the alert rule.
+## Review the results
 
-![pasting the url to the alert rule][3]
+After the criteria for the alert triggers, a packet capture will be created. Navigate to your Network Watcher and click **Packet Capture**. From this page you can click the packet capture file link to download the packet capture
 
-## Downloading and viewing the capture file
+![view packet capture][functions14]
 
-If you save your capture to a storage account, then the capture file can be downloaded via the portal or programmatically. If the capture file is stored locally, the capture file is retrieved by logging in to the virtual machine. 
+If the capture file is stored locally, the capture file is retrieved by logging in to the virtual machine.
 
-For instructions on downloading files from azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/storage-dotnet-how-to-use-blobs.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](http://storageexplorer.com/)
+For instructions about downloading files from Azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/storage-dotnet-how-to-use-blobs.md). Another tool you can use is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](http://storageexplorer.com/).
 
-Once your capture is downloaded, you can view it using any tool that can read a **.cap** file. The following are links to two of these tools:
+After your capture has been downloaded, you can view it by using any tool that can read a **.cap** file. Following are links to two of these tools:
 
-[Microsoft Message Analyzer](https://technet.microsoft.com/en-us/library/jj649776.aspx)  
-[WireShark](https://www.wireshark.org/)  
+- [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx)
+- [WireShark](https://www.wireshark.org/)
 
 ## Next steps
 
-Learn how to view your packet captures by visiting [Packet capture analysis with Wireshark](network-watcher-alert-triggered-packet-capture.md)
+Learn how to view your packet captures by visiting [Packet capture analysis with Wireshark](network-watcher-alert-triggered-packet-capture.md).
 
 [1]: ./media/network-watcher-alert-triggered-packet-capture/figure1.png
+[1-1]: ./media/network-watcher-alert-triggered-packet-capture/figure1-1.png
 [2]: ./media/network-watcher-alert-triggered-packet-capture/figure2.png
 [3]: ./media/network-watcher-alert-triggered-packet-capture/figure3.png
 [functions1]:./media/network-watcher-alert-triggered-packet-capture/functions1.png
@@ -338,3 +380,5 @@ Learn how to view your packet captures by visiting [Packet capture analysis with
 [functions11]:./media/network-watcher-alert-triggered-packet-capture/functions11.png
 [functions12]:./media/network-watcher-alert-triggered-packet-capture/functions12.png
 [functions13]:./media/network-watcher-alert-triggered-packet-capture/functions13.png
+[functions14]:./media/network-watcher-alert-triggered-packet-capture/functions14.png
+[scenario]:./media/network-watcher-alert-triggered-packet-capture/scenario.png

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc
+ms.author: padmavc; ladocs
 
 ---
 # Encode EDIFACT messages for Azure Logic Apps with the Enterprise Integration Pack
@@ -76,7 +76,7 @@ To finish creating your connection, choose **Create**.
 #### Encode EDIFACT Message by agreement name
 
 If you chose to encode EDIFACT messages by agreement name, 
-open the **Name of X12 agreement** list, 
+open the **Name of EDIFACT agreement** list, 
 enter or select your EDIFACT agreement name. 
 Enter the XML message to encode.
 
@@ -107,6 +107,9 @@ The Encode EDIFACT connector performs these tasks:
 * Requests a Technical and/or Functional acknowledgment (if configured).
   * As a technical acknowledgment, the CONTRL message indicates receipt of an interchange.
   * As a functional acknowledgment, the CONTRL message indicates acceptance or rejection of the received interchange, group, or message, with a list of errors or unsupported functionality
+
+## View the swagger
+See the [swagger details](/connectors/edifact/). 
 
 ## Next steps
 [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack") 

@@ -11,9 +11,9 @@ ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
 ms.service: application-insights
 ms.devlang: na
 ms.tgt_pltfrm: ibiza
-ms.topic: article
+ms.topic: get-started-article
 ms.workload: tbd
-ms.date: 03/14/2017
+ms.date: 05/05/2017
 ms.author: awills
 
 ---
@@ -237,6 +237,7 @@ Did you build for .NET 4.6? 4.6 is not automatically supported in Azure Cloud Se
 * [Configure sending Azure Diagnostics to Application Insights](app-insights-azure-diagnostics.md)
 * [Automate creation of Application Insights resources](app-insights-powershell.md)
 * [Automate Azure diagnostics](app-insights-powershell-azure-diagnostics.md)
+* [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 
 [api]: app-insights-api-custom-events-metrics.md
 [availability]: app-insights-monitor-web-app-availability.md

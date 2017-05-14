@@ -9,6 +9,7 @@ editor: cgronlun
 
 ms.assetid: dd8f53c1-bdee-4921-b683-3be4c46c2039
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -29,11 +30,7 @@ Apache Spark can be used to stream data into or out of Apache Kafka. In this doc
 
 * An Azure subscription
 
-* An SSH client (you need the `ssh` and `scp` commands) - For more information on using SSH with HDInsight, see the following documents:
-
-    * [Use SSH with Linux-based HDInsight from Linux, Unix, and Mac OS](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-    * [Use SSH with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* An SSH client (you need the `ssh` and `scp` commands) - For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * [cURL](https://curl.haxx.se/) - A cross platform utility for making HTTP requests.
 

@@ -1,7 +1,7 @@
 ---
 title: Query data from HDFS-compatible Azure storage | Microsoft Docs
 description: Learn how to query data from Azure storage and Azure Data Lake Store to store results of your analysis.
-keywords: blob storage,hdfs,structured data,unstructured data, data lake store
+keywords: blob storage,hdfs,structured data,unstructured data,data lake store,Hadoop input,Hadoop output, hadoop storage, hdfs input,hdfs output,hdfs storage,wasb azure
 services: hdinsight,storage
 documentationcenter: ''
 tags: azure-portal
@@ -11,6 +11,7 @@ editor: cgronlun
 
 ms.assetid: 1d2e65f2-16de-449e-915f-3ffbc230f815
 ms.service: hdinsight
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -101,6 +102,9 @@ The default Blob container stores cluster specific information such as job histo
 When creating an HDInsight cluster from the Portal, you have the options (as shown below) to provide the storage account details. You can also specify whether you want an additional storage account associated with the cluster, and if so, choose from Data Lake Store or another Azure Storage blob as the additional storage.
 
 ![HDInsight hadoop creation data source](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
+
+> [!WARNING]
+> Using an additional storage account in a different location than the HDInsight cluster is not supported.
 
 #### Using Azure CLI
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
@@ -280,6 +284,8 @@ This example shows how to list a folder from storage account that is not defined
 
 While creating an HDInsight cluster you specify the Azure Storage account you want to associate with it. In addition to this storage account, you can add additional storage accounts from the same Azure subscription or different Azure subscriptions during the creation process or after a cluster has been created. For instructions about adding additional storage accounts, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
+> [!WARNING]
+> Using an additional storage account in a different location than the HDInsight cluster is not supported.
 
 ## Using Azure Data Lake Store with HDInsight clusters
 

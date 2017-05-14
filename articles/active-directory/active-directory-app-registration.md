@@ -57,4 +57,4 @@ You can use the inline manifest editor to modify certain application properties 
 ## Next Steps
 
 1. Check out the [Quickstarts](active-directory-developers-guide.md) for detailed walkthroughs of applications performing authentication using Azure AD.
-2. Check out our full list of code samples in [Github](https://github.com/azure-samples).
+2. Check out our full list of code samples in [GitHub](https://github.com/azure-samples).

@@ -5,7 +5,7 @@ services: multi-factor-authentication
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: pblachar, librown
+editor: librown
 
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
 ms.service: multi-factor-authentication
@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 03/17/2017
 ms.author: kgremban
-
+ms.custom: end-user
 ---
 # Microsoft Authenticator app FAQ
 
@@ -34,6 +34,18 @@ These codes are used when you sign in to your account. After you enter your user
 The reason that the codes change every 30 seconds is so that you never use the same code twice. It's not like a password that you're supposed to remember. The idea is that only someone with access to your phone will know your verification code.
 
 The codes don't require internet or data, so you don't have to worry about having phone service to sign in, or that the app will use up your data plan. When you close the app, it doesn't keep running in the background so it won't drain your battery. You can close the app and ignore it until the next time that you sign in.  
+
+### I only get notifications when I have the app open. If the app isn't open, I don't get any notifications.
+
+If you get notifications, but they don't make noise or vibrate despite your ringer being on, first check the app settings. Enable the app to use sound or vibrate with its notifications.
+
+If you don't get notifications at all, check the following cases:
+
+- Is your phone in Do Not Disturb or Quiet mode? That mode can keep apps from sending notifications.
+- Can you receive notifications from other apps? If not, there may be an issue with the network connections on your phone, or the notifications channel from Android or Apple. You can address the first option in your phone settings, but you may need to reach out to your service provider for help with the second option.
+- Can you receive notifications for some accounts on the app, but not others? If yes, remove the problematic account from your app and re-add it to re-enable push notifications. 
+
+If you tried these troubleshooting suggestions but are still having issues, send us your logs for diagnostics (go to the app settings, then select **Help & feedback** and **Send logs**) then go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) and let us know what problem you're seeing and what steps you've tried so far. 
 
 ### I'm already using the Microsoft Authenticator application for verification codes. How do I switch to one-click push notifications?
 Approving a sign-in through push notification is only available for personal Microsoft accounts or work and school Microsoft accounts, not for third-party accounts like Google or Facebook. If you have a work or school Microsoft account, your organization can choose to disable this option.
@@ -79,6 +91,10 @@ Here is a full list of permissions we may ask for, and how they are used in the 
 ### Why does the Microsoft Authenticator App allow you to approve a request without unlocking the device?
 
 This is by design. Two-step verification requires proving two things – a thing you know, and a thing you have. The thing you know is the password. The thing you have is your phone (set up with the Microsoft Authenticator app and registered as an MFA proof.)  Therefore, having the phone and approving the request meets the criteria for the second factor of authentication. 
+
+### What does the lock icon in the account list mean?
+
+The padlock icon indicates that the device is registered in Azure AD and registered to the account. Device registration for iOS takes place during Microsoft Intune enrollment.
 
 ## Next steps
 

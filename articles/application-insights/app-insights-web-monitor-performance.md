@@ -119,8 +119,6 @@ Here are a few tips for finding and diagnosing performance issues:
 
 [Troubleshooting][qna] - and Q & A
 
-## Video
-> [!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/222/player]
 
 
 <!--Link references-->

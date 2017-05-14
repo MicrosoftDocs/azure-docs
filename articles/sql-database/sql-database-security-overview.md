@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: a012bb85-7fb4-4fde-a2fc-cf426c0a56bb
 ms.service: sql-database
-ms.custom: authentication and authorization
+ms.custom: security-overview
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -25,7 +25,7 @@ This article walks through the basics of securing the data tier of an applicatio
 For a complete overview of security features available on all flavors of SQL, see the [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589). Additional information is also available in the [Security and Azure SQL Database technical white paper](https://download.microsoft.com/download/A/C/3/AC305059-2B3F-4B08-9952-34CDCA8115A9/Security_and_Azure_SQL_Database_White_paper.pdf) (PDF).
 
 ## Protect data
-SQL Database secures you data by providing encryption for data in motion using [Transport Layer Security](https://support.microsoft.com/en-us/kb/3135244), for data at rest using [Transparent Data Encryption](http://go.microsoft.com/fwlink/?LinkId=526242), and for data in use using [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). 
+SQL Database secures you data by providing encryption for data in motion using [Transport Layer Security](https://support.microsoft.com/kb/3135244), for data at rest using [Transparent Data Encryption](http://go.microsoft.com/fwlink/?LinkId=526242), and for data in use using [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). 
 
 > [!IMPORTANT]
 >All connections to Azure SQL Database require encryption (SSL/TLS) at all times while data is "in transit" to and from the database. In your application's connection string, you must specify parameters to encrypt the connection and *not* to trust the server certificate (this is done for you if you copy your connection string out of the Azure Classic Portal), otherwise the connection will not verify the identity of the server and will be susceptible to "man-in-the-middle" attacks. For the ADO.NET driver, for instance, these connection string parameters are **Encrypt=True** and **TrustServerCertificate=False**. 
@@ -67,7 +67,7 @@ SQL Database secures your data by providing auditing and threat detection capabi
 SQL Database Auditing tracks database activities and helps you to maintain regulatory compliance, by recording database events to an audit log in your Azure Storage account. Auditing enables you to understand ongoing database activities, as well as analyze and investigate historical activity to identify potential threats or suspected abuse and security violations. For additional information, see [Get started with SQL Database Auditing](sql-database-auditing.md).  
 
 ### Threat detection
-Threat Detection complements auditing, by providing an additional layer of security intelligence built into the Azure SQL Database service. It works around the clock to learn, profile and detect anomalous database activities. You will be alerted about suspicious activities, potential vulnerabilities, SQL injection attacks and anomalous database access patterns. You can respond to alerts by following the provided informative and actionable instructions. For more information, see [Get started with SQL Database Threat Detection](sql-database-threat-detection.md).  
+Threat Detection complements auditing, by providing an additional layer of security intelligence built into the Azure SQL Database service that detects unusual and potentially harmful attempts to access or exploit databases. You will be alerted about suspicious activities, potential vulnerabilities and SQL injection attacks, as well as anomalous database access patterns. Threat Detection alerts can be viewed from [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) and provide details of suspicious activity and recommend action on how to investigate and mitigate the threat. Threat Detection costs $15/server/month. It will be free for the first 60 days.For more information,see [Get started with SQL Database Threat Detection](sql-database-threat-detection.md)
  
 ### Data Masking 
 SQL Database Dynamic Data Masking limits sensitive data exposure by masking it to non-privileged users. Dynamic Data Masking automatically discovers potentially sensitive data in Azure SQL Database and provides actionable recommendations to mask these fields, with minimal impact on the application layer. It works by obfuscating the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed. For more information, see Get started with [SQL Database Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md)
