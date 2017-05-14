@@ -1,6 +1,6 @@
 ---
-title: Copy or move data to Storage with AzCopy | Microsoft Docs
-description: Use the AzCopy utility to move or copy data to or from blob, table, and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage.
+title: Copy or move data to Storage with AzCopy on Linux | Microsoft Docs
+description: Use the AzCopy on Linux utility to move or copy data to or from blob, table, and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage.
 services: storage
 documentationcenter: ''
 author: seguler
@@ -17,16 +17,14 @@ ms.date: 05/11/2017
 ms.author: seguler
 
 ---
-# Transfer data with the AzCopy Command-Line Utility
+# Transfer data with the AzCopy Command-Line Utility on Linux
 ## Overview
 AzCopy is a command-line utility designed for copying data to and from Microsoft Azure Blob, File, and Table storage using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts.
 
-There are two versions of AzCopy that you can download. AzCopy on Windows is built with .NET Framework, and offers Windows style command-line options. AzCopy on Linux is built with .NET Core Framework which targets Linux platforms offering POSIX style command-line options. In this article, you will learn about AzCopy on Linux.
+There are two versions of AzCopy that you can download. AzCopy on Windows is built with .NET Framework, and offers Windows style command-line options. AzCopy on Linux is built with .NET Core Framework, which targets Linux platforms offering POSIX style command-line options. In this article, you will learn about AzCopy on Linux.
 
 ## Download and install AzCopy
 ### AzCopy on Linux
-Download the [latest version of AzCopy on Linux](http://aka.ms/downloadazcopyprlinux) 
-
 #### Installation on Linux
 
 AzCopy on Linux requires .NET Core framework on the platform. See the installation instructions on the [.NET Core] (https://www.microsoft.com/net/core#linuxredhat) page.
@@ -56,7 +54,7 @@ tar -xf azcopy.tar.gz
 sudo ./install.sh
 ```
 
-You can remove the extracted files once AzCopy on Linux is installed. Alternatively, you can also run AzCopy using the shell script 'azcopy' in the extracted folder if you do not have superuser priviliges. 
+You can remove the extracted files once AzCopy on Linux is installed. Alternatively if you do not have superuser privileges, you can also run AzCopy using the shell script 'azcopy' in the extracted folder. 
 
 ## Writing your first AzCopy command
 The basic syntax for AzCopy commands is:
@@ -65,7 +63,7 @@ The basic syntax for AzCopy commands is:
 azcopy --source <source> --destination <destination> [Options]
 ```
 
-The following examples demonstrate a variety of scenarios for copying data to and from Microsoft Azure Blobs, Files, and Tables. Refer to the [AzCopy Parameters](#azcopy-parameters) section for a detailed explanation of the parameters used in each sample.
+The following examples demonstrate various scenarios for copying data to and from Microsoft Azure Blobs, Files, and Tables. Refer to the [AzCopy Parameters](#azcopy-parameters) section for a detailed explanation of the parameters used in each sample.
 
 ## Blob: Download
 ### Download single blob
@@ -123,7 +121,7 @@ Assume the following blobs reside in the specified container. All blobs beginnin
     vd1\a.txt
     vd1\abcd.txt
 
-After the download operation, the folder `C:\myfolder` will include the following files:
+After the download operation, the folder `/mnt/myfiles` will include the following files:
 
     /mnt/myfiles/abc.txt
     /mnt/myfiles/abc1.txt
@@ -227,7 +225,7 @@ If you do not specify option `--recursive`, AzCopy will only upload blobs that d
 By default, AzCopy sets the content type of a destination blob to `application/octet-stream`. Beginning with version 3.1.0, you can explicitly specify the content type via the option `--recursiveetContentType:[content-type]`. This syntax sets the content type for all blobs in an upload operation.
 
 ```azcopy
-azcopy --source C:\myfolder\ --destination https://myaccount.blob.core.windows.net/myContainer/ --dest-key key --include ab --recursiveetContentType:video/mp4
+azcopy --source /mnt/myfiles --destination https://myaccount.blob.core.windows.net/myContainer/ --dest-key key --include ab --recursiveetContentType:video/mp4
 ```
 
 If you specify `--recursiveetContentType` without a value, then AzCopy will set each blob or file's content type according to its file extension.
@@ -374,62 +372,62 @@ azcopy --config-file "azcopy-config.ini"
 
 You can include any AzCopy command-line parameters in a configuration file. AzCopy processes the parameters in the file as if they had been specified on the command line, performing a direct substitution with the contents of the file.
 
-Assume a response file named `copyoperation`, that contains the following lines. Each AzCopy parameter can be specified on a single line
+Assume a configuration file named `copyoperation`, that contains the following lines. Each AzCopy parameter can be specified on a single line
 
     --source http://myaccount.blob.core.windows.net/mycontainer --destination /mnt/myfiles --source-key <sourcekey> --recursive --quiet
 
 or on separate lines:
 
     --source http://myaccount.blob.core.windows.net/mycontainer
-    --destination C:\myfolder
+    --destination /mnt/myfiles
     --source-key<sourcekey>
     --recursive
-    /Y
+    --quiet
 
 AzCopy will fail if you split the parameter across two lines, as shown here for the `/sourcekey` parameter:
 
     http://myaccount.blob.core.windows.net/mycontainer
-     C:\myfolder
-    /sourcekey:
+    /mnt/myfiles
+    --sourcekey
     <sourcekey>
     --recursive
-    /Y
+    --quiet
 
-### Use multiple response files to specify command-line parameters
-Assume a response file named `source.txt` that specifies a source container:
+### Use multiple configuration files to specify command-line parameters
+Assume a configuration file named `source.txt` that specifies a source container:
 
     --source http://myaccount.blob.core.windows.net/mycontainer
 
-And a response file named `dest.txt` that specifies a destination folder in the file system:
+And a configuration file named `dest.txt` that specifies a destination folder in the file system:
 
-    --destination C:\myfolder
+    --destination /mnt/myfiles
 
-And a response file named `options.txt` that specifies options for AzCopy:
+And a configuration file named `options.txt` that specifies options for AzCopy:
 
-    --recursive /Y
+    --recursive --quiet
 
-To call AzCopy with these response files, all of which reside in a directory `C:\responsefiles`, use this command:
+To call AzCopy with these configuration files, all of which reside in the user's home directory `~`, use this command:
 
 ```azcopy
-AzCopy /@:"C:\responsefiles\source.txt" /@:"C:\responsefiles\dest.txt" --source-key<sourcekey> /@:"C:\responsefiles\options.txt"   
+azcopy --config-file "~/source.txt" --config-file "~/dest.txt" --source-key <sourcekey> --config-file "~/options.txt"   
 ```
 
 AzCopy processes this command just as it would if you included all of the individual parameters on the command line:
 
 ```azcopy
-AzCopy --source http://myaccount.blob.core.windows.net/mycontainer --destination C:\myfolder --source-key<sourcekey> --recursive /Y
+azcopy --source http://myaccount.blob.core.windows.net/mycontainer --destination /mnt/myfiles --source-key <sourcekey> --recursive --quiet
 ```
 
 ### Specify a shared access signature (SAS)
 
 ```azcopy
-AzCopy --source https://myaccount.blob.core.windows.net/mycontainer1 --destination https://myaccount.blob.core.windows.net/mycontainer2 --recursiveourceSAS:SAS1 /DestSAS:SAS2 --include abc.txt
+azcopy --source https://myaccount.blob.core.windows.net/mycontainer1 --destination https://myaccount.blob.core.windows.net/mycontainer2 --source-sas <SAS1> --dest-sas <SAS2> --include abc.txt
 ```
 
 You can also specify a SAS on the container URI:
 
 ```azcopy
-AzCopy --source https://myaccount.blob.core.windows.net/mycontainer1/?SourceSASToken --destination C:\myfolder --recursive
+azcopy --source https://myaccount.blob.core.windows.net/mycontainer1/?SourceSASToken --destination /mnt/myfiles --recursive
 ```
 
 ### Journal file folder
@@ -440,15 +438,15 @@ If the journal file does exist, AzCopy will check whether the command line that 
 If you want to use the default location for the journal file:
 
 ```azcopy
-AzCopy --source C:\myfolder --destination https://myaccount.blob.core.windows.net/mycontainer --dest-key key /Z
+azcopy --source /mnt/myfiles --destination https://myaccount.blob.core.windows.net/mycontainer --dest-key <key> --resume
 ```
 
-If you omit option `/Z`, or specify option `/Z` without the folder path, as shown above, AzCopy creates the journal file in the default location, which is `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`. If the journal file already exists, then AzCopy resumes the operation based on the journal file.
+If you omit option `--resume`, or specify option `--resume` without the folder path, as shown above, AzCopy creates the journal file in the default location, which is `~\Microsoft\Azure\AzCopy`. If the journal file already exists, then AzCopy resumes the operation based on the journal file.
 
 If you want to specify a custom location for the journal file:
 
 ```azcopy
-AzCopy --source C:\myfolder --destination https://myaccount.blob.core.windows.net/mycontainer --dest-key key /Z:C:\journalfolder\
+azcopy --source /mnt/myfiles --destination https://myaccount.blob.core.windows.net/mycontainer --dest-key key --resume "~"
 ```
 
 This example creates the journal file if it does not already exist. If it does exist, then AzCopy resumes the operation based on the journal file.
@@ -456,49 +454,25 @@ This example creates the journal file if it does not already exist. If it does e
 If you want to resume an AzCopy operation:
 
 ```azcopy
-AzCopy /Z:C:\journalfolder\
+azcopy --resume "~"
 ```
 
 This example resumes the last operation, which may have failed to complete.
 
-### Generate a log file
+### Output verbose logs
 
 ```azcopy
-AzCopy --source C:\myfolder --destination https://myaccount.blob.core.windows.net/mycontainer --dest-key key /V
+azcopy --source /mnt/myfiles --destination https://myaccount.blob.core.windows.net/mycontainer --dest-key <key> --verbose
 ```
-
-If you specify option `/V` without providing a file path to the verbose log, then AzCopy creates the log file in the default location, which is `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`.
-
-Otherwise, you can create an log file in a custom location:
-
-```azcopy
-AzCopy --source C:\myfolder --destination https://myaccount.blob.core.windows.net/mycontainer --dest-key key /V:C:\myfolder\azcopy1.log
-```
-
-Note that if you specify a relative path following option `/V`, such as `/V:test/azcopy1.log`, then the verbose log is created in the current working directory within a subfolder named `test`.
 
 ### Specify the number of concurrent operations to start
-Option `/NC` specifies the number of concurrent copy operations. By default, AzCopy starts a certain number of concurrent operations to increase the data transfer throughput. For Table operations, the number of concurrent operations is equal to the number of processors you have. For Blob and File operations, the number of concurrent operations is equal 8 times the number of processors you have. If you are running AzCopy across a low-bandwidth network, you can specify a lower number for /NC to avoid failure caused by resource competition.
-
-### Run AzCopy against Azure Storage Emulator
-You can run AzCopy against the [Azure Storage Emulator](storage-use-emulator.md) for Blobs:
-
-```azcopy
-AzCopy --source https://127.0.0.1:10000/myaccount/mycontainer/ --destination C:\myfolder --source-keykey --recursiveourceType:Blob --recursive
-```
-
-and Tables:
-
-```azcopy
-AzCopy --source https://127.0.0.1:10002/myaccount/mytable/ --destination C:\myfolder --source-keykey --recursiveourceType:Table
-```
+Option `--parallel-level` specifies the number of concurrent copy operations. By default, AzCopy starts a certain number of concurrent operations to increase the data transfer throughput. For Table operations, the number of concurrent operations is equal to the number of processors you have. For Blob and File operations, the number of concurrent operations is equal 8 times the number of processors you have. If you are running AzCopy across a low-bandwidth network, you can specify a lower number for --parallel-level to avoid failure caused by resource competition.
 
 ## AzCopy Parameters
 Parameters for AzCopy are described below. You can also type one of the following commands from the command line for help in using AzCopy:
 
-* For detailed command-line help for AzCopy: `AzCopy /?`
-* For detailed help with any AzCopy parameter: `AzCopy /?:SourceKey`
-* For command-line examples: `AzCopy /?:Samples`
+* For detailed command-line help for AzCopy: `AzCopy --help`
+* For detailed help with any AzCopy parameter: `AzCopy --source-key --help`
 
 ### --source "source"
 Specifies the source data from which to copy. The source can be a file system directory, a blob container, a blob virtual directory, a storage file share, a storage file directory, or an Azure table.
@@ -522,8 +496,8 @@ The default file pattern used when no file pattern is specified is *.* for a fil
 ### --dest-key "storage-key"
 Specifies the storage account key for the destination resource.
 
-### -dest-sas "sas-token"
-Specifies a Shared Access Signature (SAS) with READ and WRITE permissions for the destination (if applicable). Surround the SAS with double quotes, as it may contains special command-line characters.
+### --dest-sas "sas-token"
+Specifies a Shared Access Signature (SAS) with READ and WRITE permissions for the destination (if applicable). Surround the SAS with double quotes, as it may contain special command-line characters.
 
 If the destination resource is a blob container, file share or table, you can either specify this option followed by the SAS token, or you can specify the SAS as part of the destination blob container, file share or table's URI, without this option.
 
@@ -660,7 +634,7 @@ For property "AzureStorageUseV1MD5"
 • True - The default value, AzCopy will use .NET MD5 implementation.
 • False – AzCopy will use FIPS compliant MD5 algorithm.
 
-Note that FIPS compliant algorithms is disabled by default on your Windows machine, you can type secpol.msc in your Run window and check this switch at Security Setting->Local Policy->Security Options->System cryptography: Use FIPS compliant algorithms for encryption, hashing and signing.
+Note that FIPS compliant algorithms are disabled by default on your Windows machine, you can type secpol.msc in your Run window and check this switch at Security Setting->Local Policy->Security Options->System cryptography: Use FIPS compliant algorithms for encryption, hashing and signing.
 
 ## Next steps
 For more information about Azure Storage and AzCopy, refer to the following resources.
