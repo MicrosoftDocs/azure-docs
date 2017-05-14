@@ -16,7 +16,7 @@ ms.date: 05/12/2017
 ms.author: mimig
 ---
 
-## Welcome DocumentDB customers
+# Welcome DocumentDB customers
 
 DocumentDB customers, we are excited to let you know that you now part of the Azure Cosmos DB family! 
 
