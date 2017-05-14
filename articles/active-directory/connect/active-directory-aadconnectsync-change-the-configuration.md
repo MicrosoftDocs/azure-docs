@@ -176,19 +176,23 @@ Azure AD Connect supports synchronization of the **PreferredDataLocation** attri
 
 * The schema of the object type **Person** in the **Metaverse** is extended to include PreferredDataLocation attribute, which is of type **string** and is **single-valued**.
 
-By default, the PreferredDataLocation attribute is not enabled for synchronization because there is no corresponding PreferredDataLocation attribute in on-premises Active Directory. Before enabling synchronization of the PreferredDataLocation attribute, you must:
-
- * First, decide which on-premises Active Directory attribute to be used as the source attribute. It should be of type string and is single-valued.
-
- * If you have previously configured the PreferredDataLocation attribute on existing synchronized User objects in Azure AD using Azure AD PowerShell, you must backport the attribute values to the corresponding User objects in on-premises Active Directory.
-
-> [!IMPORTANT]
-> If you do not backport the attribute values to the corresponding User objects in on-premises Active Directory, Azure AD Connect will remove the existing attribute values in Azure AD when synchronization for the PreferredDataLocation attribute is enabled.
+By default, the PreferredDataLocation attribute is not enabled for synchronization because there is no corresponding PreferredDataLocation attribute in on-premises Active Directory. You must manually enable synchronization.
 
 > [!IMPORTANT]
 > Currently, Azure AD allows the PreferredDataLocation attribute on both synchronized User objects and cloud User objects to be directly configured using Azure AD PowerShell. On September 1st 2017, Azure AD will no longer let you do so for "synchronized User objects" using Azure AD PowerShell. To configure PreferredLocation attribute on synchronized User objects, you must use Azure AD Connect.
 
-The steps to enable Synchronization of the PreferredDataLocation attribute can be summarized as:
+Before enabling synchronization of the PreferredDataLocation attribute, you must:
+
+ * First, decide which on-premises Active Directory attribute to be used as the source attribute. It should be of type string and is single-valued.
+
+ * If you have previously configured the PreferredDataLocation attribute on existing synchronized User objects in Azure AD using Azure AD PowerShell, you must backport the attribute values to the corresponding User objects in on-premises Active Directory.
+ 
+    > [!IMPORTANT]
+    > If you do not backport the attribute values to the corresponding User objects in on-premises Active Directory, Azure AD Connect will remove the existing attribute values in Azure AD when synchronization for the PreferredDataLocation attribute is enabled.
+
+ * It is recommended you configure the source attribute on at least a couple of on-premises AD User objects now, which can be used for verification later.
+ 
+The steps to enable synchronization of the PreferredDataLocation attribute can be summarized as:
 
 1. Disable sync scheduler and verify there is no synchronization in progress
 
@@ -315,7 +319,7 @@ By default, the PreferredDataLocation attribute is not imported into the Azure A
 7. Close **Save** to create the outbound rule.
 
 ### Step 6: Run Full Synchronization cycle
-In general, full synchronization cycle is required since we have added new attributes to both the AD and Azure AD Connector schema, and introduced custom synchronization rules. It is recommended that you verify the changes before exporting them to Azure AD.
+In general, full synchronization cycle is required since we have added new attributes to both the AD and Azure AD Connector schema, and introduced custom synchronization rules. It is recommended that you verify the changes before exporting them to Azure AD. You can follow the steps below to verify the configurations and changes while running the steps which make up a full synchronization cycle manually. You can adapt the steps according to your Azure AD Connect deployment (e.g., you may have a staging server which you can use).
 
 1. Run **Full import** step on the **on-premises AD Connector**:
 
@@ -328,7 +332,7 @@ In general, full synchronization cycle is required since we have added new attri
    4. Wait for operation to complete.
 
     > [!NOTE]
-    > You can skip Full Import on the on-premises AD Connector if the source attribute is already included in the list of imported attributes, i.e., you did not have to make any change during [Step 2: Add the source attribute to the AD Connector schema](#step-2-add-the-source-attribute-to-the-ad-connector-schema).
+    > You can skip Full Import on the on-premises AD Connector if the source attribute is already included in the list of imported attributes. In other words, you did not have to make any change during [Step 2: Add the source attribute to the AD Connector schema](#step-2-add-the-source-attribute-to-the-ad-connector-schema).
 
 2. Run **Full import** step on the **Azure AD Connector**:
 
@@ -338,7 +342,11 @@ In general, full synchronization cycle is required since we have added new attri
    
    3. Wait for operation to complete.
 
-3. Run **Full Synchronization** step on the **AD Connector**:
+3. Verify the synchronization rule changes on an existing User object
+Now that the source attribute from on-premises Active Directory and PreferredDataLocation from Azure AD have been imported into the respective Connecter Space, it is recommended that you do a **Preview** on an existing User object in the on-premises AD Connector Space. The object you picked should have the source attribute populated. A successful **Preview** with the PreferredDataLocation populated in the Metaverse is a good indicator that you have configured the synchronization rules correctly.
+
+
+4. Run **Full Synchronization** step on the **AD Connector**:
 
    1. Right-click on the **AD Connector** and select **Run...**
   
@@ -346,7 +354,7 @@ In general, full synchronization cycle is required since we have added new attri
    
    3. Wait for operation to complete.
 
-4. Run **Full Synchronization** step on the **Azure AD Connector**:
+5. Run **Full Synchronization** step on the **Azure AD Connector**:
 
    1. Right-click on the **Azure AD Connector** and select **Run...**
 
@@ -354,7 +362,7 @@ In general, full synchronization cycle is required since we have added new attri
 
    3. Wait for operation to complete.
 
-5. Verify **Pending Exports** to Azure AD:
+6. Verify **Pending Exports** to Azure AD:
 
    1. Right-click on the **Azure AD Connector** and select **Search Connector Space**.
 
@@ -368,7 +376,7 @@ In general, full synchronization cycle is required since we have added new attri
       
       4. Verify there are no unexpected changes.
 
-6. Run **Export** step on the **Azure AD Connector**
+7. Run **Export** step on the **Azure AD Connector**
       
    1. Right-click on the **Azure AD Connector** and select **Run...**
    
