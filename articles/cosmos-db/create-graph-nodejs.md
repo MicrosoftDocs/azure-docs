@@ -95,17 +95,21 @@ Now go back to the Azure portal to get your connection string information and co
 
     `config.endpoint = "GRAPHENDPOINT";`
 
+3. Replace documentdb.azure.com portion of the URI with graphs.azure.com.
+
 3. Then copy your PRIMARY KEY value from the portal and make it the value of config.primaryKey in config.js. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
     `config.primaryKey = "PRIMARYKEY";`
 
 ## Run the console app
 
-1. Run `npm install` in a terminal to install required npm modules
+1. Open a terminal window and `cd` to a the installation directory for the package.json file included in the project.  
 
-2. Replace the contents of `node_modules\gremlin` with the source code from [the Cosmos DB Gremlin fork](https://github.com/CosmosDB/gremlin-javascript), which has support for SSL and SASL, which are required for Azure Cosmos DB, but not currently supported by the driver (temporarily until the changes are accepted in the driver).
+2. Run `npm install gremlin` to install required npm modules.
 
-2. Run `node app.js` in a terminal to start your node application.
+3. Replace the contents of the `node_modules\gremlin` folder with the source code from [the Cosmos DB Gremlin fork](https://github.com/CosmosDB/gremlin-javascript), which has support for SSL and SASL, which are required for Azure Cosmos DB, but not currently supported by the driver (temporarily until the changes are accepted in the driver).
+
+4. Run `node app.js` in a terminal to start your node application.
 
 You can now go back to Data Explorer and see query, modify, and work with this new data. 
 
