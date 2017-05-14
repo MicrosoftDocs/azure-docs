@@ -94,9 +94,9 @@ Consistent prefix is a new consistency level available to all Azure Cosmos DB ac
 
 With DocumentDB, you could scale your throughput from 400-250K RU/s in the portal or using the APIs. However if you had a spiky workload, many customers would over provision their throughput to avoid throttling during peak usage. 
 
-To give customers a way to provide predictable performance when they have unpredictable needs and spiky workloads, we introduced the concept of request units per minute (RU/m). With RU/m, you get 10 times your provisioned RU/s value for use across each 60 second period. So if you provision 400 RU/s and you enable RU/m, you'll get 4,000 RU/m provisioned to use across each 60 second period. Each 60 seconds the allotment is refilled for you to use. So if you normally only use 300 RU/s, but need 2500 RU/s to handle occasional spikes, it's likely cost effective to turn on the RU/m feature so that you don't get throttled. 
+To give customers a way to provide predictable performance when they have unpredictable needs and spiky workloads, Azure Cosmos DB also supports request units per minute (RU/m). With RU/m, you get 10 times your provisioned RU/s value for use across each 60 second period. So if you provision 400 RU/s and you enable RU/m, you'll get 4,000 RU/m provisioned to use across each 60 second period. Each 60 seconds the allotment is refilled for you to use. So if you normally only use 300 RU/s, but need 2500 RU/s to handle occasional spikes, it's likely cost effective to turn on the RU/m feature so that you don't get throttled. 
 
-Learn more about RU/m in the [Request units per minute in Azure Cosmos](request-units-per-minute.md) article. 
+Learn more about RU/m in the [Request units per minute in Azure Cosmos DB](request-units-per-minute.md) article. 
 
 ## Next steps
 
@@ -112,4 +112,4 @@ You can also read more about Azure Cosmos DB in these announcements and overview
 
 Thanks,
 
-The DocumentDB team
+The Azure Cosmos DB team
