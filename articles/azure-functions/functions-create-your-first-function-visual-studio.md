@@ -28,10 +28,9 @@ In this tutorial, you will learn how to create an Azure Function app using *Func
 Before running this sample, you must have the following:
 
 * An active Azure subscription.
-* Visual Studio 2017 (version 15.3) Preview (it will not work with any earlier versions of Visual Studio)
-* *Azure Functions Core Tools*
-* Either the *ASP.NET and web development* or *Azure development* workload installed
-Download and install the Visual Studio 2017 Tools for Azure Functions extension
+* ![Visual Studio 2017 (version 15.3) Preview](https://www.visualstudio.com/vs/preview/) (it will not work with any earlier versions of Visual Studio)
+* ![Azure Functions Core Tools] (https://marketplace.visualstudio.com/vsgallery/e3705d94-7cc3-4b79-ba7b-f43f30774d28)
+    * Either the ASP.NET and web development or Azure development workload installed
 
 If you don't have an Azure subscription, create a ![free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -109,13 +108,13 @@ namespace FunctionApp1
 
 Just as you would with other Visual Studio projects, you can use the built-in debugging tools to test your function.
 
-Click *Start* > *Debug* or press *F5* to run the application. Notice that Visual Studio launches a command window that prepares a local environment in which to test your function. To test your HTTP Trigger: 
+Click *Start* > *Debug* or press *F5* to run the application. This causes Visual Studio to launch a command window that prepares a local environment in which to run and test your function. 
 
 ![Azure local runtime](./media/functions-create-your-first-function-visual-studio/functions-vstools-f5.png)
 
-When you run the function, notice that the build process creates a *function.json* file with the required bindings for the function's trigger, input, and output bindings.  Visual Studio creates the *function.json* file from the attributes applied to the `Run` method in your code. In the previous example, the bindings are defined in the `HttpTrigger` attribute.
+When you run the function, the build process creates a *function.json* file with the required bindings for the function's trigger, input, and output bindings.  Visual Studio creates the *function.json* file from the attributes applied to the `Run` method in your code. In the previous example, the bindings are defined in the `HttpTrigger` attribute.
 
-Obtain the endpoint for your function by examining the output of the functions runtime. You will see a local address, port, and path. You can then open a browser and navigate to the function's HTTP endpoint to verify the function works.
+You can obtain the endpoint for your function by examining the output of the functions runtime. You should see a local address, port, and path to where the function is listening. You can then open a browser and navigate to the function's HTTP endpoint to verify the function works.
 
 To stop debugging, click the *Stop* button on the Visual Studio toolbar, or click *Debug* > *Stop Debugging*.
 
