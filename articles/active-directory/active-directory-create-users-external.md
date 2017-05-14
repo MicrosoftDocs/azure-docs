@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 05/14/2017
 ms.author: curtand
 
 ---
 # Add users from other directories or partner companies in Azure Active Directory
 > [!div class="op_single_selector"]
-> * [Azure portal](active-directory-users-create-external-azure-portal.md)
+> * [Azure portal](active-directory-users-create-external-azure-portal.md )
 > * [Azure classic portal](active-directory-create-users-external.md)
 >
 >
@@ -41,8 +41,7 @@ This article explains how to add users from other directories in Azure Active Di
 > If your organization uses more than one domain, you should know about the following issues when you add a user account:
 >
 > * TO add user accounts with the same user principal name (UPN) across domains, **first** add, for example, geoffgrisso@contoso.onmicrosoft.com, **followed by** geoffgrisso@contoso.com.
-> * **Don't** add geoffgrisso@contoso.com before you add geoffgrisso@contoso.onmicrosoft.com. This order is important, and can be cumbersome to undo.
->
+> * **Don't** add geoffgrisso@contoso.com before you add geoffgrisso@contoso.onmicrosoft.com.
 >
 
 If you change information for a user whose identity is synchronized with your on-premises Active Directory service, you can't change the user information in the Azure classic portal. To change the user information, use your on-premises Active Directory management tools.
