@@ -68,32 +68,53 @@ For this reason, the following restrictions apply to Azure AD Connect:
 * If the value for sourceAnchor is changed after the object has been exported to Azure AD, then Azure AD Connect sync throws an error and does not allow any more changes on that object before the issue has been fixed and the sourceAnchor is changed back in the source directory.
 
 ## msDS-ConsistencyGuid as sourceAnchor
-By default, Azure AD Connect (version 1.1.486.0 and older) uses objectGUID as the sourceAnchor attribute. ObjectGUID is system-generated. You cannot specify its value when creating on-premises AD objects. As explained in earlier section on [sourceAnchor](#sourceanchor), there are scenarios where you need to specify the sourceAnchor value. If the scenarios are applicable to you, you must use a settable AD attribute such as msDS-ConsistencyGuid as the sourceAnchor attribute.
+By default, Azure AD Connect (version 1.1.486.0 and older) uses objectGUID as the sourceAnchor attribute. ObjectGUID is system-generated. You cannot specify its value when creating on-premises AD objects. As explained in section [sourceAnchor](#sourceanchor), there are scenarios where you need to specify the sourceAnchor value. If the scenarios are applicable to you, you must use a configurable AD attribute (for example, msDS-ConsistencyGuid) as the sourceAnchor attribute.
 
-Azure AD Connect (version 1.1.524.0 and after) now facilitates the use of msDS-ConsistencyGuid as sourceAnchor attribute. If you choose to use this feature, Azure AD Connect will:
+Azure AD Connect (version 1.1.524.0 and after) now facilitates the use of msDS-ConsistencyGuid as sourceAnchor attribute. When using this feature, Azure AD Connect does the following:
 
-1. Configure msDS-ConsistencyGuid as the sourceAnchor attribute.
+1. Configures the use of msDS-ConsistencyGuid as the sourceAnchor attribute.
 
-2. For a given on-premises AD object, if its msDS-ConsistencyGuid attribute is not populated, Azure AD Connect will populate it with objectGUID before exporting the object to Azure AD.
+2. For any given on-premises AD object whose msDS-ConsistencyGuid attribute isn't populated, Azure AD Connect writes its objectGUID value back to the msDS-ConsistencyGuid attribute in on-premises Active Directory. After the msDS-ConsistencyGuid attribute is populated, Azure AD Connect then exports the object to Azure AD.
 
 >[!NOTE]
-> Once an on-premises AD object is imported into Azure AD Connect (i.e., imported into the AD Connector Space and projected into the Metaverse), you cannot change its sourceAnchor value anymore. To specify the sourceAnchor value for a given on-premises AD object, configure its msDS-ConsistencyGuid attribute before the object is imported into Azure AD Connect.
+> Once an on-premises AD object is imported into Azure AD Connect (i.e., imported into the AD Connector Space and projected into the Metaverse), you cannot change its sourceAnchor value anymore. To specify the sourceAnchor value for a given on-premises AD object, configure its msDS-ConsistencyGuid attribute before it is imported into Azure AD Connect.
 
 ### How to enable the ConsistencyGuid feature
-The feature is available in Azure AD Connect build 1.1.524.0 and after. It is only applicable to new Azure AD Connect installation only.
+Currently, the feature can only be enabled during new Azure AD Connect installation only.
 
 #### Express Installation
-When installing Azure AD Connect using Express mode, Azure AD Connect automatically determines the most appropriate sourceAnchor attribute using the following logic:
+When installing Azure AD Connect with Express mode, the Azure AD Connect wizard automatically determines the most appropriate AD attribute to use as the sourceAnchor attribute using the following logic:
 
 * First, the Azure AD Connect wizard queries your Azure AD tenant to retrieve the AD attribute used as the sourceAnchor attribute in the previous Azure AD Connect installation (if any). If this information is available, Azure AD Connect uses the same AD attribute. If the information isn't available...
 
-* Azure AD Connect Setup checks the state of the msDS-ConsistencyGuid attribute in your on-premises Active Directory. If the attribute isn't configured on any object in the directory, the wizard uses the msDS-ConsistencyGuid as the sourceAnchor attribute.
+* The wizard checks the state of the msDS-ConsistencyGuid attribute in your on-premises Active Directory. If the attribute isn't configured on any object in the directory, the wizard uses the msDS-ConsistencyGuid as the sourceAnchor attribute. If the attribute is configured on one or more objects in the directory, the wizard concludes that the attribute is already in use by other applications and is not suitable for use as the sourceAnchor attribute...
 
-* If the attribute is configured on one or more objects in the directory, the wizard concludes that the attribute is already in use by other applications and is therefore not suitable for use as the sourceAnchor attribute. In which case, Azure AD Connect falls back to using objectGUID as the Source Anchor attribute.
+* In which case, the wizard falls back to using objectGUID as the sourceAnchor attribute.
 
-Note that this information is only available in Azure AD if the previous Azure AD Connect installation is build 1.1.524.0 or after.
+* Once the sourceAnchor attribute is decided, the wizard stores the information in your Azure AD tenant. The information will be used by future installation of Azure AD Connect.
 
-As illustrated in the following screenshot below, you will be informed which attribute has been picked as the Source Anchor attribute once Express installation completes.
+  >[!NOTE]
+  > Only newer versions of Azure AD Connect (1.1.524.0 and after) stores information in your Azure AD tenant about the sourceAnchor attribute used. Older versions of Azure AD Connect do not.
+
+Once Express installation completes, the wizard informs you which attribute has been picked as the Source Anchor attribute.
+
+#### Custom installation
+When installing Azure AD Connect with Custom mode, the Azure AD Connect wizard provides 2 options when configuring sourceAnchor attribute:
+
+| Setting | Description |
+| --- | --- |
+| Let Azure manage the source anchor for me | Select this option if you want Azure AD to pick the attribute for you. If you select this option, Azure AD Connect wizard apply the same logic used during Express installation. Similar to Express installation, the wizard informs you which attribute has been picked as the Source Anchor attribute after Custom installation completes. |
+| A specific attribute | Select this option if you wish to specify an existing AD attribute as the sourceAnchor attribute. |
+
+### Important Points to note when using msDS-ConsistencyGuid as sourceAnchor
+
+#### Impact on AD FS or 3rd party federation configuration
+If you are using Azure AD Connect to manage on-premises AD FS deployment, the claim rules will automatically be configured to use the same AD attribute as sourceAnchor. This ensure that the ImmutableID claim generated by ADFS is consistent with the sourceAnchor values exported to Azure AD.
+
+If you are managing AD FS outside of Azure AD Connect or you are using other 3rd party federation servers for authentication, you must manually update the claim rules for ImmutableID as described in article section [Manage and customize Active Directory Federation Services by using Azure AD Connect - Modify AD FS claim rules](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-management#modclaims).
+
+#### Known limitation
+Currently, the feature is only available to new installation only. We are working to make the feature available to existing customers.
 
 
 ## Azure AD sign-in
