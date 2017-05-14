@@ -14,9 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
-ms.date: 04/10/2017
+wms.date: 05/14/2017
 ms.author: srinia
-
 ---
 
 # Create and manage an elastic pool with PowerShell
