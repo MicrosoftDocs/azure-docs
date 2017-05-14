@@ -3,7 +3,7 @@
 ## [How does Site Recovery work?](site-recovery-components.md)
 ## [How does Hyper-V replication to Azure work?](site-recovery-hyper-v-azure-architecture.md)
 ## [What workloads can you protect?](site-recovery-workload.md)
-## [Site Recovery support matrix](site-recovery-support-matrix-to-azure.md)
+## [Site Recovery support matrix](site-recovery-support-matrix-azure-to-azure.md)
 ## [FAQ](site-recovery-faq.md)
 ## [Watch an introduction](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
