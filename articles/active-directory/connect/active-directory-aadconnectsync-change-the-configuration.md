@@ -200,13 +200,16 @@ The steps to enable synchronization of the PreferredDataLocation attribute can b
 
 3. Add PreferredDataLocation to the AAD Connector schema
 
-4. Create an inbound synchronization rule to flow the source attribute value from on-premises Active Directory to the Metaverse
+4. Create an inbound synchronization rule to flow the attribute value from on-premises Active Directory
 
-5. Create an outbound synchronization rule to flow the attribute value from the Metaverse to Azure AD
+5. Create an outbound synchronization rule to flow the attribute value to Azure AD
 
-6. Run Full Synchronization Cycle on the AD Connector
+6. Run Full Synchronization cycle
 
 7. Enable sync scheduler
+
+> [!NOTE]
+> The rest of this section covers the steps above in details. They are described in the context of an Azure AD deployment with single-forest topology and without custom synchronization rules. If you have multi-forest topology, custom synchronization rules configured or have a staging server, you need to adjust the steps accordingly.
 
 ### Step 1: Disable sync scheduler and verify there is no synchronization in progress
 Ensure no synchronization takes place while you are in the middle of updating synchronization rules to avoid unintended changes being exported to Azure AD. To disable the built-in sync scheduler:
@@ -245,7 +248,8 @@ By default, the PreferredDataLocation attribute is not imported into the Azure A
 
  5. Click **OK** to save.
 
-### Step 4: Create an inbound synchronization rule to flow the attribute value from on-premises Active Directory into the Metaverse
+### Step 4: Create an inbound synchronization rule to flow the attribute value from on-premises Active Directory
+The inbound synchronization rule permits the attribute value to flow from the source attribute from on-premises Active Directory to the Metaverse:
 
 1. Start the **Synchronization Rules Editor** by going to START → Synchronization Rules Editor.
 
@@ -281,7 +285,8 @@ By default, the PreferredDataLocation attribute is not imported into the Azure A
 
 7. Click **Save** to create the inbound rule.
 
-### Step 5: Create an outbound synchronization rule to flow the attribute value from the Metaverse to Azure AD
+### Step 5: Create an outbound synchronization rule to flow the attribute value to Azure AD
+The outbound synchronization rule permits the attribute value to flow from the Metaverse to the PreferredDataLocation attribute in Azure AD:
 
 1. Go to the **Synchronization Rules** Editor.
 
@@ -319,7 +324,7 @@ By default, the PreferredDataLocation attribute is not imported into the Azure A
 7. Close **Save** to create the outbound rule.
 
 ### Step 6: Run Full Synchronization cycle
-In general, full synchronization cycle is required since we have added new attributes to both the AD and Azure AD Connector schema, and introduced custom synchronization rules. It is recommended that you verify the changes before exporting them to Azure AD. You can follow the steps below to verify the configurations and changes while running the steps which make up a full synchronization cycle manually. You can adapt the steps according to your Azure AD Connect deployment (e.g., you may have a staging server which you can use).
+In general, full synchronization cycle is required since we have added new attributes to both the AD and Azure AD Connector schema, and introduced custom synchronization rules. It is recommended that you verify the changes before exporting them to Azure AD. You can follow the steps below to verify the configurations and changes while running the steps which make up a full synchronization cycle manually. 
 
 1. Run **Full import** step on the **on-premises AD Connector**:
 
@@ -343,8 +348,7 @@ In general, full synchronization cycle is required since we have added new attri
    3. Wait for operation to complete.
 
 3. Verify the synchronization rule changes on an existing User object
-Now that the source attribute from on-premises Active Directory and PreferredDataLocation from Azure AD have been imported into the respective Connecter Space, it is recommended that you do a **Preview** on an existing User object in the on-premises AD Connector Space. The object you picked should have the source attribute populated. A successful **Preview** with the PreferredDataLocation populated in the Metaverse is a good indicator that you have configured the synchronization rules correctly.
-
+The source attribute from on-premises Active Directory and PreferredDataLocation from Azure AD have been imported into the respective Connecter Space. Before proceeding with Full Synchronization step, it is recommended that you do a **Preview** on an existing User object in the on-premises AD Connector Space. The object you picked should have the source attribute populated. A successful **Preview** with the PreferredDataLocation populated in the Metaverse is a good indicator that you have configured the synchronization rules correctly. For information about how to do a **Preview**, refer to section [Verify the change](#verify-the-change).
 
 4. Run **Full Synchronization** step on the **AD Connector**:
 
@@ -354,15 +358,7 @@ Now that the source attribute from on-premises Active Directory and PreferredDat
    
    3. Wait for operation to complete.
 
-5. Run **Full Synchronization** step on the **Azure AD Connector**:
-
-   1. Right-click on the **Azure AD Connector** and select **Run...**
-
-   2. In the Run Connector pop-up dialog, select **Full Synchronization** and click **OK**.
-
-   3. Wait for operation to complete.
-
-6. Verify **Pending Exports** to Azure AD:
+5. Verify **Pending Exports** to Azure AD:
 
    1. Right-click on the **Azure AD Connector** and select **Search Connector Space**.
 
@@ -376,13 +372,16 @@ Now that the source attribute from on-premises Active Directory and PreferredDat
       
       4. Verify there are no unexpected changes.
 
-7. Run **Export** step on the **Azure AD Connector**
+6. Run **Export** step on the **Azure AD Connector**
       
    1. Right-click on the **Azure AD Connector** and select **Run...**
    
    2. In the Run Connector pop-up dialog, select **Export** and click **OK**.
    
    3. Wait for Export to Azure AD to complete.
+
+> [!NOTE]
+> You may notice that the steps above do not include the Full Synchronization step and Export step on the Azure AD Connector. The steps are not required since the attribute flow is from on-premises Active Directory to Azure AD only.
 
 ### Step 7: Re-enable sync scheduler
 Re-enable the built-in sync scheduler:
