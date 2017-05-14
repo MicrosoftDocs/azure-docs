@@ -186,7 +186,7 @@ After the upload operation, the container includes the following files:
     subfolder/a.txt
     subfolder/abcd.txt
 
-When the option `--recursive` is not specified, only the following 3 files are uploaded:
+When the option `--recursive` is not specified, only the following three files are uploaded:
 
     abc.txt
     abc1.txt
@@ -272,7 +272,7 @@ After the copy operation, the target container includes the blob and its snapsho
     abc (2014-02-21 150331).txt
 
 ### Synchronously copy blobs across Storage accounts
-AzCopy by default copies data between two storage endpoints asynchronously. Therefore, the copy operation runs in the background using spare bandwidth capacity that has no SLA in terms of how fast a blob is copied, and AzCopy periodically checks the copy status until the copying is completed or failed.
+AzCopy by default copies data between two storage endpoints asynchronously. Therefore, the copy operation runs in the background using spare bandwidth capacity that has no SLA in terms of how fast a blob is copied. 
 
 The `--sync-copy` option ensures that the copy operation gets consistent speed. AzCopy performs the synchronous copy by downloading the blobs to copy from the specified source to local memory, and then uploading them to the Blob storage destination.
 
@@ -280,7 +280,7 @@ The `--sync-copy` option ensures that the copy operation gets consistent speed. 
 azcopy --source https://myaccount1.blob.core.windows.net/myContainer/ --destination https://myaccount2.blob.core.windows.net/myContainer/ --source-key <key1> --dest-key <key2> --include "ab" --sync-copy
 ```
 
-`--sync-copy` might generate additional egress cost compared to asynchronous copy, the recommended approach is to use this option in an Azure VM that is in the same region as your source storage account to avoid egress cost.
+`--sync-copy` might generate additional egress cost compared to asynchronous copy. The recommended approach is to use this option in an Azure VM, that is in the same region as your source storage account to avoid egress cost.
 
 ## File: Download
 ### Download single file
@@ -344,7 +344,7 @@ azcopy --source https://myaccount1.blob.core.windows.net/mycontainer/ --destinat
 When you copy a file from blob to file share, a [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operation is performed.
 
 ### Synchronously copy files
-You can specify the `--sync-copy` option to copy data from File Storage to File Storage, from File Storage to Blob Storage and from Blob Storage to File Storage synchronously, AzCopy does this by downloading the source data to local memory and upload it again to destination. Standard egress cost applies.
+You can specify the `--sync-copy` option to copy data from File Storage to File Storage, from File Storage to Blob Storage and from Blob Storage to File Storage synchronously. AzCopy runs this operation by downloading the source data to local memory, and then uploading it to destination. In this case, standard egress cost applies.
 
 ```azcopy
 azcopy --source https://myaccount1.file.core.windows.net/myfileshare1/ --destination https://myaccount2.file.core.windows.net/myfileshare2/ --source-key <key1> --dest-key <key2> --recursive --sync-copy
@@ -352,7 +352,7 @@ azcopy --source https://myaccount1.file.core.windows.net/myfileshare1/ --destina
 
 When copying from File Storage to Blob Storage, the default blob type is block blob, user can specify option `/BlobType:page` to change the destination blob type.
 
-Note that `--sync-copy` might generate additional egress cost comparing to asynchronous copy, the recommended approach is to use this option in the Azure VM which is in the same region as your source storage account to avoid egress cost.
+Note that `--sync-copy` might generate additional egress cost comparing to asynchronous copy. The recommended approach is to use this option in an Azure VM, that is in the same region as your source storage account to avoid egress cost.
 
 ## Other AzCopy features
 ### Only copy data that doesn't exist in the destination
@@ -372,7 +372,7 @@ azcopy --config-file "azcopy-config.ini"
 
 You can include any AzCopy command-line parameters in a configuration file. AzCopy processes the parameters in the file as if they had been specified on the command line, performing a direct substitution with the contents of the file.
 
-Assume a configuration file named `copyoperation`, that contains the following lines. Each AzCopy parameter can be specified on a single line
+Assume a configuration file named `copyoperation`, that contains the following lines. Each AzCopy parameter can be specified on a single line.
 
     --source http://myaccount.blob.core.windows.net/mycontainer --destination /mnt/myfiles --source-key <sourcekey> --recursive --quiet
 
@@ -466,7 +466,7 @@ azcopy --source /mnt/myfiles --destination https://myaccount.blob.core.windows.n
 ```
 
 ### Specify the number of concurrent operations to start
-Option `--parallel-level` specifies the number of concurrent copy operations. By default, AzCopy starts a certain number of concurrent operations to increase the data transfer throughput. For Table operations, the number of concurrent operations is equal to the number of processors you have. For Blob and File operations, the number of concurrent operations is equal 8 times the number of processors you have. If you are running AzCopy across a low-bandwidth network, you can specify a lower number for --parallel-level to avoid failure caused by resource competition.
+Option `--parallel-level` specifies the number of concurrent copy operations. By default, AzCopy starts a certain number of concurrent operations to increase the data transfer throughput. For Table operations, the number of concurrent operations is equal to the number of processors you have. For Blob and File operations, the number of concurrent operations is equal eight times the number of processors you have. If you are running AzCopy across a low-bandwidth network, you can specify a lower number for --parallel-level to avoid failure caused by resource competition.
 
 ## AzCopy Parameters
 Parameters for AzCopy are described below. You can also type one of the following commands from the command line for help in using AzCopy:
@@ -507,7 +507,7 @@ If the source and destination are both blobs, then the destination blob must res
 Specifies the storage account key for the source resource.
 
 ### --source-sas "sas-token"
-Specifies a Shared Access Signature with READ and LIST permissions for the source (if applicable). Surround the SAS with double quotes, as it may contains special command-line characters.
+Specifies a Shared Access Signature with READ and LIST permissions for the source (if applicable). Surround the SAS with double quotes, as it may contain special command-line characters.
 
 If the source resource is a blob container, and neither a key nor a SAS is provided, then the blob container is read via anonymous access.
 
@@ -564,7 +564,7 @@ You can specify multiple configuration files. However, note that AzCopy does not
 Suppresses all AzCopy confirmation prompts.
 
 ### --dry-run
-Specifies a listing operation only; no data is copied.
+Specifies a listing operation only. No data is copied.
 
 AzCopy interprets the using of this option as a simulation for running the command line without this option --dry-run and count how many objects are copied, you can specify option --verbose at the same time to check which objects are copied in the verbose log.
 
@@ -576,10 +576,10 @@ AzCopy requires LIST and READ permission of this source location when using this
 Sets the downloaded file's last-modified time to be the same as the source blob or file's.
 
 ### --exclude-newer
-Excludes a newer source resource. The resource are not copied if the last modified time of the source is the same or newer than destination.
+Excludes a newer source resource. The resource is not copied if the last modified time of the source is the same or newer than destination.
 
 ### --exclude-older
-Excludes an older source resource. The resource are not copied if the last modified time of the source is the same or older than destination.
+Excludes an older source resource. The resource is not copied if the last modified time of the source is the same or older than destination.
 
 ### --delimiter "delimiter"
 Indicates the delimiter character used to delimit virtual directories in a blob name.
@@ -593,7 +593,7 @@ Specifies the number of concurrent operations.
 
 AzCopy by default starts a certain number of concurrent operations to increase the data transfer throughput. Note that large number of concurrent operations in a low-bandwidth environment may overwhelm the network connection and prevent the operations from fully completing. Throttle concurrent operations based on actual available network bandwidth.
 
-The upper limit for concurrent operations is 512. By default, this value is set to 8 times the number of cores you have on your client.
+The upper limit for concurrent operations is 512. By default, this value is set to eight times the number of cores you have on your client.
 
 ### --sync-copy
 Indicates whether to synchronously copy blobs or files between two Azure Storage endpoints.
@@ -635,7 +635,7 @@ For property "AzureStorageUseV1MD5"
 • False – AzCopy uses FIPS-compliant MD5 algorithm.
 
 ## Next steps
-For more information about Azure Storage and AzCopy, refer to the following resources.
+For more information about Azure Storage and AzCopy, see the following resources:
 
 ### Azure Storage documentation:
 * [Introduction to Azure Storage](storage-introduction.md)
@@ -650,7 +650,7 @@ For more information about Azure Storage and AzCopy, refer to the following reso
 * [AzCopy: Announcing General Availability of AzCopy 3.0 plus preview release of AzCopy 4.0 with Table and File support](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
 * [AzCopy: Optimized for Large-Scale Copy Scenarios](http://go.microsoft.com/fwlink/?LinkId=507682)
 * [AzCopy: Support for read-access geo-redundant storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
-* [AzCopy: Transfer data with re-startable mode and SAS token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
+* [AzCopy: Transfer data with restartable mode and SAS token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 * [AzCopy: Using cross-account Copy Blob](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 * [AzCopy: Uploading/downloading files for Azure Blobs](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
