@@ -172,9 +172,9 @@ You can have many custom sync rules using the same **PrecedenceBefore** value wh
 ## Enable synchronization of PreferredDataLocation
 Azure AD Connect supports synchronization of the **PreferredDataLocation** attribute for **User** objects in version 1.1.524.0 and after. More specifically, following changes have been introduced:
 
-* The schema of the object type **User** in the **Azure AD Connector** is extended to include PreferredDataLocation attribute, which is of type **string** and is **single-valued**.
+* The schema of the object type **User** in the Azure AD Connector is extended to include PreferredDataLocation attribute, which is of type string and is single-valued.
 
-* The schema of the object type **Person** in the **Metaverse** is extended to include PreferredDataLocation attribute, which is of type **string** and is **single-valued**.
+* The schema of the object type **Person** in the Metaverse is extended to include PreferredDataLocation attribute, which is of type string and is single-valued.
 
 By default, the PreferredDataLocation attribute is not enabled for synchronization because there is no corresponding PreferredDataLocation attribute in on-premises Active Directory. You must manually enable synchronization.
 
@@ -186,9 +186,9 @@ By default, the PreferredDataLocation attribute is not enabled for synchronizati
 
 Before enabling synchronization of the PreferredDataLocation attribute, you must:
 
- * First, decide which on-premises Active Directory attribute to be used as the source attribute. It should be of type string and is single-valued.
+ * First, decide which on-premises Active Directory attribute to be used as the source attribute. It should be of type **string** and is **single-valued**.
 
- * If you have previously configured the PreferredDataLocation attribute on existing synchronized User objects in Azure AD using Azure AD PowerShell, you must backport the attribute values to the corresponding User objects in on-premises Active Directory.
+ * If you have previously configured the PreferredDataLocation attribute on existing synchronized User objects in Azure AD using Azure AD PowerShell, you must **backport** the attribute values to the corresponding User objects in on-premises Active Directory.
  
     > [!IMPORTANT]
     > If you do not backport the attribute values to the corresponding User objects in on-premises Active Directory, Azure AD Connect will remove the existing attribute values in Azure AD when synchronization for the PreferredDataLocation attribute is enabled.
