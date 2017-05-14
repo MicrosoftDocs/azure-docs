@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 05/13/2017
 ms.author: arramac
 
 ---
@@ -91,19 +91,13 @@ Now go back to the Azure portal to get your connection string information and co
 
     ![View and copy an access key in the Azure portal, Keys blade](./media/create-documentdb-dotnet/keys.png)
 
-2. Fill in your *endpoint*, *db*, *coll*, and *authKey* configurations in the `app.js` file:
+2. Copy your URI value from the portal (using the copy button) and make it the value of config.endpoint key in config.js.
 
-    ```nodejs
-    const client = Gremlin.createClient(
-        443, 
-        config.endpoint, 
-        { 
-            "session": false, 
-            "ssl": true, 
-            "user": `/dbs/${config.database}/colls/${config.collection}`,
-            "password": config.primaryKey
-        });
-    ```
+    `config.endpoint = "GRAPHENDPOINT";`
+
+3. Then copy your PRIMARY KEY value from the portal and make it the value of config.primaryKey in config.js. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
+
+    `config.primaryKey = "PRIMARYKEY";`
 
 ## Run the console app
 
