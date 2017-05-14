@@ -228,7 +228,7 @@ Ensure no synchronization takes place while you are in the middle of updating sy
 ![Synchronization Service Manager - check no operations in progress](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step1.png)
 
 ### Step 2: Add the source attribute to the on-premises AD Connector schema
-Not all AD attributes are imported into the AD Connector Space. To add the source attribute to the list of the imported attributes:
+Not all AD attributes are imported into the on-premises AD Connector Space. To add the source attribute to the list of the imported attributes:
 
  1. Go to the **Connectors** tab in the Synchronization Service Manager.
  
@@ -343,14 +343,14 @@ In general, full synchronization cycle is required since we have added new attri
 
    1. Go to the **Operations** tab in the Synchronization Service Manager.
 
-   2. Right-click on the **AD Connector** and select **Run...**
+   2. Right-click on the **on-premises AD Connector** and select **Run...**
 
    3. In the pop-up dialog, select **Full Import** and click **OK**.
     
    4. Wait for operation to complete.
 
     > [!NOTE]
-    > You can skip Full Import on the on-premises AD Connector if the source attribute is already included in the list of imported attributes. In other words, you did not have to make any change during [Step 2: Add the source attribute to the AD Connector schema](#step-2-add-the-source-attribute-to-the-ad-connector-schema).
+    > You can skip Full Import on the on-premises AD Connector if the source attribute is already included in the list of imported attributes. In other words, you did not have to make any change during [Step 2: Add the source attribute to the on-premises AD Connector schema](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
 
 2. Run **Full import** step on the **Azure AD Connector**:
 
@@ -360,13 +360,13 @@ In general, full synchronization cycle is required since we have added new attri
    
    3. Wait for operation to complete.
 
-3. Verify the synchronization rule changes on an existing User object
+3. Verify the synchronization rule changes on an existing User object:
 
 The source attribute from on-premises Active Directory and PreferredDataLocation from Azure AD have been imported into the respective Connecter Space. Before proceeding with Full Synchronization step, it is recommended that you do a **Preview** on an existing User object in the on-premises AD Connector Space. The object you picked should have the source attribute populated. A successful **Preview** with the PreferredDataLocation populated in the Metaverse is a good indicator that you have configured the synchronization rules correctly. For information about how to do a **Preview**, refer to section [Verify the change](#verify-the-change).
 
-4. Run **Full Synchronization** step on the **AD Connector**:
+4. Run **Full Synchronization** step on the **on-premises AD Connector**:
 
-   1. Right-click on the **AD Connector** and select **Run...**
+   1. Right-click on the **on-premises AD Connector** and select **Run...**
   
    2. In the pop-up dialog, select **Full Synchronization** and click **OK**.
    
