@@ -167,7 +167,7 @@ These statements perform the following actions:
 
 ## Improve Hive query performance
 
-### Apache Tez
+### <a id="usetez"></a>Apache Tez
 
 [Apache Tez](http://tez.apache.org) is a framework that allows data intensive applications, such as Hive, to run much more efficiently at scale. Tez is enabled by default for Linux-based HDInsight clusters.
 
