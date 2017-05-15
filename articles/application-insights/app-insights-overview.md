@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/07/2017
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # What is Application Insights?

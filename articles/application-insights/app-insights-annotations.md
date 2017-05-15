@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Annotations on metric charts in Application Insights

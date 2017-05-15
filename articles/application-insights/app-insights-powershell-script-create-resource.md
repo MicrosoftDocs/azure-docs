@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # PowerShell script to create an Application Insights resource

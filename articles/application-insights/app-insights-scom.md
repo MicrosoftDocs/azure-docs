@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Application Performance Monitoring using Application Insights for SCOM

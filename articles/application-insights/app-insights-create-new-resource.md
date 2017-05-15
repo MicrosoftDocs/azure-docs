@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Create an Application Insights resource

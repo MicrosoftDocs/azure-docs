@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/08/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Logs, exceptions and custom diagnostics for ASP.NET in Application Insights

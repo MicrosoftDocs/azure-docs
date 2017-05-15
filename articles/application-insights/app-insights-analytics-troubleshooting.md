@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Troubleshoot Analytics in Application Insights
