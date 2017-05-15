@@ -45,9 +45,9 @@ Here are the steps you perform as part of this tutorial:
 1. Create an Azure **data factory**. In this step, you create a data factory named ADFTutorialDataFactory. 
 2. Create **linked services** in the data factory. In this step, you create two linked services of types: Azure Storage and Azure SQL Database. 
 	
-	The AzureStorageLinkedService links your Azure storage account to the data factory. This is the storage account in which you created a container and uploaded the data as part of the [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
+	The AzureStorageLinkedService links your Azure storage account to the data factory. You created a container and uploaded data to this storage account as part of [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
-	AzureSqlLinkedService links your Azure SQL database to the data factory. The data that is copied from the blob storage is stored in this database. This is the database you created as part of the [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)   
+	AzureSqlLinkedService links your Azure SQL database to the data factory. The data that is copied from the blob storage is stored in this database. You created a SQL table in this database as part of [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 3. Create input and output **datasets** in the data factory.  
 	
 	The Azure storage linked service specifies the connection string that Data Factory service uses at run time to connect to your Azure storage account. And, the input blob dataset specifies the container and the folder that contains the input data.  
@@ -344,7 +344,7 @@ The following steps show you how to monitor pipelines in your data factory by us
 4. To see details about an activity window, select the activity window in the **Activity Windows** list. 
     ![Activity window details](./media/data-factory-copy-activity-tutorial-using-azure-portal/activity-window-details.png)
 
-	In Activiy Window Explorer on the right, you see that the slices up to the current UTC time (8:12 PM) are all processed (in green color). The 8-9 PM, 9 - 10 PM, 10 - 11 PM, 11 PM - 12 AM slices are not processed yet.
+	In Activity Window Explorer on the right, you see that the slices up to the current UTC time (8:12 PM) are all processed (in green color). The 8-9 PM, 9 - 10 PM, 10 - 11 PM, 11 PM - 12 AM slices are not processed yet.
 
 	You can click on an activity window in the list (or) in this image to see the details about it. 
 
@@ -388,7 +388,7 @@ You can also monitor data pipelines by using the diagram view.
     
     ![Activity Run Details](./media/data-factory-copy-activity-tutorial-using-azure-portal/ActivityRunDetails.png)
 
-	In this blade, you see how long the copy operation took, what throughput is, how many bytes of data was read and written, run start time, run end time etc.  
+	In this blade, you see how long the copy operation took, what throughput is, how many bytes of data were read and written, run start time, run end time etc.  
 12. Click **X** to close all the blades until you get back to the home blade for the **ADFTutorialDataFactory**.
 13. (optional) click the **Datasets** tile or **Pipelines** tile to get the blades you have seen the preceding steps. 
 14. Launch **SQL Server Management Studio**, connect to the Azure SQL Database, and verify that the rows are inserted in to the **emp** table in the database.

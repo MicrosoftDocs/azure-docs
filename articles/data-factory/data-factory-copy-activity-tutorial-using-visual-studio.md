@@ -49,9 +49,9 @@ Here are the steps you perform as part of this tutorial:
 
 1. Create **linked services** in the data factory. In this step, you create two linked services of types: Azure Storage and Azure SQL Database. 
 	
-	The AzureStorageLinkedService links your Azure storage account to the data factory. This is the storage account in which you created a container and uploaded the data as part of the [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
+	The AzureStorageLinkedService links your Azure storage account to the data factory. You created a container and uploaded data to this storage account as part of [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
-	AzureSqlLinkedService links your Azure SQL database to the data factory. The data that is copied from the blob storage is stored in this database. This is the database you created as part of the [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)   
+	AzureSqlLinkedService links your Azure SQL database to the data factory. The data that is copied from the blob storage is stored in this database. You created a SQL table in this database as part of [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).     
 2. Create input and output **datasets** in the data factory.  
 	
 	The Azure storage linked service specifies the connection string that Data Factory service uses at run time to connect to your Azure storage account. And, the input blob dataset specifies the container and the folder that contains the input data.  
@@ -64,10 +64,10 @@ Here are the steps you perform as part of this tutorial:
 
 ## Create Visual Studio project
 1. Launch **Visual Studio 2015**. Click **File**, point to **New**, and click **Project**. You should see the **New Project** dialog box.  
-2. In the **New Project** dialog, select the **DataFactory** template, and click **Empty Data Factory Project**. If you don't see the DataFactory template, close Visual Studio, install Azure SDK for Visual Studio 2013, and reopen Visual Studio.  
+2. In the **New Project** dialog, select the **DataFactory** template, and click **Empty Data Factory Project**.  
    
     ![New project dialog box](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-project-dialog.png)
-3. Enter a **name** for the project, **location**, and a name for the **solution**, and click **OK**.
+3. Specify the name of the project, location for the solution, and name of the solution, and then click **OK**.
    
     ![Solution Explorer](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png)    
 
@@ -83,7 +83,7 @@ Azure SQL linked service links your Azure SQL database to the data factory. The 
 Linked services link data stores or compute services to an Azure data factory. See [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) for all the sources and sinks supported by the Copy Activity. See [compute linked services](data-factory-compute-linked-services.md) for the list of compute services supported by Data Factory. In this tutorial, you do not use any compute service. 
 
 ### Create the Azure Storage linked service
-1. Right-click **Linked Services** in the solution explorer, point to **Add**, and click **New Item**.      
+1. In **Solution Explorer**, right-click **Linked Services**, point to **Add**, and click **New Item**.      
 2. In the **Add New Item** dialog box, select **Azure Storage Linked Service** from the list, and click **Add**. 
    
     ![New Linked Service](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-linked-service-dialog.png)
@@ -99,7 +99,6 @@ Linked services link data stores or compute services to an Azure data factory. S
 2. This time, select **Azure SQL Linked Service**, and click **Add**. 
 3. In the **AzureSqlLinkedService1.json file**, replace `<servername>`, `<databasename>`, `<username@servername>`, and `<password>` with names of your Azure SQL server, database, user account, and password.    
 4. Save the **AzureSqlLinkedService1.json** file. 
-
 	For more information about these JSON properties, see [Azure SQL Database connector](data-factory-azure-sql-connector.md#linked-service-properties).
 
 
