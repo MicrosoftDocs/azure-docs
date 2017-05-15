@@ -43,17 +43,17 @@ Recovery Services vaults are based on the Azure Resource Manager model of Azure,
 ## Managing your Recovery Services vaults in the portal
 Creation and management of a Recovery Services vault in the Azure portal is easy because the Backup service is integrated into the Azure Settings blade. This means you can create or manage a Recovery Services vault *in the context of the target service*. For example, if you have several Windows VMs backed up to a Recovery Services vault, you can select a VM, click **Backup** in the Settings blade, and view the backup information specific to that VM. In the following example, **ContosoVM** is the name of the virtual machine. **ContosoVM-demovault** is the name of the Recovery Services vault. You don't need to remember the name of the Recovery Services vault that stores the recovery points, you can access this information from the virtual machine.  
 
-![details of the recovery services vault for selected VM](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context.png)
+![Recovery services vault details VM](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context.png)
 
 If multiple servers are protected using the same Recovery Services vault, it may be more logical to look at the Recovery Services vault. You can search for all Recovery Services vaults in the subscription, and choose one from the list.
 
 The following sections contain links to articles that explain how to use a Recovery Services vault in each type of activity.
 
 ### Back up data
-- [Backing up an Azure VM](backup-azure-vms-first-look-arm.md)
-- [Backing up Windows Server or Windows workstation](backup-try-azure-backup-in-10-mins.md)
-- [Backing up DPM workloads to Azure](backup-azure-dpm-introduction.md)
-- [Preparing to back up workloads using Azure Backup Server](backup-azure-microsoft-azure-backup.md)
+- [Back up an Azure VM](backup-azure-vms-first-look-arm.md)
+- [Back up Windows Server or Windows workstation](backup-try-azure-backup-in-10-mins.md)
+- [Back up DPM workloads to Azure](backup-azure-dpm-introduction.md)
+- [Prepare to back up workloads using Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 
 ### Manage recovery points
 - [Manage Azure VM backups](backup-azure-manage-vms.md)
