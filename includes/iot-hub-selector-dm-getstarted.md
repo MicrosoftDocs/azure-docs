@@ -9,7 +9,7 @@ Use a direct method to initiate device management actions (such as reboot, facto
 
 * Handling the method request sent from IoT Hub.
 * Initiating the corresponding device-specific action on the device.
-* Providing status updates through reported properties to IoT Hub.
+* Providing status updates through *reported properties* to IoT Hub.
 
 You can use a back-end app in the cloud to run device twin queries to report on the progress of your device management actions.
 

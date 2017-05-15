@@ -29,14 +29,18 @@ This tutorial shows you how to:
 
 At the end of this tutorial, you have two Java console apps:
 
-**simulated-device**, which:
+**simulated-device**. This app:
 
 * Connects to your IoT hub with the device identity created earlier.
 * Receives a reboot direct method call.
 * Simulates a physical reboot.
 * Reports the time of the last reboot through a reported property.
 
-**trigger-reboot**, which calls a direct method in the simulated device app, displays the response, and displays the updated reported properties.
+**trigger-reboot**. This app:
+
+* Calls a direct method in the simulated device app.
+* Displays the response to the direct method call sent by the simulated device
+* Displays the updated reported properties.
 
 > [!NOTE]
 > The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the Azure IoT SDKs that you can use to build both applications to run on devices and your solution back end.
