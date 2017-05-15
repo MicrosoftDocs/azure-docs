@@ -8,6 +8,9 @@ manager: timtl
 tags: ''
 keywords: 'iot development, iot software, internet of things software, install git on windows, install node js windows, install npm on windows'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started
+
 ms.assetid: bd765ddd-65b7-4241-a391-dc77cb3af1c0
 ms.service: iot-hub
 ms.devlang: c

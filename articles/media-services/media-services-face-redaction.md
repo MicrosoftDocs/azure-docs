@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 04/16/2017
 ms.author: juliako;
 
 ---
@@ -88,7 +88,7 @@ The **analyze** pass of the two-pass workflow takes a video input and produces a
           ]
         },
 
-… truncated
+    … truncated
 
 ### Redact Mode
 The second pass of the workflow takes a larger number of inputs that must be combined into a single asset.
@@ -110,6 +110,12 @@ This is the output from an IDList with one ID selected.
 
 [view this video](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
 
+Example foo_IDList.txt
+ 
+     1
+     2
+     3
+ 
 ## Attribute descriptions
 The Redaction MP provides high precision face location detection and tracking that can detect up to 64 human faces in a video frame. Frontal faces provide the best results, while side faces and small faces (less than or equal to 24x24 pixels) are challenging.
 

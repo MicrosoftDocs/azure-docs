@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 
 ms.service: iot-hub
-ms.devlang: multiple
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na

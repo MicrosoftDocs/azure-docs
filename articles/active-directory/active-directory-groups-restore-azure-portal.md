@@ -1,5 +1,6 @@
----
-title: Restore a deleted Office 365 group in Azure Active Directory preview | Microsoft Docs
+﻿---
+
+title: Restore a deleted Office 365 group in Azure Active Directory | Microsoft Docs
 description: How to restore a deleted group, view restorable groups, and permamnently delete a group in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -13,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 05/04/2017
 ms.author: curtand                       
 
 ---
 
 # Restore a deleted Office 365 group in Azure Active Directory
 
-When you delete an Office 365 group in the Azure Active Directory (Azure AD) preview, the deleted group is retained but not visible for 30 days from the deletion date. This is so that the group and its contents can be restored if needed. This functionality is restricted exclusively to Office 365 groups in Azure AD. It is not available for security groups and distribution groups.
+When you delete an Office 365 group in the Azure Active Directory (Azure AD), the deleted group is retained but not visible for 30 days from the deletion date. This is so that the group and its contents can be restored if needed. This functionality is restricted exclusively to Office 365 groups in Azure AD. It is not available for security groups and distribution groups.
 
 The permissions required to restore a group can be any of the following:
 
@@ -32,7 +33,7 @@ User | Can restore any deleted Office 365 group that they owned
 
 
 ## How to view deleted Office 365 groups that are available to restore
-The following cmdlets can be used to view the deleted groups to verify that the one or ones you're interested in have not yet been permanently purged. These cmdlets are part of the [Azure Active Directory PowerShell V2 Preview module](https://www.powershellgallery.com/packages/AzureADPreview) (download link). More information about this module can be found in the [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/) article.
+The following cmdlets can be used to view the deleted groups to verify that the one or ones you're interested in have not yet been permanently purged. These cmdlets are part of the [Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/). More information about this module can be found in the [Azure Active Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0) article.
 
 1.	Run the following cmdlet to display all deleted Office 365 groups in your tenant that are still available to restore.
   ```

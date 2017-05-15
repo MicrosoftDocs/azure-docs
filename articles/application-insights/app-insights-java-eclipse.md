@@ -221,7 +221,7 @@ You can insert code both in web page JavaScript and in the server-side Java.
 
 #### Track usage
 * [Add web client telemetry][usage] to monitor page views and basic user metrics.
-* [Track custom events and metrics][track] to learn about how your application is used, both at the client and the server.
+* [Track custom events and metrics](app-insights-web-track-usage.md) to learn about how your application is used, both at the client and the server.
 
 <!--Link references-->
 
@@ -231,4 +231,4 @@ You can insert code both in web page JavaScript and in the server-side Java.
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [track]: app-insights-api-custom-events-metrics.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md

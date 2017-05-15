@@ -1,10 +1,9 @@
 # Overview
 ## [Introduction to Azure Data Factory](data-factory-introduction.md)
 ## Concepts
-### [Datasets](data-factory-create-datasets.md)
 ### [Pipelines and activities](data-factory-create-pipelines.md)
+### [Datasets](data-factory-create-datasets.md)
 ### [Scheduling and execution](data-factory-scheduling-and-execution.md)
-### [Compute Linked Services](data-factory-compute-linked-services.md)
 
 # Get Started
 ## [Tutorial: Create a pipeline to copy data](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -21,6 +20,7 @@
 ### [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 ### [Azure Resource Manager template](data-factory-build-your-first-pipeline-using-arm.md)
 ### [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+## [Tutorial: Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md)
 ## [FAQ](data-factory-faq.md)
 
 # How To
@@ -29,12 +29,13 @@
 ### [Data Factory Copy Wizard](data-factory-azure-copy-wizard.md)
 #### [Load 1 TB in 15 minutes](data-factory-load-sql-data-warehouse.md)
 ### [Performance and tuning guide](data-factory-copy-activity-performance.md)
+### [Security considerations](data-factory-data-movement-security-considerations.md)
 ### Connectors
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
 #### [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
 #### [Azure Blob Storage](data-factory-azure-blob-connector.md)
+#### [Azure Cosmos DB](data-factory-azure-documentdb-connector.md)
 #### [Azure Data Lake Store](data-factory-azure-datalake-connector.md)
-#### [Azure DocumentDB](data-factory-azure-documentdb-connector.md)
 #### [Azure Search](data-factory-azure-search-connector.md)
 #### [Azure SQL Database](data-factory-azure-sql-connector.md)
 #### [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)
@@ -60,7 +61,7 @@
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Web table](data-factory-web-table-connector.md)
 ### [Data Management Gateway](data-factory-data-management-gateway.md)
-### [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md)
+
 
 ## [Transform Data](data-factory-data-transformation-activities.md)
 ### [HDInsight Hive Activity](data-factory-hive-activity.md)
@@ -74,6 +75,9 @@
 ### [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
 ### [.NET custom activity](data-factory-use-custom-activities.md)
 ### [Invoke R scripts](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+### [Reprocess models in Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample)
+### [Compute Linked Services](data-factory-compute-linked-services.md)
+
 ## Develop
 ### [Azure Resource Manager template](data-factory-how-to-use-resource-manager-templates.md)
 ### [Samples](data-factory-samples.md)
@@ -88,9 +92,10 @@
 ### [Troubleshoot issues with using Data Management Gateway](data-factory-troubleshoot-gateway-issues.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
+## [PowerShell](/powershell/module/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
 ## [REST](/rest/api/datafactory/)
+## [JSON](data-factory-json-scripting-reference.md)
 
 # Resources
 ## [Release notes for Data Management Gateway](data-factory-gateway-release-notes.md)

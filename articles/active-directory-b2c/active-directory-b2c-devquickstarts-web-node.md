@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 03/10/2017
-ms.author: brandwe
+ms.author: xerners
 
 ---
 
@@ -36,9 +36,6 @@ The code for this tutorial [is maintained on GitHub](https://github.com/AzureADQ
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git```
 
 The completed application is provided at the end of this tutorial.
-
-> [!WARNING]
-For now, you must use the same **Client ID**/**Application ID** and policies for both the web API task server and the client that connects to it. This is also true for the iOS and Android tutorials. If you have previously created an application in either of those Quickstarts, use those values; don't create new ones.
 
 ## Get an Azure AD B2C directory
 
