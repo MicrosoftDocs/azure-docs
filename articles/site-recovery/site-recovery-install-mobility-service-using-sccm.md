@@ -239,7 +239,8 @@ You can monitor the deployment progress by using the Configuration Manager conso
    * Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz
    * Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz
    * Microsoft-ASR\_UA\*OL6-64\*release.tar.gz
-   * Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz 
+   * Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz
+
 
 7. Copy the following code, and save it as **install_linux.sh** into the **MobSvcLinux** folder.
    > [!NOTE]
