@@ -158,9 +158,7 @@ Please follow this [link](https://blogs.msdn.microsoft.com/appserviceteam/2017/0
         5. site_access_log.yyyy-mm-dd.log
 * For Portal AppSetting Deployment:
     * Folder Location
-    ``` 
-D:\home\LogFiles
-    ```
+    ```D:\home\LogFiles```
     * Files of Interest
         * catalina.yyyy-mm-dd.log
         * host-manager.yyyy-mm-dd.log
