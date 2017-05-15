@@ -40,6 +40,8 @@ You must have a function app to host the execution of your functions. A function
 
 ![Function app successfully created.](./media/functions-create-first-azure-function/function-app-create-success.png)
 
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
+
 Next, you create a function in the new function app.
 
 ## <a name="create-function"></a>Create an HTTP triggered function
