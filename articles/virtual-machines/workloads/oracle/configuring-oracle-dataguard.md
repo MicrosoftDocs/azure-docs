@@ -24,7 +24,7 @@ The Azure CLI is used to create and manage Azure resources from the command line
 
 Before you start, make sure that the Azure CLI has been installed. For more information, see [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-## Preparing the environment
+## Prepare the environment
 ### Assumptions
 
 To perform the Oracle Data Guard install, you need to create two Azure VMs on the same availability set. The Marketplace image you use to create the VMs is "Oracle:Oracle-Database-Ee:12.1.0.2:latest".
@@ -53,7 +53,7 @@ az group create --name myResourceGroup --location westus
 
 ### Create availability set
 
-This step is optional, but is recommended. see [Azure availability sets guide](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) for more information.
+This step is optional, but is recommended. see [Azure availability sets guide](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) for more information.
 
 ```azurecli
 az vm availability-set create \
@@ -110,7 +110,7 @@ az vm create \
 
 Take note of the `publicIpAddress` as well once it created.
 
-### Opening the TCP port for connectivity
+### Open the TCP port for connectivity
 
 The step is to configure external endpoints, which allows accessing the Oracle DB remotely, you execute the following command.
 
@@ -165,7 +165,7 @@ ssh azureuser@<publicIpAddress>
 
 ### Create Database on myVM1 (Primary)
 
-The Oracle software is already installed on the Marketplace image, so the next step is to install the database. the first step is running as the 'oracle' superuser
+The Oracle software is already installed on the Marketplace image, so the next step is to install the database. the first step is running as the 'oracle' superuser.
 
 ```bash
 sudo su - oracle
@@ -462,7 +462,7 @@ SQL> ALTER SYSTEM SET dg_broker_start=true;
 SQL> EXIT;
 ```
 
-### Configuring Data Guard broker on myVM1 (primary)
+### Configure Data Guard broker on myVM1 (primary)
 
 Start the Data Guard manager and login using SYS and password (do not using OS authentication). Perform the followings
 
@@ -501,7 +501,7 @@ SUCCESS   (status updated 26 seconds ago)
 
 This completed the Oracle Data Guard setup. The next section shows you how to test the connectivity and switching over
 
-### Connecting database from client machine
+### Connect database from client machine
 
 Update or create the tnsnames.ora file on your client machine which usually is located at $ORACLE_HOME\network\admin.
 
@@ -549,7 +549,7 @@ With the Partitioning, OLAP, Advanced Analytics and Real Application Testing opt
 
 SQL>
 ```
-## Testing Data Guard 
+## Test Data Guard configuration
 
 ### Database switchover on myVM1 (primary)
 
