@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/9/2017
+ms.date: 5/12/2017
 ms.author: raiye
 
 ---
@@ -29,6 +29,9 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 Unsure about what the Guest OS is or how the Guest OS releases work? Read [this](#how-it-works) section.
 
 ## News updates
+###### **May 12 2017**
+May Guest OS rollout is starting May 12th and is projected to be released on June 13th.
+
 ###### **April 18 2017**
 April Guest OS rollout is starting April 18th and is projected to be released on May 9th.
 

@@ -57,7 +57,7 @@ In this section, you create a Java console app that responds to a method called 
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.1.24</version>
+      <version>1.1.26</version>
     </dependency>
     ```
 
@@ -204,7 +204,7 @@ In this section, you create a Java console app that invokes a direct method in t
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.2.17</version>
+      <version>1.2.18</version>
       <type>jar</type>
     </dependency>
     ```
@@ -324,7 +324,7 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 
 <!-- Links -->
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md
-
+[lnk-maven]: https://maven.apache.org/what-is-maven.html
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md

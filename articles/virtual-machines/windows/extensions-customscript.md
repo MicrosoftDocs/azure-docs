@@ -87,6 +87,8 @@ The following JSON shows the schema for the Custom Script Extension. The extensi
 | storageAccountName (e.g) | examplestorageacct |
 | storageAccountKey (e.g) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== |
 
+**Note** - these property names are case sensitive. Use the names as seen above to avoid deployment issues.
+
 ## Template deployment
 
 Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Custom Script Extension during an Azure Resource Manager template deployment. A sample template that includes the Custom Script Extension can be found here, [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
