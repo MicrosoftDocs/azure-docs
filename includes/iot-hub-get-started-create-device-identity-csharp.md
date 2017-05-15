@@ -49,11 +49,11 @@ In this section, you create a .NET console app that creates a device identity in
 > 
 
 <!-- Images. -->
-[10]: ./media/iot-hub-csharp-csharp-getstarted/create-identity-csharp1.png
-[11]: ./media/iot-hub-csharp-csharp-getstarted/create-identity-csharp2.png
-[12]: ./media/iot-hub-csharp-csharp-getstarted/create-identity-csharp3.png
+[10]: ./media/iot-hub-get-started-create-device-identity-csharp/create-identity-csharp1.png
+[11]: ./media/iot-hub-get-started-create-device-identity-csharp/create-identity-csharp2.png
+[12]: ./media/iot-hub-get-started-create-device-identity-csharp/create-identity-csharp3.png
 
 
 <!-- Links -->
-[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
+[lnk-devguide-identity]: ../articles/iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
