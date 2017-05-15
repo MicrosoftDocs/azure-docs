@@ -29,7 +29,12 @@ This tutorial shows you how to:
 
 At the end of this tutorial, you have two Java console apps:
 
-**simulated-device**, which connects to your IoT hub with the device identity created earlier, receives a reboot direct method, simulates a physical reboot, and reports the time of the last reboot through a reported property.
+**simulated-device**, which:
+
+* Connects to your IoT hub with the device identity created earlier.
+* Receives a reboot direct method call.
+* Simulates a physical reboot.
+* Reports the time of the last reboot through a reported property.
 
 **trigger-reboot**, which calls a direct method in the simulated device app, displays the response, and displays the updated reported properties.
 
@@ -120,7 +125,7 @@ In this section, you create a Java console app that invokes the reboot direct me
     private static final Long connectTimeout = TimeUnit.SECONDS.toSeconds(5);
     ```
 
-1. Add the following nested class to the **App** class to implement a thread that reads the reported properties from the device twin every 10 seconds:
+1. To implement a thread that reads the reported properties from the device twin every 10 seconds, add the following nested class to the **App** class:
 
     ```java
     private static class ShowReportedProperties implements Runnable {
@@ -141,7 +146,7 @@ In this section, you create a Java console app that invokes the reboot direct me
     }
     ```
 
-1. Add the following code to the **main** method to invoke the reboot direct method on the simulated device:
+1. To invoke the reboot direct method on the simulated device, add the following code to the **main** method:
 
     ```java
     System.out.println("Starting sample...");
@@ -166,7 +171,7 @@ In this section, you create a Java console app that invokes the reboot direct me
     }
     ```
 
-1. Add the following code to the **main** method to start the thread to poll the reported properties from the simulated device:
+1. To start the thread to poll the reported properties from the simulated device, add the following code to the **main** method:
 
     ```java
     ShowReportedProperties showReportedProperties = new ShowReportedProperties();
@@ -174,7 +179,7 @@ In this section, you create a Java console app that invokes the reboot direct me
     executor.execute(showReportedProperties);
     ```
 
-1. Add the following code to the **main** method to to enable you to stop the app:
+1. To enable you to stop the app, add the following code to the **main** method:
 
     ```java
     System.out.println("Press ENTER to exit.");
@@ -259,7 +264,7 @@ In this section, you create a Java console app that simulates a device. The app 
     private static DeviceClient client;
     ```
 
-1. Add the following nested class to the **App** class to implement a callback handler for direct method status events:
+1. To implement a callback handler for direct method status events, add the following nested class to the **App** class:
 
     ```java
     protected static class DirectMethodStatusCallback implements IotHubEventCallback
@@ -271,7 +276,7 @@ In this section, you create a Java console app that simulates a device. The app 
     }
     ```
 
-1. Add the following nested class to the **App** class to implement a callback handler for device twin status events:
+1. To implement a callback handler for device twin status events, add the following nested class to the **App** class:
 
     ```java
     protected static class DirectMethodStatusCallback implements IotHubEventCallback
@@ -283,7 +288,7 @@ In this section, you create a Java console app that simulates a device. The app 
     }
     ```
 
-1. Add the following nested class to the **App** class to implement a callback handler for property events:
+1. To implement a callback handler for property events, add the following nested class to the **App** class:
 
     ```java
     protected static class PropertyCallback implements PropertyCallBack<String, String>
@@ -296,7 +301,7 @@ In this section, you create a Java console app that simulates a device. The app 
     }
     ```
 
-1. Add the following nested class to the **App** class to implement a thread to simulate the device reboot. The thread sleeps for five seconds and then sets the **lastReboot** reported property:
+1. To implement a thread to simulate the device reboot, add the following nested class to the **App** class. The thread sleeps for five seconds and then sets the **lastReboot** reported property:
 
     ```java
     protected static class RebootDeviceThread implements Runnable {
@@ -317,7 +322,7 @@ In this section, you create a Java console app that simulates a device. The app 
     }
     ```
 
-1. Add the following nested class to the **App** class to implement the direct method on the device. When the simulated app receives a call to the **reboot** diect method, it returns an acknowledgement to the caller and then starts a thread to process the reboot:
+1. To implement the direct method on the device, add the following nested class to the **App** class. When the simulated app receives a call to the **reboot** direct method, it returns an acknowledgement to the caller and then starts a thread to process the reboot:
 
     ```java
     protected static class DirectMethodCallback implements com.microsoft.azure.sdk.iot.device.DeviceTwin.DeviceMethodCallback
@@ -349,7 +354,7 @@ In this section, you create a Java console app that simulates a device. The app 
     }
     ```
 
-1. Modify the signature of the **main** method to throw the folloing exceptions:
+1. Modify the signature of the **main** method to throw the following exceptions:
 
     ```java
     public static void main(String[] args) throws IOException, URISyntaxException
