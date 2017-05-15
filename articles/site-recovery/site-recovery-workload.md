@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/06/2017
+ms.date: 05/08/2017
 ms.author: raynew
 
 ---
@@ -85,7 +85,7 @@ Azure Site Recovery helps protect SharePoint deployments, as follows:
 * Simplifies SharePoint application development and testing by creating a production-like copy on-demand replica environment for testing and debugging.
 * Simplifies transition to the cloud by using Site Recovery to migrate SharePoint deployments to Azure.
 
-[Learn more](https://gallery.technet.microsoft.com/SharePoint-DR-Solution-f6b4aeae) about protecting SharePoint.
+[Learn more](site-recovery-sharepoint.md) about protecting SharePoint.
 
 ## Protect Dynamics AX
 Azure Site Recovery helps protect your Dynamics AX ERP solution, by:
@@ -94,7 +94,7 @@ Azure Site Recovery helps protect your Dynamics AX ERP solution, by:
 * Simplifying migration of Dynamics AX deployments to the cloud (Azure).
 * Simplifying Dynamics AX application development and testing by creating a production-like copy on-demand, for testing and debugging.
 
-[Learn more](https://gallery.technet.microsoft.com/Dynamics-AX-DR-Solution-b2a76281) about protecting Dynamic AX.
+[Learn more](site-recovery-dynamicsax.md) about protecting Dynamic AX.
 
 ## Protect RDS
 Remote Desktop Services (RDS) enables virtual desktop infrastructure (VDI), session-based desktops, and applications, allowing users to work anywhere. With Azure Site Recovery you can:

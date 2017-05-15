@@ -20,7 +20,7 @@ ms.author: ganesr;cherylmc
 ---
 # Create and modify peering for an ExpressRoute circuit using PowerShell
 > [!div class="op_single_selector"]
-> * [Resource Manager- Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [Resource Manager- Azure portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-routing-arm.md)
 > * [Classic- PowerShell](expressroute-howto-routing-classic.md)
 > * [Video - Private peering](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
@@ -238,7 +238,6 @@ This section provides instructions on how to create, get, update, and delete the
   Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 
-
   The response will be something similar to the following example:
 
   ```
@@ -249,7 +248,7 @@ This section provides instructions on how to create, get, update, and delete the
   Etag                             : W/"################################"
   ProvisioningState                : Succeeded
   Sku                              : {
-                                       "Name": "Standard_MeteredData",
+                                      "Name": "Standard_MeteredData",
                                        "Tier": "Standard",
                                        "Family": "MeteredData"
                                      }
@@ -266,15 +265,15 @@ This section provides instructions on how to create, get, update, and delete the
   ```
 4. Configure Azure public peering for the circuit.
 
-  Make sure that you have the following information before you proceed further:
+Make sure that you have the following information before you proceed further:
 
-  * A /30 subnet for the primary link. This must be a valid public IPv4 prefix.
-  * A /30 subnet for the secondary link. This must be a valid public IPv4 prefix.
-  * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID.
-  * AS number for peering. You can use both 2-byte and 4-byte AS numbers.
-  * An MD5 hash if you choose to use one. **This is optional**.
+ * A /30 subnet for the primary link. This must be a valid public IPv4 prefix.
+ * A /30 subnet for the secondary link. This must be a valid public IPv4 prefix.
+ * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID.
+ * AS number for peering. You can use both 2-byte and 4-byte AS numbers.
+ * An MD5 hash if you choose to use one. **This is optional**.
 
-  You can run the following cmdlet to configure Azure public peering for your circuit:
+You can run the following cmdlet to configure Azure public peering for your circuit:
 
   ```powershell
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100

@@ -1,9 +1,8 @@
-﻿# Overview
+# Overview
 ## [What is Azure Active Directory?](active-directory-whatis.md)
 ## [Choose edition](active-directory-editions.md)
 
 ## [About Azure identity management](identity-fundamentals.md)
-## [Preview the Azure portal experience](active-directory-preview-explainer.md)
 
 # Get started
 ## [Get an Azure AD tenant](active-directory-howto-tenant.md)
@@ -15,10 +14,10 @@
 ## [Get Azure for your organization](sign-up-organization.md)
 ## [FAQs](active-directory-faq.md)
 ## [SaaS app tutorials](active-directory-saas-tutorial-list.md)
-### [Understand Azure AD architecture](active-directory-architecture.md) 
 
 # How to
 ## Plan and design
+### [Understand Azure AD architecture](active-directory-architecture.md)
 ### [Deploy a hybrid identity solution](active-directory-hybrid-identity-design-considerations-overview.md)
 
 #### Determine requirements
@@ -82,7 +81,7 @@
 ### [Users at risk](active-directory-reporting-security-user-at-risk.md)
 ### [Risky sign-ins](active-directory-reporting-security-risky-sign-ins.md)
 ### [Risk events](active-directory-reporting-risk-events.md)
-### [Named networks](active-directory-known-networks-azure-portal.md)
+### [Named locations](active-directory-named-locations.md)
 ### [Report migration](active-directory-reporting-migration.md)
 ### [Retention](active-directory-reporting-retention.md)
 ### [Latencies](active-directory-reporting-latencies-azure-portal.md)
@@ -172,11 +171,11 @@
 ##### [SSO with KCD](active-directory-application-proxy-sso-using-kcd.md)
 ##### [SSO with headers](application-proxy-ping-access.md)
 ##### [SSO with password vaulting](application-proxy-sso-azure-portal.md)
-#### Understand best practices
+#### Concepts
 ##### [Connectors](application-proxy-understand-connectors.md)
 ##### [Security](application-proxy-security-considerations.md)
 ##### [Networks](application-proxy-network-topology-considerations.md)
-#### 
+##### [Upgrade from TMG or UAG](application-proxy-transition-from-uag-tmg.md)
 #### Advanced configurations
 ##### [Publish on separate networks](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Proxy servers](application-proxy-working-with-proxy-servers.md)
@@ -187,7 +186,6 @@
 #### Publishing walkthroughs
 ##### [Remote Desktop](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
-##### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
 #### Use the classic portal
 ##### [Download connectors](application-proxy-enable-classic-portal.md)
@@ -202,12 +200,6 @@
 #### [Remove users](active-directory-coreapps-remove-assignment-azure-portal.md)
 #### [View all my apps](active-directory-coreapps-view-azure-portal.md)
 #### [Manage user account provisioning](active-directory-enterprise-apps-manage-provisioning.md)
-
-### Develop
-#### [Assign users](active-directory-applications-guiding-developers-assigning-users.md)
-#### [Assign groups](active-directory-applications-guiding-developers-assigning-groups.md)
-#### [Require assignment](active-directory-applications-guiding-developers-requiring-user-assignment.md)
-#### [Develop LoB apps](active-directory-applications-guiding-developers-for-lob-applications.md)
 
 ### [Manage access to apps](active-directory-managing-access-to-apps.md)
 #### [Self-service access](active-directory-self-service-application-access.md)
@@ -227,7 +219,7 @@
 ##### [Access Panel](active-directory-application-access-panel-content-map.md)
 ##### [Application Proxy](active-directory-application-proxy-content-map.md)
 ##### [Conditional Access](active-directory-application-conditional-access-content-map.md)
-
+### [Develop apps](active-directory-applications-guiding-developers-for-lob-applications.md)
 ### [Document library](active-directory-apps-index.md)
 
 ## Manage your directory
@@ -305,14 +297,19 @@
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
 
 ## Secure your identities
-### [Conditional access](active-directory-conditional-access.md)
-#### [Get started](active-directory-conditional-access-azuread-connected-apps.md)
+### [Conditional access](active-directory-conditional-access-azure-portal.md)
+#### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Best practices](active-directory-conditional-access-best-practices.md)
+#### [Technical reference](active-directory-conditional-access-technical-reference.md)
 #### [Supported apps](active-directory-conditional-access-supported-apps.md)
 #### [Understand device policies](active-directory-conditional-access-device-policies.md)
 #### [Set up access to connected apps](active-directory-conditional-access-policy-connected-applications.md)
+#### [Remediation](active-directory-conditional-access-device-remediation.md)
 #### [FAQs](active-directory-conditional-faqs.md)
-#### [Troubleshoot](active-directory-conditional-access-device-remediation.md)
-#### [Reference](active-directory-conditional-access-technical-reference.md)
+#### [Classic portal](active-directory-conditional-access.md)
+##### [Get started](active-directory-conditional-access-azuread-connected-apps.md)
+
+
 ### Windows Hello
 #### [Authenticate without passwords](active-directory-azureadjoin-passport.md)
 #### [Enable Windows Hello for Business](active-directory-azureadjoin-passport-deployment.md)

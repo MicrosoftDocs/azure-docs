@@ -1,4 +1,4 @@
-﻿---
+---
 title: Customize a Windows VM in Azure | Microsoft Docs
 description: Learn how to use the custom script extension and Key Vault to customize Windows VMs in Azure 
 services: virtual-machines-windows
@@ -167,4 +167,5 @@ In this tutorial, you automated the IIS install on a VM. You learned how to:
 
 Advance to the next tutorial to learn how to create custom VM images.
 
-[Create custom VM images](./tutorial-custom-images.md)
+> [!div class="nextstepaction"]
+> [Create custom VM images](./tutorial-custom-images.md)

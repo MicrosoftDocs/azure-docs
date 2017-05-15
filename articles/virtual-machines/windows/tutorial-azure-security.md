@@ -120,3 +120,8 @@ In this tutorial, you configured and reviewed VMs with Azure Security Center. Yo
 > * Configure security policies
 > * View and fix configuration health issues
 > * Review detected threats
+
+Advance to the next tutorial to learn how to create a CI/CD pipeline with Visual Studio Team Services and a Windows VM running IIS.
+
+> [!div class="nextstepaction"]
+> [Visual Studio Team Services CI/CD pipeline](./tutorial-vsts-iis-cicd.md)

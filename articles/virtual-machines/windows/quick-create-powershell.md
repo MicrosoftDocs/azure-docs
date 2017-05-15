@@ -25,7 +25,7 @@ The Azure PowerShell module is used to create and manage Azure resources from th
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+This quick start requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 ## Log in to Azure
 
@@ -152,4 +152,5 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 In this quick start, you’ve deployed a simple virtual machine, a network security group rule, and installed a web server. To learn more about Azure virtual machines, continue to the tutorial for Windows VMs.
 
-[Azure Windows virtual machine tutorials](./tutorial-manage-vm.md)
+> [!div class="nextstepaction"]
+> [Azure Windows virtual machine tutorials](./tutorial-manage-vm.md)
