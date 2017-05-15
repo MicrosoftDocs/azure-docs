@@ -1,4 +1,4 @@
----
+2---
 title: 'Connectivity providers and locations: Azure ExpressRoute | Microsoft Docs'
 description: This article provides a detailed overview of locations where services are offered and how to connect to Azure regions. Sorted by connectivity provider.
 services: expressroute
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/10/2017
-ms.author: pareshmu
+ms.date: 05/12/2017
+ms.author: cherylmc
 
 ---
 # ExpressRoute partners and peering locations
@@ -63,7 +63,7 @@ The following table shows locations by service provider. If you want to view ava
 
 
 ### Production Azure
-| **Service provider** | **Microsoft Azure** | **Office 365 and CRM Online** | **Locations** |
+| **Service provider** | **Microsoft Azure** | **Office 365 and Dynamics 365** | **Locations** |
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/cloud-services-applications/azure-expressroute/)** |Supported |Supported |Melbourne, Sydney |
 | **Airtel** | Coming Soon | Coming Soon | Chennai, Mumbai |
@@ -91,7 +91,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[KPN](http://www.kpn.com/cloudconnect)** | Supported | Supported | Amsterdam | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Supported |Supported |Amsterdam, Chicago, Dallas, Las Vegas+, London, Seattle, Silicon Valley, Singapore, Washington DC |
 | **LG CNS** |Supported |Supported |Busan |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supported |Supported |Dallas, Hong Kong, Las Vegas, Los Angeles, Melbourne, New York, Quebec City, Seattle, Singapore, Sydney, Toronto, Washington DC |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supported |Supported |Chicago, Dallas, Hong Kong, Las Vegas, Los Angeles, Melbourne, Miami, New York, Quebec City, Seattle, Singapore, Sydney, Toronto, Washington DC |
 | **MTN** |Supported |Supported |London |
 | **[Next Generation Data](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Supported |Supported |Newport(Wales) |
 | **NEXTDC** |Supported |Supported |Melbourne, Sydney |
@@ -108,6 +108,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Telehouse - KDDI](http://www.telehouse.net/solutions/cloud-services/cloud-link)** |Supported |Supported |London |
 | **Telenor** |Supported |Supported |Amsterdam, London |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Supported |Supported |Melbourne, Sydney |
+| **[Telus](http://www.telus.com)** |Supported |Supported |Toronto |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** |Supported |Supported |Amsterdam, Chicago, Dallas, Hong Kong, London, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **[Vodafone](http://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Supported |Not Supported |London |
 | **[Zayo Group](http://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Supported |Supported |Chicago, Dallas+, London+, Los Angeles, New York, Silicon Valley, Toronto, Washington DC |

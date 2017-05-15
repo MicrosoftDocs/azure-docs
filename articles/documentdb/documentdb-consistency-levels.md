@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/11/2017
 ms.author: syamk
 ms.custom: H1Hack27Feb2017
 
@@ -79,10 +79,9 @@ You can configure a default consistency level on your database account that appl
 
 **Consistent Prefix**: 
 
-* Eventual consistency guarantees that in absence of any further writes, the replicas within the group eventually converge. 
+* Consistent prefix guarantees that in absence of any further writes, the replicas within the group eventually converge. 
 * Consistent prefix guarantees that reads never see out of order writes. If writes were performed in the order `A, B, C`, then a client sees either `A`, `A,B`, or `A,B,C`, but never out of order like `A,C` or `B,A,C`.
 * Azure Cosmos DB accounts that are configured with consistent prefix consistency can associate any number of Azure regions with their Azure Cosmos DB account. 
-* The cost of a read operation (in terms of RUs consumed) with the eventual consistency level is the lowest of all the Azure Cosmos DB consistency levels.
 
 **Eventual**: 
 

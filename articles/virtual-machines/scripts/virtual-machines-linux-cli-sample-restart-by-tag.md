@@ -55,21 +55,21 @@ The third script restarts all the VMs that were provisioned, and then just the t
 This script creates a resource group and then it creates three VMs to restart.
 Two of them are tagged.
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/restart-by-tag/provision.sh "Provision the VMs")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/provision.sh "Provision the VMs")]
 
 ### Wait
 
 This script checks on the provisioning status every 20 seconds until all three VMs are provisioned,
 or one of them fails to provision.
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/restart-by-tag/wait.sh "Wait for the VMs to be provisioned")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/wait.sh "Wait for the VMs to be provisioned")]
 
 ### Restart the VMs
 
 This script restarts all the VMs in the resource group,
 and then it restarts just the tagged VMs.
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/restart-by-tag/restart.sh "Restart VMs by tag")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/restart.sh "Restart VMs by tag")]
 
 ## Clean up deployment 
 

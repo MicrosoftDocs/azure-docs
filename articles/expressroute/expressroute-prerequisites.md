@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 05/12/2017
 ms.author: cherylmc
 
 ---
@@ -23,7 +23,7 @@ To connect to Microsoft cloud services using ExpressRoute, you need to verify th
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## Azure account
-* A valid and active Microsoft Azure account. This account is required to set up the ExpressRoute circuit. ExpressRoute circuits are resources within Azure subscriptions. An Azure subscription is a requirement even if connectivity is limited to non-Azure Microsoft cloud services, such as Office 365 services and CRM online.
+* A valid and active Microsoft Azure account. This account is required to set up the ExpressRoute circuit. ExpressRoute circuits are resources within Azure subscriptions. An Azure subscription is a requirement even if connectivity is limited to non-Azure Microsoft cloud services, such as Office 365 services and Dynamics 365.
 * An active Office 365 subscription (if using Office 365 services). For more information, see the [Office 365 specific requirements](#office-365-specific-requirements) section of this article.
 
 ## Connectivity provider
@@ -49,10 +49,10 @@ If you plan to enable Office 365 on ExpressRoute, review the following documents
 * [Office 365 integration with on-premises environments](https://support.office.com/en-us/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
 * [ExpressRoute on Office 365 advanced training videos](https://channel9.msdn.com/series/aer/)
 
-## CRM Online
-If you plan to enable CRM Online on ExpressRoute, review the following documents for more information about CRM Online
+## Dynamics 365
+If you plan to enable Dynamics 365 on ExpressRoute, review the following documents for more information about Dynamics 365
 
-* [CRM Online URLs](https://support.microsoft.com/kb/2655102) and [IP address ranges](https://support.microsoft.com/kb/2728473)
+* [Dynamics 365 URLs](https://support.microsoft.com/kb/2655102) and [IP address ranges](https://support.microsoft.com/kb/2728473)
 
 ## Next steps
 * For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
