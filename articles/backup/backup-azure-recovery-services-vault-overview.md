@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/09/2017
+ms.date: 05/15/2017
 ms.author: markgal;arunak
 
 ---
 # Recovery Services vaults overview
 
-This article describes the features of a Recovery Services vault. A Recovery Services vault is a storage entity in Azure that houses data. The data is typically copies of data or configuration information for your virtual machines (VMs), workloads, servers or workstations. A Recovery Services vault is the Resource Manager version, or upgraded version, of a Backup vault. Microsoft encourages you to use Recovery Services vaults, and to convert any Backup vaults to Recovery Services vaults.
+This article describes the features of a Recovery Services vault. A Recovery Services vault is a storage entity in Azure that houses data. The data is typically copies of data or configuration information for your virtual machines (VMs), workloads, servers or workstations. A Recovery Services vault is the Resource Manager version of a Backup vault. Microsoft encourages you to use Recovery Services vaults, and to convert any Backup vaults to Recovery Services vaults.
 
 ## What is a Recovery Services vault?
 
-A Recovery Services vault is an online storage entity in Azure used to hold data such as backup copies, recovery points, and backup policies. You can use Recovery Services vaults to hold backup data for various Azure services such as Linux VMs, Windows VMs, and Azure SQL databases. Recovery Services vaults also support System Center DPM, Windows Server, Windows workstations, Azure Backup Server, and more. Recovery Services vaults make it easy to organize your backup data, while minimizing management overhead.
+A Recovery Services vault is an online storage entity in Azure used to hold data such as backup copies, recovery points, and backup policies. You can use Recovery Services vaults to hold backup data for various Azure services such as IaaS VMs (Linux or Windows) and Azure SQL databases. Recovery Services vaults also support System Center DPM, Windows Server, Windows workstations, Azure Backup Server, and more. Recovery Services vaults make it easy to organize your backup data, while minimizing management overhead.
 
 Within an Azure subscription, you can create as many Recovery Services vaults as you like.
 
 ## Comparing Recovery Services vaults and Backup vaults
 
-Recovery Services vaults are based on the Azure Resource Manager model of Azure, where as Backup vaults are based on the Azure Service Manager model. When you upgrade a Backup vault to a Recovery Services vault, the backup data remains intact during and after the upgrade process. Recovery Services vaults use features in Azure not available for Backup vaults such as
+Recovery Services vaults are based on the Azure Resource Manager model of Azure, where as Backup vaults are based on the Azure Service Manager model. When you upgrade a Backup vault to a Recovery Services vault, the backup data remains intact during and after the upgrade process. Recovery Services vaults provide features not available for Backup vaults, such as:
 
 - **Enhanced capabilities to help secure backup data**: With Recovery Services vaults, Azure Backup provides security capabilities to protect cloud backups. These security features ensure that you can secure your backups, and safely recover data from cloud backups even if production and backup servers are compromised. [Learn more](backup-azure-security-feature.md)
 
