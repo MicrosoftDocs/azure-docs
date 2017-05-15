@@ -10,7 +10,7 @@ ms.service: container-service
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/11/2017
+ms.date: 05/15/2017
 ms.author: rasquill
 ---
 
@@ -105,7 +105,7 @@ Once Elasticsearch reports as **Running**, you can add the Vamp DC/OS Universe p
 
 2. Click **install** next to the vamp package, and choose **Advanced Installation**.
 
-3. Scroll down and enter the following elasticsearch-url: **http://elasticsearch.marathon.mesos:9200** 
+3. Scroll down and enter the following elasticsearch-url: `http://elasticsearch.marathon.mesos:9200`. 
 
   ![Enter Elasticsearch URL](./media/container-service-dcos-vamp-canary-release/05_universe_elasticsearch_url.png)
 
@@ -290,13 +290,7 @@ We also touched on some powerful features of Vamp:  merging a new service varian
 
 * Learn about managing Vamp actions through the [Vamp REST API](http://vamp.io/documentation/api/api-reference/).
 
-* Build Vamp automation scripts in Node.js and run them as Vamp workflows, using [Vamp Runner](https://github.com/magneticio/vamp-runner).
+* Build Vamp automation scripts in Node.js and run them as [Vamp workflows](http://vamp.io/documentation/tutorials/create-a-workflow/).
 
-* For additional tutorials, see: 
-
-    * [Automating a canary release - Vamp Runner](http://vamp.io/documentation/tutorials/automate-a-canary-release/) 
-
-    * [Creating a workflow](http://vamp.io/documentation/tutorials/create-a-workflow/) 
-
-    * [More about Vamp workflows](http://vamp.io/documentation/using-vamp/workflows/) 
+* See additional [VAMP tutorials](http://vamp.io/documentation/tutorials/overview/).
 
