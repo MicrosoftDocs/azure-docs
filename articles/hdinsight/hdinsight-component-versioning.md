@@ -33,7 +33,7 @@ Azure HDInsight supports multiple Hadoop cluster versions that can be deployed a
 The component versions associated with HDInsight cluster versions are itemized in the following table: 
 
 > [!NOTE]
-> The default version from the service may change without notice. If you have a version dependency, we recommend that you specify the version when you create clusters using .NET SDK/Azure PowerShell and Azure CLI. .
+> The default version from the service may change without notice. If you have a version dependency, we recommend that you specify the version when you create clusters using .NET SDK/Azure PowerShell and Azure CLI. 
 >
 >
 
