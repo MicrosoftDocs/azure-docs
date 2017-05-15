@@ -29,7 +29,7 @@ Azure Recovery Services contribute to your BCDR strategy. The [Azure Backup](htt
 
 - **Disaster recovery in the cloud**—You can replicate workloads running on VMs and physical servers to Azure, rather than to a secondary site. This eliminates the cost and complexity of maintaining a secondary datacenter.
 - **Flexible replication for hybrid environments**—You can replicate any workload running on supported on-premises Hyper-V VMs, VMware VMs, and Windows/Linux physical servers.
-- **Migration**—You can use Site Recovery to migrate on-premises AWS instances to Azure VMs, or to migrate Azure VMs between Azure regions.
+- **Migration**—You can use Site Recovery to migrate AWS instances to Azure VMs, or to migrate Azure VMs between Azure regions.
 - **Simplified BCDR**—You can deploy replication from a single location in the Azure portal.  You can run simple failovers and failback of single and multiple machines.
 - **Resilience**—Site recovery orchestrates replication and failover, without intercepting application data.
 Replicated data is stored in Azure storage, with the resilience that provides. When failover occurs, Azure VMs are created based on the replicated data.

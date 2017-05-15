@@ -30,7 +30,7 @@ Access to custom policy editing requires a valid Azure subscription linked to yo
 
 ## Add signing and encryption keys to your B2C tenant for use by Custom Policies
 
-1. Navigate to the Identity Experience Framework blade in you Azure AD B2C tenant settings.
+1. Navigate to the **Identity Experience Framework** blade in your Azure AD B2C tenant settings.
 2. Select **Policy Keys** to view the keys available in your tenant.
 3. Create `B2C_1A_TokenSigningKeyContainer` if it does not exist:
  * Click on **Add**
@@ -73,7 +73,7 @@ Azure AD B2C requires you to register two extra applications that are used by th
    * Application type: `Web app/API`
    * Sign-on URL: `https://login.microsoftonline.com/yourtenant.onmicrosoft.com` where `yourtenant` is your Azure AD B2C tenant domain name.
 1. Click **Create**.
-1. Once created, select the newly created application `IdentityExperienceFramework` , click on **Properties**, copy the Application ID and save it for later.
+1. Once created, select the newly created application `IdentityExperienceFramework`, click on **Properties**, copy the Application ID and save it for later.
 
 ### Create the proxy Identity Experience Framework application
 
@@ -102,7 +102,7 @@ Each starterpack contains:
 
 * The [base file](active-directory-b2c-overview-custom.md#policy-files) of the policy. Few modifications are required to the base.
 * The [extension file](active-directory-b2c-overview-custom.md#policy-files) of the policy.  This file is where most configuration changes are made.
-* [Relying party files](active-directory-b2c-overview-custom.md#policy-files) These are task specific files, called by your application for a specific tasks.
+* [Relying party files](active-directory-b2c-overview-custom.md#policy-files) These are task specific files called by your application.
 
 >[!NOTE]
 >If your XML editor supports validation, you may want to validate the files against the `TrustFrameworkPolicy_0.3.0.0.xsd` XML schema file that is located in the root folder of the starter pack. XML schema validation identifies errors before uploading.
@@ -115,8 +115,8 @@ Let's get started:
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
 2. Open the `SocialAndLocalAccounts` folder.  The base file (`TrustFrameworkBase.xml`) in this folder contains content needed for both local and social/corporate accounts. The social content does not interfere with the steps for getting local accounts up and running.
-3. Open `TrustFrameworkBase.xml`.  If you need an XML editor, try [try Visual Studio Code](https://code.visualstudio.com/download), a lightweight cross platform editor.
-4. In the root `TrustFrameworkPolicy` element, update the `TenantId` and `PublicPolicyUri` attributes, replacing `yourtenant.onmicrosoft.com` with your the domain name of your Azure AD B2C tenant:
+3. Open `TrustFrameworkBase.xml`.  If you need an XML editor, [try Visual Studio Code](https://code.visualstudio.com/download), a lightweight cross platform editor.
+4. In the root `TrustFrameworkPolicy` element, update the `TenantId` and `PublicPolicyUri` attributes, replacing `yourtenant.onmicrosoft.com` with your domain name of your Azure AD B2C tenant:
 
     ```xml
     <TrustFrameworkPolicy
@@ -134,7 +134,7 @@ Let's get started:
 5. Save the file.
 6. Open `TrustFrameworkExtensions.xml` and make the same two changes by replacing `yourtenant.onmicrosoft.com` with your Azure AD B2C tenant. Make the same replacement in the element `<TenantId>` for a total of 3 changes.  Save the file.
 7. Open `SignUpOrSignIn.xml`and make the same changes by replacing `yourtenant.onmicrosoft.com` with your Azure AD B2C tenant in three places. Save the file.
-8. Open the password secret, and profile edit files and make the same changes by replacing `yourtenant.onmicrosoft.com` with your Azure AD B2C tenant in three places in each file. Save the files.
+8. Open the password reset and profile edit files, and make the same changes by replacing `yourtenant.onmicrosoft.com` with your Azure AD B2C tenant in three places in each file. Save the files.
 
 ### Add the application IDs to your custom policy
 Add the application IDs to the extensions file (`TrustFrameworkExtensions.xml`).
@@ -187,7 +187,7 @@ Learn how to register applications in the Azure AD B2C [Get Started](active-dire
 ## Next steps
 
 ### Add Facebook as an identity provider
-To setup Facebook:
+To set up Facebook:
 1. [Configure a Facebook application in developers.facebook.com](active-directory-b2c-setup-fb-app.md)
 2. [Add the Facebook application secret to your Azure AD B2C Tenant](#add-signing-and-encryption-keys-to-your-b2c-tenant-for-use-by-custom-policies)
 3. Add the Facebook application id in the TrustFrameworkExtensions policy file in the `Item Key="client_id"`:
