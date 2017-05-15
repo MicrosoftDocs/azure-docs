@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/13/2016
-ms.author: sashan;carlrab
+ms.date: 04/14/2017
+ms.author: sashan
 
 ---
 # Restore an Azure SQL Database or failover to a secondary
@@ -59,16 +59,11 @@ To restore availability of the database(s) you need to initiate the failover to 
 Use one of the following guides to failover to a geo-replicated secondary database:
 
 * [Failover to a geo-replicated secondary using Azure Portal](sql-database-geo-replication-portal.md)
-* [Failover to a geo-replicated secondary using PowerShell](sql-database-geo-replication-powershell.md)
+* [Failover to a geo-replicated secondary using PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
 * [Failover to a geo-replicated secondary using T-SQL](sql-database-geo-replication-transact-sql.md)
 
 ## Recover using Geo-Restore
-If your application’s downtime does not result in business liability you can use Geo-Restore as a method to recover your application database(s). It creates a copy of the database from its latest geo-redundant backup.
-
-Use one of the following guides to geo-restore a database into a new region:
-
-* [Geo-Restore a database to a new region using Azure Portal](sql-database-geo-restore-portal.md)
-* [Geo-Restore a database to a new region using PowerShell](sql-database-geo-restore-powershell.md)
+If your application’s downtime does not result in business liability you can use [Geo-Restore](sql-database-recovery-using-backups.md) as a method to recover your application database(s). It creates a copy of the database from its latest geo-redundant backup.
 
 ## Configure your database after recovery
 If you are using either geo-replication failover or geo-restore to recover from an outage, you must make sure that the connectivity to the new databases is properly configured so that the normal application function can be resumed. This is a checklist of tasks to get your recovered database production ready.
@@ -95,7 +90,7 @@ You need to make sure your existing alert rule settings are updated to map to th
 For more information about database alert rules, see [Receive Alert Notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) and [Track Service Health](../monitoring-and-diagnostics/insights-service-health.md).
 
 ### Enable Auditing
-If auditing is required to access your database, you need to enable Auditing after the database recovery. A good indicator that auditing is required is that client applications use secure connection strings in a pattern of *.database.secure.windows.net. For more information, see [Get started with SQL database auditing](sql-database-auditing-get-started.md).
+If auditing is required to access your database, you need to enable Auditing after the database recovery. A good indicator that auditing is required is that client applications use secure connection strings in a pattern of *.database.secure.windows.net. For more information, see [Database auditing](sql-database-auditing.md).
 
 ## Next steps
 * To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)

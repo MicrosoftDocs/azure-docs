@@ -17,8 +17,6 @@ ms.author: joroja
 
 ---
 # Linking an Azure Subscription to an Azure B2C tenant to pay for usage charges
-> [!IMPORTANT]
-> Coming soon. This feature is not available for all B2C tenants.
 
 Ongoing usage charges for Azure Active Directory B2C (or Azure AD B2C) are billed to an Azure Subscription. It is necessary for the tenant administrator to explicitly link the Azure AD B2C tenant to an Azure subscription after creating the B2C tenant itself.  This link is achieved by creating an Azure AD "B2C Tenant" resource in the target Azure subscription. Many B2C tenants can be linked to a single Azure subscription along with other Azure resources (for example, VMs, Data storage, LogicApps)
 
@@ -68,11 +66,14 @@ By clicking the B2C tenant resource, you are able to
 
 ![B2C Resource settings](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
 
+## Known Issues
+- B2C Tenant deletion. If a B2C Tenant is created, deleted, and re-created with the same domain name, please also delete and re-create the "Linking" resource with the same domain name.  You will find this "Linking" resource under "All resources" in the subscription tenant via the Azure portal.
+- Self-imposed restrictions on regional resource location.  In rare cases, a user may have established a regional restriction for Azure resource creation.  This restriction may prevent the creation of the Link between an Azure subscription and a B2C Tenant. To mitigate, please relax this restriction.
 
 ## Next steps
 Once these steps are complete for each of your B2C tenants, your Azure subscription is billed in accordance with your Azure Direct or Enterprise Agreement details.
-- Review usage and billing within you selected Azure subscription
-- Review detailed day-by-day usage reports using the Usage Reporting API (TBD)
+- Review usage and billing within your selected Azure subscription
+- Review detailed day-by-day usage reports using the [Usage Reporting API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)
 
 
 

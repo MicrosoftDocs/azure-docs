@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2016
+ms.date: 04/03/2017
 ms.author: ashwink
 
 ---
@@ -31,7 +31,7 @@ You can opt-in from the Azure portal for Cloud Services and Server Farms (Web Ap
 
 * Choose the **scale by** metric.
 
-![scale by](./media/insights-autoscale-to-webhook-email/insights-autoscale-scale-by.png)
+![scale by](./media/insights-autoscale-to-webhook-email/insights-autoscale-notify.png)
 
 ## Virtual Machine scale sets
 For newer Virtual Machines created with Resource Manager (Virtual Machine scale sets), you can configure this using REST API, Resource Manager templates, PowerShell, and CLI. A portal interface is not yet available.
@@ -72,10 +72,7 @@ When using the REST API or Resource Manager template, include the notifications 
 | properties |yes |value must be empty {} or can contain key-value pairs |
 
 ## Authentication in webhooks
-There are two authentication URI forms:
-
-1. Token-base authentication, where you save the webhook URI with a token ID as a query parameter. For example, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
-2. Basic authentication, where you use a user ID and password. For example, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
+The webhook can authenticate using token-based authentication, where you save the webhook URI with a token ID as a query parameter. For example, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
 
 ## Autoscale notification webhook payload schema
 When the autoscale notification is generated, the following metadata is included in the webhook payload:
@@ -125,4 +122,3 @@ When the autoscale notification is generated, the following metadata is included
 | oldCapacity |Yes |The current (old) instance count when Autoscale took a scale action |
 | newCapacity |Yes |The new instance count that Autoscale scaled the resource to |
 | Properties |No |Optional. Set of <Key, Value> pairs (for example,  Dictionary <String, String>). The properties field is optional. In a custom user interface  or Logic app based workflow, you can enter keys and values that can be passed using the payload. An alternate way to pass custom properties back to the outgoing webhook call is to use the webhook URI itself (as query parameters) |
-

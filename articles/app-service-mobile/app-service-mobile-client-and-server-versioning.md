@@ -4,7 +4,7 @@ description: List of client SDKs and compatibility with server SDK versions for 
 services: app-service\mobile
 documentationcenter: ''
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: ''
 
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5

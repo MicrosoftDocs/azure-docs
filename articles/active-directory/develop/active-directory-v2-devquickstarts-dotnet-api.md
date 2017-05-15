@@ -1,5 +1,5 @@
 ---
-title: Azure AD v2.0 .NET Web API| Microsoft Docs
+title: Add sign-in to a .NET MVC web API using the Azure AD v2.0 endpoint | Microsoft Docs
 description: How to build a .NET MVC Web Api that accepts tokens from both personal Microsoft Account and work or school accounts.
 services: active-directory
 documentationcenter: .net
@@ -34,7 +34,7 @@ The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQ
 git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
 ```
 
-The skeleton app includes all the boilerplate code for a simple API, but is missing all of the identity-related pieces. If you don't want to follow along, you can instead clone or [download the completed sample](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip).
+The skeleton app includes all the boilerplate code for a simple API, but is missing all of the identity-related pieces. If you don't want to follow along, you can instead clone or [download the completed sample](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip).
 
 ```
 git clone https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git

@@ -59,10 +59,10 @@ Create a Web app with [Azure App Service](https://azure.microsoft.com/services/a
 9. Once you choose your project and branch, click ok. You should start to see notifications of a deployment.
    
    ![image9][image9]
-10. Navigate back to Github to see the webhook that was created to integrate the source control repo with Azure. The Azure Portal enables integration with Github with only a few simple steps.
+10. Navigate back to GitHub to see the webhook that was created to integrate the source control repo with Azure. The Azure Portal enables integration with GitHub with only a few simple steps.
     
     ![image10][image10]
-11. To demonstrate continuous deployment, you quickly add some content to the repository. For a simple example, add a sample text file to a Github repo. You are free to use .NET, Ruby, Python, or some other type of application with App Service. Feel free to add a text file, ASP.NET MVC, Java, or Ruby application to the repo of your choice.
+11. To demonstrate continuous deployment, you quickly add some content to the repository. For a simple example, add a sample text file to a GitHub repo. You are free to use .NET, Ruby, Python, or some other type of application with App Service. Feel free to add a text file, ASP.NET MVC, Java, or Ruby application to the repo of your choice.
     
     ![image11][image11]
 12. After committing changes to your repository, you see a new deployment initiate in the portal notifications area. Click Sync if you do not quickly see changes after committing to your repository.

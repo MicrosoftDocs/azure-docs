@@ -28,7 +28,7 @@ The FTP/S endpoint for your app is already active. No configuration is necessary
 
 To access the FTP server for your app, you first need deployment credentials. 
 
-To set or reset your deployment credentials, see [Azure App Service Deployment Credentials](app-service-deploy-ftp.md). This tutorial demonstrates the use of user-level credentials.
+To set or reset your deployment credentials, see [Azure App Service Deployment Credentials](app-service-deployment-credentials.md). This tutorial demonstrates the use of user-level credentials.
 
 ## Step 2: Get FTP connection information
 

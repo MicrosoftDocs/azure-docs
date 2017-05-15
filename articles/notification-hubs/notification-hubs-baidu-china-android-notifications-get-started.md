@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to use Azure Notification Hubs to p
 services: notification-hubs
 documentationcenter: android
 author: ysxu
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 23bde1ea-f978-43b2-9eeb-bfd7b9edc4c1

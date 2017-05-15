@@ -1,6 +1,6 @@
 ---
-title: Protect your HLS content with Apple FairPlay and/or Microsoft PlayReady | Microsoft Docs
-description: This topic gives an overview and shows how to use Azure Media Services to dynamically encrypt your HTTP Live Streaming (HLS) content with  Apple FairPlay. It also shows how to use the Media Services license delivery service to deliver FairPlay licenses to clients.
+title: Protect HLS content with Microsoft PlayReady or Apple FairPlay - Azure | Microsoft Docs
+description: This topic gives an overview and shows how to use Azure Media Services to dynamically encrypt your HTTP Live Streaming (HLS) content with Apple FairPlay. It also shows how to use the Media Services license delivery service to deliver FairPlay licenses to clients.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,112 +13,116 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: juliako
 
 ---
-# Protect your HLS content with Apple FairPlay and/or Microsoft PlayReady
-Azure Media Services enables you to dynamically encrypt your HTTP Live Streaming (HLS) content using the following formats:  
+# Protect your HLS content with Apple FairPlay or Microsoft PlayReady
+Azure Media Services enables you to dynamically encrypt your HTTP Live Streaming (HLS) content by using the following formats:  
 
 * **AES-128 envelope clear key**
 
-    The entire chunk is encrypted using the **AES-128 CBC** mode. The decryption of the stream is supported by iOS and OSX player natively. For more information, see [this article](media-services-protect-with-aes128.md).
+    The entire chunk is encrypted by using the **AES-128 CBC** mode. The decryption of the stream is supported by iOS and OS X player natively. For more information, see [Using AES-128 dynamic encryption and key delivery service](media-services-protect-with-aes128.md).
 * **Apple FairPlay**
 
-    The individual video and audio samples are encrypted using the **AES-128 CBC** mode. **FairPlay Streaming** (FPS) is integrated into the device operating systems, with native support on iOS and Apple TV. Safari on OS X enables FPS using Encrypted Media Extensions (EME) interface support.
+    The individual video and audio samples are encrypted by using the **AES-128 CBC** mode. **FairPlay Streaming** (FPS) is integrated into the device operating systems, with native support on iOS and Apple TV. Safari on OS X enables FPS by using the Encrypted Media Extensions (EME) interface support.
 * **Microsoft PlayReady**
 
-The following image shows the **HLS + FairPlay and/or PlayReady dynamic encryption** workflow.
+The following image shows the **HLS + FairPlay or PlayReady dynamic encryption** workflow.
 
-![Protect with FairPlay](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
+![Diagram of dynamic encryption workflow](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
 
-This topic demonstrates how to use Azure Media Services to dynamically encrypt your HLS content with Apple FairPlay. It also shows how to use the Media Services license delivery service to deliver FairPlay licenses to clients.
+This topic demonstrates how to use Media Services to dynamically encrypt your HLS content with Apple FairPlay. It also shows how to use the Media Services license delivery service to deliver FairPlay licenses to clients.
 
 > [!NOTE]
-> If you also want to encrypt your HLS content with PlayReady, you need to create a common content key and associate it with your asset. You also need to configure the content key’s authorization policy, as described in [Using PlayReady dynamic common encryption](media-services-protect-with-drm.md) topic.
+> If you also want to encrypt your HLS content with PlayReady, you need to create a common content key and associate it with your asset. You also need to configure the content key’s authorization policy, as described in [Using PlayReady dynamic common encryption](media-services-protect-with-drm.md).
 >
 >
 
 ## Requirements and considerations
 
-* The following are required when using AMS to deliver HLS encrypted with FairPlay and to deliver FairPlay licenses.
+The following are required when using Media Services to deliver HLS encrypted with FairPlay, and to deliver FairPlay licenses:
 
-  * An Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
-  * A Media Services account. To create a Media Services account, see [Create Account](media-services-portal-create-account.md).
+  * An Azure account. For details, see [Azure free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
+  * A Media Services account. To create one, see [Create an Azure Media Services account using the Azure portal](media-services-portal-create-account.md).
   * Sign up with [Apple Development Program](https://developer.apple.com/).
-  * Apple requires the content owner to obtain the [deployment package](https://developer.apple.com/contact/fps/). State the request you already implemented KSM (Key Security Module) with Azure Media Services and that you are requesting the final FPS package. There will be instructions in the final FPS package to generate certification and obtain ASK, which you will be using to configure FairPlay.
+  * Apple requires the content owner to obtain the [deployment package](https://developer.apple.com/contact/fps/). State that you already implemented Key Security Module (KSM) with Media Services, and that you are requesting the final FPS package. There are instructions in the final FPS package to generate certification and obtain the Application Secret Key (ASK). You use ASK to configure FairPlay.
   * Azure Media Services .NET SDK version **3.6.0** or later.
-* The following things must be set on AMS key delivery side:
 
-  * **App Cert (AC)** - .pfx file containing private key. This file is created by the customer and encrypted with a password by the same customer.
+The following things must be set on Media Services key delivery side:
 
-       When the customer configures key delivery policy, they must provide that password and the .pfx in base64 format.
+  * **App Cert (AC)**: This is a .pfx file that contains the private key. You create this file and encrypt it with a password.
 
-      The following steps describe how to generate a pfx certificate for FairPlay.
+       When you configure a key delivery policy, you must provide that password and the .pfx file in Base64 format.
 
-    1. Install OpenSSL from https://slproweb.com/products/Win32OpenSSL.html
+      The following steps describe how to generate a .pfx certificate file for FairPlay:
+
+    1. Install OpenSSL from https://slproweb.com/products/Win32OpenSSL.html.
 
         Go to the folder where the FairPlay certificate and other files delivered by Apple are.
-    2. Command Line to convert the cer to pem:
+    2. Run the following command from the command line. This converts the .cer file to a .pem file.
 
         "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in fairplay.cer -out fairplay-out.pem
-    3. Command line to convert pem to pfx with the private key (the password for the pfx file is then asked by OpenSSL).
+    3. Run the following command from the command line. This converts the .pem file to a .pfx file with the private key. The password for the .pfx file is then asked by OpenSSL.
 
         "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt
-  * **App Cert password** - Customer password for creating the .pfx file.
-  * **App Cert password ID** - The customer must upload the password similar to how they upload other AMS keys and using **ContentKeyType.FairPlayPfxPassword** enum value. As the result, they will get AMS id this is what they need to use inside the key delivery policy option.
-  * **iv** -  16 bytes random value, must match the iv in the asset delivery policy. Customer generates the IV and puts it in both places: asset delivery policy and key delivery policy option.
-  * **ASK** - ASK (Application Secret Key) is received when you generate the certification using Apple Developer portal. Each development team will receive a unique ASK. Please save a copy of the ASK and store it in a safe place. You will need to configure ASK as FairPlayAsk to Azure Media Services later.
-  * **ASK ID** - is obtained when the customer uploads ASk into AMS. The customer must upload ASk using **ContentKeyType.FairPlayASk** enum value. As the result, the AMS id is returned and this is what should be used when setting the key delivery policy option.
-* The following things must be set by the FPS client side:
+  * **App Cert password**: The password for creating the .pfx file.
+  * **App Cert password ID**: You must upload the password, similar to how they upload other Media Services keys. Use the **ContentKeyType.FairPlayPfxPassword** enum value to get the Media Services ID. This is what they need to use inside the key delivery policy option.
+  * **iv**: This is a random value of 16 bytes. It must match the iv in the asset delivery policy. You generate the iv, and put it in both places: the asset delivery policy and the key delivery policy option.
+  * **ASK**: This key is received when you generate the certification by using the Apple Developer portal. Each development team will receive a unique ASK. Save a copy of the ASK, and store it in a safe place. You will need to configure ASK as FairPlayAsk to Media Services later.
+  * **ASK ID**: This ID is obtained when you upload ASK into Media Services. You must upload ASK by using the **ContentKeyType.FairPlayAsk** enum value. As the result, the Media Services ID is returned, and this is what should be used when setting the key delivery policy option.
 
-  * **App Cert (AC)** - .cer/.der file containing public key which OS uses to encrypt some payload. AMS needs to know about it because it is required by the player. The key delivery service decrypts it using the corresponding private key.
-* To playback a FairPlay encrypted stream, you need to get real ASK first and then generate a real certificate. That process creates all 3 parts:
+The following things must be set by the FPS client side:
 
-  * .der,
-  * .pfx and
-  * the password for the .pfx.
-* Clients that support HLS with **AES-128 CBC** encryption: Safari on OS X, Apple TV, iOS.
+  * **App Cert (AC)**: This is a .cer/.der file that contains the public key, which the operating system uses to encrypt some payload. Media Services needs to know about it because it is required by the player. The key delivery service decrypts it using the corresponding private key.
 
-## Steps for configuring FairPlay dynamic encryption and license delivery services
-The following are general steps that you would need to perform when protecting your assets with FairPlay, using the Media Services license delivery service, and also using dynamic encryption.
+To play back a FairPlay encrypted stream, get a real ASK first, and then generate a real certificate. That process creates all three parts:
 
-1. Create an asset and upload files into the asset.
-2. Encode the asset containing the file to the adaptive bitrate MP4 set.
-3. Create a content key and associate it with the encoded asset.  
-4. Configure the content key’s authorization policy. When creating the content key authorization policy, you need to specify the following:
+  * .der file
+  * .pfx file
+  * password for the .pfx
 
-   * delivery method (in this case, FairPlay),
-   * FairPlay policy options configuration. For details on how to configure FairPlay, see ConfigureFairPlayPolicyOptions() method in the sample below.
+The following clients support HLS with **AES-128 CBC** encryption: Safari on OS X, Apple TV, iOS.
 
-     > [!NOTE]
-     > Usually, you would want to configure FairPlay policy options only once, since you will only have one set of certification and ASK.
-     >
-     >
-   * restrictions (open or token),
-   * and information specific to the key delivery type that defines how the key is delivered to the client.
-5. Configure asset delivery policy. The delivery policy configuration includes:
+## Configure FairPlay dynamic encryption and license delivery services
+The following are general steps for protecting your assets with FairPlay by using the Media Services license delivery service, and also by using dynamic encryption.
 
-   * delivery protocol (HLS),
-   * the type of dynamic encryption (Common CBC Encryption),
-   * license acquisition URL.
+1. Create an asset, and upload files into the asset.
+2. Encode the asset that contains the file to the adaptive bitrate MP4 set.
+3. Create a content key, and associate it with the encoded asset.  
+4. Configure the content key’s authorization policy. Specify the following:
+
+   * The delivery method (in this case, FairPlay).
+   * FairPlay policy options configuration. For details on how to configure FairPlay, see the **ConfigureFairPlayPolicyOptions()** method in the sample below.
 
      > [!NOTE]
-     > If you want to deliver a stream that is encrypted with FairPlay + another DRM, you have to configure separate delivery policies
-     >
-     > * One IAssetDeliveryPolicy to configure DASH with CENC (PlayReady + WideVine) and Smooth with PlayReady.
-     > * Another IAssetDeliveryPolicy  to configure FairPlay for HLS
+     > Usually, you would want to configure FairPlay policy options only once, because you will only have one set of a certification and an ASK.
      >
      >
-6. Create an OnDemand locator  to get a streaming URL.
+   * Restrictions (open or token).
+   * Information specific to the key delivery type that defines how the key is delivered to the client.
+5. Configure the asset delivery policy. The delivery policy configuration includes:
 
-## Using FairPlay key delivery by player/client apps
-Customers could develop player apps using iOS SDK. In order to be able to play FairPlay content customers have to implement license exchange protocol. The license exchange protocol is not specified by Apple. It is up to each app how to send key delivery requests. The AMS FairPlay key delivery services expects the SPC to come as www-form-url encoded post message in the following form:
+   * The delivery protocol (HLS).
+   * The type of dynamic encryption (common CBC encryption).
+   * The license acquisition URL.
+
+     > [!NOTE]
+     > If you want to deliver a stream that is encrypted with FairPlay and another Digital Rights Management (DRM) system, you have to configure separate delivery policies:
+     >
+     > * One IAssetDeliveryPolicy to configure Dynamic Adaptive Streaming over HTTP (DASH) with Common Encryption (CENC) (PlayReady + Widevine), and Smooth with PlayReady
+     > * Another IAssetDeliveryPolicy to configure FairPlay for HLS
+     >
+     >
+6. Create an OnDemand locator to get a streaming URL.
+
+## Use FairPlay key delivery by player apps
+You can develop player apps by using the iOS SDK. To be able to play FairPlay content, you have to implement the license exchange protocol. This protocol is not specified by Apple. It is up to each app how to send key delivery requests. The Media Services FairPlay key delivery service expects the SPC to come as a www-form-url encoded post message, in the following form:
 
     spc=<Base64 encoded SPC>
 
 > [!NOTE]
-> Azure Media Player doesn’t support FairPlay playback out of the box. Customers need to obtain the sample player from Apple developer account to get FairPlay playback on MAC OSX.
+> Azure Media Player doesn’t support FairPlay playback out of the box. To get FairPlay playback on MAC OS X, obtain the sample player from the Apple developer account.
 >
 >
 
@@ -128,23 +132,23 @@ If your asset was encrypted with more than one DRM, you should use an encryption
 The following considerations apply:
 
 * Only zero or one encryption type can be specified.
-* Encryption type doesn't have to be specified in the url if only one encryption was applied to the asset.
-* Encryption type is case insensitive.
+* The encryption type doesn't have to be specified in the URL if only one encryption was applied to the asset.
+* The encryption type is case insensitive.
 * The following encryption types can be specified:  
-  * **cenc**:  Common encryption (Playready or Widevine)
-  * **cbcs-aapl**: Fairplay
-  * **cbc**: AES envelope encryption.
+  * **cenc**:  Common encryption (PlayReady or Widevine)
+  * **cbcs-aapl**: FairPlay
+  * **cbc**: AES envelope encryption
 
-## .NET example
-The following sample demonstrates functionality that was introduced in Azure Media Services SDK for .Net -Version 3.6.0 (the ability to use Azure Media Services to deliver your content encrypted with FairPlay). The following Nuget package command was used to install the package:
+## .NET example: deliver your content encrypted with FairPlay
+The following sample demonstrates the ability to use Media Services to deliver your content encrypted with FairPlay. This functionality was introduced in the Azure Media Services SDK for .NET version 3.6.0. The following NuGet package command was used to install the package:
 
     PM> Install-Package windowsazure.mediaservices -Version 3.6.0
 
 
 1. Create a Console project.
-2. Use NuGet to install and add Azure Media Services .NET SDK.
+2. Use NuGet to install and add the Azure Media Services .NET SDK.
 3. Add additional references: System.Configuration.
-4. Add config file that contains the account name and key information:
+4. Add a config file that contains the account name and key information:
 
         <?xml version="1.0" encoding="utf-8"?>
         <configuration>
@@ -161,6 +165,9 @@ The following sample demonstrates functionality that was introduced in Azure Med
               </appSettings>
         </configuration>
 7. Overwrite the code in your Program.cs file with the code shown in this section.
+
+	>[!NOTE]
+	>There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
 
         using System;
         using System.Collections.Generic;
@@ -273,31 +280,19 @@ The following sample demonstrates functionality that was introduced in Azure Med
 
                     Console.WriteLine("Created assetFile {0}", assetFile.Name);
 
-                    var policy = _context.AccessPolicies.Create(
-                                            assetName,
-                                            TimeSpan.FromDays(30),
-                                            AccessPermissions.Write | AccessPermissions.List);
-
-                    var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
-
                     Console.WriteLine("Upload {0}", assetFile.Name);
 
                     assetFile.Upload(singleFilePath);
                     Console.WriteLine("Done uploading {0}", assetFile.Name);
-
-                    locator.Delete();
-                    policy.Delete();
 
                     return inputAsset;
                 }
 
                 static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
                 {
-                    var encodingPreset = "H264 Multiple Bitrate 720p";
+                    var encodingPreset = "Adaptive Streaming";
 
-                    IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
-                                            inputAsset.Name,
-                                            encodingPreset));
+                    IJob job = _context.Jobs.Create(String.Format("Encoding {0}", inputAsset.Name));
 
                     var mediaProcessors =
                         _context.MediaProcessors.Where(p => p.Name.Contains("Media Encoder Standard")).ToList();
@@ -555,7 +550,7 @@ The following sample demonstrates functionality that was introduced in Azure Med
         }
 
 
-## Next Steps: Media Services learning paths
+## Next steps: Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback

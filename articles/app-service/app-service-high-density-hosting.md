@@ -2,7 +2,7 @@
 title: High density hosting on Azure App Service | Microsoft Docs
 description: High density hosting on Azure App Service
 author: btardif
-manager: wpickett
+manager: erikre
 editor: ''
 services: app-service\web
 documentationcenter: ''

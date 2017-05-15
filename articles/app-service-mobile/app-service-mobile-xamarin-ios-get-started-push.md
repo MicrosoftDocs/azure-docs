@@ -4,7 +4,7 @@ description: Learn how to use Azure App Service to send push notifications to yo
 services: app-service\mobile
 documentationcenter: xamarin
 author: ysxu
-manager: dwrede
+manager: adrianha
 editor: ''
 
 ms.assetid: 2921214a-49f8-45e1-a306-a85ce21defca

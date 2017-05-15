@@ -1,5 +1,5 @@
 ---
-title: Relay FAQ | Microsoft Docs
+title: Azure Relay frequently asked questions (FAQ) | Microsoft Docs
 description: Answers some frequently-asked questions about Azure Relay.
 services: service-bus-relay
 documentationcenter: na
@@ -13,22 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
-ms.author: jotaub,sethm
+ms.date: 05/09/2017
+ms.author: jotaub;sethm
 
 ---
 # Relay FAQ
-This article answers some frequently-asked questions about Microsoft Azure Relay. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing and support information.
+
+This article answers some frequently-asked questions about [Microsoft Azure Relay](https://azure.microsoft.com/services/service-bus/). You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing and support information.
 
 ## General questions
 ### What is Azure Relay?
-The Azure [Relay service](relay-what-is-it.md) facilitates your hybrid applications by enabling you to securely expose services that reside within a corporate enterprise network to the public cloud, without having to open a firewall connection, or require intrusive changes to a corporate network infrastructure.
+The [Azure Relay service](relay-what-is-it.md) facilitates your hybrid applications by enabling you to securely expose services that reside within a corporate enterprise network to the public cloud, without having to open a firewall connection, or require intrusive changes to a corporate network infrastructure.
 
 ### What is a Relay namespace?
-A [namespace](relay-create-namespace-portal.md) provides a scoping container for addressing Relay resources within your application. Creating one is necessary to use Relay and will be one of the first steps in getting started.
+A [namespace](relay-create-namespace-portal.md) provides a scoping container for addressing Relay resources within your application. Creating a namespace is necessary to use Relay and will be one of the first steps in getting started.
 
 ### What happened to the previously named Relay service?
-The previously named **Relay** service is now called *WCF Relay*. You can continue to use this service as usual. Hybrid Connections is an updated version of a service transplanted from BizTalk. Both WCF Relay and Hybrid Connections will continue to be supported going forward.
+The previously named Service Bus **Relay** service is now called *WCF Relay*. You can continue to use this service as usual. Hybrid Connections is an updated version of a service transplanted from BizTalk. Both WCF Relay and Hybrid Connections will continue to be supported going forward.
 
 ## Pricing
 This section answers some frequently-asked questions about the Relay pricing structure. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Microsoft Azure pricing information. For complete information about Relay pricing, see [Service Bus pricing details](https://azure.microsoft.com/pricing/details/service-bus/).
@@ -45,8 +46,10 @@ Here are three example scenarios:
 
 Please note that the prices used in the examples are applicable only during the preview period and are subject to change upon general availability of Hybrid Connections.
 
-### How are WCF Relay hours calculated?
-Relay hours are billed for the cumulative amount of time during which each Service Bus Relay is "open." A Relay is implicitly instantiated and opened at a given Service Bus address (service namespace URL) when a Relay-enabled WCF service, or “Relay listener,” first connects to that address. It is closed only when the last listener disconnects from its address. Therefore, for billing purposes a Relay is considered "open" from the time the first Relay listener connects, to the time the last Relay listener disconnects from the Service Bus address of that Relay.
+### How are Relay hours calculated?
+WCF Relay and Hybrid Connection hours are billed for the cumulative amount of time during which each Service Bus Relay is "open." A Relay is implicitly instantiated and opened at a given Service Bus address (service namespace URL) when a Relay-enabled service, or “Relay listener,” first connects to that address. It is closed only when the last listener disconnects from its address. Therefore, for billing purposes a Relay is considered "open" from the time the first Relay listener connects, to the time the last Relay listener disconnects from the Service Bus address of that Relay.
+
+WCF Relays are available only in Standard tier namespaces. Otherwise, pricing and [connection quotas](../service-bus-messaging/service-bus-quotas.md) for relays remain unchanged. This means that relays will continue to be charged on the number of messages (not operations), and relay hours. For more information, see the [Hybrid Connections and WCF Relays](https://azure.microsoft.com/pricing/details/service-bus/) table on the pricing details page.
 
 ### What if I have more than one listener connected to a given Relay?
 In some cases, a single Relay may have multiple connected listeners. A Relay is considered "open" when at least one Relay listener is connected to it. Adding additional listeners to an open Relay will result in additional relay hours. The number of Relay senders (clients that invoke or send messages to Relays) connected to a Relay also has no effect on the calculation of Relay hours.
@@ -83,7 +86,27 @@ A Relay namespace name can only be between 6-50 characters in length.
 
 ## Subscription and namespace management
 ### How do I migrate a namespace to another Azure subscription?
-You can use PowerShell commands (found in the article [here](../service-bus-messaging/service-bus-powershell-how-to-provision.md#migrate-a-namespace-to-another-azure-subscription)) to move a namespace from one Azure subscription to another. In order to execute the operation, the namespace must already be active. Also the user executing the commands must be an administrator on both the source and target subscriptions.
+
+You can move a namespace from one Azure subscription to another, using either the [Azure portal](https://portal.azure.com) or PowerShell commands. In order to execute the operation, the namespace must already be active. The user executing the commands must be an administrator on both the source and target subscriptions.
+
+#### Portal
+
+To use the Azure portal to migrate Azure Relay namespaces to another subscription, follow the directions [here](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+
+#### PowerShell
+
+The following sequence of PowerShell commands moves a namespace from one Azure subscription to another. To execute this operation, the namespace must already be active, and the user running the PowerShell commands must be an administrator on both the source and target subscriptions.
+
+```powershell
+# Create a new resource group in target subscription
+Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
+New-AzureRmResourceGroup -Name 'targetRG' -Location 'East US'
+
+# Move namespace from source subscription to target subscription
+Select-AzureRmSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
+$res = Find-AzureRmResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
+Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
+```
 
 ## Troubleshooting
 ### What are some of the exceptions generated by Azure Relay APIs and their suggested actions?
@@ -92,10 +115,6 @@ The [Relay exceptions][Relay exceptions] article describes some exceptions with 
 ### What is a Shared Access Signature and which languages support generating a signature?
 Shared Access Signatures are an authentication mechanism based on SHA – 256 secure hashes or URIs. For information about how to generate your own signatures in Node, PHP, Java and C\#, see the [Shared Access Signatures][Shared Access Signatures] article.
 
-[Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
-[Relay exceptions]: relay-exceptions.md
-[Shared Access Signatures]: ../service-bus-messaging/service-bus-sas-overview.md
-
 ### Is it possible to whitelist Relay endpoints?
 Yes. The Relay client makes connections to the Relay service using fully qualified domain names. This enables customers to add an entry for `*.servicebus.windows.net` on firewalls that support DNS whitelisting.
 
@@ -103,3 +122,7 @@ Yes. The Relay client makes connections to the Relay service using fully qualifi
 * [Create a namespace](relay-create-namespace-portal.md)
 * [Get started with .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Get started with Node](relay-hybrid-connections-node-get-started.md)
+
+[Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
+[Relay exceptions]: relay-exceptions.md
+[Shared Access Signatures]: ../service-bus-messaging/service-bus-sas.md

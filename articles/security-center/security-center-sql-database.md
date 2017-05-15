@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 
 ---
@@ -28,7 +28,7 @@ Security Center helps you safeguard data in SQL Database by providing visibility
 * Define policies for SQL Database encryption and auditing.
 * Monitor the security of SQL Database resources across all your subscriptions.
 * Quickly identify and remediate security issues.
-* Integrate alerts from [Azure SQL Database threat detection](../sql-database/sql-database-threat-detection-get-started.md).
+* Integrate alerts from [Azure SQL Database threat detection](../sql-database/sql-database-threat-detection.md).
 
 In addition to helping protect your SQL Database resources, Security Center also provides security monitoring and management for Azure virtual machines, Cloud Services, App Services, virtual networks, and more. Learn more about Security Center [here](security-center-intro.md).
 
@@ -76,7 +76,7 @@ To see recommendations for your Azure resources, select the **Recommendations** 
 As shown below, Security Center shows you the SQL servers where auditing and threat detection are not enabled. After you turn on auditing, you can configure Threat Detection settings and email settings to receive security alerts. Threat Detection alerts you when it detects anomalous database activities that indicate potential security threats to the database. The alerts are displayed in the Security Center dashboard.
 ![Auditing and threat detection][5]
 
-Follow the steps in [Get started with SQL Database Threat Detection](../sql-database/sql-database-threat-detection-get-started.md) to turn on and configure Threat detection, and to configure the list of emails that will receive security alerts upon detection of anomalous activities.
+Follow the steps in [SQL Database threat detection in the Azure portal](../sql-database/sql-database-threat-detection-portal.md) to turn on and configure Threat detection, and to configure the list of emails that will receive security alerts upon detection of anomalous activities.
 
 To learn more about recommendations, see [Managing security recommendations](security-center-recommendations.md).
 
@@ -87,7 +87,7 @@ After you enable [security policies](security-center-policies.md) for a subscrip
 To learn more, see [Security health monitoring](security-center-monitoring.md).
 
 ## Manage and respond to security alerts
-Security Center automatically collects, analyzes, and integrates log data from [Azure SQL Threat Detection](../sql-database/sql-database-threat-detection-get-started.md), as well as other Azure resources, to detect real threats and reduce false positives. A list of prioritized security alerts is shown in Security Center along with the information you need to quickly investigate the problem and recommendations for how to remediate an attack.
+Security Center automatically collects, analyzes, and integrates log data from [Azure SQL Threat Detection](../sql-database/sql-database-threat-detection.md), as well as other Azure resources, to detect real threats and reduce false positives. A list of prioritized security alerts is shown in Security Center along with the information you need to quickly investigate the problem and recommendations for how to remediate an attack.
 
 To see alerts, select the **Security alerts** tile on the Security Center blade. On the **Security alerts** blade, select an alert to learn more about the events that triggered the alert and what, if any, steps you need to take to remediate an attack. In this example, let’s select **Potential SQL injection**.
 ![Security alerts][7]

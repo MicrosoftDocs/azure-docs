@@ -4,7 +4,7 @@ description: Learn how to use the Python Tools for Visual Studio to create a Dja
 services: app-service\web
 documentationcenter: python
 author: huguesv
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: c60a50b5-8b5e-4818-a442-16362273dabb

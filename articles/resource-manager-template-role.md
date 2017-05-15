@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/azure-resource-manager/resource-manager-template-role
+redirect_url: /azure/active-directory/active-directory-users-assign-role-azure-portal
 ---

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 03/10/2017
 ms.author: billmath
 
 ---
@@ -41,7 +41,7 @@ From a high-level perspective, the following features are supported by the curre
 The Lotus Domino connector uses the Lotus Notes client to communicate with Lotus Domino Server. As a consequence of this dependency, a supported Lotus Notes Client must be installed on the synchronization server. The communication between the client and the server is implemented through the Lotus Notes .NET Interop (Interop.domino.dll) interface. This interface facilitates the communication between the Microsoft.NET platform and Lotus Notes client and supports access to Lotus Domino documents and views. For delta import, it is also possible that the C++ native interface is used (depending on the selected delta import method).
 
 ### Prerequisites
-Before you use the Connector, make sure you have the following on the synchronization server:
+Before you use the Connector, make sure you have the following prerequisites on the synchronization server:
 
 * Microsoft .NET 4.5.2 Framework or later
 * The Lotus Notes client must be installed on your synchronization server
@@ -131,7 +131,7 @@ For **Delta Import** you have these options:
 
 In **Schema Options** you have the following options:
 
-* **Default Schema**. The Connector detects the schema from the Domino server. This is the default option.
+* **Default Schema**. The Connector detects the schema from the Domino server. This selection is the default option.
 * **DSML-Schema**. Only used if the Domino server does not expose the schema. Then you can create a DSML file with the schema and import it instead. For more information on DSML, see [OASIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=dsml).
 
 When you click Next, the UserID and password configuration parameters are verified.
@@ -143,6 +143,11 @@ On the Global Parameters page, you configure the time zone and the import and ex
 The **Domino Server Time Zone** parameter defines the location of your Domino Server.
 
 This configuration option is required to support **delta import** operations because it enables the synchronization service determine changes between the last two imports.
+
+>[!Note]
+Starting in the March 2017 update the Global parameters screen includes the option to delete the user's mail database during the user's deletion.
+
+![Delete user's mailbox](./media/active-directory-aadconnectsync-connector-domino/AdminP.png)
 
 #### Import settings, method
 The **Perform Full Import By** has these options:
@@ -270,7 +275,7 @@ The person object represents users in Organization and Organization Units. In ad
 
 * The address book (names.nsf) must have been defined and it should be the primary address book.
 * You must have the O/OU certifier Id and the password to register a particular user in the Organization / Organization Unit.
-* You must set a specific set of Lotus Notes properties for a person object. These properties are used for provisioning the person object. For more details, see the section called [Lotus Notes Properties](#lotus-notes-properties) later in this document.
+* You must set a specific set of Lotus Notes properties for a person object. These properties are used for provisioning the person object. For more information, see the section called [Lotus Notes Properties](#lotus-notes-properties) later in this document.
 * The initial HTTP password for a person is an attribute and set during provisioning.
 * The person object must be one of the following three supported types:
   1. Normal User that has a mail file and a user id file
@@ -306,10 +311,10 @@ The Resource Reservation database contains three types of documents:
 * Resource
 * Reservation
 
-For more details on setting up of Resource Reservation database, see [Setting up the Resource Reservations database](https://www-01.ibm.com/support/knowledgecenter/SSKTMJ_8.0.1/com.ibm.help.domino.admin.doc/DOC/H_SETTING_UP_THE_RESOURCE_RESERVATIONS_DATABASE.html).
+For more information on setting up of Resource Reservation database, see [Setting up the Resource Reservations database](https://www-01.ibm.com/support/knowledgecenter/SSKTMJ_8.0.1/com.ibm.help.domino.admin.doc/DOC/H_SETTING_UP_THE_RESOURCE_RESERVATIONS_DATABASE.html).
 
 **Create, Update, and Delete Resources**  
-The Create, Update, and Delete operations are performed by the Lotus Domino connector in the Resource Reservation database. Resources are created as documents in Names.nsf (that is, the primary address book). For more details about editing and deleting Resources, see [Editing and deleting Resource documents](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_EDITING_AND_DELETING_RESOURCE_DOCUMENTS.html).
+The Create, Update, and Delete operations are performed by the Lotus Domino connector in the Resource Reservation database. Resources are created as documents in Names.nsf (that is, the primary address book). For more information about editing and deleting Resources, see [Editing and deleting Resource documents](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_EDITING_AND_DELETING_RESOURCE_DOCUMENTS.html).
 
 **Import and Export operation for Resources**  
 The Resources can be imported to and exported from the synchronization service, like any other object type. Select the object type as Resource during configuration. For successful export operation, you should have details for Resource type, Conference Database, and Site name.
@@ -486,4 +491,3 @@ There are several ways in Domino to extend the schema so it appears as a custom 
 
 ## Troubleshooting
 * For information on how to enable logging to troubleshoot the connector, see the [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
-

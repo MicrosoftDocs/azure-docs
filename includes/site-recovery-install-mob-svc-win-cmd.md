@@ -1,33 +1,33 @@
-1. Copy the installer to a local folder (say C:\Temp) on the server that you want to protect and run the following commands from a elevated command prompt.
+1. Copy the installer to a local folder (for example, C:\Temp) on the server that you want to protect. Run the following commands as an administrator at a command prompt:
 
   ```
   cd C:\Temp
   ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
-  MobilityServiceInstaller.exe /q /xC:\Temp\Extracted
+  MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
   cd C:\Temp\Extracted.
   ```
-2. Now we can install the Mobility service using the following command line
+2. To install Mobility Service, run the following command:
 
   ```
-  UnifiedAgent.exe /Role "Agent" /CSEndpoint "IP Address of Configuration Server" /PassphraseFilePath <Full path to the passphrase file>``
+  UnifiedAgent.exe /Role "Agent" /CSEndpoint "IP address of the configuration server" /PassphraseFilePath <Full path to the passphrase file>``
   ```
 
-#### Mobility Service Installer Command line arguments
+#### Mobility Service installer command-line arguments
 
 ```
 Usage :
-UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <Installation Directory>] [/CSIP <IP address>] [/PassphraseFilePath <Passphrase file path>] [/LogFilePath <Log File Path>]<br/>
+UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <Installation directory>] [/CSIP <IP address>] [/PassphraseFilePath <Passphrase file path>] [/LogFilePath <Log file path>]<br/>
 ```
 
-  | Parameter|Type|Description|Possible Values|
+  | Parameter|Type|Description|Possible values|
   |-|-|-|-|
-  |/Role|Mandatory|Specifies whether the Mobility service should be installed|Agent </br> MasterTarget|
-  |/InstallLocation|Mandatory|Location where the Mobility Service will  install|Any folder on the computer|
-  |/CSIP|Mandatory|IP Address of the Configuration Server| Any valid IP Address|
-  |/PassphraseFilePath|Mandatory|Location where the Passphrase is store |Any valid UNC or Local file path|
-  |/LogGilePath|Optional|Location for the installation log|Any valid folder on the computer|
+  |/Role|Mandatory|Specifies whether Mobility Service should be installed|Agent </br> MasterTarget|
+  |/InstallLocation|Mandatory|Location where Mobility Service is installed|Any folder on the computer|
+  |/CSIP|Mandatory|IP address of the configuration server| Any valid IP address|
+  |/PassphraseFilePath|Mandatory|Location of the passphrase |Any valid UNC or local file path|
+  |/LogFilePath|Optional|Location of the installation log|Any valid folder on the computer|
 
-#### Sample Usage
+#### Example
 
 ```
   UnifiedAgent.exe /Role "Agent" /CSEndpoint "I192.168.2.35" /PassphraseFilePath "C:\Temp\MobSvc.passphrase"

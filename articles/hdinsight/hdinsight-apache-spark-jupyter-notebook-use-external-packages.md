@@ -1,5 +1,5 @@
 ---
-title: Use external packages with Jupyter notebooks in Apache Spark clusters on HDInsight | Microsoft Docs
+title: Use custom Maven packages with Jupyter notebooks in Spark on Azure | Microsoft Docs
 description: Step-by-step instructions on how to configure Jupyter notebooks available with HDInsight Spark clusters to use external Spark packages.
 services: hdinsight
 documentationcenter: ''
@@ -10,11 +10,12 @@ tags: azure-portal
 
 ms.assetid: 2a8bc545-064e-436f-8b5f-e67c26cfbf98
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 05/10/2017
 ms.author: nitinme
 
 ---
@@ -73,7 +74,7 @@ You must have the following:
    
     a. Locate the package in the Maven Repository. For this tutorial, we use [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
    
-    b. From the repository, gather the values for **GroupId**, **ArtifactId**, and **Version**.
+    b. From the repository, gather the values for **GroupId**, **ArtifactId**, and **Version**. Make sure that the values you gather match your cluster. In this case, we are using a Scala 2.10 and Spark 1.4.0 package, but you may need to select different versions for the appropriate Scala or Spark version in your cluster. You can find out the Scala version on your cluster by running `scala.util.Properties.versionString` on the Spark Jupyter kernel or on Spark submit. You can find out the Spark version on your cluster by running `sc.version` on Jupyter notebooks.
    
     ![Use external packages with Jupyter notebook](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "Use external packages with Jupyter notebook")
    

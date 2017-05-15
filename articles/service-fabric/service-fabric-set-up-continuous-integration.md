@@ -1,5 +1,5 @@
 ---
-title: Set up Service Fabric continuous integration and deployment with Visual Studio Team Services | Microsoft Docs
+title: Set up continuous integration for Azure microservices | Microsoft Docs
 description: Get an overview of how to set up continuous integration and deployment for a Service Fabric application by using Visual Studio Team Services (VSTS).
 services: service-fabric
 documentationcenter: na
@@ -101,7 +101,7 @@ A Team Services release definition describes a workflow that is composed of a se
     1. Select **New Service Endpoint** and then select **Azure Service Fabric** from the menu.
     2. Select the type of authentication being used by the cluster targeted by this endpoint.
     3. Define a name for your connection in the **Connection Name** field.  Typically, you would use the name of your cluster.
-    4. Define the client connection endpoint URL in the **Cluster Endpoint** field.  Example: https://contoso.westus.cloudapp.azure.com:19000.
+    4. Define the client connection endpoint URL in the **Cluster Endpoint** field.  Example: tcp://contoso.westus.cloudapp.azure.com:19000.
     5. For Azure Active Directory credentials, define the credentials you want to use to connect to the cluster in the **Username** and **Password** fields.
     6. For Certificate Based authentication, define the Base64 encoding of the client certificate file in the **Client Certificate** field.  See the help pop-up on that field for info on how to get that value.  If your certificate is password-protected, define the password in the **Password** field.
     7. Confirm your changes by clicking **OK**. After navigating back to your release definition, click the refresh icon on the **Cluster Connection** field to see the endpoint you just added.

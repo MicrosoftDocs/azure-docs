@@ -1,15 +1,14 @@
 ---
 title: Azure Government Compliance | Microsoft Docs
 description: Provides and overview of the available compliance services for Azure Government
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: ''
 author: jomolesk
 manager: zakramer
-editor: ''
 
 ms.assetid: 1d2e0938-482f-4f43-bdf6-0a5da2e9a185
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

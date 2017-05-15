@@ -4,7 +4,7 @@ description: Learn how to use the Azure App Service deployment credentials.
 services: app-service
 documentationcenter: ''
 author: dariagrigoriu
-manager: wpickett
+manager: erikre
 editor: mollybos
 
 ms.service: app-service

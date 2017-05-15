@@ -1,5 +1,5 @@
 ---
-title: Read messages persisted in Azure Table storage | Microsoft Docs
+title: 'SensorTag device & Azure IoT Gateway - Lesson 4: Table storage | Microsoft Docs'
 description: Save messages from Intel NUC to your IoT hub, write them to Azure Table storage and then read them from the cloud.
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'retrieve data from cloud, iot cloud service'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
+
 ms.assetid: 8ca78045-ad92-4a6a-90f1-05f9668e6f0e
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

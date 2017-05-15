@@ -12,32 +12,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with FreshService
 The objective of this tutorial is to show the integration of Azure and FreshService.  
+
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
-* A FreshService single sign-on enabled subscription
+* A FreshService single sign-on (SSO) enabled subscription
 
 After completing this tutorial, the Azure AD users you have assigned to FreshService will be able to single sign into the application using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
-1. Enabling the application integration for FreshService
-2. Configuring single sign-on
-3. Configuring user provisioning
-4. Assigning users
+* Enabling the application integration for FreshService
+* Configuring single sign-on
+* Configuring user provisioning
+* Assigning users
 
 ![Scenario](./media/active-directory-saas-freshservice-tutorial/IC790807.png "Scenario")
 
-## Enabling the application integration for FreshService
+## Enable the application integration for FreshService
 The objective of this section is to outline how to enable the application integration for FreshService.
 
-### To enable the application integration for FreshService, perform the following steps:
+**To enable the application integration for FreshService, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-freshservice-tutorial/IC700993.png "Active Directory")
@@ -58,20 +60,21 @@ The objective of this section is to outline how to enable the application integr
    
    ![Freshservice](./media/active-directory-saas-freshservice-tutorial/IC790809.png "Freshservice")
    
-   ## Configuring single sign-on
+## Configure single sign-on
 
-The objective of this section is to outline how to enable users to authenticate to FreshService with their account in Azure AD using federation based on the SAML protocol.  
-Configuring single sign-on for FreshService requires you to retrieve a thumbprint value from a certificate.  
-If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
+The objective of this section is to outline how to enable users to authenticate to FreshService with their account in Azure AD using federation based on the SAML protocol. 
 
-### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **FreshService** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+Configuring single sign-on for FreshService requires you to retrieve a thumbprint value from a certificate. If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
+
+**To configure single sign-on, perform the following steps:**
+
+1. In the Azure classic portal, on the **FreshService** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-freshservice-tutorial/IC790810.png "Configure Single Sign-On")
 2. On the **How would you like users to sign on to FreshService** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
    
    ![Configure Single Sign-On](./media/active-directory-saas-freshservice-tutorial/IC790811.png "Configure Single Sign-On")
-3. On the **Configure App URL** page, in the **FreshService Sign On URL** textbox, type your URL used by your users to sign on to your Freshdesk application (e.g.: "*http://democompany.freshservice.com/*"), and then click **Next**.
+3. On the **Configure App URL** page, in the **FreshService Sign On URL** textbox, type your URL used by your users to sign on to your Freshdesk application (e.g.: **http://democompany.freshservice.com/**), and then click **Next**.
    
    ![Configure App URL](./media/active-directory-saas-freshservice-tutorial/IC790812.png "Configure App URL")
 4. On the **Configure single sign-on at FreshService** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
@@ -88,26 +91,25 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
    
    ![Single Sign On](./media/active-directory-saas-freshservice-tutorial/IC790816.png "Single Sign On")
    
-   1. Switch **Single Sign OnON**.
+   1. Switch **Single Sign On**.
    2. Select **SAML SSO**.
    3. In the Azure classic portal, on the **Configure single sign-on at FreshService** dialog page, copy the **Remote Login URL** value, and then paste it into the **SAML Login URL** textbox.
    4. In the Azure classic portal, on the **Configure single sign-on at FreshService** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Logout URL** textbox.
    5. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Security Certificate Fingerprint** textbox.
-      
-      > [!TIP]
-      > For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
-      > 
-      > 
+   
+      >[!TIP]
+      >For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
+      >
 9. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-freshservice-tutorial/IC790817.png "Configure Single Sign-On")
    
-   ## Configuring user provisioning
+## Configure user provisioning
 
-In order to enable Azure AD users to log into FreshService, they must be provisioned into FreshService.  
-In the case of FreshService, provisioning is a manual task.
+In order to enable Azure AD users to log into FreshService, they must be provisioned into FreshService. In the case of FreshService, provisioning is a manual task.
 
-### To provision a user accounts, perform the following steps:
+**To provision a user accounts, perform the following steps:**
+
 1. Log in to your **FreshService** company site as an administrator.
 2. In the menu on the top, click **Admin**.
    
@@ -120,27 +122,25 @@ In the case of FreshService, provisioning is a manual task.
    ![New Requesters](./media/active-directory-saas-freshservice-tutorial/IC790819.png "New Requesters")
 5. In the **New Requester** section, perform the following steps:
    
-   ![New Requester](./media/active-directory-saas-freshservice-tutorial/IC790820.png "New Requester")
-   
+   ![New Requester](./media/active-directory-saas-freshservice-tutorial/IC790820.png "New Requester")   
    1. Enter the **First Name** and **Email** attributes of a valid Azure Active Directory account you want to provision into the related textboxes.
    2. Click **Save**.
    
-   > [!NOTE]
-   > The Azure Active Directory account holder will get an email including a link to confirm the account before it becomes active
-   > 
-   > 
+    >[!NOTE]
+    >The Azure Active Directory account holder will get an email including a link to confirm the account before it becomes active
+    >  
 
-> [!NOTE]
-> You can use any other FreshService user account creation tools or APIs provided by FreshService to provision AAD user accounts.
-> 
-> 
+>[!NOTE]
+>You can use any other FreshService user account creation tools or APIs provided by FreshService to provision AAD user accounts.
+>  
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to FreshService, perform the following steps:
+**To assign users to FreshService, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
-2. On the **FreshService **application integration page, click **Assign users**.
+2. On the **FreshService** application integration page, click **Assign users**.
    
    ![Assign Users](./media/active-directory-saas-freshservice-tutorial/IC790821.png "Assign Users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.

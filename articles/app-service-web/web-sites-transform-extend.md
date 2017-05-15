@@ -4,7 +4,7 @@ description: Use XML Document Transformation(XDT) declarations to transform the 
 author: cephalin
 writer: cephalin
 editor: mollybos
-manager: wpickett
+manager: erikre
 services: app-service
 documentationcenter: ''
 

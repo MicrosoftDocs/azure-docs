@@ -1,5 +1,5 @@
 ---
-title: Replicate on-premises VMware virtual machines or physical servers to a secondary site | Microsoft Docs
+title: Replicate VMware VMs or physical servers to another site (classic Azure portal) | Microsoft Docs
 description: Use this article to replicate VMware VMs or Windows/Linux physical servers to a secondary site with Azure Site Recovery.
 services: site-recovery
 documentationcenter: ''
@@ -13,11 +13,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 02/06/2017
 ms.author: nisoneji
 
 ---
-# Replicate on-premises VMware virtual machines or physical servers to a secondary site
+# Replicate on-premises VMware virtual machines or physical servers to a secondary site in the classic Azure portal
+
 ## Overview
 InMage Scout in Azure Site Recovery provides real-time replication between on-premises VMware sites. InMage Scout is included in Azure Site Recovery service subscriptions.
 
@@ -52,21 +53,22 @@ Read about the latest [updates](#updates). You'll install the update files on se
 
 Install the updates as follows:
 
-1. Download the [update](https://aka.ms/asr-scout-update4) .zip file. This .zip file contains the following files:
+1. Download the [update](https://aka.ms/asr-scout-update5) .zip file. This .zip file contains the following files:
 
    * RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
    * CX_Windows_8.0.4.0_GA_Update_4_8725865_14Sep16.exe
-   * UA_Windows_8.0.4.0_GA_Update_4_9035261_27Sep16.exe
+   * UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
    * UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-   * vCon_Windows_8.0.4.0_GA_Update_4_8921562_16Sep16.exe
+   * vCon_Windows_8.0.5.0_GA_Update_5_11525767_20Apr17.exe
    * UA update4 bits for RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 2. Extract the .zip files.<br>
 3. **For the RX server**: Copy **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** to the RX server and extract it. In the extracted folder, run **/Install**.<br>
 4. **For the configuration server/process server**: Copy **CX_Windows_8.0.4.0_GA_Update_4_8725865_14Sep16.exe** to the configuration server and process server. Double-click to run it.<br>
-5. **For the Windows master target server**: To update the unified agent, copy **UA_Windows_8.0.4.0_GA_Update_4_9035261_27Sep16.exe** to the master target server. Double-click it to run it. Note that the unified agent is also applicable to the source server. You should install it on the source server as well, as mentioned later in this list.<br>
-6. **For the vContinuum server**:  Copy **vCon_Windows_8.0.4.0_GA_Update_4_8921562_16Sep16.exe** to the vContinuum server.  Make sure that you've closed the vContinuum wizard. Double-click on the file to run it.<br>
+5. **For the Windows master target server**: To update the unified agent, copy **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** to the master target server. Double-click it to run it. Note that the unified agent is also applicable to the source server if source is not updated till Update4. You should install it on the source server as well, as mentioned later in this list.<br>
+6. **For the vContinuum server**:  Copy **vCon_Windows_8.0.5.0_GA_Update_5_11525767_20Apr17.exe** to the vContinuum server.  Make sure that you've closed the vContinuum wizard. Double-click on the file to run it.<br>
 7. **For the Linux master target server**: To update the unified agent, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the master target server and extract it. In the extracted folder, run **/Install**.<br>
-8. **For the Windows source server**: To update the unified agent, copy **UA_Windows_8.0.4.0_GA_Update_4_9035261_27Sep16.exe** to the source server. Double-click it to run it.<br>
+8. **For the Windows source server**: You do not need to install Update 5 agent on source if soruce is already on update4. If it is less than update4, apply the update 5 agent.
+To update the unified agent, copy **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** to the source server. Double-click it to run it. <br>
 9. **For the Linux source server**: To update the unified agent, copy corresponding  version of UA file to the Linux server and extract it. In the extracted folder, run **/Install**.  Example: For RHEL 6.7 64 bit server,  copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz**  to the server and extract it. In the extracted folder, run **/Install**.
 
 ## Step 4: Set up replication
@@ -80,6 +82,39 @@ Install the updates as follows:
    * [Quick installation guide](https://aka.ms/asr-scout-quick-install-guide)
 
 ## Updates
+### Azure Site Recovery Scout 8.0.1 Update 5
+Scout Update 5 is a cumulative update. It has all the fixes of update1 till update4 and following new bug fixes and enhancements.
+Fixes that are added from ASR Scout update4 to update5 are specific to Master Target and vContinuum components. If all your source servers, Master Target, Configuration Server, Process Server and RX are already on ASR Scout update4 then you need to apply update 5 only on Master Target server. 
+
+**New platform support**
+* SUSE Linux Enterprise Server 11 Service Pack 4(SP4)
+
+> [!NOTE]
+> SLES 11 SP4 64 bit  **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** is packaged with base Scout GA package **InMage_Scout_Standard_8.0.1 GA.zip**. Download Scout GA package from portal as mentioned in [step 1](#step-1-create-a-vault).
+>
+
+**Bug fixes and enhancements**
+
+* Increase Windows Cluster support reliability
+	* Fixed- Sometime some of the P2V MSCS cluster disks become RAW after recovery
+	* Fixed- P2V MSCS cluster recovery fails due to disk order mismatch
+	* Fixed- MSCS cluster add disks operation fails with disk size mismatch
+	* Fixed- Source MSCS cluster with RDM LUNs mapping readiness check fails in size verification
+	* Fixed- Single node cluster protection fails due to SCSI mismatch issue 
+	* Fixed- Re-protect of the P2V Windows cluster server fails if target cluster disks are present. 
+	
+* During failback protection, if selected MT is not on the same ESXi server as that of the protected source machine (during forward protection), then vContinuum picks up the wrong MT during Failback Recovery and subsequently recovery operation fails.
+
+> [!NOTE]
+> 
+> * Above P2V cluster fixes are applicable to only those physical MSCS cluster that are  freshly protected with ASR Scout update5. To avail the cluster fixes on the already protected P2V MSCS cluster with older updates, you need to follow the upgrade steps that are mentioned in the section 12, Upgrade protected P2V MSCS cluster to Scout Update5 of [ASR Scout Release Notes](https://aka.ms/asr-scout-release-notes).
+> 
+> * Re-protect of physical MSCS cluster can reuse existing target disks only if
+at the time of re-protection, the same set of disks are active on each of the cluster nodes as they were when initially protected. If not, then there are manual steps as mentioned in section 12 of [ASR Scout Release Notes](https://aka.ms/asr-scout-release-notes) to  move the target side disks to the correct datastore path to re-use them during re-protection. If you reprotect the MSCS cluster in P2V mode without following upgrade steps then it will create new disk on the target ESXi server. You need to manually delete the old disks from  the datastore.
+> 
+> * Whenever source SLES11 or SLES11 with any service pack server is rebooted gracefully, then one should manually mark the **root** disk replication pairs for re-sync as it will not be notified in CX UI. If you dont' mark the root disk for resync, you may see data integrity (DI) issues.
+> 
+
 ### Azure Site Recovery Scout 8.0.1 Update 4
 Scout Update 4 is a cumulative update. It has all the fixes of update1 till update3 and following new bug fixes and enhancements.
 

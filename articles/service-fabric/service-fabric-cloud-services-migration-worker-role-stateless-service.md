@@ -1,5 +1,5 @@
 ---
-title: Guide to converting Web and Worker Roles to Service Fabric stateless services | Microsoft Docs
+title: Convert Azure Cloud Services apps to microservices | Microsoft Docs
 description: This guide compares Cloud Services Web and Worker Roles and Service Fabric stateless services to help migrate from Cloud Services to Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/19/2016
+ms.date: 02/10/2017
 ms.author: vturecek
 
 ---
@@ -35,7 +35,7 @@ Conceptually, a Worker Role represents a stateless workload, meaning every insta
 ## Web Role to stateless service
 Similar to Worker Role, a Web Role also represents a stateless workload, and so conceptually it too can be mapped to a Service Fabric stateless service. However, unlike Web Roles, Service Fabric does not support IIS. To migrate a web application from a Web Role to a stateless service requires first moving to a web framework that can be self-hosted and does not depend on IIS or System.Web, such as ASP.NET Core 1.
 
-| **Application ** | **Supported** | **Migration path** |
+| **Application** | **Supported** | **Migration path** |
 | --- | --- | --- |
 | ASP.NET Web Forms |No |Convert to ASP.NET Core 1 MVC |
 | ASP.NET MVC |With Migration |Upgrade to ASP.NET Core 1 MVC |

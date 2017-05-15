@@ -1,6 +1,6 @@
 ---
-title: Use Resource Manager to allocate resources to the Apache Spark cluster in HDInsight| Microsoft Docs
-description: Learn how to use the Resource Manager for Spark clusters on HDInsight for better performance.
+title: Manage resources for Apache Spark cluster on Azure HDInsight| Microsoft Docs
+description: Learn how to use manage resources for Spark clusters on Azure HDInsight for better performance.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -10,16 +10,16 @@ tags: azure-portal
 
 ms.assetid: 9da7d4e3-458e-4296-a628-77b14643f7e4
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2017
+ms.date: 05/10/2017
 ms.author: nitinme
 
 ---
-# Manage resources for the Apache Spark cluster on HDInsight 
-
+# Manage resources for Apache Spark cluster on Azure HDInsight 
 
 In this article you will learn how to access the interfaces like Ambari UI, YARN UI, and the Spark History Server associated with your Spark cluster. You will also learn about how to tune the cluster configuration for optimal performance.
 
@@ -81,7 +81,7 @@ For applications running in the Jupyter notebook, you can use the `%%configure` 
 The snippet below shows how to change the configuration for an application running in Jupyter.
 
     %%configure
-    {"executorMemory": "3072M", "executorCores": 4, “numExecutors”:10}
+    {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
 
 Configuration parameters must be passed in as a JSON string and must be on the next line after the magic, as shown in the example column.
 

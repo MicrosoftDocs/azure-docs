@@ -1,18 +1,20 @@
-### Prepare for push install on Windows machines
+### Prepare for a push installation on a Windows computer
 
-1. Ensure there’s network connectivity between the Windows machine and the process server.
-2. Create an account that can be used by the process server to access the machine. The account should have administrator privileges (local or domain), and is only used for the push installation and agent updates.
+1. Ensure that there’s network connectivity between the Windows computer and the process server.
+2. Create an account that the process server can use to access the computer. The account should have administrator rights (local or domain). (Use this account only for the push installation and for agent updates.)
 
    > [!NOTE]
-   > If you're not using a domain account, you need to disable Remote User Access control on the local machine. You cdisable Remote User Access control on a computer by adding a new DWORD **LocalAccountTokenFilterPolicy** under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System registry key, and set its value as 1. Here is the command to do the same from a command prompt **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**.
+   > If you're not using a domain account, disable Remote User Access control on the local computer. To disable Remote User Access control, under the HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System registry key, add a new DWORD: **LocalAccountTokenFilterPolicy**. Set the value to **1**. To do this at a command prompt, run the following command:  
+   `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
    >
    >
-2. On the Windows Firewall of the machine you want to protect, select **Allow an app or feature through Firewall**. Enable **File and Printer Sharing** and **Windows Management Instrumentation**. For machines that belong to a domain, you can configure the firewall settings with a GPO.
+2. In Windows Firewall on the computer you want to protect, select **Allow an app or feature through Firewall**. Enable **File and Printer Sharing** and **Windows Management Instrumentation (WMI)**. For computers that belong to a domain, you can configure the firewall settings by using a Group Policy object (GPO).
 
    ![Firewall settings](./media/site-recovery-prepare-push-install-mob-svc-win/mobility1.png)
 
-3. Add the account you created in the CSPSConfigtool.
-    - Log in to your Configuration Server.
-    - Open **cspsconfigtool.exe**. (It's available as a shortcut on the desktop and under the %ProgramData%\home\svsystems\bin folder)
-    - In the **Manage Accounts** tab, click **Add Account**.
-    - Add the account you created. After adding the account, you need to provide the credentials when you enable replication for a machine.
+3. Add the account that you created in CSPSConfigtool.
+    1.  Sign in to your configuration server.
+    2.  Open **cspsconfigtool.exe**. (It's available as a shortcut on the desktop and in the %ProgramData%\home\svsystems\bin folder.)
+    3.  On the **Manage Accounts** tab, select **Add Account**.
+    4.  Add the account you created.
+    5.  Enter the credentials you use when you enable replication for a computer.

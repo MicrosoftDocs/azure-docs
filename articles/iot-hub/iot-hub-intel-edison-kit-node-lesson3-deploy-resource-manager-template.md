@@ -1,5 +1,5 @@
 ---
-title: Create an Azure function app and storage account | Microsoft Docs
+title: 'Connect Intel Edison (Node) to Azure IoT - Lesson 3: Create function app | Microsoft Docs'
 description: The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure Table storage.
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'storing data in the cloud, data stored in cloud, iot cloud service'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-node-get-started
+
 ms.assetid: 37ee5962-95ce-40e8-8162-17e735eaec21
 ms.service: iot-hub
 ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

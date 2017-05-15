@@ -9,11 +9,11 @@ editor: monicar
 tags: azure-service-management
 
 ms.assetid: 553af55b-d02e-4e32-904c-682bfa20fa0f
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
+ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 
@@ -33,7 +33,7 @@ This topic describes and walks you through the deployment and configuration of a
 * **Azure Subscription**: Verify the number of cores available in your Azure Subscription. If you create the recommended VM size of **A3**, you need **4** available cores. If you use a VM size of **A2**, you need **2** available cores.
   
   * To verify the core limit of your subscription, in the Azure classic portal, click SETTINGS in the left pane and then Click USAGE in the top menu.
-  * To increase the core quota, contact [Azure Support](https://azure.microsoft.com/support/options/). For VM size information, see [Virtual Machine Sizes for Azure](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  * To increase the core quota, contact [Azure Support](https://azure.microsoft.com/support/options/). For VM size information, see [Virtual Machine Sizes for Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * **Windows PowerShell Scripting**: The topic assumes that you have a basic working knowledge of Windows PowerShell. For more information about using Windows PowerShell, see the following:
   
   * [Starting Windows PowerShell on Windows Server](https://technet.microsoft.com/library/hh847814.aspx)
@@ -74,7 +74,7 @@ This topic describes and walks you through the deployment and configuration of a
    * **ENDPOINTS** Keep the **Remote Desktop** and **PowerShell** endpoints and then add either an HTTP or HTTPS endpoint, depending on your environment.
      
      * **HTTP**: The default public and private ports are **80**. Note that if you use a private port other than 80, modify **$HTTPport = 80** in the http script.
-     * **HTTPS**: The default public and private ports are **443**. A security best practice is to change the private port and configure your firewall and the report server to use the private port. For more information on endpoints, see [How to Set Up Communication with a Virtual Machine](../../virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Note that if you use a port other than 443, change the parameter **$HTTPsport = 443** in the HTTPS script.
+     * **HTTPS**: The default public and private ports are **443**. A security best practice is to change the private port and configure your firewall and the report server to use the private port. For more information on endpoints, see [How to Set Up Communication with a Virtual Machine](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Note that if you use a port other than 443, change the parameter **$HTTPsport = 443** in the HTTPS script.
    * Click next . ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. On the last page of the wizard, keep the default **Install the VM agent** selected. The steps in this topic do not utilize the VM agent but if you plan to keep this VM, the VM agent and extensions will allow you to enhance he CM.  For more information on the VM agent, see [VM Agent and Extensions – Part 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). One of the default extensions installed ad running is the “BGINFO” extension that displays on the VM desktop, system information such as internal IP and free drive space.
 9. Click complete . ![ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)

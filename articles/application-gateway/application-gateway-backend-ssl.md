@@ -12,20 +12,21 @@ ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 04/04/2017
 ms.author: amsriva
 
 ---
-# Enabling SSL Policy and end to end SSL on Application Gateway
+# Overview of end to end SSL and SSL Policy on Application Gateway
 
-Application gateway supports SSL termination at the gateway, after which traffic typically flows unencrypted to the backend servers. This feature allows web servers to be unburdened from costly encryption/decryption overhead. However for some customers unencrypted communication to the backend servers is not an acceptable option. This unencrypted communication could be due to security/compliance requirements or the application may only accept secure connection. For such applications, application gateway now supports end to end SSL encryption.
+Application gateway supports SSL termination at the gateway, after which traffic typically flows unencrypted to the backend servers. This feature allows web servers to be unburdened from costly encryption and decryption overhead. However for some customers unencrypted communication to the backend servers is not an acceptable option. This unencrypted communication could be due to security requirements, compliance requirements, or the application may only accept a secure connection. For such applications, application gateway supports end to end SSL encryption.
 
 ## Overview
 
-End to end SSL allows you to securely transmit sensitive data to the backend encrypted still taking advantage of the benefits of Layer 7 load balancing features which application gateway provides. Some of these features are cookie affinity, URL-based routing, support for routing based on sites or ability to inject X-Forwarded-* headers.
+End to end SSL allows you to securely transmit sensitive data to the backend encrypted while still taking advantage of the benefits of Layer 7 load balancing features which application gateway provides. Some of these features are cookie-based session affinity, URL-based routing, support for routing based on sites, or ability to inject X-Forwarded-* headers.
 
-When configured with end to end SSL communication mode, application gateway terminates user SSL sessions at the gateway and decrypts user traffic. It then applies the configured rules to select an appropriate backend pool instance to route traffic to. Application gateway then initiates a new SSL connection to the backend server and re-encrypts data using the backend server's public key certificate before transmitting request to the backend. End to end SSL is enabled by setting protocol setting in BackendHTTPSetting to Https, which is then applied to a backend pool. Each backend server in the backend pool with end to end SSL enabled must be configured with a certificate to allow secure communication.
+When configured with end to end SSL communication mode, application gateway terminates the SSL sessions at the gateway and decrypts user traffic. It then applies the configured rules to select an appropriate backend pool instance to route traffic to. Application gateway then initiates a new SSL connection to the backend server and re-encrypts data using the backend server's public key certificate before transmitting the request to the backend. End to end SSL is enabled by setting protocol setting in BackendHTTPSetting to HTTPS, which is then applied to a backend pool. Each backend server in the backend pool with end to end SSL enabled must be configured with a certificate to allow secure communication.
 
 ![end to end ssl scenario][1]
 
@@ -39,7 +40,7 @@ Application gateway only communicates with known backend instances that have whi
 
 Application gateway supports user configurable SSL negotiation policies, which allow customers more control over SSL connections at the application gateway.
 
-1. SSL 2.0 and 3.0 disabled by default for all Application Gateways. They are not configurable at all.
+1. SSL 2.0 and 3.0 disabled by default for all Application Gateways. These policies are not configurable at all.
 2. SSL policy definition gives you option to disable any of the following three protocols - **TLSv1\_0**, **TLSv1\_1**, **TLSv1\_2**.
 3. If no SSL policy is defined all three (TLSv1\_0, TLSv1\_1, TLSv1_2) are enabled.
 

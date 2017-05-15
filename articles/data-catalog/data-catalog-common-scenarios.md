@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/03/2016
+ms.date: 01/23/2017
 ms.author: maroche
 
 ---
@@ -62,4 +62,3 @@ This ongoing transfer of tribal knowledge is part of the data source discovery p
 Sometimes these data experts will make the effort to document their knowledge, sharing it via email, or in Word documents on a team SharePoint site. Although this can be valuable, it introduces a new discovery problem – how do people know what documentation exists, and where to find it…
 
 Azure Data Catalog provides a location for sharing this tribal knowledge, and for making it easily discoverable. Data experts can directly annotate data assets, and can also include links to existing documentation. Not only does this capture the knowledge itself, but it also puts the knowledge in the same experience that is used for data source discovery. When someone uses the catalog to discover a data source not only will he find the source itself, he will also find the expert’s knowledge that previously existed only in the mind of the expert himself.
-

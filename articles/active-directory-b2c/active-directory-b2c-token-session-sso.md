@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 
 ---
@@ -57,6 +57,11 @@ These are a couple of use cases that you can enable using these properties:
 * Allow a user to stay signed into a mobile application indefinitely, as long as he or she is continually active on the application. You can do this by setting the **Refresh token sliding window lifetime (days)** switch to **Unbounded** in your sign-in policy.
 * Meet your industry's security and compliance requirements by setting the appropriate access token lifetimes.
 
+    > [!NOTE]
+    > These settings are not available for password reset policies.
+    > 
+    > 
+
 ## Token compatibility settings
 We made formatting changes to important claims in security tokens emitted by Azure AD B2C. This was done to improve our standard protocol support and for better interoperability with third-party identity libraries. However, to avoid breaking existing apps, we created the following properties to allow customers to opt-in as needed:
 
@@ -84,6 +89,11 @@ These are a couple of use cases that you can enable using these properties:
 * Meet your industry's security and compliance requirements by setting the appropriate web application session lifetimes.
 * Force re-authentication after a set time period during a user's interaction with a high-security part of your web application. 
 
+    > [!NOTE]
+    > These settings are not available for password reset policies.
+    > 
+    > 
+
 ## Single sign-on (SSO) configuration
 If you have multiple applications and policies in your B2C tenant, you can manage user interactions across them using the **Single sign-on configuration** property. You can set the property to one of the following settings:
 
@@ -91,4 +101,9 @@ If you have multiple applications and policies in your B2C tenant, you can manag
 * **Application**: This allows you to maintain a user session exclusively for an application, independent of other applications. For example, if you want the user to sign in to Contoso Pharmacy (with the same credentials), even if he or she is already signed into Contoso Shopping, another application on the same B2C tenant. 
 * **Policy**: This allows you to maintain a user session exclusively for a policy, independent of the applications using it. For example, if the user has already signed in and completed a multi factor authentication (MFA) step, he or she can be given access to higher-security parts of multiple applications as long as the session tied to the policy doesn't expire.
 * **Disabled**: This forces the user to run through the entire user journey on every execution of the policy. For example, this will allow multiple users to sign up to your application (in a shared desktop scenario), even while a single user remains signed in during the whole time.
+
+    > [!NOTE]
+    > These settings are not available for password reset policies.
+    > 
+    > 
 

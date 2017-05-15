@@ -1,5 +1,5 @@
 ---
-title: 'Walkthrough: export telemetry to SQL Database from Application Insights'
+title: 'Export to SQL from Azure Application Insights | Microsoft Docs'
 description: Continuously export Application Insights data to SQL using Stream Analytics.
 services: application-insights
 documentationcenter: ''
@@ -258,7 +258,6 @@ After a few minutes, go back to SQL Server Management Tools and watch the data f
 
 
 ## Related articles
-* [Export to SQL using a worker role](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Export to PowerBI using Stream Analytics](app-insights-export-power-bi.md)
 * [Detailed data model reference for the property types and values.](app-insights-export-data-model.md)
 * [Continuous Export in Application Insights](app-insights-export-telemetry.md)

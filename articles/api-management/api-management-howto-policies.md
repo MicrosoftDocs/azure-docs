@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
-ms.author: sdanie
+ms.author: apimpm
 
 ---
 # Policies in Azure API Management
@@ -115,7 +115,7 @@ Policy scopes are evaluated in the following order.
 3. API scope
 4. Operation scope
 
-The statements within them are evaluated according to the placement of the `base` element, if it is present.
+The statements within them are evaluated according to the placement of the `base` element, if it is present. Global policy has no parent policy and using the `<base>` element in it has no effect.
 
 For example, if you have a policy at the global level and a policy configured for an API, then whenever that particular API is used both policies will be applied. API Management allows for deterministic ordering of combined policy statements via the base element. 
 
@@ -129,11 +129,9 @@ For example, if you have a policy at the global level and a policy configured fo
 </policies>
 ```
 
-In the example policy definition above, the `cross-domain` statement would execute before any higher policies which would in turn, be followed by the `find-and-replace` policy.
+In the example policy definition above, the `cross-domain` statement would execute before any higher policies which would in turn, be followed by the `find-and-replace` policy. 
 
-If the same policy appears twice in the policy statement, the most recently evaluated policy is applied. You can use this to override policies that are defined at a higher scope. To see the policies in the current scope in the policy editor, click **Recalculate effective policy for selected scope**.
-
-Note that global policy has no parent policy and using the `<base>` element in it has no effect. 
+To see the policies in the current scope in the policy editor, click **Recalculate effective policy for selected scope**.
 
 ## Next steps
 Check out following video on policy expressions.
