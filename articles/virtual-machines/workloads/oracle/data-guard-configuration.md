@@ -1,5 +1,5 @@
 ---
-title: Implement Oracle Data Guard on Azure VM | Microsoft Docs
+title: Implement Oracle Data Guard on Azure Linux VM | Microsoft Docs
 description: Quickly get an Oracle Data Guard up and running in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -18,21 +18,22 @@ ms.date: 05/10/2017
 ms.author: rclaus
 ---
 
-# Implement Oracle Data Guard on Azure VM
+# Implement Oracle Data Guard on Azure Linux VM
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy an Oracle 12c Database from the Marketplace gallery image. Once the Oracle database is created, this document shows you step-by-step how to install and configure Data Guard on Azure VM.
 
 Before you start, make sure that the Azure CLI has been installed. For more information, see [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-## Assumptions
+## Preparing the environment
+### Assumptions
 
-To perform the Oracle Data Guard install, you need to create two Azure VMs on the same availability set. The Marketplace image you use to create the VMs is image "Oracle:Oracle-Database-Ee:12.1.0.2:latest".
+To perform the Oracle Data Guard install, you need to create two Azure VMs on the same availability set. The Marketplace image you use to create the VMs is "Oracle:Oracle-Database-Ee:12.1.0.2:latest".
 
 The primary VM (myVM1) has a running Oracle instance.
 
 The standby VM (myVM2) has the Oracle software installed only.
 
-## Log in to Azure 
+### Log in to Azure 
 
 Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
 
@@ -40,7 +41,7 @@ Log in to your Azure subscription with the [az login](/cli/azure/#login) command
 az login
 ```
 
-## Create a resource group
+### Create a resource group
 
 Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
@@ -50,7 +51,7 @@ The following example creates a resource group named `myResourceGroup` in the `w
 az group create --name myResourceGroup --location westus
 ```
 
-## Create availability set
+### Create availability set
 
 This step is optional, but is recommended. see [Azure availability sets guide](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) for more information.
 
@@ -62,7 +63,7 @@ az vm availability-set create \
     --platform-update-domain-count 2
 ```
 
-## Create virtual machine
+### Create virtual machine
 
 Create a VM with the [az vm create](/cli/azure/vm#create) command. 
 
@@ -109,7 +110,7 @@ az vm create \
 
 Take note of the `publicIpAddress` as well once it created.
 
-## Opening the TCP port for connectivity
+### Opening the TCP port for connectivity
 
 The step is to configure external endpoints, which allows accessing the Oracle DB remotely, you execute the following command.
 
@@ -125,7 +126,7 @@ az network nsg rule create --resource-group myResourceGroup\
 
 Result should look similar to the following response:
 
-```
+```bash
 {
   "access": "Allow",
   "description": null,
@@ -154,7 +155,7 @@ az network nsg rule create --resource-group myResourceGroup\
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-## Connect to virtual machine
+### Connect to virtual machine
 
 Use the following command to create an SSH session with the virtual machine. Replace the IP address with the `publicIpAddress` of your virtual machine.
 
@@ -162,7 +163,7 @@ Use the following command to create an SSH session with the virtual machine. Rep
 ssh azureuser@<publicIpAddress>
 ```
 
-## Create Database on myVM1 (Primary)
+### Create Database on myVM1 (Primary)
 
 The Oracle software is already installed on the Marketplace image, so the next step is to install the database. the first step is running as the 'oracle' superuser
 
@@ -173,7 +174,7 @@ sudo su - oracle
 create the database:
 
 ```bash
-[oracle@myVM1 /]$ dbca -silent \
+$ dbca -silent \
    -createDatabase \
    -templateName General_Purpose.dbc \
    -gdbname cdb1 \
@@ -190,7 +191,10 @@ create the database:
    -automaticMemoryManagement false \
    -storageType FS \
    -ignorePreReqs
+```
+Outputs should look similar to the following response:
 
+```bash
 Copying database files
 1% complete
 2% complete
@@ -229,15 +233,16 @@ $ ORACLE_SID=cdb1; export ORACLE_SID
 
 Optionally, You can added ORACLE_HOME and ORACLE_SID to the .bashrc file, so that these settings are saved for future logins.
 
-```
+```bash
 # add oracle home
 export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
 # add oracle sid
 export ORACLE_SID=cdb1
 ```
 
+## Data Guard Configurations
 
-## Enable Archive log mode on myVM1 (primary)
+### Enable Archive log mode on myVM1 (primary)
 
 ```bash
 $ sqlplus / as sysdba
@@ -275,7 +280,7 @@ SQL> ALTER DATABASE FLASHBACK ON;
 SQL> ALTER SYSTEM SET STANDBY_FILE_MANAGEMENT=AUTO;
 ```
 
-## Service setup on myVM1 (primary)
+### Service setup on myVM1 (primary)
 
 Edit or create the tnsnames.ora file, which is located at $ORACLE_HOME\network\admin folder
 
@@ -335,7 +340,7 @@ $ lsnrctl stop
 $ lsnrctl start
 ```
 
-## Service setup on myVM2 (Standby)
+### Service setup on myVM2 (Standby)
 
 Edit or create the tnsnames.ora file, which is located at $ORACLE_HOME\network\admin folder
 
@@ -402,7 +407,7 @@ SQL> ALTER SYSTEM SET dg_broker_start=true;
 SQL> EXIT;
 ```
 
-## Restore database to myVM2 (Standby)
+### Restore database to myVM2 (Standby)
 
 Create a parameter file '/tmp/initcdb1_stby.ora' with the followings contents
 ```bash
@@ -457,7 +462,7 @@ SQL> ALTER SYSTEM SET dg_broker_start=true;
 SQL> EXIT;
 ```
 
-## Configuring Data Guard broker on myVM1 (primary)
+### Configuring Data Guard broker on myVM1 (primary)
 
 Start the Data Guard manager and login using SYS and password (do not using OS authentication). Perform the followings
 
@@ -496,7 +501,7 @@ SUCCESS   (status updated 26 seconds ago)
 
 This completed the Oracle Data Guard setup. The next section shows you how to test the connectivity and switching over
 
-## Connecting database from client machine
+### Connecting database from client machine
 
 Update or create the tnsnames.ora file on your client machine which usually is located at $ORACLE_HOME\network\admin.
 
@@ -544,13 +549,14 @@ With the Partitioning, OLAP, Advanced Analytics and Real Application Testing opt
 
 SQL>
 ```
+## Testing Data Guard 
 
-## Database switchover on myVM1 (primary)
+### Database switchover on myVM1 (primary)
 
 To switch from primary to standby (cdb1 to cdb1_stby)
 
 ```bash
-$ dgmgrl sys/Password1@cdb1
+$ dgmgrl sys/OraPasswd1@cdb1
 DGMGRL for Linux: Version 12.1.0.2.0 - 64bit Production
 
 Copyright (c) 2000, 2013, Oracle. All rights reserved.
@@ -589,7 +595,7 @@ With the Partitioning, OLAP, Advanced Analytics and Real Application Testing opt
 SQL>
 ```
 
-## Database switch back on myVM2 (standby)
+### Database switch back on myVM2 (standby)
 
 To switch back, run the followings on myVM2
 ```bash
