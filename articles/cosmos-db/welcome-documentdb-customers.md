@@ -32,7 +32,7 @@ Let's go through some questions you may have.
 
 Azure Cosmos DB is the next big leap in globally distributed, at scale, cloud databases. As a DocumentDB customer, you now have access to the new breakthrough system and capabilities offered by Azure Cosmos DB.
 
-Azure Cosmos DB started as “Project Florence” in 2010 to address developer the pain-points faced by large-scale applications inside Microsoft. Observing that the challenges of building globally distributed apps are not a problem unique to Microsoft, in 2015 we made the first generation of this technology available to Azure developers in the form of Azure DocumentDB. Since that time, we’ve added new features and introduced significant new capabilities.  Azure Cosmos DB is the result.  
+Azure Cosmos DB started as “Project Florence” in 2010 to address developer the pain-points faced by large-scale applications inside Microsoft. Observing that the challenges of building globally distributed apps are not a problem unique to Microsoft. In 2015 we made the first generation of this technology available to Azure developers in the form of Azure DocumentDB. Since that time, we’ve added new features and introduced significant new capabilities.  Azure Cosmos DB is the result.  
 
 Since DocumentDB was made generally available in 2015, significant new capabilities have been added to the Azure Cosmos DB engine but only a subset of these capabilities were available in DocumentDB. These capabilities are in the areas of the core database engine as well as global distribution, elastic scalability, and industry-leading, comprehensive SLAs. Specifically, we have evolved the Azure Cosmos DB database engine to be able to efficiently map all popular data models, type systems, and APIs to the underlying data model of Azure Cosmos DB. 
 
@@ -52,7 +52,7 @@ There are no changes to make. Classes, namespaces, and NuGet package names have 
 
 ## What's changed in the Azure portal?
 
-Azure DocumentDB no longer appears in the portal as an Azure service. Instead Azure Cosmos DB appears with a new icon, as shown in the following image. All your collections are available just as they were before, and you can still scale throughput, change consistency, and monitor SLAs. The capabilities of **Data Explorer (preview)** have been enhanced and you can now view and edit documents, create and run queries, and work with stored procedures, triggers, and UDF from one page, as shown in the following image. 
+Azure DocumentDB no longer appears in the portal as an Azure service. Instead Azure Cosmos DB appears with a new icon, as shown in the following image. All your collections are available just as they were before, and you can still scale throughput, change consistency, and monitor SLAs. The capabilities of **Data Explorer (preview)** have been enhanced. You can now view and edit documents, create and run queries, and work with stored procedures, triggers, and UDF from one page, as shown in the following image. 
 
 ![View and copy an access key in the Azure portal, Keys blade](./media/welcome-documentdb-customers/cosmos-db-data-explorer.png)
 
