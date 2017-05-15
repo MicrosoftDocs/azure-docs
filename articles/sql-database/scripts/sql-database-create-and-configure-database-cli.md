@@ -12,7 +12,7 @@ ms.assetid:
 ms.service: sql-database
 ms.custom: sample
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 04/24/2017
@@ -27,7 +27,7 @@ This sample CLI script creates an Azure SQL database and configure a server-leve
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh?highlight=9-10 "Create SQL Database")]
+[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh?highlight=9-10 "Create SQL Database")]
 
 ## Clean up deployment
 

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 05/12/2017
 ms.author: joflore
 
 ---
@@ -23,15 +23,16 @@ Most customers follow the steps that follow to ensure a smooth rollout of SSPR f
 
 1. [Enable password reset in your directory](active-directory-passwords-getting-started.md)
 2. [Configure on-premises AD permissions for password writeback](active-directory-passwords-how-it-works.md#active-directory-permissions)
-3. [Assign and verify required licenses](active-directory-passwords-licensing.md)
-4. If you want to roll out gradually, you can optionally limit password reset to a group of users to roll out the feature slowly over time. To do this set the **Self Service Password Reset Enabled** toggle from **Everybody** to **A group** and select a security group to enable for password reset. The members of this group must all have licenses assigned to them and is a great way to enable [Group Based Licensing](active-directory-passwords-licensing.md#enable-group-or-user-based-licensing).
-5. Populate the minimum set of [Authentication Data](active-directory-passwords-data.md), based on your policy.
-6. Teach your users how to use SSPR, by sending them instructions to show them how to register and how to reset.
+3. [Configure password writeback](active-directory-passwords-writeback.md#configuring-password-writeback) to write passwords from Azure AD back to your on-premises directory
+4. [Assign and verify required licenses](active-directory-passwords-licensing.md)
+5. If you want to roll out gradually, you can optionally limit password reset to a group of users to roll out the feature slowly over time. To do this set the **Self Service Password Reset Enabled** toggle from **Everybody** to **A group** and select a security group to enable for password reset. The members of this group must all have licenses assigned to them and is a great way to enable [Group Based Licensing](active-directory-passwords-licensing.md#enable-group-or-user-based-licensing).
+6. Populate the minimum set of [Authentication Data](active-directory-passwords-data.md), based on your policy.
+7. Teach your users how to use SSPR, by sending them instructions to show them how to register and how to reset.
     > [!NOTE]
     > Test SSPR with a user and not an administrator as Microsoft enforces strong authentication requirements for Azure administrator type accounts. For more information regarding the administrator password policy, see our [deep dive article](active-directory-passwords-how-it-works.md).
 
-7. You can choose to enforce registration at any point, and require users to reconfirm their authentication information after a certain period of time. If you don't want your users to have to register, you can [deploy password reset without requiring end-user registration](active-directory-passwords-data.md).
-8. Over time, review users registering and using by viewing the [reporting provided by Azure AD](active-directory-passwords-reporting.md).
+8. You can choose to enforce registration at any point, and require users to reconfirm their authentication information after a certain period of time. If you don't want your users to have to register, you can [deploy password reset without requiring end-user registration](active-directory-passwords-data.md).
+9. Over time, review users registering and using by viewing the [reporting provided by Azure AD](active-directory-passwords-reporting.md).
 
 ## Email-based rollout
 

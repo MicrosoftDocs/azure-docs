@@ -30,16 +30,16 @@ Before you get started, you must:
 To build the sample:
 
 1. Open a **Developer Command Prompt for VS 2015** or **Developer Command Prompt for VS 2017** command prompt.
-2. Navigate to the root folder in your local copy of the **azure-iot-gateway-sdk** repository.
+2. Navigate to the root folder in your local copy of the **iot-edge** repository.
 3. Run the **tools\\build.cmd** script. This script creates a Visual Studio solution file and builds 
 the solution. You can find the Visual Studio solution in the **build** folder in your local copy of 
-the **azure-iot-gateway-sdk** repository. Additional parameters can be given to the script to build 
+the **iot-edge** repository. Additional parameters can be given to the script to build 
 and run unit and end to end tests. These parameters are **--run-unittests** and **--run-e2e-tests**
 respectively.
 
 To run the sample:
 
-In a text editor, open the file **samples\\simulated_device_cloud_upload\\src\\simulated_device_cloud_upload_win.json** in your local copy of the **azure-iot-gateway-sdk** repository. This file configures the modules in the sample gateway:
+In a text editor, open the file **samples\\simulated_device_cloud_upload\\src\\simulated_device_cloud_upload_win.json** in your local copy of the **iot-edge** repository. This file configures the modules in the sample gateway:
 
 * The **IoTHub** module connects to your IoT hub. You configure it to send data to your IoT hub. Specifically, set the **IoTHubName** value to the name of your IoT hub and set the **IoTHubSuffix** value to **azure-devices.net**. Set the **Transport** value to one of: "HTTP", "AMQP", or "MQTT." Currently, only "HTTP" shares one TCP connection for all device messages. If you set the value to "AMQP", or "MQTT", the gateway maintains a separate TCP connection to IoT Hub for each device.
 * The **mapping** module maps the MAC addresses of your simulated devices to your IoT Hub device ids. Make sure that **deviceId** values match the ids of the two devices you added to your IoT hub, and that the **deviceKey** values contain the keys of your two devices.
@@ -137,7 +137,7 @@ Save any changes you made to the configuration file.
 
 To run the sample:
 
-1. At a command prompt, navigate to the root folder of your local copy of the **azure-iot-gateway-sdk** repository.
+1. At a command prompt, navigate to the root folder of your local copy of the **iot-edge** repository.
 2. Run the following command:
    
     ```
@@ -157,11 +157,11 @@ To further explore the capabilities of IoT Hub, see:
 * [Secure your IoT solution from the ground up][lnk-securing]
 
 <!-- Links -->
-[lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
+[lnk-setupdevbox]: https://github.com/Azure/iot-edge/blob/master/doc/devbox_setup.md
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
 [lnk-iothub-explorer]: https://github.com/Azure/iothub-explorer/blob/master/readme.md
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
+[lnk-gateway-sdk]: https://github.com/Azure/iot-edge/
 
 [lnk-physical-device]: iot-hub-gateway-sdk-physical-device.md
 
