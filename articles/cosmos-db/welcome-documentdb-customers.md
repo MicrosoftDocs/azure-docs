@@ -22,6 +22,8 @@ DocumentDB customers, we are excited to let you know that you now part of the Az
 
 Azure Cosmos DB, [announced at //build 2017](https://azure.microsoft.com/blog/azure-cosmos-db-microsofts-globally-distributed-multi-model-database-service/), is the first globally-distributed data service that lets you elastically scale throughput and storage across any number of geographical regions while guaranteeing low latency, high availability, and consistency – backed by the most comprehensive SLAs in the industry, and supporting a multitude of data models and APIs. 
 
+![Azure Cosmos DB is Microsoft's globally distributed database service with elastic scale out, guaranteed low latency, five consistency models, and comprehensive guaranteed SLAs](./media/introduction/azure-cosmos-db.png)
+
 One of the APIs Azure Cosmos DB supports is the DocumentDB API and the document data-model. You're already familiar with the DocumentDB APIs, they're the APIs you already use to run your current DocumentDB apps. These APIs are not changing - the Nuget package, namespaces, and dependencies will all remain the same. You don't need to change anything to continue running your apps built on the DocumentDB APIs, Azure Cosmos DB is simply the name of the service they are now a part of. 
 
 Let's go through a number of questions you may have about the change. 
