@@ -22,7 +22,10 @@
 ## Plan and design
 ### [Design concepts](active-directory-aadconnect-design-concepts.md)
 ### [Topologies for Azure AD Connect](active-directory-aadconnect-topologies.md)
-### [Single Sign On](active-directory-aadconnect-sso.md)
+### [Seamless Single Sign-on](active-directory-aadconnect-sso.md)
+#### [Troubleshoot](active-directory-aadconnect-troubleshoot-sso.md)
+### [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md)
+#### [Troubleshoot](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ### [Active Directory Federation Services in Azure](active-directory-aadconnect-azure-adfs.md)
 ### [Special considerations for instances](active-directory-aadconnect-instances.md)
 ### [When you already have Azure AD](active-directory-aadconnect-existing-tenant.md)
@@ -38,7 +41,6 @@
 ## Manage Azure AD Connect Sync
 ### [Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md)
-### [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md)
 ### [Azure AD service account](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Installation wizard](active-directory-aadconnectsync-installation-wizard.md)
 ### [Change the default configuration](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
