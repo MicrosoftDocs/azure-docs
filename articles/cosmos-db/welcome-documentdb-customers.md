@@ -68,11 +68,7 @@ Another manifestation of our continued work is the extended foundation for globa
 
 Azure Cosmos DB is a constantly evolving database service. All new capabilities are validated on large scale applications inside Microsoft, subsequently exposed to key external customers, and finally, released to the world. 
 
-The new Gremlin and Table API support are just the beginning of the popular APIs and data models Azure Cosmos DB will support, and look forward to sharing new data models with you as they're announced. We also continue to make great strides in performance and storage at global scale 
+The new Gremlin and Table API support are just the beginning of the popular APIs and data models Azure Cosmos DB will support, and look forward to sharing new data models with you as they're announced. We also continue to make great strides in performance and storage at global scale. 
 
-As always, we thank you for your being an Azure DocumentDB customer, and hope the move to Azure Cosmos DB provides exciting opportunities to expand the solutions you can provide, while building on the foundations in DocumentDB you're already familiar with. If you have questions, please reach out to us at askcosmosdb@microsoft.com or on twitter at [@AzureCosmosDB](https://twitter.com/AzureCosmosDB) as we want to continue to support you as you grow with us. 
-
-
-Thanks,
-
-The Azure Cosmos DB team
+As always, we thank you for your being an Azure DocumentDB customer, we’re excited to share Azure Cosmos DB with all of you—our developers and customers around the world. Our our mission is to enable you to build amazingly powerful, cosmos-scale apps, more easily. Please try out #AzureCosmosDB and let us know what you think!  We are excited to see what you build.
+— Your friends at Azure Cosmos DB [@AzureCosmosDB](https://twitter.com/AzureCosmosDB)
