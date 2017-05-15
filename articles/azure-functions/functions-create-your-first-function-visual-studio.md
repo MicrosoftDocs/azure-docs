@@ -40,7 +40,7 @@ Open Visual Studio and launch the *New Project* dialog. You'll find the Azure Fu
 
 ![Create a new Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-new-project.png)
 
-Visual Studio will create a project containing a *local.settings.json* and [*host.json*](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) file. The *local.settings.json* file contains application settings for the storage account and dashboard connections. Storage accounts hold unstructured data, and the SDK uses the dashboard to manage triggers and bindings. 
+Visual Studio will create a project containing a `local.settings.json` and [`host.json`](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) file. The `local.settings.json` file contains application settings for the storage account and dashboard connections. Storage accounts hold unstructured data, and the SDK uses the dashboard to manage triggers and bindings. 
 
 Now that you have a fresh Azure Functions queue triggered project, you now must create one or more Azure functions.
 
@@ -51,9 +51,13 @@ You can either use the File menu to add a new file or right mouse click on the p
 ![Create a new Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function.png)
 
 A new dialog will appear giving you more options. Select *QueueTrigger* and provide the following information in the next dialog box:
-  * A unique function name. The function's name is the same name that will appear in the portal. If the function is an HTTP trigger function, it also defines the default route.
-  * The name of the storage account connection. 
-  * The path for accessing items in the queue. 
+
+| Field | Description |
+|---|---|
+| Function name  | The name of your function.  |
+| Storage App Setting | The name of the App Setting which contains the storage account for use  |
+| Path | The name of the storage Queue to trigger on.  |
+
 
 ![Create a new Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 
@@ -63,7 +67,7 @@ Note: Behind the scenes, the runtime creates queues to schedule work, so all tri
 
 ## Review the function's bindings
 
-The *function.json* file contains settings for the trigger, as well as input and output bindings, and other information. 
+The `function.json` file contains settings for the trigger, as well as input and output bindings, and other information. 
 
 ```json
 {
@@ -84,7 +88,7 @@ The *function.json* file contains settings for the trigger, as well as input and
 
 ## Review the function's code
 
-In the *run.cs* file is the function's code. Since this function is a queue triggered function, there is a string argument representing the queued item. All functions contain an argument of type *TraceWriter* that you can use for logging purposes.
+In the `run.cs` file is the function's code. Since this function is a queue triggered function, there is a string argument representing the queued item. All functions contain an argument of type *TraceWriter* that you can use for logging purposes.
 
 ```csharp
 using System;
@@ -112,7 +116,7 @@ Click *Start* > *Debug* or press *F5* to run the application. This causes Visual
 
 ![Azure local runtime](./media/functions-create-your-first-function-visual-studio/functions-vstools-f5.png)
 
-When you run the function, the build process creates a *function.json* file with the required bindings for the function's trigger, input, and output bindings.  Visual Studio creates the *function.json* file from the attributes applied to the `Run` method in your code. In the previous example, the bindings are defined in the `HttpTrigger` attribute.
+When you run the function, the build process creates a `function.json` file with the required bindings for the function's trigger, input, and output bindings.  Visual Studio creates the `function.json` file from the attributes applied to the `Run` method in your code. In the previous example, the bindings are defined in the `HttpTrigger` attribute.
 
 You can obtain the endpoint for your function by examining the output of the functions runtime. You should see a local address, port, and path to where the function is listening. You can then open a browser and navigate to the function's HTTP endpoint to verify the function works.
 
@@ -128,7 +132,7 @@ Choose *Create New* to publish this as a new function in a new Function App, or 
 
 The table below details the required fields in order to publish your Function App.
 
-| Field | Value |
+| Field | Description |
 |---|---|
 | Function App Name | The function's name. This must be unique.  |
 | Subscription | The MSDN subscription that this function will be published under. |
