@@ -4,7 +4,7 @@ description: Server firewall exceptions required by Application Insights
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 44d989f8-bae9-40ff-bfd5-8343d3e59358
 ms.service: application-insights

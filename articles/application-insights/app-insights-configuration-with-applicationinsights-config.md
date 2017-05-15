@@ -5,7 +5,7 @@ services: application-insights
 documentationcenter: ''
 author: OlegAnaniev-MSFT
 editor: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 6e397752-c086-46e9-8648-a1196e8078c2
 ms.service: application-insights

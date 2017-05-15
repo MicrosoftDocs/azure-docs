@@ -4,7 +4,7 @@ description: Extended performance and usage monitoring of your Java website with
 services: application-insights
 documentationcenter: java
 author: harelbr
-manager: douge
+manager: carmonm
 
 ms.assetid: 84017a48-1cb3-40c8-aab1-ff68d65e2128
 ms.service: application-insights

@@ -4,7 +4,7 @@ description: Manually add the Application Insights SDK to your ASP.NET applicati
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 106ba99b-b57a-43b8-8866-e02f626c8190
 ms.service: application-insights

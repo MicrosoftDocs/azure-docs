@@ -4,7 +4,7 @@ description: 'Problems with Application Insights analytics? Start here. '
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 9bbd5859-3584-4d80-9b6d-d5910fa48baa
 ms.service: application-insights

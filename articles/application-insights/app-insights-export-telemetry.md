@@ -4,7 +4,7 @@ description: Export diagnostic and usage data to storage in Microsoft Azure, and
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
 ms.service: application-insights

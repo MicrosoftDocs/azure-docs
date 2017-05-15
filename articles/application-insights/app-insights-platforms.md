@@ -4,7 +4,7 @@ description: Languages, platforms and integrations available for Application Ins
 services: application-insights
 documentationcenter: ''
 author: OlegAnaniev-MSFT
-manager: douge
+manager: carmonm
 
 ms.assetid: 974db106-54ff-4318-9f8b-f7b3a869e536
 ms.service: application-insights

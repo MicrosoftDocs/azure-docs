@@ -4,7 +4,7 @@ description: Automate configuring Azure Diagnostics to pipe to Application Insig
 services: application-insights
 documentationcenter: .net
 author: sbtron
-manager: douge
+manager: carmonm
 
 ms.assetid: 4ac803a8-f424-4c0c-b18f-4b9c189a64a5
 ms.service: application-insights

@@ -4,7 +4,7 @@ description: Application Insights data model for request telemetry
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov-ms
+manager: carmonm
 
 ms.service: application-insights
 ms.workload: TBD

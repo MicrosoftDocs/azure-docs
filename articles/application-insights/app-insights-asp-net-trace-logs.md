@@ -4,7 +4,7 @@ description: Search logs generated with Trace, NLog, or Log4Net.
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 0c2a084f-6e71-467b-a6aa-4ab222f17153
 ms.service: application-insights
