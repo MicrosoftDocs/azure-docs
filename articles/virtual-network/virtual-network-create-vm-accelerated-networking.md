@@ -288,8 +288,8 @@ Once you create the VM in Azure, you must install the accelerated networking dri
     - `chmod +x ./bondvf.sh`
     - `sudo ./bondvf.sh`
     - `sudo mv ~/bondvf.sh /etc/init.d`
-    - `sudo update-rc.d bondvf.sh defaults`
-    - `sudo nano /etc/network/interfaces.d/50-cloud-init.cfg`
+    - `sudo update-rc.d bondvf.sh defaults` Note: If you receive an error that says *insserv: warning: script 'bondvf.sh' missing LSB tags and overrides*, you can disregard it.
+    - `sudo nano /etc/network/interfaces.d/50-cloud-init.cfg` Opens the GNU nano editor to edit the file.
     - In the editor, comment out the *auto etho0* and *iface eth0 inet dhcp* lines by adding *#* to the beginning of each line. After adding *#* to each line, the lines look like the following example:
         - #auto eth0
         - #iface eth0 inet dhcp
