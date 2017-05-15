@@ -43,7 +43,7 @@ Event Hubs provides message stream handling capability but has characteristics t
 
 Event Hubs contains the following key elements:
 
-- [**Event publishers**](event-hubs-features.md#event-publishers): An entity that sends data to an event hub. An event is published via AMQP 1.0 or HTTPS.
+- [**Event producers/publishers**](event-hubs-features.md#event-publishers): An entity that sends data to an event hub. An event is published via AMQP 1.0 or HTTPS.
 - [**Partitions**](event-hubs-features.md#partitions): Enables each consumer to only read a specific subset, or partition, of the event stream.
 - [**SAS tokens**](event-hubs-features.md#sas-tokens): used to identify and authenticate the event publisher.
 - [**Event consumers**](event-hubs-features.md#event-consumers): An entity that reads event data from an event hub. Event consumers connect via AMQP 1.0. 

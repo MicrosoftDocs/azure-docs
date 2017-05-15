@@ -20,7 +20,7 @@ ms.author: sethm
 
 # Event Hubs features overview
 
-Azure Event Hubs is a scalable event processing service that processes large volumes of events and data, with low latency and high reliability. See [What is Event Hubs](event-hubs-what-is-event-hubs.md) for a high-level overview of the service.
+Azure Event Hubs is a scalable event processing service that ingests large volumes of events and data, with low latency and high reliability. See [What is Event Hubs?](event-hubs-what-is-event-hubs.md) for a high-level overview of the service.
 
 This article builds on the information in the overview, and provides technical and implementation details about Event Hubs components and features.
 
@@ -161,7 +161,7 @@ For more information about Event Hubs, visit the following links:
 * [Event Hubs programming guide](event-hubs-programming-guide.md)
 * [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
-* [Sample applications that use Event Hubs]
+* [Sample applications that use Event Hubs][]
 
 [Event Hubs tutorial]: event-hubs-dotnet-standard-getstarted-send.md
 [Sample applications that use Event Hubs]: https://github.com/Azure/azure-event-hubs/tree/master/samples
