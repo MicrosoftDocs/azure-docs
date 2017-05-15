@@ -147,6 +147,7 @@ In this section, you create a .NET console app that connects to your hub as **my
 
    The **Client** object exposes all the methods you require to interact with device twins from the device. The previous code, after it initializes the **Client** object, retrieves the device twin for **myDeviceId** and updates its reported property with the connectivity information.     
 1. Finally, add the following lines to the **Main** method:
+   
        try
        {
             Console.WriteLine("Connecting to hub");
@@ -173,7 +174,7 @@ In this section, you create a .NET console app that connects to your hub as **my
     ![Run device app to report connectivity][img-rundeviceapp]
     
     
-1.Now that the device reported its connectivity information, it should appear in both queries. Run the .NET **AddTagsAndQuery** app to run the queries again. This time **myDeviceId** should appear in both query results.
+1. Now that the device reported its connectivity information, it should appear in both queries. Run the .NET **AddTagsAndQuery** app to run the queries again. This time **myDeviceId** should appear in both query results.
    
     ![Device connectivity reported successfully][img-tagappsuccess]
 
