@@ -50,65 +50,26 @@ No, the SLAs for availability, consistency, latency, and throughput are unchange
    
 ![Todo app with sample data](../../includes/media/cosmosdb-tutorial-review-slas/azure-cosmosdb-portal-metrics-slas.png)
 
-## What's new with Azure Cosmos DB? 
+## What's new in Azure Cosmos DB? 
 
-Azure Cosmos DB adds support for multiple data models including graph and key/value data, in addition to the document data-model you're already familiar with. We've also added a new consistency level, and the ability to set throughput per minute, instead of just per second as with DocumentDB. 
+Azure Cosmos DB is the next big leap in globally distributed, at scale, cloud databases. As a DocumentDB customer, you now have access to the new breakthrough system and capabilities offered by Azure Cosmos DB.
 
-What's new?
-* [Graph API](#graph-api)
-* [Table API](#table-api)
-* [New consistent prefix consistency level](#consistent-prefix)
-* [Scale throughput per minute with RU/m](#rupm)
+Since DocumentDB was made generally available in 2015, significant new capabilities have been added to the engine but only a subset of these capabilities were available in DocumentDB. These capabilities are in the areas of the core database engine as well as global distribution, elastic scalability, and industry-leading, comprehensive SLAs. Specifically, we have evolved the Azure Cosmos DB database engine to be able to efficiently map all popular data models, type systems, and APIs to the underlying data model of Azure Cosmos DB. 
 
-<a id="graph-api"></a>
-### Support for Graph API
+The current developer facing manifestation of this work is the new support for [Gremlin](graph-introduction.md) and [Table Storage APIs](table-introduction.md). And this is just the beginning… We will be adding other popular APIs and newer data models over time with more advances towards performance and storage at global scale. 
 
-The Graph API enables you to expand your data modeling techniques to capture not only the complexities of the entities your modeling, but the rich relationship between entities. Graph databases are common for social networking apps, when you not only want to know about a user, but you want to know who knows who, and find similarities and connections between those people, the places they live, and their interests. The following diagram depicts a simple graph you could create using the Graph API. Learn more about graph support in [Introduction to Azure Cosmos DB: Graph API](graph-introduction.md).
+It is important to point out that DocumentDB’s [SQL dialect](../documentdb/documentdb-sql-query.md) has always been just one of the many APIs that the underlying Cosmos DB was capable of supporting. As a developer using a fully managed service like Azure Cosmos DB, the only interface to the service is the APIs exposed by the service. To that end, nothing really changes for you as an existing DocumentDB customer. Azure Cosmos DB offers the exactly the same SQL API that DocumentDB did. However, now (and in the future) you can get access to other capabilities which were previously not accessible. 
 
-![Sample database showing persons, devices, and interests](./media/graph-introduction/sample-graph.png) 
+Another manifestation of our continued work is the extended foundation for global and elastic scalability of throughput and storage. One of the very first manifestations of it is the [RU/m](request-units-per-minute.md) but we have more capabilities that we will be announcing in these areas. These new capabilities will help reduce costs for our customers for various workloads. We have made several foundational enhancements to the global distribution subsystem. One of the many developer facing manifestations of this work is the consistent prefix consistency model (making in total 5 well-defined consistency models). However, there are many more interesting capabilities we will release as they mature. 
 
-<a id="table-api"></a>
-### Support for Table API
+## What's next with Azure Cosmos DB?
 
-Azure Cosmos DB also adds support for key/value data models that have high throughput requirements. The Table API enables you to store key/value pair data, just as you would with Azure Table storage, but benefit from the single-digit millisecond latency, tunable consistency levels, and global-replication options available from Azure Cosmos DB. 
+Azure Cosmos DB is a constantly evolving database service. All new capabilities are validated on large scale applications inside Microsoft, subsequently exposed to key external customers, and finally, released to the world. 
 
-You can learn more about the Table API in [Introduction to Azure Cosmos DB: Table API](table-introduction.md), or if you'd like to create a Table API account with Azure Cosmos DB, follow the [Build a .NET application using the Table API](create-table-dotnet.md) quickstart. 
+The new Gremlin and Table API support are just the beginning of the popular APIs and data models Azure Cosmos DB will support, and look forward to sharing new data models with you as they're announced. We also continue to make great strides in performance and storage at global scale 
 
-![Azure Table storage API and Azure Cosmos DB](./media/table-introduction/premium-tables.png)
+As always, we thank you for your being an Azure DocumentDB customer, and hope the move to Azure Cosmos DB provides exciting opportunities to expand the solutions you can provide, while building on the foundations in DocumentDB you're already familiar with. If you have questions, please reach out to us at askcosmosdb@microsoft.com or on twitter at [@AzureCosmosDB](https://twitter.com/AzureCosmosDB) as we want to continue to support you as you grow with us. 
 
-If you're an existing Azure Table storage customer, you have two options. 
-
-1. If you want to continue to use your Azure Table storage account with no changes, you're welcome to do so - you don't need to change anything. Your table resources are still available under Azure Storage in the Azure portal. This will change in the future as Azure Cosmos DB starts managing these accounts - but there are no changes right now. 
-
-2. If you want to take advantage of the increased throughput available with Azure Cosmos DB with data in an existing Azure Storage account, please reach out to askcosmosdb@microsoft.com with your subscription ID. We will work with you to migrate your existing Azure Storage account to the Azure Cosmos DB Table API premium preview offering. 
-
-<a id="consistent-prefix"></a>
-### New consistency level: Consistent prefix
-
-Consistent prefix is a new consistency level available to all Azure Cosmos DB accounts. Consistent prefix falls between Eventual consistency and Session level consistency on the consistency continuum. Learn more about the consistent prefix level in the [Tunable data consistency levels](../documentdb/documentdb-consistency-levels.md#consistent-prefix) article. 
-
-![Azure Cosmos DB offers multiple, well defined (relaxed) consistency models to choose from](media/introduction/azure-cosmos-db-consistency-levels.png)
-
-<a id="rupm"></a>
-### Scale throughput per minute
-
-With DocumentDB, you could scale your throughput from 400-250K RU/s in the portal or using the APIs. However if you had a spiky workload, many customers would over provision their throughput to avoid throttling during peak usage. 
-
-To give customers a way to provide predictable performance when they have unpredictable needs and spiky workloads, Azure Cosmos DB also supports request units per minute (RU/m). With RU/m, you get 10 times your provisioned RU/s value for use across each 60 second period. So if you provision 400 RU/s and you enable RU/m, you'll get 4,000 RU/m provisioned to use across each 60 second period. Each 60 seconds the allotment is refilled for you to use. So if you normally only use 300 RU/s, but need 2500 RU/s to handle occasional spikes, it's likely cost effective to turn on the RU/m feature so that you don't get throttled. 
-
-Learn more about RU/m in the [Request units per minute in Azure Cosmos DB](request-units-per-minute.md) article. 
-
-## Next steps
-
-We thank you for your being an Azure DocumentDB customer, and hope the move to Azure Cosmos DB provides exciting opportunities to expand the solutions you can provide, while building on the foundations in DocumentDB you're already familiar with. If you have questions, please reach out to us at askcosmosdb@microsoft.com as we want to continue to support you as you grow with us. 
-
-To start learning about the new capabilities in Azure Cosmos DB, we'd recommend trying out the new graph and table capabilities by completing the [Build an application using the Graph API](create-graph-dotnet.md) and [Build an application using the Table API](create-table-dotnet.md) quickstarts.
-
-You can also read more about Azure Cosmos DB in these announcements and overviews: 
-
-* [Welcome to Azure Cosmos DB](introduction.md) article
-* [Azure Cosmos DB: The industry’s first globally-distributed, multi-model database service](https://azure.microsoft.com/blog/azure-cosmos-db-microsofts-globally-distributed-multi-model-database-service/) blog
-* [A technical overview of Azure Cosmos DB](https://azure.microsoft.com/blog/a-technical-overview-of-azure-cosmos-db/)
 
 Thanks,
 
