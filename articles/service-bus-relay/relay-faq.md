@@ -26,55 +26,64 @@ This article answers some frequently asked questions (FAQs) about [Azure Relay](
 The [Azure Relay service](relay-what-is-it.md) facilitates your hybrid applications by helping you more securely expose services that reside within a corporate enterprise network to the public cloud. You can expose the services without opening a firewall connection, and without requiring intrusive changes to a corporate network infrastructure.
 
 ### What is a Relay namespace?
-A [namespace](relay-create-namespace-portal.md) gives you a scoping container that you can use to address Relay resources within your application. You must create a namespace to use Relay. Creating a namespace is one of the first steps in getting started.
+A [namespace](relay-create-namespace-portal.md) is a scoping container that you can use to address Relay resources within your application. You must create a namespace to use Relay. This is one of the first steps in getting started.
 
-### What happened to the previously named Service Bus Relay service?
-The previously named Service Bus Relay service is now called *WCF Relay*. You can continue to use this service as usual. The Hybrid Connections feature is an updated version of a service that's been transplanted from Microsoft BizTalk. Both WCF Relay and Hybrid Connections continue to be supported.
+### What happened to Service Bus Relay service?
+The previously named Service Bus Relay service is now called WCF Relay. You can continue to use this service as usual. The Hybrid Connections feature is an updated version of a service that's been transplanted from Azure BizTalk Services. WCF Relay and Hybrid Connections both continue to be supported.
 
 ## Pricing
-This section answers some frequently asked questions about the Relay pricing structure. For general Azure pricing information, see [Azure Support FAQs](http://go.microsoft.com/fwlink/?LinkID=185083). For complete information about Relay pricing, see [Service Bus pricing details](https://azure.microsoft.com/pricing/details/service-bus/).
+This section answers some frequently asked questions about the Relay pricing structure. You also can see [Azure Support FAQs](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing information. For complete information about Relay pricing, see [Service Bus pricing details](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ### How do you charge for Hybrid Connections and WCF Relay?
-For complete information about Relay pricing, see [Service Bus pricing details][Pricing overview]. In addition to the prices noted, you are charged for associated data transfers for egress outside of the datacenter in which your application is provisioned.
+For complete information about Relay pricing, see [Service Bus pricing details][Pricing overview]. In addition to the prices noted on that page, you are charged for associated data transfers for egress outside of the datacenter in which your application is provisioned.
 
 ### How am I billed for Hybrid Connections?
-Here are three example scenarios for billing for Hybrid Connections:
+Here are three example billing scenarios for Hybrid Connections:
 
-*   If you have a single listener, such as an instance of the Hybrid Connections Manager that's installed and continuously running for the entire month, and you send 3 GB of data across the connection that month, your total charge is $5.
-*   If you have a single listener, such as an instance of the Hybrid Connections Manager that's installed and continuously running for the entire month, and you send 10 GB of data across the connection that month, your total charge is $7.50. That's $5 for the connection and first 5 GB + $2.50 for the additional 5 GB of data.
-*   If you have two instances, A and B, of the Hybrid Connections Manager that's installed and continuously running for the entire month, and you send 3 GB of data across connection A and 6 GB across connection B, your total charge is $10.50. That's $5 for connection A + $5 for connection B + $0.50 (for the additional 1 GB on connection B).
+*   Scenario 1:
+    *   You have a single listener, such as an instance of the Hybrid Connections Manager installed and continuously running for the entire month.
+    *   You send 3 GB of data across the connection during the month. 
+    *   Your total charge is $5.
+*   Scenario 2:
+    *   You have a single listener, such as an instance of the Hybrid Connections Manager installed and continuously running for the entire month.
+    *   You send 10 GB of data across the connection during the month.
+    *   Your total charge is $7.50. That's $5 for the connection and first 5 GB + $2.50 for the additional 5 GB of data.
+*   Scenario 3:
+    *   You have two instances, A and B, of the Hybrid Connections Manager installed and continuously running for the entire month.
+    *   You send 3 GB of data across connection A during the month.
+    *   You send 6 GB of data across connection B during the month.
+    *   Your total charge is $10.50. That's $5 for connection A + $5 for connection B + $0.50 (for the sixth gigabyte on connection B).
 
 Note that the prices used in the examples are applicable only during the Hybrid Connections preview period. Prices are subject to change upon general availability of Hybrid Connections.
 
-### How are hours calculated for Azure Relay?
-WCF Relay and Hybrid Connection hours are billed for the cumulative amount of time during which each Service Bus relay is "open." A relay is implicitly instantiated and opened at a given Service Bus address (service namespace URL) when a relay-enabled service (or “relay listener”) first connects to that address. The relay is closed only when the last listener disconnects from that Service Bus address. Therefore, for billing purposes a relay is considered "open" from the time the first relay listener connects until the last relay listener disconnects from the Service Bus address of that relay.
+### How are hours calculated for Relay?
 
-WCF Relay is available only in Standard tier namespaces. Otherwise, pricing and [connection quotas](../service-bus-messaging/service-bus-quotas.md) for relays remain unchanged. This means that relays continue to be charged based on the number of messages (not operations), and relay hours. For more information, see the [Hybrid Connections and WCF relays](https://azure.microsoft.com/pricing/details/service-bus/) table on the pricing details page.
+WCF Relay is available only in Standard tier namespaces. Pricing and [connection quotas](../service-bus-messaging/service-bus-quotas.md) for relays otherwise have not changed. This means that relays continue to be charged based on the number of messages (not operations) and relay hours. For more information, see the [Hybrid Connections and WCF Relays](https://azure.microsoft.com/pricing/details/service-bus/) table on the pricing details page.
 
 ### What if I have more than one listener connected to a specific relay?
-In some cases, a single relay might have multiple connected listeners. A relay is considered "open" when at least one relay listener is connected to it. Adding listeners to an open relay results in additional relay hours. The number of relay senders (clients that invoke or send messages to relays) connected to a relay also has no effect on the calculation of relay hours.
+In some cases, a single relay might have multiple connected listeners. A relay is considered open when at least one relay listener is connected to it. Adding listeners to an open relay results in additional relay hours. The number of relay senders (clients that invoke or send messages to relays) that are connected to a relay does not affect the calculation of relay hours.
 
-### How is the messages meter calculated for WCF relays?
-**This applies only to WCF relays. Messages are not a cost for Hybrid Connections.**
+### How is the messages meter calculated for WCF Relays?
+(**This applies only to WCF relays. Messages are not a cost for Hybrid Connections.**)
 
-In general, billable messages are calculated for relays that use the same method described in the preceding question for brokered entities (queues, topics, and subscriptions). However, there are several notable differences:
+In general, billable messages for relays are calculated by using the same method that's used for brokered entities (queues, topics, and subscriptions), described earlier. However, there are some notable differences.
 
-Sending a message to a Service Bus relay is treated as a "full through" send to the relay listener that receives the message. It's not treated like a send to the Service Bus relay, followed by a delivery to the relay listener. Therefore, a request-reply style service invocation (of up to 64 KB) against a relay listener results in two billable messages: one billable message for the request and one billable message for the response (assuming the response is also 64 KB or smaller). This is different than using a queue to mediate between a client and a service. If you use a queue to mediate between a client and a service, the same request-reply pattern requires a request send to the queue, followed by a dequeue/delivery from the queue to the service. This is followed by a response send to another queue, and a dequeue/delivery from that queue to the client. Using the same size assumptions (up to 64 KB) throughout, the mediated queue pattern would thus result in four billable messages, twice the number billed to implement the same pattern by using relay. Of course, there are benefits to using queues to achieve this pattern, such as durability and load leveling. These benefits might justify the additional expense.
+Sending a message to a Service Bus relay is treated as a "full through" send to the relay listener that receives the message. It's *not* treated like a send to the Service Bus relay, followed by a delivery to the relay listener. A request-reply style service invocation (of up to 64 KB) against a relay listener results in two billable messages: one billable message for the request and one billable message for the response (assuming the response is also 64 KB or smaller). This is different than using a queue to mediate between a client and a service. If you use a queue to mediate between a client and a service, the same request-reply pattern requires a request send to the queue, followed by a dequeue/delivery from the queue to the service. This is followed by a response send to another queue, and a dequeue/delivery from that queue to the client. Using the same size assumptions (up to 64 KB) throughout, the mediated queue pattern would result in four billable messages. You'd be billed for twice the number of messages to implement the same pattern that you accomplish by using relay. Of course, there are benefits to using queues to achieve this pattern, like durability and load leveling. These benefits might justify the additional expense.
 
-Relays that are opened by using the netTCPRelay WCF binding treat messages not as individual messages but as a stream of data flowing through the system. Only the sender and listener have visibility into the framing of the individual messages sent and received when you use this binding. Thus, for relays that use the netTCPRelay binding, all data is treated as a stream for the purpose of calculating billable messages. In this case, Service Bus calculates the total amount of data sent or received via each individual relay on a 5-minute basis. Then, it divides that total by 64 KB to determine the number of billable messages for the relay in question during that time period.
+Relays that are opened by using the netTCPRelay Windows Communication Foundation (WCF) binding treat messages not as individual messages, but as a stream of data flowing through the system. When you use this binding, only the sender and listener have visibility into the framing of the individual messages sent and received. For relays that use the netTCPRelay binding, all data is treated as a stream for calculating billable messages. In this case, Service Bus calculates the total amount of data sent or received via each individual relay on a 5-minute basis. Then, it divides that total amount of data by 64 KB to determine the number of billable messages for that relay during that time period.
 
 ## Quotas
 | Quota name | Scope | Type | Behavior when exceeded | Value |
 | --- | --- | --- | --- | --- |
 | Concurrent listeners on a relay |Entity |Static |Subsequent requests for additional connections are rejected and an exception is received by the calling code. |25 |
 | Concurrent relay listeners |Systemwide |Static |Subsequent requests for additional connections are rejected and an exception is received by the calling code. |2,000 |
-| Concurrent relay connections for all relay endpoints in a service namespace |Systemwide |Static |- |5,000 |
+| Concurrent relay connections per all relay endpoints in a service namespace |Systemwide |Static |- |5,000 |
 | Relay endpoints per service namespace |Systemwide |Static |- |10,000 |
 | Message size for [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) and [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) relays |Systemwide |Static |Incoming messages that exceed these quotas are rejected and an exception is received by the calling code. |64 KB |
 | Message size for [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) and [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) relays |Systemwide |Static |- |Unlimited |
 
-### Does Azure Relay have any usage quotas?
-By default, for any cloud service, Microsoft sets an aggregate monthly usage quota that is calculated across all of a customer's subscriptions. Because we understand that at times your needs might exceed these limits, you can contact customer service at any time so that we can understand your needs and adjust these limits appropriately. For Service Bus, the aggregate usage quotas are as follows:
+### Does Relay have any usage quotas?
+By default, for any cloud service, Microsoft sets an aggregate monthly usage quota that is calculated across all a customer's subscriptions. We understand that at times your needs might exceed these limits. You can contact customer service at any time, so we can understand your needs and adjust these limits appropriately. For Service Bus, the aggregate usage quotas are as follows:
 
 * 5 billion messages
 * 2 million relay hours
@@ -82,12 +91,12 @@ By default, for any cloud service, Microsoft sets an aggregate monthly usage quo
 Although we reserve the right to disable a customer account that has exceeded its monthly usage quotas, we provide e-mail notification, and we make multiple attempts to contact a customer before taking any action. Customers who exceed these quotas are still responsible for charges that exceed the quotas.
 
 ### Naming restrictions
-An Azure Relay namespace name can be only between 6 and 50 characters in length.
+A Relay namespace name must be between 6 and 50 characters in length.
 
 ## Subscription and namespace management
 ### How do I migrate a namespace to another Azure subscription?
 
-You can move a namespace from one Azure subscription to another either in the [Azure portal](https://portal.azure.com) or by using PowerShell commands. To move a namespace from one Azure subscription to another, the namespace must already be active. The user running the commands must be an Administrator user on both the source and target subscriptions.
+To move a namespace from one Azure subscription to another subscription, you can either use the [Azure portal](https://portal.azure.com) or use PowerShell commands. To move a namespace to another subscription, the namespace must already be active. The user running the commands must be an Administrator user on both the source and target subscriptions.
 
 #### Azure portal
 
@@ -95,7 +104,7 @@ To use the Azure portal to migrate Azure Relay namespaces from one subscription 
 
 #### PowerShell
 
-To move a namespace from one Azure subscription to another, use the following sequence of PowerShell commands. To execute this operation, the namespace must already be active, and the user running the PowerShell commands must be an Administrator user on both the source and target subscriptions.
+To use PowerShell to move a namespace from one Azure subscription to another subscription, use the following sequence of commands. To execute this operation, the namespace must already be active, and the user running the PowerShell commands must be an Administrator user on both the source and target subscriptions.
 
 ```powershell
 # Create a new resource group in the target subscription.
@@ -109,14 +118,14 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 ```
 
 ## Troubleshooting
-### What are some of the exceptions generated by Azure Relay APIs and their suggested actions?
-The [Relay exceptions][Relay exceptions] article describes some exceptions with suggested actions.
+### What are some of the exceptions generated by Azure Relay APIs, and suggested actions you can take?
+For a description of common exceptions and suggested actions you can take, see [Relay exceptions][Relay exceptions].
 
 ### What is a shared access signature, and which languages can I use to generate a signature?
-Shared access signatures are an authentication mechanism based on SHA – 256 secure hashes or URIs. For information about how to generate your own signatures in Node, PHP, Java, C, and C#, see [Shared access signatures][Shared Access Signatures].
+Shared access signatures are an authentication mechanism based on SHA-256 secure hashes or URIs. For information about how to generate your own signatures in Node, PHP, Java, C, and C#, see [Service Bus authentication with shared access signatures][Shared Access Signatures].
 
-### Is it possible to whitelist Relay endpoints?
-Yes. The Relay client makes connections to the Relay service using fully qualified domain names. Customers can add an entry for `*.servicebus.windows.net` on firewalls that support DNS whitelisting.
+### Is it possible to whitelist relay endpoints?
+Yes. The relay client makes connections to the Azure Relay service by using fully qualified domain names. Customers can add an entry for `*.servicebus.windows.net` on firewalls that support DNS whitelisting.
 
 ## Next steps
 * [Create a namespace](relay-create-namespace-portal.md)
