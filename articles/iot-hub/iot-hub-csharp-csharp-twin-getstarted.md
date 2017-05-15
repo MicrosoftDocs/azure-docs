@@ -13,7 +13,7 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/29/2017
+ms.date: 05/15/2017
 ms.author: dkshir
 
 ---
@@ -102,66 +102,83 @@ In this section, you create a .NET console app (using C#) that adds location met
 In the next section, you create a device app that reports the connectivity information and changes the result of the query in the previous section.
 
 ## Create the device app
-In this section, you create a Node.js console app that connects to your hub as **myDeviceId**, and then updates its reported properties to contain the information that it is connected using a cellular network.
+In this section, you create a .NET console app that connects to your hub as **myDeviceId**, and then updates its reported properties to contain the information that it is connected using a cellular network.
 
-1. Create a new empty folder called **reportconnectivity**. In the **reportconnectivity** folder, create a new package.json file using the following command at your command prompt. Accept all the defaults.
+1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **ReportConnectivity**.
    
-    ```
-    npm init
-    ```
-1. At your command prompt in the **reportconnectivity** folder, run the following command to install the **azure-iot-device**, and **azure-iot-device-mqtt** package:
+    ![New Visual C# Windows Classic device app][img-createdeviceapp]
+    
+1. In Solution Explorer, right-click the **ReportConnectivity** project, and then click **Manage NuGet Packages...**.
+1. In the **NuGet Package Manager** window, select **Browse** and search for **microsoft.azure.devices.client**. Select **Install** to install the **Microsoft.Azure.Devices.Client** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT device SDK][lnk-nuget-client-sdk] NuGet package and its dependencies.
    
-    ```
-    npm install azure-iot-device azure-iot-device-mqtt --save
-    ```
-1. Using a text editor, create a new **ReportConnectivity.js** file in the **reportconnectivity** folder.
-1. Add the following code to the **ReportConnectivity.js** file, and substitute the placeholder for device connection string with the one you copied when you created the **myDeviceId** device identity:
+    ![NuGet Package Manager window Client app][img-clientnuget]
+1. Add the following `using` statements at the top of the **Program.cs** file:
    
-        'use strict';
-        var Client = require('azure-iot-device').Client;
-        var Protocol = require('azure-iot-device-mqtt').Mqtt;
+        using Microsoft.Azure.Devices.Client;
+        using Microsoft.Azure.Devices.Shared;
+        using Newtonsoft.Json;
+
+1. Add the following fields to the **Program** class. Replace the placeholder value with the IoT Hub connection string for the hub that you created in the previous section.
    
-        var connectionString = '{device connection string}';
-        var client = Client.fromConnectionString(connectionString, Protocol);
+        static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
+        static DeviceClient Client = null;
+
+1. Add the following method to the **Program** class:
    
-        client.open(function(err) {
-        if (err) {
-            console.error('could not open IotHub client');
-        }  else {
-            console.log('client opened');
-   
-            client.getTwin(function(err, twin) {
-            if (err) {
-                console.error('could not get twin');
-            } else {
-                var patch = {
-                    connectivity: {
-                        type: 'cellular'
-                    }
-                };
-   
-                twin.properties.reported.update(patch, function(err) {
-                    if (err) {
-                        console.error('could not update twin');
-                    } else {
-                        console.log('twin state reported');
-                        process.exit();
-                    }
-                });
+        public static async Task ReportConnectivity()
+        {
+            try
+            {
+                Console.WriteLine("Sending connectivity data as reported property");
+                TwinCollection reportedProperties, connectivity;
+                reportedProperties = new TwinCollection();
+                connectivity = new TwinCollection();
+                connectivity["type"] = "cellular";
+                reportedProperties["connectivity"] = connectivity;
+                
+                Client.UpdateReportedPropertiesAsync(reportedProperties);
             }
-            });
+            catch (Exception ex)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Error in sample: {0}", ex.Message);
+            }
         }
-        });
+
+   The **Client** object exposes all the methods you require to interact with device twins from the device. The previous code, after it initializes the **Client** object, retrieves the device twin for **myDeviceId** and updates its reported property with the connectivity information.     
+1. Finally, add the following lines to the **Main** method:
+       try
+       {
+            Console.WriteLine("Connecting to hub");
+            Client = DeviceClient.CreateFromConnectionString(DeviceConnectionString, TransportType.Mqtt);
+
+            Console.WriteLine("Retrieving twin");
+            var twinTask = Client.GetTwinAsync();
+            twinTask.Wait();
+            var twin = twinTask.Result;
+
+            AddTagsAndQuery().Wait();
+            Console.WriteLine("Press Enter to exit.");
+            Console.ReadLine();
+       catch (Exception ex)
+       {
+            Console.WriteLine();
+            Console.WriteLine("Error in sample: {0}", ex.Message);
+       }
+       Console.WriteLine("Press enter to exit...");
+
+       Console.ReadLine();
+       Console.WriteLine("Exiting...");
+
+1. In the Solution Explorer, open the **Set StartUp projects...** and make sure the **Action** for **ReportConnectivity** project is **Start**. Build the solution.
+1. Run this application by right-clicking on the **ReportConnectivity** project and selecting **Debug**, followed by **Start new instance**. You should see one device in the results for the query asking for all devices located in **Redmond43** and none for the query that restricts the results to devices that use a cellular network.
    
-    The **Client** object exposes all the methods you require to interact with device twins from the device. The previous code, after it initializes the **Client** object, retrieves the device twin for **myDeviceId** and updates its reported property with the connectivity information.
-1. Run the device app
+    ![Run device app to report connectivity][img-rundeviceapp]
+    
+    
+1.Now that the device reported its connectivity information, it should appear in both queries. Run the .NET **AddTagsAndQuery** app to run the queries again. This time **myDeviceId** should appear in both query results.
    
-        node ReportConnectivity.js
-   
-    You should see the message `twin state reported`.
-1. Now that the device reported its connectivity information, it should appear in both queries. Run the .NET **AddTagsAndQuery** app to run the queries again. This time **myDeviceId** should appear in both query results.
-   
-    ![][img-addtagapp2]
+    ![Device connectivity reported successfully][img-tagappsuccess]
 
 ## Next steps
 In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You added device metadata as tags from a back-end app, and wrote a simulated device app to report device connectivity information in the device twin. You also learned how to query this information using the SQL-like IoT Hub query language.
@@ -173,10 +190,12 @@ Use the following resources to learn how to:
 * control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods][lnk-methods-tutorial] tutorial.
 
 <!-- images -->
-[img-servicenuget]: media/iot-hub-csharp-node-twin-getstarted/servicesdknuget.png
-[img-createapp]: media/iot-hub-csharp-node-twin-getstarted/createnetapp.png
-[img-addtagapp]: media/iot-hub-csharp-node-twin-getstarted/addtagapp.png
-[img-addtagapp2]: media/iot-hub-csharp-node-twin-getstarted/addtagapp2.png
+[img-servicenuget]: media/iot-hub-csharp-csharp-twin-getstarted/servicesdknuget.png
+[img-createapp]: media/iot-hub-csharp-csharp-twin-getstarted/createnetapp.png
+[img-addtagapp]: media/iot-hub-csharp-csharp-twin-getstarted/addtagapp.png
+[img-createdeviceapp]: media/iot-hub-csharp-csharp-twin-getstarted/createdeviceapp.png
+[img-clientnuget]: media/iot-hub-csharp-csharp-twin-getstarted/clientsdknuget.png
+[img-tagappsuccess]: media/iot-hub-csharp-csharp-twin-getstarted/tagappsuccess.png
 
 <!-- links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
