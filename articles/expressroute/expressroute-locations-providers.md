@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2017
+ms.date: 05/15/2017
 ms.author: cherylmc
 ---
 # ExpressRoute partners and peering locations
@@ -69,7 +69,7 @@ The following table shows connectivity locations and the service providers for e
 | **Atlanta** |Equinix |
 | **Busan** |LG CNS |
 | **Chennai** |Global CloudXchange (GCX), SIFY, Tata Communications |
-| **Chicago** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Verizon, Zayo Group |
+| **Chicago** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Megaport, Verizon, Zayo Group |
 | **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Verizon, Zayo Group+ |
 | **Denver** |CoreSite+ |
 | **Dublin** |Colt, Telecity Group |
@@ -79,9 +79,10 @@ The following table shows connectivity locations and the service providers for e
 | **Los Angeles** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Melbourne** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
 | **New York** |Coresite, Equinix, Megaport, Zayo Group |
-| **Newport(Wales)** |Next Generation Data |
+| **Miami** |Megaport |
 | **Montreal** |Bell Canada, Cologix |
 | **Mumbai** |Airtel+, Tata Communications |
+| **Newport(Wales)** |Next Generation Data |
 | **Osaka** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
 | **Paris** |Interxion, Equinix+ |
 | **Quebec City** | Megaport |
