@@ -18,6 +18,8 @@ ms.date: 5/12/2017
 ms.author: v-six
 
 ---
+# Q&A: Open Source Technologies
+
 # Why is my ClearDB database not visible in the portal?
 
 If you create ClearDB database using the new [Azure portal](http://portal.azure.com/), it will not be visible in the [classic Azure portal](http://manage.windowsazure.com/).
