@@ -13,8 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: awills
-
+ms.author: cfreeman
 ---
 
 # Custom Live Metrics and Events: Monitor & Diagnose with 1-second latency 
