@@ -3,7 +3,7 @@ title: Azure PowerShell script sample - Route traffic through a network virtual 
 description: Azure PowerShell script sample - Route traffic through a firewall network virtual appliance.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
+author: georgewallace
 manager: timlt
 editor: tysonn
 tags:
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 04/21/2017
-ms.author: jdial
+ms.author: gwallace
 
 ---
 
@@ -23,7 +23,7 @@ ms.author: jdial
 
 This script sample creates a virtual network with front-end and back-end subnets. It also creates a VM with IP forwarding enabled to route traffic between the two subnets. After running the script you can deploy network software, such as a firewall application, to the VM.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), and then run `Login-AzureRmAccount` to create a connection with Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

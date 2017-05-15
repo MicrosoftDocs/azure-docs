@@ -3,7 +3,7 @@ title: Azure PowerShell Script Sample - Peer two virtual networks | Microsoft Do
 description: Azure PowerShell Script Sample - Peer two virtual networks
 services: virtual-network
 documentationcenter: virtual-network
-author: KumudD
+author: georgewallace
 manager: timlt
 editor: tysonn
 tags:
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 04/19/2017
-ms.author: kumud
+ms.author: gwallace
 ---
 
 # Peer two virtual networks
 
 This script creates and connects two virtual networks in the same region trhough the Azure network. After running the script, you will create a peering between two virtual networks.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), and then run `Login-AzureRmAccount` to create a connection with Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

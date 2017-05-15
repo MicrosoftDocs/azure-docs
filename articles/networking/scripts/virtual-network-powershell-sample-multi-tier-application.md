@@ -3,7 +3,7 @@ title: Azure PowerShell script sample - Create a network for multi-tier applicat
 description: Azure PowerShell script sample - Create a virtual network for multi-tier applications.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
+author: georgewallace
 manager: timlt
 editor: tysonn
 tags:
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 04/21/2017
-ms.author: jdial
+ms.author: gwallace
 
 ---
 
@@ -23,7 +23,7 @@ ms.author: jdial
 
 This script sample creates a virtual network with front-end and back-end subnets. Traffic to the front-end subnet is limited to HTTP and SSH, while traffic to the back-end subnet is limited to MySQL, port 3306. After running the script, you will have two virtual machines, one in each subnet that you can deploy web server and MySQL software to.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), and then run `Login-AzureRmAccount` to create a connection with Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

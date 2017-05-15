@@ -5,7 +5,7 @@ services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: timlt
-editor: tysonn
+editor: georgewallace
 tags: azure-infrastructure
 
 ms.assetid:
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/25/2017
-ms.author: kumud
+ms.author: gwallace
 ---
 
 # Route traffic for high availability of applications
 
 This script creates a resource group, two app service plans, two web apps, a traffic manager profile, and two traffic manager endpoints. Traffic Manager directs traffic to the application in one region as the primary region, and to the secondary region when the application in the primary region is unavailable. Before executing the script, you must change the MyWebApp, MyWebAppL1 and MyWebAppL2 values to unique values across Azure. After running the script, you can access the app in the primary region with the URL mywebapp.trafficmanager.net.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), and then run `Login-AzureRmAccount` to create a connection with Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

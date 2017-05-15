@@ -19,7 +19,7 @@ ms.author: georgewallace
 ---
 # Azure PowerShell Samples for networking
 
-The following table includes links to bash scripts built using Azure PowerShell.
+The following table includes links to scripts built using Azure PowerShell.
 
 | | |
 |-|-|
