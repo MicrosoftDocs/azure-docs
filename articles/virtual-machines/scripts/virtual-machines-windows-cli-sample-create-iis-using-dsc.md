@@ -28,7 +28,7 @@ This script creates a virtual machine, and uses the Azure Virtual Machine DSC cu
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-windows-iis-using-dsc/create-windows-iis-using-dsc.sh "Quick Create VM")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-windows-iis-using-dsc/create-windows-iis-using-dsc.sh "Quick Create VM")]
 
 ## Clean up deployment 
 

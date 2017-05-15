@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 05/13/2017
 ms.author: arramac
 
 ---
@@ -91,27 +91,25 @@ Now go back to the Azure portal to get your connection string information and co
 
     ![View and copy an access key in the Azure portal, Keys blade](./media/create-documentdb-dotnet/keys.png)
 
-2. Fill in your *endpoint*, *db*, *coll*, and *authKey* configurations in the `app.js` file:
+2. Copy your URI value from the portal (using the copy button) and make it the value of config.endpoint key in config.js.
 
-    ```nodejs
-    const client = Gremlin.createClient(
-        443, 
-        config.endpoint, 
-        { 
-            "session": false, 
-            "ssl": true, 
-            "user": `/dbs/${config.database}/colls/${config.collection}`,
-            "password": config.primaryKey
-        });
-    ```
+    `config.endpoint = "GRAPHENDPOINT";`
+
+3. Replace the documents.azure.com portion of the URI with graphs.azure.com.
+
+4. Then copy your PRIMARY KEY value from the portal and make it the value of config.primaryKey in config.js. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
+
+    `config.primaryKey = "PRIMARYKEY";`
 
 ## Run the console app
 
-1. Run `npm install` in a terminal to install required npm modules
+1. Open a terminal window and `cd` to a the installation directory for the package.json file included in the project.  
 
-2. Replace the contents of `node_modules\gremlin` with the source code from [the Cosmos DB Gremlin fork](https://github.com/CosmosDB/gremlin-javascript), which has support for SSL and SASL, which are required for Azure Cosmos DB, but not currently supported by the driver (temporarily until the changes are accepted in the driver).
+2. Run `npm install gremlin` to install required npm modules.
 
-2. Run `node app.js` in a terminal to start your node application.
+3. Replace the contents of the `node_modules\gremlin` folder with the source code from [the Cosmos DB Gremlin fork](https://github.com/CosmosDB/gremlin-javascript), which has support for SSL and SASL, which are required for Azure Cosmos DB, but not currently supported by the driver (temporarily until the changes are accepted in the driver).
+
+4. Run `node app.js` in a terminal to start your node application.
 
 You can now go back to Data Explorer and see query, modify, and work with this new data. 
 
@@ -140,4 +138,3 @@ In this quickstart, you've learned how to create an Azure Cosmos DB account, cre
 
 > [!div class="nextstepaction"]
 > [Query using Gremlin](tutorial-query-graph.md)
-
