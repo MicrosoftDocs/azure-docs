@@ -146,6 +146,7 @@
 ### [Trace](application-insights-data-model-trace-telemetry.md)
 ### [Event](application-insights-data-model-event-telemetry.md)
 ### [Metric](application-insights-data-model-metric-telemetry.md)
+### [Context](application-insights-data-model-context.md)
 ## [Telemetry correlation](application-insights-correlation.md)
 
 # Resources
