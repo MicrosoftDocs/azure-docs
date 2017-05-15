@@ -16,7 +16,7 @@ ms.author: juliako;
 
 This topic shows you the search options that enable you find exact moments within videos.
 
-1. Sign in to your [Video Indexer](https://www.vi.microsoft.com) account.
+1. Sign in to your [Video Indexer](http://vi.microsoft.com) account.
 2. Search among all videos in your account.
 
 	In the following example, we searched for all videos created by Channel9 with Scott Hanselman.
