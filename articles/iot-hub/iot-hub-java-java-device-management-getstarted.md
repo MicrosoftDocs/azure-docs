@@ -16,6 +16,7 @@ ms.date: 05/12/2017
 ms.author: dobett
 
 ---
+
 # Get started with device management (Java)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
