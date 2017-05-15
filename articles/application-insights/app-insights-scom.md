@@ -4,7 +4,7 @@ description: If you're an SCOM user, monitor performance and diagnose issues wit
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 606e9d03-c0e6-4a77-80e8-61b75efacde0
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Application Performance Monitoring using Application Insights for SCOM
