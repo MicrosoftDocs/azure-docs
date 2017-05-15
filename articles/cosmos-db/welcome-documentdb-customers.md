@@ -22,7 +22,7 @@ DocumentDB customers, we are excited to let you know that you now part of the Az
 
 Azure Cosmos DB, [announced at the Microsoft Build 2017 conference](https://azure.microsoft.com/blog/azure-cosmos-db-microsofts-globally-distributed-multi-model-database-service/), is the first globally distributed database service that lets you elastically scale throughput and storage across any number of geographical regions while guaranteeing low latency, high availability, and consistency – backed by the most comprehensive SLAs in the industry, and supporting a multitude of data models and APIs. 
 
-![Azure Cosmos DB is Microsoft's globally distributed database service with elastic scale-out, guaranteed low latency, five consistency models, and comprehensive guaranteed SLAs](./media/introduction/azure-cosmos-db.png)
+![Azure Cosmos DB is Microsoft's globally distributed database service with elastic scale-out, guaranteed low latency, five consistency models, and comprehensive guaranteed SLAs](./media/welcome-documentdb-customers/azure-cosmos-db.png)
 
 One of the APIs Azure Cosmos DB supports is the DocumentDB API and the document data-model. You're already familiar with the DocumentDB APIs. They are the APIs you are already using to run your current DocumentDB applications. These APIs are _not_ changing - the NuGet package, the namespaces, and all dependencies remain the same. **You don't need to change anything** to continue running your apps built with the DocumentDB API. Azure Cosmos DB is simply the name of the service they are now a part of. 
 
@@ -64,7 +64,7 @@ No, the cost of running your app on Azure Cosmos DB is the same as it was before
 
 No, the SLAs for availability, consistency, latency, and throughput are unchanged and are still displayed in the portal. For details about the SLAs, see [SLA for Azure Cosmos DB](https://azure.microsoft.com/en-us/support/legal/sla/cosmos-db/).
    
-![Todo app with sample data](../../includes/media/cosmosdb-tutorial-review-slas/azure-cosmosdb-portal-metrics-slas.png)
+![Todo app with sample data](./media/welcome-documentdb-customers/azure-cosmosdb-portal-metrics-slas.png)
 
 ## What's next with Azure Cosmos DB?
 
