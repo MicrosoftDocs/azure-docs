@@ -28,7 +28,7 @@ This script creates a virtual machine, and then uses the Azure Virtual Machine c
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-wordpress-mysql/create-wordpress-mysql.sh "Quick Create VM")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-wordpress-mysql/create-wordpress-mysql.sh "Quick Create VM")]
 
 ## Clean up deployment 
 
