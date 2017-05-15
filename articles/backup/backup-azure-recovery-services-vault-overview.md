@@ -1,6 +1,6 @@
 ---
 title: Overview of Recovery Services vaults | Microsoft Docs
-description: An overview and comparison between Recovery Services vaults and Backup vaults.
+description: An overview and comparison between Recovery Services vaults and Azure Backup vaults.
 services: backup
 documentationcenter: ' '
 author: markgalioto
@@ -47,22 +47,23 @@ Creation and management of a Recovery Services vault in the Azure portal is easy
 
 If multiple servers are protected using the same Recovery Services vault, it may be more logical to look at the Recovery Services vault. You can search for all Recovery Services vaults in the subscription, and choose one from the list.
 
-### Articles describing Recovery Services vaults in use
-The following articles explain how to use a Recovery Services vault in each type of activity.
+The following sections contain links to articles that explain how to use a Recovery Services vault in each type of activity.
 
-**Backing up**
+### Back up data
 - [Backing up an Azure VM](backup-azure-vms-first-look-arm.md)
 - [Backing up Windows Server or Windows workstation](backup-try-azure-backup-in-10-mins.md)
 - [Backing up DPM workloads to Azure](backup-azure-dpm-introduction.md)
 - [Preparing to back up workloads using Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 
-**Managing the vault**
+### Manage recovery points
 - [Manage Azure VM backups](backup-azure-manage-vms.md)
 - [Managing files and folders](backup-azure-manage-windows-server.md)
 
-**Recovering data from the vault**
+### Restore data from the vault
 - [Recover individual files from an Azure VM](backup-azure-restore-files-from-vm.md)
 - [Restore an Azure VM](backup-azure-arm-restore-vms.md)
+
+### Secure the vault
 - [Securing cloud backup data in Recovery Services vaults](backup-azure-security-feature.md)
 
 
