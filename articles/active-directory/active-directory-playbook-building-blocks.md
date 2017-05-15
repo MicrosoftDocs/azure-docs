@@ -148,7 +148,7 @@ Approximate time to Complete: 60 minutes
 | Set a working meeting and follow the tutorial steps with each actor. | [Tutorial: Azure Active Directory integration with ServiceNow](active-directory-saas-servicenow-tutorial.md) |
 | Assign the app to the group identified in the Prerequisites. If the POC has conditional access in the scope, you can revisit that later and add MFA, and similar. <br/>Note this will kick in the provisioning process (if configured) |  [Assign a user or group to an enterprise app in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) <br/>[Create a group and add members in Azure Active Directory](active-directory-groups-create-azure-portal.md) |
 | Use Azure AD management Portal to add ServiceNow Application from Gallery| [Azure AD management Portal: Enterprise Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[What's new in Enterprise Application management in Azure Active Directory](active-directory-enterprise-apps-whats-new-azure-portal.md) |
-| In "Single sign-on" blade of ServiceNow App enable "SAML-based Sign-on" in "Single sign-on" blade of ServiceNow App |  |
+| In "Single sign-on" blade of ServiceNow App enable "SAML-based Sign-on" |  |
 | Fill out "Sign on URL" and "Identifier" fields with your ServiceNow URL<br/>Check the box to "Make new certificate active"<br/>and Save settings |  |
 | Open "Configure ServiceNow" blade on the bottom of the panel to view customized instructions for you to configure ServiceNow |  |
 | Follow instructions to configure ServiceNow |  |
