@@ -49,7 +49,7 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 ### Regions and geopolitical boundaries for national clouds
 The table below provides information on regions and geopolitical boundaries for national clouds.
 
-M| **Geopolitical region** | **Azure regions** | **ExpressRoute locations** |
+| **Geopolitical region** | **Azure regions** | **ExpressRoute locations** |
 | --- | --- | --- | --- |
 | **US Government cloud** |US Gov Iowa, US Gov Virginia, US DoD Central, US DoD East  |Chicago, Dallas, New York, Seattle, Silicon Valley, Washington DC |
 | **China** |China North, China East |Beijing, Shanghai |
