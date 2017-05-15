@@ -325,7 +325,7 @@ static void Main(string[] args)
 }
 ```
 
-When you run the GenerateSharedAccessSignatures console application, you'll see output similar to the following in the console window. These are the shared access signatures you use in Part 2 of the tutorial.
+When you run the GenerateSharedAccessSignatures console application, you'll see output similar to the following. These are the shared access signatures you use in Part 2 of the tutorial.
 
 ```
 Container SAS URI: https://storagesample.blob.core.windows.net/sascontainer?sv=2016-05-31&sr=c&sig=pFlEZD%2F6sJTNLxD%2FQ26Hh85j%2FzYPxZav6mP1KJwnvJE%3D&se=2017-05-16T16%3A16%3A47Z&sp=wl
