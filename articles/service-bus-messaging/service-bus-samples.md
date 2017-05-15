@@ -32,7 +32,6 @@ In addition, the [Service Bus Explorer](https://github.com/paolosalvatori/Servic
 
 Sample locations are here:
 
-- [MSDN samples](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5)
 - [GitHub samples](https://github.com/Azure/azure-service-bus/tree/master/samples)
 - [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 
