@@ -18,7 +18,7 @@ ms.date: 05/10/2017
 ms.author: ramankum
 ---
 
-# Create a virtual machine from a snapshot 
+# Create a virtual machine from a snapshot with CLI
 
 This script creates a virtual machine from a snapshot of an OS disk.
 
