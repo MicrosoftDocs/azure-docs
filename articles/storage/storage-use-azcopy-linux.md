@@ -17,11 +17,11 @@ ms.date: 05/11/2017
 ms.author: seguler
 
 ---
-# Transfer data with the AzCopy Command-Line Utility on Linux
+# Transfer data with AzCopy on Linux
 ## Overview
-AzCopy is a command-line utility designed for copying data to and from Microsoft Azure Blob, File, and Table storage using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts.
+AzCopy on Linux is a command-line utility designed for copying data to and from Microsoft Azure Blob and File storage using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts.
 
-There are two versions of AzCopy that you can download. AzCopy on Windows is built with .NET Framework, and offers Windows style command-line options. AzCopy on Linux is built with .NET Core Framework, which targets Linux platforms offering POSIX style command-line options. This article covers AzCopy on Linux.
+There are two versions of AzCopy that you can download. [AzCopy on Windows] (https://review.docs.microsoft.com/en-us/azure/storage/storage-use-azcopy) is built with .NET Framework, and offers Windows style command-line options. AzCopy on Linux is built with .NET Core Framework, which targets Linux platforms offering POSIX style command-line options. This article covers AzCopy on Linux.
 
 ## Download and install AzCopy
 ### AzCopy on Linux
@@ -35,7 +35,7 @@ As an example, let's install .NET Core on Ubuntu 16.10:
 sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list' 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 sudo apt-get update
-sudo apt-get install dotnet-dev-1.0.4
+sudo apt-get install dotnet-dev-1.0.3
 ```
 
 Once you have installed .NET Core, download and install AzCopy.
@@ -63,7 +63,7 @@ The basic syntax for AzCopy commands is:
 azcopy --source <source> --destination <destination> [Options]
 ```
 
-The following examples demonstrate various scenarios for copying data to and from Microsoft Azure Blobs, Files, and Tables. Refer to the [AzCopy Parameters](#azcopy-parameters) section for a detailed explanation of the parameters used in each sample.
+The following examples demonstrate various scenarios for copying data to and from Microsoft Azure Blobs and Files. Refer to the [AzCopy Parameters](#azcopy-parameters) section for a detailed explanation of the parameters used in each sample.
 
 ## Blob: Download
 ### Download single blob
@@ -72,7 +72,7 @@ The following examples demonstrate various scenarios for copying data to and fro
 azcopy --source https://myaccount.blob.core.windows.net/mycontainer --destination /mnt/myfiles --source-key <key> --include "abc.txt"
 ```
 
-Note that if the folder `/mnt/myfiles` does not exist, AzCopy creates it and download `abc.txt ` into the new folder.
+Note that if the folder `/mnt/myfiles` does not exist, AzCopy creates it and downloads `abc.txt ` into the new folder.
 
 ### Download single blob from secondary region
 
@@ -104,7 +104,7 @@ After the download operation, the directory `/mnt/myfiles` includes the followin
     /mnt/myfiles/vd1/a.txt
     /mnt/myfiles/vd1/abcd.txt
 
-If you do not specify option `--recursive`, no blobs are downloaded.
+If you do not specify option `--recursive`, no blob will be downloaded.
 
 ### Download blobs with specified prefix
 
@@ -154,7 +154,7 @@ azcopy --source https://myaccount.blob.core.windows.net/mycontainer --destinatio
 azcopy --source /mnt/myfiles --destination https://myaccount.blob.core.windows.net/mycontainer --dest-key <key> --include "abc.txt"
 ```
 
-If the specified destination container does not exist, AzCopy creates it and upload the file into it.
+If the specified destination container does not exist, AzCopy creates it and uploads the file into it.
 
 ### Upload single file to virtual directory
 
@@ -162,7 +162,7 @@ If the specified destination container does not exist, AzCopy creates it and upl
 azcopy --source /mnt/myfiles --destination https://myaccount.blob.core.windows.net/mycontainer --dest-key <key> --include "abc.txt"
 ```
 
-If the specified virtual directory does not exist, AzCopy uploads the file to include the virtual directory in its name (*e.g.*, `vd/abc.txt` in the example above).
+If the specified virtual directory does not exist, AzCopy uploads the file to include the virtual directory in the blob name (*e.g.*, `vd/abc.txt` in the example above).
 
 ### Upload all files
 
@@ -215,14 +215,14 @@ After the upload operation, the container includes the following files:
     subfolder/a.txt
     subfolder/abcd.txt
 
-When the option `--recursive` is not specified, AzCopy uploads blobs that don't reside in a virtual directory:
+When the option `--recursive` is not specified, AzCopy uploads only the blobs that don't reside in a virtual directory:
 
     /mnt/myfiles/abc.txt
     /mnt/myfiles/abc1.txt
     /mnt/myfiles/abc2.txt
 
 ### Specify the MIME content type of a destination blob
-By default, AzCopy sets the content type of a destination blob to `application/octet-stream`. Beginning with version 3.1.0, you can explicitly specify the content type via the option `--recursiveetContentType:[content-type]`. This syntax sets the content type for all blobs in an upload operation.
+By default, AzCopy sets the content type of a destination blob to `application/octet-stream`. However, you can explicitly specify the content type via the option `--set-content-type [content-type]`. This syntax sets the content type for all blobs in an upload operation.
 
 ```azcopy
 azcopy --source /mnt/myfiles --destination https://myaccount.blob.core.windows.net/myContainer/ --dest-key <key> --include "ab" --set-content-type "video/mp4"
@@ -392,31 +392,6 @@ AzCopy fails if you split the parameter across two lines, as shown here for the 
     <sourcekey>
     --recursive
     --quiet
-
-### Use multiple configuration files to specify command-line parameters
-Assume a configuration file named `source.txt` that specifies a source container:
-
-    --source http://myaccount.blob.core.windows.net/mycontainer
-
-And a configuration file named `dest.txt` that specifies a destination folder in the file system:
-
-    --destination /mnt/myfiles
-
-And a configuration file named `options.txt` that specifies options for AzCopy:
-
-    --recursive --quiet
-
-To call AzCopy with these configuration files, all of which reside in the user's home directory `~`, use this command:
-
-```azcopy
-azcopy --config-file "~/source.txt" --config-file "~/dest.txt" --source-key <sourcekey> --config-file "~/options.txt"   
-```
-
-AzCopy processes this command just as it would if you included all of the individual parameters on the command line:
-
-```azcopy
-azcopy --source http://myaccount.blob.core.windows.net/mycontainer --destination /mnt/myfiles --source-key <sourcekey> --recursive --quiet
-```
 
 ### Specify a shared access signature (SAS)
 
@@ -610,6 +585,48 @@ AzCopy sets the content type for a blob or file to application/octet-stream by d
 If you specify this option without a value, then AzCopy sets each blob or file's content type according to its file extension.
 
 ## Known Issues and Best Practices
+### Error: .NET Core is not found in the system.
+If you encounter an error stating that .NET Core is not installed in the system, the PATH to the .NET Core binary `dotnet` may be missing.
+
+In order to address this issue, find the .NET Core binary in the system:
+```bash
+sudo find / -name dotnet
+```
+
+This returns the path to the dotnet binary. Now add this path to the PATH variable using the following commands:
+
+For sudo, edit secure_path to contain the path to the dotnet binary:
+```bash 
+sudo visudo
+### Append the path found in the preceding example to 'secure_path' variable
+```
+
+In this example, secure_path variable reads as:
+
+```
+ secure_path = /sbin:/bin:/usr/sbin:/usr/bin:/opt/rh/rh-dotnetcore11/root/usr/bin/
+```
+
+For the current user, edit .bash_profile/.profile to include the path to the dotnet binary in PATH variable 
+```bash
+vi ~/.bash_profile
+### Append the path found in the preceding example to 'PATH' variable
+```
+
+Verify that .NET Core is now in PATH:
+```bash
+which dotnet
+sudo which dotnet
+```
+
+### Error Installing AzCopy
+If you encounter issues with AzCopy installation, you may try to run AzCopy using the bash script in the extracted `azcopy` folder.
+
+```bash
+cd azcopy
+./azcopy
+```
+
 ### Limit concurrent writes while copying data
 When you copy blobs or files with AzCopy, keep in mind that another application may be modifying the data while you are copying it. If possible, ensure that the data you are copying is not being modified during the copy operation. For example, when copying a VHD associated with an Azure virtual machine, make sure that no other applications are currently writing to the VHD. A good way to do this is by leasing the resource to be copied. Alternately, you can create a snapshot of the VHD first and then copy the snapshot.
 
@@ -617,22 +634,6 @@ If you cannot prevent other applications from writing to blobs or files while th
 
 ### Run one AzCopy instance on one machine.
 AzCopy is designed to maximize the utilization of your machine resource to accelerate the data transfer, we recommend you run only one AzCopy instance on one machine, and specify the option `/NC` if you need more concurrent operations. For more details, type `AzCopy /?:NC` at the command line.
-
-### Enable FIPS-compliant MD5 algorithms for AzCopy when you "Use FIPS-compliant algorithms for encryption, hashing and signing".
-AzCopy by default uses .NET MD5 implementation to calculate the MD5 when copying objects, but there are some security requirements that need AzCopy to enable FIPS-compliant MD5 setting.
-
-You can create an app.config file `AzCopy.exe.config` with property `AzureStorageUseV1MD5` and put it aside with AzCopy.exe.
-
-    <?xml version="1.0" encoding="utf-8" ?>
-    <configuration>
-      <appSettings>
-        <add key="AzureStorageUseV1MD5" value="false"/>
-      </appSettings>
-    </configuration>
-
-For property "AzureStorageUseV1MD5"
-• True - The default value, AzCopy uses .NET MD5 implementation.
-• False – AzCopy uses FIPS-compliant MD5 algorithm.
 
 ## Next steps
 For more information about Azure Storage and AzCopy, see the following resources:
@@ -643,8 +644,10 @@ For more information about Azure Storage and AzCopy, see the following resources
 * [How to use File storage from .NET](storage-dotnet-how-to-use-files.md)
 * [How to use Table storage from .NET](storage-dotnet-how-to-use-tables.md)
 * [How to create, manage, or delete a storage account](storage-create-storage-account.md)
+* [Transfer data with the AzCopy Command-Line Utility on Windows](storage-use-azcopy.md)
 
 ### Azure Storage blog posts:
+* [Announcing AzCopy on Linux Preview](https://azure.microsoft.com/en-in/blog/announcing-azcopy-on-linux-preview/)
 * [Introducing Azure Storage Data Movement Library Preview](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
 * [AzCopy: Introducing synchronous copy and customized content type](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
 * [AzCopy: Announcing General Availability of AzCopy 3.0 plus preview release of AzCopy 4.0 with Table and File support](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
