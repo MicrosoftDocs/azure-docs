@@ -20,11 +20,11 @@
 ### Virtual networks (VNet)
 #### [Create, change, or delete VNets](virtual-network-manage-network.md)
 #### [Create, change, or delete subnets](virtual-network-manage-subnet.md)
-#### [Create a VNet - Multiple subnets](virtual-networks-create-vnet-arm-pportal.md) 
+#### [Create a VNet - multiple subnets](virtual-networks-create-vnet-arm-pportal.md) 
 ##### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 ##### [CLI](virtual-networks-create-vnet-arm-cli.md)
 ##### [Template](virtual-networks-create-vnet-arm-template-click.md)
-#### Create a VNet - Multiple subnets [Classic]
+#### Create a VNet - multiple subnets [Classic]
 ##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
 ##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
 ##### [CLI](virtual-networks-create-vnet-classic-cli.md)

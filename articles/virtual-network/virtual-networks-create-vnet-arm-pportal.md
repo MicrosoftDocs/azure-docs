@@ -80,7 +80,7 @@ Though CLI commands are the same whether you execute the commands from Windows, 
 5. On your keyboard, hold down the **Ctrl+X** keys, then enter **Y**, then press the **Enter** key to save the file as myscript.sh.
 6. From the cloud shell prompt, mark the file as executable with the `chmod +x myscript.sh` command.
 7. Execute the script by entering `./myscript.sh`.
-8. Once the script is complete, review the subnets for the VNet by copying and pasting the following command in to your Bash cloud shell:
+8. Once the script is complete, review the subnets for the VNet by copying and pasting the following command in your Bash cloud shell:
     ```azurecli
     az network vnet subnet list --resource-group MyResourceGroup --vnet-name MyVnet --output table
     ```
@@ -115,7 +115,7 @@ Though CLI commands are the same whether you execute the commands from Windows, 
     #
     ```
 5. To execute the script, right-click in your PowerShell window.
-6. Review the subnets for the VNet by copying the following command and pasting the command in to your PowerShell window:
+6. Review the subnets for the VNet by copying the following command and pasting the command into your PowerShell window:
     ```powershell
     $Vnet = $Vnet.subnets | Format-Table Name, AddressPrefix
     ```
