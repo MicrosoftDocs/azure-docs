@@ -14,7 +14,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: cfreeman
-
 ---
 
 # Custom Live Metrics and Events: Monitor & Diagnose with 1-second latency 
