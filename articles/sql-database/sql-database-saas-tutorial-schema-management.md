@@ -1,6 +1,6 @@
 ---
-title: Manage Schema for multiple tenants (a sample SaaS application using Azure SQL Database) | Microsoft Docs 
-description: "Manage Schema for multiple tenants in a SaaS application that uses Azure SQL Database"
+title: Manage Azure SQL Database schema in a multi-tenant app | Microsoft Docs 
+description: "Manage Schema for multiple tenants in a multi-tenant application that uses Azure SQL Database"
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''
