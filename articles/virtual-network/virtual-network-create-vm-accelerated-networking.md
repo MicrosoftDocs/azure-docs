@@ -170,13 +170,17 @@ Once you create the VM in Azure, you must install the accelerated networking dri
 You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create the VM.
 
 ### <a name="linux-portal"></a>Portal
-1. Register for the accelerated networking for Linux preview by completing steps 1-4 of the [Create a Linux VM - PowerShell](#linux-powershell) section of this article.  You cannot register for the preview in the portal.
+1. Register for the accelerated networking for Linux preview by completing steps 1-5 of the [Create a Linux VM - PowerShell](#linux-powershell) section of this article.  You cannot register for the preview in the portal.
 2. Complete steps 1-8 in the [Create a Windows VM - portal](#windows-portal) section of this article. In step 2, click **Ubuntu Server 16.04 LTS** instead of **Windows Server 2016 Datacenter**. For this tutorial, choose to use a password, rather than an SSH key, though for production deployments, you can use either. If **Accelerated networking** does not appear when you complete step 7 of the [Create a Windows VM - portal](#windows-portal) section of this article, it's likely for one of the following reasons:
     - You are not yet registered for the preview. Confirm that your registration state is **Registered**, as explained in step 4 of the [Create a Linux VM - Powershell](#linux-powershell) section of this article. **Note:** If you participated in the Accelerated networking for Windows VMs preview (it's no longer necessary to register to use Accelerated networking for Windows VMs), you are not automatically registered for the Accelerated networking for Linux VMs preview. You must register for the Accelerated networking for Linux VMs preview to participate in it.
     - You have not selected a VM size, operating system, or location listed in the [Limitations](#simitations) section of this article.
 3. To install the accelerated networking driver for Linux, complete the steps in the [Configure Linux](#configure-linux) section of this article.
 
 ### <a name="linux-powershell"></a>PowerShell
+
+>[!WARNING]
+>Creating Windows VMs with accelerated networking can fail if you try to create them in the same subscription in which you've created Linux VMs with accelerated networking in. During this preview, we highly recommend that you create a new subscription to test Linux VMs with accelerated networking in. 
+>
 
 1. Install the latest version of the Azure PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, read the [Azure PowerShell overview](/powershell/azure/get-started-azureps?toc=%2fazure%2fvirtual-network%2ftoc.json) article.
 2. Start a PowerShell session by clicking the Windows Start button, typing **powershell**, then clicking **PowerShell** from the search results.
