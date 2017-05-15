@@ -46,6 +46,9 @@ Three resources will be created on your behalf:
 2. Storage Account named: `cs-uniqueGuid`
 3. File Share named: `cs-<user>-<domain>-com-uniqueGuid`
 
+> [!Note]
+> The disk image persisting your $Home directory is available to anyone with access to your Azure Storage account. Take caution with any secrets stored in your $Home directory.
+
 [Learn about Cloud Shell storage, updating file shares, and uploading/downloading files.] (persisting-shell-storage.md).
 
 ## Concepts
