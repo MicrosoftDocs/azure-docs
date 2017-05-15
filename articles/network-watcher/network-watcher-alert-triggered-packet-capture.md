@@ -319,13 +319,13 @@ The following example is PowerShell that can be used in the function. There are 
             } 
             ``` 
 
-6. After you've created your function, configure your alert to call the URL that's associated with the function. To get this value, copy the function URL from your function app.
+1. After you've created your function, configure your alert to call the URL that's associated with the function. To get this value, copy the function URL from your function app.
 
-![Finding the function url 1][functions13]
+    ![Finding the function url 1][functions13]
 
-7. Copy the function URL for your function app.
+2. Copy the function URL for your function app.
 
-![Finding the function url 2][2]
+    ![Finding the function url 2][2]
 
 If you require custom properties in the payload of the webhook POST request, refer to [Configure a webhook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 
