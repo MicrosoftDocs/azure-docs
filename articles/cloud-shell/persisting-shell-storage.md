@@ -37,7 +37,7 @@ This disk image is saved in your specified file share as `<User>.img` at `filesh
 `/Home/<User>/clouddrive` is mapped to `fileshare.storage.windows.net/fileshare`.
  
 > [!Note]
-> The disk image persisting your $Home directory is available to anyone with access to your Azure Storage account. Take caution with any secrets stored in your $Home directory.
+> The entirety of your $Home directory including SSH keys are persisted in your user disk image stored in your Azure storage account. Apply best practices when persisting information in $Home or clouddrive.
 
 ## Using clouddrive
 Cloud Shell allows users to run a command called `clouddrive` that enables manually updating the file share mounted to Cloud Shell.
