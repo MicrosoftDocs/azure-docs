@@ -28,11 +28,11 @@ In this tutorial, you will learn how to create an Azure Function app using *Func
 Before running this sample, you must have the following:
 
 * An active Azure subscription.
-* ![Visual Studio 2017 (version 15.3) Preview](https://www.visualstudio.com/vs/preview/) (it will not work with any earlier versions of Visual Studio)
-* ![Azure Functions Core Tools] (https://marketplace.visualstudio.com/vsgallery/e3705d94-7cc3-4b79-ba7b-f43f30774d28)
+* [Visual Studio 2017 (version 15.3) Preview](https://www.visualstudio.com/vs/preview/) (it will not work with any earlier versions of Visual Studio)
+* [Azure Functions Core Tools] (https://marketplace.visualstudio.com/vsgallery/e3705d94-7cc3-4b79-ba7b-f43f30774d28)
     * Either the ASP.NET and web development or Azure development workload installed
 
-If you don't have an Azure subscription, create a ![free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create a new Azure Functions App project in Visual Studio
 
@@ -40,7 +40,7 @@ Open Visual Studio and launch the *New Project* dialog. You'll find the Azure Fu
 
 ![Create a new Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-new-project.png)
 
-Visual Studio will create a project containing a *local.settings.json* and ![*host.json*](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) file. The *local.settings.json* file contains application settings for the storage account and dashboard connections. Storage accounts hold unstructured data, and the SDK uses the dashboard to manage triggers and bindings. 
+Visual Studio will create a project containing a *local.settings.json* and [*host.json*](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) file. The *local.settings.json* file contains application settings for the storage account and dashboard connections. Storage accounts hold unstructured data, and the SDK uses the dashboard to manage triggers and bindings. 
 
 Now that you have a fresh Azure Functions queue triggered project, you now must create one or more Azure functions.
 
