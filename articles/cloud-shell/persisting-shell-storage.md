@@ -31,13 +31,13 @@ This file share will mount as `clouddrive` under your $Home directory. This file
 
 ### Cloud Shell persists files with both methods below:
 1. Create a disk image of your $Home directory to persist files within $Home. 
-This disk image is saved in your specified file share as `<User>.img` at `fileshare.storage.windows.net/fileshare/.cloudconsole/<User>.img`
+This disk image is saved in your specified file share as `acc_<User>.img` at `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`
 
 2. Mount specified file share as `clouddrive` in your $Home directory for direct file share interaction. 
 `/Home/<User>/clouddrive` is mapped to `fileshare.storage.windows.net/fileshare`.
  
 > [!Note]
-> The entirety of your $Home directory including SSH keys are persisted in your user disk image stored in your Azure storage account. Apply best practices when persisting information in $Home or clouddrive.
+> All files in your $Home directory such as SSH keys are persisted in your user disk image stored in your mounted file share. Apply best practices when persisting information in your $Home directory and mounted file share.
 
 ## Using clouddrive
 Cloud Shell allows users to run a command called `clouddrive` that enables manually updating the file share mounted to Cloud Shell.
