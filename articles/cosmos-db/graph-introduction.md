@@ -21,7 +21,7 @@ ms.author: arramac
 
 ![Gremlin, graph, and Azure Cosmos DB](./media/graph-introduction/graph-gremlin.png) 
 
-Azure Cosmos DB provides graph modeling and traversal APIs along with turn-key global distribution, elastic scaling of storage and throughput, <10 ms read latencies and <15 ms at p99, automatic indexing and query, tunable consistency levels, and comprehensive SLAs including 99.99% availability. Azure Cosmos DB can be queried using Apache TinkerPop's graph traversal language, [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), and integrates with other TinkerPop-compatible graph systems.
+Azure Cosmos DB provides graph modeling and traversal APIs along with turn-key global distribution, elastic scaling of storage and throughput, <10 ms read latencies and <15 ms at p99, automatic indexing and query, tunable consistency levels, and comprehensive SLAs including 99.99% availability. Azure Cosmos DB can be queried using [Apache TinkerPop's](http://tinkerpop.apache.org) graph traversal language, [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), and integrates with other TinkerPop-compatible graph systems.
 
 In this article, we provide an overview of the Azure Cosmos DB's Graph API, and how you can use it to store massive graphs with billions of vertices and edges, query them within order of milliseconds latency, and evolve the graph structure and schema easily. 
 
