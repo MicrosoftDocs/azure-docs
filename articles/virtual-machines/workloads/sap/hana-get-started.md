@@ -41,18 +41,20 @@ For deployment principles and ways to deploy VMs in Azure, please consult [Azure
 
 For High Availability aspects of SAP NetWeaver ASCS, SCS and ERS on Azure please study the guide [High availability for SAP NetWeaver on Azure VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide)
 
-The guide [Create an SAP NetWeaver multi-SID configuration](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-multi-sid) will explain details on how to improve efficiency in leveraging a multi-SID installation of ASCS/SCS on Azure.
+The guide [Create an SAP NetWeaver multi-SID configuration](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-multi-sid) will explain details on how to improve efficiency in leveraging a multi-SID installation of ASCS/SCS on Azure.
 
 Principles on running SAP NetWeaver based on Linux driven VMs in Azure are explained in [Running SAP NetWeaver on Microsoft Azure SUSE Linux VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/suse-quickstart). Please read this guide, sinc it does detail a few specific settings for Linux in Azure VMs and details on how to properly attach Azure storage disks to Linux VMs.
 
 So far Azure VMs are certified by SAP for SAP HANA scale-up configurations only. Scale-out configurations with SAP HANA workload is not yet supported. For SAP HANA High-Availability in case of scale-up configurations, please consult [High Availability of SAP HANA on Azure Virtual Machines (VMs)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability)
-* [Backup guide for SAP HANA on Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
+
 
 Recommendations and possibilities of backing up SAP HANA databases on Azure VMs are listed in these guides
 
+* [Backup guide for SAP HANA on Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
 * [SAP HANA Azure Backup on file level](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
 * [SAP HANA backup based on storage snapshots](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
-* [Deploy SAP S/4HANA or BW/4HANA on Microsoft Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/cal-s4h)
+
+using SAP Cloud appliance Library to deploy S/4HANA or BW/4HANA is described in [Deploy SAP S/4HANA or BW/4HANA on Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h).
 
 SAP documents the SAP HANA supported Operating Systems in [SAP Support Note #2235581 - SAP HANA: Supported Operating Systems](https://launchpad.support.sap.com/#/notes/2235581/E). Only a subset of these operating systems is supported on Azure VMs. Namely the following OS are supported to deploy SAP HANA on Azure: 
 
