@@ -318,7 +318,7 @@ The following example is PowerShell that can be used in the function. There are 
                 }
             } 
             ``` 
-
+#### To add the PowerShell to your function 
 1. After you've created your function, configure your alert to call the URL that's associated with the function. To get this value, copy the function URL from your function app.
 
     ![Finding the function url 1][functions13]
