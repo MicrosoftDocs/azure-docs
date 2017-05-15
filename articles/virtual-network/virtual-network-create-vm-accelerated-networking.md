@@ -285,8 +285,10 @@ Once you create the VM in Azure, you must install the accelerated networking dri
 8. At the prompt, enter `uname -r` and confirm the output matches the following version: “4.4.0-77-generic.”
 9.	Create a bond between the standard networking vNIC and the accelerated networking vNIC by running the commands that follow. Network traffic uses the higher performing accelerated networking vNIC, while the bond ensures that networking traffic is not interrupted across certain configuration changes. 
     - `wget https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/plain/tools/hv/bondvf.sh`
-    -	`chmod +x ./bondvf.sh`
-    -	`sudo ./bondvf.sh` 
+    - `chmod +x ./bondvf.sh`
+    - `sudo ./bondvf.sh`
+    - `sudo mv ~/bondvf.sh /etc/init.d`
+    - `sudo update-rc.d bondvf.sh defaults`
     - `sudo nano /etc/network/interfaces.d/50-cloud-init.cfg`
     - In the editor, comment out the *auto etho0* and *iface eth0 inet dhcp* lines by adding *#* to the beginning of each line. After adding *#* to each line, the lines look like the following example:
         - #auto eth0
