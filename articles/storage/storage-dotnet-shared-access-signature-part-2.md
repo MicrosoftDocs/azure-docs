@@ -1,5 +1,5 @@
 ---
-title: Create and use a SAS with Blob storage | Microsoft Docs
+title: Create and use a shared access signature (SAS) with Azure Blob storage | Microsoft Docs
 description: This tutorial shows you how to create shared access signatures for use with Blob storage, and how to consume them in your client applications.
 services: storage
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: marsma
 ---
 # Shared Access Signatures, Part 2: Create and use a SAS with Blob storage
 
-[Part 1](storage-dotnet-shared-access-signature-part-1.md) of this tutorial explored shared access signatures (SAS) and explained best practices for using them. Part 2 shows you how to generate and then use shared access signatures with Blob storage. The examples are written in C# and use the Azure Storage Client Library for .NET. In this tutorial you:
+[Part 1](storage-dotnet-shared-access-signature-part-1.md) of this tutorial explored shared access signatures (SAS) and explained best practices for using them. Part 2 shows you how to generate and then use shared access signatures with Blob storage. The examples are written in C# and use the Azure Storage Client Library for .NET. The examples in this tutorial:
 
 * Generate a shared access signature on a container
 * Generate a shared access signature on a blob
@@ -56,7 +56,7 @@ Edit the app.config file so that it contains a configuration setting with a conn
 ```xml
 <configuration>
   <startup>
-    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
   </startup>
   <appSettings>
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey"/>
@@ -327,7 +327,15 @@ static void Main(string[] args)
 
 When you run the GenerateSharedAccessSignatures console application, you'll see output similar to the following in the console window. These are the shared access signatures you use in Part 2 of the tutorial.
 
-![sas-console-output-1][sas-console-output-1]
+```
+Container SAS URI: https://storagesample.blob.core.windows.net/sascontainer?sv=2016-05-31&sr=c&sig=pFlEZD%2F6sJTNLxD%2FQ26Hh85j%2FzYPxZav6mP1KJwnvJE%3D&se=2017-05-16T16%3A16%3A47Z&sp=wl
+
+Blob SAS URI: https://storagesample.blob.core.windows.net/sascontainer/sasblob.txt?sv=2016-05-31&sr=b&sig=%2FiBWAZbXESzCMvRcm7JwJBK0gT0BtPSWEq4pRwmlBRI%3D&st=2017-05-15T16%3A11%3A48Z&se=2017-05-16T16%3A16%3A48Z&sp=rw
+
+Container SAS URI using stored access policy: https://storagesample.blob.core.windows.net/sascontainer?sv=2016-05-31&sr=c&si=tutorialpolicy&sig=aMb6rKDvvpfiGVsZI2rCmyUra6ZPpq%2BZ%2FLyTgAeec%2Bk%3D
+
+Blob SAS URI using stored access policy: https://storagesample.blob.core.windows.net/sascontainer/sasblobpolicy.txt?sv=2016-05-31&sr=b&si=tutorialpolicy&sig=%2FkTWkT23SS45%2FoF4bK2mqXkN%2BPKs%2FyHuzkfQ4GFoZVU%3D
+```
 
 ## Part 2: Create a console application to test the shared access signatures
 To test the shared access signatures created in the previous examples, we create a second console application that uses the signatures to perform operations on the container and on a blob.
@@ -336,7 +344,7 @@ To test the shared access signatures created in the previous examples, we create
 > If more than 24 hours have passed since you completed the first part of the tutorial, the signatures you generated will no longer be valid. In this case, you should run the code in the first console application to generate fresh shared access signatures for use in the second part of the tutorial.
 >
 
-In Visual Studio, create a new Windows console application and name it **ConsumeSharedAccessSignatures**. Add references to **Microsoft.WindowsAzure.ConfigurationManager** and **Microsoft.WindowsAzure.Storage**, as you did previously.
+In Visual Studio, create a new Windows console application and name it **ConsumeSharedAccessSignatures**. Add references to [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) and [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/), as you did previously.
 
 At the top of the Program.cs file, add the following **using** directives:
 
@@ -379,12 +387,8 @@ static void UseContainerSAS(string sas)
     {
         CloudBlockBlob blob = container.GetBlockBlobReference("blobCreatedViaSAS.txt");
         string blobContent = "This blob was created with a shared access signature granting write permissions to the container. ";
-        MemoryStream msWrite = new MemoryStream(Encoding.UTF8.GetBytes(blobContent));
-        msWrite.Position = 0;
-        using (msWrite)
-        {
-            blob.UploadFromStream(msWrite);
-        }
+        blob.UploadText(blobContent);
+
         Console.WriteLine("Write operation succeeded for SAS " + sas);
         Console.WriteLine();
     }
@@ -569,16 +573,23 @@ static void Main(string[] args)
 
 Run the console application and observe the output to see which operations are permitted for which signatures. The output in the console window will look similar to the following:
 
-![sas-console-output-2][sas-console-output-2]
+```
+Write operation succeeded for SAS https://storagesample.blob.core.windows.net/sascontainer?sv=2016-05-31&sr=c&sig=32EaQGuFyDMb3yOAey3wq%2B%2FLwgPQxAgSo7UhzLdyIDU%3D&se=2017-05-16T15%3A41%3A20Z&sp=wl
+
+List operation succeeded for SAS https://storagesample.blob.core.windows.net/sascontainer?sv=2016-05-31&sr=c&sig=32EaQGuFyDMb3yOAey3wq%2B%2FLwgPQxAgSo7UhzLdyIDU%3D&se=2017-05-16T15%3A41%3A20Z&sp=wl
+
+Read operation failed for SAS https://storagesample.blob.core.windows.net/sascontainer?sv=2016-05-31&sr=c&sig=32EaQGuFyDMb3yOAey3wq%2B%2FLwgPQxAgSo7UhzLdyIDU%3D&se=2017-05-16T15%3A41%3A20Z&sp=wl
+Additional error information: The remote server returned an error: (403) Forbidden.
+
+Delete operation failed for SAS https://storagesample.blob.core.windows.net/sascontainer?sv=2016-05-31&sr=c&sig=32EaQGuFyDMb3yOAey3wq%2B%2FLwgPQxAgSo7UhzLdyIDU%3D&se=2017-05-16T15%3A41%3A20Z&sp=wl
+Additional error information: The remote server returned an error: (403) Forbidden.
+
+...
+```
 
 ## Next Steps
-[Shared Access Signatures, Part 1: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md)
 
-[Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md)
-
-[Delegating access with a shared access signature (REST API)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-
-[Introducing Table and Queue SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-
-[sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
-[sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
+* [Shared Access Signatures, Part 1: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md)
+* [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md)
+* [Delegating access with a shared access signature (REST API)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
+* [Introducing Table and Queue SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

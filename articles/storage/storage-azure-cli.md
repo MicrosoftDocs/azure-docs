@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 05/15/2017
 ms.author: marsma
 
 ---
@@ -310,7 +310,7 @@ az storage share create --name myshare
 ```
 
 ### Create a directory
-A directory provides an hierarchical structure in an Azure file share. The following example creates a directory named **myDir** in the file share.
+A directory provides a hierarchical structure in an Azure file share. The following example creates a directory named **myDir** in the file share.
 
 ```azurecli
 az storage directory create --name myDir --share-name myshare
