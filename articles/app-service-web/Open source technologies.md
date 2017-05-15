@@ -52,8 +52,7 @@ FAQ for ClearDB MySql databases with Azure App Service can be found [here](https
 9. Click save button
 10. Next, click on pencil icon next to **wp-config.php**
 11. Change the text as shown below
-```//Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable Debug Logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);//Supress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);
-```
+```//Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable Debug Logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);//Supress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);```
 
 12. Restart your web app from the web app menu in Azure Portal.
 
@@ -77,16 +76,14 @@ You can use one of these approaches to change the version of node.js application
     * Navigate to your web app in Azure Portal
     * Click on Application settings in Settings blade
     * You can include WEBSITE_NODE_DEFAULT_VERSION as key and version of nodejs you want as value in app setting
-    * Navigate to kudu console (http://.scm.azurewebsites.net) and you can check the nodejs version using below command  ``` node -v
-    ```
+    * Navigate to kudu console (http://.scm.azurewebsites.net) and you can check the nodejs version using below command  ``` node -v```
 2. Using iisnode.yml file
 
  changing nodejs version in iisnode.yml file would only set the run-time environment which iisnode uses. Your kudu cmd and others would still use nodejs version set at app settings.
     * Setting iisnode.yml file manually
 
     Create a iisnode.yml file in your app root folder and include below line
-    ```nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
-    ```
+    ```nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"```
 3. Setting iisnode.yml file using package.json during source control deployment
 Azure Source Control deployment process would involve below steps
     * Moves content to azure web app
@@ -100,8 +97,7 @@ Azure Source Control deployment process would involve below steps
 If you’re receiving this error in your Azure WordPress Application, please enable php_errors.log and debug.log by following the steps outlined [here](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
 
 Once the logs are enabled, reproduce the error and check the logs to see if you are running out of connections.
-```[09-Oct-2015 00:03:13 UTC] PHP Warning: mysqli_real_connect(): (HY000/1226): User ‘abcdefghijk79' has exceeded the ‘max_user_connections’ resource (current value: 4) in D:\home\site\wwwroot\wp-includes\wp-db.php on line 1454
-```
+```[09-Oct-2015 00:03:13 UTC] PHP Warning: mysqli_real_connect(): (HY000/1226): User ‘abcdefghijk79' has exceeded the ‘max_user_connections’ resource (current value: 4) in D:\home\site\wwwroot\wp-includes\wp-db.php on line 1454```
 
 If you see this error in your debug.log or php_errors.log, then your application is exceeding the number of connections. If you’re hosting on ClearDB, please verify that number of connections available in your [service plan](https://www.cleardb.com/pricing.view).
 
@@ -139,8 +135,7 @@ Please follow this [link](https://blogs.msdn.microsoft.com/appserviceteam/2017/0
 
 * For MarketPlace/Gallery/Custom Deployment:
     * Folder location
-    ```D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
-    ```
+    ```D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs```
     * Files of interest
         1. catalina.yyyy-mm-dd.log
         2. host-manager.yyyy-mm-dd.log
@@ -149,8 +144,7 @@ Please follow this [link](https://blogs.msdn.microsoft.com/appserviceteam/2017/0
         5. site_access_log.yyyy-mm-dd.log
 * For Portal AppSetting Deployment:
     * Folder Location
-    ``` D:\home\LogFiles
-    ```
+    ``` D:\home\LogFiles```
     * Files of Interest
         * catalina.yyyy-mm-dd.log
         * host-manager.yyyy-mm-dd.log
@@ -162,8 +156,7 @@ Please follow this [link](https://blogs.msdn.microsoft.com/appserviceteam/2017/0
 
 If you are observing the following error in the tomcat logs
 
-```The web application[ROOT] registered the JDBC driver [com.mysql.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak,the JDBC Driver has been forcibly unregistered
-```
+```The web application[ROOT] registered the JDBC driver [com.mysql.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak,the JDBC Driver has been forcibly unregistered```
 
 Please follow the below steps:
 1. Remove the sqljdbc*.jar from your app/lib folder.
@@ -176,8 +169,7 @@ add the following classpath setting in your web.config:
  <environmentVariablename ="JAVA_OPTS" value=" -Djava.net.preferIPv4Stack=true
  -Xms128M -classpath %CLASSPATH%;[Path to the sqljdbc*.jarfile]" />
  </environmentVariables>
- </httpPlatform>
-```
+ </httpPlatform>```
 
 # Why do I see errors when attempting to copy live log files?
 
@@ -185,9 +177,7 @@ When trying to copy live log files for a Java app, e.g. Tomcat, you may run into
 
 ```Error transferring file [filename] Copying files from remote side failed.
 
-The process cannot access the file because it is being used by another process.
-
-```
+The process cannot access the file because it is being used by another process.```
 
 Error might be slightly different depending on FTP client.
 
