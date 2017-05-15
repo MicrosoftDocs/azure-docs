@@ -21,7 +21,7 @@ ms.author: bprakash
  
 
 ---
-# What are the different Hadoop components and versions available with HDInsight?
+# What are the Hadoop components and versions available with HDInsight?
 
 Learn about the Hadoop ecosystem components and versions in Azure HDInsight, as well as the Standard and Premium service levels. Also, learn how to check Hadoop component versions in HDInsight. 
 
@@ -60,9 +60,12 @@ Azure HDInsight supports multiple Hadoop cluster versions that can be deployed a
 | Mono |4.2.1 |4.2.1 |3.2.8 |-|-|-|
 
 
-## How to get current Hadoop component version information
+## How to check current Hadoop component version information
 
-The Hadoop ecosystem component versions associated with HDInsight cluster versions can change with updates to HDInsight. To determine the available Hadoop components and to verify which versions are being used for a cluster, use the Ambari REST API. The **GetComponentInformation** command retrieves information about service components. For details, see the [Ambari documentation][ambari-docs]. 
+The Hadoop ecosystem component versions associated with HDInsight cluster versions can change with updates to HDInsight. To check the Hadoop components and to verify which versions are being used for a cluster, use the Ambari REST API. The **GetComponentInformation** command retrieves information about service components. For details, see the [Ambari documentation][ambari-docs].
+
+> [!IMPORTANT]
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](#hdi-version-33-nearing-deprecation-date). 
 
 For Windows-based clusters only: Another way to get component versions is to log in to a cluster by using Remote Desktop and examine the contents of the "C:\apps\dist\" directory directly.
 
@@ -92,7 +95,7 @@ The following table lists the versions of HDInsight currently available, the cor
 The support for HDI 3.3 cluster expired on 06/27/2016 and it will be deprecated on 07/31/2017. If you have HDI 3.3 Cluster, then upgrade your Cluster to HDI 3.5 or HDI 3.6 soon. Deprecation timelines for HDI 3.3 Windows may vary by region. Customers will receive a separate communication if their region’s planned deprecation date is different than that identified in this communication.
 
 ### The service-level agreement for HDInsight cluster versions
-The SLA is defined in terms of a "Support Window". A Support Window refers to the period of time that an HDInsight cluster version is supported by Microsoft Customer Service and Support. An HDInsight cluster is outside the Support Window if its version has a **Support Expiration Date** past the current date. A list of supported HDInsight cluster versions can be found in the table above. The support expiration date for a given HDInsight version X (once a newer X+1 version is available) is calculated as the later of:  
+The SLA is defined in terms of a **Support Window**. A Support Window refers to the period of time that an HDInsight cluster version is supported by Microsoft Customer Service and Support. An HDInsight cluster is outside the Support Window if its version has a **Support Expiration Date** past the current date. A list of supported HDInsight cluster versions can be found in the table above. The support expiration date for a given HDInsight version X (once a newer X+1 version is available) is calculated as the later of:  
 
 * Formula 1: Add 180 days to the date HDInsight cluster version X was released.
 * Formula 2: Add 90 days to the date HDInsight cluster version X+1 (the subsequent version after X) is made available in the Portal.
