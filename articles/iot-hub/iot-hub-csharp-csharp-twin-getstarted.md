@@ -136,7 +136,7 @@ In this section, you create a .NET console app that connects to your hub as **my
                 connectivity["type"] = "cellular";
                 reportedProperties["connectivity"] = connectivity;
                 
-                Client.UpdateReportedPropertiesAsync(reportedProperties);
+                await Client.UpdateReportedPropertiesAsync(reportedProperties);
             }
             catch (Exception ex)
             {
@@ -157,18 +157,15 @@ In this section, you create a .NET console app that connects to your hub as **my
             twinTask.Wait();
             var twin = twinTask.Result;
 
-            AddTagsAndQuery().Wait();
-            Console.WriteLine("Press Enter to exit.");
-            Console.ReadLine();
+            ReportConnectivity().Wait();
+       }
        catch (Exception ex)
        {
             Console.WriteLine();
             Console.WriteLine("Error in sample: {0}", ex.Message);
        }
-       Console.WriteLine("Press enter to exit...");
-
+       Console.WriteLine("Press Enter to exit.");
        Console.ReadLine();
-       Console.WriteLine("Exiting...");
 
 1. In the Solution Explorer, open the **Set StartUp projects...** and make sure the **Action** for **ReportConnectivity** project is **Start**. Build the solution.
 1. Run this application by right-clicking on the **ReportConnectivity** project and selecting **Debug**, followed by **Start new instance**. You should see one device in the results for the query asking for all devices located in **Redmond43** and none for the query that restricts the results to devices that use a cellular network.
@@ -195,6 +192,7 @@ Use the following resources to learn how to:
 [img-addtagapp]: media/iot-hub-csharp-csharp-twin-getstarted/addtagapp.png
 [img-createdeviceapp]: media/iot-hub-csharp-csharp-twin-getstarted/createdeviceapp.png
 [img-clientnuget]: media/iot-hub-csharp-csharp-twin-getstarted/clientsdknuget.png
+[img-rundeviceapp]: media/iot-hub-csharp-csharp-twin-getstarted/rundeviceapp.png
 [img-tagappsuccess]: media/iot-hub-csharp-csharp-twin-getstarted/tagappsuccess.png
 
 <!-- links -->
