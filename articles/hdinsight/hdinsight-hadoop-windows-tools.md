@@ -49,6 +49,28 @@ Examples of tasks you can do with the .NET SDK in Visual Studio:
 > TIP 
 >If you're running .NET solutions with Windows-based HDInsight clusters, it's a good time to plan a migration to Linux-based clusters. For more information, see [Migrate .NET solution for Windows-based HDInsight to Linux-based HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md).
 
+## Other IDEs - for Spark clusters
+
+Only for Spark clusters on HDInsight). This can include links to our articles that talk about how to use the Azure Toolkit IntelliJ IDEA and Eclipse. Here are the links.
+
+* https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin
+* https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-eclipse-tool-plugin
+
+## Notebooks for data scientists (Spark clusters)
+
+This can link to our articles on how to use Jupyter and Zeppelin notebooks.
+* https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-zeppelin-notebook
+* https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels 
+
+
+## Utilities you can run in a browser
+The following utilities have a web UI that runs in a browser:
+* **[Azure Cloud Shell (preview)](https://docs.microsoft.com/azure/cloud-shell/quickstart)** is an interactive, command-line shell that runs in your browser and from within the Azure portal.
+* **[Ambari Web UI](hdinsight-hadoop-manage-ambari.md)** is a management and monitoring utility available in the Azure portal that can be used to manage different kinds of jobs, such as:
+    * [Use Ambari with the REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
+    * [Hive View in Ambari](hdinsight-hadoop-use-hive-ambari-view.md)
+    * [Tez View in Ambari](hdinsight-debug-ambari-tez-view.md)
+
 ## Run Linux-based tools and technologies on Windows
 
 If you encounter a situation where you must use a tool or technology that is only available on Linux, consider the following options:
@@ -56,4 +78,7 @@ If you encounter a situation where you must use a tool or technology that is onl
 * **Bash (beta) on Windows 10** provides a Linux subsystem on Windows. Bash allows you to directly run Linux utilities without having to maintain a dedicated Linux installation. [Install and run the Bash beta on Windows 10](https://msdn.microsoft.com/commandline/wsl/install_guide)
 * **Docker for Windows** provides access to many Linux-based tools, and can be run directly from Windows. For example, you can use Docker to run the Beeline client for Hive directly from Windows. You can also use Docker to run a local Jupyter notebook and remotely connect to Spark on HDInsight. [Get started with Docker for Windows](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](http://mobaxterm.mobatek.net/)** allows you to graphically browse the cluster file system over an SSH connection.
+
+
+
 
