@@ -1,4 +1,4 @@
-﻿---
+---
 title: Open Source Technologies | Microsoft Docs
 description: Open Source Technologies
 services: azure-service-management, web-apps
@@ -149,9 +149,7 @@ Please follow this [link](https://blogs.msdn.microsoft.com/appserviceteam/2017/0
 
 * For MarketPlace/Gallery/Custom Deployment:
     * Folder location
-    ```
-D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
-```
+    ```D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs```
     * Files of interest
         1. catalina.yyyy-mm-dd.log
         2. host-manager.yyyy-mm-dd.log
