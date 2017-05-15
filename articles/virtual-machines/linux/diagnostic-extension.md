@@ -2,19 +2,14 @@
 title: Azure Compute - Linux Diagnostic Extension | Microsoft Docs
 description: How to configure the Azure Linux Diagnostic Extension (LAD) to collect metrics and log events from Linux VMs running in Azure.
 services: virtual-machines-linux
-documentationcenter: dev-center-name
 author: jasonzio
 manager: anandram
 
-
 ms.service: virtual-machines-linux
-ms.devlang: may be required
-ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.workload: required
+ms.topic: article
 ms.date: 05/09/2017
-ms.author: jasonzio@microsoft.com
-
+ms.author: jasonzio
 ---
 # Use Linux Diagnostic Extension to monitor metrics and logs
 
@@ -35,7 +30,7 @@ This extension works with both Azure deployment models.
 
 ## Installing the extension in your VM
 
-You can enable this extension by using the Azure PowerShell cmdlets, Azure CLI scripts, or Azure deployment templates. See [this page](./extensions-features.md) for more information about extensions.
+You can enable this extension by using the Azure PowerShell cmdlets, Azure CLI scripts, or Azure deployment templates. For more information, see [Extensions Features](./extensions-features.md).
 
 The Azure portal cannot be used to enable or configure LAD 3.0. Instead, it installs and configures version 2.3. Azure portal graphs and alerts work with data from both versions of the extension.
 
@@ -83,7 +78,7 @@ my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_accoun
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
 
-The URL for the sample configuration, as well as its contents, are subject to change. Download a copy of the portal settings JSON file and customize it for your needs. Any templates or automation you construct should use your own copy, rather than downloading that URL each time.
+The URL for the sample configuration, and its contents, are subject to change. Download a copy of the portal settings JSON file and customize it for your needs. Any templates or automation you construct should use your own copy, rather than downloading that URL each time.
 
 ### Updating the extension settings
 
@@ -170,7 +165,7 @@ Version 3.0 of the Linux Diagnostic Extension supports two sink types: EventHub,
     {
         "name": "sinkname",
         "type": "EventHub",
-        "sasUrl": "https SAS URL"
+        "sasURL": "https SAS URL"
     },
     ...
 ]
@@ -182,7 +177,7 @@ The "sasURL" entry contains the full URL, including SAS token, for the Event Hub
 * Create an Event Hub in the namespace called `syslogmsgs`
 * Create a Shared access policy on the Event Hub named `writer` that enables the Send claim
 
-If you created a SAS good until midnight UTC on January 1, 2018, the sasUrl value might be:
+If you created a SAS good until midnight UTC on January 1, 2018, the sasURL value might be:
 
 ```url
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
@@ -241,8 +236,6 @@ The remaining elements are described in detail in the following sections.
 
 This optional structure controls the gathering of metrics and logs for delivery to the Azure Metrics service and to other data sinks. You must specify either `performanceCounters` or `syslogEvents` or both. You must specify the `metrics` structure.
 
-The Azure Metrics service requires metrics to be stored in a precisely named Azure storage table. Similarly, log events must be stored in a different, but also precisely named, table. All instances of the diagnostic extension configured to use the same storage account name and endpoint add their metrics and logs to the same table. If too many VMs are writing to the same table partition, Azure can throttle writes to that partition. The eventVolume setting causes entries to be spread across 1 (Small), 10 (Medium), or 100 (Large) different partitions. Usually, "Medium" is sufficient to ensure traffic is not throttled.
-
 Element | Value
 ------- | -----
 eventVolume | (optional) Controls the number of partitions created within the storage table. Must be one of `"Large"`, `"Medium"`, or `"Small"`. If not specified, the default value is `"Medium"`.
@@ -260,14 +253,12 @@ sampleRateInSeconds | (optional) The default interval between collection of raw 
 }
 ```
 
-Samples of the metrics specified in the performanceCounters section are periodically collected. Raw samples are aggregated to produce mean, minimum, maximum, and last-collected values, along with the count of raw samples used to compute the aggregate. If multiple scheduledTransferPeriod frequencies appear (as in the example), each aggregation is computed independently over the specified interval. The transfer period is included in the name of the storage table in which LAD writes the aggregated metrics are written.
-
 Element | Value
 ------- | -----
 resourceId | The Azure Resource Manager resource ID of the VM or of the virtual machine scale set to which the VM belongs. This setting must be also specified if any JsonBlob sink is used in the configuration.
 scheduledTransferPeriod | The frequency at which aggregate metrics are to be computed and transferred to Azure Metrics, expressed as an IS 8601 time interval. The smallest transfer period is 60 seconds, that is, PT1M. You must specify at least one scheduledTransferPeriod.
 
-Samples of the metrics specified in the performanceCounters section are collected every 15 seconds or at the sample rate explicitly defined for the counter. If multiple scheduledTransferPeriod frequencies appear (as in the example), each aggregation is computed independently. The name of the storage table to which aggregated metrics are written is based, in part, on the transfer period of the aggregated metrics stored within it.
+Samples of the metrics specified in the performanceCounters section are collected every 15 seconds or at the sample rate explicitly defined for the counter. If multiple scheduledTransferPeriod frequencies appear (as in the example), each aggregation is computed independently.
 
 #### performanceCounters
 
@@ -294,6 +285,14 @@ Samples of the metrics specified in the performanceCounters section are collecte
 }
 ```
 
+This optional section controls the collection of metrics. Raw samples are aggregated for each [scheduledTransferPeriod](#metrics) to produce these values:
+
+* mean
+* minimum
+* maximum
+* last-collected value
+* count of raw samples used to compute the aggregate
+
 Element | Value
 ------- | -----
 sinks | (optional) A comma-separated list of names of sinks to which LAD sends aggregated metric results. All aggregated metrics are published to each listed sink. See [sinksConfig](#sinksConfig). Example: `"EHsink1, myjsonsink"`.
@@ -313,6 +312,15 @@ The counterSpecifier is an arbitrary identifier. Consumers of metrics, like the 
 * `/builtin/Disk/FreeSpace` - Free space averaged across all mounted filesystems
 
 Neither LAD nor the Azure portal expects the counterSpecifier value to match any pattern. Be consistent in how you construct counterSpecifier values.
+
+When you specify `performanceCounters`, LAD always writes data to a table in Azure storage. You can have the same data written to JSON blobs and/or Event Hubs, but you cannot disable storing data to a table. All instances of the diagnostic extension configured to use the same storage account name and endpoint add their metrics and logs to the same table. If too many VMs are writing to the same table partition, Azure can throttle writes to that partition. The eventVolume setting causes entries to be spread across 1 (Small), 10 (Medium), or 100 (Large) different partitions. Usually, "Medium" is sufficient to ensure traffic is not throttled. The Azure Metrics feature of the Azure portal uses the data in this table to produce graphs or to trigger alerts. The table name is the concatenation of these strings:
+
+* `WADMetrics`
+* The "scheduledTransferPeriod" for the aggregated values stored in the table
+* `P10DV2S`
+* A date, in the form "YYYYMMDD", which changes every 10 days
+
+Examples include `WADMetricsPT1HP10DV2S20170410` and `WADMetricsPT1MP10DV2S20170609`.
 
 #### syslogEvents
 
@@ -336,6 +344,13 @@ Element | Value
 sinks | A comma-separated list of names of sinks to which individual log events are published. All log events matching the restrictions in syslogEventConfiguration are published to each listed sink. Example: "EHforsyslog"
 facilityName | A syslog facility name (such as "LOG\_USER" or "LOG\_LOCAL0"). See the "facility" section of the [syslog man page](http://man7.org/linux/man-pages/man3/syslog.3.html) for the full list.
 minSeverity | A syslog severity level (such as "LOG\_ERR" or "LOG\_INFO"). See the "level" section of the [syslog man page](http://man7.org/linux/man-pages/man3/syslog.3.html) for the full list. The extension captures events sent to the facility at or above the specified level.
+
+When you specify `syslogEvents`, LAD always writes data to a table in Azure storage. You can have the same data written to JSON blobs and/or Event Hubs, but you cannot disable storing data to a table. The partitioning behavior for this table is the same as described for `performanceCounters`. The table name is the concatenation of these strings:
+
+* `LinuxSyslog`
+* A date, in the form "YYYYMMDD", which changes every 10 days
+
+Examples include `LinuxSyslog20170410` and `LinuxSyslog20170609`.
 
 ### perfCfg
 
