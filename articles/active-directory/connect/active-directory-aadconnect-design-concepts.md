@@ -120,6 +120,11 @@ If you are managing AD FS outside of Azure AD Connect or you are using third-par
 
 ![Third party federation configuration](./media/active-directory-aadconnect-design-concepts/consistencyGuid-03.png)
 
+### Adding new directories to existing deployment
+Suppose you have deployed Azure AD Connect with the ConsistencyGuid feature enabled, and now you would like to add another directory to the deployment. When you try to add the directory, Azure AD Connect wizard checks the state of the mSDS-ConsistencyGuid attribute in the directory. If the attribute is configured on one or more objects in the directory, the wizard concludes the attribute is being used by other applications and returns an error as illustrated in the diagram below. If you are certain that the attribute isn't used by existing applications, you need to contact Support for information on how to suppress the error.
+
+![Adding new directories to existing deployment](./media/active-directory-aadconnect-design-concepts/consistencyGuid-04.png)
+
 ## Azure AD sign-in
 While integrating your on-premises directory with Azure AD, it is important to understand how the synchronization settings can affect the way user authenticates. Azure AD uses userPrincipalName (UPN) to authenticate the user. However, when you synchronize your users, you must choose the attribute to be used for value of userPrincipalName carefully.
 
