@@ -26,10 +26,10 @@ Learn how to use [Beeline](https://cwiki.apache.org/confluence/display/Hive/Hive
 
 Beeline is a Hive client that is included on the head nodes of your HDInsight cluster. Beeline uses JDBC to connect to HiveServer2, a service hosted on your HDInsight cluster. You can also use Beeline to access Hive on HDInsight remotely over the internet. The following table provides connection strings for use with Beeline:
 
-| Where you run Beeline from | Connection string | Other parameters |
+| Where you run Beeline from | Parameters |
 | --- | --- | --- |
-| An SSH connection to a headnode or edge node | `jdbc:hive2://headnodehost:10001/;transportMode=http` | `-n admin` |
-| Outside the cluster | `jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2` | `-n admin -p password` |
+| An SSH connection to a headnode or edge node | `jdbc:hive2://headnodehost:10001/;transportMode=http -n admin` |
+| Outside the cluster | `jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2 -n admin -p password` |
 
 > [!NOTE]
 > Replace `admin` with the cluster login account for your cluster.
@@ -53,10 +53,10 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
 1. When starting Beeline, you must provide a connection string for HiveServer2 on your HDInsight cluster. You must also provide the account name for the cluster login (usually `admin`). If you run the command from outside the cluster, you must also provide the cluster login password. Use the following table to find the connection string format and parameters to use:
 
-    | Where you run Beeline from | Connection string | Other parameters |
+    | Where you run Beeline from | Parameters |
     | --- | --- | --- |
-    | An SSH connection to a headnode or edge node | `jdbc:hive2://headnodehost:10001/;transportMode=http` | `-n admin` |
-    | Outside the cluster | `jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2` | `-n admin -p password` |
+    | An SSH connection to a headnode or edge node | `jdbc:hive2://headnodehost:10001/;transportMode=http -n admin` |
+    | Outside the cluster | `jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2 -n admin -p password` |
 
     For example, the following command can be used to start Beeline from an SSH session to the cluster:
 
