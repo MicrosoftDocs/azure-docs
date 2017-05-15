@@ -40,7 +40,8 @@ In this tutorial, you learn how to:
 
 + An active [Twitter](https://twitter.com/) account. 
 + An [Outlook.com](https://outlook.com/) account (for sending notifications).
-+ This topic uses as its starting point the resources created in [Create your first function from the Azure portal](../articles/azure-functions/functions-create-first-azure-function.md). If you haven't already done so, please complete these steps now to create your function app.
++ This topic uses as its starting point the resources created in [Create your first function from the Azure portal](../articles/azure-functions/functions-create-first-azure-function.md).  
+If you haven't already done so, complete these steps now to create your function app.
 
 ## Create a Cognitive Services account
 
