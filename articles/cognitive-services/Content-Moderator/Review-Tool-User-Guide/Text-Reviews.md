@@ -22,8 +22,6 @@ Click the **Try** TAB and select the "Text" option to bring up the Text Moderati
 
 The review tool will call the text moderation API and generate text reviews with the detected tags and match scores results within the review tool for your team's attention.
 
-![Ready for text reviews](images/2-Text-Submitted.png)
-
 ## Review text results ##
 
 You will see detailed results including the detected tags and terms returned by the text moderation API show up on your screen. Click the tags to toggle their selection status. You can also work with any custom tags that you may have created.
