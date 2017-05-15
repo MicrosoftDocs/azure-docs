@@ -1,5 +1,5 @@
 - name: Windows VMs Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: About Virtual Machines
@@ -37,7 +37,8 @@
     href: tutorial-monitoring.md
   - name: 11 - Manage VM security
     href: tutorial-azure-security.md
-
+  - name: 12 - Team Services CI/CD
+    href: tutorial-vsts-iis-cicd.md
 - name: Samples
   items:
   - name: PowerShell
