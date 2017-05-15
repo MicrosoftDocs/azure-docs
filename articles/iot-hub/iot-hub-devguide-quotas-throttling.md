@@ -26,9 +26,6 @@ Each IoT hub is provisioned with a certain number of units in a specific SKU (fo
 
 The SKU also determines the throttling limits that IoT Hub enforces on all operations.
 
-> [!IMPORTANT]
-> IoT Hub strives to provide low latency for all operation; however, it does not guarantee a maximum latency, due to unpredictable network conditions between devices and Azure. When designing your solution, avoid making assumptions on maximum latency of any IoT Hub operation.
-
 ## Operation throttles
 Operation throttles are rate limitations that are applied in the minute ranges, and are intended to avoid abuse. IoT Hub tries to avoid returning errors whenever possible, but it starts returning exceptions if the throttle is violated for too long.
 
@@ -75,6 +72,13 @@ IoT Hub enforces other limits on its different functionalities.
 
 > [!NOTE]
 > Currently, the maximum number of devices you can connect to a single IoT hub is 500,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
+
+## Latency
+IoT Hub strives to provide low latency for all operation; however, it does not guarantee a maximum latency, due to network conditions and other inpredictable factors.
+When designing your solution, avoid making assumptions on maximum latency of any IoT Hub operation, make sure to provision your IoT hub in the Azure region closest to your devices, and consider using Azure IoT Edge to perform latency-sensitive operations on the device or on a gateway close to the device.
+
+Multiple IoT Hub units will affect throttling as reported above but will not provide any additional latency benefits or guarantee.
+In case of unexpected increases in operation latency, contact [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
 
 ## Next steps
 Other reference topics in this IoT Hub developer guide include:
