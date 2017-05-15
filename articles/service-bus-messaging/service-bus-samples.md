@@ -19,10 +19,10 @@ ms.author: sethm
 ---
 # Service Bus messaging samples
 
-The Service Bus messaging samples demonstrate key features in [Service Bus messaging](https://azure.microsoft.com/services/service-bus/). At this time, you can find the samples in two places:
+The Service Bus messaging samples demonstrate key features in [Service Bus messaging](https://azure.microsoft.com/services/service-bus/). Currently, you can find the samples in two places:
 
 - [Service Bus messaging samples on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet): a newer set of samples, hosted on GitHub. See the [readme file](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.ServiceBus.Messaging/README.md) in the repo for descriptions of these .NET samples. The samples are continuously updated, so check back often for updates.
-- [MSDN samples page](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5): these are older samples that live in the MSDN code gallery. Although these samples still work, they are not maintained and may be outdated with respect to current recommended programming practices.
+- [MSDN samples page](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5): older samples that live in the MSDN code gallery. Although these samples still work, they are not maintained and may be outdated with respect to current recommended programming practices.
  
 ## Service Bus Explorer
 
