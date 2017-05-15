@@ -26,11 +26,11 @@ ms.author: marsma
 * Test the shared access signatures in a client application
 
 ## About this tutorial
-In this tutorial, we work with shared access signatures for containers and blobs in two console applications that we create:
+In this tutorial, we create two console applications that demonstrate creating and using shared access signatures for containers and blobs:
 
-**Application 1**: Generates shared access signatures for a container and a blob. Includes the storage account access key in source code.
+**Application 1**: The management application. Generates a shared access signature for a container and a blob. Includes the storage account access key in source code.
 
-**Application 2**: The "client" application. Accesses container and blob resources using the shared access signatures created with the first application. Uses only the shared access signatures to access container and blob resources--it does *not* include the storage account access key.
+**Application 2**: The client application. Accesses container and blob resources using the shared access signatures created with the first application. Uses only the shared access signatures to access container and blob resources--it does *not* include the storage account access key.
 
 ## Part 1: Create a console application to generate shared access signatures
 First, ensure that you have the Azure Storage Client Library for .NET installed. You can install the [NuGet package](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package") containing the most up-to-date assemblies for the client library. This is the recommended method for ensuring that you have the most recent fixes. You can also download the client library as part of the most recent version of the [Azure SDK for .NET](https://azure.microsoft.com/downloads/).
@@ -218,7 +218,7 @@ CreateSharedAccessPolicy(blobClient, container, sharedAccessPolicyName);
 When you clear the access policies on a container, you must first get the container's existing permissions, then clear the permissions, then set the permissions again.
 
 ### Generate a shared access signature URI on the container that uses an access policy
-Next, we create another shared access signature for the container that we created earlier, but this time we'll associate the signature with the stored access policy that we created in the previous example.
+Next, we create another shared access signature for the container that we created earlier, but this time we associate the signature with the stored access policy we created in the previous example.
 
 Add a new method to generate another shared access signature for the container:
 
