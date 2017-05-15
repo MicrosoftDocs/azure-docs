@@ -337,7 +337,7 @@ Indexing blobs can be a time-consuming process. In cases where you have millions
 ## Indexing documents along with related data
 
 Your documents may have associated metadata - for example, the department that created the document - that's stored as structured data in one of the following locations.
--   In a separate data store, such as SQL Database or DocumentDB.
+-   In a separate data store, such as SQL Database or Azure Cosmos DB.
 -   Directly attached to each document in Azure Blob Storage as custom metadata. (For more info, see [Setting and Retrieving Properties and Metadata for Blob Resources](https://docs.microsoft.com/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources).)
 
 You can index the documents along with their metadata by assigning the same unique key value to each document and to its metadata, and by specifying the `mergeOrUpload` action for each indexer. For a detailed description of this solution, see this external article: [Combine documents with other data in Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).

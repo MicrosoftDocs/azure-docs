@@ -1,15 +1,15 @@
 ---
-title: 'Azure DocumentDB portal tool: Script Explorer | Microsoft Docs'
-description: Learn about the DocumentDB Script Explorer, an Azure Portal tool to manage DocumentDB server-side programming artifacts including JavaScript stored procedures, triggers, and user-defined functions.
+title: 'Azure Cosmos DB portal tool: Script Explorer | Microsoft Docs'
+description: Learn about the Azure Cosmos DB Script Explorer, an Azure Portal tool to manage Azure Cosmos DB server-side programming artifacts including JavaScript stored procedures, triggers, and user-defined functions.
 keywords: javascript editor
-services: documentdb
+services: cosmosdb
 author: kirillg
 manager: jhubbard
 editor: monicar
 documentationcenter: ''
 
 ms.assetid: 9d0620da-2449-4c17-82a4-24aaa46e9b3e
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,13 +18,13 @@ ms.date: 02/14/2017
 ms.author: kirillg
 
 ---
-# Create and run stored procedures, triggers, and user-defined functions using the DocumentDB Script Explorer
-This article provides an overview of the [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) Script Explorer, which is a JavaScript editor in the Azure portal that enables you to view and execute DocumentDB server-side programming artifacts including stored procedures, triggers, and user-defined functions. Read more about DocumentDB server-side programming in the [Stored procedures, database triggers, and UDFs](documentdb-programming.md) article.
+# Create and run stored procedures, triggers, and user-defined functions using the Azure Cosmos DB Script Explorer
+This article provides an overview of the [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) Script Explorer, which is a JavaScript editor in the Azure portal that enables you to view and execute Cosmos DB server-side programming artifacts including stored procedures, triggers, and user-defined functions. Read more about Cosmos DB server-side programming in the [Stored procedures, database triggers, and UDFs](documentdb-programming.md) article.
 
 ## Launch Script Explorer
-1. In the [Azure portal](https://portal.azure.com), on the left navigation, click ![Azure DocumentDB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**. 
+1. In the [Azure portal](https://portal.azure.com), on the left navigation, click ![Azure Cosmos DB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**. 
 
-    If **NoSQL (DocumentDB)** is not visible, click **More Services** at the bottom, and then click ![Azure DocumentDB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**.
+    If **Azure Cosmos DB** is not visible, click **More Services** at the bottom, and then click ![Azure Cosmos DB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**.
 2. In the resources menu, click **Script Explorer**.
    
     ![Screenshot of the Script Explorer command](./media/documentdb-view-scripts/scriptexplorercommand.png)
@@ -43,7 +43,7 @@ This article provides an overview of the [Microsoft Azure DocumentDB](https://az
     ![Screenshot of Script Explorer refresh command](./media/documentdb-view-scripts/scriptexplorerrefresh.png)
 
 ## Create, view, and edit stored procedures, triggers, and user-defined functions
-Script Explorer allows you to easily perform CRUD operations on DocumentDB server-side programming artifacts.  
+Script Explorer allows you to easily perform CRUD operations on Cosmos DB server-side programming artifacts.  
 
 * To create a script, simply click on the applicable create command within script explorer, provide an id, enter the contents of the script, and click **Save**.
   
@@ -105,5 +105,4 @@ The Script Explorer in the Azure portal is just one way to work with stored proc
 ## Next steps
 Learn more about DocumentDB server-side programming in the [Stored procedures, database triggers, and UDFs](documentdb-programming.md) article.
 
-The [Learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) is also a useful resource to guide you as you learn more about DocumentDB.  
 
