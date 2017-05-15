@@ -99,7 +99,8 @@ If you are trying to use Azure Hybrid Connections to access SQL Server, an updat
 
 When it fails you will see errors that look like this:
 
-```Exception: System.Data.Entity.Core.EntityException: The underlying provider failed on Open. —> System.OverflowException: Arithmetic operation resulted in an overflow. or (64 bit Web app) System.OverflowException: Array dimensions exceeded supported range, at System.Data.SqlClient.TdsParser.ConsumePreLoginHandshake
+```
+Exception: System.Data.Entity.Core.EntityException: The underlying provider failed on Open. —> System.OverflowException: Arithmetic operation resulted in an overflow. or (64 bit Web app) System.OverflowException: Array dimensions exceeded supported range, at System.Data.SqlClient.TdsParser.ConsumePreLoginHandshake
 ```
 ## Resolution
 We are working to update the Hybrid Connection Manager to fix this issue. In the mean time, please review this [article](https://blogs.msdn.microsoft.com/waws/2016/05/17/hybrid-connection-error-with-sql-server-system-overflowexception-arithmetic-operation-resulted-in-an-overflow/) for workarounds.
@@ -128,9 +129,7 @@ In App Service Environment (ASE), you have full control over Inbound / Outbound 
 
 ## F12 HTTP Trace
 
-1. In Internet Explorer, go to your website
-
- Note: It is important to log in before doing the next steps, otherwise the F12 trace will capture sensitive login data.
+1. In Internet Explorer, go to your website. Note: It is important to log in before doing the next steps, otherwise the F12 trace will capture sensitive login data.
 2. Press F12, verify that the Network tab is selected, and then click the green Play button.
 3. Do the steps that reproduce the issue.
 4. Click the red Stop button.
@@ -140,9 +139,7 @@ In App Service Environment (ASE), you have full control over Inbound / Outbound 
 ## F12 Console output
 
 1. Click the Console tab.
-2. For each tab that contains more than zero items, select the tab (Errors, Warnings, and Information)
-
- Note: if the tab isn’t selected, its icon will become grey/black when you move the cursor away from it.
+2. For each tab that contains more than zero items, select the tab (Errors, Warnings, and Information) Note: if the tab isn’t selected, its icon will become grey/black when you move the cursor away from it.
 3. Right-click in the message area of the pane, click Copy all, and paste & save these into a file.
 
 To view HAR file, you can use this [website](http://www.softwareishard.com/har/viewer/).
@@ -179,7 +176,8 @@ For more information, please click [here](https://azure.microsoft.com/en-us/docu
 # Why am I seeing timeouts when trying to create an App Service Environment?
 
 Sometimes creating an App Service Environment (ASE) will fail with the following error in the Activity logs:
-```ResourceID: /subscriptions/{SubscriptionID}/resourceGroups/Default-Networking/providers/Microsoft.Web/hostingEnvironments/{ASEname}
+```
+ResourceID: /subscriptions/{SubscriptionID}/resourceGroups/Default-Networking/providers/Microsoft.Web/hostingEnvironments/{ASEname}
 Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provision operation did not complete within the allowed timeout period.”}}
 ```
 Make sure that NONE of the following are true:
@@ -202,7 +200,8 @@ First remove all the associated App Services from the App Service Plan. This sho
 You can create a scheduled Webjob using CRON expressions
 1. Create a settings.job file
 2. In this JSON file include a schedule property with a CRON expression as shown below
-```{ "schedule": "{second}
+```
+{ "schedule": "{second}
 {minute} {hour} {day}
 {month} {day of the week}" }
 ```
@@ -255,7 +254,8 @@ During the Domain verification of an App Service Certificate purchase users migh
 As the message indicates, this fraud verification process may take up to 24 hours to complete and during this time user will continue to see this message.
 
 If your App Service Certificate continues to show this message after 24 hours of wait time then, please run the following PowerShell script to contact [certificate provider](https://www.godaddy.com/) directly to resolve this issue.
-```Login-AzureRmAccount
+```
+Login-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <subId>
 $actionProperties = @{
     "Name"= "<Customer Email Address>"
