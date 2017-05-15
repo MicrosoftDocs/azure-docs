@@ -66,7 +66,7 @@ The following table shows locations by service provider. If you want to view ava
 | **Service provider** | **Microsoft Azure** | **Office 365 and Dynamics 365** | **Locations** |
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/cloud-services-applications/azure-expressroute/)** |Supported |Supported |Melbourne, Sydney |
-| **Airtel** | Coming Soon | Coming Soon | Chennai, Mumbai |
+| **Airtel** | Coming soon | Coming soon | Chennai, Mumbai |
 | **[Aryaka Networks](http://www.aryaka.com/)** |Supported |Supported |Amsterdam, Dallas, Hong Kong, Silicon Valley, Singapore, Tokyo, Washington DC |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Supported |Supported |Amsterdam, Chicago, Dallas, London, Silicon Valley, Singapore, Sydney, Washington DC |
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Supported |Supported |Montreal, Toronto |
@@ -142,7 +142,10 @@ To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/featu
 | **Interxion** |Supported |Not Supported |Frankfurt |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supported  | Not Supported | Berlin |
 
-## <a name="c1partners"></a>Connectivity through service providers not listed
+## <a name="c1partners"></a>Connectivity Through other Service Providers
+
+## Connectivity Through Exchange Providers
+
 If your connectivity provider is not listed in previous sections, you can still create a connection.
 
 * Check with your connectivity provider to see if they are connected to any of the exchanges in the table above. You can check the following links to gather more information about services offered by exchange providers. Several connectivity providers are already connected to Ethernet exchanges.
