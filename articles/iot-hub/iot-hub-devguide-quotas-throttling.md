@@ -74,7 +74,7 @@ IoT Hub enforces other limits on its different functionalities.
 > Currently, the maximum number of devices you can connect to a single IoT hub is 500,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
 
 ## Latency
-IoT Hub strives to provide low latency for all operation; however, it does not guarantee a maximum latency, due to network conditions and other inpredictable factors.
+IoT Hub strives to provide low latency for all operation; however, it does not guarantee a maximum latency, due to network conditions and other unpredictable factors.
 When designing your solution, avoid making assumptions on maximum latency of any IoT Hub operation, make sure to provision your IoT hub in the Azure region closest to your devices, and consider using Azure IoT Edge to perform latency-sensitive operations on the device or on a gateway close to the device.
 
 Multiple IoT Hub units will affect throttling as reported above but will not provide any additional latency benefits or guarantee.
