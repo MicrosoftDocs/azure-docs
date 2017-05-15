@@ -28,8 +28,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
 | Where you run Beeline from | Connection string | Other parameters |
 | --- | --- | --- |
-| An SSH connection to a headnode | `jdbc:hive2://localhost:10001/;transportMode=http` | `-n admin` |
-| An edge node | `jdbc:hive2://headnodehost:10001/;transportMode=http` | `-n admin` |
+| An SSH connection to a headnode or edge node | `jdbc:hive2://headnodehost:10001/;transportMode=http` | `-n admin` |
 | Outside the cluster | `jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2` | `-n admin -p password` |
 
 > [!NOTE]
@@ -46,21 +45,28 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
   > [!IMPORTANT]
   > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight version deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
-* An SSH client or a local Beeline client. Most of the steps in this document assume that you are using Beeline from an SSH session to the cluster. For information on running Beeline from outside the cluster, see the [remote clients](#remote-clients) section.
+* An SSH client or a local Beeline client. Most of the steps in this document assume that you are using Beeline from an SSH session to the cluster. For information on running Beeline from outside the cluster, see the [use Beeline remotely](#remote) section.
 
     For more information on using SSH, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a id="beeline"></a>Use Beeline interactively
+## <a id="beeline"></a>Use Beeline
 
-1. From an SSH connection to the cluster, use the following command to start Beeline:
+1. When starting Beeline, you must provide a connection string for HiveServer2 on your HDInsight cluster. You must also provide the account name for the cluster login (usually `admin`). If you run the command from outside the cluster, you must also provide the cluster login password. Use the following table to find the connection string format and parameters to use:
+
+    | Where you run Beeline from | Connection string | Other parameters |
+    | --- | --- | --- |
+    | An SSH connection to a headnode or edge node | `jdbc:hive2://headnodehost:10001/;transportMode=http` | `-n admin` |
+    | Outside the cluster | `jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2` | `-n admin -p password` |
+
+    For example, the following command can be used to start Beeline from an SSH session to the cluster:
 
     ```bash
-    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin
     ```
 
     This command starts the Beeline client, and connects to HiveServer2 on the cluster head node. The `-n` parameter is used to provide the cluster login account. The default login is `admin`. If you used a different name during cluster creation, use it instead of `admin`.
 
-    Once the command completes, you arrive at a `jdbc:hive2://localhost:10001/>` prompt.
+    Once the command completes, you arrive at a `jdbc:hive2://headnodehost:10001/>` prompt.
 
 2. Beeline commands begin with a `!` character, for example `!help` displays help. However the `!` can be omitted for some commands. For example, `help` also works.
 
@@ -185,11 +191,11 @@ Use the following steps to create a file, then run it using Beeline.
 4. Use the following to run the file using Beeline. Replace **HOSTNAME** with the name obtained earlier for the head node, and **PASSWORD** with the password for the admin account:
 
     ```bash
-    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i query.hql
+    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin -i query.hql
     ```
 
     > [!NOTE]
-    > The `-i` parameter starts Beeline, runs the statements in the query.hql file. Once the query completes, you arrive at the `jdbc:hive2://localhost:10001/>` prompt. You can also run a file using the `-f` parameter, which exits Beeline after the query completes.
+    > The `-i` parameter starts Beeline, runs the statements in the query.hql file. Once the query completes, you arrive at the `jdbc:hive2://headnodehost:10001/>` prompt. You can also run a file using the `-f` parameter, which exits Beeline after the query completes.
 
 5. To verify that the **errorLogs** table was created, use the following statement to return all the rows from **errorLogs**:
 
@@ -208,15 +214,7 @@ Use the following steps to create a file, then run it using Beeline.
         +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
         3 rows selected (1.538 seconds)
 
-## Use Beeline from edge nodes
-
-If your cluster has an edge node, we recommend always using the edge node instead of the head node when connecting with SSH. To start Beeline from an SSH connection to an edge node, use the following command:
-
-```bash
-beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin
-```
-
-## Remote clients
+## <a id="remote"></a>Use Beeline remotely
 
 If you have Beeline installed locally, or are using it through a Docker image such as [sutoiku/beeline](https://hub.docker.com/r/sutoiku/beeline/), you must use the following parameters:
 
