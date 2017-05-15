@@ -63,9 +63,7 @@ A Cognitive Services account is required to detect the sentiment of tweets being
     | **Pricing tier** | F0 | Start with the lowest tier. If you run out of calls, scale to a higher tier.|
     | **Resource group** | myResourceGroup | Use the same resource group for all services in this tutorial.|
 
-4. Click **Create** to create your account.
-
-4. After the account is created, click your new Cognitive Services account pinned to the dashboard. 
+4. Click **Create** to create your account. After the account is created, click your new Cognitive Services account pinned to the dashboard. 
 
 5. In the account, click **Keys**, and then copy the value of **Key 1** and save it. You use this key to connect the logic app to your Cognitive Services account. 
  
@@ -131,9 +129,7 @@ Now you have a function that categorizes sentiment scores. Next, you create a lo
     | **Location** | East US | Choose a location close to you. |
     | **Resource group** | myResourceGroup | Choose the same existing resource group as before.|
 
-4. Click **Create** to create your logic app.
-
-4. After the app is created, click your new logic app pinned to the dashboard. Then in the Logic Apps Designer, scroll down and click the **Blank Logic App** template. 
+4. Click **Create** to create your logic app. After the app is created, click your new logic app pinned to the dashboard. Then in the Logic Apps Designer, scroll down and click the **Blank Logic App** template. 
 
     ![Blank Logic Apps template](media/functions-twitter-email/blank.png)
 
