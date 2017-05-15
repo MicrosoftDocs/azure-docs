@@ -22,9 +22,9 @@ ms.author: dkshir
 
 At the end of this tutorial, you will have these .NET console apps:
 
-* **CreateDeviceIdentity**, which creates a device identity and associated security key to connect your simulated device app.
-* **AddTagsAndQuery.sln**, a .NET back-end app, which adds tags and queries device twins.
-* **TwinSimulatedDevice.sln**, a Node.js app which simulates a device that connects to your IoT hub with the device identity created earlier, and reports its connectivity condition.
+* **CreateDeviceIdentity**, a .NET app which creates a device identity and associated security key to connect your simulated device app.
+* **AddTagsAndQuery**, a .NET back-end app which adds tags and queries device twins.
+* **ReportConnectivity**, a .NET device app which simulates a device that connects to your IoT hub with the device identity created earlier, and reports its connectivity condition.
 
 > [!NOTE]
 > The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the Azure IoT SDKs that you can use to build both device and back-end apps.
@@ -145,7 +145,7 @@ In this section, you create a .NET console app that connects to your hub as **my
             }
         }
 
-   The **Client** object exposes all the methods you require to interact with device twins from the device. The previous code, after it initializes the **Client** object, retrieves the device twin for **myDeviceId** and updates its reported property with the connectivity information.     
+   The **Client** object exposes all the methods you require to interact with device twins from the device. The code shown above, initializes the **Client** object, then retrieves the device twin for **myDeviceId** and finally updates its reported property with the connectivity information.
 1. Finally, add the following lines to the **Main** method:
    
        try
@@ -169,7 +169,7 @@ In this section, you create a .NET console app that connects to your hub as **my
        Console.ReadLine();
 
 1. In the Solution Explorer, open the **Set StartUp projects...** and make sure the **Action** for **ReportConnectivity** project is **Start**. Build the solution.
-1. Run this application by right-clicking on the **ReportConnectivity** project and selecting **Debug**, followed by **Start new instance**. You should see one device in the results for the query asking for all devices located in **Redmond43** and none for the query that restricts the results to devices that use a cellular network.
+1. Run this application by right-clicking on the **ReportConnectivity** project and selecting **Debug**, followed by **Start new instance**. You should see it getting the twin information, and then sending connectivity as a *reported property*.
    
     ![Run device app to report connectivity][img-rundeviceapp]
     
@@ -200,6 +200,7 @@ Use the following resources to learn how to:
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[lnk-nuget-client-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 
 [lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
 [lnk-methods]: iot-hub-devguide-direct-methods.md
@@ -207,7 +208,7 @@ Use the following resources to learn how to:
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-identity]: iot-hub-devguide-identity-registry.md
 
-[lnk-iothub-getstarted]: iot-hub-node-node-getstarted.md
+[lnk-iothub-getstarted]: iot-hub-csharp-csharp-getstarted.md
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 [lnk-twin-how-to-configure]: iot-hub-csharp-node-twin-how-to-configure.md
 
