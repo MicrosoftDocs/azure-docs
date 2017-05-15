@@ -66,10 +66,10 @@ The component versions associated with HDInsight cluster versions are itemized i
 
 The Hadoop ecosystem component versions associated with HDInsight cluster versions can change with updates to HDInsight. To check the Hadoop components and to verify which versions are being used for a cluster, use the Ambari REST API. The **GetComponentInformation** command retrieves information about service components. For details, see the [Ambari documentation][ambari-docs].
 
-> [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](#hdi-version-33-nearing-deprecation-date). 
-
 For Windows-based clusters only: Another way to get component versions is to log in to a cluster by using Remote Desktop and examine the contents of the "C:\apps\dist\" directory directly.
+
+> [!IMPORTANT]
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.3 deprecation](#hdi-version-33-nearing-deprecation-date). 
 
 ### Release notes
 
