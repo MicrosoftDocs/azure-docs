@@ -36,7 +36,7 @@ This topic lists current POP locations for **Azure CDN from Verizon** and **Azur
 | South Europe |Madrid, Spain<br />Milan, Italy |**&#x2713;**\* |
 | East Asia |Tokyo, Japan<br />Osaka, Japan<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Hong Kong<br />Kaohsiung, Taiwan<br />Seoul, South Korea<br />Singapore |**&#x2713;**\* |
 | South and Central Asia |Bangalore, India<br />Chennai, India<br />Delhi, India<br />Mumbai, India |**&#x2713;**\* |
-| Middle East/West Asia |Muscat, Oman |**&#x2713;**\* |
+| Middle East/West Asia |Muscat, Oman <br /> Fujirah, United Arab Emirates |**&#x2713;**\* |
 | Africa | |**&#x2713;**\* |
 | Australia and New Zealand |Melbourne, Australia<br />Sydney, Australia |**&#x2713;**\* |
 
