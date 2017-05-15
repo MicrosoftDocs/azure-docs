@@ -28,10 +28,12 @@ Learn about the Hadoop ecosystem components and versions in Azure HDInsight, as 
 Each HDInsight version is a cloud distribution of a version of the HortonWorks Data Platform (HDP).
 
 ## Hadoop components available with different HDInsight versions
-Azure HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. Each version choice creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. The component versions associated with HDInsight cluster versions are itemized in the following table. Note that the default cluster version used by Azure HDInsight is currently 3.5, and, as of 02/17/2017, based on HDP 2.5.
+Azure HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. Each version choice creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. The default cluster version used by Azure HDInsight is currently 3.5, and, as of February 17, 2017, based on HDP 2.5.
+
+The component versions associated with HDInsight cluster versions are itemized in the following table: 
 
 > [!NOTE]
-> The default version from the service may change without notice. We recommend that you specify the version when you create clusters using .NET SDK/Azure PowerShell and Azure CLI, if you have a version dependency.
+> The default version from the service may change without notice. If you have a version dependency, we recommend that you specify the version when you create clusters using .NET SDK/Azure PowerShell and Azure CLI. .
 >
 >
 
@@ -74,10 +76,10 @@ For Windows-based clusters only: Another way to get component versions is to log
 See [HDInsight release notes](hdinsight-release-notes.md) for additional release notes on the latest versions of HDInsight.
 
 ## Supported HDInsight versions
-The following table lists the versions of HDInsight currently available, the corresponding Hortonworks Data Platform versions that they use, and their release dates. When known, their support expiration and deprecation dates are also provided. Please note the following:
+The following table lists the versions of HDInsight currently available, the corresponding Hortonworks Data Platform versions that they use, and their release dates. When known, their support expiration and deprecation dates are also provided. Note the following:
 
 * Highly available clusters with two head nodes are deployed by default for HDInsight 2.1 and above. They are not available for HDInsight 1.6 clusters.
-* Once the support has expired for a particular version, it may not be available through the Azure portal. The following table indicates which versions are available on the Azure Classic Portal. Cluster versions will continue to be available using the `Version` parameter in the Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) command and the .NET SDK until its deprecation date.
+* Once the support has expired for a particular version, it may not be available through the Azure portal. The following table indicates which versions are available on the Azure Classic Portal. Cluster versions  continue to be available using the `Version` parameter in the Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) command and the .NET SDK until its deprecation date.
 
 | HDInsight Version | HDP Version | VM OS | High Availability | Release Date | Available on Azure portal | Support Expiration Date | Deprecation Date |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -92,7 +94,7 @@ The following table lists the versions of HDInsight currently available, the cor
 | HDI 1.6 |HDP 1.1 | |No |10/28/2013 |No |04/26/2014 |05/31/2015 |
 
 ## HDI Version 3.3 nearing deprecation date
-The support for HDI 3.3 cluster expired on 06/27/2016 and it will be deprecated on 07/31/2017. If you have HDI 3.3 Cluster, then upgrade your Cluster to HDI 3.5 or HDI 3.6 soon. Deprecation timelines for HDI 3.3 Windows may vary by region. Customers will receive a separate communication if their region’s planned deprecation date is different than that identified in this communication.
+The support for HDI 3.3 cluster expired on 06/27/2016 and it will be deprecated on 07/31/2017. If you have HDI 3.3 Cluster, then upgrade your Cluster to HDI 3.5 or HDI 3.6 soon. Deprecation timelines for HDI 3.3 Windows may vary by region. If your region’s planned deprecation date is different, you are notified separately.
 
 ### The service-level agreement for HDInsight cluster versions
 The SLA is defined in terms of a **Support Window**. A Support Window refers to the period of time that an HDInsight cluster version is supported by Microsoft Customer Service and Support. An HDInsight cluster is outside the Support Window if its version has a **Support Expiration Date** past the current date. A list of supported HDInsight cluster versions can be found in the table above. The support expiration date for a given HDInsight version X (once a newer X+1 version is available) is calculated as the later of:  
@@ -100,10 +102,10 @@ The SLA is defined in terms of a **Support Window**. A Support Window refers to 
 * Formula 1: Add 180 days to the date HDInsight cluster version X was released.
 * Formula 2: Add 90 days to the date HDInsight cluster version X+1 (the subsequent version after X) is made available in the Portal.
 
-The **Deprecation Date** is the date after which the cluster version cannot be created on HDInsight. Starting July 31st 2017, you cannot resize a cluster after it's deprecation date. 
+The **Deprecation Date** is the date after which the cluster version cannot be created on HDInsight. Starting July 31, 2017, you cannot resize a cluster after its deprecation date. 
 
 > [!NOTE]
-> Windows-based HDInsight cluster (including version 2.1, 3.0, 3.1, 3.2 and 3.3) run on Azure Guest OS Family 4, which uses the 64-bit version of Windows Server 2012 R2 and supports .NET Framework 4.0, 4.5, 4.5.1, and 4.5.2.
+> Windows-based HDInsight clusters (including version 2.1, 3.0, 3.1, 3.2 and 3.3) run on Azure Guest OS Family 4, which uses the 64-bit version of Windows Server 2012 R2 and supports .NET Framework 4.0, 4.5, 4.5.1, and 4.5.2.
 >
 >
 
@@ -132,7 +134,7 @@ Azure HDInsight provides the big data cloud offerings in two categories: **Stand
 
 | HDInsight Premium feature | Description |
 | --- | --- |
-| Domain-joined HDInsight clusters |Join HDInsight clusters to Azure Active Directory (AAD) domains for enterprise-level security. You can now configure a list of employees from your enterprise who can authenticate through Azure Active Directory to log on to HDInsight cluster. The enterprise admin can also configure role based access control for Hive security using [Apache Ranger](http://hortonworks.com/apache/ranger/), thus restricting access to data to only as much as needed. Finally, the admin can audit the data accessed by employees, and any changes done to access control policies, thus achieving a high degree of governance of their corporate resources. For more information, see [Configure domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md). |
+| Domain-joined HDInsight clusters |Join HDInsight clusters to Azure Active Directory (AAD) domains for enterprise-level security. You can now configure a list of employees from your enterprise who can authenticate through Azure Active Directory to log on to HDInsight cluster. The enterprise admin can also configure role-based access control for Hive security using [Apache Ranger](http://hortonworks.com/apache/ranger/), thus restricting access to data to only as much as needed. Finally, the admin can audit the data accessed by employees, and any changes done to access control policies, thus achieving a high degree of governance of their corporate resources. For more information, see [Configure domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md). |
 
 ### Cluster types supported for HDInsight Premium
 The following table lists the HDInsight cluster type and Premium support matrix.
@@ -147,7 +149,7 @@ The following table lists the HDInsight cluster type and Premium support matrix.
 | Interactive Hive (Preview) |Yes |No |
 | Kafka (Preview)|Yes|No| 
 
-This table will be updated as more cluster types are included in HDInsight Premium.
+This table is updated as more cluster types are included in HDInsight Premium.
 
 ### Features not supported for HDInsight Premium
 
