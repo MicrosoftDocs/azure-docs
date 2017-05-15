@@ -179,9 +179,9 @@ The root file system in a Linux VM on Azure is of limited size. Therefore, it's 
 
 Based on the [SAP HANA TDI storage Requirements](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html), the following Azure Premium Storage storage configuration is suggested: 
 
-| VM SKU | RAM |  /hana/data and /hana/log /> striped with LVM or MDAADM | /hana/shared | /root volume | /usr/sap |
+| VM SKU | RAM |  /hana/data and /hana/log <br /> striped with LVM or MDAADM | /hana/shared | /root volume | /usr/sap |
 | --- | --- | --- | --- | --- | --- |
-| GS5 | 2 x P30 | 1 x P20 | 1 x P10 | 1 x P10 | 
+| GS5 | 448GB | 2 x P30 | 1 x P20 | 1 x P10 | 1 x P10 | 
 
 In the suggested disk configuration, the HANA data volume and log volume would be placed on the same set of Azure Premium Storage disks which are striped with LVM or MDADM. It is not necessary to define any RAID redundancy level since Azure Premium Storage will keep three images of the disks for redundancy reasons. You can decide for different disk configurations. However please consult the [SAP HANA TDI storage Requirements](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) and [SAP HANA Server Installation and Update Guide](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm) papers in order to make sure that you configured enough storage. Also consider the different VHD throughput volumes of the different Azure Premium Storage disks as documented in [Premium Storage Disk Limits](https://docs.microsoft.com/azure/storage/storage-premium-storage). 
 
