@@ -1,6 +1,6 @@
 ---
-title: Provision and catalog new tenants (sample SaaS application using Azure SQL Database) | Microsoft Docs 
-description: "Provision and catalog new tenants"
+title: Provision new tenants in a multi-tenant app using Azure SQL Database | Microsoft Docs 
+description: "Provision and catalog new tenants in the Wingtip Tickets (WTP) sample SQL Database SaaS app"
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''

@@ -32,6 +32,12 @@ Network Security Group flow logs are a feature of Network Watcher that allows yo
 
 This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher. The scenario also assumes that a Resource Group with a valid virtual machine exists to be used.
 
+## Register Insights provider
+
+In order for flow logging to work successfully, the **Microsoft.Insights** provider must be registered. To register the provider, navigate to **Subscriptions**, select the subscription for which you want to enable flow logs. On the **Subscription** blade, select **Resource Providers**. Navigate the list of providers and verify that **microsoft.insights** provider is registered. If not then click **Register**.
+
+![view providers][providers]
+
 ## Enable flow logs
 
 These steps take you through enabling Flow logs on a Network Security Group.
@@ -89,3 +95,4 @@ Learn how to [Visualize your NSG flow logs with PowerBI](network-watcher-visuali
 [4]: ./media/network-watcher-nsg-flow-logging-portal/figure4.png
 [5]: ./media/network-watcher-nsg-flow-logging-portal/figure5.png
 [6]: ./media/network-watcher-nsg-flow-logging-portal/figure6.png
+[providers]: ./media/network-watcher-nsg-flow-logging-portal/providers.png
