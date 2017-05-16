@@ -447,7 +447,6 @@ Option `--parallel-level` specifies the number of concurrent copy operations. By
 Parameters for AzCopy are described below. You can also type one of the following commands from the command line for help in using AzCopy:
 
 * For detailed command-line help for AzCopy: `AzCopy --help`
-* For detailed help with any AzCopy parameter: `AzCopy --source-key --help`
 
 ### --source "source"
 Specifies the source data from which to copy. The source can be a file system directory, a blob container, a blob virtual directory, a storage file share, a storage file directory, or an Azure table.
@@ -599,9 +598,7 @@ This returns the path to the dotnet binary.
 	/opt/rh/rh-dotnetcore11/root/usr/lib64/dotnetcore/dotnet
 	/opt/rh/rh-dotnetcore11/root/usr/lib64/dotnetcore/shared/Microsoft.NETCore.App/1.1.2/dotnet
 
-Now add this path to the PATH variable using the following commands:
-
-For sudo, edit secure_path to contain the path to the dotnet binary:
+Now add this path to the PATH variable. For sudo, edit secure_path to contain the path to the dotnet binary:
 ```bash 
 sudo visudo
 ### Append the path found in the preceding example to 'secure_path' variable
@@ -610,7 +607,7 @@ sudo visudo
 In this example, secure_path variable reads as:
 
 ```
- secure_path = /sbin:/bin:/usr/sbin:/usr/bin:/opt/rh/rh-dotnetcore11/root/usr/bin/
+secure_path = /sbin:/bin:/usr/sbin:/usr/bin:/opt/rh/rh-dotnetcore11/root/usr/bin/
 ```
 
 For the current user, edit .bash_profile/.profile to include the path to the dotnet binary in PATH variable 
