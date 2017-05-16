@@ -20,13 +20,13 @@ ms.author: billmath
 
 ## What is Azure Active Directory Pass-through Authentication?
 
-Azure Active Directory (Azure AD) Pass-through Authentication allows your users to sign in to both on-premises and cloud-based applications using the same passwords. This feature provides your users with a better user experience - one less password for each user to remember, and reduces IT helpdesk costs because users are less likely to forget how to sign in. When users sign in using Azure AD, this feature validates users' passwords directly against your on-premises Active Directory.
+Azure Active Directory (Azure AD) Pass-through Authentication allows your users to sign in to both on-premises and cloud-based applications using the same passwords. This feature provides your users a better experience - one less password to remember, and reduces IT helpdesk costs because your users are less likely to forget how to sign in. When users sign in using Azure AD, this feature validates users' passwords directly against your on-premises Active Directory.
 
 This feature is an alternative to [Azure AD Password Hash Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md), which provides the same benefit to organizations. However, security and compliance policies in certain organizations don't permit them to send users' passwords, even in a hashed form, outside their internal organizational boundaries. Pass-through Authentication is the right solution for such organizations.
 
 ![Azure AD Pass-through Authentication](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 
-You can combine Pass-through Authentication with the [Seamless Single Sign-on](active-directory-aadconnect-sso.md) feature. This way, when your users are accessing applications on their corporate machines inside your corporate network, they won't need to type in their passwords to sign in.
+You can combine Pass-through Authentication with the [Seamless Single Sign-on](active-directory-aadconnect-sso.md) feature. This way, when your users are accessing applications on their corporate machines inside your corporate network, they don't need to type in their passwords to sign in.
 
 ## The key benefits of Azure AD Pass-through Authentication
 
@@ -60,7 +60,7 @@ The following scenarios are _not_ supported during preview:
 - Azure AD Join for Windows 10 devices.
 
 >[!IMPORTANT]
->As a workaround for scenarios not supported today (legacy Office client applications, Exchange ActiveSync, and Azure AD Join for Windows 10 devices), Password Hash Synchronization is also enabled by default when you enable Pass-through Authentication. Password Hash Synchronization acts as a fallback in these specific scenarios only. If you don't need these scenarios, you can turn off Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard.
+>As a workaround for scenarios not supported today (listed above), Password Hash Synchronization is also enabled by default when you enable Pass-through Authentication. Password Hash Synchronization acts as a fallback in these specific scenarios only. If you don't need these scenarios, you can turn off Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard.
 
 ## Configure Azure AD Pass-through Authentication
 
@@ -91,7 +91,7 @@ Before you can enable Azure AD Pass-through Authentication, you need to have the
 	- Ensure that the agents can make outbound requests to Azure AD over ports 80 and 443.
       - If your firewall enforces rules according to originating users, open these ports for traffic coming from Windows services running as a Network Service.
       - The agents make HTTP requests over port 80 to download SSL certificate revocation lists. Port 80 is also needed for the automatic update functionality to work properly.
-      - The agents make HTTPS requests over port 443 for all other operations such as enabling the feature, disabling the feature, registering agents, downloading agent updates, and processing all user sign-in requests.
+      - The agents make HTTPS requests over port 443 for all feature operations such as enabling the feature, processing all user sign-in requests and others.
 
      >[!NOTE]
      >We have recently made improvements to reduce the number of ports required by the agents to communicate with our service. If you are running older versions of Azure AD Connect and/or standalone agents, you should continue to keep those additional ports (5671, 8080, 9090, 9091, 9350, 9352, 10100-10120) open.
@@ -113,7 +113,7 @@ If you have already installed Azure AD Connect (using the [express installation]
 
 ### Ensure that your Azure AD Pass-through Authentication setup is highly available
 
-If you plan to deploy Pass-through Authentication in a production environment, we highly recommend that you install a second agent. You should install the second agent on a server other than the one running Azure AD Connect and the first agent. This setup will provide you high availability of sign-in requests.
+If you plan to deploy Pass-through Authentication in a production environment, we highly recommend that you install a second agent. Install the second agent on a server other than the one running Azure AD Connect and the first agent. This setup will provide you high availability of sign-in requests.
 
 Follow these instructions to deploy a standalone agent.
 
@@ -157,9 +157,9 @@ The following diagram illustrates the various steps. All requests and responses 
 
 ### A note about password writeback
 
-If you have configured [password writeback](../active-directory-passwords-update-your-own-password.md) on your tenant for a specific user, if the user signs in using Pass-through Authentication, they are able to change or reset their passwords as before. The passwords are then written back to on-premises Active Directory as expected.
+If you have configured [password writeback](../active-directory-passwords-update-your-own-password.md) for a specific user, if the user signs in using Pass-through Authentication, they can change or reset their passwords as before. The passwords are written back to on-premises Active Directory as expected.
 
-However, if password writeback is not configured or the user doesn't have a valid Azure AD license assigned to them, the user won't be allowed to update their password in the cloud. This happens even if their password has expired. The user instead sees this message: "Your organization doesn't allow you to update your password on this site. Please update it according to the method recommended by your organization, or ask your admin if you need help."
+However, if password writeback is not configured or a user doesn't have a valid Azure AD license assigned, the user can't update their password in the cloud. They can't update their password even if their password has expired. The user instead sees this message: "Your organization doesn't allow you to update your password on this site. Please update it according to the method recommended by your organization, or ask your admin if you need help."
 
 ## Next steps
 - See how to enable the [Azure AD Seamless SSO](active-directory-aadconnect-sso.md) feature on your tenant.
