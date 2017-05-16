@@ -80,7 +80,7 @@ When using the Consumption hosting plan, function code files are stored on Azure
 > [!NOTE]
 > When running on a Consumption plan, if a Function App has gone idle, there can be up to a 10-minute delay in processing new blobs. Once the Function App is running, blobs are processed more quickly. To avoid this initial delay, consider one of the following options:
 > - Use a regular App Service Plan with Always On enabled
-> - Use another mechanism to trigger the blob processing, such as a queue message that contains the blob > name. For an example, see (queue trigger with blob input binding) [functions-bindings-storage-blob.md#input-sample].
+> - Use another mechanism to trigger the blob processing, such as a queue message that contains the blob > name. For an example, see [queue trigger with blob input binding](functions-bindings-storage-blob.md#input-sample).
 
 ### Runtime scaling
 
