@@ -168,6 +168,8 @@ We don't log POST data automatically, but you can use a TrackTrace call: put the
 
 ## Should I use single or multiple Application Insights resources?
 
+Use a single resource for all the components or roles in a single business system. Use separate resources for development, test, and release versions, and for independent applications.
+
 * [See the discussion here](app-insights-separate-resources.md)
 * [Example - cloud service with worker and web roles](app-insights-cloudservices.md)
 
