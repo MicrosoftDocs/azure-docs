@@ -11,7 +11,7 @@
   ```
   UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
   ```
-  3. Now the agent needs to be registered with the Configuration Server.
+3. Now the agent needs to be registered with the Configuration Server.
 
   ```
   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
@@ -32,8 +32,8 @@ UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “
 |/Platform|Mandatory|Specifies the platform on which the Mobility Service is getting installed </br> </br>- **VMware** : use this value if you are installing mobility service on a VM running on *VMware vSphere ESXi Hosts*, *Hyper-V Hosts* and *Phsyical Servers* </br> - **Azure** : use this value if you are installing agent on a Azure IaaS VM| VMware </br> Azure|
 |/Silent|Optional|Specifies to run the installer in silent mode| NA|
 
-  >[!TIP]
-  > The setup logs can be found under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log
+>[!TIP]
+> The setup logs can be found under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log
 
 #### Mobility Service registration command-line arguments
 
@@ -48,5 +48,5 @@ UnifiedAgentConfigurator.exe”  /CSEndPoint <CSIP> /PassphraseFilePath <Passphr
   |/PassphraseFilePath|Mandatory|Location of the passphrase |Any valid UNC or local file path|
 
 
-    >[!TIP]
-    > The AgentConfiguration logs can be found under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log
+>[!TIP]
+> The AgentConfiguration logs can be found under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log
