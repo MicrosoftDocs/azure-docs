@@ -21,7 +21,7 @@ ms.author: pratshar
 This article describes how to map Azure virtual networks of two Azure regions with each other. Network mapping ensures that when replicated virtual machine is created in the target Azure region, it is created on the virtual network that is mapped to virtual network of the source virtual machine.  
 
 ## Prerequisites
-Before you map networks make sure you have created [Azure virtual networks](../virtual-network/virtual-networks-overview.md) in both source and target Azure regions. 
+Before you map networks make sure, you have created [Azure virtual networks](../virtual-network/virtual-networks-overview.md) in both source and target Azure regions. 
 
 ## Map networks
 
@@ -32,7 +32,8 @@ To map an Azure virtual network in one Azure region to another virtual network i
 
 In the example below my virtual machine is running in East Asia region and is being replicated to Southeast Asia. 
 
-Select the source and target network and then click on OK to create a network mapping from East Asia to Southeast Asia.
+Select the source and target network and then click OK to create a network mapping from East Asia to Southeast Asia.
+
 ![Network Mapping](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 
 
@@ -42,18 +43,25 @@ Do the same thing to create a network mapping from Southeast Asia to East Asia.
 
 ## Mapping network when enabling replication
 
-If network mapping is not done when you are replicating a virtual machine for the first time form one Azure region to another then you can choose target network as part of the same process. Site recovery will create a network mappings from source region to target region and target region to source region based on this selection.   
+If network mapping is not done when you are replicating a virtual machine for the first time form one Azure region to another, then you can choose target network as part of the same process. Site Recovery creates network mappings from source region to target region and from target region to source region based on this selection.   
 
 ![Network Mapping](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
 
-By default, site recovery will create a network in the target region that is identical to the source network and by adding '-asr' as a suffix to the name of the source network. You can choose an already created network by clicking on Customize.
+By default, Site Recovery creates a network in the target region that is identical to the source network and by adding '-asr' as a suffix to the name of the source network. You can choose an already created network by clicking Customize.
 
 ![Network Mapping](./media/site-recovery-network-mapping-azure-to-azure/network-mapping5.png)
 
 
-If the network mapping is already done, you will not be able to change the target virtual network while enabling replication. 
+If the network mapping is already done, you can't change the target virtual network while enabling replication. To change it, modify existing network mapping.  
 
 ![Network Mapping](./media/site-recovery-network-mapping-azure-to-azure/network-mapping6.png)
+
+![Network Mapping](./media/site-recovery-network-mapping-azure-to-azure/modify-network-mapping.png)
+
+> [!IMPORTANT]
+> If you modify a network mapping from region-1 to region-2, make sure you modify the network mapping for region-2 to region-1 as well. 
+>
+> 
 
 
 
