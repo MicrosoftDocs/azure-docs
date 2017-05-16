@@ -22,20 +22,20 @@ This article explains how you can update a live virtual machine offer in the Azu
 
 After an offer/SKU is staged in the [Azure portal](http://portal.azure.com), you can't change the following text boxes:
 
-* **Offer Identifier**. In the Publishing portal, go to **virtual machines** and select your offer. Then click **VM IMAGES** > **Offer Identifier**.
-* **SKU Identifier**. In the Publishing portal, go to **virtual machines** and select your offer. Then click **SKUS** > **Add a SKU**.
-* **Publisher Namespace**. In the Publishing portal, go to **virtual machines** > **Walkthrough** > **Tell Us About Your Company** (found under “Step 2 Register Your Company”) > **Publisher Namespace** > **Namespace**.
+* **Offer Identifier**: In the Publishing portal, go to **virtual machines** and select your offer. Then click **VM IMAGES** > **Offer Identifier**.
+* **SKU Identifier**: In the Publishing portal, go to **virtual machines** and select your offer. Then click **SKUS** > **Add a SKU**.
+* **Publisher Namespace**: In the Publishing portal, go to **virtual machines** > **Walkthrough** > **Tell Us About Your Company** (found under “Step 2 Register Your Company”) > **Publisher Namespace** > **Namespace**.
 
 After the offer/SKU is listed in the [Marketplace](http://azure.microsoft.com/marketplace), you can't change the following text boxes:
 
-* **Offer Identifier**. In the Publishing portal, go to **virtual machines** and select your offer. Then click **VM IMAGES** > **Offer Identifier**.
-* **SKU Identifier**. In the Publishing portal, go to **virtual machines** and select your offer. Then click **SKUS** > **Add a SKU**.
-* **Publisher Namespace**. In the Publishing portal, go to **virtual machines** > **Walkthrough** > **Tell Us About Your Company** (found under "Step 2 Register") **Publisher Namespace** > **Namespace**.
-* **Ports**. In the Publishing portal, go to **virtual machines** and select your offer. Then click **VM IMAGES** > **Open Ports**.
-* **Pricing change of a listed SKU**.
-* **Billing model change of a listed SKU**.
-* **Removal of billing regions of a listed SKU**.
-* **Changing the data disk count of a listed SKU**.
+* **Offer Identifier**: In the Publishing portal, go to **virtual machines** and select your offer. Then click **VM IMAGES** > **Offer Identifier**.
+* **SKU Identifier**: In the Publishing portal, go to **virtual machines** and select your offer. Then click **SKUS** > **Add a SKU**.
+* **Publisher Namespace**: In the Publishing portal, go to **virtual machines** > **Walkthrough** > **Tell Us About Your Company** (found under "Step 2 Register") **Publisher Namespace** > **Namespace**.
+* **Ports**: In the Publishing portal, go to **virtual machines** and select your offer. Then click **VM IMAGES** > **Open Ports**.
+* **Pricing change of listed SKU(s)**
+* **Billing model change of listed SKU(s)**
+* **Removal of billing regions of listed SKU(s)**
+* **Changing the data disk count of listed SKU(s)**
 
 ## Update the technical details of a SKU
 To add a new version to the listed SKU and republish your offer, follow these steps:
@@ -70,7 +70,6 @@ To update the offer details and republish your offer, follow these steps:
 
    > [!NOTE]
    > When you update the SKU details, be aware of these restrictions: 
-
    * Do not enter duplicate text for the offer description and the SKU description.
    * Do not enter duplicate text for the SKU title and the offer long summary. 
    * Do not enter duplicate text for the SKU title and the offer summary.
@@ -193,7 +192,7 @@ To update the categories section for your offer and republish your offer, follow
 1. Sign in to the [Publishing portal](https://publish.windowsazure.com).
 2. Go to the **virtual machines** tab, and select your offer.
 3. In the menu on the left, click the **CATEGORIES** tab.
-4. In the **Categories** section, update the categories for your offer and save the changes. You can choose up to five categories for the Azure Marketplace Gallery.
+4. In the **Categories** section, update the categories for your offer and save the changes. You can choose up to five categories for the Azure Marketplace gallery.
 5. Go to the **PUBLISH** tab, and click **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment, see [Test your VM offer for the Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
 6. After you've tested your offer in staging, go to the **PUBLISH** tab in the Publishing portal. Click **REQUEST APPROVAL TO PUSH TO PRODUCTION** to republish your offer in the Marketplace.
 
@@ -204,7 +203,8 @@ To add a new SKU in your live offer, follow these steps:
 
 1. Sign in to the [Publishing portal](https://publish.windowsazure.com).
 2. Go to the **virtual machines** tab, and select your offer.
-3. In the menu on the left, click the **SKUS** tab. Then click **Add a SKU**. In the dialog box, enter a **SKU Identifier** in lowercase. Select the **Bring your own license (BYOL) billing model** check box if you want to publish the new SKU with a BYOL billing model. Otherwise, clear the check box. Click the **tick mark** to create a new SKU. If you didn't choose the BYOL billing model, the billing model is automatically set to hourly. If you want the 30-day free trial for the hourly billing model, select **One Month** for **Is a free trial available?** Otherwise, select **No Trial**. (**Is a free trial available?** only shows if you haven't selected BYOL while creating the new SKU.)
+3. In the menu on the left, click the **SKUS** tab. Then click **Add a SKU**. 
+4. In the dialog box, enter a **SKU Identifier** in lowercase. Select the **Bring your own license (BYOL) billing model** check box if you want to publish the new SKU with a BYOL billing model. Otherwise, clear the check box. Click the tick mark to create a new SKU. If you didn't choose the BYOL billing model, the billing model is automatically set to hourly. If you want the 30-day free trial for the hourly billing model, select **One Month** for **Is a free trial available?** Otherwise, select **No Trial**. (**Is a free trial available?** appears only if you haven't selected BYOL while creating the new SKU.)
 
    > [!IMPORTANT]
    > **Hide this SKU from the Marketplace because it should always be bought via a solution template** should be **Yes** *only* if you're approved for publishing a solution template. Otherwise, this option should always be **No**.
