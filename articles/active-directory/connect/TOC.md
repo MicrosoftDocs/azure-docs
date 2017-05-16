@@ -22,10 +22,6 @@
 ## Plan and design
 ### [Design concepts](active-directory-aadconnect-design-concepts.md)
 ### [Topologies for Azure AD Connect](active-directory-aadconnect-topologies.md)
-### [Seamless Single Sign-on](active-directory-aadconnect-sso.md)
-#### [Troubleshoot](active-directory-aadconnect-troubleshoot-sso.md)
-### [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md)
-#### [Troubleshoot](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ### [Active Directory Federation Services in Azure](active-directory-aadconnect-azure-adfs.md)
 ### [Special considerations for instances](active-directory-aadconnect-instances.md)
 ### [When you already have Azure AD](active-directory-aadconnect-existing-tenant.md)
@@ -33,6 +29,10 @@
 ### [Renew certs for O365 and Azure AD](active-directory-aadconnect-o365-certs.md)
 ### [Enable device writeback](active-directory-aadconnect-feature-device-writeback.md)
 ### [User sign-on options](active-directory-aadconnect-user-signin.md)
+#### [Seamless Single Sign-on](active-directory-aadconnect-sso.md)
+##### [Troubleshoot](active-directory-aadconnect-troubleshoot-sso.md)
+#### [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md)
+##### [Troubleshoot](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ### [Multiple domain support for federating](active-directory-aadconnect-multiple-domains.md)
 ### [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)
 

@@ -24,7 +24,7 @@ This article helps you find troubleshooting information about common issues duri
 
 ### An Azure AD Application Proxy agent already exists
 
-A Pass-through Authentication agent cannot be installed on the same server as an [Azure AD Application Proxy](../../active-directory/active-directory-application-proxy-get-started.md) agent. You need to install the Pass-through Authentication agent on a separate server.
+A Pass-through Authentication agent cannot be installed on the same server as an [Azure AD Application Proxy](../../active-directory/active-directory-application-proxy-get-started.md) agent. Install the Pass-through Authentication agent on a separate server.
 
 ### An unexpected error occurred
 
@@ -77,7 +77,7 @@ The feature reports the following user-facing errors on the Azure AD sign-in scr
 |AADSTS80001|Unable to connect to Active Directory|Ensure that agent servers are members of the same AD forest as the users whose passwords need to be validated and they are able to connect to Active Directory.  
 |AADSTS8002|A timeout occurred connecting to Active Directory|Check to ensure that Active Directory is available and is responding to requests from the agents.
 |AADSTS80004|The username passed to the agent was not valid|Ensure the user is attempting to sign in with the right username.
-|AADSTS80005|Validation encountered unpredictable WebException|This is a transient error. Retry the request. If it continues to fail, contact Microsoft support.
+|AADSTS80005|Validation encountered unpredictable WebException|A transient error. Retry the request. If it continues to fail, contact Microsoft support.
 |AADSTS80007|An error occurred communicating with Active Directory|Check the agent logs for more information and verify that Active Directory is operating as expected.
 
 ## Collecting Pass-through Authentication agent logs
@@ -88,7 +88,7 @@ Depending on the type of issue you may have, you need to look in different place
 
 For errors related to the agent, open up the Event Viewer application on the server and check under **Application and Service Logs\Microsoft\AadApplicationProxy\agent\Admin**.
 
-For detailed analytics, enable the "Session" log. Don't run the agent with this log enabled during normal operations; use only for troubleshooting. Note that the log contents are only visible after the log is disabled again.
+For detailed analytics, enable the "Session" log. Don't run the agent with this log enabled during normal operations; use only for troubleshooting. The log contents are only visible after the log is disabled again.
 
 ### Detailed trace logs
 
@@ -100,11 +100,9 @@ To troubleshoot user sign-in failures, look for trace logs at **C:\Programdata\M
 	    DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
 
-You can get descriptive details of the error ('1328' in the preceding example) by opening up the command prompt and running the following command (Note: You need to replace '1328' with the actual error number that you see in your logs):
+You can get descriptive details of the error ('1328' in the preceding example) by opening up the command prompt and running the following command (Note: Replace '1328' with the actual error number that you see in your logs):
 
 `Net helpmsg 1328`
-
-The result should look something like the following:
 
 ![Pass-through Authentication](./media/active-directory-aadconnect-pass-through-authentication/pta3.png)
 
