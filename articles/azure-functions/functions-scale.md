@@ -59,6 +59,12 @@ A VM decouples cost from both runtime and memory size. As a result, you can limi
 
 With an App Service plan, you can manually scale out by adding more single-core VM instances, or you can enable auto-scale. For more information, see [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json). You can also scale up by choosing a different App Service plan. For more information, see [Scale up an app in Azure](../app-service-web/web-sites-scale.md). If you are planning to run JavaScript functions on an App Service plan, you should choose a plan with fewer cores. For more information, see the [JavaScript reference for Functions](functions-reference-node.md#choose-single-core-app-service-plans).  
 
+<!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
+<a name="always-on"></a>
+#### Always On
+
+If you run on an App Service Plan, you need to turn on the **Always On** setting for your Function App to run properly. The Function runtime will go idle after a few minutes of inactivity, so only HTTP triggers will actually "wake up" your functions. This is similar to how WebJobs must have Always On enabled. 
+
 ### Storage account requirements
 
 On either a Consumption or App Service plan, a Function App requires a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. Internally Azure Functions uses Azure Storage for operations such as managing triggers and logging function executions. Some storage accounts do not support queues and tables, such as blob-only storage accounts (including premium storage) and general-purpose storage accounts with ZRS replication. These accounts are filtered from the Storage Account blade when creating a Function App.
@@ -71,7 +77,8 @@ The Consumption plan automatically scales CPU and memory resources by adding add
 
 When using the Consumption hosting plan, function code files are stored on Azure Files shares on the main storage account. When you delete the main storage account, this content is deleted and cannot be recovered.
 
-> [!NOTE] When running on a Consumption plan, if a Function App has gone idle, there can be up to a 10-minute delay in processing new blobs. Once the Function App is running, blobs are processed more quickly. To avoid this initial delay, consider one of the following options:
+> [!NOTE]
+> When running on a Consumption plan, if a Function App has gone idle, there can be up to a 10-minute delay in processing new blobs. Once the Function App is running, blobs are processed more quickly. To avoid this initial delay, consider one of the following options:
 > - Use a regular App Service Plan with Always On enabled
 > - Use another mechanism to trigger the blob processing, such as a queue message that contains the blob > name. For an example, see (queue trigger with blob input binding) [functions-bindings-storage-blob.md#input-sample].
 
