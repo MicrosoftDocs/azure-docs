@@ -10,5 +10,7 @@
 ## [Persisting storage](persisting-shell-storage.md)
 ## [Using the window](using-the-shell-window.md)
 
+# [Pricing](pricing.md)
+
 # Reference
 ## [Azure CLI 2.0](/cli/azure) 
