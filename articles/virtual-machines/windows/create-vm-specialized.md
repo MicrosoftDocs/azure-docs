@@ -20,7 +20,7 @@ ms.author: cynthn
 ---
 # Create a VM from a specialized disk
 
-Create a new VM by attaching a specialized disk as the OS disk using Powershell. A specialized disk is a copy of VHD from an exisitng VM that maintains the user accounts, applications and other state data from your original VM. You can use either a specialized [managed disk](../../storage/storage-managed-disks-overview.md) or a specialized unmanaged disk to create the new VM.
+Create a new VM by attaching a specialized disk as the OS disk using Powershell. A specialized disk is a copy of VHD from an existing VM that maintains the user accounts, applications and other state data from your original VM. You can use either a specialized [managed disk](../../storage/storage-managed-disks-overview.md) or a specialized unmanaged disk to create the new VM.
 
 ## Before you begin
 If you use PowerShell, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
@@ -31,7 +31,93 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
 
 
-## Create the subNet and vNet
+## Option 1: Upload a specialized VHD
+
+You can 
+
+## Prepare the VM
+You can upload a specialized VHD that was created using on on-premises VM or a VHD exported from another cloud. A specialized VHD maintains the user accounts, applications and other state data from your original VM. If you intend to use the VHD as-is to create a new VM, ensure the following steps are completed. 
+  
+  * [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Do not** generalize the VM using Sysprep.
+  * Remove any guest virtualization tools and agents that are installed on the VM (i.e. VMware tools).
+  * Ensure the VM is configured to pull its IP address and DNS settings via DHCP. This ensures that the server obtains an IP address within the VNet when it starts up. 
+
+
+### Get the storage account
+You need a storage account in Azure to store the uploaded VM image. You can either use an existing storage account or create a new one. 
+
+To show the available storage accounts, type:
+
+```powershell
+Get-AzureRmStorageAccount
+```
+
+If you want to use an existing storage account, proceed to the [Upload the VM image](#upload-the-vm-vhd-to-your-storage-account) section.
+
+If you need to create a storage account, follow these steps:
+
+1. You need the name of the resource group where the storage account should be created. To find out all the resource groups that are in your subscription, type:
+   
+    ```powershell
+    Get-AzureRmResourceGroup
+    ```
+
+    To create a resource group named **myResourceGroup** in the **West US** region, type:
+
+    ```powershell
+    New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
+    ```
+
+2. Create a storage account named **mystorageaccount** in this resource group by using the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet:
+   
+    ```powershell
+    New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
+        -SkuName "Standard_LRS" -Kind "Storage"
+    ```
+   
+    Valid values for -SkuName are:
+   
+   * **Standard_LRS** - Locally redundant storage. 
+   * **Standard_ZRS** - Zone redundant storage.
+   * **Standard_GRS** - Geo redundant storage. 
+   * **Standard_RAGRS** - Read access geo redundant storage. 
+   * **Premium_LRS** - Premium locally redundant storage. 
+
+### Upload the VHD to your storage account
+Use the [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) cmdlet to upload the image to a container in your storage account. This example uploads the file **myVHD.vhd** from `"C:\Users\Public\Documents\Virtual hard disks\"` to a storage account named **mystorageaccount** in the **myResourceGroup** resource group. The file will be placed into the container named **mycontainer** and the new file name will be **myUploadedVHD.vhd**.
+
+```powershell
+$rgName = "myResourceGroup"
+$urlOfUploadedImageVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
+Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
+    -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
+```
+
+
+If successful, you get a response that looks similar to this:
+
+```powershell
+MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
+MD5 hash calculation is completed.
+Elapsed time for the operation: 00:03:35
+Creating new page blob of size 53687091712...
+Elapsed time for upload: 01:12:49
+
+LocalFilePath           DestinationUri
+-------------           --------------
+C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
+```
+
+Depending on your network connection and the size of your VHD file, this command may take a while to complete
+
+
+## Option 2: Copy the VHD from an existing Azure VM
+
+## Create the new VM 
+
+You need to create networking and other VM resources to be used by the new VM.
+
+### Create the subNet and vNet
 
 Create the vNet and subNet of the [virtual network](../../virtual-network/virtual-networks-overview.md).
 
@@ -51,7 +137,7 @@ Create the vNet and subNet of the [virtual network](../../virtual-network/virtua
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
 
-## Create a public IP address and NIC
+### Create a public IP address and NIC
 To enable communication with the virtual machine in the virtual network, you need a [public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
 
 1. Create the public IP. In this example, the public IP address name is set to **myIP**.
@@ -69,7 +155,7 @@ To enable communication with the virtual machine in the virtual network, you nee
 	-Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 	```
 
-## Create the network security group and an RDP rule
+### Create the network security group and an RDP rule
 To be able to log in to your VM using RDP, you need to have an security rule that allows RDP access on port 3389. Because the VHD for the new VM was created from an existing specialized VM, after the VM is created you can use an existing account from the source virtual machine that had permission to log on using RDP.
 This example sets the NSG name to **myNsg** and the RDP rule name to **myRdpRule**.
 
@@ -87,7 +173,7 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $loc
 
 For more information about endpoints and NSG rules, see [Opening ports to a VM in Azure using PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## Set the VM name and size
+### Set the VM name and size
 
 This example sets the VM name to "myVM" and the VM size to "Standard_A2".
 ```powershell
@@ -95,14 +181,14 @@ $vmName = "myVM"
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
 ```
 
-## Add the NIC
+### Add the NIC
 	
 ```powershell
 $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 ```
 	
 	
-## Configure the OS disk
+### Configure the OS disk
 
 The specialised OS could be a VHD that you [uploaded to Azure](upload-image.md) or a [copy the VHD from an existing Azure VM](vhd-copy.md). 
 
@@ -113,7 +199,7 @@ or
 
 - **Option 2**: Use a specialized VHD stored in your own storage account (an unmanaged disk). 
 
-### Option 1: Create a managed disk from an unmanaged specialized disk
+#### Option 1: Create a managed disk from an unmanaged specialized disk
 
 1. Create a managed disk from the existing specialized VHD in your storage account. This example uses **myOSDisk1** for the disk name, puts the disk in **StandardLRS** storage and uses **https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vh.vhd** as the URI for the source VHD.
 
@@ -138,7 +224,7 @@ $vm = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName -CreateOptio
 ```
 
 
-### Option 2: Attach a VHD that is in an existing storage account
+#### Option 2: Attach a VHD that is in an existing storage account
 
 1. Set the URI for the VHD that you want to use. In this example, the VHD file named **myOsDisk.vhd** is kept in a storage account named **myStorageAccount** in a container named **myContainer**.
 
@@ -162,7 +248,7 @@ $vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lu
 When using a storage account, the data and operating system disk URLs look something like this: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. You can find this on the portal by browsing to the target storage container, clicking the operating system or data VHD that was copied, and then copying the contents of the URL.
 
 
-## Create the VM
+### Complete the VM 
 
 Create the VM using the configurations that we just created.
 
@@ -180,7 +266,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 
 ```
 
-## Verify that the VM was created
+### Verify that the VM was created
 You should see the newly created VM either in the [Azure portal](https://portal.azure.com), under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
 
 ```powershell
