@@ -54,7 +54,7 @@ It's easy to detect sentiment, key phrases, and languages in your text. You will
 > 
 > 
 
-Refer to the [Text Analytics Overview](overview#supported-languages) for details of supported languages
+Refer to the [Text Analytics Overview](overview) for details of supported languages
 
 1. Set the headers as shown below. JSON is currently the only accepted input format for the APIs. XML is not supported.
    
