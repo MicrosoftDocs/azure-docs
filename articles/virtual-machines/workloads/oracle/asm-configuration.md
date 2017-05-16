@@ -46,7 +46,7 @@ az group create --name myResourceGroup --location westus
 
 To create a VM to use with Oracle ASM, complete the following steps:
 
-1.  To create a virtual machine (VM), use the [az vm create](/cli/azure/vm#create) command. 
+1.  To create a virtual machine, use the [az vm create](/cli/azure/vm#create) command. 
 
   The following example creates a VM named myVM. It also creates SSH keys, if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
 
