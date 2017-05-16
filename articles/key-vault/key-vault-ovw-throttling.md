@@ -35,7 +35,7 @@ On HTTP error code 429, begin throttling, using an exponential backoff approach:
 - If still throttled wait 4 sec, retry request
 - If still throttled wait 8 sec, retry request
 - If still throttled wait 16 sec, retry request
-- At this point you should not be getting any HTTP 429 response codes.
+- At this point, you should not be getting any HTTP 429 response codes.
 
 
 For a deeper orientation of throttling on the Microsoft Cloud, see [Throttling Pattern](https://docs.microsoft.com/azure/architecture/patterns/throttling).
