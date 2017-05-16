@@ -21,7 +21,7 @@ This sample CLI script scales a single Azure Database for MySQL server to a diff
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Sample script
-In this sample script, edit the highlighted lines to customize the name, location, and password.
+In this sample script, edit the highlighted lines to customize the admin username and password.
 [!code-azurecli-interactive[main](../../../cli_scripts/mysql/scale-mysql-server/scale-mysql-server.sh?highlight=15-16) "Create and scale Azure Database for MySQL.")]
 
 ## Script explanation
