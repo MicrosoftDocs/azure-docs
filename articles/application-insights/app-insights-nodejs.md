@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/01/2017
-ms.author: joshgav
+ms.author: cfreeman
 
 ---
 

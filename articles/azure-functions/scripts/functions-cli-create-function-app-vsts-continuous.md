@@ -6,7 +6,8 @@ keywords:
 author: syntaxc4
 ms.author: cfowler
 ms.date: 04/28/2017
-ms.topic: functions
+ms.topic: sample
+ms.service: functions
 ---
 # Create an App Service
 
@@ -21,7 +22,7 @@ In this scenario you will learn how to create a function app using the [consumpt
 
 This sample creates an Azure Function app and deploys function code from Visual Studio Team Services.
 
-[!code-azurecli[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-vsts/deploy-function-app-with-function-vsts.sh?highlight=3-4 "Azure Service")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-vsts/deploy-function-app-with-function-vsts.sh?highlight=3-4 "Azure Service")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
