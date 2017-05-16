@@ -43,7 +43,7 @@ If still throttled wait 16 seconds, retry request
 
 At this point, you should not be getting HTTP 429 response codes.
 
-
+## See also
 
 For a deeper orientation of throttling on the Microsoft Cloud, see [Throttling Pattern](https://docs.microsoft.com/azure/architecture/patterns/throttling).
 
