@@ -1,16 +1,15 @@
 ---
-title: Service Tiers in Azure Database for MySQL | Microsoft Docs"
+title: Service Tiers in Azure Database for MySQL | Microsoft Docs
 description: Service Tiers in Azure Database for MySQL
 services: mysql
 author: v-chenyh
-ms.author: v-chenyh
 manager: jhubbard
 editor: jasonh
-ms.assetid:
+
 ms.service: mysql-database
-ms.tgt_pltfrm: portal
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/16/2017
+ms.author: v-chenyh
 ---
 # Azure Database for MySQL options and performance: Understand what’s available in each service tier
 Azure Database for MySQL offers the Basic and Standard service tiers. Premium is not yet available.
@@ -33,18 +32,17 @@ The following table provides examples of the tiers best suited for different app
 | Basic | Best suited for small workloads that require scalable compute and storage without IOPS guarantee. Examples include servers used for development or testing, or small-scale infrequently used applications. |
 | Standard | The go-to option for cloud applications that need IOPS guarantee with an ability to scale to higher compute and storage independently for high throughput. Examples include web or analytical applications. |
 | Premium | Best suited for workloads that need very brief latencies for transactions and IO, along with high IO and workload throughput. Provides the best support for many concurrent users. Applicable to databases which support mission critical applications.<br />The Premium service tier is not available in preview. |
-| &nbsp; | &nbsp; |
+
 
 To decide on a service tier, first start by determining if your workload need IOPS guarantee. Then determine the minimum features that you need:
 
 | **Service tier features** | **Basic** | **Standard** | **Premium** * |
 | :------------------------ | :-------- | :----------- | :------------ |
-| Maximum Compute Units | 100 | 2000 | Not available in preview |
-| Maximum total storage | 1050 GB | 10000 GB | Not available in preview |
+| Maximum Compute Units | 100 | 2,000 | Not available in preview |
+| Maximum total storage | 1,050 GB | 10,000 GB | Not available in preview |
 | Storage IOPS guarantee | N/A | Yes | Not available in preview |
-| Maximum storage IOPS | N/A | 30,000 | Not available in preview |
+| Maximum storage IOPS | N/A | 3,000 | Not available in preview |
 | Database backup retention period | 7 days | 35 days | 35 days |
-| &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 
 > [!NOTE]
 > The Standard service tier in preview currently supports up to 800 Compute Units, and a maximum of 1000 GB of storage.
@@ -57,40 +55,36 @@ However, you can scale up or down the Compute Units independent of Storage Units
 > In preview, the Basic and Standard tiers currently do not support the dynamic scaling of storage. We plan to add the feature in the future.
 
 > [!NOTE]
-> At the Standard service tier, IOPS scales proportionally to provisioned storage size in a fixed 3:1 ratio. The included storage of 125 GB guarantees for 375 provisioned IOPS, each with an IO size of up to 256 KB. If you provision 1000 GB, you will get 3000 provisioned IOPS. You must monitor the server compute units consumption, and scale up, to fully utilize the available provisioned IOPS.
+> At the Standard service tier, IOPS scales proportionally to provisioned storage size in a fixed 3:1 ratio. The included storage of 125 GB guarantees for 375 provisioned IOPS, each with an IO size of up to 256 KB. If you provision 1,000 GB, you will get 3,000 provisioned IOPS. You must monitor the server compute units consumption, and scale up, to fully utilize the available provisioned IOPS.
 
 ## Service tiers and performance levels
 
 Azure Database for MySQL offers multiple performance levels within each service tier. You have the flexibility to choose the level that best meets your workload’s demands, by using one of the following:
-
 - [Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md)
 
 Regardless of the number of databases hosted within each MySQL server, your database gets a guaranteed set of resources and the expected performance characteristics of your server are not affected.
 
-Basic service tier:
+### Basic service tier:
 
 | **Performance level** | **50** | **100** |
 | :-------------------- | :----- | :------ |
 | Max Compute Units | 50 | 100 |
 | Included Storage size | 50 GB | 50 GB |
-| Max server storage size\* | 1050 GB | 1050 GB |
-| Max concurrent logins | &nbsp; | &nbsp; |
-| Max connections | &nbsp; | &nbsp; |
-| &nbsp; | &nbsp; | &nbsp; |
+| Max server storage size\* | 1,050 GB | 1,050 GB |
 
-Standard service tier:
+\* Max server storage size refers to the maximum provisioned storage size for your server.
+
+
+### Standard service tier:
 
 | **Performance level** | **100** | **200** | **400** | **800** |
 | :-------------------- | :------ | :------ | :------ | :------ |
 | Max Compute Units | 100 | 200 | 400 | 800 |
-| Included storage size and provisioned IOPS | 125 GB, 375 IOPS | &nbsp; | &nbsp; | &nbsp; |
-| Max server storage size\* | 1 TB | &nbsp; | &nbsp; | &nbsp; |
-| Max server provisioned IOPS | 3000 IOPS | &nbsp; | &nbsp; | &nbsp; |
-| Max server provisioned IOPS per GB | Fixed 3 IOPS per GB | &nbsp; | &nbsp; | &nbsp; |
-| Max concurrent logins | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| Max connections | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| Included storage size and provisioned IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS |
+| Max server storage size\* | 1 TB | 1 TB | 1 TB | 1 TB |
+| Max server provisioned IOPS | 3,000 IOPS | 3,000 IOPS | 3,000 IOPS | 3,000 IOPS |
+| Max server provisioned IOPS per GB | Fixed 3 IOPS per GB | Fixed 3 IOPS per GB | Fixed 3 IOPS per GB | Fixed 3 IOPS per GB |
 
 \* Max server storage size refers to the maximum provisioned storage size for your server.
 
@@ -103,12 +97,14 @@ Changing the service tier and/or performance level of a database creates a repli
 The duration of the entire scale-up process depends on both the size and service tier of the server before and after the change. For example, a server that is changing Compute Units, to or from or within a Standard service tier, should complete within few minutes. The new properties for the server are not applied until the changes are complete.
 
 ### Documentation about the steps for scaling up or down
+[Monitor and scale an Azure Database for MySQL server using Azure CLI](scripts/sample-scale-server.md)
 
-- [Manage a single server with Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md)
-- [Manage a single server with Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ### Details about scaling up or down
 
 - To downgrade a server, the server Storage Units should be smaller than the maximum allowed size of the target service tier.
-- The restore service offerings are different for the various service tiers. If you are downgrading you may lose the ability to restore to a point in time, or have a lower backup retention period. For more information, see [How To Backup and Restore Azure Database for MySQL server using the Azure portal](./howto-restore-server-portal.md)
+- The restore service offerings are different for the various service tiers. If you are downgrading you may lose the ability to restore to a point in time, or have a lower backup retention period. For more information, see [How To Backup and Restore Azure Database for MySQL server using the Azure portal](howto-restore-server-portal.md)
 - The new properties for the server are not applied until the changes are complete.
+
+## Next Steps
+[Explaining Compute Unit and Storage Unit](concepts-compute-unit-and-storage.md)
