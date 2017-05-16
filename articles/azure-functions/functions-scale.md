@@ -63,7 +63,7 @@ With an App Service plan, you can manually scale out by adding more single-core 
 <a name="always-on"></a>
 #### Always On
 
-If you run on an App Service Plan, you need to turn on the **Always On** setting for your Function App to run properly. The Function runtime will go idle after a few minutes of inactivity, so only HTTP triggers will actually "wake up" your functions. This is similar to how WebJobs must have Always On enabled. 
+If you run on an App Service Plan, you should enable the **Always On** setting for so that your Function App  runs correctly. The Function runtime will go idle after a few minutes of inactivity, so only HTTP triggers will actually "wake up" your functions. This is similar to how WebJobs must have Always On enabled. 
 
 ### Storage account requirements
 
