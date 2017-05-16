@@ -46,7 +46,7 @@ The following steps illustrate how to use the Azure portal to create a lab in Az
 	4. Select **Auto-shutdown** to specify if you want to enable - and define the parameters for - the automatic shutting down of all the lab's VMs. The auto-shutdown feature is mainly a cost-saving feature whereby you can specify when you want the VM to automatically be shut down.
 	5. Select **Pin to Dashboard** if you want a shortcut of the lab to appear on the portal dashboard.
 	6. Select **Automation options** to get Azure Resource Manager templates for configuration automation. 
-	7. Select **Create**. After selecting **Create**, the **DevTest Lab** blade displays. You can monitor the status of the lab creation process by watching the **Notifications** area. Once completed, refresh the page to see the newly created lab in the list of labs.  
+	7. Select **Create**. After selecting **Create**, the **DevTest Labs** blade displays. You can monitor the status of the lab creation process by watching the **Notifications** area. Once completed, refresh the page to see the newly created lab in the list of labs.  
     
     ![Create a lab blade](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
