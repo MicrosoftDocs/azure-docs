@@ -77,6 +77,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Twilio;
+using Twilio.Http;
+using Twilio.Types;
+using Twilio.Rest.Api.V2010;
 
 namespace WebRole1
 {
@@ -97,12 +100,10 @@ namespace WebRole1
             var authToken =  "NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN";
 
             // Instantiate an instance of the Twilio client.
-            var client = new TwilioRestClient(accountSID, authToken);
+            TwilioClient.Init(accountSID, authToken);
 
             // Retrieve the account, used later to retrieve the
-            var account = client.GetAccount();
-            var apiVersion = client.ApiVersion;
-            var twilioBaseURL = client.BaseUrl;
+            var account = AccountResource.Fetch(accountSID);
 
             this.varDisplay.Items.Clear();
 
@@ -114,30 +115,24 @@ namespace WebRole1
             else
             {
                 // Retrieve the values entered by the user.
-                var to = this.toNumber.Text;
+                var to = PhoneNumber(this.toNumber.Text);
+                var from = new PhoneNumber("+14155992671");
                 var myMessage = this.message.Text;
 
                 // Create a URL using the Twilio message and the user-entered
                 // text. You must replace spaces in the user's text with '%20'
                 // to make the text suitable for a URL.
                 var url = $"http://twimlets.com/message?Message%5B0%5D={myMessage.Replace(" ", "%20")}";
+                var twimlUri = new Uri(url);
 
                 // Display the endpoint, API version, and the URL for the message.
-                this.varDisplay.Items.Add($"Using Twilio endpoint {twilioBaseURL}");
+                this.varDisplay.Items.Add($"Using Twilio endpoint {
+                }");
                 this.varDisplay.Items.Add($"Twilioclient API Version is {apiVersion}");
                 this.varDisplay.Items.Add($"The URL is {url}");
 
-                // Instantiate the call options that are passed
-                // to the outbound call.
-                var options = new CallOptions();
-
-                // Set the call From, To, and URL values.
-                options.From = "+14155992671";
-                options.To = to;
-                options.Url = url;
-
                 // Place the call.
-                var call = client.InitiateOutboundCall(options);
+                var call = CallResource.create(to, from, url: twimlUri);
                 this.varDisplay.Items.Add("Call status: " + call.Status);
             }
         }
