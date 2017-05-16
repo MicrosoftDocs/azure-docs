@@ -3,7 +3,7 @@ title: Prerequisites to access the Azure AD reporting API. | Microsoft Docs
 description: Learn about the prerequisites to access the Azure AD reporting API
 services: active-directory
 documentationcenter: ''
-author: dhanyahk;MarkusVi
+author: dhanyahk
 manager: femila
 editor: ''
 
