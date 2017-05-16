@@ -24,7 +24,7 @@ This topic lists some of the most common questions about Web Apps, it also provi
 **Availability, Performance and Application Issues**
 
 * [How to view Website Eventlogs](app-service-web-availability-performance-application-issues-faq.md#how-can-i-view-my-web-app's-event-logs)
-* [My App is performing slow](app-service-web-availability-performance-application-issues-faq.md)
+* [My App is performing slow](app-service-web-availability-performance-application-issues-faq#my-app-is-performing-slow)
 * [How do I capture user mode memory dump of my web app](app-service-web-availability-performance-application-issues-faq.md)
-* [How do I view process level info for my web app?](app-service-web-availability-performance-application-issues-faq.md)
+* [How do I view process level info for my web app?](../app-service-web/app-service-web-availability-performance-application-issues-faq.md)
 * [More questions](app-service-web-availability-performance-application-issues-faq.md)
