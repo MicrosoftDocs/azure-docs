@@ -29,7 +29,7 @@ To enable the connectivity to the SAP BW instance, install the following compone
 - **SAP NetWeaver library** on the gateway machine. You can get the SAP Netweaver library from your SAP administrator, or directly from the [SAP Software Download Center](https://support.sap.com/swdc). Search for the **SAP Note #1025361** to get the download location for the most recent version. Make sure that the architecture for the SAP NetWeaver library (32-bit or 64-bit) matches your gateway installation. Then install all files included in the SAP NetWeaver RFC SDK according to the SAP Note. The SAP NetWeaver library is also included in the SAP Client Tools installation.
 
 > [!TIP]
-> Remember to put the dlls extracted from the NetWeaver RFC SDK into system 32 folder.
+> Put the dlls extracted from the NetWeaver RFC SDK into system32 folder.
 
 ## Getting started
 You can create a pipeline with a copy activity that moves data from an on-premises Cassandra data store by using different tools/APIs. 
