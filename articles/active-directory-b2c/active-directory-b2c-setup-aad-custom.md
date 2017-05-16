@@ -48,10 +48,10 @@ To enable login for users from a specific Azure AD organization, you need to reg
 1. Choose **New application registration**.
 1. Type in a **Name** for your application (e.g. Azure AD B2C App)
 1. Select **Web app / API** for the Application type.
-1. For the 'Sign-on URL', enter the URL below, where the `{tenantName}` should be replaced by the name of your Azure AD B2C tenant (i.e. fabrikamb2c.onmicrosoft.com).
+1. For the 'Sign-on URL', enter the URL below, where `yourtenant` should be replaced by the name of your Azure AD B2C tenant (i.e. fabrikamb2c.onmicrosoft.com).
 
     ```
-    https://login.microsoftonline.com/te/{tenantName}.onmicrosoft.com/oauth2/authresp
+    https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
 1. Save the **Application ID**.
@@ -63,28 +63,16 @@ To enable login for users from a specific Azure AD organization, you need to reg
 
 You need to store the `contoso.com` application key in your Azure AD B2C tenant. To do this:
 
-1. Open PowerShell and navigate to the working directory `active-directory-b2c-advanced-policies`.
-1. Switch into the folder with the ExploreAdmin tool.
+1. Navigate to your Azure AD B2C tenant and open B2C Settings>Identity Experience Framework>Policy Keys
+1. Click +Add
+1. Options:
+ * Select Option > `Manual`
+ * Name: > `ContosoAppSecret`  Choose a name that matches your Azure AD tenant name.  The prefix B2C_1A_ will be added automatically to the name of your key.
+ * Paste your application key in the `Secret` text box
+ * Select Signature
+1. Click `Create`
+1. Confirm you've created key: `B2C_1A_ContosoAppSecret`
 
-    ```powershell
-    cd active-directory-b2c-advanced-policies\ExploreAdmin
-    ```
-
-1. Import the ExploreAdmin tool into powershell.
-
-    ```powershell
-    Import-Module .\ExploreAdmin.dll
-    ```
-
-1. In the following command, replace `tenantName` with the name of your Azure AD B2C tenant (e.g. fabrikamb2c.onmicrosoft.com), `SecretReferenceId` with a name that you will use to reference the secret (e.g. ContosoAppSecret), and `ClientSecret` with the `contoso.com` application key. Run the command.
-
-    ```PowerShell
-    Set-CpimKeyContainer -Tenant {tenantName} -StorageReferenceId {SecretReferenceId} -UnencodedAsciiKey {ClientSecret}
-    ```
-
-    When you run the command, make sure you sign in with the onmicrosoft.com admin account local to the Azure AD B2C tenant. If you receive an error that says 'TokenSigningKeyContainer' cannot be found, go through the [getting started](active-directory-b2c-get-started-custom.md) guide.
-
-1. Close PowerShell.
 
 ## Add a claims provider in your base policy
 
@@ -99,44 +87,44 @@ In order to allow users to log in using Azure AD, you need to define Azure AD as
         <Domain>Contoso</Domain>
         <DisplayName>Login using Contoso</DisplayName>
         <TechnicalProfiles>
-        <TechnicalProfile Id="ContosoProfile">
-            <DisplayName>Contoso Employee</DisplayName>
-            <Description>Login with your Contoso account</Description>
-            <Protocol Name="OpenIdConnect"/>
-            <OutputTokenFormat>JWT</OutputTokenFormat>
-            <Metadata>
-                <Item Key="METADATA">https://login.windows.net/contoso.com/.well-known/openid-configuration</Item>
-                <Item Key="ProviderName">https://sts.windows.net/00000000-0000-0000-0000-000000000000/</Item>
-                <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
-                <Item Key="IdTokenAudience">00000000-0000-0000-0000-000000000000</Item>
-                <Item Key="response_types">id_token</Item>
-                <Item Key="UsePolicyInRedirectUri">false</Item>
-            </Metadata>
-            <CryptographicKeys>
-            <Key Id="client_secret" StorageReferenceId="ContosoAppSecret"/>
-            </CryptographicKeys>
-            <OutputClaims>
-                <OutputClaim ClaimTypeReferenceId="userId" PartnerClaimType="oid"/>
-                <OutputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="tid"/>
-                <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
-                <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
-                <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
-                <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="contosoAuthentication" />
-                <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="AzureADContoso" />
-            </OutputClaims>
-            <OutputClaimsTransformations>
-                <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName"/>
-                <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName"/>
-                <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId"/>
-                <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId"/>
-            </OutputClaimsTransformations>
-            <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop"/>
-        </TechnicalProfile>
+            <TechnicalProfile Id="ContosoProfile">
+                <DisplayName>Contoso Employee</DisplayName>
+                <Description>Login with your Contoso account</Description>
+                <Protocol Name="OpenIdConnect"/>
+                <OutputTokenFormat>JWT</OutputTokenFormat>
+                <Metadata>
+                    <Item Key="METADATA">https://login.windows.net/contoso.com/.well-known/openid-configuration</Item>
+                    <Item Key="ProviderName">https://sts.windows.net/00000000-0000-0000-0000-000000000000/</Item>
+                    <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+                    <Item Key="IdTokenAudience">00000000-0000-0000-0000-000000000000</Item>
+                    <Item Key="response_types">id_token</Item>
+                    <Item Key="UsePolicyInRedirectUri">false</Item>
+                </Metadata>
+                <CryptographicKeys>
+                    <Key Id="client_secret" StorageReferenceId="B2C_1A_ContosoAppSecret"/>
+                </CryptographicKeys>
+                <OutputClaims>
+                    <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="oid"/>
+                    <OutputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="tid"/>
+                    <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
+                    <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
+                    <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+                    <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="contosoAuthentication" />
+                    <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="AzureADContoso" />
+                </OutputClaims>
+                <OutputClaimsTransformations>
+                    <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName"/>
+                    <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName"/>
+                    <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId"/>
+                    <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId"/>
+                </OutputClaimsTransformations>
+                <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop"/>
+            </TechnicalProfile>
         </TechnicalProfiles>
     </ClaimsProvider>
     ```
 
-1. Under the `<ClaimsProvider>` node, update the value for `<Domain>` to an unique value that can be used to distinguish from other identity providers.
+1. Under the `<ClaimsProvider>` node, update the value for `<Domain>` to a unique value that can be used to distinguish from other identity providers.
 1. Under the `<ClaimsProvider>` node, update the value for `<DisplayName>` to a friendly name for the claims provider. This value is not currently used.
 
 ### Update the technical profile
@@ -148,9 +136,9 @@ In order to get a token from the Azure AD endpoint, you need to define the proto
 1. Update the value for `<Description>`.
 1. Azure AD uses the OpenID Connect protocol, so ensure that `<Protocol>` is "OpenIDConnect".
 
-You need to update the `<Metdata>` section in the XML above to reflect the configuration settings for your specific Azure AD tenant. In the XML, update the metadata values as following:
+You need to update the `<Metadata>` section in the XML above to reflect the configuration settings for your specific Azure AD tenant. In the XML, update the metadata values as following:
 
-1. Set `<Item Key="METADATA">` to `https://login.windows.net/{tenantName}/.well-known/openid-configuration`, where `tenantName` is your Azure AD tenant name (e.g. contoso.com).
+1. Set `<Item Key="METADATA">` to `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, where `yourAzureADtenant` is your Azure AD tenant name (e.g. contoso.com).
 1. Open your browser and navigate to the `Metadata` URL that you just updated.
 1. In the browser, look for the 'issuer' object and copy its value. It should look like the following `https://sts.windows.net/{tenantId}/`.
 1. Paste the value for `<Item Key="ProviderName">` in the XML.
@@ -159,9 +147,9 @@ You need to update the `<Metdata>` section in the XML above to reflect the confi
 1. Ensure that `<Item Key="response_types">` is set to `id_token`.
 1. Ensure that `<Item Key="UsePolicyInRedirectUri">` is set to `false`.
 
-You also need to link the [Azure AD secret that you registered in your Azure AD B2C tenant](#add-the-azure-ad-key-to-azure-ad-b2c) to the Azure AD `<ClaimsProvider>`.
+You also need to link the Azure AD secret that you registered in your Azure AD B2C tenant to the Azure AD `<ClaimsProvider>`.
 
-1. In the `<CryptographicKeys>` section in the XML above, update the value for `StorageReferenceId` to the reference ID of the secret that you defined (e.g. ContosoAppSecret).
+* In the `<CryptographicKeys>` section in the XML above, update the value for `StorageReferenceId` to the reference ID of the secret that you defined (e.g. ContosoAppSecret).
 
 ### Upload the extension file for verification
 
@@ -183,7 +171,7 @@ You now need to add the Azure AD identity provider into one of your user journey
 
 ### Display the "button"
 
-The `<ClaimsProviderSelection>` element is analagous to an identity provider button on a sign-up/sign-in screen. By adding an `<ClaimsProviderSelection>` element for Azure AD, a new button will show up when a user lands on the page. To do this:
+The `<ClaimsProviderSelection>` element is analogous to an identity provider button on a sign-up/sign-in screen. By adding an `<ClaimsProviderSelection>` element for Azure AD, a new button will show up when a user lands on the page. To do this:
 
 1. Find the `<OrchestrationStep>` with `Order="1"` in the `<UserJourney>` that you just created.
 1. Add the following:
@@ -217,7 +205,7 @@ You are done modifying the extension file. Save and upload this file and ensure 
 You now need to update the RP file that will initiate the user journey that you just created.
 
 1. Make a copy of SignUpOrSignIn.xml in your working directory and rename it (e.g. SignUpOrSignInWithAAD.xml).
-1. Open the new file and update the `PolicyId` attribute for `<TrustFrameworkPolicy>` with an unique value. This will be the name of your policy (e.g. SignUpOrSignInWithAAD).
+1. Open the new file and update the `PolicyId` attribute for `<TrustFrameworkPolicy>` with an unique value (e.g. SignUpOrSignInWithAAD). This will be the name of your policy (i.e. B2C\_1A\_SignUpOrSignInWithAAD).
 1. Modify the `ReferenceId` attribute in `<DefaultUserJourney>` to match the id of the new user journey that you created (e.g. SignUpOrSignUsingContoso).
 1. Save your changes and upload the file.
 
@@ -226,6 +214,5 @@ You now need to update the RP file that will initiate the user journey that you 
 Test out the custom policy that you just uploaded by opening its blade and clicking on "Run now". In case something fails, see how to [troubleshoot](active-directory-b2c-troubleshoot-custom.md).
 
 ## Next Steps
- 
-Provide feedback to AADB2CPreview@microsoft.com.
 
+Provide feedback to AADB2CPreview@microsoft.com.

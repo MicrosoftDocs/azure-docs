@@ -2,14 +2,14 @@
 title: What is Microsoft Cognitive Services? - Documentation | Microsoft Docs
 description: Microsoft Cognitive Services is a set of APIs, SDKs, and services that you can use with Microsoft Azure that make applications more intelligent, engaging, and discoverable.
 services: cognitive-services
-author: JuliaNik
-manager: ytkuo 
+author: irvingk
+manager: gurprep 
 
 ms.service: cognitive-services
 ms.technology: cognitive-services
 ms.topic: article
 ms.date: 01/02/2017
-ms.author: juliakuz 
+ms.author: irvingk 
 ---
 
 ## What is Cognitive Services?
@@ -19,7 +19,7 @@ Microsoft Cognitive Services (formerly Project Oxford) are a set of APIs, SDKs a
 You will find documentation of each product and their corresponding API references on the left navigation table.
 
 ## Getting started with free trials
-Signing up for free trials only takes an email and a few [simple steps](https://www.microsoft.com/cognitive-services/en-us/sign-up "Sign-up Help") You will need a Microsoft Account if you don't already have one. You will receive a unique pair of keys for each API requested.  The second one is just a spare. Please do not share the secret keys with anyone.  Trials have both rate limit, in terms of transactions per second or minute, and a monthly usage cap. A transaction is simply an API call.  You can upgrade to paid tiers to unlock the restrictions.
+Signing up for free trials only takes an email and a few [simple steps](https://azure.microsoft.com/en-us/try/cognitive-services/ "Sign-up Help") You will need a Microsoft Account if you don't already have one. You will receive a unique pair of keys for each API requested. The second one is just a spare. Please do not share the secret keys with anyone. Trials have both rate limit, in terms of transactions per second or minute, and a monthly usage cap. A transaction is simply an API call. You can upgrade to paid tiers to unlock the restrictions.
 
 ## Subscription management
 Once you are signed in with Microsoft Account you will be able to access [My subscriptions] (https://www.microsoft.com/cognitive-services/en-us/subscriptions "My subscriptions") to show the products you are using, the quota remaining and the ability to add additional products to your subscription.

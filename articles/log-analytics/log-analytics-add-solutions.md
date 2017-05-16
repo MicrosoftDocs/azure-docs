@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 05/05/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 
@@ -64,7 +64,7 @@ You can install management solutions from Azure marketplace by clicking the **Ge
 
 ## Offers and pricing tiers
 
-The following table identifies which management solutions belong to each Operations Management and Security offer.
+The following table identifies which management solutions belong to each Operations Management Suite offer.
 The table also identifies the pricing tiers that are available for each management solution.
 All solutions in the following table are available from within the Azure portal and the solutions gallery in the Log Analytics portal.
 
