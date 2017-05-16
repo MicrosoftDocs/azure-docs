@@ -1,5 +1,5 @@
 ---
-title: Analyze Application Insight logs with Spark on HDInsight | Microsoft Docs
+title: Analyze Application Insight logs with Spark - Azure HDInsight | Microsoft Docs
 description: Learn how to export Application Insight logs to blob storage, and then analyze the logs with Spark on HDInsight.
 services: hdinsight
 documentationcenter: ''
