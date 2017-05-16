@@ -12,10 +12,10 @@ ms.date: 02/08/2017
 ms.author: panosper
 ---
 
-# Using a custom speech-to-text endpoint
-Requests can be sent to a Custom Speech Service speech-to-text endpoint in a very similar manner as the default Microsoft Cognitive Services speech endpoint. Note that these endpoints are functionally identical to the default endpoints of the Speech API. Thus, the same functionality available via the client library or REST API for the Speech API is also the available for your custom endpoint.
+# Use a custom speech-to-text endpoint
+You can send requests to a Custom Speech Service speech-to-text endpoint, in a similar way as you can to the default Microsoft Cognitive Services speech endpoint. These endpoints are functionally identical to the default endpoints of the Speech API. Thus, the same functionality available via the client library or REST API for the Speech API is also the available for your custom endpoint.
 
-Please note that the endpoints created via this service can process different numbers of concurrent requests depending on the tier the subscription is associated to. If more recognitions than that are requested, they will return the error code 429 (Too many requests). For more information, please visit the pricing information. In the free tier, there is a monthly limit of requests. If you exceed this limit, the service returns the error code 403 (Forbidden).
+The endpoints you create by using this service can process different numbers of concurrent requests, depending on the pricing tier your subscription is associated with. If too many requests are received, an error occurs. Note that in the free tier, there is a monthly limit of requests.
 
 The service assumes that data is transmitted in real-time. If it is sent faster, the request is considered running until its audio duration in real-time has passed.
 
