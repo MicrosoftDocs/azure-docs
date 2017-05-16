@@ -68,9 +68,8 @@ Three resources will be created on your behalf:
 [Try out all these examples at the Cloud Shell quickstart.](quickstart.md)
 
 ## Pricing
-The machine hosting Cloud Shell is free, but requires an attached Azure file share to use. The Cloud Shell uses a mounted Azure file share to persist your $Home directory. By default, a 5GB image in your file share to persist your $HOME directory. Regular storage costs apply.
-
-Check [here for details on Azure Files costs](https://azure.microsoft.com/pricing/details/storage/files/). 
+The machine hosting Cloud Shell is free, with a pre-requisite of a mounted Azure file share to persist your $Home directory. 
+Regular storage costs apply.
 
 ## Supported browsers
 Cloud Shell is recommended for Chrome, Edge, and Safari. 
