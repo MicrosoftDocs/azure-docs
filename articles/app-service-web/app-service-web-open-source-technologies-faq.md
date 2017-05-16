@@ -57,11 +57,10 @@ FAQ for ClearDB MySql databases with Azure App Service can be found [here](https
 9. Click save button
 10. Next, click on pencil icon next to **wp-config.php**
 11. Change the text as shown below
-
-```
-//Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable Debug Logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);//Supress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);
-```
-
+   ```
+   //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable Debug Logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
+   //Supress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);
+   ```
 12. Restart your web app from the web app menu in Azure Portal.
 
 For more details please click [here](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/)
@@ -85,26 +84,24 @@ You can use one of these approaches to change the version of node.js application
     * Click on Application settings in Settings blade
     * You can include WEBSITE_NODE_DEFAULT_VERSION as key and version of nodejs you want as value in app setting
     * Navigate to kudu console (http://.scm.azurewebsites.net) and you can check the nodejs version using below command  
-
-```
-node -v
-```
+   ```
+   node -v
+   ```
 2. Using iisnode.yml file, changing nodejs version in iisnode.yml file would only set the run-time environment which iisnode uses. Your kudu cmd and others would still use nodejs version set at app settings.
     * Setting iisnode.yml file manually
     Create a iisnode.yml file in your app root folder and include below line
-
-```
-nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
-```
+   ```
+   nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
+   ```
 3. Setting iisnode.yml file using package.json during source control deployment
 Azure Source Control deployment process would involve below steps
     * Moves content to azure web app
     * Creates default deployment script, if there isn’t one(deploy.cmd, .deployment files) in web app root folder
-    * Run’s deployment script where it creates iisnode.yml file if we mention nodejs version in package.json file > engine  ```"engines": {"node": "5.9.1","npm": "3.7.3"}```
+    * Run’s deployment script where it creates iisnode.yml file if we mention nodejs version in package.json file > engine  `"engines": {"node": "5.9.1","npm": "3.7.3"}`
     * iisnode.yml would have below line of code
-```
-nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
-```
+      ```
+      nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
+      ```
 
 ## I am getting 'Error establishing a database connection' in my WordPress app hosted in Azure App Service. How can I troubleshoot it?
 
