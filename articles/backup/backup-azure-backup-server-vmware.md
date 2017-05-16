@@ -1,6 +1,6 @@
 ---
-title: Use Azure Backup Server to protect VMware Server | Microsoft Docs
-description: Back up a VMware Server to Azure or disk, with Azure Backup Server. Use this article to protect your VMware workload.
+title: Use Azure Backup Server to protect VMware server | Microsoft Docs
+description: Back up a VMware server to Azure or disk, with Azure Backup Server. Use this article to protect your VMware workload.
 services: backup
 documentationcenter: ''
 author: markgalioto
@@ -19,30 +19,30 @@ ms.author: markgal;
 ---
 # Back up VMware server to Azure
 
-This article explains how to configure an Azure Backup Server to protect VMware server workload. This article assumes you already have Azure Backup Server installed. If you do not have Azure Backup Server installed, see the article, [Prepare to back up workloads using Azure Backup Server](backup-azure-microsoft-azure-backup.md).
+This article explains how to configure an Azure Backup Server to protect VMware server workload. This article assumes you already have Azure Backup Server installed. If you don't have Azure Backup Server installed, see [Prepare to back up workloads using Azure Backup Server](backup-azure-microsoft-azure-backup.md).
 
 Azure Backup Server can back up, or protect, VMware vCenter server versions 6.0 and 5.5.
 
 
 ## Create a secure connection to the vCenter Server
 
-By default Azure Backup Server communicates with vCenter servers via HTTPS channel. To enable the secure communication, it is recommended that you install the VMware Certificate Authority (CA) certificate on the Azure Backup Server. If you don't require secure communication, and would prefer to disable the HTTPS requirement, see the section, [Disable secure communication protocol](backup-azure-backup-server-vmware.md#disable-secure-communication-protocol). To create a secure connection between Azure Backup Server and the vCenter server, import the trusted certificate on the Azure Backup Server.
+By default, Azure Backup Server communicates with the vCenter servers via an HTTPS channel. To turn on the secure communication, we recommend that you install the VMware Certificate Authority (CA) certificate on the Azure Backup Server. If you don't require secure communication, and would prefer to disable the HTTPS requirement, see [Disable secure communication protocol](backup-azure-backup-server-vmware.md#disable-secure-communication-protocol). To create a secure connection between Azure Backup Server and the vCenter server, import the trusted certificate on the Azure Backup Server.
 
-Typically you use a browser on the Azure Backup Server machine to connect to the vCenter server via the vSphere Web Client. The first time you use the Azure Backup Server's browser to connect to the vCenter server, the connection isn't secure. The following image shows the unsecured connection.
+Typically, you use a browser on the Azure Backup Server machine to connect to the vCenter server via the vSphere Web Client. The first time you use the Azure Backup Server browser to connect to the vCenter server, the connection isn't secure. The following image shows the unsecured connection.
 
-![example of unsecured connection to VMware server](./media/backup-azure-backup-server-vmware/unsecure-url.png)
+![Example of unsecured connection to VMware server](./media/backup-azure-backup-server-vmware/unsecure-url.png)
 
 To fix this issue, and create a secure connection, download the trusted root CA certificates.
 
-1. In the browser on the Azure Backup Server, type the URL to the vSphere Web Client.
+1. In the browser on the Azure Backup Server, enter the URL to the vSphere Web Client. The vSphere Web Client login page appears.
 
-  The vSphere Web Client login page appears.
+  
 
-  ![vsphere web client](./media/backup-azure-backup-server-vmware/vsphere-web-client.png)
+    ![vSphere Web Client](./media/backup-azure-backup-server-vmware/vsphere-web-client.png)
 
-  At the bottom of the information for administrators and developers, is the link to **Download trusted root CA certificates**.
+    At the bottom of the information for administrators and developers, is the link to **Download trusted root CA certificates**.
 
-  ![link to download the CA trusted root certificates](./media/backup-azure-backup-server-vmware/vmware-download-ca-cert-prompt.png)
+    ![Link to download the CA trusted root certificates](./media/backup-azure-backup-server-vmware/vmware-download-ca-cert-prompt.png)
 
   If you don't see the vSphere Web Client login page, check your browser's proxy settings.
 
@@ -104,7 +104,7 @@ To fix this issue, and create a secure connection, download the trusted root CA 
 
   If you have problems importing the certificate and cannot establish a secure connection, consult the VMware vSphere documentation on [Obtaining Server Certificates](http://pubs.vmware.com/vsphere-60/index.jsp#com.vmware.wssdk.dsg.doc/sdk_sg_server_certificate_Appendixes.6.4.html).
 
-  If you have secure boundaries within your organization, and don't want to enable HTTPs protocol, use the following procedure to disable the secure communications.
+  If you have secure boundaries within your organization, and don't want to turn on the HTTPs protocol, use the following procedure to disable the secure communications.
 
 ### Disable secure communication protocol
 
@@ -142,7 +142,7 @@ To add a vCenter Server role and privileges for a backup administrator:
 
   ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/vmware-define-new-role-priv.png)
 
-3. In the **Create Role** dialog, in the **Role name** field, type *BackupAdminRole*. The role name can be whatever you like, but it should be recognizable for the role's purpose.
+3. In the **Create Role** dialog, in the **Role name** field, enter *BackupAdminRole*. The role name can be whatever you like, but it should be recognizable for the role's purpose.
 
 4. Select the privileges for the appropriate version of vCenter, and click **OK**. The following table identifies the privileges required for vCenter 6.0 and vCenter 5.5.
 
@@ -192,7 +192,7 @@ Once the role with privileges exists, create a user account. The user account ha
 
   The New User dialog opens.
 
-3. In the New User dialog, fill out the fields and click **OK**. For this example, type **BackupAdmin** for the user name. The password should be a strong password.
+3. In the New User dialog, fill out the fields and click **OK**. For this example, enter **BackupAdmin** for the user name. The password should be a strong password.
 
   ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/vmware-new-user-account.png)
 
@@ -245,7 +245,7 @@ Before you add the VMware server to Azure Backup Server, install [Update 1 for M
 
 3. In the Manage Credentials dialog, click **Add** to open the Add Credentials dialog.
 
-4. In the Add Credentials dialog, type a name and description for the new credential; then specify the user name and password. The credential name, *Contoso Vcenter credential* in the example, is how you identify the credential in the following procedure. Use the same user name and password as was used in the vCenter Server. If the vCenter Server and Azure Backup Server are not in the same domain, specify the domain in the User name.
+4. In the Add Credentials dialog, enter a name and description for the new credential; then specify the user name and password. The credential name, *Contoso Vcenter credential* in the example, is how you identify the credential in the following procedure. Use the same user name and password as was used in the vCenter Server. If the vCenter Server and Azure Backup Server are not in the same domain, specify the domain in the User name.
 
   ![MABS manage credentials dialog](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
@@ -267,7 +267,7 @@ To open the Production Server Addition wizard
 
   ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 
-2. On the Select Production Server type screen, select VMware Servers, and click **Next**.
+2. On the Select Production Server type screen, select **VMware Servers**, and then click **Next**.
 
 3. In the Server Name/IP address, specify the fully qualified domain name (FQDN) or IP address of the VMware server. If all the ESXi servers are managed by the same vCenter, you can use the vCenter name .
 
@@ -320,7 +320,7 @@ If you have not used System Center Data Protection Manager or Azure Backup Serve
 
   If a VM, or a folder containing a VM, is already protected to Azure, you cannot select that VM again. That is, once a VM is protected to Azure, it cannot be protected again, which prevents duplicate recovery points from being created for one VM. If you want to see which Azure Backup Server already protects a member, hover your mouse over the member, to see the name of the protecting server.
 
-4. On the Select Data Protection Method screen, type a name for the protection group. Short-term protection (to disk) and online protection are selected. If you want to use online protection (to Azure), you must use short-term protection to disk. Click **Next** to proceed to the short-term protection range.
+4. On the Select Data Protection Method screen, enter a name for the protection group. Short-term protection (to disk) and online protection are selected. If you want to use online protection (to Azure), you must use short-term protection to disk. Click **Next** to proceed to the short-term protection range.
 
   ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
@@ -331,9 +331,9 @@ If you have not used System Center Data Protection Manager or Azure Backup Serve
 6. On the Review Disk Allocation screen, review and if necessary, modify the disk space for the VMs. The recommended disk allocations are based on the retention range specified in the previous screen, the type of workload and the size of the protected data (identified in step 3).  
 
   - Data size - Size of the data in the protection group.
-  - Disk space - The amount of disk space recommended for the protection group. If you want to modify this setting, you should allocate total space that is slightly larger than the amount you estimate each data source will grow.
-  - Colocate data - If you enable colocation, multiple data sources in the protection can map to a single replica and recovery point volume. Colocation isn't supported for all workloads.
-  - Automatically grow - If you enable this setting, if data in the protected group outgrows the initial allocation, DPM tries to increase the disk size by 25%.
+  - Disk space - The recommended amount of disk space for the protection group. If you want to modify this setting, you should allocate total space that is slightly larger than the amount you estimate each data source will grow.
+  - Colocate data - If you turn on colocation, multiple data sources in the protection can map to a single replica and recovery point volume. Colocation isn't supported for all workloads.
+  - Automatically grow - If you turn on this setting, if data in the protected group outgrows the initial allocation, DPM tries to increase the disk size by 25%.
   - Storage pool details - Shows the current status of the storage pool, including total and remaining disk size.
 
   ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/review-disk-allocation.png)
@@ -342,7 +342,7 @@ If you have not used System Center Data Protection Manager or Azure Backup Serve
 
 7. On the Choose Replica Creation Method screen, specify how you want to generate the initial copy, or replica, of the protected data on the Azure Backup Server.
 
-  The default is **Automatically over the network** and **Now**. If you use the default, it is recommended you specify an off-peak time. Choose **Later** and specify a day and time.
+  The default is **Automatically over the network** and **Now**. If you use the default, we recommend that you specify an off-peak time. Choose **Later** and specify a day and time.
 
   For large amounts of data or less-than-optimal network conditions, consider replicating the data offline using removable media.
 
