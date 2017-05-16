@@ -9,7 +9,7 @@ ms.date: 05/16/2017
 ---
 # Azure Key Vault throttling guidance
 
-Throttling limits the number of concurrent calls to a service to prevent overuse of resources. Azure Key Vault (AKV) is designed to handle a high volume of requests. If an overwhelming number of requests occurs, throttling helps maintain optimal performance and reliability of the AKV service.
+Throttling is a process you initiate that limits the number of concurrent calls to the service to prevent overuse of resources. Azure Key Vault (AKV) is designed to handle a high volume of requests. If an overwhelming number of requests occurs, throttling your requests helps maintain optimal performance and reliability of the AKV service.
 
 Throttling limits vary based on the scenario. For example, if you are performing a large volume of writes, the possibility for throttling is higher than if you are only performing reads.
 
