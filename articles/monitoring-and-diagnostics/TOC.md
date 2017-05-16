@@ -64,9 +64,7 @@
 ## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
-## [Azure Diagnostics extension version history](azure-diagnostics-versioning-history.md)
-## Azure Diagnostics extension
-## [Schema and version history](azure-diagnostics-schema.md)
+## [Azure Diagnostics extension schema](azure-diagnostics-schema.md)
 ### [1.0](azure-diagnostics-schema-1dot0.md)
 ### [1.2](azure-diagnostics-schema-1dot2.md)
 ### [1.3 and later](azure-diagnostics-schema-1dot3-and-later.md)
