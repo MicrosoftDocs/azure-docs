@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Application Insights API for custom events and metrics

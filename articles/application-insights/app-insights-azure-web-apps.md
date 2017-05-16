@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Monitor Azure web app performance

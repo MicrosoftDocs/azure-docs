@@ -1,6 +1,6 @@
 ---
 title: Simulate a device with Azure IoT Edge (Windows) | Microsoft Docs
-description: How to use Azure IoT Edge on Windows to create a simulated device that sends telemetry through a gateway to an IoT hub.
+description: How to use Azure IoT Edge on Windows to create a simulated device that sends telemetry through an Azure IoT Edge gateway to an IoT hub.
 services: iot-hub
 documentationcenter: ''
 author: chipalost
@@ -39,7 +39,7 @@ respectively.
 
 To run the sample:
 
-In a text editor, open the file **samples\\simulated_device_cloud_upload\\src\\simulated_device_cloud_upload_win.json** in your local copy of the **iot-edge** repository. This file configures the modules in the sample gateway:
+In a text editor, open the file **samples\\simulated_device_cloud_upload\\src\\simulated_device_cloud_upload_win.json** in your local copy of the **iot-edge** repository. This file configures the IoT Edge modules in the sample gateway:
 
 * The **IoTHub** module connects to your IoT hub. You configure it to send data to your IoT hub. Specifically, set the **IoTHubName** value to the name of your IoT hub and set the **IoTHubSuffix** value to **azure-devices.net**. Set the **Transport** value to one of: "HTTP", "AMQP", or "MQTT." Currently, only "HTTP" shares one TCP connection for all device messages. If you set the value to "AMQP", or "MQTT", the gateway maintains a separate TCP connection to IoT Hub for each device.
 * The **mapping** module maps the MAC addresses of your simulated devices to your IoT Hub device ids. Make sure that **deviceId** values match the ids of the two devices you added to your IoT hub, and that the **deviceKey** values contain the keys of your two devices.
