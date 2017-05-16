@@ -119,7 +119,7 @@ You can add address spaces to and remove address spaces from a VNet. The address
 3. In the **Virtual networks** blade that appears, click the virtual network you want to add or remove an address space to or from.
 4. In the blade that appears for the VNet you selected, click **Address space** in the **SETTINGS** section.
 5. Complete one of the following options in the blade that appears with address spaces:
-	- **Add an address space:** Enter the new address space in the box. **Note:** The address space cannot overlap with an existing address space defined for the VNet.
+	- **Add an address space:** Enter the new address space in the box. The address space cannot overlap with an existing address space defined for the VNet.
 	- **Remove an address space:** Right-click an address space, then click **Remove**. If a subnet exists in the address space, you cannot remove the address space. Before you can remove an address space, any subnets that exist in the address space (and any resources connected to the subnets), must be deleted.
 6. Click **Save**.
 
