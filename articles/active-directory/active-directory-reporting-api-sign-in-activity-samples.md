@@ -3,7 +3,7 @@ title: Azure Active Directory sign-in activity report API samples | Microsoft Do
 description: How to get started with the Azure Active Directory Reporting API
 services: active-directory
 documentationcenter: ''
-author: dhanyahk
+author: dhanyahk;MarkusVi
 manager: femila
 editor: ''
 
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2016
+ms.date: 05/16/2017
 ms.author: dhanyahk;markvi
 
 ---

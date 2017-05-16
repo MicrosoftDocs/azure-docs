@@ -3,7 +3,7 @@ title: Azure Active Directory classic portal reporting guide | Microsoft Docs
 description: A guide containing all Azure Active Directory Reporting articles for the Azure classic portal
 services: active-directory
 documentationcenter: ''
-author: dhanyahk
+author: dhanyahk;MarkusVi
 manager: femila
 
 ms.assetid: b60d7f22-f271-4148-a3c8-b0ed0eccd106
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/19/2017
+ms.date: 05/16/2017
 ms.author: femila;markvi
 
 ---

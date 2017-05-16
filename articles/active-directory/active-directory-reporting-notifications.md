@@ -3,7 +3,7 @@ title: Azure Active Directory Reporting Notifications
 description: How to use the Azure Active Directory reporting notifications for suspicious sign ins.
 services: active-directory
 documentationcenter: ''
-author: dhanyahk
+author: dhanyahk;MarkusVi
 manager: femila
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2016
+ms.date: 05/16/2017
 ms.author: dhanyahk;markvi
 
 ---
