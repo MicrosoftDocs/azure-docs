@@ -1,6 +1,6 @@
 ---
-title: Azure Application Insights support for microservices and containers | Microsoft Docs
-description: Monitoring apps that consist of multiple components for performance and usage.
+title: Azure Application Insights support for multiple roles, microservices, and containers | Microsoft Docs
+description: Monitoring apps that consist of multiple components or roles for performance and usage.
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
@@ -19,7 +19,7 @@ ms.author: cfreeman
 
 You can monitor apps that consist of multiple components, roles, or services with [Azure Application Insights](app-insights-overview.md). The health of the roles and the relationships between them are displayed on a single Application Map. You can trace individual operations through multiple roles with automatic HTTP correlation. Container diagnostics can be integrated and correlated with application telemetry. Use a single Application Insights resource for all the roles of your application. 
 
-![Multi-role application map](./media/app-insights-multi-role/app-map.png)
+![Multi-role application map](./media/app-insights-monitor-multi-role-apps/app-map.png)
 
 We use 'role' here in a broad sense to mean any application component or service that is built as a separate project. For example, a typical business application may consist of multiple roles that communicate through a REST API. Roles can be hosted in containers such as Docker or Service Fabric, or on cloud or on-premises hosts. 
 
@@ -27,7 +27,7 @@ We use 'role' here in a broad sense to mean any application component or service
 
 The key technique here is to send telemetry from every role in your application to the same Application Insights resource, but use the `cloud_RoleName` property to distinguish roles when necessary. 
 
-In some cases, this may not be appropriate, and you may prefer to use separate resources for different groups of roles. For example, you might need to use different resources for management or billig purposes. Using separate resources means that you don't see all the roles displayed on a single Application Map; and that you can't query across roles in [Analytics](app-insights-analytics.md). You also have to set up the separate resources.
+In some cases, this may not be appropriate, and you may prefer to use separate resources for different groups of roles. For example, you might need to use different resources for management or billing purposes. Using separate resources means that you don't see all the roles displayed on a single Application Map; and that you can't query across roles in [Analytics](app-insights-analytics.md). You also have to set up the separate resources.
 
 With that caveat, we'll assume in the rest of this document that you want to send data from multiple roles to one Application Insights resource.
 
@@ -65,7 +65,7 @@ Update or install the Appication Insights packages in the project for each role.
    2. In the Overview blade, open the Essentials drop-down tab, and copy the **Instrumentation Key.**
    3. In your project, open ApplicationInsights.config and insert: `<InstrumentationKey>your copied key</InstrumentationKey>`
 
-![Copy the instrumentation key to the .config file](./media/app-insights-multi-role/copy-instrumentation-key.png)
+![Copy the instrumentation key to the .config file](./media/app-insights-monitor-multi-role-apps/copy-instrumentation-key.png)
 
 
 ### 3. Enable multi-role Application Map
@@ -106,18 +106,18 @@ The `cloud_RoleName` property is attached to all telemetry. It identifies the ro
 
 In the portal, you can filter or segment your telemetry using this property. In this example, the Failures blade is filtered to show just information from the front-end web service, filtering out failures from the CRM API backend:
 
-![Metric chart segmented by Cloud Role Name](./media/app-insights-multi-role/cloud-role-name.png)
+![Metric chart segmented by Cloud Role Name](./media/app-insights-monitor-multi-role-apps/cloud-role-name.png)
 
 ## Trace operations between roles
 
 You can trace the calls from one service to another made while processing an individual operation.
 
 
-![Show telemetry for operation](./media/app-insights-multi-role/show-telemetry-for-operation.png)
+![Show telemetry for operation](./media/app-insights-monitor-multi-role-apps/show-telemetry-for-operation.png)
 
 Click through to a correlated list of telemetry for this operation across the front-end web server and the back-end API:
 
-![Search across roles](./media/app-insights-multi-role/search-across-components.png)
+![Search across roles](./media/app-insights-monitor-multi-role-apps/search-across-components.png)
 
 
 ## Next steps

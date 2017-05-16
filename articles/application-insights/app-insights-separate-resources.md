@@ -29,7 +29,7 @@ When you set up Application Insights monitoring for your web app, you create an 
 You typically choose to use separate resources or a single shared resource in different scenarios:
 
 * Different, independent applications - Use a separate resource and ikey for each app.
-* Multiple components or roles of one business application - Use a [single shared resource](app-insights-multi-role.md) for all the component apps. Telemetry can be filtered or segmented by the cloud_RoleName property.
+* Multiple components or roles of one business application - Use a [single shared resource](app-insights-monitor-multi-role-apps.md) for all the component apps. Telemetry can be filtered or segmented by the cloud_RoleName property.
 * Development, Test, and Release - Use a separate resource and ikey for versions of the system in 'stamp' or stage of production.
 * A | B testing - Use a single resource. Create a TelemetryInitializer to add a property to the telemetry that identifies the variants.
 
@@ -137,5 +137,5 @@ There are several different methods of setting the Application Version property.
 
 ## Next steps
 
-* [Shared resources for multiple roles](app-insights-multi-role.md)
+* [Shared resources for multiple roles](app-insights-monitor-multi-role-apps.md)
 * [Create a Telemetry Initializer to distinguish A|B variants](app-insights-api-filtering-sampling.md#add-properties)
