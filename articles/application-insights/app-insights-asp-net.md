@@ -49,7 +49,7 @@ Continue to the Application Insights configuration page:
 
 **b.** Select the resource in Azure where you want to see the data from your app. Usually:
 
-* Use a single resource for different components of a single application. 
+* Use a [single resource for different components](app-insights-multi-role.md) of a single application. 
 * Create separate resources for unrelated applications.
  
 If you want to set the resource group or the location where your data is stored, click **Configure settings**. Resource groups are used to control access to data. For example, if you have several apps that form part of the same system, you might put their Application Insights data in the same resource group.
