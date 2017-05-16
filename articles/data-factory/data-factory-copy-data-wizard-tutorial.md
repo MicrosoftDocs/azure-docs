@@ -28,16 +28,19 @@ ms.author: spelluru
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
-The Azure Data Factory **Copy Wizard** allows you to easily and quickly create a pipeline that implements the data ingestion/movement scenario. Therefore, we recommend that you use the wizard as a first step to create a sample pipeline for data movement scenario. This tutorial shows you how to create an Azure data factory, launch the Copy Wizard, go through a series of steps to provide details about your data ingestion/movement scenario. When you finish steps in the wizard, the wizard automatically creates a pipeline with a Copy Activity to copy data from an Azure blob storage to an Azure SQL database. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity. 
+This tutorial shows you how to copy data from an Azure blob storage to an Azure SQL database by using the **Copy Wizard**. 
+
+The Azure Data Factory **Copy Wizard** allows you to easily and quickly create a data pipeline that copies data from a supported source data store to a supported destination data stores. Therefore, we recommend that you use the wizard as a first step to create a sample pipeline for your data movement scenario. For a list of data stores supported as sources and as destinations, see [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats).  
+
+This tutorial shows you how to create an Azure data factory, launch the Copy Wizard, go through a series of steps to provide details about your data ingestion/movement scenario. When you finish steps in the wizard, the wizard automatically creates a pipeline with a Copy Activity to copy data from an Azure blob storage to an Azure SQL database. For more information about Copy Activity, see [data movement activities](data-factory-data-movement-activities.md).
 
 ## Prerequisites
-- Go through [Tutorial Overview and Pre-requisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) to get an overview of the tutorial and complete the **prerequisite** steps.
-
+Complete prerequisites listed in the [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article before performing this tutorial.
 
 ## Create data factory
 In this step, you use the Azure portal to create an Azure data factory named **ADFTutorialDataFactory**.
 
-1. After logging in to the [Azure portal](https://portal.azure.com), click **+ NEW** from the top-left corner, click **Intelligence + analytics**, and click **Data Factory**. 
+1. After logging in to the [Azure portal](https://portal.azure.com), click **+ NEW** from the top-left corner, click **Data + analytics**, and click **Data Factory**. 
    
    ![New->DataFactory](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
 2. In the **New data factory** blade:
@@ -56,7 +59,6 @@ In this step, you use the Azure portal to create an Azure data factory named **A
       
       - Select **Use existing** to select an existing resource group.
       - Select **Create new** to enter a name for a resource group.
-         
           Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).
    4. Select a **location** for the data factory.
    5. Select **Pin to dashboard** check box at the bottom of the blade.  
@@ -78,7 +80,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
    
    1. Enter **CopyFromBlobToAzureSql** for **Task name**
    2. Enter **description** (optional).
-   3. Change the **Start date time** and the **End date time** so that the end date is set to today and start date to five days before the current day.  
+   3. Change the **Start date time** and the **End date time** so that the end date is set to today and start date to five days earlier.  
    4. Click **Next**.  
       
       ![Copy Tool - Properties page](./media/data-factory-copy-data-wizard-tutorial/copy-tool-properties-page.png) 
@@ -95,9 +97,8 @@ In this step, you use the Azure portal to create an Azure data factory named **A
       ![Copy Tool - Specify the Azure Blob storage account](./media/data-factory-copy-data-wizard-tutorial/copy-tool-specify-azure-blob-storage-account.png)
 5. On **Choose the input file or folder** page:
    
-   1. Navigate to the **adftutorial** folder.
+   1. Double-click **adftutorial** (folder).
    2. Select **emp.txt**, and click **Choose**
-   3. Click **Next**. 
       
       ![Copy Tool - Choose the input file or folder](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
 6. On the **Choose the input file or folder** page, click **Next**. Do not select **Binary copy**. 
@@ -136,22 +137,23 @@ In this step, you use the Azure portal to create an Azure data factory named **A
 1. On the **Deployment** page, click the link: `Click here to monitor copy pipeline`.
    
    ![Copy Tool - Deployment succeeded](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
-2. Use instructions from [Monitor and manage pipeline using Monitoring App](data-factory-monitor-manage-app.md) to learn about how to monitor the pipeline you created. Click **Refresh** icon in the **ACTIVITY WINDOWS** list to see the slice. 
+2. The monitoring application is launched in a separate tab in your web browser. Use instructions from [Monitor and manage pipeline using Monitoring App](data-factory-monitor-manage-app.md) to learn about how to monitor the pipeline you created.  
    
-   ![Monitoring App](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png) 
+   ![Monitoring App](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)
    
-   
-   Click **Refresh** button in the **ACTIVITY WINDOWS** list at the bottom to see the latest status. It is not automatically refreshed. 
+3. Click **Refresh** button in the **ACTIVITY WINDOWS** list at the bottom to see the latest status. It is not automatically refreshed.
+4. Select an activity window to see details about it in the Activity Window Explorer on the right.
+
+	![Activity window details](media/data-factory-copy-data-wizard-tutorial/activity-window-details.png)	
 
 > [!NOTE]
 > The data pipeline in this tutorial copies data from a source data store to a destination data store. It does not transform input data to produce output data. For a tutorial on how to transform data using Azure Data Factory, see [Tutorial: Build your first pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
 > 
 > You can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. See [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) for detailed information.
 
-## See Also
-| Topic | Description |
-|:--- |:--- |
-| [Pipelines](data-factory-create-pipelines.md) |This article helps you understand pipelines and activities in Azure Data Factory and how to use them to construct end-to-end data-driven workflows for your scenario or business. |
-| [Datasets](data-factory-create-datasets.md) |This article helps you understand datasets in Azure Data Factory. |
-| [Scheduling and execution](data-factory-scheduling-and-execution.md) |This article explains the scheduling and execution aspects of Azure Data Factory application model. |
+## Next steps
+In this tutorial, you used Azure blob storage as a source data store and an Azure SQL database as a destination data store in a copy operation. The following table provides a list of data stores supported as sources and destinations by the copy activity: 
 
+[!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
+
+For more information such as details about fields/properties you see in the copy wizard for a data store, click the link for the data store in the table. 
