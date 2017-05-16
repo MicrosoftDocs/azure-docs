@@ -335,7 +335,7 @@ To determine the **Internal IP address** to use in the PowerShell script below, 
     -ExternalPort 500 `
     -InternalPort 500
    # Finally, configure NAT traversal which uses port 4500 to
-   # successfully establish the complete IPEC tunnel over NAT devices
+   # successfully establish the complete IPSEC tunnel over NAT devices
    Add-NetNatStaticMapping `
     -NatName BGPNAT `
     -Protocol UDP `
