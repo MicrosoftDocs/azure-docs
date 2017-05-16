@@ -137,7 +137,7 @@ AzureSqlLinkedService links your Azure SQL database to the data factory. The dat
 ### Create a linked service for an Azure storage account
 In this step, you link your Azure storage account to your data factory.
 
-1. Create a JSON file named **AzureStorageLinkedService.json** in **C:\ADFGetStartedPSH** folder with the following content. (Create the folder ADFGetStartedPSH if it does not already exist.)
+1. Create a JSON file named **AzureStorageLinkedService.json** in **C:\ADFGetStartedPSH** folder with the following content: (Create the folder ADFGetStartedPSH if it does not already exist.)
 
 	> [!IMPORTANT]
 	> Replace &lt;accountname&gt; and &lt;accountkey&gt; with name and key of your Azure storage account before saving the file. 
@@ -154,7 +154,7 @@ In this step, you link your Azure storage account to your data factory.
      }
 	``` 
 2. In **Azure PowerShell**, switch to the **ADFGetStartedPSH** folder.
-4. Run the **New-AzureRmDataFactoryLinkedService** cmdlet to create the linked service: **AzureStorageLinkedService**. This cmdlet, and other Data Factory cmdlets you use in this tutorial require you to pass values for the **ResourceGroupName** and **DataFactoryName** parameters. Alternatively, you can use pass the DataFactory object returned by the New-AzureRmDataFactory cmdlet without typing ResourceGroupName and DataFactoryName each time you run a cmdlet. 
+4. Run the **New-AzureRmDataFactoryLinkedService** cmdlet to create the linked service: **AzureStorageLinkedService**. This cmdlet, and other Data Factory cmdlets you use in this tutorial requires you to pass values for the **ResourceGroupName** and **DataFactoryName** parameters. Alternatively, you can pass the DataFactory object returned by the New-AzureRmDataFactory cmdlet without typing ResourceGroupName and DataFactoryName each time you run a cmdlet. 
 
 	```PowerShell
 	New-AzureRmDataFactoryLinkedService $df -File .\AzureStorageLinkedService.json
@@ -210,14 +210,14 @@ In this step, you link your Azure SQL database to your data factory.
 	ProvisioningState : Succeeded
 	```
 
-   Confirm that the **Allow access to Azure services** setting is turned on for your SQL database server. To verify and turn it on, do the following steps:
+   Confirm that **Allow access to Azure services** setting is turned on for your SQL database server. To verify and turn it on, do the following steps:
 
-   1. Log in to the [Azure portal](https://portal.azure.com)
-   2. Click **More services >** on the left, and click **SQL servers** in the **DATABASES** category.
-   2. Select your server in the list of SQL servers. 
-   3. On the SQL server blade, click **Show firewall settings** link. 
-   4. In the **Firewall settings** blade, click **ON** for **Allow access to Azure services**.
-   5. Click **Save** on the toolbar. 
+	1. Log in to the [Azure portal](https://portal.azure.com)
+	2. Click **More services >** on the left, and click **SQL servers** in the **DATABASES** category.
+	3. Select your server in the list of SQL servers.
+	4. On the SQL server blade, click **Show firewall settings** link.
+	5. In the **Firewall settings** blade, click **ON** for **Allow access to Azure services**.
+	6. Click **Save** on the toolbar. 
 
 ## Create datasets
 In the previous step, you created linked services to link your Azure Storage account and Azure SQL database to your data factory. In this step, you define two datasets named InputDataset and OutputDataset that represent input and output data that is stored in the data stores referred by AzureStorageLinkedService and AzureSqlLinkedService respectively.
@@ -462,7 +462,6 @@ In this step, you use Azure PowerShell to monitor what’s going on in an Azure 
 	
 	```
 	PS C:\ADFGetStartedPSH> $df
-	
 	
 	DataFactoryName   : ADFTutorialDataFactoryPSH0516
 	DataFactoryId     : 6f194b34-03b3-49ab-8f03-9f8a7b9d3e30
