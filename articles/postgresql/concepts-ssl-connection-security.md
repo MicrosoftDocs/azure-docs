@@ -111,8 +111,8 @@ Now that you have successfully decoded your certificate, you can now connect to 
 
 > [!NOTE]
 > Currently, there is a known issue if you use "sslmode=verify-full" in your connection to the service, the connection will fail with the following error:
-> _server certificate for "<region>.control.database.windows.net" (and 7 other names) does not match host name "<servername>.postgres.database.azure.com"._
-> If "sslmode=verify-full" is required, please use the server naming convention **<servername>.database.windows.net** as your connection string host name. We plan to remove this limitation in the future. Connections using other [SSL modes](https://www.postgresql.org/docs/9.6/static/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS) should continue to use the preferred host naming convention **<servername>.postgres.database.azure.com**.
+> _server certificate for "&lt;region&gt;.control.database.windows.net" (and 7 other names) does not match host name "&lt;servername&gt;.postgres.database.azure.com"._
+> If "sslmode=verify-full" is required, please use the server naming convention **&lt;servername&gt;.database.windows.net** as your connection string host name. We plan to remove this limitation in the future. Connections using other [SSL modes](https://www.postgresql.org/docs/9.6/static/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS) should continue to use the preferred host naming convention **&lt;servername&gt;.postgres.database.azure.com**.
 
 #### Using psql command-line utility
 The following example shows you how to successfully connect to your PostgreSQL server using the psql command-line utility. Use the `root.crt` file created and the `sslmode=verify-ca` or `sslmode=verify-full` option.
