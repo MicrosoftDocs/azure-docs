@@ -1,8 +1,9 @@
 # Overview
 ## [What is Azure Active Directory?](active-directory-whatis.md)
 ## [Choose edition](active-directory-editions.md)
-
-## [About Azure identity management](identity-fundamentals.md)
+## [About Azure identity management](fundamentals-identity.md)
+## [Understand Azure identity solutions](understand-azure-identity-solutions.md)
+## [Preview the Azure portal experience](active-directory-preview-explainer.md)
 
 # Get started
 ## [Get an Azure AD tenant](active-directory-howto-tenant.md)
@@ -330,6 +331,7 @@
 #### [Sign-in experience](active-directory-identityprotection-flows.md)
 #### [Simulate risk events](active-directory-identityprotection-playbook.md)
 #### [Unblock users](active-directory-identityprotection-unblock-howto.md)
+#### [FAQs](active-directory-identity-protection-faqs.md)
 #### [Glossary](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)

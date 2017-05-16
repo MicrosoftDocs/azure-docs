@@ -35,10 +35,10 @@ Before you get started, you must [set up your development environment][lnk-setup
 
 ## How to run the sample
 
-1. The **build.sh** script generates its output in the **build** folder in your local copy of the **iot-edge** repository. This output includes the two modules used in this sample.
+1. The **build.sh** script generates its output in the **build** folder in your local copy of the **iot-edge** repository. This output includes the two IoT Edge modules used in this sample.
 
     The build script places **liblogger.so** in the **build/modules/logger/** folder and **libhello\_world.so** in the **build/modules/hello_world/** folder. Use these paths for the **module path** value as shown in the following example JSON settings file.
-1. The hello\_world\_sample process takes the path to a JSON configuration file a command-line argument. The following example JSON file is provided in the SDK repository at **samples/hello\_world/src/hello\_world\_lin.json**. This configuration file works as is unless you modify the build script to place modules or sample executables in non-default locations.
+1. The hello\_world\_sample process takes the path to a JSON configuration file a command-line argument. The following example JSON file is provided in the SDK repository at **samples/hello\_world/src/hello\_world\_lin.json**. This configuration file works as is unless you modify the build script to place IoT Edge modules or sample executables in non-default locations.
 
    > [!NOTE]
    > The module paths are relative to the current working directory from where the hello\_world\_sample executable is launched, not the directory where the executable is located. The sample JSON configuration file defaults to writing 'log.txt' in your current working directory.

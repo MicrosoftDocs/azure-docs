@@ -68,7 +68,7 @@ The following table shows connectivity locations and the service providers for e
 | **Amsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telefonica+, Telenor, Verizon |
 | **Atlanta** |Equinix |
 | **Busan** |LG CNS |
-| **Chennai** |Global CloudXchange (GCX), SIFY, Tata Communications |
+| **Chennai** | Airtel+, Global CloudXchange (GCX), SIFY, Tata Communications |
 | **Chicago** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Megaport, Verizon, Zayo Group |
 | **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Verizon, Zayo Group+ |
 | **Denver** |CoreSite+ |
@@ -78,11 +78,11 @@ The following table shows connectivity locations and the service providers for e
 | **London** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telehouse - KDDI, Telenor, Verizon, Vodafone, Zayo Group+ |
 | **Los Angeles** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Melbourne** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
-| **New York** |Coresite, Equinix, Megaport, Zayo Group |
 | **Miami** |Megaport |
 | **Montreal** |Bell Canada, Cologix |
 | **Mumbai** |Airtel+, Tata Communications |
 | **Newport(Wales)** |Next Generation Data |
+| **New York** |Coresite, Equinix, Megaport, Zayo Group |
 | **Osaka** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
 | **Paris** |Interxion, Equinix+ |
 | **Quebec City** | Megaport |
@@ -144,21 +144,21 @@ If your connectivity provider is not listed in previous sections, you can still 
 | --- | --- | --- |
 | **Amsterdam** | Equinix, Telecity | Eurofiber , Fastweb S.p.A, Nianet |
 | **Chicago** | Equinix | Windstream |
-| **Dallas** | Equinix, Megaport | C3ntro, Data Foundry, Transtelco |
+| **Dallas** | Equinix, Megaport | C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
 | **Frankfurt** | Telecity | Nianet, QSC AG |
-| **London** | Equinix, euNetworks, Telecity | Bezeq International Ltd., Exponential E, HSO, NexGen Networks, Tamares Telecom |
+| **London** | Equinix, euNetworks, Telecity | Bezeq International Ltd., Epsilon, Exponential E, HSO, NexGen Networks, Tamares Telecom |
 | **Los Angeles** | Equinix |Transtelco |
 | **Madrid** | Level3 | Zertia |
-| **Montreal** | Cologix, Equinix | Airgate Technologies. Inc, Cogeco Peer 1 |
+| **Montreal** | Cologix, Equinix | Airgate Technologies. Inc, Cogeco Peer 1, Rogers |
 | **New York** |Equinix | Lightower |
 | **Seattle** |Equinix | Alaska Communications |
-| **Silicon Valley** |Equinix | Windstream |
+| **Silicon Valley** |Equinix | Cox Business, Windstream |
 | **Singapore** |Equinix |1CLOUDSTAR, Epsilon Telecommunications Limited |
 | **Slough** | Equinix | HSO|
 | **Sydney** | Megaport | Macquarie Telecom Group|
 | **Tokyo** | Equinix | ARTERIA Networks Corporation |
-| **Toronto** | Equinix | Airgate Technologies. Inc, Cogeco Peer 1 |
-| **Washington DC** |Equinix | Lightower, Masergy, Windstream |
+| **Toronto** | Equinix | Airgate Technologies. Inc, Cogeco Peer 1, Rogers, Thinktel|
+| **Washington DC** |Equinix | Epsilon, Lightower, Masergy, Windstream |
 
 ## ExpressRoute system integrators
 Enabling private connectivity to fit your needs can be challenging, based on the scale of your network. You can work with any of the system integrators listed in the following table to assist you with onboarding to ExpressRoute.
@@ -166,8 +166,8 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | **Continent** | **System integrators** |
 | --- | --- |
 | **Asia** |Avanade Inc., OneAs1a |
-| **Australia** | IT Consultancy, Vigilant.IT |
-| **Europe** |Avanade Inc., Altogee, Bright Skies GmbH, Dotnet Solutions, MSG Services, Nelite, Orange Networks, sol-tec |
+| **Australia** | Ensyst, IT Consultancy, Vigilant.IT |
+| **Europe** |Avanade Inc., Altogee, Bright Skies GmbH, New Signature, MSG Services, Nelite, Orange Networks, sol-tec |
 | **North America** |Avanade Inc., Equinix Professional Services, Perficient, Presidio, Project Leadership |
 | **South America** |Avanade Inc. |
 ## Next steps
