@@ -10,7 +10,7 @@ editor: cgronlun
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 05/16/2017
 ms.author: onewth
 
 ---
