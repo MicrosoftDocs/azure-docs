@@ -109,7 +109,7 @@ To summarize the main points, in order to scale an Stream Analytics job with Mac
 2. The tolerated latency for the running Stream Analytics job (and thus the batch size of the Machine Learning web service requests)
 3. The provisioned Stream Analytics SUs and the number of Machine Learning web service requests (the additional function-related costs)
 
-A fully partitioned Stream Analytics query was used as an example. If a more complex query is needed the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) is a great resource for getting additional help from the Stream Analytics team.
+A fully partitioned Stream Analytics query was used as an example. If a more complex query is needed the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics) is a great resource for getting additional help from the Stream Analytics team.
 
 ## Next steps
 To learn more about Stream Analytics, see:

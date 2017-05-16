@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Using Analytics in Application Insights
@@ -121,6 +121,16 @@ Select the type of diagram you'd like:
 If you have several columns of the right types, you can choose the x and y axes, and a column of dimensions to split the results by.
 
 By default, results are initially displayed as a table, and you select the diagram manually. But you can use the [render directive](app-insights-analytics-reference.md#render-directive) at the end of a query to select a diagram.
+
+### Analytics diagnostics
+
+
+On a timechart, if there is a sudden spike or step in your data, you may see a highlighted point on the line. This indicates that Analytics Diagnostics has identified a combination of properties that filter out the sudden change. Click the point to get more detail on the filter, and to see the filtered version. This may help you identify what caused the change. 
+
+[Learn more about Analytics Diagnostics](app-insights-analytics-diagnostics.md)
+
+
+![Analytics diagnostics](./media/app-insights-analytics-using/analytics-diagnostics.png)
 
 ## Pin to dashboard
 You can pin a diagram or table to one of your [shared dashboards](app-insights-dashboards.md) - just click the pin. (You might need to [upgrade your app's pricing package](app-insights-pricing.md) to turn on this feature.) 

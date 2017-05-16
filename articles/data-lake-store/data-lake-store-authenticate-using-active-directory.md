@@ -86,7 +86,6 @@ When programmatically logging in, you need the id for your application. If the a
 
 4. From the list of endpoints, copy the OAuth 2.0 token endpoint.
 
-
 	![OAuth token endpoint](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "OAuth token endpoint")   
 
 ## Next steps

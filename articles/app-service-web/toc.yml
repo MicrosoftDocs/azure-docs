@@ -1,5 +1,5 @@
 - name: Web Apps Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: About Web Apps
@@ -27,10 +27,20 @@
     href: app-service-web-tutorial-dotnet-sqldatabase.md
   - name: 1 - Node.js with MongoDB
     href: app-service-web-tutorial-nodejs-mongodb-app.md
+  - name: 1 - PHP with MySQL
+    href: app-service-web-tutorial-php-mysql.md 
+  - name: 1 - WordPress with MySQL
+    href: app-service-web-create-web-app-from-marketplace.md
+  - name: 1 - Python with PostgreSQL
+    href: app-service-web-tutorial-docker-python-postgresql-app.md
   - name: 2 - Map Custom Domain
     href: app-service-web-tutorial-custom-domain.md
   - name: 3 - Bind SSL Certificate
     href: app-service-web-tutorial-custom-ssl.md
+  - name: 4 - Add Content Delivery Network
+    href: app-service-web-tutorial-content-delivery-network.md
+#  - name: 5 - Monitor your app
+#    href: app-service-web-tutorial-monitoring.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -101,14 +111,32 @@
         href: web-sites-php-configure.md
       - name: Java
         href: web-sites-java-add-app.md
-      - name: Node.js on Linux
-        href: app-service-linux-using-nodejs-pm2.md
       - name: Python
         href: web-sites-python-configure.md
     - name: Configure application
       items:
       - name: Use app settings
         href: web-sites-configure.md
+    - name: Web App on Linux
+      items:
+      - name: Overview
+        href: app-service-linux-intro.md
+      - name: Create Web App on Linux
+        href: app-service-linux-how-to-create-web-app.md
+      - name: Ruby Web App on Linux
+        href: app-service-linux-ruby-get-started.md
+      - name: Node.js Web App on Linux
+        href: app-service-linux-using-nodejs-pm2.md
+      - name: .NET Core Web App on Linux
+        href: app-service-linux-using-dotnetcore.md
+      - name: Custom Docker Web App on Linux
+        href: app-service-linux-using-custom-docker-image.md
+      - name: Connect via SSH
+        href: app-service-linux-ssh-support.md
+      - name: Continuous Deployment
+        href: app-service-linux-ci-cd.md
+      - name: Web App on Linux FAQ
+        href: app-service-linux-faq.md
   - name: Deploy to Azure
     href: web-sites-deploy.md
     items:

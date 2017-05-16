@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Application Insights: Frequently Asked Questions
@@ -99,7 +99,7 @@ A desktop app that you can use in your IIS web server to help configure Applicat
 From server web apps:
 
 * HTTP requests
-* [Dependencies](app-insights-asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure DocumentDB, table, blob storage, and queue. 
+* [Dependencies](app-insights-asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure Cosmos DB, table, blob storage, and queue. 
 * [Exceptions](app-insights-asp-net-exceptions.md) and stack traces.
 * [Performance Counters](app-insights-performance-counters.md) - If you use [Status Monitor](app-insights-monitor-performance-live-website-now.md), Azure monitoring(app-insights-azure-web-apps.md) or the [Application Insights collectd writer](app-insights-java-collectd.md).
 * [Custom events and metrics](app-insights-api-custom-events-metrics.md) that you code.
