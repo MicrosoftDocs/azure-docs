@@ -24,7 +24,7 @@ The following are best practices for handling throttling:
 - Reduce the frequency of calls.
 - Avoid immediate retries, because all requests accrue against your usage limits.
 
-When you implement error handling, use the HTTP error code 429 to detect throttling. If the request fails again with a 429 error code, you are still being throttled. Continue to use the recommended throttling method and retry the request until it succeeds.
+When you implement error handling, use the HTTP error code 429 to detect the need for throttling on the client side. If the request fails again with a 429 error code, you are still encountering an Azure service limit. Continue to use the recommended client throttling method and retry the request until it succeeds.
 
 ### Recommended throttling method
 
