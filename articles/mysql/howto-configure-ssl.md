@@ -145,6 +145,11 @@ Threads: 4  Questions: 26082  Slow queries: 0  Opens: 112  Flush tables: 1  Open
 --------------
 ```
 
+> [!NOTE]
+> Currently, there is a known issue if you use "--ssl-mode=VERIFY_IDENTITY" option in your mysql.exe connection to the service, the connection will fail with the following error:
+> _ERROR 2026 (HY000): SSL connection error: SSL certificate validation failure_
+> If option "--ssl-mode=VERIFY_IDENTITY" is required, please use the server naming convention **&lt;servername&gt;.database.windows.net** as your connection string host name. We plan to remove this limitation in the future. Connections using other [SSL modes](https://dev.mysql.com/doc/refman/5.7/en/secure-connection-options.html#option_general_ssl-mode) should continue to use the preferred host naming convention **&lt;servername&gt;.mysql.database.azure.com**.
+
 ### Connecting to server using the MySQL Workbench over SSL
 Configuring MySQL Workbench to connect securely over SSL requires you to navigate to the **SSL** tab in the MySQL Workbench Setup New Connection dialogue, and enter the file location of the **MyServerCACert.pem** in the **SSL CA File:** field.
 ![save customized tile](./media/concepts-ssl-connection-security/mysql-workbench-ssl.png)
