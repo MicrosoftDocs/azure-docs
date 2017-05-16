@@ -21,7 +21,7 @@ ms.author: billmath
 Azure Active Directory (Azure AD) Pass-through Authentication allows your users to sign in to both on-premises and cloud-based applications using the same passwords. When users sign in using Azure AD, this feature validates users' passwords directly against your on-premises Active Directory.
 
 To deploy Pass-through Authentication, you need to do the following steps:
-1. [Check prerequisites](#step-1:-check-prerequisites): Setup your tenant and on-premises environment correctly before you enable the feature.
+1. [Check prerequisites](#step-1:-check-prerequisites): Set up your tenant and on-premises environment correctly before you enable the feature.
 2. [Enable the feature](#step-2:-enable-the-feature): Turn on Pass-through Authentication on your tenant and install a lightweight on-premises agent.
 3. [Test the feature](#step-3:-test-the-feature): Test user sign-in using Pass-through Authentication.
 4. [Ensure high availablity](###step-4:-ensure-highly-availablity): Install a second standalone agent to provide high availability for sign-in requests.
@@ -34,9 +34,9 @@ Use the following checklist to ensure that all the correct prerequisites are in 
 2. Identify a server running Windows Server 2012 R2 or later on which to run Azure AD Connect. Add the server to the same AD forest as the users whose passwords need to be validated.
 3. Install the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) on the server identified in Step 2. If you already have Azure AD Connect running, ensure that the version is 1.1.486.0 or later.
 4. Identify an additional server running Windows Server 2012 R2 or later on which to run a standalone agent. The agent version needs to be 1.5.58.0 or later. This server is needed to ensure high availability of sign-in requests. Add the server to the same AD forest as the users whose passwords need to be validated.
-5. You'll need to configure the following items if there is a firewall between your servers and Azure AD:
+5. If there is a firewall between your servers and Azure AD, you need to configure the following items:
    - Open up your ports: Ensure that the agents on your servers can make outbound requests to Azure AD over ports 80 and 443. If your firewall enforces rules according to originating users, open these ports for traffic coming from Windows services running as a Network Service.
-   - Allow Azure AD endpoints: If URL filtering is enabled, ensure that the agents can communicate with "\*.msappproxy.net" and "\*.servicebus.windows.net".
+   - Allow Azure AD endpoints: If URL filtering is enabled, ensure that the agents can communicate with **\*.msappproxy.net** and **\*.servicebus.windows.net**.
    - Verify direct IP connections: Ensure that the agents on your servers can make direct IP connections to the [Azure data center IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
      >[!NOTE]
