@@ -1,6 +1,6 @@
 ---
 title: Use a physical device with Azure IoT Edge | Microsoft Docs
-description: How to use a Texas Instruments SensorTag device to send data to an IoT hub through a gateway running on a Raspberry Pi 3 device. The gateway is built using Azure IoT Edge.
+description: How to use a Texas Instruments SensorTag device to send data to an IoT hub through a IoT Edge gateway running on a Raspberry Pi 3 device. The gateway is built using Azure IoT Edge.
 services: iot-hub
 documentationcenter: ''
 author: chipalost
@@ -31,16 +31,16 @@ This walkthrough covers:
 
 ## Architecture
 
-The walkthrough shows you how to build and run an IoT Gateway on a Raspberry Pi 3 that runs Raspbian Linux. The gateway is built using IoT Edge. The sample uses a Texas Instruments SensorTag Bluetooth Low Energy (BLE) device to collect temperature data.
+The walkthrough shows you how to build and run an IoT Edge gateway on a Raspberry Pi 3 that runs Raspbian Linux. The gateway is built using IoT Edge. The sample uses a Texas Instruments SensorTag Bluetooth Low Energy (BLE) device to collect temperature data.
 
-When you run the gateway it:
+When you run the IoT Edge gateway it:
 
 * Connects to a SensorTag device using the Bluetooth Low Energy (BLE) protocol.
 * Connects to IoT Hub using the HTTP protocol.
 * Forwards telemetry from the SensorTag device to IoT Hub.
 * Routes commands from IoT Hub to the SensorTag device.
 
-The gateway contains the following modules:
+The gateway contains the following IoT Edge modules:
 
 * A *BLE module* that interfaces with a BLE device to receive temperature data from the device and send commands to the device.
 * A *BLE Cloud to Device module* that translates the JSON messages coming from the cloud into BLE instructions for the *BLE module*.
@@ -207,11 +207,11 @@ Before running the sample, you need to verify that your Raspberry Pi 3 can conne
     [CHG] Device A0:E6:F8:B5:F6:00 Connected: no
     ```
 
-You're now ready to run the BLE Gateway sample on your Raspberry Pi 3.
+You're now ready to run the BLE IoT Edge sample on your Raspberry Pi 3.
 
-## Run the BLE Gateway sample
+## Run the IoT Edge BLE sample
 
-To run the BLE sample, you need to complete three tasks:
+To run the IoT Edge BLE sample, you need to complete three tasks:
 
 * Configure two sample devices in your IoT Hub.
 * Build IoT Edge on your Raspberry Pi 3 device.
@@ -246,7 +246,7 @@ When you have a complete copy of the IoT Edge repository on your Raspberry Pi 3,
 
 ### Configure and run the BLE sample on your Raspberry Pi 3
 
-To bootstrap and run the sample, you must configure each module that participates in the gateway. This configuration is provided in a JSON file and you must configure all five participating modules. There is a sample JSON file in the repository called **gateway\_sample.json** that you can use as the starting point for building your own configuration file. This file is in the **samples/ble_gateway/src** folder in local copy of the IoT Edge repository.
+To bootstrap and run the sample, you must configure each IoT Edge module that participates in the gateway. This configuration is provided in a JSON file and you must configure all five participating IoT Edge modules. There is a sample JSON file in the repository called **gateway\_sample.json** that you can use as the starting point for building your own configuration file. This file is in the **samples/ble_gateway/src** folder in local copy of the IoT Edge repository.
 
 The following sections describe how to edit this configuration file for the BLE sample and assume that the IoT Edge repository is in the **/home/pi/iot-edge/** folder on your Raspberry Pi 3. If the repository is elsewhere, adjust the paths accordingly.
 
@@ -407,7 +407,7 @@ Add the MAC address of your SensorTag device and the device ID and key of the **
 
 #### Routing Configuration
 
-The following configuration ensures the following routing between modules:
+The following configuration ensures the following routing between IoT Edge modules:
 
 * The **Logger** module receives and logs all messages.
 * The **SensorTag** module sends messages to both the **mapping** and **BLE Printer** modules.
@@ -436,7 +436,7 @@ To run the sample, pass the path to the JSON configuration file as a parameter t
 
 You may need to press the small button on the SensorTag device to make it discoverable before you run the sample.
 
-When you run the sample, you can use the [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) or the [iothub-explorer](https://github.com/Azure/iothub-explorer) tool to monitor the messages the gateway forwards from the SensorTag device.
+When you run the sample, you can use the [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) or the [iothub-explorer](https://github.com/Azure/iothub-explorer) tool to monitor the messages the IoT Edge gateway forwards from the SensorTag device.
 
 ## Send cloud-to-device messages
 
