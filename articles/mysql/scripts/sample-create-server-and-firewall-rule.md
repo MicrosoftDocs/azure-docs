@@ -22,7 +22,7 @@ This sample CLI script creates an Azure Database for MySQL server and configures
 
 ## Sample Script
 In this sample script, edit the highlighted lines to customize the name, location, and password.
-[!code-azurecli-interactive[main](../../../cli_scripts/mysql/create-mysql-server-and-firewall-rule/create-mysql-server-and-firewall-rule.sh?highlight=15,16) "Create an Azure Database for MySQL, and server-level firewall rule.")]
+[!code-azurecli-interactive[main](../../../cli_scripts/mysql/create-mysql-server-and-firewall-rule/create-mysql-server-and-firewall-rule.sh?highlight=15-16) "Create an Azure Database for MySQL, and server-level firewall rule.")]
 
 ## Clean up deployment
  After the script sample runs, use the following command to remove the resource group and all resources associated with it.
