@@ -38,7 +38,7 @@ The AAD roles control the ability provision preconfigured solutions and manage u
 
 You can find more information about administrator roles in AAD in [Assigning administrator roles in Azure AD][lnk-aad-admin]. The current article focuses on the **Global Administrator** and the **User** directory roles as used by the preconfigured solutions.
 
-**Global Administrator:** There can be many global administrators per AAD tenant. When you create an AAD tenant, you are by default the global administrator of that tenant. The global administrator can provision a preconfigured solution and is assigned an **Admin** role for the application inside their AAD tenant. However, if another user in the same AAD tenant creates an application, the default role the global administrator is granted is **ReadOnly**. Global administrators can assign users to roles for applications using the [Azure portal][lnk-portal].
+**Global Administrator:** There can be many global administrators per AAD tenant. When you create an AAD tenant, you are by default the global administrator of that tenant. The global administrator can provision a preconfigured solution and is assigned an **Admin** role for the application inside their AAD tenant. However, if another user in the same AAD tenant creates an application, the default role granted to the global administrator is **ReadOnly**. Global administrators can assign users to roles for applications using the [Azure portal][lnk-portal].
 
 **User:** There can be many domain users per AAD tenant. A domain user can provision a preconfigured solution through the [azureiotsuite.com][lnk-azureiotsuite] site. The default role they are granted for the application they provision is **Admin**. They can create an application using the build.cmd script in the [azure-iot-remote-monitoring][lnk-rm-github-repo] or [azure-iot-predictive-maintenance][lnk-pm-github-repo] repository. However, the default role they are granted is **ReadOnly**, as they do not have permission to assign roles. If another user in the AAD tenant creates an application, they are assigned the **ReadOnly** role by default for that application. They cannot assign roles for applications; therefore they cannot add users or roles for users for an application even if they provisioned it.
 
@@ -53,7 +53,7 @@ For more information, see the following resources:
 
 The Azure admin roles control the ability to map an Azure subscription to an AD tenant.
 
-You can find out more about the Azure Co-Administrator, Service Administrator, and Account Administrator roles in the article [How to add or change Azure Co-Administrator, Service Administrator and Account Administrator][lnk-admin-roles].
+You can find out more about the Azure Co-Administrator, Service Administrator, and Account Administrator roles in the article [How to add or change Azure Co-Administrator, Service Administrator, and Account Administrator][lnk-admin-roles].
 
 ## Application roles
 
@@ -90,7 +90,7 @@ You must be an AAD global administrator to change roles for a user:
 2. Select the subscription you'd like to change the directory mapping to.
 3. Click **Edit Directory**.
 4. Select the **Directory** you would like to use in the dropdown. Click the forward arrow.
-5. Confirm the directory mapping and affected co-administrators. Note that if you are moving from another directory, all the co-administrators from the original directory are removed.
+5. Confirm the directory mapping and affected co-administrators. If you are moving from another directory, all the co-administrators from the original directory are removed.
 
 ### I'm a domain user/member on the AAD tenant and I've created a preconfigured solution. How do I get assigned a role for my application?
 
@@ -120,7 +120,7 @@ Look at the following diagram for guidance:
 
 ### Why am I seeing this error when I have an Azure subscription? "An Azure subscription is required to create pre-configured solutions. You can create a free trial account in just a couple of minutes."
 
-If you're certain you have an Azure subscription, validate the tenant mapping for your subscription and ensure the correct tenant is selected in the dropdown. If you’ve validated the desired tenant is correct, follow the preceeding diagram and validate the mapping of your subscription and this AAD tenant.
+If you're certain you have an Azure subscription, validate the tenant mapping for your subscription and ensure the correct tenant is selected in the dropdown. If you’ve validated the desired tenant is correct, follow the preceding diagram and validate the mapping of your subscription and this AAD tenant.
 
 ## Next steps
 To continue learning about IoT Suite, see how you can [customize a preconfigured solution][lnk-customize].
