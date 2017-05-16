@@ -42,8 +42,8 @@ To simulate the outage you can delete or rename the source database. This will c
 #### Validation
 * Complete the drill by verifying the application integrity post recovery (i.e. connection strings, logins, basic functionality testing or other validations part of standard application signoffs procedures).
 
-## Geo-Replication
-For a database that is protected using Geo-Replication the drill exercise will involve planned failover to the secondary database. The planned failover ensures that the primary and the secondary databases remain in sync when the roles are switched. Unlike the unplanned failover, this operation will not result in data loss, so the drill can be performed in the production environment.
+## Geo-replication
+For a database that is protected using geo-replication the drill exercise will involve planned failover to the secondary database. The planned failover ensures that the primary and the secondary databases remain in sync when the roles are switched. Unlike the unplanned failover, this operation will not result in data loss, so the drill can be performed in the production environment.
 
 #### Outage simulation
 To simulate the outage you can disable the web application or virtual machine connected to the database. This will result in the connectivity failures for the web clients.
@@ -60,4 +60,4 @@ To simulate the outage you can disable the web application or virtual machine co
 * To learn about business continuity scenarios, see [Continuity scenarios](sql-database-business-continuity.md)
 * To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
 * To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
-* To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
+* To learn about faster recovery options, see [active geo-replication](sql-database-geo-replication-overview.md)  

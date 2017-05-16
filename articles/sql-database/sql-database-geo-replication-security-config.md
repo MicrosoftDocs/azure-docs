@@ -21,11 +21,11 @@ ms.author: sashan
 # Configure and manage Azure SQL Database security for geo-restore or failover 
 
 > [!NOTE]
-> [Active Geo-Replication](sql-database-geo-replication-overview.md) is now available for all databases in all service tiers.
+> [Active geo-replication](sql-database-geo-replication-overview.md) is now available for all databases in all service tiers.
 >  
 
 ## Overview of authentication requirements for disaster recovery
-This topic describes the authentication requirements to configure and control [Active Geo-Replication](sql-database-geo-replication-overview.md) and the steps required to set up user access to the secondary database. It also describes how enable access to the recovered database after using [geo-restore](sql-database-recovery-using-backups.md#geo-restore). For more information on recovery options, see [Business Continuity Overview](sql-database-business-continuity.md).
+This topic describes the authentication requirements to configure and control [active geo-replication](sql-database-geo-replication-overview.md) and the steps required to set up user access to the secondary database. It also describes how enable access to the recovered database after using [geo-restore](sql-database-recovery-using-backups.md#geo-restore). For more information on recovery options, see [Business Continuity Overview](sql-database-business-continuity.md).
 
 ## Disaster recovery with contained users
 Unlike traditional users, which must be mapped to logins in the master database, a contained user is managed completely by the database itself. This has two benefits. In the disaster recovery scenario, the users can continue to connect to the new primary database or the database recovered using geo-restore without any additional configuration, because the database manages the users. There are also potential scalability and performance benefits from this configuration from a login perspective. For more information, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx). 
@@ -40,7 +40,7 @@ In order for the secondary database to be usable as a read-only secondary databa
 
 The specific permissions for each step are described later in this topic.
 
-Preparing user access to a Geo-Replication secondary should be performed as part configuring Geo-Replication. Preparing user access to the geo-restored databases should be performed at any time when the original server is online (e.g. as part of the DR drill).
+Preparing user access to a geo-replication secondary should be performed as part configuring geo-replication. Preparing user access to the geo-restored databases should be performed at any time when the original server is online (e.g. as part of the DR drill).
 
 > [!NOTE]
 > If you failover or geo-restore to a server that does not have properly configured logins access to it will be limited to the server admin account.
@@ -97,6 +97,6 @@ The last step is to go to the target server, or servers, and generate the logins
 ## Next steps
 * For more information on managing database access and logins, see [SQL Database security: Manage database access and login security](sql-database-manage-logins.md).
 * For more information on contained database users, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
-* For information about using and configuring Active Geo-Replication, see [Active Geo-Replication](sql-database-geo-replication-overview.md)
+* For information about using and configuring active geo-replication, see [active geo-replication](sql-database-geo-replication-overview.md)
 * For informatin about using Geo-Restore, see [Geo-Restore](sql-database-recovery-using-backups.md#geo-restore)
 

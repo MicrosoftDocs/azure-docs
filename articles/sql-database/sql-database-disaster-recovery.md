@@ -1,6 +1,6 @@
 ---
 title: SQL Database disaster recovery | Microsoft Docs
-description: Learn how to recover a database from a regional datacenter outage or failure with the Azure SQL Database Active Geo-Replication, and Geo-Restore capabilities.
+description: Learn how to recover a database from a regional datacenter outage or failure with the Azure SQL Database active geo-replication, and Geo-Restore capabilities.
 services: sql-database
 documentationcenter: ''
 author: anosov1960
@@ -21,21 +21,21 @@ ms.author: sashan
 # Restore an Azure SQL Database or failover to a secondary
 Azure SQL Database offers the following capabilities for recovering from an outage:
 
-* [Active Geo-Replication](sql-database-geo-replication-overview.md)
+* [Active geo-replication](sql-database-geo-replication-overview.md)
 * [Geo-Restore](sql-database-recovery-using-backups.md#point-in-time-restore)
 
 To learn about business continuity scenarios and the features supporting these scenarios, see [Business continuity](sql-database-business-continuity.md).
 
 ### Prepare for the event of an outage
-For success with recovery to another data region using either Active Geo-Replication or geo-redundant backups, you need to prepare a server in another data center outage to become the new primary server should the need arise as well as have well defined steps documented and tested to ensure a smooth recovery. These preparation steps include:
+For success with recovery to another data region using either active geo-replication or geo-redundant backups, you need to prepare a server in another data center outage to become the new primary server should the need arise as well as have well defined steps documented and tested to ensure a smooth recovery. These preparation steps include:
 
-* Identify the logical server in another region to become the new primary server. With Active Geo-Replication, this will be at least one and perhaps each of the secondary servers. For Geo-Restore, this will generally be a server in the [paired region](../best-practices-availability-paired-regions.md) for the region in which your database is located.
+* Identify the logical server in another region to become the new primary server. With active geo-replication, this will be at least one and perhaps each of the secondary servers. For Geo-Restore, this will generally be a server in the [paired region](../best-practices-availability-paired-regions.md) for the region in which your database is located.
 * Identify, and optionally define, the server-level firewall rules needed on for users to access the new primary database.
 * Determine how you are going to redirect users to the new primary server, such as by changing connection strings or by changing DNS entries.
 * Identify, and optionally create, the logins that must be present in the master database on the new primary server, and ensure these logins have appropriate permissions in the master database, if any. For more information, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md)
 * Identify alert rules that will need to be updated to map to the new primary database.
 * Document the auditing configuration on the current primary database
-* Perform a [disaster recovery drill](sql-database-disaster-recovery-drills.md). To simulate an outage for Geo-Restore, you can delete or rename the source database to cause application connectivity failure. To simulate an outage for Active Geo-Replication, you can disable the web application or virtual machine connected to the database or failover the database to cause application connectity failures.
+* Perform a [disaster recovery drill](sql-database-disaster-recovery-drills.md). To simulate an outage for Geo-Restore, you can delete or rename the source database to cause application connectivity failure. To simulate an outage for active geo-replication, you can disable the web application or virtual machine connected to the database or failover the database to cause application connectity failures.
 
 ## When to initiate recovery
 The recovery operation impacts the application. It requires changing the SQL connection string or redirection using DNS and could result in permanent data loss. Therefore, it should be done only when the outage is likely to last longer than your application's recovery time objective. When the application is deployed to production you should perform regular monitoring of the application health and use the following data points to assert that the recovery is warranted:
@@ -52,7 +52,7 @@ Use the [Get Recoverable Database](https://msdn.microsoft.com/library/dn800985.a
 The Azure teams work diligently to restore service availability as quickly as possible but depending on the root cause it can take hours or days.  If your application can tolerate significant downtime you can simply wait for the recovery to complete. In this case, no action on your part is required. You can see the current service status on our [Azure Service Health Dashboard](https://azure.microsoft.com/status/). After the recovery of the region your application’s availability will be restored.
 
 ## Failover to geo-replicated secondary database
-If your application’s downtime can result in business liability you should be using geo-replicated database(s) in your application. It will enable the application to quickly restore availability in a different region in case of an outage. Learn how to [configure Geo-Replication](sql-database-geo-replication-portal.md).
+If your application’s downtime can result in business liability you should be using geo-replicated database(s) in your application. It will enable the application to quickly restore availability in a different region in case of an outage. Learn how to [configure geo-replication](sql-database-geo-replication-portal.md).
 
 To restore availability of the database(s) you need to initiate the failover to the geo-replicated secondary using one of the supported methods.
 
@@ -77,7 +77,7 @@ For more information about changing connection strings, see the appropriate deve
 You need to make sure that the firewall rules configured on server and on the database match those that were configured on the primary server and primary database. For more information, see [How to: Configure Firewall Settings (Azure SQL Database)](sql-database-configure-firewall-settings.md).
 
 ### Configure Logins and Database Users
-You need to make sure that all the logins used by your application exist on the server which is hosting your recovered database. For more information, see [Security Configuration for Geo-Replication](sql-database-geo-replication-security-config.md).
+You need to make sure that all the logins used by your application exist on the server which is hosting your recovered database. For more information, see [Security Configuration for geo-replication](sql-database-geo-replication-security-config.md).
 
 > [!NOTE]
 > You should configure and test your server firewall rules and logins (and their permissions) during a disaster recovery drill. These server-level objects and their configuration may not be available during the outage.

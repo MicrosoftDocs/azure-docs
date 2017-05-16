@@ -69,8 +69,8 @@ The unit eDTU price for an elastic pool is higher than the unit DTU price for a 
 
 To understand the eDTUs and service tiers, see [SQL Database options and performance](sql-database-service-tiers.md).
 
-## How does the use of Active Geo-Replication in an elastic pool show up on my bill?
-Unlike single databases, using [Active Geo-Replication](sql-database-geo-replication-overview.md) with elastic databases doesn't have a direct billing impact.  You are only charged for the eDTUs provisioned for each of the pools (primary pool and secondary pool)
+## How does the use of active geo-replication in an elastic pool show up on my bill?
+Unlike single databases, using [active geo-replication](sql-database-geo-replication-overview.md) with elastic databases doesn't have a direct billing impact.  You are only charged for the eDTUs provisioned for each of the pools (primary pool and secondary pool)
 
 ## How does the use of the auditing feature impact my bill?
 Auditing is built into the SQL Database service at no extra cost and is available to Basic, Standard, Premium, and Premium RS databases. However, to store the audit logs, the auditing feature uses an Azure Storage account, and rates for tables and queues in Azure Storage apply based on the size of your audit log.
@@ -106,7 +106,7 @@ We are currently supporting an RPO of five seconds and the replication lag has b
 ## What is an expected replication lag when geo-secondary is created in the same region as the primary database?
 Based on empirical data, there is not too much difference between intra-region and inter-region replication lag when the Azure recommended paired region is used. 
 
-## If there is a network failure between two regions, how does the retry logic work when Geo-Replication is set up?
+## If there is a network failure between two regions, how does the retry logic work when geo-replication is set up?
 If there is a disconnect, we retry every 10 seconds to re-establish connections.
 
 ## What can I do to guarantee that a critical change on the primary database is replicated?

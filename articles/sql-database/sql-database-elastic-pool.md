@@ -155,8 +155,8 @@ Point-in-time-restore uses automatic database backups to recover a database in a
 ### Geo-Restore
 Geo-Restore provides the default recovery option when a database is unavailable because of an incident in the region where the database is hosted. See [Restore an Azure SQL Database or failover to a secondary](sql-database-disaster-recovery.md)
 
-### Active Geo-Replication
-For applications that have more aggressive recovery requirements than Geo-Restore can offer, configure [Active Geo-Replication](sql-database-geo-replication-overview.md).
+### Active geo-replication
+For applications that have more aggressive recovery requirements than Geo-Restore can offer, configure [active geo-replication](sql-database-geo-replication-overview.md).
 
 ## Next steps
 

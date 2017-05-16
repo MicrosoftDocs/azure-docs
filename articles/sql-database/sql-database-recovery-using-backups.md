@@ -92,7 +92,7 @@ Geo-Restore is the default recovery option when your database is unavailable bec
 For detailed information about using Geo-Restore to recover from an outage, see [Recover from an outage](sql-database-disaster-recovery.md)
 
 > [!IMPORTANT]
-> Recovery from backups is the most basic of the disaster recovery solutions available in SQL Database with the longest RPO and Estimate Recovery Time (ERT). For Basic databases with maximum size of 2 GB Geo-Restore, provides a reasonable DR solution with an ERT of 12 hours. For larger Standard or Premium databases, if shorter recovery times are desired, or to reduce the likelihood of data loss you should consider using Active Geo-Replication. Active Geo-Replication offers a much lower RPO and ERT as it only requires you initiate a failover to a continuously replicated secondary. For details, see [Active Geo-Replication](sql-database-geo-replication-overview.md).
+> Recovery from backups is the most basic of the disaster recovery solutions available in SQL Database with the longest RPO and Estimate Recovery Time (ERT). For Basic databases with maximum size of 2 GB Geo-Restore, provides a reasonable DR solution with an ERT of 12 hours. For larger Standard or Premium databases, if shorter recovery times are desired, or to reduce the likelihood of data loss you should consider using active geo-replication. active geo-replication offers a much lower RPO and ERT as it only requires you initiate a failover to a continuously replicated secondary. For details, see [active geo-replication](sql-database-geo-replication-overview.md).
 > 
 
 ### Azure portal
@@ -126,4 +126,4 @@ Automatic backups protect your databases from user and application errors, accid
 * To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
 * To learn about long-term backup retention, see [Long-term backup retention](sql-database-long-term-retention.md)
 * To configure, manage, and restore from long-term retention of automated backups in an Azure Recovery Services vault using the Azure portal, see [Configure and use long-term backup retention](sql-database-long-term-backup-retention-configure.md). 
-* To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
+* To learn about faster recovery options, see [active geo-replication](sql-database-geo-replication-overview.md)  

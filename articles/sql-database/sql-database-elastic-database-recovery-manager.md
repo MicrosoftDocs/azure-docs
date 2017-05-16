@@ -37,7 +37,7 @@ The GSM and LSM may become out of sync for the following reasons:
 2. A geo-failover event occurs. To continue, one must update the server name, and database name of shard map manager in the application and then update the shard mapping details for all shards in a shard map. If there is a geo-failover, such recovery logic should be automated within the failover workflow. Automating recovery actions enables a frictionless manageability for geo-enabled databases and avoids manual human actions. To learn about options to recover a database If there is a data center outage, see [Business Continuity](sql-database-business-continuity.md) and [Disaster Recovery](sql-database-disaster-recovery.md).
 3. Either a shard or the ShardMapManager database is restored to an earlier point-in time. To learn about point in time recovery using backups, see [Recovery using backups](sql-database-recovery-using-backups.md).
 
-For more information about Azure SQL Database Elastic Database tools, Geo-Replication and Restore, see the following: 
+For more information about Azure SQL Database Elastic Database tools, geo-replication and Restore, see the following: 
 
 * [Overview: Cloud business continuity and database disaster recovery with SQL Database](sql-database-business-continuity.md) 
 * [Get started with elastic database tools](sql-database-elastic-scale-get-started.md)  
