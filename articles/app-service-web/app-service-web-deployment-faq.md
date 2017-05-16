@@ -1,16 +1,16 @@
 ---
-title: Deployment | Microsoft Docs
-description: Deployment
-services: azure-service-management, web-apps
+title: Deployment FAQ| Microsoft Docs
+description: This article lists the frequently asked questions about deployment in Web Apps.
+services: app-service\web
 documentationcenter: ''
 author: simonxjx
 manager: cshepard
 editor: ''
 tags: top-support-issue
 
-ms.assetid: 529157eb-e4a1-4388-aa2b-09e8b923af74
-ms.service: web-apps
-ms.workload: na
+ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
+ms.service: app-service-web
+ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
@@ -18,7 +18,7 @@ ms.date: 5/16/2017
 ms.author: v-six
 
 ---
-# Frequently asked questions for Deployment in Azure Web Apps
+# Frequently asked questions for deployment in Azure Web Apps
 This topic provides answers to some of the most common questions about Deployment in [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]

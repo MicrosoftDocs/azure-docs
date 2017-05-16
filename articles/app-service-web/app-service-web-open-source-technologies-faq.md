@@ -1,16 +1,16 @@
 ---
-title: Open Source Technologies | Microsoft Docs
-description: Open Source Technologies
-services: azure-service-management, web-apps
+title: Open Source Technologies FAQ| Microsoft Docs
+description: This article lists the frequently asked questions about open Source technologies in Web Apps.
+services: app-service\web
 documentationcenter: ''
 author: simonxjx
 manager: cshepard
 editor: ''
 tags: top-support-issue
 
-ms.assetid: 529157eb-e4a1-4388-aa2b-09e8b923af74
-ms.service: web-apps
-ms.workload: na
+ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
+ms.service: app-service-web
+ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
@@ -20,7 +20,7 @@ ms.author: v-six
 ---
 
 
-# Frequently asked questions for Open Source Technologies in Azure Web Apps
+# Frequently asked questions for open source technologies in Azure Web Apps
 
 This topic provides answers to some of the most common questions about Open Source Technologies in [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/).
 
@@ -90,7 +90,6 @@ You can use one of these approaches to change the version of node.js application
 node -v
 ```
 2. Using iisnode.yml file, changing nodejs version in iisnode.yml file would only set the run-time environment which iisnode uses. Your kudu cmd and others would still use nodejs version set at app settings.
-    
     * Setting iisnode.yml file manually
     Create a iisnode.yml file in your app root folder and include below line
 
@@ -256,8 +255,8 @@ If you find yourself locked out of WordPress after a recently installed plugin, 
 ## How do I migrate my WordPress database?
 
 There are multiple ways to migrate the MySQL database connected to your WordPress site.
-    * For developers: [command line or PHPMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
-    * For non-developers: [using WordPress Buddy+](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/)
+* For developers: [command line or PHPMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
+* For non-developers: [using WordPress Buddy+](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/)
 
 ## How do I secure WordPress?
 
