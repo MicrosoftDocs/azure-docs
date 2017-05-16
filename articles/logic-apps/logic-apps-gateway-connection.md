@@ -53,9 +53,9 @@ For more information about supported connectors, see
 
 For more information about data gateways for other Microsoft services, see these articles:
 
-*   [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/): [Application Gateway overview](../articles/application-gateway/application-gateway-introduction.md)
+*   [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/): [Application Gateway overview](../application-gateway/application-gateway-introduction.md)
 *   [Microsoft Power BI on-premises data gateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-*   [Azure Analysis Services on-premises data gateway](../articles/analysis-services/analysis-services-gateway.md)
+*   [Azure Analysis Services on-premises data gateway](../analysis-services/analysis-services-gateway.md)
 *   [Microsoft Flow on-premises data gateway](https://flow.microsoft.com/documentation/gateway-manage/)
 
 ## Requirements
