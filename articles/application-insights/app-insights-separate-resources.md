@@ -18,7 +18,7 @@ ms.author: cfreeman
 ---
 # Separating telemetry from Development, Test, and Production
 
-When you are developing the next version of an application while an earlier one is already released, you don't want to mix up the [Application Insights](app-insights-overview.md) telemetry from the different stamps. To avoid confusion, send the telemetry from different development stages to separate Application Insights resources, with separate instrumentation keys (ikeys). To make it easier to change the instrumentation key as a version moves from one stage to another, it can be useful to set the ikey in code instead of in the configuration file. 
+When you are developing the next version of a web application, you don't want to mix up the [Application Insights](app-insights-overview.md) telemetry from the new version and the already released version. To avoid confusion, send the telemetry from different development stages to separate Application Insights resources, with separate instrumentation keys (ikeys). To make it easier to change the instrumentation key as a version moves from one stage to another, it can be useful to set the ikey in code instead of in the configuration file. 
 
 (If your system is an Azure Cloud Service, there's [another method of setting separate ikeys](app-insights-cloudservices.md).)
 
@@ -26,7 +26,7 @@ When you are developing the next version of an application while an earlier one 
 
 When you set up Application Insights monitoring for your web app, you create an Application Insights *resource* in Microsoft Azure. You open this resource in the Azure portal in order to see and analyze the telemetry collected from your app. The resource is identified by an *instrumentation key* (ikey). When you install the Application Insights package to monitor your app, you configure it with the instrumentation key, so that it knows where to send the telemetry.
 
-You typically choose to use separate resoruces or a single shared resource in different scenarios:
+You typically choose to use separate resources or a single shared resource in different scenarios:
 
 * Different, independent applications - Use a separate resource and ikey for each app.
 * Multiple components or roles of one business application - Use a [single shared resource](app-insights-multi-role.md) for all the component apps. Telemetry can be filtered or segmented by the cloud_RoleName property.
@@ -120,7 +120,7 @@ There are several different methods of setting the Application Version property.
     </DeploymentEvent>
 
     ```
-* [ASP.NET] Generate BuildInfo.config automatically in MSBuild. To do this, add a few lines to your .csproj file:
+* [ASP.NET] Generate BuildInfo.config automatically in MSBuild. To do this, add a few lines to your `.csproj` file:
 
     ```XML
 
