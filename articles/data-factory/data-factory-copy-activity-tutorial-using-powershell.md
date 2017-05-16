@@ -544,7 +544,7 @@ In this step, you use Azure PowerShell to monitor what’s going on in an Azure 
 	Type                : Copy  
 	```
 
-For comprehensive documentation on Data Factory cmdlets, see the [Data Factory Cmdlet Reference][cmdlet-reference].
+For comprehensive documentation on Data Factory cmdlets, see [Data Factory Cmdlet Reference](/powershell/module/azurerm.datafactories).
 
 ## Summary
 In this tutorial, you created an Azure data factory to copy data from an Azure blob to an Azure SQL database. You used PowerShell to create the data factory, linked services, datasets, and a pipeline. Here are the high-level steps you performed in this tutorial:  
@@ -557,26 +557,10 @@ In this tutorial, you created an Azure data factory to copy data from an Azure b
 3. Created **datasets** that describe input data and output data for pipelines.
 4. Created a **pipeline** with **Copy Activity**, with **BlobSource** as the source and **SqlSink** as the sink.
 
-## See also
-| Topic | Description |
-|:--- |:--- |
-| [Data Factory Cmdlet Reference](/powershell/module/azurerm.datafactories) | This section provides information about all the Data Factory cmdlets |
-| [Pipelines](data-factory-create-pipelines.md) |This article helps you understand pipelines and activities in Azure Data Factory. |
-| [datasets](data-factory-create-datasets.md) |This article helps you understand datasets in Azure Data Factory. |
-| [Scheduling and execution](data-factory-scheduling-and-execution.md) |This article explains the scheduling and execution aspects of the Azure Data Factory application model. |
+## Next steps
+In this tutorial, you used Azure blob storage as a source data store and an Azure SQL database as a destination data store in a copy operation. The following table provides a list of data stores supported as sources and destinations by the copy activity: 
 
-[use-custom-activities]: data-factory-use-custom-activities.md
-[troubleshoot]: data-factory-troubleshoot.md
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
+[!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
-[cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234.aspx
-[old-cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+For details about fields/properties that you see in the copy wizard for a data store, click the link for the data store in the table. 
 
-[azure-portal]: http://portal.azure.com
-[download-azure-powershell]: ../powershell-install-configure.md
-[data-factory-introduction]: data-factory-introduction.md
-
-[image-data-factory-get-started-storage-explorer]: ./media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png
-
-[sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
