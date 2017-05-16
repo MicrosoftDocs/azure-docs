@@ -40,7 +40,7 @@ Complete prerequisites listed in the [Tutorial Overview](data-factory-copy-data-
 ## Create data factory
 In this step, you use the Azure portal to create an Azure data factory named **ADFTutorialDataFactory**.
 
-1. Log in in to the [Azure portal](https://portal.azure.com).
+1. Log in to [Azure portal](https://portal.azure.com).
 2. Click **+ NEW** from the top-left corner, click **Data + analytics**, and click **Data Factory**. 
    
    ![New->DataFactory](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
