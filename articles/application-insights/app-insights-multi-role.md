@@ -35,8 +35,8 @@ With that caveat, we'll assume in the rest of this document that you want to sen
 
 To get a multi-role application map, you need to achieve these goals:
 
-* **Install the latest pre-release** Application Insights package in each component of the application. 
-* **Share a single Application Insights resource** for all the components of your application.
+* **Install the latest pre-release** Application Insights package in each role of the application. 
+* **Share a single Application Insights resource** for all the roles of your application.
 * **Enable Multi-role Application Map** in the Previews blade.
 
 Configure each role of your application using the appropriate method for its type. ([ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md).)
@@ -100,7 +100,7 @@ If a role runs in a Docker hosted on an Azure Windows VM, you can collect additi
 
 ```
 
-## Use cloud_RoleName to separate components
+## Use cloud_RoleName to separate roles
 
 The `cloud_RoleName` property is attached to all telemetry. It identifies the role or service that originates the telemetry. (It is not the same as cloud_RoleInstance, which separates identical roles that are running in parallel on multiple server processes or machines.)
 
@@ -108,7 +108,7 @@ In the portal, you can filter or segment your telemetry using this property. In 
 
 ![Metric chart segmented by Cloud Role Name](./media/app-insights-multi-role/cloud-role-name.png)
 
-## Trace operations between components
+## Trace operations between roles
 
 You can trace the calls from one service to another made while processing an individual operation.
 
@@ -117,7 +117,7 @@ You can trace the calls from one service to another made while processing an ind
 
 Click through to a correlated list of telemetry for this operation across the front-end web server and the back-end API:
 
-![Search across components](./media/app-insights-multi-role/search-across-components.png)
+![Search across roles](./media/app-insights-multi-role/search-across-components.png)
 
 
 ## Next steps
