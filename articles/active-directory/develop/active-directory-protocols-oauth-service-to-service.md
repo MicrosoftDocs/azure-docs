@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 02/08/2017
 ms.author: priyamo
 
 ---
@@ -48,7 +48,7 @@ When using a shared secret, a service-to-service access token request contains t
 
 | Parameter |  | Description |
 | --- | --- | --- |
-| grant_type |required |Specifies the requested response type. In a Client Credentials Grant flow, the value must be **client_credentials**. |
+| grant_type |required |Specifies the requested grant type. In a Client Credentials Grant flow, the value must be **client_credentials**. |
 | client_id |required |Specifies the Azure AD client id of the calling web service. To find the calling application's client ID, in the [Azure portal](https://portal.azure.com), click **Active Directory**, switch directory, click the application. The client_id is the *Application ID* |
 | client_secret |required |Enter a key registered for the calling web service or daemon application in Azure AD. To create a key, in the Azure portal, click **Active Directory**, switch directory, click the application, click **Settings**, click **Keys**, and add a Key.|
 | resource |required |Enter the App ID URI of the receiving web service. To find the App ID URI, in the Azure portal, click **Active Directory**, switch directory, click the service application, and then click **Settings** and **Properties** |
