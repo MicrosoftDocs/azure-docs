@@ -19,6 +19,7 @@ This document lists all connection string types supported by Azure Database for 
 
 - Please refer to document [How to configure SSL](./howto-configure-ssl.md) to obtain the cert
 - {your_host} = <servername>.mysql.database.azure.com
+- {your_user}@{servername} = userID format for authentication correctly.  Using just the userID will cause the authentication to fail.
 
 ## ADO.NET
 ```ado.net
