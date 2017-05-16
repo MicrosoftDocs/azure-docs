@@ -406,9 +406,9 @@ In this tutorial, you created an Azure data factory to copy data from an Azure b
 3. Created **datasets** that describe input data and output data for pipelines.
 4. Created a **pipeline** with a **Copy Activity** with **BlobSource** as source and **SqlSink** as sink.  
 
-## See Also
-| Topic | Description |
-|:--- |:--- |
-| [Pipelines](data-factory-create-pipelines.md) |This article helps you understand pipelines and activities in Azure Data Factory. |
-| [Datasets](data-factory-create-datasets.md) |This article helps you understand datasets in Azure Data Factory. |
-| [Scheduling and execution](data-factory-scheduling-and-execution.md) |This article explains the scheduling and execution aspects of Azure Data Factory application model. |
+## Next steps
+In this tutorial, you used Azure blob storage as a source data store and an Azure SQL database as a destination data store in a copy operation. The following table provides a list of data stores supported as sources and destinations by the copy activity: 
+
+[!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
+
+For details about fields/properties that you see in the copy wizard for a data store, click the link for the data store in the table.

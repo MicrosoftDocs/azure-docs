@@ -24,8 +24,13 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 > This page applies to Cloud Services web and worker roles, which run on top of a Guest OS. It does **not apply** to IaaS Virtual Machines. 
 > 
 > 
- 
 
+
+> [!NOTE]
+> The RSS Feed was recently deprecated. Please stay tuned for updates on a new feed coming soon!
+> 
+> 
+ 
 Unsure about what the Guest OS is or how the Guest OS releases work? Read [this](#how-it-works) section.
 
 ## News updates
