@@ -4,7 +4,7 @@ description: Languages, platforms and integrations available for Application Ins
 services: application-insights
 documentationcenter: ''
 author: OlegAnaniev-MSFT
-manager: douge
+manager: carmonm
 
 ms.assetid: 974db106-54ff-4318-9f8b-f7b3a869e536
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Developer analytics: languages, platforms, and integrations

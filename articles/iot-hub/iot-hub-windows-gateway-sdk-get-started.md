@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure IoT Edge (Windows) | Microsoft Docs
-description: How to build a gateway on a Windows machine and learn about key concepts in Azure IoT Edge such as modules and JSON configuration files.
+description: How to build an Azure IoT Edge gateway on a Windows machine and learn about key concepts in Azure IoT Edge such as modules and JSON configuration files.
 services: iot-hub
 documentationcenter: ''
 author: chipalost
@@ -32,7 +32,7 @@ Before you get started, you must [set up your development environment][lnk-setup
 
 ## How to run the sample
 
-1. The **build.cmd** script creates a folder called **build** in your local copy of the repository. This folder contains the two modules used in this sample.
+1. The **build.cmd** script creates a folder called **build** in your local copy of the repository. This folder contains the two IoT Edge modules used in this sample.
 
     The build script places **logger.dll** in the **build\\modules\\logger\\Debug** folder and **hello\_world.dll** in the **build\\modules\\hello_world\\Debug** folder. Use these paths for the **module path** values as shown in the following JSON settings file.
 1. The hello\_world\_sample process takes the path to a JSON configuration file as a command-line argument. The following example JSON file is provided in the SDK repository at **samples\\hello\_world\\src\\hello\_world\_win.json**. This configuration file works as is unless you modify the build script to place modules or sample executables in non-default locations.
