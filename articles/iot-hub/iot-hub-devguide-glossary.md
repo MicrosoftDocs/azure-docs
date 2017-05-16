@@ -75,7 +75,7 @@ You use connection strings in your app code to encapsulate the information requi
 You can create custom [endpoints](iot-hub-devguide-endpoints.md) on an IoT hub to deliver messages dispatched by a [routing rule](#routing-rules). Custom endpoints connect directly to an Event hub, a Service Bus queue, or a Service Bus topic.
 
 ## Custom gateway
-A gateway enables connectivity for devices that cannot connect directly to [IoT Hub](#iot-hub). You can use  [Azure IoT Edge](#azure-iot-gateway-sdk) to build custom gateways that implement custom logic to handle messages and custom protocol conversions.
+A gateway enables connectivity for devices that cannot connect directly to [IoT Hub](#iot-hub). You can use [Azure IoT Edge](#azure-iot-gateway-sdk) to build custom gateways that implement custom logic to handle messages, custom protocol conversions, and other processing on the edge.
 
 ## Data-point message
 A data-point message is a [device-to-cloud](#device-to-cloud) message that contains [telemetry](#telemetry) data such as wind speed or temperature.
