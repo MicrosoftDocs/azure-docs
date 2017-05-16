@@ -20,9 +20,9 @@ ms.author: sethm
 
 # Event Hubs features overview
 
-Azure Event Hubs is a scalable event processing service that ingests large volumes of events and data, with low latency and high reliability. See [What is Event Hubs?](event-hubs-what-is-event-hubs.md) for a high-level overview of the service.
+Azure Event Hubs is a scalable event processing service that ingests and processes large volumes of events and data, with low latency and high reliability. See [What is Event Hubs?](event-hubs-what-is-event-hubs.md) for a high-level overview of the service.
 
-This article builds on the information in the overview, and provides technical and implementation details about Event Hubs components and features.
+This article builds on the information in the [overview](event-hubs-what-is-event-hubs.md), and provides technical and implementation details about Event Hubs components and features.
 
 ## Event publishers
 
@@ -30,7 +30,7 @@ Any entity that sends data to an event hub is an event producer, or *event publi
 
 ### Publishing an event
 
-You can publish an event via AMQP 1.0 or HTTPS. Event Hubs provides an [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) class for publishing events to an event hub from .NET clients. For other runtimes and platforms, you can use any AMQP 1.0 client, such as [Apache Qpid](http://qpid.apache.org/). You can publish events individually, or batched. A single publication (event data instance) has a limit of 256 KB, regardless of whether it is a single event or a batch. Publishing events larger than this results in an error. It is a best practice for publishers to be unaware of partitions within the event hub and to only specify a *partition key* (introduced in the next section), or their identity via their SAS token.
+You can publish an event via AMQP 1.0 or HTTPS. Event Hubs provides [client libraries and classes](event-hubs-dotnet-framework-api-overview.md) for publishing events to an event hub from .NET clients. For other runtimes and platforms, you can use any AMQP 1.0 client, such as [Apache Qpid](http://qpid.apache.org/). You can publish events individually, or batched. A single publication (event data instance) has a limit of 256 KB, regardless of whether it is a single event or a batch. Publishing events larger than this threshold results in an error. It is a best practice for publishers to be unaware of partitions within the event hub and to only specify a *partition key* (introduced in the next section), or their identity via their SAS token.
 
 The choice to use AMQP or HTTPS is specific to the usage scenario. AMQP requires the establishment of a persistent bidirectional socket in addition to transport level security (TLS) or SSL/TLS. AMQP has higher network costs when initializing the session, however HTTPS requires additional SSL overhead for every request. AMQP has higher performance for frequent publishers.
 
@@ -62,7 +62,7 @@ Event Hubs retains data for a configured retention time that applies across all 
 
 The number of partitions is specified at creation and must be between 2 and 32. The partition count is not changeable, so you should consider long-term scale when setting partition count. Partitions are a data organization mechanism that relates to the downstream parallelism required in consuming applications. The number of partitions in an event hub directly relates to the number of concurrent readers you expect to have. You can increase the number of partitions beyond 32 by contacting the Event Hubs team.
 
-While partitions are identifiable and can be sent to directly, this is not recommended. Instead, you can use higher level constructs introduced in the [Event publisher](#event-publishers) and [Capacity](#capacity) sections. 
+While partitions are identifiable and can be sent to directly, sending directly to a partition is not recommended. Instead, you can use higher level constructs introduced in the [Event publisher](#event-publishers) and [Capacity](#capacity) sections. 
 
 Partitions are filled with a sequence of event data which contains the body of the event, a user-defined property bag, and metadata such as its offset in the partition and its number in the stream sequence.
 
@@ -149,7 +149,7 @@ Throughput units are billed per hour and are pre-purchased. Once purchased, thro
 
 More throughput units can be purchased in blocks of 20, up to 100 throughput units, by contacting Azure support. Beyond that, you can also purchase blocks of 100 throughput units.
 
-It is recommended that you balance throughput units and partitions to achieve optimal scale. A single partition has a maximum scale of one throughput unit. The number of throughput units should be less than or equal to the number of partitions in an event hub.
+We recommend that you balance throughput units and partitions to achieve optimal scale. A single partition has a maximum scale of one throughput unit. The number of throughput units should be less than or equal to the number of partitions in an event hub.
 
 For detailed Event Hubs pricing information, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
 
