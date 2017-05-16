@@ -88,11 +88,13 @@ Subscriptions can be created for various criteria like a specific category of ar
 	}
 
 ## <a id="ModelingArticles"></a>Modeling articles
-Once an article is identified through notifications, subsequent queries are typically based on the `ArticleId`. Choosing `ArticleID` as partition the key thus provides the best distribution for storing articles inside an Azure Cosmos DB collection. 
+Once an article is identified through notifications, subsequent queries are typically based on the `Article.Id`. Choosing `Article.Id` as partition the key thus provides the best distribution for storing articles inside an Azure Cosmos DB collection. 
 
 	class Article 
 	{ 
-		// Unique ID for Article public string Id { get; set; }
+		// Unique ID for Article 
+		public string Id { get; set; }
+		
 		public string PartitionKey 
 		{ 
 			get 

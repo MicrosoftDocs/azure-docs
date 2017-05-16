@@ -1,8 +1,9 @@
 # Overview
 ## [What is Azure Active Directory?](active-directory-whatis.md)
 ## [Choose edition](active-directory-editions.md)
-
-## [About Azure identity management](identity-fundamentals.md)
+## [About Azure identity management](fundamentals-identity.md)
+## [Understand Azure identity solutions](understand-azure-identity-solutions.md)
+## [Preview the Azure portal experience](active-directory-preview-explainer.md)
 
 # Get started
 ## [Get an Azure AD tenant](active-directory-howto-tenant.md)
@@ -175,7 +176,10 @@
 ##### [Connectors](application-proxy-understand-connectors.md)
 ##### [Security](application-proxy-security-considerations.md)
 ##### [Networks](application-proxy-network-topology-considerations.md)
+
+
 ##### [Upgrade from TMG or UAG](application-proxy-transition-from-uag-tmg.md)
+
 #### Advanced configurations
 ##### [Publish on separate networks](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Proxy servers](application-proxy-working-with-proxy-servers.md)
@@ -201,12 +205,6 @@
 #### [View all my apps](active-directory-coreapps-view-azure-portal.md)
 #### [Manage user account provisioning](active-directory-enterprise-apps-manage-provisioning.md)
 
-### Develop
-#### [Assign users](active-directory-applications-guiding-developers-assigning-users.md)
-#### [Assign groups](active-directory-applications-guiding-developers-assigning-groups.md)
-#### [Require assignment](active-directory-applications-guiding-developers-requiring-user-assignment.md)
-#### [Develop LoB apps](active-directory-applications-guiding-developers-for-lob-applications.md)
-
 ### [Manage access to apps](active-directory-managing-access-to-apps.md)
 #### [Self-service access](active-directory-self-service-application-access.md)
 #### [Certificates for SSO](active-directory-sso-certs.md)
@@ -225,7 +223,7 @@
 ##### [Access Panel](active-directory-application-access-panel-content-map.md)
 ##### [Application Proxy](active-directory-application-proxy-content-map.md)
 ##### [Conditional Access](active-directory-application-conditional-access-content-map.md)
-
+### [Develop apps](active-directory-applications-guiding-developers-for-lob-applications.md)
 ### [Document library](active-directory-apps-index.md)
 
 ## Manage your directory
@@ -293,6 +291,7 @@
 ##### [By resource](role-based-access-control-configure.md)
 #### [Built-in roles](role-based-access-built-in-roles.md)
 #### [Custom roles](role-based-access-control-custom-roles.md)
+#### [Assign custom roles for internal and external users](role-based-access-control-create-custom-roles-for-internal-external-users.md)
 #### [Reporting](role-based-access-control-access-change-history-report.md)
 #### More ways to manage roles
 ##### [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
