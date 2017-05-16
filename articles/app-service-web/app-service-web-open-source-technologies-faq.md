@@ -101,9 +101,7 @@ nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
 Azure Source Control deployment process would involve below steps
     * Moves content to azure web app
     * Creates default deployment script, if there isn’t one(deploy.cmd, .deployment files) in web app root folder
-    * Run’s deployment script where it creates iisnode.yml file if we mention nodejs version in package.json file > engine  ```
-    "engines": {"node": "5.9.1","npm": "3.7.3"}
-    ```
+    * Run’s deployment script where it creates iisnode.yml file if we mention nodejs version in package.json file > engine  ```"engines": {"node": "5.9.1","npm": "3.7.3"}```
     * iisnode.yml would have below line of code
 ```
 nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
