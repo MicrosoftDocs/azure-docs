@@ -33,7 +33,7 @@
 ### [Automatically scale machines in a virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Configure webhooks and email notifications on autoscale](insights-autoscale-to-webhook-email.md)
 ## Use the activity log
-### [View events in activity log](../azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
+### [View events in activity log](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Configure alerts on an activity log event](monitoring-activity-log-alerts.md)
 ### [Archive activity log](monitoring-archive-activity-log.md)
 ### [Stream activity log to Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
