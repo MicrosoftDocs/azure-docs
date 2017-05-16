@@ -30,11 +30,11 @@ When you implement error handling, use the HTTP error code 429 to detect throttl
 
 On HTTP error code 429, begin throttling, using an exponential backoff approach:
 
-Wait 1 second, retry request
-If still throttled wait 2 seconds, retry request
-If still throttled wait 4 seconds, retry request
-If still throttled wait 8 seconds, retry request
-If still throttled wait 16 seconds, retry request
+1. Wait 1 second, retry request
+2. If still throttled wait 2 seconds, retry request
+3. If still throttled wait 4 seconds, retry request
+4. If still throttled wait 8 seconds, retry request
+5. If still throttled wait 16 seconds, retry request
 
 At this point, you should not be getting HTTP 429 response codes.
 
