@@ -44,7 +44,7 @@ At a minimum, the installation of AzLog requires the following items:
     * It needs to be running an x64 version of Windows server 2008 R2 SP1 or higher and have .NET 4.5.1 installed. You can determine the .NET version installed by following the article titled [How to: Determine Which .NET Framework Versions Are Installed](https://msdn.microsoft.com/library/hh925568)  
     It must have connectivity to the Azure storage account used for Azure diagnostic logging. We will provide instructions later in this article on how you can confirm this connectivity
 
-For a quick demonstration of the process of a creating a virtual machine through the Azure portal take a look at the video below.
+For a quick demonstration of the process of a creating a virtual machine using the Azure portal take a look at the video below.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Create-a-Virtual-Machine/player]
 
@@ -80,6 +80,10 @@ Telemetry data collected is:
 * Exceptions that occur during execution of Azure log integration
 * Metrics about the number of queries and events processed
 * Statistics about which Azlog.exe command-line options are being used
+
+The installation process is covered in the video below.
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Install-Azure-Log-Integration/player]
+
 
 
 ## Post installation and validation steps
@@ -143,6 +147,10 @@ If you would like the subscription ID to show up in the event XML, append the su
 >[!NOTE]  
 Wait up to 60 minutes, then view the events that are pulled from the storage account. To view, open **Event Viewer > Windows Logs > Forwarded Events** on the Azlog Integrator.
 
+Here you can see a video going over the steps covered above.
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Enable-Diagnostics-and-Storage/player]
+
+
 ## What if data is not showing up in the Forwarded Events folder?
 If after an hour data is not showing up in the **Forwarded Events** folder, then:
 
@@ -157,6 +165,7 @@ If after an hour data is not showing up in the **Forwarded Events** folder, then
   </ol>
 3. Make sure the storage account added in the command **Azlog source add** is listed when you run the command **Azlog source list**.
 4. Go to **Event Viewer > Windows Logs > Application** to see if there are any errors reported from the Azure log integration.
+
 
 If you run into any issues during the installation and configuration, please open a [support request](../azure-supportability/how-to-create-azure-support-request.md), select **Log Integration** as the service for which you are requesting support.
 
