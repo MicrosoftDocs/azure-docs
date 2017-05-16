@@ -207,6 +207,7 @@
 ### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
 
 ### [Manage a cluster using Azure CLI](service-fabric-azure-cli.md)
+### [Patch cluster nodes](service-fabric-patch-orchestration-application.md)
 
 ### Manage and orchestrate cluster resources
 #### [Cluster Resource Manager overview](service-fabric-cluster-resource-manager-introduction.md)
