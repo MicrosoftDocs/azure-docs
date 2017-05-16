@@ -72,7 +72,7 @@ There are several different DNS caching packages available, for example dnsmasq,
   * start the dnsmasq service (“systemctl start dnsmasq.service”) 
   * edit “/etc/sysconfig/network/config” and change NETCONFIG_DNS_FORWARDER="" to ”dnsmasq”
   * update resolv.conf ("netconfig update") to set the cache as the local DNS resolver
-* **OpenLogic (uses NetworkManager)**:
+* **CentOS by Rogue Wave Software (formerly OpenLogic; uses NetworkManager)**:
   * install the dnsmasq package (“sudo yum install dnsmasq”)
   * enable the dnsmasq service (“systemctl enable dnsmasq.service”)
   * start the dnsmasq service (“systemctl start dnsmasq.service”)
@@ -103,7 +103,7 @@ The resolv.conf file is auto-generated and should not be edited.  The specific s
 * **SUSE** (uses netconf):
   * add 'timeout:1 attempts:5' to the NETCONFIG_DNS_RESOLVER_OPTIONS="" parameter in '/etc/sysconfig/network/config' 
   * run 'netconfig update' to update
-* **OpenLogic** (uses NetworkManager):
+* **CentOS by Rogue Wave Software (formerly OpenLogic)** (uses NetworkManager):
   * add 'echo "options timeout:1 attempts:5"' to '/etc/NetworkManager/dispatcher.d/11-dhclient' 
   * run 'service network restart' to update
 

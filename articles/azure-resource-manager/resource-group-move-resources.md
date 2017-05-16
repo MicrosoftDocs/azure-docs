@@ -72,6 +72,7 @@ For now, the services that enable moving to both a new resource group and subscr
 
 * API Management
 * App Service apps (web apps) - see [App Service limitations](#app-service-limitations)
+* Application Insights
 * Automation
 * Batch
 * Bing Maps
@@ -84,7 +85,7 @@ For now, the services that enable moving to both a new resource group and subscr
 * Data Lake Analytics
 * Data Lake Store
 * DNS
-* DocumentDB
+* Azure Cosmos DB
 * Event Hubs
 * HDInsight clusters - see [HDInsight limitations](#hdinsight-limitations)
 * IoT Hubs
@@ -121,20 +122,20 @@ The services that currently do not enable moving a resource are:
 
 * AD Hybrid Health Service
 * Application Gateway
-* Application Insights
+* Availability sets with Virtual Machines with Managed Disks
 * BizTalk Services
 * Container Service
 * Express Route
 * DevTest Labs - Move to new resource group in same subscription is enabled, but cross subscription move is not enabled.
 * Dynamics LCS
+* Images created from Managed Disks
+* Managed Disks
+* Managed Applications
 * Recovery Services vault - also do not move the Compute, Network, and Storage resources associated with the Recovery Services vault, see [Recovery Services limitations](#recovery-services-limitations).
 * Security
+* Snapshots created from Managed Disks
 * Virtual Machines with certificate stored in Key Vault
 * Virtual Machines with Managed Disks
-* Availability sets with Virtual Machines with Managed Disks
-* Managed Disks
-* Images created from Managed Disks
-* Snapshots created from Managed Disks
 * Virtual Networks (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Virtual Machines created from Marketplace resources - cannot be moved across subscriptions. Resource needs to be deprovisioned in the current subscription and deployed again in the new subscription
 
@@ -144,12 +145,12 @@ When working with App Service apps, you cannot move only an App Service plan. To
 * Move the App Service plan and all other App Service resources in that resource group to a new resource group that does not already have App Service resources. This requirement means you must move even the App Service resources that are not associated with the App Service plan. 
 * Move the apps to a different resource group, but keep all App Service plans in the original resource group.
 
-If your original resource group also includes an Application Insights resource, you cannot move that resource because Application Insights does not currently enable the move operation. If you include the Application Insights resource when moving App Service apps, the entire move operation fails. However, the Application Insights and App Service plan do not need to reside in the same resource group as the app for the app to function correctly.
+App Service plan do not need to reside in the same resource group as the app for the app to function correctly.
 
 For example, if your resource group contains:
 
-* **web-a** which is associated with **plan-a** and **app-insights-a**
-* **web-b** which is associated with **plan-b** and **app-insights-b**
+* **web-a** which is associated with **plan-a**
+* **web-b** which is associated with **plan-b**
 
 Your options are:
 
@@ -158,7 +159,7 @@ Your options are:
 * Move **web-a**
 * Move **web-b**
 
-All other combinations involve either moving a resource type that can't move (Application Insights) or leaving behind a resource type that can't be left behind when moving an App Service plan (any type of App Service resource).
+All other combinations involve leaving behind a resource type that can't be left behind when moving an App Service plan (any type of App Service resource).
 
 If your web app resides in a different resource group than its App Service plan but you want to move both to a new resource group, you must perform the move in two steps. For example:
 
@@ -210,7 +211,7 @@ When moving resources to a new subscription, the following restrictions apply:
 * The target subscription must not contain any other classic resources.
 * The move can only be requested through a separate REST API for classic moves. The standard Resource Manager move commands do not work when moving classic resources to a new subscription.
 
-To move classic resources to a new subscription, use either the portal or REST operations that are specific to classic resources. For information about moving classic resources through the portal, see [Use portal](#use-portal). To use REST, perform the following steps:
+To move classic resources to a new subscription, use the REST operations that are specific to classic resources. To use REST, perform the following steps:
 
 1. Check if the source subscription can participate in a cross-subscription move. Use the following operation:
 

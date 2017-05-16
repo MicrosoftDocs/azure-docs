@@ -1,3 +1,4 @@
+
 ---
 title: Azure Data Factory - Customer case studies | Microsoft Docs
 description: Learn about how some of our customers have been using Azure Data Factory.
@@ -41,3 +42,5 @@ Data Factory is a cloud-based information management service that automates the 
 ## Pier 1 Imports
 [Finding a Better Connection with Customers through Cloud Machine Learning](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
+## Microsoft Studio
+[Delivering epic Xbox experiences by analyzing hundreds of billions of game events each day](https://customers.microsoft.com/en-us/story/xboxunlimited)

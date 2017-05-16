@@ -8,6 +8,9 @@
 ## [Send events](time-series-insights-send-events.md)
 
 # How to
+## [Create an Event Hub event source](time-series-insights-how-to-add-an-event-source-eventhub.md)
+## [Create an IoT Hub event source](time-series-insights-how-to-add-an-event-source-iothub.md)
+## [Scale your environment](time-series-insights-how-to-scale-your-environment.md)
 ## [Diagnose and solve problems](time-series-insights-diagnose-and-solve-problems.md)
 ## [Query data using C#](time-series-insights-query-data-csharp.md)
 

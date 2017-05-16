@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2017
+ms.date: 05/12/2017
 ms.author: cherylmc
 
 ---
@@ -62,7 +62,7 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 
 ### Microsoft peering
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
-* Most of the Dynamics 365 services (formerly known as CRM Online)
+* Dynamics 365 (formerly known as CRM Online)
   * Dynamics 365 for Sales
   * Dynamics 365 for Customer Service
   * Dynamics 365 for Field Service
@@ -85,7 +85,7 @@ See [ExpressRoute partners and locations](expressroute-locations.md) for the lis
 Please see [ExpressRoute prerequisites page](expressroute-prerequisites.md) for requirements.
 
 ### Are connections to ExpressRoute redundant?
-Yes. Each Express Route circuit has a redundant pair of cross connections configured to provide high availability.
+Yes. Each ExpressRoute circuit has a redundant pair of cross connections configured to provide high availability.
 
 ### Will I lose connectivity if one of my ExpressRoute links fail?
 You will not lose connectivity if one of the cross connections fails. A redundant connection is available to support the load of your network. You can additionally create multiple circuits in a different peering location to achieve failure resilience.
@@ -189,7 +189,7 @@ ExpressRoute premium is a collection of features listed below.
 * Increased routing table limit from 4000 routes to 10,000 routes for private peering.
 * Increased number of VNets that can be connected to the ExpressRoute circuit (default is 10). See table below for more details.
 * Global connectivity over the Microsoft core network. You will now be able to link a VNet in one geopolitical region with an ExpressRoute circuit in another region. **Example:** You can link a VNet created in Europe West to an ExpressRoute circuit created in Silicon Valley. **Other example:** On the public peering, prefixes from other geopolitical regions are advertised such that you can connect to, for example, SQL Azure in Europe West from a circuit in Silicon Valley.
-* Connectivity to Office 365 services and CRM Online.
+* Connectivity to Office 365 and Dynamics 365.
 
 ### How many VNets can I link to an ExpressRoute circuit if I enabled ExpressRoute premium?
 The tables below show the ExpressRoute limits and the number of VNets per ExpressRoute circuit.
@@ -211,31 +211,31 @@ Refer to [pricing details](https://azure.microsoft.com/pricing/details/expressro
 ### Do I pay for ExpressRoute premium in addition to standard ExpressRoute charges?
 Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges and charges required by the connectivity provider.
 
-## ExpressRoute and Office 365 Services and CRM Online
+## ExpressRoute for Office 365 and Dynamics 365
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-### How do I create an ExpressRoute circuit to connect to Office 365 services and CRM Online?
+### How do I create an ExpressRoute circuit to connect to Office 365 services and Dynamics 365?
 1. Review the [ExpressRoute prerequisites page](expressroute-prerequisites.md) to make sure you meet the requirements.
 2. Review the list of service providers and locations at [ExpressRoute partners and locations](expressroute-locations.md) to ensure that your connectivity needs are met.
 3. Plan your capacity requirements by reviewing [Network planning and performance tuning for Office 365](http://aka.ms/tune/).
 4. Follow the steps listed in the workflows below to set up connectivity [ExpressRoute workflows for circuit provisioning and circuit states](expressroute-workflows.md).
 
 > [!IMPORTANT]
-> Ensure that you have enabled ExpressRoute premium add-on when configuring connectivity to Office 365 services and CRM Online.
+> Ensure that you have enabled ExpressRoute premium add-on when configuring connectivity to Office 365 services and Dynamics 365.
 > 
 > 
 
-### Do I need to enable Azure Public Peering to connect to Office 365 services and CRM Online?
+### Do I need to enable Azure Public Peering to connect to Office 365 services and Dynamics 365?
 No, you only need to enable Microsoft Peering. Authentication traffic to Azure AD will be sent through Microsoft Peering. 
 
-### Can my existing ExpressRoute circuits support connectivity to Office 365 services and CRM Online?
+### Can my existing ExpressRoute circuits support connectivity to Office 365 services and Dynamics 365?
 Yes. Your existing ExpressRoute circuit can be configured to support connectivity to Office 365 services. Ensure that you have sufficient capacity to connect to Office 365 services and make sure that you have enabled premium add-on. [Network planning and performance tuning for Office 365](http://aka.ms/tune/) will help you plan your connectivity needs. Also, see [Create and modify an ExpressRoute circuit](expressroute-howto-circuit-classic.md).
 
 ### What Office 365 services can be accessed over an ExpressRoute connection?
 Refer to [Office 365 URLs and IP address ranges](http://aka.ms/o365endpoints) page for an up-to-date list of services supported over ExpressRoute.
 
-### How much does ExpressRoute for Office 365 services and CRM Online cost?
-Office 365 services and CRM Online requires premium add-on to be enabled. The [pricing details page](https://azure.microsoft.com/pricing/details/expressroute/) provides details of costs for ExpressRoute.
+### How much does ExpressRoute for Office 365 services and Dynamics 365 cost?
+Office 365 services and Dynamics 365 requires premium add-on to be enabled. The [pricing details page](https://azure.microsoft.com/pricing/details/expressroute/) provides details of costs for ExpressRoute.
 
 ### What regions is ExpressRoute for Office 365 supported in?
 Refer to [ExpressRoute partners and locations](expressroute-locations.md) for more information on the list of partners and locations where ExpressRoute is supported.

@@ -12,7 +12,7 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 04/14/2017
+ms.date: 05/15/2017
 ms.author: ddove
 ms.workload: data-management
 ms.topic: article
@@ -124,7 +124,7 @@ In cases where you can't use tooling, the following step-by-step can help you es
 
 ## eDTU and storage limits for elastic pools
 
-The following table describes the characteristics of Basic, Standard, Premium, and Premium RS elastic pools.
+The following tables describe the resource limits of elastic pools.  Note that the resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools based on DTUs and the service tier.  For example, the max concurrent workers for an S2 database is 120 workers.  So, the max concurrent workers for a database in a Standard pool is also 120 workers if the max DTU per database in the pool is 50 DTUs (which is equivalent to S2).
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
