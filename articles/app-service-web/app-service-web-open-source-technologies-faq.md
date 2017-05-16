@@ -89,9 +89,8 @@ You can use one of these approaches to change the version of node.js application
 ```
 node -v
 ```
-2. Using iisnode.yml file
-
-Changing nodejs version in iisnode.yml file would only set the run-time environment which iisnode uses. Your kudu cmd and others would still use nodejs version set at app settings.
+2. Using iisnode.yml file, changing nodejs version in iisnode.yml file would only set the run-time environment which iisnode uses. Your kudu cmd and others would still use nodejs version set at app settings.
+    
     * Setting iisnode.yml file manually
     Create a iisnode.yml file in your app root folder and include below line
 
