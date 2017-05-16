@@ -38,11 +38,25 @@ The service can be used to detect which language the input text is written in. 1
 
 ## Supported Languages
 
-The supported languages are as follows:
+## Supported Languages
 
-| Feature | Supported language codes |
-|:--- |:--- |
-| Sentiment |`en` (English), `es` (Spanish), `fr` (French), `pt` (Portuguese) |
-| Sentiment (additional preview languages) |`da` (Danish), `de` (German), `el` (Greek), `fi` (Finnish), `it` (Italian), `nl` (Dutch), `no` (Norwegian), `pl` (Polish), `ru` (Russian), `sv` (Swedish), `tr` (Turkish) |
-| Key Phrases |`de` (German), `en` (English), `es` (Spanish), `ja` (Japanese) |
-| Topics |`en` (English) |
+| Language    | Language code | Sentiment | Key phrases | Topics |
+|:----------- |:----:|:----:|:----:|:----:|
+| Danish      | `da` | ✔ \* |  |   |
+| German       | `de` | ✔ \* | ✔ |   |
+| Greek       | `el` | ✔ \* |  |   |
+| English     | `en` | ✔ | ✔ | ✔ |
+| Spanish     | `es` | ✔ | ✔ |   |
+| Finnish     | `fi` | ✔ \* |  |   |
+| French      | `fr` | ✔ |  |   |
+| Japanese    | `ja` |  | ✔ |   |
+| Italian     | `it` | ✔ \* |  |   |
+| Dutch       | `nl` | ✔ \* |  |   |
+| Norwegian   | `no` | ✔ \* |  |   |
+| Polish      | `pl` | ✔ \* |  |   |
+| Portuguese  | `pt` | ✔ |  |   |
+| Russian     | `ru` | ✔ \* |  |   |
+| Swedish     | `sv` | ✔ \* |  |   |
+| Turkish     | `tr` | ✔ \* |  |   |
+
+\* indicates language support in preview
