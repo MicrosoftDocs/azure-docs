@@ -14,7 +14,7 @@ ms.devlang: powershell
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
-ms.date: 04/21/2017
+ms.date: 05/16/2017
 ms.author: gwallace
 
 ---

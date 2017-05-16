@@ -14,7 +14,7 @@ ms.devlang: powershell
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
-ms.date: 04/25/2017
+ms.date: 05/16/2017
 ms.author: gwallace
 ---
 
