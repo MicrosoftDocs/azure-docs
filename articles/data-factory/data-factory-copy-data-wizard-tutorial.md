@@ -28,7 +28,7 @@ ms.author: spelluru
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
-This tutorial shows you how to copy data from an Azure blob storage to an Azure SQL database by using the **Copy Wizard**. 
+This tutorial shows you how to use the **Copy Wizard** to copy data from an Azure blob storage to an Azure SQL database. 
 
 The Azure Data Factory **Copy Wizard** allows you to quickly create a data pipeline that copies data from a supported source data store to a supported destination data store. Therefore, we recommend that you use the wizard as a first step to create a sample pipeline for your data movement scenario. For a list of data stores supported as sources and as destinations, see [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats).  
 
@@ -40,7 +40,7 @@ Complete prerequisites listed in the [Tutorial Overview](data-factory-copy-data-
 ## Create data factory
 In this step, you use the Azure portal to create an Azure data factory named **ADFTutorialDataFactory**.
 
-1. Login in to the [Azure portal](https://portal.azure.com).
+1. Log in in to the [Azure portal](https://portal.azure.com).
 2. Click **+ NEW** from the top-left corner, click **Data + analytics**, and click **Data Factory**. 
    
    ![New->DataFactory](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
@@ -135,7 +135,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
 2. The monitoring application is launched in a separate tab in your web browser.   
    
    ![Monitoring App](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)   
-3. Click **Refresh** button in the **ACTIVITY WINDOWS** list at the bottom to see the latest status of hourly slices. You see five activity windows for the five hourly slices between start and end times for the pipeline. The list is not automatically refreshed, so you may need to click Refresh a couple of times before you see all the activity windows in the Ready state. 
+3. To see the latest status of hourly slices, click **Refresh** button in the **ACTIVITY WINDOWS** list at the bottom. You see five activity windows for five days between start and end times for the pipeline. The list is not automatically refreshed, so you may need to click Refresh a couple of times before you see all the activity windows in the Ready state. 
 4. Select an activity window in the list. See the details about it in the **Activity Window Explorer** on the right.
 
 	![Activity window details](media/data-factory-copy-data-wizard-tutorial/activity-window-details.png)	
@@ -149,4 +149,4 @@ In this tutorial, you used Azure blob storage as a source data store and an Azur
 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
-For more information such as details about fields/properties that you see in the copy wizard for a data store, click the link for the data store in the table. 
+For details about fields/properties that you see in the copy wizard for a data store, click the link for the data store in the table. 
