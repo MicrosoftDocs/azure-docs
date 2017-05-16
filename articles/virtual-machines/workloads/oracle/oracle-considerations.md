@@ -1,5 +1,5 @@
 ---
-title: Considerations for using Oracle VM images | Microsoft Docs
+title: Considerations for using Oracle VM images on Azure | Microsoft Docs
 description: Learn about supported configurations and limitations for an Oracle VM in Azure before you deploy.
 services: virtual-machines-linux
 documentationcenter: ''
