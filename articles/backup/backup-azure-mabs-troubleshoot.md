@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/24/2017
+ms.date: 5/15/2017
 ms.author: pullabhk;markgal;
 
 ---
@@ -22,8 +22,13 @@ ms.author: pullabhk;markgal;
 
 You can troubleshoot errors encountered while using Azure Backup Server with information listed in the following table.
 
->
->
+
+## Installation issues
+
+| Operation | Error details | Workaround |
+|-----------|---------------|------------|
+|Installation | ReFS trimming Registry Entry Addition failed | Adjust the registry key. |
+|Installation | Volume SnapOptimization Registry Entry addition failed | Create the registry key. |
 
 ## Registration and Agent related issues
 | Operation | Error details | Workaround |
