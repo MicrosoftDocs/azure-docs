@@ -1,7 +1,6 @@
 ---
 title: Azure Service Fabric Patch Orchestration Application | Microsoft Docs
-description: Patch Orchestration Application is a Service Fabric application that allows user
-to automate OS patching on a Service Fabric cluster. This article describes how to use the application.
+description: Application to automate OS pactching on a Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
 author: novino
@@ -12,9 +11,9 @@ ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 05/08/2017
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 5/9/2017
 ms.author: nachandr
 
 ---
@@ -92,36 +91,36 @@ enabled on the cluster.
 
 #### Service Fabric clusters on Azure
 
-Azure clusters in Silver durability tier would have Repair Manager enabled by default. Azure cluster in Gold durability tier may or may not have Repair Manager enabled, depending on how long ago those clusters were created. While Azure cluster in Bronze durability tier will not have Repair Manager service enabled by default. 
+Azure clusters in Silver durability tier would have Repair Manager enabled by default. Azure cluster in Gold durability tier may or may not have Repair Manager enabled, depending on how long ago those clusters were created. While Azure cluster in Bronze durability tier, by default, does not have Repair Manager service enabled. 
 
-One can use the [Azure Resource Manager template](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) to enable Repair Manager service on their new/ existing Service Fabric clusters, in case you dont see it running already under the system services section in the Service Fabric explorer.
+You can use the [Azure Resource Manager template](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) to enable Repair Manager service on their new/ existing Service Fabric clusters, in case you do not see it running already under the system services section in the Service Fabric explorer.
 
 First, get the template for the cluster that you want to deploy. You can either use the sample templates or create a custom Resource Manager template. You can then enable the Repair Manager by using the following steps:
 
 1. First check that the `apiversion` is set to `2017-07-01-preview` for the `Microsoft.ServiceFabric/clusters` resource as shown in the following snippet. If it is different then you need to update the `apiVersion` to the value `2017-07-01-preview`
 
-```json
-{
-    "apiVersion": "2017-07-01-preview",
-    "type": "Microsoft.ServiceFabric/clusters",
-    "name": "[parameters('clusterName')]",
-    "location": "[parameters('clusterLocation')]",
-    ...
-}
-```
+    ```json
+    {
+        "apiVersion": "2017-07-01-preview",
+        "type": "Microsoft.ServiceFabric/clusters",
+        "name": "[parameters('clusterName')]",
+        "location": "[parameters('clusterLocation')]",
+        ...
+    }
+    ```
 
 2. Now enable Repair Manager service by adding the following `addonFeaturres` section after the `fabricSettings` section as shown below
 
-```json
-"fabricSettings": [
-    ...      
-    ],
-    "addonFeatures": [
-        "RepairManager"
-    ],
-```
+    ```json
+    "fabricSettings": [
+        ...      
+        ],
+        "addonFeatures": [
+            "RepairManager"
+        ],
+    ```
 
-3. Once you have updated your cluster template with these changes, apply them and let the upgrade complete. Once completed, you will now see the Repai Manager system service running in your cluster which is called `fabric:/System/RepairManagerService` under system services section in the Service Fabric explorer. 
+3. Once you have updated your cluster template with these changes, apply them and let the upgrade complete. Once completed, you can now see the Repair Manager system service running in your cluster, which is called `fabric:/System/RepairManagerService`, under system services section in the Service Fabric explorer. 
 
 #### Standalone On-Premise Clusters
 
@@ -143,7 +142,7 @@ explicitly.
 
 ### Optional: Enable Windows Azure Diagnostics
 
-In coming days, logs for Patch Orchestration Application would be collected as part of the Service Fabric logs itself. However till then, logs would get collected locally on each of the cluster nodes. We recommend configuring Windows Azure Diagnostics (WAD) to have the logs uploaded from all nodes to a central location.
+In coming days, logs for Patch Orchestration Application would be collected as part of the Service Fabric logs itself. However untill then, logs would get collected locally on each of the cluster nodes. We recommend configuring Windows Azure Diagnostics (WAD) to have the logs uploaded from all nodes to a central location.
 
 Steps for enabling WAD are detailed [here.](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad)
 
@@ -206,14 +205,14 @@ Application parameters can be provided by specifying `ApplicationParameter` to c
 |**Parameter**        |**Type**                          | **Details**|
 |:-|-|-|
 |MaxResultsToCache    |Long                              | Maximum number of Windows Update results histories, which should be cached. <br>Default value is 3000 assuming <br> - Number of nodes are 20 <br> - Number of updates happening on a node per month is 5 <br> - Number of results per operation can be 10 <br> - And results for past 3 months should be stored |
-|TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indicates policy to be used by CoordinatorService to install windows updates across the Service Fabric cluster nodes<br>                         Allowed values are <br>                                                           <b>NodeWise</b> - Windows Update is installed one node at a time <br>                                                           <b>UpgradeDomainWise</b> - Windows Update would be installed one upgrade domain at a time (at max all the nodes belonging to an upgrade domain can go for Windows Update)
+|TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indicates policy to be used by CoordinatorService to install windows updates across the Service Fabric cluster nodes<br>                         Allowed values are: <br><br>                                                           <b>NodeWise</b> - Windows Update is installed one node at a time <br>                                                           <b>UpgradeDomainWise</b> - Windows Update would be installed one upgrade domain at a time (at max all the nodes belonging to an upgrade domain can go for Windows Update)
 |LogsDiskQuotaInMB   |Long  <br> (Default: 1024)               |Maximum size of Patch Orchestration Application logs in MB, which can be persisted locally on node
 | WUQuery               | string<br>(Default: "IsInstalled=0")                | Query to get windows updates, For more information, see [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 | InstallWindowsOSOnlyUpdates | Bool <br> (default: True)                 | This flag allows windows OS updates to be installed.            |
 | WUOperationTimeOutInMinutes | Int <br>(Default: 90)                   | Specifies the timeout for any Windows Update operation (search/ download/ install). If operation is not completed within the specified timeout, it is aborted.       |
 | WURescheduleCount     | Int <br> (Default: 5)                  | This configuration decides the maximum number of times the service would reschedule the Windows Update in case operation fails persistently          |
 | WURescheduleTimeInMinutes | Int <br>(Default: 30) | This configuration decides the interval at which service would reschedule the Windows Update in case failure persists |
-| WUFrequency           | Comma-separated string (Default: "Weekly, Wednesday, 7:00:00")     | The frequency for installing Windows Update. The format and Possible Values are as below <br>-   Monthly,DD,HH:MM:SS Ex: Monthly,5,12:22:32 <br> -   Weekly,DAY,HH:MM:SS Ex: Weekly, Tuesday, 12:22:32  <br> -   Daily, HH:MM:SS Ex: Daily, 12:22:32  <br> -  None - Indicates that Windows Update shouldn't be done  <br> NOTE: All the times are in UTC|
+| WUFrequency           | Comma-separated string (Default: "Weekly, Wednesday, 7:00:00")     | The frequency for installing Windows Update. The format and Possible Values are as below <br>-   Monthly,DD,HH:MM:SS Ex: Monthly,5,12:22:32 <br> -   Weekly,DAY,HH:MM:SS Ex: Weekly, Tuesday, 12:22:32  <br> -   Daily, HH:MM:SS Ex: Daily, 12:22:32  <br> -  None - Indicates that Windows Update shouldn't be done  <br><br> NOTE: All the times are in UTC|
 | AcceptWindowsUpdateEula | Bool <br>(Default: true) | By setting this flag, application accepts EULA for Windows Update on behalf of owner of machine.              |
 
 
@@ -229,7 +228,7 @@ Application parameters can be provided by specifying `ApplicationParameter` to c
 
     - Connect to Service Fabric cluster using `Connect-ServiceFabricCluster`
     - Execute the powershell script Deploy.ps1 with appropriate `ApplicationParameter` value
-> 
+
 > [!NOTE]
 > Keep the script and application folder PatchOrchestrationApplication in same directory.
 
@@ -248,9 +247,9 @@ For ease of user, we have provided script Undeploy.ps1 along with our
 application. To use it.
     - Connect to Service Fabric cluster using ```Connect-ServiceFabricCluster```
     - Execute the powershell script Undeploy.ps1
-   > 
-   > [!NOTE]
-   > Keep the script and application folder PatchOrchestrationApplication in same directory.
+
+> [!NOTE]
+> Keep the script and application folder PatchOrchestrationApplication in same directory.
 
 ## Viewing the Windows Update results
 
@@ -271,6 +270,7 @@ Endpoint that needs to be hit:
 http://&lt;SERVERURL&gt;:&lt;REVERSEPROXYPORT&gt;/PatchOrchestrationApplication/CoordinatorService/v1/GetWindowsUpdateResults
 Reverse proxy can be enabled on the cluster by following the steps [here.](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) 
 
+> 
 > [!WARNING]
 > Once Reverse Proxy is configured, all micro services in the cluster that expose 
 an HTTP endpoint are addressable from outside the cluster.
@@ -288,10 +288,10 @@ Logs are collected locally on each Service Fabric cluster node. The location to
 access the logs is
 \[Service Fabric\_Installation\_Drive\]:\\PatchOrchestrationApplication\\logs
 
-Ex: If Service Fabric were installed on “D” drive, the path would be
+Ex: If Service Fabric was installed on “D” drive, the path would be
 D:\\PatchOrchestrationApplication\\logs
 
-##### Central Location
+#### Central Location
 
 If WAD is configured as part of prerequisite steps, then logs for
 Patch Orchestration Application would be available in Azure Storage.
@@ -364,7 +364,7 @@ Q. **Why does patching across cluster take so long to run?**
 A. The time taken by Patch Orchestration Application is mostly dependent
 on following factors:
 
-- Policy of CoordinatorService - Default policy of `NodeWise` will result in patching only one node at a time, esp. in case of bigger clusters we recommend using `UpgradeDomainWise` policy to achieve faster patching across cluster.
+- Policy of CoordinatorService - Default policy of `NodeWise` results in patching only one node at a time, esp. in case of bigger clusters we recommend using `UpgradeDomainWise` policy to achieve faster patching across cluster.
 - Number of updates available for download and install - Avg. time taken for downloading and installing an update should not exceed couple of hours.
 - Performance of the VM and network bandwidth.
 
