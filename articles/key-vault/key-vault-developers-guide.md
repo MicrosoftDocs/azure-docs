@@ -116,7 +116,7 @@ These articles are about other scenarios and services that use or integrate with
 ## Key Vault overviews and concepts
 
 - [Key Vault security worlds and geographic boundaries](key-vault-ovw-security-worlds.md)
-- [Key Vault soft-delete](key-vault-ovw-soft-delete.md)
+- [Key Vault soft-delete behavior](key-vault-ovw-soft-delete.md)
 - [Key Vault throttling guidance](key-vault-ovw-throttling.md)
 
 ## Social
