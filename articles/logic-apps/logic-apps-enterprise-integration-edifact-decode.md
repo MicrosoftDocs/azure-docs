@@ -82,7 +82,7 @@ The Decode EDIFACT connector performs these tasks:
 
 * Validates the envelope against trading partner agreement.
 * Resolves the agreement by matching the sender qualifier & identifier and receiver qualifier & identifier.
-* Splits an interchange into multiple transactions if the interchange has 
+* Splits an interchange into multiple transactions when the interchange has 
 more than one transaction based on the agreement's receive settings configuration.
 * Disassembles the interchange.
 * Validates EDI and partner-specific properties including:
