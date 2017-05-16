@@ -15,18 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 05/16/2017
 ms.author: johnsta
 
 ---
 
 # Continuous Integration and Deployment of Multi-Container Docker Applications to Azure Container Service 
-In this tutorial, we cover how to fully automate building and deploying a multi-container Docker app to an Azure Container Service cluster running DC/OS. While the benefits of continuous integration and deployment (CI/CD) are known, there are new considerations when integrating containers into your workflow. Using the new Azure Container Registry and CLI commands, we set up an end-to-end flow, which you can customize.
+In this tutorial, we cover how to fully automate building and deploying a multi-container Docker app to an Azure Container Service cluster running DC/OS. While the benefits of continuous integration and deployment (CI/CD) are known, there are new considerations when integrating containers into your workflow. Using the Azure Container Registry and CLI commands, we set up an end-to-end flow, which you can customize.
+
+> [!IMPORTANT]
+> The `az container` commands shown in this article are removed from the Azure Command-Line Interface (CLI) as of version 2.0.5. For related CI/CD workflows with Azure Container Service, see the [Kubernetes](container-service-kubernetes-jenkins.md) and [Docker Swarm](container-service-docker-swarm-setup-ci-cd.md) examples. See also [Continuous Delivery Tools for Visual Studio](https://marketplace.visualstudio.com/items?itemName=VSIDEDevOpsMSFT.ContinuousDeliveryToolsforVisualStudio) for other DevOps pipelines targeting Azure.
+> 
 
 ## Get started
 You can run this walkthrough on OS X, Windows, or Linux.
 - You need an Azure subscription. If you don't have one, you can [sign up for an account](https://azure.microsoft.com/).
-- Install the [Azure CLI 2.0](/cli/azure/install-az-cli2).
+- Install the [Azure CLI 2.0](/cli/azure/install-az-cli2). The `az container` commands require version 2.0.4 or earlier.
 
 ## What we'll create
 Let's touch on some key aspects of the app and its deployment flow that we are setting up:

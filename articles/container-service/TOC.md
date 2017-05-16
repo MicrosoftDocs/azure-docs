@@ -10,7 +10,6 @@
 ## [Deploy cluster - Portal](container-service-deployment.md)
 ## [Deploy cluster - Azure CLI](container-service-create-acs-cluster-cli.md)
 ## [CI/CD with Kubernetes and Jenkins](container-service-kubernetes-jenkins.md)
-## [CI/CD with DC/OS and VSTS](container-service-setup-ci-cd.md)
 ## [CI/CD with Docker Swarm and VSTS](container-service-docker-swarm-setup-ci-cd.md)
 
 # Concepts
@@ -29,6 +28,8 @@
 ### [App/user-specific orchestrator in DC/OS](container-service-application-specific-marathon.md)
 ### [Add a file share](container-service-dcos-fileshare.md)
 ### [Use an Azure container registry](container-service-dcos-acr.md)
+### [Canary release with Vamp](container-service-dcos-vamp-canary-release.md)
+### [CI/CD with DC/OS and VSTS](container-service-setup-ci-cd.md)
 ### Monitor DC/OS
 #### [Monitor with ELK](container-service-monitoring-elk.md)
 #### [Monitor with OMS](container-service-monitoring-oms.md)
