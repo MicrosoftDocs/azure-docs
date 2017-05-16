@@ -31,7 +31,7 @@ This topic provides answers to some of the most common questions about Availabil
 4. Click on the pencil icon next to **eventlog.xml** to view event logs
 5. Powershell cmdlet to download these logs is `Save-AzureWebSiteLog -Name webappname`
 
-## My App is performing slow. How can I troubleshoot and resolve the issue
+## My App is performing slow
 
 There can be various reasons that could contribute to slow performance.
 
