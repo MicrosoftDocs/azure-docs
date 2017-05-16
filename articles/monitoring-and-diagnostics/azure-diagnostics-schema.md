@@ -31,8 +31,8 @@ Azure Diagnostics is used with other Microsoft diagnostics products like Azure M
 
 |Azure SDK version | Diagnostics extension version | Model|  
 |------------------|-------------------------------|------|  
-|1.x               |1.0                            | plug-in|  
-|2.0 - 2.4         |1.0                            |"|  
+|1.x               |1.0                            |plug-in|  
+|2.0 - 2.4         |1.0                            |plug-in|  
 |2.5               |1.2                            |extension|  
 |2.6               |1.3                            |"|  
 |2.7               |1.4                            |"|  
@@ -49,7 +49,7 @@ Azure Diagnostics is used with other Microsoft diagnostics products like Azure M
 
  Starting with SDK 2.5 (diagnostics version 1.2), Azure diagnostics went to an extension model. The tools to utilize new features were only available in newer Azure SDKs, but any Cloud Service or Virtual Machine using diagnostics would pick up the latest shipping version directly from Azure.  
 
- For example, anyone still using SDK 2.5 would be loading Diagnostics 1.5, whether or not they were using the newer features.  
+ For example, anyone still using SDK 2.5 would be loading Diagnostics 1.5, regardless if they are using the newer features.  
 
 ## Azure Diagnostics schemas index  
 [Diagnostics 1.0 Configuration Schema](azure-diagnostics-schema-1dot0.md)  
@@ -59,9 +59,7 @@ Azure Diagnostics is used with other Microsoft diagnostics products like Azure M
 [Diagnostics 1.3 and later Configuration Schema](azure-diagnostics-schema-1dot3-and-later.md)  
 
 ## Version History
-Various features and changes described below.
 
-Supports specifying a sas token instead of storage account key in the private configuration. If an sas token is provided, the storage account key will be ignored.
 
 ### Diagnostics extension 1.9 
 Added Docker support.

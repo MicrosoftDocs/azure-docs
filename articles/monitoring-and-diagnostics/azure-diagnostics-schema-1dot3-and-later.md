@@ -19,9 +19,13 @@ ms.author: robb
 ---
 # Azure Diagnostics 1.3 and later configuration schema
 > [!NOTE]
-> The Azure Diagnostics extension is the component used to collect performance counters and other statistics from Azure Virtual Machines, Virtual Machine Scale Sets, Service
-> Fabric, Cloud Services and Network Security Groups.  This page is only relevant if you are using one of these services.
->
+> The Azure Diagnostics extension is the component used to collect performance counters and other statistics from:
+> - Azure Virtual Machines 
+> - Virtual Machine Scale Sets
+> - Service Fabric 
+> - Cloud Services 
+> - Network Security Groups
+> This page is only relevant if you are using one of these services.
 
 This page is valid for versions 1.3 and newer (Azure SDK 2.4 and newer). Newer configuration sections are commented to show in what version they were added.  
 
@@ -382,9 +386,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Child Elements|Description|  
 |--------------------|-----------------|  
 |**WadCfg**|Required. See description elsewhere on this page.|  
-|**StorageAccount**|The name of the Azure Storage account to store the data in. This may also be specified as a parameter when executing the Set-AzureServiceDiagnosticsExtension cmdlet.|  
-|**StorageType**|Can be *Table*, *Blob*, or *TableAndBlob*. Table is default. When TableAndBlob is choosen, diagnostic data is written twice -- once to each type.|  
-|**LocalResourceDirectory**|The directory on the virtual machine where the Monitoring Agent stores event data. If not, set, the default directory is used:<br /><br /> For a Worker/web role: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> For a Virtual Machine: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Required attributes are:<br /><br /> - **path** - The directory on the system to be used by Azure Diagnostics.<br /><br /> - **expandEnvironment** - Controls whether or not environment variables are expanded in the path name.|  
+|**StorageAccount**|The name of the Azure Storage account to store the data in. May also be specified as a parameter when executing the Set-AzureServiceDiagnosticsExtension cmdlet.|  
+|**StorageType**|Can be *Table*, *Blob*, or *TableAndBlob*. Table is default. When TableAndBlob is chosen, diagnostic data is written twice -- once to each type.|  
+|**LocalResourceDirectory**|The directory on the virtual machine where the Monitoring Agent stores event data. If not, set, the default directory is used:<br /><br /> For a Worker/web role: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> For a Virtual Machine: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Required attributes are:<br /><br /> - **path** - The directory on the system to be used by Azure Diagnostics.<br /><br /> - **expandEnvironment** - Controls whether environment variables are expanded in the path name.|  
 
 ## WadCFG Element  
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG*
@@ -413,7 +417,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**Metrics**|See description elsewhere on this page.|  
 |**PerformanceCounters**|See description elsewhere on this page.|  
 |**WindowsEventLog**|See description elsewhere on this page.| 
-|**DockerSources**|See description elsehwere on this page. | 
+|**DockerSources**|See description elsewhere on this page. | 
 
 
 
@@ -512,7 +516,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Enables you to generate a performance counter table that is optimized for fast queries. Each performance counter that is defined in the **PerformanceCounters** element is stored in the Metrics table in addition to the Performance Counter table.  
 
- The **resourceId** attribute is required.  This is the resource ID of the Virtual Machine you are deploying Azure Diagnostics to. Get the **resourceID** from the [Azure portal](https://portal.azure.com). Select **Browse** -> **Resource Groups** -> **<Name\>**. Click the **Properties** tile and copy the value from the **ID** field.  
+ The **resourceId** attribute is required.  The resource ID of the Virtual Machine you are deploying Azure Diagnostics to. Get the **resourceID** from the [Azure portal](https://portal.azure.com). Select **Browse** -> **Resource Groups** -> **<Name\>**. Click the **Properties** tile and copy the value from the **ID** field.  
 
 |Child Elements|Description|  
 |--------------------|-----------------|  
@@ -531,7 +535,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Child Element|Description|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|The following attributes are required:<br /><br /> - **counterSpecifier** - The name of the performance counter. For example, `\Processor(_Total)\% Processor Time`. To get a list of performance counters on your host run the command `typeperf`.<br /><br /> - **sampleRate** - How often the counter should be sampled.<br /><br /> Optional attribute:<br /><br /> **unit** - The unit of measure of the counter.|  
+|**PerformanceCounterConfiguration**|The following attributes are required:<br /><br /> - **counterSpecifier** - The name of the performance counter. For example, `\Processor(_Total)\% Processor Time`. To get a list of performance counters on your host, run the command `typeperf`.<br /><br /> - **sampleRate** - How often the counter should be sampled.<br /><br /> Optional attribute:<br /><br /> **unit** - The unit of measure of the counter.|  
 
 
 
@@ -545,7 +549,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Child Element|Description|  
 |-------------------|-----------------|  
-|**DataSource**|The Windows Event logs to collect. Required attribute:<br /><br /> **name** - The XPath query describing the windows events to be collected. For example:<br /><br /> `Application!*[Application[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[Security[(Level <= 3)]`<br /><br /> To collect all events, specify “*”.|  
+|**DataSource**|The Windows Event logs to collect. Required attribute:<br /><br /> **name** - The XPath query describing the windows events to be collected. For example:<br /><br /> `Application!*[Application[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[Security[(Level <= 3)]`<br /><br /> To collect all events, specify "*"|  
 
 
 
