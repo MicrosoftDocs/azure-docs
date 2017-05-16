@@ -30,7 +30,7 @@ Reliable Concurrent Queue is an asynchronous, transactional, and replicated queu
 
 ## Comparison with [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx)
 
-Reliable Concurrent Queue is offered as an alternative to [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx). It should be used in cases where strict FIFO ordering is not required, as guaranteeing FIFO requires a tradeoff with concurrency.  [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx) uses locks to enforce FIFO ordering, with at most one transaction allowed to enqueue and/or dequeue at a time. In comparison, Reliable Concurrent Queue relaxes the ordering constraint and allows any number concurrent transactions to interleave their enqueue and dequeue operations. Best-effort ordering is provided, however the relative ordering of two values in a Reliable Concurrent Queue can never be guaranteed.
+Reliable Concurrent Queue is offered as an alternative to [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx). It should be used in cases where strict FIFO ordering is not required, as guaranteeing FIFO requires a tradeoff with concurrency.  [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx) uses locks to enforce FIFO ordering, with at most one transaction allowed to enqueue and at most one transaction allowed to dequeue at a time. In comparison, Reliable Concurrent Queue relaxes the ordering constraint and allows any number concurrent transactions to interleave their enqueue and dequeue operations. Best-effort ordering is provided, however the relative ordering of two values in a Reliable Concurrent Queue can never be guaranteed.
 
 Reliable Concurrent Queue provides higher throughput and lower latency than [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx) whenever there are multiple concurrent transactions performing enqueues and/or dequeues.
 
@@ -215,8 +215,8 @@ while(!cancellationToken.IsCancellationRequested)
 }
 ```
 
-### Notification-Based Processing
-Another interesting programming pattern uses the Count API. Here, we can implement notification-based processing for the queue. The queue Count can be used to throttle an enqueue or a dequeue task.  Note that as in the previous example, since the processing occurs outside the transaction, unprocessed items may be lost if a fault occurs during processing.
+### Best-Effort Notification-Based Processing
+Another interesting programming pattern uses the Count API. Here, we can implement best-effort notification-based processing for the queue. The queue Count can be used to throttle an enqueue or a dequeue task.  Note that as in the previous example, since the processing occurs outside the transaction, unprocessed items may be lost if a fault occurs during processing.
 
 ```
 int threshold = 5;
@@ -263,10 +263,10 @@ while(!cancellationToken.IsCancellationRequested)
 }
 ```
 
-### Best-Effort DrainQueueAsync
-We cannot guarantee draining of the queue due to the concurrent nature of the data structure.  It is possible that, even if no user operations on the queue are in-flight, a particular call to TryDequeueAsync may not return an item which was previously enqueued and committed.  The enqueued item is guaranteed to *eventually* become visible to dequeue, however without an out-of-band communication mechanism, an independent consumer cannot know that the queue has reached a steady-state even if all producers have been stopped and no new enqueue operations are allowed. Thus, the drain operation is best-effort.
+### Best-Effort Drain
+A drain of the queue cannot be guaranteed due to the concurrent nature of the data structure.  It is possible that, even if no user operations on the queue are in-flight, a particular call to TryDequeueAsync may not return an item which was previously enqueued and committed.  The enqueued item is guaranteed to *eventually* become visible to dequeue, however without an out-of-band communication mechanism, an independent consumer cannot know that the queue has reached a steady-state even if all producers have been stopped and no new enqueue operations are allowed. Thus, the drain operation is best-effort as implemented below.
 
-The user should stop all further producer and consumer tasks, and wait for any in-flight transactions to commit or abort, before attempting to drain the queue. If the number of items is the queue is large, the user should choose to batch the dequeues.
+The user should stop all further producer and consumer tasks, and wait for any in-flight transactions to commit or abort, before attempting to drain the queue.  If the user knows the expected number of items in the queue, they can set up a notification which signals that all items have been dequeued.
 
 ```
 int numItemsDequeued;
@@ -302,8 +302,8 @@ do
 } while (ret.HasValue);
 ```
 
-### TryPeekAsync
-ReliableConcurrentQueue does not provide the *TryPeekAsync* api. Users can get the same behavior by using a *TryDequeueAsync* and then aborting the transaction. In this example, dequeues are processed only if the item's value is greater than *10*.
+### Peek
+ReliableConcurrentQueue does not provide the *TryPeekAsync* api. Users can get the peek semantic by using a *TryDequeueAsync* and then aborting the transaction. In this example, dequeues are processed only if the item's value is greater than *10*.
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
