@@ -331,6 +331,7 @@
 #### [Sign-in experience](active-directory-identityprotection-flows.md)
 #### [Simulate risk events](active-directory-identityprotection-playbook.md)
 #### [Unblock users](active-directory-identityprotection-unblock-howto.md)
+#### [FAQs](active-directory-identity-protection-faqs.md)
 #### [Glossary](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)

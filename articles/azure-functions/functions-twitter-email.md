@@ -249,7 +249,7 @@ Now you have seen how easy it is to integrate Functions into a Logic Apps workfl
 
 To disable the logic app, click **Overview** and then click **Disable** at the top of the screen. This stops the logic app from running and incurring charges without deleting the app. 
 
-    ![Function logs](media/functions-twitter-email/disable-logic-app.png)
+![Function logs](media/functions-twitter-email/disable-logic-app.png)
 
 ## Next steps
 
