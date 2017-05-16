@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
 
 ---
 
 # Microsoft.Common.DropDown UI element
-A selection control with a dropdown list.
+A selection control with a dropdown list. You use this element when [creating an Azure Managed Application](managed-application-publishing.md).
 
 ## UI sample
 ![Microsoft.Common.DropDown](./media/managed-application-elements/microsoft.common.dropdown.png)
@@ -58,6 +58,7 @@ A selection control with a dropdown list.
 "Bar"
 ```
 
-## Next Steps
+## Next steps
+* For an introduction to managed applications, see [Azure Managed Application overview](managed-application-overview.md).
 * For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * For a description of common properties in UI elements, see [CreateUiDefinition elements](managed-application-createuidefinition-elements.md).

@@ -1,6 +1,6 @@
 ---
-title: Transition to Azure AD application proxies from Microsoft Forefront | Microsoft Docs
-description: Covers the basics about how to move from the Microsoft Forefront TMG and UAG solutions to Azure Active Directory application proxies.
+title: Upgrade to Azure AD Application Proxy | Microsoft Docs
+description: Choose which proxy solution is best if you're upgrading from Microsoft Forefront or Unified Access Gateway.
 services: active-directory
 documentationcenter: ''
 author: kgremban
@@ -12,11 +12,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 04/27/2017
 ms.author: kgremban
-ROBOTS: NOINDEX
 ---
-# Transition to Azure AD application proxies from Microsoft Forefront
+# Upgrade to Azure AD proxies from Microsoft Forefront or Unified Access Gateway
 
 This article describes how to move from the Microsoft Forefront Threat Management Gateway (TMG) and Unified Access Gateway (UAG) solutions to Azure AD Application Proxy.
 
@@ -24,16 +23,16 @@ For detailed information about the transition from Forefront TMG and UAG to Appl
 
 ## Functionality details for the conversion
 
-|**TMG/UAG functionality**|**Web Application Proxy/Azure AD Application Proxy**|
+|**TMG/UAG functionality**|**Modern solution**|
 |:-----|:-----|
-|Selective HTTP publishing for browser apps|Available in Web Application Proxy in Windows Server 2012 R2. Available in Azure AD Application Proxy today.|
-|Active Directory Federation Services (AD FS) integration|Available in Web Application Proxy in Windows Server 2012 R2. Available in Azure AD Application Proxy today.|
-|Rich protocols publishing (for example, Citrix, Lync, RDG)|Available in Web Application Proxy in Windows Server 2012 R2. Available in Azure AD Application Proxy today.|
-|Preauthentication for ActiveSync (HTTP Basic) and RDG|Currently not available in Web Application Proxy or Azure AD Application Proxy.|
-|Portal|Use Intune or System Center for Web Application Proxy. Use Azure AD Access Panel or Office 365 App Launcher for Azure AD Application Proxy.|
-|Endpoint health detection|Use Intune or System Center.|
-|SSL tunneling|Use Windows SSL or VPN capability.|
-|Layer 2/3 firewall|Use Windows Server capabilities.|
+|Selective HTTP publishing for browser apps|Azure AD Application Proxy|
+|Active Directory Federation Services (AD FS) integration|Azure AD Application Proxy|
+|Rich protocols publishing (for example, Citrix, Lync, RDG)|Azure AD Application Proxy|
+|Portal|Azure AD Access Panel or Office 365 App Launcher for Azure AD Application Proxy|
+|Endpoint health detection|Intune or System Center|
+|SSL tunneling|Windows SSL or VPN|
+|Layer 2/3 firewall|Windows Server|
+|Preauthentication for ActiveSync (HTTP Basic) and RDG|No current solution from Microsoft|
 |Web application firewall|No current solution from Microsoft.|
 |Secure web gateway (forward proxy)|No current solution from Microsoft.|
 
