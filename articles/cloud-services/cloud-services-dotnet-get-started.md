@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 11/16/2016
+ms.date: 05/15/2017
 ms.author: adegeo
 
 ---
@@ -64,7 +64,7 @@ When a user uploads an image, the front-end running in a web role stores the ima
 
 ![Contoso Ads architecture](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
-[!INCLUDE [install-sdk](../../includes/install-sdk-2015-2013.md)]
+[!INCLUDE [install-sdk](../../includes/install-sdk-2017-2015-2013.md)]
 
 ## Download and run the completed solution
 1. Download and unzip the [completed solution](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4).
@@ -115,8 +115,6 @@ An Azure cloud service is the environment the application will run in.
 1. In your browser, open the [Azure portal](https://portal.azure.com).
 2. Click **New > Compute > Cloud Service**.
 
-    ![Menu for fNew Cloud Service](./media/cloud-services-dotnet-get-started/newcs.png)
-
 3. In the DNS name input box, enter a URL prefix for the cloud service.
 
     This URL has to be unique.  You'll get an error message if the prefix you choose is already in use.
@@ -127,55 +125,61 @@ An Azure cloud service is the environment the application will run in.
     This field specifies which datacenter your cloud service will be hosted in. For a production application, you'd choose the region closest to your customers. For this tutorial, choose the region closest to you.
 5. Click **Create**.
 
-    In the following image, a cloud service is created with the URL contosoads.cloudapp.net.
+    In the following image, a cloud service is created with the URL CSvccontosoads.cloudapp.net.
 
     ![New Cloud Service](./media/cloud-services-dotnet-get-started/newcs.png)
 
 ### Create an Azure SQL database
 When the app runs in the cloud, it will use a cloud-based database.
 
-1. In the [Azure classic portal](http://manage.windowsazure.com), click **New > Data Services > SQL Database > Quick Create**.
+1. In the [Azure portal](https://portal.azure.com), click **New > Databases > SQL Database**.
 2. In the **Database Name** box, enter *contosoads*.
-3. From the **Server** drop-down list, choose **New SQL Database server**.
+3. In the **Resource group**, click **Use existing** and select the resource group used for the cloud service.
+4. In the following image, click **Server - Configure required settings** and **Create a new server**.
+
+    ![Tunnel to database server](./media/cloud-services-dotnet-get-started/newdb.png)
 
     Alternatively, if your subscription already has a server, you can select that server from the drop-down list.
-4. Choose the same **Region** that you chose for the cloud service.
+5. In the **Server name** box, enter *csvccontosodbserver*.
+
+6. Enter an administrator **Login Name** and **Password**.
+
+    If you selected **Create a new server**, you aren't entering an existing name and password here. You're entering a new name and password that you're defining now to use later when you access the database. If you selected a server that you created previously, you'll be prompted for the password to the administrative user account you already created.
+7. Choose the same **Location** that you chose for the cloud service.
 
     When the cloud service and database are in different datacenters (different regions), latency will increase and you will be charged for bandwidth outside the data center. Bandwidth within a data center is free.
-5. Enter an administrator **Login Name** and **Password**.
+8. Check **Allow azure services to access server**.
+9. Click **Select** for the new server.
 
-    If you selected **New SQL Database server** you aren't entering an existing name and password here, you're entering a new name and password that you're defining now to use later when you access the database. If you selected a server that you created previously, you'll be prompted for the password to the administrative user account you already created.
-6. Click **Create SQL Database**.
-
-    ![New SQL Database](./media/cloud-services-dotnet-get-started/newdb.png)
-7. After Azure finishes creating the database, click the **SQL Databases** tab in the left pane of the portal, and then click the name of the new database.
-8. Click the **Dashboard** tab.
-9. Click **Manage allowed IP addresses**.
-10. Under **Allowed Services**, change **Azure Services** to **Yes**.
-11. Click **Save**.
+    ![New SQL Database server](./media/cloud-services-dotnet-get-started/newdbserver.png)
+10. Click **Create**.
 
 ### Create an Azure storage account
 An Azure storage account provides resources for storing queue and blob data in the cloud.
 
 In a real-world application, you would typically create separate accounts for application data versus logging data, and separate accounts for test data versus production data. For this tutorial you'll use just one account.
 
-1. In the [Azure classic portal](http://manage.windowsazure.com), click **New > Data Services > Storage > Quick Create**.
-2. In the **URL** box, enter a URL prefix.
+1. In the [Azure portal](https://portal.azure.com), click **New > Storage > Storage account - blob, file, table, queue**.
+2. In the **Name** box, enter a URL prefix.
 
     This prefix plus the text you see under the box will be the unique URL to your storage account. If the prefix you enter has already been used by someone else, you'll have to choose a different prefix.
-3. Set the **Region** drop-down list to the same region you chose for the cloud service.
+3. Set the **Deployment model** to *Classic*.
+
+4. Set the **Replication** drop-down list to **Locally-redundant storage**.
+
+    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/storage-create-storage-account.md).
+
+5. In the **Resource group**, click **Use existing** and select the resource group used for the cloud service.
+6. Set the **Location** drop-down list to the same region you chose for the cloud service.
 
     When the cloud service and storage account are in different datacenters (different regions), latency will increase and you will be charged for bandwidth outside the data center. Bandwidth within a data center is free.
 
     Azure affinity groups provide a mechanism to minimize the distance between resources in a data center, which can reduce latency. This tutorial does not use affinity groups. For more information, see [How to Create an Affinity Group in Azure](http://msdn.microsoft.com/library/jj156209.aspx).
-4. Set the **Replication** drop-down list to **Locally redundant**.
-
-    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/storage-create-storage-account.md).
-5. Click **Create Storage Account**.
+7. Click **Create**.
 
     ![New storage account](./media/cloud-services-dotnet-get-started/newstorage.png)
 
-    In the image, a storage account is created with the URL `contosoads.core.windows.net`.
+    In the image, a storage account is created with the URL `csvccontosoads.core.windows.net`.
 
 ### Configure the solution to use your Azure SQL database when it runs in Azure
 The web project and the worker role project each has its own database connection string, and each needs to point to the Azure SQL database when the app runs in Azure.
@@ -197,14 +201,14 @@ You'll use a [Web.config transform](http://www.asp.net/mvc/tutorials/deployment/
     ```
 
     Leave the file open for editing.
-2. In the [Azure classic portal](http://manage.windowsazure.com), click **SQL Databases** in the left pane, click the database you created for this tutorial, click the **Dashboard** tab, and then click **Show connection strings**.
+2. In the [Azure portal](https://portal.azure.com), click **SQL Databases** in the left pane, click the database you created for this tutorial, and then click **Show connection strings**.
 
     ![Show connection strings](./media/cloud-services-dotnet-get-started/showcs.png)
 
     The portal displays connection strings, with a placeholder for the password.
 
     ![Connection strings](./media/cloud-services-dotnet-get-started/connstrings.png)
-3. In the *Web.Release.config* transform file, delete `{connectionstring}` and paste in its place the ADO.NET connection string from the Azure classic portal.
+3. In the *Web.Release.config* transform file, delete `{connectionstring}` and paste in its place the ADO.NET connection string from the Azure portal.
 4. In the connection string that you pasted into the *Web.Release.config* transform file, replace `{your_password_here}` with the password you created for the new SQL database.
 5. Save the file.  
 6. Select and copy the connection string (without the surrounding quotation marks) for use in the following steps for configuring the worker role project.
@@ -298,7 +302,7 @@ The `<Instances>` setting specifies the number of virtual machines that Azure wi
 7. You can now test the app by creating, viewing, and editing some ads, as you did when you ran the application locally.
 
 > [!NOTE]
-> When you're finished testing, delete or stop the cloud service. Even if you're not using the cloud service, it's accruing charges because virtual machine resources are reserved for it. And if you leave it running, anyone who finds your URL can create and view ads. In the [Azure classic portal](http://manage.windowsazure.com), go to the **Dashboard** tab for your cloud service, and then click the **Delete** button at the bottom of the page. If you just want to temporarily prevent others from accessing the site, click **Stop** instead. In that case, charges will continue to accrue. You can follow a similar procedure to delete the SQL database and storage account when you no longer need them.
+> When you're finished testing, delete or stop the cloud service. Even if you're not using the cloud service, it's accruing charges because virtual machine resources are reserved for it. And if you leave it running, anyone who finds your URL can create and view ads. In the [Azure portal](https://portal.azure.com), go to the **Overview** tab for your cloud service, and then click the **Delete** button at the top of the page. If you just want to temporarily prevent others from accessing the site, click **Stop** instead. In that case, charges will continue to accrue. You can follow a similar procedure to delete the SQL database and storage account when you no longer need them.
 >
 >
 
