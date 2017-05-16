@@ -139,8 +139,7 @@ You can use the Azure portal or Azure [PowerShell](#windows-powershell) to creat
       -VM $VmConfig
     #
     ```
-    If the script fails and you changed any values in the script, confirm the values you used for  VM size, operating system, and location are within the values listed in the [Limitations](#Limitations) section of this article.
-5. In your PowerShell window, right-click to paste the script and start executing it. You are prompted for a username and password. Use these credentials to log in to the VM when connecting to it in the next step. 
+5. In your PowerShell window, right-click to paste the script and start executing it. You are prompted for a username and password. Use these credentials to log in to the VM when connecting to it in the next step. If the script fails, and you changed values in the script before executing it, confirm the values you used for VM size, operating system, and location are listed in the [Limitations](#Limitations) section of this article.
 6. To install the accelerated networking driver for Windows, complete the steps in the [Configure Windows](#configure-windows) section of this article.
 
 ### <a name="configure-windows"></a>Configure Windows
@@ -171,13 +170,17 @@ Once you create the VM in Azure, you must install the accelerated networking dri
 You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create the VM.
 
 ### <a name="linux-portal"></a>Portal
-1. Register for the accelerated networking for Linux preview by completing steps 1-4 of the [Create a Linux VM - PowerShell](#linux-powershell) section of this article.  You cannot register for the preview in the portal.
+1. Register for the accelerated networking for Linux preview by completing steps 1-5 of the [Create a Linux VM - PowerShell](#linux-powershell) section of this article.  You cannot register for the preview in the portal.
 2. Complete steps 1-8 in the [Create a Windows VM - portal](#windows-portal) section of this article. In step 2, click **Ubuntu Server 16.04 LTS** instead of **Windows Server 2016 Datacenter**. For this tutorial, choose to use a password, rather than an SSH key, though for production deployments, you can use either. If **Accelerated networking** does not appear when you complete step 7 of the [Create a Windows VM - portal](#windows-portal) section of this article, it's likely for one of the following reasons:
     - You are not yet registered for the preview. Confirm that your registration state is **Registered**, as explained in step 4 of the [Create a Linux VM - Powershell](#linux-powershell) section of this article. **Note:** If you participated in the Accelerated networking for Windows VMs preview (it's no longer necessary to register to use Accelerated networking for Windows VMs), you are not automatically registered for the Accelerated networking for Linux VMs preview. You must register for the Accelerated networking for Linux VMs preview to participate in it.
     - You have not selected a VM size, operating system, or location listed in the [Limitations](#simitations) section of this article.
 3. To install the accelerated networking driver for Linux, complete the steps in the [Configure Linux](#configure-linux) section of this article.
 
 ### <a name="linux-powershell"></a>PowerShell
+
+>[!WARNING]
+>If you create Linux VMs with accelerated networking in a subscription, and then attempt to create a Windows VM with accelerated networking in the same subscription, the Windows VM creation may fail. During this preview, it's recommended that you test Linux and Windows VMs with accelerated networking in separate subscriptions.
+>
 
 1. Install the latest version of the Azure PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, read the [Azure PowerShell overview](/powershell/azure/get-started-azureps?toc=%2fazure%2fvirtual-network%2ftoc.json) article.
 2. Start a PowerShell session by clicking the Windows Start button, typing **powershell**, then clicking **PowerShell** from the search results.
@@ -267,8 +270,9 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
       -VM $VmConfig
     #
     ```
-    If the script fails, confirm you are registered for the preview as explained in step 4, and that you have not changed values for VM size, operating system type, or location to values other than the values listed in the [Limitations](#Limitations) section of this article.
-6. In your PowerShell window, right-click to paste the script and start executing it. You are prompted for a username and password. Use these credentials to log in to the VM when connecting to it in the next step. 
+6. In your PowerShell window, right-click to paste the script and start executing it. You are prompted for a username and password. Use these credentials to log in to the VM when connecting to it in the next step. If the script fails, confirm that:
+    - You are registered for the preview, as explained in step 4
+    - If you changed VM size, operating system type, or location values in the script before executing it, that the values are listed in the [Limitations](#Limitations) section of this article.
 7. To install the accelerated networking driver for Linux, complete the steps in the [Configure Linux](#configure-linux) section of this article.
 
 ### <a name="configure-linux"></a>Configure Linux
@@ -285,9 +289,11 @@ Once you create the VM in Azure, you must install the accelerated networking dri
 8. At the prompt, enter `uname -r` and confirm the output matches the following version: “4.4.0-77-generic.”
 9.	Create a bond between the standard networking vNIC and the accelerated networking vNIC by running the commands that follow. Network traffic uses the higher performing accelerated networking vNIC, while the bond ensures that networking traffic is not interrupted across certain configuration changes. 
     - `wget https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/plain/tools/hv/bondvf.sh`
-    -	`chmod +x ./bondvf.sh`
-    -	`sudo ./bondvf.sh` 
-    - `sudo nano /etc/network/interfaces.d/50-cloud-init.cfg`
+    - `chmod +x ./bondvf.sh`
+    - `sudo ./bondvf.sh`
+    - `sudo mv ~/bondvf.sh /etc/init.d`
+    - `sudo update-rc.d bondvf.sh defaults` Note: If you receive an error that says *insserv: warning: script 'bondvf.sh' missing LSB tags and overrides*, you can disregard it.
+    - `sudo nano /etc/network/interfaces.d/50-cloud-init.cfg` Opens the GNU nano editor to edit the file.
     - In the editor, comment out the *auto etho0* and *iface eth0 inet dhcp* lines by adding *#* to the beginning of each line. After adding *#* to each line, the lines look like the following example:
         - #auto eth0
         - #iface eth0 inet dhcp

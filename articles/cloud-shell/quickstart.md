@@ -45,7 +45,7 @@ Create a new resouce group in WestUS named "MyRG": <br>
 
 ### Create a Linux VM
 Create an Ubuntu VM in your new resource group. The Azure CLI 2.0 will create ssh keys and setup the VM with them. <br>
-`az vm create -n my_vm_name -g MyRG --image UbuntuLTS`
+`az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]
 > The public and private keys used to authenticate your VM are placed in `/User/.ssh/id_rsa` and `/User/.ssh/id_rsa.pub` by Azure CLI 2.0 by default. Your .ssh folder is persisted in your attached Azure file share's 5-GB image.
