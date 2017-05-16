@@ -203,8 +203,8 @@ First remove all the associated App Services from the App Service Plan. This sho
 ## How do I schedule a Webjob?
 
 You can create a scheduled Webjob using CRON expressions
-1. Create a settings.job file
-2. In this JSON file include a schedule property with a CRON expression as shown below
+1. Create a settings.job file.
+2. In this JSON file include a schedule property with a CRON expression as shown below:
 ```
 { "schedule": "{second}
 {minute} {hour} {day}
