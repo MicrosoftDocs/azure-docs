@@ -4,7 +4,7 @@ description: Configuration and Management
 services: azure-service-management, web-apps
 documentationcenter: ''
 author: simonxjx
-manager: felixwu
+manager: cshepard
 editor: ''
 tags: top-support-issue
 
