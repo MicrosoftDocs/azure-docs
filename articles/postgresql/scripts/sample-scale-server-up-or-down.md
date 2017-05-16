@@ -27,6 +27,15 @@ After the script sample has been run, the following command can be used to remov
 ```azurecli
 az group delete --name myresourcegroup
 ```
+## Script explanation
+This script uses the following commands. Each command in the table links to command specific documentation.
+
+| **Command** | **Notes** |
+|---|---|
+| [az group create](/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
+| [az postgres server create](/cli/azure/postgres/server#create) | Creates a PostgreSQL server that hosts the databases. |
+| [az monitor metrics list](/cli/azure/monitor/metrics#list) | List the metric value for the resources. |
+| [az group delete](/cli/azure/group#delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 - For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).

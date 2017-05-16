@@ -11,7 +11,7 @@ ms.service: postgresql-database
 ms.tgt_pltfrm: portal
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/15/2017
 ---
 
 # Create an Azure Database for PostgreSQL server and configure a firewall rule using the Azure CLI
@@ -29,6 +29,17 @@ After the script sample has been run, the following command can be used to remov
 ```azurecli
 az group delete --name myresourcegroup
 ```
+
+## Script explanation
+This script uses the following commands. Each command in the table links to command specific documentation.
+
+| **Command** | **Notes** |
+|---|---|
+| [az group create](/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
+| [az postgres server create](/cli/azure/postgres/server#create) | Creates a PostgreSQL server that hosts the databases. |
+| [az postgres server firewall create](/cli/azure/postgres/server/firewall-rule#create) | Creates a firewall rule to allow access to the server and databases under it from the entered IP address range. |
+| [az group delete](/cli/azure/group#delete) | Deletes a resource group including all nested resources. |
+
 
 ## Next steps
 - For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure/overview).
