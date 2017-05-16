@@ -66,7 +66,7 @@ The following example walks you through the process of creating new 'A' record. 
    |**Type**|A| Type of DNS record to create, acceptable values are A, AAAA, CNAME, MX, NS, SRV, TXT, and PTR.  For more information about record types, visit [Overview of DNS zones and records](dns-zones-records.md)|
    |**TTL**|1|Time-to-live of the DNS request.|
    |**TTL unit**|Hours|Measurement of time for TTL value.|
-   |**IP address**|{ipAddressValue| This value is the IP address that the DNS record resolves.|
+   |**IP address**|ipAddressValue| This value is the IP address that the DNS record resolves.|
 
 ## View records
 
