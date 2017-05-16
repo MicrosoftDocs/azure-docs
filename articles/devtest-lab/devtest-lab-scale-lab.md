@@ -1,5 +1,5 @@
 ---
-title: Scale your lab in Azure DevTest Labs | Microsoft Docs
+title: Scale quotas and limits in your lab in Azure DevTest Labs | Microsoft Docs
 description: Learn how to scale a lab in Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
@@ -17,14 +17,17 @@ ms.date: 05/10/2017
 ms.author: tarcher
 
 ---
-# Scale your lab in Azure DevTest Labs
+# Scale quotas and limits in your lab
 As you work in DevTest Labs, you might notice that there are certain default limits to some Azure resources, which can affect the DevTest Labs service. These limits are referred to as **quotas**.
+
+> [!NOTE]
+> The DevTest Labs service doesn't impose any quotas. Any quotas you might encounter are default constraints of the overall Azure subscription.
 
 You can use each Azure resource until you reach its quota. Each subscription has separate quotas and usage is tracked per subscription.
 
 For example, each subscription has a default quota of 20 cores. So, if you are creating VMs in your lab with four cores each, then you can only create five VMs. 
 
-[Azure Subscription and Service Limits](https://docs.microsoft.com/azure/azure-subscription-service-limits) lists some of the most common quotas for Azure resources.
+[Azure Subscription and Service Limits](https://docs.microsoft.com/azure/azure-subscription-service-limits) lists some of the most common quotas for Azure resources. The resources most commonly used in a lab, and for which you might encounter quotas, include VM cores, public IP addresses, network interface, managed disks, RBAC role assignment, and ExpressRoute circuits.
 
 ## View your usage and quotas
 These steps show you how to view the current quotas in your subscription for specific Azure resources, and to see what percentage of each quota you have used.
