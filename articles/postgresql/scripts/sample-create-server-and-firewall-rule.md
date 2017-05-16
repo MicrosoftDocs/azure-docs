@@ -21,7 +21,7 @@ This sample CLI script creates an Azure Database for PostgreSQL server and confi
 
 ## Sample Script
 In this sample script, edit the highlighted lines to customize the admin username and password.
-[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh?highlight=15-16) "Create an Azure Database for PostgreSQL, and server-level firewall rule.")]
+[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh?highlight=15-16 "Create an Azure Database for PostgreSQL, and server-level firewall rule.")]
 
 
 ## Clean up deployment
