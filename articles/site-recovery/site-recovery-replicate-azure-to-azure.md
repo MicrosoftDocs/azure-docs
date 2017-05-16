@@ -73,7 +73,7 @@ You can enable replication of an Azure virtual machine through settings section 
 
 
 ##Flow 2: Enabling replication from Azure Site recovery vault 
-For this illustration, we will replicate VMs running  in the ‘East Asia’ Azure location a to the ‘South East Asia’ location. The steps are as follows:
+For this illustration, we will replicate VMs running  in the ‘East Asia’ Azure location  to the ‘South East Asia’ location. The steps are as follows:
 
 
  Click **+Replicate** in the vault to enable replication for  machines.
@@ -94,7 +94,6 @@ Under Settings section you can configure target site properties
 1. **Target Location:**  This is the location where your source virtual machine data will be replicated. Depending upon your selected machines location, Site Recovery will provide you the list of suitable target regions. 
 	> [!TIP]
 	> It is recommended to keep target location same as of your recovery services vault.
-	>
 2. **Target resource group :** It is the resource group to which all your replicated virtual machine will belong.By default ASR will create a new resource group in the target region with name having "asr" suffix. In case resource group created by ASR already exist, it will be reused.You can also choose to customize it as shown in the section below.    
 
 3. **Target Virtual Network:** By default, ASR will create a new virtual network in the target region with name having "asr" suffix. This will be mapped to your source network and will be used for any future protection.
