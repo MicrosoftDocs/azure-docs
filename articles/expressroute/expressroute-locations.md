@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2017
-ms.author: cherylmc
+ms.date: 05/15/2017
+ms.author: pareshmu
 
 ---
 # ExpressRoute partners and peering locations
@@ -63,10 +63,10 @@ The following table shows locations by service provider. If you want to view ava
 
 
 ### Production Azure
-| **Service provider** | **Microsoft Azure** | **Office 365 and CRM Online** | **Locations** |
+| **Service provider** | **Microsoft Azure** | **Office 365 and Dynamics 365** | **Locations** |
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/cloud-services-applications/azure-expressroute/)** |Supported |Supported |Melbourne, Sydney |
-| **Airtel** | Coming Soon | Coming Soon | Chennai, Mumbai |
+| **Airtel** | Coming soon | Coming soon | Chennai, Mumbai |
 | **[Aryaka Networks](http://www.aryaka.com/)** |Supported |Supported |Amsterdam, Dallas, Hong Kong, Silicon Valley, Singapore, Tokyo, Washington DC |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Supported |Supported |Amsterdam, Chicago, Dallas, London, Silicon Valley, Singapore, Sydney, Washington DC |
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Supported |Supported |Montreal, Toronto |
@@ -77,7 +77,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Supported |Supported |Amsterdam, Dublin, London, Tokyo |
 | **Comcast** |Supported |Supported |Chicago, Silicon Valley, Washington DC |
 | **Console**| Supported | Supported |Silicon Valley, Toronto |
-| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Supported |Supported |Los Angeles, New York |
+| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Supported |Supported |Denver+, Los Angeles, New York |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Supported |Supported |Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, London, Los Angeles, Melbourne, New York, Osaka, Paris+, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
 | **euNetworks** |Supported |Supported |Amsterdam |
 | **GÉANT** |Supported |Supported |Amsterdam |
@@ -91,7 +91,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[KPN](http://www.kpn.com/cloudconnect)** | Supported | Supported | Amsterdam | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Supported |Supported |Amsterdam, Chicago, Dallas, Las Vegas+, London, Seattle, Silicon Valley, Singapore, Washington DC |
 | **LG CNS** |Supported |Supported |Busan |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supported |Supported |Dallas, Hong Kong, Las Vegas, Los Angeles, Melbourne, New York, Quebec City, Seattle, Singapore, Sydney, Toronto, Washington DC |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supported |Supported |Chicago, Dallas, Hong Kong, Las Vegas, Los Angeles, Melbourne, Miami, New York, Quebec City, Seattle, Singapore, Sydney, Toronto, Washington DC |
 | **MTN** |Supported |Supported |London |
 | **[Next Generation Data](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Supported |Supported |Newport(Wales) |
 | **NEXTDC** |Supported |Supported |Melbourne, Sydney |
@@ -108,6 +108,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Telehouse - KDDI](http://www.telehouse.net/solutions/cloud-services/cloud-link)** |Supported |Supported |London |
 | **Telenor** |Supported |Supported |Amsterdam, London |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Supported |Supported |Melbourne, Sydney |
+| **[Telus](http://www.telus.com)** |Supported |Supported |Toronto |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** |Supported |Supported |Amsterdam, Chicago, Dallas, Hong Kong, London, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **[Vodafone](http://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Supported |Not Supported |London |
 | **[Zayo Group](http://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Supported |Supported |Chicago, Dallas+, London+, Los Angeles, New York, Silicon Valley, Toronto, Washington DC |
@@ -141,7 +142,10 @@ To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/featu
 | **Interxion** |Supported |Not Supported |Frankfurt |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supported  | Not Supported | Berlin |
 
-## <a name="c1partners"></a>Connectivity through service providers not listed
+## <a name="c1partners"></a>Connectivity Through other Service Providers
+
+## Connectivity Through Exchange Providers
+
 If your connectivity provider is not listed in previous sections, you can still create a connection.
 
 * Check with your connectivity provider to see if they are connected to any of the exchanges in the table above. You can check the following links to gather more information about services offered by exchange providers. Several connectivity providers are already connected to Ethernet exchanges.
@@ -157,6 +161,8 @@ If your connectivity provider is not listed in previous sections, you can still 
 * Order an ExpressRoute circuit with the exchange as your connectivity provider to connect to Microsoft.
   * Follow steps in [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) to set up connectivity.
 
+## Connectivity Through Additional Service Providers
+
 | **Connectivity provider** | **Exchange** | **Locations** |
 | --- | --- | --- |
 | **[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)** |Equinix |Singapore |
@@ -164,10 +170,11 @@ If your connectivity provider is not listed in previous sections, you can still 
 | **[Alaska Communications](http://www.alaskacommunications.com/For-Your-Business/Direct-Cloud-Service)** |Equinix |Seattle |
 | **[Arteria Networks Corporation](https://arteria-net.com/business/service/cloud_access/sca/)** |Equinix |Tokyo |
 | **[Bezeq International Ltd.](https://www.bezeqint.net/english)** | euNetworks | London |
-| **[C3ntro](http://www.c3ntro.com/data/cloud-conectivity/)** | Equinix, Megaport | Dallas |
+| **[C3ntro Telecom](http://www.c3ntro.com/data/cloud-conectivity/)** | Equinix, Megaport | Dallas |
 | **[Cogeco Peer 1](https://www.cogecopeer1.com/en/)**| Equinix | Montreal, Toronto |
+| **[Cox Business](https://www.cox.com/business/networking/cloud-connectivity.html)** | Equinix | Dallas, Silicon Valley, Washington DC | 
 | **[Data Foundry](https://www.datafoundry.com/services/cloud-connect)** | Megaport | Dallas |
-| **[Epsilon Telecommunications Limited](http://www.epsilontel.com/data-connectivity/cloud-access/)** | Equinix | Singapore |
+| **[Epsilon Telecommunications Limited](http://www.epsilontel.com/data-connectivity/cloud-access/)** | Equinix | London, Singapore, Washington DC |
 | **[Eurofiber](https://eurofiber.nl/microsoft-azure/)** | Equinix | Amsterdam |
 | **[Exponential E](http://www.exponential-e.com/services/connectivity-services/cloud-connect-exchange)** | Equinix | London |
 | **[Fastweb S.p.A](http://www.fastweb.it/grandi-aziende/connessione-voce-e-wifi/scheda-prodotto/rete-privata-virtuale/)** | Equinix | Amsterdam |
@@ -178,11 +185,33 @@ If your connectivity provider is not listed in previous sections, you can still 
 | **[NexGen Networks](http://www.nexgen-net.com/nexgen-networks-direct-connect-microsoft-azure-expressroute.html)** | Interxion | London |
 | **[Nianet](https://nianet.dk/produkter/internet/microsoft-expressroute)** |Telecity | Amsterdam, Frankfurt |  
 | **[QSC AG](https://www.qsc.de/de/produkte-loesungen/cloud-services-und-it-outsourcing/pure-enterprise-cloud/multi-cloud-management/azure-expressroute/)** |Interxion | Frankfurt |  
-| **[Tamares Telecom](http://www.tamarestelecom.com/our-services/#Connectivity)** | Telecity | London
+| **Rogers** | Cologix, Equinix | Montreal, Toronto |
+| **[Tamares Telecom](http://www.tamarestelecom.com/our-services/#Connectivity)** | Telecity | London | 
+| **[ThinkTel](http://www.thinktel.ca/services/agile-ix-data/expressroute/)** | Equinix | Toronto | 
 | **[Transtelco](http://www.transtelco.net/tcloud/microsoft)** |Equinix | Dallas, Los Angeles |  
 | **[Windstream](http://www.windstreambusiness.com/solutions/cloud-services/cloud-and-managed-hosting-services)**| Equinix | Chicago, Silicon Valley, Washington DC |
 | **[Zertia](http://www.zertia.es/index.php/novedades)**| Level 3 | Madrid |
 
+## Connectivity Through Datacenter Providers
+| **Provider** | **Exchange** | **Location**|
+| --- | --- | --- |
+| **[Cyrus One](https://cyrusone.com/enterprise-data-center-services/connectivity-and-interconnection/)** | Megaport | Dallas |
+| **[Digital Realty](https://www.digitalrealty.com/services/interconnection/service-exchange/)** | Megaport | - |
+| **[EdgeConnex](http://www.edgeconnex.com/services/edge-data-centers-proximity-matters/)** | Megaport | - |
+
+## Connectivity Through National Research and Education Networks (NREN)
+
+| **Provider**|
+| --- |
+| **AARNET**| 
+| **GARR, through GÉANT**|
+| **GÉANT**|
+| **HEAnet, through GÉANT**|
+| **JISC**|
+| **RedIRIS, through GÉANT**|
+| **Surfnet, through GÉANT**|
+
+* If your connectivity provider is not listed here, please check to see if they are connected to any of the ExpressRoute Exchange Partners listed above.
 
 ## ExpressRoute system integrators
 Enabling private connectivity to fit your needs can be challenging, based on the scale of your network. You can work with any of the system integrators listed in the following table to assist you with onboarding to ExpressRoute.
@@ -193,6 +222,7 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | **[Avanade Inc.](http://www.avanade.com/)** | Asia, Europe, North America, South America |
 | **[Bright Skies GmbH](http://bskies.io/expressroute)** | Europe
 | **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** | Europe |
+| **[Ensyst](http://www.ensyst.com.au)** | Asia
 | **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** | North America |
 | **[The IT Consultancy Group](http://itconsult.com.au/microsoft-expressroute)** | Australia |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Europe (Germany) |
@@ -203,6 +233,7 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | **[Presidio](http://info.presidio.com/microsoft-azure-expressroute)** | North America |
 | **[Project Leadership](http://www.projectleadership.net/azure)** | North America |
 | **[sol-tec](http://www.sol-tec.com/Technologies)** | Europe |
+| **[Vigilant.IT](https://vigilant.it/expressroute)** | Australia |
 
 
 ## Next steps

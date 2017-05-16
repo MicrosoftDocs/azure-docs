@@ -41,7 +41,7 @@ When an Azure virtual machine is created, two disks are automatically attached t
 
 ### Temporary disk sizes
 
-| Type | VM Size | Max temp disk size |
+| Type | VM Size | Max temp disk size (GB) |
 |----|----|----|
 | [General purpose](sizes-general.md) | A and D series | 800 |
 | [Compute optimized](sizes-compute.md) | F series | 800 |

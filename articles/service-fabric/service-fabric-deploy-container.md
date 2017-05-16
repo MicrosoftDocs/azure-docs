@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/17/2017
+ms.date: 5/15/2017
 ms.author: msfussell
 
 ---
-# Preview: Deploy a Windows container to Service Fabric
+# Deploy a Windows container to Service Fabric
 > [!div class="op_single_selector"]
 > * [Deploy Windows Container](service-fabric-deploy-container.md)
 > * [Deploy Docker Container](service-fabric-deploy-container-linux.md)

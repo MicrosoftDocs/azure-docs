@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/13/2016
+ms.date: 04/07/2017
 ms.author: sashan
 
 ---
@@ -64,8 +64,7 @@ If the primary database goes offline unexpectedly or you need to take it offline
 
 > [!IMPORTANT]
 > To use Active Geo-Replication and auto-failover groups, you must either be the subscription owner or have administrative permissions in SQL Server. You can configure and failover using the Azure portal, PowerShell, or the REST API using permissions on the subscription or using Transact-SQL using permissions within SQL Server.
->
->
+> 
 
 Use Active Geo-Replication if your application meets any of these criteria:
 
@@ -127,8 +126,8 @@ If you do not plan and prepare properly, bringing your applications online after
 If you are using Active Geo-Replication and auto-failover groups as your recovery mechanism, you can configure an automatic failover policy or use [manual failover](sql-database-disaster-recovery.md#failover-to-geo-replicated-secondary-database). Once initiated, the failover causes the secondary to become the new primary and ready to record new transactions and respond to queries - with minimal data loss for the data that had not yet been replicated. For information on designing the failover process, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
-> When the data center comes back online the old primaries automatically re-connect to the new primary and become secondary databases. If you need to relocate the primary back to the original region you can initiate a planned failover manually (failback).
->
+> When the data center comes back online the old primaries automatically re-connect to the new primary and become secondary databases. If you need to relocate the primary back to the original region you can initiate a planned failover manually (failback). 
+> 
 
 ### Perform a Geo-Restore
 If you are using automated backups with geo-redundant storage replication as your recovery mechanism, [initiate a database recovery using Geo-Restore](sql-database-disaster-recovery.md#recover-using-geo-restore). Recovery usually takes place within 12 hours - with data loss of up to one hour determined by when the last hourly differential backup with taken and replicated. Until the recovery completes, the database is unable to record any transactions or respond to any queries.

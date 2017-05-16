@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
-ms.author: awills
+ms.date: 05/06/2017
+ms.author: cfreeman
 
 ---
 # A tour of Analytics in Application Insights
