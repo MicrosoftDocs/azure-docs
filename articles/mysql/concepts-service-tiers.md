@@ -55,7 +55,7 @@ However, you can scale up or down the Compute Units independent of Storage Units
 > In preview, the Basic and Standard tiers currently do not support the dynamic scaling of storage. We plan to add the feature in the future.
 
 > [!NOTE]
-> At the Standard service tier, IOPS scales proportionally to provisioned storage size in a fixed 3:1 ratio. The included storage of 125 GB guarantees for 375 provisioned IOPS, each with an IO size of up to 256 KB. If you provision 1,000 GB, you will get 3,000 provisioned IOPS. You must monitor the server compute units consumption, and scale up, to fully utilize the available provisioned IOPS.
+> At the Standard service tier, IOPS scales proportionally to provisioned storage size in a fixed 3:1 ratio. The included storage of 125 GB guarantees for 375 provisioned IOPS, each with an IO size of up to 256 KB. If you provision 1,000 GB, you get 3,000 provisioned IOPS. You must monitor the server compute units consumption, and scale up, to fully utilize the available provisioned IOPS.
 
 ## Service tiers and performance levels
 
