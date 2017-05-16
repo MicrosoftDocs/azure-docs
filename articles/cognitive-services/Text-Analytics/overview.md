@@ -38,8 +38,6 @@ The service can be used to detect which language the input text is written in. 1
 
 ## Supported Languages
 
-## Supported Languages
-
 | Language    | Language code | Sentiment | Key phrases | Topics |
 |:----------- |:----:|:----:|:----:|:----:|
 | Danish      | `da` | ✔ \* |  |   |
