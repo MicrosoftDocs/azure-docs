@@ -24,9 +24,6 @@ For all Azure Database for PostgreSQL servers provisioned through the Azure port
 
 Likewise, connection strings that are pre-defined in the "Connection Strings" settings under your server in the Azure portal include the required parameters for common languages to connect to your database server using SSL. The SSL parameter varies based on the connector, for example "ssl=true" or "sslmode=require" or "sslmode=required" and other variations.
 
-> [!NOTE]
-> Currently, if you select the SSL mode "Verify-Full" in your connection to the service, the connection may fail with the error _server certificate for "region.control.database.windows.net" (and 7 other names) does not match host name "servername.postgres.database.azure.com"._  If "Verify-Full" SSL mode is required, please use the server naming convention **yourservername.database.windows.net** as your connection string host name. We plan to remove this preview limitation in the future. Connections using other SSL modes should continue to use the preferred host naming convention **yourservername.postgres.database.azure.com**. 
-
 ## Configure Enforcement of SSL
 You can optionally disable enforcing SSL connectivity. Microsoft Azure recommends to always enable **Enforce SSL connection** setting for enhanced security.
 
@@ -112,8 +109,13 @@ OpenSSL>x509 -inform DER -in BaltimoreCyberTrustRoot.cer -text -out root.cr
 ### Connecting to Azure Database for PostgreSQL with SSL certificate authentication
 Now that you have successfully decoded your certificate, you can now connect to your database server securely over SSL. To allow server certificate verification, the certificate must be placed in the file ~/.postgresql/root.crt in the user's home directory. (On Microsoft Windows the file is named %APPDATA%\postgresql\root.crt.). The following provides instructions for connecting to Azure Database for PostgreSQL.
 
+> [!NOTE]
+> Currently, there is a known issue if you use "sslmode=verify-full" in your connection to the service, the connection will fail with the following error:
+> _server certificate for "&lt;region&gt;.control.database.windows.net" (and 7 other names) does not match host name "&lt;servername&gt;.postgres.database.azure.com"._
+> If "sslmode=verify-full" is required, please use the server naming convention **&lt;servername&gt;.database.windows.net** as your connection string host name. We plan to remove this limitation in the future. Connections using other [SSL modes](https://www.postgresql.org/docs/9.6/static/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS) should continue to use the preferred host naming convention **&lt;servername&gt;.postgres.database.azure.com**.
+
 #### Using psql command-line utility
-The following examples show you how to successfully connect to your PostgreSQL server through both the pgsql command-line interface and through using the psql command-line utility, using the `root.crt` file created and the `sslmode=verify-ca` option.
+The following example shows you how to successfully connect to your PostgreSQL server using the psql command-line utility. Use the `root.crt` file created and the `sslmode=verify-ca` or `sslmode=verify-full` option.
 
 Using the PostgreSQL command-line interface, execute the following command:
 ```bash
@@ -133,7 +135,7 @@ postgres=>
 ```
 
 #### Using pgAdmin GUI tool
-Configuring pgAdmin 4 to connect securely over SSL requires you to set the `SSL mode = Verify-CA` as follows:
+Configuring pgAdmin 4 to connect securely over SSL requires you to set the `SSL mode = Verify-CA` or `SSL mode = Verify-Full` as follows:
 
 ![Screenshot of pgAdmin - connection - SSL mode Require](./media/concepts-ssl-connection-security/2-pgadmin-ssl.png)
 
