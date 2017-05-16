@@ -62,7 +62,7 @@ No, the cost of running your app on Azure Cosmos DB is the same as it was before
 
 ## Are there changes to the Service Level Agreements (SLAs)?
 
-No, the SLAs for availability, consistency, latency, and throughput are unchanged and are still displayed in the portal. For details about the SLAs, see [SLA for Azure Cosmos DB](https://azure.microsoft.com/en-us/support/legal/sla/cosmos-db/).
+No, the SLAs for availability, consistency, latency, and throughput are unchanged and are still displayed in the portal. For details about the SLAs, see [SLA for Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/).
    
 ![Todo app with sample data](./media/welcome-documentdb-customers/azure-cosmosdb-portal-metrics-slas.png)
 
