@@ -168,7 +168,6 @@ As discussed previously, auto-failover groups (in-preview) and active geo-replic
 | Get Failover Group | Retrieves the failover group configuration |
 | Set Failover Group | Modifies the configuration of the failover group |
 | Failover | Triggers failover of the failover group to the secondary server |
-
 |  | |
 
 ## Next steps
