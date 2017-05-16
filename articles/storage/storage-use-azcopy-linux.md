@@ -593,7 +593,13 @@ In order to address this issue, find the .NET Core binary in the system:
 sudo find / -name dotnet
 ```
 
-This returns the path to the dotnet binary. Now add this path to the PATH variable using the following commands:
+This returns the path to the dotnet binary. 
+
+	/opt/rh/rh-dotnetcore11/root/usr/bin/dotnet
+	/opt/rh/rh-dotnetcore11/root/usr/lib64/dotnetcore/dotnet
+	/opt/rh/rh-dotnetcore11/root/usr/lib64/dotnetcore/shared/Microsoft.NETCore.App/1.1.2/dotnet
+
+Now add this path to the PATH variable using the following commands:
 
 For sudo, edit secure_path to contain the path to the dotnet binary:
 ```bash 
@@ -644,7 +650,7 @@ For more information about Azure Storage and AzCopy, see the following resources
 * [How to use File storage from .NET](storage-dotnet-how-to-use-files.md)
 * [How to use Table storage from .NET](storage-dotnet-how-to-use-tables.md)
 * [How to create, manage, or delete a storage account](storage-create-storage-account.md)
-* [Transfer data with the AzCopy Command-Line Utility on Windows](storage-use-azcopy.md)
+* [Transfer data with the AzCopy on Windows](storage-use-azcopy.md)
 
 ### Azure Storage blog posts:
 * [Announcing AzCopy on Linux Preview](https://azure.microsoft.com/en-in/blog/announcing-azcopy-on-linux-preview/)

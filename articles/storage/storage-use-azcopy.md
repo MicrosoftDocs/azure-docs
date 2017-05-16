@@ -17,11 +17,11 @@ ms.date: 05/14/2017
 ms.author: seguler
 
 ---
-# Transfer data with the AzCopy Command-Line Utility on Windows
+# Transfer data with the AzCopy on Windows
 ## Overview
 AzCopy is a command-line utility designed for copying data to and from Microsoft Azure Blob, File, and Table storage using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts.
 
-There are two versions of AzCopy that you can download. AzCopy on Windows is built with .NET Framework, and offers Windows style command-line options. AzCopy on Linux is built with .NET Core Framework which targets Linux platforms offering POSIX style command-line options. This article covers AzCopy on Windows.
+There are two versions of AzCopy that you can download. AzCopy on Windows is built with .NET Framework, and offers Windows style command-line options. [AzCopy on Linux](storage-use-azcopy-linux.md) is built with .NET Core Framework which targets Linux platforms offering POSIX style command-line options. This article covers AzCopy on Windows.
 
 ## Download and install AzCopy
 ### AzCopy on Windows
@@ -889,7 +889,9 @@ For more information about Azure Storage and AzCopy, refer to the following reso
 * [How to use File storage from .NET](storage-dotnet-how-to-use-files.md)
 * [How to use Table storage from .NET](storage-dotnet-how-to-use-tables.md)
 * [How to create, manage, or delete a storage account](storage-create-storage-account.md)
+* [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md)
 
+storage-use-azcopy-linux.md
 ### Azure Storage blog posts:
 * [Introducing Azure Storage Data Movement Library Preview](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
 * [AzCopy: Introducing synchronous copy and customized content type](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
