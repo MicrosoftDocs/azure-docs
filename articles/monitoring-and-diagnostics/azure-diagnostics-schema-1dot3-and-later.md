@@ -321,7 +321,7 @@ JSON equivalent of the previous XML configuration file.
 }
 
 
-{
+"PrivateConfig" {
     "storageAccountName": "diagstorageaccount",
     "storageAccountKey": "{base64 encoded key}",
     "storageAccountEndPoint": "https://core.windows.net",
