@@ -21,10 +21,11 @@ ms.author: cynthn
 
 # Create a new VM from a generalized VHD uploaded to Azure using Managed Disks
 
-You can create a new VM in Azure by uploading a VHD exported from an on-premises virtualization tool or from another cloud. Using [Managed Disks](../../storage/storage-managed-disks-overview.md) for the new VM simplifies the VM managment and provides better availability when the VM is placed in an availability set. If you are uploading a VHD that will be used to create multiple Azure VMs, you must first generalize VHD using [Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Sysprep removes any machine-specific information and personal account information from the VHD. 
+This topic walks you through using PowerShell to upload a VHD of a generalized VM to Azure, create an image from the VHD and create a new VM from that image. You can upload a VHD exported from an on-premises virtualization tool or from another cloud. Using [Managed Disks](../../storage/storage-managed-disks-overview.md) for the new VM simplifies the VM managment and provides better availability when the VM is placed in an availability set. If you are uploading a VHD that will be used to create multiple Azure VMs, you must first generalize VHD using [Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Sysprep removes any machine-specific information and personal account information from the VHD. 
 
 Azure managed disks removes the need of managing [storage accounts](../../storage/storage-introduction.md) for Azure VMs. You only have specify the type [Premium](../../storage/storage-premium-storage-performance.md) or [Standard](../../storage/storage-standard-storage.md) and size of disk you need, and Azure will create and manage the disk for you. 
 
+If you just want a sample script, see [Sample script to upload a VHD to Azure and create a new VM](../samples/virtual-machines-windows-upload-generalized-script.md)
 
 > [!IMPORTANT]
 > Review [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) before starting your migration to [Managed Disks](../../storage/storage-managed-disks-overview.md).
@@ -104,16 +105,16 @@ If you need to create a storage account, follow these steps:
     Get-AzureRmResourceGroup
     ```
 
-    To create a resource group named **myResourceGroup** in the **West US** region, type:
+    To create a resource group named **myResourceGroup** in the **East US** region, type:
 
     ```powershell
-    New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
+    New-AzureRmResourceGroup -Name myResourceGroup -Location "East US"
     ```
 
 2. Create a storage account named **mystorageaccount** in this resource group by using the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet:
    
     ```powershell
-    New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
+    New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "East US"`
         -SkuName "Standard_LRS" -Kind "Storage"
     ```
    
