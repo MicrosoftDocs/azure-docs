@@ -105,7 +105,7 @@ For more information about using Azure Diagnostics, see [Azure Diagnostics Exten
           <CrashDumpConfiguration processName="badapp.exe"/>  
         </CrashDumps>  
 
-        <DockerSources>
+        <DockerSources> <!-- Added in 1.9 --> 
           <Stats enabled="true" sampleRate="PT1M" scheduledTransferPeriod="PT1M" />
         </DockerSources>
 
