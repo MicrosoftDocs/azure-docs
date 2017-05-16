@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 05/15/2017
 ms.author: tomfitz
 
 ---
@@ -934,21 +934,21 @@ A string with at least the number of specified characters.
 <a id="replace" />
 
 ## replace
-`replace(originalString, oldCharacter, newCharacter)`
+`replace(originalString, oldString, newString)`
 
-Returns a new string with all instances of one character in the specified string replaced by another character.
+Returns a new string with all instances of one string replaced by another string.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalString |Yes |string |The value that has all instances of one character replaced by another character. |
-| oldCharacter |Yes |string |The character to be removed from the original string. |
-| newCharacter |Yes |string |The character to add in place of the removed character. |
+| originalString |Yes |string |The value that has all instances of one string replaced by another string. |
+| oldString |Yes |string |The string to be removed from the original string. |
+| newString |Yes |string |The string to add in place of the removed string. |
 
 ### Examples
 
-The following example shows how to remove all dashes from the user-provided string.
+The following example shows how to remove all dashes from the user-provided string, and how to replace part of the string with another string.
 
 ```json
 {
@@ -962,9 +962,13 @@ The following example shows how to remove all dashes from the user-provided stri
     },
     "resources": [],
     "outputs": {
-        "stringOutput": {
+        "firstOutput": {
             "type": "string",
             "value": "[replace(parameters('testString'),'-', '')]"
+        },
+        "secodeOutput": {
+            "type": "string",
+            "value": "[replace(parameters('testString'),'1234', 'xxxx')]"
         }
     }
 }

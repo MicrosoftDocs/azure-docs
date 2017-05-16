@@ -34,7 +34,7 @@ The information here will be useful in understanding what is & what isn't possib
 * Understand the [limitations, restrictions, and constraints](active-directory-v2-limitations.md) with the v2.0 endpoint.
 * Check out this overview video for the v2.0 endpoint:
 
->[!VIDEO https://channel9.msdn.com/Events/Build/2016/P530/player]
+>[!VIDEO https://channel9.msdn.com/Events/Build/2017/P4031/player]
 
 ## Reference
 These links will be useful for exploring the platform in depth:
