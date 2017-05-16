@@ -24,12 +24,12 @@ ms.author: markvi
 
 ---
 
-## Do I need to be a global admin to use Identity Protection in the Azure portal? ?
+## Do I need to be a global admin to use Identity Protection in the Azure portal?
 **A:** **No**. You can either be a Security Reader, a Security Admin or a Global Admin to use Identity Protection.
 
 ---
 
-## How do I get Identity Protection??
+## How do I get Identity Protection?
 **A:** See [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md) for an answer to this question.
 
 ---
