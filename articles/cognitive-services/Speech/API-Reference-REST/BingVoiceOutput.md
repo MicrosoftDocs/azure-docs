@@ -51,8 +51,8 @@ The following table shows the HTTP headers that are used for voice synthesis req
 
 Header   |Value  |Comments 
 ---------|-------------|-----
-Content-Type     |    application/ssml+xml     |      The input content type   
-X-Microsoft-OutputFormat     |  **1.** ssml-16khz-16bit-mono-tts <br> **2.** raw-16khz-16bit-mono-pcm <br>**3.** audio-16khz-16kbps-mono-siren <br> **4.** riff-16khz-16kbps-mono-siren <br>  **5.** riff-16khz-16bit-mono-pcm <br> **6.** audio-16khz-128kbitrate-mono-mp3 <br>  **7.** audio-16khz-64kbitrate-mono-mp3 <br> **8.** audio-16khz-32kbitrate-mono-mp3 |       The output audio format  
+Content-Type     |    application/ssml+xml     |      The input content type.   
+X-Microsoft-OutputFormat     |  **1.** ssml-16khz-16bit-mono-tts <br> **2.** raw-16khz-16bit-mono-pcm <br>**3.** audio-16khz-16kbps-mono-siren <br> **4.** riff-16khz-16kbps-mono-siren <br>  **5.** riff-16khz-16bit-mono-pcm <br> **6.** audio-16khz-128kbitrate-mono-mp3 <br>  **7.** audio-16khz-64kbitrate-mono-mp3 <br> **8.** audio-16khz-32kbitrate-mono-mp3 |       The output audio format.  
 X-Search-AppId     |    A GUID (hex only, no dashes)     |     An ID that uniquely identifies the client application. This can be the store ID for apps. If one is not available, the ID can be user generated for an application.     
 X-Search-ClientID     |     A GUID (hex only, no dashes)    |    An ID that uniquely identifies an application instance for each installation.     
 User-Agent     |     Application name    |     The application name is required and must be fewer than 255 characters.    
@@ -105,7 +105,7 @@ Content-Type: text/xml
 Content-Length: 0
 ```
  
-### <a name="ErrorResponse"></a>Error Responses
+### <a name="ErrorResponse"></a>Error responses
 
 Error   | Description 
 ---------|---------
