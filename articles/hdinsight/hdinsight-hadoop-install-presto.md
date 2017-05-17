@@ -1,5 +1,5 @@
 ---
-title: Install Presto on Azure HDInsight Linux clusters| Microsoft Docs
+title: Install Presto on Azure HDInsight Linux clusters | Microsoft Docs
 description: Learn how to install Presto and Airpal on Linux-based HDInsight Hadoop clusters using Script Actions.
 services: hdinsight
 documentationcenter: ''
@@ -19,18 +19,18 @@ ms.author: nitinme
 ---
 # Install and use Presto on HDInsight Hadoop clusters
 
-In this topic, you learn how to install Presto on HDInsight Hadoop clusters by using Script Action. You also learn how to install Airpal on an existing Presto HDInsight cluster
+In this topic, you learn how to install Presto on HDInsight Hadoop clusters by using Script Action. You also learn how to install Airpal on an existing Presto HDInsight cluster.
 
 > [!IMPORTANT]
 > The steps in this document require an **HDInsight 3.5 Hadoop cluster** that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versions](hdinsight-component-versioning.md).
 
 ## What is Presto?
-[Presto](https://prestodb.io/overview.html) is a fast distributed SQL query engine for big data. Presto is suitable for interactive querying of petabytes of data. For more information on what are the different components of Presto, and how they all work together, see [Presto concepts](https://github.com/prestodb/presto/blob/master/presto-docs/src/main/sphinx/overview/concepts.rst)
+[Presto](https://prestodb.io/overview.html) is a fast distributed SQL query engine for big data. Presto is suitable for interactive querying of petabytes of data. For more information on the components of Presto and how they work together, see [Presto concepts](https://github.com/prestodb/presto/blob/master/presto-docs/src/main/sphinx/overview/concepts.rst).
 
 > [!WARNING]
 > Components provided with the HDInsight cluster are fully supported and Microsoft Support will help to isolate and resolve issues related to these components.
 > 
-> Custom components, such as Presto, receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/).
+> Custom components, such as Presto, receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/).
 > 
 > 
 
@@ -91,7 +91,7 @@ Perform the following steps to use Presto in an HDInsight cluster after you have
 
 ## Use Airpal with Presto
 
-[Airpal]() is an open-source web-based query interface for Presto. For more information on Airpal, see [Airpal documentation](https://github.com/airbnb/airpal#airpal).
+[Airpal](https://github.com/airbnb/airpal#airpal) is an open-source web-based query interface for Presto. For more information on Airpal, see [Airpal documentation](https://github.com/airbnb/airpal#airpal).
 
 In this section, we look at the steps to **install Airpal on the edgenode** of an HDInsight Hadoop cluster, that already has Presto installed. This ensures that the Airpal web query interface is available over the Internet.
 
@@ -160,7 +160,7 @@ After you have installed Presto on an HDInsight Hadoop cluster, you can customiz
 
        sudo slider registry --name presto1 --getexp presto
 
-## Generate benchmark data for HDInsight clusters that run Presto?
+## Generate benchmark data for HDInsight clusters that run Presto
 
 TPC-DS is the industry standard for measuring the performance of many decision support systems, including big data systems. You can use Presto on HDInsight clusters to generate data and evaluate how it compares with your own HDInsight benchmark data. For more information, see [here](https://github.com/hdinsight/tpcds-datagen-as-hive-query/blob/master/README.md).
 
