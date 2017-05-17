@@ -1,6 +1,6 @@
 > [!div class="op_single_selector"]
 > * [Linux](../articles/iot-hub/iot-hub-linux-iot-edge-simulated-device.md)
-> * [Windows](../articles/iot-hub/iot-hub-windows-gateway-sdk-simulated-device.md)
+> * [Windows](../articles/iot-hub/iot-hub-windows-iot-edge-simulated-device.md)
 > 
 > 
 
