@@ -17,12 +17,12 @@ The Simulated Device Cloud Upload sample shows how to use IoT Edge to create a g
 * The devices do not use a communications protocol understood by IoT Hub.
 * The devices are not smart enough to remember the identity assigned to them by IoT Hub.
 
-The gateway solves these problems for the simulated devices in the following ways:
+The IoT Edge gateway solves these problems for the simulated devices in the following ways:
 
 * The gateway understands the protocol used by the simulated devices, receives device-to-cloud telemetry from the devices, and forwards those messages to IoT Hub using a protocol understood by the IoT hub.
 * The gateway stores IoT Hub identities on behalf of the simulated devices and acts as a proxy when the simulated devices send messages to IoT Hub.
 
-The following diagram shows the main components of the sample, including the gateway modules:
+The following diagram shows the main components of the sample, including the IoT Edge modules:
 
 ![][1]
 
