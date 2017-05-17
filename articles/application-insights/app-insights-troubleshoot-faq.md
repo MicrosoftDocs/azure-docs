@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Application Insights: Frequently Asked Questions
@@ -167,6 +167,8 @@ You could:
 We don't log POST data automatically, but you can use a TrackTrace call: put the data in the message parameter. This has a longer size limit than the limits on string properties, though you can't filter on it.
 
 ## Should I use single or multiple Application Insights resources?
+
+Use a single resource for all the components or roles in a single business system. Use separate resources for development, test, and release versions, and for independent applications.
 
 * [See the discussion here](app-insights-separate-resources.md)
 * [Example - cloud service with worker and web roles](app-insights-cloudservices.md)

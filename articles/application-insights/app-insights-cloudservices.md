@@ -14,7 +14,7 @@ ms.tgt_pltfrm: ibiza
 ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Application Insights for Azure Cloud Services
