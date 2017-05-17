@@ -329,7 +329,6 @@ You should have following four values from these steps:
             }
         });
     ```
-
 	
 	In the previous step, you created linked services to link your Azure Storage account and Azure SQL database to your data factory. In this step, you define two datasets named InputDataset and OutputDataset that represent input and output data that is stored in the data stores referred by AzureStorageLinkedService and AzureSqlLinkedService respectively.
 
@@ -345,8 +344,8 @@ You should have following four values from these steps:
     ```csharp
     // create a pipeline
     Console.WriteLine("Creating a pipeline");
-    DateTime PipelineActivePeriodStartTime = new DateTime(2016, 8, 9, 0, 0, 0, 0, DateTimeKind.Utc);
-    DateTime PipelineActivePeriodEndTime = PipelineActivePeriodStartTime.AddMinutes(60);
+    DateTime PipelineActivePeriodStartTime = new DateTime(2017, 5, 11, 0, 0, 0, 0, DateTimeKind.Utc);
+    DateTime PipelineActivePeriodEndTime = new DateTime(2017, 5, 12, 0, 0, 0, 0, DateTimeKind.Utc);
     string PipelineName = "ADFTutorialPipeline";
 
     client.Pipelines.CreateOrUpdate(resourceGroupName, dataFactoryName,
@@ -397,6 +396,12 @@ You should have following four values from these steps:
         });
     ```
 
+	Note the following points:
+   
+	- In the activities section, there is only one activity whose **type** is set to **Copy**. For more information about the copy activity, see [data movement activities](data-factory-data-movement-activities.md). In Data Factory solutions, you can also use [data transformation activities](data-factory-data-transformation-activities.md).
+	- Input for the activity is set to **InputDataset** and output for the activity is set to **OutputDataset**. 
+	- In the **typeProperties** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type. For a complete list of data stores supported by the copy activity as sources and sinks, see [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats). To learn how to use a specific supported data store as a source/sink, click the link in the table.  
+   
 	Currently, output dataset is what drives the schedule. In this tutorial, output dataset is configured to produce a slice once an hour. The pipeline has a start time and end time that are one day apart, which is 24 hours. Therefore, 24 slices of output dataset are produced by the pipeline.
 12. Add the following code to the **Main** method to get the status of a data slice of the output dataset. There is only slice expected in this sample.
 
