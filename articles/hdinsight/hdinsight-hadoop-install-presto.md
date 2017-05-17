@@ -61,10 +61,10 @@ This section provides instructions on how to use the sample script when creating
 
 4. Continue provisioning the cluster as described in [Provision Linux-based HDInsight clusters](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-> [!NOTE]
-> Azure PowerShell, the Azure CLI, the HDInsight .NET SDK, or Azure Resource Manager templates can also be used to apply script actions. You can also apply script actions to already running clusters. For more information, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
-> 
-> 
+    > [!NOTE]
+    > Azure PowerShell, the Azure CLI, the HDInsight .NET SDK, or Azure Resource Manager templates can also be used to apply script actions. You can also apply script actions to already running clusters. For more information, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
+    > 
+    > 
 
 ## Use Presto with HDInsight
 
@@ -153,12 +153,12 @@ After you have installed Presto on an HDInsight Hadoop cluster, you can customiz
 
 4. Start a new instance of Presto with the customization.
 
-		sudo slider create presto1 --template /var/lib/presto/presto-hdinsight-master/appConfig-default.json --resources /var/lib/presto/presto-hdinsight-master/resources-default.json
+	   sudo slider create presto1 --template /var/lib/presto/presto-hdinsight-master/appConfig-default.json --resources /var/lib/presto/presto-hdinsight-master/resources-default.json
 
 5. Wait for the new instance to be ready and note presto coordinator address.
 
 
-		sudo slider registry --name presto1 --getexp presto
+       sudo slider registry --name presto1 --getexp presto
 
 ## Generate benchmark data for HDInsight clusters that run Presto?
 
