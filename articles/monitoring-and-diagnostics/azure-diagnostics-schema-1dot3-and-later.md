@@ -25,6 +25,7 @@ ms.author: robb
 > - Service Fabric 
 > - Cloud Services 
 > - Network Security Groups
+> 
 > This page is only relevant if you are using one of these services.
 
 This page is valid for versions 1.3 and newer (Azure SDK 2.4 and newer). Newer configuration sections are commented to show in what version they were added.  

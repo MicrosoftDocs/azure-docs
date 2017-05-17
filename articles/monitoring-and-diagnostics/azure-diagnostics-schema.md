@@ -21,7 +21,14 @@ ms.author: robb
 This page indexes Azure Diagnostics extension schema versions shipped as part of the Microsoft Azure SDK.  
 
 > [!NOTE]
-> Azure Diagnostics is the component used to collect performance counters and other statistics from Azure Virtual Machines, Virtual Machine Scale sets, Service Fabric, Network Security Groups, and Cloud Services.  This page is only relevant if you are using one of these services.  
+> The Azure Diagnostics extension is the component used to collect performance counters and other statistics from:
+> - Azure Virtual Machines 
+> - Virtual Machine Scale Sets
+> - Service Fabric 
+> - Cloud Services 
+> - Network Security Groups
+> 
+> This page is only relevant if you are using one of these services.
 
 The Azure Diagnostics extension is used with other Microsoft diagnostics products like Azure Monitor, Application Insights, and Log Analytics. For more information see [Microsoft Monitoring Tools Overview](monitoring-overview.md).
 
