@@ -84,7 +84,7 @@ Perform the following steps to download the software update from the Microsoft U
 
 Prior to the update or hotfix installation, make sure that you have the update or the hotfix downloaded either locally on your host or accessible via a network share.
 
-Use this method to install updates on a device running GA or Update 0.1 software versions. This procedure takes less than 2 minutes to complete. Perform the following steps to install the update or hotfix.
+Use this method to install updates on a device running GA or Update 0.1 software versions. This procedure takes approximately 15 minutes to complete. Perform the following steps to install the update or hotfix.
 
 #### To install the update or the hotfix
 
