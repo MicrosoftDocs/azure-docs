@@ -23,7 +23,7 @@ The custom policy feature set is now available for evaluation under public previ
 Today, this feature set requires developers to configure the Identity Experience Framework directly via XML file editing. This method of configuration is powerful and complex. Advanced identity developers using the Identity Experience Framework should plan to invest some time completing walk-throughs and reading reference documents. 
 
 ## Features included in this public preview
-The new features introduced in the public review allow developers to perform the following tasks:
+The new features introduced in the public preview allow developers to perform the following tasks:
 
 1. Author and upload custom authentication user journeys by using custom policies.
 
@@ -35,7 +35,7 @@ The new features introduced in the public review allow developers to perform the
 
 3. Add federation with identity providers compliant with the OpenIDConnect standard.
 
-4. Add federation with identity providers adhering to the SAML 2.0 protocol
+4. Add federation with identity providers adhering to the SAML 2.0 protocol.
 
 
 
@@ -52,17 +52,17 @@ The new features introduced in the public review allow developers to perform the
 
 6. At our discretion, and for any reason, Microsoft can flag and reject or restrict scenarios and user journeys that exceed the scope of the Azure AD B2C product charter to serve as a customer identity and access management (CIAM) platform.
 
-## Responsibilities for custom policy feature set developers
+## Responsibilities of custom policy feature-set developers
 Manual policy configuration grants lower-level access to the underlying platform of Azure AD B2C and results in the creation of a unique, fully customizable trust framework. The near infinite permutations of custom identity providers, trust relationships, integrations with external services, and step-by-step workflows place greater demands on the advanced developers consuming them.
 
-In order to fully benefit from the public preview, we suggest that developers consuming the custom policy feature set adhere to the following:
+To fully benefit from the public preview, we suggest that developers consuming the custom policy feature set adhere to the following:
 * Become familiar with the configuration language of the Identity Experience Engine and key/secrets management.
 * Take ownership of scenarios and custom integrations.
 * Perform methodical scenario testing.
 * Follow software development and staging best practices with a minimum of one development and testing environment and one production environment.
 * Stay informed about new developments from the identity providers and services you integrate with. For example, keep track of changes in secrets and of scheduled and unscheduled changes to the service.
 * Set up active monitoring, and monitor the responsiveness of production environments.
-* Keep contact email addresses current and stay responsive to the Microsoft live-site team emails.
+* Keep contact email addresses current, and stay responsive to the Microsoft live-site team emails.
 * Take timely action when advised to do so by the Microsoft live-site team. 
 
 
