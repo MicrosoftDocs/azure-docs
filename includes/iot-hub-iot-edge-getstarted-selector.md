@@ -1,6 +1,6 @@
 > [!div class="op_single_selector"]
 > * [Linux](../articles/iot-hub/iot-hub-linux-iot-edge-get-started.md)
-> * [Windows](../articles/iot-hub/iot-hub-windows-gateway-sdk-get-started.md)
+> * [Windows](../articles/iot-hub/iot-hub-windows-iot-edge-get-started.md)
 > 
 > 
 
