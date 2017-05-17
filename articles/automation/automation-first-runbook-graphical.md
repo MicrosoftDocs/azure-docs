@@ -27,7 +27,7 @@ ms.author: magoedte;bwren
 > 
 > 
 
-This tutorial walks you through the creation of a [graphical runbook](automation-runbook-types.md#graphical-runbooks) in Azure Automation.  We'll start with a simple runbook that we'll test and publish while we explain how to track the status of the runbook job.  Then we'll modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine.  We'll then make the runbook more robust by adding runbook parameters and conditional links.
+This tutorial walks you through the creation of a [graphical runbook](automation-runbook-types.md#graphical-runbooks) in Azure Automation.  We start with a simple runbook that tests and publishes while we explain how to track the status of the runbook job.  Then we modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine.  Then we complete the tutorial by making the runbook more robust by adding runbook parameters and conditional links.
 
 ## Prerequisites
 To complete this tutorial, you will need the following.
@@ -39,7 +39,7 @@ To complete this tutorial, you will need the following.
 ## Step 1 - Create runbook
 We start by creating a simple runbook that outputs the text *Hello World*.
 
-1. In the Azure Portal, open your Automation account.  
+1. In the Azure portal, open your Automation account.  
    The Automation account page gives you a quick view of the resources in this account.  You should already have some Assets.  Most of those are the modules that are automatically included in a new Automation account.  You should also have the Credential asset that's mentioned in the [prerequisites](#prerequisites).
 2. Click the **Runbooks** tile to open the list of runbooks.<br> ![Runbooks control](media/automation-first-runbook-graphical/runbooks-resources-tile.png)
 3. Create a new runbook by clicking on the **Add a runbook** button and then **Create a new runbook**.
@@ -80,7 +80,7 @@ The runbook that we created is still in Draft mode. We need to publish it before
 3. Scroll back to the right to view the blade for **MyFirstRunbook**.  
    The options across the top allow us to start the runbook, schedule it to start at some time in the future, or create a [webhook](automation-webhooks.md) so it can be started through an HTTP call.
 4. We just want to start the runbook so click **Start** and then **Yes** when prompted.<br> ![Start runbook](media/automation-first-runbook-graphical/runbook-controls-start-revised20165.png)
-5. A job blade is opened for the runbook job that we created.  We can close this blade, but in this case we'll leave it open so we can watch the job's progress.
+5. A job blade is opened for the runbook job that we created.  We can close this blade, but in this case we leave it open so we can watch the job's progress.
 6. The job status is shown in **Job Summary** and matches the statuses that we saw when we tested the runbook.<br> ![Job Summary](media/automation-first-runbook-graphical/runbook-job-summary.png)
 7. Once the runbook status shows *Completed*, click **Output**. The **Output** blade is opened, and we can see our *Hello World* in the pane.<br> ![Job Summary](media/automation-first-runbook-graphical/runbook-job-output.png)  
 8. Close the Output blade.
@@ -102,7 +102,7 @@ We've tested and published our runbook, but so far it doesn't do anything useful
 Now that we have a variable to hold our subscription ID, we can configure our runbook to authenticate with the Run As credentials that are referred to in the [prerequisites](#prerequisites).  We do that by adding the Azure Run As connection **Asset** and **Add-AzureRMAccount** cmdlet to the canvas.  
 
 1. Open the graphical editor by clicking **Edit** on the MyFirstRunbook blade.<br> ![Edit runbook](media/automation-first-runbook-graphical/runbook-controls-edit-revised20165.png)
-2. We don't need the **Write Hello World to output** anymore, so right click it and select **Delete**.
+2. We don't need the **Write Hello World to output** anymore, so right-click it and select **Delete**.
 3. In the Library control, expand **Connections** and add **AzureRunAsConnection** to the canvas by selecting **Add to canvas**.
 4. On the canvas, select **AzureRunAsConnection** and in the Configuration control pane, type **Get Run As Connection** in the **Label** textbox.  This is the connection
 5. In the Library control, type **Add-AzureRmAccount** in the search textbox.
