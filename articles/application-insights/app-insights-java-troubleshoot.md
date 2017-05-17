@@ -4,7 +4,7 @@ description: Troubleshooting guide - monitoring live Java apps with Application 
 services: application-insights
 documentationcenter: java
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: ef602767-18f2-44d2-b7ef-42b404edd0e9
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Troubleshooting and Q and A for Application Insights for Java

@@ -4,6 +4,8 @@
   items:
   - name: About Azure Cosmos DB
     href: introduction.md
+  - name: Welcome DocumentDB customers
+    href: welcome-documentdb-customers.md
 - name: Quickstarts
   expanded: true
   items:

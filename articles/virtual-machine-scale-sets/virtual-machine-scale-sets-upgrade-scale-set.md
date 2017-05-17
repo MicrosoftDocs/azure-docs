@@ -1,6 +1,6 @@
 ---
-title: Deploy an app on virtual machine scale sets| Microsoft Docs
-description: Deploy an app on virtual machine scale sets
+title: Upgrade an Azure virtual machine scale set| Microsoft Docs
+description: Upgrade an Azure virtual machine scale set
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: gbowerman
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 05/15/2017
 ms.author: guybo
 
 ---
